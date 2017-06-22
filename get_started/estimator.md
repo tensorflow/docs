@@ -1,8 +1,8 @@
-# tf.contrib.learn Quickstart
+# tf.estimator Quickstart
 
-TensorFlow’s high-level machine learning API (tf.contrib.learn) makes it easy to
+TensorFlow’s high-level machine learning API (tf.estimator) makes it easy to
 configure, train, and evaluate a variety of machine learning models. In this
-tutorial, you’ll use tf.contrib.learn to construct a
+tutorial, you’ll use tf.estimator to construct a
 [neural network](https://en.wikipedia.org/wiki/Artificial_neural_network)
 classifier and train it on the
 [Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) to
@@ -10,8 +10,8 @@ predict flower species based on sepal/petal geometry. You'll write code to
 perform the following five steps:
 
 1.  Load CSVs containing Iris training/test data into a TensorFlow `Dataset`
-2.  Construct a @{tf.contrib.learn.DNNClassifier$neural network classifier}
-3.  Fit the model using the training data
+2.  Construct a @{tf.estimator.DNNClassifier$neural network classifier}
+3.  Train the model using the training data
 4.  Evaluate the accuracy of the model
 5.  Classify new samples
 
@@ -64,47 +64,50 @@ def main():
       features_dtype=np.float32)
 
   # Specify that all features have real-value data
-  feature_columns = [tf.contrib.layers.real_valued_column("", dimension=4)]
+  feature_columns = [tf.feature_column.numeric_column("x", shape=[4])]
 
   # Build 3 layer DNN with 10, 20, 10 units respectively.
-  classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,
-                                              hidden_units=[10, 20, 10],
-                                              n_classes=3,
-                                              model_dir="/tmp/iris_model")
+  classifier = tf.estimator.DNNClassifier(feature_columns=feature_columns,
+                                          hidden_units=[10, 20, 10],
+                                          n_classes=3,
+                                          model_dir="/tmp/iris_model")
   # Define the training inputs
-  def get_train_inputs():
-    x = tf.constant(training_set.data)
-    y = tf.constant(training_set.target)
+  train_input_fn = tf.estimator.inputs.numpy_input_fn(
+      x={"x": np.array(training_set.data)},
+      y=np.array(training_set.target),
+      num_epochs=None,
+      shuffle=True)
 
-    return x, y
-
-  # Fit model.
-  classifier.fit(input_fn=get_train_inputs, steps=2000)
+  # Train model.
+  classifier.train(input_fn=train_input_fn, steps=2000)
 
   # Define the test inputs
-  def get_test_inputs():
-    x = tf.constant(test_set.data)
-    y = tf.constant(test_set.target)
-
-    return x, y
+  test_input_fn = tf.estimator.inputs.numpy_input_fn(
+      x={"x": np.array(test_set.data)},
+      y=np.array(test_set.target),
+      num_epochs=1,
+      shuffle=False)
 
   # Evaluate accuracy.
-  accuracy_score = classifier.evaluate(input_fn=get_test_inputs,
-                                       steps=1)["accuracy"]
+  accuracy_score = classifier.evaluate(input_fn=test_input_fn)["accuracy"]
 
   print("\nTest Accuracy: {0:f}\n".format(accuracy_score))
 
   # Classify two new flower samples.
-  def new_samples():
-    return tf.constant(
+  new_samples = np.array(
       [[6.4, 3.2, 4.5, 1.5],
-       [5.8, 3.1, 5.0, 1.7]], dtype=tf.float32)
+       [5.8, 3.1, 5.0, 1.7]], dtype=np.float32)
+  predict_input_fn = tf.estimator.inputs.numpy_input_fn(
+      x={"x": new_samples},
+      num_epochs=1,
+      shuffle=False)
 
-  predictions = list(classifier.predict(input_fn=new_samples))
+  predictions = list(classifier.predict(input_fn=predict_input_fn))
+  predicted_classes = [p["classes"] for p in predictions]
 
   print(
       "New Samples, Class Predictions:    {}\n"
-      .format(predictions))
+      .format(predicted_classes))
 
 if __name__ == "__main__":
     main()
@@ -237,31 +240,30 @@ you'll use `training_set.data` and
 
 ## Construct a Deep Neural Network Classifier
 
-tf.contrib.learn offers a variety of predefined models, called
-@{$python/contrib.learn#estimators$`Estimator`s}, which you can
-use "out of the box" to run training and evaluation operations on your data.
+tf.estimator offers a variety of predefined models, called `Estimator`s, which
+you can use "out of the box" to run training and evaluation operations on your
+data.
 Here, you'll configure a Deep Neural Network Classifier model to fit the Iris
-data. Using tf.contrib.learn, you can instantiate your
-@{tf.contrib.learn.DNNClassifier} with
-just a couple lines of code:
+data. Using tf.estimator, you can instantiate your
+@{tf.estimator.DNNClassifier} with just a couple lines of code:
 
 ```python
 # Specify that all features have real-value data
-feature_columns = [tf.contrib.layers.real_valued_column("", dimension=4)]
+feature_columns = [tf.feature_column.numeric_column("x", shape=[4])]
 
 # Build 3 layer DNN with 10, 20, 10 units respectively.
-classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,
-                                            hidden_units=[10, 20, 10],
-                                            n_classes=3,
-                                            model_dir="/tmp/iris_model")
+classifier = tf.estimator.DNNClassifier(feature_columns=feature_columns,
+                                        hidden_units=[10, 20, 10],
+                                        n_classes=3,
+                                        model_dir="/tmp/iris_model")
 ```
 
 The code above first defines the model's feature columns, which specify the data
 type for the features in the data set. All the feature data is continuous, so
-`tf.contrib.layers.real_valued_column` is the appropriate function to use to
+`tf.feature_column.numeric_column` is the appropriate function to use to
 construct the feature columns. There are four features in the data set (sepal
-width, sepal height, petal width, and petal height), so accordingly `dimension`
-must be set to `4` to hold all the data.
+width, sepal height, petal width, and petal height), so accordingly `shape`
+must be set to `[4]` to hold all the data.
 
 Then, the code creates a `DNNClassifier` model using the following arguments:
 
@@ -272,34 +274,34 @@ Then, the code creates a `DNNClassifier` model using the following arguments:
 *   `n_classes=3`. Three target classes, representing the three Iris species.
 *   `model_dir=/tmp/iris_model`. The directory in which TensorFlow will save
     checkpoint data during model training. For more on logging and monitoring
-    with TensorFlow, see @{$monitors$Logging and Monitoring Basics with     tf.contrib.learn}.
+    with TensorFlow, see
+    @{$monitors$Logging and Monitoring Basics with tf.estimator}.
 
 ## Describe the training input pipeline {#train-input}
 
-The `tf.contrib.learn` API uses input functions, which create the TensorFlow
-operations that generate data for the model. In this case, the data is small
-enough that it can be stored in @{tf.constant$TensorFlow constants}. The
-following code produces the simplest possible input pipeline:
+The `tf.estimator` API uses input functions, which create the TensorFlow
+operations that generate data for the model.
+We can use `tf.estimator.inputs.numpy_input_fn` to produce the input pipeline:
 
 ```python
 # Define the training inputs
-def get_train_inputs():
-  x = tf.constant(training_set.data)
-  y = tf.constant(training_set.target)
-
-  return x, y
+train_input_fn = tf.estimator.inputs.numpy_input_fn(
+    x={"x": np.array(training_set.data)},
+    y=np.array(training_set.target),
+    num_epochs=None,
+    shuffle=True)
 ```
 
 ## Fit the DNNClassifier to the Iris Training Data {#fit-dnnclassifier}
 
 Now that you've configured your DNN `classifier` model, you can fit it to the
-Iris training data using the @{tf.contrib.learn.BaseEstimator.fit$`fit`} method.
-Pass `get_train_inputs` as the `input_fn`, and the number of steps to train
+Iris training data using the @{tf.estimator.Estimator.train$`train`} method.
+Pass `train_input_fn` as the `input_fn`, and the number of steps to train
 (here, 2000):
 
 ```python
-# Fit model.
-classifier.fit(input_fn=get_train_inputs, steps=2000)
+# Train model.
+classifier.train(input_fn=train_input_fn, steps=2000)
 ```
 
 The state of the model is preserved in the `classifier`, which means you can
@@ -307,46 +309,44 @@ train iteratively if you like. For example, the above is equivalent to the
 following:
 
 ```python
-classifier.fit(x=training_set.data, y=training_set.target, steps=1000)
-classifier.fit(x=training_set.data, y=training_set.target, steps=1000)
+classifier.train(input_fn=train_input_fn, steps=1000)
+classifier.train(input_fn=train_input_fn, steps=1000)
 ```
 
 However, if you're looking to track the model while it trains, you'll likely
-want to instead use a TensorFlow @{tf.contrib.learn.monitors$`monitor`}
+want to instead use a TensorFlow @{tf.SessionRunHook$`SessionRunHook`}
 to perform logging operations. See the tutorial
-@{$monitors$&ldquo;Logging and Monitoring Basics with tf.contrib.learn&rdquo;}
+@{$monitors$Logging and Monitoring Basics with tf.estimator}
 for more on this topic.
 
 ## Evaluate Model Accuracy {#evaluate-accuracy}
 
-You've fit your `DNNClassifier` model on the Iris training data; now, you can
-check its accuracy on the Iris test data using the
-@{tf.contrib.learn.BaseEstimator.evaluate$`evaluate`} method. Like `fit`,
+You've trained your `DNNClassifier` model on the Iris training data; now, you
+can check its accuracy on the Iris test data using the
+@{tf.estimator.Estimator.evaluate$`evaluate`} method. Like `train`,
 `evaluate` takes an input function that builds its input pipeline. `evaluate`
-returns a `dict` with the evaluation results. The following code passes the Iris
-test data&mdash;`test_set.data` and `test_set.target`&mdash;to `evaluate` and
-prints the `accuracy` from the results:
+returns a `dict`s with the evaluation results. The following code passes the
+Iris test data&mdash;`test_set.data` and `test_set.target`&mdash;to `evaluate`
+and prints the `accuracy` from the results:
 
 ```python
 # Define the test inputs
-def get_test_inputs():
-  x = tf.constant(test_set.data)
-  y = tf.constant(test_set.target)
-
-  return x, y
+test_input_fn = tf.estimator.inputs.numpy_input_fn(
+    x={"x": np.array(test_set.data)},
+    y=np.array(test_set.target),
+    num_epochs=1,
+    shuffle=False)
 
 # Evaluate accuracy.
-accuracy_score = classifier.evaluate(input_fn=get_test_inputs,
-                                     steps=1)["accuracy"]
+accuracy_score = classifier.evaluate(input_fn=test_input_fn)["accuracy"]
 
 print("\nTest Accuracy: {0:f}\n".format(accuracy_score))
 ```
 
-Note: The `steps` argument to `evaluate` is important here.
-@{tf.contrib.learn.Evaluable.evaluate$`evaluate`} normally runs until it reaches
-the end of the input. This is perfect for evaluating over a set of files, but
-the constants being used here will never throw the `OutOfRangeError` or
-`StopIteration` that it is expecting.
+Note: The `num_epochs=1` argument to `numpy_input_fn` is important here.
+`test_input_fn` will iterate over the data once, and then raise
+`OutOfRangeError`. This error signals the classifier to stop evaluating, so it
+will evaluate over the input once.
 
 When you run the full script, it will print something close to:
 
@@ -368,21 +368,25 @@ Sepal Length | Sepal Width | Petal Length | Petal Width
 5.8          | 3.1         | 5.0          | 1.7
 
 You can predict their species using the `predict()` method. `predict` returns a
-generator, which can easily be converted to a list. The following code retrieves
-and prints the class predictions:
+generator of dicts, which can easily be converted to a list. The following code
+retrieves and prints the class predictions:
 
 ```python
 # Classify two new flower samples.
-def new_samples():
-  return np.array(
+new_samples = np.array(
     [[6.4, 3.2, 4.5, 1.5],
      [5.8, 3.1, 5.0, 1.7]], dtype=np.float32)
+predict_input_fn = tf.estimator.inputs.numpy_input_fn(
+    x={"x": new_samples},
+    num_epochs=1,
+    shuffle=False)
 
-predictions = list(classifier.predict(input_fn=new_samples))
+predictions = list(classifier.predict(input_fn=predict_input_fn))
+predicted_classes = [p["classes"] for p in predictions]
 
 print(
     "New Samples, Class Predictions:    {}\n"
-    .format(predictions))
+    .format(predicted_classes))
 ```
 
 Your results should look as follows:
@@ -396,14 +400,11 @@ second sample is *Iris virginica*.
 
 ## Additional Resources
 
-*   For further reference materials on tf.contrib.learn, see the official
-    @{$python/contrib.learn$API docs}.
-
-*   To learn more about using tf.contrib.learn to create linear models, see
+*   To learn more about using tf.estimator to create linear models, see
     @{$linear$Large-scale Linear Models with TensorFlow}.
 
-*   To build your own Estimator using tf.contrib.learn APIs, check out
-    @{$estimators$Creating Estimators in tf.contrib.learn}.
+*   To build your own Estimator using tf.estimator APIs, check out
+    @{$estimators$Creating Estimators in tf.estimator}.
 
 *   To experiment with neural network modeling and visualization in the browser,
     check out [Deep Playground](http://playground.tensorflow.org/).
