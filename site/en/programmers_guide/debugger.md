@@ -60,7 +60,7 @@ state.
 the diagnosis of issues.
 
 In this example, we are registering a tensor filter called
-@{tfdbg.has_inf_or_nan},
+`tfdbg.has_inf_or_nan`,
 which simply determines if there are any `nan` or `inf` values in any
 intermediate tensor of the graph. (This filter is a common enough use case that
 we ship it with the
@@ -73,7 +73,7 @@ def has_inf_or_nan(datum, tensor):
 ```
 
 TIP: You can also write your own custom filters. See
-the @{tfdbg.DebugDumpDir.find$API documentation}
+the `tfdbg.DebugDumpDir.find`
 of `DebugDumpDir.find()` for additional information.
 
 ## Debugging Model Training with tfdbg
@@ -265,7 +265,7 @@ simply click the underlined line numbers in the stack trace output of the
 
 ![tfdbg run-end UI: annotated Python source file](https://www.tensorflow.org/images/tfdbg_screenshot_run_end_annotated_source.png)
 
-Apply a value clipping on the input to @{tf.log}
+Apply a value clipping on the input to `tf.log`
 to resolve this problem:
 
 ```python
@@ -296,7 +296,7 @@ have terminal access to. To perform model debugging in such cases, you can use
 the `offline_analyzer` of `tfdbg`. It operates on dumped data directories.
 If the process you are running is written in Python, you can
 configure the `RunOptions` proto that you call your `Session.run()` method
-with, by using the method @{tfdbg.watch_graph}.
+with, by using the method `tfdbg.watch_graph`.
 This will cause the intermediate tensors and runtime graphs to be dumped to a
 shared storage location of your choice when the `Session.run()` call occurs.
 For example:
@@ -342,7 +342,7 @@ sess = tf_debug.DumpingDebugWrapperSession(
 `watch_fn=my_watch_fn` is a `Callable` that allows you to configure what
 `Tensor`s to watch on different `Session.run()` calls, as a function of the
 `fetches` and `feed_dict` to the `run()` call and other states. See
-@{tfdbg.DumpingDebugWrapperSession.__init__$the API doc of DumpingDebugWrapperSession}
+`tfdbg.DumpingDebugWrapperSession.__init__`
 for more details.
 
 If you model code is written in C++ or other languages, you can also

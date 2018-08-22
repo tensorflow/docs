@@ -140,9 +140,9 @@ When building a TF.Learn model, the input data is specified by means of an Input
 Builder function. This builder function will not be called until it is later
 passed to TF.Learn methods such as `fit` and `evaluate`. The purpose of this
 function is to construct the input data, which is represented in the form of
-@{tf.Tensor}s
+`tf.Tensor`s
 or
-@{tf.SparseTensor}s.
+`tf.SparseTensor`s.
 In more detail, the Input Builder function returns the following as a pair:
 
 1.  `feature_cols`: A dict from feature column names to `Tensors` or

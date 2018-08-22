@@ -104,7 +104,7 @@ This corresponds to the following dense tensor:
 ```
 
 For more on `SparseTensor`, see the
-@{tf.SparseTensor}.
+`tf.SparseTensor`.
 
 ### Passing input_fn Data to Your Model
 
@@ -231,8 +231,8 @@ tf.logging.set_verbosity(tf.logging.INFO)
 
 Define the column names for the data set in `COLUMNS`. To distinguish features
 from the label, also define `FEATURES` and `LABEL`. Then read the three CSVs
-(@{tf.train},
-@{tf.test}, and
+(`tf.train`,
+`tf.test`, and
 [predict](http://download.tensorflow.org/data/boston_predict.csv)) into _pandas_
 `DataFrame`s:
 

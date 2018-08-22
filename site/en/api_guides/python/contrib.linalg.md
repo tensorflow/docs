@@ -14,17 +14,17 @@ Subclasses of `LinearOperator` provide a access to common methods on a
 
 ### Base class
 
-*   @{tf.contrib.linalg.LinearOperator}
+*   `tf.contrib.linalg.LinearOperator`
 
 ### Individual operators
 
-*   @{tf.contrib.linalg.LinearOperatorDiag}
-*   @{tf.contrib.linalg.LinearOperatorIdentity}
-*   @{tf.contrib.linalg.LinearOperatorScaledIdentity}
-*   @{tf.contrib.linalg.LinearOperatorFullMatrix}
-*   @{tf.contrib.linalg.LinearOperatorTriL}
-*   @{tf.contrib.linalg.LinearOperatorUDVHUpdate}
+*   `tf.contrib.linalg.LinearOperatorDiag`
+*   `tf.contrib.linalg.LinearOperatorIdentity`
+*   `tf.contrib.linalg.LinearOperatorScaledIdentity`
+*   `tf.contrib.linalg.LinearOperatorFullMatrix`
+*   `tf.contrib.linalg.LinearOperatorTriL`
+*   `tf.contrib.linalg.LinearOperatorUDVHUpdate`
 
 ### Transformations and Combinations of operators
 
-*   @{tf.contrib.linalg.LinearOperatorComposition}
+*   `tf.contrib.linalg.LinearOperatorComposition`

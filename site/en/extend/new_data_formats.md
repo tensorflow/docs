@@ -16,9 +16,9 @@ We divide the task of supporting a file format into two pieces:
 
 For example, to read a
 [CSV file](https://en.wikipedia.org/wiki/Comma-separated_values), we use
-@{tf.TextLineReader$a Reader for text files}
+`tf.TextLineReader`
 followed by
-@{tf.decode_csv$an Op that parses CSV data from a line of text}.
+`tf.decode_csv`.
 
 [TOC]
 
@@ -27,11 +27,11 @@ followed by
 A `Reader` is something that reads records from a file.  There are some examples
 of Reader Ops already built into TensorFlow:
 
-*   @{tf.TFRecordReader}
+*   `tf.TFRecordReader`
     ([source in `kernels/tf_record_reader_op.cc`](https://www.tensorflow.org/code/tensorflow/core/kernels/tf_record_reader_op.cc))
-*   @{tf.FixedLengthRecordReader}
+*   `tf.FixedLengthRecordReader`
     ([source in `kernels/fixed_length_record_reader_op.cc`](https://www.tensorflow.org/code/tensorflow/core/kernels/fixed_length_record_reader_op.cc))
-*   @{tf.TextLineReader}
+*   `tf.TextLineReader`
     ([source in `kernels/text_line_reader_op.cc`](https://www.tensorflow.org/code/tensorflow/core/kernels/text_line_reader_op.cc))
 
 You can see these all expose the same interface, the only differences
@@ -47,7 +47,7 @@ To create a new reader called `SomeReader`, you will need to:
     [`tensorflow::ReaderBase`](https://www.tensorflow.org/code/tensorflow/core/framework/reader_base.h)
     called `SomeReader`.
 2.  In C++, register a new reader op and kernel with the name `"SomeReader"`.
-3.  In Python, define a subclass of @{tf.ReaderBase} called `SomeReader`.
+3.  In Python, define a subclass of `tf.ReaderBase` called `SomeReader`.
 
 You can put all the C++ code in a file in
 `tensorflow/core/user_ops/some_reader_op.cc`. The code to read a file will live
@@ -201,21 +201,21 @@ track down where the bad data came from.
 
 Examples of Ops useful for decoding records:
 
-*   @{tf.parse_single_example}
+*   `tf.parse_single_example`
     (and
-    @{tf.parse_example})
-*   @{tf.decode_csv}
-*   @{tf.decode_raw}
+    `tf.parse_example`)
+*   `tf.decode_csv`
+*   `tf.decode_raw`
 
 Note that it can be useful to use multiple Ops to decode a particular record
 format.  For example, you may have an image saved as a string in
 [a `tf.train.Example` protocol buffer](https://www.tensorflow.org/code/tensorflow/core/example/example.proto).
 Depending on the format of that image, you might take the corresponding output
 from a
-@{tf.parse_single_example}
-op and call @{tf.image.decode_jpeg},
-@{tf.image.decode_png}, or
-@{tf.decode_raw}.  It is common to
+`tf.parse_single_example`
+op and call `tf.image.decode_jpeg`,
+`tf.image.decode_png`, or
+`tf.decode_raw`.  It is common to
 take the output of `tf.decode_raw` and use
-@{tf.slice} and
-@{tf.reshape} to extract pieces.
+`tf.slice` and
+`tf.reshape` to extract pieces.

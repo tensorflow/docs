@@ -9,8 +9,8 @@ the model.
 This document references the following TensorFlow classes.  Follow the links to
 their reference manual for a complete description of their API:
 
-*  The @{tf.Variable} class.
-*  The @{tf.train.Saver} class.
+*  The `tf.Variable` class.
+*  The `tf.train.Saver` class.
 
 
 ## Creation
@@ -46,7 +46,7 @@ The value returned by `tf.Variable()` value is an instance of the Python class
 ### Device placement
 
 A variable can be pinned to a particular device when it is created, using a
-@{tf.device$`with tf.device(...):`} block:
+`tf.device` block:
 
 ```python
 # Pin a variable to CPU.
@@ -63,15 +63,15 @@ with tf.device("/job:ps/task:7"):
 ```
 
 **NOTE** Operations that mutate a variable, such as
-@{tf.Variable.assign} and the parameter
+`tf.Variable.assign` and the parameter
 update operations in a
-@{tf.train.Optimizer} *must* run on
+`tf.train.Optimizer` *must* run on
 the same device as the variable. Incompatible device placement directives will
 be ignored when creating these operations.
 
 Device placement is particularly important when running in a replicated
 setting. See
-@{tf.train.replica_device_setter}
+`tf.train.replica_device_setter`
 for details of a device function that can simplify the configuration for devices
 for a replicated model.
 
@@ -146,7 +146,7 @@ or read from.
 
 Note that to restore a model checkpoint without a graph one must first import
 the graph from the meta graph file (typical extension is `.meta`). This is
-done with @{tf.train.import_meta_graph}, which in turn returns a `Saver` from
+done with `tf.train.import_meta_graph`, which in turn returns a `Saver` from
 which one can than perform a `restore`.
 
 ### Checkpoint Files
@@ -156,7 +156,7 @@ names to tensor values.
 
 When you create a `Saver` object, you can optionally choose names for the
 variables in the checkpoint files.  By default, it uses the value of the
-@{tf.Variable.name} property for
+`tf.Variable.name` property for
 each variable.
 
 To understand what variables are in a checkpoint, you can use the
@@ -243,7 +243,7 @@ Notes:
 
 *  If you only restore a subset of the model variables at the start
    of a session, you have to run an initialize op for the other variables.  See
-   @{tf.variables_initializer}
+   `tf.variables_initializer`
    for more information.
 
 ```python

@@ -6,13 +6,13 @@ learning models via its high-level
 offers classes you can instantiate to quickly configure common model types such
 as regressors and classifiers:
 
-*   @{tf.contrib.learn.LinearClassifier}:
+*   `tf.contrib.learn.LinearClassifier`:
     Constructs a linear classification model.
-*   @{tf.contrib.learn.LinearRegressor}:
+*   `tf.contrib.learn.LinearRegressor`:
     Constructs a linear regression model.
-*   @{tf.contrib.learn.DNNClassifier}:
+*   `tf.contrib.learn.DNNClassifier`:
     Construct a neural network classification model.
-*   @{tf.contrib.learn.DNNRegressor}:
+*   `tf.contrib.learn.DNNRegressor`:
     Construct a neural network regressions model.
 
 But what if none of `tf.contrib.learn`'s predefined model types meets your
@@ -291,7 +291,7 @@ The `model_fn` must accept three arguments:
 *   `targets`: A `Tensor` containing the labels passed to the model via `fit()`,
     `evaluate()`, or `predict()`. Will be empty for `predict()` calls, as these
     are the values the model will infer.
-*   `mode`: One of the following @{tf.contrib.learn.ModeKeys} string values
+*   `mode`: One of the following `tf.contrib.learn.ModeKeys` string values
     indicating the context in which the model_fn was invoked:
     *   `tf.contrib.learn.ModeKeys.TRAIN` The `model_fn` was invoked in training
         mode—e.g., via a `fit()` call.
@@ -313,7 +313,7 @@ sections that follow):
 *   Defining the training operation that specifies the `optimizer` algorithm to
     minimize the loss values calculated by the loss function.
 
-The `model_fn` must return a @{tf.contrib.learn.ModelFnOps}
+The `model_fn` must return a `tf.contrib.learn.ModelFnOps`
 object, which contains the following values:
 
 *   `mode` (required). The mode in which the model was run. Typically, you will
@@ -348,7 +348,7 @@ object, which contains the following values:
 *   `eval_metric_ops` (optional). A dict of name/value pairs specifying the
     metrics that will be calculated when the model runs in `EVAL` mode. The name
     is a label of your choice for the metric, and the value is the result of
-    your metric calculation. The @{tf.metrics}
+    your metric calculation. The `tf.metrics`
     module provides predefined functions for a variety of common metrics. The
     following `eval_metric_ops` contains an `"accuracy"` metric calculated using
     `tf.metrics.accuracy`:
@@ -376,8 +376,8 @@ data (which is the case if `x` and `y` `Dataset`s are passed to `fit()`,
 `evaluate()`, and `predict()` directly), then it can serve as the input layer.
 If `features` contains a dict of @{$linear#feature-columns-and-transformations$feature columns} passed to
 the model via an input function, you can convert it to an input-layer `Tensor`
-with the @{tf.contrib.layers.input_from_feature_columns} function in
-@{tf.contrib.layers}.
+with the `tf.contrib.layers.input_from_feature_columns` function in
+`tf.contrib.layers`.
 
 ```python
 input_layer = tf.contrib.layers.input_from_feature_columns(
@@ -403,7 +403,7 @@ fully connected layers:
 *   `relu(inputs, num_outputs)`. Create a layer of `num_outputs` nodes fully
     connected to the previous layer `inputs` with a [ReLU activation
     function](https://en.wikipedia.org/wiki/Rectifier_\(neural_networks\))
-    (@{tf.nn.relu}):
+    (`tf.nn.relu`):
 
     ```python
     hidden_layer = tf.contrib.layers.relu(inputs=input_layer, num_outputs=10)
@@ -411,7 +411,7 @@ fully connected layers:
 
 *   `relu6(inputs, num_outputs)`. Create a layer of `num_outputs` nodes fully
     connected to the previous layer `hidden_layer` with a ReLU 6 activation
-    function (@{tf.nn.relu6}):
+    function (`tf.nn.relu6`):
 
     ```python
     second_hidden_layer = tf.contrib.layers.relu6(inputs=hidden_layer, num_outputs=20)
@@ -427,7 +427,7 @@ fully connected layers:
 
 All these functions are
 [partials](https://docs.python.org/2/library/functools.html#functools.partial)
-of the more general @{tf.contrib.layers.fully_connected}
+of the more general `tf.contrib.layers.fully_connected`
 function, which can be used to add fully connected layers with other activation
 functions, e.g.:
 
@@ -439,7 +439,7 @@ output_layer = tf.contrib.layers.fully_connected(inputs=second_hidden_layer,
 
 The above code creates the neural network layer `output_layer`, which is fully
 connected to `second_hidden_layer` with a sigmoid activation function
-(@{tf.sigmoid}). For a list of predefined
+(`tf.sigmoid`). For a list of predefined
 activation functions available in TensorFlow, see the @{$python/nn#activation_functions$API docs}.
 
 Putting it all together, the following code constructs a full neural network for
@@ -470,7 +470,7 @@ Here, because you'll be passing the abalone `Datasets` directly to `fit()`,
 `features` `Tensor` passed to the `model_fn`. The network contains two hidden
 layers, each with 10 nodes and a ReLU activation function. The output layer
 contains no activation function, and is
-@{tf.reshape} to a one-dimensional
+`tf.reshape` to a one-dimensional
 tensor to capture the model's predictions, which are stored in
 `predictions_dict`.
 
@@ -478,7 +478,7 @@ tensor to capture the model's predictions, which are stored in
 
 The `ModelFnOps` returned by the `model_fn` must contain `loss`: a `Tensor`
 representing the loss value, which quantifies how well the model's predictions
-reflect the target values during training and evaluation runs. The @{tf.losses}
+reflect the target values during training and evaluation runs. The `tf.losses`
 module provides convenience functions for calculating loss using a variety of
 metrics, including:
 
@@ -546,10 +546,10 @@ required arguments:
 *   `loss`. The loss value calculated by the `model_fn` (see [Defining Loss for
     the Model](#defining-loss)).
 *   `global_step`. An integer
-    @{tf.Variable} representing the
+    `tf.Variable` representing the
     step counter to increment for each model training run. Can easily be
     created/incremented in TensorFlow via the
-    @{tf.train.get_global_step}
+    `tf.train.get_global_step`
     function.
 *   `learning_rate`. The [learning
     rate](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Background)
@@ -560,34 +560,34 @@ required arguments:
     algorithm predefined in `tf.contrib.layers.optimizers`:
     *   `SGD`. Implementation of [gradient
         descent](https://en.wikipedia.org/wiki/Gradient_descent)
-        (@{tf.train.GradientDescentOptimizer})
+        (`tf.train.GradientDescentOptimizer`)
     *   `Adagrad`. Implementation of the [AdaGrad optimization
         algorithm](http://www.jmlr.org/papers/volume12/duchi11a/duchi11a.pdf)
-        (@{tf.train.AdagradOptimizer})
+        (`tf.train.AdagradOptimizer`)
     *   `Adam`. Implementation of the [Adam optimization
         algorithm](http://arxiv.org/pdf/1412.6980.pdf)
-        (@{tf.train.AdamOptimizer})
+        (`tf.train.AdamOptimizer`)
     *   `Ftrl`. Implementation of the
         [FTRL-Proximal](https://www.eecs.tufts.edu/~dsculley/papers/ad-click-prediction.pdf)
         ("Follow The (Proximally) Regularized Leader") algorithm
-        (@{tf.train.FtrlOptimizer})
+        (`tf.train.FtrlOptimizer`)
     *   `Momentum`. Implementation of stochastic gradient descent with
         [momentum](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Momentum)
-        (@{tf.train.MomentumOptimizer})
+        (`tf.train.MomentumOptimizer`)
     *   `RMSProp`. Implementation of the
         [RMSprop](http://sebastianruder.com/optimizing-gradient-descent/index.html#rmsprop)
         algorithm
-        (@{tf.train.RMSPropOptimizer})
+        (`tf.train.RMSPropOptimizer`)
 
 Note: The `optimize_loss` function supports additional optional arguments to
 further configure the optimizer, such as for implementing decay. See the
-@{tf.contrib.layers.optimize_loss$API docs} for more info.
+`tf.contrib.layers.optimize_loss` for more info.
 
 The following code defines a training op for the abalone `model_fn` using the
 loss value calculated in [Defining Loss for the Model](#defining-loss), the
 learning rate passed to the function in `params`, and the SGD optimizer. For
 `global_step`, the convenience function
-@{tf.train.get_global_step}
+`tf.train.get_global_step`
 in tf.contrib.framework takes care of generating an integer variable:
 
 ```python

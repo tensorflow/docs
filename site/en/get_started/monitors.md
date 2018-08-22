@@ -98,7 +98,7 @@ One way to address this problem would be to split model training into multiple
 `fit` calls with smaller numbers of steps in order to evaluate accuracy more
 progressively. However, this is not recommended practice, as it greatly slows
 down model training. Fortunately, tf.contrib.learn offers another solution: a
-@{tf.contrib.learn.monitors$Monitor API} designed to help
+`tf.contrib.learn.monitors` designed to help
 you log metrics and evaluate your model while training is in progress. In the
 following sections, you'll learn how to enable logging in TensorFlow, set up a
 ValidationMonitor to do streaming evaluations, and visualize your metrics using
@@ -149,7 +149,7 @@ Monitor             | Description
 ------------------- | -----------
 `CaptureVariable`   | Saves a specified variable's values into a collection at every _n_ steps of training
 `PrintTensor`       | Logs a specified tensor's values at every _n_ steps of training
-`SummarySaver`      | Saves @{tf.Summary} [protocol buffers](https://developers.google.com/protocol-buffers/) for a given tensor using a @{tf.summary.FileWriter} at every _n_ steps of training
+`SummarySaver`      | Saves `tf.Summary` [protocol buffers](https://developers.google.com/protocol-buffers/) for a given tensor using a `tf.summary.FileWriter` at every _n_ steps of training
 `ValidationMonitor` | Logs a specified set of evaluation metrics at every _n_ steps of training, and, if desired, implements early stopping under certain conditions
 
 ### Evaluating Every *N* Steps
@@ -173,7 +173,7 @@ Place this code right before the line instantiating the `classifier`.
 
 `ValidationMonitor`s rely on saved checkpoints to perform evaluation operations,
 so you'll want to modify instantiation of the `classifier` to add a
-@{tf.contrib.learn.RunConfig} that includes
+`tf.contrib.learn.RunConfig` that includes
 `save_checkpoints_secs`, which specifies how many seconds should elapse between
 checkpoint saves during training. Because the iris data set is quite small, and
 thus trains quickly, it makes sense to set `save_checkpoints_secs` to 1 (saving
@@ -235,9 +235,9 @@ The `MetricSpec` constructor accepts four parameters:
 
 *   `metric_fn`. The function that calculates and returns the value of a metric.
     This can be a predefined function available in the
-    @{tf.contrib.metrics} module, such as
-    @{tf.contrib.metrics.streaming_precision} or
-    @{tf.contrib.metrics.streaming_recall}.
+    `tf.contrib.metrics` module, such as
+    `tf.contrib.metrics.streaming_precision` or
+    `tf.contrib.metrics.streaming_recall`.
 
     Alternatively, you can define your own custom metric function, which must
     take `predictions` and `labels` tensors as arguments (a `weights` argument
@@ -253,7 +253,7 @@ The `MetricSpec` constructor accepts four parameters:
     by the model. This argument may be omitted if the model returns either a
     single tensor or a dict with a single entry. For a `DNNClassifier` model,
     class predictions will be returned in a tensor with the key
-    @{tf.contrib.learn.PredictionKey.CLASSES}.
+    `tf.contrib.learn.PredictionKey.CLASSES`.
 
 *   `label_key`. The key of the tensor containing the labels returned by the
     model, as specified by the model's @{$input_fn$`input_fn`}. As
@@ -270,11 +270,11 @@ The `MetricSpec` constructor accepts four parameters:
 The following code creates a `validation_metrics` dict that defines three
 metrics to log during model evaluation:
 
-*   `"accuracy"`, using @{tf.contrib.metrics.streaming_accuracy}
+*   `"accuracy"`, using `tf.contrib.metrics.streaming_accuracy`
     as the `metric_fn`
-*   `"precision"`, using @{tf.contrib.metrics.streaming_precision}
+*   `"precision"`, using `tf.contrib.metrics.streaming_precision`
     as the `metric_fn`
-*   `"recall"`, using @{tf.contrib.metrics.streaming_recall}
+*   `"recall"`, using `tf.contrib.metrics.streaming_recall`
     as the `metric_fn`
 
 ```python

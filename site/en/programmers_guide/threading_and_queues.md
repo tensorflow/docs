@@ -30,8 +30,8 @@ Now that you have a bit of a feel for queues, let's dive into the details...
 
 ## Queue usage overview
 
-Queues, such as @{tf.FIFOQueue}
-and @{tf.RandomShuffleQueue},
+Queues, such as `tf.FIFOQueue`
+and `tf.RandomShuffleQueue`,
 are important TensorFlow objects for computing tensors asynchronously in a
 graph.
 
@@ -53,8 +53,8 @@ threads must be able to stop together, exceptions must be caught and
 reported, and queues must be properly closed when stopping.
 
 TensorFlow provides two classes to help:
-@{tf.train.Coordinator} and
-@{tf.train.QueueRunner}. These two classes
+`tf.train.Coordinator` and
+`tf.train.QueueRunner`. These two classes
 are designed to be used together. The `Coordinator` class helps multiple threads
 stop together and report exceptions to a program that waits for them to stop.
 The `QueueRunner` class is used to create a number of threads cooperating to
@@ -66,9 +66,9 @@ The `Coordinator` class helps multiple threads stop together.
 
 Its key methods are:
 
-* @{tf.train.Coordinator.should_stop}: returns True if the threads should stop.
-* @{tf.train.Coordinator.request_stop}: requests that threads should stop.
-* @{tf.train.Coordinator.join}: waits until the specified threads have stopped.
+* `tf.train.Coordinator.should_stop`: returns True if the threads should stop.
+* `tf.train.Coordinator.request_stop`: requests that threads should stop.
+* `tf.train.Coordinator.join`: waits until the specified threads have stopped.
 
 You first create a `Coordinator` object, and then create a number of threads
 that use the coordinator.  The threads typically run loops that stop when
@@ -101,7 +101,7 @@ coord.join(threads)
 
 Obviously, the coordinator can manage threads doing very different things.
 They don't have to be all the same as in the example above.  The coordinator
-also has support to capture and report exceptions.  See the @{tf.train.Coordinator} documentation for more details.
+also has support to capture and report exceptions.  See the `tf.train.Coordinator` documentation for more details.
 
 ## QueueRunner
 
