@@ -5,17 +5,17 @@ learning models via its high-level Estimator API. `Estimator`
 offers classes you can instantiate to quickly configure common model types such
 as regressors and classifiers:
 
-*   @{tf.estimator.LinearClassifier}:
+*   `tf.estimator.LinearClassifier`:
     Constructs a linear classification model.
-*   @{tf.estimator.LinearRegressor}:
+*   `tf.estimator.LinearRegressor`:
     Constructs a linear regression model.
-*   @{tf.estimator.DNNClassifier}:
+*   `tf.estimator.DNNClassifier`:
     Construct a neural network classification model.
-*   @{tf.estimator.DNNRegressor}:
+*   `tf.estimator.DNNRegressor`:
     Construct a neural network regression model.
-*   @{tf.estimator.DNNLinearCombinedClassifier}:
+*   `tf.estimator.DNNLinearCombinedClassifier`:
     Construct a neural network and linear combined classification model.
-*   @{tf.estimator.DNNLinearCombinedRegressor}:
+*   `tf.estimator.DNNLinearCombinedRegressor`:
     Construct a neural network and linear combined regression model.
 
 But what if none of `tf.estimator`'s predefined model types meets your needs?
@@ -291,7 +291,7 @@ The `model_fn` must accept three arguments:
 *   `labels`: A `Tensor` containing the labels passed to the model via
     `input_fn`. Will be empty for `predict()` calls, as these are the values the
     model will infer.
-*   `mode`: One of the following @{tf.estimator.ModeKeys} string values
+*   `mode`: One of the following `tf.estimator.ModeKeys` string values
     indicating the context in which the model_fn was invoked:
     *   `tf.estimator.ModeKeys.TRAIN` The `model_fn` was invoked in training
         mode, namely via a `train()` call.
@@ -313,7 +313,7 @@ sections that follow):
 *   Defining the training operation that specifies the `optimizer` algorithm to
     minimize the loss values calculated by the loss function.
 
-The `model_fn` must return a @{tf.estimator.EstimatorSpec}
+The `model_fn` must return a `tf.estimator.EstimatorSpec`
 object, which contains the following values:
 
 *   `mode` (required). The mode in which the model was run. Typically, you will
@@ -343,7 +343,7 @@ object, which contains the following values:
 *   `eval_metric_ops` (optional). A dict of name/value pairs specifying the
     metrics that will be calculated when the model runs in `EVAL` mode. The name
     is a label of your choice for the metric, and the value is the result of
-    your metric calculation. The @{tf.metrics}
+    your metric calculation. The `tf.metrics`
     module provides predefined functions for a variety of common metrics. The
     following `eval_metric_ops` contains an `"accuracy"` metric calculated using
     `tf.metrics.accuracy`:
@@ -370,7 +370,7 @@ argument. If `features` contains an n-dimensional `Tensor` with all your feature
 data, then it can serve as the input layer.
 If `features` contains a dict of @{$linear#feature-columns-and-transformations$feature columns} passed to
 the model via an input function, you can convert it to an input-layer `Tensor`
-with the @{tf.feature_column.input_layer} function.
+with the `tf.feature_column.input_layer` function.
 
 ```python
 input_layer = tf.feature_column.input_layer(
@@ -397,7 +397,7 @@ Some options to pass to the `activation` argument are:
 *   `tf.nn.relu`. The following code creates a layer of `units` nodes fully
     connected to the previous layer `input_layer` with a
     [ReLU activation function](https://en.wikipedia.org/wiki/Rectifier_\(neural_networks\))
-    (@{tf.nn.relu}):
+    (`tf.nn.relu`):
 
     ```python
     hidden_layer = tf.layers.dense(
@@ -406,7 +406,7 @@ Some options to pass to the `activation` argument are:
 
 *   `tf.nn.relu6`. The following code creates a layer of `units` nodes fully
     connected to the previous layer `hidden_layer` with a ReLU 6 activation
-    function (@{tf.nn.relu6}):
+    function (`tf.nn.relu6`):
 
     ```python
     second_hidden_layer = tf.layers.dense(
@@ -432,7 +432,7 @@ output_layer = tf.layers.dense(inputs=second_hidden_layer,
 
 The above code creates the neural network layer `output_layer`, which is fully
 connected to `second_hidden_layer` with a sigmoid activation function
-(@{tf.sigmoid}). For a list of predefined
+(`tf.sigmoid`). For a list of predefined
 activation functions available in TensorFlow, see the @{$python/nn#activation_functions$API docs}.
 
 Putting it all together, the following code constructs a full neural network for
@@ -464,7 +464,7 @@ as shown below, `features` is a dict `{"x": data_tensor}`, so
 `features["x"]` is the input layer. The network contains two hidden
 layers, each with 10 nodes and a ReLU activation function. The output layer
 contains no activation function, and is
-@{tf.reshape} to a one-dimensional
+`tf.reshape` to a one-dimensional
 tensor to capture the model's predictions, which are stored in
 `predictions_dict`.
 
@@ -472,7 +472,7 @@ tensor to capture the model's predictions, which are stored in
 
 The `EstimatorSpec` returned by the `model_fn` must contain `loss`: a `Tensor`
 representing the loss value, which quantifies how well the model's predictions
-reflect the label values during training and evaluation runs. The @{tf.losses}
+reflect the label values during training and evaluation runs. The `tf.losses`
 module provides convenience functions for calculating loss using a variety of
 metrics, including:
 
@@ -542,7 +542,7 @@ The following code defines a training op for the abalone `model_fn` using the
 loss value calculated in [Defining Loss for the Model](#defining-loss), the
 learning rate passed to the function in `params`, and the gradient descent
 optimizer. For `global_step`, the convenience function
-@{tf.train.get_global_step} takes care of generating an integer variable:
+`tf.train.get_global_step` takes care of generating an integer variable:
 
 ```python
 optimizer = tf.train.GradientDescentOptimizer(

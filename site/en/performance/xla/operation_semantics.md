@@ -101,7 +101,7 @@ Clamp(operand, min, max) = s32[3]{0, 5, 6};
 
 See also
 [`ComputationBuilder::Collapse`](https://www.tensorflow.org/code/tensorflow/compiler/xla/client/computation_builder.h)
-and the @{tf.reshape} operation.
+and the `tf.reshape` operation.
 
 Collapses dimensions of an array into one dimension.
 
@@ -123,7 +123,7 @@ same position in the dimension sequence as those they replace, with the new
 dimension size equal to the product of original dimension sizes. The lowest
 dimension number in `dimensions` is the slowest varying dimension (most major)
 in the loop nest which collapses these dimension, and the highest dimension
-number is fastest varying (most minor). See the @{tf.reshape} operator
+number is fastest varying (most minor). See the `tf.reshape` operator
 if more general collapse ordering is needed.
 
 For example, let v be an array of 24 elements:
@@ -329,7 +329,7 @@ array. The holes are filled with a no-op value, which for convolution means
 zeroes.
 
 Dilation of the rhs is also called atrous convolution. For more details, see the
-@{tf.nn.atrous_conv2d}. Dilation of the lhs is
+`tf.nn.atrous_conv2d`. Dilation of the lhs is
 also called deconvolution.
 
 The output shape has these dimensions, in this order:
@@ -787,7 +787,7 @@ let t: (f32[10], s32) = tuple(v, s);
 let element_1: s32 = gettupleelement(t, 1);  // Inferred shape matches s32.
 ```
 
-See also @{tf.tuple}.
+See also `tf.tuple`.
 
 ## Infeed
 
@@ -1622,7 +1622,7 @@ Arguments | Type                    | Semantics
 
 ## Transpose
 
-See also the @{tf.reshape} operation.
+See also the `tf.reshape` operation.
 
 <b>`Transpose(operand)`</b>
 

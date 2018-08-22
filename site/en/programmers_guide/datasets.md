@@ -51,7 +51,7 @@ Once you have a `Dataset` object, you can *transform* it into a new `Dataset` by
 chaining method calls on the `tf.data.Dataset` object. For example, you
 can apply per-element transformations such as `Dataset.map()` (to apply a
 function to each element), and multi-element transformations such as
-`Dataset.batch()`. See the documentation for @{tf.data.Dataset}
+`Dataset.batch()`. See the documentation for `tf.data.Dataset`
 for a complete list of transformations.
 
 The most common way to consume values from a `Dataset` is to make an
@@ -211,13 +211,13 @@ for _ in range(20):
     sess.run(next_element)
 ```
 
-A **feedable** iterator can be used together with @{tf.placeholder} to select
-what `Iterator` to use in each call to @{tf.Session.run}, via the familiar
+A **feedable** iterator can be used together with `tf.placeholder` to select
+what `Iterator` to use in each call to `tf.Session.run`, via the familiar
 `feed_dict` mechanism. It offers the same functionality as a reinitializable
 iterator, but it does not require you to initialize the iterator from the start
 of a dataset when you switch between iterators. For example, using the same
 training and validation example from above, you can use
-@{tf.data.Iterator.from_string_handle} to define a feedable iterator
+`tf.data.Iterator.from_string_handle` to define a feedable iterator
 that allows you to switch between the two datasets:
 
 ```python
@@ -690,9 +690,9 @@ dataset = dataset.repeat()
 
 ### Using high-level APIs
 
-The @{tf.train.MonitoredTrainingSession} API simplifies many aspects of running
+The `tf.train.MonitoredTrainingSession` API simplifies many aspects of running
 TensorFlow in a distributed setting. `MonitoredTrainingSession` uses the
-@{tf.errors.OutOfRangeError} to signal that training has completed, so to use it
+`tf.errors.OutOfRangeError` to signal that training has completed, so to use it
 with the `Dataset` API, we recommend using
 `Dataset.make_one_shot_iterator()`. For example:
 
@@ -715,7 +715,7 @@ with tf.train.MonitoredTrainingSession(...) as sess:
     sess.run(training_op)
 ```
 
-To use a `Dataset` in the `input_fn` of a @{tf.estimator.Estimator}, we also
+To use a `Dataset` in the `input_fn` of a `tf.estimator.Estimator`, we also
 recommend using `Dataset.make_one_shot_iterator()`. For example:
 
 ```python

@@ -13,12 +13,12 @@ both continuous and discrete stochastic nodes.
 
 ## Stochastic Tensor Classes
 
-*   @{tf.contrib.bayesflow.stochastic_tensor.BaseStochasticTensor}
-*   @{tf.contrib.bayesflow.stochastic_tensor.StochasticTensor}
+*   `tf.contrib.bayesflow.stochastic_tensor.BaseStochasticTensor`
+*   `tf.contrib.bayesflow.stochastic_tensor.StochasticTensor`
 
 ## Stochastic Tensor Value Types
 
-*   @{tf.contrib.bayesflow.stochastic_tensor.MeanValue}
-*   @{tf.contrib.bayesflow.stochastic_tensor.SampleValue}
-*   @{tf.contrib.bayesflow.stochastic_tensor.value_type}
-*   @{tf.contrib.bayesflow.stochastic_tensor.get_current_value_type}
+*   `tf.contrib.bayesflow.stochastic_tensor.MeanValue`
+*   `tf.contrib.bayesflow.stochastic_tensor.SampleValue`
+*   `tf.contrib.bayesflow.stochastic_tensor.value_type`
+*   `tf.contrib.bayesflow.stochastic_tensor.get_current_value_type`

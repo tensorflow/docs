@@ -9,21 +9,21 @@ to implement regression in Estimators:
   <tr>
     <td><a href="https://www.tensorflow.org/code/tensorflow/examples/get_started/regression/linear_regression.py">linear_regression.py</a></td>
     <td>[imports85](https://archive.ics.uci.edu/ml/datasets/automobile)</td>
-    <td>Use the @{tf.estimator.LinearRegressor} Estimator to train a
+    <td>Use the `tf.estimator.LinearRegressor` Estimator to train a
         regression model on numeric data.</td>
   </tr>
 
   <tr>
     <td><a href="https://www.tensorflow.org/code/tensorflow/examples/get_started/regression/linear_regression_categorical.py">linear_regression_categorical.py</a></td>
     <td>[imports85](https://archive.ics.uci.edu/ml/datasets/automobile)</td>
-    <td>Use the @{tf.estimator.LinearRegressor} Estimator to train a
+    <td>Use the `tf.estimator.LinearRegressor` Estimator to train a
         regression model on categorical data.</td>
   </tr>
 
   <tr>
     <td><a href="https://www.tensorflow.org/code/tensorflow/examples/get_started/regression/dnn_regression.py">dnn_regression.py</a></td>
     <td>[imports85](https://archive.ics.uci.edu/ml/datasets/automobile)</td>
-    <td>Use the @{tf.estimator.DNNRegressor} Estimator to train a
+    <td>Use the `tf.estimator.DNNRegressor` Estimator to train a
         regression model on discrete data with a deep neural network.</td>
   </tr>
 

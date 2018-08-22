@@ -1,6 +1,6 @@
 # A Guide to TF Layers: Building a Convolutional Neural Network
 
-The TensorFlow @{tf.layers$`layers` module} provides a high-level API that makes
+The TensorFlow `tf.layers` provides a high-level API that makes
 it easy to construct a neural network. It provides methods that facilitate the
 creation of dense (fully connected) layers and convolutional layers, adding
 activation functions, and applying dropout regularization. In this tutorial,
@@ -119,7 +119,7 @@ Open `cnn_mnist.py` and add the following `cnn_model_fn` function, which
 conforms to the interface expected by TensorFlow's Estimator API (more on this
 later in [Create the Estimator](#create-the-estimator)). `cnn_mnist.py` takes
 MNIST feature data, labels, and
-@{tf.estimator.ModeKeys$model mode} (`TRAIN`, `EVAL`, `PREDICT`) as arguments;
+`tf.estimator.ModeKeys` (`TRAIN`, `EVAL`, `PREDICT`) as arguments;
 configures the CNN; and returns predictions, loss, and a training operation:
 
 ```python
@@ -276,7 +276,7 @@ a 5x5 convolution over a 28x28 tensor will produce a 24x24 tensor, as there are
 
 The `activation` argument specifies the activation function to apply to the
 output of the convolution. Here, we specify ReLU activation with
-@{tf.nn.relu}.
+`tf.nn.relu`.
 
 Our output tensor produced by `conv2d()` has a shape of
 <code>[<em>batch_size</em>, 28, 28, 32]</code>: the same width and height
@@ -425,7 +425,7 @@ raw values into two different formats that our model function can return:
 
 For a given example, our predicted class is the element in the corresponding row
 of the logits tensor with the highest raw value. We can find the index of this
-element using the @{tf.argmax}
+element using the `tf.argmax`
 function:
 
 ```python
@@ -440,7 +440,7 @@ value along the dimension with index of 1, which corresponds to our predictions
 10]</code>).
 
 We can derive probabilities from our logits layer by applying softmax activation
-using @{tf.nn.softmax}:
+using `tf.nn.softmax`:
 
 ```python
 tf.nn.softmax(logits, name="softmax_tensor")
@@ -490,7 +490,7 @@ to the corresponding
  ...]
 ```
 
-We use the @{tf.one_hot} function
+We use the `tf.one_hot` function
 to perform this conversion. `tf.one_hot()` has two required arguments:
 
 *   `indices`. The locations in the one-hot tensor that will have "on
@@ -606,8 +606,8 @@ feel free to change to another directory of your choice).
 ### Set Up a Logging Hook {#set_up_a_logging_hook}
 
 Since CNNs can take a while to train, let's set up some logging so we can track
-progress during training. We can use TensorFlow's @{tf.train.SessionRunHook} to create a
-@{tf.train.LoggingTensorHook}
+progress during training. We can use TensorFlow's `tf.train.SessionRunHook` to create a
+`tf.train.LoggingTensorHook`
 that will log the probability values from the softmax layer of our CNN. Add the
 following to `main()`:
 

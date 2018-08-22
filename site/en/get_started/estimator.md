@@ -10,7 +10,7 @@ predict flower species based on sepal/petal geometry. You'll write code to
 perform the following five steps:
 
 1.  Load CSVs containing Iris training/test data into a TensorFlow `Dataset`
-2.  Construct a @{tf.estimator.DNNClassifier$neural network classifier}
+2.  Construct a `tf.estimator.DNNClassifier`
 3.  Train the model using the training data
 4.  Evaluate the accuracy of the model
 5.  Classify new samples
@@ -245,7 +245,7 @@ you can use "out of the box" to run training and evaluation operations on your
 data.
 Here, you'll configure a Deep Neural Network Classifier model to fit the Iris
 data. Using tf.estimator, you can instantiate your
-@{tf.estimator.DNNClassifier} with just a couple lines of code:
+`tf.estimator.DNNClassifier` with just a couple lines of code:
 
 ```python
 # Specify that all features have real-value data
@@ -293,7 +293,7 @@ train_input_fn = tf.estimator.inputs.numpy_input_fn(
 ## Fit the DNNClassifier to the Iris Training Data {#fit-dnnclassifier}
 
 Now that you've configured your DNN `classifier` model, you can fit it to the
-Iris training data using the @{tf.estimator.Estimator.train$`train`} method.
+Iris training data using the `tf.estimator.Estimator.train` method.
 Pass `train_input_fn` as the `input_fn`, and the number of steps to train
 (here, 2000):
 
@@ -312,14 +312,14 @@ classifier.train(input_fn=train_input_fn, steps=1000)
 ```
 
 However, if you're looking to track the model while it trains, you'll likely
-want to instead use a TensorFlow @{tf.train.SessionRunHook$`SessionRunHook`}
+want to instead use a TensorFlow `tf.train.SessionRunHook`
 to perform logging operations.
 
 ## Evaluate Model Accuracy {#evaluate-accuracy}
 
 You've trained your `DNNClassifier` model on the Iris training data; now, you
 can check its accuracy on the Iris test data using the
-@{tf.estimator.Estimator.evaluate$`evaluate`} method. Like `train`,
+`tf.estimator.Estimator.evaluate` method. Like `train`,
 `evaluate` takes an input function that builds its input pipeline. `evaluate`
 returns a `dict`s with the evaluation results. The following code passes the
 Iris test data&mdash;`test_set.data` and `test_set.target`&mdash;to `evaluate`
