@@ -66,7 +66,7 @@ patch versions.  The public APIs consist of
 Some API functions are explicitly marked as "experimental" and can change in
 backward incompatible ways between minor releases. These include:
 
-*   **Experimental APIs**: The @{tf.contrib} module and its submodules in Python
+*   **Experimental APIs**: The `tf.contrib` module and its submodules in Python
     and any functions in the C API or fields in protocol buffers that are
     explicitly commented as being experimental. In particular, any field in a
     protocol buffer which is called "experimental" and all its fields and

@@ -39,7 +39,7 @@ These tutorials demonstrate various data representations that can be used in
 TensorFlow.
 
   * @{$wide}, uses
-    @{tf.feature_column$feature columns} to feed a variety of data types
+    `tf.feature_column` to feed a variety of data types
     to linear model, to solve a classification problem.
   * @{$wide_and_deep}, builds on the
     above linear model tutorial, adding a deep feed-forward neural network
