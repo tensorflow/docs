@@ -1,6 +1,6 @@
 # Datasets Quick Start
 
-The @{tf.data} module contains a collection of classes that allows you to
+The `tf.data` module contains a collection of classes that allows you to
 easily load data, manipulate it, and pipe it into your model. This document
 introduces the API by walking through two simple examples:
 
@@ -73,8 +73,8 @@ Let's walk through the `train_input_fn()`.
 
 ### Slices
 
-In the simplest cases, @{tf.data.Dataset.from_tensor_slices} function takes an
-array and returns a @{tf.data.Dataset} representing slices of the array. For
+In the simplest cases, `tf.data.Dataset.from_tensor_slices` function takes an
+array and returns a `tf.data.Dataset` representing slices of the array. For
 example, an array containing the @{$tutorials/layers$mnist training data}
 has a shape of `(60000, 28, 28)`. Passing this to `from_tensor_slices` returns
 a `Dataset` object containing 60000 slices, each one a 28x28 image.
@@ -163,15 +163,15 @@ function takes advantage of several of these methods:
 dataset = dataset.shuffle(1000).repeat().batch(batch_size)
 ```
 
-The @{tf.data.Dataset.shuffle$`shuffle`} method uses a fixed-size buffer to
+The `tf.data.Dataset.shuffle` method uses a fixed-size buffer to
 shuffle the items as they pass through. Setting a `buffer_size` greater than
 the number of examples in the `Dataset` ensures that the data is completely
 shuffled. The Iris data set only contains 150 examples.
 
-The @{tf.data.Dataset.repeat$`repeat`} method has the `Dataset` restart when
+The `tf.data.Dataset.repeat` method has the `Dataset` restart when
 it reaches the end. To limit the number of epochss, set the `count` argument.
 
-The @{tf.data.Dataset.repeat$`batch`} method collects a number of examples and
+The `tf.data.Dataset.repeat` method collects a number of examples and
 stacks them, to create batches. This adds a dimension to their shape. The new
 dimension is added as the first dimension. The following code uses
 the `batch` method on the MNIST `Dataset`, from earlier. This results in a
@@ -246,7 +246,7 @@ Tensor("IteratorGetNext_1:4", shape=(?,), dtype=int64))
 ## Reading a CSV File
 
 The most common real-world use case for the `Dataset` class is to stream data
-from files on disk. The @{tf.data} module includes a variety of
+from files on disk. The `tf.data` module includes a variety of
 file readers. Let's see how parsing the Iris dataset from the csv file looks
 using a `Dataset`.
 
@@ -267,9 +267,9 @@ from the local files.
 
 ### Build the `Dataset`
 
-We start by building a @{tf.data.TextLineDataset$`TextLineDataset`} object to
+We start by building a `tf.data.TextLineDataset` object to
 read the file one line at a time. Then, we call the
-@{tf.data.Dataset.skip$`skip`} method to skip over the first line of the file, which contains a header, not an example:
+`tf.data.Dataset.skip` method to skip over the first line of the file, which contains a header, not an example:
 
 ``` python
 ds = tf.data.TextLineDataset(train_path).skip(1)
@@ -283,11 +283,11 @@ produce the necessary `(features, label)` pairs.
 We will start by building a function to parse a single line.
 
 The following `iris_data.parse_line` function acomplishes this taks using the
-@{tf.decode_csv} function, and some simple python code:
+`tf.decode_csv` function, and some simple python code:
 
 We must parse each of the lines in the dataset in order to generate the
 necessary `(features, label)` pairs. The following `_parse_line` function
-calls @{tf.decode_csv} to parse a single line into its features
+calls `tf.decode_csv` to parse a single line into its features
 and the label. Since Estimators require that features be represented as a
 dictionary, we rely on Python's built-in `dict` and `zip` functions to build
 that dictionary.  The feature names are the keys of that dictionary.
@@ -316,7 +316,7 @@ def _parse_line(line):
 ### Parse the lines
 
 Datasets have many methods for manipulating the data while it is being piped
-to a model. The most heavily-used method is @{tf.data.Dataset.map$`map`}, which
+to a model. The most heavily-used method is `tf.data.Dataset.map`, which
 applies a transformation to each element of the `Dataset`.
 
 The `map` method takes a `map_func` argument that describes how each item in the
@@ -326,7 +326,7 @@ The `map` method takes a `map_func` argument that describes how each item in the
 <img style="width:100%" src="../images/datasets/map.png">
 </div>
 <div style="text-align: center">
-The @{tf.data.Dataset.map$`map`} method applies the `map_func` to
+The `tf.data.Dataset.map` method applies the `map_func` to
 transform each item in the <code>Dataset</code>.
 </div>
 

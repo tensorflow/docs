@@ -90,7 +90,7 @@ sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 #### Fused decode and crop
 
 If inputs are JPEG images that also require cropping, use fused
-@{tf.image.decode_and_crop_jpeg} to speed up preprocessing.
+`tf.image.decode_and_crop_jpeg` to speed up preprocessing.
 `tf.image.decode_and_crop_jpeg` only decodes the part of
 the image within the crop window. This significantly speeds up the process if
 the crop window is much smaller than the full image. For imagenet data, this
@@ -183,14 +183,14 @@ some models makes up a large percentage of the operation time. Using fused batch
 norm can result in a 12%-30% speedup.
 
 There are two commonly used batch norms and both support fusing. The core
-@{tf.layers.batch_normalization} added fused starting in TensorFlow 1.3.
+`tf.layers.batch_normalization` added fused starting in TensorFlow 1.3.
 
 ```python
 bn = tf.layers.batch_normalization(
     input_layer, fused=True, data_format='NCHW')
 ```
 
-The contrib @{tf.contrib.layers.batch_norm} method has had fused as an option
+The contrib `tf.contrib.layers.batch_norm` method has had fused as an option
 since before TensorFlow 1.0.
 
 ```python

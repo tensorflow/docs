@@ -80,7 +80,7 @@ The TensorFlow Programming Environment
 
 We strongly recommend writing TensorFlow programs with the following APIs:
 
-* @{tf.estimator$Estimators}, which represent a complete model.
+* `tf.estimator`, which represent a complete model.
   The Estimator API provides methods to train the model, to judge the model's
   accuracy, and to generate predictions.
 * @{$get_started/datasets_quickstart$Datasets}, which build a data input
@@ -180,7 +180,7 @@ handles the details of initialization, logging, saving and restoring, and many
 other features so you can concentrate on your model. For more details see
 @{$programmers_guide/estimators}.
 
-An "Estimator" is any class derived from @{tf.estimator.Estimator}. TensorFlow
+An "Estimator" is any class derived from `tf.estimator.Estimator`. TensorFlow
 provides a collection of
 [pre-made Estimators](https://developers.google.com/machine-learning/glossary/#pre-made_Estimator)
 (for example, `LinearRegressor`) to implement common ML algorithms. Beyond
@@ -281,7 +281,7 @@ A [**Feature Column**](https://developers.google.com/machine-learning/glossary/#
 is an object describing how the model should use raw input data from the
 features dictionary. When you build an Estimator model, you pass it a list of
 feature columns that describes each of the features you want the model to use.
-The @{tf.feature_column} module provides many options for representing data
+The `tf.feature_column` module provides many options for representing data
 to the model.
 
 For Iris, the 4 raw features are numeric values, so we'll build a list of
@@ -309,10 +309,10 @@ features, we can build the estimator.
 The Iris problem is a classic classification problem. Fortunately, TensorFlow
 provides several pre-made classifier Estimators, including:
 
-* @{tf.estimator.DNNClassifier}—for deep models that perform multi-class
+* `tf.estimator.DNNClassifier`—for deep models that perform multi-class
   classification.
-* @{tf.estimator.DNNLinearCombinedClassifier}—for wide-n-deep models.
-* @{tf.estimator.LinearClassifier}— for classifiers based on linear models.
+* `tf.estimator.DNNLinearCombinedClassifier`—for wide-n-deep models.
+* `tf.estimator.LinearClassifier`— for classifiers based on linear models.
 
 For the Iris problem, `tf.estimator.DNNClassifier` seems like the best choice.
 Here's how we instantiated this Estimator:
