@@ -18,15 +18,15 @@ To apply a `Bijector`, use `distributions.TransformedDistribution`.
 
 ## Bijectors
 
-*   @{tf.contrib.distributions.bijectors.Affine}
-*   @{tf.contrib.distributions.bijectors.AffineLinearOperator}
-*   @{tf.contrib.distributions.bijectors.Bijector}
-*   @{tf.contrib.distributions.bijectors.Chain}
-*   @{tf.contrib.distributions.bijectors.CholeskyOuterProduct}
-*   @{tf.contrib.distributions.bijectors.Exp}
-*   @{tf.contrib.distributions.bijectors.Identity}
-*   @{tf.contrib.distributions.bijectors.Inline}
-*   @{tf.contrib.distributions.bijectors.Invert}
-*   @{tf.contrib.distributions.bijectors.PowerTransform}
-*   @{tf.contrib.distributions.bijectors.SoftmaxCentered}
-*   @{tf.contrib.distributions.bijectors.Softplus}
+*   `tf.contrib.distributions.bijectors.Affine`
+*   `tf.contrib.distributions.bijectors.AffineLinearOperator`
+*   `tf.contrib.distributions.bijectors.Bijector`
+*   `tf.contrib.distributions.bijectors.Chain`
+*   `tf.contrib.distributions.bijectors.CholeskyOuterProduct`
+*   `tf.contrib.distributions.bijectors.Exp`
+*   `tf.contrib.distributions.bijectors.Identity`
+*   `tf.contrib.distributions.bijectors.Inline`
+*   `tf.contrib.distributions.bijectors.Invert`
+*   `tf.contrib.distributions.bijectors.PowerTransform`
+*   `tf.contrib.distributions.bijectors.SoftmaxCentered`
+*   `tf.contrib.distributions.bijectors.Softplus`
