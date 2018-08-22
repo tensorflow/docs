@@ -41,7 +41,7 @@ for step in range(100):
 
 ## Ops
 
-*   @{tf.contrib.bayesflow.entropy.elbo_ratio}
-*   @{tf.contrib.bayesflow.entropy.entropy_shannon}
-*   @{tf.contrib.bayesflow.entropy.renyi_ratio}
-*   @{tf.contrib.bayesflow.entropy.renyi_alpha}
+*   `tf.contrib.bayesflow.entropy.elbo_ratio`
+*   `tf.contrib.bayesflow.entropy.entropy_shannon`
+*   `tf.contrib.bayesflow.entropy.renyi_ratio`
+*   `tf.contrib.bayesflow.entropy.renyi_alpha`

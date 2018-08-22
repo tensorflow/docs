@@ -103,24 +103,24 @@ weighted average over the individual prediction errors:
   loss = tf.contrib.losses.sum_of_squares(predictions, depths, weight)
 ```
 
-@{tf.contrib.losses.absolute_difference}
-@{tf.contrib.losses.add_loss}
-@{tf.contrib.losses.hinge_loss}
-@{tf.contrib.losses.compute_weighted_loss}
-@{tf.contrib.losses.cosine_distance}
-@{tf.contrib.losses.get_losses}
-@{tf.contrib.losses.get_regularization_losses}
-@{tf.contrib.losses.get_total_loss}
-@{tf.contrib.losses.log_loss}
-@{tf.contrib.losses.mean_pairwise_squared_error}
-@{tf.contrib.losses.mean_squared_error}
-@{tf.contrib.losses.sigmoid_cross_entropy}
-@{tf.contrib.losses.softmax_cross_entropy}
-@{tf.contrib.losses.sparse_softmax_cross_entropy}
+`tf.contrib.losses.absolute_difference`
+`tf.contrib.losses.add_loss`
+`tf.contrib.losses.hinge_loss`
+`tf.contrib.losses.compute_weighted_loss`
+`tf.contrib.losses.cosine_distance`
+`tf.contrib.losses.get_losses`
+`tf.contrib.losses.get_regularization_losses`
+`tf.contrib.losses.get_total_loss`
+`tf.contrib.losses.log_loss`
+`tf.contrib.losses.mean_pairwise_squared_error`
+`tf.contrib.losses.mean_squared_error`
+`tf.contrib.losses.sigmoid_cross_entropy`
+`tf.contrib.losses.softmax_cross_entropy`
+`tf.contrib.losses.sparse_softmax_cross_entropy`
 
 The following are deprecated in favor of `mean_pairwise_squared_error` and
 `mean_squared_error`.
-@{tf.contrib.losses.sum_of_pairwise_squares}
-@{tf.contrib.losses.sum_of_squares}
+`tf.contrib.losses.sum_of_pairwise_squares`
+`tf.contrib.losses.sum_of_squares`
 
 

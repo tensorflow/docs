@@ -132,7 +132,7 @@ transparent.
 ### Use fused batch norm
 
 When using batch norm
-@{tf.contrib.layers.batch_norm} set the attribute `fused=True`:
+`tf.contrib.layers.batch_norm` set the attribute `fused=True`:
 
 ```python
 bn = tf.contrib.layers.batch_norm(

@@ -21,7 +21,7 @@ regularly and append the returned values to an events file as explained in
 TensorBoard monitors events files and displays graphs reporting training
 progress over time.
 
-The @{tf.train.Supervisor} provides
+The `tf.train.Supervisor` provides
 a set of services that helps implement a robust training process.
 
 This how-to shows how to use the supervisor directly.  Please also consider
@@ -40,7 +40,7 @@ The simplest scenario for using a supervisor is to:
    save checkpoints and summaries.
 
  * Ask the supervisor for a session with
-   @{tf.train.Supervisor.managed_session}.
+   `tf.train.Supervisor.managed_session`.
 
  * Use the session to execute a train op, checking at each step if the
    supervisor requests that the training stops.
@@ -80,7 +80,7 @@ create a `global_step` variable.
    reporting the number of global steps per second.  The summary tag is
    "global_step/sec".  This also runs every 2 minutes by default.
 
- * _Queue Runners_: If any @{tf.train.QueueRunner} were added to the
+ * _Queue Runners_: If any `tf.train.QueueRunner` were added to the
    graph, the supervisor launches them in their own threads.
 
 All time intervals can be changed when constructing the supervisor object.  See
@@ -159,7 +159,7 @@ from scratch, not when the model can be recovered from a checkpoint from the
 logdir.
 
 To load the pre-trained model, the init function needs a
-@{tf.train.Saver} object, so you should create
+`tf.train.Saver` object, so you should create
 a saver for this purpose.  This is usually a good idea because the new model
 may contain variables that are not present in the pre-trained checkpoint: This
 saver must only restore the pre-trained variables.  If you were using the
@@ -194,7 +194,7 @@ to the main training loop.  You sometimes want to add your own services, for
 example to fetch different sets of summaries on a different schedule than the
 usual summary service.
 
-Use the @{tf.train.Supervisor.loop} method of
+Use the `tf.train.Supervisor.loop` method of
 the supervisor for this purpose.  It repeatedly calls a function of your choice
 on a timer until the supervisor stop condition becomes true, so it plays nicely
 with the other services.
@@ -218,13 +218,13 @@ def my_additional_sumaries(sv, sess):
 ## Writing Summaries
 
 The supervisor always creates an events file in its logdir, as well as a
-@{tf.summary.FileWriter} to append
+`tf.summary.FileWriter` to append
 events and summaries to that file.  If you want to write your own summaries it
 is a good idea to append them to that same events file: TensorBoard likes it
 better when only one events file in a directory is being actively appended to.
 
 The supervisor provides a helper function to append summaries:
-@{tf.train.Supervisor.summary_computed}.
+`tf.train.Supervisor.summary_computed`.
 Just pass to the function the output returned by a summary op.  Here is an
 example of using that function to implement `my_additional_sumaries()` from the
 previous example:
@@ -237,7 +237,7 @@ def my_additional_sumaries(sv, sess):
 
 For more advanced usages, the supervisor provides access to its summary writer
 through its
-@{tf.train.Supervisor.summary_writer}
+`tf.train.Supervisor.summary_writer`
 attribute.
 
 ## Supervisor Reference
@@ -273,7 +273,7 @@ constructor:
    crash: you will never lose more than `save_model_secs` seconds of work.
    Setting this to 0 disables the checkpointing service.
 
- * `saver`: A @{tf.train.Saver} object to use
+ * `saver`: A `tf.train.Saver` object to use
    for checkpointing.
 
    If you do not pass one, the supervisor creates one for you by calling
@@ -312,7 +312,7 @@ constructor:
  * `summary_op`: Op to use to fetch the summaries.
 
    If not specified, the supervisor use the first op in the
-   `tf.GraphKeys.SUMMARY_OP` @{tf.Graph.add_to_collection$graph collection}.  If
+   `tf.GraphKeys.SUMMARY_OP` `tf.Graph.add_to_collection`.  If
    the collection is empty the supervisor creates an op that aggregates all
    summaries in the graph using `tf.summary.merge_all()`.
 
@@ -321,7 +321,7 @@ constructor:
  * `global_step`: Tensor to use to count the global step.
 
    If not specified, the supervisor uses the first tensor in the
-   `tf.GraphKeys.GLOBAL_STEP` @{tf.Graph.add_to_collection$graph collection}.  If
+   `tf.GraphKeys.GLOBAL_STEP` `tf.Graph.add_to_collection`.  If
    the collection is empty, the supervisor looks for a scalar integer variable
    named `global_step` in the graph.
 
@@ -356,7 +356,7 @@ following keyword arguments to the `Supervisor()` constructor:
 
  * `local_init_op`: An additional op to initialize parts of the graph that are
    not saved in checkpoints such as tables and
-   @{tf.contrib.framework.local_variable$local variables}. The
+   `tf.contrib.framework.local_variable`. The
    local init op is run _before_ the init op and the init function.
 
    If not specified, the supervisor uses the first op in the
