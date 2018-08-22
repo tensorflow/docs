@@ -85,7 +85,7 @@ eval_input_fn = get_input_fn(data.validation, batch_size=5000)
 
 ## Training a simple linear model
 We can now train a linear model over the MNIST dataset. We will use the
-@{tf.contrib.learn.LinearClassifier} estimator with 10 classes representing the
+`tf.contrib.learn.LinearClassifier` estimator with 10 classes representing the
 10 digits. The input features form a 784-dimensional dense vector which can
 be specified as follows:
 
@@ -190,7 +190,7 @@ much higher dimensional space than the original one. See
 for more details.
 
 ### Kernel classifier
-@{tf.contrib.kernel_methods.KernelLinearClassifier} is a pre-packaged
+`tf.contrib.kernel_methods.KernelLinearClassifier` is a pre-packaged
 `tf.contrib.learn` estimator that combines the power of explicit kernel mappings
 with linear models. Its constructor is almost identical to that of the
 LinearClassifier estimator with the additional option to specify a list of

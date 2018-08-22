@@ -84,7 +84,7 @@ of the following four steps:
     See @{$datasets$Using the `Dataset` API for TensorFlow Input Pipelines}
     for full details.)
 
-2.  **Define the feature columns.** Each @{tf.feature_column}
+2.  **Define the feature columns.** Each `tf.feature_column`
     identifies a feature name, its type, and any input pre-processing.
     For example, the following snippet creates three feature
     columns that hold integer or floating-point data.  The first two

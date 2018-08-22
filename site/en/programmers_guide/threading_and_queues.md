@@ -24,7 +24,7 @@ longer holds, the queue will unblock the step and allow execution to proceed.
 TensorFlow implements several classes of queue. The principal difference between
 these classes is the order that items are removed from the queue.  To get a feel
 for queues, let's consider a simple example. We will create a "first in, first
-out" queue (@{tf.FIFOQueue}) and fill it with zeros.  Then we'll construct a
+out" queue (`tf.FIFOQueue`) and fill it with zeros.  Then we'll construct a
 graph that takes an item off the queue, adds one to that item, and puts it back
 on the end of the queue. Slowly, the numbers on the queue increase.
 
@@ -46,8 +46,8 @@ Now that you have a bit of a feel for queues, let's dive into the details...
 
 ## Queue usage overview
 
-Queues, such as @{tf.FIFOQueue}
-and @{tf.RandomShuffleQueue},
+Queues, such as `tf.FIFOQueue`
+and `tf.RandomShuffleQueue`,
 are important TensorFlow objects that aid in computing tensors asynchronously
 in a graph.
 
@@ -58,11 +58,11 @@ prepare inputs for training a model as follows:
 * A training thread executes a training op that dequeues mini-batches from the
   queue
 
-We recommend using the @{tf.contrib.data.Dataset.shuffle$`shuffle`}
-and @{tf.contrib.data.Dataset.batch$`batch`} methods of a
-@{tf.contrib.data.Dataset$`Dataset`} to acomplish this. However, if you'd prefer
+We recommend using the `tf.contrib.data.Dataset.shuffle`
+and `tf.contrib.data.Dataset.batch` methods of a
+`tf.contrib.data.Dataset` to acomplish this. However, if you'd prefer
 to use a queue-based version instead, you can find a full implementation in the
-@{tf.train.shuffle_batch} function.
+`tf.train.shuffle_batch` function.
 
 For demonstration purposes a simplified implementation is given below.
 
@@ -92,8 +92,8 @@ def simple_shuffle_batch(source, capacity, batch_size=10):
   return queue.dequeue_many(batch_size)
 ```
 
-Once started by @{tf.train.start_queue_runners}, or indirectly through
-@{tf.train.MonitoredSession}, the `QueueRunner` will launch the
+Once started by `tf.train.start_queue_runners`, or indirectly through
+`tf.train.MonitoredSession`, the `QueueRunner` will launch the
 threads in the background to fill the queue. Meanwhile the main thread will
 execute the `dequeue_many` op to pull data from it. Note how these ops do not
 depend on each other, except indirectly through the internal state of the queue.
@@ -125,7 +125,7 @@ with tf.train.MonitoredSession() as sess:
 ```
 
 For most use cases, the automatic thread startup and management provided
-by @{tf.train.MonitoredSession} is sufficient. In the rare case that it is not,
+by `tf.train.MonitoredSession` is sufficient. In the rare case that it is not,
 TensorFlow provides tools for manually managing your threads and queues.
 
 ## Manual Thread Management
@@ -138,8 +138,8 @@ threads must be able to stop together, exceptions must be caught and
 reported, and queues must be properly closed when stopping.
 
 TensorFlow provides two classes to help:
-@{tf.train.Coordinator} and
-@{tf.train.QueueRunner}. These two classes
+`tf.train.Coordinator` and
+`tf.train.QueueRunner`. These two classes
 are designed to be used together. The `Coordinator` class helps multiple threads
 stop together and report exceptions to a program that waits for them to stop.
 The `QueueRunner` class is used to create a number of threads cooperating to
@@ -147,14 +147,14 @@ enqueue tensors in the same queue.
 
 ### Coordinator
 
-The @{tf.train.Coordinator} class manages background threads in a TensorFlow
+The `tf.train.Coordinator` class manages background threads in a TensorFlow
 program and helps multiple threads stop together.
 
 Its key methods are:
 
-* @{tf.train.Coordinator.should_stop}: returns `True` if the threads should stop.
-* @{tf.train.Coordinator.request_stop}: requests that threads should stop.
-* @{tf.train.Coordinator.join}: waits until the specified threads have stopped.
+* `tf.train.Coordinator.should_stop`: returns `True` if the threads should stop.
+* `tf.train.Coordinator.request_stop`: requests that threads should stop.
+* `tf.train.Coordinator.join`: waits until the specified threads have stopped.
 
 You first create a `Coordinator` object, and then create a number of threads
 that use the coordinator.  The threads typically run loops that stop when
@@ -190,11 +190,11 @@ coord.join(threads)
 
 Obviously, the coordinator can manage threads doing very different things.
 They don't have to be all the same as in the example above.  The coordinator
-also has support to capture and report exceptions.  See the @{tf.train.Coordinator} documentation for more details.
+also has support to capture and report exceptions.  See the `tf.train.Coordinator` documentation for more details.
 
 ### QueueRunner
 
-The @{tf.train.QueueRunner} class creates a number of threads that repeatedly
+The `tf.train.QueueRunner` class creates a number of threads that repeatedly
 run an enqueue op.  These threads can use a coordinator to stop together.  In
 addition, a queue runner will run a *closer operation* that closes the queue if
 an exception is reported to the coordinator.
