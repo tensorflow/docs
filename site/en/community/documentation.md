@@ -138,7 +138,7 @@ a 3-D tensor with shape `[6, 8, 6]`.
 ### Links
 
 To link to something else in the `g3docs` tree, use a relative path, like
-`@{tf.parse_example}`
+``tf.parse_example``
 Do not use absolute paths for internal links, as this will break the website
 generator.
 
@@ -320,7 +320,7 @@ Here's an example from the module docsting in `image_ops.py`:
 
     TensorFlow can convert between images in RGB or HSV. The conversion
     functions work only on `float` images, so you need to convert images in
-    other formats using @{tf.image.convert_image_dtype}.
+    other formats using `tf.image.convert_image_dtype`.
 
     Example:
 

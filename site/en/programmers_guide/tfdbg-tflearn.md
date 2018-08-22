@@ -4,10 +4,10 @@
 
 In @{$debugger$a previous tutorial}, we described how to use TensorFlow Debugger (**tfdbg**)
 to debug TensorFlow graphs running in
-@{tf.Session}
+`tf.Session`
 objects managed by yourself. However, many users find
 @{$tflearn$`tf.contrib.learn`}
-@{tf.contrib.learn.Estimator$Estimator}s
+`tf.contrib.learn.Estimator`s
 to be a convenient higher-level API for creating and using models
 in TensorFlow. Part of the convenience is that `Estimator`s manage `Session`s
 internally. Fortunately, you can still use `tfdbg` with `Estimator`s by adding
@@ -16,8 +16,8 @@ special hooks.
 ## Debugging tf.contrib.learn Estimators
 
 Currently, **tfdbg** can debug the
-@{tf.contrib.learn.BaseEstimator.fit$`fit()`}
-@{tf.contrib.learn.BaseEstimator.evaluate$`evaluate()`}
+`tf.contrib.learn.BaseEstimator.fit`
+`tf.contrib.learn.BaseEstimator.evaluate`
 methods of tf-learn `Estimator`s. To debug `Estimator.fit()`,
 create a `LocalCLIDebugHook` and supply it as the `monitors` argument. For example:
 
@@ -116,5 +116,5 @@ python -m tensorflow.python.debug.cli.offline_analyzer \
 The `LocalCLIDebugHook` also allows you to configure a `watch_fn` that can be
 used to flexibly specify what `Tensor`s to watch on different `Session.run()`
 calls, as a function of the `fetches` and `feed_dict` and other states. See
-@{tfdbg.DumpingDebugWrapperSession.__init__$this API doc}
+`tfdbg.DumpingDebugWrapperSession.__init__`
 for more details.

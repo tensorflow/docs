@@ -1,6 +1,6 @@
 # A Guide to TF Layers: Building a Convolutional Neural Network
 
-The TensorFlow @{tf.layers$`layers` module} provides a high-level API that makes
+The TensorFlow `tf.layers` provides a high-level API that makes
 it easy to construct a neural network. It provides methods that facilitate the
 creation of dense (fully connected) layers and convolutional layers, adding
 activation functions, and applying dropout regularization. In this tutorial,
@@ -122,7 +122,7 @@ Open `cnn_mnist.py` and add the following `cnn_model_fn` function, which
 conforms to the interface expected by TensorFlow's Estimator API (more on this
 later in [Create the Estimator](#create-the-estimator)). `cnn_mnist.py` takes
 MNIST feature data, labels, and
-@{tf.contrib.learn.ModeKeys$model mode} (`TRAIN`, `EVAL`,
+`tf.contrib.learn.ModeKeys` (`TRAIN`, `EVAL`,
 `INFER`) as arguments; configures the CNN; and returns predictions, loss, and a
 training operation:
 
@@ -278,7 +278,7 @@ a 5x5 convolution over a 28x28 tensor will produce a 24x24 tensor, as there are
 
 The `activation` argument specifies the activation function to apply to the
 output of the convolution. Here, we specify ReLU activation with
-@{tf.nn.relu}.
+`tf.nn.relu`.
 
 Our output tensor produced by `conv2d()` has a shape of
 <code>[<em>batch_size</em>, 28, 28, 32]</code>: the same width and height
@@ -449,7 +449,7 @@ to the corresponding
  ...]
 ```
 
-We use the @{tf.one_hot} function
+We use the `tf.one_hot` function
 to perform this conversion. `tf.one_hot()` has two required arguments:
 
 *   `indices`. The locations in the one-hot tensor that will have "on
@@ -482,7 +482,7 @@ loss = tf.losses.softmax_cross_entropy(
 In the previous section, we defined loss for our CNN as the softmax
 cross-entropy of the logits layer and our labels. Let's configure our model to
 optimize this loss value during training, using the
-@{tf.contrib.layers.optimize_loss}
+`tf.contrib.layers.optimize_loss`
 method in `tf.contrib.layers`. We'll use a learning rate of 0.001 and
 [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)
 as the optimization algorithm:
@@ -514,7 +514,7 @@ raw values into two different formats that our model function can return:
 
 For a given example, our predicted class is the element in the corresponding row
 of the logits tensor with the highest raw value. We can find the index of this
-element using the @{tf.argmax}
+element using the `tf.argmax`
 function:
 
 ```python
@@ -529,7 +529,7 @@ value along the dimension with index of 1, which corresponds to our predictions
 10]</code>).
 
 We can derive probabilities from our logits layer by applying softmax activation
-using @{tf.nn.softmax}:
+using `tf.nn.softmax`:
 
 ```python
 tf.nn.softmax(logits, name="softmax_tensor")
@@ -552,7 +552,7 @@ predictions = {
 
 Finally, now that we've got our `predictions`, `loss`, and `train_op`, we can
 return them, along with our `mode` argument, in a
-@{tf.contrib.learn.ModelFnOps} object:
+`tf.contrib.learn.ModelFnOps` object:
 
 ```python
 # Return a ModelFnOps object
@@ -613,8 +613,8 @@ feel free to change to another directory of your choice).
 ### Set Up a Logging Hook {#set_up_a_logging_hook}
 
 Since CNNs can take a while to train, let's set up some logging so we can track
-progress during training. We can use TensorFlow's @{tf.train.SessionRunHook} to create a
-@{tf.train.LoggingTensorHook}
+progress during training. We can use TensorFlow's `tf.train.SessionRunHook` to create a
+`tf.train.LoggingTensorHook`
 that will log the probability values from the softmax layer of our CNN. Add the
 following to `main()`:
 
@@ -667,7 +667,7 @@ training.
 
 Once training is complete, we want to evaluate our model to determine its
 accuracy on the MNIST test set. To set up the accuracy metric for our model, we
-need to create a metrics dict with a @{tf.contrib.learn.MetricSpec}
+need to create a metrics dict with a `tf.contrib.learn.MetricSpec`
 that calculates accuracy. Add the following to `main()`:
 
 ```python
@@ -683,7 +683,7 @@ We create our `MetricSpec`s with the following two arguments:
 
 *   `metric_fn`. The function that calculates and returns the value of our
     metric. Here, we can use the predefined `accuracy` function in the
-    @{tf.metrics} module.
+    `tf.metrics` module.
 *   `prediction_key`. The key of the tensor that contains the predictions
     returned by the model function. Here, because we're building a
     classification model, the prediction key is `"classes"`, which we specified

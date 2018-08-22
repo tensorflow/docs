@@ -61,7 +61,7 @@ Dataset | Purpose
 
 ### Inputs and Placeholders
 
-The `placeholder_inputs()` function creates two @{tf.placeholder}
+The `placeholder_inputs()` function creates two `tf.placeholder`
 ops that define the shape of the inputs, including the `batch_size`, to the
 rest of the graph and into which the actual training examples will be fed.
 
@@ -102,7 +102,7 @@ It takes the images placeholder as input and builds on top
 of it a pair of fully connected layers with [ReLU](https://en.wikipedia.org/wiki/Rectifier_(neural_networks)) activation followed by a ten
 node linear layer specifying the output logits.
 
-Each layer is created beneath a unique @{tf.name_scope}
+Each layer is created beneath a unique `tf.name_scope`
 that acts as a prefix to the items created within that scope.
 
 ```python
@@ -110,7 +110,7 @@ with tf.name_scope('hidden1'):
 ```
 
 Within the defined scope, the weights and biases to be used by each of these
-layers are generated into @{tf.Variable}
+layers are generated into `tf.Variable`
 instances, with their desired shapes:
 
 ```python
@@ -128,7 +128,7 @@ name given to the weights variable would be "`hidden1/weights`".
 Each variable is given initializer ops as part of their construction.
 
 In this most common case, the weights are initialized with the
-@{tf.truncated_normal}
+`tf.truncated_normal`
 and given their shape of a 2-D tensor with
 the first dim representing the number of units in the layer from which the
 weights connect and the second dim representing the number of
@@ -138,12 +138,12 @@ weights are connecting the image inputs to the hidden1 layer.  The
 `tf.truncated_normal` initializer generates a random distribution with a given
 mean and standard deviation.
 
-Then the biases are initialized with @{tf.zeros}
+Then the biases are initialized with `tf.zeros`
 to ensure they start with all zero values, and their shape is simply the number
 of units in the layer to which they connect.
 
-The graph's three primary ops -- two @{tf.nn.relu}
-ops wrapping @{tf.matmul}
+The graph's three primary ops -- two `tf.nn.relu`
+ops wrapping `tf.matmul`
 for the hidden layers and one extra `tf.matmul` for the logits -- are then
 created, each in turn, with separate `tf.Variable` instances connected to each
 of the input placeholders or the output tensors of the previous layer.
@@ -167,7 +167,7 @@ Finally, the `logits` tensor that will contain the output is returned.
 The `loss()` function further builds the graph by adding the required loss
 ops.
 
-First, the values from the `labels_placeholder` are converted to 64-bit integers. Then, a @{tf.nn.sparse_softmax_cross_entropy_with_logits} op is added to automatically produce 1-hot labels from the `labels_placeholder` and compare the output logits from the `inference()` function with those 1-hot labels.
+First, the values from the `labels_placeholder` are converted to 64-bit integers. Then, a `tf.nn.sparse_softmax_cross_entropy_with_logits` op is added to automatically produce 1-hot labels from the `labels_placeholder` and compare the output logits from the `inference()` function with those 1-hot labels.
 
 ```python
 labels = tf.to_int64(labels)
@@ -175,7 +175,7 @@ cross_entropy = tf.nn.sparse_softmax_cross_entropy_with_logits(
     labels=labels, logits=logits, name='xentropy')
 ```
 
-It then uses @{tf.reduce_mean}
+It then uses `tf.reduce_mean`
 to average the cross entropy values across the batch dimension (the first
 dimension) as the total loss.
 
@@ -196,16 +196,16 @@ The `training()` function adds the operations needed to minimize the loss via
 [Gradient Descent](https://en.wikipedia.org/wiki/Gradient_descent).
 
 Firstly, it takes the loss tensor from the `loss()` function and hands it to a
-@{tf.summary.scalar},
+`tf.summary.scalar`,
 an op for generating summary values into the events file when used with a
-@{tf.summary.FileWriter} (see below).  In this case, it will emit the snapshot value of
+`tf.summary.FileWriter` (see below).  In this case, it will emit the snapshot value of
 the loss every time the summaries are written out.
 
 ```python
 tf.summary.scalar('loss', loss)
 ```
 
-Next, we instantiate a @{tf.train.GradientDescentOptimizer}
+Next, we instantiate a `tf.train.GradientDescentOptimizer`
 responsible for applying gradients with the requested learning rate.
 
 ```python
@@ -213,7 +213,7 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate)
 ```
 
 We then generate a single variable to contain a counter for the global
-training step and the @{tf.train.Optimizer.minimize}
+training step and the `tf.train.Optimizer.minimize`
 op is used to both update the trainable weights in the system and increment the
 global step.  This op is, by convention, known as the `train_op` and is what must
 be run by a TensorFlow session in order to induce one full step of training
@@ -233,7 +233,7 @@ controlled by the user code in `fully_connected_feed.py`.
 
 At the top of the `run_training()` function is a python `with` command that
 indicates all of the built ops are to be associated with the default
-global @{tf.Graph}
+global `tf.Graph`
 instance.
 
 ```python
@@ -249,7 +249,7 @@ this simple tutorial.
 ### The Session
 
 Once all of the build preparation has been completed and all of the necessary
-ops generated, a @{tf.Session}
+ops generated, a `tf.Session`
 is created for running the graph.
 
 ```python
@@ -266,7 +266,7 @@ The empty parameter to session indicates that this code will attach to
 (or create if not yet created) the default local session.
 
 Immediately after creating the session, all of the `tf.Variable`
-instances are initialized by calling @{tf.Session.run}
+instances are initialized by calling `tf.Session.run`
 on their initialization op.
 
 ```python
@@ -274,10 +274,10 @@ init = tf.global_variables_initializer()
 sess.run(init)
 ```
 
-The @{tf.Session.run}
+The `tf.Session.run`
 method will run the complete subset of the graph that
 corresponds to the op(s) passed as parameters.  In this first call, the `init`
-op is a @{tf.group}
+op is a `tf.group`
 that contains only the initializers for the variables.  None of the rest of the
 graph is run here; that happens in the training loop below.
 
@@ -364,7 +364,7 @@ during the graph building phase.
 summary = tf.summary.merge_all()
 ```
 
-And then after the session is created, a @{tf.summary.FileWriter}
+And then after the session is created, a `tf.summary.FileWriter`
 may be instantiated to write the events files, which
 contain both the graph itself and the values of the summaries.
 
@@ -392,13 +392,13 @@ folder to display the values from the summaries.
 
 In order to emit a checkpoint file that may be used to later restore a model
 for further training or evaluation, we instantiate a
-@{tf.train.Saver}.
+`tf.train.Saver`.
 
 ```python
 saver = tf.train.Saver()
 ```
 
-In the training loop, the @{tf.train.Saver.save}
+In the training loop, the `tf.train.Saver.save`
 method will periodically be called to write a checkpoint file to the training
 directory with the current values of all the trainable variables.
 
@@ -407,7 +407,7 @@ saver.save(sess, FLAGS.train_dir, global_step=step)
 ```
 
 At some later point in the future, training might be resumed by using the
-@{tf.train.Saver.restore}
+`tf.train.Saver.restore`
 method to reload the model parameters.
 
 ```python
@@ -456,7 +456,7 @@ logits/labels parameters as the `loss()` function.
 eval_correct = mnist.evaluation(logits, labels_placeholder)
 ```
 
-The `evaluation()` function simply generates a @{tf.nn.in_top_k}
+The `evaluation()` function simply generates a `tf.nn.in_top_k`
 op that can automatically score each model output as correct if the true label
 can be found in the K most-likely predictions.  In this case, we set the value
 of K to 1 to only consider a prediction correct if it is for the true label.

@@ -10,7 +10,7 @@ predict flower species based on sepal/petal geometry. You'll write code to
 perform the following five steps:
 
 1.  Load CSVs containing Iris training/test data into a TensorFlow `Dataset`
-2.  Construct a @{tf.contrib.learn.DNNClassifier$neural network classifier}
+2.  Construct a `tf.contrib.learn.DNNClassifier`
 3.  Fit the model using the training data
 4.  Evaluate the accuracy of the model
 5.  Classify new samples
@@ -183,7 +183,7 @@ tf.contrib.learn offers a variety of predefined models, called
 use "out of the box" to run training and evaluation operations on your data.
 Here, you'll configure a Deep Neural Network Classifier model to fit the Iris
 data. Using tf.contrib.learn, you can instantiate your
-@{tf.contrib.learn.DNNClassifier} with
+`tf.contrib.learn.DNNClassifier` with
 just a couple lines of code:
 
 ```python
@@ -218,7 +218,7 @@ Then, the code creates a `DNNClassifier` model using the following arguments:
 ## Fit the DNNClassifier to the Iris Training Data {#fit-dnnclassifier}
 
 Now that you've configured your DNN `classifier` model, you can fit it to the
-Iris training data using the @{tf.contrib.learn.BaseEstimator.fit$`fit`}
+Iris training data using the `tf.contrib.learn.BaseEstimator.fit`
 method. Pass as arguments your feature data (`training_set.data`), target
 values (`training_set.target`), and the number of steps to train (here, 2000):
 
@@ -237,7 +237,7 @@ classifier.fit(x=training_set.data, y=training_set.target, steps=1000)
 ```
 
 However, if you're looking to track the model while it trains, you'll likely
-want to instead use a TensorFlow @{tf.contrib.learn.monitors$`monitor`}
+want to instead use a TensorFlow `tf.contrib.learn.monitors`
 to perform logging operations. See the tutorial
 @{$monitors$&ldquo;Logging and Monitoring Basics with tf.contrib.learn&rdquo;}
 for more on this topic.
@@ -246,7 +246,7 @@ for more on this topic.
 
 You've fit your `DNNClassifier` model on the Iris training data; now, you can
 check its accuracy on the Iris test data using the
-@{tf.contrib.learn.BaseEstimator.evaluate$`evaluate`}
+`tf.contrib.learn.BaseEstimator.evaluate`
 method. Like `fit`, `evaluate` takes feature data and target values as
 arguments, and returns a `dict` with the evaluation results. The following code
 passes the Iris test data&mdash;`test_set.data` and `test_set.target`&mdash;to
