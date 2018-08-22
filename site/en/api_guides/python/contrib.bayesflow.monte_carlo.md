@@ -45,6 +45,6 @@ can be evaluated in a stable manner.
 
 ## Ops
 
-*   @{tf.contrib.bayesflow.monte_carlo.expectation}
-*   @{tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler}
-*   @{tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler_logspace}
+*   `tf.contrib.bayesflow.monte_carlo.expectation`
+*   `tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler`
+*   `tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler_logspace`
