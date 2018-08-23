@@ -8,7 +8,7 @@ guide.
 
 ## Contribution guidelines
 
-To contribute documentation, review the [contribution guidelines](CONTRIBUTING).
+To contribute documentation, review the [contribution guidelines](CONTRIBUTING.md).
 
 ## License
 
