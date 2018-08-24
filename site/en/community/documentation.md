@@ -6,14 +6,14 @@ particular, this document explains the following:
 
 * Where the documentation is located.
 * How to make conformant edits.
-* How to build and test your documentation changes before you submit them.
 
 You can view TensorFlow documentation on https://www.tensorflow.org, and you
-can view and edit the raw files on
-[GitHub](https://www.tensorflow.org/code/tensorflow/docs_src/).
+can view and edit the raw files at the corresponding paths in
+[the `site/en` directory](https://github.com/tensorflow/docs/tree/master/site/en).
+
 We're publishing our docs on GitHub so everybody can contribute. Whatever gets
-checked in to `tensorflow/docs_src` will be published soon after on
-https://www.tensorflow.org.
+checked in to `tensorflow/docs/site/en` will be published soon after on
+[tensorflow.org](https://www.tensorflow.org).
 
 Republishing TensorFlow documentation in different forms is absolutely allowed,
 but we are unlikely to accept other documentation formats (or the tooling to
@@ -25,21 +25,20 @@ documentation in another form, please be sure to include:
 * Where to get the latest documentation (that is, https://www.tensorflow.org)
 * The Apache 2.0 license.
 
-## A note on versions
+## Versions and branches
 
-tensorflow.org, at root, shows documentation for the latest stable binary.  This
-is the documentation you should be reading if you are using `pip` to install
-TensorFlow.
+[tensorflow.org](https://www.tensorflow.org), at root, shows documentation for the latest stable binary.  This
+is the documentation you should be reading if you are using `pip install tensorflow`.
 
-However, most developers will contribute documentation into the master GitHub
-branch, which is published, occasionally,
-at [tensorflow.org/versions/master](https://www.tensorflow.org/versions/master).
+The default TensorFlow pip package is built from the stable branch `rX.X` in the [main TensorFlow repository](https://github.com/tensorflow/tensorflow/). 
 
-If you want documentation changes to appear at root, you will need to also
-contribute that change to the current stable binary branch (and/or
-[cherrypick](https://stackoverflow.com/questions/9339429/what-does-cherry-picking-a-commit-with-git-mean)).
+In contrast, to quickly publish fixes, the docs on the site are built from the [`docs/master` branch](https://github.com/tensorflow/docs/blob/master/site/en/). 
 
-## Reference vs. non-reference documentation
+Old versions of the documentation are available in the `rX.X` branches. An "old-version" branch will only be created when the next version is released: When `r1.11` is released, we will create the `r1.10` branch.
+
+In the rare case that a there is a major update for a new feature that we do not wish to publish to the site in the mean time, the docs will be developed in a feature-branch, and merged to master when ready.
+
+## API documentation
 
 The following reference documentation is automatically generated from comments
 in the code:
@@ -48,23 +47,22 @@ in the code:
 - Java API reference docs
 - Python API reference docs
 
-To modify the reference documentation, you edit the appropriate code comments.
+To modify the reference documentation, you edit the appropriate code comments and doc strings. These are only updated with new releases, as they reflect the contents of the default installation.
 
-Non-reference documentation (for example, the TensorFlow installation guides) is
-authored by humans. This documentation is located in the
-[`tensorflow/docs_src`](https://www.tensorflow.org/code/tensorflow/docs_src/)
-directory.  Each subdirectory of `docs_src` contains a set of related TensorFlow
-documentation. For example, the TensorFlow installation guides are all in the
-`docs_src/install` directory.
+The python API documented is generated, from main tensorflow repository, using the `//tensorflow/tools/docs:generate` bazel build target:
 
-The C++ documentation is generated from XML files generated via doxygen;
+```sh
+bazel run //tensorflow/tools/docs:generate -- --output_dir=/tmp/master_out
+```
+
+The C++ API documentation is generated from XML files generated via doxygen;
 however, those tools are not available in open source at this time.
 
-## Markdown
 
-Editable TensorFlow documentation is written in Markdown. With a few exceptions,
-TensorFlow uses
-the [standard Markdown rules](https://daringfireball.net/projects/markdown/).
+## Markdown and Notebooks
+
+TensorFlow documentation is written in Markdown (`.md`) or Notebooks (`.ipynb`). With a few exceptions,
+TensorFlow uses the [standard Markdown rules](https://daringfireball.net/projects/markdown/).
 
 This section explains the primary differences between standard Markdown rules
 and the Markdown rules that editable TensorFlow documentation uses.
@@ -83,229 +81,31 @@ within text, use `\\(` `\\)` instead.
 
 ### Links in Markdown
 
-Links fall into a few categories:
+Links fall into a few categories.
 
-- Links to a different part of the same file
-- Links to a URL outside of tensorflow.org
-- Links from a Markdown file (or code comments) to another file within tensorflow.org
+- Links between files in this repository.
+- Links to API documentation.
+- External links
 
-For the first two link categories, you may use standard Markdown links, but put
-the link entirely on one line, rather than splitting it across lines. For
-example:
+For links on between files in this repository use relative links: `[Eager Basics](../tutorials/eager/eager_basics.ipynb)` produces [Eager Basics](../tutorials/eager/eager_basics.ipynb). These links will work on both github, and tensorflow.org
 
-- `[text](link)    # Good link`
-- `[text]\n(link)  # Bad link`
-- `[text](\nlink)  # Bad link`
+API links are converted when the site is published. To link to the python API simply enclose the full symbol path in backticks: \`tf.data.Dataset\` to produce `tf.data.Dataset`. For the C++ API use the namespace path: \`tensorflow::Tensor\`  to produce `tensorflow::Tensor`.
 
-For the final link category (links to another file within tensorflow.org),
-please use a special link parameterization mechanism. This mechanism enables
-authors to move and reorganize files without breaking links.
-
-The parameterization scheme is as follows.  Use:
-
-<!-- Note: the use of &#64; is a hack so we don't translate these as symbols -->
-- <code>&#64;{tf.symbol}</code> to make a link to the reference page for a
-  Python symbol.  Note that class members don't get their own page, but the
-  syntax still works, since <code>&#64;{tf.MyClass.method}</code> links to the
-  proper part of the tf.MyClass page.
-
-- <code>&#64;{tensorflow::symbol}</code> to make a link to the reference page
-  for a C++ symbol.
-
-- <code>&#64;{$doc_page}</code> to make a link to another (not an API reference)
-    doc page. To link to
-
-    - `red/green/blue/index.md` use <code>&#64;{$blue}</code> or
-      <code>&#64;{$green/blue}</code>,
-
-    - `foo/bar/baz.md` use <code>&#64;{$baz}</code> or
-      <code>&#64;{$bar/baz}</code>.
-
-    The shorter one is preferred, so we can move pages around without breaking
-    these references. The main exception is that the Python API guides should
-    probably be referred to using <code>&#64;{$python/<guide-name>}</code> to
-    avoid ambiguity.
-
-- <code>&#64;{$doc_page#anchor-tag$link-text}</code> to link to an anchor in
-    that doc and use different link text (by default, the link text is the title
-    of the target page).
-
-    To override the link text only, omit  the `#anchor-tag`.
+For external links including files on tensorflow.org that are not in the `tensorflow/docs` repository (anything in [ecosystem](https://tensorflow.org/ecosystem)), just use regu8lar markdown links with the full URL.
 
 To link to source code, use a link starting with:
 `https://www.tensorflow.org/code/`, followed by
-the file name starting at the github root. For instance, a link to the file you
-are currently reading should be written as
-`https://www.tensorflow.org/code/tensorflow/docs_src/community/documentation.md`.
+the file name starting at the github root. 
 
 This URL naming scheme ensures
 that [tensorflow.org](https://www.tensorflow.org/) can forward the link to the
 branch of the code corresponding to the version of the documentation you're
 viewing. Do not include url parameters in the source code URL.
 
-## Generating docs and previewing links
-
-Before building the documentation, you must first set up your environment by
-doing the following:
-
-1. If bazel is not installed on your machine, install it now. If you are on
-   Linux, install bazel by issuing the following command:
-
-        $ sudo apt-get install bazel  # Linux
-
-    If you are on Mac OS, find bazel installation instructions on
-    [this page](https://bazel.build/versions/master/docs/install.html#mac-os-x).
-
-2. Change directory to the top-level `tensorflow` directory of the TensorFlow
-   source code.
-
-3. Run the `configure` script and answer its prompts appropriately for your
-   system.
-
-        $ ./configure
-
-Then, change to the `tensorflow` directory which contains `docs_src` (`cd
-tensorflow`).  Run the following command to compile TensorFlow and generate the
-documentation in the `/tmp/tfdocs` dir:
-
-    bazel run tools/docs:generate -- \
-              --src_dir="$(pwd)/docs_src/" \
-              --output_dir=/tmp/tfdocs/
-
-Note: You must set `src_dir` and `output_dir` to absolute file paths.
-
-## Generating Python API documentation
-
-Ops, classes, and utility functions are defined in Python modules, such as
-`image_ops.py`. Python modules contain a module docstring. For example:
-
-```python
-"""Image processing and decoding ops."""
-```
-
-The documentation generator places this module docstring at the beginning of the
-Markdown file generated for the module, in this
-case, [tf.image](https://www.tensorflow.org/api_docs/python/tf/image).
-
-It used to be a requirement to list every member of a module inside the module
-file at the beginning, putting a `@@` before each member. The `@@member_name`
-syntax is deprecated and no longer generates any docs. But depending on how a
-module is [sealed](#sealing_modules) it may still be necessary to mark the
-elements of the module’s contents as public. The called-out op, function, or
-class does not have to be defined in the same file. The next few sections of
-this document discuss sealing and how to add elements to the public
-documentation.
-
-The new documentation system automatically documents public symbols, except for
-the following:
-
-- Private symbols whose names start with an underscore.
-- Symbols originally defined in `object` or protobuf’s `Message`.
-- Some class members, such as `__base__`, `__class__`, which are dynamically
-  created but generally have no useful documentation.
-
-Only top level modules (currently just `tf` and `tfdbg`) need to be manually
-added to the generate script.
-
-### Sealing modules
-
-Because the doc generator walks all visible symbols, and descends into anything
-it finds, it will document any accidentally exposed symbols. If a module only
-exposes symbols that are meant to be part of the public API, we call it
-**sealed**. Because of Python’s loose import and visibility conventions, naively
-written Python code will inadvertently expose a lot of modules which are
-implementation details. Improperly sealed modules may expose other unsealed
-modules, which will typically lead the doc generator to fail. **This failure is
-the intended behavior.** It ensures that our API is well defined, and allows us
-to change implementation details (including which modules are imported where)
-without fear of accidentally breaking users.
-
-If a module is accidentally imported, it typically breaks the doc generator
-(`generate_test`). This is a clear sign you need to seal your modules. However,
-even if the doc generator succeeds, unwanted symbols may show up in the
-docs. Check the generated docs to make sure that all symbols that are documented
-are expected. If there are symbols that shouldn’t be there, you have the
-following options for dealing with them:
-
-- Private symbols and imports
-- The `remove_undocumented` filter
-- A traversal blacklist.
-
-We'll discuss these options in detail below.
-
-#### Private symbols and imports
-
-The easiest way to conform to the API sealing expectations is to make non-public
-symbols private (by prepending an underscore _). The doc generator respects
-private symbols. This also applies to modules. If the only problem is that there
-is a small number of imported modules that show up in the docs (or break the
-generator), you can simply rename them on import, e.g.: `import sys as _sys`.
-
-Because Python considers all files to be modules, this applies to files as
-well. If you have a directory containing the following two files/modules:
-
-    module/__init__.py
-    module/private_impl.py
-
-Then, after `module` is imported, it will be possible to access
-`module.private_impl`. Renaming `private_impl.py` to `_private_impl.py` solves
-the problem. If renaming modules is awkward, read on.
-
-#### Use the `remove_undocumented` filter
-
-Another way to seal a module is to split your implementation from the API. To do
-so, consider using `remove_undocumented`, which takes a list of allowed symbols,
-and deletes everything else from the module. For example, the following snippet
-demonstrates how to put `remove_undocumented` in the `__init__.py` file for a
-module:
-
-__init__.py:
-
-    # Use * imports only if __all__ defined in some_file
-    from tensorflow.some_module.some_file import *
-
-    # Otherwise import symbols directly
-    from tensorflow.some_module.some_other_file import some_symbol
-
-    from tensorflow.python.util.all_util import remove_undocumented
-
-    _allowed_symbols = [‘some_symbol’, ‘some_other_symbol’]
-
-    remove_undocumented(__name__, allowed_exception_list=_allowed_symbols)
-
-The `@@member_name` syntax is deprecated, but it still exists in some places in
-the documentation as an indicator to `remove_undocumented` that those symbols
-are public. All `@@`s will eventually be removed. If you see them, however,
-please do not randomly delete them as they are still in use by some of our
-systems.
-
-#### Traversal blacklist
-
-If all else fails, you may add entries to the traversal blacklist in
-`generate_lib.py.` **Almost all entries in this list are an abuse of its
-purpose; avoid adding to it if you can!**
-
-The traversal blacklist maps qualified module names (without the leading `tf.`)
-to local names that are not to be descended into. For instance, the following
-entry will exclude `some_module` from traversal.
-
-    { ...
-      ‘contrib.my_module’: [‘some_module’]
-      ...
-    }
-
-That means that the doc generator will show that `some_module` exists, but it
-will not enumerate its content.
-
-This blacklist was originally intended to make sure that system modules (mock,
-flags, ...) included for platform abstraction can be documented without
-documenting their interior. Its use beyond this purpose is a shortcut that may
-be acceptable for contrib, but not for core tensorflow.
-
 ## Op documentation style guide
 
-Long, descriptive module-level documentation for modules should go in the API
-Guides in `docs_src/api_guides/python`.
+Long, descriptive module-level documentation for modules should go in the [API
+Guides](../api_guides/python/).
 
 For classes and ops, ideally, you should provide the following information, in
 order of presentation:
@@ -341,19 +141,19 @@ Put backticks around these things when they're used in text:
 * Math expressions or conditions (for example, `-1-input.dims() <= dim <=
   input.dims()`)
 
-Put three backticks around sample code and pseudocode examples. And use `==>`
+Put three backticks around sample code and pseudocode examples. And use `# ==>`
 instead of a single equal sign when you want to show what an op returns. For
 example:
 
     ```
     # 'input' is a tensor of shape [2, 3, 5]
-    (tf.expand_dims(input, 0)) ==> [1, 2, 3, 5]
+    (tf.expand_dims(input, 0))  # ==> [1, 2, 3, 5]
     ```
 
 If you're providing a Python code sample, add the python style label to ensure
 proper syntax highlighting:
 
-    ```python
+    ``` python
     # some Python code
     ```
 
@@ -377,15 +177,15 @@ Don't use the word `Tensors` to describe multiple Tensor objects unless you
 really are talking about a `Tensors` object. Better to say "a list of `Tensor`
 objects."
 
-Use the term "dimension" to refer to the size of a tensor. If you need to be
+Use the term "dimensions" to refer to the shape of a tensor. If you need to be
 specific about the size, use these conventions:
 
 - Refer to a scalar as a "0-D tensor"
 - Refer to a vector as a "1-D tensor"
 - Refer to a matrix as a "2-D tensor"
 - Refer to tensors with 3 or more dimensions as 3-D tensors or n-D tensors. Use
-  the word "rank" only if it makes sense, but try to use "dimension" instead.
-  Never use the word "order" to describe the size of a tensor.
+  the word "rank" only if it's unambigous in that context. Never use the word "order"
+  to describe the size of a tensor.
 
 Use the word "shape" to detail the dimensions of a tensor, and show the shape in
 square brackets with backticks. For example:
@@ -549,7 +349,7 @@ The `tile()` op provides a good example in descriptive text:
 It is often helpful to show code samples in Python. Never put them in the C++
 Ops file, and avoid putting them in the Python Ops doc. We recommend, if
 possible, putting code samples in the
-[API guides](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/docs_src/api_guides).
+[API guides](https://github.com/tensorflow/docs/tree/master/site/en/api_guides).
 Otherwise, add them to the module or class docstring where the Ops constructors
 are called out.
 
