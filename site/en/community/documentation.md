@@ -6,14 +6,14 @@ particular, this document explains the following:
 
 * Where the documentation is located.
 * How to make conformant edits.
-* How to build and test your documentation changes before you submit them.
 
 You can view TensorFlow documentation on https://www.tensorflow.org, and you
-can view and edit the raw files on
-[GitHub](https://www.tensorflow.org/code/tensorflow/docs_src/).
+can view and edit the raw files at the corresponding paths in
+[the `site/en` directory](https://github.com/tensorflow/docs/tree/master/site/en).
+
 We're publishing our docs on GitHub so everybody can contribute. Whatever gets
-checked in to `tensorflow/docs_src` will be published soon after on
-https://www.tensorflow.org.
+checked in to `tensorflow/docs/site/en` will be published soon after on
+[tensorflow.org](https://www.tensorflow.org).
 
 Republishing TensorFlow documentation in different forms is absolutely allowed,
 but we are unlikely to accept other documentation formats (or the tooling to
@@ -25,21 +25,20 @@ documentation in another form, please be sure to include:
 * Where to get the latest documentation (that is, https://www.tensorflow.org)
 * The Apache 2.0 license.
 
-## A note on versions
+## Versions and branches
 
-tensorflow.org, at root, shows documentation for the latest stable binary.  This
-is the documentation you should be reading if you are using `pip` to install
-TensorFlow.
+[tensorflow.org](https://www.tensorflow.org), at root, shows documentation for the latest stable binary.  This
+is the documentation you should be reading if you are using `pip install tensorflow`.
 
-However, most developers will contribute documentation into the master GitHub
-branch, which is published, occasionally,
-at [tensorflow.org/versions/master](https://www.tensorflow.org/versions/master).
+The default TensorFlow pip package is built from the stable branch `rX.X` in the [main TensorFlow repository](https://github.com/tensorflow/tensorflow/). 
 
-If you want documentation changes to appear at root, you will need to also
-contribute that change to the current stable binary branch (and/or
-[cherrypick](https://stackoverflow.com/questions/9339429/what-does-cherry-picking-a-commit-with-git-mean)).
+In contrast, to quickly publish fixes, the docs on the site are built from the [`docs/master` branch](https://github.com/tensorflow/docs/blob/master/site/en/). 
 
-## Reference vs. non-reference documentation
+Old versions of the documentation are available in the `rX.X` branches. An "old-version" branch will only be created when the next version is released: When r1.11 is released, we will create the `r1.10` branch.
+
+In the rare case that a there is a major update for a new feature that we do not wish to publish to the site immediately, the docs will be developed in a feature-branch, and merged to master when ready.
+
+## API documentation
 
 The following reference documentation is automatically generated from comments
 in the code:
@@ -48,23 +47,22 @@ in the code:
 - Java API reference docs
 - Python API reference docs
 
-To modify the reference documentation, you edit the appropriate code comments.
+To modify the reference documentation, you edit the appropriate code comments and doc strings. These are only updated with new releases, as they reflect the contents of the default installation.
 
-Non-reference documentation (for example, the TensorFlow installation guides) is
-authored by humans. This documentation is located in the
-[`tensorflow/docs_src`](https://www.tensorflow.org/code/tensorflow/docs_src/)
-directory.  Each subdirectory of `docs_src` contains a set of related TensorFlow
-documentation. For example, the TensorFlow installation guides are all in the
-`docs_src/install` directory.
+The python API documented is generated, from main tensorflow repository, using the `//tensorflow/tools/docs:generate` bazel build target:
 
-The C++ documentation is generated from XML files generated via doxygen;
+```sh
+bazel run //tensorflow/tools/docs:generate -- --output_dir=/tmp/master_out
+```
+
+The C++ API documentation is generated from XML files generated via doxygen;
 however, those tools are not available in open source at this time.
 
-## Markdown
 
-Editable TensorFlow documentation is written in Markdown. With a few exceptions,
-TensorFlow uses
-the [standard Markdown rules](https://daringfireball.net/projects/markdown/).
+## Markdown and Notebooks
+
+TensorFlow documentation is written in Markdown or Notebooks. With a few exceptions,
+TensorFlow uses the [standard Markdown rules](https://daringfireball.net/projects/markdown/).
 
 This section explains the primary differences between standard Markdown rules
 and the Markdown rules that editable TensorFlow documentation uses.
@@ -83,19 +81,16 @@ within text, use `\\(` `\\)` instead.
 
 ### Links in Markdown
 
-Links fall into a few categories:
+Links fall into a few categories.
 
-- Links to a different part of the same file
+- Links between files in this repository.
+- Links to API documentation.
+- Links to other files on tensorflow.org ([sub-projects](https://tensorflow.org/ecosystem))
 - Links to a URL outside of tensorflow.org
-- Links from a Markdown file (or code comments) to another file within tensorflow.org
 
-For the first two link categories, you may use standard Markdown links, but put
-the link entirely on one line, rather than splitting it across lines. For
-example:
+For links on between files in this repository use relative links: `[Eager Basics](../tutorials/eager/eager_basics.ipynb)` produces [Eager Basics](../tutorials/eager/eager_basics.ipynb). These links will work on both github, and tensorflow.org
 
-- `[text](link)    # Good link`
-- `[text]\n(link)  # Bad link`
-- `[text](\nlink)  # Bad link`
+API links are converted when the site is published. To link to the python API simply enclose the full symbol path in backticks: \`tf.data.Dataset\` to produce `tf.data.Dataset`. For the C++ API use \`tensorflow::symbol\` 
 
 For the final link category (links to another file within tensorflow.org),
 please use a special link parameterization mechanism. This mechanism enables
