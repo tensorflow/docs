@@ -349,7 +349,7 @@ The `tile()` op provides a good example in descriptive text:
 It is often helpful to show code samples in Python. Never put them in the C++
 Ops file, and avoid putting them in the Python Ops doc. We recommend, if
 possible, putting code samples in the
-[API guides](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/docs_src/api_guides).
+[API guides](https://github.com/tensorflow/docs/tree/master/site/en/api_guides).
 Otherwise, add them to the module or class docstring where the Ops constructors
 are called out.
 
