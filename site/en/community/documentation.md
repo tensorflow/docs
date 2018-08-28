@@ -91,7 +91,7 @@ For links on between files in this repository use relative links: `[Eager Basics
 
 API links are converted when the site is published. To link to the python API simply enclose the full symbol path in backticks: \`tf.data.Dataset\` to produce `tf.data.Dataset`. For the C++ API use the namespace path: \`tensorflow::Tensor\`  to produce `tensorflow::Tensor`.
 
-For external links including files on tensorflow.org that are not in the `tensorflow/docs` repository (anything in [ecosystem](https://tensorflow.org/ecosystem)), just use regu8lar markdown links with the full URL.
+For external links including files on tensorflow.org that are not in the `tensorflow/docs` repository (anything in [ecosystem](https://tensorflow.org/ecosystem)), just use regular markdown links with the full URL.
 
 To link to source code, use a link starting with:
 `https://www.tensorflow.org/code/`, followed by
@@ -184,7 +184,7 @@ specific about the size, use these conventions:
 - Refer to a vector as a "1-D tensor"
 - Refer to a matrix as a "2-D tensor"
 - Refer to tensors with 3 or more dimensions as 3-D tensors or n-D tensors. Use
-  the word "rank" only if it's unambigous in that context. Never use the word "order"
+  the word "rank" only if it's unambiguous in that context. Never use the word "order"
   to describe the size of a tensor.
 
 Use the word "shape" to detail the dimensions of a tensor, and show the shape in

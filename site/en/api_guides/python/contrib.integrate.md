@@ -6,7 +6,7 @@ Integration and ODE solvers for TensorFlow.
 ## Example: Lorenz attractor
 
 We can use `odeint` to solve the
-[Lorentz system](https://en.wikipedia.org/wiki/Lorenz_system) of ordinary
+[Lorenz system](https://en.wikipedia.org/wiki/Lorenz_system) of ordinary
 differential equations, a prototypical example of chaotic dynamics:
 
 ```python
