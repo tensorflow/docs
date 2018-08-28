@@ -1,0 +1,316 @@
+<html devsite>
+  <head>
+    <title>Install with pip</title>
+    <meta name="project_path" value="/_project.yaml" />
+    <meta name="book_path" value="/_book.yaml" />
+    <link rel="stylesheet" href="/site-assets/css/style.css">
+  </head>
+  <body>
+
+<p>
+  This guide explains how to install the TensorFlow pip package. While these
+  instructions may work on other operating systems, they are tested and
+  supported with the following 64-bit laptop/desktop systems:
+</p>
+<ul>
+  <li>Ubuntu 16.04 or later</li>
+  <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
+  <li>Windows 7 or later</li>
+  <li>Raspbian 9.0 or later</li>
+</ul>
+
+The following TensorFlow packages are available <a href="https://pypi.org/project/tensorflow/">from PyPi</a>:
+
+<ul>
+  <li>
+		<code>tensorflow</code> —Current release for CPU only. If your system does
+		not have a NVIDIA® GPU, you must install this version. This version of
+		TensorFlow is usually easier to install, so even if you have an NVIDIA GPU,
+		we recommend installing this version first.
+	</li>
+  <li>
+		<code>tensorflow-gpu</code> —Current release with GPU support. TensorFlow
+		programs usually run much faster on a GPU instead of a CPU. If you run
+		performance-critical applications and your system has an NVIDIA® GPU that
+		meets the prerequisites, you should install this version. See the
+		<a href="./gpu.md">TensorFlow GPU support guide</a>.
+	</li>
+  <li><code>tf-nightly</code> —Nightly build for CPU <em>(unstable)</em></li>
+  <li><code>tf-nightly-gpu</code> —Nightly build with GPU support <em>(unstable)</em></li>
+</ul>
+
+<h2>1. Install the Python development environment on your system</h2>
+
+<form>
+  <input type="radio" class="devsite-navigating-radio" name="lang" value="python3" data-is-default>
+  <label for="radio-python3">Python 3</label>
+  <input type="radio" class="devsite-navigating-radio" name="lang" value="python2">
+  <label for="radio-python2">Python 2.7</label>
+</form>
+
+<p>
+  Check if the system is already configured:
+</p>
+
+{% dynamic if request.query_string.lang == "python2" %}
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">python --version</code>
+<code class="devsite-terminal">pip --version</code>
+<code class="devsite-terminal">virtualenv --version</code>
+</pre>
+{% dynamic else %}<!-- python3 -->
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">python3 --version</code>
+<code class="devsite-terminal">pip3 --version</code>
+<code class="devsite-terminal">virtualenv --version</code>
+</pre>
+{% dynamic endif %}
+
+<p>
+  Install <a href="https://www.python.org/" class="external">Python</a>, the
+  <a href="https://pip.pypa.io/en/stable/installing/" class="external">pip package manager</a>,
+  and <a href="https://virtualenv.pypa.io/en/stable/" class="external">Virtualenv</a>:
+</p>
+
+{% dynamic if request.query_string.lang == "python2" %}
+
+<div class="ds-selector-tabs">
+<section>
+<h3>Ubuntu</h3>
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">sudo apt-get install python-dev python-pip python-virtualenv</code>
+<code class="devsite-terminal">sudo pip install --upgrade pip virtualenv  # use latest</code>
+</pre>
+</section>
+
+<section>
+<h3>mac OS</h3>
+<p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
+<code class="devsite-terminal">export PATH="/usr/local/bin:/usr/local/sbin:$PATH"</code>
+<code class="devsite-terminal">brew install python@2</code>
+<code class="devsite-terminal">pip install --user --upgrade pip virtualenv  # use latest</code>
+</pre>
+</section>
+
+<section>
+<h3>Windows</h3>
+<p>Install a <a href="https://www.python.org/downloads/windows/" class="external">Python 2 release for Windows</a> (select <code>pip</code> as an optional feature).</p>
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">pip install --user --upgrade pip virtualenv</pre>
+</section>
+
+<section>
+<h3>Raspberry Pi</h3>
+<p>Requirements for the <a href="https://www.raspberrypi.org/downloads/raspbian/" class="external">Raspbian</a> operating system:</p>
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">sudo apt-get install python-pip</code>
+<code class="devsite-terminal">sudo apt install libatlas-base-dev  # required for numpy</code>
+</pre>
+</section>
+
+<section>
+<h3>Other</h3>
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code>
+<code class="devsite-terminal">python get-pip.py</code>
+<code class="devsite-terminal">pip install --user --upgrade pip virtualenv</code>
+</pre>
+</section>
+</div><!--/ds-selector-tabs-->
+
+{% dynamic else %}<!-- python3 -->
+
+<div class="ds-selector-tabs">
+<section>
+<h3>Ubuntu</h3><!--python3-->
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">sudo apt-get install python3-dev python3-pip python-virtualenv</code>
+<code class="devsite-terminal">sudo pip3 install --upgrade pip virtualenv  # use latest</code>
+</pre>  
+</section>
+
+<section>
+<h3>mac OS</h3><!--python3-->
+<p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
+<code class="devsite-terminal">export PATH="/usr/local/bin:/usr/local/sbin:$PATH"</code>
+<code class="devsite-terminal">brew install python</code>
+<code class="devsite-terminal">pip install --user --upgrade pip virtualenv  # use latest</code>
+</pre>
+</section>
+
+<section>
+<h3>Windows</h3><!--python3-->
+<p>Install a <a href="https://www.python.org/downloads/windows/" class="external">Python 3 release for Windows</a> (select <code>pip</code> as an optional feature).</p>
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">pip3 install --user --upgrade pip virtualenv</pre>
+</section>
+
+<section>
+<h3>Raspberry Pi</h3>
+<p>Requirements for the <a href="https://www.raspberrypi.org/downloads/raspbian/" class="external">Raspbian</a> operating system:</p>
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">sudo apt-get install python-pip</code>
+<code class="devsite-terminal">sudo apt install libatlas-base-dev  # required for numpy</code>
+</pre>
+</section>
+
+<section>
+<h3>Other</h3><!--python3-->
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code>
+<code class="devsite-terminal">python get-pip.py</code>
+<code class="devsite-terminal">pip3 install --user --upgrade pip virtualenv</code>
+</pre>
+</section>
+</div><!--/ds-selector-tabs-->
+
+{% dynamic endif %}
+
+
+<h2>2. Create a virtual environment (recommended)</h2>
+
+<p>
+  Virtual environments are used to isolate packages from the system. Create a
+  directory for the virtual environment and choose a Python interpreter:
+</p>
+
+{% dynamic if request.query_string.lang == "python2" %}
+
+<pre class="devsite-terminal devsite-click-to-copy">virtualenv --system-site-packages -p python2 <var>venv</var></pre>
+
+{% dynamic else %}
+
+<pre class="devsite-terminal devsite-click-to-copy">virtualenv --system-site-packages -p python3 <var>venv</var></pre>
+
+{% dynamic endif %}
+
+<p>Activate the virtual environment using a shell-specific command:</p>
+
+<div class="ds-selector-tabs">
+<section>
+<h3>Sh</h3>
+<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">source ~/tensorflow/<var>venv</var>/bin/activate  # sh, bash, ksh, or zsh</pre>
+</section>
+
+<section>
+<h3>Csh</h3>
+<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">source ~/tensorflow/<var>venv</var>/bin/activate.csh  # csh or tcsh</pre>
+</section>
+
+<section>
+<h3>Fish</h3>
+<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">. ~/tensorflow/<var>venv</var>/bin/activate.fish</pre>
+</section>
+</div><!--/ds-selector-tabs-->
+
+<p>
+  When the Virtualenv is activated, the shell prompt displays as
+  <code>(venv) $</code>.
+</p>
+
+<p>
+  Packages can be installed within a virtual environment without affecting
+  packages outside the virtual environment. Upgrade to the latest
+  <code>pip</code> package within the active virtual environment:
+</p>
+
+<pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">pip install --upgrade pip</pre>
+
+<p>
+  <code>pip list</code> shows the packages installed in the virtual environment.
+  Use the <code>deactivate</code> command to exit the virtual environment.
+</p>
+
+
+<h2>3. Install the TensorFlow pip package</h2>
+
+<p>Choose one of the available TensorFlow packages to for installation:</p>
+
+<ul>
+  <li><code>tensorflow</code> —Current release for CPU only.</li>
+  <li><code>tensorflow-gpu</code> —Current release with <a href="./gpu">GPU support</a>.</li>
+  <li><code>tf-nightly</code> —Nightly build for CPU <em>(unstable)</em>.</li>
+  <li><code>tf-nightly-gpu</code> —Nightly build with <a href="./gpu">GPU support</a> <em>(unstable)</em>.</li>
+</ul>
+
+<aside class="note">
+	TensorFlow's package dependencies are listed in the <code>pip</code>
+	<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
+	file.
+</aside>
+
+<div class="ds-selector-tabs">
+<section>
+<h3>Virtualenv install</h3>
+<pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">pip install --upgrade tensorflow</pre>
+<p>Verify the install:</p>
+<pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf; print(tf.__version__)"</pre>
+</section>
+
+<section>
+<h3>System install</h3>
+<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">pip install --user --upgrade tensorflow</pre>
+<p>Verify the install:</p>
+<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf; print(tf.__version__)"</pre>
+</section>
+</div><!--/ds-selector-tabs-->
+
+<aside class="success"><b>Success:</b> TensorFlow is now installed.</aside>
+
+<h2>Package location</h2>
+
+<p>
+  A few installation mechanisms require the URL of the TensorFlow Python package.
+  The value you specify depends on your Python version.
+</p>
+
+<table>
+  <tr><th>Version</th><th>URL</th></tr>
+  <tr class="alt"><td colspan="2">Linux</td></tr>
+  <tr>
+    <td>Python 2.7 CPU only</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.10.1-cp27-none-linux_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 2.7 GPU support</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.10.1-cp27-none-linux_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.4 CPU only</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.10.1-cp34-cp34m-linux_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.4 GPU support</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.10.1-cp34-cp34m-linux_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.5 CPU only</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.10.1-cp35-cp35m-linux_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.5 GPU support</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.10.1-cp35-cp35m-linux_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.6 CPU only</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.10.1-cp36-cp36m-linux_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.6 GPU support</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.10.1-cp36-cp36m-linux_x86_64.whl</td>
+  </tr>
+  <tr class="alt"><td colspan="2">macOS</td></tr>
+  <tr>
+    <td>Python 2.7</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.10.1-py2-none-any.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.4, 3.5, 3.6</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.10.1-py3-none-any.whl</td>
+  </tr>
+</table>
+
+</body>
+</html>
