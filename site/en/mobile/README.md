@@ -1,3 +1,5 @@
-# TF Lite subsite
+Welcome to the warp zone!
 
-This subsite directory lives in [tensorflow/contrib/lite/g3doc](../../contrib/lite/g3doc/).
+# TensorFlow Lite
+
+These docs are available here: https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/lite/g3doc
