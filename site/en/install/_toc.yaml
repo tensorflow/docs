@@ -1,18 +1,40 @@
-index.md
-
-### Python
-install_linux.md: Ubuntu
-install_mac.md: MacOS
-install_windows.md: Windows
-install_raspbian.md: Raspbian
-install_sources.md: From source
-install_sources_windows.md: From source on Windows
->>>
-migration.md
-
-### Other Languages
-install_java.md: Java
-install_go.md: Go
-install_c.md: C
-
-
+toc:
+- title: Install TensorFlow
+  path: /install/
+- heading: Packages
+- title: pip
+  path: /install/pip
+- title: Docker
+  path: /install/docker
+- title: Notebooks
+  path: /install/notebooks
+- heading: Build from source
+- title: Linux / macOS
+  path: /install/source
+- title: Windows
+  path: /install/source_windows
+- title: Raspberry Pi
+  path: /install/source_rpi
+- heading: Implementations
+- title: TensorFlow.js
+  path: https://js.tensorflow.org
+- title: TensorFlow Lite
+  path: /mobile/tflite
+- title: Swift for TensorFlow
+  path: https://github.com/tensorflow/swift
+  status: external
+- title: Java
+  path: /install/lang_java
+- title: C
+  path: /install/lang_c
+- title: Go
+  path: /install/lang_go
+- heading: Misc
+- title: GPU support
+  path: /install/gpu
+- title: Anaconda (community)
+  path: /install/anaconda
+- title: Minimum requirements
+  path: /install/requirements
+- title: Problems
+  path: /install/problems

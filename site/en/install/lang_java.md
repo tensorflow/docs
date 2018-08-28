@@ -22,9 +22,9 @@ following requirements:
   * Windows 7 or higher; 64-bit, x86
 
 The installation instructions for Android are in a separate
-[Android TensorFlow Support page](https://www.tensorflow.org/code/tensorflow/contrib/android).
+[Android TensorFlow Support page](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/contrib/android).
 After installation, please see this
-[complete example](https://www.tensorflow.org/code/tensorflow/examples/android)
+[complete example](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/examples/android)
 of TensorFlow on Android.
 
 ## Using TensorFlow with a Maven project
@@ -257,7 +257,7 @@ possible solutions.
 ### Advanced Example
 
 For a more sophisticated example, see
-[LabelImage.java](https://www.tensorflow.org/code/tensorflow/java/src/main/java/org/tensorflow/examples/LabelImage.java),
+[LabelImage.java](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/java/src/main/java/org/tensorflow/examples/LabelImage.java),
 which recognizes objects in an image.
 
 

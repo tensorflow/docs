@@ -1,39 +1,94 @@
-# Install TensorFlow
+project_path: /_project.yaml
+book_path: /_book.yaml
+description: <!--no description-->
+landing_page:
+  custom_css_path: /site-assets/css/style.css
+  show_side_navs: True
+  rows:
+  - description: >
+      <h1 class="hide-from-toc">Install TensorFlow</h1>
+      <p>
+        TensorFlow is built, tested, and supported on the following 64-bit
+        operating systems:
+      </p>
+      <ul>
+        <li>Ubuntu 16.04 or later</li>
+        <li>macOS 10.12.6 (Sierra) or later</li>
+        <li>Windows 7 or later</li>
+        <li>Raspbian 9.0 or later</li>
+      </ul>
 
-Note: Run the [TensorFlow tutorials](../tutorials) in a pre-configured
-[Colab notebook environment](https://colab.research.google.com/notebooks/welcome.ipynb){: .external},
-without installation.
+  - items:
+    - custom_html: >
+        <div class="devsite-landing-row-item-description">
+          <h2 class="hide-from-toc">Download a package</h2>
+          <div class="devsite-landing-row-item-description-content">
+            <p>
+              Install TensorFlow with Python's <em>pip</em> package manager.
+            </p>
+            <p>Official packages available for Ubuntu, Windows, macOS, and the Raspberry Pi.</p>
+          </div>
+          <div class="devsite-landing-row-item-buttons" style="margin-top:0;">
+            <a class="button button-primary tfo-button-primary" href="./pip">Read the pip install guide</a>
+          </div>
+        </div>
+    - classname: tfo-landing-row-item-code-block
+      code_block: |
+        <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
+        # Current release for CPU only
+        <code class="devsite-terminal">pip install tensorflow</code><br/>
+        # Current release with GPU support
+        <code class="devsite-terminal">pip install tensorflow-gpu</code><br/>
+        # Nightly build for CPU only (unstable)
+        <code class="devsite-terminal">pip install tf-nightly</code><br/>
+        # Nightly build with GPU support (unstable)
+        <code class="devsite-terminal">pip install tf-nightly-gpu</code><br/>
+        </pre>
 
-TensorFlow is built and tested on the following 64-bit operating systems:
+  - description: >
+      <h2 class="hide-from-toc">Run a preconfigured Docker container</h2>
+      <p>
+        <a href="https://www.docker.com/" class="external">Docker</a> completely
+        isolates the TensorFlow installation from pre-existing packages on your
+        machine. The Docker container contains TensorFlow and all its dependencies.
+        Includes a Juypter Notebook server. The easiest way to use a GPU.
+      </p>
+      <pre class="prettyprint lang-bsh">
+      <code class="devsite-terminal">docker run -it tensorflow/tensorflow</code>
+      </pre>
+      <a class="button button-primary tfo-button-primary" href="./docker">Read the Docker install guide</a>
 
-  * macOS 10.12.6 (Sierra) or later.
-  * Ubuntu 16.04 or later
-  * Windows 7 or later.
-  * Raspbian 9.0 or later.
+  - description: >
+      <h2 class="hide-from-toc">Google Colab&#58; An easy way to learn and use TensorFlow</h2>
+      <p>
+        <a href="https://colab.research.google.com/notebooks/welcome.ipynb" class="external">Colaboratory</a>
+        is a Google research project created to help disseminate machine learning
+        education and research. It's a Jupyter notebook environment that requires
+        no setup to use and runs entirely in the cloud.
+        <a href="https://medium.com/tensorflow/colab-an-easy-way-to-learn-and-use-tensorflow-d74d1686e309" class="external">Read the blog post</a>.
+      </p>
 
-While TensorFlow may work on other systems, we only support—and fix issues in—the
-systems listed above.
-
-The following guides explain how to install a version of TensorFlow
-that enables you to write applications in Python:
-
-  * [Install TensorFlow on Ubuntu](../install/install_linux.md)
-  * [Install TensorFlow on macOS](../install/install_mac.md)
-  * [Install TensorFlow on Windows](../install/install_windows.md)
-  * [Install TensorFlow on a Raspberry Pi](../install/install_raspbian.md)
-  * [Install TensorFlow from source code](../install/install_sources.md)
-
-Many aspects of the Python TensorFlow API changed from version 0.n to 1.0.
-The following guide explains how to migrate older TensorFlow applications
-to Version 1.0:
-
-  * [Transition to TensorFlow 1.0](../install/migration.md)
-
-The following guides explain how to install TensorFlow libraries for use in
-other programming languages. These APIs are aimed at deploying TensorFlow
-models in applications and are not as extensive as the Python APIs.
-
-  * [Install TensorFlow for Java](../install/install_java.md)
-  * [Install TensorFlow for C](../install/install_c.md)
-  * [Install TensorFlow for Go](../install/install_go.md)
-
+  - description: >
+      <h2 class="hide-from-toc">Build your first ML app</h2>
+      <p>Create and deploy TensorFlow models on web and mobile.</p>
+    background: grey
+    items:
+    - custom_html: >
+        <div class="devsite-landing-row-item-description" style="background: #fff; padding:32px;">
+          <a href="https://js.tensorflow.org">
+            <h3 class="hide-from-toc">Web developers</h3>
+          </a>
+          <div class="devsite-landing-row-item-description-content">
+            TensorFlow.js is a WebGL accelerated, JavaScript library to train and
+            deploy ML models in the browser and for Node.js.
+          </div>
+        </div>
+    - custom_html: >
+        <div class="devsite-landing-row-item-description" style="background: #fff; padding:32px;">
+          <a href="/mobile/tflite/">
+            <h3 class="hide-from-toc">Mobile developers</h3>
+          </a>
+          <div class="devsite-landing-row-item-description-content">
+            TensorFlow Lite is lightweight solution for mobile and embedded devices.
+          </div>
+        </div>
