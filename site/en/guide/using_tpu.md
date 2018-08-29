@@ -385,5 +385,5 @@ included in the repo demonstrate all of these best-practices.
 * [TPU Demos Repository](https://github.com/tensorflow/tpu) —Examples of
   Cloud&nbsp;TPU compatible models.
 * The [Google Cloud TPU Performance Guide](https://cloud.google.com/tpu/docs/performance-guide)
-  — Enhance Cloud TPU performance further by adjusting Cloud TPU configuration
+  —Enhance Cloud TPU performance further by adjusting Cloud TPU configuration
   parameters for your application.
