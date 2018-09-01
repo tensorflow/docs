@@ -263,7 +263,7 @@ cross-compile with the highest optimizations for the target platform. The
 following command is an example of using `bazel` to compile for a specific
 platform:
 
-```python
+```bash
 # This command optimizes for Intel’s Broadwell processor
 bazel build -c opt --copt=-march="broadwell" --config=cuda //tensorflow/tools/pip_package:build_pip_package
 
