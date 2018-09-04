@@ -24,16 +24,16 @@ toc:
   - title: Overview
     path: /tutorials/eager/
   - title: Eager execution
-    path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/eager_basics.ipynb
+    path: /tutorials/eager/eager_basics.ipynb
     status: external
   - title: Automatic differentiation
-    path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/automatic_differentiation.ipynb
+    path: /tutorials/eager/automatic_differentiation.ipynb
     status: external
   - title: "Custom training: basics"
-    path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/custom_training.ipynb
+    path: /tutorials/eager/custom_training.ipynb
     status: external
   - title: Custom layers
-    path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/custom_layers.ipynb
+    path: /tutorials/eager/custom_layers.ipynb
     status: external
   - title: "Custom training: walkthrough"
     path: /tutorials/eager/custom_training_walkthrough
