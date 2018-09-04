@@ -1,5 +1,5 @@
 # Roadmap
-**Last updated: Apr 27, 2018**
+**Last updated: Sep 4, 2018**
 
 TensorFlow is a rapidly moving, community supported project. This document is intended 
 to provide guidance about priorities and focus areas of the core set of TensorFlow 
