@@ -33,11 +33,6 @@ upper_tabs:
       - title: Java
         path: {VERSION_ROOT}/api_docs/java/reference/org/tensorflow/package-summary.html
       - include: {VERSION_ROOT}/api_docs/java/reference/_toc.yaml
-    - name: More…
-      contents:
-      - title: Overview
-        path: {VERSION_ROOT}/api_docs/
-      - include: {VERSION_ROOT}/api_docs/_more_toc.yaml
       
     - name: Serving
       contents:
@@ -54,5 +49,11 @@ upper_tabs:
         path: https://github.com/tensorflow/swift
         status: external
       - include: /api_docs/swift/_toc.yaml
+      
+    - name: More…
+      contents:
+      - title: Overview
+        path: {VERSION_ROOT}/api_docs/
+      - include: {VERSION_ROOT}/api_docs/_more_toc.yaml
 
 - include: /ecosystem/_upper_tabs_ecosystem.yaml
