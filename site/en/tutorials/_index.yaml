@@ -59,7 +59,7 @@ landing_page:
         model.evaluate(x_test, y_test)
         </pre>
         {% dynamic if request.tld != 'cn' %}
-        <a class="colab-button" target="_blank" href="https://colab.research.google.com/github/tensorflow/models/blob/master/samples/core/get_started/_index.ipynb">Run in a <span>Notebook</span></a>
+        <a class="colab-button" target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/_index.ipynb">Run in a <span>Notebook</span></a>
         {% dynamic endif %}
 
   - items:
@@ -73,40 +73,21 @@ landing_page:
             </p>
             <ol style="padding-left:20px;">
               <li>
-                {% dynamic if request.tld == 'cn' %}
-                <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/eager_basics.ipynb" class="external">Eager execution basics</a>
-                {% dynamic else %}
-                <a href="https://colab.research.google.com/github/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/eager_basics.ipynb" class="external">Eager execution basics</a>
-                {% dynamic endif %}
+                <a href="./eager/eager_basics">Eager execution basics</a>
               </li>
               <li>
-                {% dynamic if request.tld == 'cn' %}
-                <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/automatic_differentiation.ipynb" class="external">Automatic differentiation and gradient tape</a>
-                {% dynamic else %}
-                <a href="https://colab.research.google.com/github/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/automatic_differentiation.ipynb" class="external">Automatic differentiation and gradient tape</a>
-                {% dynamic endif %}
+                <a href="./eager/automatic_differentiation">Automatic differentiation and gradient tape</a>
               </li>
               <li>
-                {% dynamic if request.tld == 'cn' %}
-                <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/custom_training.ipynb" class="external">Custom training: basics</a>
-                {% dynamic else %}
-                <a href="https://colab.research.google.com/github/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/custom_training.ipynb" class="external">Custom training: basics</a>
-                {% dynamic endif %}
+                <a href="./eager/custom_training">Custom training: basics</a>
               </li>
               <li>
-                {% dynamic if request.tld == 'cn' %}
-                <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/custom_layers.ipynb" class="external">Custom layers</a>
-                {% dynamic else %}
-                <a href="https://colab.research.google.com/github/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/custom_layers.ipynb" class="external">Custom layers</a>
-                {% dynamic endif %}
+                <a href="./eager/custom_layers">Custom layers</a>
               </li>
-              <li><a href="./eager/custom_training_walkthrough">Custom training: walkthrough</a></li>
               <li>
-                {% dynamic if request.tld == 'cn' %}
+                <a href="./eager/custom_training_walkthrough">Custom training: walkthrough</a></li>
+              <li>
                 <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb" class="external">Example: Neural machine translation w/ attention</a>
-                {% dynamic else %}
-                <a href="https://colab.research.google.com/github/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb" class="external">Example: Neural machine translation w/ attention</a>
-                {% dynamic endif %}
               </li>
             </ol>
           </div>
