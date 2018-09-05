@@ -1,88 +1,88 @@
 # GPU support
 
-Note: Due to the number of libraries required, using [Docker](./docker.md)
-is recommended over installing directly on the host system.
 
-The following NVIDIA® *hardware* must be installed on your system:
+## Hardware requirements
 
-* GPU card with CUDA Compute Capability 3.5 or higher. See
-  [NVIDIA documentation](https://developer.nvidia.com/cuda-gpus) for a list of
-  supported GPU cards.
+TensorFlow supports the following GPU-enabled devices:
 
-The following NVIDIA® <i>software</i> must be installed on your system:
-
-* [GPU drivers](http://nvidia.com/driver). CUDA 9.0 requires 384.x or higher.
-* [CUDA Toolkit 9.0](http://nvidia.com/cuda).
-* [cuDNN SDK](http://developer.nvidia.com/cudnn) (>= 7.2).
-* [CUPTI](http://docs.nvidia.com/cuda/cupti/) ships with the CUDA Toolkit, but
-  you also need to append its path to the `LD_LIBRARY_PATH` environment
-  variable: `export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64`
-* *OPTIONAL*: [NCCL 2.2](https://developer.nvidia.com/nccl) to use TensorFlow
-  with multiple GPUs.
-* *OPTIONAL*: [TensorRT](http://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html)
-  which can improve latency and throughput for inference for some models.
-
-To use a GPU with CUDA Compute Capability 3.0, or different versions of the
-preceding NVIDIA libraries see the
-<a href="./source.md">TensorFlow build from source guide</a>. If using
-Ubuntu&nbsp;16.04 and possibly other Debian based linux distros, `apt-get` can be
-used with the NVIDIA repository to simplify installation.
-
-```bash
-# Adds NVIDIA package repository.
-sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
-wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
-wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
-sudo dpkg -i nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb
-sudo apt-get update
-# Includes optional NCCL 2.x.
-sudo apt-get install cuda9.0 cuda-cublas-9-0 cuda-cufft-9-0 cuda-curand-9-0 \
-  cuda-cusolver-9-0 cuda-cusparse-9-0 libcudnn7=7.2.1.38-1+cuda9.0 \
-   libnccl2=2.2.13-1+cuda9.0 cuda-command-line-tools-9-0
-# Optionally install TensorRT runtime, must be done after above CUDA install.
-sudo apt-get update
-sudo apt-get install libnvinfer4=4.1.2-1+cuda9.0
-```
+* NVIDIA® GPU card with CUDA® Compute Capability 3.5 or higher. See the list of
+  NVIDIA's [CUDA-enabled GPU cards](https://developer.nvidia.com/cuda-gpus){:.external}.
 
 
-## Windows
+## Software requirements
 
-If you are installing TensorFlow with GPU support using one of the mechanisms
-described in this guide, then the following NVIDIA software must be
-installed on your system:
+The following NVIDIA® software must be installed on your system:
 
-* CUDA® Toolkit 9.0. For details, see
-  [NVIDIA's documentation](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/)
-  Ensure that you append the relevant CUDA pathnames to the `%PATH%`
-  environment variable as described in the NVIDIA documentation.
-* The NVIDIA drivers associated with CUDA Toolkit 9.0.
-* cuDNN v7.0. For details, see
-  [NVIDIA's documentation](https://developer.nvidia.com/cudnn).
-  Note that cuDNN is typically installed in a different location from the
-  other CUDA DLLs. Ensure that you add the directory where you installed
-  the cuDNN DLL to your `%PATH%` environment variable.
-* GPU card with CUDA Compute Capability 3.0 or higher for building
-  from source and 3.5 or higher for our binaries. See
-  [NVIDIA documentation](https://developer.nvidia.com/cuda-gpus) for a
-  list of supported GPU cards.
+* [NVIDIA® GPU drivers](https://www.nvidia.com/){:.external} —CUDA 9.0 requires 384.x or higher.
+* [CUDA® Toolkit 9.0](https://developer.nvidia.com/cuda-zone){:.external}
+* [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA Toolkit.
+* [cuDNN SDK](https://developer.nvidia.com/cudnn){:.external} (>= 7.2)
+* *(Optional)* [NCCL 2.2](https://developer.nvidia.com/nccl){:.external} for multiple GPU support.
+* *(Optional)* [TensorRT](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
+  to improve latency and throughput for inference on some models.
 
-If you have a different version of one of the preceding packages, please
-change to the specified versions.  In particular, the cuDNN version
-must match exactly: TensorFlow will not load if it cannot find `cuDNN64_7.dll`.
-To use a different version of cuDNN, you must build from source.
+Note: We recommend using a GPU-enabled [TensorFlow Docker image](./docker.md).
+This is easier to set up since it only needs the NVIDIA GPU drivers installed.
+
+## Linux setup
+
+Install [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} which ships with
+the CUDA® Toolkit. Append its installation directory to the `$LD_LIBRARY_PATH`
+environmental variable:
+
+<pre class="devsite-click-to-copy">
+<code class="devsite-terminal">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64</code>
+</pre>
+
+For a GPU with CUDA Compute Capability 3.0, or different versions of the
+NVIDIA libraries, see the [Linux build from source](./source.md) guide.
+
+### Install CUDA with apt
+
+For Ubuntu&nbsp;16.04—and possibly other Debian-based Linux distros—add the
+NVIDIA package repository and use `apt` to install CUDA.
+
+Caution: `apt` installs the NVIDIA libraries and headers to locations that make
+it difficult to configure and debug build issues. We recommend using a
+GPU-enabled [TensorFlow Docker image](./docker.md).
+
+<pre class="prettyprint lang-bsh">
+# Add NVIDIA package repository
+<code class="devsite-terminal">sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</code>
+<code class="devsite-terminal">wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.1.85-1_amd64.deb</code>
+<code class="devsite-terminal">sudo apt install ./cuda-repo-ubuntu1604_9.1.85-1_amd64.deb</code>
+<code class="devsite-terminal">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
+<code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
+<code class="devsite-terminal">sudo apt update</code>
+
+# Install CUDA and tools. Include optional NCCL 2.x
+<code class="devsite-terminal">sudo apt install cuda9.0 cuda-cublas-9-0 cuda-cufft-9-0 cuda-curand-9-0 \
+    cuda-cusolver-9-0 cuda-cusparse-9-0 libcudnn7=7.2.1.38-1+cuda9.0 \
+    libnccl2=2.2.13-1+cuda9.0 cuda-command-line-tools-9-0</code>
+
+# Optional: Install the TensorRT runtime (must be after CUDA install)
+<code class="devsite-terminal">sudo apt update</code>
+<code class="devsite-terminal">sudo apt install libnvinfer4=4.1.2-1+cuda9.0</code>
+</pre>
 
 
-<!-- from source_windows -->
-The following NVIDIA® _hardware_ must be installed on your system:
+## Windows setup
 
-* GPU card with CUDA Compute Capability 3.5 or higher. See
-  [NVIDIA documentation](https://developer.nvidia.com/cuda-gpus) for a list of
-  supported GPU cards.
+See the [hardware requirements](#hardware_requirements) and
+[software requirements](#software_requirements) listed above. Read the
+[CUDA® install guide for Windows](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/){:.external}.
 
-The following NVIDIA® _software_ must be installed on your system:
+Make sure the installed NVIDIA software packages match the ones listed above. In
+particular, TensorFlow will not load without the `cuDNN64_7.dll` file. To use a
+different version, see the [Windows build from source](./source_windows.md) guide.
 
-* [GPU drivers](http://nvidia.com/driver). CUDA 9.0 requires 384.x or higher.
-* [CUDA Toolkit](http://nvidia.com/cuda) (>= 8.0). We recommend version 9.0.
-* [cuDNN SDK](http://developer.nvidia.com/cudnn) (>= 6.0). We recommend
-  version 7.1.x.
+Add the CUDA, CUPTI, and cuDNN installation directories to the `%PATH%`
+environmental variable. For example, if the CUDA Toolkit is installed to
+`C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0` and cuDNN to
+`C:\tools\cuda`, update your `%PATH%` to match:
+
+<pre class="devsite-click-to-copy">
+<code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin;%PATH%</code>
+<code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\extras\CUPTI\libx64;%PATH%</code>
+<code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\tools\cuda\bin;%PATH%</code>
+</pre>
