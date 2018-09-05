@@ -59,7 +59,7 @@ across image recognition, object detection, speech,
 * Increase coverage of supported ops in TensorFlow Lite
 * Easier conversion of a trained TensorFlow graph for use on TensorFlow Lite
 * Tools for mobile model optimization
-* Extending support for Edge TPUs, TPU AIY boards
+* Extend support for Edge TPUs, TPU AIY boards
 * Better documentation and tutorials.
 
 #### TensorFlow.js:
@@ -76,15 +76,15 @@ across image recognition, object detection, speech,
 
 ### Performance
 #### Distributed TensorFlow:
-* Expand new distribution strategy API to support Keras on TPUs and multi-node GPU.
-* Demonstrate great out-of-the-box performance and easy deployment.
+* Expand new distribution strategy API to support Keras on TPUs and multi-node GPU
+* Demonstrate great out-of-the-box performance and easy deployment
 
 #### GPU Optimizations:
-* Simplify mixed precision API with public design review.
-* Finalize TensorRT API and move to core.
+* Simplify mixed precision API with public design review
+* Finalize TensorRT API and move to core
 * TensorRT support for SavedModel and TF Serving
 * CUDA 10 integration (plan to skip CUDA 9.2 as it has minimal advantages to CUDA 9.0 when using the same version of cuDNN)
-* Optimizations for DGX-2.
+* Optimizations for DGX-2
 
 
 
@@ -118,7 +118,7 @@ across image recognition, object detection, speech,
 
 ### End-to-end ML systems
 #### TensorFlow Hub:
-* Expand support for TF-Hub modules with TF Eager integration, Keras layers integration, and TensorFlow.js integration, and support for TF-Transform and TF-Data workflows.
+* Expand support for TF-Hub modules with TF Eager integration, Keras layers integration, and TensorFlow.js integration, and support for TF-Transform and TF-Data workflows
 
 
 #### TensorFlow Extended:
