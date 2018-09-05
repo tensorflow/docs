@@ -12,10 +12,11 @@ using the Raspberry Pi's limited RAM and comparatively slow processor, it's
 easier to build TensorFlow on a more powerful host machine running Linux, macOS,
 or Windows.
 
-Note: We already provide well-tested, pre-built TensorFlow packages for Raspbian
-systems.
+Note: We already provide well-tested, pre-built [TensorFlow packages](./pip.md)
+for Raspbian systems.
 
-## Setup
+
+## Setup for host
 
 ### Install Docker
 
@@ -48,10 +49,9 @@ a release branch that is known to work.
 
 ## Build from source
 
-Cross-compile the TensorFlow source code to build a Python
-[wheel package](https://wheel.readthedocs.io/en/stable/){:.external} with ARMv7
-[NEON instructions](https://developer.arm.com/technologies/neon){:.external} that
-work on Raspberry Pi 2 and 3 devices. The build script launches a Docker
+Cross-compile the TensorFlow source code to build a Python *pip* package with
+ARMv7 [NEON instructions](https://developer.arm.com/technologies/neon){:.external}
+that works on Raspberry Pi 2 and 3 devices. The build script launches a Docker
 container for compilation. Choose between Python 3 and Python 2.7 for the target
 package:
 
@@ -81,11 +81,10 @@ tensorflow/tools/ci_build/ci_build.sh PI \
     tensorflow/tools/ci_build/pi/build_raspberry_pi.sh PI_ONE
 </pre>
 
-When the build finishes (~30 minutes), a `.whl` file is created in the
+When the build finishes (~30 minutes), a `.whl` package file is created in the
 output-artifacts directory of the host's source tree.
 
-To install the package, copy the wheel file to the Raspberry Pi and use `pip`
-(or `pip3`):
+Copy the wheel file to the Raspberry Pi and install with `pip`:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 pip install tensorflow-<var>version</var>-cp34-none-linux_armv7l.whl

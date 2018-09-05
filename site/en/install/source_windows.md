@@ -2,23 +2,21 @@
 
 Build a TensorFlow *pip* package from source and install it on Windows.
 
-Note: We already provide well-tested, pre-built TensorFlow packages for Windows
-systems.
+Note: We already provide well-tested, pre-built [TensorFlow packages](./pip.md)
+for Windows systems.
 
-## Setup
+## Setup for Windows
 
 Install the following build tools to configure your Windows development
-environment:
+environment.
 
 ### Install Python and the TensorFlow package dependencies
 
 Install a
-[Python 3.5.x or Python 3.6.x 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}
-(select *pip* as an optional feature).
+[Python 3.5.x or Python 3.6.x 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}.
+Select *pip* as an optional feature and add it to your `%PATH%` environmental variable.
 
-The TensorFlow *pip* package dependencies are listed in the
-<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a> file.
-Add `pip3` to your `%PATH%` and install:
+Install the TensorFlow *pip* package dependencies:
 
 <pre class="devsite-click-to-copy">
 <code class="devsite-terminal tfo-terminal-windows">pip3 install six numpy wheel</code>
@@ -26,12 +24,16 @@ Add `pip3` to your `%PATH%` and install:
 <code class="devsite-terminal tfo-terminal-windows">pip3 install keras_preprocessing==1.0.3 --no-deps</code>
 </pre>
 
+The dependencies are listed in the
+<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
+file under `REQUIRED_PACKAGES`.
+
 ### Install Bazel
 
 [Install Bazel](https://docs.bazel.build/versions/master/install-windows.html){:.external},
 the build tool used to compile TensorFlow.
 
-Add the Bazel installation directory to your `%PATH%` environment variable.
+Add the location of the Bazel executable to your `%PATH%` environment variable.
 
 ### Install MSYS2
 
@@ -59,22 +61,9 @@ possible a more recent version of the Visual C++ build tools works.
 
 ### Install GPU support (optional)
 
-[Install GPU support](./gpu.md) for Windows to build a TensorFlow package that
-runs on GPUs.
+See the Windows [GPU support](./gpu.md) guide to install the drivers and additional
+software required to run TensorFlow on a GPU.
 
-Additionally, install [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} which ships
-with the CUDA® Toolkit.
-
-Add the CUDA and CUPTI installation directories to the `%PATH%` environment
-variable. If the CUDA Toolkit is installed to
-`C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0` and cuDNN to
-`C:\tools\cuda`, run the following to update `%PATH%`:
-
-<pre class="devsite-click-to-copy">
-<code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin;%PATH%</code>
-<code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\extras\CUPTI\libx64;%PATH%</code>
-<code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\tools\cuda\bin;%PATH%</code>
-</pre>
 
 ### Download the TensorFlow source code
 
@@ -99,19 +88,18 @@ Key Point: If you're having build problems on the latest development branch, try
 a release branch that is known to work.
 
 
-## Configure the installation
+## Configure the build
 
-At the root of the TensorFlow source repository, run the
-<a href="https://github.com/tensorflow/tensorflow/blob/master/configure.py" class="external"><code>configure.py</code></a>
-script. This script prompts you for paths to TensorFlow dependencies and to
-specify additional build configuration options like compiler flags. Run
-`configure.py` *before* building the TensorFlow package.
+Configure your system build by running the following at the root of your
+TensorFlow source tree:
 
-For GPU support, specify the versions of CUDA and cuDNN. If your system has
-multiple versions of CUDA or cuDNN installed, explicitly set the version instead
-of relying on the default.
+<pre class="devsite-terminal devsite-click-to-copy">
+python ./configure.py
+</pre>
 
-The following shows a sample run of `configure.py` script; your input may differ:
+This script prompts you for the location of TensorFlow dependencies and asks for
+additional build configuration options (compiler flags, for example). The
+following shows a sample run of `python ./configure.py` (your session may differ):
 
 <section class="expandable">
 <h4 class="showalways">View sample configuration session</h4>
@@ -150,26 +138,44 @@ Configuration finished
 </pre>
 </section>
 
+### Configuration options
+
+For [GPU support](./gpu.md), specify the versions of CUDA and cuDNN. If your
+system has multiple versions of CUDA or cuDNN installed, explicitly set the
+version instead of relying on the default. `./configure.py` creates symbolic links
+to your system's CUDA libraries—so if you update your CUDA library paths, this
+configuration step must be run again before building.
+
+Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
+run on older CPUs.
+
 
 ## Build the pip package
 
-### CPU-only
+### Bazel build
 
-Use `bazel` to build the TensorFlow `pip` package with CPU-only support:
+#### CPU-only
+
+Use `bazel` to make the TensorFlow package builder with CPU-only support:
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-### GPU support
+#### GPU support
 
-To build a pip package for TensorFlow with GPU support:
+To make the TensorFlow package builder with GPU support:
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-Note: If building with GPU support, add `--copt=-nvcc_options=disable-warnings`
+#### Bazel build options
+
+Building TensorFlow from source can use a lot of RAM. If your system is
+memory-constrained, limit Bazel's RAM usage with: `--local_resources 2048,.5,1.0`.
+
+If building with GPU support, add `--copt=-nvcc_options=disable-warnings`
 to suppress nvcc warning messages.
 
 ### Build the package
@@ -181,6 +187,10 @@ is the program that builds the `pip` package. For example, the following builds 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg
 </pre>
+
+Although it is possible to build both CUDA and non-CUDA configs under the
+same source tree, we recommend running `bazel clean` when switching between
+these two configurations in the same source tree.
 
 ### Install the package
 

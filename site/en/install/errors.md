@@ -1,15 +1,17 @@
-# Build and installation problems
+# Build and install error messages
 
-We are relying on Stack Overflow to document TensorFlow installation problems
-and their remedies. The following table contains links to Stack Overflow answers
-for some common installation problems. If you encounter an error message or
-other installation problem not listed in the following table, search for it on
-Stack Overflow. If Stack Overflow doesn't show the error message, ask a new
-question about it on Stack Overflow and specify the `tensorflow` tag.
+We use [GitHub issues](https://github.com/tensorflow/tensorflow/issues){:.external}
+and [Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow){:.external}
+to track and document TensorFlow build and installation problems.
+
+The following list contains error messages with links to answers or discussion.
+If you find a installation or build problem that is not listed here, please
+search the GitHub issues and Stack Overflow. If you still don't see the error
+message, ask a new question on Stack Overflow with the `tensorflow` tag.
 
 <table>
 
-<tr> <th>Link to GitHub or Stack&nbsp;Overflow</th> <th>Error Message</th> </tr>
+<tr> <th>GitHub issue or Stack&nbsp;Overflow</th> <th>Error Message</th> </tr>
 
 <tr>
   <td><a href="https://stackoverflow.com/q/36159194">36159194</a></td>

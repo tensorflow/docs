@@ -1,88 +1,50 @@
 # Install TensorFlow for Go
 
-TensorFlow provides APIs for use in Go programs. These APIs are particularly
-well-suited to loading models created in Python and executing them within
-a Go application. This guide explains how to install and set up the
-[TensorFlow Go package](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go).
+TensorFlow provides a
+[Go API](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go){:.external}—
+particularly useful for loading models created with Python and running them
+within a Go application.
 
-Warning: The TensorFlow Go API is *not* covered by the TensorFlow
-[API stability guarantees](../guide/version_compat.md).
+Caution: The TensorFlow Go API is *not* covered by the TensorFlow
+[API stability guarantees](../guide/version_semantics.md).
 
 
 ## Supported Platforms
 
-This guide explains how to install TensorFlow for Go.  Although these
-instructions might also work on other variants, we have only tested
-(and we only support) these instructions on machines meeting the
-following requirements:
+TensorFlow for Go is supported on the following systems:
 
-  * Linux, 64-bit, x86
-  * macOS X, 10.12.6 (Sierra) or higher
+* Linux, 64-bit, x86
+* macOS X, Version 10.12.6 (Sierra) or higher
 
 
-## Installation
+## Setup
 
-TensorFlow for Go depends on the TensorFlow C library. Take the following
-steps to install this library and enable TensorFlow for Go:
+### TensorFlow C library
 
-  1. Decide whether you will run TensorFlow for Go on CPU(s) only or with
-     the help of GPU(s). To help you decide, read the section entitled
-     "Determine which TensorFlow to install" in one of the following guides:
+Install the [TensorFlow C library](./lang_c.md) which is required for the
+TensorFlow Go package.
 
-     * [Installing TensorFlow on Linux](../install/install_linux.md#determine_which_tensorflow_to_install)
-     * [Installing TensorFlow on macOS](../install/install_mac.md#determine_which_tensorflow_to_install)
+### Download
 
-  2. Download and extract the TensorFlow C library into `/usr/local/lib` by
-     invoking the following shell commands:
+Download and install the TensorFlow Go package and its dependencies:
 
-         TF_TYPE="cpu" # Change to "gpu" for GPU support
-         TARGET_DIRECTORY='/usr/local'
-         curl -L \
-           "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-${TF_TYPE}-$(go env GOOS)-x86_64-1.10.1.tar.gz" |
-         sudo tar -C $TARGET_DIRECTORY -xz
+<pre class="devsite-terminal devsite-click-to-copy">
+go get github.com/tensorflow/tensorflow/tensorflow/go
+</pre>
 
-     The `tar` command extracts the TensorFlow C library into the `lib`
-     subdirectory of `TARGET_DIRECTORY`. For example, specifying `/usr/local`
-     as `TARGET_DIRECTORY` causes `tar` to extract the TensorFlow C library
-     into `/usr/local/lib`.
+And validate your installation:
 
-     If you'd prefer to extract the library into a different directory,
-     adjust `TARGET_DIRECTORY` accordingly.
-
-  3. In Step 2, if you specified a system directory (for example, `/usr/local`)
-     as the `TARGET_DIRECTORY`, then run `ldconfig` to configure the linker.
-     For example:
-
-     <pre><b>sudo ldconfig</b></pre>
-
-     If you assigned a `TARGET_DIRECTORY` other than a system
-     directory (for example, `~/mydir`), then you must append the extraction
-     directory (for example, `~/mydir/lib`) to two environment variables
-     as follows:
-
-     <pre> <b>export LIBRARY_PATH=$LIBRARY_PATH:~/mydir/lib</b> # For both Linux and macOS X
-     <b>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mydir/lib</b> # For Linux only
-     <b>export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:~/mydir/lib</b> # For macOS X only</pre>
-
-  4. Now that the TensorFlow C library is installed, invoke `go get` as follows
-     to download the appropriate packages and their dependencies:
-
-     <pre><b>go get github.com/tensorflow/tensorflow/tensorflow/go</b></pre>
-
-  5. Invoke `go test` as follows to validate the TensorFlow for Go
-     installation:
-
-     <pre><b>go test github.com/tensorflow/tensorflow/tensorflow/go</b></pre>
-
-If `go get` or `go test` generate error messages, search (or post to)
-[StackOverflow](http://www.stackoverflow.com/questions/tagged/tensorflow)
-for possible solutions.
+<pre class="devsite-terminal devsite-click-to-copy">
+go test github.com/tensorflow/tensorflow/tensorflow/go
+</pre>
 
 
-## Hello World
+## Build
 
-After installing TensorFlow for Go, enter the following code into a
-file named `hello_tf.go`:
+### Example program
+
+With the TensorFlow Go package installed, create an example program with the
+following source code (`hello_tf.go`):
 
 ```go
 package main
@@ -115,28 +77,28 @@ func main() {
 }
 ```
 
-For a more advanced example of TensorFlow in Go, look at the
-[example in the API documentation](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go#ex-package),
-which uses a pre-trained TensorFlow model to label contents of an image.
+### Run
 
+Run the example program:
 
-### Running
+<pre class="devsite-terminal devsite-click-to-copy">
+go run hello_tf.go
+</pre>
 
-Run `hello_tf.go` by invoking the following command:
+The command outputs: <code>Hello from TensorFlow version <em>number</em></code>
 
-<pre><b>go run hello_tf.go</b>
-Hello from TensorFlow version <i>number</i></pre>
+Success: The TensorFlow for Go is configured.
 
-The program might also generate multiple warning messages of the
-following form, which you can ignore:
+The program may generate the following warning messages, which you can ignore:
 
-<pre>W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library
+<pre>
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library
 wasn't compiled to use *Type* instructions, but these are available on your
-machine and could speed up CPU computations.</pre>
+machine and could speed up CPU computations.
+</pre>
 
+## Build from source
 
-## Building from source code
-
-TensorFlow is open-source. You may build TensorFlow for Go from the
-TensorFlow source code by following the instructions in a
-[separate document](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/go/README.md).
+TensorFlow is open source. Read
+[the instructions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/go/README.md){:.external}
+to build TensorFlow for Go from source code.

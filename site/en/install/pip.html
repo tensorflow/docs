@@ -1,6 +1,6 @@
 <html devsite>
   <head>
-    <title>Install with pip</title>
+    <title>Install TensorFlow with pip</title>
     <meta name="project_path" value="/_project.yaml" />
     <meta name="book_path" value="/_book.yaml" />
     <link rel="stylesheet" href="/site-assets/css/style.css">
@@ -8,9 +8,9 @@
   <body>
 
 <p>
-  This guide explains how to install the TensorFlow pip package. While these
-  instructions may work on other operating systems, they are tested and
-  supported with the following 64-bit laptop/desktop systems:
+	Install TensorFlow with Python's
+	<a href="https://packaging.python.org/tutorials/installing-packages/" class="external"><em>pip</em> package manager</a>.
+  TensorFlow is supported and tested on the following 64-bit systems:
 </p>
 <ul>
   <li>Ubuntu 16.04 or later</li>
@@ -19,21 +19,20 @@
   <li>Raspbian 9.0 or later</li>
 </ul>
 
-The following TensorFlow packages are available <a href="https://pypi.org/project/tensorflow/">from PyPi</a>:
+<h3>Available packages</h3>
+
+<p>
+	Choose one of the following TensorFlow packages to install:
+</p>
 
 <ul>
   <li>
-		<code>tensorflow</code> —Current release for CPU only. If your system does
-		not have a NVIDIA® GPU, you must install this version. This version of
-		TensorFlow is usually easier to install, so even if you have an NVIDIA GPU,
-		we recommend installing this version first.
+		<code>tensorflow</code> —Current release for CPU only.<br/>
+		<em>We recommend this package for beginners, even if you have access to a supported GPU.</em>
 	</li>
   <li>
-		<code>tensorflow-gpu</code> —Current release with GPU support. TensorFlow
-		programs usually run much faster on a GPU instead of a CPU. If you run
-		performance-critical applications and your system has an NVIDIA® GPU that
-		meets the prerequisites, you should install this version. See the
-		<a href="./gpu.md">TensorFlow GPU support guide</a>.
+		<code>tensorflow-gpu</code> —Current release with GPU support.<br/>
+		<em>TensorFlow programs usually run much faster on a GPU. See the <a href="./gpu.md">TensorFlow GPU guide</a>.</em>
 	</li>
   <li><code>tf-nightly</code> —Nightly build for CPU <em>(unstable)</em></li>
   <li><code>tf-nightly-gpu</code> —Nightly build with GPU support <em>(unstable)</em></li>
@@ -49,7 +48,7 @@ The following TensorFlow packages are available <a href="https://pypi.org/projec
 </form>
 
 <p>
-  Check if the system is already configured:
+  Check if your Python environment is already configured:
 </p>
 
 {% dynamic if request.query_string.lang == "python2" %}
@@ -78,8 +77,8 @@ The following TensorFlow packages are available <a href="https://pypi.org/projec
 <section>
 <h3>Ubuntu</h3>
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">sudo apt-get install python-dev python-pip python-virtualenv</code>
-<code class="devsite-terminal">sudo pip install --upgrade pip virtualenv  # use latest</code>
+<code class="devsite-terminal">sudo apt-get install python-dev python-pip</code>
+<code class="devsite-terminal">pip install --user --upgrade virtualenv  # install virtualenv in $HOME</code>
 </pre>
 </section>
 
@@ -89,23 +88,24 @@ The following TensorFlow packages are available <a href="https://pypi.org/projec
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
 <code class="devsite-terminal">export PATH="/usr/local/bin:/usr/local/sbin:$PATH"</code>
-<code class="devsite-terminal">brew install python@2</code>
-<code class="devsite-terminal">pip install --user --upgrade pip virtualenv  # use latest</code>
+<code class="devsite-terminal">brew install python@2  # Python 2</code>
+<code class="devsite-terminal">pip install --user --upgrade virtualenv  # install virtualenv in $HOME</code>
 </pre>
 </section>
 
 <section>
 <h3>Windows</h3>
 <p>Install a <a href="https://www.python.org/downloads/windows/" class="external">Python 2 release for Windows</a> (select <code>pip</code> as an optional feature).</p>
-<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">pip install --user --upgrade pip virtualenv</pre>
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">pip install --upgrade pip virtualenv</pre>
 </section>
 
 <section>
 <h3>Raspberry Pi</h3>
 <p>Requirements for the <a href="https://www.raspberrypi.org/downloads/raspbian/" class="external">Raspbian</a> operating system:</p>
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">sudo apt-get install python-pip</code>
-<code class="devsite-terminal">sudo apt install libatlas-base-dev  # required for numpy</code>
+<code class="devsite-terminal">sudo apt install python-dev python-pip</code>
+<code class="devsite-terminal">sudo apt install libatlas-base-dev       # required for numpy</code>
+<code class="devsite-terminal">pip install --user --upgrade virtualenv  # install virtualenv in $HOME</code>
 </pre>
 </section>
 
@@ -114,7 +114,7 @@ The following TensorFlow packages are available <a href="https://pypi.org/projec
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code>
 <code class="devsite-terminal">python get-pip.py</code>
-<code class="devsite-terminal">pip install --user --upgrade pip virtualenv</code>
+<code class="devsite-terminal">pip install --user --upgrade virtualenv  # install virtualenv in $HOME</code>
 </pre>
 </section>
 </div><!--/ds-selector-tabs-->
@@ -125,8 +125,8 @@ The following TensorFlow packages are available <a href="https://pypi.org/projec
 <section>
 <h3>Ubuntu</h3><!--python3-->
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">sudo apt-get install python3-dev python3-pip python-virtualenv</code>
-<code class="devsite-terminal">sudo pip3 install --upgrade pip virtualenv  # use latest</code>
+<code class="devsite-terminal">sudo apt install python3-dev python3-pip</code>
+<code class="devsite-terminal">pip3 install --user --upgrade virtualenv  # install virtualenv in $HOME</code>
 </pre>  
 </section>
 
@@ -136,23 +136,24 @@ The following TensorFlow packages are available <a href="https://pypi.org/projec
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
 <code class="devsite-terminal">export PATH="/usr/local/bin:/usr/local/sbin:$PATH"</code>
-<code class="devsite-terminal">brew install python</code>
-<code class="devsite-terminal">pip install --user --upgrade pip virtualenv  # use latest</code>
+<code class="devsite-terminal">brew install python  # Python 3</code>
+<code class="devsite-terminal">pip3 install --user --upgrade virtualenv  # install virtualenv in $HOME</code>
 </pre>
 </section>
 
 <section>
 <h3>Windows</h3><!--python3-->
 <p>Install a <a href="https://www.python.org/downloads/windows/" class="external">Python 3 release for Windows</a> (select <code>pip</code> as an optional feature).</p>
-<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">pip3 install --user --upgrade pip virtualenv</pre>
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">pip3 install --upgrade pip virtualenv</pre>
 </section>
 
 <section>
 <h3>Raspberry Pi</h3>
 <p>Requirements for the <a href="https://www.raspberrypi.org/downloads/raspbian/" class="external">Raspbian</a> operating system:</p>
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">sudo apt-get install python-pip</code>
-<code class="devsite-terminal">sudo apt install libatlas-base-dev  # required for numpy</code>
+<code class="devsite-terminal">sudo apt install python3-dev python3-pip</code>
+<code class="devsite-terminal">sudo apt install libatlas-base-dev        # required for numpy</code>
+<code class="devsite-terminal">pip3 install --user --upgrade virtualenv  # install virtualenv in $HOME</code>
 </pre>
 </section>
 
@@ -161,7 +162,7 @@ The following TensorFlow packages are available <a href="https://pypi.org/projec
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code>
 <code class="devsite-terminal">python get-pip.py</code>
-<code class="devsite-terminal">pip3 install --user --upgrade pip virtualenv</code>
+<code class="devsite-terminal">pip3 install --user --upgrade virtualenv  # install virtualenv in $HOME</code>
 </pre>
 </section>
 </div><!--/ds-selector-tabs-->
@@ -206,14 +207,14 @@ The following TensorFlow packages are available <a href="https://pypi.org/projec
 </div><!--/ds-selector-tabs-->
 
 <p>
-  When the Virtualenv is activated, the shell prompt displays as
+  When the virtualenv is activated, the shell prompt displays as
   <code>(venv) $</code>.
 </p>
 
 <p>
-  Packages can be installed within a virtual environment without affecting
-  packages outside the virtual environment. Upgrade to the latest
-  <code>pip</code> package within the active virtual environment:
+	Install packages within a virtual environment without affecting the host system
+	setup. Upgrade to the latest <code>pip</code> package within the active virtual
+	environment:
 </p>
 
 <pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">pip install --upgrade pip</pre>
@@ -226,19 +227,21 @@ The following TensorFlow packages are available <a href="https://pypi.org/projec
 
 <h2>3. Install the TensorFlow pip package</h2>
 
-<p>Choose one of the available TensorFlow packages to for installation:</p>
+<p>
+	Choose one of the following TensorFlow packages to install <a href="https://pypi.org/project/tensorflow/" class="external">from PyPI</a>:
+</p>
 
 <ul>
   <li><code>tensorflow</code> —Current release for CPU only.</li>
-  <li><code>tensorflow-gpu</code> —Current release with <a href="./gpu">GPU support</a>.</li>
+  <li><code>tensorflow-gpu</code> —Current release with <a href="./gpu.md">GPU support</a>.</li>
   <li><code>tf-nightly</code> —Nightly build for CPU <em>(unstable)</em>.</li>
-  <li><code>tf-nightly-gpu</code> —Nightly build with <a href="./gpu">GPU support</a> <em>(unstable)</em>.</li>
+  <li><code>tf-nightly-gpu</code> —Nightly build with <a href="./gpu.md">GPU support</a> <em>(unstable)</em>.</li>
 </ul>
 
 <aside class="note">
-	TensorFlow's package dependencies are listed in the <code>pip</code>
+	Package dependencies are automatically installed. They're listed in the
 	<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
-	file.
+	file under <code>REQUIRED_PACKAGES</code>.
 </aside>
 
 <div class="ds-selector-tabs">
@@ -251,9 +254,15 @@ The following TensorFlow packages are available <a href="https://pypi.org/projec
 
 <section>
 <h3>System install</h3>
-<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">pip install --user --upgrade tensorflow</pre>
+{% dynamic if request.query_string.lang == "python2" %}
+<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">pip install --user --upgrade tensorflow  # install in $HOME</pre>
 <p>Verify the install:</p>
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf; print(tf.__version__)"</pre>
+{% dynamic else %}<!--python3-->
+<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">pip3 install --user --upgrade tensorflow  # install in $HOME</pre>
+<p>Verify the install:</p>
+<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python3 -c "import tensorflow as tf; print(tf.__version__)"</pre>
+{% dynamic endif %}
 </section>
 </div><!--/ds-selector-tabs-->
 
