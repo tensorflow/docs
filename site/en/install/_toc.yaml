@@ -6,8 +6,13 @@ toc:
   path: /install/pip
 - title: Docker
   path: /install/docker
-- title: Notebooks
-  path: /install/notebooks
+- title: Anaconda (community)
+  path: /install/conda
+- heading: Additional setup
+- title: GPU support
+  path: /install/gpu
+- title: Error messages
+  path: /install/errors
 - heading: Build from source
 - title: Linux / macOS
   path: /install/source
@@ -15,26 +20,18 @@ toc:
   path: /install/source_windows
 - title: Raspberry Pi
   path: /install/source_rpi
-- heading: Implementations
-- title: TensorFlow.js
-  path: https://js.tensorflow.org
-- title: TensorFlow Lite
-  path: /mobile/tflite
-- title: Swift for TensorFlow
-  path: https://github.com/tensorflow/swift
-  status: external
+- heading: Languages
 - title: Java
   path: /install/lang_java
 - title: C
   path: /install/lang_c
 - title: Go
   path: /install/lang_go
-- heading: Misc
-- title: GPU support
-  path: /install/gpu
-- title: Anaconda (community)
-  path: /install/anaconda
-- title: Minimum requirements
-  path: /install/requirements
-- title: Problems
-  path: /install/problems
+- title: TensorFlow Lite
+  path: /mobile
+- title: TensorFlow.js
+  path: https://js.tensorflow.org
+  status: external
+- title: Swift for TensorFlow
+  path: https://github.com/tensorflow/swift
+  status: external

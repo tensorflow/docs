@@ -1,36 +1,32 @@
 # Install TensorFlow for Java
 
-TensorFlow provides APIs for use in Java programs. These APIs are particularly
-well-suited to loading models created in Python and executing them within a
-Java application. This guide explains how to install
-[TensorFlow for Java](https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary)
-and use it in a Java application.
+TensorFlow provides a
+[Java API](https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary)—
+particularly useful for loading models created with Python and running them
+within a Java application.
 
-Warning: The TensorFlow Java API is *not* covered by the TensorFlow
+Caution: The TensorFlow Java API is *not* covered by the TensorFlow
 [API stability guarantees](../guide/version_semantics.md).
 
 
 ## Supported Platforms
 
-This guide explains how to install TensorFlow for Java.  Although these
-instructions might also work on other variants, we have only tested
-(and we only support) these instructions on machines meeting the
-following requirements:
+TensorFlow for Java is supported on the following systems:
 
-  * Ubuntu 16.04 or higher; 64-bit, x86
-  * macOS 10.12.6 (Sierra) or higher
-  * Windows 7 or higher; 64-bit, x86
+* Ubuntu 16.04 or higher; 64-bit, x86
+* macOS 10.12.6 (Sierra) or higher
+* Windows 7 or higher; 64-bit, x86
 
-The installation instructions for Android are in a separate
-[Android TensorFlow Support page](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/contrib/android).
-After installation, please see this
-[complete example](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/examples/android)
-of TensorFlow on Android.
+To install TensorFlow on Android, see
+[Android TensorFlow support](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/android){:.external}
+and the
+[TensorFlow Android Camera Demo](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android){:.external}.
 
-## Using TensorFlow with a Maven project
 
-If your project uses [Apache Maven](https://maven.apache.org), then add the
-following to the project's `pom.xml` to use the TensorFlow Java APIs:
+## TensorFlow with Apache Maven
+
+To use TensorFlow with [Apache Maven](https://maven.apache.org){:.external},
+add the dependency to the project's `pom.xml` file:
 
 ```xml
 <dependency>
@@ -40,85 +36,10 @@ following to the project's `pom.xml` to use the TensorFlow Java APIs:
 </dependency>
 ```
 
-That's all.
-
-### Example
-
-As an example, these steps will create a Maven project that uses TensorFlow:
-
-  1. Create the project's `pom.xml`:
-
-
-         <project>
-             <modelVersion>4.0.0</modelVersion>
-             <groupId>org.myorg</groupId>
-             <artifactId>hellotf</artifactId>
-             <version>1.0-SNAPSHOT</version>
-             <properties>
-               <exec.mainClass>HelloTF</exec.mainClass>
-               <!-- The sample code requires at least JDK 1.7. -->
-               <!-- The maven compiler plugin defaults to a lower version -->
-               <maven.compiler.source>1.7</maven.compiler.source>
-               <maven.compiler.target>1.7</maven.compiler.target>
-             </properties>
-             <dependencies>
-               <dependency>
-                 <groupId>org.tensorflow</groupId>
-                 <artifactId>tensorflow</artifactId>
-                 <version>1.10.1</version>
-               </dependency>
-             </dependencies>
-         </project>
-
-
-  2. Create the source file (`src/main/java/HelloTF.java`):
-
-
-        import org.tensorflow.Graph;
-        import org.tensorflow.Session;
-        import org.tensorflow.Tensor;
-        import org.tensorflow.TensorFlow;
-
-        public class HelloTF {
-          public static void main(String[] args) throws Exception {
-            try (Graph g = new Graph()) {
-              final String value = "Hello from " + TensorFlow.version();
-
-              // Construct the computation graph with a single operation, a constant
-              // named "MyConst" with a value "value".
-              try (Tensor t = Tensor.create(value.getBytes("UTF-8"))) {
-                // The Java API doesn't yet include convenience functions for adding operations.
-                g.opBuilder("Const", "MyConst").setAttr("dtype", t.dataType()).setAttr("value", t).build();
-              }
-
-              // Execute the "MyConst" operation in a Session.
-              try (Session s = new Session(g);
-                   // Generally, there may be multiple output tensors, all of them must be closed to prevent resource leaks.
-                   Tensor output = s.runner().fetch("MyConst").run().get(0)) {
-                System.out.println(new String(output.bytesValue(), "UTF-8"));
-              }
-            }
-          }
-        }
-
-
-  3. Compile and execute:
-
-     <pre> # Use -q to hide logging from the mvn tool
-     <b>mvn -q compile exec:java</b></pre>
-
-
-The preceding command should output <tt>Hello from <i>version</i></tt>. If it
-does, you've successfully set up TensorFlow for Java and are ready to use it in
-Maven projects. If not, check
-[Stack Overflow](http://stackoverflow.com/questions/tagged/tensorflow)
-for possible solutions.  You can skip reading the rest of this document.
-
 ### GPU support
 
-If your Linux system has an NVIDIA® GPU and your TensorFlow Java program
-requires GPU acceleration, then add the following to the project's `pom.xml`
-instead:
+If your system has [GPU support](./gpu.md), add the following TensorFlow
+dependencies to the project's `pom.xml` file:
 
 ```xml
 <dependency>
@@ -133,60 +54,35 @@ instead:
 </dependency>
 ```
 
-GPU acceleration is available via Maven only for Linux and only if your system
-meets the
-[requirements for GPU](../install/install_linux.md#determine_which_tensorflow_to_install).
+### Example program
 
-## Using TensorFlow with JDK
+This example shows how to build an Apache Maven project with TensorFlow. First,
+add the TensorFlow dependency to the project's `pom.xml` file:
 
-This section describes how to use TensorFlow using the `java` and `javac`
-commands from a JDK installation. If your project uses Apache Maven, then
-refer to the simpler instructions above instead.
+```xml
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.myorg</groupId>
+  <artifactId>hellotensorflow</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <properties>
+    <exec.mainClass>HelloTensorFlow</exec.mainClass>
+	<!-- The sample code requires at least JDK 1.7. -->
+	<!-- The maven compiler plugin defaults to a lower version -->
+	<maven.compiler.source>1.7</maven.compiler.source>
+	<maven.compiler.target>1.7</maven.compiler.target>
+  </properties>
+  <dependencies>
+    <dependency>
+	  <groupId>org.tensorflow</groupId>
+	  <artifactId>tensorflow</artifactId>
+	  <version>1.10.1</version>
+	</dependency>
+  </dependencies>
+</project>
+```
 
-### Install on Linux or macOS
-
-Take the following steps to install TensorFlow for Java on Linux or macOS:
-
-  1. Download
-     [libtensorflow.jar](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-1.10.1.jar),
-     which is the TensorFlow Java Archive (JAR).
-
-  2. Decide whether you will run TensorFlow for Java on CPU(s) only or with
-     the help of GPU(s). To help you decide, read the section entitled
-     "Determine which TensorFlow to install" in one of the following guides:
-
-     * [Installing TensorFlow on Linux](../install/install_linux.md#determine_which_tensorflow_to_install)
-     * [Installing TensorFlow on macOS](../install/install_mac.md#determine_which_tensorflow_to_install)
-
-  3. Download and extract the appropriate Java Native Interface (JNI)
-     file for your operating system and processor support by running the
-     following shell commands:
-
-
-         TF_TYPE="cpu" # Default processor is CPU. If you want GPU, set to "gpu"
-         OS=$(uname -s | tr '[:upper:]' '[:lower:]')
-         mkdir -p ./jni
-         curl -L \
-           "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-${TF_TYPE}-${OS}-x86_64-1.10.1.tar.gz" |
-           tar -xz -C ./jni
-
-### Install on Windows
-
-Take the following steps to install TensorFlow for Java on Windows:
-
-  1. Download
-     [libtensorflow.jar](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-1.10.1.jar),
-     which is the TensorFlow Java Archive (JAR).
-  2. Download the following Java Native Interface (JNI) file appropriate for
-     [TensorFlow for Java on Windows](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-1.10.1.zip).
-  3. Extract this .zip file.
-
-__Note__: The native library (`tensorflow_jni.dll`) requires `msvcp140.dll` at runtime, which is included in the [Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145) package. 
-
-### Validate the installation
-
-After installing TensorFlow for Java, validate your installation by entering
-the following code into a file named `HelloTF.java`:
+Create the source file (`src/main/java/HelloTensorFlow.java`):
 
 ```java
 import org.tensorflow.Graph;
@@ -194,75 +90,116 @@ import org.tensorflow.Session;
 import org.tensorflow.Tensor;
 import org.tensorflow.TensorFlow;
 
-public class HelloTF {
+public class HelloTensorFlow {
   public static void main(String[] args) throws Exception {
-    try (Graph g = new Graph()) {
-      final String value = "Hello from " + TensorFlow.version();
+	try (Graph g = new Graph()) {
+	  final String value = "Hello from " + TensorFlow.version();
 
-      // Construct the computation graph with a single operation, a constant
-      // named "MyConst" with a value "value".
-      try (Tensor t = Tensor.create(value.getBytes("UTF-8"))) {
-        // The Java API doesn't yet include convenience functions for adding operations.
-        g.opBuilder("Const", "MyConst").setAttr("dtype", t.dataType()).setAttr("value", t).build();
-      }
+	  // Construct the computation graph with a single operation, a constant
+	  // named "MyConst" with a value "value".
+	  try (Tensor t = Tensor.create(value.getBytes("UTF-8"))) {
+	    // The Java API doesn't yet include convenience functions for adding operations.
+		g.opBuilder("Const", "MyConst").setAttr("dtype", t.dataType()).setAttr("value", t).build();
+	  }
 
-      // Execute the "MyConst" operation in a Session.
-      try (Session s = new Session(g);
-           // Generally, there may be multiple output tensors, all of them must be closed to prevent resource leaks.
-           Tensor output = s.runner().fetch("MyConst").run().get(0)) {
-        System.out.println(new String(output.bytesValue(), "UTF-8"));
-      }
+	  // Execute the "MyConst" operation in a Session.
+	  try (Session s = new Session(g);
+	      // Generally, there may be multiple output tensors,
+		  // all of them must be closed to prevent resource leaks.
+		  Tensor output = s.runner().fetch("MyConst").run().get(0)) {
+	    System.out.println(new String(output.bytesValue(), "UTF-8"));
+	  }
     }
   }
 }
 ```
 
-And use the instructions below to compile and run `HelloTF.java`.
+Compile and execute:
+
+<pre class="devsite-terminal prettyprint lang-bsh">
+mvn -q compile exec:java  # Use -q to hide logging
+</pre>
+
+The command outputs: <code>Hello from <em>version</em></code>
+
+Success: TensorFlow for Java is configured.
 
 
-### Compiling
+## TensorFlow with the JDK
 
-When compiling a Java program that uses TensorFlow, the downloaded `.jar`
-must be part of your `classpath`. For example, you can include the
-downloaded `.jar` in your `classpath` by using the `-cp` compilation flag
-as follows:
+TensorFlow can be used with the JDK through the Java Native Interface (JNI).
 
-<pre><b>javac -cp libtensorflow-1.10.1.jar HelloTF.java</b></pre>
+### Download
+
+1. Download the TensorFlow Jar Archive (JAR): [libtensorflow.jar](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-1.10.1.jar)
+2. Download and extract the Java Native Interface (JNI) file for your operating
+system and processor support:
+
+<table>
+  <tr><th>JNI version</th><th>URL</th></tr>
+  <tr class="alt"><td colspan="2">Linux</td></tr>
+  <tr>
+    <td>Linux CPU only</td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-1.10.1.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-1.10.1.tar.gz</a></td>
+  </tr>
+  <tr>
+    <td>Linux GPU support</td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-1.10.1.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-1.10.1.tar.gz</a></td>
+  </tr>
+  <tr class="alt"><td colspan="2">macOS</td></tr>
+  <tr>
+    <td>macOS CPU only</td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-1.10.1.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-1.10.1.tar.gz</a></td>
+  </tr>
+  <tr class="alt"><td colspan="2">Windows</td></tr>
+  <tr>
+    <td>Windows CPU only</td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-1.10.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-1.10.0.zip</a></td>
+  </tr>
+  <tr>
+    <td>Windows GPU support</td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-1.10.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-1.10.0.zip</a></td>
+  </tr>
+</table>
+
+Note: On Windows, the native library (`tensorflow_jni.dll`) requires
+`msvcp140.dll` at runtime. See the [Windows build from source](./source_windows.md)
+guide to install the [Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145){:.external}.
 
 
-### Running
+### Compile
 
-To execute a Java program that depends on TensorFlow, ensure that the following
-two files are available to the JVM:
+Using the `HelloTensorFlow.java` file from the [previous example](#example),
+compile a program that uses TensorFlow. Make sure the `libtensorflow.jar` is
+accessible to your `classpath`:
 
-  * the downloaded `.jar` file
-  * the extracted JNI library
+<pre class="devsite-terminal devsite-click-to-copy">
+javac -cp libtensorflow-1.10.1.jar HelloTensorFlow.java
+</pre>
 
-For example, the following command line executes the `HelloTF` program on Linux
-and macOS X:
+### Run
 
-<pre><b>java -cp libtensorflow-1.10.1.jar:. -Djava.library.path=./jni HelloTF</b></pre>
+To execute a TensorFlow Java program, the JVM must access `libtensorflow.jar` and
+the extracted JNI library.
 
-And the following command line executes the `HelloTF` program on Windows:
+<div class="ds-selector-tabs">
+<section>
+<h3>Linux / mac OS</h3>
+<pre class="devsite-terminal devsite-click-to-copy">java -cp libtensorflow-1.10.1.jar:. -Djava.library.path=./jni HelloTensorFlow</pre>
+</section>
+<section>
+<h3>Windows</h3>
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">java -cp libtensorflow-1.10.1.jar;. -Djava.library.path=jni HelloTensorFlow</pre>
+</section>
+</div><!--/ds-selector-tabs-->
 
-<pre><b>java -cp libtensorflow-1.10.1.jar;. -Djava.library.path=jni HelloTF</b></pre>
+The command outputs: <code>Hello from <em>version</em></code>
 
-If the program prints <tt>Hello from <i>version</i></tt>, you've successfully
-installed TensorFlow for Java and are ready to use the API.  If the program
-outputs something else, check
-[Stack Overflow](http://stackoverflow.com/questions/tagged/tensorflow) for
-possible solutions.
-
-
-### Advanced Example
-
-For a more sophisticated example, see
-[LabelImage.java](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/java/src/main/java/org/tensorflow/examples/LabelImage.java),
-which recognizes objects in an image.
+Success: TensorFlow for Java is configured.
 
 
-## Building from source code
+## Build from source
 
-TensorFlow is open-source. You may build TensorFlow for Java from the
-TensorFlow source code by following the instructions in a
-[separate document](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/README.md).
+TensorFlow is open source. Read
+[the instructions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/README.md){:.external}
+to build TensorFlow's Java and native libraries from source code.

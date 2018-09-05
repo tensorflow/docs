@@ -8,12 +8,11 @@ landing_page:
   - description: >
       <h1 class="hide-from-toc">Install TensorFlow</h1>
       <p>
-        TensorFlow is built, tested, and supported on the following 64-bit
-        operating systems:
+        TensorFlow is tested and supported on the following 64-bit systems:
       </p>
       <ul>
         <li>Ubuntu 16.04 or later</li>
-        <li>macOS 10.12.6 (Sierra) or later</li>
+        <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
         <li>Windows 7 or later</li>
         <li>Raspbian 9.0 or later</li>
       </ul>
