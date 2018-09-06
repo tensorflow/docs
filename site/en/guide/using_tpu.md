@@ -380,16 +380,10 @@ included in the repo demonstrate all of these best-practices.
 
 ## What Next
 
-For details on how to actually set up and run a Cloud TPU see:
-
- * [Google Cloud TPU Documentation](https://cloud.google.com/tpu/docs/)
-
-This document is by no means exhaustive. The best source of more detail on how
-to make a Cloud TPU compatible model are the example models published in:
-
- * The [TPU Demos Repository.](https://github.com/tensorflow/tpu)
-
-For more information about tuning TensorFlow code for performance see:
-
- * The [Performance Section.](../performance/index.md)
-
+* [Google Cloud TPU Documentation](https://cloud.google.com/tpu/docs/) —Set up
+  and run a Google&nbsp;Cloud&nbsp;TPU.
+* [TPU Demos Repository](https://github.com/tensorflow/tpu) —Examples of
+  Cloud&nbsp;TPU compatible models.
+* The [Google Cloud TPU Performance Guide](https://cloud.google.com/tpu/docs/performance-guide)
+  —Enhance Cloud TPU performance further by adjusting Cloud TPU configuration
+  parameters for your application.
