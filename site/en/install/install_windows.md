@@ -5,9 +5,9 @@ instructions might also work on other Windows variants, we have only
 tested (and we only support) these instructions on machines meeting the
 following requirements:
 
-  * 64-bit, x86 desktops or laptops
-  * Windows 7 or later
-
+* 64-bit, x86 desktops or laptops
+* Windows 7 or later
+* Python <=3.6
 
 ## Determine which TensorFlow to install
 
