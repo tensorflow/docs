@@ -2,24 +2,23 @@
 # Quantization aware training
 
 In quantization aware training, we train the model with quantization in the loop
-and ensure that the forward pass matches precision for both training and inference.
-This simulates quantization in the forward pass of a model so weights tend towards values that
-perform better during quantized inference. The backward pass uses quantized
-weights and activations and models quantization as a straight through estimator.
-(See Bengio et al., [2013](https://arxiv.org/abs/1308.3432))
+and ensure that the forward pass matches precision for both training and inference. There are two key aspects to this:
+<ol>
+<li> Operator fusion at inference time needs to be accurately modeled at training time </li>
+<li> Quantization effects at inference are modeled at training time </li>
+</ol>
+
+
+## Quantization aware training with TensorFlow
+For efficient inference, we combine batch normalization with preceding convolutional/fully connected layers prior to quantization by [folding batch norm layers](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/quantize/python/fold_batch_norms.py). 
+
+We model quantization error by inserting [fake quantization](../api_guides/python/array_ops.md#Fake_quantization) nodes simulate the
+effect of quantization in the forward and backward passes. The forward pass models quantization, while the backward pass models quantization as a straight through estimator (See [Bengio et al.,2013](https://arxiv.org/abs/1308.3432)). Both the forward and backward pass simulate the quantization of weights and activations. (See [Benoit et al.,2017](https://arxiv.org/abs/1712.05877), [Krishnamoorthi,2018](https://arxiv.org/abs/1806.08342))
 
 Additionally, the minimum and maximum values for activations are determined
 during training. This allows a model trained with quantization in the loop to be
 converted to a fixed point inference model with little effort, eliminating the
 need for a separate calibration step.
-
-## Quantization training with TensorFlow
-
-TensorFlow can train models with quantization in the loop. Because training
-requires small gradient adjustments, floating point values are still used. To
-keep models as floating point while adding the quantization error in the training
-loop, [fake quantization](../api_guides/python/array_ops.md#Fake_quantization) nodes simulate the
-effect of quantization in the forward and backward passes.
 
 Since it's difficult to add these fake quantization operations to all the
 required locations in the model, there's a function available that rewrites the
@@ -102,7 +101,7 @@ bazel build tensorflow/contrib/lite/toco:toco && \
 ```
 
 See the documentation for `tf.contrib.quantize` and
-[TensorFlow Lite](/mobile/tflite/).
+[TensorFlow Lite](https://www.tensorflow.org/mobile/tflite/).
 
 ## Quantized accuracy
 
@@ -140,9 +139,9 @@ and our results are below:
     <b>Table 1</b>: Top-1 accuracy of floating point and fully quantized CNNs on Imagenet Validation dataset.
   </figcaption>
 </figure>
-Our pre-trained models are available in the TFLite model [repository] (https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models).
-The code used to generate these models
-[is available](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1_train.py).
+Our pre-trained models are available in the TFLite model [repository](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models).
+The code used to generate these models [is available](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1_train.py).
+
 ## Representation for quantized tensors
 
 TensorFlow approaches the conversion of floating-point arrays of numbers into
@@ -182,10 +181,4 @@ The advantages of this representation format are:
 
 Alternative techniques use lower bit depths by non-linearly distributing the
 float values across the representation, but currently are more expensive in terms
-of computation time. (See Han et al.,
-[2016](https://arxiv.org/abs/1510.00149).)
-
-The advantage of having a clear definition of the quantized format is that it's
-always possible to convert back and forth from fixed-point to floating-point for
-operations that aren't quantization-ready, or to inspect the tensors for
-debugging.
+of computation time. (See [Han et al,2016](https://arxiv.org/abs/1510.00149).)
