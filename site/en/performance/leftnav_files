@@ -2,7 +2,10 @@ index.md
 performance_guide.md
 datasets_performance.md
 benchmarks.md
-quantization.md
+
+### Model Optimization
+model_optimization/model_optimization.md
+model_optimization/quantization_training.md
 
 ### XLA
 xla/index.md

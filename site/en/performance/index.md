@@ -16,16 +16,18 @@ and highest throughput for inference.
   * [Benchmarks](../performance/benchmarks.md) contains a collection of
     benchmark results for a variety of hardware configurations.
 
-  * For improving inference efficiency on mobile and
-    embedded hardware, see
-    [How to Quantize Neural Networks with TensorFlow](../performance/quantization.md), which
-    explains how to use quantization to reduce model size, both in storage
-    and at runtime.
-
   * For optimizing inference on GPUs, refer to [NVIDIA TensorRT™
   integration with TensorFlow.](
     https://medium.com/tensorflow/speed-up-tensorflow-inference-on-gpus-with-tensorrt-13b49f3db3fa)
 
+Tensorflow Model Optimization Toolkit is a set of techniques for optimizing models
+for inference:
+
+ * [Model Optimization Overview](../performance/model_optimization/model_optimization.md), which introduces 
+   the model optimization toolkit and post training quantization.
+ * [Quantization Aware Training](../performance/model_optimization/quantization_training.md), which describes tools
+   to enable training of networks to be robust to quantization errors.
+  
 
 XLA (Accelerated Linear Algebra) is an experimental compiler for linear
 algebra that optimizes TensorFlow computations. The following guides explore

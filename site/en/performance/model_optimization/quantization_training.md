@@ -1,71 +1,9 @@
-# Fixed Point Quantization
 
-Quantization techniques store and calculate numbers in more compact formats.
-[TensorFlow Lite](/mobile/tflite/) adds quantization that uses an 8-bit fixed
-point representation.
+# Quantization aware training
 
-Since a challenge for modern neural networks is optimizing for high accuracy, the
-priority has been improving accuracy and speed during training. Using floating
-point arithmetic is an easy way to preserve accuracy and GPUs are designed to
-accelerate these calculations.
-
-However, as more machine learning models are deployed to mobile devices,
-inference efficiency has become a critical issue. Where the computational demand
-for *training* grows with the amount of models trained on different
-architectures, the computational demand for *inference* grows in proportion to
-the amount of users.
-
-## Quantization benefits
-
-
-Using 8-bit calculations help your models run faster and use less power. This is
-especially important for mobile devices and embedded applications that can't run
-floating point code efficiently, for example, Internet of Things (IoT) and
-robotics devices. There are additional opportunities to extend this support to
-more backends and research lower precision networks.
-
-### Smaller file sizes {: .hide-from-toc}
-
-Neural network models require a lot of space on disk. For example, the original
-AlexNet requires over 200 MB for the float format—almost all of that for the
-model's millions of weights. Because the weights are slightly different
-floating point numbers, simple compression formats perform poorly (like zip).
-
-Weights fall in large layers of numerical values. For each layer, weights tend to
-be normally distributed within a range. Quantization can shrink file sizes by
-storing the minimum and maximum weight for each layer, then compress each
-weight's float value to an 8-bit integer representing the closest real number in
-a linear set of 256 within the range.
-
-### Faster inference {: .hide-from-toc}
-
-Since calculations are run entirely on 8-bit inputs and outputs, quantization
-reduces the computational resources needed for inference calculations. This is
-more involved, requiring changes to all floating point calculations, but results
-in a large speed-up for inference time.
-
-### Memory efficiency {: .hide-from-toc}
-
-Since fetching 8-bit values only requires 25% of the memory bandwidth of floats,
-more efficient caches avoid bottlenecks for RAM access. In many cases, the power
-consumption for running a neural network is dominated by memory access. The
-savings from using fixed-point 8-bit weights and activations are significant. 
-
-Typically, SIMD operations are available that run more operations per clock
-cycle. In some cases, a DSP chip is available that accelerates 8-bit calculations
-resulting in a massive speedup.
-
-## Fixed point quantization techniques
-
-The goal is to use the same precision for weights and activations during both
-training and inference. But an important difference is that training consists of
-a forward pass and a backward pass, while inference only uses a forward pass.
-When we train the model with quantization in the loop, we ensure that the forward
-pass matches precision for both training and inference.
-
-To minimize the loss in accuracy for fully fixed point models (weights and
-activations), train the model with quantization in the loop. This simulates
-quantization in the forward pass of a model so weights tend towards values that
+In quantization aware training, we train the model with quantization in the loop
+and ensure that the forward pass matches precision for both training and inference.
+This simulates quantization in the forward pass of a model so weights tend towards values that
 perform better during quantized inference. The backward pass uses quantized
 weights and activations and models quantization as a straight through estimator.
 (See Bengio et al., [2013](https://arxiv.org/abs/1308.3432))
@@ -168,43 +106,43 @@ See the documentation for `tf.contrib.quantize` and
 
 ## Quantized accuracy
 
-Fixed point [MobileNet](https://arxiv.org/abs/1704.0486) models are released with
-8-bit weights and activations. Using the rewriters, these models achieve the
-Top-1 accuracies listed in Table 1. For comparison, the floating point accuracies
-are listed for the same models. The code used to generate these models
-[is available](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.md)
-along with links to all of the pretrained mobilenet_v1 models.
+We trained popular CNN models (Mobilenet-v1,Mobilenet-v2 and Inception-v3) with our tool
+and our results are below:
+
 
 <figure>
   <table>
     <tr>
-      <th>Image Size</th>
-      <th>Depth</th>
+      <th>Model</th>
       <th>Top-1 Accuracy:<br>Floating point</th>
       <th>Top-1 Accuracy:<br>Fixed point: 8 bit weights and activations</th>
     </tr>
-    <tr><td>128</td><td>0.25</td><td>0.415</td><td>0.399</td></tr>
-    <tr><td>128</td><td>0.5</td><td>0.563</td><td>0.549</td></tr>
-    <tr><td>128</td><td>0.75</td><td>0.621</td><td>0.598</td></tr>
-    <tr><td>128</td><td>1</td><td>0.652</td><td>0.64</td></tr>
-    <tr><td>160</td><td>0.25</td><td>0.455</td><td>0.435</td></tr>
-    <tr><td>160</td><td>0.5</td><td>0.591</td><td>0.577</td></tr>
-    <tr><td>160</td><td>0.75</td><td>0.653</td><td>0.639</td></tr>
-    <tr><td>160</td><td>1</td><td>0.68</td><td>0.673</td></tr>
-    <tr><td>192</td><td>0.25</td><td>0.477</td><td>0.458</td></tr>
-    <tr><td>192</td><td>0.5</td><td>0.617</td><td>0.604</td></tr>
-    <tr><td>192</td><td>0.75</td><td>0.672</td><td>0.662</td></tr>
-    <tr><td>192</td><td>1</td><td>0.7</td><td>0.69</td></tr>
-    <tr><td>224</td><td>0.25</td><td>0.498</td><td>0.482</td></tr>
-    <tr><td>224</td><td>0.5</td><td>0.633</td><td>0.622</td></tr>
-    <tr><td>224</td><td>0.75</td><td>0.684</td><td>0.679</td></tr>
-    <tr><td>224</td><td>1</td><td>0.709</td><td>0.697</td></tr>
+    <tr><td>Mobilenet-v1-128-0.25</td><td>0.415</td><td>0.399</td></tr>
+    <tr><td>Mobilenet-v1-128-0.5</td><td>0.563</td><td>0.549</td></tr>
+    <tr><td>Mobilenet-v1-128-0.75</td><td>0.621</td><td>0.598</td></tr>
+    <tr><td>Mobilenet-v1-128-1</td><td>0.652</td><td>0.64</td></tr>
+    <tr><td>Mobilenet-v1-160-0.25</td><td>0.455</td><td>0.435</td></tr>
+    <tr><td>Mobilenet-v1-160-0.5</td><td>0.591</td><td>0.577</td></tr>
+    <tr><td>Mobilenet-v1-160-0.75</td><td>0.653</td><td>0.639</td></tr>
+    <tr><td>Mobilenet-v1-160-1</td><td>0.68</td><td>0.673</td></tr>
+    <tr><td>Mobilenet-v1-192-0.25</td><td>0.477</td><td>0.458</td></tr>
+    <tr><td>Mobilenet-v1-192-0.5</td><td>0.617</td><td>0.604</td></tr>
+    <tr><td>Mobilenet-v1-192-0.75</td><td>0.672</td><td>0.662</td></tr>
+    <tr><td>Mobilenet-v1-192-1</td><td>0.7</td><td>0.69</td></tr>
+    <tr><td>Mobilenet-v1-224-0.25</td><td>0.498</td><td>0.482</td></tr>
+    <tr><td>Mobilenet-v1-224-0.5</td><td>0.633</td><td>0.622</td></tr>
+    <tr><td>Mobilenet-v1-224-0.75</td><td>0.684</td><td>0.679</td></tr>
+    <tr><td>Mobilenet-v1-224-1</td><td>0.709</td><td>0.697</td></tr>
+    <tr><td>Mobilenet-v2-224-1</td><td>0.718</td><td>0.708</td></tr>
+   <tr><td>Inception_v3</td><td>0.78</td><td>0.775</td></tr>
   </table>
   <figcaption>
-    <b>Table 1</b>: MobileNet Top-1 accuracy on Imagenet Validation dataset.
+    <b>Table 1</b>: Top-1 accuracy of floating point and fully quantized CNNs on Imagenet Validation dataset.
   </figcaption>
 </figure>
-
+Our pre-trained models are available in the TFLite model [repository] (https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models).
+The code used to generate these models
+[is available](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1_train.py).
 ## Representation for quantized tensors
 
 TensorFlow approaches the conversion of floating-point arrays of numbers into
