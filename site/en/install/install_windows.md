@@ -7,7 +7,7 @@ following requirements:
 
 * 64-bit, x86 desktops or laptops
 * Windows 7 or later
-* Python <=3.6
+* Python 3.4, 3.5, 3.6
 
 ## Determine which TensorFlow to install
 

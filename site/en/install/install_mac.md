@@ -6,7 +6,7 @@ tested (and we only support) these instructions on machines meeting the
 following requirements:
 
 * macOS 10.12.6 (Sierra) or higher
-* Python 2.7 or Python <=3.6
+* Python 2.7 or Python 3.4, 3.5, 3.6
 
 Note: There are known, accuracy-affecting numerical issues before macOS 10.12.6
 (Sierra) that are described in

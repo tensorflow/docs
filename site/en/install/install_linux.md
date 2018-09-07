@@ -6,7 +6,7 @@ with the following system requirements:
 
 * 64-bit desktops or laptops
 * Ubuntu 16.04 or higher
-* Python 2.7 or Python <=3.6
+* Python 2.7 or Python 3.4, 3.5, 3.6
 
 ## Choose which TensorFlow to install
 
