@@ -14,7 +14,9 @@ Optimizing models is useful in a variety of situations:
 <li> Optimize models for special purpose hardware accelerators.</li>
 <li> Reducing latency and power consumption for inference on cloud </li>
 </ul>
+
 ## Optimization Methods
+
 Model optimization encompasses multiple techniques falling under the following broad categories:
 <ul> 
   <li> Reduced parameter count (e.g pruning, structured pruning) </li>
@@ -74,8 +76,7 @@ available for the most compute intensive operators in a network:
 *  UNIDIRECTIONAL_SEQUENCE_RNN
 
 Note that since weights are quantized post training, there could be an accuracy loss, particularly for smaller networks.
-We provide pre-trained fully quantized models for specific networks at the Tensorflow lite [model repository]
- (https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models).
+We provide pre-trained fully quantized models for specific networks at the Tensorflow lite [model repository](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models).
 It is important to check the accuracy of the quantized model to verify that
 any degradation in accuracy is within acceptable limits. We provide a [tool](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/tools/accuracy/README.md)
 for evaluating TensorFlow Lite model accuracy.
@@ -110,7 +111,6 @@ We are constantly improving our toolkit, so please check here for our latest num
       <th>Latency (Quantization Aware Training) (ms) </th>
       <th> Size (Original) (MB)</th>
       <th> Size (Optimized) (MB)</th>
-    
     </tr>
     <tr><td>Mobilenet-v1-1-224</td><td>0.709</td><td>0.657</td><td>0.70</td>
       <td>180</td><td>145</td><td>80.2</td><td>16.9</td><td>4.3</td></tr>
