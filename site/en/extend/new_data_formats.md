@@ -94,7 +94,7 @@ class MyReaderDatasetOp : public tensorflow::DatasetOpKernel {
 
   void MakeDataset(tensorflow::OpKernelContext* ctx,
                    tensorflow::DatasetBase** output) override {
-    // Parse and validate any input tensors 0that define the dataset using
+    // Parse and validate any input tensors that define the dataset using
     // `ctx->input()` or the utility function
     // `ParseScalarArgument<T>(ctx, &arg)`.
 
