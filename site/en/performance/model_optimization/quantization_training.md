@@ -139,8 +139,8 @@ and our results are below:
     <b>Table 1</b>: Top-1 accuracy of floating point and fully quantized CNNs on Imagenet Validation dataset.
   </figcaption>
 </figure>
-Our pre-trained models are available in the TFLite model [repository](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models).
-The code used to generate these models [is available](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1_train.py).
+Our pre-trained models are available in the TFLite model<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models"> repository </a>
+The code used to generate these models <a="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1_train.py"> is available </a>.
 
 ## Representation for quantized tensors
 
