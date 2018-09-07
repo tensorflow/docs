@@ -4,8 +4,9 @@ This guide explains how to install TensorFlow on Ubuntu Linux. While these
 instructions may work on other Linux variants, they are tested and supported
 with the following system requirements:
 
-*   64-bit desktops or laptops
-*   Ubuntu 16.04 or higher
+* 64-bit desktops or laptops
+* Ubuntu 16.04 or higher
+* Python 2.7 or Python <=3.6
 
 ## Choose which TensorFlow to install
 
