@@ -1326,7 +1326,7 @@ element, `X`.  Similarly, there is only one output offset index with the value
 `O`<sub>`0`</sub>.  However, before being used as indices into the input array,
 these are expanded in accordance to "Gather Index Mapping" (`start_index_map` in
 the formal description) and "Offset Mapping" (`expand_offset_dims` in the formal
-description) into [`0`,`O`<sub>`0`</sub>] and [`X`,`0`] respectively, adding up
+description) into  [`X`,`0`] and [`0`,`O`<sub>`0`</sub>] respectively, adding up
 to [`X`,`O`<sub>`0`</sub>].  In other words, the output index
 [`G`<sub>`0`</sub>,`G`<sub>`1`</sub>,`O`<sub>`0`</sub>] maps to the input index
 [`GatherIndices`[`G`<sub>`0`</sub>,`G`<sub>`1`</sub>,`0`],`X`] which gives us
