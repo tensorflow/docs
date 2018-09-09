@@ -4,8 +4,8 @@
 
 [TensorFlow Lite](https://www.tensorflow.org/mobile/tflite/) now supports
 converting weights to 8 bit precision as part of model conversion from
-tensorflow graphdefs to TFLite's flat buffer format. Weight quantization
-achieves a 4x reduction in the model size. In addition, TFLite supports on the
+tensorflow graphdefs to TensorFlow Lite's flat buffer format. Weight quantization
+achieves a 4x reduction in the model size. In addition, TensorFlow Lite supports on the
 fly quantization and dequantization of activations to allow for:
 
 1.  Using quantized kernels for faster implementation when available.
@@ -51,7 +51,7 @@ I0812 00:05:40.740344 110613 builder_impl.py:475] SavedModel written to: /tmp/mn
 ```
 
 The saved model available in /tmp/mnist_saved_model/<timestamp> is converted into
-a TFLite model with and without quantized weights, by setting the attribute
+a TensorFlow Lite model with and without quantized weights, by setting the attribute
 post_training_quantize to True and False respectively.
 
 ```
@@ -128,7 +128,7 @@ def main(_):
 
 ```
 
-Invoking this code, we can run evaluation on the TFLite buffer:
+Invoking this code, we can run evaluation on the TensorFlow Lite flat buffer:
 
 ```
 
@@ -190,7 +190,7 @@ We now consider another example. Resnets with pre-activation layers (Resnet-v2) 
   Pre-trained frozen graph for resnet-v2-101 is available at the
   [Tensorflow Lite model repository](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md).
 
-We can convert the frozen graph to a TFLite flatbuffer with quantization by:
+We can convert the frozen graph to a TensorFlow Lite flatbuffer with quantization by:
   
 ```
 import tensorflow as tf
@@ -206,5 +206,5 @@ tflite_model = converter.convert()
 open("resnet_v2_101_quantized.tflite", "wb").write(tflite_model)
 ```
 The model size reduces from 241 MB to 60.8 MB.
-The accuracy of this model on imagenet can be evaluated using the scripts provided for [TFLite accuracy measurement](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/lite/tools/accuracy/ilsvrc).
+The accuracy of this model on imagenet can be evaluated using the scripts provided for [TensorFlow Lite accuracy measurement](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/lite/tools/accuracy/ilsvrc).
 The optimized model top-1 accuracy is 76.8, compared to the floating point model top-1 accuracy of 77.0.
