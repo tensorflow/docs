@@ -115,12 +115,6 @@ toc:
   - title: Large-scale linear models
     path: /tutorials/representation/linear
 
-- title: Model Optimization
-  style: accordion
-  section:
-  - title: Post Training Quantization
-    path: /tutorials/model_optimization
-
 - title: Non-ML
   style: accordion
   section:
