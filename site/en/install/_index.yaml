@@ -6,16 +6,32 @@ landing_page:
   show_side_navs: True
   rows:
   - description: >
+      <style>
+      /* override space between rows on this page */
+      .devsite-landing-row:not(.devsite-background):not(.devsite-landing-row-cta):not(.devsite-landing-row-marquee) {
+        padding-top: 0px;
+      }
+      </style>
       <h1 class="hide-from-toc">Install TensorFlow</h1>
       <p>
         TensorFlow is tested and supported on the following 64-bit systems:
       </p>
-      <ul>
-        <li>Ubuntu 16.04 or later</li>
-        <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
-        <li>Windows 7 or later</li>
-        <li>Raspbian 9.0 or later</li>
-      </ul>
+      <table class="columns">
+        <tr>
+          <td>
+            <ul>
+              <li>Ubuntu 16.04 or later</li>
+              <li>Windows 7 or later</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
+              <li>Raspbian 9.0 or later</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
 
   - items:
     - custom_html: >
@@ -34,26 +50,29 @@ landing_page:
     - classname: tfo-landing-row-item-code-block
       code_block: |
         <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
-        # Current release for CPU only
+        # Current release for CPU-only
         <code class="devsite-terminal">pip install tensorflow</code><br/>
-        # Current release with GPU support
-        <code class="devsite-terminal">pip install tensorflow-gpu</code><br/>
-        # Nightly build for CPU only (unstable)
+        # Nightly build for CPU-only (unstable)
         <code class="devsite-terminal">pip install tf-nightly</code><br/>
+        # GPU package for CUDA-enabled GPU cards w/ cuDNN
+        <code class="devsite-terminal">pip install tensorflow-gpu</code><br/>
         # Nightly build with GPU support (unstable)
         <code class="devsite-terminal">pip install tf-nightly-gpu</code><br/>
         </pre>
+        <p style="margin-top: 8px; font-size: 0.9em;">
+          * Read the <a href="./gpu">GPU support guide</a> for CUDA®-enabled GPU cards.
+        </p>
 
   - description: >
-      <h2 class="hide-from-toc">Run a preconfigured Docker container</h2>
+      <h2 class="hide-from-toc">Run a TensorFlow container</h2>
       <p>
-        <a href="https://www.docker.com/" class="external">Docker</a> completely
-        isolates the TensorFlow installation from pre-existing packages on your
-        machine. The Docker container contains TensorFlow and all its dependencies.
-        Includes a Juypter Notebook server. The easiest way to use a GPU.
+        The <a href="https://hub.docker.com/r/tensorflow/tensorflow/" class="external">TensorFlow Docker images</a>
+        are already configured to run TensorFlow. With <a href="https://docs.docker.com/install/" class="external">Docker</a>,
+        a container runs in a virtual environment and is the easiest way to set up <a href="./gpu">GPU support</a>.
       </p>
       <pre class="prettyprint lang-bsh">
-      <code class="devsite-terminal">docker run -it tensorflow/tensorflow</code>
+      <code class="devsite-terminal">docker pull tensorflow/tensorflow                  # Download latest image</code><br/>
+      <code class="devsite-terminal">docker run -it -p 8888:8888 tensorflow/tensorflow  # Start a Jupyter notebook server</code>
       </pre>
       <a class="button button-primary tfo-button-primary" href="./docker">Read the Docker install guide</a>
 
