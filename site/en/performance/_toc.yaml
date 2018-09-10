@@ -1,0 +1,31 @@
+toc:
+- title: Performance
+  path: /performance/
+- title: Performance guide
+  path: /performance/performance_guide
+- title: Input pipeline performance guide
+  path: /performance/datasets_performance
+- title: Benchmarks
+  path: /performance/benchmarks
+
+- heading: Model optimization
+- title: Model optimization
+  path: /performance/model_optimization.md
+- title: Quantization-aware training
+  path: /performance/quantization_training.md
+
+- heading: XLA
+- title: XLA overview
+  path: /performance/xla/
+- title: Broadcasting semantics
+  path: /performance/xla/broadcasting
+- title: Developing a new backend for XLA
+  path: /performance/xla/developing_new_backend
+- title: Using JIT compilation
+  path: /performance/xla/jit
+- title: Operation semantics
+  path: /performance/xla/operation_semantics
+- title: Shapes and layout
+  path: /performance/xla/shapes
+- title: Using AOT compilation
+  path: /performance/xla/tfcompile
