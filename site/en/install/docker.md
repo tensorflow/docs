@@ -69,7 +69,10 @@ the TensorFlow image the first time you launch it:
 docker run -it tensorflow/tensorflow python -c "import tensorflow as tf; print(tf.__version__)"
 </pre>
 
-Execute a `bash` shell within the TensorFlow-configured container:
+Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
+
+Let's demonstrate some more TensorFlow Docker recipes. To execute a `bash` shell
+within the TensorFlow-configured container:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run -it tensorflow/tensorflow bash
@@ -83,7 +86,7 @@ docker run -it -v $PWD:/tmp -w /tmp tensorflow/tensorflow python script.py
 </pre>
 
 Start a [Jupyter Notebook](https://jupyter.org/){:.external} server using
-TensorFlow's nightly build with Python 3 support. In your host web browser,
+TensorFlow's nightly build with Python 3 support. Then, in your host web browser,
 open `http://localhost:8888/`:
 
 <pre class="devsite-terminal devsite-click-to-copy">
@@ -129,3 +132,5 @@ Use the latest TensorFlow GPU image to execute a `bash` shell in the container:
 <pre class="devsite-terminal devsite-click-to-copy">
 nvidia-docker run -it tensorflow/tensorflow:latest-gpu bash
 </pre>
+
+Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.

@@ -19,7 +19,6 @@ Install the following build tools to configure your development environment.
 <h3>Ubuntu</h3>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">sudo apt install python-dev python-pip  # or python3-dev python3-pip</code>
-<code class="devsite-terminal">sudo pip install --upgrade pip  # use latest</code>
 </pre>
 </section>
 <section>
@@ -29,17 +28,17 @@ Install the following build tools to configure your development environment.
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
 <code class="devsite-terminal">export PATH="/usr/local/bin:/usr/local/sbin:$PATH"</code>
 <code class="devsite-terminal">brew install python@2  # or python (Python 3)</code>
-<code class="devsite-terminal">pip install --user --upgrade pip # use latest</code>
 </pre>
 </section>
 </div><!--/ds-selector-tabs-->
 
-Install the TensorFlow *pip* package dependencies:
+Install the TensorFlow *pip* package dependencies (if using a virtual environment,
+omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install --user six numpy wheel mock</code>
-<code class="devsite-terminal">pip install --user keras_applications==1.0.5 --no-deps</code>
-<code class="devsite-terminal">pip install --user keras_preprocessing==1.0.3 --no-deps</code>
+<code class="devsite-terminal">pip install -U --user pip six numpy wheel mock</code>
+<code class="devsite-terminal">pip install -U --user keras_applications==1.0.5 --no-deps</code>
+<code class="devsite-terminal">pip install -U --user keras_preprocessing==1.0.3 --no-deps</code>
 </pre>
 
 The dependencies are listed in the
@@ -78,6 +77,12 @@ to build:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
 git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
+</pre>
+
+To test your copy of the source tree, run:
+
+<pre class="devsite-terminal prettyprint lang-bsh">
+bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/contrib/lite/...
 </pre>
 
 Key Point: If you're having build problems on the latest development branch, try
