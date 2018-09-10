@@ -32,4 +32,4 @@ pip install --ignore-installed --upgrade <var>packageURL</var>
 See the [pip package location](./pip.md#package-location) section for a list of
 available packages and their URLs.
 
-Success: TensorFlow is now installed.
+Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
