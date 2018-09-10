@@ -10,9 +10,9 @@ toc:
 
 - heading: Model optimization
 - title: Model optimization
-  path: /performance/model_optimization.md
+  path: /performance/model_optimization
 - title: Quantization-aware training
-  path: /performance/quantization_training.md
+  path: /performance/quantization_training
 
 - heading: XLA
 - title: XLA overview

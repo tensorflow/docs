@@ -23,9 +23,9 @@ and highest throughput for inference.
 Tensorflow Model Optimization Toolkit is a set of techniques for optimizing models
 for inference:
 
- * [Model Optimization Overview](../performance/model_optimization/model_optimization.md), which introduces 
+ * [Model optimization overview](../performance/model_optimization/model_optimization.md), which introduces 
    the model optimization toolkit and post training quantization.
- * [Quantization Aware Training](../performance/model_optimization/quantization_training.md), which describes tools
+ * [Quantization-aware training](../performance/model_optimization/quantization_training.md), which describes tools
    to enable training of networks to be robust to quantization errors.
   
 
