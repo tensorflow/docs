@@ -64,6 +64,11 @@ srcs_version = "PY2AND3",
 
 * Dimensions excluding the first and last usually make up the "space" dimensions: Sequence-length or Image-size.
 
+* Prefer using a Tensor's overloaded operators rather than TensorFlow functions.
+  For example, prefer `**`, `+`, `/`, `*`, `-`, `and/or` over
+  `tf.pow`, `tf.add`, `tf.div`, `tf.mul`, `tf.subtract`, and `tf.logical*`
+  unless a specific name for the operation is desired.
+
 ## Python operations
 
 A *Python operation* is a function that, given input tensors and parameters,
@@ -92,6 +97,12 @@ creates a part of the graph and returns output tensors.
 
 * For increased usability include an example of usage with inputs / outputs
  of the op in Example section.
+
+* Avoid making explicit use of `tf.Tensor.eval` or `tf.Session.run`. For
+  example, to write logic that depends on the Tensor value, use
+  [TensorFlow control flow](https://www.tensorflow.org/api_guides/python/control_flow_ops).
+  Alternatively, restrict the operation to only run when eager execution is
+  enabled (`tf.executing_eagerly()`).
 
 Example:
 
