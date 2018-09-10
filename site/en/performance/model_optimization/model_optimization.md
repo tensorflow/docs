@@ -42,7 +42,7 @@ of support for quantization.
 
 #### Post Training Quantization
 Post Training quantization is a broadly applicable technique that reduces model size by a factor of 4, while also providing
-upto 2x lower latency and very little degradation in model accuracy.
+upto 3x lower latency and very little degradation in model accuracy.
 Post training quantization quantizes weights to 8 bits of precision from floating point.
 This technique is very simple to use and can be invoked by enabling an option in tflite_convert:
 
