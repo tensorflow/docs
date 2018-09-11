@@ -36,7 +36,9 @@ loss = tf.losses.get_total_loss()
 # with this training tool. When training from scratch, quant_delay
 # can be used to activate quantization after training to converge
 # with the float graph, effectively fine-tuning the model.
-tf.contrib.quantize.create_training_graph(quant_delay=2000000)
+g = tf.get_default_graph()
+tf.contrib.quantize.create_training_graph(input_graph=g,
+                                          quant_delay=2000000)
 
 # Call backward pass optimizer as usual.
 optimizer = tf.train.GradientDescentOptimizer(learning_rate)
@@ -53,7 +55,8 @@ logits = tf.nn.softmax_cross_entropy_with_logits_v2(...)
 
 # Call the eval rewrite which rewrites the graph in-place with
 # FakeQuantization nodes and fold batchnorm for eval.
-tf.contrib.quantize.create_eval_graph()
+g = tf.get_default_graph()
+tf.contrib.quantize.create_eval_graph(input_graph=g)
 
 # Save the checkpoint and eval graph proto to disk for freezing
 # and providing to TFLite.
