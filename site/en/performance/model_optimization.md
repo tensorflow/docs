@@ -39,7 +39,7 @@ computation. Quantization provides several benefits:
 * Quantizing activations reduces memory access costs for reading and storing intermediate activations.
 * Many CPU and hardware accelerator implementations provide SIMD instruction capabilities, which are especially beneficial for quantization.
 
- [TensorFlow Lite](../mobile/tflite) provides several levels of support for quantization. 
+[TensorFlow Lite](../mobile/tflite) provides several levels of support for quantization. 
 
 ### Post-training quantization
 
