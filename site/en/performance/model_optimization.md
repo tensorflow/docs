@@ -75,8 +75,8 @@ Hybrid ops are available for the most compute-intensive operators in a network:
 
 Since weights are quantized post-training, there could be an accuracy loss, particularly for
 smaller networks. Pre-trained fully quantized models are provided for specific networks in
-the [TensorFlow Lite model repository](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models). It is important to check the accuracy of the quantized model to verify that any degradation
-in accuracy is within acceptable limits. There is a tool to evaluate [TensorFlow Lite model accuracy](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/tools/accuracy/README.md).
+the [TensorFlow Lite model repository](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models){:.external}. It is important to check the accuracy of the quantized model to verify that any degradation
+in accuracy is within acceptable limits. There is a tool to evaluate [TensorFlow Lite model accuracy](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/tools/accuracy/README.md){:.external}.
 
 ### Quantization-aware training
 
