@@ -1,21 +1,21 @@
-# Model optimization
+# Mobile model optimization
 
-When deploying machine learning models to mobile devices,
-inference efficiency becomes a critical issue. Where the computational demand
-for *training* grows with the number of models trained on different
-architectures, the computational demand for *inference* grows in proportion to
-the number of users. The *Tensorflow Model Optimization Toolkit* minimizes the complexity
+Inference efficiency is a critical issue when deploying machine learning
+models to mobile devices. Where the computational demand for *training*
+grows with the number of models trained on different architectures, the
+computational demand for *inference* grows in proportion to the number of
+users. The *Tensorflow Model Optimization Toolkit* minimizes the complexity
 of inference—the model size, the latency and power consumption.
 
 
 ## Use cases
 
-Model optimization is useful for some situations:
+Model optimization is useful for:
 
 * Deploying models to edge devices with restrictions on processing, memory, or power-consumption.
   For example, mobile and Internet of Things (IoT) devices.
 * Reduce the payload size for over-the-air model updates.
-* Enable execution on hardware constrained to fixed-point operations.
+* Execution on hardware constrained by fixed-point operations.
 * Optimize models for special purpose hardware accelerators.
 
 
@@ -25,10 +25,11 @@ Model optimization uses multiple techniques:
 
 * Reduced parameter count, for example, pruning and structured pruning.
 * Reduced representational precision, for example, quantization.
-* Update the original model topology to a more efficient one, with reduced parameters or faster execution. For example, tensor decomposition methods and distillation.
+* Update the original model topology to a more efficient one, with reduced parameters or faster execution.
+  For example, tensor decomposition methods and distillation.
 
 
-### Model quantization
+## Model quantization
 
 Quantizing deep neural networks uses techniques that allow for reduced precision
 representations of weights and, optionally, activations for both storage and
@@ -40,11 +41,11 @@ computation. Quantization provides several benefits:
 
  [TensorFlow Lite](../mobile/tflite) provides several levels of support for quantization. 
 
-#### Post-training quantization
+### Post-training quantization
 
 Post-training quantization is a broad technique used to reduce the model size while also
 providing up to 3x lower latency with little degradation in model accuracy. Post-training
-quantization quantizes weights to 8 bits of precision from floating point. This technique
+quantization quantizes weights to 8-bits of precision from floating-point. This technique
 is enabled  in `tflite_convert`:
 
 ```
@@ -54,8 +55,8 @@ tflite_convert \
   --post_training_quantize
 ```
 
-At inference, weights are converted from 8-bits of precision to floating point and
-computed using floating point kernels. The conversion is done once and cached to reduce latency.
+At inference, weights are converted from 8-bits of precision to floating-point and
+computed using floating point kernels. This conversion is done once and cached to reduce latency.
 
 To further improve latency, hybrid operators dynamically quantize activations to 8-bits and
 perform computations with 8-bit weights and activations. This optimization provides latencies
@@ -77,7 +78,7 @@ smaller networks. Pre-trained fully quantized models are provided for specific n
 the [TensorFlow Lite model repository](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models). It is important to check the accuracy of the quantized model to verify that any degradation
 in accuracy is within acceptable limits. There is a tool to evaluate [TensorFlow Lite model accuracy](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/tools/accuracy/README.md).
 
-#### Quantization-aware training
+### Quantization-aware training
 
 For advanced users, there is quantization-aware training for a subset of convolutional neural
 network architectures. This technique allows for:
@@ -88,9 +89,9 @@ network architectures. This technique allows for:
 Quantization-aware training requires accurate modeling of quantization effects during training and
 access to training data. TensorFlow enables quantization-aware training by providing tools for
 automatic insertion of fake quantization operations in a graph, see
-[./quantization aware training](quantization_training.md).
+[quantization aware training](./quantization_training.md).
 
-#### Results
+### Latency and accuracy results
 
 Below are the results of the latency and accuracy of post-training quantization and
 quantization-aware training on a few models. All latency numbers are measured on
@@ -123,9 +124,9 @@ Pixel&nbsp;2 devices using a single big core. As the toolkit improves, so will t
   </figcaption>
 </figure>
 
-### Choice of quantization tool
+## Choice of quantization tool
 
-As a starting point, check if the models in the Tensorflow Lite model repository can work for
+As a starting point, check if the models in the TensorFlow Lite model repository can work for
 your application. If not, we recommend that users start with the post-training quantization tool
 since this is broadly applicable and does not require training data. For cases where the accuracy
 and latency targets are not met, or hardware accelerator support is important, quantization-aware
