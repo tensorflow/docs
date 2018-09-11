@@ -1,19 +1,21 @@
 
-# Quantization aware training
+# Quantization-aware training
 
-In quantization aware training, we train the model with quantization in the loop
-and ensure that the forward pass matches precision for both training and inference. There are two key aspects to this:
-<ol>
-<li> Operator fusion at inference time needs to be accurately modeled at training time </li>
-<li> Quantization effects at inference are modeled at training time </li>
-</ol>
+Quantization-aware model training ensures that the forward pass matches precision
+for both training and inference. There are two aspects to this:
 
+* Operator fusion at inference time are accurately modeled at training time.
+* Quantization effects at inference are modeled at training time.
 
-## Quantization aware training with TensorFlow
-For efficient inference, we combine batch normalization with preceding convolutional/fully connected layers prior to quantization by [folding batch norm layers](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/quantize/python/fold_batch_norms.py). 
+For efficient inference, TensorFlow combines batch normalization with the preceding
+convolutional and fully-connected layers prior to quantization by
+[folding batch norm layers](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/quantize/python/fold_batch_norms.py). 
 
-We model quantization error by inserting [fake quantization](../api_guides/python/array_ops.md#Fake_quantization) nodes simulate the
-effect of quantization in the forward and backward passes. The forward pass models quantization, while the backward pass models quantization as a straight through estimator (See [Bengio et al.,2013](https://arxiv.org/abs/1308.3432)). Both the forward and backward pass simulate the quantization of weights and activations. (See [Benoit et al.,2017](https://arxiv.org/abs/1712.05877), [Krishnamoorthi,2018](https://arxiv.org/abs/1806.08342))
+The quantization error is modeled using [fake quantization](../api_guides/python/array_ops.md#Fake_quantization)
+nodes to simulate the effect of quantization in the forward and backward passes. The
+forward-pass models quantization, while the backward-pass models quantization as a
+straight-through `Estimator`. Both the forward- and backward-pass simulate the quantization
+of weights and activations.
 
 Additionally, the minimum and maximum values for activations are determined
 during training. This allows a model trained with quantization in the loop to be
@@ -63,14 +65,14 @@ saver.save(sess, checkpoint_name)
 
 Methods to rewrite the training and eval graphs are an active area of research
 and experimentation. Although rewrites and quantized training might not work or
-improve performance for all models, we are working to generalize these
-techniques.
+improve performance for all models, we are working to generalize these techniques.
 
-## Generating fully quantized models
+
+## Generating fully-quantized models
 
 The previously demonstrated after-rewrite eval graph only *simulates*
-quantization. To generate real fixed point computations from a trained
-quantization model, convert it to a fixed point kernel. Tensorflow Lite supports
+quantization. To generate real fixed-point computations from a trained
+quantization model, convert it to a fixed-point kernel. TensorFlow Lite supports
 this conversion from the graph resulting from `create_eval_graph`.
 
 First, create a frozen graph that will be the input for the TensorFlow Lite
@@ -84,8 +86,8 @@ bazel build tensorflow/python/tools:freeze_graph && \
   --output_graph=frozen_eval_graph.pb --output_node_names=outputs
 ```
 
-Provide this to the TensorFlow Lite Optimizing Converter (TOCO) to get a fully
-quantized TensorFLow Lite model:
+Provide this to the TensorFlow Lite Optimizing Converter (TOCO) to get a
+fully-quantized TensorFlow Lite model:
 
 ```
 bazel build tensorflow/contrib/lite/toco:toco && \
@@ -100,14 +102,13 @@ bazel build tensorflow/contrib/lite/toco:toco && \
   --std_value=127.5 --mean_value=127.5
 ```
 
-See the documentation for `tf.contrib.quantize` and
-[TensorFlow Lite](https://www.tensorflow.org/mobile/tflite/).
+See the documentation for `tf.contrib.quantize` and [TensorFlow Lite](../mobile/tflite/).
 
-## Quantized accuracy
 
-We trained popular CNN models (Mobilenet-v1,Mobilenet-v2 and Inception-v3) with our tool
-and our results are below:
+## Quantized accuracy results
 
+The following are results of trainiing some popular CNN models (Mobilenet-v1,
+Mobilenet-v2, and Inception-v3) using this tool:
 
 <figure>
   <table>
@@ -139,8 +140,11 @@ and our results are below:
     <b>Table 1</b>: Top-1 accuracy of floating point and fully quantized CNNs on Imagenet Validation dataset.
   </figcaption>
 </figure>
-Our pre-trained models are available in the TFLite model<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models"> repository</a>.
-The code used to generate these models <a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1_train.py"> is available</a>.
+
+Our pre-trained models are available in the
+<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models">TensorFlow Lite model repository</a>. The code used to generate
+these models <a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1_train.py"> is available</a>.
+
 
 ## Representation for quantized tensors
 
@@ -181,4 +185,4 @@ The advantages of this representation format are:
 
 Alternative techniques use lower bit depths by non-linearly distributing the
 float values across the representation, but currently are more expensive in terms
-of computation time. (See [Han et al,2016](https://arxiv.org/abs/1510.00149).)
+of computation time.
