@@ -79,8 +79,7 @@ First, create a frozen graph that will be the input for the TensorFlow Lite
 toolchain:
 
 ```
-bazel build tensorflow/python/tools:freeze_graph && \
-  bazel-bin/tensorflow/python/tools/freeze_graph \
+freeze_graph \
   --input_graph=eval_graph_def.pb \
   --input_checkpoint=checkpoint \
   --output_graph=frozen_eval_graph.pb --output_node_names=outputs
@@ -90,8 +89,7 @@ Provide this to the TensorFlow Lite Optimizing Converter (TOCO) to get a
 fully-quantized TensorFlow Lite model:
 
 ```
-bazel build tensorflow/contrib/lite/toco:toco && \
-  ./bazel-bin/third_party/tensorflow/contrib/lite/toco/toco \
+toco \
   --input_file=frozen_eval_graph.pb \
   --output_file=tflite_model.tflite \
   --input_format=TENSORFLOW_GRAPHDEF --output_format=TFLITE \
