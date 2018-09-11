@@ -9,7 +9,7 @@ toc:
   path: /performance/benchmarks
 
 - heading: Model optimization
-- title: Model optimization
+- title: Mobile model optimization
   path: /performance/model_optimization
 - title: Quantization-aware training
   path: /performance/quantization_training
