@@ -28,7 +28,6 @@ Model optimization uses multiple techniques:
 * Update the original model topology to a more efficient one, with reduced parameters or faster execution.
   For example, tensor decomposition methods and distillation.
 
-
 ## Model quantization
 
 Quantizing deep neural networks uses techniques that allow for reduced precision
@@ -41,55 +40,9 @@ computation. Quantization provides several benefits:
 
 [TensorFlow Lite](../mobile/tflite) provides several levels of support for quantization. 
 
-### Post-training quantization
-
-Post-training quantization is a broad technique used to reduce the model size while also
-providing up to 3x lower latency with little degradation in model accuracy. Post-training
-quantization quantizes weights to 8-bits of precision from floating-point. This technique
-is enabled  in `tflite_convert`:
-
-```
-tflite_convert \
-  --output_file=/tmp/foo.tflite \
-  --graph_def_file=/tmp/some_quantized_graph.pb \
-  --post_training_quantize
-```
-
-At inference, weights are converted from 8-bits of precision to floating-point and
-computed using floating point kernels. This conversion is done once and cached to reduce latency.
-
-To further improve latency, hybrid operators dynamically quantize activations to 8-bits and
-perform computations with 8-bit weights and activations. This optimization provides latencies
-close to fully fixed-point inference. However, the outputs are still stored using
-floating-point, so the speedup with hybrid ops is less than a full fixed-point computation.
-Hybrid ops are available for the most compute-intensive operators in a network:
-
-*  `FULLY_CONNECTED`
-*  `CONV_2D`
-*  `SVDF`
-*  `EMBEDDING_LOOKUP`
-*  `RNN`
-*  `BIDIRECTIONAL_SEQUENCE_RNN`
-*  `UNIDIRECTIONAL_SEQUENCE_LSTM`
-*  `UNIDIRECTIONAL_SEQUENCE_RNN`
-
-Since weights are quantized post-training, there could be an accuracy loss, particularly for
-smaller networks. Pre-trained fully quantized models are provided for specific networks in
-the [TensorFlow Lite model repository](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models){:.external}. It is important to check the accuracy of the quantized model to verify that any degradation
-in accuracy is within acceptable limits. There is a tool to evaluate [TensorFlow Lite model accuracy](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/tools/accuracy/README.md){:.external}.
-
-### Quantization-aware training
-
-For advanced users, there is quantization-aware training for a subset of convolutional neural
-network architectures. This technique allows for:
-
-1. Higher accuracy by modeling quantization during training.
-2. Fully fixed point models, quantizing weights and activations, and is suitable for hardware accelerators.
-
-Quantization-aware training requires accurate modeling of quantization effects during training and
-access to training data. TensorFlow enables quantization-aware training by providing tools for
-automatic insertion of fake quantization operations in a graph, see
-[quantization aware training](./quantization_training.md).
+[Post-training quantization](post_training_quantization.md) quantizes weights and activations post training and is very easy to use.
+[Quantization-aware training](quantization_training.md) allows for training networks that can be quantized with minimal accuracy drop and is only available
+for a subset of convolutional neural network architectures.
 
 ### Latency and accuracy results
 
