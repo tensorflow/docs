@@ -9,7 +9,7 @@ for both training and inference. There are two aspects to this:
 
 For efficient inference, TensorFlow combines batch normalization with the preceding
 convolutional and fully-connected layers prior to quantization by
-[folding batch norm layers](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/quantize/python/fold_batch_norms.py). 
+[folding batch norm layers](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/quantize/python/fold_batch_norms.py){:.external}. 
 
 The quantization error is modeled using [fake quantization](../api_guides/python/array_ops.md#Fake_quantization)
 nodes to simulate the effect of quantization in the forward and backward passes. The
@@ -142,8 +142,8 @@ Mobilenet-v2, and Inception-v3) using this tool:
 </figure>
 
 Our pre-trained models are available in the
-<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models">TensorFlow Lite model repository</a>. The code used to generate
-these models <a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1_train.py"> is available</a>.
+<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models" class="external">TensorFlow Lite model repository</a>. The code used to generate
+these models <a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1_train.py" class="external">is available</a>.
 
 
 ## Representation for quantized tensors
