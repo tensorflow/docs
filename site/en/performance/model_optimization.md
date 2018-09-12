@@ -25,8 +25,7 @@ Model optimization uses multiple techniques:
 
 * Reduced parameter count, for example, pruning and structured pruning.
 * Reduced representational precision, for example, quantization.
-* Update the original model topology to a more efficient one, with reduced parameters or faster execution.
-  For example, tensor decomposition methods and distillation.
+* Update the original model topology to a more efficient one, with reduced parameters or faster execution, for example, tensor decomposition methods and distillation.
 
 ## Model quantization
 
@@ -43,6 +42,7 @@ computation. Quantization provides several benefits:
 [Post-training quantization](post_training_quantization.md) quantizes weights and activations post training and is very easy to use.
 [Quantization-aware training](quantization_training.md) allows for training networks that can be quantized with minimal accuracy drop and is only available
 for a subset of convolutional neural network architectures.
+
 
 ### Latency and accuracy results
 

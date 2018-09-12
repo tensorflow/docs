@@ -8,11 +8,11 @@ toc:
 - title: Benchmarks
   path: /performance/benchmarks
 
-- heading: Model optimization
-- title: Mobile model optimization
+- heading: Model optimization Toolkit
+- title: Overview
   path: /performance/model_optimization
-- title: Quantization-aware training
-  path: /performance/quantization_training
+- title: Post-training quantization
+  path: /performance/post_training_quantization
 
 - heading: XLA
 - title: XLA overview

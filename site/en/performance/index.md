@@ -23,10 +23,12 @@ and highest throughput for inference.
 Tensorflow Model Optimization Toolkit is a set of techniques for optimizing models
 for inference:
 
- * [Model optimization overview](../performance/model_optimization/model_optimization.md), which introduces 
-   the model optimization toolkit and post training quantization.
- * [Quantization-aware training](../performance/model_optimization/quantization_training.md), which describes tools
-   to enable training of networks to be robust to quantization errors.
+ * [Overview](../performance/model_optimization/model_optimization.md), which introduces 
+   the model optimization toolkit.
+   
+ * [Post-training quantization](../performance/model_optimization/post_training_quantization.md), describes post training quantization.
+   
+
   
 
 XLA (Accelerated Linear Algebra) is an experimental compiler for linear
