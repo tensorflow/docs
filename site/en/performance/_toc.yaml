@@ -8,9 +8,11 @@ toc:
 - title: Benchmarks
   path: /performance/benchmarks
 
-- heading: Model optimization Toolkit
-- title: Overview
+- heading: Model optimization toolkit
+- title: Model optimization
   path: /performance/model_optimization
+- title: Quantization-aware training
+  path: /performance/quantization_training
 - title: Post-training quantization
   path: /performance/post_training_quantization
 
