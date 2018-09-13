@@ -1,4 +1,3 @@
-
 ## Post-training quantization
 
 Post-training quantization is a general technique to reduce the model size while also
@@ -75,4 +74,3 @@ The advantages of this representation format are:
 * The values don't have to be symmetrical.
 * The format represents both signed and unsigned values.
 * The linear spread makes multiplications straightforward.
-
