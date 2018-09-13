@@ -15,6 +15,9 @@ toc:
   path: /performance/quantization_training
 - title: Post-training quantization
   path: /performance/post_training_quantization
+- title: Post-training quantization example
+  path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/tutorials/post_training_quant.ipynb
+  status: external
 
 - heading: XLA
 - title: XLA overview
