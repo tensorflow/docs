@@ -3,7 +3,7 @@
 Post-training quantization is a general technique to reduce the model size while also
 providing up to 3x lower latency with little degradation in model accuracy. Post-training
 quantization quantizes weights to 8-bits of precision from floating-point. This technique
-is enabled  in `tflite_convert`:
+is enabled as an option in [TensorFlow Lite model converter](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/lite/toco):
 
 ```
 import tensorflow as tf
