@@ -36,7 +36,7 @@ smaller networks. Pre-trained fully quantized models are provided for specific n
 the [TensorFlow Lite model repository](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/g3doc/models.md#image-classification-quantized-models){:.external}. It is important to check the accuracy of the quantized model to verify that any degradation
 in accuracy is within acceptable limits. There is a tool to evaluate [TensorFlow Lite model accuracy](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/tools/accuracy/README.md){:.external}.
 
-If the accuracy drop is too high, consider using [quantization aware training](quantization_training.md)
+If the accuracy drop is too high, consider using [quantization aware training](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/quantize/README.md){:.external}.
 
 ### Representation for quantized tensors
 

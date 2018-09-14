@@ -40,7 +40,7 @@ computation. Quantization provides several benefits:
 [TensorFlow Lite](../mobile/tflite) provides several levels of support for quantization. 
 
 [Post-training quantization](post_training_quantization.md) quantizes weights and activations post training and is very easy to use.
-[Quantization-aware training](quantization_training.md) allows for training networks that can be quantized with minimal accuracy drop and is only available
+[Quantization-aware training](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/quantize/README.md){:.external} allows for training networks that can be quantized with minimal accuracy drop and is only available
 for a subset of convolutional neural network architectures.
 
 
