@@ -1,4 +1,4 @@
-# Mobile model optimization
+# Model optimization
 
 Inference efficiency is a critical issue when deploying machine learning
 models to mobile devices. Where the computational demand for *training*
