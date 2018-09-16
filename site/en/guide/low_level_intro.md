@@ -21,7 +21,7 @@ Knowing TensorFlow Core is valuable for the following reasons:
 
 ## Setup
 
-Before using this guide, [install TensorFlow](../install/index.md).
+Before using this guide, [install TensorFlow](../install).
 
 To get the most out of this guide, you should know the following:
 

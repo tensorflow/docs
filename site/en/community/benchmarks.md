@@ -62,7 +62,7 @@ python sample_benchmark.py --benchmarks=SampleBenchmark
 
 Setting the flag as `--benchmarks=.` or `--benchmarks=all` works as well.
 
-(Please ensure that Tensorflow is installed to successfully import the package in the line `import tensorflow as tf`. For installation instructions, see [Installing TensorFlow](https://www.tensorflow.org/install/). This step is not necessary when running with Bazel.)
+(Please ensure that Tensorflow is installed to successfully import the package in the line `import tensorflow as tf`. For installation instructions, see [Installing TensorFlow](../install/). This step is not necessary when running with Bazel.)
 
 
 ## Adding a `bazel` Target

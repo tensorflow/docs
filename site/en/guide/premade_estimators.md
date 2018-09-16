@@ -8,7 +8,7 @@ how to solve the Iris classification problem in TensorFlow.
 Prior to using the sample code in this document, you'll need to do the
 following:
 
-* [Install TensorFlow](../install/index.md).
+* [Install TensorFlow](../install).
 * If you installed TensorFlow with virtualenv or Anaconda, activate your
   TensorFlow environment.
 * Install or upgrade pandas by issuing the following command:
