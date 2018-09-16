@@ -25,7 +25,7 @@ including tips & tricks and debugging information.
 
 ## Setup
 
-[Install TensorFlow](https://www.tensorflow.org/install/). Installing TensorFlow
+[Install TensorFlow](../install/). Installing TensorFlow
 via pip should also automatically install TensorBoard.
 
 ## Serializing the data

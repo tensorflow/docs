@@ -56,8 +56,8 @@ PREREQUISITES:
 
 *   Some familiarity with C++.
 *   Must have installed the
-    [TensorFlow binary](../install/index.md), or must have
-    [downloaded TensorFlow source](../install/install_sources.md),
+    [TensorFlow binary](../install), or must have
+    [downloaded TensorFlow source](../install/source.md),
     and be able to build it.
 
 [TOC]

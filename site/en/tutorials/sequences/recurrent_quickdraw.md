@@ -32,9 +32,8 @@ drawings in 345 categories.
 
 To try the code for this tutorial:
 
-1.  [Install TensorFlow](../../install/index.md) if you haven't already.
-1.  Download the [tutorial code]
-(https://github.com/tensorflow/models/tree/master/tutorials/rnn/quickdraw/train_model.py).
+1.  [Install TensorFlow](../../install) if you haven't already.
+1.  Download the [tutorial code](https://github.com/tensorflow/models/tree/master/tutorials/rnn/quickdraw/train_model.py).
 1.  [Download the data](#download-the-data) in `TFRecord` format from
     [here](http://download.tensorflow.org/data/quickdraw_tutorial_dataset_v1.tar.gz) and unzip it. More details about [how to
     obtain the original Quick, Draw!
