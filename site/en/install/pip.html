@@ -7,48 +7,28 @@
   </head>
   <body>
 
-<p>
-  Install TensorFlow with Python's
-  <a href="https://packaging.python.org/tutorials/installing-packages/" class="external"><em>pip</em> package manager</a>.
-  TensorFlow is supported and tested on the following 64-bit systems:
-</p>
+<h3>Available packages</h3>
 <ul>
-  <li>Ubuntu 16.04 or later</li>
-  <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
-  <li>Windows 7 or later</li>
+  <li><code>tensorflow</code> —Current release for CPU-only <em>(recommended for beginners)</em></li>
+  <li><code>tensorflow-gpu</code> —Current release with <a href="./gpu.md">GPU support</a> <em>(Ubuntu and Windows)</em></li>
+  <li><code>tf-nightly</code> —Nightly build for CPU-only <em>(unstable)</em></li>
+  <li><code>tf-nightly-gpu</code> —Nightly build with <a href="./gpu.md">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
+</ul>
+
+<h3>System requirements</h3>
+<ul>
+  <li>Ubuntu 16.04 or later (64-bit)</li>
+  <li>macOS 10.12.6 (Sierra) or later (64-bit) <em>(no GPU support)</em></li>
+  <li>Windows 7 or later (64-bit) <em>(Python 3 only)</em></li>
   <li>Raspbian 9.0 or later</li>
 </ul>
 
-<aside class="note">
-  <b>Note:</b> Starting with TensorFlow 1.6, binaries use AVX instructions which
-  may not run on older CPUs.
-</aside>
-
-<h3>Available packages</h3>
-
-<p>
-  Choose one of the following TensorFlow packages to install:
-</p>
-
+<h3>Hardware requirements</h3>
 <ul>
-  <li>
-    <code>tensorflow</code> —Current release for CPU-only <em>(recommended for beginners)</em>
-  </li>
-  <li><code>tf-nightly</code> —Nightly build for CPU <em>(unstable)</em></li>
+  <li>Starting with TensorFlow 1.6, binaries use <a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX" class="external">AVX instructions</a> which may not run on older CPUs.</li>
+  <li>Read the <a href="./gpu.md">GPU support guide</a> to set up a CUDA®-enabled GPU card on Ubuntu or Windows.</li>
 </ul>
 
-<p>
-  Programs using the TensorFlow GPU package usually run much faster.
-  Read the <a href="./gpu.md">GPU support guide</a> to set up a CUDA®-enabled GPU card
-  on Ubuntu or Windows.
-</p>
-
-<ul>
-  <li>
-    <code>tensorflow-gpu</code> —Current release with <a href="./gpu.md">GPU support</a><br/>
-  </li>
-  <li><code>tf-nightly-gpu</code> —Nightly build with <a href="./gpu.md">GPU support</a> <em>(unstable)</em></li>
-</ul>
 
 <h2>1. Install the Python development environment on your system</h2>
 
@@ -70,6 +50,8 @@
 <code class="devsite-terminal">virtualenv --version</code>
 </pre>
 {% dynamic else %}<!-- python3 -->
+<aside class="note">Requires Python 3.4, 3.5, or 3.6</aside>
+
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">python3 --version</code>
 <code class="devsite-terminal">pip3 --version</code>
@@ -128,8 +110,6 @@
 </pre>
 </section>
 </div><!--/ds-selector-tabs-->
-
-<aside class="caution">TensorFlow for Windows is not supported using Python 2.7.</aside>
 
 {% dynamic else %}<!-- python3 -->
 
@@ -245,14 +225,14 @@
 </p>
 
 <ul>
-  <li><code>tensorflow</code> —Current release for CPU-only</li>
-  <li><code>tf-nightly</code> —Nightly build for CPU <em>(unstable)</em></li>
-  <li><code>tensorflow-gpu</code> —Current release with <a href="./gpu.md">GPU support</a> <em>(With a CUDA®-enabled GPU card on Ubuntu or Windows.)</em></li>
-  <li><code>tf-nightly-gpu</code> —Nightly build with <a href="./gpu.md">GPU support</a> <em>(unstable)</em>.</li>
+  <li><code>tensorflow</code> —Current release for CPU-only <em>(recommended for beginners)</em></li>
+  <li><code>tensorflow-gpu</code> —Current release with <a href="./gpu.md">GPU support</a> <em>(Ubuntu and Windows)</em></li>
+  <li><code>tf-nightly</code> —Nightly build for CPU-only <em>(unstable)</em></li>
+  <li><code>tf-nightly-gpu</code> —Nightly build with <a href="./gpu.md">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
 </ul>
 
 <aside class="note">
-  Package dependencies are automatically installed. They're listed in the
+  Package dependencies are automatically installed. These are listed in the
   <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
   file under <code>REQUIRED_PACKAGES</code>.
 </aside>

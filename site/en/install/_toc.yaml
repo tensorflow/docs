@@ -11,7 +11,7 @@ toc:
 - heading: Additional setup
 - title: GPU support
   path: /install/gpu
-- title: Error messages
+- title: Problems
   path: /install/errors
 - heading: Build from source
 - title: Linux / macOS
