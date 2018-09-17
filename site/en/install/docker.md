@@ -86,12 +86,14 @@ docker run -it -v $PWD:/tmp -w /tmp tensorflow/tensorflow python script.py
 </pre>
 
 Start a [Jupyter Notebook](https://jupyter.org/){:.external} server using
-TensorFlow's nightly build with Python 3 support. Then, in your host web browser,
-open `http://localhost:8888/`:
+TensorFlow's nightly build with Python 3 support:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run -it -p 8888:8888 tensorflow/tensorflow:nightly-py3
 </pre>
+
+Follow the instructions and open the URL in your host web browser:
+`http://127.0.0.1:8888/?token=...`
 
 
 ## GPU support
