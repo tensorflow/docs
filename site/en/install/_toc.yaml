@@ -6,8 +6,6 @@ toc:
   path: /install/pip
 - title: Docker
   path: /install/docker
-- title: Anaconda (community)
-  path: /install/conda
 - heading: Additional setup
 - title: GPU support
   path: /install/gpu
