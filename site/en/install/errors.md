@@ -1,8 +1,8 @@
 # Build and install error messages
 
-We use [GitHub issues](https://github.com/tensorflow/tensorflow/issues){:.external}
+TensorFlow uses [GitHub issues](https://github.com/tensorflow/tensorflow/issues){:.external}
 and [Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow){:.external}
-to track and document TensorFlow build and installation problems.
+to track and document build and installation problems.
 
 The following list contains error messages with links to answers or discussion.
 If you find a installation or build problem that is not listed here, please
