@@ -505,7 +505,7 @@ The following NVIDIA® <i>hardware</i> must be installed on your system:
 
 The following NVIDIA® <i>software</i> must be installed on your system:
 
-*   [GPU drivers](http://nvidia.com/driver). CUDA 9.0 requires 384.x or higher.
+*   [GPU drivers](http://nvidia.com/drivers). CUDA 9.0 requires 384.x or higher.
 *   [CUDA Toolkit 9.0](http://nvidia.com/cuda).
 *   [cuDNN SDK](http://developer.nvidia.com/cudnn) (>= 7.2).
 *   [CUPTI](http://docs.nvidia.com/cuda/cupti/) ships with the CUDA Toolkit, but
