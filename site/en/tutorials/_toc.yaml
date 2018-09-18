@@ -53,6 +53,9 @@ toc:
 - title: Generative models
   style: accordion
   section:
+  - title: Text generation
+    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/generative_examples/text_generation.ipynb
+    status: external
   - title: Translation with attention
     path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb
     status: external
