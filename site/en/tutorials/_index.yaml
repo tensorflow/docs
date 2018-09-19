@@ -85,9 +85,7 @@ landing_page:
                 <a href="./eager/custom_layers">Custom layers</a>
               </li>
               <li>
-                <a href="./eager/custom_training_walkthrough">Custom training: walkthrough</a></li>
-              <li>
-                <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb" class="external">Example: Neural machine translation w/ attention</a>
+                <a href="./eager/custom_training_walkthrough">Custom training: walkthrough</a>
               </li>
             </ol>
           </div>
