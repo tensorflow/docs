@@ -1,12 +1,17 @@
 # GPU support
 
+TensorFlow GPU support requires an assortment of drivers and libraries. To
+simplify installation and avoid library conflicts, we recommend using a
+[TensorFlow Docker image with GPU support](./docker.md) (Linux only). This setup
+only requires the [NVIDIA® GPU drivers](https://www.nvidia.com/){:.external}.
+
 
 ## Hardware requirements
 
-TensorFlow supports the following GPU-enabled devices:
+The following GPU-enabled devices are supported:
 
 * NVIDIA® GPU card with CUDA® Compute Capability 3.5 or higher. See the list of
-  NVIDIA's [CUDA-enabled GPU cards](https://developer.nvidia.com/cuda-gpus){:.external}.
+  [CUDA-enabled GPU cards](https://developer.nvidia.com/cuda-gpus){:.external}.
 
 
 ## Software requirements
@@ -21,10 +26,13 @@ The following NVIDIA® software must be installed on your system:
 * *(Optional)* [TensorRT](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
   to improve latency and throughput for inference on some models.
 
-Note: We recommend using a GPU-enabled [TensorFlow Docker image](./docker.md).
-This is easier to set up since it only needs the NVIDIA GPU drivers installed.
 
 ## Linux setup
+
+The `apt` instructions below are the easiest way to install the required NVIDIA
+software on Ubuntu. But if [building TensorFlow from source](./source.md),
+manually install the software requirements listed above, and consider using a
+`-devel` [TensorFlow Docker image](./docker.md) as a base.
 
 Install [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} which ships with
 the CUDA® Toolkit. Append its installation directory to the `$LD_LIBRARY_PATH`
@@ -43,8 +51,7 @@ For Ubuntu&nbsp;16.04—and possibly other Debian-based Linux distros—add the
 NVIDIA package repository and use `apt` to install CUDA.
 
 Caution: `apt` installs the NVIDIA libraries and headers to locations that make
-it difficult to configure and debug build issues. We recommend using a
-GPU-enabled [TensorFlow Docker image](./docker.md).
+it difficult to configure and debug build issues.
 
 <pre class="prettyprint lang-bsh">
 # Add NVIDIA package repository

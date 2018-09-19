@@ -168,55 +168,103 @@
 <h2>2. Create a virtual environment (recommended)</h2>
 
 <p>
-  Virtual environments are used to isolate packages from the system. Create a new
-  virtual environment by choosing a Python interpreter and making a <code>./venv</code> directory to hold it:
+  Python virtual environments are used to isolate package installation from the system.
 </p>
-
-{% dynamic if request.query_string.lang == "python2" %}
-
-<pre class="devsite-terminal devsite-click-to-copy">virtualenv --system-site-packages -p python2.7 <var>./venv</var></pre>
-
-{% dynamic else %}
-
-<pre class="devsite-terminal devsite-click-to-copy">virtualenv --system-site-packages -p python3 <var>./venv</var></pre>
-
-{% dynamic endif %}
-
-<p>Activate the virtual environment using a shell-specific command:</p>
 
 <div class="ds-selector-tabs">
 <section>
-<h3>Sh</h3>
+<h3>Ubuntu / mac OS</h3>
+<p>
+  Create a new virtual environment by choosing a Python interpreter and making a
+  <code>./venv</code> directory to hold it:
+</p>
+{% dynamic if request.query_string.lang == "python2" %}
+<pre class="devsite-terminal devsite-click-to-copy">virtualenv --system-site-packages -p python2.7 <var>./venv</var></pre>
+{% dynamic else %}
+<pre class="devsite-terminal devsite-click-to-copy">virtualenv --system-site-packages -p python3 <var>./venv</var></pre>
+{% dynamic endif %}
+<p>
+  Activate the virtual environment using a shell-specific command:
+</p>
 <pre class="devsite-terminal prettyprint lang-bsh">source <var>./venv</var>/bin/activate  # sh, bash, ksh, or zsh</pre>
-</section>
-
-<section>
-<h3>Csh</h3>
-<pre class="devsite-terminal prettyprint lang-bsh">source <var>./venv</var>/bin/activate.csh  # csh or tcsh</pre>
-</section>
-
-<section>
-<h3>Fish</h3>
-<pre class="devsite-terminal prettyprint lang-bsh">. <var>./venv</var>/bin/activate.fish</pre>
-</section>
-</div><!--/ds-selector-tabs-->
-
-<p>When virtualenv is active, your shell prompt is prefixed with <code>(venv)</code>.</p>
-
+<p>
+  When virtualenv is active, your shell prompt is prefixed with <code>(venv)</code>.
+</p>
 <p>
   Install packages within a virtual environment without affecting the host system
   setup. Start by upgrading <code>pip</code>:
 </p>
-
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-venv">pip install --upgrade pip</code>
 
 <code class="devsite-terminal tfo-terminal-venv">pip list  # show packages installed within the virtual environment</code>
 </pre>
-
-<p>And to exit virtualenv later:</p>
-
+<p>
+  And to exit virtualenv later:
+</p>
 <pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">deactivate  # don't exit until you're done using TensorFlow</pre>
+</section>
+
+
+<section>
+  <h3>Windows</h3>
+  <p>
+  Create a new virtual environment by choosing a Python interpreter and making a
+  <code>./venv</code> directory to hold it:
+</p>
+{% dynamic if request.query_string.lang == "python2" %}
+<aside class="warning">TensorFlow is not supported on Windows with Python 2.7</aside>
+{% dynamic else %}
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">virtualenv --system-site-packages -p python3 <var>./venv</var></pre>
+{% dynamic endif %}
+<p>
+  Activate the virtual environment:
+</p>
+<pre class="devsite-terminal tfo-terminal-windows-venv"><var>.\venv</var>\Scripts\activate</pre>
+<p>
+  Install packages within a virtual environment without affecting the host system
+  setup. Start by upgrading <code>pip</code>:
+</p>
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal tfo-terminal-windows-venv">pip install --upgrade pip</code>
+
+<code class="devsite-terminal tfo-terminal-windows-venv">pip list  # show packages installed within the virtual environment</code>
+</pre>
+<p>
+  And to exit virtualenv later:
+</p>
+<pre class="devsite-terminal tfo-terminal-windows-venv prettyprint lang-bsh">deactivate  # don't exit until you're done using TensorFlow</pre>
+</section>
+
+
+<section>
+<h3>Conda</h3>
+<aside class="note">
+  A <em>community-supported</em> <a href="https://anaconda.org/conda-forge/tensorflow" class="external">TensorFlow Anaconda package</a>
+  is available, but we recommend using the <em>pip</em> package.
+</aside>
+<p>
+  Create a new virtual environment by choosing a Python interpreter and making a
+  <code>./venv</code> directory to hold it:
+</p>
+{% dynamic if request.query_string.lang == "python2" %}
+<pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=2.7</pre>
+{% dynamic else %}
+<pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=3.6  # select python version</pre>
+{% dynamic endif %}
+<p>Activate the virtual environment:</p>
+<pre class="devsite-terminal devsite-click-to-copy">source activate <var>venv</var></pre>
+<p>
+  Within the virtual environment, install the TensorFlow pip package using its <a href="#package-location">complete URL</a>:
+</p>
+<pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">pip install --ignore-installed --upgrade <var>packageURL</var></pre>
+<p>
+  And to exit virtualenv later:
+</p>
+<pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">source deactivate</pre>
+</section>
+</div><!--/ds-selector-tabs-->
+
 
 <h2>3. Install the TensorFlow pip package</h2>
 

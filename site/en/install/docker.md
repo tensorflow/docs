@@ -1,12 +1,11 @@
 # Docker
 
-Docker uses a *container* to create a virtual environment that isolates a
+Docker uses *containers* to create virtual environments that isolate a
 TensorFlow installation from the rest of the system. TensorFlow programs are run
 *within* this virtual environment that can share resources with its host machine
 (access directories, use the GPU, connect to the Internet, etc.).
 
-We provide a number of tested
-[TensorFlow Docker images](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
+There are tested [TensorFlow Docker images](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
 for each release. Docker is the easiest way to run TensorFlow on a GPU since the
 *host* machine only requires the
 [NVIDIA® driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
@@ -28,8 +27,8 @@ add your user. For details, the
 
 The official TensorFlow Docker images are located in the 
 [tensorflow/tensorflow](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
-Docker Hub repository. Image releases [are tagged](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external},
-formatted as:
+Docker Hub repository. Image releases [are tagged](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}
+using the following format:
 
 <table>
   <tr><th>Tag</th><th>Description</th></tr>
@@ -57,22 +56,24 @@ docker pull tensorflow/tensorflow:latest-devel-gpu
 To start a TensorFlow-configured container, use the following command form:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-docker run -it [-p <em>hostPort</em>:<em>containerPort</em>] tensorflow/tensorflow[:<em>tag</em>] [<em>command</em>]
+docker run [-it] [--rm] [-p <em>hostPort</em>:<em>containerPort</em>] tensorflow/tensorflow[:<em>tag</em>] [<em>command</em>]
 </pre>
+
+For details, see the [docker run reference](https://docs.docker.com/engine/reference/run/){:.external}.
 
 ### Examples using CPU-only images
 
-Let's verify the TensorFlow installation on the `latest` image. Docker downloads
-the TensorFlow image the first time you launch it:
+Let's verify the TensorFlow installation using the `latest` tagged image. Docker
+downloads the TensorFlow image the first time it is run:
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
-docker run -it tensorflow/tensorflow python -c "import tensorflow as tf; print(tf.__version__)"
+docker run --rm tensorflow/tensorflow python -c "import tensorflow as tf; print(tf.__version__)"
 </pre>
 
 Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
 
-Let's demonstrate some more TensorFlow Docker recipes. To execute a `bash` shell
-within the TensorFlow-configured container:
+Let's demonstrate some more TensorFlow Docker recipes. Start a `bash` shell
+session within a TensorFlow-configured container:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run -it tensorflow/tensorflow bash
@@ -82,8 +83,11 @@ To run a script, `./script.py`, within a container, mount the host directory and
 change the container's working directory (`-v hostDir:containerDir -w workDir`):
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
-docker run -it -v $PWD:/tmp -w /tmp tensorflow/tensorflow python script.py
+docker run --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python script.py
 </pre>
+
+Permission issues can arise when files created within a container are exposed to
+the host. It's usually best to edit files on the host system.
 
 Start a [Jupyter Notebook](https://jupyter.org/){:.external} server using
 TensorFlow's nightly build with Python 3 support:
@@ -102,7 +106,7 @@ Docker is the easiest way to run TensorFlow on a GPU since the *host* machine
 only requires the [NVIDIA® driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
 (the *NVIDIA® CUDA® Toolkit* is not required).
 
-[Install nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} to
+Install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} to
 launch a Docker container with NVIDIA® GPU support. `nvidia-docker` is only
 available for Linux, see their
 [platform support FAQ](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#platform-support){:.external}
@@ -120,19 +124,24 @@ Verify your `nvidia-docker` installation:
 docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 </pre>
 
+Note: `nvidia-docker` v1 uses the `nvidia-docker` alias, where v2 uses `docker --runtime=nvidia`.
+
 ### Examples using GPU-enabled images
 
 Download and run a GPU-enabled TensorFlow image:
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
-nvidia-docker run -it tensorflow/tensorflow:latest-gpu \
+docker run --runtime=nvidia --rm tensorflow/tensorflow:latest-gpu \
     python -c "import tensorflow as tf; print(tf.contrib.eager.num_gpus())"
 </pre>
 
-Use the latest TensorFlow GPU image to execute a `bash` shell in the container:
+This command may take a few minutes to set up the GPU-enabled image. If
+repeatably running GPU-based scripts, use `docker exec` to reuse a container.
+
+Use the latest TensorFlow GPU image to start a `bash` shell session in the container:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-nvidia-docker run -it tensorflow/tensorflow:latest-gpu bash
+docker run --runtime=nvidia -it tensorflow/tensorflow:latest-gpu bash
 </pre>
 
 Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
