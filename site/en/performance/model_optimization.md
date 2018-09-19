@@ -37,7 +37,7 @@ computation. Quantization provides several benefits:
 * Quantizing activations reduces memory access costs for reading and storing intermediate activations.
 * Many CPU and hardware accelerator implementations provide SIMD instruction capabilities, which are especially beneficial for quantization.
 
-[TensorFlow Lite](../mobile/tflite) provides several levels of support for quantization. 
+[TensorFlow Lite](../lite) provides several levels of support for quantization.
 
 [Post-training quantization](post_training_quantization.md) quantizes weights and activations post training and is very easy to use.
 [Quantization-aware training](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/quantize/README.md){:.external} allows for training networks that can be quantized with minimal accuracy drop and is only available

@@ -132,20 +132,16 @@ landing_page:
     background: grey
     items:
     - custom_html: >
-        <div class="devsite-landing-row-item-description" style="background: #fff; padding:32px;">
-          <a href="https://js.tensorflow.org">
-            <h3 class="hide-from-toc">Web developers</h3>
-          </a>
+        <div class="devsite-landing-row-item-description tfo-landing-row-item-inset-white">
+          <a href="https://js.tensorflow.org"><h3 class="hide-from-toc">Web developers</h3></a>
           <div class="devsite-landing-row-item-description-content">
             TensorFlow.js is a WebGL accelerated, JavaScript library to train and
             deploy ML models in the browser and for Node.js.
           </div>
         </div>
     - custom_html: >
-        <div class="devsite-landing-row-item-description" style="background: #fff; padding:32px;">
-          <a href="/mobile/tflite/">
-            <h3 class="hide-from-toc">Mobile developers</h3>
-          </a>
+        <div class="devsite-landing-row-item-description tfo-landing-row-item-inset-white">
+          <a href="/lite/"><h3 class="hide-from-toc">Mobile developers</h3></a>
           <div class="devsite-landing-row-item-description-content">
             TensorFlow Lite is lightweight solution for mobile and embedded devices.
           </div>
