@@ -377,6 +377,7 @@ class MyLayer(keras.layers.Layer):
   def get_config(self):
     base_config = super(MyLayer, self).get_config()
     base_config['output_dim'] = self.output_dim
+    return base_config
 
   @classmethod
   def from_config(cls, config):
