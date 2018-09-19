@@ -155,18 +155,21 @@ landing_page:
     description: >
       <p>Create and deploy TensorFlow models on web and mobile.</p>
     items:
-    - classname: tfo-landing-row-item-inset-white
-      heading: Web developers
-      path: https://js.tensorflow.org
-      description: >
-        TensorFlow.js is a WebGL accelerated, JavaScript library to train and
-        deploy ML models in the browser and for Node.js.
-
-    - classname: tfo-landing-row-item-inset-white
-      heading: Mobile developers
-      path: /lite/
-      description: >
-        TensorFlow Lite is lightweight solution for mobile and embedded devices.
+    - custom_html: >
+        <div class="devsite-landing-row-item-description tfo-landing-row-item-inset-white">
+          <a href="https://js.tensorflow.org"><h3 class="hide-from-toc">Web developers</h3></a>
+          <div class="devsite-landing-row-item-description-content">
+            TensorFlow.js is a WebGL accelerated, JavaScript library to train and
+            deploy ML models in the browser and for Node.js.
+          </div>
+        </div>
+    - custom_html: >
+        <div class="devsite-landing-row-item-description tfo-landing-row-item-inset-white">
+          <a href="/lite/"><h3 class="hide-from-toc">Mobile developers</h3></a>
+          <div class="devsite-landing-row-item-description-content">
+            TensorFlow Lite is lightweight solution for mobile and embedded devices.
+          </div>
+        </div>
 
   - heading: Videos and updates
     description: >
