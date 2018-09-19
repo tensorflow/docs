@@ -24,17 +24,13 @@ toc:
   - title: Overview
     path: /tutorials/eager/
   - title: Eager execution
-    path: /tutorials/eager/eager_basics.ipynb
-    status: external
+    path: /tutorials/eager/eager_basics
   - title: Automatic differentiation
-    path: /tutorials/eager/automatic_differentiation.ipynb
-    status: external
+    path: /tutorials/eager/automatic_differentiation
   - title: "Custom training: basics"
-    path: /tutorials/eager/custom_training.ipynb
-    status: external
+    path: /tutorials/eager/custom_training
   - title: Custom layers
-    path: /tutorials/eager/custom_layers.ipynb
-    status: external
+    path: /tutorials/eager/custom_layers
   - title: "Custom training: walkthrough"
     path: /tutorials/eager/custom_training_walkthrough
 
