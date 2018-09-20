@@ -106,7 +106,7 @@ curl -L "https://storage.googleapis.com/download.tensorflow.org/models/inception
 
 Next, we need to compile the C++ binary that includes the code to load and run the graph.
 If you've followed
-[the instructions to download the source installation of TensorFlow](../../install/install_sources.md)
+[the instructions to download the source installation of TensorFlow](../../install/source.md)
 for your platform, you should be able to build the example by
 running this command from your shell terminal:
 

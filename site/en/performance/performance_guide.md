@@ -257,7 +257,7 @@ the CPU in use. Speedups for training and inference on CPU are documented below
 in [Comparing compiler optimizations](#comparing-compiler-optimizations).
 
 To install the most optimized version of TensorFlow,
-[build and install](../install/install_sources.md) from source. If there is a need to build
+[build and install](../install/source.md) from source. If there is a need to build
 TensorFlow on a platform that has different hardware than the target, then
 cross-compile with the highest optimizations for the target platform. The
 following command is an example of using `bazel` to compile for a specific
@@ -433,7 +433,7 @@ scenarios.
 ## Optimizing for CPU
 
 CPUs, which includes Intel® Xeon Phi™, achieve optimal performance when
-TensorFlow is [built from source](../install/install_sources.md) with all of the instructions
+TensorFlow is [built from source](../install/source.md) with all of the instructions
 supported by the target CPU.
 
 Beyond using the latest instruction sets, Intel® has added support for the
