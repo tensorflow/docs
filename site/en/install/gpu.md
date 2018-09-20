@@ -3,7 +3,7 @@
 TensorFlow GPU support requires an assortment of drivers and libraries. To
 simplify installation and avoid library conflicts, we recommend using a
 [TensorFlow Docker image with GPU support](./docker.md) (Linux only). This setup
-only requires the [NVIDIA® GPU drivers](https://www.nvidia.com/){:.external}.
+only requires the [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external}.
 
 
 ## Hardware requirements
@@ -18,8 +18,8 @@ The following GPU-enabled devices are supported:
 
 The following NVIDIA® software must be installed on your system:
 
-* [NVIDIA® GPU drivers](https://www.nvidia.com/){:.external} —CUDA 9.0 requires 384.x or higher.
-* [CUDA® Toolkit 9.0](https://developer.nvidia.com/cuda-zone){:.external}
+* [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external} —CUDA 9.0 requires 384.x or higher.
+* [CUDA® Toolkit](https://developer.nvidia.com/cuda-zone){:.external} —TensorFlow supports CUDA 9.0.
 * [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA Toolkit.
 * [cuDNN SDK](https://developer.nvidia.com/cudnn){:.external} (>= 7.2)
 * *(Optional)* [NCCL 2.2](https://developer.nvidia.com/nccl){:.external} for multiple GPU support.
@@ -30,7 +30,7 @@ The following NVIDIA® software must be installed on your system:
 ## Linux setup
 
 The `apt` instructions below are the easiest way to install the required NVIDIA
-software on Ubuntu. But if [building TensorFlow from source](./source.md),
+software on Ubuntu. However, if [building TensorFlow from source](./source.md),
 manually install the software requirements listed above, and consider using a
 `-devel` [TensorFlow Docker image](./docker.md) as a base.
 
@@ -79,7 +79,7 @@ See the [hardware requirements](#hardware_requirements) and
 [software requirements](#software_requirements) listed above. Read the
 [CUDA® install guide for Windows](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/){:.external}.
 
-Make sure the installed NVIDIA software packages match the ones listed above. In
+Make sure the installed NVIDIA software packages match the versions listed above. In
 particular, TensorFlow will not load without the `cuDNN64_7.dll` file. To use a
 different version, see the [Windows build from source](./source_windows.md) guide.
 
