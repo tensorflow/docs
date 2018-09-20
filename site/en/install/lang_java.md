@@ -6,7 +6,7 @@ particularly useful for loading models created with Python and running them
 within a Java application.
 
 Caution: The TensorFlow Java API is *not* covered by the TensorFlow
-[API stability guarantees](../guide/version_semantics.md).
+[API stability guarantees](../guide/version_compat.md).
 
 
 ## Supported Platforms

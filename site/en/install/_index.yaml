@@ -13,24 +13,19 @@ landing_page:
       }
       </style>
       <h1 class="hide-from-toc">Install TensorFlow</h1>
-      <p>
-        TensorFlow is tested and supported on the following 64-bit systems:
-      </p>
+      <p>TensorFlow is tested and supported on the following 64-bit systems:</p>
       <table class="columns">
-        <tr>
-          <td>
-            <ul>
-              <li>Ubuntu 16.04 or later</li>
-              <li>Windows 7 or later</li>
-            </ul>
-          </td>
-          <td>
-            <ul>
-              <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
-              <li>Raspbian 9.0 or later</li>
-            </ul>
-          </td>
-        </tr>
+        <tr><td>
+          <ul>
+            <li>Ubuntu 16.04 or later</li>
+            <li>Windows 7 or later</li>
+          </ul>
+        </td><td>
+          <ul>
+            <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
+            <li>Raspbian 9.0 or later</li>
+          </ul>
+        </td></tr>
       </table>
 
   - items:
@@ -42,6 +37,7 @@ landing_page:
               Install TensorFlow with Python's <em>pip</em> package manager.
             </p>
             <p>Official packages available for Ubuntu, Windows, macOS, and the Raspberry Pi.</p>
+            <p>GPU packages require a <a href="./gpu">CUDA®-enabled GPU card</a>.</p>
           </div>
           <div class="devsite-landing-row-item-buttons" style="margin-top:0;">
             <a class="button button-primary tfo-button-primary" href="./pip">Read the pip install guide</a>
@@ -54,21 +50,18 @@ landing_page:
         <code class="devsite-terminal">pip install tensorflow</code><br/>
         # Nightly build for CPU-only (unstable)
         <code class="devsite-terminal">pip install tf-nightly</code><br/>
-        # GPU package for CUDA-enabled GPU cards w/ cuDNN
+        # GPU package for CUDA-enabled GPU cards
         <code class="devsite-terminal">pip install tensorflow-gpu</code><br/>
         # Nightly build with GPU support (unstable)
         <code class="devsite-terminal">pip install tf-nightly-gpu</code><br/>
         </pre>
-        <p style="margin-top: 8px; font-size: 0.9em;">
-          * Read the <a href="./gpu">GPU support guide</a> for CUDA®-enabled GPU cards.
-        </p>
 
   - description: >
       <h2 class="hide-from-toc">Run a TensorFlow container</h2>
       <p>
         The <a href="https://hub.docker.com/r/tensorflow/tensorflow/" class="external">TensorFlow Docker images</a>
-        are already configured to run TensorFlow. With <a href="https://docs.docker.com/install/" class="external">Docker</a>,
-        a container runs in a virtual environment and is the easiest way to set up <a href="./gpu">GPU support</a>.
+        are already configured to run TensorFlow. A <a href="https://docs.docker.com/install/" class="external">Docker</a>
+        container runs in a virtual environment and is the easiest way to set up <a href="./gpu">GPU support</a>.
       </p>
       <pre class="prettyprint lang-bsh">
       <code class="devsite-terminal">docker pull tensorflow/tensorflow                  # Download latest image</code><br/>
@@ -79,8 +72,9 @@ landing_page:
   - description: >
       <h2 class="hide-from-toc">Google Colab&#58; An easy way to learn and use TensorFlow</h2>
       <p>
-        <a href="https://colab.research.google.com/notebooks/welcome.ipynb" class="external">Colaboratory</a>
-        is a Google research project created to help disseminate machine learning
+        No install necessary—run the <a href="../tutorials">TensorFlow tutorials</a>
+        directly in the browser with <a href="https://colab.research.google.com/notebooks/welcome.ipynb" class="external">Colaboratory</a>,
+        a Google research project created to help disseminate machine learning
         education and research. It's a Jupyter notebook environment that requires
         no setup to use and runs entirely in the cloud.
         <a href="https://medium.com/tensorflow/colab-an-easy-way-to-learn-and-use-tensorflow-d74d1686e309" class="external">Read the blog post</a>.
@@ -92,20 +86,16 @@ landing_page:
     background: grey
     items:
     - custom_html: >
-        <div class="devsite-landing-row-item-description" style="background: #fff; padding:32px;">
-          <a href="https://js.tensorflow.org">
-            <h3 class="hide-from-toc">Web developers</h3>
-          </a>
+        <div class="devsite-landing-row-item-description tfo-landing-row-item-inset-white">
+          <a href="https://js.tensorflow.org"><h3 class="hide-from-toc">Web developers</h3></a>
           <div class="devsite-landing-row-item-description-content">
             TensorFlow.js is a WebGL accelerated, JavaScript library to train and
             deploy ML models in the browser and for Node.js.
           </div>
         </div>
     - custom_html: >
-        <div class="devsite-landing-row-item-description" style="background: #fff; padding:32px;">
-          <a href="/mobile/tflite/">
-            <h3 class="hide-from-toc">Mobile developers</h3>
-          </a>
+        <div class="devsite-landing-row-item-description tfo-landing-row-item-inset-white">
+          <a href="/lite/"><h3 class="hide-from-toc">Mobile developers</h3></a>
           <div class="devsite-landing-row-item-description-content">
             TensorFlow Lite is lightweight solution for mobile and embedded devices.
           </div>

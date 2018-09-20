@@ -47,14 +47,14 @@ sudo tar -xz <var>libtensorflow.tar.gz</var> -C /usr/local
 
 ### Linker
 
-If you extracted the TensorFlow C library to a system directory, such as
+If you extract the TensorFlow C library to a system directory, such as
 `/usr/local`, configure the linker with `ldconfig`:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 sudo ldconfig
 </pre>
 
-Or, if you extracted the TensorFlow C library to a non-system directory, such as
+Or, if you extract the TensorFlow C library to a non-system directory, such as
 `~/mydir`, then configure the linker environmental variables:
 
 <div class="ds-selector-tabs">

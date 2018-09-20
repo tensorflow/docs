@@ -36,7 +36,7 @@ Use [Git](https://git-scm.com/){:.external} to clone the
 </pre>
 
 The repo defaults to the `master` development branch. You can also checkout a
-[release branch](https://github.com/tensorflow/tensorflow/branches){:.external}
+[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}
 to build:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
@@ -82,9 +82,8 @@ tensorflow/tools/ci_build/ci_build.sh PI \
 </pre>
 
 When the build finishes (~30 minutes), a `.whl` package file is created in the
-output-artifacts directory of the host's source tree.
-
-Copy the wheel file to the Raspberry Pi and install with `pip`:
+output-artifacts directory of the host's source tree. Copy the wheel file to the
+Raspberry Pi and install with `pip`:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 pip install tensorflow-<var>version</var>-cp34-none-linux_armv7l.whl
