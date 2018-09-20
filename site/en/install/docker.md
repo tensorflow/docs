@@ -71,7 +71,8 @@ Let's verify the TensorFlow installation using the `latest` tagged image. Docker
 downloads a new TensorFlow image the first time it is run:
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
-docker run --rm tensorflow/tensorflow python -c "import tensorflow as tf; print(tf.__version__)"
+docker run -it --rm tensorflow/tensorflow \
+    python -c "import tensorflow as tf; print(tf.__version__)"
 </pre>
 
 Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
@@ -90,7 +91,7 @@ mount the host directory and change the container's working directory
 (`-v hostDir:containerDir -w workDir`):
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
-docker run --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./script.py
+docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./script.py
 </pre>
 
 Permission issues can arise when files created within a container are exposed to
@@ -138,7 +139,7 @@ Note: `nvidia-docker` v1 uses the `nvidia-docker` alias, where v2 uses `docker -
 Download and run a GPU-enabled TensorFlow image (may take a few minutes):
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
-docker run --runtime=nvidia --rm tensorflow/tensorflow:latest-gpu \
+docker run --runtime=nvidia -it --rm tensorflow/tensorflow:latest-gpu \
     python -c "import tensorflow as tf; print(tf.contrib.eager.num_gpus())"
 </pre>
 
