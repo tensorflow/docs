@@ -3,7 +3,7 @@ book_path: /_book.yaml
 description: <!--no description-->
 landing_page:
   custom_css_path: /site-assets/css/style.css
-  show_side_navs: True
+  show_side_navs: true
   rows:
   - description: >
       <h1 class="hide-from-toc">Get Started with TensorFlow</h1>
