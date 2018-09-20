@@ -77,11 +77,17 @@ Use [Git](https://git-scm.com/){:.external} to clone the
 </pre>
 
 The repo defaults to the `master` development branch. You can also checkout a
-[release branch](https://github.com/tensorflow/tensorflow/branches){:.external}
+[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}
 to build:
 
 <pre class="devsite-terminal tfo-terminal-windows prettyprint lang-bsh">
 git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
+</pre>
+
+To test your copy of the source tree, run the following test (this may take a while):
+
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
+bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/contrib/lite/...
 </pre>
 
 Key Point: If you're having build problems on the latest development branch, try
@@ -93,7 +99,7 @@ a release branch that is known to work.
 Configure your system build by running the following at the root of your
 TensorFlow source tree:
 
-<pre class="devsite-terminal devsite-click-to-copy">
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 python ./configure.py
 </pre>
 

@@ -23,6 +23,7 @@ Install the following build tools to configure your development environment.
 </section>
 <section>
 <h3>mac OS</h3>
+<p>Requires Xcode 8.3 or later.</p>
 <p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
@@ -56,7 +57,7 @@ Add the location of the Bazel executable to your `PATH` environment variable.
 
 There is *no* GPU support for macOS.
 
-See the Linux [GPU support](./gpu.md) guide to install the drivers and additional
+Read the [GPU support](./gpu.md) guide to install the drivers and additional
 software required to run TensorFlow on a GPU.
 
 Note: It is easier to set up one of TensorFlow's GPU-enabled [Docker images](#docker_linux_builds).
@@ -72,14 +73,14 @@ Use [Git](https://git-scm.com/){:.external} to clone the
 </pre>
 
 The repo defaults to the `master` development branch. You can also checkout a
-[release branch](https://github.com/tensorflow/tensorflow/branches){:.external}
+[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}
 to build:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
 git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
 </pre>
 
-To test your copy of the source tree, run:
+To test your copy of the source tree, run the following test (this may take a while):
 
 <pre class="devsite-terminal prettyprint lang-bsh">
 bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/contrib/lite/...
@@ -233,7 +234,7 @@ memory-constrained, limit Bazel's RAM usage with: `--local_resources 2048,.5,1.0
 
 The [official TensorFlow packages](./pip.md) are built with GCC 4 and use the
 older ABI. For GCC 5 and later, make your build compatible with the older ABI
-with: `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`. ABI compatibility ensures that
+using: `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`. ABI compatibility ensures that
 custom ops built against the official TensorFlow package continue to work with
 the GCC 5 built package.
 
@@ -247,8 +248,8 @@ is the program that builds the `pip` package. For example, the following builds 
 ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 </pre>
 
-Although it is possible to build both CUDA and non-CUDA configs under the
-same source tree, we recommend running `bazel clean` when switching between
+Although it is possible to build both CUDA and non-CUDA configurations under the
+same source tree, it's recommended to run `bazel clean` when switching between
 these two configurations in the same source tree.
 
 ### Install the package
@@ -269,7 +270,7 @@ TensorFlow's Docker development images are an easy way to set up an environment
 to build Linux packages from source. These images already contain the source
 code and dependencies required to build TensorFlow. See the TensorFlow
 [Docker guide](./docker.md) for installation and the
-[list of image tags](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}.
+[list of available image tags](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}.
 
 ### CPU-only
 
@@ -291,17 +292,18 @@ use to build the *pip* package:
 The above `docker run` command starts a shell in the `/tensorflow` directory—the
 root of the source tree. It mounts the host's current directory in the container's
 `/mnt` directory, and passes the host user's information to the container through
-an environmental variable (used to set permissions).
+an environmental variable (used to set permissions—Docker can make this tricky).
 
-To build a host copy of TensorFlow within a container, mount the host source tree
-at the container's `/tensorflow` directory:
+Alternatively, to build a host copy of TensorFlow within a container, mount the
+host source tree at the container's `/tensorflow` directory:
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run -it -w /tensorflow -v <var>/path/to/tensorflow</var>:/tensorflow -v $PWD:/mnt \
     -e HOST_PERMS="$(id -u):$(id -g)" tensorflow/tensorflow:<var>nightly-devel</var> bash
 </pre>
 
-Then, within the container's virtual environment, build the TensorFlow package:
+With the source tree set up, build the TensorFlow package within the container's
+virtual environment:
 
 1. Configure the build—this prompts the user to answer build configuration questions.
 2. Build the tool used to create the *pip* package.
@@ -340,7 +342,7 @@ machine only requires the
 [NVIDIA®&nbsp;driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
 (the *NVIDIA® CUDA® Toolkit* doesn't have to be installed). See the
 [GPU support guide](./gpu.md) and the TensorFlow [Docker guide](./docker.md)
-to set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}.
+to set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} (Linux only).
 
 The following example downloads the TensorFlow `:nightly-devel-gpu-py3` image
 and uses `nvidia-docker` to run the GPU-enabled container. This development image
@@ -348,7 +350,7 @@ is configured to build a Python 3 *pip* package with GPU support:
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:nightly-devel-gpu-py3</var></code>
-<code class="devsite-terminal">nvidia-docker run -it -w /tensorflow -v $PWD:/mnt -e HOST_PERMS="$(id -u):$(id -g)" \
+<code class="devsite-terminal">docker run --runtime=nvidia -it -w /tensorflow -v $PWD:/mnt -e HOST_PERMS="$(id -u):$(id -g)" \
     tensorflow/tensorflow<var>:nightly-devel-gpu-py3</var> bash</code>
 </pre>
 
