@@ -119,6 +119,6 @@ toc:
   - title: Partial differential equations
     path: /tutorials/non-ml/pdes
 
-- break: True
+- break: true
 - title: Next steps
   path: /tutorials/next_steps
