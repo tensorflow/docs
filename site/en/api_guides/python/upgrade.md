@@ -1,5 +1,4 @@
-# Transition to TensorFlow 1.0
-
+# Upgrade to TensorFlow 1.0
 
 The APIs in TensorFlow 1.0 have changed in ways that are not all backwards
 compatible.  That is, TensorFlow programs that worked on TensorFlow 0.n won't
@@ -333,4 +332,3 @@ Several other changes have been made, including the following:
     * should be renamed to `tf.unstack`
 * `tf.zeros_initializer`
     * should be changed to a function call i.e. `tf.zeros_initializer()`
-
