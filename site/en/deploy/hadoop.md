@@ -31,13 +31,15 @@ be set:
     ```shell
     source ${HADOOP_HOME}/libexec/hadoop-config.sh
     ```
+    
+    The variable is optional if libhdfs.so is available in LD_LIBRARY_PATH.
 
 *   **LD_LIBRARY_PATH**: To include the path to libjvm.so, and optionally the path
     to libhdfs.so if your Hadoop distribution does not install libhdfs.so in
-    `$HADOOP_HDFS_HOME/lib/native`. On Linux:
+    `${HADOOP_HDFS_HOME}/lib/native`. On Linux:
 
     ```shell
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JAVA_HOME}/jre/lib/amd64/server
+    export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${JAVA_HOME}/jre/lib/amd64/server
     ```
 
 *   **CLASSPATH**: The Hadoop jars must be added prior to running your
@@ -46,11 +48,8 @@ be set:
     expanded as described in the libhdfs documentation:
 
     ```shell
-    CLASSPATH=$(${HADOOP_HDFS_HOME}/bin/hadoop classpath --glob) python your_script.py
+    CLASSPATH=$(${HADOOP_HOME}/bin/hadoop classpath --glob) python your_script.py
     ```
-    For older version of Hadoop/libhdfs (older than 2.6.0), you have to expand the
-    classpath wildcard manually. For more details, see
-    [HADOOP-10903](https://issues.apache.org/jira/browse/HADOOP-10903).
 
 If the Hadoop cluster is in secure mode, the following environment variable must
 be set:
