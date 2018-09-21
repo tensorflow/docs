@@ -21,7 +21,7 @@ be installed).
 2. For GPU support on Linux, [install nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}.
 
 Note: To run the `docker` command without `sudo`, create the `docker` group and
-add your user. For details, the
+add your user. For details, see the
 [post-installation steps for Linux](https://docs.docker.com/install/linux/linux-postinstall/){:.external}.
 
 
