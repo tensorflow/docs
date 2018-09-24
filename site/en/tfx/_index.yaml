@@ -1,0 +1,105 @@
+book_path: /tfx/_book.yaml
+project_path: /tfx/_project.yaml
+description: <!--no description-->
+landing_page:
+  rows:
+  - heading: TFX is an end-to-end machine learning platform for TensorFlow.
+    items:
+    - classname: devsite-landing-row-50
+      description: >
+        TensorFlow Extended (TFX) is a TensorFlow-based general-purpose machine
+        learning platform implemented at Google. We've already open sourced some
+        TFX libraries with the rest of the system to come. For an overview of
+        TFX, read our
+        <a href='https://dl.acm.org/citation.cfm?id=3098021' class='external'>KDD’2017 paper</a>.
+      list:
+      - heading: TensorFlow Data Validation
+        description: >
+          A library for exploring and validating machine learning data.
+        path: /tfx/data_validation
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - heading: TensorFlow Transform
+        description: >
+          Perform full-pass analyze phases over data to create transformation
+          graphs that are consistently applied during training and serving.
+        path: /tfx/transform
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - heading: TensorFlow Model Analysis
+        description: >
+          Libraries and visualization components to compute full-pass and sliced
+          model metrics over large datasets, and analyze them in a notebook.
+        path: /tfx/model_analysis
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - heading: TensorFlow Serving
+        description: >
+          A flexible, high-performance serving system for machine learning
+          models, designed for production environments.
+        path: /serving
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      youtube_id: vdG7uKQ2eKk
+      buttons:
+      - label: Watch the Dev Summit talk
+        path: https://www.youtube.com/watch?v=vdG7uKQ2eKk
+        classname: button button-primary
+
+  - classname: devsite-landing-row-cards
+    background: grey
+    items:
+    - heading: "Introducing TensorFlow Model Analysis: Scaleable, Sliced, and Full-Pass Metrics"
+      image_path: /ecosystem/images/tf-logo-card-16x9.png
+      path: https://medium.com/tensorflow/introducing-tensorflow-model-analysis-scaleable-sliced-and-full-pass-metrics-5cde7baf0b7b
+      buttons:
+      - label: Read on TensorFlow blog
+        path: https://medium.com/tensorflow/introducing-tensorflow-model-analysis-scaleable-sliced-and-full-pass-metrics-5cde7baf0b7b
+    - heading: Preprocessing for Machine Learning with tf.Transform
+      image_path: /ecosystem/images/google-research-card-16x9.png
+      path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
+      buttons:
+      - label: Read on Google Research blog
+        path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
+    - heading: Latest Innovations in TensorFlow Serving
+      image_path: /ecosystem/images/google-research-card-16x9.png
+      path: https://research.googleblog.com/2017/11/latest-innovations-in-tensorflow-serving.html
+      buttons:
+      - label: Read on Google Research blog
+        path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
+
+  - classname: devsite-landing-row-cards
+    background: grey
+    items:
+    - heading: Data Validation on GitHub
+      image_path: /ecosystem/images/github-card-16x9.png
+      path: https://github.com/tensorflow/data-validation
+      buttons:
+      - label: View on GitHub
+        path: https://github.com/tensorflow/data-validation
+    - heading: TensorFlow Transform on GitHub
+      image_path: /ecosystem/images/github-card-16x9.png
+      path: https://github.com/tensorflow/transform
+      buttons:
+      - label: View on GitHub
+        path: https://github.com/tensorflow/transform
+    - heading: Model Analysis on GitHub
+      image_path: /ecosystem/images/github-card-16x9.png
+      path: https://github.com/tensorflow/model-analysis
+      buttons:
+      - label: View on GitHub
+        path: https://github.com/tensorflow/model-analysis
+    - heading: TensorFlow Serving on GitHub
+      image_path: /ecosystem/images/github-card-16x9.png
+      path: https://github.com/tensorflow/serving
+      buttons:
+      - label: View on GitHub
+        path: https://github.com/tensorflow/serving
