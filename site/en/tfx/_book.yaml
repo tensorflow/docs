@@ -1,0 +1,33 @@
+# Upper tab dropdown menu used in TFX sub-site.
+
+upper_tabs:
+- include: /_upper_tabs_left.yaml
+- include: /versions/_upper_tabs_versions.yaml
+
+- name: Ecosystem
+  path: /ecosystem
+  is_default: true
+  menu:
+  - include: /ecosystem/_menu_toc.yaml
+  lower_tabs:
+    other:
+    - name: Data Validation
+      contents:
+      - title: Data Validation
+        path: /tfx/data_validation
+      - include: /tfx/data_validation/_toc.yaml
+    - name: Transform
+      contents:
+      - title: Transform
+        path: /tfx/transform
+      - include: /tfx/transform/_toc.yaml
+    - name: Model Analysis
+      contents:
+      - title: Model Analysis
+        path: /tfx/model_analysis
+      - include: /tfx/model_analysis/_toc.yaml
+    - name: Serving
+      contents:
+      - title: Serving
+        path: /tfx/serving
+      - include: /tfx/serving/_toc.yaml
