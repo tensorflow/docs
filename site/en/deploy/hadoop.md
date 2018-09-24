@@ -1,7 +1,7 @@
 # TensorFlow on Hadoop
 
 This document describes how to run TensorFlow on Hadoop using HDFS. You should
-know how to [import data](..guide/datasets).
+know how to [import data](../guide/datasets).
 
 ## HDFS
 
