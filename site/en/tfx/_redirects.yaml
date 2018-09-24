@@ -1,0 +1,7 @@
+redirects:
+# Changed right after launch, can probably be removed after the initial spike
+- from: /tfx/analysis
+  to: /tfx/model_analysis
+
+- from: /tfx/model_analysis/examples/chicago_taxi
+  to: https://github.com/tensorflow/model-analysis/tree/master/examples/chicago_taxi
