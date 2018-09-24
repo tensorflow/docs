@@ -1,0 +1,12 @@
+name: TFX
+breadcrumb_name: TFX
+home_url: /tfx/
+parent_project_metadata_path: /_project.yaml
+description: >
+  TFX is an end-to-end platform, spanning from data ingestion, training, to
+  production-grade serving.
+use_site_branding: true
+#color: orange
+hide_from_products_list: true
+content_license: cc3-apache2
+buganizer_id: 174941
