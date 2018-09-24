@@ -1,15 +1,12 @@
-# How to run TensorFlow on Hadoop
+# TensorFlow on Hadoop
 
-This document describes how to run TensorFlow on Hadoop. It will be expanded to
-describe running on various cluster managers, but only describes running on HDFS
-at the moment.
+This document describes how to run TensorFlow on Hadoop using HDFS. You should
+know how to [import data](..guide/datasets).
 
 ## HDFS
 
-We assume that you are familiar with [reading data](../api_guides/python/reading_data.md).
-
-To use HDFS with TensorFlow, change the file paths you use to read and write
-data to an HDFS path. For example:
+To use HDFS with TensorFlow, Use HDFS paths for reading and writing data, for
+example:
 
 ```python
 filename_queue = tf.train.string_input_producer([
@@ -18,47 +15,43 @@ filename_queue = tf.train.string_input_producer([
 ])
 ```
 
-If you want to use the namenode specified in your HDFS configuration files, then
-change the file prefix to `hdfs://default/`.
+To use the `namenode` specified in your HDFS configuration files, change the file
+prefix to `hdfs://default/`.
 
-When launching your TensorFlow program, the following environment variables must
-be set:
+Set the following environment variables:
 
-*   **JAVA_HOME**: The location of your Java installation.
-*   **HADOOP_HDFS_HOME**: The location of your HDFS installation. You can also
-    set this environment variable by running:
+* `JAVA_HOME` —Location of the Java installation.
+* `HADOOP_HDFS_HOME` —Location of the HDFS installation. The variable is optional
+  if `libhdfs.so` is available in `LD_LIBRARY_PATH`. This can also be set using:
+  
+  ```shell
+  source ${HADOOP_HOME}/libexec/hadoop-config.sh
+  ```
 
-    ```shell
-    source ${HADOOP_HOME}/libexec/hadoop-config.sh
-    ```
-    
-    The variable is optional if libhdfs.so is available in LD_LIBRARY_PATH.
+* `LD_LIBRARY_PATH` —Include the path to `libjvm.so` and, optionally, the path to
+  `libhdfs.so`, if your Hadoop distribution did not install `libhdfs.so` in
+  `${HADOOP_HDFS_HOME}/lib/native`. On Linux:
 
-*   **LD_LIBRARY_PATH**: To include the path to libjvm.so, and optionally the path
-    to libhdfs.so if your Hadoop distribution does not install libhdfs.so in
-    `${HADOOP_HDFS_HOME}/lib/native`. On Linux:
+  ```shell
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${JAVA_HOME}/jre/lib/amd64/server
+  ```
 
-    ```shell
-    export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${JAVA_HOME}/jre/lib/amd64/server
-    ```
+* `CLASSPATH` —The Hadoop jars must be added to the class path before running
+  TensorFlow. It's not enough to set CLASSPATH using:
+  `${HADOOP_HOME}/libexec/hadoop-config.sh`. Globs must be expanded, as described
+  in the `libhdfs` documentation:
 
-*   **CLASSPATH**: The Hadoop jars must be added prior to running your
-    TensorFlow program. The CLASSPATH set by
-    `${HADOOP_HOME}/libexec/hadoop-config.sh` is insufficient. Globs must be
-    expanded as described in the libhdfs documentation:
+  ```shell
+  CLASSPATH=$(${HADOOP_HOME}/bin/hadoop classpath --glob) python your_script.py
+  ```
 
-    ```shell
-    CLASSPATH=$(${HADOOP_HOME}/bin/hadoop classpath --glob) python your_script.py
-    ```
+If the Hadoop cluster is in *secure mode*, set the following environment variable:
 
-If the Hadoop cluster is in secure mode, the following environment variable must
-be set:
+* `KRB5CCNAME` —Path of Kerberos ticket cache file. For example:
 
-*   **KRB5CCNAME**: The path of Kerberos ticket cache file. For example:
+  ```shell
+  export KRB5CCNAME=/tmp/krb5cc_10002
+  ```
 
-    ```shell
-    export KRB5CCNAME=/tmp/krb5cc_10002
-    ```
-
-If you are running [Distributed TensorFlow](../deploy/distributed.md), then all
-workers must have the environment variables set and Hadoop installed.
+If using [Distributed TensorFlow](./distributed.md), all workers must have Hadoop
+installed and the environment variables set.
