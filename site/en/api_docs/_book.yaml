@@ -13,8 +13,6 @@ upper_tabs:
       - include: {VERSION_ROOT}/api_docs/python/_toc.yaml
       - title: All Symbols
         path: {VERSION_ROOT}/api_docs/python/
-      - title: Guides
-      - include: {VERSION_ROOT}/api_guides/python/_toc.yaml
 
     - name: JavaScript
       contents:
