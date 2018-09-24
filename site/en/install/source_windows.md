@@ -69,7 +69,7 @@ software required to run TensorFlow on a GPU.
 
 Use [Git](https://git-scm.com/){:.external} to clone the
 [TensorFlow repository](https://github.com/tensorflow/tensorflow){:.external}
-(`git` in installed with MSYS2):
+(`git` is installed with MSYS2):
 
 <pre class="devsite-click-to-copy">
 <code class="devsite-terminal tfo-terminal-windows">git clone https://github.com/tensorflow/tensorflow.git</code>
@@ -82,12 +82,6 @@ to build:
 
 <pre class="devsite-terminal tfo-terminal-windows prettyprint lang-bsh">
 git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
-</pre>
-
-To test your copy of the source tree, run the following test (this may take a while):
-
-<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
-bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/contrib/lite/...
 </pre>
 
 Key Point: If you're having build problems on the latest development branch, try
