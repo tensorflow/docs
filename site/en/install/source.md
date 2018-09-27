@@ -385,7 +385,7 @@ Success: TensorFlow is now installed.
 ### Linux
 
 <table>
-<tr><th>Version</th><th>CPU/GPU</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
 <tr><td>tensorflow-1.11.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.10.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.9.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.11.0</td></tr>
@@ -418,8 +418,10 @@ Success: TensorFlow is now installed.
 
 ### macOS
 
+#### CPU
+
 <table>
-<tr><th>Version</th><th>CPU/GPU</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
 <tr><td>tensorflow-1.11.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.11.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.10.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
@@ -435,8 +437,10 @@ Success: TensorFlow is now installed.
 <tr><td>tensorflow-1.0.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.4.2</td></tr>
 </table>
 
+#### GPU
+
 <table>
-<tr><th>Version</th><th>CPU/GPU</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
 <tr><td>tensorflow_gpu-1.1.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.4.2</td><td>5.1</td><td>8</td></tr>
 <tr><td>tensorflow_gpu-1.0.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.4.2</td><td>5.1</td><td>8</td></tr>
 </table>
