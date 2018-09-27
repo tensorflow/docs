@@ -1,0 +1,59 @@
+upper_tabs:
+- include: /_upper_tabs_left.yaml
+
+- name: API {VERSION}
+  path: /api_docs/python/tf
+  menu:
+  - include: /versions/_menu_toc.yaml
+  lower_tabs:
+    other:
+    - name: Python
+      contents:
+      - title: Python {VERSION}
+      - include: {VERSION_ROOT}/api_docs/python/_toc.yaml
+      - title: All Symbols
+        path: {VERSION_ROOT}/api_docs/python/
+      - title: Guides
+      - include: {VERSION_ROOT}/api_guides/python/_toc.yaml
+
+    - name: JavaScript
+      contents:
+      - title: JavaScript
+        path: https://js.tensorflow.org/api/latest/
+
+    - name: C++
+      contents:
+      - title: C++
+        path: {VERSION_ROOT}/api_docs/cc/
+      - include: {VERSION_ROOT}/api_docs/cc/_doxygen.yaml
+      - title: Guides
+        path: /api_guides/cc/guide
+    - name: Java
+      contents:
+      - title: Java
+        path: {VERSION_ROOT}/api_docs/java/reference/org/tensorflow/package-summary.html
+      - include: {VERSION_ROOT}/api_docs/java/reference/_toc.yaml
+      
+    - name: Serving
+      contents:
+      - title: Serving
+        path: /api_docs/serving/
+      - include: /api_docs/serving/_doxygen.yaml
+
+    - name: Swift
+      contents:
+      - title: Swift
+        path: /api_docs/swift/
+        status: experimental
+      - title: View on Github
+        path: https://github.com/tensorflow/swift
+        status: external
+      - include: /api_docs/swift/_toc.yaml
+      
+    - name: More…
+      contents:
+      - title: Overview
+        path: {VERSION_ROOT}/api_docs/
+      - include: {VERSION_ROOT}/api_docs/_more_toc.yaml
+
+- include: /ecosystem/_upper_tabs_ecosystem.yaml

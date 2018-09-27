@@ -335,7 +335,7 @@ restore the current state of the iterator (and, effectively, the whole input
 pipeline). A saveable object thus created can be added to `tf.train.Saver`
 variables list or the `tf.GraphKeys.SAVEABLE_OBJECTS` collection for saving and
 restoring in the same manner as a `tf.Variable`. Refer to
-@{$saved_model$Saving and Restoring} for details on how to save and restore
+[Saving and Restoring](../guide/saved_model.md) for details on how to save and restore
 variables.
 
 ```python
@@ -558,7 +558,7 @@ tensors.
 # a scalar integer, representing an image and its label, respectively.
 def _parse_function(example_proto):
   features = {"image": tf.FixedLenFeature((), tf.string, default_value=""),
-              "label": tf.FixedLenFeature((), tf.int32, default_value=0)}
+              "label": tf.FixedLenFeature((), tf.int64, default_value=0)}
   parsed_features = tf.parse_single_example(example_proto, features)
   return parsed_features["image"], parsed_features["label"]
 
@@ -782,8 +782,9 @@ with tf.train.MonitoredTrainingSession(...) as sess:
     sess.run(training_op)
 ```
 
-To use a `Dataset` in the `input_fn` of a `tf.estimator.Estimator`, we also
-recommend using `Dataset.make_one_shot_iterator()`. For example:
+To use a `Dataset` in the `input_fn` of a `tf.estimator.Estimator`, simply
+return the `Dataset` and the framework will take care of creating an iterator
+and initializing it for you. For example:
 
 ```python
 def dataset_input_fn():
@@ -814,10 +815,9 @@ def dataset_input_fn():
   dataset = dataset.shuffle(buffer_size=10000)
   dataset = dataset.batch(32)
   dataset = dataset.repeat(num_epochs)
-  iterator = dataset.make_one_shot_iterator()
 
-  # `features` is a dictionary in which each value is a batch of values for
-  # that feature; `labels` is a batch of labels.
-  features, labels = iterator.get_next()
-  return features, labels
+  # Each element of `dataset` is tuple containing a dictionary of features
+  # (in which each value is a batch of values for that feature), and a batch of
+  # labels.
+  return dataset
 ```

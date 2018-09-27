@@ -24,22 +24,15 @@ toc:
   - title: Overview
     path: /tutorials/eager/
   - title: Eager execution
-    path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/eager_basics.ipynb
-    status: external
+    path: /tutorials/eager/eager_basics
   - title: Automatic differentiation
-    path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/automatic_differentiation.ipynb
-    status: external
+    path: /tutorials/eager/automatic_differentiation
   - title: "Custom training: basics"
-    path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/custom_training.ipynb
-    status: external
+    path: /tutorials/eager/custom_training
   - title: Custom layers
-    path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/notebooks/custom_layers.ipynb
-    status: external
+    path: /tutorials/eager/custom_layers
   - title: "Custom training: walkthrough"
     path: /tutorials/eager/custom_training_walkthrough
-  - title: Translation with attention
-    path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb
-    status: external
 
 - title: ML at production scale
   style: accordion
@@ -57,9 +50,37 @@ toc:
   - title: Build a CNN using Estimators
     path: /tutorials/estimators/cnn
 
+- title: Generative models
+  style: accordion
+  section:
+  - title: Text generation
+    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/generative_examples/text_generation.ipynb
+    status: external
+  - title: Translation with attention
+    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb
+    status: external
+  - title: Image captioning
+    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/generative_examples/image_captioning_with_attention.ipynb
+    status: external
+  - title: DCGAN
+    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/generative_examples/dcgan.ipynb
+    status: external
+  - title: VAE
+    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/generative_examples/cvae.ipynb
+    status: external
+
 - title: Images
   style: accordion
   section:
+  - title: Pix2Pix
+    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/pix2pix/pix2pix_eager.ipynb
+    status: external
+  - title: Neural Style Transfer
+    path: https://github.com/tensorflow/models/blob/master/research/nst_blogpost/4_Neural_Style_Transfer_with_Eager_Execution.ipynb
+    status: external
+  - title: Image Segmentation
+    path: https://github.com/tensorflow/models/blob/master/samples/outreach/blogs/segmentation_blogpost/image_segmentation.ipynb
+    status: external
   - title: Image recognition
     path: /tutorials/images/image_recognition
   - title: Image retraining
@@ -98,6 +119,6 @@ toc:
   - title: Partial differential equations
     path: /tutorials/non-ml/pdes
 
-- break: True
+- break: true
 - title: Next steps
   path: /tutorials/next_steps

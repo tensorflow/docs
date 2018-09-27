@@ -3,8 +3,7 @@
 PREREQUISITES:
 
 *   Some familiarity with C++.
-*   Must have
-    @{$install_sources$downloaded TensorFlow source}, and be
+*   Must have [downloaded TensorFlow source](../install/source.md), and be
     able to build it.
 
 We divide the task of supporting a file format into two pieces:
@@ -15,11 +14,10 @@ We divide the task of supporting a file format into two pieces:
 *   Record formats: We use decoder or parsing ops to turn a string record
     into tensors usable by TensorFlow.
 
-For example, to read a
-[CSV file](https://en.wikipedia.org/wiki/Comma-separated_values), we use
-`tf.data.TextLineDataset`
-and then `tf.data.Dataset.map` an
-`tf.decode_csv` that parses CSV data from each line of text in the dataset.
+For example, to re-implement `tf.contrib.data.make_csv_dataset` function, we
+could use `tf.data.TextLineDataset` to extract the records, and then
+use `tf.data.Dataset.map` and `tf.decode_csv` to parses the CSV records from
+each line of text in the dataset.
 
 [TOC]
 
@@ -68,7 +66,7 @@ need to:
 
 You can put all the C++ code in a single file, such as
 `my_reader_dataset_op.cc`. It will help if you are
-familiar with @{$adding_an_op$the adding an op how-to}. The following skeleton
+familiar with [the adding an op how-to](../extend/adding_an_op.md). The following skeleton
 can be used as a starting point for your implementation:
 
 ```c++
@@ -95,7 +93,7 @@ class MyReaderDatasetOp : public tensorflow::DatasetOpKernel {
 
   void MakeDataset(tensorflow::OpKernelContext* ctx,
                    tensorflow::DatasetBase** output) override {
-    // Parse and validate any input tensors 0that define the dataset using
+    // Parse and validate any input tensors that define the dataset using
     // `ctx->input()` or the utility function
     // `ParseScalarArgument<T>(ctx, &arg)`.
 
@@ -228,8 +226,8 @@ REGISTER_KERNEL_BUILDER(Name("MyReaderDataset").Device(tensorflow::DEVICE_CPU),
 ```
 
 The last step is to build the C++ code and add a Python wrapper. The easiest way
-to do this is by @{$adding_an_op#build_the_op_library$compiling a dynamic
-library} (e.g. called `"my_reader_dataset_op.so"`), and adding a Python class
+to do this is by [compiling a dynamic
+library](../extend/adding_an_op.md#build_the_op_library) (e.g. called `"my_reader_dataset_op.so"`), and adding a Python class
 that subclasses `tf.data.Dataset` to wrap it. An example Python program is
 given here:
 
@@ -286,7 +284,7 @@ You can see some examples of `Dataset` wrapper classes in
 ## Writing an Op for a record format
 
 Generally this is an ordinary op that takes a scalar string record as input, and
-so follow @{$adding_an_op$the instructions to add an Op}.
+so follow [the instructions to add an Op](../extend/adding_an_op.md).
 You may optionally take a scalar string key as input, and include that in error
 messages reporting improperly formatted data.  That way users can more easily
 track down where the bad data came from.
