@@ -1,5 +1,6 @@
-"""Update tensorflow version in docs."""
+"""Update tensorflow version in docs. Run this from the repo-root."""
 import argparse
+import re
 
 try:
   import pathlib2 as pathlib
@@ -8,7 +9,7 @@ except ImportError:
 
 
 EXTS = [".ipynb",".md",".yaml",".html"]
-SKIP = [
+EXPAND_TABLES = [
     "site/en/install/source_windows.md",
     "site/en/install/source.md",]
 
@@ -37,7 +38,11 @@ if __name__=="__main__":
 
   for ext in EXTS:
     for file_path in pathlib.Path("site/en").glob("**/*"+ext):
-      if str(file_path) in SKIP:
+      content = file_path.read_text()
+      if str(file_path) in EXPAND_TABLES:
+        content = re.sub("(<tr>.*?){}(.*?</tr>)".format(re.escape(args.old_version.short())),
+                         r"\g<1>{}\g<2>\n\g<0>".format(args.new_version.short()), content)
+        file_path.write_text(content)
         continue
 
       content = file_path.read_text()
