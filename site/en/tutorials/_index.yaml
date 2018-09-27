@@ -2,11 +2,12 @@ project_path: /_project.yaml
 book_path: /_book.yaml
 description: <!--no description-->
 landing_page:
+  body_class: tfo-tutorials
   custom_css_path: /site-assets/css/style.css
   show_side_navs: true
   rows:
-  - description: >
-      <h1 class="hide-from-toc">Get Started with TensorFlow</h1>
+  - heading: Get Started with TensorFlow
+    description: >
       <p>
         TensorFlow is an open-source machine learning library for research and
         production. TensorFlow offers APIs for beginners and experts to develop
@@ -14,29 +15,28 @@ landing_page:
         started.
       </p>
     items:
-    - custom_html: >
-        <div class="devsite-landing-row-item-description">
-          <h3 class="hide-from-toc">Learn and use ML</h3>
-          <div class="devsite-landing-row-item-description-content">
-            <p>
-              The high-level Keras API provides building blocks to create and
-              train deep learning models. Start with these beginner-friendly
-              notebook examples, then read the
-              <a href="/guide/keras">TensorFlow Keras guide</a>.
-            </p>
-            <ol style="padding-left:20px;">
-              <li><a href="./keras/basic_classification">Basic classification</a></li>
-              <li><a href="./keras/basic_text_classification">Text classification</a></li>
-              <li><a href="./keras/basic_regression">Regression</a></li>
-              <li><a href="./keras/overfit_and_underfit">Overfitting and underfitting</a></li>
-              <li><a href="./keras/save_and_restore_models">Save and load</a></li>
-            </ol>
-          </div>
-          <div class="devsite-landing-row-item-buttons" style="margin-top:0;">
-            <a class="button button-primary tfo-button-primary" href="/guide/keras">Read the Keras guide</a>
-          </div>
-        </div>
-    - classname: tfo-landing-row-item-code-block
+    - heading: Learn and use ML
+      description: >
+        <p>
+          The high-level Keras API provides building blocks to create and
+          train deep learning models. Start with these beginner-friendly
+          notebook examples, then read the
+          <a href="/guide/keras">TensorFlow Keras guide</a>.
+        </p>
+        <ol style="padding-left: 20px;">
+          <li><a href="./keras/basic_classification">Basic classification</a></li>
+          <li><a href="./keras/basic_text_classification">Text classification</a></li>
+          <li><a href="./keras/basic_regression">Regression</a></li>
+          <li><a href="./keras/overfit_and_underfit">Overfitting and underfitting</a></li>
+          <li><a href="./keras/save_and_restore_models">Save and load</a></li>
+        </ol>
+      buttons:
+      - label: Read the Keras guide
+        path: /guide/keras
+        classname:
+          tfo-button-primary
+          button
+          button-primary
       code_block: |
         <pre class="prettyprint">
         import tensorflow as tf
@@ -58,66 +58,69 @@ landing_page:
         model.fit(x_train, y_train, epochs=5)
         model.evaluate(x_test, y_test)
         </pre>
+
         {% dynamic if request.tld != 'cn' %}
-        <a class="colab-button" target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/_index.ipynb">Run in a <span>Notebook</span></a>
+          <a class="colab-button" target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/_index.ipynb">Run in a <span>Notebook</span></a>
         {% dynamic endif %}
 
   - items:
-    - custom_html: >
-        <div class="devsite-landing-row-item-description" style="border-right: 2px solid #eee;">
-          <h3 class="hide-from-toc">Research and experimentation</h3>
-          <div class="devsite-landing-row-item-description-content">
-            <p>
-              Eager execution provides an imperative, define-by-run interface for advanced operations. Write custom layers, forward passes, and training loops with auto‑differentiation. Start with
-              these notebooks, then read the <a href="/guide/eager">eager execution guide</a>.
-            </p>
-            <ol style="padding-left:20px;">
-              <li>
-                <a href="./eager/eager_basics">Eager execution basics</a>
-              </li>
-              <li>
-                <a href="./eager/automatic_differentiation">Automatic differentiation and gradient tape</a>
-              </li>
-              <li>
-                <a href="./eager/custom_training">Custom training: basics</a>
-              </li>
-              <li>
-                <a href="./eager/custom_layers">Custom layers</a>
-              </li>
-              <li>
-                <a href="./eager/custom_training_walkthrough">Custom training: walkthrough</a>
-              </li>
-            </ol>
-          </div>
-          <div class="devsite-landing-row-item-buttons">
-            <a class="button button-primary tfo-button-primary" href="/guide/eager">Read the eager execution guide</a>
-          </div>
-        </div>
-    - custom_html: >
-        <div class="devsite-landing-row-item-description">
-          <h3 class="hide-from-toc">ML at production scale</h3>
-          <div class="devsite-landing-row-item-description-content">
-            <p>
-              Estimators can train large models on multiple machines in a
-              production environment. TensorFlow provides a collection of
-              pre-made Estimators to implement common ML algorithms. See the
-              <a href="/guide/estimators">Estimators guide</a>.
-            </p>
-            <ol style="padding-left: 20px;">
-              <li><a href="/tutorials/estimators/linear">Build a linear model with Estimators</a></li>
-              <li><a href="https://github.com/tensorflow/models/tree/master/official/wide_deep" class="external">Wide and deep learning with Estimators</a></li>
-              <li><a href="https://github.com/tensorflow/models/tree/master/official/boosted_trees" class="external">Boosted trees</a></li>
-              <li><a href="/hub/tutorials/text_classification_with_tf_hub">How to build a simple text classifier with TF-Hub</a></li>
-              <li><a href="/tutorials/estimators/cnn">Build a Convolutional Neural Network using Estimators</a></li>
-            </ol>
-          </div>
-          <div class="devsite-landing-row-item-buttons">
-            <a class="button button-primary tfo-button-primary" href="/guide/estimators">Read the Estimators guide</a>
-          </div>
-        </div>
+    - heading: Research and experimentation
+      description: >
+        <p>
+          Eager execution provides an imperative, define-by-run interface for advanced operations. Write custom layers, forward passes, and training loops with auto‑differentiation. Start with
+          these notebooks, then read the <a href="/guide/eager">eager execution guide</a>.
+        </p>
 
-  - description: >
-      <h2 class="hide-from-toc">Google Colab&#58; An easy way to learn and use TensorFlow</h2>
+        <ol style="padding-left: 20px;">
+          <li>
+            <a href="./eager/eager_basics">Eager execution basics</a>
+          </li>
+          <li>
+            <a href="./eager/automatic_differentiation">Automatic differentiation and gradient tape</a>
+          </li>
+          <li>
+            <a href="./eager/custom_training">Custom training: basics</a>
+          </li>
+          <li>
+            <a href="./eager/custom_layers">Custom layers</a>
+          </li>
+          <li>
+            <a href="./eager/custom_training_walkthrough">Custom training: walkthrough</a>
+          </li>
+        </ol>
+      buttons:
+      - label: Read the eager execution guide
+        path: /guide/eager
+        classname:
+          tfo-button-primary
+          button
+          button-primary
+
+    - heading: ML at production scale
+      description: >
+        <p>
+          Estimators can train large models on multiple machines in a
+          production environment. TensorFlow provides a collection of
+          pre-made Estimators to implement common ML algorithms. See the
+          <a href="/guide/estimators">Estimators guide</a>.
+        </p>
+        <ol style="padding-left: 20px;">
+          <li><a href="/tutorials/estimators/linear">Build a linear model with Estimators</a></li>
+          <li><a href="https://github.com/tensorflow/models/tree/master/official/wide_deep" class="external">Wide and deep learning with Estimators</a></li>
+          <li><a href="https://github.com/tensorflow/models/tree/master/official/boosted_trees" class="external">Boosted trees</a></li>
+          <li><a href="/hub/tutorials/text_classification_with_tf_hub">How to build a simple text classifier with TF-Hub</a></li>
+          <li><a href="/tutorials/estimators/cnn">Build a Convolutional Neural Network using Estimators</a></li>
+        </ol>
+      buttons:
+      - label: Read the Estimators guide
+        path: /guide/estimators
+        classname:
+          tfo-button-primary
+          button
+          button-primary
+
+  - heading: Google Colab&#58; An easy way to learn and use TensorFlow
+    description: >
       <p>
         <a href="https://colab.research.google.com/notebooks/welcome.ipynb" class="external">Colaboratory</a>
         is a Google research project created to help disseminate machine learning
@@ -126,29 +129,26 @@ landing_page:
         <a href="https://medium.com/tensorflow/colab-an-easy-way-to-learn-and-use-tensorflow-d74d1686e309" class="external">Read the blog post</a>.
       </p>
 
-  - description: >
-      <h2 class="hide-from-toc">Build your first ML app</h2>
+  - background: grey
+    heading: Build your first ML app
+    description: >
       <p>Create and deploy TensorFlow models on web and mobile.</p>
-    background: grey
     items:
-    - custom_html: >
-        <div class="devsite-landing-row-item-description tfo-landing-row-item-inset-white">
-          <a href="https://js.tensorflow.org"><h3 class="hide-from-toc">Web developers</h3></a>
-          <div class="devsite-landing-row-item-description-content">
-            TensorFlow.js is a WebGL accelerated, JavaScript library to train and
-            deploy ML models in the browser and for Node.js.
-          </div>
-        </div>
-    - custom_html: >
-        <div class="devsite-landing-row-item-description tfo-landing-row-item-inset-white">
-          <a href="/lite/"><h3 class="hide-from-toc">Mobile developers</h3></a>
-          <div class="devsite-landing-row-item-description-content">
-            TensorFlow Lite is lightweight solution for mobile and embedded devices.
-          </div>
-        </div>
+    - classname: tfo-landing-row-item-inset-white
+      heading: Web developers
+      path: https://js.tensorflow.org
+      description: >
+        TensorFlow.js is a WebGL accelerated, JavaScript library to train and
+        deploy ML models in the browser and for Node.js.
 
-  - description: >
-      <h2 class="hide-from-toc">Videos and updates</h2>
+    - classname: tfo-landing-row-item-inset-white
+      heading: Mobile developers
+      path: /lite/
+      description: >
+        TensorFlow Lite is lightweight solution for mobile and embedded devices.
+
+  - heading: Videos and updates
+    description: >
       <p>
         Subscribe to the TensorFlow
         <a href="https://www.youtube.com/tensorflow" class="external">YouTube channel</a>
@@ -156,21 +156,17 @@ landing_page:
         the latest videos and updates.
       </p>
     items:
-    - description: >
-        <h3 class="hide-from-toc">Get started with TensorFlow's High-Level APIs</h3>
+    - heading: Get started with TensorFlow's High-Level APIs
       youtube_id: tjsHSIG8I08
       buttons:
       - label: Watch the video
         path: https://www.youtube.com/watch?v=tjsHSIG8I08
-    - description: >
-        <h3 class="hide-from-toc">Eager execution</h3>
+    - heading: Eager execution
       youtube_id: T8AW0fKP0Hs
-      background: grey
       buttons:
       - label: Watch the video
         path: https://www.youtube.com/watch?v=T8AW0fKP0Hs
-    - description: >
-        <h3 class="hide-from-toc">tf.data: Fast, flexible, and easy-to-use input pipelines</h3>
+    - heading: 'tf.data: Fast, flexible, and easy-to-use input pipelines'
       youtube_id: uIcqeP7MFH0
       buttons:
       - label: Watch the video
