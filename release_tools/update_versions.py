@@ -8,6 +8,9 @@ except ImportError:
 
 
 EXTS = [".ipynb",".md",".yaml",".html"]
+SKIP = [
+    "site/en/install/source_windows.md",
+    "site/en/install/source.md",]
 
 class Version(object):
   def __init__(self, in_string):
@@ -33,10 +36,13 @@ if __name__=="__main__":
   args = parser.parse_args()
 
   for ext in EXTS:
-    for file in pathlib.Path("site/en").glob("**/*"+ext):
-      content = file.read_text()
+    for file_path in pathlib.Path("site/en").glob("**/*"+ext):
+      if str(file_path) in SKIP:
+        continue
+
+      content = file_path.read_text()
 
       content = content.replace(args.old_version.full(), args.new_version.full())
       content = content.replace("github.com/tensorflow/tensorflow/blob/r"+args.old_version.short(),
                                 "github.com/tensorflow/tensorflow/blob/r"+args.old_version.short())
-      file.write_text(content)
+      file_path.write_text(content)
