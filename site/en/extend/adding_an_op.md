@@ -56,8 +56,8 @@ PREREQUISITES:
 
 *   Some familiarity with C++.
 *   Must have installed the
-    @{$install$TensorFlow binary}, or must have
-    @{$install_sources$downloaded TensorFlow source},
+    [TensorFlow binary](../install), or must have
+    [downloaded TensorFlow source](../install/source.md),
     and be able to build it.
 
 [TOC]
@@ -575,7 +575,7 @@ which can then be used in the `Compute` method:
     // Set all the elements of the output tensor to 0
     const int N = input.size();
     for (int i = 0; i < N; i++) {
-      output\_flat(i) = 0;
+      output_flat(i) = 0;
     }
 
     // Preserve the requested input value
@@ -649,7 +649,7 @@ define an attr with constraints, you can use the following `<attr-type-expr>`s:
     ```
 
     Lists can be combined with other lists and single types.  The following
-    op allows attr `t` to be any of the numberic types, or the bool type:
+    op allows attr `t` to be any of the numeric types, or the bool type:
 
     ```c++
     REGISTER_OP("NumberOrBooleanType")
@@ -1098,8 +1098,7 @@ expressions:
 
 * For a sequence of tensors with the same type: `<number> * <type>`, where
   `<number>` is the name of an [Attr](#attrs) with type `int`.  The `<type>` can
-  either be
-  `tf.DType`,
+  either be a `tf.DType`,
   or the name of an attr with type `type`.  As an example of the first, this
   op accepts a list of `int32` tensors:
 
@@ -1141,7 +1140,7 @@ In general, changes to existing, checked-in specifications must be
 backwards-compatible: changing the specification of an op must not break prior
 serialized `GraphDef` protocol buffers constructed from older specifications.
 The details of `GraphDef` compatibility are
-@{$version_compat#compatibility_of_graphs_and_checkpoints$described here}.
+[described here](../guide/version_compat.md#compatibility_of_graphs_and_checkpoints).
 
 There are several ways to preserve backwards-compatibility.
 
@@ -1191,7 +1190,7 @@ callers.  The Python API may be kept compatible by careful changes in a
 hand-written Python wrapper, by keeping the old signature except possibly adding
 new optional arguments to the end.  Generally incompatible changes may only be
 made when TensorFlow's changes major versions, and must conform to the
-@{$version_compat#compatibility_of_graphs_and_checkpoints$`GraphDef` version semantics}.
+[`GraphDef` version semantics](../guide/version_compat.md#compatibility_of_graphs_and_checkpoints).
 
 ### GPU Support
 
@@ -1263,7 +1262,7 @@ For example, add `-L /usr/local/cuda-8.0/lib64/` if your CUDA is installed in
 Given a graph of ops, TensorFlow uses automatic differentiation
 (backpropagation) to add new ops representing gradients with respect to the
 existing ops (see
-@{$python/train#gradient_computation$Gradient Computation}).
+[Gradient Computation](../api_guides/python/train.md#Gradient_Computation)).
 To make automatic differentiation work for new ops, you must register a gradient
 function which computes gradients with respect to the ops' inputs given
 gradients with respect to the ops' outputs.

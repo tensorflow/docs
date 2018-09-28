@@ -95,15 +95,13 @@ intermediate tensors (tensors that are neither inputs or outputs of the
 `Session.run()` call, but are in the path leading from the inputs to the
 outputs). This filter is for `nan`s and `inf`s is a common enough use case that
 we ship it with the
-@{$python/tfdbg#Classes_for_debug_dump_data_and_directories$`debug_data`}
+[`debug_data`](../api_guides/python/tfdbg.md#Classes_for_debug_dump_data_and_directories)
 module.
 
-Note: You can also write your own custom filters. See
-the `tfdbg.DebugDumpDir.find`
-of `DebugDumpDir.find()` for additional information.
+Note: You can also write your own custom filters. See `tfdbg.DebugDumpDir.find`
+for additional information.
 
 ## Debugging Model Training with tfdbg
-
 
 Let's try training the model again, but with the `--debug` flag added this time:
 
@@ -629,7 +627,7 @@ hooks = [tf_debug.DumpingDebugHook("/shared/storage/location/tfdbg_dumps_1")]
 
 Then this `hook` can be used in the same way as the `LocalCLIDebugHook` examples
 described earlier in this document.
-As the training, evalution or prediction happens with `Estimator`,
+As the training, evaluation or prediction happens with `Estimator`,
 tfdbg creates directories having the following name pattern:
 `/shared/storage/location/tfdbg_dumps_1/run_<epoch_timestamp_microsec>_<uuid>`.
 Each directory corresponds to a `Session.run()` call that underlies
@@ -770,7 +768,7 @@ sess.run(b)
 
 **A**: The reason why you see no data dumped is because every node in the
        executed TensorFlow graph is constant-folded by the TensorFlow runtime.
-       In this exapmle, `a` is a constant tensor; therefore, the fetched
+       In this example, `a` is a constant tensor; therefore, the fetched
        tensor `b` is effectively also a constant tensor. TensorFlow's graph
        optimization folds the graph that contains `a` and `b` into a single
        node to speed up future runs of the graph, which is why `tfdbg` does
@@ -780,7 +778,7 @@ sess.run(b)
 ``` python
 import numpy as np
 
-a = tf.Variable(np.ones[10], name="a")
+a = tf.Variable(np.ones(10), name="a")
 b = tf.add(a, a, name="b")
 sess = tf.Session()
 sess.run(tf.global_variables_initializer())
