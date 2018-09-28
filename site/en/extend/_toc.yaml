@@ -1,0 +1,15 @@
+toc:
+- title: "Extend"
+  path: /extend/
+- title: "TensorFlow Architecture"
+  path: /extend/architecture
+- title: "Adding a New Op"
+  path: /extend/adding_an_op
+- title: "Adding a Custom Filesystem Plugin"
+  path: /extend/add_filesys
+- title: "Reading custom file and record formats"
+  path: /extend/new_data_formats
+- title: "TensorFlow in other languages"
+  path: /extend/language_bindings
+- title: "A Tool Developer's Guide to TensorFlow Model Files"
+  path: /extend/tool_developers/
