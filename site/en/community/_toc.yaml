@@ -1,0 +1,17 @@
+toc:
+- title: "Community"
+  path: /community/
+- title: "Roadmap"
+  path: /community/roadmap
+- title: "Contributing to TensorFlow"
+  path: /community/contributing
+- title: "Mailing Lists"
+  path: /community/lists
+- title: "User Groups"
+  path: /community/groups
+- title: "Writing TensorFlow Documentation"
+  path: /community/documentation
+- title: "TensorFlow Style Guide"
+  path: /community/style_guide
+- title: "Defining and Running Benchmarks"
+  path: /community/benchmarks

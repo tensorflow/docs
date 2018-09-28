@@ -1,0 +1,59 @@
+toc:
+- title: "TensorFlow Guide"
+  path: /guide/
+- heading: High Level APIs
+- title: "Keras"
+  path: /guide/keras
+- title: "Eager Execution"
+  path: /guide/eager
+- title: "Importing Data"
+  path: /guide/datasets
+- title: "Introduction to Estimators"
+  path: /guide/estimators
+- heading: Estimators
+- title: "Premade Estimators"
+  path: /guide/premade_estimators
+- title: "Checkpoints"
+  path: /guide/checkpoints
+- title: "Feature Columns"
+  path: /guide/feature_columns
+- title: "Datasets for Estimators"
+  path: /guide/datasets_for_estimators
+- title: "Creating Custom Estimators"
+  path: /guide/custom_estimators
+- heading: Accelerators
+- title: "Using GPUs"
+  path: /guide/using_gpu
+- title: "Using TPUs"
+  path: /guide/using_tpu
+- heading: Low Level APIs
+- title: "Introduction"
+  path: /guide/low_level_intro
+- title: "Tensors"
+  path: /guide/tensors
+- title: "Variables"
+  path: /guide/variables
+- title: "Graphs and Sessions"
+  path: /guide/graphs
+- title: "Save and Restore"
+  path: /guide/saved_model
+- title: "Control flow"
+  path: /guide/autograph
+- heading: ML Concepts
+- title: "Embeddings"
+  path: /guide/embedding
+- heading: Debugging
+- title: "TensorFlow Debugger"
+  path: /guide/debugger
+- heading: TensorBoard
+- title: "Visualizing Learning"
+  path: /guide/summaries_and_tensorboard
+- title: "Graphs"
+  path: /guide/graph_viz
+- title: "Histograms"
+  path: /guide/tensorboard_histograms
+- heading: Misc
+- title: "TensorFlow Version Compatibility"
+  path: /guide/version_compat
+- title: "Frequently Asked Questions"
+  path: /guide/faq
