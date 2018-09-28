@@ -284,4 +284,8 @@ ImportError: cannot import name 'descriptor'</pre>
   <td><a href="https://stackoverflow.com/q/47080760">47080760</a></td>
   <td><pre>undefined reference to `cublasGemmEx@libcublas.so.9.0'</pre></td>
 </tr>
+<tr>
+  <td><a href="https://github.com/tensorflow/tensorflow/issues/22512">22512</a></td>
+  <td><pre>ModuleNotFoundError: No module named 'tensorflow.python._pywrap_tensorflow_internal'</pre></td>
+</tr>
 </table>

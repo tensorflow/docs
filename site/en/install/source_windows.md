@@ -56,8 +56,9 @@ but can be installed separately:
 3. Download the *Microsoft Build Tools 2015 Update 3*, and
 4. Run the installer.
 
-Note: TensorFlow is tested against *Visual Studio 2015 Update 3*, but it's
-possible a more recent version of the Visual C++ build tools works.
+Note: TensorFlow is tested against the *Visual Studio 2015 Update 3*
+redistributables and build tools. Make sure this DLL is located at
+`C:\Windows\system32\msvcp140.dll`.
 
 ### Install GPU support (optional)
 
