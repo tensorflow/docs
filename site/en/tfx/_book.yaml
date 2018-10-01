@@ -31,3 +31,9 @@ upper_tabs:
       - title: Serving
         path: /tfx/serving
       - include: /tfx/serving/_toc.yaml
+    - name: API
+      contents:
+      - title: TFX API
+        path: /api/
+      - heading: Transform
+      - include: /tfx/transform/api_docs/python/_toc.yaml
