@@ -88,7 +88,7 @@ toc:
 - title: Sequences
   style: accordion
   section:
-  - title: Text generation
+  - title: Text generation with an RNN
     path: /tutorials/sequences/text_generation
   - title: Recurrent neural network
     path: /tutorials/sequences/recurrent
