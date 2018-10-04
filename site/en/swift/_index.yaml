@@ -1,0 +1,52 @@
+book_path: /swift/_book.yaml
+project_path: /swift/_project.yaml
+description: <!--no description-->
+landing_page:
+  custom_css_path: /site-assets/css/style.css
+  rows:
+  - heading: Swift for TensorFlow
+    items:
+    - classname: devsite-landing-row-50
+      description: >
+        <p>Swift for TensorFlow provides a new programming model that combines
+        the performance of graphs with the flexibility and expressivity of eager
+        execution, with a strong focus on improved usability at every level of
+        the stack. Swift also catches type errors and shape mismatches before
+        running your code, and has Automatic Differentiation built in.</p>
+        <p>We believe that machine learning tools are so important that they
+        deserve a first-class language and a compiler. To join the developer
+        community, see the
+        <a href="https://github.com/tensorflow/swift" class="external">GitHub repository</a></p>.
+
+      code_block: |
+        <pre class = "prettyprint">
+        import TensorFlow
+
+        var x = Tensor<Float>([[1, 2], [3, 4]])
+
+        for i in 1...5 {
+            x += x • x
+        }
+
+        print(x)
+        </pre>
+
+  - classname: devsite-landing-row-cards
+    items:
+    - heading: Introducing Swift for TensorFlow
+      image_path: /ecosystem/images/tf-logo-card-16x9.png
+      path: https://medium.com/tensorflow/introducing-swift-for-tensorflow-b75722c58df0
+      buttons:
+      - label: Read on TensorFlow blog
+        path: https://medium.com/tensorflow/introducing-swift-for-tensorflow-b75722c58df0
+    - heading: At the TensorFlow Dev Summit
+      youtube_id: Yze693W4MaU
+      buttons:
+      - label: Watch the video
+        path: https://www.youtube.com/watch?v=Yze693W4MaU
+    - heading: Swift for TensorFlow on GitHub
+      image_path: /ecosystem/images/github-card-16x9.png
+      path: https://github.com/tensorflow/swift
+      buttons:
+      - label: View on GitHub
+        path: https://github.com/tensorflow/swift

@@ -1,0 +1,22 @@
+upper_tabs:
+# Tabs left of dropdown menu
+- include: /_upper_tabs_left.yaml
+- include: /versions/_upper_tabs_versions.yaml
+# Dropdown menu
+- name: Ecosystem
+  path: /ecosystem
+  is_default: true
+  menu:
+  - include: /ecosystem/_menu_toc.yaml
+  lower_tabs:
+    # Subsite tabs
+    other:
+    - name: API
+      skip_translation: true
+      contents:
+      - title: Overview
+        path: /swift/api_docs/
+      - title: View on Github
+        path: https://github.com/tensorflow/swift
+        status: external
+      - include: /swift/api_docs/_toc.yaml

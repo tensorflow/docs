@@ -13,7 +13,7 @@ covered by the [API stability promises](../programmers_guide/version_semantics).
 * [C++](cc)
 * [Java](java/reference/org/tensorflow/package-summary)
 * [Go](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go)
-* [Swift (Early Release)](swift)
+* [Swift (Early Release)](../swift)
 
 
 We encourage the community to develop and maintain support for other languages
