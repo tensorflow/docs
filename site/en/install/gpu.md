@@ -23,7 +23,7 @@ The following NVIDIA® software must be installed on your system:
 * [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA Toolkit.
 * [cuDNN SDK](https://developer.nvidia.com/cudnn){:.external} (>= 7.2)
 * *(Optional)* [NCCL 2.2](https://developer.nvidia.com/nccl){:.external} for multiple GPU support.
-* *(Optional)* [TensorRT](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
+* *(Optional)* [TensorRT 4.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
   to improve latency and throughput for inference on some models.
 
 
