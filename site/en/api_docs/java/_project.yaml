@@ -1,0 +1,9 @@
+name: TensorFlow Java API
+breadcrumb_name: Java
+home_url: /api_docs/java/
+parent_project_metadata_path: /_project.yaml
+description: TensorFlow Java API
+use_site_branding: true
+hide_from_products_list: true
+content_license: cc3-apache2
+buganizer_id: 122459

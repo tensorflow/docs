@@ -1,0 +1,18 @@
+upper_tabs:
+# Tabs left of dropdown menu
+- include: /_upper_tabs_left.yaml
+
+# Dropdown menu
+- name: API
+  path: /api_docs/
+  menu:
+  - include: /api_docs/_menu_toc.yaml
+  lower_tabs:
+    other:
+    - name: Java API
+      skip_translation: true
+      contents:
+      # Overview page is: .../org/tensorflow/package-summary
+      - include: /api_docs/java/reference/_toc.yaml
+
+- include: /ecosystem/_upper_tabs_ecosystem.yaml
