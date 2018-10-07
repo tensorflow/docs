@@ -355,8 +355,6 @@ building the `.so` file.
 >   the older ABI. If you compile your op library with `gcc>=5`, add
 >   `-D_GLIBCXX_USE_CXX11_ABI=0` to the command line to make the library
 >   compatible with the older abi.
->   Furthermore if you are using TensorFlow package created from source remember to add `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`
->   as bazel command to compile the Python package.
 
 ### Compile the op using bazel (TensorFlow source installation)
 
@@ -378,6 +376,8 @@ Run the following command to build `zero_out.so`.
 ```bash
 $ bazel build --config opt //tensorflow/core/user_ops:zero_out.so
 ```
+>   As explained above, if you are compiling with gcc>=5 add `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`
+>   to the bazel command line.
 
 >   Note: Although you can create a shared library (a `.so` file) with the
 >   standard `cc_library` rule, we strongly recommend that you use the
