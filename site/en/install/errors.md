@@ -288,4 +288,8 @@ ImportError: cannot import name 'descriptor'</pre>
   <td><a href="https://github.com/tensorflow/tensorflow/issues/22512">22512</a></td>
   <td><pre>ModuleNotFoundError: No module named 'tensorflow.python._pywrap_tensorflow_internal'</pre></td>
 </tr>
+<tr>
+  <td><a href="https://github.com/tensorflow/tensorflow/issues/22512">22512</a></td>
+  <td><pre>ImportError: DLL load failed: The specified module could not be found.</pre></td>
+</tr>
 </table>
