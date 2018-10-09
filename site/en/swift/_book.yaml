@@ -16,7 +16,7 @@ upper_tabs:
       contents:
       - title: Overview
         path: /swift/api_docs/
-      - title: View on Github
+      - title: View on GitHub
         path: https://github.com/tensorflow/swift
         status: external
       - include: /swift/api_docs/_toc.yaml
