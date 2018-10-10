@@ -1,6 +1,6 @@
 # Estimators
 
-This document introduces `tf.estimator` -- a high-level TensorFlow
+This document introduces `tf.estimator`--a high-level TensorFlow
 API that greatly simplifies machine learning programming. Estimators encapsulate
 the following actions:
 
@@ -10,7 +10,7 @@ the following actions:
 *   export for serving
 
 You may either use the pre-made Estimators we provide or write your
-own custom Estimators.  All Estimators -- whether pre-made or custom -- are
+own custom Estimators.  All Estimators--whether pre-made or custom--are
 classes based on the `tf.estimator.Estimator` class.
 
 For a quick example try [Estimator tutorials](../tutorials/estimators/linear).
@@ -132,7 +132,7 @@ features yourself.
 
 ## Custom Estimators
 
-The heart of every Estimator -- whether pre-made or custom -- is its
+The heart of every Estimator--whether pre-made or custom--is its
 **model function**, which is a method that builds graphs for training,
 evaluation, and prediction. When you are using a pre-made Estimator,
 someone else has already implemented the model function. When relying
