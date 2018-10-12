@@ -23,46 +23,35 @@ This section describes some of the current uses of the TensorFlow system.
 > pull request to add an entry to this file.
 
 * **Deep Speech**
-<ul>
-   <li>**Organization**: Mozilla</li>
-   <li> **Domain**: Speech Recognition</li>
-   <li> **Description**:  A TensorFlow implementation motivated by Baidu's Deep Speech architecture.</li>
-   <li> **More info**: [GitHub Repo](https://github.com/mozilla/deepspeech)</li>
-</ul>
+   * **Organization**: Mozilla
+   * **Domain**: Speech Recognition
+   * **Description**:  A TensorFlow implementation motivated by Baidu's Deep Speech architecture.
+   * **More info**: [GitHub Repo](https://github.com/mozilla/deepspeech)
 
 * **RankBrain**
-<ul>
-   <li>**Organization**: Google</li>
-   <li> **Domain**: Information Retrieval</li>
-   <li> **Description**:  A large-scale deployment of deep neural nets for search ranking on www.google.com.</li>
-   <li> **More info**: ["Google Turning Over Its Lucrative Search to AI Machines"](http://www.bloomberg.com/news/articles/2015-10-26/google-turning-its-lucrative-web-search-over-to-ai-machines)</li>
-</ul>
+   * **Organization**: Google
+   * **Domain**: Information Retrieval
+   * **Description**:  A large-scale deployment of deep neural nets for search ranking on www.google.com.
+   * **More info**: ["Google Turning Over Its Lucrative Search to AI Machines"](http://www.bloomberg.com/news/articles/2015-10-26/google-turning-its-lucrative-web-search-over-to-ai-machines)
 
 * **Inception Image Classification Model**
-<ul>
-   <li> **Organization**: Google</li>
-   <li> **Description**: Baseline model and follow on research into highly accurate computer vision models, starting with the model that won the 2014 Imagenet image classification challenge</li>
-   <li> **More Info**: Baseline model described in [Arxiv paper](http://arxiv.org/abs/1409.4842)</li>
-</ul>
+   * **Organization**: Google
+   * **Description**: Baseline model and follow on research into highly accurate computer vision models, starting with the model that won the 2014 Imagenet image classification challenge
+   * **More Info**: Baseline model described in [Arxiv paper](http://arxiv.org/abs/1409.4842)
 
 * **SmartReply**
-<ul>
-  <li> **Organization**: Google</li>
-  <li> **Description**: Deep LSTM model to automatically generate email responses</li>
-  <li> **More Info**: [Google research blog post](http://googleresearch.blogspot.com/2015/11/computer-respond-to-this-email.html)</li>
-</ul>
+  * **Organization**: Google
+  * **Description**: Deep LSTM model to automatically generate email responses
+  * **More Info**: [Google research blog post](http://googleresearch.blogspot.com/2015/11/computer-respond-to-this-email.html)
 
 * **Massively Multitask Networks for Drug Discovery**
-<ul>
-  <li> **Organization**: Google and Stanford University</li>
-  <li> **Domain**: Drug discovery</li>
-  <li> **Description**:  A deep neural network model for identifying promising drug candidates.</li>
-  <li> **More info**: [Arxiv paper](http://arxiv.org/abs/1502.02072)</li>
-</ul>
+  * **Organization**: Google and Stanford University
+  * **Domain**: Drug discovery
+  * **Description**:  A deep neural network model for identifying promising drug candidates.
+  * **More info**: [Arxiv paper](http://arxiv.org/abs/1502.02072)
 
 * **On-Device Computer Vision for OCR**
-<ul>
-  <li> **Organization**: Google</li>
-  <li> **Description**: On-device computer vision model to do optical character recognition to enable real-time translation.</li>
-  <li> **More info**: [Google Research blog post](http://googleresearch.blogspot.com/2015/07/how-google-translate-squeezes-deep.html)</li>
-</ul>
+  * **Organization**: Google
+  * **Description**: On-device computer vision model to do optical character recognition to enable real-time translation.
+  * **More info**: [Google Research blog post](http://googleresearch.blogspot.com/2015/07/how-google-translate-squeezes-deep.html)
+
