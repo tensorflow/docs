@@ -258,7 +258,7 @@ The filename of the generated `.whl` file depends on the TensorFlow version and
 your platform. Use `pip install` to install the package, for example:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
-pip install /tmp/tensorflow_pkg/tensorflow-<var>version</var>-cp27-cp27mu-linux_x86_64.whl
+pip install /tmp/tensorflow_pkg/tensorflow-<var>version</var>-<var>tags</var>.whl
 </pre>
 
 Success: TensorFlow is now installed.
@@ -317,7 +317,7 @@ virtual environment:
 
 <code class="devsite-terminal tfo-terminal-root">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /mnt  # create package</code>
 
-<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-cp27-cp27mu-linux_x86_64.whl</code>
+<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
 
 Install and verify the package within the container:
@@ -325,7 +325,7 @@ Install and verify the package within the container:
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">pip uninstall tensorflow  # remove current version</code>
 
-<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-cp27-cp27mu-linux_x86_64.whl</code>
+<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 <code class="devsite-terminal tfo-terminal-root">cd /tmp  # don't import from source directory</code>
 <code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(tf.__version__)"</code>
 </pre>
@@ -333,7 +333,7 @@ Install and verify the package within the container:
 Success: TensorFlow is now installed.
 
 On your host machine, the TensorFlow *pip* package is in the current directory
-(with host user permissions): <code>./tensorflow-<var>version</var>-cp27-cp27mu-linux_x86_64.whl</code>
+(with host user permissions): <code>./tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 
 ### GPU support
 
@@ -364,7 +364,7 @@ with GPU support:
 
 <code class="devsite-terminal tfo-terminal-root">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /mnt  # create package</code>
 
-<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-cp35-cp35m-linux_x86_64.whl</code>
+<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
 
 Install and verify the package within the container and check for a GPU:
@@ -372,7 +372,7 @@ Install and verify the package within the container and check for a GPU:
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">pip uninstall tensorflow  # remove current version</code>
 
-<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-cp27-cp27mu-linux_x86_64.whl</code>
+<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 <code class="devsite-terminal tfo-terminal-root">cd /tmp  # don't import from source directory</code>
 <code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(tf.contrib.eager.num_gpus())"</code>
 </pre>
