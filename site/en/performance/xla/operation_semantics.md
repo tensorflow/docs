@@ -119,7 +119,7 @@ respect to `operand`, `offset` and `scale` across all the other dimensions. The
 `feature_index` must be a valid index for the feature dimension in `operand`.
 
 The three gradients are defined by the following formulas (assuming a
-4-dimensional tensor as `operand` and with feature dimension index \\(l\\),
+4-dimensional array as `operand` and with feature dimension index \\(l\\),
 batch size `m` and spatial sizes `w` and `h`):
 
 \\[ \begin{split} c_l&=
@@ -1401,13 +1401,13 @@ Infeed of the device.
 <b> `Iota()` </b>
 
 Builds a constant literal on device rather than a potentially large host
-transfer.  Creates a rank 1 tensor of values starting at zero and incrementing
+transfer.  Creates a rank 1 array of values starting at zero and incrementing
 by one.
 
 Arguments          | Type            | Semantics
 ------------------ | --------------- | ---------------------------
 `type`             | `PrimitiveType` | type U
-`size`             | `int64`         | The number of elements in the tensor.
+`size`             | `int64`         | The number of elements in the array.
 
 ## Map
 
@@ -1646,7 +1646,7 @@ Reducing the 3D array over all its dimensions produces the scalar `84`.
 When `N > 1`, reduce function application is slightly more complex, as it is
 applied simultaneously to all inputs. For example, consider the following
 reduction function, which can be used to compute the max and the argmax of a
-a 1-D tensor in parallel:
+a 1-D array in parallel:
 
 ```
 f: (Float, Int, Float, Int) -> Float, Int
@@ -1938,7 +1938,7 @@ implementation-defined.
 ## Scatter
 
 The XLA scatter operation generates a result which is the value of the input
-tensor `operand`, with several slices (at indices specified by
+array `operand`, with several slices (at indices specified by
 `scatter_indices`) updated with the values in `updates` using
 `update_computation`.
 
@@ -1949,15 +1949,15 @@ See also
 
 |Arguments         | Type                   | Semantics                        |
 |------------------|------------------------|----------------------------------|
-|`operand`         | `XlaOp`                | Tensor to be scattered into.     |
-|`scatter_indices` | `XlaOp`                | Tensor containing the starting   |
+|`operand`         | `XlaOp`                | Array to be scattered into.      |
+|`scatter_indices` | `XlaOp`                | Array containing the starting    |
 :                  :                        : indices of the slices that must  :
 :                  :                        : be scattered to.                 :
-|`updates`         | `XlaOp`                | Tensor containing the values that|
+|`updates`         | `XlaOp`                | Array containing the values that |
 :                  :                        : must be used for scattering.     :
 |`update_computation`| `XlaComputation`     | Computation to be used for       |
 :                  :                        : combining the existing values in :
-:                  :                        : the input tensor and the updates :
+:                  :                        : the input array and the updates  :
 :                  :                        : during scatter. This computation :
 :                  :                        : should be of type `T, T -> T`.   :
 |`index_vector_dim`| `int64`                | The dimension in                 |
@@ -1986,7 +1986,7 @@ order.
 
 The arguments of scatter should follow these constraints:
 
-  - `updates` tensor must be of rank `update_window_dims.size +
+  - `updates` array must be of rank `update_window_dims.size +
   scatter_indices.rank - 1`.
 
   - Bounds of dimension `i` in `updates` must conform to the following:
@@ -2014,12 +2014,12 @@ The arguments of scatter should follow these constraints:
     `scatter_indices`[`index_vector_dim`], and its values must be in the range
     `[0, operand.rank)`.
 
-For a given index `U` in the `updates` tensor, the corresponding index `I` in
-the `operand` tensor into which this update has to be applied is computed as
+For a given index `U` in the `updates` array, the corresponding index `I` in
+the `operand` array into which this update has to be applied is computed as
 follows:
 
   1. Let `G` = { `U`[`k`] for `k` in `update_scatter_dims` }. Use `G` to look up
-     an index vector `S` in the `scatter_indices` tensor such that `S`[`i`] =
+     an index vector `S` in the `scatter_indices` array such that `S`[`i`] =
      `scatter_indices`[Combine(`G`, `i`)] where Combine(A, b) inserts b at
      positions `index_vector_dim` into A.
   2. Create an index `S`<sub>`in`</sub> into `operand` using `S` by scattering
@@ -2045,10 +2045,10 @@ follows:
 In summary, the scatter operation can be defined as follows.
 
    - Initialize `output` with `operand`, i.e. for all indices `O` in the
-     `operand` tensor:\
+     `operand` array:\
        `output`[`O`] = `operand`[`O`]
-   - For every index `U` in the `updates` tensor and the corresponding index `O`
-     in the `operand` tensor:\
+   - For every index `U` in the `updates` array and the corresponding index `O`
+     in the `operand` array:\
        `output`[`O`] = `update_computation`(`output`[`O`], `updates`[`U`])
 
 The order in which updates are applied is non-deterministic. So, when multiple
@@ -2056,8 +2056,8 @@ indices in `updates` refer to the same index in `operand`, the corresponding
 value in `output` will be non-deterministic.
 
 Note that the first parameter that is passed into the `update_computation` will
-always be the current value from the `output` tensor and the second parameter
-will always be the value from the `updates` tensor. This is important
+always be the current value from the `output` array and the second parameter
+will always be the value from the `updates` array. This is important
 specifically for cases when the `update_computation` is _not commutative_.
 
 Informally, the scatter op can be viewed as an _inverse_ of the gather op, i.e.
