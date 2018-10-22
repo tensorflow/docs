@@ -1733,6 +1733,10 @@ window_strides, padding)` </b>
 :                     :                     : dimension values                 :
 | `window_strides`    | `ArraySlice<int64>` | array of integers for window     |
 :                     :                     : stride values                    :
+| `base_dilations`    | `ArraySlice<int64>` | array of integers for base       |
+:                     :                     : dilation values                  :
+| `window_dilations`  | `ArraySlice<int64>` | array of integers for window     |
+:                     :                     : dilation values                  :
 | `padding`           | `Padding`           | padding type for window          |
 :                     :                     : (Padding\:\:kSame or             :
 :                     :                     : Padding\:\:kValid)               :
