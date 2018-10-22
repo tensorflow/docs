@@ -1,6 +1,6 @@
 # Using TPUs
 
-Experimental support for Cloud TPUs is currently available for Keras, and Colab.
+Experimental support for Cloud TPUs is currently available for Keras and Colab.
 You can try a TPU in colab with zero setup. For example:
 
   1. [A quick test, just to measure FLOPS](https://colab.research.google.com/notebooks/tpu.ipynb).
