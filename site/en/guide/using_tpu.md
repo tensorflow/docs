@@ -4,7 +4,7 @@ Experimental support for Cloud TPUs is currently available for Keras and Colab.
 Run Colab notebooks on a TPU by changing the *hardware accelerator* in your notebook settings: *Runtime > Change runtime type > Hardware accelerator > TPU*. The following TPU-enabled Colab notebooks are available to test:
 
   1. [A quick test, just to measure FLOPS](https://colab.research.google.com/notebooks/tpu.ipynb).
-  2. [A CNN image classifier with `tf.keras`](https://colab.sandbox.google.com/github/tensorflow/tpu/blob/master/tools/colab/fashion_mnist.ipynb).
+  2. [A CNN image classifier with `tf.keras`](https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/fashion_mnist.ipynb).
   3. [An LSTM markov chain text generator with `tf.keras`](https://colab.sandbox.google.com/github/tensorflow/tpu/blob/master/tools/colab/shakespeare_with_tpu_and_keras.ipynb)
 
 The above examples are the best way to get started with a cloud TPU.
