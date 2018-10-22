@@ -1,8 +1,19 @@
 # Using TPUs
 
-This document walks through the principal TensorFlow APIs necessary to make
-effective use of a [Cloud TPU](https://cloud.google.com/tpu/), and highlights
-the differences between regular TensorFlow usage, and usage on a TPU.
+Experimental support for Cloud TPUs is currently available for Keras and Colab.
+Run Colab notebooks on a TPU by changing the *hardware accelerator* in your notebook settings: *Runtime > Change runtime type > Hardware accelerator > TPU*. The following TPU-enabled Colab notebooks are available to test:
+
+  1. [A quick test, just to measure FLOPS](https://colab.research.google.com/notebooks/tpu.ipynb).
+  2. [A CNN image classifier with `tf.keras`](https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/fashion_mnist.ipynb).
+  3. [An LSTM markov chain text generator with `tf.keras`](https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/shakespeare_with_tpu_and_keras.ipynb)
+
+The above examples are the best way to get started with a cloud TPU.
+
+## TPUEstimator
+
+The remainder of this doc is about using the `TPUEstimator` class to drive a 
+[Cloud TPU](https://cloud.google.com/tpu/), and highlights
+the differences compared to a standard `tf.estimator.Estimator`.
 
 This doc is aimed at users who:
 
@@ -15,13 +26,11 @@ This doc is aimed at users who:
 * Are interested in porting an existing `Estimator` model to
   run on Cloud TPUs
 
-## TPUEstimator
-
-`tf.estimator.Estimator` are TensorFlow's model-level abstraction.
+`tf.estimator.Estimator` are a model-level abstraction.
 Standard `Estimators` can drive models on CPU and GPUs. You must use
 `tf.contrib.tpu.TPUEstimator` to drive a model on TPUs.
 
-Refer to TensorFlow's Getting Started section for an introduction to the basics
+Refer to TensorFlow's Getting Started with Estimators section for an introduction to the basics
 of using a [pre-made `Estimator`](../guide/premade_estimators.md), and
 [custom `Estimator`s](../guide/custom_estimators.md).
 
