@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::OrderedMapUnstageNoKey Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>OrderedMapUnstageNoKey</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Op removes and returns the (key, value) element with the smallest. </p>
+  <h2>Summary</h2>
+  <p>key from the underlying container. If the underlying container does not contain elements, the op will block until it does.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> key</li>
+      <li><code>OutputList</code> values </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1a13815ef44ee7ada0d46cc3da94a8218c">OrderedMapUnstageNoKey</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, const DataTypeSlice & dtypes)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1a9d6a2270bbbf93d73392f6037304629b">OrderedMapUnstageNoKey</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, const DataTypeSlice & dtypes, const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/ordered-map-unstage-no-key/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1_1_attrs">OrderedMapUnstageNoKey::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1a093c087e20504da5867a8ff2364b9f91">key</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1a57ef4dc734cada9f18b5fb1fde4a0261">values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.3/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1afda39b6f4b1a6bf1926b11d6ab35cec9">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/ordered-map-unstage-no-key/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1ac01be69212d051200e1c1473e900bcbb">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/ordered-map-unstage-no-key/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1a87de87997f87a0f1e18a9e1d48103af8">MemoryLimit</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/ordered-map-unstage-no-key/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1aa160f8843fb5937c135172d0fbffe381">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/ordered-map-unstage-no-key/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/ordered-map-unstage-no-key/attrs">tensorflow::<wbr/>ops::<wbr/>OrderedMapUnstageNoKey::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/ordered-map-unstage-no-key.html#classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key">OrderedMapUnstageNoKey</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1a093c087e20504da5867a8ff2364b9f91">
+    <h3>key</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> key</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1a57ef4dc734cada9f18b5fb1fde4a0261">
+    <h3>values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> values</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1a13815ef44ee7ada0d46cc3da94a8218c">
+    <h3>OrderedMapUnstageNoKey</h3>
+    <pre class="prettyprint"> OrderedMapUnstageNoKey(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  const DataTypeSlice & dtypes
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1a9d6a2270bbbf93d73392f6037304629b">
+    <h3>OrderedMapUnstageNoKey</h3>
+    <pre class="prettyprint"> OrderedMapUnstageNoKey(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  const DataTypeSlice & dtypes,
+  const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/ordered-map-unstage-no-key/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1_1_attrs">OrderedMapUnstageNoKey::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1afda39b6f4b1a6bf1926b11d6ab35cec9">
+    <h3>Capacity</h3>
+    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/ordered-map-unstage-no-key/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1_1_attrs">Attrs</a> Capacity(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1ac01be69212d051200e1c1473e900bcbb">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/ordered-map-unstage-no-key/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1a87de87997f87a0f1e18a9e1d48103af8">
+    <h3>MemoryLimit</h3>
+    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/ordered-map-unstage-no-key/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1_1_attrs">Attrs</a> MemoryLimit(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1aa160f8843fb5937c135172d0fbffe381">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/ordered-map-unstage-no-key/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_unstage_no_key_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

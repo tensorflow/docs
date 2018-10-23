@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>Logging Ops</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>Logging Ops</h1>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Variables</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1gaa040a0822bb03b07856bbe4c3e5127c5">Arguments</a></code>
+      </td>
+      <td>
+        <div>
+          <code>audio **If max_outputs is greater the summary value tags are *generated sequentially as *tag *tag etc **</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga65d7ebf0274699b2d64b24b67c035e59">audio</a></code>
+      </td>
+      <td>
+        <div>
+          <code>audio **If max_outputs is greater the summary value tags are *generated sequentially as *tag *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1gafd756df725c5b0089be916a30f635431">bad_color_</a> = Input::Initializer({255, 0, 0, 255}, {4}).AsTensorProto()</code>
+      </td>
+      <td>
+        <div>
+          <code>TensorProto</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga85e7dc53b6506cd9c3c658f9fdf5ea53">image</a></code>
+      </td>
+      <td>
+        <div>
+          <code>image **If max_images is greater the summary value tags are *generated sequentially as *tag *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga040606df10cca932d89a77ac9cb8df11">max_images_</a> = 3</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1gaab9dcd615e7a411c753129c41d70de9e">max_outputs_</a> = x</code>
+      </td>
+      <td>
+        <div>
+          <code>ret</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga9384efccdd5ddf0d91d45e6c07ec74a3">ret</a></code>
+      </td>
+      <td>
+        <div>
+          <code>return</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1gac5f0ed1ac243df5eb5c8c01c734a5551">sample_rate</a></code>
+      </td>
+      <td>
+        <div>
+          <code>audio **If max_outputs is greater the summary value tags are *generated sequentially as *tag *tag etc frames **</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga9c084831edc827b81bc2343b019d02cb">summary</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga443e7a28df492f4a0a6adc6f3d57919c">than</a></code>
+      </td>
+      <td>
+        <div>
+          <code>audio **If max_outputs is greater</code>
+        </div>
+        <div>Outputs a <code>Summary</code> protocol buffer with audio. </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga8aed7a42d0ca30d3a3ab4ccd255ce67e">AudioSummary</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sample_rate)</code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga09af34bc2ffdb04cf50a99dc80af1270">AudioSummary</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sample_rate, const AudioSummary::Attrs & attrs)</code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga7176bae75b2c957dad310936ece963e0">BadColor</a>(const TensorProto & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>Attrs</code>
+        </div>
+        <div>Color to use for pixels with non-finite values. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga2a33be603203e103a752eb85bb18ee8a">ImageSummary</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor)</code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga8c0191c0b683fa90ad82e001da1f090a">ImageSummary</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, const ImageSummary::Attrs & attrs)</code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga882604c458700a6464ff6fc98c06a418">MaxImages</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>Attrs</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1gab25b29f077c1f74d45026b1078f33359">MaxOutputs</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>Attrs</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga9d6a6481d9f898bf8f65bb7ceeee1825">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1gaf1f1a2e293bfef9331c356fa05b5c8ca">range</a>(It represents the value of a *pixel in the output image).Non-finite values in the input tensor are *replaced by this tensor in the output image.The default value is the color *red.**Arguments</code>
+      </td>
+      <td>
+        <div>
+          <code>image **If max_images is greater the summary value tags are *generated sequentially as *tag *tag etc **The bad_color argument is the color to use in the generated images for *non finite input values It is a unit8 D tensor of length channels *Each element must be in the</code>
+        </div>
+        <div><a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/max.html#classtensorflow_1_1ops_1_1_max">Max</a> number of batch elements to generate images for. </div>
+      </td>
+    </tr>
+  </table>
+  <table class="nested-classes responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Classes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/assert">tensorflow::<wbr/>ops::<wbr/>Assert</a>
+      </td>
+      <td>
+        <p>Asserts that the given condition is true. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/histogram-summary">tensorflow::<wbr/>ops::<wbr/>HistogramSummary</a>
+      </td>
+      <td>
+        <p>Outputs a <code>Summary</code> protocol buffer with a histogram. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/merge-summary">tensorflow::<wbr/>ops::<wbr/>MergeSummary</a>
+      </td>
+      <td>
+        <p>Merges summaries. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/print">tensorflow::<wbr/>ops::<wbr/>Print</a>
+      </td>
+      <td>
+        <p>Prints a list of tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/scalar-summary">tensorflow::<wbr/>ops::<wbr/>ScalarSummary</a>
+      </td>
+      <td>
+        <p>Outputs a <code>Summary</code> protocol buffer with scalar values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/tensor-summary">tensorflow::<wbr/>ops::<wbr/>TensorSummary</a>
+      </td>
+      <td>
+        <p>Outputs a <code>Summary</code> protocol buffer with a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/tensor-summary-v2">tensorflow::<wbr/>ops::<wbr/>TensorSummaryV2</a>
+      </td>
+      <td>
+        <p>Outputs a <code>Summary</code> protocol buffer with a tensor and per-plugin data. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Variables</h2>
+  <div id="group__logging__ops_1gaa040a0822bb03b07856bbe4c3e5127c5">
+    <h3>Arguments</h3>
+    <pre class="prettyprint">audio **If max_outputs is greater the summary value tags are *generated sequentially as *tag *tag etc ** Arguments</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga65d7ebf0274699b2d64b24b67c035e59">
+    <h3>audio</h3>
+    <pre class="prettyprint">audio **If max_outputs is greater the summary value tags are *generated sequentially as *tag * audio</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1gafd756df725c5b0089be916a30f635431">
+    <h3>bad_color_</h3>
+    <pre class="prettyprint">TensorProto bad_color_ = Input::Initializer({255, 0, 0, 255}, {4}).AsTensorProto()</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga85e7dc53b6506cd9c3c658f9fdf5ea53">
+    <h3>image</h3>
+    <pre class="prettyprint">image **If max_images is greater the summary value tags are *generated sequentially as *tag * image</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga040606df10cca932d89a77ac9cb8df11">
+    <h3>max_images_</h3>
+    <pre class="prettyprint">int64 max_images_ = 3</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1gaab9dcd615e7a411c753129c41d70de9e">
+    <h3>max_outputs_</h3>
+    <pre class="prettyprint">ret max_outputs_ = x</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga9384efccdd5ddf0d91d45e6c07ec74a3">
+    <h3>ret</h3>
+    <pre class="prettyprint">return ret</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1gac5f0ed1ac243df5eb5c8c01c734a5551">
+    <h3>sample_rate</h3>
+    <pre class="prettyprint">audio **If max_outputs is greater the summary value tags are *generated sequentially as *tag *tag etc frames ** sample_rate</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga9c084831edc827b81bc2343b019d02cb">
+    <h3>summary</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> summary</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga443e7a28df492f4a0a6adc6f3d57919c">
+    <h3>than</h3>
+    <pre class="prettyprint">audio **If max_outputs is greater than</pre>
+    <div>
+      <p>Outputs a <code>Summary</code> protocol buffer with audio. </p>
+      <p>Outputs a <code>Summary</code> protocol buffer with images.</p>
+      <p>The summary has up to <code>max_outputs</code> summary values containing audio. The audio is built from <code>tensor</code> which must be 3-D with shape <code>[batch_size, frames, channels]</code> or 2-D with shape <code>[batch_size, frames]</code>. The values are assumed to be in the range of <code>[-1.0, 1.0]</code> with a sample rate of <code>sample_rate</code>.</p>
+      <p>The <code>tag</code> argument is a scalar <code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of type <code>string</code>. It is used to build the <code>tag</code> of the summary values:</p>
+      <p>
+        <ul>
+          <li>If <code>max_outputs</code> is 1, the summary value tag is '*tag</li>
+        </ul>
+      </p>
+      <p>The summary has up to <code>max_images</code> summary values containing images. The images are built from <code>tensor</code> which must be 4-D with shape <code>[batch_size, height, width, channels]</code> and where <code>channels</code> can be:</p>
+      <p>
+        <ul>
+          <li>1: <code>tensor</code> is interpreted as Grayscale.</li>
+          <li>3: <code>tensor</code> is interpreted as RGB.</li>
+          <li>4: <code>tensor</code> is interpreted as RGBA.</li>
+        </ul>
+      </p>
+      <p>The images have the same number of channels as the input tensor. For float input, the values are normalized one image at a time to fit in the range <code>[0, 255]</code>. <code>uint8</code> values are unchanged. The op uses two different normalization algorithms:</p>
+      <p>
+        <ul>
+          <li>If the input values are all positive, they are rescaled so the largest one is 255.</li>
+          <li>If any input value is negative, the values are shifted so input value 0.0 is at 127. They are then rescaled so that either the smallest value is 0, or the largest one is 255.</li>
+        </ul>
+      </p>
+      <p>The <code>tag</code> argument is a scalar <code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of type <code>string</code>. It is used to build the <code>tag</code> of the summary values:</p>
+      <p>
+        <ul>
+          <li>If <code>max_images</code> is 1, the summary value tag is '*tag </li>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <h2>Functions</h2>
+  <div id="group__logging__ops_1ga8aed7a42d0ca30d3a3ab4ccd255ce67e">
+    <h3>AudioSummary</h3>
+    <pre class="prettyprint"> AudioSummary(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sample_rate
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga09af34bc2ffdb04cf50a99dc80af1270">
+    <h3>AudioSummary</h3>
+    <pre class="prettyprint"> AudioSummary(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sample_rate,
+  const AudioSummary::Attrs & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga7176bae75b2c957dad310936ece963e0">
+    <h3>BadColor</h3>
+    <pre class="prettyprint">Attrs BadColor(
+  const TensorProto & x
+)</pre>
+    <div>
+      <p>Color to use for pixels with non-finite values. </p>
+      <p>Defaults to Tensor<type: uint8 shape: [4] values: 255 0 0...> </p>
+    </div>
+  </div>
+  <div id="group__logging__ops_1ga2a33be603203e103a752eb85bb18ee8a">
+    <h3>ImageSummary</h3>
+    <pre class="prettyprint"> ImageSummary(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga8c0191c0b683fa90ad82e001da1f090a">
+    <h3>ImageSummary</h3>
+    <pre class="prettyprint"> ImageSummary(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  const ImageSummary::Attrs & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga882604c458700a6464ff6fc98c06a418">
+    <h3>MaxImages</h3>
+    <pre class="prettyprint">Attrs MaxImages(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1gab25b29f077c1f74d45026b1078f33359">
+    <h3>MaxOutputs</h3>
+    <pre class="prettyprint">Attrs MaxOutputs(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga9d6a6481d9f898bf8f65bb7ceeee1825">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1gaf1f1a2e293bfef9331c356fa05b5c8ca">
+    <h3>range</h3>
+    <pre class="prettyprint">image **If max_images is greater the summary value tags are *generated sequentially as *tag *tag etc **The bad_color argument is the color to use in the generated images for *non finite input values It is a unit8 D tensor of length channels *Each element must be in the range(
+  It represents the value of a *pixel in the output image
+).Non-finite values in the input tensor are *replaced by this tensor in the output image.The default value is the color *red.**Arguments</pre>
+    <div>
+      <p><a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/max.html#classtensorflow_1_1ops_1_1_max">Max</a> number of batch elements to generate images for. </p>
+      <p>Defaults to 3 </p>
+    </div>
+  </div>
+</body>
+</html>

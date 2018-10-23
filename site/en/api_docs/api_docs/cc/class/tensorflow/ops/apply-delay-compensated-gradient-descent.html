@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ApplyDelayCompensatedGradientDescent Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ApplyDelayCompensatedGradientDescent</h1>
+  <code>#include &lt;training_ops.h&gt;</code>
+  <p>var -= alpha * (delta + lambda * delta * (var - shadow)) </p>
+  <h2>Summary</h2>
+  <p>Update '*shadow' by changing it to the new value of 'var'</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>var: Should be from a Variable().</li>
+      <li>alpha: Scaling factor. Must be a scalar.</li>
+      <li>delta: The change.</li>
+      <li>lambda: The variance parameter.</li>
+      <li>shadow: Same as "var".</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-delay-compensated-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1_1_attrs">Attrs</a></code>):<ul>
+      <li>use_locking: If <code>True</code>, the subtraction will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li>the created <code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1a95214c42d5113bdb65a8d8b1851b32f7">ApplyDelayCompensatedGradientDescent</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delta, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lambda, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shadow)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1a37c01bc81ca2bedc8d24714324f23754">ApplyDelayCompensatedGradientDescent</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delta, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lambda, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shadow, const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-delay-compensated-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1_1_attrs">ApplyDelayCompensatedGradientDescent::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1a2cf9d16b139f6b4b765e095a2d5411fe">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1afe599ff46e0f04772c030f4e1e166f89">operator::tensorflow::Operation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1ae5ddff6969baa4e7dfd53ba7f5a1be4a">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-delay-compensated-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-delay-compensated-gradient-descent/attrs">tensorflow::<wbr/>ops::<wbr/>ApplyDelayCompensatedGradientDescent::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/apply-delay-compensated-gradient-descent.html#classtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent">ApplyDelayCompensatedGradientDescent</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1a2cf9d16b139f6b4b765e095a2d5411fe">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1a95214c42d5113bdb65a8d8b1851b32f7">
+    <h3>ApplyDelayCompensatedGradientDescent</h3>
+    <pre class="prettyprint"> ApplyDelayCompensatedGradientDescent(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delta,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lambda,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shadow
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1a37c01bc81ca2bedc8d24714324f23754">
+    <h3>ApplyDelayCompensatedGradientDescent</h3>
+    <pre class="prettyprint"> ApplyDelayCompensatedGradientDescent(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delta,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lambda,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shadow,
+  const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-delay-compensated-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1_1_attrs">ApplyDelayCompensatedGradientDescent::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1afe599ff46e0f04772c030f4e1e166f89">
+    <h3>operator::tensorflow::Operation</h3>
+    <pre class="prettyprint"> operator::tensorflow::Operation() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1ae5ddff6969baa4e7dfd53ba7f5a1be4a">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-delay-compensated-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_apply_delay_compensated_gradient_descent_1_1_attrs">Attrs</a> UseLocking(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

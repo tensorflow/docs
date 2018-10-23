@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::UnsortedSegmentSum Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>UnsortedSegmentSum</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Computes the sum along segments of a tensor. </p>
+  <h2>Summary</h2>
+  <p>Read the section on segmentation for an explanation of segments.</p>
+  <p>Computes a tensor such that <code>(output[i] = sum_{j...} data[j...]</code> where the sum is over tuples <code>j...</code> such that <code>segment_ids[j...] == i</code>. Unlike <code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/segment-sum.html#classtensorflow_1_1ops_1_1_segment_sum">SegmentSum</a></code>, <code>segment_ids</code> need not be sorted and need not cover all values in the full range of valid values.</p>
+  <p>If the sum is empty for a given segment ID <code>i</code>, <code>output[i] = 0</code>.</p>
+  <p><code>num_segments</code> should equal the number of distinct segment IDs.</p>
+  <p>
+    <figure id="@name">
+      <img src="/versions/r1.3/api_docs/cc/images/UnsortedSegmentSum.png" />
+    </figure>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>segment_ids: A tensor whose shape is a prefix of <code>data.shape</code>.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Has same shape as data, except for the first <code>segment_ids.rank</code> dimensions, which are replaced with a single dimension which has size <code>num_segments</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_unsorted_segment_sum_1a523a2af71c68956739def8e73da562ce">UnsortedSegmentSum</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_segments)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unsorted_segment_sum_1ace1d27d6d7cc362c688e1a08ea92c40f">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unsorted_segment_sum_1aeb60f49f613fc351fc9cc30a55a66486">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unsorted_segment_sum_1a11030ed77273925e7bbdf6ba24defdd9">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unsorted_segment_sum_1ac3c5ac1a7b8d9c7b5047dff05040dff1">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_unsorted_segment_sum_1ace1d27d6d7cc362c688e1a08ea92c40f">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_unsorted_segment_sum_1a523a2af71c68956739def8e73da562ce">
+    <h3>UnsortedSegmentSum</h3>
+    <pre class="prettyprint"> UnsortedSegmentSum(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_segments
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unsorted_segment_sum_1aeb60f49f613fc351fc9cc30a55a66486">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unsorted_segment_sum_1a11030ed77273925e7bbdf6ba24defdd9">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unsorted_segment_sum_1ac3c5ac1a7b8d9c7b5047dff05040dff1">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

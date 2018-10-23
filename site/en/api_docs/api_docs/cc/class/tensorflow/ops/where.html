@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Where Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Where</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Returns locations of true values in a boolean tensor. </p>
+  <h2>Summary</h2>
+  <p>This operation returns the coordinates of true elements in <code>condition</code>. The coordinates are returned in a 2-D tensor where the first dimension (rows) represents the number of true elements, and the second dimension (columns) represents the coordinates of the true elements. Keep in mind, the shape of the output tensor can vary depending on how many true values there are in <code>condition</code>. Indices are output in row-major order.</p>
+  <p>For example:</p>
+  <p>``` 'input' tensor is [[True, False]</p>
+  <p>[True, False]]</p>
+  <p>'input' has two true values, so output has two coordinates.</p>
+  <p>'input' has rank of 2, so coordinates have two indices.</p>
+  <p>where(input) ==> [[0, 0], [1, 0]]</p>
+  <p><code>condition</code> tensor is [[[True, False]</p>
+  <p>[True, False]]</p>
+  <p>[[False, True]</p>
+  <p>[False, True]]</p>
+  <p>[[False, False]</p>
+  <p>[False, True]]]</p>
+  <p>'input' has 5 true values, so output has 5 coordinates.</p>
+  <p>'input' has rank of 3, so coordinates have three indices.</p>
+  <p>where(input) ==> [[0, 0, 0], [0, 1, 0], [1, 0, 1], [1, 1, 1], [2, 1, 1]] ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The index tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1a3e4c07125f4b04d6f3a0f99a616273de">Where</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1aa3b91b7d267d5cee38568a7d1f97647d">index</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1a76eb69d2e854554e8ae583dba19f1df4">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1a80da544c59726a48be37767fb8fe3c91">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1a5662e0fc5b2303a6072fb9aba2cec345">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_where_1aa3b91b7d267d5cee38568a7d1f97647d">
+    <h3>index</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> index</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_where_1a3e4c07125f4b04d6f3a0f99a616273de">
+    <h3>Where</h3>
+    <pre class="prettyprint"> Where(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_where_1a76eb69d2e854554e8ae583dba19f1df4">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_where_1a80da544c59726a48be37767fb8fe3c91">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_where_1a5662e0fc5b2303a6072fb9aba2cec345">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>
