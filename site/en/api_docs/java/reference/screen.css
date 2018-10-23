@@ -1,0 +1,38 @@
+/** Heading for "Parameters", "See Also", etc., in details sections */
+body.docs h4.jd-details-title {
+  font-size: 1.15em;
+  margin: 1.5em 0 0.6em -0.5em;
+  padding: 0.2em 8em 0.4em 2.5em;
+  text-indent: -2em;
+  background-color: #E9E9E9; /** #DEEAFA */
+}
+
+#jd-header {
+  margin-bottom: 1em;
+}
+
+/* Hide empty first cell of constructors */
+#pubctors td.jd-typecol {
+  display: none;
+}
+
+p {
+  margin-bottom: 0.7em;
+}
+
+body.docs table th {
+  border: 1px solid #ddd;
+}
+
+.main tr th {
+  color: #222;
+  background-color: #fff;
+}
+
+body.docs h2 {
+  margin-left: -0.3em;
+}
+
+td.jd-typecol {
+  min-width: 100px;
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Angle Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Angle</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Returns the argument of a complex number. </p>
+  <h2>Summary</h2>
+  <p>Given a tensor <code>input</code> of complex numbers, this operation returns a tensor of type <code>float</code> that is the argument of each element in <code>input</code>. <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> elements in <code>input</code> must be complex numbers of the form \(a + bj\), where <i>a</i> is the real part and <i>b</i> is the imaginary part.</p>
+  <p>The argument returned by this operation is of the form \(atan2(b, a)\).</p>
+  <p>For example:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; tensor 'input' is [-2.25 + 4.75j, 3.25 + 5.75j]
+tf.angle(input) ==> [2.0132, 1.056]
+</pre>
+  </p>
+  <p>(numpy) Equivalent to np.angle. </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_angle_1a47791ccc55af361ed20e9329be926cf6">Angle</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_angle_1ad655869c197fdb8a1cc5080b72a87226">Angle</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/angle/attrs.html#structtensorflow_1_1ops_1_1_angle_1_1_attrs">Angle::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_angle_1a45a029f66865271344ede680a3903795">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_angle_1a4cbf3eaf2f27c7a6a5fde00b9b46495a">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_angle_1a3dbe5d6ed0e092b27882a34e24d61b6f">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_angle_1a947b786764bea16a027c4ca59f06a205">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_angle_1a16753413cc04e4dcfac2ee2931c0e939">Tout</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/angle/attrs.html#structtensorflow_1_1ops_1_1_angle_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/angle/attrs">tensorflow::<wbr/>ops::<wbr/>Angle::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/angle.html#classtensorflow_1_1ops_1_1_angle">Angle</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_angle_1a45a029f66865271344ede680a3903795">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_angle_1a47791ccc55af361ed20e9329be926cf6">
+    <h3>Angle</h3>
+    <pre class="prettyprint"> Angle(
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_angle_1ad655869c197fdb8a1cc5080b72a87226">
+    <h3>Angle</h3>
+    <pre class="prettyprint"> Angle(
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/angle/attrs.html#structtensorflow_1_1ops_1_1_angle_1_1_attrs">Angle::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_angle_1a4cbf3eaf2f27c7a6a5fde00b9b46495a">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_angle_1a3dbe5d6ed0e092b27882a34e24d61b6f">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_angle_1a947b786764bea16a027c4ca59f06a205">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_angle_1a16753413cc04e4dcfac2ee2931c0e939">
+    <h3>Tout</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/angle/attrs.html#structtensorflow_1_1ops_1_1_angle_1_1_attrs">Attrs</a> Tout(
+  DataType x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

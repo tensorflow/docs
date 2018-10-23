@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Multinomial Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Multinomial</h1>
+  <code>#include &lt;random_ops.h&gt;</code>
+  <p>Draws samples from a multinomial distribution. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>logits: 2-D <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> with shape <code>[batch_size, num_classes]</code>. Each slice <code>[i, :]</code> represents the unnormalized log probabilities for all classes.</li>
+      <li>num_samples: 0-D. Number of independent samples to draw for each row slice.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/multinomial/attrs.html#structtensorflow_1_1ops_1_1_multinomial_1_1_attrs">Attrs</a></code>):<ul>
+      <li>seed: If either seed or seed2 is set to be non-zero, the internal random number generator is seeded by the given seed. Otherwise, a random seed is used.</li>
+      <li>seed2: A second seed to avoid seed collision.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 2-D <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> with shape <code>[batch_size, num_samples]</code>. Each slice <code>[i, :]</code> contains the drawn class labels with range <code>[0, num_classes)</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_multinomial_1a96d252cc42db1e0cad0a64cb36e8dd17">Multinomial</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> logits, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_samples)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_multinomial_1a70c0ba099add2db08773240f75d985e3">Multinomial</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> logits, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_samples, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/multinomial/attrs.html#structtensorflow_1_1ops_1_1_multinomial_1_1_attrs">Multinomial::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_multinomial_1a6a1eb6aa0ee5680c889a15fcbb64eea1">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_multinomial_1ae386d54422fe11f8963cdb5c403c4dd5">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_multinomial_1ab7c86d59414a2504b91b5e9f6a34e7b9">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_multinomial_1a2c35c8fd690941576d7163b605d01678">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_multinomial_1a52a67bb622d9dc2c672d5b534e498335">OutputDtype</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/multinomial/attrs.html#structtensorflow_1_1ops_1_1_multinomial_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_multinomial_1a5fba481081090883283e3b7e556565ee">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/multinomial/attrs.html#structtensorflow_1_1ops_1_1_multinomial_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_multinomial_1ae46c069e65181a29054c3f64ac06d630">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/multinomial/attrs.html#structtensorflow_1_1ops_1_1_multinomial_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/multinomial/attrs">tensorflow::<wbr/>ops::<wbr/>Multinomial::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/multinomial.html#classtensorflow_1_1ops_1_1_multinomial">Multinomial</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_multinomial_1a6a1eb6aa0ee5680c889a15fcbb64eea1">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_multinomial_1a96d252cc42db1e0cad0a64cb36e8dd17">
+    <h3>Multinomial</h3>
+    <pre class="prettyprint"> Multinomial(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> logits,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_samples
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_multinomial_1a70c0ba099add2db08773240f75d985e3">
+    <h3>Multinomial</h3>
+    <pre class="prettyprint"> Multinomial(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> logits,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_samples,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/multinomial/attrs.html#structtensorflow_1_1ops_1_1_multinomial_1_1_attrs">Multinomial::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_multinomial_1ae386d54422fe11f8963cdb5c403c4dd5">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_multinomial_1ab7c86d59414a2504b91b5e9f6a34e7b9">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_multinomial_1a2c35c8fd690941576d7163b605d01678">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_multinomial_1a52a67bb622d9dc2c672d5b534e498335">
+    <h3>OutputDtype</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/multinomial/attrs.html#structtensorflow_1_1ops_1_1_multinomial_1_1_attrs">Attrs</a> OutputDtype(
+  DataType x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_multinomial_1a5fba481081090883283e3b7e556565ee">
+    <h3>Seed</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/multinomial/attrs.html#structtensorflow_1_1ops_1_1_multinomial_1_1_attrs">Attrs</a> Seed(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_multinomial_1ae46c069e65181a29054c3f64ac06d630">
+    <h3>Seed2</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/multinomial/attrs.html#structtensorflow_1_1ops_1_1_multinomial_1_1_attrs">Attrs</a> Seed2(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
