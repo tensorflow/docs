@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ExpandDims Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ExpandDims</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Inserts a dimension of 1 into a tensor's shape. </p>
+  <h2>Summary</h2>
+  <p>Given a tensor <code>input</code>, this operation inserts a dimension of 1 at the dimension index <code>axis</code> of <code>input</code>'s shape. The dimension index <code>axis</code> starts at zero; if you specify a negative number for <code>axis</code> it is counted backward from the end.</p>
+  <p>This operation is useful if you want to add a batch dimension to a single element. For example, if you have a single image of shape <code>[height, width, channels]</code>, you can make it a batch of 1 image with <code>expand_dims(image, 0)</code>, which will make the shape <code>[1, height, width, channels]</code>.</p>
+  <p>Other examples:</p>
+  <p>```prettyprint 't' is a tensor of shape [2]</p>
+  <p>shape(expand_dims(t, 0)) ==> [1, 2] shape(expand_dims(t, 1)) ==> [2, 1] shape(expand_dims(t, -1)) ==> [2, 1]</p>
+  <p>'t2' is a tensor of shape [2, 3, 5]</p>
+  <p>shape(expand_dims(t2, 0)) ==> [1, 2, 3, 5] shape(expand_dims(t2, 2)) ==> [2, 3, 1, 5] shape(expand_dims(t2, 3)) ==> [2, 3, 5, 1] ```</p>
+  <p>This operation requires that:</p>
+  <p>
+    <code>-1-input.dims() <= dim <= input.dims()</code>
+  </p>
+  <p>This operation is related to <code>squeeze()</code>, which removes dimensions of size 1.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>axis: 0-D (scalar). Specifies the dimension index at which to expand the shape of <code>input</code>.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Contains the same data as <code>input</code>, but its shape has an additional dimension of size 1 added. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_expand_dims_1ae2cff3dc910140a50446ed380848baef">ExpandDims</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_expand_dims_1abc828c5e90fdd61142ffd01878f9f95a">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_expand_dims_1a85ce8553584a8b3a50345d93f0f03b52">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_expand_dims_1aabc0c1aba83330412277a5b6e6f2c04e">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_expand_dims_1a280db99846027451637ac5d7e7a9d67e">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_expand_dims_1abc828c5e90fdd61142ffd01878f9f95a">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_expand_dims_1ae2cff3dc910140a50446ed380848baef">
+    <h3>ExpandDims</h3>
+    <pre class="prettyprint"> ExpandDims(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_expand_dims_1a85ce8553584a8b3a50345d93f0f03b52">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_expand_dims_1aabc0c1aba83330412277a5b6e6f2c04e">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_expand_dims_1a280db99846027451637ac5d7e7a9d67e">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

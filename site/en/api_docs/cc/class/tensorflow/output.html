@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::Output Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>Output</h1>
+  <code>#include &lt;ops.h&gt;</code>
+  <p>Represents a tensor value produced by an <a href="/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a>. </p>
+  <h2>Summary</h2>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_output_1a0d2121a99a3d4ed318c7cf9e37e76f8c">Output</a>()</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_output_1a91c6476c6569576149e3fa6cb536ed81">Output</a>(Node *n)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_output_1a9f02b6f3874ef250d92809ea68ece423">Output</a>(Node *n, int64 index)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_output_1a29a64e455525501e452d84a5bad49a92">Output</a>(const <a href="/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> & op, int64 index)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_output_1a979abb35b45c059dba3b8d1a1e9f508c">hash</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>uint64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_output_1a542a70b7aee6a75da6833882488238bb">index</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_output_1af18ceff946c1682acfd405fa4cc7a205">name</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>string</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_output_1a7d04f2b1831c26f99bd63157337bee14">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_output_1ab169b934723369ebfbe40efc83f9898a">op</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_output_1a10c4ecbacf9f27e13b8d59ed03d24a81">operator==</a>(const <a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> & other) const </code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_output_1add42877fc0530856b137985d9987e9a9">type</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>DataType</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1_output_1a0d2121a99a3d4ed318c7cf9e37e76f8c">
+    <h3>Output</h3>
+    <pre class="prettyprint"> Output()=default</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_output_1a91c6476c6569576149e3fa6cb536ed81">
+    <h3>Output</h3>
+    <pre class="prettyprint"> Output(
+  Node *n
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_output_1a9f02b6f3874ef250d92809ea68ece423">
+    <h3>Output</h3>
+    <pre class="prettyprint"> Output(
+  Node *n,
+  int64 index
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_output_1a29a64e455525501e452d84a5bad49a92">
+    <h3>Output</h3>
+    <pre class="prettyprint"> Output(
+  const <a href="/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> & op,
+  int64 index
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_output_1a979abb35b45c059dba3b8d1a1e9f508c">
+    <h3>hash</h3>
+    <pre class="prettyprint">uint64 hash() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_output_1a542a70b7aee6a75da6833882488238bb">
+    <h3>index</h3>
+    <pre class="prettyprint">int64 index() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_output_1af18ceff946c1682acfd405fa4cc7a205">
+    <h3>name</h3>
+    <pre class="prettyprint">string name() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_output_1a7d04f2b1831c26f99bd63157337bee14">
+    <h3>node</h3>
+    <pre class="prettyprint">Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_output_1ab169b934723369ebfbe40efc83f9898a">
+    <h3>op</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> op() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_output_1a10c4ecbacf9f27e13b8d59ed03d24a81">
+    <h3>operator==</h3>
+    <pre class="prettyprint">bool operator==(
+  const <a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> & other
+) const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_output_1add42877fc0530856b137985d9987e9a9">
+    <h3>type</h3>
+    <pre class="prettyprint">DataType type() const </pre>
+    <div />
+  </div>
+</body>
+</html>

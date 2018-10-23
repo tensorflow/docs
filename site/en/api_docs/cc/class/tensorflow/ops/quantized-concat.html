@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::QuantizedConcat Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>QuantizedConcat</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Concatenates quantized tensors along one dimension. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>concat_dim: 0-D. The dimension along which to concatenate. Must be in the range [0, rank(values)).</li>
+      <li>values: The <code>N</code> Tensors to concatenate. Their ranks and types must match, and their sizes must match in all dimensions except <code>concat_dim</code>.</li>
+      <li>input_mins: The minimum scalar values for each of the input tensors.</li>
+      <li>input_maxes: The maximum scalar values for each of the input tensors.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output: A <code><a href="/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with the concatenation of values stacked along the <code>concat_dim</code> dimension. This tensor's shape matches that of <code>values</code> except in <code>concat_dim</code> where it has the sum of the sizes.</li>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_min: The float value that the minimum quantized output value represents.</li>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_max: The float value that the maximum quantized output value represents. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_concat_1a6ebd37038b8fed1e45c560d7e7fcbc2b">QuantizedConcat</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> concat_dim, ::<a href="/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, ::<a href="/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> input_mins, ::<a href="/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> input_maxes)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_concat_1a7b1bfd305adec2548519a7de10e9381f">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_concat_1a34abcaca945d5e8b09df9e778b96983f">output_max</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_concat_1ac7e70b4452898593c806e108bc1daff0">output_min</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantized_concat_1a7b1bfd305adec2548519a7de10e9381f">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantized_concat_1a34abcaca945d5e8b09df9e778b96983f">
+    <h3>output_max</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantized_concat_1ac7e70b4452898593c806e108bc1daff0">
+    <h3>output_min</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantized_concat_1a6ebd37038b8fed1e45c560d7e7fcbc2b">
+    <h3>QuantizedConcat</h3>
+    <pre class="prettyprint"> QuantizedConcat(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> concat_dim,
+  ::<a href="/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
+  ::<a href="/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> input_mins,
+  ::<a href="/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> input_maxes
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ExtractGlimpse Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ExtractGlimpse</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Extracts a glimpse from the input tensor. </p>
+  <h2>Summary</h2>
+  <p>Returns a set of windows called glimpses extracted at location <code>offsets</code> from the input tensor. If the windows only partially overlaps the inputs, the non overlapping areas will be filled with random noise.</p>
+  <p>The result is a 4-D tensor of shape <code>[batch_size, glimpse_height, glimpse_width, channels]</code>. The channels and batch dimensions are the same as that of the input tensor. The height and width of the output windows are specified in the <code>size</code> parameter.</p>
+  <p>The argument <code>normalized</code> and <code>centered</code> controls how the windows are built:</p>
+  <p>
+    <ul>
+      <li>If the coordinates are normalized but not centered, 0.0 and 1.0 correspond to the minimum and maximum of each height and width dimension.</li>
+      <li>If the coordinates are both normalized and centered, they range from -1.0 to 1.0. The coordinates (-1.0, -1.0) correspond to the upper left corner, the lower right corner is located at (1.0, 1.0) and the center is at (0, 0).</li>
+      <li>If the coordinates are not normalized they are interpreted as numbers of pixels.</li>
+    </ul>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: A 4-D float tensor of shape <code>[batch_size, height, width, channels]</code>.</li>
+      <li>size: A 1-D tensor of 2 elements containing the size of the glimpses to extract. The glimpse height must be specified first, following by the glimpse width.</li>
+      <li>offsets: A 2-D integer tensor of shape <code>[batch_size, 2]</code> containing the x, y locations of the center of each window.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a></code>):<ul>
+      <li>centered: indicates if the offset coordinates are centered relative to the image, in which case the (0, 0) offset is relative to the center of the input images. If false, the (0,0) offset corresponds to the upper left corner of the input images.</li>
+      <li>normalized: indicates if the offset coordinates are normalized.</li>
+      <li>uniform_noise: indicates if the noise should be generated using a uniform distribution or a Gaussian distribution.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A tensor representing the glimpses <code>[batch_size, glimpse_height, glimpse_width, channels]</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_extract_glimpse_1ac8a9c699708b7ed7837cd2f6d9c5c960">ExtractGlimpse</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offsets)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_extract_glimpse_1a9e09f2f0c3cdc346a18adf000df718e9">ExtractGlimpse</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offsets, const <a href="/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">ExtractGlimpse::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_extract_glimpse_1a07929fd965047271b887835daf6a62f0">glimpse</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_extract_glimpse_1a2c22fcc3334291ced5542888967da833">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_extract_glimpse_1aa8739e3ce187260c8592ff8ee5365479">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_extract_glimpse_1a7e4ec40626bb935caf4f267647539c1e">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_extract_glimpse_1a1ae1ee7d233a8bb66ad6355cf707efb6">Centered</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_extract_glimpse_1a96c9927ae4bfed46c286e1d1675ed973">Normalized</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_extract_glimpse_1a9d8371a16ba771a5c114029dd2f5ee00">UniformNoise</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs">tensorflow::<wbr/>ops::<wbr/>ExtractGlimpse::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/api_docs/cc/class/tensorflow/ops/extract-glimpse.html#classtensorflow_1_1ops_1_1_extract_glimpse">ExtractGlimpse</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_extract_glimpse_1a07929fd965047271b887835daf6a62f0">
+    <h3>glimpse</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> glimpse</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_extract_glimpse_1ac8a9c699708b7ed7837cd2f6d9c5c960">
+    <h3>ExtractGlimpse</h3>
+    <pre class="prettyprint"> ExtractGlimpse(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offsets
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_extract_glimpse_1a9e09f2f0c3cdc346a18adf000df718e9">
+    <h3>ExtractGlimpse</h3>
+    <pre class="prettyprint"> ExtractGlimpse(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offsets,
+  const <a href="/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">ExtractGlimpse::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_extract_glimpse_1a2c22fcc3334291ced5542888967da833">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_extract_glimpse_1aa8739e3ce187260c8592ff8ee5365479">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_extract_glimpse_1a7e4ec40626bb935caf4f267647539c1e">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_extract_glimpse_1a1ae1ee7d233a8bb66ad6355cf707efb6">
+    <h3>Centered</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a> Centered(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_extract_glimpse_1a96c9927ae4bfed46c286e1d1675ed973">
+    <h3>Normalized</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a> Normalized(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_extract_glimpse_1a9d8371a16ba771a5c114029dd2f5ee00">
+    <h3>UniformNoise</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a> UniformNoise(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ApplyRMSProp Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ApplyRMSProp</h1>
+  <code>#include &lt;training_ops.h&gt;</code>
+  <p>Update '*var' according to the RMSProp algorithm. </p>
+  <h2>Summary</h2>
+  <p>Note that in dense implementation of this algorithm, ms and mom will update even if the grad is zero, but in this sparse implementation, ms and mom will not update in iterations during which the grad is zero.</p>
+  <p>mean_square = decay * mean_square + (1-decay) * gradient ** 2 Delta = learning_rate * gradient / sqrt(mean_square + epsilon)</p>
+  <p>ms <- rho * ms_{t-1} + (1-rho) * grad * grad mom <- momentum * mom_{t-1} + lr * grad / sqrt(ms + epsilon) var <- var - mom</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>var: Should be from a Variable().</li>
+      <li>ms: Should be from a Variable().</li>
+      <li>mom: Should be from a Variable().</li>
+      <li>lr: Scaling factor. Must be a scalar.</li>
+      <li>rho: Decay rate. Must be a scalar.</li>
+      <li>epsilon: Ridge term. Must be a scalar.</li>
+      <li>grad: The gradient.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/api_docs/cc/struct/tensorflow/ops/apply-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_apply_r_m_s_prop_1_1_attrs">Attrs</a></code>):<ul>
+      <li>use_locking: If <code>True</code>, updating of the var, ms, and mom tensors is protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1a590f878f7698fa0f56a0b5226d658855">ApplyRMSProp</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1a4d5ef1aee8f989dbbe2c16e3538482b2">ApplyRMSProp</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, const <a href="/api_docs/cc/struct/tensorflow/ops/apply-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_apply_r_m_s_prop_1_1_attrs">ApplyRMSProp::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1a72a4daee4e9ef1d2a3f3d4a088ed010f">out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1a82fe90ad87c393e443f8459e9b0158db">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1aabbb7630a5cd439e4694eda0021d694d">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1a4e664360fbdde8291f80a08b2347fdf0">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1ae0d5824bd2a81852e1e2185346adb9c3">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/apply-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_apply_r_m_s_prop_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/api_docs/cc/struct/tensorflow/ops/apply-r-m-s-prop/attrs">tensorflow::<wbr/>ops::<wbr/>ApplyRMSProp::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/api_docs/cc/class/tensorflow/ops/apply-r-m-s-prop.html#classtensorflow_1_1ops_1_1_apply_r_m_s_prop">ApplyRMSProp</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1a72a4daee4e9ef1d2a3f3d4a088ed010f">
+    <h3>out</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1a590f878f7698fa0f56a0b5226d658855">
+    <h3>ApplyRMSProp</h3>
+    <pre class="prettyprint"> ApplyRMSProp(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1a4d5ef1aee8f989dbbe2c16e3538482b2">
+    <h3>ApplyRMSProp</h3>
+    <pre class="prettyprint"> ApplyRMSProp(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  const <a href="/api_docs/cc/struct/tensorflow/ops/apply-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_apply_r_m_s_prop_1_1_attrs">ApplyRMSProp::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1a82fe90ad87c393e443f8459e9b0158db">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1aabbb7630a5cd439e4694eda0021d694d">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1a4e664360fbdde8291f80a08b2347fdf0">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_apply_r_m_s_prop_1ae0d5824bd2a81852e1e2185346adb9c3">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/apply-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_apply_r_m_s_prop_1_1_attrs">Attrs</a> UseLocking(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

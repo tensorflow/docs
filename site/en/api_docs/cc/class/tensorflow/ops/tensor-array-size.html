@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::TensorArraySize Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>TensorArraySize</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Get the current size of the <a href="/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to a <a href="/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> (output of <a href="/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> or <a href="/api_docs/cc/class/tensorflow/ops/tensor-array-grad.html#classtensorflow_1_1ops_1_1_tensor_array_grad">TensorArrayGrad</a>).</li>
+      <li>flow_in: A float scalar that enforces proper chaining of operations.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The current size of the <a href="/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_size_1a79ec3226fc0d0569b593f360c891ec31">TensorArraySize</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_size_1ae4d19a80be163a77ee25c51aa493ecd1">size</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_size_1ac4c62f0751ca427d590f9253ec56833d">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_size_1a7139e8996042f9f764325c38d8ede02d">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_size_1a3483d2685da6512b105467550968691e">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_size_1ae4d19a80be163a77ee25c51aa493ecd1">
+    <h3>size</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> size</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_size_1a79ec3226fc0d0569b593f360c891ec31">
+    <h3>TensorArraySize</h3>
+    <pre class="prettyprint"> TensorArraySize(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_size_1ac4c62f0751ca427d590f9253ec56833d">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_size_1a7139e8996042f9f764325c38d8ede02d">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_size_1a3483d2685da6512b105467550968691e">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

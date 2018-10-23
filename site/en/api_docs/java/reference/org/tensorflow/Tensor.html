@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html devsite>
+  <head>
+    <title>Tensor</title>
+    <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+    <meta name="project_path" value="/_project.yaml" />
+    <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
+  </head>
+
+  <body>
+  <div style="width:720px">
+    <div id="api-info-block">
+
+    
+    
+      
+       
+      
+      
+      
+      
+    
+      
+       
+      
+      
+      
+      
+    
+
+    <div class="api-level">
+      
+      
+  
+
+    </div>
+    </div><!-- end api-info-block -->
+
+    
+    <!-- ======== START OF CLASS DATA ======== -->
+
+
+    
+    <div id="jd-header">
+      public  final   class
+      <b>Tensor</b>
+    </div><!-- end jd-header -->
+    
+
+    <div id="naMessage"></div>
+
+    <div id="jd-content">
+
+    
+
+    
+
+    
+
+    <div class="jd-descr">
+    
+    
+    <p>A typed multi-dimensional array.
+
+ <p>Instances of a Tensor are <b>not</b> thread-safe.
+
+ <p><b>WARNING:</b> Resources consumed by the Tensor object <b>must</b> be explicitly freed by
+ invoking the <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#close()">close()</a></code> method when the object is no longer needed. For example, using a
+ try-with-resources block like:
+
+ <pre class="prettyprint"><code>try(Tensor t = Tensor.create(...)) {
+   doSomethingWith(t);
+ }
+ </code></pre>
+</p>
+    
+    
+
+    </div><!-- jd-descr -->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="jd-descr">
+    
+    
+    <section id="xml-attributes">
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+    
+    
+    <!-- ========== METHOD SUMMARY =========== -->
+    <section>
+      <h3>Public Methods</h3>
+      <table id="pubmethods" class="jd-sumtable">
+      
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                boolean
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#booleanValue()">booleanValue</a></span>()
+                
+                  <div class="jd-descrdiv">Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#BOOL">BOOL</a></code> tensor.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                byte[]
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#bytesValue()">bytesValue</a></span>()
+                
+                  <div class="jd-descrdiv">Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#STRING">STRING</a></code> tensor.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#close()">close</a></span>()
+                
+                  <div class="jd-descrdiv">Release resources associated with the Tensor.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                &lt;T&gt;
+                T
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#copyTo(T)">copyTo</a></span>(T dst)
+                
+                  <div class="jd-descrdiv">Copies the contents of the tensor to <code>dst</code> and returns <code>dst</code>.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                static
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#create(org.tensorflow.DataType, long[], java.nio.ByteBuffer)">create</a></span>(<a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType</a> dataType, long[] shape, ByteBuffer data)
+                
+                  <div class="jd-descrdiv">Create a Tensor with data from the given buffer.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                static
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#create(java.lang.Object)">create</a></span>(Object obj)
+                
+                  <div class="jd-descrdiv">Create a Tensor from a Java object.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                static
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#create(long[], java.nio.DoubleBuffer)">create</a></span>(long[] shape, DoubleBuffer data)
+                
+                  <div class="jd-descrdiv">Create a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#DOUBLE">DOUBLE</a></code> Tensor with data from the given buffer.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                static
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#create(long[], java.nio.LongBuffer)">create</a></span>(long[] shape, LongBuffer data)
+                
+                  <div class="jd-descrdiv">Create an <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT64">INT64</a></code> Tensor with data from the given buffer.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                static
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#create(long[], java.nio.IntBuffer)">create</a></span>(long[] shape, IntBuffer data)
+                
+                  <div class="jd-descrdiv">Create an <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT32">INT32</a></code> Tensor with data from the given buffer.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                static
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#create(long[], java.nio.FloatBuffer)">create</a></span>(long[] shape, FloatBuffer data)
+                
+                  <div class="jd-descrdiv">Create a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#FLOAT">FLOAT</a></code> Tensor with data from the given buffer.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                <a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#dataType()">dataType</a></span>()
+                
+                  <div class="jd-descrdiv">Returns the <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType</a></code> of elements stored in the Tensor.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                double
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#doubleValue()">doubleValue</a></span>()
+                
+                  <div class="jd-descrdiv">Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#DOUBLE">DOUBLE</a></code> tensor.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                float
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#floatValue()">floatValue</a></span>()
+                
+                  <div class="jd-descrdiv">Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#FLOAT">FLOAT</a></code> tensor.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                int
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#intValue()">intValue</a></span>()
+                
+                  <div class="jd-descrdiv">Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT32">INT32</a></code> tensor.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                long
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#longValue()">longValue</a></span>()
+                
+                  <div class="jd-descrdiv">Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT64">INT64</a></code> tensor.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                int
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#numBytes()">numBytes</a></span>()
+                
+                  <div class="jd-descrdiv">Returns the size, in bytes, of the tensor data.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                int
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#numDimensions()">numDimensions</a></span>()
+                
+                  <div class="jd-descrdiv">Returns the number of dimensions (sometimes referred to as <a
+ href="https://www.tensorflow.org/resources/dims_types.html#rank">rank</a>) of the Tensor.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                int
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#numElements()">numElements</a></span>()
+                
+                  <div class="jd-descrdiv">Returns the number of elements in a flattened (1-D) view of the tensor.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                long[]
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#shape()">shape</a></span>()
+                
+                  <div class="jd-descrdiv">Returns the <a href="https://www.tensorflow.org/resources/dims_types.html#shape">shape</a> of
+ the Tensor, i.e., the sizes of each dimension.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                String
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#toString()">toString</a></span>()
+                
+                  <div class="jd-descrdiv">Returns a string describing the type and shape of the Tensor.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#writeTo(java.nio.LongBuffer)">writeTo</a></span>(LongBuffer dst)
+                
+                  <div class="jd-descrdiv">Write the data of a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT64">INT64</a></code> tensor into the given buffer.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#writeTo(java.nio.DoubleBuffer)">writeTo</a></span>(DoubleBuffer dst)
+                
+                  <div class="jd-descrdiv">Write the data of a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#DOUBLE">DOUBLE</a></code> tensor into the given buffer.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#writeTo(java.nio.IntBuffer)">writeTo</a></span>(IntBuffer dst)
+                
+                  <div class="jd-descrdiv">Write the data of a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT32">INT32</a></code> tensor into the given buffer.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#writeTo(java.nio.ByteBuffer)">writeTo</a></span>(ByteBuffer dst)
+                
+                  <div class="jd-descrdiv">Write the tensor data into the given buffer.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#writeTo(java.nio.FloatBuffer)">writeTo</a></span>(FloatBuffer dst)
+                
+                  <div class="jd-descrdiv">Write the data of a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#FLOAT">FLOAT</a></code> tensor into the given buffer.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+    
+      </table>
+    </section>
+    
+
+    
+
+    
+    
+    
+    <!-- =========== METHOD SUMMARY ============ -->
+    <section id="inhmethods">
+      <h3>Inherited Methods</h3>
+      
+        
+        <div class="expandable">
+          <span class="showalways">
+            From class
+            java.lang.Object
+          </span>
+          <div id="inherited-methods-java.lang.Object">
+            <div id="inherited-methods-java.lang.Object-list"
+                  class="jd-inheritedLinks">
+            </div>
+            <div id="inherited-methods-java.lang.Object-summary">
+              <table class="jd-sumtable-expando">
+              
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                boolean
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad">equals</span>(Object arg0)
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                final
+                
+                
+                Class&lt;?&gt;
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad">getClass</span>()
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                int
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad">hashCode</span>()
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                final
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad">notify</span>()
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                final
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad">notifyAll</span>()
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                String
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad">toString</span>()
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                final
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad">wait</span>(long arg0, int arg1)
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                final
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad">wait</span>(long arg0)
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                final
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad">wait</span>()
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+    
+              </table>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="expandable">
+          <span class="showalways">
+            From interface
+            java.lang.AutoCloseable
+          </span>
+          <div id="inherited-methods-java.lang.AutoCloseable">
+            <div id="inherited-methods-java.lang.AutoCloseable-list"
+                  class="jd-inheritedLinks">
+            </div>
+            <div id="inherited-methods-java.lang.AutoCloseable-summary">
+              <table class="jd-sumtable-expando">
+              
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                abstract
+                
+                
+                
+                
+                void
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad">close</span>()
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+    
+              </table>
+            </div>
+          </div>
+        </div>
+        
+      
+      </section>
+    
+
+    </section><!--xml-attributes-->
+    <!--subcount(class.inners) || subcount(class.attrs) || ...-->
+    </div><!-- class="jd-descr" (end of Summary) -->
+
+    <!-- Details -->
+
+    
+
+    
+
+    
+
+
+    <!-- XML Attributes -->
+    
+
+    <!-- Enum Values -->
+    
+
+    <!-- Constants -->
+    
+
+    <!-- Fields -->
+    
+
+    <!-- Public ctors -->
+    
+
+    
+    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+    <!-- Protected ctors -->
+    
+
+    
+    <!-- ========= METHOD DETAIL ======== -->
+    <!-- Public methdos -->
+    
+    
+    <section id="public-methods">
+      <h2>Public Methods</h2>
+      
+    
+    
+    <A NAME="booleanValue()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            boolean
+          </span>
+          <span class="sympad"><strong>booleanValue</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#BOOL">BOOL</a></code> tensor.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>if the Tensor does not represent a boolean scalar.
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="bytesValue()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            byte[]
+          </span>
+          <span class="sympad"><strong>bytesValue</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#STRING">STRING</a></code> tensor.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>if the Tensor does not represent a boolean scalar.
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="close()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            void
+          </span>
+          <span class="sympad"><strong>close</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Release resources associated with the Tensor.
+
+ <p><b>WARNING:</b>If not invoked, memory will be leaked.
+
+ <p>The Tensor object is no longer usable after <code>close</code> returns.
+</p></div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="copyTo(T)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            T
+          </span>
+          <span class="sympad"><strong>copyTo</strong></span>
+          <span class="params">(T dst)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of the tensor to <code>dst</code> and returns <code>dst</code>.
+
+ <p>For non-scalar tensors, this method copies the contents of the underlying tensor to a Java
+ array. For scalar tensors, use one of <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#floatValue()">floatValue()</a></code>, <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#doubleValue()">doubleValue()</a></code>, <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#intValue()">intValue()</a></code>, <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#longValue()">longValue()</a></code> or <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#booleanValue()">booleanValue()</a></code> instead. The type and shape of
+ <code>dst</code> must be compatible with the tensor. For example:
+
+ <pre class="prettyprint"><code>int matrix[2][2] = { {1,2},{3,4} };
+ try(Tensor t = Tensor.create(matrix)) {
+   // Succeeds and prints "3"
+   int[][] copy = new int[2][2];
+   System.out.println(t.copyTo(copy)[1][0]);
+
+   // Throws IllegalArgumentException since the shape of dst does not match the shape of t.
+   int[][] dst = new int[4][1];
+   t.copyTo(dst);
+ }
+ </code></pre></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>dst</td>
+          <td><!-- no parameter comment --></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>if the tensor is a scalar or if <code>dst</code> is not compatible
+     with the tensor (for example, mismatched data types or shapes).
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="create(org.tensorflow.DataType, long[], java.nio.ByteBuffer)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            static
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </span>
+          <span class="sympad"><strong>create</strong></span>
+          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType</a> dataType, long[] shape, ByteBuffer data)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Create a Tensor with data from the given buffer.
+
+ <p>Creates a Tensor with the provided shape of any type where the tensor's data has been
+ encoded into <code>data</code> as per the specification of the TensorFlow <a
+ href="https://www.tensorflow.org/code/tensorflow/c/c_api.h">C
+ API</a>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>dataType</td>
+          <td>the tensor datatype.</td>
+        </tr>
+        <tr>
+          <th>shape</td>
+          <td>the tensor shape.</td>
+        </tr>
+        <tr>
+          <th>data</td>
+          <td>a buffer containing the tensor data.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>If the tensor datatype or shape is not compatible with the
+     buffer
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="create(java.lang.Object)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            static
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </span>
+          <span class="sympad"><strong>create</strong></span>
+          <span class="params">(Object obj)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Create a Tensor from a Java object.
+
+ <p>A Tensor is a multi-dimensional array of elements of a limited set of types (<code><a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType</a></code>). Thus, not all Java objects can be converted to a Tensor. In particular, <code>obj</code>
+ must be either a primitive (float, double, int, long, boolean) or a multi-dimensional array of
+ one of those primitives. For example:
+
+ <pre class="prettyprint"><code>// Valid: A 64-bit integer scalar.
+ Tensor s = Tensor.create(42L);
+
+ // Valid: A 3x2 matrix of floats.
+ float[][] matrix = new float[3][2];
+ Tensor m = Tensor.create(matrix);
+
+ // Invalid: Will throw an IllegalArgumentException as an arbitrary Object
+ // does not fit into the TensorFlow type system.
+ Tensor o = Tensor.create(new Object());
+
+ // Invalid: Will throw an IllegalArgumentException since there are
+ // a differing number of elements in each row of this 2-D array.
+ int[][] twoD = new int[2][];
+ twoD[0] = new int[1];
+ twoD[1] = new int[2];
+ Tensor x = Tensor.create(twoD);
+ </code></pre></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>obj</td>
+          <td><!-- no parameter comment --></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>if <code>obj</code> is not compatible with the TensorFlow type
+     system, or if obj does not disambiguate between multiple DataTypes. In that case, consider
+     using <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#create(org.tensorflow.DataType, long[], java.nio.ByteBuffer)">create(DataType, long[], ByteBuffer)</a></code> instead.
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="create(long[], java.nio.DoubleBuffer)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            static
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </span>
+          <span class="sympad"><strong>create</strong></span>
+          <span class="params">(long[] shape, DoubleBuffer data)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Create a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#DOUBLE">DOUBLE</a></code> Tensor with data from the given buffer.
+
+ <p>Creates a Tensor with the given shape by copying elements from the buffer (starting from its
+ current position) into the tensor. For example, if <code>shape = {2,3} </code> (which represents a
+ 2x3 matrix) then the buffer must have 6 elements remaining, which will be consumed by this
+ method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>shape</td>
+          <td>the tensor shape.</td>
+        </tr>
+        <tr>
+          <th>data</td>
+          <td>a buffer containing the tensor data.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>If the tensor shape is not compatible with the buffer
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="create(long[], java.nio.LongBuffer)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            static
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </span>
+          <span class="sympad"><strong>create</strong></span>
+          <span class="params">(long[] shape, LongBuffer data)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Create an <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT64">INT64</a></code> Tensor with data from the given buffer.
+
+ <p>Creates a Tensor with the given shape by copying elements from the buffer (starting from its
+ current position) into the tensor. For example, if <code>shape = {2,3} </code> (which represents a
+ 2x3 matrix) then the buffer must have 6 elements remaining, which will be consumed by this
+ method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>shape</td>
+          <td>the tensor shape.</td>
+        </tr>
+        <tr>
+          <th>data</td>
+          <td>a buffer containing the tensor data.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>If the tensor shape is not compatible with the buffer
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="create(long[], java.nio.IntBuffer)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            static
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </span>
+          <span class="sympad"><strong>create</strong></span>
+          <span class="params">(long[] shape, IntBuffer data)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Create an <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT32">INT32</a></code> Tensor with data from the given buffer.
+
+ <p>Creates a Tensor with the given shape by copying elements from the buffer (starting from its
+ current position) into the tensor. For example, if <code>shape = {2,3} </code> (which represents a
+ 2x3 matrix) then the buffer must have 6 elements remaining, which will be consumed by this
+ method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>shape</td>
+          <td>the tensor shape.</td>
+        </tr>
+        <tr>
+          <th>data</td>
+          <td>a buffer containing the tensor data.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>If the tensor shape is not compatible with the buffer
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="create(long[], java.nio.FloatBuffer)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            static
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>
+          </span>
+          <span class="sympad"><strong>create</strong></span>
+          <span class="params">(long[] shape, FloatBuffer data)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Create a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#FLOAT">FLOAT</a></code> Tensor with data from the given buffer.
+
+ <p>Creates a Tensor with the given shape by copying elements from the buffer (starting from its
+ current position) into the tensor. For example, if <code>shape = {2,3} </code> (which represents a
+ 2x3 matrix) then the buffer must have 6 elements remaining, which will be consumed by this
+ method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>shape</td>
+          <td>the tensor shape.</td>
+        </tr>
+        <tr>
+          <th>data</td>
+          <td>a buffer containing the tensor data.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>If the tensor shape is not compatible with the buffer
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="dataType()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType</a>
+          </span>
+          <span class="sympad"><strong>dataType</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType</a></code> of elements stored in the Tensor. </p></div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="doubleValue()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            double
+          </span>
+          <span class="sympad"><strong>doubleValue</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#DOUBLE">DOUBLE</a></code> tensor.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>if the Tensor does not represent a double scalar.
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="floatValue()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            float
+          </span>
+          <span class="sympad"><strong>floatValue</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#FLOAT">FLOAT</a></code> tensor.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>if the Tensor does not represent a float scalar.
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="intValue()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            int
+          </span>
+          <span class="sympad"><strong>intValue</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT32">INT32</a></code> tensor.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>if the Tensor does not represent a int scalar.
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="longValue()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            long
+          </span>
+          <span class="sympad"><strong>longValue</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the value in a scalar <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT64">INT64</a></code> tensor.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>if the Tensor does not represent a long scalar.
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="numBytes()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            int
+          </span>
+          <span class="sympad"><strong>numBytes</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the size, in bytes, of the tensor data. </p></div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="numDimensions()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            int
+          </span>
+          <span class="sympad"><strong>numDimensions</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the number of dimensions (sometimes referred to as <a
+ href="https://www.tensorflow.org/resources/dims_types.html#rank">rank</a>) of the Tensor.
+
+ <p>Will be 0 for a scalar, 1 for a vector, 2 for a matrix, 3 for a 3-dimensional tensor etc.
+</p></div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="numElements()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            int
+          </span>
+          <span class="sympad"><strong>numElements</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the number of elements in a flattened (1-D) view of the tensor. </p></div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="shape()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            long[]
+          </span>
+          <span class="sympad"><strong>shape</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the <a href="https://www.tensorflow.org/resources/dims_types.html#shape">shape</a> of
+ the Tensor, i.e., the sizes of each dimension.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>an array where the i-th element is the size of the i-th dimension of the tensor.
+</li></ul>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="toString()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            String
+          </span>
+          <span class="sympad"><strong>toString</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a string describing the type and shape of the Tensor. </p></div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="writeTo(java.nio.LongBuffer)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            void
+          </span>
+          <span class="sympad"><strong>writeTo</strong></span>
+          <span class="params">(LongBuffer dst)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Write the data of a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT64">INT64</a></code> tensor into the given buffer.
+
+ <p>Copies <code>numElements()</code> elements to the buffer.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>dst</td>
+          <td>the destination buffer</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>BufferOverflowException</td>
+            <td>If there is insufficient space in the given buffer for the data
+     in this tensor</td>
+        </tr>
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>If the tensor datatype is not <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT64">INT64</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="writeTo(java.nio.DoubleBuffer)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            void
+          </span>
+          <span class="sympad"><strong>writeTo</strong></span>
+          <span class="params">(DoubleBuffer dst)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Write the data of a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#DOUBLE">DOUBLE</a></code> tensor into the given buffer.
+
+ <p>Copies <code>numElements()</code> elements to the buffer.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>dst</td>
+          <td>the destination buffer</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>BufferOverflowException</td>
+            <td>If there is insufficient space in the given buffer for the data
+     in this tensor</td>
+        </tr>
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>If the tensor datatype is not <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#DOUBLE">DOUBLE</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="writeTo(java.nio.IntBuffer)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            void
+          </span>
+          <span class="sympad"><strong>writeTo</strong></span>
+          <span class="params">(IntBuffer dst)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Write the data of a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT32">INT32</a></code> tensor into the given buffer.
+
+ <p>Copies <code>numElements()</code> elements to the buffer.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>dst</td>
+          <td>the destination buffer</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>BufferOverflowException</td>
+            <td>If there is insufficient space in the given buffer for the data
+     in this tensor</td>
+        </tr>
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>If the tensor datatype is not <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#INT32">INT32</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="writeTo(java.nio.ByteBuffer)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            void
+          </span>
+          <span class="sympad"><strong>writeTo</strong></span>
+          <span class="params">(ByteBuffer dst)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Write the tensor data into the given buffer.
+
+ <p>Copies <code>numBytes()</code> bytes to the buffer in native byte order for primitive types.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>dst</td>
+          <td>the destination buffer</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>BufferOverflowException</td>
+            <td>If there is insufficient space in the given buffer for the data
+     in this tensor
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="writeTo(java.nio.FloatBuffer)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            void
+          </span>
+          <span class="sympad"><strong>writeTo</strong></span>
+          <span class="params">(FloatBuffer dst)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Write the data of a <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#FLOAT">FLOAT</a></code> tensor into the given buffer.
+
+ <p>Copies <code>numElements()</code> elements to the buffer.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>dst</td>
+          <td>the destination buffer</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>BufferOverflowException</td>
+            <td>If there is insufficient space in the given buffer for the data
+     in this tensor</td>
+        </tr>
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td>If the tensor datatype is not <code><a href="/api_docs/java/reference/org/tensorflow/DataType.html#FLOAT">FLOAT</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    </section>
+    
+
+    
+    <!-- ========= METHOD DETAIL ======== -->
+    
+
+    
+    <!-- ========= END OF CLASS DATA ========= -->
+    <A NAME="navbar_top"></A>
+
+    </div> <!-- jd-content -->
+  </div>
+</body>
+</html>

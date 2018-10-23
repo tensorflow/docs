@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::CopyHost Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>CopyHost</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p><a href="/api_docs/cc/class/tensorflow/ops/copy.html#classtensorflow_1_1ops_1_1_copy">Copy</a> Host Op. </p>
+  <h2>Summary</h2>
+  <p>Performs CPU-to-CPU deep-copying of tensor.</p>
+  <p>Unlike the <a href="/api_docs/cc/class/tensorflow/ops/copy.html#classtensorflow_1_1ops_1_1_copy">Copy</a> Op, this op has HostMemory constraint on its input or output.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: <a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> tensor.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/api_docs/cc/struct/tensorflow/ops/copy-host/attrs.html#structtensorflow_1_1ops_1_1_copy_host_1_1_attrs">Attrs</a></code>):<ul>
+      <li>tensor_name: The name of the input tensor.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: <a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> tensor, deep-copied from input. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_copy_host_1a5499d67a0d3cd75d412f8ca506071199">CopyHost</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_copy_host_1a0bcab7932b3a2ed01da0e69f0cf2f865">CopyHost</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const <a href="/api_docs/cc/struct/tensorflow/ops/copy-host/attrs.html#structtensorflow_1_1ops_1_1_copy_host_1_1_attrs">CopyHost::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_copy_host_1ac909b6f56ad777dc333142cf6c34bf50">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_copy_host_1aeeed4a59611b072b8e54244af842d049">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_copy_host_1a319ddae9d4f3efeccaad8f3c3211f1c4">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_copy_host_1a5766cae8e515d27c788c735624e82dec">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_copy_host_1a83b9372a5c1a8dd17ab2ee7278b85efc">TensorName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/copy-host/attrs.html#structtensorflow_1_1ops_1_1_copy_host_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/api_docs/cc/struct/tensorflow/ops/copy-host/attrs">tensorflow::<wbr/>ops::<wbr/>CopyHost::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/api_docs/cc/class/tensorflow/ops/copy-host.html#classtensorflow_1_1ops_1_1_copy_host">CopyHost</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_copy_host_1ac909b6f56ad777dc333142cf6c34bf50">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_copy_host_1a5499d67a0d3cd75d412f8ca506071199">
+    <h3>CopyHost</h3>
+    <pre class="prettyprint"> CopyHost(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_copy_host_1a0bcab7932b3a2ed01da0e69f0cf2f865">
+    <h3>CopyHost</h3>
+    <pre class="prettyprint"> CopyHost(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const <a href="/api_docs/cc/struct/tensorflow/ops/copy-host/attrs.html#structtensorflow_1_1ops_1_1_copy_host_1_1_attrs">CopyHost::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_copy_host_1aeeed4a59611b072b8e54244af842d049">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_copy_host_1a319ddae9d4f3efeccaad8f3c3211f1c4">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_copy_host_1a5766cae8e515d27c788c735624e82dec">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_copy_host_1a83b9372a5c1a8dd17ab2ee7278b85efc">
+    <h3>TensorName</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/copy-host/attrs.html#structtensorflow_1_1ops_1_1_copy_host_1_1_attrs">Attrs</a> TensorName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

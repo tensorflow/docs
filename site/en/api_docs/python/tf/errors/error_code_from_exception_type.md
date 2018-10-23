@@ -1,0 +1,19 @@
+
+
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+# tf.errors.error_code_from_exception_type
+
+### `tf.errors.error_code_from_exception_type`
+
+```
+tf.errors.error_code_from_exception_type(cls)
+```
+
+
+See the guide: [Running Graphs > Error classes and convenience functions](../../../../api_guides/python/client#Error_classes_and_convenience_functions)
+
+
+
+Defined in [`tensorflow/python/framework/errors_impl.py`](https://www.tensorflow.org/code/tensorflow/python/framework/errors_impl.py).
+

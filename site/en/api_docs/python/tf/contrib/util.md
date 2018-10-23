@@ -1,0 +1,27 @@
+
+
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+# Module: tf.contrib.util
+
+### Module `tf.contrib.util`
+
+Utilities for dealing with Tensors. See [Utilities (contrib)](../../../../api_guides/python/contrib.util) guide.
+
+
+## Members
+
+[`constant_value(...)`](../../tf/contrib/util/constant_value): Returns the constant value of the given tensor, if efficiently calculable.
+
+[`loader`](../../tf/contrib/util/loader) module: Utilities for loading op libraries.
+
+[`make_ndarray(...)`](../../tf/contrib/util/make_ndarray): Create a numpy ndarray from a tensor.
+
+[`make_tensor_proto(...)`](../../tf/contrib/util/make_tensor_proto): Create a TensorProto.
+
+[`ops_used_by_graph_def(...)`](../../tf/contrib/util/ops_used_by_graph_def): Collect the list of ops used by a graph.
+
+[`stripped_op_list_for_graph(...)`](../../tf/contrib/util/stripped_op_list_for_graph): Collect the stripped OpDefs for ops used by a graph.
+
+Defined in [`tensorflow/contrib/util/__init__.py`](https://www.tensorflow.org/code/tensorflow/contrib/util/__init__.py).
+

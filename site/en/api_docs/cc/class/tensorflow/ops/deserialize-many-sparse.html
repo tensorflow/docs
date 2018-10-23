@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DeserializeManySparse Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DeserializeManySparse</h1>
+  <code>#include &lt;sparse_ops.h&gt;</code>
+  <p>Deserialize and concatenate <code>SparseTensors</code> from a serialized minibatch. </p>
+  <h2>Summary</h2>
+  <p>The input <code>serialized_sparse</code> must be a string matrix of shape <code>[N x 3]</code> where <code>N</code> is the minibatch size and the rows correspond to packed outputs of <code><a href="/api_docs/cc/class/tensorflow/ops/serialize-sparse.html#classtensorflow_1_1ops_1_1_serialize_sparse">SerializeSparse</a></code>. The ranks of the original <code>SparseTensor</code> objects must all match. When the final <code>SparseTensor</code> is created, it has rank one higher than the ranks of the incoming <code>SparseTensor</code> objects (they have been concatenated along a new row dimension).</p>
+  <p>The output <code>SparseTensor</code> object's shape values for all dimensions but the first are the max across the input <code>SparseTensor</code> objects' shape values for the corresponding dimensions. Its first shape value is <code>N</code>, the minibatch size.</p>
+  <p>The input <code>SparseTensor</code> objects' indices are assumed ordered in standard lexicographic order. If this is not the case, after this step run <code><a href="/api_docs/cc/class/tensorflow/ops/sparse-reorder.html#classtensorflow_1_1ops_1_1_sparse_reorder">SparseReorder</a></code> to restore index ordering.</p>
+  <p>For example, if the serialized input is a <code>[2 x 3]</code> matrix representing two original <code>SparseTensor</code> objects: <pre class="prettyprint">index = [ 0]
+        [10]
+        [20]
+values = [1, 2, 3]
+shape = [50]
+</pre></p>
+  <p>and <pre class="prettyprint">index = [ 2]
+        [10]
+values = [4, 5]
+shape = [30]
+</pre></p>
+  <p>then the final deserialized <code>SparseTensor</code> will be: <pre class="prettyprint">index = [0  0]
+        [0 10]
+        [0 20]
+        [1  2]
+        [1 10]
+values = [1, 2, 3, 4, 5]
+shape = [2 50]
+</pre></p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>serialized_sparse: 2-D, The <code>N</code> serialized <code>SparseTensor</code> objects. Must have 3 columns.</li>
+      <li>dtype: The <code>dtype</code> of the serialized <code>SparseTensor</code> objects.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sparse_indices</li>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sparse_values</li>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sparse_shape </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_deserialize_many_sparse_1ab7cf9797d35b97c6d82e4000573b7839">DeserializeManySparse</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized_sparse, DataType dtype)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_deserialize_many_sparse_1a047caae64f0cea6d6dc1659d15bfe4b9">sparse_indices</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_deserialize_many_sparse_1a248aaedf66a2ba1733b1f2e541c4d3e2">sparse_shape</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_deserialize_many_sparse_1a1047d48275c3140bedd5e8737af534f2">sparse_values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_deserialize_many_sparse_1a047caae64f0cea6d6dc1659d15bfe4b9">
+    <h3>sparse_indices</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sparse_indices</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_deserialize_many_sparse_1a248aaedf66a2ba1733b1f2e541c4d3e2">
+    <h3>sparse_shape</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sparse_shape</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_deserialize_many_sparse_1a1047d48275c3140bedd5e8737af534f2">
+    <h3>sparse_values</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sparse_values</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_deserialize_many_sparse_1ab7cf9797d35b97c6d82e4000573b7839">
+    <h3>DeserializeManySparse</h3>
+    <pre class="prettyprint"> DeserializeManySparse(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized_sparse,
+  DataType dtype
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

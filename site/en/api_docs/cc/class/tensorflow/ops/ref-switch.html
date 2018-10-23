@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::RefSwitch Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>RefSwitch</h1>
+  <code>#include &lt;control_flow_ops.h&gt;</code>
+  <p>Forwards the ref tensor <code>data</code> to the output port determined by <code>pred</code>. </p>
+  <h2>Summary</h2>
+  <p>If <code>pred</code> is true, the <code>data</code> input is forwarded to <code>output_true</code>. Otherwise, the data goes to <code>output_false</code>.</p>
+  <p>See also <code><a href="/api_docs/cc/class/tensorflow/ops/switch.html#classtensorflow_1_1ops_1_1_switch">Switch</a></code> and <code><a href="/api_docs/cc/class/tensorflow/ops/merge.html#classtensorflow_1_1ops_1_1_merge">Merge</a></code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>data: The ref tensor to be forwarded to the appropriate output.</li>
+      <li>pred: A scalar that specifies which output port will receive data.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_false: If <code>pred</code> is false, data will be forwarded to this output.</li>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_true: If <code>pred</code> is true, data will be forwarded to this output. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_ref_switch_1a6776369f0966446feb0aa0f9d413aba0">RefSwitch</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> pred)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ref_switch_1a070534567ff9bb630bfee0c600d75ae4">output_false</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ref_switch_1ae47dda15cdabd3d3badf4eaadb5f91b7">output_true</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_ref_switch_1a070534567ff9bb630bfee0c600d75ae4">
+    <h3>output_false</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_false</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_ref_switch_1ae47dda15cdabd3d3badf4eaadb5f91b7">
+    <h3>output_true</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_true</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_ref_switch_1a6776369f0966446feb0aa0f9d413aba0">
+    <h3>RefSwitch</h3>
+    <pre class="prettyprint"> RefSwitch(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> pred
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

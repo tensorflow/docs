@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ParseSingleSequenceExample::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ParseSingleSequenceExample::<wbr/>Attrs</h1>
+  <code>#include &lt;parsing_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/api_docs/cc/class/tensorflow/ops/parse-single-sequence-example.html#classtensorflow_1_1ops_1_1_parse_single_sequence_example">ParseSingleSequenceExample</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a0d720d6116f0d6fb38fd00ff897a0e0d">context_dense_shapes_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< TensorShape ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1ab4cc9eb58ab4b73d4baa2ee7721925d3">context_sparse_types_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>DataTypeSlice</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a0b18dff8307d46038153719a6576f0f8">feature_list_dense_shapes_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< TensorShape ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a09b0af32b56ac1f1b3907fa5fa67383d">feature_list_dense_types_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>DataTypeSlice</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a60f5d2f4edbff448927f6455c2593173">feature_list_sparse_types_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>DataTypeSlice</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1aa7cb1d36fe8988961a052b99ffb5b600">ContextDenseShapes</a>(const gtl::ArraySlice< TensorShape > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/parse-single-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A list of Ncontext_dense shapes; the shapes of data in each context Feature given in context_dense_keys. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a7e351d48effb18c346cdbb1c8d386909">ContextSparseTypes</a>(const DataTypeSlice & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/parse-single-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A list of Ncontext_sparse types; the data types of data in each context Feature given in context_sparse_keys. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1af5141967a423b2b2a3bc278849c0bec8">FeatureListDenseShapes</a>(const gtl::ArraySlice< TensorShape > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/parse-single-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A list of Nfeature_list_dense shapes; the shapes of data in each FeatureList given in feature_list_dense_keys. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1afd1a832d4aa3adcc15d5e843d583f16f">FeatureListDenseTypes</a>(const DataTypeSlice & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/parse-single-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Defaults to []. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a8297a9f01fc5b40364ddb6f89e7e6f74">FeatureListSparseTypes</a>(const DataTypeSlice & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/parse-single-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A list of Nfeature_list_sparse types; the data types of data in each FeatureList given in feature_list_sparse_keys. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a0d720d6116f0d6fb38fd00ff897a0e0d">
+    <h3>context_dense_shapes_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< TensorShape > tensorflow::ops::ParseSingleSequenceExample::Attrs::context_dense_shapes_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1ab4cc9eb58ab4b73d4baa2ee7721925d3">
+    <h3>context_sparse_types_</h3>
+    <pre class="prettyprint">DataTypeSlice tensorflow::ops::ParseSingleSequenceExample::Attrs::context_sparse_types_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a0b18dff8307d46038153719a6576f0f8">
+    <h3>feature_list_dense_shapes_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< TensorShape > tensorflow::ops::ParseSingleSequenceExample::Attrs::feature_list_dense_shapes_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a09b0af32b56ac1f1b3907fa5fa67383d">
+    <h3>feature_list_dense_types_</h3>
+    <pre class="prettyprint">DataTypeSlice tensorflow::ops::ParseSingleSequenceExample::Attrs::feature_list_dense_types_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a60f5d2f4edbff448927f6455c2593173">
+    <h3>feature_list_sparse_types_</h3>
+    <pre class="prettyprint">DataTypeSlice tensorflow::ops::ParseSingleSequenceExample::Attrs::feature_list_sparse_types_ = {}</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1aa7cb1d36fe8988961a052b99ffb5b600">
+    <h3>ContextDenseShapes</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/parse-single-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSingleSequenceExample::Attrs::ContextDenseShapes(
+  const gtl::ArraySlice< TensorShape > & x
+)</pre>
+    <div>
+      <p>A list of Ncontext_dense shapes; the shapes of data in each context Feature given in context_dense_keys. </p>
+      <p>The number of elements in the Feature corresponding to context_dense_key[j] must always equal context_dense_shapes[j].NumEntries(). The shape of context_dense_values[j] will match context_dense_shapes[j].</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a7e351d48effb18c346cdbb1c8d386909">
+    <h3>ContextSparseTypes</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/parse-single-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSingleSequenceExample::Attrs::ContextSparseTypes(
+  const DataTypeSlice & x
+)</pre>
+    <div>
+      <p>A list of Ncontext_sparse types; the data types of data in each context Feature given in context_sparse_keys. </p>
+      <p>Currently the <a href="/api_docs/cc/class/tensorflow/ops/parse-single-sequence-example.html#classtensorflow_1_1ops_1_1_parse_single_sequence_example">ParseSingleSequenceExample</a> supports DT_FLOAT (FloatList), DT_INT64 (Int64List), and DT_STRING (BytesList).</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1af5141967a423b2b2a3bc278849c0bec8">
+    <h3>FeatureListDenseShapes</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/parse-single-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSingleSequenceExample::Attrs::FeatureListDenseShapes(
+  const gtl::ArraySlice< TensorShape > & x
+)</pre>
+    <div>
+      <p>A list of Nfeature_list_dense shapes; the shapes of data in each FeatureList given in feature_list_dense_keys. </p>
+      <p>The shape of each Feature in the FeatureList corresponding to feature_list_dense_key[j] must always equal feature_list_dense_shapes[j].NumEntries().</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1afd1a832d4aa3adcc15d5e843d583f16f">
+    <h3>FeatureListDenseTypes</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/parse-single-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSingleSequenceExample::Attrs::FeatureListDenseTypes(
+  const DataTypeSlice & x
+)</pre>
+    <div>
+      <p>Defaults to []. </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs_1a8297a9f01fc5b40364ddb6f89e7e6f74">
+    <h3>FeatureListSparseTypes</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/parse-single-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_single_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSingleSequenceExample::Attrs::FeatureListSparseTypes(
+  const DataTypeSlice & x
+)</pre>
+    <div>
+      <p>A list of Nfeature_list_sparse types; the data types of data in each FeatureList given in feature_list_sparse_keys. </p>
+      <p>Currently the <a href="/api_docs/cc/class/tensorflow/ops/parse-single-sequence-example.html#classtensorflow_1_1ops_1_1_parse_single_sequence_example">ParseSingleSequenceExample</a> supports DT_FLOAT (FloatList), DT_INT64 (Int64List), and DT_STRING (BytesList).</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+</body>
+</html>

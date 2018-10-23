@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Conv3DBackpropInputV2 Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Conv3DBackpropInputV2</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Computes the gradients of 3-D convolution with respect to the input. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input_sizes: An integer vector representing the tensor shape of <code>input</code>, where <code>input</code> is a 5-D <code>[batch, depth, rows, cols, in_channels]</code> tensor.</li>
+      <li>filter: <a href="/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a><code>[depth, rows, cols, in_channels, out_channels]</code>. <code>in_channels</code> must match between <code>input</code> and <code>filter</code>.</li>
+      <li>out_backprop: Backprop signal of shape <code>[batch, out_depth, out_rows, out_cols, out_channels]</code>.</li>
+      <li>strides: 1-D tensor of length 5. The stride of the sliding window for each dimension of <code>input</code>. Must have <code>strides[0] = strides[4] = 1</code>.</li>
+      <li>padding: The type of padding algorithm to use.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_backprop_input_v2_1aaae19e097fea9d7fc6f815e20faaccd6">Conv3DBackpropInputV2</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_sizes, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_backprop_input_v2_1af0d983aaf022b911e25e9f0615b62c20">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_backprop_input_v2_1adb36b7921921ed6c8a2684a8df5cc0ae">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_backprop_input_v2_1a0c617c40ac75a3540b1280f1e02147ed">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_backprop_input_v2_1a8b8868a10a3fac1cb6623b75a7bd556d">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_backprop_input_v2_1af0d983aaf022b911e25e9f0615b62c20">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_backprop_input_v2_1aaae19e097fea9d7fc6f815e20faaccd6">
+    <h3>Conv3DBackpropInputV2</h3>
+    <pre class="prettyprint"> Conv3DBackpropInputV2(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_sizes,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
+  const gtl::ArraySlice< int > & strides,
+  StringPiece padding
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_backprop_input_v2_1adb36b7921921ed6c8a2684a8df5cc0ae">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_backprop_input_v2_1a0c617c40ac75a3540b1280f1e02147ed">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_backprop_input_v2_1a8b8868a10a3fac1cb6623b75a7bd556d">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

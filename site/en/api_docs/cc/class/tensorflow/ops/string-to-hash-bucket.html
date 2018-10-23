@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::StringToHashBucket Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>StringToHashBucket</h1>
+  <code>#include &lt;string_ops.h&gt;</code>
+  <p>Converts each string in the input <a href="/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to its hash mod by a number of buckets. </p>
+  <h2>Summary</h2>
+  <p>The hash function is deterministic on the content of the string within the process.</p>
+  <p>Note that the hash function may change from time to time. This functionality will be deprecated and it's recommended to use <code>tf.string_to_hash_bucket_fast()</code> or <code>tf.string_to_hash_bucket_strong()</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>num_buckets: The number of buckets.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A <a href="/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of the same shape as the input <code>string_tensor</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_string_to_hash_bucket_1a45ffa748a3113aebc478191777156e23">StringToHashBucket</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> string_tensor, int64 num_buckets)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_to_hash_bucket_1aa9bf9eee8fb7b9e5590cf5591057b40a">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_to_hash_bucket_1ad01f6ca8a9542ce9a2d082c3e8aa3deb">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_to_hash_bucket_1a796c5fc80d4ca7bc537f783ec6c40c51">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_to_hash_bucket_1a9ae43cc82a78a8e8958dcc0fdf944aab">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_string_to_hash_bucket_1aa9bf9eee8fb7b9e5590cf5591057b40a">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_string_to_hash_bucket_1a45ffa748a3113aebc478191777156e23">
+    <h3>StringToHashBucket</h3>
+    <pre class="prettyprint"> StringToHashBucket(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> string_tensor,
+  int64 num_buckets
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_string_to_hash_bucket_1ad01f6ca8a9542ce9a2d082c3e8aa3deb">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_string_to_hash_bucket_1a796c5fc80d4ca7bc537f783ec6c40c51">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_string_to_hash_bucket_1a9ae43cc82a78a8e8958dcc0fdf944aab">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

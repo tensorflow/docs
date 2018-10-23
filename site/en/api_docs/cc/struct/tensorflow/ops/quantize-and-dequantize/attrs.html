@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::QuantizeAndDequantize::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>QuantizeAndDequantize::<wbr/>Attrs</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/api_docs/cc/class/tensorflow/ops/quantize-and-dequantize.html#classtensorflow_1_1ops_1_1_quantize_and_dequantize">QuantizeAndDequantize</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a7d0ee061cd857814da2a23ed3abbb92d">input_max_</a> = 0.0f</code>
+      </td>
+      <td>
+        <div>
+          <code>float</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a9d415e725e0c1639d3e9303253b52d4e">input_min_</a> = 0.0f</code>
+      </td>
+      <td>
+        <div>
+          <code>float</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a7d315d5bb55bc72971e29d5f3b9a5c2b">num_bits_</a> = 8</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a24c8fa07d9dce9cf1f80b90d8844564c">range_given_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a8cc19a002354bbbaa6b2bd8a0cef0141">signed_input_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a7b09485667022898bc12d576612eef6e">InputMax</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If range is given, this is the max of the range. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a875e39451e1564734b942352cdb35873">InputMin</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If range is given, this is the min of the range. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1ae738695f3c9d321e2e1a9fdf40c15bda">NumBits</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The bitwidth of the quantization. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a041d291d5006128cab3d17a53b401d87">RangeGiven</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If the range is given or should be computed from the tensor. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a65e60c416c5597242d8a3f8d1072d4ed">SignedInput</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If the quantization is signed or unsigned. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a7d0ee061cd857814da2a23ed3abbb92d">
+    <h3>input_max_</h3>
+    <pre class="prettyprint">float tensorflow::ops::QuantizeAndDequantize::Attrs::input_max_ = 0.0f</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a9d415e725e0c1639d3e9303253b52d4e">
+    <h3>input_min_</h3>
+    <pre class="prettyprint">float tensorflow::ops::QuantizeAndDequantize::Attrs::input_min_ = 0.0f</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a7d315d5bb55bc72971e29d5f3b9a5c2b">
+    <h3>num_bits_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::QuantizeAndDequantize::Attrs::num_bits_ = 8</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a24c8fa07d9dce9cf1f80b90d8844564c">
+    <h3>range_given_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::QuantizeAndDequantize::Attrs::range_given_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a8cc19a002354bbbaa6b2bd8a0cef0141">
+    <h3>signed_input_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::QuantizeAndDequantize::Attrs::signed_input_ = true</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a7b09485667022898bc12d576612eef6e">
+    <h3>InputMax</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs">Attrs</a> tensorflow::ops::QuantizeAndDequantize::Attrs::InputMax(
+  float x
+)</pre>
+    <div>
+      <p>If range is given, this is the max of the range. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a875e39451e1564734b942352cdb35873">
+    <h3>InputMin</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs">Attrs</a> tensorflow::ops::QuantizeAndDequantize::Attrs::InputMin(
+  float x
+)</pre>
+    <div>
+      <p>If range is given, this is the min of the range. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1ae738695f3c9d321e2e1a9fdf40c15bda">
+    <h3>NumBits</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs">Attrs</a> tensorflow::ops::QuantizeAndDequantize::Attrs::NumBits(
+  int64 x
+)</pre>
+    <div>
+      <p>The bitwidth of the quantization. </p>
+      <p>Defaults to 8 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a041d291d5006128cab3d17a53b401d87">
+    <h3>RangeGiven</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs">Attrs</a> tensorflow::ops::QuantizeAndDequantize::Attrs::RangeGiven(
+  bool x
+)</pre>
+    <div>
+      <p>If the range is given or should be computed from the tensor. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs_1a65e60c416c5597242d8a3f8d1072d4ed">
+    <h3>SignedInput</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_1_1_attrs">Attrs</a> tensorflow::ops::QuantizeAndDequantize::Attrs::SignedInput(
+  bool x
+)</pre>
+    <div>
+      <p>If the quantization is signed or unsigned. </p>
+      <p>Defaults to true </p>
+    </div>
+  </div>
+</body>
+</html>
