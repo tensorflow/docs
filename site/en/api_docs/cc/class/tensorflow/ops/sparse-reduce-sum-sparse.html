@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseReduceSumSparse Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseReduceSumSparse</h1>
+  <code>#include &lt;sparse_ops.h&gt;</code>
+  <p>Computes the sum of elements across dimensions of a SparseTensor. </p>
+  <h2>Summary</h2>
+  <p>This Op takes a SparseTensor and is the sparse counterpart to <code>tf.reduce_sum()</code>. In contrast to <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/sparse-reduce-sum.html#classtensorflow_1_1ops_1_1_sparse_reduce_sum">SparseReduceSum</a>, this Op returns a SparseTensor.</p>
+  <p>Reduces <code>sp_input</code> along the dimensions given in <code>reduction_axes</code>. Unless <code>keep_dims</code> is true, the rank of the tensor is reduced by 1 for each entry in <code>reduction_axes</code>. If <code>keep_dims</code> is true, the reduced dimensions are retained with length 1.</p>
+  <p>If <code>reduction_axes</code> has no entries, all dimensions are reduced, and a tensor with a single element is returned. Additionally, the axes can be negative, which are interpreted according to the indexing rules in Python.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input_indices: 2-D. <code>N x R</code> matrix with the indices of non-empty values in a SparseTensor, possibly not in canonical ordering.</li>
+      <li>input_values: 1-D. <code>N</code> non-empty values corresponding to <code>input_indices</code>.</li>
+      <li>input_shape: 1-D. <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of the input SparseTensor.</li>
+      <li>reduction_axes: 1-D. Length-<code>K</code> vector containing the reduction axes.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-reduce-sum-sparse/attrs.html#structtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1_1_attrs">Attrs</a></code>):<ul>
+      <li>keep_dims: If true, retain reduced dimensions with length 1.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_indices</li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_values</li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_shape </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1a6f708aa542de1f8a78354e33cd93ba1f">SparseReduceSumSparse</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_values, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_shape, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> reduction_axes)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1a3993e307a94ec2d2689f821a60717e99">SparseReduceSumSparse</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_values, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_shape, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> reduction_axes, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-reduce-sum-sparse/attrs.html#structtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1_1_attrs">SparseReduceSumSparse::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1a2c546e86ac344ff2cc261c06aac187f4">output_indices</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1ad3c4282b03471d1e02bba7e17a46fca6">output_shape</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1a19b2438eeddfcd3e79017ecb5de54318">output_values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1a8dbe087349a7dd3db345a7abd6752c3d">KeepDims</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-reduce-sum-sparse/attrs.html#structtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-reduce-sum-sparse/attrs">tensorflow::<wbr/>ops::<wbr/>SparseReduceSumSparse::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/sparse-reduce-sum-sparse.html#classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse">SparseReduceSumSparse</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1a2c546e86ac344ff2cc261c06aac187f4">
+    <h3>output_indices</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_indices</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1ad3c4282b03471d1e02bba7e17a46fca6">
+    <h3>output_shape</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_shape</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1a19b2438eeddfcd3e79017ecb5de54318">
+    <h3>output_values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_values</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1a6f708aa542de1f8a78354e33cd93ba1f">
+    <h3>SparseReduceSumSparse</h3>
+    <pre class="prettyprint"> SparseReduceSumSparse(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_indices,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_values,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_shape,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> reduction_axes
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1a3993e307a94ec2d2689f821a60717e99">
+    <h3>SparseReduceSumSparse</h3>
+    <pre class="prettyprint"> SparseReduceSumSparse(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_indices,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_values,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_shape,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> reduction_axes,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-reduce-sum-sparse/attrs.html#structtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1_1_attrs">SparseReduceSumSparse::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1a8dbe087349a7dd3db345a7abd6752c3d">
+    <h3>KeepDims</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-reduce-sum-sparse/attrs.html#structtensorflow_1_1ops_1_1_sparse_reduce_sum_sparse_1_1_attrs">Attrs</a> KeepDims(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

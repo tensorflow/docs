@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ResizeArea Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ResizeArea</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Resize <code>images</code> to <code>size</code> using area interpolation. </p>
+  <h2>Summary</h2>
+  <p><a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> images can be of different types but output images are always float.</p>
+  <p>The range of pixel values for the output image might be slightly different from the range for the input image because of limited numerical precision. To guarantee an output range, for example <code>[0.0, 1.0]</code>, apply <code>tf.clip_by_value</code> to the output.</p>
+  <p>Each output pixel is computed by first transforming the pixel's footprint into the input tensor and then averaging the pixels that intersect the footprint. An input pixel's contribution to the average is weighted by the fraction of its area that intersects the footprint. This is the same as OpenCV's INTER_AREA.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>images: 4-D with shape <code>[batch, height, width, channels]</code>.</li>
+      <li>size: = A 1-D int32 <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of 2 elements: <code>new_height, new_width</code>. The new size for the images.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-area/attrs.html#structtensorflow_1_1ops_1_1_resize_area_1_1_attrs">Attrs</a></code>):<ul>
+      <li>align_corners: If true, the centers of the 4 corner pixels of the input and output tensors are aligned, preserving the values at the corner pixels. Defaults to false.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with shape <code>[batch, new_height, new_width, channels]</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_area_1a48c3b130fbd05acaed9512549485f012">ResizeArea</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_area_1ac1b5d48c5c77399d5198780d905281d7">ResizeArea</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-area/attrs.html#structtensorflow_1_1ops_1_1_resize_area_1_1_attrs">ResizeArea::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_area_1a64b25c97b7028b2b4c93978f2e957ad4">resized_images</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_area_1abdc62a6906daefaa326cda016f8fbb0c">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_area_1a6e7fba9df05a54b4e0de2d079fa03403">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_area_1a15a700424a492dfe07a1777ddc6146bd">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_area_1ae8ffc21c407e98bddb149275984ed3cf">AlignCorners</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-area/attrs.html#structtensorflow_1_1ops_1_1_resize_area_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-area/attrs">tensorflow::<wbr/>ops::<wbr/>ResizeArea::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/resize-area.html#classtensorflow_1_1ops_1_1_resize_area">ResizeArea</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_resize_area_1a64b25c97b7028b2b4c93978f2e957ad4">
+    <h3>resized_images</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> resized_images</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_resize_area_1a48c3b130fbd05acaed9512549485f012">
+    <h3>ResizeArea</h3>
+    <pre class="prettyprint"> ResizeArea(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_area_1ac1b5d48c5c77399d5198780d905281d7">
+    <h3>ResizeArea</h3>
+    <pre class="prettyprint"> ResizeArea(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-area/attrs.html#structtensorflow_1_1ops_1_1_resize_area_1_1_attrs">ResizeArea::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_area_1abdc62a6906daefaa326cda016f8fbb0c">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_area_1a6e7fba9df05a54b4e0de2d079fa03403">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_area_1a15a700424a492dfe07a1777ddc6146bd">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_resize_area_1ae8ffc21c407e98bddb149275984ed3cf">
+    <h3>AlignCorners</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-area/attrs.html#structtensorflow_1_1ops_1_1_resize_area_1_1_attrs">Attrs</a> AlignCorners(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
