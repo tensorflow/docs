@@ -200,7 +200,7 @@ for examples.
 There are some preconfigured build configs available that can be added to the
 `bazel build` command, for example:
 
-* `--config=mk1` —Support for the [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
+* `--config=mkl` —Support for the [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
 * `--config=monolithic` —Configuration for a mostly static, monolithic build.
 
 Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
