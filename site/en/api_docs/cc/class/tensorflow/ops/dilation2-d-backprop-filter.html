@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Dilation2DBackpropFilter Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Dilation2DBackpropFilter</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Computes the gradient of morphological 2-D dilation with respect to the filter. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: 4-D with shape <code>[batch, in_height, in_width, depth]</code>.</li>
+      <li>filter: 3-D with shape <code>[filter_height, filter_width, depth]</code>.</li>
+      <li>out_backprop: 4-D with shape <code>[batch, out_height, out_width, depth]</code>.</li>
+      <li>strides: 1-D of length 4. The stride of the sliding window for each dimension of the input tensor. Must be: <code>[1, stride_height, stride_width, 1]</code>.</li>
+      <li>rates: 1-D of length 4. The input stride for atrous morphological dilation. Must be: <code>[1, rate_height, rate_width, 1]</code>.</li>
+      <li>padding: The type of padding algorithm to use.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 3-D with shape <code>[filter_height, filter_width, depth]</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1aee49e72aa07dcbf88c90408b543ba72a">Dilation2DBackpropFilter</a>(const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, const gtl::ArraySlice< int > & rates, StringPiece padding)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1aff315faa81312d2ca485e7c28efcf7a1">filter_backprop</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1a898f6b25dd172dada5bf224b4dcffcf3">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1a6b2a7299a1107ed932922ef42590de8d">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1a905c516c8e2e46de5e1b24f8f2f37d41">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1aff315faa81312d2ca485e7c28efcf7a1">
+    <h3>filter_backprop</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> filter_backprop</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1aee49e72aa07dcbf88c90408b543ba72a">
+    <h3>Dilation2DBackpropFilter</h3>
+    <pre class="prettyprint"> Dilation2DBackpropFilter(
+  const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
+  const gtl::ArraySlice< int > & strides,
+  const gtl::ArraySlice< int > & rates,
+  StringPiece padding
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1a898f6b25dd172dada5bf224b4dcffcf3">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1a6b2a7299a1107ed932922ef42590de8d">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1a905c516c8e2e46de5e1b24f8f2f37d41">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

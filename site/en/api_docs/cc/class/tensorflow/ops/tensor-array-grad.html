@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::TensorArrayGrad Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>TensorArrayGrad</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Creates a <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> for storing the gradients of values in the given handle. </p>
+  <h2>Summary</h2>
+  <p>If the given <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> gradient already exists, returns a reference to it.</p>
+  <p>Locks the size of the original <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> by disabling its dynamic size flag.</p>
+  <p>
+    <b>A note about the input flow_in:</b>
+  </p>
+  <p>The handle flow_in forces the execution of the gradient lookup to occur only after certain other operations have occurred. For example, when the forward <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> is dynamically sized, writes to this <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> may resize the object. The gradient <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> is statically sized based on the size of the forward <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> when this operation executes. Furthermore, the size of the forward <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> is frozen by this call. As a result, the flow is used to ensure that the call to generate the gradient <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> only happens after all writes are executed.</p>
+  <p>In the case of dynamically sized TensorArrays, gradient computation should only be performed on read operations that have themselves been chained via flow to occur only after all writes have executed. That way the final size of the forward <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> is known when this operation is called.</p>
+  <p>
+    <b>A note about the source attribute:</b>
+  </p>
+  <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> gradient calls use an accumulator <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> object. If multiple gradients are calculated and run in the same session, the multiple gradient nodes may accidentally flow throuth the same accumulator <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>. This double counts and generally breaks the <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> gradient flow.</p>
+  <p>The solution is to identify which gradient call this particular <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> gradient is being called in. This is performed by identifying a unique string (e.g. "gradients", "gradients_1", ...) from the input gradient <a href="/versions/r1.2/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>'s name. This string is used as a suffix when creating the <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> gradient object here (the attribute <code>source</code>).</p>
+  <p>The attribute <code>source</code> is added as a suffix to the forward <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>'s name when performing the creation / lookup, so that each separate gradient calculation gets its own <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> accumulator.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to the forward <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.</li>
+      <li>flow_in: A float scalar that enforces proper chaining of operations.</li>
+      <li>source: The gradient source string, used to decide which gradient <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> to return.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> grad_handle</li>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> flow_out </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_grad_1a6240f50f9c7efdcf3bf8d48c4218d27b">TensorArrayGrad</a>(const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in, StringPiece source)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_grad_1a2499ef8bb9c633df24389a51f37654da">flow_out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_grad_1ab5be040d777eb52f767d58a83a3a345d">grad_handle</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_grad_1a2499ef8bb9c633df24389a51f37654da">
+    <h3>flow_out</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> flow_out</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_grad_1ab5be040d777eb52f767d58a83a3a345d">
+    <h3>grad_handle</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> grad_handle</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_grad_1a6240f50f9c7efdcf3bf8d48c4218d27b">
+    <h3>TensorArrayGrad</h3>
+    <pre class="prettyprint"> TensorArrayGrad(
+  const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in,
+  StringPiece source
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

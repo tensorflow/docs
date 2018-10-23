@@ -1,0 +1,57 @@
+
+
+page_type: reference
+
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+
+# tf.spectral.rfft3d
+
+### `tf.spectral.rfft3d`
+
+``` python
+rfft3d(
+    input_tensor,
+    fft_length=None,
+    name=None
+)
+```
+
+
+
+Defined in [`tensorflow/python/ops/spectral_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.2/tensorflow/python/ops/spectral_ops.py).
+
+See the guide: [Spectral Functions > Fourier Transform Functions](../../../../api_guides/python/spectral_ops#Fourier_Transform_Functions)
+
+3D real-valued fast Fourier transform.
+
+Computes the 3-dimensional discrete Fourier transform of a real-valued signal
+over the inner-most 3 dimensions of `input`.
+
+Since the DFT of a real signal is Hermitian-symmetric, `RFFT3D` only returns the
+`fft_length / 2 + 1` unique components of the FFT for the inner-most dimension
+of `output`: the zero-frequency term, followed by the `fft_length / 2`
+positive-frequency terms.
+
+#### Args:
+
+* <b>`input`</b>: A `Tensor` of type `float32`. A float32 tensor.
+* <b>`fft_length`</b>: A `Tensor` of type `int32`.
+    An int32 tensor of shape [3]. The FFT length for each dimension.
+* <b>`name`</b>: A name for the operation (optional).
+
+
+#### Returns:
+
+  A `Tensor` of type `complex64`.
+  A complex64 tensor of the same rank as `input`. The inner-most 3
+    dimensions of `input` are replaced with the their 3D Fourier transform. The
+    inner-most dimension contains `fft_length / 2 + 1` unique frequency
+    components.
+
+
+
+#### numpy compatibility
+  Equivalent to np.fft.rfftn with 3 dimensions.
+

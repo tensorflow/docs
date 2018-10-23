@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::TakeManySparseFromTensorsMap::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>TakeManySparseFromTensorsMap::<wbr/>Attrs</h1>
+  <code>#include &lt;sparse_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/take-many-sparse-from-tensors-map.html#classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map">TakeManySparseFromTensorsMap</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs_1a394bb209bedab9d0e13552fd9c65b74f">container_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs_1a3280d196995bb04a061452c302a34d1e">shared_name_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs_1a0075faab88bad0440786bdd5f1553cff">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The container name for the <code>SparseTensorsMap</code> read by this op. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs_1a710cd0877de5217fc090378276d646ca">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The shared name for the <code>SparseTensorsMap</code> read by this op. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs_1a394bb209bedab9d0e13552fd9c65b74f">
+    <h3>container_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::TakeManySparseFromTensorsMap::Attrs::container_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs_1a3280d196995bb04a061452c302a34d1e">
+    <h3>shared_name_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::TakeManySparseFromTensorsMap::Attrs::shared_name_ = ""</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs_1a0075faab88bad0440786bdd5f1553cff">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> tensorflow::ops::TakeManySparseFromTensorsMap::Attrs::Container(
+  StringPiece x
+)</pre>
+    <div>
+      <p>The container name for the <code>SparseTensorsMap</code> read by this op. </p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs_1a710cd0877de5217fc090378276d646ca">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> tensorflow::ops::TakeManySparseFromTensorsMap::Attrs::SharedName(
+  StringPiece x
+)</pre>
+    <div>
+      <p>The shared name for the <code>SparseTensorsMap</code> read by this op. </p>
+      <p>It should not be blank; rather the <code>shared_name</code> or unique <a href="/versions/r1.2/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> name of the Op that created the original <code>SparseTensorsMap</code> should be used.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+</body>
+</html>

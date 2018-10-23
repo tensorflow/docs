@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::QuantizeV2 Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>QuantizeV2</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Quantize the 'input' tensor of type float to 'output' tensor of type 'T'. </p>
+  <h2>Summary</h2>
+  <p>[min_range, max_range] are scalar floats that specify the range for the 'input' data. The 'mode' attribute controls exactly which calculations are used to convert the float values to their quantized equivalents.</p>
+  <p>In 'MIN_COMBINED' mode, each value of the tensor will undergo the following:</p>
+  <p>``` out[i] = (in[i] - min_range) * range(T) / (max_range - min_range) if T == qint8, out[i] -= (range(T) + 1) / 2.0 ``<code> here</code>range(T) = numeric_limits<T>::max() - numeric_limits<T>::min()`</p>
+  <p>
+    <i>MIN_COMBINED Mode Example</i>
+  </p>
+  <p>Assume the input is type float and has a possible range of [0.0, 6.0] and the output type is quint8 ([0, 255]). The min_range and max_range values should be specified as 0.0 and 6.0. Quantizing from float to quint8 will multiply each value of the input by 255/6 and cast to quint8.</p>
+  <p>If the output type was qint8 ([-128, 127]), the operation will additionally subtract each value by 128 prior to casting, so that the range of values aligns with the range of qint8.</p>
+  <p>If the mode is 'MIN_FIRST', then this approach is used:</p>
+  <p>``` number_of_steps = 1 << (# of bits in T) range_adjust = number_of_steps / (number_of_steps - 1) range = (range_max - range_min) * range_adjust range_scale = number_of_steps / range quantized = round(input * range_scale) - round(range_min * range_scale) + numeric_limits<T>::min() quantized = max(quantized, numeric_limits<T>::min()) quantized = min(quantized, numeric_limits<T>::max()) ```</p>
+  <p>The biggest difference between this and MIN_COMBINED is that the minimum range is rounded first, before it's subtracted from the rounded value. With MIN_COMBINED, a small bias is introduced where repeated iterations of quantizing and dequantizing will introduce a larger and larger error.</p>
+  <p>One thing to watch out for is that the operator may choose to adjust the requested minimum and maximum values slightly during the quantization process, so you should always use the output ports as the range for further calculations. For example, if the requested minimum and maximum values are close to equal, they will be separated by a small epsilon value to prevent ill-formed quantized buffers from being created. Otherwise, you can end up with buffers where all the quantized values map to the same float value, which causes problems for operations that have to perform further calculations on them.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>min_range: The minimum scalar value possibly produced for the input.</li>
+      <li>max_range: The maximum scalar value possibly produced for the input.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output: The quantized data produced from the float input.</li>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_min: The actual minimum scalar value used for the output.</li>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_max: The actual maximum scalar value used for the output. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_v2_1aac3aa6f1389108bdf11da28fbe9aef92">QuantizeV2</a>(const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range, DataType T)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_v2_1a7881efba11474e644c63d7540730053d">QuantizeV2</a>(const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range, DataType T, const <a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/quantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_v2_1_1_attrs">QuantizeV2::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_v2_1ada6c67087a12267be45aac6a9120de55">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_v2_1a79cc3f023f74de524cd442b0492e4dae">output_max</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_v2_1a7690769886d844fc55484420e1c43b65">output_min</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_v2_1aad3b22239c9881921a6553cef91d9e9a">Mode</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/quantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_v2_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/quantize-v2/attrs">tensorflow::<wbr/>ops::<wbr/>QuantizeV2::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/quantize-v2.html#classtensorflow_1_1ops_1_1_quantize_v2">QuantizeV2</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantize_v2_1ada6c67087a12267be45aac6a9120de55">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantize_v2_1a79cc3f023f74de524cd442b0492e4dae">
+    <h3>output_max</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantize_v2_1a7690769886d844fc55484420e1c43b65">
+    <h3>output_min</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantize_v2_1aac3aa6f1389108bdf11da28fbe9aef92">
+    <h3>QuantizeV2</h3>
+    <pre class="prettyprint"> QuantizeV2(
+  const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range,
+  DataType T
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantize_v2_1a7881efba11474e644c63d7540730053d">
+    <h3>QuantizeV2</h3>
+    <pre class="prettyprint"> QuantizeV2(
+  const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range,
+  DataType T,
+  const <a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/quantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_v2_1_1_attrs">QuantizeV2::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantize_v2_1aad3b22239c9881921a6553cef91d9e9a">
+    <h3>Mode</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/quantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_v2_1_1_attrs">Attrs</a> Mode(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

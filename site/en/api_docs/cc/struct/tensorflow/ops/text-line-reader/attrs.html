@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::TextLineReader::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>TextLineReader::<wbr/>Attrs</h1>
+  <code>#include &lt;io_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/text-line-reader.html#classtensorflow_1_1ops_1_1_text_line_reader">TextLineReader</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1ae411d4625bdf3551cd6694b912bef305">container_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1a48a16fb510135a90b7f85fdddd1271d7">shared_name_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1ae4709b84c31004cd869b2cd4a1bfa4a1">skip_header_lines_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1a19ac2171037d924e280bc6b0a00256a5">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/text-line-reader/attrs.html#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this reader is placed in the given container. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1adc8533894883e9bf0c645f86687fa25c">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/text-line-reader/attrs.html#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this reader is named in the given bucket with this shared_name. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1a59b93d81b59417a7d318d507cc983efe">SkipHeaderLines</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/text-line-reader/attrs.html#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Number of lines to skip from the beginning of every file. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1ae411d4625bdf3551cd6694b912bef305">
+    <h3>container_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::TextLineReader::Attrs::container_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1a48a16fb510135a90b7f85fdddd1271d7">
+    <h3>shared_name_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::TextLineReader::Attrs::shared_name_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1ae4709b84c31004cd869b2cd4a1bfa4a1">
+    <h3>skip_header_lines_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::TextLineReader::Attrs::skip_header_lines_ = 0</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1a19ac2171037d924e280bc6b0a00256a5">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/text-line-reader/attrs.html#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs">Attrs</a> tensorflow::ops::TextLineReader::Attrs::Container(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this reader is placed in the given container. </p>
+      <p>Otherwise, a default container is used.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1adc8533894883e9bf0c645f86687fa25c">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/text-line-reader/attrs.html#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs">Attrs</a> tensorflow::ops::TextLineReader::Attrs::SharedName(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this reader is named in the given bucket with this shared_name. </p>
+      <p>Otherwise, the node name is used instead.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs_1a59b93d81b59417a7d318d507cc983efe">
+    <h3>SkipHeaderLines</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/text-line-reader/attrs.html#structtensorflow_1_1ops_1_1_text_line_reader_1_1_attrs">Attrs</a> tensorflow::ops::TextLineReader::Attrs::SkipHeaderLines(
+  int64 x
+)</pre>
+    <div>
+      <p>Number of lines to skip from the beginning of every file. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+</body>
+</html>

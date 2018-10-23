@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ResourceStridedSliceAssign Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ResourceStridedSliceAssign</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a><code>value</code> to the sliced l-value reference of <code>ref</code>. </p>
+  <h2>Summary</h2>
+  <p>The values of <code>value</code> are assigned to the positions in the variable <code>ref</code> that are selected by the slice parameters. The slice parameters <code>begin,</code>end<code>,</code>strides<code>, etc. work exactly as in</code>StridedSlice`.</p>
+  <p>NOTE this op currently does not support broadcasting and so <code>value</code>'s shape must be exactly the shape produced by the slice of <code>ref</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li>the created <code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1acf9707ae20b7733ccfd6938a22bf1448">ResourceStridedSliceAssign</a>(const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1a0981e62f0cb7921daab10d07885dad07">ResourceStridedSliceAssign</a>(const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const <a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">ResourceStridedSliceAssign::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1abb2f4ebbb7d66d3036d26e954552ea54">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1aaaa4b37617b13ab848b9d1868cb828c5">operator::tensorflow::Operation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1ae20ea62fa28848726fe6bd4620348a64">BeginMask</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1a1fb5b9a7f49df01643462d3ffa45a96e">EllipsisMask</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1a272dccbcce7a6e7815a51eef31674fb8">EndMask</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1a6eb3abcd33f91ecc20df4fb4cd4883d8">NewAxisMask</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1afe325c69b65be09a9c6f717b66798bec">ShrinkAxisMask</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs">tensorflow::<wbr/>ops::<wbr/>ResourceStridedSliceAssign::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/resource-strided-slice-assign.html#classtensorflow_1_1ops_1_1_resource_strided_slice_assign">ResourceStridedSliceAssign</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1abb2f4ebbb7d66d3036d26e954552ea54">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1acf9707ae20b7733ccfd6938a22bf1448">
+    <h3>ResourceStridedSliceAssign</h3>
+    <pre class="prettyprint"> ResourceStridedSliceAssign(
+  const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1a0981e62f0cb7921daab10d07885dad07">
+    <h3>ResourceStridedSliceAssign</h3>
+    <pre class="prettyprint"> ResourceStridedSliceAssign(
+  const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+  const <a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">ResourceStridedSliceAssign::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1aaaa4b37617b13ab848b9d1868cb828c5">
+    <h3>operator::tensorflow::Operation</h3>
+    <pre class="prettyprint"> operator::tensorflow::Operation() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1ae20ea62fa28848726fe6bd4620348a64">
+    <h3>BeginMask</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">Attrs</a> BeginMask(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1a1fb5b9a7f49df01643462d3ffa45a96e">
+    <h3>EllipsisMask</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">Attrs</a> EllipsisMask(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1a272dccbcce7a6e7815a51eef31674fb8">
+    <h3>EndMask</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">Attrs</a> EndMask(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1a6eb3abcd33f91ecc20df4fb4cd4883d8">
+    <h3>NewAxisMask</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">Attrs</a> NewAxisMask(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resource_strided_slice_assign_1afe325c69b65be09a9c6f717b66798bec">
+    <h3>ShrinkAxisMask</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/resource-strided-slice-assign/attrs.html#structtensorflow_1_1ops_1_1_resource_strided_slice_assign_1_1_attrs">Attrs</a> ShrinkAxisMask(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

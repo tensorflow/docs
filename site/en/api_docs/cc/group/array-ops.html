@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>Array Ops</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>Array Ops</h1>
+  <h2>Summary</h2>
+  <table class="nested-classes responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Classes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/batch-to-space">tensorflow::<wbr/>ops::<wbr/>BatchToSpace</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/batch-to-space.html#classtensorflow_1_1ops_1_1_batch_to_space">BatchToSpace</a> for 4-D tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/batch-to-space-n-d">tensorflow::<wbr/>ops::<wbr/>BatchToSpaceND</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/batch-to-space.html#classtensorflow_1_1ops_1_1_batch_to_space">BatchToSpace</a> for N-D tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/bitcast">tensorflow::<wbr/>ops::<wbr/>Bitcast</a>
+      </td>
+      <td>
+        <p>Bitcasts a tensor from one type to another without copying data. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/broadcast-dynamic-shape">tensorflow::<wbr/>ops::<wbr/>BroadcastDynamicShape</a>
+      </td>
+      <td>
+        <p>Return the shape of s0 op s1 with broadcast. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/check-numerics">tensorflow::<wbr/>ops::<wbr/>CheckNumerics</a>
+      </td>
+      <td>
+        <p>Checks a tensor for NaN and Inf values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/concat">tensorflow::<wbr/>ops::<wbr/>Concat</a>
+      </td>
+      <td>
+        <p>Concatenates tensors along one dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/depth-to-space">tensorflow::<wbr/>ops::<wbr/>DepthToSpace</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/depth-to-space.html#classtensorflow_1_1ops_1_1_depth_to_space">DepthToSpace</a> for tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/dequantize">tensorflow::<wbr/>ops::<wbr/>Dequantize</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/dequantize.html#classtensorflow_1_1ops_1_1_dequantize">Dequantize</a> the 'input' tensor into a float <a href="/versions/r1.2/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/diag">tensorflow::<wbr/>ops::<wbr/>Diag</a>
+      </td>
+      <td>
+        <p>Returns a diagonal tensor with a given diagonal values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/diag-part">tensorflow::<wbr/>ops::<wbr/>DiagPart</a>
+      </td>
+      <td>
+        <p>Returns the diagonal part of the tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/edit-distance">tensorflow::<wbr/>ops::<wbr/>EditDistance</a>
+      </td>
+      <td>
+        <p>Computes the (possibly normalized) Levenshtein Edit Distance. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/expand-dims">tensorflow::<wbr/>ops::<wbr/>ExpandDims</a>
+      </td>
+      <td>
+        <p>Inserts a dimension of 1 into a tensor's shape. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/extract-image-patches">tensorflow::<wbr/>ops::<wbr/>ExtractImagePatches</a>
+      </td>
+      <td>
+        <p>Extract <code>patches</code> from <code>images</code> and put them in the "depth" output dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-args">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxArgs</a>
+      </td>
+      <td>
+        <p>Fake-quantize the 'inputs' tensor, type float to 'outputs' tensor of same type. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-args-gradient">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxArgsGradient</a>
+      </td>
+      <td>
+        <p>Compute gradients for a <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-args.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_args">FakeQuantWithMinMaxArgs</a> operation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVars</a>
+      </td>
+      <td>
+        <p>Fake-quantize the 'inputs' tensor of type float via global float scalars <code>min</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars-gradient">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVarsGradient</a>
+      </td>
+      <td>
+        <p>Compute gradients for a <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars">FakeQuantWithMinMaxVars</a> operation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars-per-channel">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVarsPerChannel</a>
+      </td>
+      <td>
+        <p>Fake-quantize the 'inputs' tensor of type float and one of the shapes: <code>[d]</code>,. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars-per-channel-gradient">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVarsPerChannelGradient</a>
+      </td>
+      <td>
+        <p>Compute gradients for a <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars-per-channel.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel">FakeQuantWithMinMaxVarsPerChannel</a> operation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/fill">tensorflow::<wbr/>ops::<wbr/>Fill</a>
+      </td>
+      <td>
+        <p>Creates a tensor filled with a scalar value. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/gather">tensorflow::<wbr/>ops::<wbr/>Gather</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/gather.html#classtensorflow_1_1ops_1_1_gather">Gather</a> slices from <code>params</code> according to <code>indices</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/gather-nd">tensorflow::<wbr/>ops::<wbr/>GatherNd</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/gather.html#classtensorflow_1_1ops_1_1_gather">Gather</a> values or slices from <code>params</code> according to <code>indices</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/identity">tensorflow::<wbr/>ops::<wbr/>Identity</a>
+      </td>
+      <td>
+        <p>Return a tensor with the same shape and contents as the input tensor or value. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/immutable-const">tensorflow::<wbr/>ops::<wbr/>ImmutableConst</a>
+      </td>
+      <td>
+        <p>Returns immutable tensor from memory region. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/invert-permutation">tensorflow::<wbr/>ops::<wbr/>InvertPermutation</a>
+      </td>
+      <td>
+        <p>Computes the inverse permutation of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/matrix-band-part">tensorflow::<wbr/>ops::<wbr/>MatrixBandPart</a>
+      </td>
+      <td>
+        <p>Copy a tensor setting everything outside a central band in each innermost matrix. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/matrix-diag">tensorflow::<wbr/>ops::<wbr/>MatrixDiag</a>
+      </td>
+      <td>
+        <p>Returns a batched diagonal tensor with a given batched diagonal values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/matrix-diag-part">tensorflow::<wbr/>ops::<wbr/>MatrixDiagPart</a>
+      </td>
+      <td>
+        <p>Returns the batched diagonal part of a batched tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/matrix-set-diag">tensorflow::<wbr/>ops::<wbr/>MatrixSetDiag</a>
+      </td>
+      <td>
+        <p>Returns a batched matrix tensor with new batched diagonal values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/mirror-pad">tensorflow::<wbr/>ops::<wbr/>MirrorPad</a>
+      </td>
+      <td>
+        <p>Pads a tensor with mirrored values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/one-hot">tensorflow::<wbr/>ops::<wbr/>OneHot</a>
+      </td>
+      <td>
+        <p>Returns a one-hot tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/ones-like">tensorflow::<wbr/>ops::<wbr/>OnesLike</a>
+      </td>
+      <td>
+        <p>Returns a tensor of ones with the same shape and type as x. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/pad">tensorflow::<wbr/>ops::<wbr/>Pad</a>
+      </td>
+      <td>
+        <p>Pads a tensor with zeros. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/parallel-concat">tensorflow::<wbr/>ops::<wbr/>ParallelConcat</a>
+      </td>
+      <td>
+        <p>Concatenates a list of <code>N</code> tensors along the first dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/placeholder">tensorflow::<wbr/>ops::<wbr/>Placeholder</a>
+      </td>
+      <td>
+        <p>A placeholder op for a value that will be fed into the computation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/placeholder-v2">tensorflow::<wbr/>ops::<wbr/>PlaceholderV2</a>
+      </td>
+      <td>
+        <p>A placeholder op for a value that will be fed into the computation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/placeholder-with-default">tensorflow::<wbr/>ops::<wbr/>PlaceholderWithDefault</a>
+      </td>
+      <td>
+        <p>A placeholder op that passes through <code>input</code> when its output is not fed. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/prevent-gradient">tensorflow::<wbr/>ops::<wbr/>PreventGradient</a>
+      </td>
+      <td>
+        <p>An identity op that triggers an error if a gradient is requested. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/quantize-and-dequantize-v2">tensorflow::<wbr/>ops::<wbr/>QuantizeAndDequantizeV2</a>
+      </td>
+      <td>
+        <p>Quantizes then dequantizes a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/quantize-v2">tensorflow::<wbr/>ops::<wbr/>QuantizeV2</a>
+      </td>
+      <td>
+        <p>Quantize the 'input' tensor of type float to 'output' tensor of type 'T'. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/quantized-concat">tensorflow::<wbr/>ops::<wbr/>QuantizedConcat</a>
+      </td>
+      <td>
+        <p>Concatenates quantized tensors along one dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/quantized-instance-norm">tensorflow::<wbr/>ops::<wbr/>QuantizedInstanceNorm</a>
+      </td>
+      <td>
+        <p>Quantized Instance normalization. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/quantized-reshape">tensorflow::<wbr/>ops::<wbr/>QuantizedReshape</a>
+      </td>
+      <td>
+        <p>Reshapes a quantized tensor as per the <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/reshape.html#classtensorflow_1_1ops_1_1_reshape">Reshape</a> op. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/rank">tensorflow::<wbr/>ops::<wbr/>Rank</a>
+      </td>
+      <td>
+        <p>Returns the rank of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/reshape">tensorflow::<wbr/>ops::<wbr/>Reshape</a>
+      </td>
+      <td>
+        <p>Reshapes a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/resource-strided-slice-assign">tensorflow::<wbr/>ops::<wbr/>ResourceStridedSliceAssign</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a><code>value</code> to the sliced l-value reference of <code>ref</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/reverse">tensorflow::<wbr/>ops::<wbr/>Reverse</a>
+      </td>
+      <td>
+        <p>Reverses specific dimensions of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/reverse-sequence">tensorflow::<wbr/>ops::<wbr/>ReverseSequence</a>
+      </td>
+      <td>
+        <p>Reverses variable length slices. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/scatter-nd">tensorflow::<wbr/>ops::<wbr/>ScatterNd</a>
+      </td>
+      <td>
+        <p>Scatter <code>updates</code> into a new (initially zero) tensor according to <code>indices</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/set-diff1-d">tensorflow::<wbr/>ops::<wbr/>SetDiff1D</a>
+      </td>
+      <td>
+        <p>Computes the difference between two lists of numbers or strings. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/shape">tensorflow::<wbr/>ops::<wbr/>Shape</a>
+      </td>
+      <td>
+        <p>Returns the shape of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/shape-n">tensorflow::<wbr/>ops::<wbr/>ShapeN</a>
+      </td>
+      <td>
+        <p>Returns shape of tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/size">tensorflow::<wbr/>ops::<wbr/>Size</a>
+      </td>
+      <td>
+        <p>Returns the size of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/slice">tensorflow::<wbr/>ops::<wbr/>Slice</a>
+      </td>
+      <td>
+        <p>Return a slice from 'input'. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/space-to-batch">tensorflow::<wbr/>ops::<wbr/>SpaceToBatch</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/space-to-batch.html#classtensorflow_1_1ops_1_1_space_to_batch">SpaceToBatch</a> for 4-D tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/space-to-batch-n-d">tensorflow::<wbr/>ops::<wbr/>SpaceToBatchND</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/space-to-batch.html#classtensorflow_1_1ops_1_1_space_to_batch">SpaceToBatch</a> for N-D tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/space-to-depth">tensorflow::<wbr/>ops::<wbr/>SpaceToDepth</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/space-to-depth.html#classtensorflow_1_1ops_1_1_space_to_depth">SpaceToDepth</a> for tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/split">tensorflow::<wbr/>ops::<wbr/>Split</a>
+      </td>
+      <td>
+        <p>Splits a tensor into <code>num_split</code> tensors along one dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/split-v">tensorflow::<wbr/>ops::<wbr/>SplitV</a>
+      </td>
+      <td>
+        <p>Splits a tensor into <code>num_split</code> tensors along one dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/squeeze">tensorflow::<wbr/>ops::<wbr/>Squeeze</a>
+      </td>
+      <td>
+        <p>Removes dimensions of size 1 from the shape of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/stack">tensorflow::<wbr/>ops::<wbr/>Stack</a>
+      </td>
+      <td>
+        <p>Packs a list of <code>N</code> rank-<code>R</code> tensors into one rank-<code>(R+1)</code> tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/stop-gradient">tensorflow::<wbr/>ops::<wbr/>StopGradient</a>
+      </td>
+      <td>
+        <p>Stops gradient computation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/strided-slice">tensorflow::<wbr/>ops::<wbr/>StridedSlice</a>
+      </td>
+      <td>
+        <p>Return a strided slice from <code>input</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/strided-slice-assign">tensorflow::<wbr/>ops::<wbr/>StridedSliceAssign</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a><code>value</code> to the sliced l-value reference of <code>ref</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/strided-slice-grad">tensorflow::<wbr/>ops::<wbr/>StridedSliceGrad</a>
+      </td>
+      <td>
+        <p>Returns the gradient of <code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/strided-slice.html#classtensorflow_1_1ops_1_1_strided_slice">StridedSlice</a></code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/tile">tensorflow::<wbr/>ops::<wbr/>Tile</a>
+      </td>
+      <td>
+        <p>Constructs a tensor by tiling a given tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/transpose">tensorflow::<wbr/>ops::<wbr/>Transpose</a>
+      </td>
+      <td>
+        <p>Shuffle dimensions of x according to a permutation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/unique">tensorflow::<wbr/>ops::<wbr/>Unique</a>
+      </td>
+      <td>
+        <p>Finds unique elements in a 1-D tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/unique-with-counts">tensorflow::<wbr/>ops::<wbr/>UniqueWithCounts</a>
+      </td>
+      <td>
+        <p>Finds unique elements in a 1-D tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/unstack">tensorflow::<wbr/>ops::<wbr/>Unstack</a>
+      </td>
+      <td>
+        <p>Unpacks a given dimension of a rank-<code>R</code> tensor into <code>num</code> rank-<code>(R-1)</code> tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/where">tensorflow::<wbr/>ops::<wbr/>Where</a>
+      </td>
+      <td>
+        <p>Returns locations of true values in a boolean tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/zeros-like">tensorflow::<wbr/>ops::<wbr/>ZerosLike</a>
+      </td>
+      <td>
+        <p>Returns a tensor of zeros with the same shape and type as x. </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
