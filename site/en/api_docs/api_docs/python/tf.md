@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/__init__.py).
+Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/__init__.py).
 
 
 
@@ -23,6 +23,8 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 [`compat`](./tf/compat) module: Functions for Python 2 vs. 3 compatibility.
 
 [`contrib`](./tf/contrib) module: contrib module containing volatile or experimental code.
+
+[`data`](./tf/data) module: `tf.data.Dataset` API for input pipelines.
 
 [`distributions`](./tf/distributions) module: Core module for TensorFlow distribution objects and helpers.
 
@@ -40,7 +42,13 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`image`](./tf/image) module: Image processing and decoding ops.
 
+[`initializers`](./tf/initializers) module: Public API for tf.initializer namespace.
+
+[`keras`](./tf/keras) module: Implementation of the Keras API meant to be a high-level API for TensorFlow.
+
 [`layers`](./tf/layers) module: This library provides a set of high-level neural networks layers.
+
+[`linalg`](./tf/linalg) module: Public API for tf.linalg namespace.
 
 [`logging`](./tf/logging) module: Logging utilities.
 
@@ -54,7 +62,7 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`python_io`](./tf/python_io) module: Python functions for directly manipulating TFRecord-formatted files.
 
-[`pywrap_tensorflow`](./tf/pywrap_tensorflow) module: pywrap_tensorflow wrapper that exports all symbols with RTLD_GLOBAL.
+[`pywrap_tensorflow`](./tf/pywrap_tensorflow) module: A wrapper for TensorFlow SWIG-generated bindings.
 
 [`resource_loader`](./tf/resource_loader) module: Resource management library.
 
@@ -62,7 +70,7 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`sets`](./tf/sets) module: Tensorflow set operations.
 
-[`spectral`](./tf/spectral) module: Spectral operators (e.g. FFT, RFFT).
+[`spectral`](./tf/spectral) module: Spectral operators (e.g. DCT, FFT, RFFT).
 
 [`summary`](./tf/summary) module: Tensor summaries for exporting information about a model.
 
@@ -192,6 +200,8 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`class constant_initializer`](./tf/constant_initializer): Initializer that generates tensors with constant values.
 
+[`class name_scope`](./tf/name_scope): A context manager for use when defining a Python op.
+
 [`class ones_initializer`](./tf/ones_initializer): Initializer that generates tensors initialized to 1.
 
 [`class orthogonal_initializer`](./tf/orthogonal_initializer): Initializer that generates an orthogonal matrix.
@@ -203,6 +213,8 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 [`class truncated_normal_initializer`](./tf/truncated_normal_initializer): Initializer that generates a truncated normal distribution.
 
 [`class uniform_unit_scaling_initializer`](./tf/uniform_unit_scaling_initializer): Initializer that generates tensors without scaling variance.
+
+[`class variable_scope`](./tf/variable_scope): A context manager for defining ops that creates variables (layers).
 
 [`class variance_scaling_initializer`](./tf/variance_scaling_initializer): Initializer capable of adapting its scale to the shape of weights tensors.
 
@@ -235,6 +247,8 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 [`add_to_collection(...)`](./tf/add_to_collection): Wrapper for `Graph.add_to_collection()` using the default graph.
 
 [`all_variables(...)`](./tf/all_variables): See `tf.global_variables`. (deprecated)
+
+[`angle(...)`](./tf/angle): Returns the argument of a complex number.
 
 [`arg_max(...)`](./tf/arg_max): Returns the index with the largest value across dimensions of a tensor. (deprecated)
 
@@ -279,6 +293,8 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 [`assert_rank(...)`](./tf/assert_rank): Assert `x` has rank equal to `rank`.
 
 [`assert_rank_at_least(...)`](./tf/assert_rank_at_least): Assert `x` has rank equal to `rank` or higher.
+
+[`assert_rank_in(...)`](./tf/assert_rank_in): Assert `x` has rank in `ranks`.
 
 [`assert_same_float_dtype(...)`](./tf/assert_same_float_dtype): Validate and return float type based on `tensors` and `dtype`.
 
@@ -498,7 +514,7 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`glorot_uniform_initializer(...)`](./tf/glorot_uniform_initializer): The Glorot uniform initializer, also called Xavier uniform initializer.
 
-[`gradients(...)`](./tf/gradients): Constructs symbolic partial derivatives of sum of `ys` w.r.t. x in `xs`.
+[`gradients(...)`](./tf/gradients): Constructs symbolic derivatives of sum of `ys` w.r.t. x in `xs`.
 
 [`greater(...)`](./tf/greater): Returns the truth value of (x > y) element-wise.
 
@@ -510,7 +526,9 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`histogram_fixed_width(...)`](./tf/histogram_fixed_width): Return histogram of values.
 
-[`identity(...)`](./tf/identity): Return a tensor with the same shape and contents as the input tensor or value.
+[`identity(...)`](./tf/identity): Return a tensor with the same shape and contents as input.
+
+[`identity_n(...)`](./tf/identity_n): Returns a list of tensors with the same shapes and contents as the input
 
 [`ifft(...)`](./tf/ifft): Inverse fast Fourier transform.
 
@@ -598,7 +616,7 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`matrix_band_part(...)`](./tf/matrix_band_part): Copy a tensor setting everything outside a central band in each innermost matrix
 
-[`matrix_determinant(...)`](./tf/matrix_determinant): Computes the determinant of one ore more square matrices.
+[`matrix_determinant(...)`](./tf/matrix_determinant): Computes the determinant of one or more square matrices.
 
 [`matrix_diag(...)`](./tf/matrix_diag): Returns a batched diagonal tensor with a given batched diagonal values.
 
@@ -633,8 +651,6 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 [`multinomial(...)`](./tf/multinomial): Draws samples from a multinomial distribution.
 
 [`multiply(...)`](./tf/multiply): Returns x * y element-wise.
-
-[`name_scope(...)`](./tf/name_scope): Returns a context manager for use when defining a Python op.
 
 [`negative(...)`](./tf/negative): Computes numerical negative value element-wise.
 
@@ -784,11 +800,13 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`self_adjoint_eigvals(...)`](./tf/self_adjoint_eigvals): Computes the eigenvalues of one or more self-adjoint matrices.
 
-[`sequence_mask(...)`](./tf/sequence_mask): Return a mask tensor representing the first N positions of each row.
+[`sequence_mask(...)`](./tf/sequence_mask): Returns a mask tensor representing the first N positions of each cell.
 
 [`serialize_many_sparse(...)`](./tf/serialize_many_sparse): Serialize an `N`-minibatch `SparseTensor` into an `[N, 3]` string `Tensor`.
 
 [`serialize_sparse(...)`](./tf/serialize_sparse): Serialize a `SparseTensor` into a string 3-vector (1-D `Tensor`) object.
+
+[`serialize_tensor(...)`](./tf/serialize_tensor): Transforms a Tensor into a serialized TensorProto proto.
 
 [`set_random_seed(...)`](./tf/set_random_seed): Sets the graph-level random seed.
 
@@ -956,8 +974,6 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`variable_op_scope(...)`](./tf/variable_op_scope): Deprecated: context manager for defining an op that creates variables.
 
-[`variable_scope(...)`](./tf/variable_scope): Returns a context manager for defining ops that creates variables (layers).
-
 [`variables_initializer(...)`](./tf/variables_initializer): Returns an Op that initializes a list of variables.
 
 [`verify_tensor_all_finite(...)`](./tf/verify_tensor_all_finite): Assert that the tensor does not contain any NaN's or Inf's.
@@ -975,6 +991,8 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 [`zeta(...)`](./tf/zeta): Compute the Hurwitz zeta function \\(\zeta(x, q)\\).
 
 ## Other Members
+
+`AUTO_REUSE`
 
 `COMPILER_VERSION`
 
@@ -1041,4 +1059,6 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 `uint16`
 
 `uint8`
+
+`variant`
 

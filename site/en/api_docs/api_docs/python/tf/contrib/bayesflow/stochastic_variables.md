@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/stochastic_variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/stochastic_variables.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/stochastic_variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/stochastic_variables.py).
 
 Custom `get_variable` for stochastic variables.
 

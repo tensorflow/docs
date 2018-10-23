@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
 
 Final outputs returned by the beam search after all decoding is finished.
 
@@ -22,8 +22,8 @@ Final outputs returned by the beam search after all decoding is finished.
 
 * <b>`predicted_ids`</b>: The final prediction. A tensor of shape
     `[T, batch_size, beam_width]`.
-* <b>`beam_search_output`</b>: An instance of `BeamSearchDecoderOutput` that describes
-    the state of the beam search.
+* <b>`beam_search_decoder_output`</b>: An instance of `BeamSearchDecoderOutput` that
+    describes the state of the beam search.
 
 ## Properties
 

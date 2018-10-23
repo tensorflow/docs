@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 Supports passing a full time series to a model for evaluation/inference.
 
@@ -58,8 +58,8 @@ A suitable `input_fn` for an `Estimator`'s `evaluate()`.
 
 #### Returns:
 
-  A dictionary mapping feature names to `Tensors`, each shape
-  prefixed by [1, data set size] (i.e. a batch size of 1).
+A dictionary mapping feature names to `Tensors`, each shape
+prefixed by [1, data set size] (i.e. a batch size of 1).
 
 
 

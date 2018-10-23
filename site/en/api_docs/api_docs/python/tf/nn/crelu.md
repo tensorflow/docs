@@ -17,7 +17,7 @@ crelu(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Activation Functions](../../../../api_guides/python/nn#Activation_Functions)
 
@@ -26,7 +26,7 @@ Computes Concatenated ReLU.
 Concatenates a ReLU which selects only the positive part of the activation
 with a ReLU which selects only the *negative* part of the activation.
 Note that as a result this non-linearity doubles the depth of the activations.
-Source: [Understanding and Improving Convolutional Neural Networks via Concatenated Rectified Linear Units. W. Shang, et al.](https://arxiv.org/abs/1603.05201) 
+Source: [Understanding and Improving Convolutional Neural Networks via Concatenated Rectified Linear Units. W. Shang, et al.](https://arxiv.org/abs/1603.05201)
 
 #### Args:
 
@@ -37,4 +37,4 @@ Source: [Understanding and Improving Convolutional Neural Networks via Concatena
 
 #### Returns:
 
-  A `Tensor` with the same type as `features`.
+A `Tensor` with the same type as `features`.

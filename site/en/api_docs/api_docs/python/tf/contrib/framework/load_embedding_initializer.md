@@ -24,7 +24,7 @@ load_embedding_initializer(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
+Defined in [`tensorflow/python/training/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/checkpoint_ops.py).
 
 Returns a variable initializer for loading pre-trained embeddings.
 
@@ -60,4 +60,4 @@ NOTE: Only for use with div-partitioned variables / vocabularies.
 
 #### Returns:
 
-  A variable initializer function.
+A variable initializer function.

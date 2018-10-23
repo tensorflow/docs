@@ -14,7 +14,7 @@ per_image_standardization(image)
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Image Adjustments](../../../../api_guides/python/image#Image_Adjustments)
 
@@ -34,7 +34,7 @@ away from zero to protect against division by 0 when handling uniform images.
 
 #### Returns:
 
-  The standardized image with same shape as `image`.
+The standardized image with same shape as `image`.
 
 
 #### Raises:

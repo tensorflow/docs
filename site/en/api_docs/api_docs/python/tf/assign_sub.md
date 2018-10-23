@@ -19,7 +19,7 @@ assign_sub(
 
 
 
-Defined in [`tensorflow/python/ops/state_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/state_ops.py).
+Defined in [`tensorflow/python/ops/state_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/state_ops.py).
 
 See the guide: [Variables > Variable helper functions](../../../api_guides/python/state_ops#Variable_helper_functions)
 
@@ -44,5 +44,5 @@ This makes it easier to chain operations that need to use the reset value.
 
 #### Returns:
 
-  Same as "ref".  Returned as a convenience for operations that want
-  to use the new value after the variable has been updated.
+Same as "ref".  Returned as a convenience for operations that want
+to use the new value after the variable has been updated.

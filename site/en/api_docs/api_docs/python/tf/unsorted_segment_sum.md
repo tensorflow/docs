@@ -53,7 +53,7 @@ If the sum is empty for a given segment ID `i`, `output[i] = 0`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `data`.
-  Has same shape as data, except for the first `segment_ids.rank`
-  dimensions, which are replaced with a single dimension which has size
-  `num_segments`.
+A `Tensor`. Has the same type as `data`.
+Has same shape as data, except for the first `segment_ids.rank`
+dimensions, which are replaced with a single dimension which has size
+`num_segments`.

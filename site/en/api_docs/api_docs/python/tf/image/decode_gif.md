@@ -39,5 +39,5 @@ This op also supports decoding JPEGs and PNGs, though it is cleaner to use
 
 #### Returns:
 
-  A `Tensor` of type `uint8`.
-  4-D with shape `[num_frames, height, width, 3]`. RGB order
+A `Tensor` of type `uint8`.
+4-D with shape `[num_frames, height, width, 3]`. RGB order

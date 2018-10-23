@@ -8,11 +8,16 @@ page_type: reference
 
 # tf.matrix_solve
 
+### Aliases:
+
+* `tf.linalg.solve`
+* `tf.matrix_solve`
+
 ``` python
 matrix_solve(
     matrix,
     rhs,
-    adjoint=None,
+    adjoint=False,
     name=None
 )
 ```
@@ -46,4 +51,4 @@ If `adjoint` is `True` then each output matrix satisfies
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `matrix`. Shape is `[..., M, K]`.
+A `Tensor`. Has the same type as `matrix`. Shape is `[..., M, K]`.

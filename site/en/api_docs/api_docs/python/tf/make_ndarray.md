@@ -19,7 +19,7 @@ make_ndarray(tensor)
 
 
 
-Defined in [`tensorflow/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/tensor_util.py).
+Defined in [`tensorflow/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/tensor_util.py).
 
 See the guide: [Utilities (contrib) > Miscellaneous Utility Functions](../../../api_guides/python/contrib.util#Miscellaneous_Utility_Functions)
 
@@ -34,7 +34,7 @@ Create a numpy ndarray with the same shape and data as the tensor.
 
 #### Returns:
 
-  A numpy array with the tensor contents.
+A numpy array with the tensor contents.
 
 
 #### Raises:

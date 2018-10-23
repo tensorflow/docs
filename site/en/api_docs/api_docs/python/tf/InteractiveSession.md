@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/client/session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/client/session.py).
+Defined in [`tensorflow/python/client/session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/client/session.py).
 
 See the guide: [Running Graphs > Session management](../../../api_guides/python/client#Session_management)
 
@@ -67,8 +67,8 @@ A serializable version of the underlying TensorFlow graph.
 
 #### Returns:
 
-  A graph_pb2.GraphDef proto containing nodes for all of the Operations in
-  the underlying TensorFlow graph.
+A graph_pb2.GraphDef proto containing nodes for all of the Operations in
+the underlying TensorFlow graph.
 
 <h3 id="sess_str"><code>sess_str</code></h3>
 
@@ -161,7 +161,7 @@ to make `sess.graph` the default graph.
 
 #### Returns:
 
-  A context manager using this session as the default session.
+A context manager using this session as the default session.
 
 <h3 id="close"><code>close</code></h3>
 
@@ -194,13 +194,13 @@ Each element in the list has the following properties:
       be substantially less.
 #### Raises:
 
-  tf.errors.OpError: If it encounters an error (e.g. session is in an
+* <b>`tf.errors.OpError`</b>: If it encounters an error (e.g. session is in an
   invalid state, or network errors occur).
 
 
 #### Returns:
 
-  A list of devices in the session.
+A list of devices in the session.
 
 <h3 id="make_callable"><code>make_callable</code></h3>
 
@@ -242,8 +242,8 @@ it will return `None`.
 
 #### Returns:
 
-  A function that when called will execute the step defined by
-  `feed_list` and `fetches` in this session.
+A function that when called will execute the step defined by
+`feed_list` and `fetches` in this session.
 
 
 #### Raises:
@@ -299,15 +299,15 @@ res = sess.partial_run(h, r2, feed_dict={c: res})
 
 #### Returns:
 
-  Either a single value if `fetches` is a single graph element, or
-  a list of values if `fetches` is a list, or a dictionary with the
-  same keys as `fetches` if that is a dictionary
-  (see documentation for `run`).
+Either a single value if `fetches` is a single graph element, or
+a list of values if `fetches` is a list, or a dictionary with the
+same keys as `fetches` if that is a dictionary
+(see documentation for `run`).
 
 
 #### Raises:
 
-  tf.errors.OpError: Or one of its subclasses on error.
+* <b>`tf.errors.OpError`</b>: Or one of its subclasses on error.
 
 <h3 id="partial_run_setup"><code>partial_run_setup</code></h3>
 
@@ -333,7 +333,7 @@ The tensors will be supplied by the subsequent `partial_run` calls.
 
 #### Returns:
 
-  A handle for partial run.
+A handle for partial run.
 
 
 #### Raises:
@@ -341,7 +341,7 @@ The tensors will be supplied by the subsequent `partial_run` calls.
 * <b>`RuntimeError`</b>: If this `Session` is in an invalid state (e.g. has been
     closed).
 * <b>`TypeError`</b>: If `fetches` or `feed_dict` keys are of an inappropriate type.
-  tf.errors.OpError: Or one of its subclasses if a TensorFlow error happens.
+* <b>`tf.errors.OpError`</b>: Or one of its subclasses if a TensorFlow error happens.
 
 <h3 id="run"><code>run</code></h3>
 
@@ -447,9 +447,9 @@ collected into this argument and passed back.
 
 #### Returns:
 
-  Either a single value if `fetches` is a single graph element, or
-  a list of values if `fetches` is a list, or a dictionary with the
-  same keys as `fetches` if that is a dictionary (described above).
+Either a single value if `fetches` is a single graph element, or
+a list of values if `fetches` is a list, or a dictionary with the
+same keys as `fetches` if that is a dictionary (described above).
 
 
 #### Raises:

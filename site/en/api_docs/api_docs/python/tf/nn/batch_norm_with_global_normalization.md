@@ -23,7 +23,7 @@ batch_norm_with_global_normalization(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Normalization](../../../../api_guides/python/nn#Normalization)
 
@@ -53,4 +53,4 @@ This op is deprecated. See `tf.nn.batch_normalization`.
 
 #### Returns:
 
-   A batch-normalized `t`.
+A batch-normalized `t`.

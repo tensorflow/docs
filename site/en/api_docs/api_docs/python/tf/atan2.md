@@ -37,4 +37,4 @@ where \(r = \sqrt(x^2 + y^2) \).
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `y`.
+A `Tensor`. Has the same type as `y`.

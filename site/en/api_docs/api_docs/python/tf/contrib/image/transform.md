@@ -18,7 +18,7 @@ transform(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/image/python/ops/image_ops.py).
 
 Applies the given transform(s) to the image(s).
 
@@ -39,9 +39,9 @@ Applies the given transform(s) to the image(s).
 
 #### Returns:
 
-  Image(s) with the same type and shape as `images`, with the given
-  transform(s) applied. Transformed coordinates outside of the input image
-  will be filled with zeros.
+Image(s) with the same type and shape as `images`, with the given
+transform(s) applied. Transformed coordinates outside of the input image
+will be filled with zeros.
 
 
 #### Raises:

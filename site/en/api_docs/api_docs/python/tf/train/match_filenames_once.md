@@ -17,7 +17,7 @@ match_filenames_once(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/input.py).
 
 See the guides: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline), [Reading data > Reading from files](../../../../api_guides/python/reading_data#Reading_from_files)
 
@@ -31,4 +31,4 @@ Save the list of files matching pattern, so it is only computed once.
 
 #### Returns:
 
-  A variable that is initialized to the list of files matching the pattern(s).
+A variable that is initialized to the list of files matching the pattern(s).

@@ -22,7 +22,7 @@ add_queue_runner(
 
 
 
-Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/queue_runner_impl.py).
+Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/queue_runner_impl.py).
 
 See the guides: [Reading data > Reading from files](../../../../api_guides/python/reading_data#Reading_from_files), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
 

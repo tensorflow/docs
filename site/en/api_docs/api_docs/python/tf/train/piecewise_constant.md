@@ -19,7 +19,7 @@ piecewise_constant(
 
 
 
-Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/learning_rate_decay.py).
+Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/learning_rate_decay.py).
 
 See the guide: [Training > Decaying the learning rate](../../../../api_guides/python/train#Decaying_the_learning_rate)
 
@@ -52,12 +52,12 @@ learning_rate = tf.train.piecewise_constant(global_step, boundaries, values)
 
 #### Returns:
 
-  A 0-D Tensor. Its value is `values[0]` when `x <= boundaries[0]`,
-  `values[1]` when `x > boundaries[0]` and `x <= boundaries[1]`, ...,
-  and values[-1] when `x > boundaries[-1]`.
+A 0-D Tensor. Its value is `values[0]` when `x <= boundaries[0]`,
+`values[1]` when `x > boundaries[0]` and `x <= boundaries[1]`, ...,
+and values[-1] when `x > boundaries[-1]`.
 
 
 #### Raises:
 
-* <b>`ValueError`</b>: if types of `x` and `buondaries` do not match, or types of all
+* <b>`ValueError`</b>: if types of `x` and `boundaries` do not match, or types of all
       `values` do not match.

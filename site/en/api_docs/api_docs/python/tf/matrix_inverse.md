@@ -8,10 +8,15 @@ page_type: reference
 
 # tf.matrix_inverse
 
+### Aliases:
+
+* `tf.linalg.inv`
+* `tf.matrix_inverse`
+
 ``` python
 matrix_inverse(
     input,
-    adjoint=None,
+    adjoint=False,
     name=None
 )
 ```
@@ -46,7 +51,7 @@ garbage result.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`. Shape is `[..., M, M]`.
+A `Tensor`. Has the same type as `input`. Shape is `[..., M, M]`.
 
 
 

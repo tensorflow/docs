@@ -17,7 +17,7 @@ transform_features(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
 Returns transformed features based on features columns passed in.
 
@@ -62,4 +62,4 @@ feature_columns = [embedding_feature_b,
 
 #### Returns:
 
-  A `dict` mapping FeatureColumn to `Tensor` and `SparseTensor` values.
+A `dict` mapping FeatureColumn to `Tensor` and `SparseTensor` values.

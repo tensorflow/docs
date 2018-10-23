@@ -18,7 +18,7 @@ get_copied_op(
 
 
 
-Defined in [`tensorflow/contrib/copy_graph/python/util/copy_elements.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
+Defined in [`tensorflow/contrib/copy_graph/python/util/copy_elements.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
 
 Given an `Operation` instance from some `Graph`, returns
 its namesake from `graph`, under the specified scope
@@ -36,4 +36,4 @@ If a copy of `org_instance` is present in `graph` under the given
 
 #### Returns:
 
-  The `Operation` copy from `graph`.
+The `Operation` copy from `graph`.

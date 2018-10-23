@@ -14,7 +14,7 @@ merge_all_summaries(key=tf.GraphKeys.SUMMARIES)
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/logging_ops.py).
+Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/logging_ops.py).
 
 Merges all summaries collected in the default graph. (deprecated)
 
@@ -33,6 +33,6 @@ identical behavior.
 
 #### Returns:
 
-  If no summaries were collected, returns None.  Otherwise returns a scalar
-  `Tensor` of type `string` containing the serialized `Summary` protocol
-  buffer resulting from the merging.
+If no summaries were collected, returns None.  Otherwise returns a scalar
+`Tensor` of type `string` containing the serialized `Summary` protocol
+buffer resulting from the merging.

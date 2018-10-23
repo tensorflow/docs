@@ -18,7 +18,7 @@ saturate_cast(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Tensor Transformations > Casting](../../../api_guides/python/array_ops#Casting)
 
@@ -37,4 +37,4 @@ applies the appropriate clamping before the cast.
 
 #### Returns:
 
-  `value` safely cast to `dtype`.
+`value` safely cast to `dtype`.

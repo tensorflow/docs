@@ -20,7 +20,7 @@ ctc_beam_search_decoder(
 
 
 
-Defined in [`tensorflow/python/ops/ctc_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/ctc_ops.py).
+Defined in [`tensorflow/python/ops/ctc_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/ctc_ops.py).
 
 See the guide: [Neural Network > Connectionist Temporal Classification (CTC)](../../../../api_guides/python/nn#Connectionist_Temporal_Classification_CTC_)
 
@@ -51,7 +51,7 @@ is `A B B B B`, the return value is:
 
 #### Returns:
 
-  A tuple `(decoded, log_probabilities)` where
+A tuple `(decoded, log_probabilities)` where
 * <b>`decoded`</b>: A list of length top_paths, where `decoded[j]`
     is a `SparseTensor` containing the decoded outputs:
     `decoded[j].indices`: Indices matrix `(total_decoded_outputs[j] x 2)`

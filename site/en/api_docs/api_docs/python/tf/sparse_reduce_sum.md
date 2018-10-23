@@ -19,7 +19,7 @@ sparse_reduce_sum(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Reduction](../../../api_guides/python/sparse_ops#Reduction)
 
@@ -62,4 +62,4 @@ tf.sparse_reduce_sum(x, [0, 1]) ==> 3
 
 #### Returns:
 
-  The reduced Tensor.
+The reduced Tensor.

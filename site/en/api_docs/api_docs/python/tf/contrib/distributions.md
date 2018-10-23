@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/distributions/__init__.py).
+Defined in [`tensorflow/contrib/distributions/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/distributions/__init__.py).
 
 Classes representing statistical distributions and ops for working with them.
 
@@ -62,6 +62,8 @@ See the [Statistical Distributions (contrib)](../../../../api_guides/python/cont
 
 [`class Geometric`](../../tf/contrib/distributions/Geometric): Geometric distribution.
 
+[`class Independent`](../../tf/contrib/distributions/Independent): Independent distribution from batch of distributions.
+
 [`class InverseGamma`](../../tf/contrib/distributions/InverseGamma): InverseGamma distribution.
 
 [`class InverseGammaWithSoftplusConcentrationRate`](../../tf/contrib/distributions/InverseGammaWithSoftplusConcentrationRate): `InverseGamma` with softplus of `concentration` and `rate`.
@@ -73,6 +75,8 @@ See the [Statistical Distributions (contrib)](../../../../api_guides/python/cont
 [`class Logistic`](../../tf/contrib/distributions/Logistic): The Logistic distribution with location `loc` and `scale` parameters.
 
 [`class Mixture`](../../tf/contrib/distributions/Mixture): Mixture distribution.
+
+[`class MixtureSameFamily`](../../tf/contrib/distributions/MixtureSameFamily): Mixture (same-family) distribution.
 
 [`class Multinomial`](../../tf/distributions/Multinomial): Multinomial distribution.
 
@@ -96,6 +100,8 @@ See the [Statistical Distributions (contrib)](../../../../api_guides/python/cont
 
 [`class Poisson`](../../tf/contrib/distributions/Poisson): Poisson distribution.
 
+[`class PoissonLogNormalQuadratureCompound`](../../tf/contrib/distributions/PoissonLogNormalQuadratureCompound): `PoissonLogNormalQuadratureCompound` distribution.
+
 [`class QuantizedDistribution`](../../tf/contrib/distributions/QuantizedDistribution): Distribution representing the quantization `Y = ceiling(X)`.
 
 [`class RegisterKL`](../../tf/distributions/RegisterKL): Decorator to register a KL divergence implementation function.
@@ -105,6 +111,8 @@ See the [Statistical Distributions (contrib)](../../../../api_guides/python/cont
 [`class RelaxedOneHotCategorical`](../../tf/contrib/distributions/RelaxedOneHotCategorical): RelaxedOneHotCategorical distribution with temperature and logits.
 
 [`class ReparameterizationType`](../../tf/distributions/ReparameterizationType): Instances of this class represent how sampling is reparameterized.
+
+[`class SinhArcsinh`](../../tf/contrib/distributions/SinhArcsinh): The SinhArcsinh transformation of a distribution on `(-inf, inf)`.
 
 [`class StudentT`](../../tf/distributions/StudentT): Student's t-distribution.
 
@@ -116,9 +124,13 @@ See the [Statistical Distributions (contrib)](../../../../api_guides/python/cont
 
 [`class VectorDeterministic`](../../tf/contrib/distributions/VectorDeterministic): Vector `Deterministic` distribution on `R^k`.
 
+[`class VectorDiffeomixture`](../../tf/contrib/distributions/VectorDiffeomixture): VectorDiffeomixture distribution.
+
 [`class VectorExponentialDiag`](../../tf/contrib/distributions/VectorExponentialDiag): The vectorization of the Exponential distribution on `R^k`.
 
 [`class VectorLaplaceDiag`](../../tf/contrib/distributions/VectorLaplaceDiag): The vectorization of the Laplace distribution on `R^k`.
+
+[`class VectorSinhArcsinhDiag`](../../tf/contrib/distributions/VectorSinhArcsinhDiag): The (diagonal) SinhArcsinh transformation of a distribution on `R^k`.
 
 [`class WishartCholesky`](../../tf/contrib/distributions/WishartCholesky): The matrix Wishart distribution on positive definite matrices.
 
@@ -126,9 +138,17 @@ See the [Statistical Distributions (contrib)](../../../../api_guides/python/cont
 
 ## Functions
 
+[`assign_log_moving_mean_exp(...)`](../../tf/contrib/distributions/assign_log_moving_mean_exp): Compute the log of the exponentially weighted moving mean of the exp.
+
+[`assign_moving_mean_variance(...)`](../../tf/contrib/distributions/assign_moving_mean_variance): Compute exponentially weighted moving {mean,variance} of a streaming value.
+
+[`estimator_head_distribution_regression(...)`](../../tf/contrib/distributions/estimator_head_distribution_regression): Creates a `Head` for regression under a generic distribution.
+
 [`kl_divergence(...)`](../../tf/distributions/kl_divergence): Get the KL-divergence KL(distribution_a || distribution_b).
 
 [`matrix_diag_transform(...)`](../../tf/contrib/distributions/matrix_diag_transform): Transform diagonal of [batch-]matrix, leave rest of matrix unchanged.
+
+[`moving_mean_variance(...)`](../../tf/contrib/distributions/moving_mean_variance): Compute exponentially weighted moving {mean,variance} of a streaming value.
 
 [`normal_conjugates_known_scale_posterior(...)`](../../tf/contrib/distributions/normal_conjugates_known_scale_posterior): Posterior Normal distribution with conjugate prior on the mean.
 

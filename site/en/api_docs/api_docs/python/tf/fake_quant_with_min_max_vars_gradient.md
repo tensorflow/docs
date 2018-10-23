@@ -14,8 +14,8 @@ fake_quant_with_min_max_vars_gradient(
     inputs,
     min,
     max,
-    num_bits=None,
-    narrow_range=None,
+    num_bits=8,
+    narrow_range=False,
     name=None
 )
 ```
@@ -46,7 +46,7 @@ Compute gradients for a FakeQuantWithMinMaxVars operation.
 
 #### Returns:
 
-  A tuple of `Tensor` objects (backprops_wrt_input, backprop_wrt_min, backprop_wrt_max).
+A tuple of `Tensor` objects (backprops_wrt_input, backprop_wrt_min, backprop_wrt_max).
 
 * <b>`backprops_wrt_input`</b>: A `Tensor` of type `float32`. Backpropagated gradients w.r.t. inputs:
     `gradients * (inputs >= min && inputs <= max)`.

@@ -20,7 +20,7 @@ normalize_moments(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Normalization](../../../../api_guides/python/nn#Normalization)
 
@@ -40,4 +40,4 @@ Calculate the mean and variance of based on the sufficient statistics.
 
 #### Returns:
 
-  Two `Tensor` objects: `mean` and `variance`.
+Two `Tensor` objects: `mean` and `variance`.

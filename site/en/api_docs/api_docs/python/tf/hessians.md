@@ -21,7 +21,7 @@ hessians(
 
 
 
-Defined in [`tensorflow/python/ops/gradients_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/gradients_impl.py).
+Defined in [`tensorflow/python/ops/gradients_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/gradients_impl.py).
 
 See the guide: [Training > Gradient Computation](../../../api_guides/python/train#Gradient_Computation)
 
@@ -49,7 +49,7 @@ tensor (see https://en.wikipedia.org/wiki/Hessian_matrix for more details).
 
 #### Returns:
 
-  A list of Hessian matrices of `sum(ys)` for each `x` in `xs`.
+A list of Hessian matrices of `sum(ys)` for each `x` in `xs`.
 
 
 #### Raises:

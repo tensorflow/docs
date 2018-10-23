@@ -14,7 +14,7 @@ Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/lookup_ops.py).
 
 String to Id table wrapper that assigns out-of-vocabulary keys to buckets.
 
@@ -126,7 +126,7 @@ It assigns out-of-vocabulary keys to buckets based in their hashes.
 
 #### Returns:
 
-  A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
+A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
 
 
 #### Raises:

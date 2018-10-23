@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/sparse_tensor.py).
+Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/sparse_tensor.py).
 
 See the guide: [Sparse Tensors > Sparse Tensor Representation](../../../api_guides/python/sparse_ops#Sparse_Tensor_Representation)
 
@@ -41,6 +41,7 @@ Alias for field number 1
 <h3 id="__new__"><code>__new__</code></h3>
 
 ``` python
+@staticmethod
 __new__(
     _cls,
     indices,

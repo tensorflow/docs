@@ -22,7 +22,7 @@ with_space_to_batch(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Morphological filtering](../../../../api_guides/python/nn#Morphological_filtering)
 
@@ -155,8 +155,8 @@ can be combined into a single `with_space_to_batch` operation as follows:
 
 #### Returns:
 
-  The output Tensor as described above, dimensions will vary based on the op
-  provided.
+The output Tensor as described above, dimensions will vary based on the op
+provided.
 
 
 #### Raises:

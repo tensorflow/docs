@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/export/export_output.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/export/export_output.py).
+Defined in [`tensorflow/python/estimator/export/export_output.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/export/export_output.py).
 
 Represents an output of a model that can be served.
 

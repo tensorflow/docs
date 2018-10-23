@@ -17,7 +17,7 @@ clip_gradient_norms(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/training.py).
+Defined in [`tensorflow/contrib/training/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/training.py).
 
 Clips the gradients by the given value.
 
@@ -29,4 +29,4 @@ Clips the gradients by the given value.
 
 #### Returns:
 
-  A list of clipped gradient to variable pairs.
+A list of clipped gradient to variable pairs.

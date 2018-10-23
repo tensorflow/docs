@@ -34,4 +34,4 @@ computation is performed on the underlying representations of `x` and `y`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

@@ -21,7 +21,7 @@ sequence_loss_by_example(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 Weighted cross-entropy loss for a sequence of logits (per example).
 
@@ -41,7 +41,7 @@ Weighted cross-entropy loss for a sequence of logits (per example).
 
 #### Returns:
 
-  1D batch-sized float Tensor: The log-perplexity for each sequence.
+1D batch-sized float Tensor: The log-perplexity for each sequence.
 
 
 #### Raises:

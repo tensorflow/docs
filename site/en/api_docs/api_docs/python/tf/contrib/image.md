@@ -10,16 +10,15 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/image/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/image/__init__.py).
+Defined in [`tensorflow/contrib/image/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/image/__init__.py).
 
-##Ops for image manipulation.
+Ops for image manipulation.
 
 ### API
 
-This module provides functions for image manipulation; currently, only
+This module provides functions for image manipulation; currently, chrominance
+transformas (including changing saturation and hue) in YIQ space and
 projective transforms (including rotation) are supported.
-
-## Image `Ops`
 
 
 ## Functions

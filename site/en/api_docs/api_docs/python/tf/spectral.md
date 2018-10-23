@@ -10,12 +10,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/spectral_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/spectral_ops.py).
+Defined in [`tensorflow/python/ops/spectral_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/spectral_ops.py).
 
-Spectral operators (e.g. FFT, RFFT).
+Spectral operators (e.g. DCT, FFT, RFFT).
 
 
 ## Functions
+
+[`dct(...)`](../tf/spectral/dct): Computes the 1D [Discrete Cosine Transform (DCT)][dct] of `input`.
 
 [`fft(...)`](../tf/fft): Fast Fourier transform.
 

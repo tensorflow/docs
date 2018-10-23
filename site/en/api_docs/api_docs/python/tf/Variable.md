@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/variables.py).
+Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/variables.py).
 
 See the guide: [Variables > Variables](../../../api_guides/python/state_ops#Variables)
 
@@ -108,6 +108,15 @@ variables to optimize.
 
 ## Properties
 
+<h3 id="constraint"><code>constraint</code></h3>
+
+Returns the constraint function associated with this variable.
+
+#### Returns:
+
+The constraint function that was passed to the variable constructor.
+Can be `None` if no constraint was passed.
+
 <h3 id="device"><code>device</code></h3>
 
 The device of this variable.
@@ -131,7 +140,7 @@ the variable.
 
 #### Returns:
 
-  A `Tensor`.
+A `Tensor`.
 
 <h3 id="initializer"><code>initializer</code></h3>
 
@@ -151,7 +160,7 @@ The `TensorShape` of this variable.
 
 #### Returns:
 
-  A `TensorShape`.
+A `TensorShape`.
 
 
 
@@ -170,7 +179,8 @@ __init__(
     variable_def=None,
     dtype=None,
     expected_shape=None,
-    import_scope=None
+    import_scope=None,
+    constraint=None
 )
 ```
 
@@ -219,6 +229,13 @@ variable to its initial value.
     to have this shape.
 * <b>`import_scope`</b>: Optional `string`. Name scope to add to the
     `Variable.` Only used when initializing from protocol buffer.
+* <b>`constraint`</b>: An optional projection function to be applied to the variable
+    after being updated by an `Optimizer` (e.g. used to implement norm
+    constraints or value constraints for layer weights). The function must
+    take as input the unprojected Tensor representing the value of the
+    variable and return the Tensor for the projected value
+    (which must have the same shape). Constraints are not safe to
+    use when doing asynchronous distributed training.
 
 
 #### Raises:
@@ -226,6 +243,7 @@ variable to its initial value.
 * <b>`ValueError`</b>: If both `variable_def` and initial_value are specified.
 * <b>`ValueError`</b>: If the initial value is not specified, or does not have a
     shape and `validate_shape` is `True`.
+* <b>`RuntimeError`</b>: If created in EAGER mode.
 
 <h3 id="__abs__"><code>__abs__</code></h3>
 
@@ -242,10 +260,9 @@ Given a tensor `x` of complex numbers, this operation returns a tensor of type
 `float32` or `float64` that is the absolute value of each element in `x`. All
 elements in `x` must be complex numbers of the form \\(a + bj\\). The
 absolute value is computed as \\( \sqrt{a^2 + b^2}\\).  For example:
-
-```
-# tensor 'x' is [[-2.25 + 4.75j], [-3.25 + 5.75j]]
-tf.abs(x) ==> [5.25594902, 6.60492229]
+```python
+x = tf.constant([[-2.25 + 4.75j], [-3.25 + 5.75j]])
+tf.abs(x)  # [5.25594902, 6.60492229]
 ```
 
 #### Args:
@@ -257,10 +274,10 @@ tf.abs(x) ==> [5.25594902, 6.60492229]
 
 #### Returns:
 
-  A `Tensor` or `SparseTensor` the same size and type as `x` with absolute
-    values.
-  Note, for `complex64` or `complex128' input, the returned `Tensor` will be
-    of type `float32` or `float64`, respectively.
+A `Tensor` or `SparseTensor` the same size and type as `x` with absolute
+  values.
+Note, for `complex64` or `complex128' input, the returned `Tensor` will be
+  of type `float32` or `float64`, respectively.
 
 <h3 id="__add__"><code>__add__</code></h3>
 
@@ -285,7 +302,7 @@ Returns x + y element-wise.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__and__"><code>__and__</code></h3>
 
@@ -310,7 +327,7 @@ Returns the truth value of x AND y element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__div__"><code>__div__</code></h3>
 
@@ -331,7 +348,7 @@ Divide two values using Python 2 semantics. Used for Tensor.__div__.
 
 #### Returns:
 
-  `x / y` returns the quotient of x and y.
+`x / y` returns the quotient of x and y.
 
 <h3 id="__floordiv__"><code>__floordiv__</code></h3>
 
@@ -365,7 +382,7 @@ as well.
 
 #### Returns:
 
-  `x / y` rounded down (except possibly towards zero for negative integers).
+`x / y` rounded down (except possibly towards zero for negative integers).
 
 
 #### Raises:
@@ -395,7 +412,7 @@ Returns the truth value of (x >= y) element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
@@ -440,9 +457,9 @@ semantics.
 
 #### Returns:
 
-  The appropriate slice of "tensor", based on "slice_spec".
-  As an operator. The operator also has a `assign()` method
-  that can be used to generate an assignment operator.
+The appropriate slice of "tensor", based on "slice_spec".
+As an operator. The operator also has a `assign()` method
+that can be used to generate an assignment operator.
 
 
 #### Raises:
@@ -473,7 +490,7 @@ Returns the truth value of (x > y) element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__invert__"><code>__invert__</code></h3>
 
@@ -494,7 +511,7 @@ Returns the truth value of NOT x element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
@@ -535,7 +552,7 @@ Returns the truth value of (x <= y) element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__lt__"><code>__lt__</code></h3>
 
@@ -560,7 +577,7 @@ Returns the truth value of (x < y) element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__matmul__"><code>__matmul__</code></h3>
 
@@ -594,35 +611,46 @@ For example:
 
 ```python
 # 2-D tensor `a`
-a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3]) => [[1. 2. 3.]
-                                                      [4. 5. 6.]]
+# [[1, 2, 3],
+#  [4, 5, 6]]
+a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3])
+
 # 2-D tensor `b`
-b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2]) => [[7. 8.]
-                                                         [9. 10.]
-                                                         [11. 12.]]
-c = tf.matmul(a, b) => [[58 64]
-                        [139 154]]
+# [[ 7,  8],
+#  [ 9, 10],
+#  [11, 12]]
+b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2])
+
+# `a` * `b`
+# [[ 58,  64],
+#  [139, 154]]
+c = tf.matmul(a, b)
 
 
 # 3-D tensor `a`
+# [[[ 1,  2,  3],
+#   [ 4,  5,  6]],
+#  [[ 7,  8,  9],
+#   [10, 11, 12]]]
 a = tf.constant(np.arange(1, 13, dtype=np.int32),
-                shape=[2, 2, 3])                  => [[[ 1.  2.  3.]
-                                                       [ 4.  5.  6.]],
-                                                      [[ 7.  8.  9.]
-                                                       [10. 11. 12.]]]
+                shape=[2, 2, 3])
 
 # 3-D tensor `b`
+# [[[13, 14],
+#   [15, 16],
+#   [17, 18]],
+#  [[19, 20],
+#   [21, 22],
+#   [23, 24]]]
 b = tf.constant(np.arange(13, 25, dtype=np.int32),
-                shape=[2, 3, 2])                   => [[[13. 14.]
-                                                        [15. 16.]
-                                                        [17. 18.]],
-                                                       [[19. 20.]
-                                                        [21. 22.]
-                                                        [23. 24.]]]
-c = tf.matmul(a, b) => [[[ 94 100]
-                         [229 244]],
-                        [[508 532]
-                         [697 730]]]
+                shape=[2, 3, 2])
+
+# `a` * `b`
+# [[[ 94, 100],
+#   [229, 244]],
+#  [[508, 532],
+#   [697, 730]]]
+c = tf.matmul(a, b)
 
 # Since python >= 3.5 the @ operator is supported (see PEP 465).
 # In TensorFlow, it simply calls the `tf.matmul()` function, so the
@@ -649,12 +677,12 @@ d = tf.matmul(tf.matmul(a, b), [[10.], [11.]])
 
 #### Returns:
 
-  A `Tensor` of the same type as `a` and `b` where each inner-most matrix is
-  the product of the corresponding matrices in `a` and `b`, e.g. if all
-  transpose or adjoint attributes are `False`:
+A `Tensor` of the same type as `a` and `b` where each inner-most matrix is
+the product of the corresponding matrices in `a` and `b`, e.g. if all
+transpose or adjoint attributes are `False`:
 
-  `output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
-  for all indices i, j.
+`output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
+for all indices i, j.
 
 * <b>`Note`</b>: This is matrix product, not element-wise product.
 
@@ -691,7 +719,7 @@ with a flooring divide. E.g. `floor(x / y) * y + mod(x, y) = x`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
@@ -725,7 +753,7 @@ I.e., \\(y = -x\\).
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__or__"><code>__or__</code></h3>
 
@@ -750,7 +778,7 @@ Returns the truth value of x OR y element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__pow__"><code>__pow__</code></h3>
 
@@ -766,10 +794,10 @@ Computes the power of one value to another.
 Given a tensor `x` and a tensor `y`, this operation computes \\(x^y\\) for
 corresponding elements in `x` and `y`. For example:
 
-```
-# tensor 'x' is [[2, 2], [3, 3]]
-# tensor 'y' is [[8, 16], [2, 3]]
-tf.pow(x, y) ==> [[256, 65536], [9, 27]]
+```python
+x = tf.constant([[2, 2], [3, 3]])
+y = tf.constant([[8, 16], [2, 3]])
+tf.pow(x, y)  # [[256, 65536], [9, 27]]
 ```
 
 #### Args:
@@ -783,7 +811,7 @@ tf.pow(x, y) ==> [[256, 65536], [9, 27]]
 
 #### Returns:
 
-  A `Tensor`.
+A `Tensor`.
 
 <h3 id="__radd__"><code>__radd__</code></h3>
 
@@ -808,7 +836,7 @@ Returns x + y element-wise.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rand__"><code>__rand__</code></h3>
 
@@ -833,7 +861,7 @@ Returns the truth value of x AND y element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__rdiv__"><code>__rdiv__</code></h3>
 
@@ -854,7 +882,7 @@ Divide two values using Python 2 semantics. Used for Tensor.__div__.
 
 #### Returns:
 
-  `x / y` returns the quotient of x and y.
+`x / y` returns the quotient of x and y.
 
 <h3 id="__rfloordiv__"><code>__rfloordiv__</code></h3>
 
@@ -888,7 +916,7 @@ as well.
 
 #### Returns:
 
-  `x / y` rounded down (except possibly towards zero for negative integers).
+`x / y` rounded down (except possibly towards zero for negative integers).
 
 
 #### Raises:
@@ -927,35 +955,46 @@ For example:
 
 ```python
 # 2-D tensor `a`
-a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3]) => [[1. 2. 3.]
-                                                      [4. 5. 6.]]
+# [[1, 2, 3],
+#  [4, 5, 6]]
+a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3])
+
 # 2-D tensor `b`
-b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2]) => [[7. 8.]
-                                                         [9. 10.]
-                                                         [11. 12.]]
-c = tf.matmul(a, b) => [[58 64]
-                        [139 154]]
+# [[ 7,  8],
+#  [ 9, 10],
+#  [11, 12]]
+b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2])
+
+# `a` * `b`
+# [[ 58,  64],
+#  [139, 154]]
+c = tf.matmul(a, b)
 
 
 # 3-D tensor `a`
+# [[[ 1,  2,  3],
+#   [ 4,  5,  6]],
+#  [[ 7,  8,  9],
+#   [10, 11, 12]]]
 a = tf.constant(np.arange(1, 13, dtype=np.int32),
-                shape=[2, 2, 3])                  => [[[ 1.  2.  3.]
-                                                       [ 4.  5.  6.]],
-                                                      [[ 7.  8.  9.]
-                                                       [10. 11. 12.]]]
+                shape=[2, 2, 3])
 
 # 3-D tensor `b`
+# [[[13, 14],
+#   [15, 16],
+#   [17, 18]],
+#  [[19, 20],
+#   [21, 22],
+#   [23, 24]]]
 b = tf.constant(np.arange(13, 25, dtype=np.int32),
-                shape=[2, 3, 2])                   => [[[13. 14.]
-                                                        [15. 16.]
-                                                        [17. 18.]],
-                                                       [[19. 20.]
-                                                        [21. 22.]
-                                                        [23. 24.]]]
-c = tf.matmul(a, b) => [[[ 94 100]
-                         [229 244]],
-                        [[508 532]
-                         [697 730]]]
+                shape=[2, 3, 2])
+
+# `a` * `b`
+# [[[ 94, 100],
+#   [229, 244]],
+#  [[508, 532],
+#   [697, 730]]]
+c = tf.matmul(a, b)
 
 # Since python >= 3.5 the @ operator is supported (see PEP 465).
 # In TensorFlow, it simply calls the `tf.matmul()` function, so the
@@ -982,12 +1021,12 @@ d = tf.matmul(tf.matmul(a, b), [[10.], [11.]])
 
 #### Returns:
 
-  A `Tensor` of the same type as `a` and `b` where each inner-most matrix is
-  the product of the corresponding matrices in `a` and `b`, e.g. if all
-  transpose or adjoint attributes are `False`:
+A `Tensor` of the same type as `a` and `b` where each inner-most matrix is
+the product of the corresponding matrices in `a` and `b`, e.g. if all
+transpose or adjoint attributes are `False`:
 
-  `output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
-  for all indices i, j.
+`output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
+for all indices i, j.
 
 * <b>`Note`</b>: This is matrix product, not element-wise product.
 
@@ -1024,7 +1063,7 @@ with a flooring divide. E.g. `floor(x / y) * y + mod(x, y) = x`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rmul__"><code>__rmul__</code></h3>
 
@@ -1060,7 +1099,7 @@ Returns the truth value of x OR y element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__rpow__"><code>__rpow__</code></h3>
 
@@ -1076,10 +1115,10 @@ Computes the power of one value to another.
 Given a tensor `x` and a tensor `y`, this operation computes \\(x^y\\) for
 corresponding elements in `x` and `y`. For example:
 
-```
-# tensor 'x' is [[2, 2], [3, 3]]
-# tensor 'y' is [[8, 16], [2, 3]]
-tf.pow(x, y) ==> [[256, 65536], [9, 27]]
+```python
+x = tf.constant([[2, 2], [3, 3]])
+y = tf.constant([[8, 16], [2, 3]])
+tf.pow(x, y)  # [[256, 65536], [9, 27]]
 ```
 
 #### Args:
@@ -1093,7 +1132,7 @@ tf.pow(x, y) ==> [[256, 65536], [9, 27]]
 
 #### Returns:
 
-  A `Tensor`.
+A `Tensor`.
 
 <h3 id="__rsub__"><code>__rsub__</code></h3>
 
@@ -1111,14 +1150,14 @@ Returns x - y element-wise.
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor`. Must be one of the following types: `half`, `float32`, `float64`, `int32`, `int64`, `complex64`, `complex128`.
+* <b>`x`</b>: A `Tensor`. Must be one of the following types: `half`, `float32`, `float64`, `uint8`, `int8`, `uint16`, `int16`, `int32`, `int64`, `complex64`, `complex128`.
 * <b>`y`</b>: A `Tensor`. Must have the same type as `x`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rtruediv__"><code>__rtruediv__</code></h3>
 
@@ -1158,14 +1197,14 @@ Returns x - y element-wise.
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor`. Must be one of the following types: `half`, `float32`, `float64`, `int32`, `int64`, `complex64`, `complex128`.
+* <b>`x`</b>: A `Tensor`. Must be one of the following types: `half`, `float32`, `float64`, `uint8`, `int8`, `uint16`, `int16`, `int32`, `int64`, `complex64`, `complex128`.
 * <b>`y`</b>: A `Tensor`. Must have the same type as `x`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
@@ -1210,8 +1249,8 @@ This is essentially a shortcut for `assign(self, value)`.
 
 #### Returns:
 
-  A `Tensor` that will hold the new value of this variable after
-  the assignment has completed.
+A `Tensor` that will hold the new value of this variable after
+the assignment has completed.
 
 <h3 id="assign_add"><code>assign_add</code></h3>
 
@@ -1234,8 +1273,8 @@ Adds a value to this variable.
 
 #### Returns:
 
-  A `Tensor` that will hold the new value of this variable after
-  the addition has completed.
+A `Tensor` that will hold the new value of this variable after
+the addition has completed.
 
 <h3 id="assign_sub"><code>assign_sub</code></h3>
 
@@ -1258,8 +1297,8 @@ This is essentially a shortcut for `assign_sub(self, delta)`.
 
 #### Returns:
 
-  A `Tensor` that will hold the new value of this variable after
-  the subtraction has completed.
+A `Tensor` that will hold the new value of this variable after
+the subtraction has completed.
 
 <h3 id="count_up_to"><code>count_up_to</code></h3>
 
@@ -1285,9 +1324,9 @@ This is essentially a shortcut for `count_up_to(self, limit)`.
 
 #### Returns:
 
-  A `Tensor` that will hold the variable value before the increment. If no
-  other Op modifies this variable, the values produced will all be
-  distinct.
+A `Tensor` that will hold the variable value before the increment. If no
+other Op modifies this variable, the values produced will all be
+distinct.
 
 <h3 id="eval"><code>eval</code></h3>
 
@@ -1325,11 +1364,12 @@ with tf.Session() as sess:
 
 #### Returns:
 
-  A numpy `ndarray` with a copy of the value of this variable.
+A numpy `ndarray` with a copy of the value of this variable.
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
 ``` python
+@staticmethod
 from_proto(
     variable_def,
     import_scope=None
@@ -1368,8 +1408,8 @@ w = tf.Variable(v.initialized_value() * 2.0)
 
 #### Returns:
 
-  A `Tensor` holding the value of this variable after its initializer
-  has run.
+A `Tensor` holding the value of this variable after its initializer
+has run.
 
 <h3 id="load"><code>load</code></h3>
 
@@ -1380,7 +1420,7 @@ load(
 )
 ```
 
-Load new value into this variable
+Load new value into this variable.
 
 Writes new value to variable's memory. Doesn't add ops to the graph.
 
@@ -1406,14 +1446,14 @@ with tf.Session() as sess:
 
 #### Args:
 
-    value: New variable value
-    session: The session to use to evaluate this variable. If
+* <b>`value`</b>: New variable value
+* <b>`session`</b>: The session to use to evaluate this variable. If
       none, the default session is used.
 
 
 #### Raises:
 
-    ValueError: Session is not passed and no default session
+* <b>`ValueError`</b>: Session is not passed and no default session
 
 <h3 id="read_value"><code>read_value</code></h3>
 
@@ -1428,7 +1468,7 @@ dependencies, etc.
 
 #### Returns:
 
-  A `Tensor` containing the value of the variable.
+A `Tensor` containing the value of the variable.
 
 <h3 id="scatter_sub"><code>scatter_sub</code></h3>
 
@@ -1452,8 +1492,8 @@ sparse_delta.values)`.
 
 #### Returns:
 
-  A `Tensor` that will hold the new value of this variable after
-  the scattered subtraction has completed.
+A `Tensor` that will hold the new value of this variable after
+the scattered subtraction has completed.
 
 
 #### Raises:
@@ -1487,8 +1527,8 @@ Converts a `Variable` to a `VariableDef` protocol buffer.
 
 #### Returns:
 
-  A `VariableDef` protocol buffer, or `None` if the `Variable` is not
-  in the specified name scope.
+A `VariableDef` protocol buffer, or `None` if the `Variable` is not
+in the specified name scope.
 
 <h3 id="value"><code>value</code></h3>
 
@@ -1511,7 +1551,7 @@ is on a different device it will get a copy of the variable.
 
 #### Returns:
 
-  A `Tensor` containing the value of the variable.
+A `Tensor` containing the value of the variable.
 
 
 

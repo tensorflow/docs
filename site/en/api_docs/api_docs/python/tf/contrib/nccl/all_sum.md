@@ -14,7 +14,7 @@ all_sum(tensors)
 
 
 
-Defined in [`tensorflow/contrib/nccl/python/ops/nccl_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/nccl/python/ops/nccl_ops.py).
+Defined in [`tensorflow/contrib/nccl/python/ops/nccl_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/nccl/python/ops/nccl_ops.py).
 
 Returns a list of tensors with the all-reduce sum across `tensors`.
 
@@ -29,5 +29,5 @@ returned tensors are evaluated then the computation will hang.
 
 #### Returns:
 
-  List of tensors, each with the sum of the input tensors, where tensor i has
-  the same device as `tensors[i]`.
+List of tensors, each with the sum of the input tensors, where tensor i has
+the same device as `tensors[i]`.

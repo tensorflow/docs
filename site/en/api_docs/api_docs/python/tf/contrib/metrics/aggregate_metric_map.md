@@ -14,7 +14,7 @@ aggregate_metric_map(names_to_tuples)
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 See the guide: [Metrics (contrib) > Metric `Ops`](../../../../../api_guides/python/contrib.metrics#Metric_Ops_)
 
@@ -44,5 +44,5 @@ and update ops when the list of metrics is long. For example:
 
 #### Returns:
 
-  A dictionary from metric names to value ops and a dictionary from metric
-  names to update ops.
+A dictionary from metric names to value ops and a dictionary from metric
+names to update ops.

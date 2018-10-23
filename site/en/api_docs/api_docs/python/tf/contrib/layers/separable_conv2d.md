@@ -21,6 +21,7 @@ separable_conv2d(
     depth_multiplier,
     stride=1,
     padding='SAME',
+    data_format=DATA_FORMAT_NHWC,
     rate=1,
     activation_fn=tf.nn.relu,
     normalizer_fn=None,
@@ -39,7 +40,7 @@ separable_conv2d(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/layers.py).
 
 See the guide: [Layers (contrib) > Higher level ops for building neural network layers](../../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers)
 
@@ -66,6 +67,7 @@ to produce the end result.
 * <b>`stride`</b>: A list of length 2: [stride_height, stride_width], specifying the
     depthwise convolution stride. Can be an int if both strides are the same.
 * <b>`padding`</b>: One of 'VALID' or 'SAME'.
+* <b>`data_format`</b>: A string. `NHWC` (default) and `NCHW` are supported.
 * <b>`rate`</b>: A list of length 2: [rate_height, rate_width], specifying the dilation
     rates for atrous convolution. Can be an int if both rates are the same.
     If any value is larger than one, then both stride values need to be one.
@@ -91,4 +93,8 @@ to produce the end result.
 
 #### Returns:
 
-  A `Tensor` representing the output of the operation.
+A `Tensor` representing the output of the operation.
+
+#### Raises:
+
+* <b>`ValueError`</b>: If `data_format` is invalid.

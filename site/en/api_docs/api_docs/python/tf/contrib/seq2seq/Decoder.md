@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/decoder.py).
 
 See the guide: [Seq2seq Library (contrib) > Dynamic Decoding](../../../../../api_guides/python/contrib.seq2seq#Dynamic_Decoding)
 
@@ -77,8 +77,8 @@ This methods must compute initial input values and initial state.
 
 #### Returns:
 
-  `(finished, initial_inputs, initial_state)`: initial values of
-  'finished' flags, inputs and state.
+`(finished, initial_inputs, initial_state)`: initial values of
+'finished' flags, inputs and state.
 
 <h3 id="step"><code>step</code></h3>
 
@@ -105,11 +105,11 @@ Called per step of decoding (but only once for dynamic decoding).
 
 #### Returns:
 
-  `(outputs, next_state, next_inputs, finished)`: `outputs` is an object
-  containing the decoder output, `next_state` is a (structure of) state tensors
-  and TensorArrays, `next_inputs` is the tensor that should be used as input for
-  the next step, `finished` is a boolean tensor telling whether the sequence
-  is complete, for each sequence in the batch.
+`(outputs, next_state, next_inputs, finished)`: `outputs` is an object
+containing the decoder output, `next_state` is a (structure of) state tensors
+and TensorArrays, `next_inputs` is the tensor that should be used as input for
+the next step, `finished` is a boolean tensor telling whether the sequence
+is complete, for each sequence in the batch.
 
 
 

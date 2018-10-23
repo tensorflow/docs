@@ -19,7 +19,7 @@ where(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guides: [Control Flow > Comparison Operators](../../../api_guides/python/control_flow_ops#Comparison_Operators), [Math > Sequence Comparison and Indexing](../../../api_guides/python/math_ops#Sequence_Comparison_and_Indexing)
 
@@ -60,8 +60,8 @@ has the same shape as `x` and `y`, then it chooses which element to copy from
 
 #### Returns:
 
-  A `Tensor` with the same type and shape as `x`, `y` if they are non-None.
-  A `Tensor` with shape `(num_true, dim_size(condition))`.
+A `Tensor` with the same type and shape as `x`, `y` if they are non-None.
+A `Tensor` with shape `(num_true, dim_size(condition))`.
 
 
 #### Raises:

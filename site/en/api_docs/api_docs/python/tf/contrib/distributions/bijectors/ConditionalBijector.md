@@ -14,7 +14,7 @@ Inherits From: [`Bijector`](../../../../tf/distributions/bijectors/Bijector)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector_impl.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector_impl.py).
 
 Conditional Bijector is a Bijector that allows intrinsic conditioning.
 
@@ -95,6 +95,11 @@ See `Bijector` subclass docstring for more details and specific examples.
 * <b>`dtype`</b>: `tf.dtype` supported by this `Bijector`. `None` means dtype is not
     enforced.
 * <b>`name`</b>: The name to give Ops created by the initializer.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>:  If a member of `graph_parents` is not a `Tensor`.
 
 <h3 id="forward"><code>forward</code></h3>
 

@@ -21,7 +21,7 @@ entropy_shannon(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/entropy_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/entropy_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/entropy_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/entropy_impl.py).
 
 See the guide: [BayesFlow Entropy (contrib) > Ops](../../../../../../api_guides/python/contrib.bayesflow.entropy#Ops)
 
@@ -53,7 +53,7 @@ User supplies either `Tensor` of samples `z`, or number of samples to draw `n`
 
 #### Returns:
 
-  A `Tensor` with same `dtype` as `p`, and shape equal to `p.batch_shape`.
+A `Tensor` with same `dtype` as `p`, and shape equal to `p.batch_shape`.
 
 
 #### Raises:

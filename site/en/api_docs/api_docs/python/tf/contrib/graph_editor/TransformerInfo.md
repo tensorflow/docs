@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/transform.py).
+Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/transform.py).
 
 "Contains information about the result of a transform operation.
 
@@ -57,7 +57,7 @@ it will return an operation or a tensor.
 
 #### Returns:
 
-  the original tensor/operation (or None if no match is found).
+the original tensor/operation (or None if no match is found).
 
 <h3 id="transformed"><code>transformed</code></h3>
 
@@ -83,7 +83,7 @@ it will return an operation or a tensor.
 
 #### Returns:
 
-  the transformed tensor/operation (or None if no match is found).
+the transformed tensor/operation (or None if no match is found).
 
 
 

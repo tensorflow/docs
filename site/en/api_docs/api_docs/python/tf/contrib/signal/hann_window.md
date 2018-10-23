@@ -19,11 +19,11 @@ hann_window(
 
 
 
-Defined in [`tensorflow/contrib/signal/python/ops/window_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/signal/python/ops/window_ops.py).
+Defined in [`tensorflow/contrib/signal/python/ops/window_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/signal/python/ops/window_ops.py).
 
-Generate a Hann window.
+See the guide: [Signal Processing (contrib) > Reconstructing framed sequences and applying a tapering window](../../../../../api_guides/python/contrib.signal#Reconstructing_framed_sequences_and_applying_a_tapering_window)
 
-https://en.wikipedia.org/wiki/Window_function#Hann_window
+Generate a [Hann window][hann].
 
 #### Args:
 
@@ -38,9 +38,11 @@ https://en.wikipedia.org/wiki/Window_function#Hann_window
 
 #### Returns:
 
-  A `Tensor` of shape `[window_length]` of type `dtype`.
+A `Tensor` of shape `[window_length]` of type `dtype`.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: If `dtype` is not a floating point type.
+
+[hann]: https://en.wikipedia.org/wiki/Window_function#Hann_window

@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.matrix_solve_ls
 
+### Aliases:
+
+* `tf.linalg.lstsq`
+* `tf.matrix_solve_ls`
+
 ``` python
 matrix_solve_ls(
     matrix,
@@ -20,7 +25,7 @@ matrix_solve_ls(
 
 
 
-Defined in [`tensorflow/python/ops/linalg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/linalg_ops.py).
+Defined in [`tensorflow/python/ops/linalg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/linalg_ops.py).
 
 See the guide: [Math > Matrix Math Functions](../../../api_guides/python/math_ops#Matrix_Math_Functions)
 
@@ -28,7 +33,7 @@ Solves one or more linear least-squares problems.
 
 `matrix` is a tensor of shape `[..., M, N]` whose inner-most 2 dimensions
 form `M`-by-`N` matrices. Rhs is a tensor of shape `[..., M, K]` whose
-inner-most 2 dimensions form `M`-by-`K` matrices.   The computed output is a
+inner-most 2 dimensions form `M`-by-`K` matrices.  The computed output is a
 `Tensor` of shape `[..., N, K]` whose inner-most 2 dimensions form `M`-by-`K`
 matrices that solve the equations
 `matrix[..., :, :] * output[..., :, :] = rhs[..., :, :]` in the least squares
@@ -76,3 +81,9 @@ typically 6-7 times slower than the fast path. If `fast` is `False` then
     `M`-by-`K` matrices that solve the equations
     `matrix[..., :, :] * output[..., :, :] = rhs[..., :, :]` in the least
     squares sense.
+
+
+#### Raises:
+
+* <b>`NotImplementedError`</b>: matrix_solve_ls is currently disabled for complex128
+  and l2_regularizer != 0 due to poor accuracy.

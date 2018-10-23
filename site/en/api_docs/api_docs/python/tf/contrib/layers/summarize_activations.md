@@ -17,7 +17,7 @@ summarize_activations(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/summaries.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/summaries.py).
+Defined in [`tensorflow/contrib/layers/python/layers/summaries.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/summaries.py).
 
 See the guide: [Layers (contrib) > Summaries](../../../../../api_guides/python/contrib.layers#Summaries)
 

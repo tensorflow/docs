@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/hparam.py).
+Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/hparam.py).
 
 Class to hold a set of hyperparameters as name-value pairs.
 
@@ -125,7 +125,7 @@ names.  If you use one of the reserved name the constructor raises a
     deserializing hparam_def.  Otherwise **kwargs is used.
 * <b>`model_structure`</b>: An instance of ModelStructure, defining the feature
     crosses to be used in the Trial.
-  **kwargs: Key-value pairs where the key is the hyperparameter name and
+* <b>`**kwargs`</b>: Key-value pairs where the key is the hyperparameter name and
     the value is the value for the parameter.
 
 
@@ -159,6 +159,7 @@ Adds {name, value} pair to hyperparameters.
 <h3 id="from_proto"><code>from_proto</code></h3>
 
 ``` python
+@staticmethod
 from_proto(
     hparam_def,
     import_scope=None
@@ -193,7 +194,7 @@ See parse_values for more detail on the allowed format for values.
 
 #### Returns:
 
-  The `HParams` instance.
+The `HParams` instance.
 
 
 #### Raises:
@@ -215,12 +216,58 @@ Override hyperparameter values, parsing new values from a json object.
 
 #### Returns:
 
-  The `HParams` instance.
+The `HParams` instance.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: If `values_json` cannot be parsed.
+
+<h3 id="set_from_map"><code>set_from_map</code></h3>
+
+``` python
+set_from_map(values_map)
+```
+
+Override hyperparameter values, parsing new values from a dictionary.
+
+#### Args:
+
+* <b>`values_map`</b>: Dictionary of name:value pairs.
+
+
+#### Returns:
+
+The `HParams` instance.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If `values_map` cannot be parsed.
+
+<h3 id="set_hparam"><code>set_hparam</code></h3>
+
+``` python
+set_hparam(
+    name,
+    value
+)
+```
+
+Set the value of an existing hyperparameter.
+
+This function verifies that the type of the value matches the type of the
+existing hyperparameter.
+
+#### Args:
+
+* <b>`name`</b>: Name of the hyperparameter.
+* <b>`value`</b>: New value of the hyperparameter.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If there is a type mismatch.
 
 <h3 id="set_model_structure"><code>set_model_structure</code></h3>
 
@@ -240,7 +287,7 @@ Serializes the hyperparameters into JSON.
 
 #### Returns:
 
-  A JSON string.
+A JSON string.
 
 <h3 id="to_proto"><code>to_proto</code></h3>
 
@@ -257,7 +304,7 @@ Converts a `HParams` object to a `HParamDef` protocol buffer.
 
 #### Returns:
 
-  A `HParamDef` protocol buffer.
+A `HParamDef` protocol buffer.
 
 <h3 id="values"><code>values</code></h3>
 
@@ -269,8 +316,8 @@ Return the hyperparameter values as a Python dictionary.
 
 #### Returns:
 
-  A dictionary with hyperparameter names as keys.  The values are the
-  hyperparameter values.
+A dictionary with hyperparameter names as keys.  The values are the
+hyperparameter values.
 
 
 

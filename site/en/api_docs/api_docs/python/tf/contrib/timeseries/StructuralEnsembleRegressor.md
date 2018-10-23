@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/estimators.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/timeseries/python/timeseries/estimators.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/estimators.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/timeseries/python/timeseries/estimators.py).
 
 An Estimator for structural time series models.
 
@@ -51,6 +51,15 @@ saved state has been flushed.
 <h3 id="model_dir"><code>model_dir</code></h3>
 
 
+
+<h3 id="model_fn"><code>model_fn</code></h3>
+
+Returns the model_fn which is bound to self.params.
+
+#### Returns:
+
+The model_fn with following signature:
+  `def model_fn(features, labels, mode, config)`
 
 <h3 id="params"><code>params</code></h3>
 
@@ -166,8 +175,8 @@ Build an input_receiver_fn for export_savedmodel which accepts arrays.
 
 #### Returns:
 
-  An input_receiver_fn which may be passed to the Estimator's
-  export_savedmodel.
+An input_receiver_fn which may be passed to the Estimator's
+export_savedmodel.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
@@ -209,9 +218,9 @@ Evaluates until:
 
 #### Returns:
 
-  A dict containing the evaluation metrics specified in `model_fn` keyed by
-  name, as well as an entry `global_step` which contains the value of the
-  global step for which this evaluation was performed.
+A dict containing the evaluation metrics specified in `model_fn` keyed by
+name, as well as an entry `global_step` which contains the value of the
+global step for which this evaluation was performed.
 
 
 #### Raises:
@@ -274,13 +283,65 @@ is specified as `{'my_asset_file.txt': '/path/to/my_asset_file.txt'}`.
 
 #### Returns:
 
-  The string path to the exported directory.
+The string path to the exported directory.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: if no serving_input_receiver_fn is provided, no export_outputs
       are provided, or no checkpoint can be found.
+
+<h3 id="get_variable_names"><code>get_variable_names</code></h3>
+
+``` python
+get_variable_names()
+```
+
+Returns list of all variable names in this model.
+
+#### Returns:
+
+List of names.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If the Estimator has not produced a checkpoint yet.
+
+<h3 id="get_variable_value"><code>get_variable_value</code></h3>
+
+``` python
+get_variable_value(name)
+```
+
+Returns value of the variable given by name.
+
+#### Args:
+
+* <b>`name`</b>: string or a list of string, name of the tensor.
+
+
+#### Returns:
+
+Numpy array - value of the tensor.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If the Estimator has not produced a checkpoint yet.
+
+<h3 id="latest_checkpoint"><code>latest_checkpoint</code></h3>
+
+``` python
+latest_checkpoint()
+```
+
+Finds the filename of latest saved checkpoint file in `model_dir`.
+
+#### Returns:
+
+The full path to the latest checkpoint or `None` if no checkpoint was
+found.
 
 <h3 id="predict"><code>predict</code></h3>
 
@@ -293,7 +354,7 @@ predict(
 )
 ```
 
-Returns predictions for given features.
+Yields predictions for given features.
 
 #### Args:
 
@@ -314,7 +375,7 @@ Returns predictions for given features.
 
 #### Yields:
 
-  Evaluated values of `predictions` tensors.
+Evaluated values of `predictions` tensors.
 
 
 #### Raises:
@@ -332,7 +393,8 @@ train(
     input_fn,
     hooks=None,
     steps=None,
-    max_steps=None
+    max_steps=None,
+    saving_listeners=None
 )
 ```
 
@@ -346,27 +408,28 @@ Trains a model given training data input_fn.
 * <b>`hooks`</b>: List of `SessionRunHook` subclass instances. Used for callbacks
     inside the training loop.
 * <b>`steps`</b>: Number of steps for which to train model. If `None`, train forever
-    or train until input_fn generates the `OutOfRange` or `StopIteration`
-    error. 'steps' works incrementally. If you call two times
-    train(steps=10) then training occurs in total 20 steps. If `OutOfRange`
-    or `StopIteration` error occurs in the middle, training stops before 20
-    steps. If you don't want to have incremental behavior please set
-    `max_steps` instead. If set, `max_steps` must be `None`.
+    or train until input_fn generates the `OutOfRange` error or
+    `StopIteration` exception. 'steps' works incrementally. If you call two
+    times train(steps=10) then training occurs in total 20 steps. If
+    `OutOfRange` or `StopIteration` occurs in the middle, training stops
+    before 20 steps. If you don't want to have incremental behavior please
+    set `max_steps` instead. If set, `max_steps` must be `None`.
 * <b>`max_steps`</b>: Number of total steps for which to train model. If `None`,
-    train forever or train until input_fn generates the `OutOfRange` or
-    `StopIteration` error. If set, `steps` must be `None`. If `OutOfRange`
-    or `StopIteration` error occurs in the middle, training stops before
-    `max_steps` steps.
-
+    train forever or train until input_fn generates the `OutOfRange` error
+    or `StopIteration` exception. If set, `steps` must be `None`. If
+    `OutOfRange` or `StopIteration` occurs in the middle, training stops
+    before `max_steps` steps.
     Two calls to `train(steps=100)` means 200 training
     iterations. On the other hand, two calls to `train(max_steps=100)` means
     that the second call will not do any iteration since first call did
     all 100 steps.
+* <b>`saving_listeners`</b>: list of `CheckpointSaverListener` objects. Used for
+    callbacks that run immediately before or after checkpoint savings.
 
 
 #### Returns:
 
-  `self`, for chaining.
+`self`, for chaining.
 
 
 #### Raises:

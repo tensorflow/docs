@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/export/export_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/export/export_lib.py).
+Defined in [`tensorflow/python/estimator/export/export_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/export/export_lib.py).
 
 Utility methods for exporting Estimator.
 

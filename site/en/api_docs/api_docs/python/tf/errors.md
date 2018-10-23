@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/errors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/errors.py).
+Defined in [`tensorflow/python/framework/errors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/errors.py).
 
 Exception types for TensorFlow errors.
 
@@ -50,13 +50,13 @@ Exception types for TensorFlow errors.
 
 [`class UnknownError`](../tf/errors/UnknownError): Unknown error.
 
+[`class raise_exception_on_not_ok_status`](../tf/errors/raise_exception_on_not_ok_status): Context manager to check for C API status.
+
 ## Functions
 
 [`error_code_from_exception_type(...)`](../tf/errors/error_code_from_exception_type)
 
 [`exception_type_from_error_code(...)`](../tf/errors/exception_type_from_error_code)
-
-[`raise_exception_on_not_ok_status(...)`](../tf/errors/raise_exception_on_not_ok_status)
 
 ## Other Members
 

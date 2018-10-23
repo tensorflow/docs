@@ -40,6 +40,6 @@ Example-parsing ops.
 
 #### Returns:
 
-  A `Tensor` of type `string`.
-  Each string is a binary Example protocol buffer corresponding
-  to the respective element of `json_examples`.
+A `Tensor` of type `string`.
+Each string is a binary Example protocol buffer corresponding
+to the respective element of `json_examples`.

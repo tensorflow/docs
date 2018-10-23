@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/crf/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/crf/__init__.py).
+Defined in [`tensorflow/contrib/crf/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/crf/__init__.py).
 
 Linear-chain CRF layer.
 
@@ -19,11 +19,17 @@ See the [CRF (contrib)](../../../../api_guides/python/contrib.crf) guide.
 
 ## Classes
 
+[`class CrfDecodeBackwardRnnCell`](../../tf/contrib/crf/CrfDecodeBackwardRnnCell): Computes backward decoding in a linear-chain CRF.
+
+[`class CrfDecodeForwardRnnCell`](../../tf/contrib/crf/CrfDecodeForwardRnnCell): Computes the forward decoding in a linear-chain CRF.
+
 [`class CrfForwardRnnCell`](../../tf/contrib/crf/CrfForwardRnnCell): Computes the alpha values in a linear-chain CRF.
 
 ## Functions
 
 [`crf_binary_score(...)`](../../tf/contrib/crf/crf_binary_score): Computes the binary scores of tag sequences.
+
+[`crf_decode(...)`](../../tf/contrib/crf/crf_decode): Decode the highest scoring sequence of tags in TensorFlow.
 
 [`crf_log_likelihood(...)`](../../tf/contrib/crf/crf_log_likelihood): Computes the log-likelihood of tag sequences in a CRF.
 

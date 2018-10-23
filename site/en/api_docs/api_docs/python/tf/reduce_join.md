@@ -21,7 +21,7 @@ reduce_join(
 
 
 
-Defined in [`tensorflow/python/ops/string_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/string_ops.py).
+Defined in [`tensorflow/python/ops/string_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/string_ops.py).
 
 See the guide: [Strings > Joining](../../../api_guides/python/string_ops#Joining)
 
@@ -65,6 +65,6 @@ tf.reduce_join(a, []) ==> ["abcd"]
 
 #### Returns:
 
-  A `Tensor` of type `string`.
-  Has shape equal to that of the input with reduced dimensions removed or
-  set to `1` depending on `keep_dims`.
+A `Tensor` of type `string`.
+Has shape equal to that of the input with reduced dimensions removed or
+set to `1` depending on `keep_dims`.

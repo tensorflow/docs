@@ -17,7 +17,7 @@ sparse_reorder(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Manipulation](../../../api_guides/python/sparse_ops#Manipulation)
 
@@ -52,8 +52,8 @@ then the output will be a `SparseTensor` of shape `[4, 5]` and
 
 #### Returns:
 
-  A `SparseTensor` with the same shape and non-empty values, but in
-  canonical ordering.
+A `SparseTensor` with the same shape and non-empty values, but in
+canonical ordering.
 
 
 #### Raises:

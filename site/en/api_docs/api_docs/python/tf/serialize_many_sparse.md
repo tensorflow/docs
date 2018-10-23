@@ -17,7 +17,7 @@ serialize_many_sparse(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 Serialize an `N`-minibatch `SparseTensor` into an `[N, 3]` string `Tensor`.
 
@@ -37,9 +37,9 @@ The minibatch size `N` is extracted from `sparse_shape[0]`.
 
 #### Returns:
 
-  A string matrix (2-D `Tensor`) with `N` rows and `3` columns.
-  Each column represents serialized `SparseTensor`'s indices, values, and
-  shape (respectively).
+A string matrix (2-D `Tensor`) with `N` rows and `3` columns.
+Each column represents serialized `SparseTensor`'s indices, values, and
+shape (respectively).
 
 
 #### Raises:

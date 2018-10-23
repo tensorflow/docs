@@ -24,6 +24,8 @@ conv1d(
     kernel_regularizer=None,
     bias_regularizer=None,
     activity_regularizer=None,
+    kernel_constraint=None,
+    bias_constraint=None,
     trainable=True,
     name=None,
     reuse=None
@@ -32,7 +34,7 @@ conv1d(
 
 
 
-Defined in [`tensorflow/python/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/layers/convolutional.py).
+Defined in [`tensorflow/python/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/layers/convolutional.py).
 
 Functional interface for 1D convolution layer (e.g. temporal convolution).
 
@@ -71,7 +73,15 @@ a bias vector is created and added to the outputs. Finally, if
     be applied.
 * <b>`kernel_regularizer`</b>: Optional regularizer for the convolution kernel.
 * <b>`bias_regularizer`</b>: Optional regularizer for the bias vector.
-* <b>`activity_regularizer`</b>: Regularizer function for the output.
+* <b>`activity_regularizer`</b>: Optional regularizer function for the output.
+* <b>`kernel_constraint`</b>: Optional projection function to be applied to the
+      kernel after being updated by an `Optimizer` (e.g. used to implement
+      norm constraints or value constraints for layer weights). The function
+      must take as input the unprojected variable and must return the
+      projected variable (which must have the same shape). Constraints are
+      not safe to use when doing asynchronous distributed training.
+* <b>`bias_constraint`</b>: Optional projection function to be applied to the
+      bias after being updated by an `Optimizer`.
 * <b>`trainable`</b>: Boolean, if `True` also add variables to the graph collection
     `GraphKeys.TRAINABLE_VARIABLES` (see `tf.Variable`).
 * <b>`name`</b>: A string, the name of the layer.
@@ -81,4 +91,4 @@ a bias vector is created and added to the outputs. Finally, if
 
 #### Returns:
 
-  Output tensor.
+Output tensor.

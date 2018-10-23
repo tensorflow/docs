@@ -18,7 +18,7 @@ l1_l2_regularizer(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/regularizers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/regularizers.py).
 
 Returns a function that can be used to apply L1 L2 regularizations.
 
@@ -31,8 +31,8 @@ Returns a function that can be used to apply L1 L2 regularizations.
 
 #### Returns:
 
-  A function with signature `l1_l2(weights)` that applies a weighted sum of
-  L1 L2  regularization.
+A function with signature `l1_l2(weights)` that applies a weighted sum of
+L1 L2 regularization.
 
 
 #### Raises:

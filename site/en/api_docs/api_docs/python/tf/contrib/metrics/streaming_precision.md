@@ -21,7 +21,7 @@ streaming_precision(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 See the guide: [Metrics (contrib) > Metric `Ops`](../../../../../api_guides/python/contrib.metrics#Metric_Ops_)
 
@@ -33,7 +33,7 @@ precision. This value is ultimately returned as `precision`, an idempotent
 operation that simply divides `true_positives` by the sum of `true_positives`
 and `false_positives`.
 
-For estimation of the metric  over a stream of data, the function creates an
+For estimation of the metric over a stream of data, the function creates an
 `update_op` operation that updates these variables and returns the
 `precision`. `update_op` weights each prediction by the corresponding value in
 `weights`.

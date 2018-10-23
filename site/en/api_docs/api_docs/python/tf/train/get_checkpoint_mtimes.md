@@ -14,7 +14,7 @@ get_checkpoint_mtimes(checkpoint_prefixes)
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/saver.py).
 
 Returns the mtimes (modification timestamps) of the checkpoints.
 
@@ -33,4 +33,4 @@ the naming difference between V1 and V2 formats.
 
 #### Returns:
 
-  A list of mtimes (in microseconds) of the found checkpoints.
+A list of mtimes (in microseconds) of the found checkpoints.

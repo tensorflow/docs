@@ -17,7 +17,7 @@ parallel_stack(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -33,10 +33,10 @@ tensor will have the shape `(N, A, B, C)`.
 For example:
 
 ```python
-# 'x' is [1, 4]
-# 'y' is [2, 5]
-# 'z' is [3, 6]
-parallel_stack([x, y, z])  # => [[1, 4], [2, 5], [3, 6]]
+x = tf.constant([1, 4])
+y = tf.constant([2, 5])
+z = tf.constant([3, 6])
+tf.parallel_stack([x, y, z])  # [[1, 4], [2, 5], [3, 6]]
 ```
 
 The difference between `stack` and `parallel_stack` is that `stack` requires

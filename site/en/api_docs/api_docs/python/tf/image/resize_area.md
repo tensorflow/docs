@@ -12,7 +12,7 @@ page_type: reference
 resize_area(
     images,
     size,
-    align_corners=None,
+    align_corners=False,
     name=None
 )
 ```
@@ -26,6 +26,11 @@ See the guide: [Images > Resizing](../../../../api_guides/python/image#Resizing)
 Resize `images` to `size` using area interpolation.
 
 Input images can be of different types but output images are always float.
+
+Each output pixel is computed by first transforming the pixel's footprint into
+the input tensor and then averaging the pixels that intersect the footprint. An
+input pixel's contribution to the average is weighted by the fraction of its
+area that intersects the footprint.  This is the same as OpenCV's INTER_AREA.
 
 #### Args:
 
@@ -42,5 +47,5 @@ Input images can be of different types but output images are always float.
 
 #### Returns:
 
-  A `Tensor` of type `float32`. 4-D with shape
-  `[batch, new_height, new_width, channels]`.
+A `Tensor` of type `float32`. 4-D with shape
+`[batch, new_height, new_width, channels]`.

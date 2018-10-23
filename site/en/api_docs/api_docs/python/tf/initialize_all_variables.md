@@ -14,7 +14,7 @@ initialize_all_variables()
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/variables.py).
+Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/variables.py).
 
 See the guide: [Variables > Exporting and Importing Meta Graphs](../../../api_guides/python/state_ops#Exporting_and_Importing_Meta_Graphs)
 

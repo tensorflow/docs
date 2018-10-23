@@ -14,7 +14,7 @@ get_variable_full_name(var)
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/variables.py).
 
 Returns the full name of a variable.
 
@@ -30,4 +30,4 @@ a checkpoint file.
 
 #### Returns:
 
-  A string that is the full name.
+A string that is the full name.

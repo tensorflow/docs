@@ -8,10 +8,15 @@ page_type: reference
 
 # tf.qr
 
+### Aliases:
+
+* `tf.linalg.qr`
+* `tf.qr`
+
 ``` python
 qr(
     input,
-    full_matrices=None,
+    full_matrices=False,
     name=None
 )
 ```
@@ -48,7 +53,7 @@ q_full, r_full = qr(a, full_matrices=True)
 
 #### Returns:
 
-  A tuple of `Tensor` objects (q, r).
+A tuple of `Tensor` objects (q, r).
 
 * <b>`q`</b>: A `Tensor`. Has the same type as `input`. Orthonormal basis for range of `a`. If `full_matrices` is `False` then
     shape is `[..., M, P]`; if `full_matrices` is `True` then shape is

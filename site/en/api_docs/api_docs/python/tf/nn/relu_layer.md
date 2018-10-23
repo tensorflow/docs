@@ -19,7 +19,7 @@ relu_layer(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 Computes Relu(x * weight + biases).
 
@@ -34,5 +34,5 @@ Computes Relu(x * weight + biases).
 
 #### Returns:
 
-  A 2-D Tensor computing relu(matmul(x, weights) + biases).
-  Dimensions typically: batch, out_units.
+A 2-D Tensor computing relu(matmul(x, weights) + biases).
+Dimensions typically: batch, out_units.

@@ -48,5 +48,5 @@ time than `tf.string_to_hash_bucket_fast`.
 
 #### Returns:
 
-  A `Tensor` of type `int64`.
-  A Tensor of the same shape as the input `string_tensor`.
+A `Tensor` of type `int64`.
+A Tensor of the same shape as the input `string_tensor`.

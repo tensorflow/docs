@@ -26,7 +26,7 @@ export_meta_graph(
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/saver.py).
 
 See the guides: [Exporting and Importing a MetaGraph](../../../../api_guides/python/meta_graph), [Variables > Exporting and Importing Meta Graphs](../../../../api_guides/python/state_ops#Exporting_and_Importing_Meta_Graphs)
 
@@ -56,12 +56,12 @@ a subgraph.
 * <b>`clear_extraneous_savers`</b>: Remove any Saver-related information from the
       graph (both Save/Restore ops and SaverDefs) that are not associated
       with the provided SaverDef.
-  **kwargs: Optional keyed arguments.
+* <b>`**kwargs`</b>: Optional keyed arguments.
 
 
 #### Returns:
 
-  A `MetaGraphDef` proto.
+A `MetaGraphDef` proto.
 
 
 #### Raises:

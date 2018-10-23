@@ -21,14 +21,14 @@ import_graph_def(
 
 
 
-Defined in [`tensorflow/python/framework/importer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/importer.py).
+Defined in [`tensorflow/python/framework/importer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/importer.py).
 
 See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
 
 Imports the graph from `graph_def` into the current default `Graph`.
 
 This function provides a way to import a serialized TensorFlow
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/framework/graph.proto)
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/framework/graph.proto)
 protocol buffer, and extract individual objects in the `GraphDef` as
 [`tf.Tensor`](../tf/Tensor) and [`tf.Operation`](../tf/Operation) objects. Once extracted,
 these objects are placed into the current default `Graph`. See
@@ -61,8 +61,8 @@ proto.
 
 #### Returns:
 
-  A list of `Operation` and/or `Tensor` objects from the imported graph,
-  corresponding to the names in `return_elements`.
+A list of `Operation` and/or `Tensor` objects from the imported graph,
+corresponding to the names in `return_elements`.
 
 
 #### Raises:

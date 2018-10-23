@@ -14,7 +14,7 @@ Inherits From: [`TableInitializerBase`](../../../tf/contrib/lookup/TableInitiali
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/lookup_ops.py).
 
 Table initializers given `keys` and `values` tensors.
 
@@ -69,7 +69,7 @@ Initializes the given `table` with `keys` and `values` tensors.
 
 #### Returns:
 
-  The operation that initializes the table.
+The operation that initializes the table.
 
 
 #### Raises:

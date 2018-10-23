@@ -17,7 +17,7 @@ build_raw_serving_input_receiver_fn(
 
 
 
-Defined in [`tensorflow/python/estimator/export/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/export/export.py).
+Defined in [`tensorflow/python/estimator/export/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/export/export.py).
 
 Build a serving_input_receiver_fn expecting feature Tensors.
 
@@ -33,4 +33,4 @@ directly.
 
 #### Returns:
 
-  A serving_input_receiver_fn.
+A serving_input_receiver_fn.

@@ -26,7 +26,7 @@ static_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/rnn.py).
+Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/rnn.py).
 
 See the guide: [RNN and Cells (contrib) > Recurrent Neural Networks](../../../../api_guides/python/contrib.rnn#Recurrent_Neural_Networks)
 
@@ -80,11 +80,11 @@ The dynamic calculation performed is, at time `t` for batch row `b`,
 
 #### Returns:
 
-  A pair (outputs, state) where:
+A pair (outputs, state) where:
 
-  - outputs is a length T list of outputs (one for each input), or a nested
-    tuple of such elements.
-  - state is the final state
+- outputs is a length T list of outputs (one for each input), or a nested
+  tuple of such elements.
+- state is the final state
 
 
 #### Raises:

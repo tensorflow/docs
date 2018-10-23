@@ -14,7 +14,7 @@ checkpoint_exists(checkpoint_prefix)
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/saver.py).
 
 Checks whether a V1 or V2 checkpoint exists with the specified prefix.
 
@@ -30,4 +30,4 @@ into account the naming difference between V1 and V2 formats.
 
 #### Returns:
 
-  A bool, true iff a checkpoint referred to by `checkpoint_prefix` exists.
+A bool, true iff a checkpoint referred to by `checkpoint_prefix` exists.

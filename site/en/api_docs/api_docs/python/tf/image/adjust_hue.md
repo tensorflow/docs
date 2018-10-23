@@ -18,7 +18,7 @@ adjust_hue(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Image Adjustments](../../../../api_guides/python/image#Image_Adjustments)
 
@@ -44,4 +44,4 @@ image to HSV and rotating the hue channel (H) by
 
 #### Returns:
 
-  Adjusted image(s), same shape and DType as `image`.
+Adjusted image(s), same shape and DType as `image`.

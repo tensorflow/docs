@@ -19,7 +19,7 @@ get_ops_ios(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/select.py).
+Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/select.py).
 
 See the guide: [Graph Editor (contrib) > Module: select](../../../../../api_guides/python/contrib.graph_editor#Module_select)
 
@@ -38,7 +38,7 @@ Return all the `tf.Operation` which are connected to an op in ops.
 
 #### Returns:
 
-  All the `tf.Operation` surrounding the given ops.
+All the `tf.Operation` surrounding the given ops.
 
 #### Raises:
 

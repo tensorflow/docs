@@ -14,7 +14,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py).
 
 ExpRelaxedOneHotCategorical distribution with temperature and logits.
 
@@ -181,7 +181,7 @@ or `distributions.NOT_REPARAMETERIZED`.
 
 #### Returns:
 
-  An instance of `ReparameterizationType`.
+An instance of `ReparameterizationType`.
 
 <h3 id="temperature"><code>temperature</code></h3>
 
@@ -226,7 +226,7 @@ Initialize ExpRelaxedOneHotCategorical using class log-probabilities.
     `N - 1` dimensions index into a batch of independent distributions and
     the last dimension represents a vector of probabilities for each
     class. Only one of `logits` or `probs` should be passed in.
-* <b>`dtype`</b>: The type of the event samples (default: int32).
+* <b>`dtype`</b>: The type of the event samples (default: float32).
 * <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
     parameters are checked for validity despite possibly degrading runtime
     performance. When `False` invalid inputs may silently render incorrect
@@ -298,7 +298,7 @@ initialization arguments.
 
 #### Args:
 
-  **override_parameters_kwargs: String/value dictionary of initialization
+* <b>`**override_parameters_kwargs`</b>: String/value dictionary of initialization
     arguments to override with new values.
 
 
@@ -495,8 +495,8 @@ survival function, which are more accurate than `1 - cdf(x)` when `x >> 1`.
 
 #### Returns:
 
-  `Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
-    `self.dtype`.
+`Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
+  `self.dtype`.
 
 <h3 id="mean"><code>mean</code></h3>
 
@@ -541,7 +541,7 @@ Subclasses should override class method `_param_shapes`.
 
 #### Returns:
 
-  `dict` of parameter name to `Tensor` shapes.
+`dict` of parameter name to `Tensor` shapes.
 
 <h3 id="param_static_shapes"><code>param_static_shapes</code></h3>
 
@@ -570,7 +570,7 @@ constant-valued tensors when constant values are fed.
 
 #### Returns:
 
-  `dict` of parameter name to `TensorShape`.
+`dict` of parameter name to `TensorShape`.
 
 
 #### Raises:
@@ -707,8 +707,8 @@ survival_function(x) = P[X > x]
 
 #### Returns:
 
-  `Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
-    `self.dtype`.
+`Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
+  `self.dtype`.
 
 <h3 id="variance"><code>variance</code></h3>
 

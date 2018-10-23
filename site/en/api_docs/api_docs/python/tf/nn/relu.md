@@ -31,4 +31,4 @@ Computes rectified linear: `max(features, 0)`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `features`.
+A `Tensor`. Has the same type as `features`.

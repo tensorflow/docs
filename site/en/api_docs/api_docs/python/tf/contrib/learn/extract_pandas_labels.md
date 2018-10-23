@@ -14,7 +14,7 @@ extract_pandas_labels(labels)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_io/pandas_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/learn_io/pandas_io.py).
+Defined in [`tensorflow/contrib/learn/python/learn/learn_io/pandas_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/learn_io/pandas_io.py).
 
 See the guide: [Learn (contrib) > Input processing](../../../../../api_guides/python/contrib.learn#Input_processing)
 
@@ -28,7 +28,7 @@ Extract data from pandas.DataFrame for labels.
 
 #### Returns:
 
-  A numpy `ndarray` of labels from the DataFrame.
+A numpy `ndarray` of labels from the DataFrame.
 
 
 #### Raises:

@@ -25,7 +25,7 @@ evaluate(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/graph_actions.py).
+Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/graph_actions.py).
 
 See the guide: [Learn (contrib) > Graph actions](../../../../../api_guides/python/contrib.learn#Graph_actions)
 
@@ -72,7 +72,7 @@ and written to `output_dir`.
 
 #### Returns:
 
-  A tuple `(eval_results, global_step)`:
+A tuple `(eval_results, global_step)`:
 * <b>`eval_results`</b>: A `dict` mapping `string` to numeric values (`int`, `float`)
     that are the result of running eval_dict in the last step. `None` if no
     eval steps were run.

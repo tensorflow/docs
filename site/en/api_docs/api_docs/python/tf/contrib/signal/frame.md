@@ -22,11 +22,13 @@ frame(
 
 
 
-Defined in [`tensorflow/contrib/signal/python/ops/shape_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/signal/python/ops/shape_ops.py).
+Defined in [`tensorflow/contrib/signal/python/ops/shape_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/signal/python/ops/shape_ops.py).
+
+See the guide: [Signal Processing (contrib) > Framing variable length sequences](../../../../../api_guides/python/contrib.signal#Framing_variable_length_sequences)
 
 Expands `signal`'s `axis` dimension into frames of `frame_length`.
 
-Slides a window of size `frame_length` over `signal`s `axis` dimension
+Slides a window of size `frame_length` over `signal`'s `axis` dimension
 with a stride of `frame_step`, replacing the `axis` dimension with
 `[frames, frame_length]` frames.
 
@@ -60,9 +62,10 @@ image = tf.expand_dims(magspec, 3)
 
 #### Returns:
 
-  A `Tensor` of frames with shape `[..., frames, frame_length, ...]`.
+A `Tensor` of frames with shape `[..., frames, frame_length, ...]`.
 
 
 #### Raises:
 
-* <b>`ValueError`</b>: If `frame_length`, `frame_step`, or `pad_value` are not scalar.
+* <b>`ValueError`</b>: If `frame_length`, `frame_step`, `pad_value`, or `axis` are not
+    scalar.

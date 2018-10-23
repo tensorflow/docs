@@ -19,7 +19,7 @@ swap_ts(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/reroute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/reroute.py).
+Defined in [`tensorflow/contrib/graph_editor/reroute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/reroute.py).
 
 See the guide: [Graph Editor (contrib) > Module: reroute](../../../../../api_guides/python/contrib.graph_editor#Module_reroute)
 
@@ -41,7 +41,7 @@ A0 A1     A0 A1
 
 #### Returns:
 
-  The number of individual modifications made by the function.
+The number of individual modifications made by the function.
 
 #### Raises:
 

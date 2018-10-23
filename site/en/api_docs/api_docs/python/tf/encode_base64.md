@@ -11,7 +11,7 @@ page_type: reference
 ``` python
 encode_base64(
     input,
-    pad=None,
+    pad=False,
     name=None
 )
 ```
@@ -41,4 +41,4 @@ Web-safe means that the encoder uses - and _ instead of + and /.
 
 #### Returns:
 
-  A `Tensor` of type `string`. Input strings encoded in base64.
+A `Tensor` of type `string`. Input strings encoded in base64.

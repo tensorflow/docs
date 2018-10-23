@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/sets.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sets.py).
+Defined in [`tensorflow/python/ops/sets.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sets.py).
 
 Tensorflow set operations.
 

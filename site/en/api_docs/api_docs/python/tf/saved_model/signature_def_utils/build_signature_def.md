@@ -18,7 +18,7 @@ build_signature_def(
 
 
 
-Defined in [`tensorflow/python/saved_model/signature_def_utils_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/saved_model/signature_def_utils_impl.py).
+Defined in [`tensorflow/python/saved_model/signature_def_utils_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/saved_model/signature_def_utils_impl.py).
 
 Utility function to build a SignatureDef protocol buffer.
 
@@ -33,4 +33,4 @@ Utility function to build a SignatureDef protocol buffer.
 
 #### Returns:
 
-  A SignatureDef protocol buffer constructed based on the supplied arguments.
+A SignatureDef protocol buffer constructed based on the supplied arguments.

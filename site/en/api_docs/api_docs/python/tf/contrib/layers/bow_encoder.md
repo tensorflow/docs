@@ -24,7 +24,7 @@ bow_encoder(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/encoders.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/encoders.py).
+Defined in [`tensorflow/contrib/layers/python/layers/encoders.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/encoders.py).
 
 Maps a sequence of symbols to a vector per example by averaging embeddings.
 
@@ -50,8 +50,8 @@ Maps a sequence of symbols to a vector per example by averaging embeddings.
 
 #### Returns:
 
-  Encoding `Tensor` `[batch_size, embed_dim]` produced by
-  averaging embeddings.
+Encoding `Tensor` `[batch_size, embed_dim]` produced by
+averaging embeddings.
 
 
 #### Raises:

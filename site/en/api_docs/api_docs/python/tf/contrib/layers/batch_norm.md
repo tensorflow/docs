@@ -25,7 +25,7 @@ batch_norm(
     outputs_collections=None,
     trainable=True,
     batch_weights=None,
-    fused=False,
+    fused=None,
     data_format=DATA_FORMAT_NHWC,
     zero_debias_moving_mean=False,
     scope=None,
@@ -37,7 +37,7 @@ batch_norm(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/layers.py).
 
 See the guide: [Layers (contrib) > Higher level ops for building neural network layers](../../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers)
 
@@ -105,8 +105,8 @@ can have a speed penalty, especially in distributed settings.
     then the batch normalization uses weighted mean and
     variance. (This can be used to correct for bias in training
     example selection.)
-* <b>`fused`</b>: if `True`, use a faster, fused implementation based on
-    nn.fused_batch_norm. If `None`, use the fused implementation if possible.
+* <b>`fused`</b>: if `True`, use a faster, fused implementation if possible.
+    If `None`, use the system recommended implementation.
 * <b>`data_format`</b>: A string. `NHWC` (default) and `NCHW` are supported.
 * <b>`zero_debias_moving_mean`</b>: Use zero_debias for moving_mean. It creates a new
     pair of variables 'moving_mean/biased' and 'moving_mean/local_step'.
@@ -128,12 +128,11 @@ can have a speed penalty, especially in distributed settings.
 
 #### Returns:
 
-  A `Tensor` representing the output of the operation.
+A `Tensor` representing the output of the operation.
 
 
 #### Raises:
 
-* <b>`ValueError`</b>: If `batch_weights` is not None and `fused` is True.
 * <b>`ValueError`</b>: If `data_format` is neither `NHWC` nor `NCHW`.
 * <b>`ValueError`</b>: If the rank of `inputs` is undefined.
 * <b>`ValueError`</b>: If rank or channels dimension of `inputs` is undefined.

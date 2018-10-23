@@ -21,7 +21,7 @@ recall(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/metrics_impl.py).
+Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/metrics_impl.py).
 
 Computes the recall of the predictions with respect to the labels.
 
@@ -30,7 +30,7 @@ and `false_negatives`, that are used to compute the recall. This value is
 ultimately returned as `recall`, an idempotent operation that simply divides
 `true_positives` by the sum of `true_positives`  and `false_negatives`.
 
-For estimation of the metric  over a stream of data, the function creates an
+For estimation of the metric over a stream of data, the function creates an
 `update_op` that updates these variables and returns the `recall`. `update_op`
 weights each prediction by the corresponding value in `weights`.
 

@@ -14,7 +14,7 @@ Inherits From: [`QueueRunner`](../../../tf/train/QueueRunner)
 
 
 
-Defined in [`tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py).
+Defined in [`tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py).
 
 A queue runner that allows the feeding of values such as numpy arrays.
 
@@ -47,8 +47,8 @@ depending on whether or not a `Coordinator` was passed to
 
 #### Returns:
 
-  A list of Python `Exception` objects.  The list is empty if no exception
-  was captured.  (No exceptions are captured when using a Coordinator.)
+A list of Python `Exception` objects.  The list is empty if no exception
+was captured.  (No exceptions are captured when using a Coordinator.)
 
 <h3 id="name"><code>name</code></h3>
 
@@ -141,7 +141,7 @@ new threads will be created.
 
 #### Returns:
 
-  A list of threads.
+A list of threads.
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 

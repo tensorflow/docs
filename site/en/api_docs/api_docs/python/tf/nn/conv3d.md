@@ -14,7 +14,7 @@ conv3d(
     filter,
     strides,
     padding,
-    data_format=None,
+    data_format='NDHWC',
     name=None
 )
 ```
@@ -56,4 +56,4 @@ Our Conv3D implements a form of cross-correlation.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
+A `Tensor`. Has the same type as `input`.

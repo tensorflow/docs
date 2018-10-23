@@ -20,7 +20,7 @@ categorical_column_with_vocabulary_list(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/feature_column/feature_column.py).
 
 A `_CategoricalColumn` with in-memory vocabulary.
 
@@ -93,7 +93,7 @@ dense_tensor = input_layer(features, columns)
 
 #### Returns:
 
-  A `_CategoricalColumn` with in-memory vocabulary.
+A `_CategoricalColumn` with in-memory vocabulary.
 
 
 #### Raises:

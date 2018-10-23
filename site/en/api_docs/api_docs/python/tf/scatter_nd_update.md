@@ -13,7 +13,7 @@ scatter_nd_update(
     ref,
     indices,
     updates,
-    use_locking=None,
+    use_locking=True,
     name=None
 )
 ```
@@ -80,6 +80,6 @@ slices.
 
 #### Returns:
 
-  A mutable `Tensor`. Has the same type as `ref`.
-  Same as ref. Returned as a convenience for operations that want to
-  use the updated values after the update is done.
+A mutable `Tensor`. Has the same type as `ref`.
+Same as ref. Returned as a convenience for operations that want to
+use the updated values after the update is done.

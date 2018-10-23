@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures)
 
@@ -81,11 +81,11 @@ True if this graph has been finalized.
 The GraphDef version information of this graph.
 
 For details on the meaning of each version, see
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/framework/graph.proto).
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/framework/graph.proto).
 
 #### Returns:
 
-  A `VersionDef`.
+A `VersionDef`.
 
 <h3 id="seed"><code>seed</code></h3>
 
@@ -100,7 +100,7 @@ Note that this is unrelated to the
 
 #### Returns:
 
-   An integer version that increases as ops are added to the graph.
+An integer version that increases as ops are added to the graph.
 
 
 
@@ -196,7 +196,7 @@ with tf.Graph().as_default() as g:
 
 #### Returns:
 
-  A context manager for using this graph as the default graph.
+A context manager for using this graph as the default graph.
 
 <h3 id="as_graph_def"><code>as_graph_def</code></h3>
 
@@ -226,8 +226,9 @@ This method is thread-safe.
 
 #### Returns:
 
-  A [`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/framework/graph.proto)
-  protocol buffer.
+A
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/framework/graph.proto)
+protocol buffer.
 
 
 #### Raises:
@@ -266,7 +267,7 @@ This method may be called concurrently from multiple threads.
 
 #### Returns:
 
-  The `Tensor` or `Operation` in the Graph corresponding to `obj`.
+The `Tensor` or `Operation` in the Graph corresponding to `obj`.
 
 
 #### Raises:
@@ -335,8 +336,8 @@ scope resets all colocation and device constraints.
 
 #### Yields:
 
-  A context manager that specifies the op with which to colocate
-  newly created ops.
+A context manager that specifies the op with which to colocate
+newly created ops.
 
 <h3 id="container"><code>container</code></h3>
 
@@ -387,8 +388,8 @@ tf.Session.reset(target, ["experiment0"])
 
 #### Returns:
 
-  A context manager for defining resource containers for stateful ops,
-    yields the container name.
+A context manager for defining resource containers for stateful ops,
+  yields the container name.
 
 <h3 id="control_dependencies"><code>control_dependencies</code></h3>
 
@@ -464,8 +465,8 @@ def my_func(pred, tensor):
 
 #### Returns:
 
- A context manager that specifies control dependencies for all
- operations constructed within the context.
+A context manager that specifies control dependencies for all
+operations constructed within the context.
 
 
 #### Raises:
@@ -529,7 +530,7 @@ the default graph.
 
 #### Returns:
 
-  An `Operation` object.
+An `Operation` object.
 
 <h3 id="device"><code>device</code></h3>
 
@@ -554,12 +555,12 @@ string, a device function, or None:
 
 For information about the valid syntax of device name strings, see
 the documentation in
-[`DeviceNameUtils`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/util/device_name_utils.h).
+[`DeviceNameUtils`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/util/device_name_utils.h).
 
 For example:
 
 ```python
-with g.device('/gpu:0'):
+with g.device('/device:GPU:0'):
   # All operations constructed in this context will be placed
   # on GPU 0.
   with g.device(None):
@@ -569,7 +570,7 @@ with g.device('/gpu:0'):
 # Defines a function from `Operation` to device string.
 def matmul_on_gpu(n):
   if n.type == "MatMul":
-    return "/gpu:0"
+    return "/device:GPU:0"
   else:
     return "/cpu:0"
 
@@ -592,8 +593,8 @@ incompatible device scopes will be ignored.
 
 #### Yields:
 
-  A context manager that specifies the default device to use for newly
-  created ops.
+A context manager that specifies the default device to use for newly
+created ops.
 
 <h3 id="finalize"><code>finalize</code></h3>
 
@@ -644,10 +645,10 @@ it is called.
 
 #### Returns:
 
-  The list of values in the collection with the given `name`, or
-  an empty list if no value has been added to that collection. The
-  list contains the values in the order under which they were
-  collected.
+The list of values in the collection with the given `name`, or
+an empty list if no value has been added to that collection. The
+list contains the values in the order under which they were
+collected.
 
 <h3 id="get_collection_ref"><code>get_collection_ref</code></h3>
 
@@ -672,8 +673,8 @@ the collection list if it exists and never creates an empty collection.
 
 #### Returns:
 
-  The list of values in the collection with the given `name`, or an empty
-  list if no value has been added to that collection.
+The list of values in the collection with the given `name`, or an empty
+list if no value has been added to that collection.
 
 <h3 id="get_name_scope"><code>get_name_scope</code></h3>
 
@@ -694,7 +695,7 @@ would print the string `scope1/scope2`.
 
 #### Returns:
 
-  A string representing the current name scope.
+A string representing the current name scope.
 
 <h3 id="get_operation_by_name"><code>get_operation_by_name</code></h3>
 
@@ -713,7 +714,7 @@ This method may be called concurrently from multiple threads.
 
 #### Returns:
 
-  The `Operation` with the given `name`.
+The `Operation` with the given `name`.
 
 
 #### Raises:
@@ -737,7 +738,7 @@ This method may be called concurrently from multiple threads.
 
 #### Returns:
 
-  A list of Operations.
+A list of Operations.
 
 <h3 id="get_tensor_by_name"><code>get_tensor_by_name</code></h3>
 
@@ -756,7 +757,7 @@ This method may be called concurrently from multiple threads.
 
 #### Returns:
 
-  The `Tensor` with the given `name`.
+The `Tensor` with the given `name`.
 
 
 #### Raises:
@@ -798,8 +799,8 @@ with tf.Graph().as_default() as g:
 
 #### Returns:
 
-  A context manager that sets the alternative op type to be used for one
-  or more ops created in that context.
+A context manager that sets the alternative op type to be used for one
+or more ops created in that context.
 
 
 #### Raises:
@@ -909,7 +910,7 @@ names match one of the following regular expressions:
 
 #### Returns:
 
-  A context manager that installs `name` as a new name scope.
+A context manager that installs `name` as a new name scope.
 
 
 #### Raises:
@@ -968,8 +969,8 @@ to be created will be.
 
 #### Returns:
 
-  A string to be passed to `create_op()` that will be used
-  to name the operation being created.
+A string to be passed to `create_op()` that will be used
+to name the operation being created.
 
 
 

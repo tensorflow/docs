@@ -22,7 +22,7 @@ elbo_ratio(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/entropy_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/entropy_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/entropy_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/entropy_impl.py).
 
 See the guide: [BayesFlow Entropy (contrib) > Ops](../../../../../../api_guides/python/contrib.bayesflow.entropy#Ops)
 
@@ -85,8 +85,8 @@ User supplies either `Tensor` of samples `z`, or number of samples to draw `n`
 
 #### Returns:
 
-  Scalar `Tensor` holding sample mean KL divergence.  `shape` is the batch
-    shape of `q`, and `dtype` is the same as `q`.
+Scalar `Tensor` holding sample mean KL divergence.  `shape` is the batch
+  shape of `q`, and `dtype` is the same as `q`.
 
 
 #### Raises:

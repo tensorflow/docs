@@ -14,7 +14,7 @@ create_feature_spec_for_parsing(feature_columns)
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/feature_column.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -55,4 +55,4 @@ For the above example, create_feature_spec_for_parsing would return the dict:
 
 #### Returns:
 
-  A dict mapping feature keys to FixedLenFeature or VarLenFeature values.
+A dict mapping feature keys to FixedLenFeature or VarLenFeature values.

@@ -25,7 +25,7 @@ attention_decoder(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 RNN decoder with attention for the sequence-to-sequence model.
 
@@ -62,8 +62,8 @@ details). It is recommended for complex sequence-to-sequence tasks.
 
 #### Returns:
 
-  A tuple of the form (outputs, state), where:
-    outputs: A list of the same length as decoder_inputs of 2D Tensors of
+A tuple of the form (outputs, state), where:
+* <b>`outputs`</b>: A list of the same length as decoder_inputs of 2D Tensors of
       shape [batch_size x output_size]. These represent the generated outputs.
       Output i is computed from input i (which is either the i-th element
       of decoder_inputs or loop_function(output {i-1}, i)) as follows.
@@ -74,7 +74,7 @@ details). It is recommended for complex sequence-to-sequence tasks.
         new_attn = softmax(V^T * tanh(W * attention_states + U * new_state))
       and then we calculate the output:
         output = linear(cell_output, new_attn).
-    state: The state of each decoder cell the final time-step.
+* <b>`state`</b>: The state of each decoder cell the final time-step.
       It is a 2D Tensor of shape [batch_size x cell.state_size].
 
 

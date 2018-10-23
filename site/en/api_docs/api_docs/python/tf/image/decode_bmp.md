@@ -11,7 +11,7 @@ page_type: reference
 ``` python
 decode_bmp(
     contents,
-    channels=None,
+    channels=0,
     name=None
 )
 ```
@@ -40,5 +40,5 @@ Accepted values are:
 
 #### Returns:
 
-  A `Tensor` of type `uint8`.
-  3-D with shape `[height, width, channels]`. RGB order
+A `Tensor` of type `uint8`.
+3-D with shape `[height, width, channels]`. RGB order

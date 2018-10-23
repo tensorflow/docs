@@ -11,10 +11,10 @@ page_type: reference
 ``` python
 fake_quant_with_min_max_args(
     inputs,
-    min=None,
-    max=None,
-    num_bits=None,
-    narrow_range=None,
+    min=-6,
+    max=6,
+    num_bits=8,
+    narrow_range=False,
     name=None
 )
 ```
@@ -47,4 +47,4 @@ Quantization is called fake since the output is still in floating point.
 
 #### Returns:
 
-  A `Tensor` of type `float32`.
+A `Tensor` of type `float32`.

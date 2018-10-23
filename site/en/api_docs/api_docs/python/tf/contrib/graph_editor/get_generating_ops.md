@@ -14,7 +14,7 @@ get_generating_ops(ts)
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/util.py).
+Defined in [`tensorflow/contrib/graph_editor/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/util.py).
 
 See the guide: [Graph Editor (contrib) > Module: util](../../../../../api_guides/python/contrib.graph_editor#Module_util)
 
@@ -26,7 +26,7 @@ Return all the generating ops of the tensors in `ts`.
 
 #### Returns:
 
-  A list of all the generating `tf.Operation` of the tensors in `ts`.
+A list of all the generating `tf.Operation` of the tensors in `ts`.
 
 #### Raises:
 

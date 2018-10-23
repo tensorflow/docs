@@ -18,7 +18,7 @@ reverse(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -73,13 +73,14 @@ reverse(t, dims) ==> [[[[8, 9, 10, 11],
 
 #### Args:
 
-* <b>`tensor`</b>: A `Tensor`. Must be one of the following types: `uint8`, `int8`, `int32`, `int64`, `bool`, `half`, `float32`, `float64`, `complex64`, `complex128`, `string`.
+* <b>`tensor`</b>: A `Tensor`. Must be one of the following types: `uint8`, `int8`, `uint16`, `int16`, `int32`, `int64`, `bool`, `half`, `float32`, `float64`, `complex64`, `complex128`, `string`.
     Up to 8-D.
 * <b>`axis`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    1-D. The indices of the dimensions to reverse.
+    1-D. The indices of the dimensions to reverse. Must be in the range
+    `[-rank(tensor), rank(tensor))`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `tensor`. The same shape as `tensor`.
+A `Tensor`. Has the same type as `tensor`. The same shape as `tensor`.

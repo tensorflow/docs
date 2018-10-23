@@ -33,4 +33,4 @@ I.e., \\(y = (\exp x) - 1\\).
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

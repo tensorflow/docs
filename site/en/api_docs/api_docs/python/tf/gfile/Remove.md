@@ -14,7 +14,7 @@ Remove(filename)
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/lib/io/file_io.py).
+Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/lib/io/file_io.py).
 
 Deletes the file located at 'filename'.
 
@@ -25,5 +25,5 @@ Deletes the file located at 'filename'.
 
 #### Raises:
 
-  errors.OpError: Propagates any errors reported by the FileSystem API.  E.g.,
+* <b>`errors.OpError`</b>: Propagates any errors reported by the FileSystem API.  E.g.,
   NotFoundError if the file does not exist.

@@ -3,7 +3,7 @@
 <head>
   <title>Const Op</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -66,6 +66,16 @@
         </div>
       </td>
     </tr>
+    <tr>
+      <td>
+        <code><a href="#group__const__op_1gac8d2c50701999a8a55fe190913c5001b">ConstFromProto</a>(const Scope & scope, const TensorProto & proto)</code>
+      </td>
+      <td>
+        <div>
+          <code>Output</code>
+        </div>
+      </td>
+    </tr>
   </table>
   <h2>Functions</h2>
   <div id="group__const__op_1ga86cbc615b20b626a4c2502477553e0cf">
@@ -107,6 +117,14 @@
   const Scope & scope,
   const std::initializer_list< T > & v,
   const TensorShape shape
+)</pre>
+    <div />
+  </div>
+  <div id="group__const__op_1gac8d2c50701999a8a55fe190913c5001b">
+    <h3>ConstFromProto</h3>
+    <pre class="prettyprint">Output ConstFromProto(
+  const Scope & scope,
+  const TensorProto & proto
 )</pre>
     <div />
   </div>

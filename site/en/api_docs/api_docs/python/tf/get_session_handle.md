@@ -17,7 +17,7 @@ get_session_handle(
 
 
 
-Defined in [`tensorflow/python/ops/session_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/session_ops.py).
+Defined in [`tensorflow/python/ops/session_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/session_ops.py).
 
 See the guide: [Tensor Handle Operations > Tensor Handle Operations](../../../api_guides/python/session_ops#Tensor_Handle_Operations)
 
@@ -39,7 +39,7 @@ one run call in place, and use it as the input in a future run call.
 
 #### Returns:
 
-  A scalar string tensor representing a unique handle for `data`.
+A scalar string tensor representing a unique handle for `data`.
 
 
 #### Raises:

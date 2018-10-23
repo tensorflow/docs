@@ -17,7 +17,7 @@ get_trainable_variables(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/variables.py).
 
 Gets the list of trainable variables, filtered by scope and/or suffix.
 
@@ -29,4 +29,4 @@ Gets the list of trainable variables, filtered by scope and/or suffix.
 
 #### Returns:
 
-  a list of variables in the trainable collection with scope and suffix.
+a list of variables in the trainable collection with scope and suffix.

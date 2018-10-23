@@ -20,7 +20,7 @@ reduce_mean(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Reduction](../../../api_guides/python/math_ops#Reduction)
 
@@ -37,18 +37,18 @@ tensor with a single element is returned.
 For example:
 
 ```python
-# 'x' is [[1., 1.]
-#         [2., 2.]]
-tf.reduce_mean(x) ==> 1.5
-tf.reduce_mean(x, 0) ==> [1.5, 1.5]
-tf.reduce_mean(x, 1) ==> [1.,  2.]
+x = tf.constant([[1., 1.], [2., 2.]])
+tf.reduce_mean(x)  # 1.5
+tf.reduce_mean(x, 0)  # [1.5, 1.5]
+tf.reduce_mean(x, 1)  # [1.,  2.]
 ```
 
 #### Args:
 
 * <b>`input_tensor`</b>: The tensor to reduce. Should have numeric type.
 * <b>`axis`</b>: The dimensions to reduce. If `None` (the default),
-    reduces all dimensions.
+    reduces all dimensions. Must be in the range
+    `[-rank(input_tensor), rank(input_tensor))`.
 * <b>`keep_dims`</b>: If true, retains reduced dimensions with length 1.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`reduction_indices`</b>: The old (deprecated) name for axis.
@@ -56,7 +56,7 @@ tf.reduce_mean(x, 1) ==> [1.,  2.]
 
 #### Returns:
 
-  The reduced tensor.
+The reduced tensor.
 
 
 

@@ -14,7 +14,7 @@ Inherits From: [`Bijector`](../../../../tf/distributions/bijectors/Bijector)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/cholesky_outer_product_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/distributions/python/ops/bijectors/cholesky_outer_product_impl.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/cholesky_outer_product_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/distributions/python/ops/bijectors/cholesky_outer_product_impl.py).
 
 See the guide: [Random variable transformations (contrib) > Bijectors](../../../../../../api_guides/python/contrib.distributions.bijectors#Bijectors)
 
@@ -23,6 +23,24 @@ Compute `g(X) = X @ X.T`; X is lower-triangular, positive-diagonal matrix.
 `event_ndims` must be 0 or 2, i.e., scalar or matrix.
 
 Note: the upper-triangular part of X is ignored (whether or not its zero).
+
+The surjectivity of g as a map from  the set of n x n positive-diagonal
+lower-triangular matrices to the set of SPD matrices follows immediately from
+executing the Cholesky factorization algorithm on an SPD matrix A to produce a
+positive-diagonal lower-triangular matrix L such that `A = L @ L.T`.
+
+To prove the injectivity of g, suppose that L_1 and L_2 are lower-triangular
+with positive diagonals and satisfy `A = L_1 @ L_1.T = L_2 @ L_2.T`. Then
+  `inv(L_1) @ A @ inv(L_1).T = [inv(L_1) @ L_2] @ [inv(L_1) @ L_2].T = I`.
+Setting `L_3 := inv(L_1) @ L_2`, that L_3 is a positive-diagonal
+lower-triangular matrix follows from `inv(L_1)` being positive-diagonal
+lower-triangular (which follows from the diagonal of a triangular matrix being
+its spectrum), and that the product of two positive-diagonal lower-triangular
+matrices is another positive-diagonal lower-triangular matrix.
+
+A simple inductive argument (proceding one column of L_3 at a time) shows
+that, if `I = L_3 @ L_3.T`, with L_3 being lower-triangular with positive-
+diagonal, then `L_3 = I`. Thus, `L_1 = L_2`, proving injectivity of g.
 
 Examples:
 
@@ -115,7 +133,7 @@ Returns the forward `Bijector` evaluation, i.e., X = g(Y).
 
 #### Returns:
 
-  `Tensor`.
+`Tensor`.
 
 
 #### Raises:
@@ -187,7 +205,8 @@ Returns both the forward_log_det_jacobian.
 
 #### Returns:
 
-  `Tensor`.
+`Tensor`, if this bijector is injective.
+  If not injective this is not implemented.
 
 
 #### Raises:
@@ -195,7 +214,8 @@ Returns both the forward_log_det_jacobian.
 * <b>`TypeError`</b>: if `self.dtype` is specified and `y.dtype` is not
     `self.dtype`.
 * <b>`NotImplementedError`</b>: if neither `_forward_log_det_jacobian`
-    nor {`_inverse`, `_inverse_log_det_jacobian`} are implemented.
+    nor {`_inverse`, `_inverse_log_det_jacobian`} are implemented, or
+    this is a non-injective bijector.
 
 <h3 id="inverse"><code>inverse</code></h3>
 
@@ -216,7 +236,9 @@ Returns the inverse `Bijector` evaluation, i.e., X = g^{-1}(Y).
 
 #### Returns:
 
-  `Tensor`.
+`Tensor`, if this bijector is injective.
+  If not injective, returns the k-tuple containing the unique
+  `k` points `(x1, ..., xk)` such that `g(xi) = y`.
 
 
 #### Raises:
@@ -282,7 +304,8 @@ Returns the (log o det o Jacobian o inverse)(y).
 
 Mathematically, returns: `log(det(dX/dY))(Y)`. (Recall that: `X=g^{-1}(Y)`.)
 
-Note that `forward_log_det_jacobian` is the negative of this function.
+Note that `forward_log_det_jacobian` is the negative of this function,
+evaluated at `g^{-1}(y)`.
 
 #### Args:
 
@@ -292,7 +315,10 @@ Note that `forward_log_det_jacobian` is the negative of this function.
 
 #### Returns:
 
-  `Tensor`.
+`Tensor`, if this bijector is injective.
+  If not injective, returns the tuple of local log det
+  Jacobians, `log(det(Dg_i^{-1}(y)))`, where `g_i` is the restriction
+  of `g` to the `ith` partition `Di`.
 
 
 #### Raises:

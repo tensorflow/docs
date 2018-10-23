@@ -12,6 +12,8 @@ page_type: reference
 
 * `tf.compat.as_bytes`
 * `tf.compat.as_str`
+* `tf.contrib.meta_graph_transform.meta_graph_transform.compat.as_bytes`
+* `tf.contrib.meta_graph_transform.meta_graph_transform.compat.as_str`
 
 ``` python
 as_bytes(
@@ -22,7 +24,7 @@ as_bytes(
 
 
 
-Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/compat.py).
+Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/compat.py).
 
 Converts either bytes or unicode to `bytes`, using utf-8 encoding for text.
 
@@ -34,7 +36,7 @@ Converts either bytes or unicode to `bytes`, using utf-8 encoding for text.
 
 #### Returns:
 
-  A `bytes` object.
+A `bytes` object.
 
 
 #### Raises:

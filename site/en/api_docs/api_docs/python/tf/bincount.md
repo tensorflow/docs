@@ -20,7 +20,7 @@ bincount(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 Counts the number of occurrences of each value in an integer array.
 
@@ -45,5 +45,5 @@ value in `weights` at each index where the corresponding value in `arr` is
 
 #### Returns:
 
-  A vector with the same dtype as `weights` or the given `dtype`. The bin
-  values.
+A vector with the same dtype as `weights` or the given `dtype`. The bin
+values.

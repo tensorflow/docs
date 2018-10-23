@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/device_setter.py).
+Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/device_setter.py).
 
 Returns the least-loaded ps task for op placement.
 
@@ -69,9 +69,9 @@ Choose a ps task index for the given `Operation`.
 
 #### Returns:
 
-  The next ps task index to use for the `Operation`. Greedily
-  places the op on the least-loaded ps task so far, as determined
-  by the load function.
+The next ps task index to use for the `Operation`. Greedily
+places the op on the least-loaded ps task so far, as determined
+by the load function.
 
 
 

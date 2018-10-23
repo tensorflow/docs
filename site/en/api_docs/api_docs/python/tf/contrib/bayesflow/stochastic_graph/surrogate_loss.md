@@ -18,7 +18,7 @@ surrogate_loss(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/stochastic_graph_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/stochastic_graph_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/stochastic_graph_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/stochastic_graph_impl.py).
 
 See the guide: [BayesFlow Stochastic Graph (contrib) > Stochastic Computation Graph Helper Functions](../../../../../../api_guides/python/contrib.bayesflow.stochastic_graph#Stochastic_Computation_Graph_Helper_Functions)
 
@@ -43,8 +43,8 @@ instantiated in `while_loop`s or other control structures.
 
 #### Returns:
 
-  `Tensor` loss, which is the sum of `sample_losses` and the
-  `loss_fn`s returned by the `StochasticTensor`s.
+`Tensor` loss, which is the sum of `sample_losses` and the
+`loss_fn`s returned by the `StochasticTensor`s.
 
 
 #### Raises:

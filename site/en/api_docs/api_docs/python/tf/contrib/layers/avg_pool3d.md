@@ -22,7 +22,7 @@ avg_pool3d(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/layers.py).
 
 Adds a 3D average pooling op.
 
@@ -30,11 +30,11 @@ It is assumed that the pooling is done per image but not in batch or channels.
 
 #### Args:
 
-* <b>`inputs`</b>: A 5-D tensor of shape `[batch_size, depth, height, width, channels]` if
-    `data_format` is `NDHWC`, and `[batch_size, channels, depth, height, width]` if
-    `data_format` is `NCDHW`.
-* <b>`kernel_size`</b>: A list of length 3: [kernel_depth, kernel_height, kernel_width] of the
-    pooling kernel over which the op is computed. Can be an int if both
+* <b>`inputs`</b>: A 5-D tensor of shape `[batch_size, depth, height, width, channels]`
+    if `data_format` is `NDHWC`, and `[batch_size, channels, depth, height,
+    width]` if `data_format` is `NCDHW`.
+* <b>`kernel_size`</b>: A list of length 3: [kernel_depth, kernel_height, kernel_width]
+    of the pooling kernel over which the op is computed. Can be an int if both
     values are the same.
 * <b>`stride`</b>: A list of length 3: [stride_depth, stride_height, stride_width].
     Can be an int if both strides are the same. Note that presently
@@ -47,7 +47,7 @@ It is assumed that the pooling is done per image but not in batch or channels.
 
 #### Returns:
 
-  A `Tensor` representing the results of the pooling operation.
+A `Tensor` representing the results of the pooling operation.
 
 
 #### Raises:

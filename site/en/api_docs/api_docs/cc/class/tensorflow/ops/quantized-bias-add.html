@@ -3,28 +3,28 @@
 <head>
   <title>tensorflow::ops::QuantizedBiasAdd Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>QuantizedBiasAdd</h1>
   <code>#include &lt;nn_ops.h&gt;</code>
-  <p>Adds <a href="/versions/r1.3/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> 'bias' to <a href="/versions/r1.3/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> 'input' for Quantized types. </p>
+  <p>Adds <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> 'bias' to <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> 'input' for Quantized types. </p>
   <h2>Summary</h2>
   <p>Broadcasts the values of bias on dimensions 0..N-2 of 'input'.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>bias: A 1D bias <a href="/versions/r1.3/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> with size matching the last dimension of 'input'.</li>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>bias: A 1D bias <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> with size matching the last dimension of 'input'.</li>
       <li>min_input: The float value that the lowest quantized input value represents.</li>
       <li>max_input: The float value that the highest quantized input value represents.</li>
       <li>min_bias: The float value that the lowest quantized bias value represents.</li>
       <li>max_bias: The float value that the highest quantized bias value represents.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output</li>
-      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> min_out: The float value that the lowest quantized output value represents.</li>
-      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> max_out: The float value that the highest quantized output value represents. </li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output</li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> min_out: The float value that the lowest quantized output value represents.</li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> max_out: The float value that the highest quantized output value represents. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -34,7 +34,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_quantized_bias_add_1a714d25955616f4da492f9171af26e2d1">QuantizedBiasAdd</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_input, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_input, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_bias, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_bias, DataType out_type)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_bias_add_1a714d25955616f4da492f9171af26e2d1">QuantizedBiasAdd</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_input, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_input, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_bias, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_bias, DataType out_type)</code>
         <br />
       </td>
     </tr>
@@ -51,7 +51,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -61,7 +61,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -71,7 +71,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -79,30 +79,30 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_quantized_bias_add_1a3d2e3fabd5ec3ef887d0a530cb512976">
     <h3>max_out</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> max_out</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> max_out</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_quantized_bias_add_1a7676ea75bc57b79bb7701317f4113665">
     <h3>min_out</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> min_out</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> min_out</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_quantized_bias_add_1a2a310917f0ff87e61c378f4b12406c2f">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_quantized_bias_add_1a714d25955616f4da492f9171af26e2d1">
     <h3>QuantizedBiasAdd</h3>
     <pre class="prettyprint"> QuantizedBiasAdd(
-  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_input,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_input,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_bias,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_bias,
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_input,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_input,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_bias,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_bias,
   DataType out_type
 )</pre>
     <div />

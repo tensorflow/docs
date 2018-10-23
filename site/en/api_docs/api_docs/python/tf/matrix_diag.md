@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.matrix_diag
 
+### Aliases:
+
+* `tf.linalg.diag`
+* `tf.matrix_diag`
+
 ``` python
 matrix_diag(
     diagonal,
@@ -58,5 +63,5 @@ which has shape (2, 4, 4)
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `diagonal`.
-  Rank `k+1`, with `output.shape = diagonal.shape + [diagonal.shape[-1]]`.
+A `Tensor`. Has the same type as `diagonal`.
+Rank `k+1`, with `output.shape = diagonal.shape + [diagonal.shape[-1]]`.

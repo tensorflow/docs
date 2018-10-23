@@ -3,14 +3,14 @@
 <head>
   <title>tensorflow::ops::DecodeCSV::Attrs Struct Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>DecodeCSV::<wbr/>Attrs</h1>
   <code>#include &lt;parsing_ops.h&gt;</code>
-  <p>Optional attribute setters for <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/decode-c-s-v.html#classtensorflow_1_1ops_1_1_decode_c_s_v">DecodeCSV</a>. </p>
+  <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/decode-c-s-v.html#classtensorflow_1_1ops_1_1_decode_c_s_v">DecodeCSV</a>. </p>
   <h2>Summary</h2>
   <table class="properties responsive">
     <tr>
@@ -21,6 +21,16 @@
     <tr>
       <td>
         <code><a href="#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a49cd1cec281eb0fac9c7252a186b8d7a">field_delim_</a> = ","</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a9e014d2b608b63a21e70eac80e7af794">na_value_</a> = ""</code>
       </td>
       <td>
         <div>
@@ -51,9 +61,20 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
         </div>
         <div>char delimiter to separate fields in a record. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a53beabf6253286192e955f9c7c7e3473">NaValue</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Additional string to recognize as NA/NaN. </div>
       </td>
     </tr>
     <tr>
@@ -62,7 +83,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
         </div>
         <div>If false, treats double quotation marks as regular characters inside of the string fields (ignoring RFC 4180, Section 2, Bullet 5). </div>
       </td>
@@ -74,6 +95,11 @@
     <pre class="prettyprint">StringPiece tensorflow::ops::DecodeCSV::Attrs::field_delim_ = ","</pre>
     <div />
   </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a9e014d2b608b63a21e70eac80e7af794">
+    <h3>na_value_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::DecodeCSV::Attrs::na_value_ = ""</pre>
+    <div />
+  </div>
   <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1ad65426c0581e0d6e4b564113365da483">
     <h3>use_quote_delim_</h3>
     <pre class="prettyprint">bool tensorflow::ops::DecodeCSV::Attrs::use_quote_delim_ = true</pre>
@@ -82,7 +108,7 @@
   <h2>Public functions</h2>
   <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a3fdcd462b9eb80b8fbcdc288c455e439">
     <h3>FieldDelim</h3>
-    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> tensorflow::ops::DecodeCSV::Attrs::FieldDelim(
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> tensorflow::ops::DecodeCSV::Attrs::FieldDelim(
   StringPiece x
 )</pre>
     <div>
@@ -90,9 +116,19 @@
       <p>Defaults to "," </p>
     </div>
   </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a53beabf6253286192e955f9c7c7e3473">
+    <h3>NaValue</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> tensorflow::ops::DecodeCSV::Attrs::NaValue(
+  StringPiece x
+)</pre>
+    <div>
+      <p>Additional string to recognize as NA/NaN. </p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
   <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a6e6ddc3916fe3659bb39ddb86263f916">
     <h3>UseQuoteDelim</h3>
-    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> tensorflow::ops::DecodeCSV::Attrs::UseQuoteDelim(
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> tensorflow::ops::DecodeCSV::Attrs::UseQuoteDelim(
   bool x
 )</pre>
     <div>

@@ -10,11 +10,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/debug/__init__.py).
+Defined in [`tensorflow/python/debug/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/debug/__init__.py).
 
 Public Python API of TensorFlow Debugger (tfdbg).
 
 See the [TensorFlow Debugger](../../api_guides/python/tfdbg) guide.
+
 
 
 
@@ -49,6 +50,8 @@ See the [TensorFlow Debugger](../../api_guides/python/tfdbg) guide.
 [`load_tensor_from_event(...)`](./tfdbg/load_tensor_from_event): Load a tensor from an Event proto.
 
 [`load_tensor_from_event_file(...)`](./tfdbg/load_tensor_from_event_file): Load a tensor from an event file.
+
+[`reconstruct_non_debug_graph_def(...)`](./tfdbg/reconstruct_non_debug_graph_def): Reconstruct original (non-debugger-decorated) partition GraphDef.
 
 [`watch_graph(...)`](./tfdbg/watch_graph): Add debug watches to `RunOptions` for a TensorFlow graph.
 

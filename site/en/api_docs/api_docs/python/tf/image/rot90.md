@@ -18,7 +18,7 @@ rot90(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Flipping, Rotating and Transposing](../../../../api_guides/python/image#Flipping_Rotating_and_Transposing)
 
@@ -33,4 +33,4 @@ Rotate an image counter-clockwise by 90 degrees.
 
 #### Returns:
 
-  A rotated 3-D tensor of the same type and shape as `image`.
+A rotated 3-D tensor of the same type and shape as `image`.

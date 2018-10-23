@@ -14,7 +14,7 @@ ListDirectory(dirname)
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/lib/io/file_io.py).
+Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/lib/io/file_io.py).
 
 Returns a list of entries contained within a directory.
 
@@ -28,9 +28,9 @@ and "..".
 
 #### Returns:
 
-  [filename1, filename2, ... filenameN] as strings
+[filename1, filename2, ... filenameN] as strings
 
 
 #### Raises:
 
-  errors.NotFoundError if directory doesn't exist
+errors.NotFoundError if directory doesn't exist

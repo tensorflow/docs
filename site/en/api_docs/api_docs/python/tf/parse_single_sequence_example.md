@@ -20,11 +20,11 @@ parse_single_sequence_example(
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/parsing_ops.py).
+Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/parsing_ops.py).
 
 Parses a single `SequenceExample` proto.
 
-Parses a single serialized [`SequenceExample`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/example/example.proto)
+Parses a single serialized [`SequenceExample`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/example/example.proto)
 proto given in `serialized`.
 
 This op parses a serialized sequence example into a tuple of dictionaries
@@ -89,9 +89,9 @@ output. If not `None`, `example_name` must be a scalar.
 
 #### Returns:
 
-  A tuple of two `dict`s, each mapping keys to `Tensor`s and `SparseTensor`s.
-  The first dict contains the context key/values.
-  The second dict contains the feature_list key/values.
+A tuple of two `dict`s, each mapping keys to `Tensor`s and `SparseTensor`s.
+The first dict contains the context key/values.
+The second dict contains the feature_list key/values.
 
 
 #### Raises:

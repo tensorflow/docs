@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/model_fn.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/model_fn.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
@@ -65,6 +65,7 @@ Alias for field number 6
 <h3 id="__new__"><code>__new__</code></h3>
 
 ``` python
+@staticmethod
 __new__(
     cls,
     mode,
@@ -124,7 +125,7 @@ type.
 
 #### Returns:
 
-  A validated `ModelFnOps` object.
+A validated `ModelFnOps` object.
 
 
 #### Raises:
@@ -154,7 +155,7 @@ Creates an equivalent `EstimatorSpec`.
 
 #### Returns:
 
-  Instance of `EstimatorSpec` that is equivalent to this `ModelFnOps`
+Instance of `EstimatorSpec` that is equivalent to this `ModelFnOps`
 
 
 #### Raises:

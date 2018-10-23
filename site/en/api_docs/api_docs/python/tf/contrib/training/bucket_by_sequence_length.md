@@ -28,7 +28,7 @@ bucket_by_sequence_length(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/bucket_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/bucket_ops.py).
+Defined in [`tensorflow/contrib/training/python/training/bucket_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/bucket_ops.py).
 
 See the guide: [Training (contrib) > Bucketing](../../../../../api_guides/python/contrib.training#Bucketing)
 
@@ -77,9 +77,9 @@ bucket the given `input_length` belongs to.  See the documentation for
 
 #### Returns:
 
-  A tuple `(sequence_length, outputs)` where `sequence_length` is
-  a 1-D `Tensor` of size `batch_size` and `outputs` is a list or dictionary
-  of batched, bucketed, outputs corresponding to elements of `tensors`.
+A tuple `(sequence_length, outputs)` where `sequence_length` is
+a 1-D `Tensor` of size `batch_size` and `outputs` is a list or dictionary
+of batched, bucketed, outputs corresponding to elements of `tensors`.
 
 
 #### Raises:

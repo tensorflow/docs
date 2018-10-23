@@ -22,7 +22,7 @@ cond(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/control_flow_ops.py).
 
 See the guide: [Control Flow > Control Flow Operations](../../../api_guides/python/control_flow_ops#Control_Flow_Operations)
 
@@ -75,8 +75,8 @@ This behavior is disabled by passing `strict=True`.
 
 #### Returns:
 
-  Tensors returned by the call to either `true_fn` or `false_fn`. If the
-  callables return a singleton list, the element is extracted from the list.
+Tensors returned by the call to either `true_fn` or `false_fn`. If the
+callables return a singleton list, the element is extracted from the list.
 
 
 #### Raises:
@@ -88,11 +88,11 @@ This behavior is disabled by passing `strict=True`.
 Example:
 
 ```python
-  x = tf.constant(2)
-  y = tf.constant(5)
-  def f1(): return tf.multiply(x, 17)
-  def f2(): return tf.add(y, 23)
-  r = tf.cond(tf.less(x, y), f1, f2)
-  # r is set to f1().
-  # Operations in f2 (e.g., tf.add) are not executed.
+x = tf.constant(2)
+y = tf.constant(5)
+def f1(): return tf.multiply(x, 17)
+def f2(): return tf.add(y, 23)
+r = tf.cond(tf.less(x, y), f1, f2)
+# r is set to f1().
+# Operations in f2 (e.g., tf.add) are not executed.
 ```

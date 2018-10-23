@@ -17,7 +17,7 @@ detach_inputs(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/edit.py).
+Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/edit.py).
 
 See the guide: [Graph Editor (contrib) > Module: edit](../../../../../api_guides/python/contrib.graph_editor#Module_edit)
 
@@ -32,9 +32,9 @@ Detach the inputs of a subgraph view.
 
 #### Returns:
 
-  A tuple `(sgv, input_placeholders)` where
-    `sgv` is a new subgraph view of the detached subgraph;
-    `input_placeholders` is a list of the created input placeholders.
+A tuple `(sgv, input_placeholders)` where
+  `sgv` is a new subgraph view of the detached subgraph;
+  `input_placeholders` is a list of the created input placeholders.
 
 #### Raises:
 

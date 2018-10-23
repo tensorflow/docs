@@ -17,7 +17,7 @@ load_variable(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/checkpoint_utils.py).
+Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/checkpoint_utils.py).
 
 Returns the tensor value of the given variable in the checkpoint.
 
@@ -29,4 +29,4 @@ Returns the tensor value of the given variable in the checkpoint.
 
 #### Returns:
 
-  A numpy `ndarray` with a copy of the value of this variable.
+A numpy `ndarray` with a copy of the value of this variable.

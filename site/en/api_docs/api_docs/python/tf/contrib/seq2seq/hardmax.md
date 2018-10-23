@@ -17,7 +17,7 @@ hardmax(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 Returns batched one-hot vectors.
 
@@ -30,4 +30,4 @@ The depth index containing the `1` is that of the maximum logit value.
 
 #### Returns:
 
-  A batched one-hot tensor.
+A batched one-hot tensor.

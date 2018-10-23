@@ -27,7 +27,7 @@ model_variable(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/variables.py).
 
 See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
 
@@ -62,4 +62,4 @@ Gets an existing model variable with these parameters or creates a new one.
 
 #### Returns:
 
-  The created or existing variable.
+The created or existing variable.

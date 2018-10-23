@@ -38,4 +38,4 @@ If `x` and `y` are reals, this will return the floating-point division.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

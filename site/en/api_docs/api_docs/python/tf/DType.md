@@ -5,7 +5,6 @@ page_type: reference
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
-
 # tf.DType
 
 ## Class `DType`
@@ -14,7 +13,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/dtypes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/dtypes.py).
+Defined in [`tensorflow/python/framework/dtypes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/dtypes.py).
 
 See the guide: [Building Graphs > Tensor types](../../../api_guides/python/framework#Tensor_types)
 
@@ -42,6 +41,7 @@ The following `DType` objects are defined:
 * `tf.quint16`: Quantized 16-bit unsigned integer.
 * `tf.qint32`: Quantized 32-bit signed integer.
 * `tf.resource`: Handle to a mutable resource.
+* `tf.variant`: Values of arbitrary types.
 
 In addition, variants of these types with the `_ref` suffix are
 defined for reference-typed tensors.
@@ -96,14 +96,14 @@ this function returns `False`.
 
 #### Returns:
 
-  Whether a `DType` is unsigned.
+Whether a `DType` is unsigned.
 
 <h3 id="limits"><code>limits</code></h3>
 
 Return intensity limits, i.e. (min, max) tuple, of the dtype.
 #### Args:
 
-  clip_negative : bool, optional
+* <b>`clip_negative `</b>: bool, optional
       If True, clip the negative range (i.e. return 0 for min intensity)
       even if the image dtype allows negative values.
 Returns
@@ -211,8 +211,8 @@ DType(T).as_ref.is_compatible_with(DType(T).as_ref) == True
 
 #### Returns:
 
-  True if a Tensor of the `other` `DType` will be implicitly converted to
-  this `DType`.
+True if a Tensor of the `other` `DType` will be implicitly converted to
+this `DType`.
 
 
 

@@ -17,7 +17,7 @@ assert_scalar_int(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/framework/tensor_util.py).
+Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/framework/tensor_util.py).
 
 See the guide: [Framework (contrib)](../../../../../api_guides/python/contrib.framework)
 
@@ -30,7 +30,7 @@ Assert `tensor` is 0-D, of type `tf.int32` or `tf.int64`.
 
 #### Returns:
 
-  `tensor`, for chaining.
+`tensor`, for chaining.
 
 #### Raises:
 

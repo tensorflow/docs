@@ -23,7 +23,7 @@ xavier_initializer(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/initializers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/initializers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/initializers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/initializers.py).
 
 See the guide: [Layers (contrib) > Initializers](../../../../../api_guides/python/contrib.layers#Initializers)
 
@@ -52,4 +52,4 @@ deviation of `sqrt(2. / (in + out))` is used.
 
 #### Returns:
 
-  An initializer for a weight matrix.
+An initializer for a weight matrix.

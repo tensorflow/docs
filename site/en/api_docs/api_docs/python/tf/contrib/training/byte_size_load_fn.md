@@ -14,7 +14,7 @@ byte_size_load_fn(op)
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/device_setter.py).
+Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/device_setter.py).
 
 Load function that computes the byte size of a single-output `Operation`.
 
@@ -31,7 +31,7 @@ Intended to be used with `GreedyLoadBalancingStrategy`.
 
 #### Returns:
 
-  The number of bytes in the output `Tensor`.
+The number of bytes in the output `Tensor`.
 
 
 #### Raises:

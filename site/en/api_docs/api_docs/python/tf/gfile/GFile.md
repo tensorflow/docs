@@ -19,7 +19,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/platform/gfile.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/platform/gfile.py).
+Defined in [`tensorflow/python/platform/gfile.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/platform/gfile.py).
 
 File I/O wrappers without thread locking.
 
@@ -129,8 +129,8 @@ Starts reading from current position in file.
 
 #### Returns:
 
-  'n' bytes of the file (or whole file) in bytes mode or 'n' bytes of the
-  string if in string (regular) mode.
+'n' bytes of the file (or whole file) in bytes mode or 'n' bytes of the
+string if in string (regular) mode.
 
 <h3 id="readline"><code>readline</code></h3>
 
@@ -168,9 +168,9 @@ position is deprecated in favor of the offset argument.
 
 * <b>`offset`</b>: The byte count relative to the whence argument.
 * <b>`whence`</b>: Valid values for whence are:
-    0: start of the file (default)
-    1: relative to the current position of the file
-    2: relative to the end of file. offset is usually negative.
+* <b>`0`</b>: start of the file (default)
+* <b>`1`</b>: relative to the current position of the file
+* <b>`2`</b>: relative to the end of file. offset is usually negative.
 
 <h3 id="size"><code>size</code></h3>
 

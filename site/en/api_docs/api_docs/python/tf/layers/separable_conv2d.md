@@ -27,6 +27,9 @@ separable_conv2d(
     pointwise_regularizer=None,
     bias_regularizer=None,
     activity_regularizer=None,
+    depthwise_constraint=None,
+    pointwise_constraint=None,
+    bias_constraint=None,
     trainable=True,
     name=None,
     reuse=None
@@ -35,7 +38,7 @@ separable_conv2d(
 
 
 
-Defined in [`tensorflow/python/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/layers/convolutional.py).
+Defined in [`tensorflow/python/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/layers/convolutional.py).
 
 Functional interface for the depthwise separable 2D convolution layer.
 
@@ -86,7 +89,17 @@ It then optionally applies an activation function to produce the final output.
 * <b>`pointwise_regularizer`</b>: Optional regularizer for the pointwise
     convolution kernel.
 * <b>`bias_regularizer`</b>: Optional regularizer for the bias vector.
-* <b>`activity_regularizer`</b>: Regularizer function for the output.
+* <b>`activity_regularizer`</b>: Optional regularizer function for the output.
+* <b>`depthwise_constraint`</b>: Optional projection function to be applied to the
+      depthwise kernel after being updated by an `Optimizer` (e.g. used for
+      norm constraints or value constraints for layer weights). The function
+      must take as input the unprojected variable and must return the
+      projected variable (which must have the same shape). Constraints are
+      not safe to use when doing asynchronous distributed training.
+* <b>`pointwise_constraint`</b>: Optional projection function to be applied to the
+      pointwise kernel after being updated by an `Optimizer`.
+* <b>`bias_constraint`</b>: Optional projection function to be applied to the
+      bias after being updated by an `Optimizer`.
 * <b>`trainable`</b>: Boolean, if `True` also add variables to the graph collection
     `GraphKeys.TRAINABLE_VARIABLES` (see `tf.Variable`).
 * <b>`name`</b>: A string, the name of the layer.
@@ -96,4 +109,4 @@ It then optionally applies an activation function to produce the final output.
 
 #### Returns:
 
-  Output tensor.
+Output tensor.

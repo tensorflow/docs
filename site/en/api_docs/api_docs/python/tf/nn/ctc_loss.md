@@ -22,7 +22,7 @@ ctc_loss(
 
 
 
-Defined in [`tensorflow/python/ops/ctc_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/ctc_ops.py).
+Defined in [`tensorflow/python/ops/ctc_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/ctc_ops.py).
 
 See the guide: [Neural Network > Connectionist Temporal Classification (CTC)](../../../../api_guides/python/nn#Connectionist_Temporal_Classification_CTC_)
 
@@ -125,7 +125,7 @@ items, otherwise an InvalidArgument error is returned, stopping training.
 
 #### Returns:
 
-  A 1-D `float` `Tensor`, size `[batch]`, containing the negative log probabilities.
+A 1-D `float` `Tensor`, size `[batch]`, containing the negative log probabilities.
 
 
 #### Raises:

@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/supervisor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/supervisor.py).
+Defined in [`tensorflow/python/training/supervisor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/supervisor.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -182,7 +182,7 @@ during your training.
 
 #### Returns:
 
-  A Coordinator object.
+A Coordinator object.
 
 <h3 id="global_step"><code>global_step</code></h3>
 
@@ -190,7 +190,7 @@ Return the global_step Tensor used by the supervisor.
 
 #### Returns:
 
-  An integer Tensor for the global_step.
+An integer Tensor for the global_step.
 
 <h3 id="init_feed_dict"><code>init_feed_dict</code></h3>
 
@@ -198,7 +198,7 @@ Return the feed dictionary used when evaluating the `init_op`.
 
 #### Returns:
 
-  A feed dictionary or `None`.
+A feed dictionary or `None`.
 
 <h3 id="init_op"><code>init_op</code></h3>
 
@@ -206,7 +206,7 @@ Return the Init Op used by the supervisor.
 
 #### Returns:
 
-  An Op or `None`.
+An Op or `None`.
 
 <h3 id="is_chief"><code>is_chief</code></h3>
 
@@ -214,7 +214,7 @@ Return True if this is a chief supervisor.
 
 #### Returns:
 
-  A bool.
+A bool.
 
 <h3 id="ready_for_local_init_op"><code>ready_for_local_init_op</code></h3>
 
@@ -226,7 +226,7 @@ Return the Ready Op used by the supervisor.
 
 #### Returns:
 
-  An Op or `None`.
+An Op or `None`.
 
 <h3 id="save_model_secs"><code>save_model_secs</code></h3>
 
@@ -234,7 +234,7 @@ Return the delay between checkpoints.
 
 #### Returns:
 
-  A timestamp.
+A timestamp.
 
 <h3 id="save_path"><code>save_path</code></h3>
 
@@ -242,7 +242,7 @@ Return the save path used by the supervisor.
 
 #### Returns:
 
-  A string.
+A string.
 
 <h3 id="save_summaries_secs"><code>save_summaries_secs</code></h3>
 
@@ -250,7 +250,7 @@ Return the delay between summary computations.
 
 #### Returns:
 
-  A timestamp.
+A timestamp.
 
 <h3 id="saver"><code>saver</code></h3>
 
@@ -258,7 +258,7 @@ Return the Saver used by the supervisor.
 
 #### Returns:
 
-  A Saver object.
+A Saver object.
 
 <h3 id="session_manager"><code>session_manager</code></h3>
 
@@ -266,7 +266,7 @@ Return the SessionManager used by the Supervisor.
 
 #### Returns:
 
-  A SessionManager object.
+A SessionManager object.
 
 <h3 id="summary_op"><code>summary_op</code></h3>
 
@@ -274,7 +274,7 @@ Return the Summary Tensor used by the chief supervisor.
 
 #### Returns:
 
-  A string Tensor for the summary or `None`.
+A string Tensor for the summary or `None`.
 
 <h3 id="summary_writer"><code>summary_writer</code></h3>
 
@@ -282,7 +282,7 @@ Return the SummaryWriter used by the chief supervisor.
 
 #### Returns:
 
-  A SummaryWriter.
+A SummaryWriter.
 
 
 
@@ -387,7 +387,7 @@ Create a `Supervisor`.
 
 #### Returns:
 
-  A `Supervisor`.
+A `Supervisor`.
 
 <h3 id="Loop"><code>Loop</code></h3>
 
@@ -419,7 +419,7 @@ so it does not need to be passed to the `stop()` method.
 
 #### Returns:
 
-  The started thread.
+The started thread.
 
 <h3 id="PrepareSession"><code>PrepareSession</code></h3>
 
@@ -455,7 +455,7 @@ manager to start the standard services.
 
 #### Returns:
 
-  A Session object that can be used to drive the model.
+A Session object that can be used to drive the model.
 
 <h3 id="RequestStop"><code>RequestStop</code></h3>
 
@@ -485,7 +485,7 @@ See `Coordinator.should_stop()`.
 
 #### Returns:
 
-  True if the coordinator was told to stop, False otherwise.
+True if the coordinator was told to stop, False otherwise.
 
 <h3 id="StartQueueRunners"><code>StartQueueRunners</code></h3>
 
@@ -513,7 +513,7 @@ you do not need to call this explicitly.
 
 #### Returns:
 
-  The list of threads started for the `QueueRunners`.
+The list of threads started for the `QueueRunners`.
 
 <h3 id="StartStandardServices"><code>StartStandardServices</code></h3>
 
@@ -537,9 +537,9 @@ on the parameters to the constructor and may include:
 
 #### Returns:
 
-  A list of threads that are running the standard services.  You can use
-  the Supervisor's Coordinator to join these threads with:
-    sv.coord.Join(<list of threads>)
+A list of threads that are running the standard services.  You can use
+the Supervisor's Coordinator to join these threads with:
+  sv.coord.Join(<list of threads>)
 
 
 #### Raises:
@@ -584,7 +584,7 @@ See `Coordinator.stop_on_exception()`.
 
 #### Returns:
 
-  A context handler.
+A context handler.
 
 <h3 id="SummaryComputed"><code>SummaryComputed</code></h3>
 
@@ -649,7 +649,7 @@ so it does not need to be passed to the `stop()` method.
 
 #### Returns:
 
-  The started thread.
+The started thread.
 
 <h3 id="managed_session"><code>managed_session</code></h3>
 
@@ -717,9 +717,9 @@ the training loop and are considered normal termination.
 
 #### Returns:
 
-  A context manager that yields a `Session` restored from the latest
-  checkpoint or initialized from scratch if not checkpoint exists.  The
-  session is closed when the `with` block exits.
+A context manager that yields a `Session` restored from the latest
+checkpoint or initialized from scratch if not checkpoint exists.  The
+session is closed when the `with` block exits.
 
 <h3 id="prepare_or_wait_for_session"><code>prepare_or_wait_for_session</code></h3>
 
@@ -755,7 +755,7 @@ manager to start the standard services.
 
 #### Returns:
 
-  A Session object that can be used to drive the model.
+A Session object that can be used to drive the model.
 
 <h3 id="request_stop"><code>request_stop</code></h3>
 
@@ -785,7 +785,7 @@ See `Coordinator.should_stop()`.
 
 #### Returns:
 
-  True if the coordinator was told to stop, False otherwise.
+True if the coordinator was told to stop, False otherwise.
 
 <h3 id="start_queue_runners"><code>start_queue_runners</code></h3>
 
@@ -813,7 +813,7 @@ you do not need to call this explicitly.
 
 #### Returns:
 
-  The list of threads started for the `QueueRunners`.
+The list of threads started for the `QueueRunners`.
 
 <h3 id="start_standard_services"><code>start_standard_services</code></h3>
 
@@ -837,9 +837,9 @@ on the parameters to the constructor and may include:
 
 #### Returns:
 
-  A list of threads that are running the standard services.  You can use
-  the Supervisor's Coordinator to join these threads with:
-    sv.coord.Join(<list of threads>)
+A list of threads that are running the standard services.  You can use
+the Supervisor's Coordinator to join these threads with:
+  sv.coord.Join(<list of threads>)
 
 
 #### Raises:
@@ -884,7 +884,7 @@ See `Coordinator.stop_on_exception()`.
 
 #### Returns:
 
-  A context handler.
+A context handler.
 
 <h3 id="summary_computed"><code>summary_computed</code></h3>
 

@@ -24,7 +24,7 @@ ifft(
 
 Defined in `tensorflow/python/ops/gen_spectral_ops.py`.
 
-See the guide: [Spectral Functions > Fourier Transform Functions](../../../api_guides/python/spectral_ops#Fourier_Transform_Functions)
+See the guide: [Spectral Functions > Discrete Fourier Transforms](../../../api_guides/python/spectral_ops#Discrete_Fourier_Transforms)
 
 Inverse fast Fourier transform.
 
@@ -39,9 +39,9 @@ inner-most dimension of `input`.
 
 #### Returns:
 
-  A `Tensor` of type `complex64`.
-  A complex64 tensor of the same shape as `input`. The inner-most
-    dimension of `input` is replaced with its inverse 1D Fourier transform.
+A `Tensor` of type `complex64`.
+A complex64 tensor of the same shape as `input`. The inner-most
+  dimension of `input` is replaced with its inverse 1D Fourier transform.
 
 
 

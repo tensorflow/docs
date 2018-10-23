@@ -16,10 +16,10 @@ page_type: reference
 ``` python
 local_response_normalization(
     input,
-    depth_radius=None,
-    bias=None,
-    alpha=None,
-    beta=None,
+    depth_radius=5,
+    bias=1,
+    alpha=1,
+    beta=0.5,
     name=None
 )
 ```
@@ -60,4 +60,4 @@ convolutional neural networks (NIPS 2012)](http://papers.nips.cc/paper/4824-imag
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
+A `Tensor`. Has the same type as `input`.

@@ -18,7 +18,7 @@ convert_to_tensor_or_indexed_slices(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
 
@@ -39,7 +39,7 @@ unmodified. Otherwise, it is converted to a `Tensor` using
 
 #### Returns:
 
-  An `Tensor`, `IndexedSlices`, or `SparseTensor` based on `value`.
+An `Tensor`, `IndexedSlices`, or `SparseTensor` based on `value`.
 
 
 #### Raises:

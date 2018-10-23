@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 Reads from a collection of CSV-formatted files.
 

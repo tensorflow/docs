@@ -18,7 +18,7 @@ rotate(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/image/python/ops/image_ops.py).
 
 Rotate image(s) by the passed angle(s) in radians.
 
@@ -34,8 +34,8 @@ Rotate image(s) by the passed angle(s) in radians.
 
 #### Returns:
 
-  Image(s) with the same type and shape as `images`, rotated by the given
-  angle(s). Empty space due to the rotation will be filled with zeros.
+Image(s) with the same type and shape as `images`, rotated by the given
+angle(s). Empty space due to the rotation will be filled with zeros.
 
 
 #### Raises:

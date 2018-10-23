@@ -12,7 +12,7 @@ page_type: reference
 resize_nearest_neighbor(
     images,
     size,
-    align_corners=None,
+    align_corners=False,
     name=None
 )
 ```
@@ -40,5 +40,5 @@ Resize `images` to `size` using nearest neighbor interpolation.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `images`. 4-D with shape
-  `[batch, new_height, new_width, channels]`.
+A `Tensor`. Has the same type as `images`. 4-D with shape
+`[batch, new_height, new_width, channels]`.

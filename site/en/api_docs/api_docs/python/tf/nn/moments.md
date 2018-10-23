@@ -20,7 +20,7 @@ moments(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Normalization](../../../../api_guides/python/nn#Normalization)
 
@@ -51,4 +51,4 @@ When using these moments for batch normalization (see
 
 #### Returns:
 
-  Two `Tensor` objects: `mean` and `variance`.
+Two `Tensor` objects: `mean` and `variance`.

@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/ops/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/ops/__init__.py).
+Defined in [`tensorflow/contrib/learn/python/learn/ops/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/ops/__init__.py).
 
 Various TensorFlow Ops.
 

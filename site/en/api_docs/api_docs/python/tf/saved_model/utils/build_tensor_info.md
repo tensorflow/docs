@@ -14,7 +14,7 @@ build_tensor_info(tensor)
 
 
 
-Defined in [`tensorflow/python/saved_model/utils_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/saved_model/utils_impl.py).
+Defined in [`tensorflow/python/saved_model/utils_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/saved_model/utils_impl.py).
 
 Utility function to build TensorInfo proto.
 
@@ -27,4 +27,4 @@ Utility function to build TensorInfo proto.
 
 #### Returns:
 
-  A TensorInfo protocol buffer constructed based on the supplied argument.
+A TensorInfo protocol buffer constructed based on the supplied argument.

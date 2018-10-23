@@ -21,7 +21,7 @@ sparse_to_dense(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Conversion](../../../api_guides/python/sparse_ops#Conversion)
 
@@ -65,5 +65,5 @@ are checked during execution.
 
 #### Returns:
 
-  Dense `Tensor` of shape `output_shape`.  Has the same type as
-  `sparse_values`.
+Dense `Tensor` of shape `output_shape`.  Has the same type as
+`sparse_values`.

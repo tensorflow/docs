@@ -14,7 +14,7 @@ get_variable_scope()
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/variable_scope.py).
+Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/variable_scope.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 

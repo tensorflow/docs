@@ -19,7 +19,7 @@ sparse_reduce_max(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 Computes the max of elements across dimensions of a SparseTensor.
 
@@ -60,4 +60,4 @@ tf.sparse_reduce_max(x, [0, 1]) ==> 3
 
 #### Returns:
 
-  The reduced Tensor.
+The reduced Tensor.

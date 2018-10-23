@@ -66,6 +66,6 @@ tf.segment_sum(c, tf.constant([0, 0, 1]))
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `data`.
-  Has same shape as data, except for dimension 0 which
-  has size `k`, the number of segments.
+A `Tensor`. Has the same type as `data`.
+Has same shape as data, except for dimension 0 which
+has size `k`, the number of segments.

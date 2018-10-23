@@ -33,7 +33,7 @@ Returns which elements of x are finite.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 #### numpy compatibility
 Equivalent to np.isfinite

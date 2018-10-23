@@ -38,4 +38,4 @@ The Hurwitz zeta function is defined as:
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

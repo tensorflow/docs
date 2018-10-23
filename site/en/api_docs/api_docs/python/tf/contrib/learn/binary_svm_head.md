@@ -20,7 +20,7 @@ binary_svm_head(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/head.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/head.py).
 
 Creates a `Head` for binary classification with SVMs.
 
@@ -44,4 +44,4 @@ The head uses binary hinge loss.
 
 #### Returns:
 
-  An instance of `Head` for binary classification with SVM.
+An instance of `Head` for binary classification with SVM.

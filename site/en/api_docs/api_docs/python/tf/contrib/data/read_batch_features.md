@@ -23,7 +23,7 @@ read_batch_features(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/dataset_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/data/python/ops/dataset_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/data/python/ops/readers.py).
 
 Reads batches of Examples.
 
@@ -88,4 +88,4 @@ And the expected output is:
 
 #### Returns:
 
-  A dict from keys in features to Tensor or SparseTensor objects.
+A dict from keys in features to Tensor or SparseTensor objects.

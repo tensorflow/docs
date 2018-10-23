@@ -23,7 +23,7 @@ convert_to_tensor_or_sparse_tensor(
 
 
 
-Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/sparse_tensor.py).
+Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/sparse_tensor.py).
 
 See the guides: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions), [Framework (contrib)](../../../api_guides/python/contrib.framework)
 
@@ -40,7 +40,7 @@ Converts value to a `SparseTensor` or `Tensor`.
 
 #### Returns:
 
-  A `SparseTensor` or `Tensor` based on `value`.
+A `SparseTensor` or `Tensor` based on `value`.
 
 
 #### Raises:

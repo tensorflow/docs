@@ -70,5 +70,5 @@ negation of the erosion of `-input` by the reflected `filter`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
-  4-D with shape `[batch, out_height, out_width, depth]`.
+A `Tensor`. Has the same type as `input`.
+4-D with shape `[batch, out_height, out_width, depth]`.

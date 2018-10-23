@@ -12,13 +12,14 @@ page_type: reference
 deprecated_args(
     date,
     instructions,
-    *deprecated_arg_names_or_tuples
+    *deprecated_arg_names_or_tuples,
+    **kwargs
 )
 ```
 
 
 
-Defined in [`tensorflow/python/util/deprecation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/deprecation.py).
+Defined in [`tensorflow/python/util/deprecation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/deprecation.py).
 
 See the guide: [Framework (contrib) > Deprecation](../../../../../api_guides/python/contrib.framework#Deprecation)
 
@@ -44,20 +45,24 @@ prepended to the rest of the docstring.
     Must be ISO 8601 (YYYY-MM-DD), or None.
 * <b>`instructions`</b>: String. Instructions on how to update code using the
     deprecated function.
-  *deprecated_arg_names_or_tuples: String. or 2-Tuple(String,
+* <b>`*deprecated_arg_names_or_tuples`</b>: String or 2-Tuple(String,
     [ok_vals]).  The string is the deprecated argument name.
     Optionally, an ok-value may be provided.  If the user provided
     argument equals this value, the warning is suppressed.
+* <b>`**kwargs`</b>: If `warn_once=False` is passed, every call with a deprecated
+    argument will log a warning. The default behavior is to only warn the
+    first time the function is called with any given deprecated argument.
+    All other kwargs raise `ValueError`.
 
 
 #### Returns:
 
-  Decorated function or method.
+Decorated function or method.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: If date is not None or in ISO 8601 format, instructions are
     empty, the deprecated arguments are not present in the function
-    signature, or the second element of a deprecated_tuple is not a
-    list.
+    signature, the second element of a deprecated_tuple is not a
+    list, or if a kwarg other than `warn_once` is passed.

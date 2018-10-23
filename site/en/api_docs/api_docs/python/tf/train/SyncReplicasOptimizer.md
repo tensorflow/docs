@@ -14,7 +14,7 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/python/training/sync_replicas_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/sync_replicas_optimizer.py).
+Defined in [`tensorflow/python/training/sync_replicas_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/sync_replicas_optimizer.py).
 
 Class to synchronize, aggregate gradients and pass them to the optimizer.
 
@@ -104,8 +104,7 @@ with training.MonitoredTrainingSession(
 
 To use SyncReplicasOptimizer with an `Estimator`, you need to send
 sync_replicas_hook while calling the fit.
-
-```
+```python
 my_estimator = DNNClassifier(..., optimizer=opt)
 my_estimator.fit(..., hooks=[sync_replicas_hook])
 ```
@@ -204,13 +203,13 @@ gradients can hurt the gradients from other replicas.
 
 #### Args:
 
-  *args: Arguments for compute_gradients().
-  **kwargs: Keyword arguments for compute_gradients().
+* <b>`*args`</b>: Arguments for compute_gradients().
+* <b>`**kwargs`</b>: Keyword arguments for compute_gradients().
 
 
 #### Returns:
 
-  A list of (gradient, variable) pairs.
+A list of (gradient, variable) pairs.
 
 <h3 id="get_chief_queue_runner"><code>get_chief_queue_runner</code></h3>
 
@@ -228,7 +227,7 @@ actually generates this queuerunner.
 
 #### Returns:
 
-  A `QueueRunner` for chief to execute.
+A `QueueRunner` for chief to execute.
 
 
 #### Raises:
@@ -256,7 +255,7 @@ variable update. Make sure:
 
 #### Returns:
 
-  An op for the chief/sync replica to fill the token queue.
+An op for the chief/sync replica to fill the token queue.
 
 
 #### Raises:
@@ -288,13 +287,13 @@ This simply wraps the get_slot() from the actual optimizer.
 
 #### Args:
 
-  *args: Arguments for get_slot().
-  **kwargs: Keyword arguments for get_slot().
+* <b>`*args`</b>: Arguments for get_slot().
+* <b>`**kwargs`</b>: Keyword arguments for get_slot().
 
 
 #### Returns:
 
-  The `Variable` for the slot if it was created, `None` otherwise.
+The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
@@ -311,13 +310,13 @@ This simply wraps the get_slot_names() from the actual optimizer.
 
 #### Args:
 
-  *args: Arguments for get_slot().
-  **kwargs: Keyword arguments for get_slot().
+* <b>`*args`</b>: Arguments for get_slot().
+* <b>`**kwargs`</b>: Keyword arguments for get_slot().
 
 
 #### Returns:
 
-  A list of strings.
+A list of strings.
 
 <h3 id="make_session_run_hook"><code>make_session_run_hook</code></h3>
 
@@ -372,8 +371,8 @@ of using this function.
 
 #### Returns:
 
-  An Operation that updates the variables in `var_list`.  If `global_step`
-  was not `None`, that operation also increments `global_step`.
+An Operation that updates the variables in `var_list`.  If `global_step`
+was not `None`, that operation also increments `global_step`.
 
 
 #### Raises:

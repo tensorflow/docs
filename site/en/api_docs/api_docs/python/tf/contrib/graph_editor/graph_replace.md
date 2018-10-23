@@ -20,7 +20,7 @@ graph_replace(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/transform.py).
+Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/transform.py).
 
 See the guide: [Graph Editor (contrib) > Module: transform](../../../../../api_guides/python/contrib.graph_editor#Module_transform)
 
@@ -38,9 +38,9 @@ Create a new graph which compute the targets from the replaced Tensors.
 
 #### Returns:
 
-  A single tf.Tensor or a list of target tf.Tensor, depending on
-  the type of the input argument `target_ts`.
-  The returned tensors are recomputed using the tensors from replacement_ts.
+A single tf.Tensor or a list of target tf.Tensor, depending on
+the type of the input argument `target_ts`.
+The returned tensors are recomputed using the tensors from replacement_ts.
 
 #### Raises:
 

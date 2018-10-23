@@ -14,7 +14,7 @@ set_random_seed(seed)
 
 
 
-Defined in [`tensorflow/python/framework/random_seed.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/random_seed.py).
+Defined in [`tensorflow/python/framework/random_seed.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/random_seed.py).
 
 See the guide: [Constants, Sequences, and Random Values > Random Tensors](../../../api_guides/python/constant_op#Random_Tensors)
 

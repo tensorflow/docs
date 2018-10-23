@@ -47,7 +47,7 @@
 <html devsite>
   <head>
     <title>Graph</title>
-    <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+    <meta name="book_path" value="/versions/r1.4/_book.yaml" />
     <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
@@ -303,6 +303,27 @@
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Graph.html#operation(java.lang.String)">operation</a></span>(String name)
                 
                   <div class="jd-descrdiv">Returns the operation (node in the Graph) with the provided name.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                Iterator&lt;<a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a>&gt;
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Graph.html#operations()">operations</a></span>()
+                
+                  <div class="jd-descrdiv">Iterator over all the <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>s in the graph.</div>
                 
               </div>
           </td>
@@ -890,6 +911,39 @@
         </tr>
       </table>
   </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="operations()"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            Iterator&lt;<a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a>&gt;
+          </span>
+          <span class="sympad"><strong>operations</strong></span>
+          <span class="params">()</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Iterator over all the <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>s in the graph.
+
+ <p>The order of iteration is unspecified. Consumers of the iterator will receive no
+ notification should the underlying graph change during iteration.
+</p></div>
 
         </div>
     </div>

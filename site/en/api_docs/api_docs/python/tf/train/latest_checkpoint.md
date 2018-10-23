@@ -17,7 +17,7 @@ latest_checkpoint(
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/saver.py).
 
 See the guide: [Variables > Saving and Restoring Variables](../../../../api_guides/python/state_ops#Saving_and_Restoring_Variables)
 
@@ -33,4 +33,4 @@ Finds the filename of latest saved checkpoint file.
 
 #### Returns:
 
-  The full path to the latest checkpoint or `None` if no checkpoint was found.
+The full path to the latest checkpoint or `None` if no checkpoint was found.

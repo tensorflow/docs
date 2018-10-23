@@ -26,7 +26,7 @@ maybe_batch(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/input.py).
 
 See the guide: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline)
 
@@ -62,7 +62,7 @@ See docstring in `batch` for more details.
 
 #### Returns:
 
-  A list or dictionary of tensors with the same types as `tensors`.
+A list or dictionary of tensors with the same types as `tensors`.
 
 
 #### Raises:

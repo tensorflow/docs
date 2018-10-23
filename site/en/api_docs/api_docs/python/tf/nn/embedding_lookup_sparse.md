@@ -22,7 +22,7 @@ embedding_lookup_sparse(
 
 
 
-Defined in [`tensorflow/python/ops/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/embedding_ops.py).
+Defined in [`tensorflow/python/ops/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/embedding_ops.py).
 
 See the guide: [Neural Network > Embeddings](../../../../api_guides/python/nn#Embeddings)
 
@@ -63,35 +63,35 @@ is the sum of the size of params along dimension 0.
 
 #### Returns:
 
-  A dense tensor representing the combined embeddings for the
-  sparse ids. For each row in the dense tensor represented by sp_ids, the op
-  looks up the embeddings for all ids in that row, multiplies them by the
-  corresponding weight, and combines these embeddings as specified.
+A dense tensor representing the combined embeddings for the
+sparse ids. For each row in the dense tensor represented by sp_ids, the op
+looks up the embeddings for all ids in that row, multiplies them by the
+corresponding weight, and combines these embeddings as specified.
 
-  In other words, if
+In other words, if
 
-    shape(combined params) = [p0, p1, ..., pm]
+  shape(combined params) = [p0, p1, ..., pm]
 
-  and
+and
 
-    shape(sp_ids) = shape(sp_weights) = [d0, d1, ..., dn]
+  shape(sp_ids) = shape(sp_weights) = [d0, d1, ..., dn]
 
-  then
+then
 
-    shape(output) = [d0, d1, ..., dn-1, p1, ..., pm].
+  shape(output) = [d0, d1, ..., dn-1, p1, ..., pm].
 
-  For instance, if params is a 10x20 matrix, and sp_ids / sp_weights are
+For instance, if params is a 10x20 matrix, and sp_ids / sp_weights are
 
-    [0, 0]: id 1, weight 2.0
-    [0, 1]: id 3, weight 0.5
-    [1, 0]: id 0, weight 1.0
-    [2, 3]: id 1, weight 3.0
+  [0, 0]: id 1, weight 2.0
+  [0, 1]: id 3, weight 0.5
+  [1, 0]: id 0, weight 1.0
+  [2, 3]: id 1, weight 3.0
 
-  with `combiner`="mean", then the output will be a 3x20 matrix where
+with `combiner`="mean", then the output will be a 3x20 matrix where
 
-    output[0, :] = (params[1, :] * 2.0 + params[3, :] * 0.5) / (2.0 + 0.5)
-    output[1, :] = params[0, :] * 1.0
-    output[2, :] = params[1, :] * 3.0
+  output[0, :] = (params[1, :] * 2.0 + params[3, :] * 0.5) / (2.0 + 0.5)
+  output[1, :] = params[0, :] * 1.0
+  output[2, :] = params[1, :] * 3.0
 
 
 #### Raises:

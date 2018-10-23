@@ -17,7 +17,7 @@ sequence_input_from_feature_columns(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/experimental.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/framework/experimental.py).
+Defined in [`tensorflow/contrib/framework/python/framework/experimental.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/framework/experimental.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -49,7 +49,7 @@ constructed using any of the following: `ScatteredEmbeddingColumn`,
 
 #### Returns:
 
-  A Tensor which can be consumed by hidden layers in the neural network.
+A Tensor which can be consumed by hidden layers in the neural network.
 
 
 #### Raises:

@@ -20,7 +20,7 @@ make_export_strategy(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/utils/saved_model_export_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/utils/saved_model_export_utils.py).
+Defined in [`tensorflow/contrib/learn/python/learn/utils/saved_model_export_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/utils/saved_model_export_utils.py).
 
 Create an ExportStrategy for use with Experiment.
 
@@ -47,4 +47,4 @@ Create an ExportStrategy for use with Experiment.
 
 #### Returns:
 
-  An ExportStrategy that can be passed to the Experiment constructor.
+An ExportStrategy that can be passed to the Experiment constructor.

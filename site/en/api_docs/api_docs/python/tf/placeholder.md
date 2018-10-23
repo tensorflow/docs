@@ -18,7 +18,7 @@ placeholder(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guides: [Inputs and Readers > Placeholders](../../../api_guides/python/io_ops#Placeholders), [Reading data > Feeding](../../../api_guides/python/reading_data#Feeding)
 
@@ -51,5 +51,5 @@ with tf.Session() as sess:
 
 #### Returns:
 
-  A `Tensor` that may be used as a handle for feeding a value, but not
-  evaluated directly.
+A `Tensor` that may be used as a handle for feeding a value, but not
+evaluated directly.

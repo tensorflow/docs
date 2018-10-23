@@ -21,7 +21,7 @@ streaming_sparse_average_precision_at_top_k(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 Computes average precision@k of predictions with respect to sparse labels.
 
@@ -68,7 +68,7 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 * <b>`mean_average_precision`</b>: Scalar `float64` `Tensor` with the mean average
     precision values.
-* <b>`update`</b>: `Operation` that increments  variables appropriately, and whose
+* <b>`update`</b>: `Operation` that increments variables appropriately, and whose
     value matches `metric`.
 
 

@@ -20,39 +20,39 @@ constant(
 
 
 
-Defined in [`tensorflow/python/framework/constant_op.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/constant_op.py).
+Defined in [`tensorflow/python/framework/constant_op.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/constant_op.py).
 
 See the guide: [Constants, Sequences, and Random Values > Constant Value Tensors](../../../api_guides/python/constant_op#Constant_Value_Tensors)
 
 Creates a constant tensor.
 
- The resulting tensor is populated with values of type `dtype`, as
- specified by arguments `value` and (optionally) `shape` (see examples
- below).
+The resulting tensor is populated with values of type `dtype`, as
+specified by arguments `value` and (optionally) `shape` (see examples
+below).
 
- The argument `value` can be a constant value, or a list of values of type
- `dtype`. If `value` is a list, then the length of the list must be less
- than or equal to the number of elements implied by the `shape` argument (if
- specified). In the case where the list length is less than the number of
- elements specified by `shape`, the last element in the list will be used
- to fill the remaining entries.
+The argument `value` can be a constant value, or a list of values of type
+`dtype`. If `value` is a list, then the length of the list must be less
+than or equal to the number of elements implied by the `shape` argument (if
+specified). In the case where the list length is less than the number of
+elements specified by `shape`, the last element in the list will be used
+to fill the remaining entries.
 
- The argument `shape` is optional. If present, it specifies the dimensions of
- the resulting tensor. If not present, the shape of `value` is used.
+The argument `shape` is optional. If present, it specifies the dimensions of
+the resulting tensor. If not present, the shape of `value` is used.
 
- If the argument `dtype` is not specified, then the type is inferred from
- the type of `value`.
+If the argument `dtype` is not specified, then the type is inferred from
+the type of `value`.
 
- For example:
+For example:
 
- ```python
- # Constant 1-D Tensor populated with value list.
- tensor = tf.constant([1, 2, 3, 4, 5, 6, 7]) => [1 2 3 4 5 6 7]
+```python
+# Constant 1-D Tensor populated with value list.
+tensor = tf.constant([1, 2, 3, 4, 5, 6, 7]) => [1 2 3 4 5 6 7]
 
- # Constant 2-D tensor populated with scalar value -1.
- tensor = tf.constant(-1.0, shape=[2, 3]) => [[-1. -1. -1.]
-                                              [-1. -1. -1.]]
- ```
+# Constant 2-D tensor populated with scalar value -1.
+tensor = tf.constant(-1.0, shape=[2, 3]) => [[-1. -1. -1.]
+                                             [-1. -1. -1.]]
+```
 
 #### Args:
 
@@ -69,4 +69,9 @@ Creates a constant tensor.
 
 #### Returns:
 
-  A Constant Tensor.
+A Constant Tensor.
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: if shape is incorrectly specified or unsupported.

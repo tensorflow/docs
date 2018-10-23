@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/tensor_array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/tensor_array_ops.py).
+Defined in [`tensorflow/python/ops/tensor_array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/tensor_array_ops.py).
 
 Class wrapping dynamic-sized, per-time-step, write-once Tensor arrays.
 
@@ -130,7 +130,7 @@ and their shapes must all match for all dimensions except the first.
 
 #### Returns:
 
-  All the tensors in the TensorArray concatenated into one tensor.
+All the tensors in the TensorArray concatenated into one tensor.
 
 <h3 id="gather"><code>gather</code></h3>
 
@@ -155,7 +155,7 @@ must all match.
 
 #### Returns:
 
-  The in the `TensorArray` selected by `indices`, packed into one tensor.
+The in the `TensorArray` selected by `indices`, packed into one tensor.
 
 <h3 id="grad"><code>grad</code></h3>
 
@@ -179,9 +179,9 @@ Returns a TensorArray with the same content and properties.
 
 #### Returns:
 
-  A new TensorArray object with flow that ensures the control dependencies
-  from the contexts will become control dependencies for writes, reads, etc.
-  Use this object all for subsequent operations.
+A new TensorArray object with flow that ensures the control dependencies
+from the contexts will become control dependencies for writes, reads, etc.
+Use this object all for subsequent operations.
 
 <h3 id="read"><code>read</code></h3>
 
@@ -202,7 +202,7 @@ Read the value at location `index` in the TensorArray.
 
 #### Returns:
 
-  The tensor at index `index`.
+The tensor at index `index`.
 
 <h3 id="scatter"><code>scatter</code></h3>
 
@@ -286,7 +286,7 @@ If input shapes have rank-`R`, then output shape will have rank-`(R+1)`.
 
 #### Returns:
 
-  All the tensors in the TensorArray stacked into one tensor.
+All the tensors in the TensorArray stacked into one tensor.
 
 <h3 id="unstack"><code>unstack</code></h3>
 

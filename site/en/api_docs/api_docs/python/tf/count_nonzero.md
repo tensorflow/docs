@@ -21,7 +21,7 @@ count_nonzero(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Reduction](../../../api_guides/python/math_ops#Reduction)
 
@@ -42,20 +42,20 @@ the nonzero check.
 For example:
 
 ```python
-# 'x' is [[0, 1, 0]
-#         [1, 1, 0]]
-tf.count_nonzero(x) ==> 3
-tf.count_nonzero(x, 0) ==> [1, 2, 0]
-tf.count_nonzero(x, 1) ==> [1, 2]
-tf.count_nonzero(x, 1, keep_dims=True) ==> [[1], [2]]
-tf.count_nonzero(x, [0, 1]) ==> 3
+x = tf.constant([[0, 1, 0], [1, 1, 0]])
+tf.count_nonzero(x)  # 3
+tf.count_nonzero(x, 0)  # [1, 2, 0]
+tf.count_nonzero(x, 1)  # [1, 2]
+tf.count_nonzero(x, 1, keep_dims=True)  # [[1], [2]]
+tf.count_nonzero(x, [0, 1])  # 3
 ```
 
 #### Args:
 
 * <b>`input_tensor`</b>: The tensor to reduce. Should be of numeric type, or `bool`.
 * <b>`axis`</b>: The dimensions to reduce. If `None` (the default),
-    reduces all dimensions.
+    reduces all dimensions. Must be in the range
+    `[-rank(input_tensor), rank(input_tensor))`.
 * <b>`keep_dims`</b>: If true, retains reduced dimensions with length 1.
 * <b>`dtype`</b>: The output dtype; defaults to `tf.int64`.
 * <b>`name`</b>: A name for the operation (optional).
@@ -64,4 +64,4 @@ tf.count_nonzero(x, [0, 1]) ==> 3
 
 #### Returns:
 
-  The reduced tensor (number of nonzero values).
+The reduced tensor (number of nonzero values).

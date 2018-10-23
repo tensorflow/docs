@@ -17,7 +17,7 @@ remove_training_nodes(
 
 
 
-Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/graph_util_impl.py).
+Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/graph_util_impl.py).
 
 Prunes out nodes that aren't needed for inference.
 
@@ -38,4 +38,4 @@ their input and outputs are directly connected.
 
 #### Returns:
 
-  A list of nodes with the unnecessary ones removed.
+A list of nodes with the unnecessary ones removed.

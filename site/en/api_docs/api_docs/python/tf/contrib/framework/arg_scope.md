@@ -17,7 +17,7 @@ arg_scope(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/arg_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/arg_scope.py).
+Defined in [`tensorflow/contrib/framework/python/ops/arg_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/arg_scope.py).
 
 See the guide: [Framework (contrib) > Arg_Scope](../../../../../api_guides/python/contrib.framework#Arg_Scope)
 
@@ -31,13 +31,13 @@ For usage, please see examples at top of the file.
     a dictionary containing the current scope. When list_ops_or_scope is a
     dict, kwargs must be empty. When list_ops_or_scope is a list or tuple,
     then every op in it need to be decorated with @add_arg_scope to work.
-  **kwargs: keyword=value that will define the defaults for each op in
+* <b>`**kwargs`</b>: keyword=value that will define the defaults for each op in
             list_ops. All the ops need to accept the given set of arguments.
 
 
 #### Yields:
 
-  the current_scope, which is a dictionary of {op: {arg: value}}
+the current_scope, which is a dictionary of {op: {arg: value}}
 
 #### Raises:
 

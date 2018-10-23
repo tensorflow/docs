@@ -20,7 +20,7 @@ split(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -41,12 +41,12 @@ For example:
 # 'value' is a tensor with shape [5, 30]
 # Split 'value' into 3 tensors with sizes [4, 15, 11] along dimension 1
 split0, split1, split2 = tf.split(value, [4, 15, 11], 1)
-tf.shape(split0) ==> [5, 4]
-tf.shape(split1) ==> [5, 15]
-tf.shape(split2) ==> [5, 11]
+tf.shape(split0)  # [5, 4]
+tf.shape(split1)  # [5, 15]
+tf.shape(split2)  # [5, 11]
 # Split 'value' into 3 tensors along dimension 1
 split0, split1, split2 = tf.split(value, num_or_size_splits=3, axis=1)
-tf.shape(split0) ==> [5, 10]
+tf.shape(split0)  # [5, 10]
 ```
 
 #### Args:
@@ -66,10 +66,10 @@ tf.shape(split0) ==> [5, 10]
 
 #### Returns:
 
-  if `num_or_size_splits` is a scalar returns `num_or_size_splits` `Tensor`
-  objects; if `num_or_size_splits` is a 1-D Tensor returns
-  `num_or_size_splits.get_shape[0]` `Tensor` objects resulting from splitting
-  `value`.
+if `num_or_size_splits` is a scalar returns `num_or_size_splits` `Tensor`
+objects; if `num_or_size_splits` is a 1-D Tensor returns
+`num_or_size_splits.get_shape[0]` `Tensor` objects resulting from splitting
+`value`.
 
 
 #### Raises:

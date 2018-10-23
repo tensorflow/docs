@@ -50,4 +50,4 @@ tf.diag(diagonal) ==> [[1, 0, 0, 0]
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `diagonal`.
+A `Tensor`. Has the same type as `diagonal`.

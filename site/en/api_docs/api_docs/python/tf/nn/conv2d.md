@@ -14,8 +14,8 @@ conv2d(
     filter,
     strides,
     padding,
-    use_cudnn_on_gpu=None,
-    data_format=None,
+    use_cudnn_on_gpu=True,
+    data_format='NHWC',
     name=None
 )
 ```
@@ -76,6 +76,6 @@ horizontal and vertices strides, `strides = [1, stride, stride, 1]`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
-  A 4-D tensor. The dimension order is determined by the value of
-  `data_format`, see below for details.
+A `Tensor`. Has the same type as `input`.
+A 4-D tensor. The dimension order is determined by the value of
+`data_format`, see below for details.

@@ -24,7 +24,7 @@ make_tensor_proto(
 
 
 
-Defined in [`tensorflow/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/tensor_util.py).
+Defined in [`tensorflow/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/tensor_util.py).
 
 See the guide: [Utilities (contrib) > Miscellaneous Utility Functions](../../../api_guides/python/contrib.util#Miscellaneous_Utility_Functions)
 
@@ -40,10 +40,13 @@ Create a TensorProto.
 
 #### Returns:
 
-  A TensorProto. Depending on the type, it may contain data in the
-  "tensor_content" attribute, which is not directly useful to Python programs.
-  To access the values you should convert the proto back to a numpy ndarray
-  with tensor_util.MakeNdarray(proto).
+A `TensorProto`. Depending on the type, it may contain data in the
+"tensor_content" attribute, which is not directly useful to Python programs.
+To access the values you should convert the proto back to a numpy ndarray
+with `tensor_util.MakeNdarray(proto)`.
+
+If `values` is a `TensorProto`, it is immediately returned; `dtype` and
+`shape` are ignored.
 
 
 #### Raises:

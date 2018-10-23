@@ -14,7 +14,7 @@ tables_initializer(name='init_all_tables')
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/lookup_ops.py).
 
 See the guide: [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
 
@@ -27,5 +27,5 @@ Returns an Op that initializes all tables of the default graph.
 
 #### Returns:
 
-  An Op that initializes all tables.  Note that if there are
-  not tables the returned Op is a NoOp.
+An Op that initializes all tables.  Note that if there are
+not tables the returned Op is a NoOp.

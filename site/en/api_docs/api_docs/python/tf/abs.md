@@ -17,7 +17,7 @@ abs(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Basic Math Functions](../../../api_guides/python/math_ops#Basic_Math_Functions)
 
@@ -27,10 +27,9 @@ Given a tensor `x` of complex numbers, this operation returns a tensor of type
 `float32` or `float64` that is the absolute value of each element in `x`. All
 elements in `x` must be complex numbers of the form \\(a + bj\\). The
 absolute value is computed as \\( \sqrt{a^2 + b^2}\\).  For example:
-
-```
-# tensor 'x' is [[-2.25 + 4.75j], [-3.25 + 5.75j]]
-tf.abs(x) ==> [5.25594902, 6.60492229]
+```python
+x = tf.constant([[-2.25 + 4.75j], [-3.25 + 5.75j]])
+tf.abs(x)  # [5.25594902, 6.60492229]
 ```
 
 #### Args:
@@ -42,7 +41,7 @@ tf.abs(x) ==> [5.25594902, 6.60492229]
 
 #### Returns:
 
-  A `Tensor` or `SparseTensor` the same size and type as `x` with absolute
-    values.
-  Note, for `complex64` or `complex128' input, the returned `Tensor` will be
-    of type `float32` or `float64`, respectively.
+A `Tensor` or `SparseTensor` the same size and type as `x` with absolute
+  values.
+Note, for `complex64` or `complex128' input, the returned `Tensor` will be
+  of type `float32` or `float64`, respectively.

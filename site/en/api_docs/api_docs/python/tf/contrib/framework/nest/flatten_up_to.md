@@ -17,7 +17,7 @@ flatten_up_to(
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/nest.py).
 
 Flattens `input_tree` up to `shallow_tree`.
 
@@ -80,8 +80,8 @@ flatten_up_to([0, 1, 2], [0, 1, 2])  # Output: [0, 1, 2]
 
 #### Returns:
 
-  A Python list, the partially flattened version of `input_tree` according to
-  the structure of `shallow_tree`.
+A Python list, the partially flattened version of `input_tree` according to
+the structure of `shallow_tree`.
 
 
 #### Raises:

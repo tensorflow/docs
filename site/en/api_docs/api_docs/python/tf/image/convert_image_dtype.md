@@ -19,7 +19,7 @@ convert_image_dtype(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Converting Between Colorspaces](../../../../api_guides/python/image#Converting_Between_Colorspaces)
 
@@ -51,4 +51,4 @@ effect on casts between floats, or on casts that increase the type's range).
 
 #### Returns:
 
-  `image`, converted to `dtype`.
+`image`, converted to `dtype`.

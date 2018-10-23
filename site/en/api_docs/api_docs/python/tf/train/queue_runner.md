@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/queue_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/queue_runner.py).
+Defined in [`tensorflow/python/training/queue_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/queue_runner.py).
 
 Create threads to run multiple enqueue ops.
 

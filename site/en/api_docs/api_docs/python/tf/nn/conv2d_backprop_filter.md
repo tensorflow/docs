@@ -15,8 +15,8 @@ conv2d_backprop_filter(
     out_backprop,
     strides,
     padding,
-    use_cudnn_on_gpu=None,
-    data_format=None,
+    use_cudnn_on_gpu=True,
+    data_format='NHWC',
     name=None
 )
 ```
@@ -58,6 +58,6 @@ Computes the gradients of convolution with respect to the filter.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`. 4-D with shape
-  `[filter_height, filter_width, in_channels, out_channels]`.  Gradient w.r.t.
-  the `filter` input of the convolution.
+A `Tensor`. Has the same type as `input`. 4-D with shape
+`[filter_height, filter_width, in_channels, out_channels]`.  Gradient w.r.t.
+the `filter` input of the convolution.

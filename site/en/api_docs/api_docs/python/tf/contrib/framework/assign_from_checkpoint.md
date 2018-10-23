@@ -18,7 +18,7 @@ assign_from_checkpoint(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/variables.py).
 
 See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
 
@@ -41,7 +41,7 @@ Creates an operation to assign specific variables from a checkpoint.
 
 #### Returns:
 
-  the restore_op and the feed_dict that need to be run to restore var_list.
+the restore_op and the feed_dict that need to be run to restore var_list.
 
 
 #### Raises:

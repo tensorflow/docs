@@ -14,7 +14,7 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/dnn_linear_combined.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/dnn_linear_combined.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/dnn_linear_combined.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/dnn_linear_combined.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
@@ -271,7 +271,8 @@ export_savedmodel(
     default_output_alternative_key=None,
     assets_extra=None,
     as_text=False,
-    checkpoint_path=None
+    checkpoint_path=None,
+    graph_rewrite_specs=(GraphRewriteSpec((tag_constants.SERVING,), ()),)
 )
 ```
 
@@ -295,11 +296,15 @@ Exports inference graph as a SavedModel into given dir.
 * <b>`as_text`</b>: whether to write the SavedModel proto in text format.
 * <b>`checkpoint_path`</b>: The checkpoint path to export.  If None (the default),
     the most recent checkpoint found within the model directory is chosen.
+* <b>`graph_rewrite_specs`</b>: an iterable of `GraphRewriteSpec`.  Each element will
+    produce a separate MetaGraphDef within the exported SavedModel, tagged
+    and rewritten as specified.  Defaults to a single entry using the
+    default serving tag ("serve") and no rewriting.
 
 
 #### Returns:
 
-  The string path to the exported directory.
+The string path to the exported directory.
 
 
 #### Raises:
@@ -353,7 +358,7 @@ Get parameters for this estimator.
 
 #### Returns:
 
-  params : mapping of string to any
+* <b>`params `</b>: mapping of string to any
   Parameter names mapped to their values.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
@@ -366,7 +371,7 @@ Returns list of all variable names in this model.
 
 #### Returns:
 
-  List of names.
+List of names.
 
 <h3 id="get_variable_value"><code>get_variable_value</code></h3>
 
@@ -383,7 +388,7 @@ Returns value of the variable given by name.
 
 #### Returns:
 
-  Numpy array - value of the tensor.
+Numpy array - value of the tensor.
 
 <h3 id="partial_fit"><code>partial_fit</code></h3>
 
@@ -436,7 +441,7 @@ to converge, and you want to split up training into subparts.
 
 #### Returns:
 
-  `self`, for chaining.
+`self`, for chaining.
 
 
 #### Raises:
@@ -486,10 +491,10 @@ soon. Users should either pass `outputs`, or call `predict_classes` method.
 
 #### Returns:
 
-  Numpy array of predicted classes with shape [batch_size] (or an iterable
-  of predicted classes if as_iterable is True). Each predicted class is
-  represented by its class index (i.e. integer from 0 to n_classes-1).
-  If `outputs` is set, returns a dict of predictions.
+Numpy array of predicted classes with shape [batch_size] (or an iterable
+of predicted classes if as_iterable is True). Each predicted class is
+represented by its class index (i.e. integer from 0 to n_classes-1).
+If `outputs` is set, returns a dict of predictions.
 
 <h3 id="predict_classes"><code>predict_classes</code></h3>
 
@@ -523,9 +528,9 @@ altogether. The behavior of this flag is described below.
 
 #### Returns:
 
-  Numpy array of predicted classes with shape [batch_size] (or an iterable
-  of predicted classes if as_iterable is True). Each predicted class is
-  represented by its class index (i.e. integer from 0 to n_classes-1).
+Numpy array of predicted classes with shape [batch_size] (or an iterable
+of predicted classes if as_iterable is True). Each predicted class is
+represented by its class index (i.e. integer from 0 to n_classes-1).
 
 <h3 id="predict_proba"><code>predict_proba</code></h3>
 
@@ -559,8 +564,8 @@ altogether. The behavior of this flag is described below.
 
 #### Returns:
 
-  Numpy array of predicted probabilities with shape [batch_size, n_classes]
-  (or an iterable of predicted probabilities if as_iterable is True).
+Numpy array of predicted probabilities with shape [batch_size, n_classes](or an iterable of predicted probabilities if as_iterable is True)
+.
 
 <h3 id="set_params"><code>set_params</code></h3>
 
@@ -577,12 +582,12 @@ component of a nested object.
 
 #### Args:
 
-  **params: Parameters.
+* <b>`**params`</b>: Parameters.
 
 
 #### Returns:
 
-  self
+self
 
 
 #### Raises:

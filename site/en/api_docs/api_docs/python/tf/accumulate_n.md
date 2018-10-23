@@ -19,7 +19,7 @@ accumulate_n(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Reduction](../../../api_guides/python/math_ops#Reduction)
 
@@ -40,13 +40,13 @@ the inputs size.
 For example:
 
 ```python
-# tensor 'a' is [[1, 2], [3, 4]]
-# tensor `b` is [[5, 0], [0, 6]]
-tf.accumulate_n([a, b, a]) ==> [[7, 4], [6, 14]]
+a = tf.constant([[1, 2], [3, 4]])
+b = tf.constant([[5, 0], [0, 6]])
+tf.accumulate_n([a, b, a])  # [[7, 4], [6, 14]]
 
 # Explicitly pass shape and type
-tf.accumulate_n([a, b, a], shape=[2, 2], tensor_dtype=tf.int32)
-  ==> [[7, 4], [6, 14]]
+tf.accumulate_n([a, b, a], shape=[2, 2], tensor_dtype=tf.int32)  # [[7,  4],
+                                                                 #  [6, 14]]
 ```
 
 #### Args:
@@ -59,7 +59,7 @@ tf.accumulate_n([a, b, a], shape=[2, 2], tensor_dtype=tf.int32)
 
 #### Returns:
 
-  A `Tensor` of same shape and type as the elements of `inputs`.
+A `Tensor` of same shape and type as the elements of `inputs`.
 
 
 #### Raises:

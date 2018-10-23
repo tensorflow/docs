@@ -18,7 +18,7 @@ sparse_add(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Math Operations](../../../api_guides/python/sparse_ops#Math_Operations)
 
@@ -53,7 +53,7 @@ For example, suppose the logical sum of two sparse operands is (densified):
 Then,
 
     * `thresh == 0` (the default): all 5 index/value pairs will be returned.
-    * `thresh == 0.11`: only .1 and 0  will vanish, and the remaining three
+    * `thresh == 0.11`: only .1 and 0 will vanish, and the remaining three
         index/value pairs will be returned.
     * `thresh == 0.21`: .1, 0, and -.2 will vanish.
 
@@ -70,7 +70,7 @@ Then,
 
 #### Returns:
 
-  A `SparseTensor` or a `Tensor`, representing the sum.
+A `SparseTensor` or a `Tensor`, representing the sum.
 
 
 #### Raises:

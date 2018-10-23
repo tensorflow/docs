@@ -33,7 +33,7 @@ Returns which elements of x are Inf.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 #### numpy compatibility
 Equivalent to np.isinf

@@ -18,7 +18,7 @@ random_brightness(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Image Adjustments](../../../../api_guides/python/image#Image_Adjustments)
 
@@ -38,7 +38,7 @@ interval `[-max_delta, max_delta)`.
 
 #### Returns:
 
-  The brightness-adjusted image.
+The brightness-adjusted image.
 
 
 #### Raises:

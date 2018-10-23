@@ -20,7 +20,7 @@ random_poisson(
 
 
 
-Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/random_ops.py).
+Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/random_ops.py).
 
 Draws `shape` samples from each of the given Poisson distribution(s).
 

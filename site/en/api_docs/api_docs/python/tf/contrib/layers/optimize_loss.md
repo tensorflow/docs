@@ -29,7 +29,7 @@ optimize_loss(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/optimizers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/optimizers.py).
 
 See the guide: [Layers (contrib) > Optimization](../../../../../api_guides/python/contrib.layers#Optimization)
 
@@ -94,8 +94,9 @@ Various ways of passing optimizers include:
              `None` to use all trainable variables.
 * <b>`name`</b>: The name for this operation is used to scope operations and summaries.
 * <b>`summaries`</b>: List of internal quantities to visualize on tensorboard. If not
-             set only the loss and the learning rate will be reported. The
-             complete list is in OPTIMIZER_SUMMARIES.
+             set, the loss, the learning rate, and the global norm of the
+             gradients will be reported. The complete list of possible values
+             is in OPTIMIZER_SUMMARIES.
 * <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with the
                                corresponding op.
 * <b>`increment_global_step`</b>: Whether to increment `global_step`. If your model
@@ -106,7 +107,7 @@ Various ways of passing optimizers include:
 
 #### Returns:
 
-  Training op.
+Training op.
 
 
 #### Raises:

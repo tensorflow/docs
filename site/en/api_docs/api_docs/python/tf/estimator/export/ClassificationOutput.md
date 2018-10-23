@@ -14,7 +14,7 @@ Inherits From: [`ExportOutput`](../../../tf/estimator/export/ExportOutput)
 
 
 
-Defined in [`tensorflow/python/estimator/export/export_output.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/export/export_output.py).
+Defined in [`tensorflow/python/estimator/export/export_output.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/export/export_output.py).
 
 Represents the output of a classification head.
 

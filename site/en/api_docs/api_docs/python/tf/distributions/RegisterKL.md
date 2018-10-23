@@ -19,7 +19,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/distributions/kullback_leibler.py).
+Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/distributions/kullback_leibler.py).
 
 See the guide: [Statistical Distributions (contrib) > Kullback-Leibler Divergence](../../../../api_guides/python/contrib.distributions#Kullback_Leibler_Divergence)
 
@@ -64,7 +64,7 @@ Perform the KL registration.
 
 #### Returns:
 
-  kl_fn
+kl_fn
 
 
 #### Raises:

@@ -26,7 +26,7 @@ sampled_softmax_loss(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Candidate Sampling](../../../../api_guides/python/nn#Candidate_Sampling)
 
@@ -94,4 +94,4 @@ Also see Section 3 of [Jean et al., 2014](http://arxiv.org/abs/1412.2007)
 
 #### Returns:
 
-  A `batch_size` 1-D tensor of per-example sampled softmax losses.
+A `batch_size` 1-D tensor of per-example sampled softmax losses.

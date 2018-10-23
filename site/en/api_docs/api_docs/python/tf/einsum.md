@@ -8,16 +8,22 @@ page_type: reference
 
 # tf.einsum
 
+### Aliases:
+
+* `tf.einsum`
+* `tf.linalg.einsum`
+
 ``` python
 einsum(
     equation,
-    *inputs
+    *inputs,
+    **kwargs
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/special_math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/special_math_ops.py).
+Defined in [`tensorflow/python/ops/special_math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/special_math_ops.py).
 
 See the guide: [Math > Reduction](../../../api_guides/python/math_ops#Reduction)
 
@@ -75,13 +81,14 @@ This function behaves like `numpy.einsum`, but does not support:
 
 * <b>`equation`</b>: a `str` describing the contraction, in the same format as
     `numpy.einsum`.
-  *inputs: the inputs to contract (each one a `Tensor`), whose shapes should
+* <b>`*inputs`</b>: the inputs to contract (each one a `Tensor`), whose shapes should
     be consistent with `equation`.
+* <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  The contracted `Tensor`, with shape determined by `equation`.
+The contracted `Tensor`, with shape determined by `equation`.
 
 
 #### Raises:

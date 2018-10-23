@@ -19,7 +19,7 @@ in_top_k(
 
 
 
-Defined in `tensorflow/python/ops/gen_nn_ops.py`.
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Evaluation](../../../../api_guides/python/nn#Evaluation)
 
@@ -52,4 +52,4 @@ More formally, let
 
 #### Returns:
 
-  A `Tensor` of type `bool`. Computed Precision at `k` as a `bool Tensor`.
+A `Tensor` of type `bool`. Computed Precision at `k` as a `bool Tensor`.

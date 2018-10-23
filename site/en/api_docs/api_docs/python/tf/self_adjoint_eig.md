@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.self_adjoint_eig
 
+### Aliases:
+
+* `tf.linalg.eigh`
+* `tf.self_adjoint_eig`
+
 ``` python
 self_adjoint_eig(
     tensor,
@@ -17,7 +22,7 @@ self_adjoint_eig(
 
 
 
-Defined in [`tensorflow/python/ops/linalg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/linalg_ops.py).
+Defined in [`tensorflow/python/ops/linalg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/linalg_ops.py).
 
 See the guide: [Math > Matrix Math Functions](../../../api_guides/python/math_ops#Matrix_Math_Functions)
 

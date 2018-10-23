@@ -20,7 +20,7 @@ run(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/learn_runner.py).
+Defined in [`tensorflow/contrib/learn/python/learn/learn_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/learn_runner.py).
 
 Make and run an experiment.
 
@@ -38,7 +38,6 @@ If the experiment's config does not include a task type, then an exception
 is raised.
 
 Example with `run_config` (Recommended):
-
 ```
   def _create_my_experiment(run_config, hparams):
 
@@ -57,7 +56,6 @@ Example with `run_config` (Recommended):
     hparams=_create_default_hparams())
 ```
 or simply as
-
 ```
   learn_runner.run(
     experiment_fn=_create_my_experiment,
@@ -67,7 +65,6 @@ if `hparams` is not used by the `Estimator`. On a single machine, `schedule`
 defaults to `train_and_evaluate`.
 
 Example with `output_dir` (deprecated):
-
 ```
   def _create_my_experiment(output_dir):
       return tf.contrib.learn.Experiment(
@@ -90,10 +87,10 @@ Example with `output_dir` (deprecated):
     must be None.
     2) It accepts two arguments `run_config` and `hparams`, which should be
     used to create the `Estimator` (`run_config` passed as `config` to its
-    constructor; `hparams` used as the hyper-paremeters of the model).
+    constructor; `hparams` used as the hyper-parameters of the model).
     It must return an `Experiment`. For this case, `output_dir` must be None.
 * <b>`output_dir`</b>: Base output directory [Deprecated].
-* <b>`schedule`</b>: The name of the  method in the `Experiment` to run.
+* <b>`schedule`</b>: The name of the method in the `Experiment` to run.
 * <b>`run_config`</b>: `RunConfig` instance. The `run_config.model_dir` must be
     non-empty. If `run_config` is set, `output_dir` must be None.
 * <b>`hparams`</b>: `HParams` instance. The default hyper-parameters, which will be
@@ -102,7 +99,7 @@ Example with `output_dir` (deprecated):
 
 #### Returns:
 
-  The return value of function `schedule`.
+The return value of function `schedule`.
 
 
 #### Raises:

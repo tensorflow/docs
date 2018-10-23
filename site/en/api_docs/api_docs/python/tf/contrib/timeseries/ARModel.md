@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/ar_model.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/timeseries/python/timeseries/ar_model.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/ar_model.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/timeseries/python/timeseries/ar_model.py).
 
 Auto-regressive model, both linear and non-linear.
 
@@ -89,17 +89,17 @@ get_batch_loss() directly.
     the following key/value pairs (others corresponding to the
     `exogenous_feature_columns` argument to `__init__` may be included
     representing exogenous regressors):
-    TrainEvalFeatures.TIMES: A [batch size x window size] integer Tensor
+* <b>`TrainEvalFeatures.TIMES`</b>: A [batch size x window size] integer Tensor
         with times for each observation. If there is no artificial chunking,
         the window size is simply the length of the time series.
-    TrainEvalFeatures.VALUES: A [batch size x window size x num features]
+* <b>`TrainEvalFeatures.VALUES`</b>: A [batch size x window size x num features]
         Tensor with values for each observation.
 * <b>`mode`</b>: The tf.estimator.ModeKeys mode to use (TRAIN, EVAL). For INFER,
     see predict().
 
 #### Returns:
 
-  A ModelOutputs object.
+A ModelOutputs object.
 
 <h3 id="generate"><code>generate</code></h3>
 
@@ -149,7 +149,7 @@ Computes predictions and a loss.
 
 #### Returns:
 
-  A model.ModelOutputs object.
+A model.ModelOutputs object.
 
 #### Raises:
 
@@ -170,7 +170,13 @@ get_start_state()
 initialize_graph(input_statistics=None)
 ```
 
+Define ops for the model, not depending on any previously defined ops.
 
+#### Args:
+
+* <b>`input_statistics`</b>: A math_utils.InputStatistics object containing input
+      statistics. If None, data-independent defaults are used, which may
+      result in longer or unstable training.
 
 <h3 id="loss_op"><code>loss_op</code></h3>
 
@@ -194,10 +200,10 @@ Computes predictions multiple steps into the future.
 #### Args:
 
 * <b>`features`</b>: A dictionary with the following key/value pairs:
-    PredictionFeatures.TIMES: A [batch size, predict window size]
+* <b>`PredictionFeatures.TIMES`</b>: A [batch size, predict window size]
       integer Tensor of times, after the window of data indicated by
       `STATE_TUPLE`, to make predictions for.
-    PredictionFeatures.STATE_TUPLE: A tuple of (times, values), times with
+* <b>`PredictionFeatures.STATE_TUPLE`</b>: A tuple of (times, values), times with
       shape [batch size, self.input_window_size], values with shape [batch
       size, self.input_window_size, self.num_features] representing a
       segment of the time series before `TIMES`. This data is used
@@ -206,9 +212,9 @@ Computes predictions multiple steps into the future.
 
 #### Returns:
 
-  A dictionary with keys, "mean", "covariance". The
-  values are Tensors of shape [batch_size, predict window size,
-  num_features] and correspond to the values passed in `TIMES`.
+A dictionary with keys, "mean", "covariance". The
+values are Tensors of shape [batch_size, predict window size,
+num_features] and correspond to the values passed in `TIMES`.
 
 <h3 id="prediction_ops"><code>prediction_ops</code></h3>
 
@@ -232,9 +238,9 @@ Compute model predictions given input data.
 
 #### Returns:
 
-  Tuple (predicted_mean, predicted_covariance), where each element is a
-  Tensor with shape [batch size, self.output_window_size,
-  self.num_features].
+Tuple (predicted_mean, predicted_covariance), where each element is a
+Tensor with shape [batch size, self.output_window_size,
+self.num_features].
 
 <h3 id="random_model_parameters"><code>random_model_parameters</code></h3>
 
@@ -243,30 +249,6 @@ random_model_parameters(seed=None)
 ```
 
 
-
-<h3 id="scale_back_data"><code>scale_back_data</code></h3>
-
-``` python
-scale_back_data(data)
-```
-
-
-
-<h3 id="scale_back_variance"><code>scale_back_variance</code></h3>
-
-``` python
-scale_back_variance(var)
-```
-
-
-
-<h3 id="scale_data"><code>scale_data</code></h3>
-
-``` python
-scale_data(data)
-```
-
-Scale data according to stats.
 
 
 

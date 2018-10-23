@@ -22,7 +22,7 @@ streaming_precision_at_thresholds(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 See the guide: [Metrics (contrib) > Metric `Ops`](../../../../../api_guides/python/contrib.metrics#Metric_Ops_)
 
@@ -51,8 +51,8 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 * <b>`weights`</b>: `Tensor` whose rank is either 0, or the same rank as `labels`, and
     must be broadcastable to `labels` (i.e., all dimensions must be either
     `1`, or the same as the corresponding `labels` dimension).
-* <b>`metrics_collections`</b>: An optional list of collections that `auc` should be
-    added to.
+* <b>`metrics_collections`</b>: An optional list of collections that `precision` should
+    be added to.
 * <b>`updates_collections`</b>: An optional list of collections that `update_op` should
     be added to.
 * <b>`name`</b>: An optional variable_scope name.

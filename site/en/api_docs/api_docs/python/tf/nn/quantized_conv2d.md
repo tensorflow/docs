@@ -18,7 +18,7 @@ quantized_conv2d(
     max_filter,
     strides,
     padding,
-    out_type=None,
+    out_type=tf.qint32,
     name=None
 )
 ```
@@ -60,7 +60,7 @@ taking the returned minimum and maximum values into account.
 
 #### Returns:
 
-  A tuple of `Tensor` objects (output, min_output, max_output).
+A tuple of `Tensor` objects (output, min_output, max_output).
 
 * <b>`output`</b>: A `Tensor` of type `out_type`.
 * <b>`min_output`</b>: A `Tensor` of type `float32`. The float value that the lowest quantized output value represents.

@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/platform/tf_logging.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/platform/tf_logging.py).
+Defined in [`tensorflow/python/platform/tf_logging.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/platform/tf_logging.py).
 
 Logging utilities.
 

@@ -17,7 +17,7 @@ multiply_gradients(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/training.py).
+Defined in [`tensorflow/contrib/training/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/training.py).
 
 Multiply specified gradients.
 
@@ -30,7 +30,7 @@ Multiply specified gradients.
 
 #### Returns:
 
-  The updated list of gradient to variable pairs.
+The updated list of gradient to variable pairs.
 
 
 #### Raises:

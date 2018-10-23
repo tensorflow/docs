@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/training.py).
+Defined in [`tensorflow/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/training.py).
 
 Support for training models.
 
@@ -37,7 +37,7 @@ See the [Training](../../../api_guides/python/train) guide.
 
 [`class CheckpointSaverListener`](../tf/train/CheckpointSaverListener): Interface for listeners that take action before or after checkpoint save.
 
-[`class ChiefSessionCreator`](../tf/train/ChiefSessionCreator): Creates a tf.Session  for a chief.
+[`class ChiefSessionCreator`](../tf/train/ChiefSessionCreator): Creates a tf.Session for a chief.
 
 [`class ClusterDef`](../tf/train/ClusterDef)
 
@@ -86,6 +86,8 @@ See the [Training](../../../api_guides/python/train) guide.
 [`class NanTensorHook`](../tf/train/NanTensorHook): Monitors the loss tensor and stops training if loss is NaN.
 
 [`class Optimizer`](../tf/train/Optimizer): Base class for optimizers.
+
+[`class ProfilerHook`](../tf/train/ProfilerHook): Captures CPU/GPU profiling information every N steps or seconds.
 
 [`class ProximalAdagradOptimizer`](../tf/train/ProximalAdagradOptimizer): Optimizer that implements the Proximal Adagrad algorithm.
 

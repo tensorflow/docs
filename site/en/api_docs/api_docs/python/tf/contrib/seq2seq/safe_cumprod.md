@@ -18,7 +18,7 @@ safe_cumprod(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 Computes cumprod of x in logspace using cumsum to avoid underflow.
 
@@ -30,9 +30,9 @@ exp(cumsum(log(x))).  This function can be called identically to tf.cumprod.
 #### Args:
 
 * <b>`x`</b>: Tensor to take the cumulative product of.
-  *args: Passed on to cumsum; these are identical to those in cumprod.
-  **kwargs: Passed on to cumsum; these are identical to those in cumprod.
+* <b>`*args`</b>: Passed on to cumsum; these are identical to those in cumprod.
+* <b>`**kwargs`</b>: Passed on to cumsum; these are identical to those in cumprod.
 
 #### Returns:
 
-  Cumulative product of x.
+Cumulative product of x.

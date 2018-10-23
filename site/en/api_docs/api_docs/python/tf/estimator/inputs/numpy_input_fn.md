@@ -22,7 +22,7 @@ numpy_input_fn(
 
 
 
-Defined in [`tensorflow/python/estimator/inputs/numpy_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/inputs/numpy_io.py).
+Defined in [`tensorflow/python/estimator/inputs/numpy_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/inputs/numpy_io.py).
 
 Returns input function that would feed dict of numpy arrays into the model.
 
@@ -59,7 +59,7 @@ with tf.Session() as session:
 
 #### Returns:
 
-  Function, that has signature of ()->(dict of `features`, `target`)
+Function, that has signature of ()->(dict of `features`, `target`)
 
 
 #### Raises:

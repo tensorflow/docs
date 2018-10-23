@@ -14,7 +14,7 @@ Inherits From: [`Normal`](../../../tf/distributions/Normal)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/normal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/distributions/normal.py).
+Defined in [`tensorflow/python/ops/distributions/normal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/distributions/normal.py).
 
 See the guide: [Statistical Distributions (contrib) > Univariate (scalar) distributions](../../../../../api_guides/python/contrib.distributions#Univariate_scalar_distributions)
 
@@ -87,7 +87,7 @@ or `distributions.NOT_REPARAMETERIZED`.
 
 #### Returns:
 
-  An instance of `ReparameterizationType`.
+An instance of `ReparameterizationType`.
 
 <h3 id="scale"><code>scale</code></h3>
 
@@ -176,7 +176,7 @@ initialization arguments.
 
 #### Args:
 
-  **override_parameters_kwargs: String/value dictionary of initialization
+* <b>`**override_parameters_kwargs`</b>: String/value dictionary of initialization
     arguments to override with new values.
 
 
@@ -373,8 +373,8 @@ survival function, which are more accurate than `1 - cdf(x)` when `x >> 1`.
 
 #### Returns:
 
-  `Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
-    `self.dtype`.
+`Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
+  `self.dtype`.
 
 <h3 id="mean"><code>mean</code></h3>
 
@@ -419,7 +419,7 @@ Subclasses should override class method `_param_shapes`.
 
 #### Returns:
 
-  `dict` of parameter name to `Tensor` shapes.
+`dict` of parameter name to `Tensor` shapes.
 
 <h3 id="param_static_shapes"><code>param_static_shapes</code></h3>
 
@@ -448,7 +448,7 @@ constant-valued tensors when constant values are fed.
 
 #### Returns:
 
-  `dict` of parameter name to `TensorShape`.
+`dict` of parameter name to `TensorShape`.
 
 
 #### Raises:
@@ -585,8 +585,8 @@ survival_function(x) = P[X > x]
 
 #### Returns:
 
-  `Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
-    `self.dtype`.
+`Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
+  `self.dtype`.
 
 <h3 id="variance"><code>variance</code></h3>
 

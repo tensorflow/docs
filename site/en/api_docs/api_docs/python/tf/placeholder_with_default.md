@@ -34,5 +34,5 @@ A placeholder op that passes through `input` when its output is not fed.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
-  A placeholder tensor that defaults to `input` if it is not fed.
+A `Tensor`. Has the same type as `input`.
+A placeholder tensor that defaults to `input` if it is not fed.

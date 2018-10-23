@@ -17,7 +17,7 @@ is_non_decreasing(
 
 
 
-Defined in [`tensorflow/python/ops/check_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/check_ops.py).
+Defined in [`tensorflow/python/ops/check_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/check_ops.py).
 
 See the guides: [Asserts and boolean checks](../../../api_guides/python/check_ops), [Framework (contrib)](../../../api_guides/python/contrib.framework)
 
@@ -37,7 +37,7 @@ See also:  `is_strictly_increasing`
 
 #### Returns:
 
-  Boolean `Tensor`, equal to `True` iff `x` is non-decreasing.
+Boolean `Tensor`, equal to `True` iff `x` is non-decreasing.
 
 
 #### Raises:

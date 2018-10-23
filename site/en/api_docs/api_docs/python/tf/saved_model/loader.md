@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/saved_model/loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/saved_model/loader.py).
+Defined in [`tensorflow/python/saved_model/loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/saved_model/loader.py).
 
 Loader functionality for SavedModel with hermetic, language-neutral exports.
 

@@ -17,7 +17,7 @@ conj(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Complex Number Functions](../../../api_guides/python/math_ops#Complex_Number_Functions)
 
@@ -39,13 +39,13 @@ If `x` is real, it is returned unchanged.
 
 #### Args:
 
-* <b>`x`</b>: `Tensor` to conjugate.  Must have numeric type.
+* <b>`x`</b>: `Tensor` to conjugate.  Must have numeric or variant type.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor` that is the conjugate of `x` (with the same type).
+A `Tensor` that is the conjugate of `x` (with the same type).
 
 
 #### Raises:

@@ -18,7 +18,7 @@ cast(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Tensor Transformations > Casting](../../../api_guides/python/array_ops#Casting)
 
@@ -30,8 +30,8 @@ The operation casts `x` (in case of `Tensor`) or `x.values`
 For example:
 
 ```python
-# tensor `a` is [1.8, 2.2], dtype=tf.float
-tf.cast(a, tf.int32) ==> [1, 2]  # dtype=tf.int32
+x = tf.constant([1.8, 2.2], dtype=tf.float32)
+tf.cast(x, tf.int32)  # [1, 2], dtype=tf.int32
 ```
 
 #### Args:
@@ -43,7 +43,7 @@ tf.cast(a, tf.int32) ==> [1, 2]  # dtype=tf.int32
 
 #### Returns:
 
-  A `Tensor` or `SparseTensor` with same shape as `x`.
+A `Tensor` or `SparseTensor` with same shape as `x`.
 
 
 #### Raises:

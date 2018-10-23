@@ -23,7 +23,7 @@ while_loop(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/control_flow_ops.py).
 
 See the guide: [Control Flow > Control Flow Operations](../../../api_guides/python/control_flow_ops#Control_Flow_Operations)
 
@@ -43,8 +43,8 @@ be appropriately forwarded between loops and during gradient calculations.
 Note that `while_loop` calls `cond` and `body` *exactly once* (inside the
 call to `while_loop`, and not at all during `Session.run()`). `while_loop`
 stitches together the graph fragments created during the `cond` and `body`
-calls with some additional graph nodes to make something the repeats
-`body` until `cond` returns false.
+calls with some additional graph nodes to create the graph flow that
+repeats `body` until `cond` returns false.
 
 For correctness, `tf.while_loop()` strictly enforces shape invariants for
 the loop variables. A shape invariant is a (possibly partial) shape that
@@ -80,11 +80,11 @@ controlled by `parallel_iterations`, which gives users some control over
 memory consumption and execution order. For correct programs, `while_loop`
 should return the same result for any parallel_iterations > 0.
 
-For training, TensorFlow remembers the tensors that are produced in the
-forward inference but needed in back propagation. These tensors can be a
-main source of memory consumption and often cause OOM problems when training
-on GPUs.  When the flag swap_memory is true, we swap out these tensors from
-GPU to CPU.  This for example allows us to train RNN models with very long
+For training, TensorFlow stores the tensors that are produced in the
+forward inference and are needed in back propagation. These tensors are a
+main source of memory consumption and often cause OOM errors when training
+on GPUs. When the flag swap_memory is true, we swap out these tensors from
+GPU to CPU. This for example allows us to train RNN models with very long
 sequences and large batches.
 
 #### Args:
@@ -103,9 +103,9 @@ sequences and large batches.
 
 #### Returns:
 
-  The output tensors for the loop variables after the loop. When the length
-  of `loop_vars` is 1 this is a Tensor, TensorArray or IndexedSlice and when
-  the length of `loop_vars` is greater than 1 it returns a list.
+The output tensors for the loop variables after the loop. When the length
+of `loop_vars` is 1 this is a Tensor, TensorArray or IndexedSlice and when
+the length of `loop_vars` is greater than 1 it returns a list.
 
 
 #### Raises:

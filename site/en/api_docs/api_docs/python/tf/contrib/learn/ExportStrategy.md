@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/export_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/export_strategy.py).
+Defined in [`tensorflow/contrib/learn/python/learn/export_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/export_strategy.py).
 
 See the guide: [Learn (contrib) > Distributed training utilities](../../../../../api_guides/python/contrib.learn#Distributed_training_utilities)
 
@@ -92,7 +92,7 @@ Exports the given Estimator to a specific format.
 
 #### Returns:
 
-  The string path to the exported directory.
+The string path to the exported directory.
 
 
 #### Raises:

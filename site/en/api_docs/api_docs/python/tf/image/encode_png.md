@@ -11,7 +11,7 @@ page_type: reference
 ``` python
 encode_png(
     image,
-    compression=None,
+    compression=-1,
     name=None
 )
 ```
@@ -46,4 +46,4 @@ the smallest output, but is slower.
 
 #### Returns:
 
-  A `Tensor` of type `string`. 0-D. PNG-encoded image.
+A `Tensor` of type `string`. 0-D. PNG-encoded image.

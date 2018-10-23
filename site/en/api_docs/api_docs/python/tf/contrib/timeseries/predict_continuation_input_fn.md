@@ -19,7 +19,7 @@ predict_continuation_input_fn(
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 An Estimator input_fn for running predict() after evaluate().
 
@@ -46,8 +46,8 @@ greater than one, predictions will start after each of these windows
 
 #### Returns:
 
-  An `input_fn` suitable for passing to the `predict` function of a time
-  series `Estimator`.
+An `input_fn` suitable for passing to the `predict` function of a time
+series `Estimator`.
 
 #### Raises:
 

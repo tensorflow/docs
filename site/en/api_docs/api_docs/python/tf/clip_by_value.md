@@ -19,7 +19,7 @@ clip_by_value(
 
 
 
-Defined in [`tensorflow/python/ops/clip_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/clip_ops.py).
+Defined in [`tensorflow/python/ops/clip_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/clip_ops.py).
 
 See the guide: [Training > Gradient Clipping](../../../api_guides/python/train#Gradient_Clipping)
 
@@ -42,7 +42,7 @@ greater than `clip_value_max` are set to `clip_value_max`.
 
 #### Returns:
 
-  A clipped `Tensor`.
+A clipped `Tensor`.
 
 
 #### Raises:

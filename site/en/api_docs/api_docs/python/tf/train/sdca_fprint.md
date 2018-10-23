@@ -30,6 +30,6 @@ Computes fingerprints of the input strings.
 
 #### Returns:
 
-  A `Tensor` of type `int64`.
-  a (N,2) shaped matrix where N is the number of elements in the input
-  vector. Each row contains the low and high parts of the fingerprint.
+A `Tensor` of type `int64`.
+a (N,2) shaped matrix where N is the number of elements in the input
+vector. Each row contains the low and high parts of the fingerprint.

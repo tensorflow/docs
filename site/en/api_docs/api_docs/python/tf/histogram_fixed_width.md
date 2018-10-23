@@ -20,7 +20,7 @@ histogram_fixed_width(
 
 
 
-Defined in [`tensorflow/python/ops/histogram_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/histogram_ops.py).
+Defined in [`tensorflow/python/ops/histogram_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/histogram_ops.py).
 
 See the guide: [Histograms > Histograms](../../../api_guides/python/histogram_ops#Histograms)
 
@@ -53,7 +53,7 @@ nbins = 5
 value_range = [0.0, 5.0]
 new_values = [-1.0, 0.0, 1.5, 2.0, 5.0, 15]
 
-with tf.default_session() as sess:
+with tf.get_default_session() as sess:
   hist = tf.histogram_fixed_width(new_values, value_range, nbins=5)
   variables.global_variables_initializer().run()
   sess.run(hist) => [2, 1, 1, 0, 2]

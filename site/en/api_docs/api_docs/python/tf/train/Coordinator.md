@@ -14,9 +14,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/coordinator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/coordinator.py).
+Defined in [`tensorflow/python/training/coordinator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/coordinator.py).
 
-See the guides: [Reading data > Reading from files](../../../../api_guides/python/reading_data#Reading_from_files), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
+See the guides: [Reading data > Reading from files](../../../../api_guides/python/reading_data#Reading_from_files), [Threading and Queues > Manual Thread Management](../../../../api_guides/python/threading_and_queues#Manual_Thread_Management), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
 
 A coordinator for threads.
 
@@ -241,7 +241,7 @@ Check if stop was requested.
 
 #### Returns:
 
-  True if a stop was requested.
+True if a stop was requested.
 
 <h3 id="stop_on_exception"><code>stop_on_exception</code></h3>
 
@@ -280,7 +280,7 @@ exception Exception as ex:
 
 #### Yields:
 
-  nothing.
+nothing.
 
 <h3 id="wait_for_stop"><code>wait_for_stop</code></h3>
 
@@ -298,7 +298,7 @@ Wait till the Coordinator is told to stop.
 
 #### Returns:
 
-  True if the Coordinator is told stop, False if the timeout expired.
+True if the Coordinator is told stop, False if the timeout expired.
 
 
 

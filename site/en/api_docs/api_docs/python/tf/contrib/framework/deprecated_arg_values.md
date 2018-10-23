@@ -12,13 +12,14 @@ page_type: reference
 deprecated_arg_values(
     date,
     instructions,
+    warn_once=True,
     **deprecated_kwargs
 )
 ```
 
 
 
-Defined in [`tensorflow/python/util/deprecation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/deprecation.py).
+Defined in [`tensorflow/python/util/deprecation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/deprecation.py).
 
 See the guide: [Framework (contrib) > Deprecation](../../../../../api_guides/python/contrib.framework#Deprecation)
 
@@ -44,12 +45,15 @@ prepended to the rest of the docstring.
     Must be ISO 8601 (YYYY-MM-DD), or None
 * <b>`instructions`</b>: String. Instructions on how to update code using the
     deprecated function.
-  **deprecated_kwargs: The deprecated argument values.
+* <b>`warn_once`</b>: If `True`, warn only the first time this function is called with
+    deprecated argument values. Otherwise, every call (with a deprecated
+    argument value) will log a warning.
+* <b>`**deprecated_kwargs`</b>: The deprecated argument values.
 
 
 #### Returns:
 
-  Decorated function or method.
+Decorated function or method.
 
 
 #### Raises:

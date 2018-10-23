@@ -14,18 +14,13 @@ Inherits From: [`RunConfig`](../../../tf/estimator/RunConfig)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
 
 See the guide: [Learn (contrib) > Graph actions](../../../../../api_guides/python/contrib.learn#Graph_actions)
 
 This class specifies the configurations for an `Estimator` run.
 
-This class is the implementation of ${tf.estimator.RunConfig} interface.
-
-If you're a Google-internal user using command line flags with
-`learn_runner.py` (for instance, to do distributed training or to use
-parameter servers), you probably want to use `learn_runner.EstimatorConfig`
-instead.
+This class is the implementation of [`tf.estimator.RunConfig`](../../../tf/estimator/RunConfig) interface.
 
 ## Properties
 
@@ -85,6 +80,10 @@ instead.
 
 
 
+<h3 id="service"><code>service</code></h3>
+
+Returns the platform defined (in TF_CONFIG) service dict.
+
 <h3 id="session_config"><code>session_config</code></h3>
 
 
@@ -132,10 +131,18 @@ __init__(
 
 Constructor.
 
-Note that the superclass `ClusterConfig` may set properties like
-`cluster_spec`, `is_chief`, `master` (if `None` in the args),
-`num_ps_replicas`, `task_id`, and `task_type` based on the `TF_CONFIG`
-environment variable. See `ClusterConfig` for more details.
+The superclass `ClusterConfig` may set properties like `cluster_spec`,
+`is_chief`, `master` (if `None` in the args), `num_ps_replicas`, `task_id`,
+and `task_type` based on the `TF_CONFIG` environment variable. See
+`ClusterConfig` for more details.
+
+N.B.: If `save_checkpoints_steps` or `save_checkpoints_secs` is set,
+`keep_checkpoint_max` might need to be adjusted accordingly, especially in
+distributed training. For example, setting `save_checkpoints_secs` as 60
+without adjusting `keep_checkpoint_max` (defaults to 5) leads to situation
+that checkpoint would be garbage collected after 5 minutes. In distributed
+training, the evaluation job starts asynchronously and might fail to load or
+find the checkpoint due to race condition.
 
 #### Args:
 
@@ -184,7 +191,7 @@ variable.
 
 #### Returns:
 
-  `TF_CONFIG['task']['index']`. Defaults to 0.
+`TF_CONFIG['task']['index']`. Defaults to 0.
 
 <h3 id="replace"><code>replace</code></h3>
 
@@ -210,7 +217,7 @@ can be set (should not be both).
 
 #### Args:
 
-  **kwargs: keyword named properties with new values.
+* <b>`**kwargs`</b>: keyword named properties with new values.
 
 
 #### Raises:
@@ -222,7 +229,7 @@ can be set (should not be both).
 
 #### Returns:
 
-  a new instance of `RunConfig`.
+a new instance of `RunConfig`.
 
 <h3 id="uid"><code>uid</code></h3>
 
@@ -251,7 +258,7 @@ is subject to change.
 
 #### Returns:
 
-  A uid string.
+A uid string.
 
 
 

@@ -19,7 +19,7 @@ detach(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/edit.py).
+Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/edit.py).
 
 See the guide: [Graph Editor (contrib) > Module: edit](../../../../../api_guides/python/contrib.graph_editor#Module_edit)
 
@@ -40,10 +40,10 @@ Detach both the inputs and the outputs of a subgraph view.
 
 #### Returns:
 
-  A tuple `(sgv, detached_inputs, detached_outputs)` where:
-  `sgv` is a new subgraph view of the detached subgraph;
-  `detach_inputs` is a list of the created input placeholders;
-  `detach_outputs` is a list of the created output placeholders.
+A tuple `(sgv, detached_inputs, detached_outputs)` where:
+`sgv` is a new subgraph view of the detached subgraph;
+`detach_inputs` is a list of the created input placeholders;
+`detach_outputs` is a list of the created output placeholders.
 
 #### Raises:
 

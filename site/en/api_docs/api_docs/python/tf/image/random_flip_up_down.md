@@ -17,7 +17,7 @@ random_flip_up_down(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Flipping, Rotating and Transposing](../../../../api_guides/python/image#Flipping_Rotating_and_Transposing)
 
@@ -36,7 +36,7 @@ dimension, which is `height`.  Otherwise output the image as-is.
 
 #### Returns:
 
-  A 3-D tensor of the same type and shape as `image`.
+A 3-D tensor of the same type and shape as `image`.
 
 
 #### Raises:

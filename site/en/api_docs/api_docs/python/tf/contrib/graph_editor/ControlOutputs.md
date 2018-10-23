@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/util.py).
+Defined in [`tensorflow/contrib/graph_editor/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/util.py).
 
 See the guide: [Graph Editor (contrib) > Module: util](../../../../../api_guides/python/contrib.graph_editor#Module_util)
 
@@ -44,9 +44,9 @@ Create a dictionary of control-output dependencies.
 
 #### Returns:
 
-  A dictionary where a key is a `tf.Operation` instance and the
-     corresponding value is a list of all the ops which have the key
-     as one of their control-input dependencies.
+A dictionary where a key is a `tf.Operation` instance and the
+   corresponding value is a list of all the ops which have the key
+   as one of their control-input dependencies.
 
 #### Raises:
 

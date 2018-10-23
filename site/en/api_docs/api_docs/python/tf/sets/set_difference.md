@@ -24,7 +24,7 @@ set_difference(
 
 
 
-Defined in [`tensorflow/python/ops/sets_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sets_impl.py).
+Defined in [`tensorflow/python/ops/sets_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sets_impl.py).
 
 See the guide: [Metrics (contrib) > Set `Ops`](../../../../api_guides/python/contrib.metrics#Set_Ops_)
 
@@ -35,42 +35,46 @@ All but the last dimension of `a` and `b` must match.
 Example:
 
 ```python
-  a = [
-    [
-      [
-        [1, 2],
-        [3],
-      ],
-      [
-        [4],
-        [5, 6],
-      ],
-    ],
-  ]
-  b = [
-    [
-      [
-        [1, 3],
-        [2],
-      ],
-      [
-        [4, 5],
-        [5, 6, 7, 8],
-      ],
-    ],
-  ]
-  set_difference(a, b, aminusb=True) = [
-    [
-      [
-        [2],
-        [3],
-      ],
-      [
-        [],
-        [],
-      ],
-    ],
-  ]
+  import tensorflow as tf
+  import collections
+
+  # Represent the following array of sets as a sparse tensor:
+  # a = np.array([[{1, 2}, {3}], [{4}, {5, 6}]])
+  a = collections.OrderedDict([
+      ((0, 0, 0), 1),
+      ((0, 0, 1), 2),
+      ((0, 1, 0), 3),
+      ((1, 0, 0), 4),
+      ((1, 1, 0), 5),
+      ((1, 1, 1), 6),
+  ])
+  a = tf.SparseTensor(list(a.keys()), list(a.values()), dense_shape=[2, 2, 2])
+
+  # np.array([[{1, 3}, {2}], [{4, 5}, {5, 6, 7, 8}]])
+  b = collections.OrderedDict([
+      ((0, 0, 0), 1),
+      ((0, 0, 1), 3),
+      ((0, 1, 0), 2),
+      ((1, 0, 0), 4),
+      ((1, 0, 1), 5),
+      ((1, 1, 0), 5),
+      ((1, 1, 1), 6),
+      ((1, 1, 2), 7),
+      ((1, 1, 3), 8),
+  ])
+  b = tf.SparseTensor(list(b.keys()), list(b.values()), dense_shape=[2, 2, 4])
+
+  # `set_difference` is applied to each aligned pair of sets.
+  tf.sets.set_difference(a, b)
+
+  # The result will be equivalent to either of:
+  #
+  # np.array([[{2}, {3}], [{}, {}]])
+  #
+  # collections.OrderedDict([
+  #     ((0, 0, 0), 2),
+  #     ((0, 0, 1), 3),
+  # ])
 ```
 
 #### Args:
@@ -86,6 +90,6 @@ Example:
 
 #### Returns:
 
-  A `SparseTensor` whose shape is the same rank as `a` and `b`, and all but
-  the last dimension the same. Elements along the last dimension contain the
-  differences.
+A `SparseTensor` whose shape is the same rank as `a` and `b`, and all but
+the last dimension the same. Elements along the last dimension contain the
+differences.

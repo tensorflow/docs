@@ -20,7 +20,7 @@ parse_feature_columns_from_sequence_examples(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -43,7 +43,7 @@ Parses tf.SequenceExamples to extract tensors for given `FeatureColumn`s.
 
 #### Returns:
 
-  A tuple consisting of:
+A tuple consisting of:
 * <b>`context_features`</b>: a dict mapping `FeatureColumns` from
     `context_feature_columns` to their parsed `Tensors`/`SparseTensor`s.
 * <b>`sequence_features`</b>: a dict mapping `FeatureColumns` from

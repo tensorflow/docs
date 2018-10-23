@@ -14,7 +14,7 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/python/training/rmsprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/rmsprop.py).
+Defined in [`tensorflow/python/training/rmsprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/rmsprop.py).
 
 See the guide: [Training > Optimizers](../../../../api_guides/python/train#Optimizers)
 
@@ -40,9 +40,17 @@ __init__(
 
 Construct a new RMSProp optimizer.
 
-Note that in dense implement of this algorithm, m_t and v_t will
-update even if g is zero, but in sparse implement, m_t and v_t
-will not update in iterations g is zero.
+Note that in the dense implementation of this algorithm, variables and their
+corresponding accumulators (momentum, gradient moving average, square
+gradient moving average) will be updated even if the gradient is zero
+(i.e. accumulators will decay, momentum will be applied). The sparse
+implementation (used when the gradient is an `IndexedSlices` object,
+typically because of `tf.gather` or an embedding lookup in the forward pass)
+will not update variable slices or their accumulators unless those slices
+were used in the forward pass (nor is there an "eventual" correction to
+account for these omitted updates). This leads to more efficient updates for
+large embedding lookup tables (where most of the slices are not accessed in
+a particular graph execution), but differs from the published algorithm.
 
 #### Args:
 
@@ -85,8 +93,8 @@ applies gradients.
 
 #### Returns:
 
-  An `Operation` that applies the specified gradients. If `global_step`
-  was not None, that operation also increments `global_step`.
+An `Operation` that applies the specified gradients. If `global_step`
+was not None, that operation also increments `global_step`.
 
 
 #### Raises:
@@ -132,8 +140,8 @@ given variable.
 
 #### Returns:
 
-  A list of (gradient, variable) pairs. Variable is always present, but
-  gradient can be `None`.
+A list of (gradient, variable) pairs. Variable is always present, but
+gradient can be `None`.
 
 
 #### Raises:
@@ -175,7 +183,7 @@ Use `get_slot_names()` to get the list of slot names created by the
 
 #### Returns:
 
-  The `Variable` for the slot if it was created, `None` otherwise.
+The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
@@ -189,7 +197,7 @@ See `get_slot()`.
 
 #### Returns:
 
-  A list of strings.
+A list of strings.
 
 <h3 id="minimize"><code>minimize</code></h3>
 
@@ -233,8 +241,8 @@ of using this function.
 
 #### Returns:
 
-  An Operation that updates the variables in `var_list`.  If `global_step`
-  was not `None`, that operation also increments `global_step`.
+An Operation that updates the variables in `var_list`.  If `global_step`
+was not `None`, that operation also increments `global_step`.
 
 
 #### Raises:

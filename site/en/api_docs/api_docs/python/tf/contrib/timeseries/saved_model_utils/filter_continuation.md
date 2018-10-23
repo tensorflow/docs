@@ -19,7 +19,7 @@ filter_continuation(
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
 
 Perform filtering using an exported saved model.
 
@@ -53,5 +53,5 @@ observations.
 
 #### Returns:
 
-  A dictionary containing model state updated to account for the observations
-  in `features`.
+A dictionary containing model state updated to account for the observations
+in `features`.

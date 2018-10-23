@@ -24,6 +24,6 @@ remote_fused_graph_execute(
 
 
 
-Defined in [`tensorflow/contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py).
+Defined in [`tensorflow/contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py).
 
 A wrapper for remote_fused_graph_execute.

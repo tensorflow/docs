@@ -31,4 +31,4 @@ Computes exponential of x element-wise.  \\(y = e^x\\).
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

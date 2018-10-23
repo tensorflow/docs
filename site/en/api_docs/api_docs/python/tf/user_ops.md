@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/user_ops/user_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/user_ops/user_ops.py).
+Defined in [`tensorflow/python/user_ops/user_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/user_ops/user_ops.py).
 
 All user ops.
 

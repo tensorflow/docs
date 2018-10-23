@@ -24,7 +24,7 @@ matmul(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Matrix Math Functions](../../../api_guides/python/math_ops#Matrix_Math_Functions)
 
@@ -51,35 +51,46 @@ For example:
 
 ```python
 # 2-D tensor `a`
-a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3]) => [[1. 2. 3.]
-                                                      [4. 5. 6.]]
+# [[1, 2, 3],
+#  [4, 5, 6]]
+a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3])
+
 # 2-D tensor `b`
-b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2]) => [[7. 8.]
-                                                         [9. 10.]
-                                                         [11. 12.]]
-c = tf.matmul(a, b) => [[58 64]
-                        [139 154]]
+# [[ 7,  8],
+#  [ 9, 10],
+#  [11, 12]]
+b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2])
+
+# `a` * `b`
+# [[ 58,  64],
+#  [139, 154]]
+c = tf.matmul(a, b)
 
 
 # 3-D tensor `a`
+# [[[ 1,  2,  3],
+#   [ 4,  5,  6]],
+#  [[ 7,  8,  9],
+#   [10, 11, 12]]]
 a = tf.constant(np.arange(1, 13, dtype=np.int32),
-                shape=[2, 2, 3])                  => [[[ 1.  2.  3.]
-                                                       [ 4.  5.  6.]],
-                                                      [[ 7.  8.  9.]
-                                                       [10. 11. 12.]]]
+                shape=[2, 2, 3])
 
 # 3-D tensor `b`
+# [[[13, 14],
+#   [15, 16],
+#   [17, 18]],
+#  [[19, 20],
+#   [21, 22],
+#   [23, 24]]]
 b = tf.constant(np.arange(13, 25, dtype=np.int32),
-                shape=[2, 3, 2])                   => [[[13. 14.]
-                                                        [15. 16.]
-                                                        [17. 18.]],
-                                                       [[19. 20.]
-                                                        [21. 22.]
-                                                        [23. 24.]]]
-c = tf.matmul(a, b) => [[[ 94 100]
-                         [229 244]],
-                        [[508 532]
-                         [697 730]]]
+                shape=[2, 3, 2])
+
+# `a` * `b`
+# [[[ 94, 100],
+#   [229, 244]],
+#  [[508, 532],
+#   [697, 730]]]
+c = tf.matmul(a, b)
 
 # Since python >= 3.5 the @ operator is supported (see PEP 465).
 # In TensorFlow, it simply calls the `tf.matmul()` function, so the
@@ -106,12 +117,12 @@ d = tf.matmul(tf.matmul(a, b), [[10.], [11.]])
 
 #### Returns:
 
-  A `Tensor` of the same type as `a` and `b` where each inner-most matrix is
-  the product of the corresponding matrices in `a` and `b`, e.g. if all
-  transpose or adjoint attributes are `False`:
+A `Tensor` of the same type as `a` and `b` where each inner-most matrix is
+the product of the corresponding matrices in `a` and `b`, e.g. if all
+transpose or adjoint attributes are `False`:
 
-  `output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
-  for all indices i, j.
+`output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
+for all indices i, j.
 
 * <b>`Note`</b>: This is matrix product, not element-wise product.
 

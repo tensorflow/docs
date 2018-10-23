@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/util/loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/util/loader.py).
+Defined in [`tensorflow/contrib/util/loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/util/loader.py).
 
 Utilities for loading op libraries.
 

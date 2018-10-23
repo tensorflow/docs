@@ -17,7 +17,7 @@ add_loss(
 
 
 
-Defined in [`tensorflow/python/ops/losses/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/losses/util.py).
+Defined in [`tensorflow/python/ops/losses/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/losses/util.py).
 
 Adds a externally defined loss to the collection of losses.
 

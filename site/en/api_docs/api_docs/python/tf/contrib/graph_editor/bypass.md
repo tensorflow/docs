@@ -14,7 +14,7 @@ bypass(sgv)
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/edit.py).
+Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/edit.py).
 
 See the guide: [Graph Editor (contrib) > Module: edit](../../../../../api_guides/python/contrib.graph_editor#Module_edit)
 
@@ -28,9 +28,9 @@ Bypass the given subgraph by connecting its inputs to its outputs.
 
 #### Returns:
 
-  A tuple `(sgv, detached_inputs)` where:
-    `sgv` is a new subgraph view of the bypassed subgraph;
-    `detached_inputs` is a list of the created input placeholders.
+A tuple `(sgv, detached_inputs)` where:
+  `sgv` is a new subgraph view of the bypassed subgraph;
+  `detached_inputs` is a list of the created input placeholders.
 
 #### Raises:
 

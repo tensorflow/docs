@@ -21,7 +21,7 @@ streaming_recall(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 See the guide: [Metrics (contrib) > Metric `Ops`](../../../../../api_guides/python/contrib.metrics#Metric_Ops_)
 
@@ -32,7 +32,7 @@ and `false_negatives`, that are used to compute the recall. This value is
 ultimately returned as `recall`, an idempotent operation that simply divides
 `true_positives` by the sum of `true_positives`  and `false_negatives`.
 
-For estimation of the metric  over a stream of data, the function creates an
+For estimation of the metric over a stream of data, the function creates an
 `update_op` that updates these variables and returns the `recall`. `update_op`
 weights each prediction by the corresponding value in `weights`.
 

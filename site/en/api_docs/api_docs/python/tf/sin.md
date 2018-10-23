@@ -31,4 +31,4 @@ Computes sin of x element-wise.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

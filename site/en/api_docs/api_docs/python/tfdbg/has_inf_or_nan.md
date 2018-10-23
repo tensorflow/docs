@@ -17,7 +17,7 @@ has_inf_or_nan(
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/debug/lib/debug_data.py).
+Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/debug/lib/debug_data.py).
 
 See the guide: [TensorFlow Debugger > Tensor-value predicates](../../../api_guides/python/tfdbg#Tensor_value_predicates)
 
@@ -37,4 +37,4 @@ The signature of this function follows the requirement of the method
 
 #### Returns:
 
-  (`bool`) True if and only if tensor consists of any nan or inf values.
+(`bool`) True if and only if tensor consists of any nan or inf values.

@@ -19,7 +19,7 @@ required_space_to_batch_paddings(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -40,11 +40,10 @@ with space_to_batch_nd and batch_to_space_nd.
 
 #### Returns:
 
-  (paddings, crops), where:
+(paddings, crops), where:
 
-  `paddings` and `crops` are int32 Tensors of rank 2 and shape [N, 2]
-* <b>`satisfying`</b>:
-
+`paddings` and `crops` are int32 Tensors of rank 2 and shape [N, 2]
+* <b>`satisfying`</b>: 
       paddings[i, 0] = base_paddings[i, 0].
       0 <= paddings[i, 1] - base_paddings[i, 1] < block_shape[i]
       (input_shape[i] + paddings[i, 0] + paddings[i, 1]) % block_shape[i] == 0

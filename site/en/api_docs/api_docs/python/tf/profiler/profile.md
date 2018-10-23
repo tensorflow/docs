@@ -20,7 +20,7 @@ profile(
 
 
 
-Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/profiler/model_analyzer.py).
+Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/profiler/model_analyzer.py).
 
 Profile model.
 
@@ -44,6 +44,6 @@ Profile model.
 
 #### Returns:
 
-  If cmd is 'scope' or 'graph', returns GraphNodeProto proto.
-  If cmd is 'op' or 'code', returns MultiGraphNodeProto proto.
-  Side effect: stdout/file/timeline.json depending on options['output']
+If cmd is 'scope' or 'graph', returns GraphNodeProto proto.
+If cmd is 'op' or 'code', returns MultiGraphNodeProto proto.
+Side effect: stdout/file/timeline.json depending on options['output']

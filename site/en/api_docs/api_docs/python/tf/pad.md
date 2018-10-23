@@ -20,7 +20,7 @@ pad(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -43,24 +43,24 @@ The padded size of each dimension D of the output is:
 For example:
 
 ```python
-# 't' is [[1, 2, 3], [4, 5, 6]].
-# 'paddings' is [[1, 1,], [2, 2]].
+t = tf.constant([[1, 2, 3], [4, 5, 6]])
+paddings = tf.constant([[1, 1,], [2, 2]])
 # 'constant_values' is 0.
 # rank of 't' is 2.
-pad(t, paddings, "CONSTANT") ==> [[0, 0, 0, 0, 0, 0, 0],
-                                  [0, 0, 1, 2, 3, 0, 0],
-                                  [0, 0, 4, 5, 6, 0, 0],
-                                  [0, 0, 0, 0, 0, 0, 0]]
+tf.pad(t, paddings, "CONSTANT")  # [[0, 0, 0, 0, 0, 0, 0],
+                                 #  [0, 0, 1, 2, 3, 0, 0],
+                                 #  [0, 0, 4, 5, 6, 0, 0],
+                                 #  [0, 0, 0, 0, 0, 0, 0]]
 
-pad(t, paddings, "REFLECT") ==> [[6, 5, 4, 5, 6, 5, 4],
-                                 [3, 2, 1, 2, 3, 2, 1],
-                                 [6, 5, 4, 5, 6, 5, 4],
-                                 [3, 2, 1, 2, 3, 2, 1]]
+tf.pad(t, paddings, "REFLECT")  # [[6, 5, 4, 5, 6, 5, 4],
+                                #  [3, 2, 1, 2, 3, 2, 1],
+                                #  [6, 5, 4, 5, 6, 5, 4],
+                                #  [3, 2, 1, 2, 3, 2, 1]]
 
-pad(t, paddings, "SYMMETRIC") ==> [[2, 1, 1, 2, 3, 3, 2],
-                                   [2, 1, 1, 2, 3, 3, 2],
-                                   [5, 4, 4, 5, 6, 6, 5],
-                                   [5, 4, 4, 5, 6, 6, 5]]
+tf.pad(t, paddings, "SYMMETRIC")  # [[2, 1, 1, 2, 3, 3, 2],
+                                  #  [2, 1, 1, 2, 3, 3, 2],
+                                  #  [5, 4, 4, 5, 6, 6, 5],
+                                  #  [5, 4, 4, 5, 6, 6, 5]]
 ```
 
 #### Args:
@@ -75,7 +75,7 @@ pad(t, paddings, "SYMMETRIC") ==> [[2, 1, 1, 2, 3, 3, 2],
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `tensor`.
+A `Tensor`. Has the same type as `tensor`.
 
 
 #### Raises:

@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/summary/writer/writer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/summary/writer/writer.py).
+Defined in [`tensorflow/python/summary/writer/writer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/summary/writer/writer.py).
 
 See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
 
@@ -81,6 +81,26 @@ the event file:
 * <b>`graph_def`</b>: DEPRECATED: Use the `graph` argument instead.
 * <b>`filename_suffix`</b>: A string. Every event file's name is suffixed with
     `suffix`.
+
+<h3 id="__enter__"><code>__enter__</code></h3>
+
+``` python
+__enter__()
+```
+
+Make usable with "with" statement.
+
+<h3 id="__exit__"><code>__exit__</code></h3>
+
+``` python
+__exit__(
+    unused_type,
+    unused_value,
+    unused_traceback
+)
+```
+
+Make usable with "with" statement.
 
 <h3 id="add_event"><code>add_event</code></h3>
 

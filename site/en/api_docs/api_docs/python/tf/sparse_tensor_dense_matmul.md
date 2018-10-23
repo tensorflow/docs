@@ -20,7 +20,7 @@ sparse_tensor_dense_matmul(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Math Operations](../../../api_guides/python/sparse_ops#Math_Operations)
 
@@ -218,7 +218,7 @@ B dense [k, n]
 
 #### Returns:
 
-  A dense matrix (pseudo-code in dense np.matrix notation):
-    `A = A.H if adjoint_a else A`
-    `B = B.H if adjoint_b else B`
-    `return A*B`
+A dense matrix (pseudo-code in dense np.matrix notation):
+  `A = A.H if adjoint_a else A`
+  `B = B.H if adjoint_b else B`
+  `return A*B`

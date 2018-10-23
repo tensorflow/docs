@@ -17,7 +17,7 @@ relu6(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guides: [Layers (contrib) > Higher level ops for building neural network layers](../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers), [Neural Network > Activation Functions](../../../../api_guides/python/nn#Activation_Functions)
 
@@ -33,4 +33,4 @@ Source: [Convolutional Deep Belief Networks on CIFAR-10. A. Krizhevsky](http://w
 
 #### Returns:
 
-  A `Tensor` with the same type as `features`.
+A `Tensor` with the same type as `features`.

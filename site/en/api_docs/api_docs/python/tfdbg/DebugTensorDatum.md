@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/debug/lib/debug_data.py).
+Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/debug/lib/debug_data.py).
 
 See the guide: [TensorFlow Debugger > Classes for debug-dump data and directories](../../../api_guides/python/tfdbg#Classes_for_debug_dump_data_and_directories)
 
@@ -36,7 +36,7 @@ Name of the debug op.
 
 #### Returns:
 
-  (`str`) debug op name (e.g., `DebugIdentity`).
+(`str`) debug op name (e.g., `DebugIdentity`).
 
 <h3 id="device_name"><code>device_name</code></h3>
 
@@ -44,7 +44,7 @@ Name of the device that the tensor belongs to.
 
 #### Returns:
 
-  (`str`) device name.
+(`str`) device name.
 
 <h3 id="dump_size_bytes"><code>dump_size_bytes</code></h3>
 
@@ -54,8 +54,8 @@ Unit: byte.
 
 #### Returns:
 
-  If the dump file exists, size of the dump file, in bytes.
-  If the dump file does not exist, None.
+If the dump file exists, size of the dump file, in bytes.
+If the dump file does not exist, None.
 
 <h3 id="extended_timestamp"><code>extended_timestamp</code></h3>
 
@@ -67,7 +67,7 @@ are spaced by shorter than the temporal resolution of the timestamps.
 
 #### Returns:
 
-  (`str`) The extended timestamp.
+(`str`) The extended timestamp.
 
 <h3 id="file_path"><code>file_path</code></h3>
 
@@ -79,7 +79,7 @@ Name of the node from which the tensor value was dumped.
 
 #### Returns:
 
-  (`str`) name of the node watched by the debug op.
+(`str`) name of the node watched by the debug op.
 
 <h3 id="output_slot"><code>output_slot</code></h3>
 
@@ -87,7 +87,7 @@ Output slot index from which the tensor value was dumped.
 
 #### Returns:
 
-  (`int`) output slot index watched by the debug op.
+(`int`) output slot index watched by the debug op.
 
 <h3 id="tensor_name"><code>tensor_name</code></h3>
 
@@ -95,7 +95,7 @@ Name of the tensor watched by the debug op.
 
 #### Returns:
 
-  (`str`) `Tensor` name, in the form of `node_name`:`output_slot`
+(`str`) `Tensor` name, in the form of `node_name`:`output_slot`
 
 <h3 id="timestamp"><code>timestamp</code></h3>
 
@@ -103,7 +103,7 @@ Timestamp of when this tensor value was dumped.
 
 #### Returns:
 
-  (`int`) The timestamp in microseconds.
+(`int`) The timestamp in microseconds.
 
 <h3 id="watch_key"><code>watch_key</code></h3>
 
@@ -111,7 +111,7 @@ Watch key identities a debug watch on a tensor.
 
 #### Returns:
 
-  (`str`) A watch key, in the form of `tensor_name`:`debug_op`.
+(`str`) A watch key, in the form of `tensor_name`:`debug_op`.
 
 
 
@@ -159,7 +159,7 @@ Get tensor from the dump (`Event`) file.
 
 #### Returns:
 
-  The tensor loaded from the dump (`Event`) file.
+The tensor loaded from the dump (`Event`) file.
 
 
 

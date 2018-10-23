@@ -17,7 +17,7 @@ round(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Basic Math Functions](../../../api_guides/python/math_ops#Basic_Math_Functions)
 
@@ -28,8 +28,8 @@ according to the current system rounding mode use tf::cint.
 For example:
 
 ```python
-# 'a' is [0.9, 2.5, 2.3, 1.5, -4.5]
-tf.round(a) ==> [ 1.0, 2.0, 2.0, 2.0, -4.0 ]
+x = tf.constant([0.9, 2.5, 2.3, 1.5, -4.5])
+tf.round(x)  # [ 1.0, 2.0, 2.0, 2.0, -4.0 ]
 ```
 
 #### Args:
@@ -40,4 +40,4 @@ tf.round(a) ==> [ 1.0, 2.0, 2.0, 2.0, -4.0 ]
 
 #### Returns:
 
-  A `Tensor` of same shape and type as `x`.
+A `Tensor` of same shape and type as `x`.

@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/subgraph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/subgraph.py).
+Defined in [`tensorflow/contrib/graph_editor/subgraph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/subgraph.py).
 
 See the guide: [Graph Editor (contrib) > Module: subgraph](../../../../../api_guides/python/contrib.graph_editor#Module_subgraph)
 
@@ -200,7 +200,7 @@ does not copy the underlying part of the `tf.Graph`.
 
 #### Returns:
 
-  A new identical instance of the original subgraph view.
+A new identical instance of the original subgraph view.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
@@ -221,7 +221,7 @@ with ge.make_sgv(...) as sgv:
 
 #### Returns:
 
-  Itself.
+Itself.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
@@ -256,7 +256,7 @@ of one of the output tensors and is not in the subgraph.
 
 #### Returns:
 
-  A list of `tf.Operation` which are the consumers of this subgraph view.
+A list of `tf.Operation` which are the consumers of this subgraph view.
 
 <h3 id="copy"><code>copy</code></h3>
 
@@ -271,7 +271,7 @@ does not copy the underlying part of the tf.Graph.
 
 #### Returns:
 
-  A new instance identical to the original one.
+A new instance identical to the original one.
 
 <h3 id="find_op_by_name"><code>find_op_by_name</code></h3>
 
@@ -287,7 +287,7 @@ Return the op named op_name.
 
 #### Returns:
 
-  The op named op_name.
+The op named op_name.
 
 #### Raises:
 
@@ -308,7 +308,7 @@ Find the input index corresponding to the given input tensor t.
 
 #### Returns:
 
-  The index in the self.inputs list.
+The index in the self.inputs list.
 
 #### Raises:
 
@@ -344,7 +344,7 @@ Find the output index corresponding to given output tensor t.
 
 #### Returns:
 
-  The index in the self.outputs list.
+The index in the self.outputs list.
 
 #### Raises:
 
@@ -379,8 +379,8 @@ affected.
 
 #### Returns:
 
-  A new modified instance of the original subgraph view with remapped
-    inputs and outputs.
+A new modified instance of the original subgraph view with remapped
+  inputs and outputs.
 
 <h3 id="remap_default"><code>remap_default</code></h3>
 
@@ -400,8 +400,8 @@ Remap the inputs and/or outputs to the default mapping.
 
 #### Returns:
 
-  A new modified instance of the original subgraph view with its
-    input and/or output mapping reset to the default one.
+A new modified instance of the original subgraph view with its
+  input and/or output mapping reset to the default one.
 
 <h3 id="remap_inputs"><code>remap_inputs</code></h3>
 
@@ -427,8 +427,8 @@ affected.
 
 #### Returns:
 
-  A new modified instance of the original subgraph view with remapped
-    inputs.
+A new modified instance of the original subgraph view with remapped
+  inputs.
 
 <h3 id="remap_outputs"><code>remap_outputs</code></h3>
 
@@ -454,8 +454,8 @@ affected.
 
 #### Returns:
 
-  A new modified instance of the original subgraph view with remapped
-    outputs.
+A new modified instance of the original subgraph view with remapped
+  outputs.
 
 <h3 id="remap_outputs_make_unique"><code>remap_outputs_make_unique</code></h3>
 
@@ -487,7 +487,7 @@ Remove unused ops.
 
 #### Returns:
 
-  A new subgraph view which only contains used operations.
+A new subgraph view which only contains used operations.
 
 
 

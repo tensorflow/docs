@@ -21,7 +21,7 @@ accuracy(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/metrics_impl.py).
+Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/metrics_impl.py).
 
 Calculates how often `predictions` matches `labels`.
 
@@ -30,7 +30,7 @@ The `accuracy` function creates two local variables, `total` and
 matches `labels`. This frequency is ultimately returned as `accuracy`: an
 idempotent operation that simply divides `total` by `count`.
 
-For estimation of the metric  over a stream of data, the function creates an
+For estimation of the metric over a stream of data, the function creates an
 `update_op` operation that updates these variables and returns the `accuracy`.
 Internally, an `is_correct` operation computes a `Tensor` with elements 1.0
 where the corresponding elements of `predictions` and `labels` match and 0.0

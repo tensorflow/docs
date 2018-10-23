@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_gradients.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/debug/lib/debug_gradients.py).
+Defined in [`tensorflow/python/debug/lib/debug_gradients.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/debug/lib/debug_gradients.py).
 
 Gradients Debugger.
 
@@ -86,7 +86,7 @@ Get the gradient tensor of an x-tensor.
 
 #### Returns:
 
-  If found, the gradient tensor.
+If found, the gradient tensor.
 
 
 #### Raises:
@@ -105,8 +105,8 @@ Get the gradient tensors that this object is aware of.
 
 #### Returns:
 
-  A dict mapping x-tensor names to gradient tensor objects. x-tensor refers
-  to the tensors on the denominator of the differentation.
+A dict mapping x-tensor names to gradient tensor objects. x-tensor refers
+to the tensors on the denominator of the differentation.
 
 <h3 id="identify_gradient"><code>identify_gradient</code></h3>
 
@@ -151,7 +151,7 @@ y_grad = grad_debugger.gradient_tensor(y)
 
 #### Returns:
 
-  A forwarded identity of `input_tensor`, as a `tf.Tensor`.
+A forwarded identity of `input_tensor`, as a `tf.Tensor`.
 
 
 #### Raises:
@@ -172,7 +172,7 @@ Register the gradient tensor for an x-tensor.
 
 #### Args:
 
-* <b>`x_tensor_name`</b>: (`str`) the name of the the independent `tf.Tensor`, i.e.,
+* <b>`x_tensor_name`</b>: (`str`) the name of the independent `tf.Tensor`, i.e.,
     the tensor on the denominator of the differentiation.
 * <b>`gradient_tensor`</b>: the gradient `tf.Tensor`.
 
@@ -228,7 +228,7 @@ y_grad = grad_debugger.gradient_tensor("y:0")
 
 #### Returns:
 
-  The GradientsDebugger instance itself.
+The GradientsDebugger instance itself.
 
 <h3 id="watch_gradients_by_tensors"><code>watch_gradients_by_tensors</code></h3>
 
@@ -282,7 +282,7 @@ y_grad = grad_debugger.gradient_tensor("y:0")
 
 #### Returns:
 
-  The GradientsDebugger instance itself.
+The GradientsDebugger instance itself.
 
 
 

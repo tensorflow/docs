@@ -17,7 +17,7 @@ sum_regularizer(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/regularizers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/regularizers.py).
 
 See the guide: [Layers (contrib) > Regularizers](../../../../../api_guides/python/contrib.layers#Regularizers)
 
@@ -31,5 +31,5 @@ Returns a function that applies the sum of multiple regularizers.
 
 #### Returns:
 
-  A function with signature `sum_reg(weights)` that applies the
-  sum of all the input regularizers.
+A function with signature `sum_reg(weights)` that applies the
+sum of all the input regularizers.

@@ -18,7 +18,7 @@ assert_same_structure(
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/nest.py).
 
 Asserts that two structures are nested in the same way.
 

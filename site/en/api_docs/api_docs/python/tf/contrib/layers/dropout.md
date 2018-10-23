@@ -21,7 +21,7 @@ dropout(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/layers.py).
 
 Returns a dropout op applied to the input.
 
@@ -45,4 +45,4 @@ sum is unchanged.
 
 #### Returns:
 
-  A tensor representing the output of the operation.
+A tensor representing the output of the operation.

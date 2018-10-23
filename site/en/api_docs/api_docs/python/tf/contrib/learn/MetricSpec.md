@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/metric_spec.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/metric_spec.py).
+Defined in [`tensorflow/contrib/learn/python/learn/metric_spec.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/metric_spec.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
@@ -28,7 +28,7 @@ It is passed in the `metrics` argument of `Estimator.evaluate`. The
 `Estimator` then knows which predictions, labels, and weight to use to call a
 given metric function.
 
-When building the ops to run in evaluation, `Estimator` will call
+When building the ops to run in evaluation, an `Estimator` will call
 `create_metric_ops`, which will connect the given `metric_fn` to the model
 as detailed in the docstring for `create_metric_ops`, and return the metric.
 
@@ -95,7 +95,7 @@ constructor argument for more details.
 
 #### Returns:
 
-  Function, see `metric_fn` constructor argument for more details.
+Function, see `metric_fn` constructor argument for more details.
 
 <h3 id="prediction_key"><code>prediction_key</code></h3>
 
@@ -186,7 +186,7 @@ to be `None`.
 
 #### Returns:
 
-  The result of calling `metric_fn`.
+The result of calling `metric_fn`.
 
 
 #### Raises:

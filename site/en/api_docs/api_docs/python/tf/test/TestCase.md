@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/test_util.py).
+Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/test_util.py).
 
 See the guide: [Testing > Unit tests](../../../../api_guides/python/test#Unit_tests)
 
@@ -93,9 +93,9 @@ their own type equality functions to provide nicer error messages.
 
 #### Args:
 
-    typeobj: The data type to call this function on when both values
+* <b>`typeobj`</b>: The data type to call this function on when both values
             are of the same type in assertEqual().
-    function: The callable taking two arguments and an optional
+* <b>`function`</b>: The callable taking two arguments and an optional
             msg= argument that raises self.failureException with a
             useful error message when the two arguments are not equal.
 
@@ -474,9 +474,9 @@ A list-specific equality assertion.
 
 #### Args:
 
-    list1: The first list to compare.
-    list2: The second list to compare.
-    msg: Optional message to use on failure instead of a list of
+* <b>`list1`</b>: The first list to compare.
+* <b>`list2`</b>: The second list to compare.
+* <b>`msg`</b>: Optional message to use on failure instead of a list of
             differences.
 
 <h3 id="assertMultiLineEqual"><code>assertMultiLineEqual</code></h3>
@@ -727,12 +727,12 @@ Asserts that the message in a raised exception matches a regexp.
 
 #### Args:
 
-    expected_exception: Exception class expected to be raised.
-    expected_regexp: Regexp (re pattern object or string) expected
+* <b>`expected_exception`</b>: Exception class expected to be raised.
+* <b>`expected_regexp`</b>: Regexp (re pattern object or string) expected
             to be found in error message.
-    callable_obj: Function to be called.
-    args: Extra args.
-    kwargs: Extra kwargs.
+* <b>`callable_obj`</b>: Function to be called.
+* <b>`args`</b>: Extra args.
+* <b>`kwargs`</b>: Extra kwargs.
 
 <h3 id="assertRaisesWithPredicateMatch"><code>assertRaisesWithPredicateMatch</code></h3>
 
@@ -759,8 +759,8 @@ predicate search.
 
 #### Returns:
 
-  A context manager to surround code that is expected to raise an
-  exception.
+A context manager to surround code that is expected to raise an
+exception.
 
 <h3 id="assertRegexpMatches"><code>assertRegexpMatches</code></h3>
 
@@ -792,11 +792,11 @@ which can be indexed, has a length, and has an equality operator.
 
 #### Args:
 
-    seq1: The first sequence to compare.
-    seq2: The second sequence to compare.
-    seq_type: The expected datatype of the sequences, or None if no
+* <b>`seq1`</b>: The first sequence to compare.
+* <b>`seq2`</b>: The second sequence to compare.
+* <b>`seq_type`</b>: The expected datatype of the sequences, or None if no
             datatype should be enforced.
-    msg: Optional message to use on failure instead of a list of
+* <b>`msg`</b>: Optional message to use on failure instead of a list of
             differences.
 
 <h3 id="assertSetEqual"><code>assertSetEqual</code></h3>
@@ -813,9 +813,9 @@ A set-specific equality assertion.
 
 #### Args:
 
-    set1: The first set to compare.
-    set2: The second set to compare.
-    msg: Optional message to use on failure instead of a list of
+* <b>`set1`</b>: The first set to compare.
+* <b>`set2`</b>: The second set to compare.
+* <b>`msg`</b>: Optional message to use on failure instead of a list of
             differences.
 
 assertSetEqual uses ducktyping to support different types of sets, and
@@ -886,9 +886,9 @@ A tuple-specific equality assertion.
 
 #### Args:
 
-    tuple1: The first tuple to compare.
-    tuple2: The second tuple to compare.
-    msg: Optional message to use on failure instead of a list of
+* <b>`tuple1`</b>: The first tuple to compare.
+* <b>`tuple2`</b>: The second tuple to compare.
+* <b>`msg`</b>: Optional message to use on failure instead of a list of
             differences.
 
 <h3 id="assert_"><code>assert_</code></h3>
@@ -928,7 +928,7 @@ assertions made in the thread will not be respected.
 
 #### Returns:
 
-  A wrapper for threading.Thread that supports start() and join() methods.
+A wrapper for threading.Thread that supports start() and join() methods.
 
 <h3 id="countTestCases"><code>countTestCases</code></h3>
 
@@ -962,6 +962,23 @@ doCleanups()
 
 Execute all cleanup functions. Normally called for you after
 tearDown.
+
+<h3 id="evaluate"><code>evaluate</code></h3>
+
+``` python
+evaluate(tensors)
+```
+
+Evaluates tensors and returns numpy values.
+
+#### Args:
+
+* <b>`tensors`</b>: A Tensor or a nested list/tuple of Tensors.
+
+
+#### Returns:
+
+tensors numpy values.
 
 <h3 id="fail"><code>fail</code></h3>
 
@@ -1066,7 +1083,7 @@ use tempfile.mkdtemp as follows:
 
 #### Returns:
 
-  string, the path to the unique temporary directory created for this test.
+string, the path to the unique temporary directory created for this test.
 
 <h3 id="id"><code>id</code></h3>
 
@@ -1157,12 +1174,11 @@ pass it here (simply setting it with `as_default()` won't do it), which will
 trigger the creation of a new session.
 
 Use the `use_gpu` and `force_gpu` options to control where ops are run. If
-`force_gpu` is True, all ops are pinned to `/gpu:0`. Otherwise, if `use_gpu`
+`force_gpu` is True, all ops are pinned to `/device:GPU:0`. Otherwise, if `use_gpu`
 is True, TensorFlow tries to run as many ops on the GPU as possible. If both
 `force_gpu and `use_gpu` are False, all ops are pinned to the CPU.
 
 Example:
-
 ```python
 class MyOperatorTest(test_util.TensorFlowTestCase):
   def testMyOperator(self):
@@ -1181,13 +1197,13 @@ class MyOperatorTest(test_util.TensorFlowTestCase):
 * <b>`config`</b>: An optional config_pb2.ConfigProto to use to configure the
     session.
 * <b>`use_gpu`</b>: If True, attempt to run as many ops as possible on GPU.
-* <b>`force_gpu`</b>: If True, pin all ops to `/gpu:0`.
+* <b>`force_gpu`</b>: If True, pin all ops to `/device:GPU:0`.
 
 
 #### Returns:
 
-  A Session object that should be used as a context manager to surround
-  the graph building and execution code in a test case.
+A Session object that should be used as a context manager to surround
+the graph building and execution code in a test case.
 
 
 

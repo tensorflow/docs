@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/nccl/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/nccl/__init__.py).
+Defined in [`tensorflow/contrib/nccl/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/nccl/__init__.py).
 
 Functions for using NVIDIA nccl collective ops.
 
@@ -26,4 +26,6 @@ Functions for using NVIDIA nccl collective ops.
 [`all_sum(...)`](../../tf/contrib/nccl/all_sum): Returns a list of tensors with the all-reduce sum across `tensors`.
 
 [`broadcast(...)`](../../tf/contrib/nccl/broadcast): Returns a list of tensors on `dst_devices`, each with value `tensor`.
+
+[`reduce_sum(...)`](../../tf/contrib/nccl/reduce_sum): Returns a tensor with the reduce sum across `tensors`.
 

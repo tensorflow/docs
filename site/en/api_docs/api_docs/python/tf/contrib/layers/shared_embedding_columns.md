@@ -24,7 +24,7 @@ shared_embedding_columns(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/feature_column.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -65,7 +65,7 @@ Creates a list of `_EmbeddingColumn` sharing the same embedding.
 
 #### Returns:
 
-  A tuple of `_EmbeddingColumn` with shared embedding space.
+A tuple of `_EmbeddingColumn` with shared embedding space.
 
 
 #### Raises:
@@ -73,4 +73,5 @@ Creates a list of `_EmbeddingColumn` sharing the same embedding.
 * <b>`ValueError`</b>: if sparse_id_columns is empty, or its elements are not
     compatible with each other.
 * <b>`TypeError`</b>: if `sparse_id_columns` is not a sequence or is a string. If at
-    least one element of `sparse_id_columns` is not a `SparseTensor`.
+    least one element of `sparse_id_columns` is not a `SparseColumn` or a
+    `WeightedSparseColumn`.

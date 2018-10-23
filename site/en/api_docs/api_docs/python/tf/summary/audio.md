@@ -21,7 +21,7 @@ audio(
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/summary/summary.py).
+Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/summary/summary.py).
 
 See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
 
@@ -57,5 +57,5 @@ name, with a suffix depending on the max_outputs setting:
 
 #### Returns:
 
-  A scalar `Tensor` of type `string`. The serialized `Summary` protocol
-  buffer.
+A scalar `Tensor` of type `string`. The serialized `Summary` protocol
+buffer.

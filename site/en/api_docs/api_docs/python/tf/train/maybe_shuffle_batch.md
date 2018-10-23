@@ -27,7 +27,7 @@ maybe_shuffle_batch(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/input.py).
 
 See the guide: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline)
 
@@ -46,8 +46,8 @@ See docstring in `shuffle_batch` for more details.
     added to the queue or not.  If it is a scalar and evaluates `True`, then
     `tensors` are all added to the queue. If it is a vector and `enqueue_many`
     is `True`, then each example is added to the queue only if the
-    corresponding value in `keep_input` is `True`. This tensor essentially acts
-    as a filtering mechanism.
+    corresponding value in `keep_input` is `True`. This tensor essentially
+    acts as a filtering mechanism.
 * <b>`num_threads`</b>: The number of threads enqueuing `tensor_list`.
 * <b>`seed`</b>: Seed for the random shuffling within the queue.
 * <b>`enqueue_many`</b>: Whether each tensor in `tensor_list` is a single example.
@@ -62,7 +62,7 @@ See docstring in `shuffle_batch` for more details.
 
 #### Returns:
 
-  A list or dictionary of tensors with the types as `tensors`.
+A list or dictionary of tensors with the types as `tensors`.
 
 
 #### Raises:

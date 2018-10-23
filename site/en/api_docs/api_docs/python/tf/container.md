@@ -14,7 +14,7 @@ container(container_name)
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
 
@@ -27,5 +27,5 @@ Wrapper for `Graph.container()` using the default graph.
 
 #### Returns:
 
-  A context manager that specifies the default container to use for newly
-  created stateful ops.
+A context manager that specifies the default container to use for newly
+created stateful ops.

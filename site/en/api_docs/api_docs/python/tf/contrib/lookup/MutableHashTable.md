@@ -14,7 +14,7 @@ Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/lookup/lookup_ops.py).
 
 A generic mutable hash table implementation.
 
@@ -87,7 +87,7 @@ and value_dtype, respectively.
 
 #### Returns:
 
-  A `MutableHashTable` object.
+A `MutableHashTable` object.
 
 
 #### Raises:
@@ -109,8 +109,8 @@ Returns tensors of all keys and values in the table.
 
 #### Returns:
 
-  A pair of tensors with the first tensor containing all keys and the
-    second tensors containing all values in the table.
+A pair of tensors with the first tensor containing all keys and the
+  second tensors containing all values in the table.
 
 <h3 id="insert"><code>insert</code></h3>
 
@@ -135,7 +135,7 @@ Associates `keys` with `values`.
 
 #### Returns:
 
-  The created Operation.
+The created Operation.
 
 
 #### Raises:
@@ -165,8 +165,8 @@ The `default_value` is used for keys not present in the table.
 
 #### Returns:
 
-  A tensor containing the values in the same shape as `keys` using the
-    table's value type.
+A tensor containing the values in the same shape as `keys` using the
+  table's value type.
 
 
 #### Raises:
@@ -188,7 +188,7 @@ Compute the number of elements in this table.
 
 #### Returns:
 
-  A scalar tensor containing the number of elements in this table.
+A scalar tensor containing the number of elements in this table.
 
 
 

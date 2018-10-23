@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/platform/benchmark.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/platform/benchmark.py).
+Defined in [`tensorflow/python/platform/benchmark.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/platform/benchmark.py).
 
 Abstract class that provides helpers for TensorFlow benchmarks.
 
@@ -23,6 +23,7 @@ Abstract class that provides helpers for TensorFlow benchmarks.
 <h3 id="is_abstract"><code>is_abstract</code></h3>
 
 ``` python
+@classmethod
 is_abstract(cls)
 ```
 
@@ -46,8 +47,8 @@ Report a benchmark.
 #### Args:
 
 * <b>`iters`</b>: (optional) How many iterations were run
-* <b>`cpu_time`</b>: (optional) Total cpu time in seconds
-* <b>`wall_time`</b>: (optional) Total wall time in seconds
+* <b>`cpu_time`</b>: (optional) median or mean cpu time in seconds.
+* <b>`wall_time`</b>: (optional) median or mean wall time in seconds.
 * <b>`throughput`</b>: (optional) Throughput (in MB/s)
 * <b>`extras`</b>: (optional) Dict mapping string keys to additional benchmark info.
     Values may be either floats or values that are convertible to strings.
@@ -98,8 +99,8 @@ Run an op or tensor in the given session.  Report the results.
 
 #### Returns:
 
-  A `dict` containing the key-value pairs that were passed to
-  `report_benchmark`.
+A `dict` containing the key-value pairs that were passed to
+`report_benchmark`.
 
 
 

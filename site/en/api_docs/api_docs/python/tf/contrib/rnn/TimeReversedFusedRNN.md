@@ -14,7 +14,7 @@ Inherits From: [`FusedRNNCell`](../../../tf/contrib/rnn/FusedRNNCell)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py).
 
 See the guide: [RNN and Cells (contrib) > Core RNN Cell wrappers (RNNCells that wrap other RNNCells)](../../../../../api_guides/python/contrib.rnn#Core_RNN_Cell_wrappers_RNNCells_that_wrap_other_RNNCells_)
 

@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.compat.as_text
 
+### Aliases:
+
+* `tf.compat.as_text`
+* `tf.contrib.meta_graph_transform.meta_graph_transform.compat.as_text`
+
 ``` python
 as_text(
     bytes_or_text,
@@ -17,7 +22,7 @@ as_text(
 
 
 
-Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/compat.py).
+Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/compat.py).
 
 Returns the given argument as a unicode string.
 
@@ -29,7 +34,7 @@ Returns the given argument as a unicode string.
 
 #### Returns:
 
-  A `unicode` (Python 2) or `str` (Python 3) object.
+A `unicode` (Python 2) or `str` (Python 3) object.
 
 
 #### Raises:

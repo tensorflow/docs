@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::Dilation2DBackpropFilter Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,7 +13,7 @@
   <p>Computes the gradient of morphological 2-D dilation with respect to the filter. </p>
   <h2>Summary</h2>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>input: 4-D with shape <code>[batch, in_height, in_width, depth]</code>.</li>
       <li>filter: 3-D with shape <code>[filter_height, filter_width, depth]</code>.</li>
       <li>out_backprop: 4-D with shape <code>[batch, out_height, out_width, depth]</code>.</li>
@@ -22,7 +22,7 @@
       <li>padding: The type of padding algorithm to use.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 3-D with shape <code>[filter_height, filter_width, depth]</code>. </li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 3-D with shape <code>[filter_height, filter_width, depth]</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -32,7 +32,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1aee49e72aa07dcbf88c90408b543ba72a">Dilation2DBackpropFilter</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, const gtl::ArraySlice< int > & rates, StringPiece padding)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1aee49e72aa07dcbf88c90408b543ba72a">Dilation2DBackpropFilter</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, const gtl::ArraySlice< int > & rates, StringPiece padding)</code>
         <br />
       </td>
     </tr>
@@ -49,7 +49,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -94,17 +94,17 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1aff315faa81312d2ca485e7c28efcf7a1">
     <h3>filter_backprop</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> filter_backprop</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> filter_backprop</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_dilation2_d_backprop_filter_1aee49e72aa07dcbf88c90408b543ba72a">
     <h3>Dilation2DBackpropFilter</h3>
     <pre class="prettyprint"> Dilation2DBackpropFilter(
-  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
   const gtl::ArraySlice< int > & strides,
   const gtl::ArraySlice< int > & rates,
   StringPiece padding

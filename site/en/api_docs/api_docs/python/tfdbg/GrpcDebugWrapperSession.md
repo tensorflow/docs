@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/grpc_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/debug/wrappers/grpc_wrapper.py).
+Defined in [`tensorflow/python/debug/wrappers/grpc_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/debug/wrappers/grpc_wrapper.py).
 
 Debug Session wrapper that send debug data to gRPC stream(s).
 
@@ -25,6 +25,10 @@ Debug Session wrapper that send debug data to gRPC stream(s).
 
 
 <h3 id="graph_def"><code>graph_def</code></h3>
+
+
+
+<h3 id="run_call_count"><code>run_call_count</code></h3>
 
 
 
@@ -73,7 +77,7 @@ Constructor of DumpingDebugWrapperSession.
 
 #### Raises:
 
-   TypeError: If `grpc_debug_server_addresses` is not a `str` or a `list`
+* <b>`TypeError`</b>: If `grpc_debug_server_addresses` is not a `str` or a `list`
      of `str`.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
@@ -108,6 +112,14 @@ as_default()
 
 ``` python
 close()
+```
+
+
+
+<h3 id="increment_run_call_count"><code>increment_run_call_count</code></h3>
+
+``` python
+increment_run_call_count()
 ```
 
 
@@ -257,13 +269,21 @@ Wrapper around Session.run() that inserts tensor watch options.
 
 #### Returns:
 
-  Simply forwards the output of the wrapped `Session.run()` call.
+Simply forwards the output of the wrapped `Session.run()` call.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: On invalid `OnRunStartAction` value. Or if `callable_runner`
     is not `None` and either or both of `fetches` and `feed_dict` is `None`.
+
+<h3 id="should_stop"><code>should_stop</code></h3>
+
+``` python
+should_stop()
+```
+
+
 
 
 

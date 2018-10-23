@@ -21,7 +21,7 @@ all_candidate_sampler(
 
 
 
-Defined in [`tensorflow/python/ops/candidate_sampling_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/candidate_sampling_ops.py).
+Defined in [`tensorflow/python/ops/candidate_sampling_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/candidate_sampling_ops.py).
 
 Generate the set of all classes.
 

@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/distributions/distributions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/distributions/distributions.py).
+Defined in [`tensorflow/python/ops/distributions/distributions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/distributions/distributions.py).
 
 Core module for TensorFlow distribution objects and helpers.
 

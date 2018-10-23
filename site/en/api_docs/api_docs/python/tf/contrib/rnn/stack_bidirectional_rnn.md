@@ -23,7 +23,7 @@ stack_bidirectional_rnn(
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/rnn/python/ops/rnn.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/rnn/python/ops/rnn.py).
 
 Creates a bidirectional recurrent neural network.
 
@@ -59,13 +59,13 @@ As described in https://arxiv.org/abs/1303.5778
 
 #### Returns:
 
-  A tuple (outputs, output_state_fw, output_state_bw) where:
-    outputs is a length `T` list of outputs (one for each input), which
-      are depth-concatenated forward and backward outputs.
-    output_states_fw is the final states, one tensor per layer,
-      of the forward rnn.
-    output_states_bw is the final states, one tensor per layer,
-      of the backward rnn.
+A tuple (outputs, output_state_fw, output_state_bw) where:
+  outputs is a length `T` list of outputs (one for each input), which
+    are depth-concatenated forward and backward outputs.
+  output_states_fw is the final states, one tensor per layer,
+    of the forward rnn.
+  output_states_bw is the final states, one tensor per layer,
+    of the backward rnn.
 
 
 #### Raises:

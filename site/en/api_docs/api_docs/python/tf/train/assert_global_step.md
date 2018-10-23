@@ -14,7 +14,7 @@ assert_global_step(global_step_tensor)
 
 
 
-Defined in [`tensorflow/python/training/training_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/training_util.py).
+Defined in [`tensorflow/python/training/training_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/training_util.py).
 
 See the guides: [Framework (contrib) > Variables](../../../../api_guides/python/contrib.framework#Variables), [Training > Training Utilities](../../../../api_guides/python/train#Training_Utilities)
 

@@ -23,7 +23,7 @@ safe_embedding_lookup_sparse(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/embedding_ops.py).
+Defined in [`tensorflow/contrib/layers/python/layers/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/embedding_ops.py).
 
 See the guide: [Layers (contrib) > Higher level ops for building neural network layers](../../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers)
 
@@ -68,7 +68,7 @@ along the last dimension.
 
 #### Returns:
 
-  Dense tensor of shape `[d_0, d_1, ..., d_{n-1}, e_1, ..., e_m]`.
+Dense tensor of shape `[d_0, d_1, ..., d_{n-1}, e_1, ..., e_m]`.
 
 
 #### Raises:

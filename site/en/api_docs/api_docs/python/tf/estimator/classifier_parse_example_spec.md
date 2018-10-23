@@ -20,7 +20,7 @@ classifier_parse_example_spec(
 
 
 
-Defined in [`tensorflow/python/estimator/canned/parsing_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/canned/parsing_utils.py).
+Defined in [`tensorflow/python/estimator/canned/parsing_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/canned/parsing_utils.py).
 
 Generates parsing spec for tf.parse_example to be used with classifiers.
 
@@ -119,8 +119,8 @@ estimator.train(input_fn=input_fn_train)
 
 #### Returns:
 
-  A dict mapping each feature key to a `FixedLenFeature` or `VarLenFeature`
-  value.
+A dict mapping each feature key to a `FixedLenFeature` or `VarLenFeature`
+value.
 
 
 #### Raises:

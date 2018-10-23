@@ -10,16 +10,17 @@ page_type: reference
 
 ## Class `constant_initializer`
 
-Inherits From: [`Initializer`](../tf/contrib/keras/initializers/Initializer)
+Inherits From: [`Initializer`](../tf/keras/initializers/Initializer)
 
 ### Aliases:
 
 * Class `tf.constant_initializer`
-* Class `tf.contrib.keras.initializers.Constant`
+* Class `tf.initializers.constant`
+* Class `tf.keras.initializers.Constant`
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/init_ops.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 
@@ -137,13 +138,13 @@ Instantiates an initializer from a configuration dictionary.
 
 Example:
 
-```
+```python
 initializer = RandomUniform(-1, 1)
 config = initializer.get_config()
 initializer = RandomUniform.from_config(config)
 ```
 
-#### Arguments:
+#### Args:
 
 * <b>`config`</b>: A Python dictionary.
     It will typically be the output of `get_config`.
@@ -151,7 +152,7 @@ initializer = RandomUniform.from_config(config)
 
 #### Returns:
 
-  An Initializer instance.
+An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 

@@ -19,7 +19,7 @@ edit_distance(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Math > Sequence Comparison and Indexing](../../../api_guides/python/math_ops#Sequence_Comparison_and_Indexing)
 
@@ -78,8 +78,8 @@ output ==> [[inf, 1.0],  # (0,0): no truth, (0,1): no hypothesis
 
 #### Returns:
 
-  A dense `Tensor` with rank `R - 1`, where R is the rank of the
-  `SparseTensor` inputs `hypothesis` and `truth`.
+A dense `Tensor` with rank `R - 1`, where R is the rank of the
+`SparseTensor` inputs `hypothesis` and `truth`.
 
 
 #### Raises:

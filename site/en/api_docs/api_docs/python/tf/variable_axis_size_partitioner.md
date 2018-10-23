@@ -19,7 +19,7 @@ variable_axis_size_partitioner(
 
 
 
-Defined in [`tensorflow/python/ops/partitioned_variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/partitioned_variables.py).
+Defined in [`tensorflow/python/ops/partitioned_variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/partitioned_variables.py).
 
 See the guide: [Variables > Variable Partitioners for Sharding](../../../api_guides/python/state_ops#Variable_Partitioners_for_Sharding)
 
@@ -50,8 +50,8 @@ One reasonable value for `max_shard_bytes` is `(64 << 20) - 1`, or almost
 
 #### Returns:
 
-  A partition function usable as the `partitioner` argument to
-  `variable_scope`, `get_variable`, and `get_partitioned_variable_list`.
+A partition function usable as the `partitioner` argument to
+`variable_scope`, `get_variable`, and `get_partitioned_variable_list`.
 
 
 #### Raises:

@@ -20,7 +20,7 @@ sparse_merge(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Conversion](../../../api_guides/python/sparse_ops#Conversion)
 
@@ -95,7 +95,7 @@ In this case the resulting `SparseTensor` has the following properties:
 
 * <b>`sp_ids`</b>: A single `SparseTensor` with `values` property of type `int32`
     or `int64` or a Python list of such `SparseTensor`s or a list thereof.
-* <b>`sp_values`</b>: A`SparseTensor` of any type.
+* <b>`sp_values`</b>: A `SparseTensor` of any type.
 * <b>`vocab_size`</b>: A scalar `int64` Tensor (or Python int) containing the new size
     of the last dimension, `all(0 <= sp_ids.values < vocab_size)`.
     Or a list thereof with `all(0 <= sp_ids[i].values < vocab_size[i])` for
@@ -108,8 +108,8 @@ In this case the resulting `SparseTensor` has the following properties:
 
 #### Returns:
 
-  A `SparseTensor` compactly representing a batch of feature ids and values,
-  useful for passing to functions that expect such a `SparseTensor`.
+A `SparseTensor` compactly representing a batch of feature ids and values,
+useful for passing to functions that expect such a `SparseTensor`.
 
 
 #### Raises:

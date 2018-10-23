@@ -19,7 +19,7 @@ squeeze(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Shapes and Shaping](../../../api_guides/python/array_ops#Shapes_and_Shaping)
 
@@ -34,14 +34,14 @@ For example:
 
 ```python
 # 't' is a tensor of shape [1, 2, 1, 3, 1, 1]
-shape(squeeze(t))  # => [2, 3]
+tf.shape(tf.squeeze(t))  # [2, 3]
 ```
 
 Or, to remove specific size 1 dimensions:
 
 ```python
 # 't' is a tensor of shape [1, 2, 1, 3, 1, 1]
-shape(squeeze(t, [2, 4]))  # => [1, 2, 3, 1]
+tf.shape(tf.squeeze(t, [2, 4]))  # [1, 2, 3, 1]
 ```
 
 #### Args:
@@ -50,15 +50,16 @@ shape(squeeze(t, [2, 4]))  # => [1, 2, 3, 1]
 * <b>`axis`</b>: An optional list of `ints`. Defaults to `[]`.
     If specified, only squeezes the dimensions listed. The dimension
     index starts at 0. It is an error to squeeze a dimension that is not 1.
+    Must be in the range `[-rank(input), rank(input))`.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`squeeze_dims`</b>: Deprecated keyword argument that is now axis.
 
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
-  Contains the same data as `input`, but has one or more dimensions of
-  size 1 removed.
+A `Tensor`. Has the same type as `input`.
+Contains the same data as `input`, but has one or more dimensions of
+size 1 removed.
 
 
 #### Raises:

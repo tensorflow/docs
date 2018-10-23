@@ -19,7 +19,7 @@ multinomial(
 
 
 
-Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/random_ops.py).
+Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/random_ops.py).
 
 See the guide: [Constants, Sequences, and Random Values > Random Tensors](../../../api_guides/python/constant_op#Random_Tensors)
 
@@ -47,4 +47,4 @@ samples = tf.multinomial(tf.log([[10., 10.]]), 5)
 
 #### Returns:
 
-  The drawn samples of shape `[batch_size, num_samples]`.
+The drawn samples of shape `[batch_size, num_samples]`.

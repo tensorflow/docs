@@ -19,7 +19,7 @@ scalar(
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/summary/summary.py).
+Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/summary/summary.py).
 
 See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
 
@@ -40,7 +40,7 @@ The generated Summary has a Tensor.proto containing the input Tensor.
 
 #### Returns:
 
-  A scalar `Tensor` of type `string`. Which contains a `Summary` protobuf.
+A scalar `Tensor` of type `string`. Which contains a `Summary` protobuf.
 
 
 #### Raises:

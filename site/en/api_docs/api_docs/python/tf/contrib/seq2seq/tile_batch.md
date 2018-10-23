@@ -18,7 +18,7 @@ tile_batch(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
 
 Tile the batch dimension of a (possibly nested structure of) tensor(s) t.
 
@@ -38,8 +38,8 @@ minibatch entries `t[0], ..., t[batch_size - 1]` and tiles it to have a shape
 
 #### Returns:
 
-  A (possibly nested structure of) `Tensor` shaped
-  `[batch_size * multiplier, ...]`.
+A (possibly nested structure of) `Tensor` shaped
+`[batch_size * multiplier, ...]`.
 
 
 #### Raises:

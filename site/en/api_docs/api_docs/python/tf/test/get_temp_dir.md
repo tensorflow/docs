@@ -14,7 +14,7 @@ get_temp_dir()
 
 
 
-Defined in [`tensorflow/python/platform/test.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/platform/test.py).
+Defined in [`tensorflow/python/platform/test.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/platform/test.py).
 
 See the guide: [Testing > Utilities](../../../../api_guides/python/test#Utilities)
 
@@ -24,4 +24,4 @@ There is no need to delete the directory after the test.
 
 #### Returns:
 
-  The temporary directory.
+The temporary directory.

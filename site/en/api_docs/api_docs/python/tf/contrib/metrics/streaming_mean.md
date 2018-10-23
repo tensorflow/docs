@@ -20,7 +20,7 @@ streaming_mean(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 See the guide: [Metrics (contrib) > Metric `Ops`](../../../../../api_guides/python/contrib.metrics#Metric_Ops_)
 
@@ -31,7 +31,7 @@ that are used to compute the average of `values`. This average is ultimately
 returned as `mean` which is an idempotent operation that simply divides
 `total` by `count`.
 
-For estimation of the metric  over a stream of data, the function creates an
+For estimation of the metric over a stream of data, the function creates an
 `update_op` operation that updates these variables and returns the `mean`.
 `update_op` increments `total` with the reduced sum of the product of `values`
 and `weights`, and it increments `count` with the reduced sum of `weights`.

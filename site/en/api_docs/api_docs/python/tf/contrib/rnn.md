@@ -10,21 +10,21 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/rnn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/rnn/__init__.py).
+Defined in [`tensorflow/contrib/rnn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/rnn/__init__.py).
 
 RNN Cells and additional RNN operations.
 
 See [RNN and Cells (contrib)](../../../../api_guides/python/contrib.rnn) guide.
 
-# From core
+<!--From core-->
 
-# Used to be in core, but kept in contrib.
+<!--Used to be in core, but kept in contrib.-->
 
-# Created in contrib, eventual plans to move to core.
+<!--Created in contrib, eventual plans to move to core.-->
 
-# RNNCell wrappers
+<!--RNNCell wrappers-->
 
-# RNN functions
+<!--RNN functions-->
 
 ## Classes
 
@@ -37,6 +37,14 @@ See [RNN and Cells (contrib)](../../../../api_guides/python/contrib.rnn) guide.
 [`class BidirectionalGridLSTMCell`](../../tf/contrib/rnn/BidirectionalGridLSTMCell): Bidirectional GridLstm cell.
 
 [`class CompiledWrapper`](../../tf/contrib/rnn/CompiledWrapper): Wraps step execution in an XLA JIT scope.
+
+[`class Conv1DLSTMCell`](../../tf/contrib/rnn/Conv1DLSTMCell): 1D Convolutional LSTM recurrent network cell.
+
+[`class Conv2DLSTMCell`](../../tf/contrib/rnn/Conv2DLSTMCell): 2D Convolutional LSTM recurrent network cell.
+
+[`class Conv3DLSTMCell`](../../tf/contrib/rnn/Conv3DLSTMCell): 3D Convolutional LSTM recurrent network cell.
+
+[`class ConvLSTMCell`](../../tf/contrib/rnn/ConvLSTMCell): Convolutional LSTM recurrent network cell.
 
 [`class CoupledInputForgetGateLSTMCell`](../../tf/contrib/rnn/CoupledInputForgetGateLSTMCell): Long short-term memory unit (LSTM) recurrent network cell.
 
@@ -53,6 +61,8 @@ See [RNN and Cells (contrib)](../../../../api_guides/python/contrib.rnn) guide.
 [`class GLSTMCell`](../../tf/contrib/rnn/GLSTMCell): Group LSTM cell (G-LSTM).
 
 [`class GRUBlockCell`](../../tf/contrib/rnn/GRUBlockCell): Block GRU cell implementation.
+
+[`class GRUBlockCellV2`](../../tf/contrib/rnn/GRUBlockCellV2): Temporary GRUBlockCell impl with a different variable naming scheme.
 
 [`class GRUCell`](../../tf/contrib/rnn/GRUCell): Gated Recurrent Unit cell (cf. http://arxiv.org/abs/1406.1078).
 

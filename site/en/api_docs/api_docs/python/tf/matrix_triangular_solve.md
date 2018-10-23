@@ -8,12 +8,17 @@ page_type: reference
 
 # tf.matrix_triangular_solve
 
+### Aliases:
+
+* `tf.linalg.triangular_solve`
+* `tf.matrix_triangular_solve`
+
 ``` python
 matrix_triangular_solve(
     matrix,
     rhs,
-    lower=None,
-    adjoint=None,
+    lower=True,
+    adjoint=False,
     name=None
 )
 ```
@@ -36,7 +41,7 @@ matrix is assumed to be zero and not accessed.
 `rhs` is a tensor of shape `[..., M, K]`.
 
 The output is a tensor of shape `[..., M, K]`. If `adjoint` is
-`True` then the innermost matrices in output` satisfy matrix equations
+`True` then the innermost matrices in `output` satisfy matrix equations
 `matrix[..., :, :] * output[..., :, :] = rhs[..., :, :]`.
 If `adjoint` is `False` then the strictly then the  innermost matrices in
 `output` satisfy matrix equations
@@ -61,7 +66,7 @@ If `adjoint` is `False` then the strictly then the  innermost matrices in
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `matrix`. Shape is `[..., M, K]`.
+A `Tensor`. Has the same type as `matrix`. Shape is `[..., M, K]`.
 
 #### numpy compatibility
     Equivalent to np.linalg.triangular_solve

@@ -21,7 +21,7 @@ inverse_time_decay(
 
 
 
-Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/learning_rate_decay.py).
+Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/learning_rate_decay.py).
 
 See the guide: [Training > Decaying the learning rate](../../../../api_guides/python/train#Decaying_the_learning_rate)
 
@@ -71,8 +71,8 @@ learning_step = (
 
 #### Returns:
 
-  A scalar `Tensor` of the same type as `learning_rate`.  The decayed
-  learning rate.
+A scalar `Tensor` of the same type as `learning_rate`.  The decayed
+learning rate.
 
 
 #### Raises:

@@ -34,4 +34,4 @@ See [Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs)
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `features`.
+A `Tensor`. Has the same type as `features`.

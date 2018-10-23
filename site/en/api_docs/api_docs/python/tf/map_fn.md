@@ -23,7 +23,7 @@ map_fn(
 
 
 
-Defined in [`tensorflow/python/ops/functional_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/functional_ops.py).
+Defined in [`tensorflow/python/ops/functional_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/functional_ops.py).
 
 See the guide: [Higher Order Functions > Higher Order Operators](../../../api_guides/python/functional_ops#Higher_Order_Operators)
 
@@ -89,9 +89,9 @@ instead.
 
 #### Returns:
 
-  A tensor or (possibly nested) sequence of tensors.  Each tensor packs the
-  results of applying `fn` to tensors unpacked from `elems` along the first
-  dimension, from first to last.
+A tensor or (possibly nested) sequence of tensors.  Each tensor packs the
+results of applying `fn` to tensors unpacked from `elems` along the first
+dimension, from first to last.
 
 
 #### Raises:

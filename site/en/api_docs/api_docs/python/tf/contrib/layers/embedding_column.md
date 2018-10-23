@@ -23,7 +23,7 @@ embedding_column(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/feature_column.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -61,4 +61,4 @@ Creates an `_EmbeddingColumn` for feeding sparse data into a DNN.
 
 #### Returns:
 
-  An `_EmbeddingColumn`.
+An `_EmbeddingColumn`.

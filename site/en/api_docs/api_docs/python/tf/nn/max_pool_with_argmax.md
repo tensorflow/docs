@@ -14,7 +14,7 @@ max_pool_with_argmax(
     ksize,
     strides,
     padding,
-    Targmax=None,
+    Targmax=tf.int64,
     name=None
 )
 ```
@@ -53,7 +53,7 @@ in a safe backwards compatible way, especially due to flattening.
 
 #### Returns:
 
-  A tuple of `Tensor` objects (output, argmax).
+A tuple of `Tensor` objects (output, argmax).
 
 * <b>`output`</b>: A `Tensor`. Has the same type as `input`. The max pooled output tensor.
 * <b>`argmax`</b>: A `Tensor` of type `Targmax`. 4-D.  The flattened indices of the max values chosen for each output.

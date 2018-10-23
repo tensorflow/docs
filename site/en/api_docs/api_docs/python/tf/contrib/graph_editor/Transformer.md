@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/transform.py).
+Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/transform.py).
 
 See the guide: [Graph Editor (contrib) > Module: transform](../../../../../api_guides/python/contrib.graph_editor#Module_transform)
 
@@ -81,11 +81,11 @@ Execute the transformation.
 
 #### Returns:
 
-  A tuple `(sgv, info)` where:
-    `sgv` is the transformed subgraph view;
-    `info` is an instance of TransformerInfo containing
-    information about the transform, including mapping between
-    original and transformed tensors and operations.
+A tuple `(sgv, info)` where:
+  `sgv` is the transformed subgraph view;
+  `info` is an instance of TransformerInfo containing
+  information about the transform, including mapping between
+  original and transformed tensors and operations.
 
 #### Raises:
 

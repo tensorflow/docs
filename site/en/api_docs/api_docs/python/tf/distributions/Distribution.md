@@ -19,7 +19,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/distributions/distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/distributions/distribution.py).
+Defined in [`tensorflow/python/ops/distributions/distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/distributions/distribution.py).
 
 See the guide: [Statistical Distributions (contrib) > Base classes](../../../../api_guides/python/contrib.distributions#Base_classes)
 
@@ -199,7 +199,7 @@ or `distributions.NOT_REPARAMETERIZED`.
 
 #### Returns:
 
-  An instance of `ReparameterizationType`.
+An instance of `ReparameterizationType`.
 
 <h3 id="validate_args"><code>validate_args</code></h3>
 
@@ -317,7 +317,7 @@ initialization arguments.
 
 #### Args:
 
-  **override_parameters_kwargs: String/value dictionary of initialization
+* <b>`**override_parameters_kwargs`</b>: String/value dictionary of initialization
     arguments to override with new values.
 
 
@@ -514,8 +514,8 @@ survival function, which are more accurate than `1 - cdf(x)` when `x >> 1`.
 
 #### Returns:
 
-  `Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
-    `self.dtype`.
+`Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
+  `self.dtype`.
 
 <h3 id="mean"><code>mean</code></h3>
 
@@ -536,6 +536,7 @@ Mode.
 <h3 id="param_shapes"><code>param_shapes</code></h3>
 
 ``` python
+@classmethod
 param_shapes(
     cls,
     sample_shape,
@@ -560,11 +561,12 @@ Subclasses should override class method `_param_shapes`.
 
 #### Returns:
 
-  `dict` of parameter name to `Tensor` shapes.
+`dict` of parameter name to `Tensor` shapes.
 
 <h3 id="param_static_shapes"><code>param_static_shapes</code></h3>
 
 ``` python
+@classmethod
 param_static_shapes(
     cls,
     sample_shape
@@ -589,7 +591,7 @@ constant-valued tensors when constant values are fed.
 
 #### Returns:
 
-  `dict` of parameter name to `TensorShape`.
+`dict` of parameter name to `TensorShape`.
 
 
 #### Raises:
@@ -726,8 +728,8 @@ survival_function(x) = P[X > x]
 
 #### Returns:
 
-  `Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
-    `self.dtype`.
+`Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
+  `self.dtype`.
 
 <h3 id="variance"><code>variance</code></h3>
 

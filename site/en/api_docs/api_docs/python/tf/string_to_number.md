@@ -11,7 +11,7 @@ page_type: reference
 ``` python
 string_to_number(
     string_tensor,
-    out_type=None,
+    out_type=tf.float32,
     name=None
 )
 ```
@@ -20,7 +20,7 @@ string_to_number(
 
 Defined in `tensorflow/python/ops/gen_parsing_ops.py`.
 
-See the guide: [Tensor Transformations > Casting](../../../api_guides/python/array_ops#Casting)
+See the guides: [Strings > Conversion](../../../api_guides/python/string_ops#Conversion), [Tensor Transformations > Casting](../../../api_guides/python/array_ops#Casting)
 
 Converts each string in the input Tensor to the specified numeric type.
 
@@ -37,5 +37,5 @@ results in a rounded value.)
 
 #### Returns:
 
-  A `Tensor` of type `out_type`.
-  A Tensor of the same shape as the input `string_tensor`.
+A `Tensor` of type `out_type`.
+A Tensor of the same shape as the input `string_tensor`.

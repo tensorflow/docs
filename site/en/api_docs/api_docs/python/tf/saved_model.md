@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/saved_model/saved_model.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/saved_model/saved_model.py).
+Defined in [`tensorflow/python/saved_model/saved_model.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/saved_model/saved_model.py).
 
 Convenience functions to save a model.
 

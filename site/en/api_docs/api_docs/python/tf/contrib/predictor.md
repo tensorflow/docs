@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/predictor/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/predictor/__init__.py).
+Defined in [`tensorflow/contrib/predictor/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/predictor/__init__.py).
 
 Modules for `Predictor`s.
 

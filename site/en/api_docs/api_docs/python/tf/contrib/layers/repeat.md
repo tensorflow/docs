@@ -20,7 +20,7 @@ repeat(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/layers.py).
 
 See the guide: [Layers (contrib) > Higher level ops for building neural network layers](../../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers)
 
@@ -45,13 +45,13 @@ layers are called with `scope='stack'`.
 * <b>`inputs`</b>: A `Tensor` suitable for layer.
 * <b>`repetitions`</b>: Int, number of repetitions.
 * <b>`layer`</b>: A layer with arguments `(inputs, *args, **kwargs)`
-  *args: Extra args for the layer.
-  **kwargs: Extra kwargs for the layer.
+* <b>`*args`</b>: Extra args for the layer.
+* <b>`**kwargs`</b>: Extra kwargs for the layer.
 
 
 #### Returns:
 
-  A tensor result of applying the layer, repetitions times.
+A tensor result of applying the layer, repetitions times.
 
 #### Raises:
 

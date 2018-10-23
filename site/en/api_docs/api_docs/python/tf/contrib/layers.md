@@ -10,11 +10,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/__init__.py).
+Defined in [`tensorflow/contrib/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/__init__.py).
 
 Ops for building neural network layers, regularizers, summaries, etc.
 
 See the [Layers (contrib)](../../../../api_guides/python/contrib.layers) guide.
+
 
 
 
@@ -28,6 +29,10 @@ See the [Layers (contrib)](../../../../api_guides/python/contrib.layers) guide.
 [`feature_column`](../../tf/contrib/layers/feature_column) module: This API defines FeatureColumn abstraction.
 
 [`summaries`](../../tf/contrib/layers/summaries) module: Utility functions for summary creation.
+
+## Classes
+
+[`class GDN`](../../tf/contrib/layers/GDN): Generalized divisive normalization layer.
 
 ## Functions
 
@@ -83,9 +88,13 @@ See the [Layers (contrib)](../../../../api_guides/python/contrib.layers) guide.
 
 [`fully_connected(...)`](../../tf/contrib/layers/fully_connected): Adds a fully connected layer.
 
+[`gdn(...)`](../../tf/contrib/layers/gdn): Functional interface for GDN layer.
+
 [`infer_real_valued_columns(...)`](../../tf/contrib/layers/infer_real_valued_columns)
 
 [`input_from_feature_columns(...)`](../../tf/contrib/layers/input_from_feature_columns): A tf.contrib.layers style input layer builder based on FeatureColumns.
+
+[`instance_norm(...)`](../../tf/contrib/layers/instance_norm): Functional interface for the instance normalization layer.
 
 [`joint_weighted_sum_from_feature_columns(...)`](../../tf/contrib/layers/joint_weighted_sum_from_feature_columns): A restricted linear prediction builder based on FeatureColumns.
 
@@ -104,6 +113,8 @@ See the [Layers (contrib)](../../../../api_guides/python/contrib.layers) guide.
 [`max_pool2d(...)`](../../tf/contrib/layers/max_pool2d): Adds a 2D Max Pooling op.
 
 [`max_pool3d(...)`](../../tf/contrib/layers/max_pool3d): Adds a 3D Max Pooling op.
+
+[`maxout(...)`](../../tf/contrib/layers/maxout): Adds a maxout op from https://arxiv.org/abs/1302.4389
 
 [`multi_class_target(...)`](../../tf/contrib/layers/multi_class_target): Creates a _TargetColumn for multi class single label classification. (deprecated)
 
@@ -143,6 +154,8 @@ See the [Layers (contrib)](../../../../api_guides/python/contrib.layers) guide.
 
 [`sparse_column_with_keys(...)`](../../tf/contrib/layers/sparse_column_with_keys): Creates a _SparseColumn with keys.
 
+[`sparse_column_with_vocabulary_file(...)`](../../tf/contrib/layers/sparse_column_with_vocabulary_file): Creates a _SparseColumn with vocabulary file configuration.
+
 [`stack(...)`](../../tf/contrib/layers/stack): Builds a stack of layers by applying layer repeatedly using stack_args.
 
 [`sum_regularizer(...)`](../../tf/contrib/layers/sum_regularizer): Returns a function that applies the sum of multiple regularizers.
@@ -174,6 +187,8 @@ See the [Layers (contrib)](../../../../api_guides/python/contrib.layers) guide.
 ## Other Members
 
 `OPTIMIZER_CLS_NAMES`
+
+`OPTIMIZER_SUMMARIES`
 
 `SPARSE_FEATURE_CROSS_DEFAULT_HASH_KEY`
 

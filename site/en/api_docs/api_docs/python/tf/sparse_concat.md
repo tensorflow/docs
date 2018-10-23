@@ -20,7 +20,7 @@ sparse_concat(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Manipulation](../../../api_guides/python/sparse_ops#Manipulation)
 
@@ -117,7 +117,7 @@ Graphically this is equivalent to doing
 
 #### Returns:
 
-  A `SparseTensor` with the concatenated output.
+A `SparseTensor` with the concatenated output.
 
 
 #### Raises:

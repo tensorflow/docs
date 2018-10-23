@@ -17,7 +17,7 @@ build_parsing_serving_input_fn(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
+Defined in [`tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
 
 See the guide: [Learn (contrib) > Input processing](../../../../../api_guides/python/contrib.learn#Input_processing)
 
@@ -37,4 +37,4 @@ for use at serving time, so the labels return value is always None.
 
 #### Returns:
 
-  An input_fn suitable for use in serving.
+An input_fn suitable for use in serving.

@@ -14,10 +14,10 @@ get_include()
 
 
 
-Defined in [`tensorflow/python/platform/sysconfig.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/platform/sysconfig.py).
+Defined in [`tensorflow/python/platform/sysconfig.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/platform/sysconfig.py).
 
 Get the directory containing the TensorFlow C++ header files.
 
 #### Returns:
 
-  The directory as string.
+The directory as string.

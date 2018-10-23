@@ -22,7 +22,7 @@ depthwise_conv2d(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
@@ -66,6 +66,6 @@ to 1.
 
 #### Returns:
 
-  A 4-D `Tensor` with shape according to `data_format`.  E.g., for
-  "NHWC" format, shape is
-  `[batch, out_height, out_width, in_channels * channel_multiplier].`
+A 4-D `Tensor` with shape according to `data_format`.  E.g., for
+"NHWC" format, shape is
+`[batch, out_height, out_width, in_channels * channel_multiplier].`

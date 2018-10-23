@@ -18,7 +18,7 @@ deprecated_flipped_sigmoid_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/cross_entropy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/nn/python/ops/cross_entropy.py).
+Defined in [`tensorflow/contrib/nn/python/ops/cross_entropy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/nn/python/ops/cross_entropy.py).
 
 Computes sigmoid cross entropy given `logits`.
 
@@ -61,8 +61,8 @@ equivalent formulation
 
 #### Returns:
 
-  A `Tensor` of the same shape as `logits` with the componentwise
-  logistic losses.
+A `Tensor` of the same shape as `logits` with the componentwise
+logistic losses.
 
 
 #### Raises:

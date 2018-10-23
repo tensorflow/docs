@@ -19,7 +19,7 @@ string_to_index(
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/lookup/lookup_ops.py).
 
 Maps `tensor` of strings into `int64` indices based on `mapping`. (deprecated)
 
@@ -65,5 +65,5 @@ ids.eval()  ==> [0, 1, -1, 2]
 
 #### Returns:
 
-  The mapped indices. It has the same shape and tensor type (dense or sparse)
-  as `tensor`.
+The mapped indices. It has the same shape and tensor type (dense or sparse)
+as `tensor`.

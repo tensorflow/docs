@@ -17,7 +17,7 @@ viterbi_decode(
 
 
 
-Defined in [`tensorflow/contrib/crf/python/ops/crf.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/crf/python/ops/crf.py).
+Defined in [`tensorflow/contrib/crf/python/ops/crf.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/crf/python/ops/crf.py).
 
 See the guide: [CRF (contrib)](../../../../../api_guides/python/contrib.crf)
 

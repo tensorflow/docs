@@ -14,7 +14,7 @@ avg_pool3d(
     ksize,
     strides,
     padding,
-    data_format=None,
+    data_format='NDHWC',
     name=None
 )
 ```
@@ -50,5 +50,5 @@ Performs 3D average pooling on the input.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
-  The average pooled output tensor.
+A `Tensor`. Has the same type as `input`.
+The average pooled output tensor.

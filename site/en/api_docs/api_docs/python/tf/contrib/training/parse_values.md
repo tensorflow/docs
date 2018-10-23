@@ -17,7 +17,7 @@ parse_values(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/hparam.py).
+Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/hparam.py).
 
 Parses hyperparameter values from a string into a python map..
 
@@ -25,8 +25,11 @@ Parses hyperparameter values from a string into a python map..
 For each pair, the value of the hyperparameter named `name` is set to
 `value`.
 
-If a hyperparameter name appears multiple times in `values`, the last
-value is used.
+If a hyperparameter name appears multiple times in `values`, a ValueError
+is raised (e.g. 'a=1,a=2', 'a[1]=1,a[1]=2').
+
+If a hyperparameter name in both an index assignment and scalar assignment,
+a ValueError is raised.  (e.g. 'a=[1,2,3],a[0] = 1').
 
 The `value` in `name=value` must follows the syntax according to the
 type of the parameter:
@@ -39,7 +42,11 @@ type of the parameter:
 *  Scalar string: A non-empty sequence of characters, excluding comma,
    spaces, and square brackets.  E.g.: foo, bar_1.
 *  List: A comma separated list of scalar values of the parameter type
-   enclosed in square backets.  E.g.: [1,2,3], [1.0,1e-12], [high,low].
+   enclosed in square brackets.  E.g.: [1,2,3], [1.0,1e-12], [high,low].
+
+When index assignment is used, the corresponding type_map key should be the
+list name.  E.g. for "arr[1]=0" the type_map must have the key "arr" (not
+"arr[1]").
 
 #### Args:
 
@@ -55,9 +62,17 @@ type of the parameter:
 
 #### Returns:
 
-  A python map containing the name, value pairs.
+A python map mapping each name to either:
+* A scalar value.
+* A list of scalar values.
+* A dictionary mapping index numbers to scalar values.
+(e.g. "x=5,L=[1,2],arr[1]=3" results in {'x':5,'L':[1,2],'arr':{1:3}}")
 
 
 #### Raises:
 
-* <b>`ValueError`</b>: If `values` cannot be parsed.
+* <b>`ValueError`</b>: If there is a problem with input.
+  * If `values` cannot be parsed.
+  * If a list is assigned to a list index (e.g. 'a[1] = [1,2,3]').
+  * If the same rvalue is assigned two different values (e.g. 'a=1,a=2',
+    'a[1]=1,a[1]=2', or 'a=1,a=[1]')

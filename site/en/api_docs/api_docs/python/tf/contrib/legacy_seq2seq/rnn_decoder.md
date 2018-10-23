@@ -20,7 +20,7 @@ rnn_decoder(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 RNN decoder for the sequence-to-sequence model.
 
@@ -42,10 +42,10 @@ RNN decoder for the sequence-to-sequence model.
 
 #### Returns:
 
-  A tuple of the form (outputs, state), where:
-    outputs: A list of the same length as decoder_inputs of 2D Tensors with
+A tuple of the form (outputs, state), where:
+* <b>`outputs`</b>: A list of the same length as decoder_inputs of 2D Tensors with
       shape [batch_size x output_size] containing generated outputs.
-    state: The state of each cell at the final time-step.
+* <b>`state`</b>: The state of each cell at the final time-step.
       It is a 2D Tensor of shape [batch_size x cell.state_size].
       (Note that in some cases, like basic RNN cell or GRU cell, outputs and
        states can be the same. They are different for LSTM cells though.)

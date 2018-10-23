@@ -21,7 +21,7 @@ erosion2d(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Morphological filtering](../../../../api_guides/python/nn#Morphological_filtering)
 
@@ -66,8 +66,8 @@ the dilation of `-value` by the reflected `kernel`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `value`.
-  4-D with shape `[batch, out_height, out_width, depth]`.
+A `Tensor`. Has the same type as `value`.
+4-D with shape `[batch, out_height, out_width, depth]`.
 
 
 #### Raises:

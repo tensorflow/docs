@@ -28,7 +28,7 @@ evaluate_repeatedly(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/evaluation.py).
+Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/evaluation.py).
 
 Repeatedly searches for a checkpoint in `checkpoint_dir` and evaluates it.
 
@@ -55,7 +55,7 @@ caller should ensure that the local init op also initializes the eval step.
 #### Args:
 
 * <b>`checkpoint_dir`</b>: The directory where checkpoints are stored.
-* <b>`master`</b>: The BNS address of the TensorFlow master.
+* <b>`master`</b>: The address of the TensorFlow master.
 * <b>`scaffold`</b>: An tf.train.Scaffold instance for initializing variables and
     restoring variables. Note that `scaffold.init_fn` is used by the function
     to restore the checkpoint. If you supply a custom init_fn, then it must
@@ -83,4 +83,4 @@ caller should ensure that the local init op also initializes the eval step.
 
 #### Returns:
 
-  The fetched values of `final_ops` or `None` if `final_ops` is `None`.
+The fetched values of `final_ops` or `None` if `final_ops` is `None`.

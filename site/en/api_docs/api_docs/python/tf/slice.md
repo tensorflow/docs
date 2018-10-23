@@ -19,7 +19,7 @@ slice(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -50,14 +50,14 @@ This operation requires that:
 For example:
 
 ```python
-# 'input' is [[[1, 1, 1], [2, 2, 2]],
-#             [[3, 3, 3], [4, 4, 4]],
-#             [[5, 5, 5], [6, 6, 6]]]
-tf.slice(input, [1, 0, 0], [1, 1, 3]) ==> [[[3, 3, 3]]]
-tf.slice(input, [1, 0, 0], [1, 2, 3]) ==> [[[3, 3, 3],
-                                            [4, 4, 4]]]
-tf.slice(input, [1, 0, 0], [2, 1, 3]) ==> [[[3, 3, 3]],
-                                           [[5, 5, 5]]]
+t = tf.constant([[[1, 1, 1], [2, 2, 2]],
+                 [[3, 3, 3], [4, 4, 4]],
+                 [[5, 5, 5], [6, 6, 6]]])
+tf.slice(t, [1, 0, 0], [1, 1, 3])  # [[[3, 3, 3]]]
+tf.slice(t, [1, 0, 0], [1, 2, 3])  # [[[3, 3, 3],
+                                   #   [4, 4, 4]]]
+tf.slice(t, [1, 0, 0], [2, 1, 3])  # [[[3, 3, 3]],
+                                   #  [[5, 5, 5]]]
 ```
 
 #### Args:
@@ -70,4 +70,4 @@ tf.slice(input, [1, 0, 0], [2, 1, 3]) ==> [[[3, 3, 3]],
 
 #### Returns:
 
-  A `Tensor` the same type as `input`.
+A `Tensor` the same type as `input`.

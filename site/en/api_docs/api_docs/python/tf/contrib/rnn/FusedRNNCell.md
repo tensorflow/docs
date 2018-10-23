@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py).
 
 See the guide: [RNN and Cells (contrib) > Core RNN Cell wrappers (RNNCells that wrap other RNNCells)](../../../../../api_guides/python/contrib.rnn#Core_RNN_Cell_wrappers_RNNCells_that_wrap_other_RNNCells_)
 
@@ -67,13 +67,13 @@ Run this fused RNN on inputs, starting from the given state.
 
 #### Returns:
 
-  A pair containing:
+A pair containing:
 
-  - Output: A `3-D` tensor of shape `[time_len x batch_size x output_size]`
-    or a list of `time_len` tensors of shape `[batch_size x output_size]`,
-    to match the type of the `inputs`.
-  - Final state: Either a single `2-D` tensor, or a tuple of tensors
-    matching the arity and shapes of `initial_state`.
+- Output: A `3-D` tensor of shape `[time_len x batch_size x output_size]`
+  or a list of `time_len` tensors of shape `[batch_size x output_size]`,
+  to match the type of the `inputs`.
+- Final state: Either a single `2-D` tensor, or a tuple of tensors
+  matching the arity and shapes of `initial_state`.
 
 
 

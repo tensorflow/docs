@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/tensor_shape.py).
+Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/tensor_shape.py).
 
 See the guide: [Building Graphs > Defining new operations](../../../api_guides/python/framework#Defining_new_operations)
 
@@ -48,10 +48,12 @@ Returns the sum of `self` and `other`.
 
 Dimensions are summed as follows:
 
-  Dimension(m)    + Dimension(n)    == Dimension(m + n)
-  Dimension(m)    + Dimension(None) == Dimension(None)
-  Dimension(None) + Dimension(n)    == Dimension(None)
-  Dimension(None) + Dimension(None) == Dimension(None)
+```python
+tf.Dimension(m)    + tf.Dimension(n)    == tf.Dimension(m + n)
+tf.Dimension(m)    + tf.Dimension(None) == tf.Dimension(None)
+tf.Dimension(None) + tf.Dimension(n)    == tf.Dimension(None)
+tf.Dimension(None) + tf.Dimension(None) == tf.Dimension(None)
+```
 
 #### Args:
 
@@ -60,7 +62,7 @@ Dimensions are summed as follows:
 
 #### Returns:
 
-  A Dimension whose value is the sum of `self` and `other`.
+A Dimension whose value is the sum of `self` and `other`.
 
 <h3 id="__div__"><code>__div__</code></h3>
 
@@ -82,7 +84,7 @@ to Python 3.
 
 #### Returns:
 
-  A `Dimension` whose value is the integer quotient of `self` and `other`.
+A `Dimension` whose value is the integer quotient of `self` and `other`.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
@@ -102,10 +104,12 @@ Returns the quotient of `self` and `other` rounded down.
 
 Dimensions are divided as follows:
 
-  Dimension(m)    // Dimension(n)    == Dimension(m // n)
-  Dimension(m)    // Dimension(None) == Dimension(None)
-  Dimension(None) // Dimension(n)    == Dimension(None)
-  Dimension(None) // Dimension(None) == Dimension(None)
+```python
+tf.Dimension(m)    // tf.Dimension(n)    == tf.Dimension(m // n)
+tf.Dimension(m)    // tf.Dimension(None) == tf.Dimension(None)
+tf.Dimension(None) // tf.Dimension(n)    == tf.Dimension(None)
+tf.Dimension(None) // tf.Dimension(None) == tf.Dimension(None)
+```
 
 #### Args:
 
@@ -114,7 +118,7 @@ Dimensions are divided as follows:
 
 #### Returns:
 
-  A `Dimension` whose value is the integer quotient of `self` and `other`.
+A `Dimension` whose value is the integer quotient of `self` and `other`.
 
 <h3 id="__ge__"><code>__ge__</code></h3>
 
@@ -126,10 +130,12 @@ Returns True if `self` is known to be greater than or equal to `other`.
 
 Dimensions are compared as follows:
 
-  Dimension(m)    >= Dimension(n)    == m >= n
-  Dimension(m)    >= Dimension(None) == None
-  Dimension(None) >= Dimension(n)    == None
-  Dimension(None) >= Dimension(None) == None
+```python
+(tf.Dimension(m)    >= tf.Dimension(n))    == (m >= n)
+(tf.Dimension(m)    >= tf.Dimension(None)) == None
+(tf.Dimension(None) >= tf.Dimension(n))    == None
+(tf.Dimension(None) >= tf.Dimension(None)) == None
+```
 
 #### Args:
 
@@ -138,8 +144,8 @@ Dimensions are compared as follows:
 
 #### Returns:
 
-  The value of `self.value >= other.value` if both are known, otherwise
-  None.
+The value of `self.value >= other.value` if both are known, otherwise
+None.
 
 <h3 id="__gt__"><code>__gt__</code></h3>
 
@@ -151,10 +157,12 @@ Returns True if `self` is known to be greater than `other`.
 
 Dimensions are compared as follows:
 
-  Dimension(m)    > Dimension(n)    == m > n
-  Dimension(m)    > Dimension(None) == None
-  Dimension(None) > Dimension(n)    == None
-  Dimension(None) > Dimension(None) == None
+```python
+(tf.Dimension(m)    > tf.Dimension(n))    == (m > n)
+(tf.Dimension(m)    > tf.Dimension(None)) == None
+(tf.Dimension(None) > tf.Dimension(n))    == None
+(tf.Dimension(None) > tf.Dimension(None)) == None
+```
 
 #### Args:
 
@@ -163,8 +171,8 @@ Dimensions are compared as follows:
 
 #### Returns:
 
-  The value of `self.value > other.value` if both are known, otherwise
-  None.
+The value of `self.value > other.value` if both are known, otherwise
+None.
 
 <h3 id="__index__"><code>__index__</code></h3>
 
@@ -192,10 +200,12 @@ Returns True if `self` is known to be less than or equal to `other`.
 
 Dimensions are compared as follows:
 
-  Dimension(m)    <= Dimension(n)    == m <= n
-  Dimension(m)    <= Dimension(None) == None
-  Dimension(None) <= Dimension(n)    == None
-  Dimension(None) <= Dimension(None) == None
+```python
+(tf.Dimension(m)    <= tf.Dimension(n))    == (m <= n)
+(tf.Dimension(m)    <= tf.Dimension(None)) == None
+(tf.Dimension(None) <= tf.Dimension(n))    == None
+(tf.Dimension(None) <= tf.Dimension(None)) == None
+```
 
 #### Args:
 
@@ -204,8 +214,8 @@ Dimensions are compared as follows:
 
 #### Returns:
 
-  The value of `self.value <= other.value` if both are known, otherwise
-  None.
+The value of `self.value <= other.value` if both are known, otherwise
+None.
 
 <h3 id="__long__"><code>__long__</code></h3>
 
@@ -225,10 +235,12 @@ Returns True if `self` is known to be less than `other`.
 
 Dimensions are compared as follows:
 
-  Dimension(m)    < Dimension(n)    == m < n
-  Dimension(m)    < Dimension(None) == None
-  Dimension(None) < Dimension(n)    == None
-  Dimension(None) < Dimension(None) == None
+```python
+(tf.Dimension(m)    < tf.Dimension(n))    == (m < n)
+(tf.Dimension(m)    < tf.Dimension(None)) == None
+(tf.Dimension(None) < tf.Dimension(n))    == None
+(tf.Dimension(None) < tf.Dimension(None)) == None
+```
 
 #### Args:
 
@@ -237,8 +249,8 @@ Dimensions are compared as follows:
 
 #### Returns:
 
-  The value of `self.value < other.value` if both are known, otherwise
-  None.
+The value of `self.value < other.value` if both are known, otherwise
+None.
 
 <h3 id="__mod__"><code>__mod__</code></h3>
 
@@ -248,12 +260,14 @@ __mod__(other)
 
 Returns `self` modulo `other.
 
-Dimension moduli are computed  as follows:
+Dimension moduli are computed as follows:
 
-  Dimension(m)    % Dimension(n)     == Dimension(m % n)
-  Dimension(m)    % Dimension(None)  == Dimension(None)
-  Dimension(None) % Dimension(n)     == Dimension(None)
-  Dimension(None) %  Dimension(None) == Dimension(None)
+```python
+tf.Dimension(m)    % tf.Dimension(n)    == tf.Dimension(m % n)
+tf.Dimension(m)    % tf.Dimension(None) == tf.Dimension(None)
+tf.Dimension(None) % tf.Dimension(n)    == tf.Dimension(None)
+tf.Dimension(None) % tf.Dimension(None) == tf.Dimension(None)
+```
 
 #### Args:
 
@@ -262,7 +276,7 @@ Dimension moduli are computed  as follows:
 
 #### Returns:
 
-  A Dimension whose value is `self` modulo `other`.
+A Dimension whose value is `self` modulo `other`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
@@ -274,11 +288,11 @@ Returns the product of `self` and `other`.
 
 Dimensions are summed as follows:
 
-```
-  Dimension(m)    * Dimension(n)    == Dimension(m * n)
-  Dimension(m)    * Dimension(None) == Dimension(None)
-  Dimension(None) * Dimension(n)    == Dimension(None)
-  Dimension(None) * Dimension(None) == Dimension(None)
+```python
+tf.Dimension(m)    * tf.Dimension(n)    == tf.Dimension(m * n)
+tf.Dimension(m)    * tf.Dimension(None) == tf.Dimension(None)
+tf.Dimension(None) * tf.Dimension(n)    == tf.Dimension(None)
+tf.Dimension(None) * tf.Dimension(None) == tf.Dimension(None)
 ```
 
 #### Args:
@@ -288,7 +302,7 @@ Dimensions are summed as follows:
 
 #### Returns:
 
-  A Dimension whose value is the product of `self` and `other`.
+A Dimension whose value is the product of `self` and `other`.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
@@ -308,10 +322,12 @@ Returns the subtraction of `other` from `self`.
 
 Dimensions are subtracted as follows:
 
-  Dimension(m)    - Dimension(n)    == Dimension(m - n)
-  Dimension(m)    - Dimension(None) == Dimension(None)
-  Dimension(None) - Dimension(n)    == Dimension(None)
-  Dimension(None) - Dimension(None) == Dimension(None)
+```python
+tf.Dimension(m)    - tf.Dimension(n)    == tf.Dimension(m - n)
+tf.Dimension(m)    - tf.Dimension(None) == tf.Dimension(None)
+tf.Dimension(None) - tf.Dimension(n)    == tf.Dimension(None)
+tf.Dimension(None) - tf.Dimension(None) == tf.Dimension(None)
+```
 
 #### Args:
 
@@ -320,7 +336,7 @@ Dimensions are subtracted as follows:
 
 #### Returns:
 
-  A Dimension whose value is the subtraction of sum of `other` from `self`.
+A Dimension whose value is the subtraction of sum of `other` from `self`.
 
 <h3 id="assert_is_compatible_with"><code>assert_is_compatible_with</code></h3>
 
@@ -358,7 +374,7 @@ An unknown Dimension is compatible with all other Dimensions.
 
 #### Returns:
 
-  True if this Dimension and `other` are compatible.
+True if this Dimension and `other` are compatible.
 
 <h3 id="merge_with"><code>merge_with</code></h3>
 
@@ -371,11 +387,11 @@ Returns a Dimension that combines the information in `self` and `other`.
 Dimensions are combined as follows:
 
 ```python
-    Dimension(n)   .merge_with(Dimension(n))    == Dimension(n)
-    Dimension(n)   .merge_with(Dimension(None)) == Dimension(n)
-    Dimension(None).merge_with(Dimension(n))    == Dimension(n)
-    Dimension(None).merge_with(Dimension(None)) == Dimension(None)
-    Dimension(n)   .merge_with(Dimension(m)) raises ValueError for n != m
+tf.Dimension(n)   .merge_with(tf.Dimension(n))    == tf.Dimension(n)
+tf.Dimension(n)   .merge_with(tf.Dimension(None)) == tf.Dimension(n)
+tf.Dimension(None).merge_with(tf.Dimension(n))    == tf.Dimension(n)
+tf.Dimension(None).merge_with(tf.Dimension(None)) == tf.Dimension(None)
+tf.Dimension(n)   .merge_with(tf.Dimension(m))  # raises ValueError for n != m
 ```
 
 #### Args:
@@ -385,8 +401,8 @@ Dimensions are combined as follows:
 
 #### Returns:
 
-  A Dimension containing the combined information of `self` and
-  `other`.
+A Dimension containing the combined information of `self` and
+`other`.
 
 
 #### Raises:

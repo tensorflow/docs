@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/io_ops.py).
+Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/io_ops.py).
 
 See the guide: [Inputs and Readers > Readers](../../../api_guides/python/io_ops#Readers)
 
@@ -80,7 +80,7 @@ succeeded.
 
 #### Returns:
 
-  An int64 Tensor.
+An int64 Tensor.
 
 <h3 id="num_work_units_completed"><code>num_work_units_completed</code></h3>
 
@@ -97,7 +97,7 @@ Returns the number of work units this reader has finished processing.
 
 #### Returns:
 
-  An int64 Tensor.
+An int64 Tensor.
 
 <h3 id="read"><code>read</code></h3>
 
@@ -108,7 +108,7 @@ read(
 )
 ```
 
-Returns the next record (key, value pair) produced by a reader.
+Returns the next record (key, value) pair produced by a reader.
 
 Will dequeue a work unit from queue if necessary (e.g. when the
 Reader needs to start reading from a new file since it has
@@ -123,7 +123,7 @@ finished with the previous file).
 
 #### Returns:
 
-  A tuple of Tensors (key, value).
+A tuple of Tensors (key, value).
 * <b>`key`</b>: A string scalar Tensor.
 * <b>`value`</b>: A string scalar Tensor.
 
@@ -137,7 +137,7 @@ read_up_to(
 )
 ```
 
-Returns up to num_records (key, value pairs) produced by a reader.
+Returns up to num_records (key, value) pairs produced by a reader.
 
 Will dequeue a work unit from queue if necessary (e.g., when the
 Reader needs to start reading from a new file since it has
@@ -154,7 +154,7 @@ It may return less than num_records even before the last batch.
 
 #### Returns:
 
-  A tuple of Tensors (keys, values).
+A tuple of Tensors (keys, values).
 * <b>`keys`</b>: A 1-D string Tensor.
 * <b>`values`</b>: A 1-D string Tensor.
 
@@ -173,7 +173,7 @@ Restore a reader to its initial clean state.
 
 #### Returns:
 
-  The created Operation.
+The created Operation.
 
 <h3 id="restore_state"><code>restore_state</code></h3>
 
@@ -198,7 +198,7 @@ Unimplemented error.
 
 #### Returns:
 
-  The created Operation.
+The created Operation.
 
 <h3 id="serialize_state"><code>serialize_state</code></h3>
 
@@ -218,7 +218,7 @@ Unimplemented error.
 
 #### Returns:
 
-  A string Tensor.
+A string Tensor.
 
 
 

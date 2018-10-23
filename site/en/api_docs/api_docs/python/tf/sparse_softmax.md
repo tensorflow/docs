@@ -17,13 +17,13 @@ sparse_softmax(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Math Operations](../../../api_guides/python/sparse_ops#Math_Operations)
 
 Applies softmax to a batched N-D `SparseTensor`.
 
-The inputs represent an N-D SparseTensor  with logical shape `[..., B, C]`
+The inputs represent an N-D SparseTensor with logical shape `[..., B, C]`
 (where `N >= 2`), and with indices sorted in the canonical lexicographic
 order.
 

@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/feature_column/feature_column_lib.py).
+Defined in [`tensorflow/python/feature_column/feature_column_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/feature_column/feature_column_lib.py).
 
 FeatureColumns: tools for ingesting and representing features.
 

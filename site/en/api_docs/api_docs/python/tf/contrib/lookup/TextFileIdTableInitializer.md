@@ -14,7 +14,7 @@ Inherits From: [`TextFileInitializer`](../../../tf/contrib/lookup/TextFileInitia
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/lookup_ops.py).
 
 Table initializer for string to `int64` IDs tables from a text file.
 
@@ -95,7 +95,7 @@ Initializes the table from a text file.
 
 #### Returns:
 
-  The operation that initializes the table.
+The operation that initializes the table.
 
 
 #### Raises:

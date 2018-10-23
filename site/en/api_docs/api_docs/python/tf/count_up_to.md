@@ -36,6 +36,6 @@ Increments 'ref' until it reaches 'limit'.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `ref`.
-  A copy of the input before increment. If nothing else modifies the
-  input, the values produced will all be distinct.
+A `Tensor`. Has the same type as `ref`.
+A copy of the input before increment. If nothing else modifies the
+input, the values produced will all be distinct.

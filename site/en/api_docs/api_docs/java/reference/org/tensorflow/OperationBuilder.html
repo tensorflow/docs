@@ -47,7 +47,7 @@
 <html devsite>
   <head>
     <title>OperationBuilder</title>
-    <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+    <meta name="book_path" value="/versions/r1.4/_book.yaml" />
     <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
@@ -206,7 +206,7 @@
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#addInput(org.tensorflow.Output)">addInput</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a> input)
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#addInput(org.tensorflow.Output<?>)">addInput</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;?&gt; input)
                 
                   <div class="jd-descrdiv">Returns the builder to create an operation.</div>
                 
@@ -227,7 +227,7 @@
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#addInputList(org.tensorflow.Output[])">addInputList</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a> inputs)
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#addInputList(org.tensorflow.Output<?>[])">addInputList</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; inputs)
                 
               </div>
           </td>
@@ -249,6 +249,44 @@
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#build()">build</a></span>()
                 
                   <div class="jd-descrdiv">Add the <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code> being built to the <code><a href="/api_docs/java/reference/org/tensorflow/Graph.html">Graph</a></code>.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, org.tensorflow.Tensor<?>)">setAttr</a></span>(String name, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; value)
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, org.tensorflow.Tensor<?>[])">setAttr</a></span>(String name, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor[]</a>&lt;?&gt; value)
                 
               </div>
           </td>
@@ -400,25 +438,6 @@
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, org.tensorflow.Tensor)">setAttr</a></span>(String name, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a> value)
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                
-                
-                
-                <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, boolean)">setAttr</a></span>(String name, boolean value)
                 
               </div>
@@ -458,25 +477,6 @@
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, org.tensorflow.DataType)">setAttr</a></span>(String name, <a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType</a> value)
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                
-                
-                
-                <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, org.tensorflow.Tensor[])">setAttr</a></span>(String name, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor[]</a> value)
                 
               </div>
           </td>
@@ -843,7 +843,7 @@
     </div>
     
     
-    <A NAME="addInput(org.tensorflow.Output)"></A>
+    <A NAME="addInput(org.tensorflow.Output<?>)"></A>
     
     <div class="jd-details">
         <h4 class="jd-details-title">
@@ -856,7 +856,7 @@
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
           <span class="sympad"><strong>addInput</strong></span>
-          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a> input)</span>
+          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;?&gt; input)</span>
         </h4>
           <div class="api-level">
             <div></div>
@@ -889,7 +889,7 @@
     </div>
     
     
-    <A NAME="addInputList(org.tensorflow.Output[])"></A>
+    <A NAME="addInputList(org.tensorflow.Output<?>[])"></A>
     
     <div class="jd-details">
         <h4 class="jd-details-title">
@@ -902,7 +902,7 @@
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
           <span class="sympad"><strong>addInputList</strong></span>
-          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a> inputs)</span>
+          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; inputs)</span>
         </h4>
           <div class="api-level">
             <div></div>
@@ -954,6 +954,90 @@
 
  <p>The OperationBuilder is not usable after build() returns.
 </p></div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="setAttr(java.lang.String, org.tensorflow.Tensor<?>)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
+          </span>
+          <span class="sympad"><strong>setAttr</strong></span>
+          <span class="params">(String name, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; value)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td><!-- no parameter comment --></td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td><!-- no parameter comment --></td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="setAttr(java.lang.String, org.tensorflow.Tensor<?>[])"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
+          </span>
+          <span class="sympad"><strong>setAttr</strong></span>
+          <span class="params">(String name, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor[]</a>&lt;?&gt; value)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td><!-- no parameter comment --></td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td><!-- no parameter comment --></td>
+        </tr>
+      </table>
+  </div>
 
         </div>
     </div>
@@ -1253,48 +1337,6 @@
     </div>
     
     
-    <A NAME="setAttr(java.lang.String, org.tensorflow.Tensor)"></A>
-    
-    <div class="jd-details">
-        <h4 class="jd-details-title">
-          <span class="normal">
-            public
-            
-            
-            
-            
-            <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
-          </span>
-          <span class="sympad"><strong>setAttr</strong></span>
-          <span class="params">(String name, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a> value)</span>
-        </h4>
-          <div class="api-level">
-            <div></div>
-            
-  
-
-          </div>
-        <div class="jd-details-descr">
-          
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>name</td>
-          <td><!-- no parameter comment --></td>
-        </tr>
-        <tr>
-          <th>value</td>
-          <td><!-- no parameter comment --></td>
-        </tr>
-      </table>
-  </div>
-
-        </div>
-    </div>
-    
-    
     <A NAME="setAttr(java.lang.String, boolean)"></A>
     
     <div class="jd-details">
@@ -1393,48 +1435,6 @@
           </span>
           <span class="sympad"><strong>setAttr</strong></span>
           <span class="params">(String name, <a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType</a> value)</span>
-        </h4>
-          <div class="api-level">
-            <div></div>
-            
-  
-
-          </div>
-        <div class="jd-details-descr">
-          
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>name</td>
-          <td><!-- no parameter comment --></td>
-        </tr>
-        <tr>
-          <th>value</td>
-          <td><!-- no parameter comment --></td>
-        </tr>
-      </table>
-  </div>
-
-        </div>
-    </div>
-    
-    
-    <A NAME="setAttr(java.lang.String, org.tensorflow.Tensor[])"></A>
-    
-    <div class="jd-details">
-        <h4 class="jd-details-title">
-          <span class="normal">
-            public
-            
-            
-            
-            
-            <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
-          </span>
-          <span class="sympad"><strong>setAttr</strong></span>
-          <span class="params">(String name, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor[]</a> value)</span>
         </h4>
           <div class="api-level">
             <div></div>

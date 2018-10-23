@@ -17,7 +17,7 @@ tune(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/learn_runner.py).
+Defined in [`tensorflow/contrib/learn/python/learn/learn_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/learn_runner.py).
 
 Tune an experiment with hyper-parameters.
 
@@ -27,7 +27,6 @@ hyper-parameters from `tuner`, creates an Experiment by calling experiment_fn,
 and then reports the measure back to `tuner`.
 
 Example:
-
 ```
   def _create_my_experiment(run_config, hparams):
     hidden_units = [hparams.unit_per_layer] * hparams.num_hidden_layers

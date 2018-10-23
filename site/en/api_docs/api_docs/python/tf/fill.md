@@ -46,7 +46,7 @@ fill([2, 3], 9) ==> [[9, 9, 9]
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `value`.
+A `Tensor`. Has the same type as `value`.
 
 #### numpy compatibility
     Equivalent to np.full

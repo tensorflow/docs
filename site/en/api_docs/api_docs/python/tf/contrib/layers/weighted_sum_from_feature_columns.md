@@ -21,7 +21,7 @@ weighted_sum_from_feature_columns(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -64,11 +64,11 @@ Example:
 
 #### Returns:
 
-  A tuple containing:
+A tuple containing:
 
-    * A Tensor which represents predictions of a linear model.
-    * A dictionary which maps feature_column to corresponding Variable.
-    * A Variable which is used for bias.
+  * A Tensor which represents predictions of a linear model.
+  * A dictionary which maps feature_column to corresponding Variable.
+  * A Variable which is used for bias.
 
 
 #### Raises:

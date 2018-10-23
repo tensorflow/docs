@@ -19,7 +19,7 @@ normal_conjugates_known_scale_posterior(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py).
 
 See the guide: [Statistical Distributions (contrib) > Normal likelihood with conjugate prior](../../../../../api_guides/python/contrib.distributions#Normal_likelihood_with_conjugate_prior)
 
@@ -60,8 +60,8 @@ will broadcast in the case of multidimensional sets of parameters.
 
 #### Returns:
 
-  A new Normal posterior distribution object for the unknown observation
-  mean `loc`.
+A new Normal posterior distribution object for the unknown observation
+mean `loc`.
 
 
 #### Raises:

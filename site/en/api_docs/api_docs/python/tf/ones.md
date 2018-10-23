@@ -18,7 +18,7 @@ ones(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Constants, Sequences, and Random Values > Constant Value Tensors](../../../api_guides/python/constant_op#Constant_Value_Tensors)
 
@@ -30,16 +30,17 @@ elements set to 1.
 For example:
 
 ```python
-tf.ones([2, 3], tf.int32) ==> [[1, 1, 1], [1, 1, 1]]
+tf.ones([2, 3], tf.int32)  # [[1, 1, 1], [1, 1, 1]]
 ```
 
 #### Args:
 
-* <b>`shape`</b>: A list of integers, a tuple of integers, or a 1-D `Tensor` of type `int32`.
+* <b>`shape`</b>: A list of integers, a tuple of integers, or a 1-D `Tensor` of type
+    `int32`.
 * <b>`dtype`</b>: The type of an element in the resulting `Tensor`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor` with all elements set to 1.
+A `Tensor` with all elements set to 1.

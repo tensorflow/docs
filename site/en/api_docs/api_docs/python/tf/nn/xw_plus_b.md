@@ -19,7 +19,7 @@ xw_plus_b(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 Computes matmul(x, weights) + biases.
 
@@ -34,5 +34,5 @@ Computes matmul(x, weights) + biases.
 
 #### Returns:
 
-  A 2-D Tensor computing matmul(x, weights) + biases.
-  Dimensions typically: batch, out_units.
+A 2-D Tensor computing matmul(x, weights) + biases.
+Dimensions typically: batch, out_units.

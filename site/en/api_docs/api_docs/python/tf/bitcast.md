@@ -46,4 +46,4 @@ endian orderings will give different results.
 
 #### Returns:
 
-  A `Tensor` of type `type`.
+A `Tensor` of type `type`.

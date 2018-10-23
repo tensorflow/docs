@@ -19,7 +19,7 @@ copy_op_to_graph(
 
 
 
-Defined in [`tensorflow/contrib/copy_graph/python/util/copy_elements.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
+Defined in [`tensorflow/contrib/copy_graph/python/util/copy_elements.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
 
 Returns a copy of an operation from another Graph under a specified scope.
 
@@ -45,7 +45,7 @@ to evaluate `org_instance` must be provided as input.
 
 #### Returns:
 
-  The copied `Operation` from `to_graph`.
+The copied `Operation` from `to_graph`.
 
 
 #### Raises:

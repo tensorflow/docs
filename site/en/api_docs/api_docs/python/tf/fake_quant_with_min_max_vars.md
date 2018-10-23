@@ -13,8 +13,8 @@ fake_quant_with_min_max_vars(
     inputs,
     min,
     max,
-    num_bits=None,
-    narrow_range=None,
+    num_bits=8,
+    narrow_range=False,
     name=None
 )
 ```
@@ -50,4 +50,4 @@ values.
 
 #### Returns:
 
-  A `Tensor` of type `float32`.
+A `Tensor` of type `float32`.

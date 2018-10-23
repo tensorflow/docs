@@ -14,7 +14,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py).
 
 Wrapper optimizer that checks and drops stale gradient.
 
@@ -143,8 +143,8 @@ of using this function.
 
 #### Returns:
 
-  An Operation that updates the variables in `var_list`.  If `global_step`
-  was not `None`, that operation also increments `global_step`.
+An Operation that updates the variables in `var_list`.  If `global_step`
+was not `None`, that operation also increments `global_step`.
 
 
 #### Raises:

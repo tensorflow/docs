@@ -27,4 +27,4 @@ Does nothing. Only useful as a placeholder for control edges.
 
 #### Returns:
 
-  The created Operation.
+The created Operation.

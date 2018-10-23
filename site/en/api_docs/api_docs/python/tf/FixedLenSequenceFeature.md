@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/parsing_ops.py).
+Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/parsing_ops.py).
 
 See the guide: [Inputs and Readers > Converting](../../../api_guides/python/io_ops#Converting)
 
@@ -68,6 +68,7 @@ Alias for field number 0
 <h3 id="__new__"><code>__new__</code></h3>
 
 ``` python
+@staticmethod
 __new__(
     cls,
     shape,

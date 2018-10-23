@@ -20,7 +20,7 @@ variance_scaling_initializer(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/initializers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/initializers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/initializers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/initializers.py).
 
 See the guide: [Layers (contrib) > Initializers](../../../../../api_guides/python/contrib.layers#Initializers)
 
@@ -67,7 +67,7 @@ by reaching the final layer. This initializer use the following formula:
 
 #### Returns:
 
-  An initializer that generates tensors with unit variance.
+An initializer that generates tensors with unit variance.
 
 
 #### Raises:

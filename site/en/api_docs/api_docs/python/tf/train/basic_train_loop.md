@@ -20,7 +20,7 @@ basic_train_loop(
 
 
 
-Defined in [`tensorflow/python/training/basic_loops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/basic_loops.py).
+Defined in [`tensorflow/python/training/basic_loops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/basic_loops.py).
 
 See the guide: [Training > Training Utilities](../../../../api_guides/python/train#Training_Utilities)
 

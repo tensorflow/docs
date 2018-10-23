@@ -20,7 +20,7 @@ atrous_conv2d(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
@@ -139,15 +139,15 @@ inputs are identical.
 
 #### Returns:
 
-  A `Tensor` with the same type as `value`.
-  Output shape with `'VALID`` padding is:
+A `Tensor` with the same type as `value`.
+Output shape with `'VALID`` padding is:
 
-      [batch, height - 2 * (filter_width - 1),
-       width - 2 * (filter_height - 1), out_channels].
+    [batch, height - 2 * (filter_width - 1),
+     width - 2 * (filter_height - 1), out_channels].
 
-  Output shape with `'SAME'` padding is:
+Output shape with `'SAME'` padding is:
 
-      [batch, height, width, out_channels].
+    [batch, height, width, out_channels].
 
 
 #### Raises:

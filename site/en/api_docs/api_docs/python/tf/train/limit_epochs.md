@@ -18,7 +18,7 @@ limit_epochs(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/input.py).
 
 See the guide: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline)
 
@@ -37,7 +37,7 @@ initialize local variables.
 
 #### Returns:
 
-  tensor or `OutOfRange`.
+tensor or `OutOfRange`.
 
 
 #### Raises:

@@ -19,7 +19,7 @@ write_graph(
 
 
 
-Defined in [`tensorflow/python/framework/graph_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/graph_io.py).
+Defined in [`tensorflow/python/framework/graph_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/graph_io.py).
 
 See the guide: [Training > Training Utilities](../../../../api_guides/python/train#Training_Utilities)
 
@@ -52,4 +52,4 @@ tf.train.write_graph(sess.graph, '/tmp/my-model', 'train.pbtxt')
 
 #### Returns:
 
-  The path of the output proto file.
+The path of the output proto file.

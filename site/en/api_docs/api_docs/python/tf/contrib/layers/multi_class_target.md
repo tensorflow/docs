@@ -18,7 +18,7 @@ multi_class_target(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/target_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/target_column.py).
+Defined in [`tensorflow/contrib/layers/python/layers/target_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/target_column.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -42,7 +42,7 @@ The target column uses softmax cross entropy loss.
 
 #### Returns:
 
-  An instance of _MultiClassTargetColumn.
+An instance of _MultiClassTargetColumn.
 
 
 #### Raises:

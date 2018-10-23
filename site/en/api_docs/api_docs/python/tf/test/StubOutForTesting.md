@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/platform/googletest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/platform/googletest.py).
+Defined in [`tensorflow/python/platform/googletest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/platform/googletest.py).
 
 Support class for stubbing methods out for unit testing.
 

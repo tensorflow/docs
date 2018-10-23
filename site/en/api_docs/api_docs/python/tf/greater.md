@@ -36,4 +36,4 @@ Returns the truth value of (x > y) element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.

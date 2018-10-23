@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 See the guide: [Seq2seq Library (contrib) > Attention](../../../../../api_guides/python/contrib.seq2seq#Attention)
 
@@ -84,7 +84,7 @@ Construct the AttentionMechanism mechanism.
 * <b>`num_units`</b>: The depth of the attention mechanism.
 * <b>`memory`</b>: The memory to query; usually the output of an RNN encoder.  This
     tensor should be shaped `[batch_size, max_time, ...]`.
-  memory_sequence_length (optional): Sequence lengths for the batch entries
+* <b>`memory_sequence_length`</b>: (optional) Sequence lengths for the batch entries
     in memory.  If provided, the memory tensor rows are masked with zeros
     for values past the respective sequence lengths.
 * <b>`scale`</b>: Python boolean.  Whether to scale the energy term.
@@ -92,7 +92,7 @@ Construct the AttentionMechanism mechanism.
     probabilities.  The default is [`tf.nn.softmax`](../../../tf/nn/softmax). Other options include
     [`tf.contrib.seq2seq.hardmax`](../../../tf/contrib/seq2seq/hardmax) and [`tf.contrib.sparsemax.sparsemax`](../../../tf/contrib/sparsemax/sparsemax).
     Its signature should be: `probabilities = probability_fn(score)`.
-* <b>`score_mask_value`</b>: (optional): The mask value for score before passing into
+* <b>`score_mask_value`</b>: (optional) The mask value for score before passing into
     `probability_fn`. The default is -inf. Only used if
     `memory_sequence_length` is not None.
 * <b>`name`</b>: Name to use when creating ops.
@@ -147,8 +147,8 @@ The default behavior is to return a tensor of all zeros.
 
 #### Returns:
 
-  A `dtype` tensor shaped `[batch_size, alignments_size]`
-  (`alignments_size` is the values' `max_time`).
+A `dtype` tensor shaped `[batch_size, alignments_size]`
+(`alignments_size` is the values' `max_time`).
 
 
 

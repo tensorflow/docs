@@ -18,7 +18,7 @@ resampler(
 
 
 
-Defined in [`tensorflow/contrib/resampler/python/ops/resampler_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/resampler/python/ops/resampler_ops.py).
+Defined in [`tensorflow/contrib/resampler/python/ops/resampler_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/resampler/python/ops/resampler_ops.py).
 
 Resamples input data at user defined coordinates.
 
@@ -36,11 +36,11 @@ The resampler currently only supports bilinear interpolation of 2D data.
 
 #### Returns:
 
-  Tensor of resampled values from `data`. The output tensor shape is
-  determined by the shape of the warp tensor. For example, if `data` is of
-  shape `[batch_size, data_height, data_width, data_num_channels]` and warp of
-  shape `[batch_size, dim_0, ... , dim_n, 2]` the output will be of shape
-  `[batch_size, dim_0, ... , dim_n, data_num_channels]`.
+Tensor of resampled values from `data`. The output tensor shape is
+determined by the shape of the warp tensor. For example, if `data` is of
+shape `[batch_size, data_height, data_width, data_num_channels]` and warp of
+shape `[batch_size, dim_0, ... , dim_n, 2]` the output will be of shape
+`[batch_size, dim_0, ... , dim_n, data_num_channels]`.
 
 
 #### Raises:

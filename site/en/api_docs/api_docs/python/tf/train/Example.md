@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/example/example.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/example/example.proto).
+Defined in [`tensorflow/core/example/example.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/example/example.proto).
 
 
 

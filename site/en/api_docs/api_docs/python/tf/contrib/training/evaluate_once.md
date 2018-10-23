@@ -24,7 +24,7 @@ evaluate_once(
 
 
 
-Defined in [`tensorflow/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/evaluation.py).
+Defined in [`tensorflow/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/evaluation.py).
 
 Evaluates the model at the given checkpoint path.
 
@@ -71,4 +71,4 @@ caller should ensure that the local init op also initializes the eval step.
 
 #### Returns:
 
-  The fetched values of `final_ops` or `None` if `final_ops` is `None`.
+The fetched values of `final_ops` or `None` if `final_ops` is `None`.

@@ -19,7 +19,7 @@ sparsemax_loss(
 
 
 
-Defined in [`tensorflow/contrib/sparsemax/python/ops/sparsemax_loss.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/sparsemax/python/ops/sparsemax_loss.py).
+Defined in [`tensorflow/contrib/sparsemax/python/ops/sparsemax_loss.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/sparsemax/python/ops/sparsemax_loss.py).
 
 Computes sparsemax loss function [1].
 
@@ -36,4 +36,4 @@ Computes sparsemax loss function [1].
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `logits`.
+A `Tensor`. Has the same type as `logits`.

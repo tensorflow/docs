@@ -17,7 +17,7 @@ log_sigmoid(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 Computes log sigmoid of `x` element-wise.
 
@@ -32,4 +32,4 @@ we use `y = -tf.nn.softplus(-x)`.
 
 #### Returns:
 
-  A Tensor with the same type as `x`.
+A Tensor with the same type as `x`.

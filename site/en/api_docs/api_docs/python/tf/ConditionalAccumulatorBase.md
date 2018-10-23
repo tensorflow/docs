@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Inputs and Readers > Conditional Accumulators](../../../api_guides/python/io_ops#Conditional_Accumulators)
 
@@ -78,7 +78,7 @@ Number of gradients that have currently been aggregated in accumulator.
 
 #### Returns:
 
-  Number of accumulated gradients currently in accumulator.
+Number of accumulated gradients currently in accumulator.
 
 <h3 id="set_global_step"><code>set_global_step</code></h3>
 
@@ -102,7 +102,7 @@ lower than the accumulator's own time step.
 
 #### Returns:
 
-  Operation that sets the accumulator's time step.
+Operation that sets the accumulator's time step.
 
 
 

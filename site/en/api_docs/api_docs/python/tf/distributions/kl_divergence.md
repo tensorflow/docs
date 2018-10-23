@@ -24,7 +24,7 @@ kl_divergence(
 
 
 
-Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/distributions/kullback_leibler.py).
+Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/distributions/kullback_leibler.py).
 
 See the guide: [Statistical Distributions (contrib) > Kullback-Leibler Divergence](../../../../api_guides/python/contrib.distributions#Kullback_Leibler_Divergence)
 
@@ -57,8 +57,8 @@ identified in the search is used (favoring a shorter MRO distance to
 
 #### Returns:
 
-  A Tensor with the batchwise KL-divergence between `distribution_a`
-  and `distribution_b`.
+A Tensor with the batchwise KL-divergence between `distribution_a`
+and `distribution_b`.
 
 
 #### Raises:

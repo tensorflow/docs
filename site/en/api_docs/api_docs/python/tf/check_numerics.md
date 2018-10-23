@@ -36,4 +36,4 @@ that are not a number (NaN) or infinity (Inf). Otherwise, passes `tensor` as-is.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `tensor`.
+A `Tensor`. Has the same type as `tensor`.

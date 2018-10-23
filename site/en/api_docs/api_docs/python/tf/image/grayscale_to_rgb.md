@@ -17,7 +17,7 @@ grayscale_to_rgb(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Converting Between Colorspaces](../../../../api_guides/python/image#Converting_Between_Colorspaces)
 
@@ -34,4 +34,4 @@ last dimension of the output is 3, containing the RGB value of the pixels.
 
 #### Returns:
 
-  The converted grayscale image(s).
+The converted grayscale image(s).

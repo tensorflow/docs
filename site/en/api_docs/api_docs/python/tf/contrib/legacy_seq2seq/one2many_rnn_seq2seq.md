@@ -25,7 +25,7 @@ one2many_rnn_seq2seq(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 One-to-many RNN sequence-to-sequence model (multi-task).
 
@@ -61,12 +61,12 @@ here: http://arxiv.org/abs/1511.06114
 
 #### Returns:
 
-  A tuple of the form (outputs_dict, state_dict), where:
-    outputs_dict: A mapping from decoder name (string) to a list of the same
+A tuple of the form (outputs_dict, state_dict), where:
+* <b>`outputs_dict`</b>: A mapping from decoder name (string) to a list of the same
       length as decoder_inputs_dict[name]; each element in the list is a 2D
       Tensors with shape [batch_size x num_decoder_symbol_list[name]]
       containing the generated outputs.
-    state_dict: A mapping from decoder name (string) to the final state of the
+* <b>`state_dict`</b>: A mapping from decoder name (string) to the final state of the
       corresponding decoder RNN; it is a 2D Tensor of shape
       [batch_size x cell.state_size].
 

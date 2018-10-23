@@ -18,7 +18,7 @@ hinge_loss(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/losses/python/losses/loss_ops.py).
+Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
 See the guide: [Losses (contrib) > Loss operations for use in neural networks.](../../../../../api_guides/python/contrib.losses#Loss_operations_for_use_in_neural_networks_)
 
@@ -26,7 +26,7 @@ Method that returns the loss tensor for hinge loss. (deprecated)
 
 THIS FUNCTION IS DEPRECATED. It will be removed after 2016-12-30.
 Instructions for updating:
-Use tf.losses.hinge_loss instead. Note that the order of the predictions and labels arguments were changed.
+Use tf.losses.hinge_loss instead. Note that the order of the logits and labels arguments has been changed, and to stay unweighted, reduction=Reduction.NONE
 
 #### Args:
 
@@ -38,8 +38,8 @@ Use tf.losses.hinge_loss instead. Note that the order of the predictions and lab
 
 #### Returns:
 
-  A `Tensor` of same shape as `logits` and `labels` representing the loss
-    values across the batch.
+An unweighted `Tensor` of same shape as `logits` and `labels` representing the
+  loss values across the batch.
 
 
 #### Raises:

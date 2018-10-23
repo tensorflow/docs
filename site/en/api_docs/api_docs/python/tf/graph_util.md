@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/graph_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/graph_util.py).
+Defined in [`tensorflow/python/framework/graph_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/graph_util.py).
 
 Helpers to manipulate a tensor graph in python.
 

@@ -36,4 +36,4 @@ Applies L1 regularization shrink step on the parameters.
 
 #### Returns:
 
-  The created Operation.
+The created Operation.

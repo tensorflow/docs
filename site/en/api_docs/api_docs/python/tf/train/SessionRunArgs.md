@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/session_run_hook.py).
+Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/session_run_hook.py).
 
 See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
 
@@ -56,6 +56,7 @@ Alias for field number 2
 <h3 id="__new__"><code>__new__</code></h3>
 
 ``` python
+@staticmethod
 __new__(
     cls,
     fetches,

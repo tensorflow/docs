@@ -10,24 +10,27 @@ page_type: reference
 
 ## Class `orthogonal_initializer`
 
-Inherits From: [`Initializer`](../tf/contrib/keras/initializers/Initializer)
+Inherits From: [`Initializer`](../tf/keras/initializers/Initializer)
 
 ### Aliases:
 
-* Class `tf.contrib.keras.initializers.Orthogonal`
+* Class `tf.initializers.orthogonal`
+* Class `tf.keras.initializers.Orthogonal`
 * Class `tf.orthogonal_initializer`
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/init_ops.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 
 Initializer that generates an orthogonal matrix.
 
-If the shape of the tensor to initialize is two-dimensional, i is initialized
-with an orthogonal matrix obtained from the singular value decomposition of a
-matrix of uniform random numbers.
+If the shape of the tensor to initialize is two-dimensional, it is initialized
+with an orthogonal matrix obtained from the QR decomposition of a matrix of
+uniform random numbers. If the matrix has fewer rows than columns then the
+output will have orthogonal rows. Otherwise, the output will have orthogonal
+columns.
 
 If the shape of the tensor to initialize is more than two-dimensional,
 a matrix of shape `(shape[0] * ... * shape[n - 2], shape[n - 1])`
@@ -81,13 +84,13 @@ Instantiates an initializer from a configuration dictionary.
 
 Example:
 
-```
+```python
 initializer = RandomUniform(-1, 1)
 config = initializer.get_config()
 initializer = RandomUniform.from_config(config)
 ```
 
-#### Arguments:
+#### Args:
 
 * <b>`config`</b>: A Python dictionary.
     It will typically be the output of `get_config`.
@@ -95,7 +98,7 @@ initializer = RandomUniform.from_config(config)
 
 #### Returns:
 
-  An Initializer instance.
+An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 

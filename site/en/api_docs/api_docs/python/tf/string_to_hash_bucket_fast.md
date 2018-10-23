@@ -40,5 +40,5 @@ to the same bucket. To prevent this problem, use a strong hash function with
 
 #### Returns:
 
-  A `Tensor` of type `int64`.
-  A Tensor of the same shape as the input `string_tensor`.
+A `Tensor` of type `int64`.
+A Tensor of the same shape as the input `string_tensor`.

@@ -44,4 +44,4 @@ with a flooring divide. E.g. `floor(x / y) * y + mod(x, y) = x`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

@@ -20,7 +20,7 @@ LogisticRegressor(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
@@ -65,4 +65,4 @@ Example:
 
 #### Returns:
 
-  A `tf.contrib.learn.Estimator` instance.
+An `Estimator` instance.

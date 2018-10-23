@@ -17,7 +17,7 @@ sparse_retain(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Manipulation](../../../api_guides/python/sparse_ops#Manipulation)
 
@@ -44,8 +44,8 @@ be a `SparseTensor` of shape `[4, 5]` with 2 non-empty values:
 
 #### Returns:
 
-  A `SparseTensor` with the same shape as the input and `M` non-empty
-  elements corresponding to the true positions in `to_retain`.
+A `SparseTensor` with the same shape as the input and `M` non-empty
+elements corresponding to the true positions in `to_retain`.
 
 
 #### Raises:

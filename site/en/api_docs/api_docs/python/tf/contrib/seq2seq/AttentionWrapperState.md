@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 `namedtuple` storing the state of a `AttentionWrapper`.
 
@@ -88,14 +88,14 @@ initial_state = initial_state.clone(cell_state=encoder_state)
 
 #### Args:
 
-  **kwargs: Any properties of the state object to replace in the returned
+* <b>`**kwargs`</b>: Any properties of the state object to replace in the returned
     `AttentionWrapperState`.
 
 
 #### Returns:
 
-  A new `AttentionWrapperState` whose properties are the same as
-  this one, except any overridden properties as provided in `kwargs`.
+A new `AttentionWrapperState` whose properties are the same as
+this one, except any overridden properties as provided in `kwargs`.
 
 
 

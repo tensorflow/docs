@@ -20,7 +20,7 @@ resample_at_rate(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/resample.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/resample.py).
+Defined in [`tensorflow/contrib/training/python/training/resample.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/resample.py).
 
 See the guide: [Training (contrib) > Online data resampling](../../../../../api_guides/python/contrib.training#Online_data_resampling)
 
@@ -45,4 +45,4 @@ the number of invocations.
 
 #### Returns:
 
-  Selections from the input tensors.
+Selections from the input tensors.

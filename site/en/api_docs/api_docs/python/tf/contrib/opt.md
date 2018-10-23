@@ -10,13 +10,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/opt/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/opt/__init__.py).
+Defined in [`tensorflow/contrib/opt/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/opt/__init__.py).
 
 A module containing optimization routines.
 
 ## Classes
-
-[`class DelayCompensatedGradientDescentOptimizer`](../../tf/contrib/opt/DelayCompensatedGradientDescentOptimizer): Optimizer that implements gradient descent with delay compensation.
 
 [`class DropStaleGradientOptimizer`](../../tf/contrib/opt/DropStaleGradientOptimizer): Wrapper optimizer that checks and drops stale gradient.
 

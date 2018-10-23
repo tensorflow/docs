@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/coordinator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/coordinator.py).
+Defined in [`tensorflow/python/training/coordinator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/coordinator.py).
 
 See the guide: [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
 
@@ -165,6 +165,7 @@ exception.
 <h3 id="loop"><code>loop</code></h3>
 
 ``` python
+@staticmethod
 loop(
     coord,
     timer_interval_secs,
@@ -192,7 +193,7 @@ requested.
 
 #### Returns:
 
-  The started thread.
+The started thread.
 
 <h3 id="run"><code>run</code></h3>
 

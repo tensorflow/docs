@@ -21,7 +21,7 @@ assert_rank(
 
 
 
-Defined in [`tensorflow/python/ops/check_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/check_ops.py).
+Defined in [`tensorflow/python/ops/check_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/check_ops.py).
 
 See the guide: [Asserts and boolean checks](../../../api_guides/python/check_ops)
 
@@ -47,8 +47,8 @@ with tf.control_dependencies([tf.assert_rank(x, 2)]):
 
 #### Returns:
 
-  Op raising `InvalidArgumentError` unless `x` has specified rank.
-  If static checks determine `x` has correct rank, a `no_op` is returned.
+Op raising `InvalidArgumentError` unless `x` has specified rank.
+If static checks determine `x` has correct rank, a `no_op` is returned.
 
 
 #### Raises:

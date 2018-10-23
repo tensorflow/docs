@@ -19,9 +19,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/queue_runner_impl.py).
+Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/queue_runner_impl.py).
 
-See the guides: [Exporting and Importing a MetaGraph > What's in a MetaGraph](../../../../api_guides/python/meta_graph#What_s_in_a_MetaGraph), [Reading data > Reading from files](../../../../api_guides/python/reading_data#Reading_from_files), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
+See the guides: [Exporting and Importing a MetaGraph > What's in a MetaGraph](../../../../api_guides/python/meta_graph#What_s_in_a_MetaGraph), [Reading data > Reading from files](../../../../api_guides/python/reading_data#Reading_from_files), [Threading and Queues > Manual Thread Management](../../../../api_guides/python/threading_and_queues#Manual_Thread_Management), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
 
 Holds a list of enqueue operations for a queue, each to be run in a thread.
 
@@ -67,8 +67,8 @@ depending on whether or not a `Coordinator` was passed to
 
 #### Returns:
 
-  A list of Python `Exception` objects.  The list is empty if no exception
-  was captured.  (No exceptions are captured when using a Coordinator.)
+A list of Python `Exception` objects.  The list is empty if no exception
+was captured.  (No exceptions are captured when using a Coordinator.)
 
 <h3 id="name"><code>name</code></h3>
 
@@ -172,11 +172,12 @@ new threads will be created.
 
 #### Returns:
 
-  A list of threads.
+A list of threads.
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
 ``` python
+@staticmethod
 from_proto(
     queue_runner_def,
     import_scope=None
@@ -200,8 +201,8 @@ Converts this `QueueRunner` to a `QueueRunnerDef` protocol buffer.
 
 #### Returns:
 
-  A `QueueRunnerDef` protocol buffer, or `None` if the `Variable` is not in
-  the specified name scope.
+A `QueueRunnerDef` protocol buffer, or `None` if the `Variable` is not in
+the specified name scope.
 
 
 

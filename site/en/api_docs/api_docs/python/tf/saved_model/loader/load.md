@@ -19,7 +19,7 @@ load(
 
 
 
-Defined in [`tensorflow/python/saved_model/loader_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/saved_model/loader_impl.py).
+Defined in [`tensorflow/python/saved_model/loader_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/saved_model/loader_impl.py).
 
 Loads the model from a SavedModel as specified by tags.
 
@@ -31,13 +31,13 @@ Loads the model from a SavedModel as specified by tags.
       SavedModel `save()` API.
 * <b>`export_dir`</b>: Directory in which the SavedModel protocol buffer and variables
       to be loaded are located.
-  **saver_kwargs: Optional keyword arguments passed through to Saver.
+* <b>`**saver_kwargs`</b>: Optional keyword arguments passed through to Saver.
 
 
 #### Returns:
 
-  The `MetaGraphDef` protocol buffer loaded in the provided session. This
-  can be used to further extract signature-defs, collection-defs, etc.
+The `MetaGraphDef` protocol buffer loaded in the provided session. This
+can be used to further extract signature-defs, collection-defs, etc.
 
 
 #### Raises:

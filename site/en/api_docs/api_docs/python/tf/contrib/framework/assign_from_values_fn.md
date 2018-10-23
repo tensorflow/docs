@@ -14,7 +14,7 @@ assign_from_values_fn(var_names_to_values)
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/variables.py).
 
 See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
 
@@ -30,8 +30,8 @@ to values in a way that does not fill the graph with large assignment values.
 
 #### Returns:
 
-  A function that takes a single argument, a `tf.Session`, that applies the
-  assignment operation.
+A function that takes a single argument, a `tf.Session`, that applies the
+assignment operation.
 
 
 #### Raises:

@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/variables.py).
+Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/variables.py).
 
 Information on how to save this Variable as a slice.
 
@@ -83,8 +83,8 @@ Returns a SaveSliceInfoDef() proto.
 
 #### Returns:
 
-  A `SaveSliceInfoDef` protocol buffer, or None if the `Variable` is not
-  in the specified name scope.
+A `SaveSliceInfoDef` protocol buffer, or None if the `Variable` is not
+in the specified name scope.
 
 
 

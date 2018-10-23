@@ -18,7 +18,7 @@ sparse_placeholder(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Inputs and Readers > Placeholders](../../../api_guides/python/io_ops#Placeholders)
 
@@ -60,5 +60,5 @@ with tf.Session() as sess:
 
 #### Returns:
 
-  A `SparseTensor` that may be used as a handle for feeding a value, but not
-  evaluated directly.
+A `SparseTensor` that may be used as a handle for feeding a value, but not
+evaluated directly.

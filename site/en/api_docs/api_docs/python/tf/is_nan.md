@@ -33,7 +33,7 @@ Returns which elements of x are NaN.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 #### numpy compatibility
 Equivalent to np.isnan

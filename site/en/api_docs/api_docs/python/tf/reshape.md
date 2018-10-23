@@ -91,4 +91,4 @@ reshape(t, []) ==> 7
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `tensor`.
+A `Tensor`. Has the same type as `tensor`.

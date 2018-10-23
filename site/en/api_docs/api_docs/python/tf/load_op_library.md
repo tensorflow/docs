@@ -14,7 +14,7 @@ load_op_library(library_filename)
 
 
 
-Defined in [`tensorflow/python/framework/load_library.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/load_library.py).
+Defined in [`tensorflow/python/framework/load_library.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/load_library.py).
 
 See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
 
@@ -36,8 +36,8 @@ registered with the process.
 
 #### Returns:
 
-  A python module containing the Python wrappers for Ops defined in
-  the plugin.
+A python module containing the Python wrappers for Ops defined in
+the plugin.
 
 
 #### Raises:

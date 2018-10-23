@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/experiment.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/experiment.py).
+Defined in [`tensorflow/contrib/learn/python/learn/experiment.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/experiment.py).
 
 See the guide: [Learn (contrib) > Distributed training utilities](../../../../../api_guides/python/contrib.learn#Distributed_training_utilities)
 
@@ -64,7 +64,8 @@ __init__(
     min_eval_frequency=None,
     delay_workers_by_global_step=False,
     export_strategies=None,
-    train_steps_per_iteration=None
+    train_steps_per_iteration=None,
+    checkpoint_and_export=False
 )
 ```
 
@@ -121,6 +122,17 @@ when a method is executed which requires it.
     training-evaluation iteration. With a small value, the model will be
     evaluated more frequently with more checkpoints saved. If `None`, will
     use a default value (which is smaller than `train_steps` if provided).
+* <b>`checkpoint_and_export`</b>: (applies only to train_and_evaluate). If `True`,
+    performs intermediate model checkpoints and exports during the training
+    process, rather than only once model training is complete. This
+    parameter is experimental and may be changed or removed in the future.
+    Setting this parameter leads to the following: the value of
+    `min_eval_frequency` will be ignored, and the number of steps between
+    evaluations and exports will instead be determined by the Estimator
+    configuration parameters `save_checkpoints_secs` and
+    `save_checkpoints_steps`. Also, this parameter leads to the creation of
+    a default `CheckpointSaverHook` instead of a `ValidationMonitor`, so the
+    provided `train_monitors` will need to be adjusted accordingly.
 
 
 #### Raises:
@@ -135,7 +147,8 @@ continuous_eval(
     delay_secs=None,
     throttle_delay_secs=None,
     evaluate_checkpoint_only_once=True,
-    continuous_eval_predicate_fn=None
+    continuous_eval_predicate_fn=None,
+    name='continuous'
 )
 ```
 
@@ -147,7 +160,8 @@ continuous_eval(
 continuous_eval_on_train_data(
     delay_secs=None,
     throttle_delay_secs=None,
-    continuous_eval_predicate_fn=None
+    continuous_eval_predicate_fn=None,
+    name='continuous_on_train_data'
 )
 ```
 
@@ -174,6 +188,7 @@ The frequency of evaluation is controlled by the `train_steps_per_iteration`
 This method is intended for single machine usage.
 
 This differs from `train_and_evaluate` as follows:
+
   1. The procedure will have train and evaluation in turns. The model
   will be trained for a number of steps (usually smaller than `train_steps`
   if provided) and then be evaluated.  `train_and_evaluate` will train the
@@ -202,8 +217,8 @@ This differs from `train_and_evaluate` as follows:
 
 #### Returns:
 
-  A tuple of the result of the `evaluate` call to the `Estimator` and the
-  export results using the specified `ExportStrategy`.
+A tuple of the result of the `evaluate` call to the `Estimator` and the
+export results using the specified `ExportStrategy`.
 
 
 #### Raises:
@@ -238,7 +253,7 @@ exhausted or another exception is raised. Start the evaluation after
 
 #### Returns:
 
-  The result of the `evaluate` call to the `Estimator`.
+The result of the `evaluate` call to the `Estimator`.
 
 <h3 id="extend_train_hooks"><code>extend_train_hooks</code></h3>
 
@@ -276,7 +291,7 @@ Resets the export strategies with the `new_export_strategies`.
 
 #### Returns:
 
-  The old export strategies.
+The old export strategies.
 
 <h3 id="run_std_server"><code>run_std_server</code></h3>
 
@@ -303,7 +318,7 @@ Tests training, evaluating and exporting the estimator for a single step.
 
 #### Returns:
 
-  The result of the `evaluate` call to the `Estimator`.
+The result of the `evaluate` call to the `Estimator`.
 
 <h3 id="train"><code>train</code></h3>
 
@@ -323,7 +338,7 @@ Train the estimator for `self._train_steps` steps, after waiting for
 
 #### Returns:
 
-  The trained estimator.
+The trained estimator.
 
 <h3 id="train_and_evaluate"><code>train_and_evaluate</code></h3>
 
@@ -350,8 +365,8 @@ performing evaluation allows for the second.
 
 #### Returns:
 
-  The result of the `evaluate` call to the `Estimator` as well as the
-  export results using the specified `ExportStrategy`.
+The result of the `evaluate` call to the `Estimator` as well as the
+export results using the specified `ExportStrategy`.
 
 
 

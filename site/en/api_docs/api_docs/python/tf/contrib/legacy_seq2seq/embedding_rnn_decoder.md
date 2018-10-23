@@ -24,7 +24,7 @@ embedding_rnn_decoder(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 RNN decoder with embedding and a pure-decoding option.
 
@@ -56,13 +56,13 @@ RNN decoder with embedding and a pure-decoding option.
 
 #### Returns:
 
-  A tuple of the form (outputs, state), where:
-    outputs: A list of the same length as decoder_inputs of 2D Tensors. The
+A tuple of the form (outputs, state), where:
+* <b>`outputs`</b>: A list of the same length as decoder_inputs of 2D Tensors. The
       output is of shape [batch_size x cell.output_size] when
       output_projection is not None (and represents the dense representation
       of predicted tokens). It is of shape [batch_size x num_decoder_symbols]
       when output_projection is None.
-    state: The state of each decoder cell in each time-step. This is a list
+* <b>`state`</b>: The state of each decoder cell in each time-step. This is a list
       with length len(decoder_inputs) -- one item for each time-step.
       It is a 2D Tensor of shape [batch_size x cell.state_size].
 

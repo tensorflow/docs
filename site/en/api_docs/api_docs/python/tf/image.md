@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops.py).
+Defined in [`tensorflow/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops.py).
 
 Image processing and decoding ops.
 
@@ -42,6 +42,8 @@ See the [Images](../../../api_guides/python/image) guide.
 
 [`crop_to_bounding_box(...)`](../tf/image/crop_to_bounding_box): Crops an image to a specified bounding box.
 
+[`decode_and_crop_jpeg(...)`](../tf/image/decode_and_crop_jpeg): Decode and Crop a JPEG-encoded image to a uint8 tensor.
+
 [`decode_bmp(...)`](../tf/image/decode_bmp): Decode the first frame of a BMP-encoded image to a uint8 tensor.
 
 [`decode_gif(...)`](../tf/image/decode_gif): Decode the first frame of a GIF-encoded image to a uint8 tensor.
@@ -60,6 +62,8 @@ See the [Images](../../../api_guides/python/image) guide.
 
 [`extract_glimpse(...)`](../tf/image/extract_glimpse): Extracts a glimpse from the input tensor.
 
+[`extract_jpeg_shape(...)`](../tf/image/extract_jpeg_shape): Extract the shape information of a JPEG-encoded image.
+
 [`flip_left_right(...)`](../tf/image/flip_left_right): Flip an image horizontally (left to right).
 
 [`flip_up_down(...)`](../tf/image/flip_up_down): Flip an image vertically (upside down).
@@ -68,7 +72,7 @@ See the [Images](../../../api_guides/python/image) guide.
 
 [`hsv_to_rgb(...)`](../tf/image/hsv_to_rgb): Convert one or more images from HSV to RGB.
 
-[`non_max_suppression(...)`](../tf/image/non_max_suppression): Greedily selects a subset of bounding boxes in descending order of score,
+[`non_max_suppression(...)`](../tf/image/non_max_suppression): Greedily selects a subset of bounding boxes in descending order of score.
 
 [`pad_to_bounding_box(...)`](../tf/image/pad_to_bounding_box): Pad `image` with zeros to the specified `height` and `width`.
 

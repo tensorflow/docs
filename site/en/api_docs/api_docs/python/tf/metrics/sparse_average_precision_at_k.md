@@ -22,7 +22,7 @@ sparse_average_precision_at_k(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/metrics_impl.py).
+Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/metrics_impl.py).
 
 Computes average precision@k of predictions with respect to sparse labels.
 
@@ -72,7 +72,7 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 * <b>`mean_average_precision`</b>: Scalar `float64` `Tensor` with the mean average
     precision values.
-* <b>`update`</b>: `Operation` that increments  variables appropriately, and whose
+* <b>`update`</b>: `Operation` that increments variables appropriately, and whose
     value matches `metric`.
 
 

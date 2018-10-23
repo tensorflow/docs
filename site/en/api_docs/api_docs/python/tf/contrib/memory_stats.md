@@ -10,12 +10,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/memory_stats/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/memory_stats/__init__.py).
+Defined in [`tensorflow/contrib/memory_stats/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/memory_stats/__init__.py).
 
 Ops for memory statistics.
 
 
 ## Functions
+
+[`BytesInUse(...)`](../../tf/contrib/memory_stats/BytesInUse): Generates an op that computes the current memory of a device.
 
 [`BytesLimit(...)`](../../tf/contrib/memory_stats/BytesLimit): Generates an op that measures the total memory (in bytes) of a device.
 

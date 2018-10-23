@@ -37,7 +37,7 @@ If the maximum is empty for a given segment ID `i`, it outputs the smallest poss
  `output[i] = numeric_limits<T>::min()`.
 
 <div style="width:70%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="https://www.tensorflow.org/images/UnsortedSegmentSum.png" alt>
+<img style="width:100%" src="https://www.tensorflow.org/images/UnsortedSegmentMax.png" alt>
 </div>
 
 #### Args:
@@ -52,6 +52,6 @@ If the maximum is empty for a given segment ID `i`, it outputs the smallest poss
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `data`.
-  Has same shape as data, except for dimension 0 which
-  has size `num_segments`.
+A `Tensor`. Has the same type as `data`.
+Has same shape as data, except for dimension 0 which
+has size `num_segments`.

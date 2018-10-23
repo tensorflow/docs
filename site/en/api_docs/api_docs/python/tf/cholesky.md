@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.cholesky
 
+### Aliases:
+
+* `tf.cholesky`
+* `tf.linalg.cholesky`
+
 ``` python
 cholesky(
     input,
@@ -46,4 +51,4 @@ case it might be faster to use the CPU.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`. Shape is `[..., M, M]`.
+A `Tensor`. Has the same type as `input`. Shape is `[..., M, M]`.

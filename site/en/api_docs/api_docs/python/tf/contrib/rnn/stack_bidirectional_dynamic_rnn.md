@@ -18,13 +18,14 @@ stack_bidirectional_dynamic_rnn(
     dtype=None,
     sequence_length=None,
     parallel_iterations=None,
+    time_major=False,
     scope=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/rnn/python/ops/rnn.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/rnn/python/ops/rnn.py).
 
 See the guide: [RNN and Cells (contrib) > Recurrent Neural Networks](../../../../../api_guides/python/contrib.rnn#Recurrent_Neural_Networks)
 
@@ -60,13 +61,20 @@ are returned.
     and can be run in parallel, will be.  This parameter trades off
     time for space.  Values >> 1 use more memory but take less time,
     while smaller values use less memory but computations take longer.
+* <b>`time_major`</b>: The shape format of the inputs and outputs Tensors. If true,
+    these Tensors must be shaped [max_time, batch_size, depth]. If false,
+    these Tensors must be shaped [batch_size, max_time, depth]. Using
+    time_major = True is a bit more efficient because it avoids transposes at
+    the beginning and end of the RNN calculation. However, most TensorFlow
+    data is batch-major, so by default this function accepts input and emits
+    output in batch-major form.
 * <b>`scope`</b>: VariableScope for the created subgraph; defaults to None.
 
 
 #### Returns:
 
-  A tuple (outputs, output_state_fw, output_state_bw) where:
-    outputs: Output `Tensor` shaped:
+A tuple (outputs, output_state_fw, output_state_bw) where:
+* <b>`outputs`</b>: Output `Tensor` shaped:
       `batch_size, max_time, layers_output]`. Where layers_output
       are depth-concatenated forward and backward outputs.
     output_states_fw is the final states, one tensor per layer,

@@ -19,7 +19,7 @@ sparse_softmax_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Classification](../../../../api_guides/python/nn#Classification)
 
@@ -62,8 +62,8 @@ this function.**
 
 #### Returns:
 
-  A `Tensor` of the same shape as `labels` and of the same type as `logits`
-  with the softmax cross entropy loss.
+A `Tensor` of the same shape as `labels` and of the same type as `logits`
+with the softmax cross entropy loss.
 
 
 #### Raises:

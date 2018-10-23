@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/debug/lib/debug_data.py).
+Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/debug/lib/debug_data.py).
 
 See the guide: [TensorFlow Debugger > Classes for debug-dump data and directories](../../../api_guides/python/tfdbg#Classes_for_debug_dump_data_and_directories)
 
@@ -40,21 +40,21 @@ share the same `Session` object can lead to gaps in `session_run_index`.
 
 #### Returns:
 
-  If core metadata are loaded, a `namedtuple` with the fields:
-    `global_step`: A global step count supplied by the caller of
-      `Session.run()`. It is optional to the caller. If the caller did not
-      supply this parameter, its value will be -1.
-    `session_run_index`: A sorted index for Run() calls to the underlying
-      TensorFlow `Session` object.
-    `executor_step_index`: A counter for invocations of a given runtime
-      executor. The same executor is re-used for the same fetched tensors,
-      target nodes, input feed keys and debug tensor watch options.
-    `input_names`: Names of the input (feed) Tensors.
-    `output_names`: Names of the output (fetched) Tensors.
-    `target_nodes`: Names of the target nodes.
-  If the core metadata have not been loaded, `None`.
-  If more than one core metadata files exist, return a list of the
-    `nametuple` described above.
+If core metadata are loaded, a `namedtuple` with the fields:
+  `global_step`: A global step count supplied by the caller of
+    `Session.run()`. It is optional to the caller. If the caller did not
+    supply this parameter, its value will be -1.
+  `session_run_index`: A sorted index for Run() calls to the underlying
+    TensorFlow `Session` object.
+  `executor_step_index`: A counter for invocations of a given runtime
+    executor. The same executor is re-used for the same fetched tensors,
+    target nodes, input feed keys and debug tensor watch options.
+  `input_names`: Names of the input (feed) Tensors.
+  `output_names`: Names of the output (fetched) Tensors.
+  `target_nodes`: Names of the target nodes.
+If the core metadata have not been loaded, `None`.
+If more than one core metadata files exist, return a list of the
+  `nametuple` described above.
 
 <h3 id="dumped_tensor_data"><code>dumped_tensor_data</code></h3>
 
@@ -66,8 +66,8 @@ Get the Python graph.
 
 #### Returns:
 
-  If the Python graph has been set, returns a `tf.Graph` object. Otherwise,
-  returns None.
+If the Python graph has been set, returns a `tf.Graph` object. Otherwise,
+returns None.
 
 <h3 id="run_feed_keys_info"><code>run_feed_keys_info</code></h3>
 
@@ -75,11 +75,11 @@ Get a str representation of the feed_dict used in the Session.run() call.
 
 #### Returns:
 
-  If the information is available from one `Session.run` call, a `str`
-    obtained from `repr(feed_dict)`.
-  If the information is available from multiple `Session.run` calls, a
-    `list` of `str` obtained from `repr(feed_dict)`.
-  If the information is not available, `None`.
+If the information is available from one `Session.run` call, a `str`
+  obtained from `repr(feed_dict)`.
+If the information is available from multiple `Session.run` calls, a
+  `list` of `str` obtained from `repr(feed_dict)`.
+If the information is not available, `None`.
 
 <h3 id="run_fetches_info"><code>run_fetches_info</code></h3>
 
@@ -87,11 +87,11 @@ Get a str representation of the fetches used in the Session.run() call.
 
 #### Returns:
 
-  If the information is available from one `Session.run` call, a `str`
-    obtained from `repr(fetches)`.
-  If the information is available from multiple `Session.run` calls, a
-    `list` of `str` from `repr(fetches)`.
-  If the information is not available, `None`.
+If the information is available from one `Session.run` call, a `str`
+  obtained from `repr(fetches)`.
+If the information is available from multiple `Session.run` calls, a
+  `list` of `str` from `repr(fetches)`.
+If the information is not available, `None`.
 
 <h3 id="size"><code>size</code></h3>
 
@@ -99,7 +99,7 @@ Total number of dumped tensors in the dump root directory.
 
 #### Returns:
 
-  (`int`) The total number of dumped tensors in the dump root directory.
+(`int`) The total number of dumped tensors in the dump root directory.
 
 <h3 id="t0"><code>t0</code></h3>
 
@@ -107,7 +107,7 @@ Absolute timestamp of the first dumped tensor across all devices.
 
 #### Returns:
 
-  (`int`) absolute timestamp of the first dumped tensor, in microseconds.
+(`int`) absolute timestamp of the first dumped tensor, in microseconds.
 
 
 
@@ -155,19 +155,19 @@ Get all tensor watch keys of given node according to partition graphs.
 
 * <b>`node_name`</b>: (`str`) name of the node.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    node_name exists on only one device, this argumnet is optional.
+    node_name exists on only one device, this argument is optional.
 
 
 #### Returns:
 
-  (`list` of `str`) all debug tensor watch keys. Returns an empty list if
-    the node name does not correspond to any debug watch keys.
+(`list` of `str`) all debug tensor watch keys. Returns an empty list if
+  the node name does not correspond to any debug watch keys.
 
 
 #### Raises:
 
-  `LookupError`: If debug watch information has not been loaded from
-    partition graphs yet.
+`LookupError`: If debug watch information has not been loaded from
+  partition graphs yet.
 
 <h3 id="devices"><code>devices</code></h3>
 
@@ -179,7 +179,7 @@ Get the list of device names.
 
 #### Returns:
 
-  (`list` of `str`) names of the devices.
+(`list` of `str`) names of the devices.
 
 <h3 id="find"><code>find</code></h3>
 
@@ -214,9 +214,9 @@ Find dumped tensor data by a certain predicate.
 
 #### Returns:
 
-  A list of all `DebugTensorDatum` objects in this `DebugDumpDir` object
-   for which predicate returns True, sorted in ascending order of the
-   timestamp.
+A list of all `DebugTensorDatum` objects in this `DebugDumpDir` object
+ for which predicate returns True, sorted in ascending order of the
+ timestamp.
 
 <h3 id="find_some_path"><code>find_some_path</code></h3>
 
@@ -253,15 +253,15 @@ TODO(cais): Make this method work across device edges by tracing Send/Recv
     the source (e.g., A in this case). So the reverse direction of the ref
     edge reflects the direction of information flow.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    node_name exists on only one device, this argumnet is optional.
+    node_name exists on only one device, this argument is optional.
 
 
 #### Returns:
 
-  A path from the src_node_name to dst_node_name, as a `list` of `str`, if
-  it exists. The list includes src_node_name as the first item and
-  dst_node_name as the last.
-  If such a path does not exist, `None`.
+A path from the src_node_name to dst_node_name, as a `list` of `str`, if
+it exists. The list includes src_node_name as the first item and
+dst_node_name as the last.
+If such a path does not exist, `None`.
 
 
 #### Raises:
@@ -290,13 +290,13 @@ Unit of the file size: byte.
 * <b>`output_slot`</b>: (`int`) output slot index of tensor.
 * <b>`debug_op`</b>: (`str`) name of the debug op.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    the specified debug_watch_key exists on only one device, this argumnet
+    the specified debug_watch_key exists on only one device, this argument
     is optional.
 
 
 #### Returns:
 
-  (`list` of `int`): list of dump file sizes in bytes.
+(`list` of `int`): list of dump file sizes in bytes.
 
 
 #### Raises:
@@ -328,13 +328,13 @@ relative timestamps (`numpy.ndarray`) is returned.
 * <b>`output_slot`</b>: (`int`) output slot index of tensor.
 * <b>`debug_op`</b>: (`str`) name of the debug op.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    the specified debug_watch_key exists on only one device, this argumnet
+    the specified debug_watch_key exists on only one device, this argument
     is optional.
 
 
 #### Returns:
 
-  (`list` of `int`) list of relative timestamps.
+(`list` of `int`) list of relative timestamps.
 
 
 #### Raises:
@@ -361,14 +361,14 @@ Get the file paths from a debug-dumped tensor.
 * <b>`output_slot`</b>: (`int`) output slot index of tensor.
 * <b>`debug_op`</b>: (`str`) name of the debug op.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    the specified debug_watch_key exists on only one device, this argumnet
+    the specified debug_watch_key exists on only one device, this argument
     is optional.
 
 
 #### Returns:
 
-  List of file path(s) loaded. This is a list because each debugged tensor
-    may be dumped multiple times.
+List of file path(s) loaded. This is a list because each debugged tensor
+  may be dumped multiple times.
 
 
 #### Raises:
@@ -398,13 +398,13 @@ list of tensors (`numpy.ndarray`) is returned.
 * <b>`output_slot`</b>: (`int`) output slot index of tensor.
 * <b>`debug_op`</b>: (`str`) name of the debug op.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    the specified debug_watch_key exists on only one device, this argumnet
+    the specified debug_watch_key exists on only one device, this argument
     is optional.
 
 
 #### Returns:
 
-  List of tensors (`numpy.ndarray`) loaded from the debug-dump file(s).
+List of tensors (`numpy.ndarray`) loaded from the debug-dump file(s).
 
 
 #### Raises:
@@ -435,12 +435,12 @@ Get the attributes of a node.
 
 * <b>`node_name`</b>: Name of the node in question.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    node_name exists on only one device, this argumnet is optional.
+    node_name exists on only one device, this argument is optional.
 
 
 #### Returns:
 
-  Attributes of the node.
+Attributes of the node.
 
 
 #### Raises:
@@ -462,9 +462,9 @@ Get the names of the devices that has nodes of the specified name.
 
 #### Returns:
 
-  (`str` or `list` of `str`) name of the device(s) on which the node of the
-    given name is found. Returns a `str` if there is only one such device,
-    otherwise return a `list` of `str`.
+(`str` or `list` of `str`) name of the device(s) on which the node of the
+  given name is found. Returns a `str` if there is only one such device,
+  otherwise return a `list` of `str`.
 
 
 #### Raises:
@@ -494,7 +494,7 @@ Test if a node exists in the partition graphs.
 
 #### Returns:
 
-  A boolean indicating whether the node exists.
+A boolean indicating whether the node exists.
 
 
 #### Raises:
@@ -520,12 +520,12 @@ Get the inputs of given node according to partition graphs.
 * <b>`is_control`</b>: (`bool`) Whether control inputs, rather than non-control
     inputs, are to be returned.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    node_name exists on only one device, this argumnet is optional.
+    node_name exists on only one device, this argument is optional.
 
 
 #### Returns:
 
-  (`list` of `str`) inputs to the node, as a list of node names.
+(`list` of `str`) inputs to the node, as a list of node names.
 
 
 #### Raises:
@@ -548,12 +548,12 @@ Get the op type of given node.
 
 * <b>`node_name`</b>: (`str`) name of the node.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    node_name exists on only one device, this argumnet is optional.
+    node_name exists on only one device, this argument is optional.
 
 
 #### Returns:
 
-  (`str`) op type of the node.
+(`str`) op type of the node.
 
 
 #### Raises:
@@ -579,12 +579,12 @@ Get recipient of the given node's output according to partition graphs.
 * <b>`is_control`</b>: (`bool`) whether control outputs, rather than non-control
     outputs, are to be returned.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    node_name exists on only one device, this argumnet is optional.
+    node_name exists on only one device, this argument is optional.
 
 
 #### Returns:
 
-  (`list` of `str`) all inputs to the node, as a list of node names.
+(`list` of `str`) all inputs to the node, as a list of node names.
 
 
 #### Raises:
@@ -607,8 +607,8 @@ Try to retrieve the Python traceback of node's construction.
 
 #### Returns:
 
-  (list) The traceback list object as returned by the `extract_trace`
-    method of Python's traceback module.
+(list) The traceback list object as returned by the `extract_trace`
+  method of Python's traceback module.
 
 
 #### Raises:
@@ -632,7 +632,7 @@ Get a list of all nodes from the partition graphs.
 
 #### Returns:
 
-  All nodes' names, as a list of str.
+All nodes' names, as a list of str.
 
 
 #### Raises:
@@ -650,12 +650,32 @@ Get the partition graphs.
 
 #### Returns:
 
-  Partition graphs as a list of GraphDef.
+Partition graphs as a list of GraphDef.
 
 
 #### Raises:
 
 * <b>`LookupError`</b>: If no partition graphs have been loaded.
+
+<h3 id="reconstructed_non_debug_partition_graphs"><code>reconstructed_non_debug_partition_graphs</code></h3>
+
+``` python
+reconstructed_non_debug_partition_graphs()
+```
+
+Reconstruct partition graphs with the debugger-inserted ops stripped.
+
+The reconstructed partition graphs are identical to the original (i.e.,
+non-debugger-decorated) partition graphs except in the following respects:
+  1) The exact names of the runtime-inserted internal nodes may differ.
+     These include _Send, _Recv, _HostSend, _HostRecv, _Retval ops.
+  2) As a consequence of 1, the nodes that receive input directly from such
+     send- and recv-type ops will have different input names.
+  3) The parallel_iteration attribute of while-loop Enter ops are set to 1.
+
+#### Returns:
+
+A dict mapping device names (`str`s) to reconstructed `tf.GraphDef`s.
 
 <h3 id="set_python_graph"><code>set_python_graph</code></h3>
 
@@ -696,13 +716,13 @@ Get the transitive inputs of given node according to partition graphs.
     the source (e.g., A in this case). So the reverse direction of the ref
     edge reflects the direction of information flow.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    node_name exists on only one device, this argumnet is optional.
+    node_name exists on only one device, this argument is optional.
 
 
 #### Returns:
 
-  (`list` of `str`) all transitive inputs to the node, as a list of node
-    names.
+(`list` of `str`) all transitive inputs to the node, as a list of node
+  names.
 
 
 #### Raises:
@@ -725,14 +745,14 @@ Get all `DebugTensorDatum` instances corresponding to a debug watch key.
 
 * <b>`debug_watch_key`</b>: (`str`) debug watch key.
 * <b>`device_name`</b>: (`str`) name of the device. If there is only one device or if
-    the specified debug_watch_key exists on only one device, this argumnet
+    the specified debug_watch_key exists on only one device, this argument
     is optional.
 
 
 #### Returns:
 
-  A list of `DebugTensorDatum` instances that correspond to the debug watch
-  key. If the watch key does not exist, returns an empty list.
+A list of `DebugTensorDatum` instances that correspond to the debug watch
+key. If the watch key does not exist, returns an empty list.
 
 
 #### Raises:

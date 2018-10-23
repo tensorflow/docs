@@ -17,23 +17,22 @@ imag(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Complex Number Functions](../../../api_guides/python/math_ops#Complex_Number_Functions)
 
 Returns the imaginary part of a complex number.
 
 Given a tensor `input` of complex numbers, this operation returns a tensor of
-type `float32` or `float64` that is the imaginary part of each element in
-`input`. All elements in `input` must be complex numbers of the form \\(a +
-bj\\), where *a* is the real part and *b* is the imaginary part returned by
-this operation.
+type `float` that is the argument of each element in `input`. All elements in
+`input` must be complex numbers of the form \\(a + bj\\), where *a*
+is the real part and *b* is the imaginary part returned by the operation.
 
 For example:
 
-```
-# tensor 'input' is [-2.25 + 4.75j, 3.25 + 5.75j]
-tf.imag(input) ==> [4.75, 5.75]
+```python
+x = tf.constant([-2.25 + 4.75j, 3.25 + 5.75j])
+tf.imag(x)  # [4.75, 5.75]
 ```
 
 #### Args:
@@ -45,4 +44,4 @@ tf.imag(input) ==> [4.75, 5.75]
 
 #### Returns:
 
-  A `Tensor` of type `float32` or `float64`.
+A `Tensor` of type `float32` or `float64`.

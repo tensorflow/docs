@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/server_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/server_lib.py).
+Defined in [`tensorflow/python/training/server_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/server_lib.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -35,8 +35,8 @@ Returns the `tf.train.ServerDef` for this server.
 
 #### Returns:
 
-  A `tf.train.ServerDef` protocol buffer that describes the configuration
-  of this server.
+A `tf.train.ServerDef` protocol buffer that describes the configuration
+of this server.
 
 <h3 id="target"><code>target</code></h3>
 
@@ -54,7 +54,7 @@ with tf.Session(server.target):
 
 #### Returns:
 
-  A string containing a session target for this server.
+A string containing a session target for this server.
 
 
 
@@ -101,12 +101,13 @@ override any information provided in `server_or_cluster_def`.
 
 #### Raises:
 
-  tf.errors.OpError: Or one of its subclasses if an error occurs while
+* <b>`tf.errors.OpError`</b>: Or one of its subclasses if an error occurs while
     creating the TensorFlow server.
 
 <h3 id="create_local_server"><code>create_local_server</code></h3>
 
 ``` python
+@staticmethod
 create_local_server(
     config=None,
     start=True
@@ -130,7 +131,7 @@ single-process cluster containing a single task in a job called
 
 #### Returns:
 
-  A local `tf.train.Server`.
+A local `tf.train.Server`.
 
 <h3 id="join"><code>join</code></h3>
 
@@ -144,7 +145,7 @@ This method currently blocks forever.
 
 #### Raises:
 
-  tf.errors.OpError: Or one of its subclasses if an error occurs while
+* <b>`tf.errors.OpError`</b>: Or one of its subclasses if an error occurs while
     joining the TensorFlow server.
 
 <h3 id="start"><code>start</code></h3>
@@ -157,7 +158,7 @@ Starts this server.
 
 #### Raises:
 
-  tf.errors.OpError: Or one of its subclasses if an error occurs while
+* <b>`tf.errors.OpError`</b>: Or one of its subclasses if an error occurs while
     starting the TensorFlow server.
 
 

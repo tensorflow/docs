@@ -21,7 +21,7 @@ max_pooling3d(
 
 
 
-Defined in [`tensorflow/python/layers/pooling.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/layers/pooling.py).
+Defined in [`tensorflow/python/layers/pooling.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/layers/pooling.py).
 
 Max pooling layer for 3D inputs (e.g. volumes).
 
@@ -50,4 +50,4 @@ Max pooling layer for 3D inputs (e.g. volumes).
 
 #### Returns:
 
-  Output tensor.
+Output tensor.

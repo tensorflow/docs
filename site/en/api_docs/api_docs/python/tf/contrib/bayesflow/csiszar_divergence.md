@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/csiszar_divergence.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/csiszar_divergence.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/csiszar_divergence.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/csiszar_divergence.py).
 
 Csiszar f-Divergence and helpers.
 
@@ -23,6 +23,8 @@ See ${python/contrib.bayesflow.csiszar_divergence}.
 [`arithmetic_geometric(...)`](../../../tf/contrib/bayesflow/csiszar_divergence/arithmetic_geometric): The Arithmetic-Geometric Csiszar-function in log-space.
 
 [`chi_square(...)`](../../../tf/contrib/bayesflow/csiszar_divergence/chi_square): The chi-Square Csiszar-function in log-space.
+
+[`csiszar_vimco(...)`](../../../tf/contrib/bayesflow/csiszar_divergence/csiszar_vimco): Use VIMCO to lower the variance of gradient[csiszar_function(Avg(logu))].
 
 [`dual_csiszar_function(...)`](../../../tf/contrib/bayesflow/csiszar_divergence/dual_csiszar_function): Calculates the dual Csiszar-function in log-space.
 
@@ -45,6 +47,8 @@ See ${python/contrib.bayesflow.csiszar_divergence}.
 [`squared_hellinger(...)`](../../../tf/contrib/bayesflow/csiszar_divergence/squared_hellinger): The Squared-Hellinger Csiszar-function in log-space.
 
 [`symmetrized_csiszar_function(...)`](../../../tf/contrib/bayesflow/csiszar_divergence/symmetrized_csiszar_function): Symmetrizes a Csiszar-function in log-space.
+
+[`t_power(...)`](../../../tf/contrib/bayesflow/csiszar_divergence/t_power): The T-Power Csiszar-function in log-space.
 
 [`total_variation(...)`](../../../tf/contrib/bayesflow/csiszar_divergence/total_variation): The Total Variation Csiszar-function in log-space.
 

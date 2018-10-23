@@ -40,4 +40,4 @@ where \\(\psi(x)\\) is the digamma function.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `a`.
+A `Tensor`. Has the same type as `a`.

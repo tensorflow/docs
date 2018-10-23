@@ -17,7 +17,7 @@ group(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/control_flow_ops.py).
 
 See the guide: [Control Flow > Control Flow Operations](../../../api_guides/python/control_flow_ops#Control_Flow_Operations)
 
@@ -31,14 +31,14 @@ See also [tuple](../tf/tuple) and
 
 #### Args:
 
-  *inputs: Zero or more tensors to group.
-  **kwargs: Optional parameters to pass when constructing the NodeDef.
+* <b>`*inputs`</b>: Zero or more tensors to group.
+* <b>`**kwargs`</b>: Optional parameters to pass when constructing the NodeDef.
 * <b>`name`</b>: A name for this operation (optional).
 
 
 #### Returns:
 
-  An Operation that executes all its inputs.
+An Operation that executes all its inputs.
 
 
 #### Raises:

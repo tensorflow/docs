@@ -18,15 +18,15 @@ softmax(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guides: [Layers (contrib) > Higher level ops for building neural network layers](../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers), [Neural Network > Classification](../../../../api_guides/python/nn#Classification)
 
 Computes softmax activations.
 
-For each batch `i` and class `j` we have
+This function performs the equivalent of
 
-    softmax = exp(logits) / reduce_sum(exp(logits), dim)
+    softmax = tf.exp(logits) / tf.reduce_sum(tf.exp(logits), dim)
 
 #### Args:
 
@@ -39,7 +39,8 @@ For each batch `i` and class `j` we have
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `logits`. Same shape as `logits`.
+A `Tensor`. Has the same type and shape as `logits`.
+
 
 #### Raises:
 

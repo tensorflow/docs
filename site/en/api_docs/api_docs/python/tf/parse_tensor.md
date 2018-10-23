@@ -36,4 +36,4 @@ Transforms a serialized tensorflow.TensorProto proto into a Tensor.
 
 #### Returns:
 
-  A `Tensor` of type `out_type`. A Tensor of type `out_type`.
+A `Tensor` of type `out_type`. A Tensor of type `out_type`.

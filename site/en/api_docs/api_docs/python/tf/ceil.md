@@ -31,4 +31,4 @@ Returns element-wise smallest integer in not less than x.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

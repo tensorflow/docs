@@ -20,7 +20,7 @@ raw_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/rnn.py).
+Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/rnn.py).
 
 See the guide: [Neural Network > Recurrent Neural Networks](../../../../api_guides/python/nn#Recurrent_Neural_Networks)
 
@@ -138,7 +138,7 @@ outputs = outputs_ta.stack()
     appropriate type and shape `[batch_size] + cell.state_size`.
     If `cell.state_size` is a (possibly nested) tuple of ints or
     `TensorShape`, this will be a tuple having the corresponding shapes.
-    The `emit_output` value may be  either `None` or a (possibly nested)
+    The `emit_output` value may be either `None` or a (possibly nested)
     tuple structure of tensors, e.g.,
     `(tf.zeros(shape_0, dtype=dtype_0), tf.zeros(shape_1, dtype=dtype_1))`.
     If this first `emit_output` return value is `None`,
@@ -163,27 +163,27 @@ outputs = outputs_ta.stack()
 
 #### Returns:
 
-  A tuple `(emit_ta, final_state, final_loop_state)` where:
+A tuple `(emit_ta, final_state, final_loop_state)` where:
 
-  `emit_ta`: The RNN output `TensorArray`.
-     If `loop_fn` returns a (possibly nested) set of Tensors for
-     `emit_output` during initialization, (inputs `time = 0`,
-     `cell_output = None`, and `loop_state = None`), then `emit_ta` will
-     have the same structure, dtypes, and shapes as `emit_output` instead.
-     If `loop_fn` returns `emit_output = None` during this call,
-     the structure of `cell.output_size` is used:
-     If `cell.output_size` is a (possibly nested) tuple of integers
-     or `TensorShape` objects, then `emit_ta` will be a tuple having the
-     same structure as `cell.output_size`, containing TensorArrays whose
-     elements' shapes correspond to the shape data in `cell.output_size`.
+`emit_ta`: The RNN output `TensorArray`.
+   If `loop_fn` returns a (possibly nested) set of Tensors for
+   `emit_output` during initialization, (inputs `time = 0`,
+   `cell_output = None`, and `loop_state = None`), then `emit_ta` will
+   have the same structure, dtypes, and shapes as `emit_output` instead.
+   If `loop_fn` returns `emit_output = None` during this call,
+   the structure of `cell.output_size` is used:
+   If `cell.output_size` is a (possibly nested) tuple of integers
+   or `TensorShape` objects, then `emit_ta` will be a tuple having the
+   same structure as `cell.output_size`, containing TensorArrays whose
+   elements' shapes correspond to the shape data in `cell.output_size`.
 
-  `final_state`: The final cell state.  If `cell.state_size` is an int, this
-    will be shaped `[batch_size, cell.state_size]`.  If it is a
-    `TensorShape`, this will be shaped `[batch_size] + cell.state_size`.
-    If it is a (possibly nested) tuple of ints or `TensorShape`, this will
-    be a tuple having the corresponding shapes.
+`final_state`: The final cell state.  If `cell.state_size` is an int, this
+  will be shaped `[batch_size, cell.state_size]`.  If it is a
+  `TensorShape`, this will be shaped `[batch_size] + cell.state_size`.
+  If it is a (possibly nested) tuple of ints or `TensorShape`, this will
+  be a tuple having the corresponding shapes.
 
-  `final_loop_state`: The final loop state as returned by `loop_fn`.
+`final_loop_state`: The final loop state as returned by `loop_fn`.
 
 
 #### Raises:

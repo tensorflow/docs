@@ -19,7 +19,7 @@ index_to_string(
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/lookup/lookup_ops.py).
 
 Maps `tensor` of indices into string values based on `mapping`. (deprecated)
 
@@ -61,5 +61,5 @@ values.eval() ==> ["lake", "UNKNOWN"]
 
 #### Returns:
 
-  The strings values associated to the indices. The resultant dense
-  feature value tensor has the same shape as the corresponding `indices`.
+The strings values associated to the indices. The resultant dense
+feature value tensor has the same shape as the corresponding `indices`.

@@ -22,7 +22,7 @@ convolution(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
@@ -115,25 +115,25 @@ It is required that 1 <= N <= 3.
 
 #### Returns:
 
-  A `Tensor` with the same type as `input` of shape
+A `Tensor` with the same type as `input` of shape
 
-      `[batch_size] + output_spatial_shape + [out_channels]`
+    `[batch_size] + output_spatial_shape + [out_channels]`
 
-  if data_format is None or does not start with "NC", or
+if data_format is None or does not start with "NC", or
 
-      `[batch_size, out_channels] + output_spatial_shape`
+    `[batch_size, out_channels] + output_spatial_shape`
 
-  if data_format starts with "NC",
-  where `output_spatial_shape` depends on the value of `padding`.
+if data_format starts with "NC",
+where `output_spatial_shape` depends on the value of `padding`.
 
-  If padding == "SAME":
-    output_spatial_shape[i] = ceil(input_spatial_shape[i] / strides[i])
+If padding == "SAME":
+  output_spatial_shape[i] = ceil(input_spatial_shape[i] / strides[i])
 
-  If padding == "VALID":
-    output_spatial_shape[i] =
-      ceil((input_spatial_shape[i] -
-            (spatial_filter_shape[i]-1) * dilation_rate[i])
-           / strides[i]).
+If padding == "VALID":
+  output_spatial_shape[i] =
+    ceil((input_spatial_shape[i] -
+          (spatial_filter_shape[i]-1) * dilation_rate[i])
+         / strides[i]).
 
 
 #### Raises:

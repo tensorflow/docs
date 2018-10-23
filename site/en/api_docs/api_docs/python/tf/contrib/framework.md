@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/framework/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/__init__.py).
+Defined in [`tensorflow/contrib/framework/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/__init__.py).
 
 Framework utilities.
 
@@ -40,7 +40,7 @@ See the [Framework (contrib)](../../../../api_guides/python/contrib.framework) g
 
 [`arg_scoped_arguments(...)`](../../tf/contrib/framework/arg_scoped_arguments): Returns the list kwargs that arg_scope can set for a func.
 
-[`assert_global_step(...)`](../../tf/contrib/framework/assert_global_step)
+[`assert_global_step(...)`](../../tf/contrib/framework/assert_global_step): DEPRECATED FUNCTION
 
 [`assert_or_get_global_step(...)`](../../tf/contrib/framework/assert_or_get_global_step): Verifies that a global step tensor is valid or gets one if None is given.
 
@@ -60,7 +60,7 @@ See the [Framework (contrib)](../../../../api_guides/python/contrib.framework) g
 
 [`convert_to_tensor_or_sparse_tensor(...)`](../../tf/convert_to_tensor_or_sparse_tensor): Converts value to a `SparseTensor` or `Tensor`.
 
-[`create_global_step(...)`](../../tf/contrib/framework/create_global_step): Create global step tensor in graph.
+[`create_global_step(...)`](../../tf/contrib/framework/create_global_step): Create global step tensor in graph. (deprecated)
 
 [`deprecated(...)`](../../tf/contrib/framework/deprecated): Decorator for marking functions or methods deprecated.
 
@@ -70,7 +70,7 @@ See the [Framework (contrib)](../../../../api_guides/python/contrib.framework) g
 
 [`filter_variables(...)`](../../tf/contrib/framework/filter_variables): Filter a list of variables using regular expressions.
 
-[`get_global_step(...)`](../../tf/contrib/framework/get_global_step)
+[`get_global_step(...)`](../../tf/contrib/framework/get_global_step): DEPRECATED FUNCTION
 
 [`get_graph_from_inputs(...)`](../../tf/contrib/framework/get_graph_from_inputs): Returns the appropriate graph to use for the given inputs.
 
@@ -80,7 +80,7 @@ See the [Framework (contrib)](../../../../api_guides/python/contrib.framework) g
 
 [`get_name_scope(...)`](../../tf/contrib/framework/get_name_scope): Returns the current name scope of the default graph.
 
-[`get_or_create_global_step(...)`](../../tf/contrib/framework/get_or_create_global_step): Returns and create (if necessary) the global step tensor.
+[`get_or_create_global_step(...)`](../../tf/contrib/framework/get_or_create_global_step): Returns and create (if necessary) the global step tensor. (deprecated)
 
 [`get_trainable_variables(...)`](../../tf/contrib/framework/get_trainable_variables): Gets the list of trainable variables, filtered by scope and/or suffix.
 
@@ -124,7 +124,7 @@ See the [Framework (contrib)](../../../../api_guides/python/contrib.framework) g
 
 [`reduce_sum_n(...)`](../../tf/contrib/framework/reduce_sum_n): Reduce tensors to a scalar sum.
 
-[`remove_squeezable_dimensions(...)`](../../tf/contrib/framework/remove_squeezable_dimensions): Squeeze last dim if ranks of `predictions` and `labels` differ by 1.
+[`remove_squeezable_dimensions(...)`](../../tf/contrib/framework/remove_squeezable_dimensions): Squeeze last dim if ranks of `predictions` and `labels` differ by 1. (deprecated)
 
 [`strip_name_scope(...)`](../../tf/contrib/framework/strip_name_scope): Removes name scope from a name.
 

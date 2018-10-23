@@ -25,15 +25,15 @@ embedding_rnn_seq2seq(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 Embedding RNN sequence-to-sequence model.
 
 This model first embeds encoder_inputs by a newly created embedding (of shape
-[num_encoder_symbols x embedding_size]). Then it runs an RNN to encode
+[num_encoder_symbols x input_size]). Then it runs an RNN to encode
 embedded encoder_inputs into a state vector. Next, it embeds decoder_inputs
 by another newly created embedding (of shape [num_decoder_symbols x
-embedding_size]). Then it runs RNN decoder, initialized with the last
+input_size]). Then it runs RNN decoder, initialized with the last
 encoder state, on embedded decoder_inputs.
 
 #### Args:
@@ -60,12 +60,12 @@ encoder state, on embedded decoder_inputs.
 
 #### Returns:
 
-  A tuple of the form (outputs, state), where:
-    outputs: A list of the same length as decoder_inputs of 2D Tensors. The
+A tuple of the form (outputs, state), where:
+* <b>`outputs`</b>: A list of the same length as decoder_inputs of 2D Tensors. The
       output is of shape [batch_size x cell.output_size] when
       output_projection is not None (and represents the dense representation
       of predicted tokens). It is of shape [batch_size x num_decoder_symbols]
       when output_projection is None.
-    state: The state of each decoder cell in each time-step. This is a list
+* <b>`state`</b>: The state of each decoder cell in each time-step. This is a list
       with length len(decoder_inputs) -- one item for each time-step.
       It is a 2D Tensor of shape [batch_size x cell.state_size].

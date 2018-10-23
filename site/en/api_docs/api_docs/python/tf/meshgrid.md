@@ -17,7 +17,7 @@ meshgrid(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Shapes and Shaping](../../../api_guides/python/array_ops#Shapes_and_Shaping)
 
@@ -37,24 +37,20 @@ Examples:
 Calling `X, Y = meshgrid(x, y)` with the tensors
 
 ```python
-  x = [1, 2, 3]
-  y = [4, 5, 6]
-```
-
-results in
-
-```python
-  X = [[1, 2, 3],
-       [1, 2, 3],
-       [1, 2, 3]]
-  Y = [[4, 4, 4],
-       [5, 5, 5],
-       [6, 6, 6]]
+x = [1, 2, 3]
+y = [4, 5, 6]
+X, Y = tf.meshgrid(x, y)
+# X = [[1, 2, 3],
+#      [1, 2, 3],
+#      [1, 2, 3]]
+# Y = [[4, 4, 4],
+#      [5, 5, 5],
+#      [6, 6, 6]]
 ```
 
 #### Args:
 
-  *args: `Tensor`s with rank 1.
+* <b>`*args`</b>: `Tensor`s with rank 1.
 * <b>`indexing`</b>: Either 'xy' or 'ij' (optional, default: 'xy').
 * <b>`name`</b>: A name for the operation (optional).
 

@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.matrix_set_diag
 
+### Aliases:
+
+* `tf.linalg.set_diag`
+* `tf.matrix_set_diag`
+
 ``` python
 matrix_set_diag(
     input,
@@ -47,5 +52,5 @@ tensor of rank `k+1` with dimensions `[I, J, K, ..., M, N]` where:
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
-  Rank `k+1`, with `output.shape = input.shape`.
+A `Tensor`. Has the same type as `input`.
+Rank `k+1`, with `output.shape = input.shape`.

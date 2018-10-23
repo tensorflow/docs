@@ -15,7 +15,7 @@ range(start, limit, delta=1, dtype=None, name='range')
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Constants, Sequences, and Random Values > Sequences](../../../api_guides/python/constant_op#Sequences)
 
@@ -33,18 +33,18 @@ Like the Python builtin `range`, `start` defaults to 0, so that
 For example:
 
 ```python
-# 'start' is 3
-# 'limit' is 18
-# 'delta' is 3
-tf.range(start, limit, delta) ==> [3, 6, 9, 12, 15]
+start = 3
+limit = 18
+delta = 3
+tf.range(start, limit, delta)  # [3, 6, 9, 12, 15]
 
-# 'start' is 3
-# 'limit' is 1
-# 'delta' is -0.5
-tf.range(start, limit, delta) ==> [3, 2.5, 2, 1.5]
+start = 3
+limit = 1
+delta = -0.5
+tf.range(start, limit, delta)  # [3, 2.5, 2, 1.5]
 
-# 'limit' is 5
-tf.range(limit) ==> [0, 1, 2, 3, 4]
+limit = 5
+tf.range(limit)  # [0, 1, 2, 3, 4]
 ```
 
 #### Args:
@@ -63,7 +63,7 @@ tf.range(limit) ==> [0, 1, 2, 3, 4]
 
 #### Returns:
 
-  An 1-D `Tensor` of type `dtype`.
+An 1-D `Tensor` of type `dtype`.
 
 
 

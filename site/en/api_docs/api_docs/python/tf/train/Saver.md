@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/saver.py).
 
 See the guides: [Exporting and Importing a MetaGraph > Exporting a Complete Model to MetaGraph](../../../../api_guides/python/meta_graph#Exporting_a_Complete_Model_to_MetaGraph), [Exporting and Importing a MetaGraph](../../../../api_guides/python/meta_graph), [Variables > Saving and Restoring Variables](../../../../api_guides/python/state_ops#Saving_and_Restoring_Variables)
 
@@ -100,7 +100,7 @@ You can pass any of the returned values to `restore()`.
 
 #### Returns:
 
-  A list of checkpoint filenames, sorted from oldest to newest.
+A list of checkpoint filenames, sorted from oldest to newest.
 
 
 
@@ -223,7 +223,7 @@ Generates a `SaverDef` representation of this saver.
 
 #### Returns:
 
-  A `SaverDef` proto.
+A `SaverDef` proto.
 
 <h3 id="build"><code>build</code></h3>
 
@@ -231,7 +231,7 @@ Generates a `SaverDef` representation of this saver.
 build()
 ```
 
-Builds saver_def.
+
 
 <h3 id="export_meta_graph"><code>export_meta_graph</code></h3>
 
@@ -263,11 +263,12 @@ Writes `MetaGraphDef` to save_path/filename.
 
 #### Returns:
 
-  A `MetaGraphDef` proto.
+A `MetaGraphDef` proto.
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
 ``` python
+@staticmethod
 from_proto(
     saver_def,
     import_scope=None
@@ -278,13 +279,13 @@ Returns a `Saver` object created from `saver_def`.
 
 #### Args:
 
-* <b>`saver_def`</b>: a `SaveDef` protocol buffer.
+* <b>`saver_def`</b>: a `SaverDef` protocol buffer.
 * <b>`import_scope`</b>: Optional `string`. Name scope to use.
 
 
 #### Returns:
 
-  A `Saver` built from saver_def.
+A `Saver` built from saver_def.
 
 <h3 id="recover_last_checkpoints"><code>recover_last_checkpoints</code></h3>
 
@@ -324,7 +325,7 @@ The `save_path` argument is typically a value previously returned from a
 
 #### Args:
 
-* <b>`sess`</b>: A `Session` to use to restore the parameters.
+* <b>`sess`</b>: A `Session` to use to restore the parameters. None in eager mode.
 * <b>`save_path`</b>: Path where parameters were previously saved.
 
 
@@ -357,7 +358,7 @@ path can be passed directly to a call to `restore()`.
 
 #### Args:
 
-* <b>`sess`</b>: A Session to use to save the variables.
+* <b>`sess`</b>: A Session to use to save the variables. None in eager mode.
 * <b>`save_path`</b>: String.  Path to the checkpoint filename.  If the saver is
     `sharded`, this is the prefix of the sharded checkpoint filename.
 * <b>`global_step`</b>: If provided the global step number is appended to
@@ -377,10 +378,10 @@ path can be passed directly to a call to `restore()`.
 
 #### Returns:
 
-  A string: path at which the variables were saved.  If the saver is
-    sharded, this string ends with: '-?????-of-nnnnn' where 'nnnnn'
-    is the number of shards created.
-  If the saver is empty, returns None.
+A string: path at which the variables were saved.  If the saver is
+  sharded, this string ends with: '-?????-of-nnnnn' where 'nnnnn'
+  is the number of shards created.
+If the saver is empty, returns None.
 
 
 #### Raises:
@@ -442,7 +443,7 @@ Converts this `Saver` to a `SaverDef` protocol buffer.
 
 #### Returns:
 
-  A `SaverDef` protocol buffer.
+A `SaverDef` protocol buffer.
 
 
 

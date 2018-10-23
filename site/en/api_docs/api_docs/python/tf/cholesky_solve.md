@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.cholesky_solve
 
+### Aliases:
+
+* `tf.cholesky_solve`
+* `tf.linalg.cholesky_solve`
+
 ``` python
 cholesky_solve(
     chol,
@@ -18,7 +23,7 @@ cholesky_solve(
 
 
 
-Defined in [`tensorflow/python/ops/linalg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/linalg_ops.py).
+Defined in [`tensorflow/python/ops/linalg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/linalg_ops.py).
 
 See the guide: [Math > Matrix Math Functions](../../../api_guides/python/math_ops#Matrix_Math_Functions)
 
@@ -53,4 +58,4 @@ X[3, :, 2]  # Solution to the linear system A[3, :, :] x = RHS[3, :, 2]
 
 #### Returns:
 
-  Solution to `A x = rhs`, shape `[..., M, K]`.
+Solution to `A x = rhs`, shape `[..., M, K]`.

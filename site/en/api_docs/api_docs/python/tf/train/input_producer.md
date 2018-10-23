@@ -25,7 +25,7 @@ input_producer(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/input.py).
 
 See the guide: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline)
 
@@ -60,9 +60,9 @@ Note: if `num_epochs` is not `None`, this function creates local counter
 
 #### Returns:
 
-  A queue with the output rows.  A `QueueRunner` for the queue is
-  added to the current `QUEUE_RUNNER` collection of the current
-  graph.
+A queue with the output rows.  A `QueueRunner` for the queue is
+added to the current `QUEUE_RUNNER` collection of the current
+graph.
 
 
 #### Raises:

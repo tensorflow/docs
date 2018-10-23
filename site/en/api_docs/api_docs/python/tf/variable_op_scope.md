@@ -20,13 +20,14 @@ variable_op_scope(
     custom_getter=None,
     reuse=None,
     dtype=None,
-    use_resource=None
+    use_resource=None,
+    constraint=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/variable_scope.py).
+Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/variable_scope.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 

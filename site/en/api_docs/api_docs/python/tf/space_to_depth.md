@@ -12,13 +12,14 @@ page_type: reference
 space_to_depth(
     input,
     block_size,
-    name=None
+    name=None,
+    data_format='NHWC'
 )
 ```
 
 
 
-Defined in `tensorflow/python/ops/gen_array_ops.py`.
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -27,26 +28,38 @@ SpaceToDepth for tensors of type T.
 Rearranges blocks of spatial data, into depth. More specifically,
 this op outputs a copy of the input tensor where values from the `height`
 and `width` dimensions are moved to the `depth` dimension.
-The attr `block_size` indicates the input block size and how the data is moved.
+The attr `block_size` indicates the input block size.
 
   * Non-overlapping blocks of size `block_size x block size` are rearranged
     into depth at each location.
-  * The depth of the output tensor is `input_depth * block_size * block_size`.
+  * The depth of the output tensor is `block_size * block_size * input_depth`.
+  * The Y, X coordinates within each block of the input become the high order
+    component of the output channel index.
   * The input tensor's height and width must be divisible by block_size.
 
-That is, assuming the input is in the shape:
-`[batch, height, width, depth]`,
-the shape of the output will be:
-`[batch, height/block_size, width/block_size, depth*block_size*block_size]`
+The `data_format` attr specifies the layout of the input and output tensors
+with the following options:
+  "NHWC": `[ batch, height, width, channels ]`
+  "NCHW": `[ batch, channels, height, width ]`
+  "NCHW_VECT_C":
+      `qint8 [ batch, channels / 4, height, width, channels % 4 ]`
 
-This operation requires that the input tensor be of rank 4, and that
-`block_size` be >=1 and a divisor of both the input `height` and `width`.
+It is useful to consider the operation as transforming a 6-D Tensor.
+e.g. for data_format = NHWC,
+     Each element in the input tensor can be specified via 6 coordinates,
+     ordered by decreasing memory layout significance as:
+     n,oY,bY,oX,bX,iC  (where n=batch index, oX, oY means X or Y coordinates
+                        within the output image, bX, bY means coordinates
+                        within the input block, iC means input channels).
+     The output would be a transpose to the following layout:
+     n,oY,oX,bY,bX,iC
 
 This operation is useful for resizing the activations between convolutions
 (but keeping all data), e.g. instead of pooling. It is also useful for training
 purely convolutional models.
 
-For example, given this input of shape `[1, 2, 2, 1]`, and block_size of 2:
+For example, given an input of shape `[1, 2, 2, 1]`, data_format = "NHWC" and
+block_size = 2:
 
 ```
 x = [[[[1], [2]],
@@ -100,9 +113,10 @@ x = [[[[1, 2, 3, 4],
 
 * <b>`input`</b>: A `Tensor`.
 * <b>`block_size`</b>: An `int` that is `>= 2`. The size of the spatial block.
+* <b>`data_format`</b>: An optional `string` from: `"NHWC", "NCHW", "NCHW_VECT_C"`. Defaults to `"NHWC"`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
+A `Tensor`. Has the same type as `input`.

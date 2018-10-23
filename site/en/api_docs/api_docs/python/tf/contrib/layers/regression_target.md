@@ -18,7 +18,7 @@ regression_target(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/target_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/target_column.py).
+Defined in [`tensorflow/contrib/layers/python/layers/target_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/target_column.py).
 
 Creates a _TargetColumn for linear regression. (deprecated)
 
@@ -38,4 +38,4 @@ This file will be removed after the deprecation date.Please switch to third_part
 
 #### Returns:
 
-  An instance of _TargetColumn
+An instance of _TargetColumn

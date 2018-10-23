@@ -19,7 +19,7 @@ wait_for_new_checkpoint(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/evaluation.py).
+Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/evaluation.py).
 
 Waits until a new checkpoint file is found.
 
@@ -36,4 +36,4 @@ Waits until a new checkpoint file is found.
 
 #### Returns:
 
-  a new checkpoint path, or None if the timeout was reached.
+a new checkpoint path, or None if the timeout was reached.

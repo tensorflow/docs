@@ -14,7 +14,7 @@ test_src_dir_path(relative_path)
 
 
 
-Defined in [`tensorflow/python/platform/test.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/platform/test.py).
+Defined in [`tensorflow/python/platform/test.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/platform/test.py).
 
 See the guide: [Testing > Unit tests](../../../../api_guides/python/test#Unit_tests)
 
@@ -28,4 +28,4 @@ Creates an absolute test srcdir path given a relative path.
 
 #### Returns:
 
-  An absolute path to the linked in runfiles.
+An absolute path to the linked in runfiles.

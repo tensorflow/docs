@@ -17,7 +17,7 @@ central_crop(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Cropping](../../../../api_guides/python/image#Cropping)
 
@@ -47,4 +47,4 @@ returns the region marked with "X" in the below diagram.
 
 #### Returns:
 
-  3-D float Tensor
+3-D float Tensor

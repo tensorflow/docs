@@ -17,7 +17,7 @@ build_parsing_serving_input_receiver_fn(
 
 
 
-Defined in [`tensorflow/python/estimator/export/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/export/export.py).
+Defined in [`tensorflow/python/estimator/export/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/export/export.py).
 
 Build a serving_input_receiver_fn expecting fed tf.Examples.
 
@@ -34,4 +34,4 @@ the provided feature_spec, and returns all parsed Tensors as features.
 
 #### Returns:
 
-  A serving_input_receiver_fn suitable for use in serving.
+A serving_input_receiver_fn suitable for use in serving.

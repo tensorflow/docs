@@ -25,7 +25,7 @@ sdca_optimizer(
     l2,
     num_loss_partitions,
     num_inner_iterations,
-    adaptative=None,
+    adaptative=False,
     name=None
 )
 ```
@@ -99,7 +99,7 @@ Dominik Csiba, Zheng Qu, Peter Richtarik. 2015
 
 #### Returns:
 
-  A tuple of `Tensor` objects (out_example_state_data, out_delta_sparse_weights, out_delta_dense_weights).
+A tuple of `Tensor` objects (out_example_state_data, out_delta_sparse_weights, out_delta_dense_weights).
 
 * <b>`out_example_state_data`</b>: A `Tensor` of type `float32`. a list of vectors containing the updated example state
     data.

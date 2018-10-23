@@ -20,7 +20,7 @@ weighted_moments(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Normalization](../../../../api_guides/python/nn#Normalization)
 
@@ -39,4 +39,4 @@ Returns the frequency-weighted mean and variance of `x`.
 
 #### Returns:
 
-  Two tensors: `weighted_mean` and `weighted_variance`.
+Two tensors: `weighted_mean` and `weighted_variance`.

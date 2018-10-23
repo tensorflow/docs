@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/protobuf/tensorflow_server.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/protobuf/tensorflow_server.proto).
+Defined in [`tensorflow/core/protobuf/tensorflow_server.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/protobuf/tensorflow_server.proto).
 
 
 

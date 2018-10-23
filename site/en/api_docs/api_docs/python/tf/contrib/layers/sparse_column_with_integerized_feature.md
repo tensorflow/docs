@@ -19,7 +19,7 @@ sparse_column_with_integerized_feature(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/feature_column.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -56,7 +56,7 @@ values in the tensor which are always zero.)
 
 #### Returns:
 
-  An integerized _SparseColumn definition.
+An integerized _SparseColumn definition.
 
 
 #### Raises:

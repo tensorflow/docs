@@ -11,69 +11,149 @@ page_type: reference
 ``` python
 expectation(
     f,
-    p,
-    z=None,
-    n=None,
-    seed=None,
-    name='expectation'
+    samples,
+    log_prob=None,
+    use_reparametrization=True,
+    axis=0,
+    keep_dims=False,
+    name=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
 
 See the guide: [BayesFlow Monte Carlo (contrib) > Ops](../../../../../../api_guides/python/contrib.bayesflow.monte_carlo#Ops)
 
-Monte Carlo estimate of an expectation:  `E_p[f(Z)]` with sample mean.
+Computes the Monte-Carlo approximation of `E_p[f(X)]`.
 
-This `Op` returns
+This function computes the Monte-Carlo approximation of an expectation, i.e.,
 
+```none
+E_p[f(X)] approx= m**-1 sum_i^m f(x_j),  x_j ~iid p(X)
 ```
-n^{-1} sum_{i=1}^n f(z_i),  where z_i ~ p
-\approx E_p[f(Z)]
+
+where:
+
+- `x_j = samples[j, ...]`,
+- `log(p(samples)) = log_prob(samples)` and
+- `m = prod(shape(samples)[axis])`.
+
+Tricks: Reparameterization and Score-Gradient
+
+When p is "reparameterized", i.e., a diffeomorphic transformation of a
+parameterless distribution (e.g.,
+`Normal(Y; m, s) <=> Y = sX + m, X ~ Normal(0,1)`), we can swap gradient and
+expectation, i.e.,
+`grad[ Avg{ s_i : i=1...n } ] = Avg{ grad[s_i] : i=1...n }` where
+`S_n = Avg{s_i}` and `s_i = f(x_i), x_i ~ p`.
+
+However, if p is not reparameterized, TensorFlow's gradient will be incorrect
+since the chain-rule stops at samples of non-reparameterized distributions.
+(The non-differentiated result, `approx_expectation`, is the same regardless
+of `use_reparametrization`.) In this circumstance using the Score-Gradient
+trick results in an unbiased gradient, i.e.,
+
+```none
+grad[ E_p[f(X)] ]
+= grad[ int dx p(x) f(x) ]
+= int dx grad[ p(x) f(x) ]
+= int dx [ p'(x) f(x) + p(x) f'(x) ]
+= int dx p(x) [p'(x) / p(x) f(x) + f'(x) ]
+= int dx p(x) grad[ f(x) p(x) / stop_grad[p(x)] ]
+= E_p[ grad[ f(x) p(x) / stop_grad[p(x)] ] ]
 ```
 
-User supplies either `Tensor` of samples `z`, or number of samples to draw `n`
+Unless p is not reparametrized, it is usually preferable to
+`use_reparametrization = True`.
+
+Warning: users are responsible for verifying `p` is a "reparameterized"
+distribution.
+
+Example Use:
+
+```python
+bf = tf.contrib.bayesflow
+ds = tf.contrib.distributions
+
+# Monte-Carlo approximation of a reparameterized distribution, e.g., Normal.
+
+num_draws = int(1e5)
+p = ds.Normal(loc=0., scale=1.)
+q = ds.Normal(loc=1., scale=2.)
+exact_kl_normal_normal = ds.kl_divergence(p, q)
+# ==> 0.44314718
+approx_kl_normal_normal = bf.expectation(
+    f=lambda x: p.log_prob(x) - q.log_prob(x),
+    samples=p.sample(num_draws, seed=42),
+    log_prob=p.log_prob,
+    use_reparametrization=(p.reparameterization_type
+                           == distribution.FULLY_REPARAMETERIZED))
+# ==> 0.44632751
+# Relative Error: <1%
+
+# Monte-Carlo approximation of non-reparameterized distribution, e.g., Gamma.
+
+num_draws = int(1e5)
+p = ds.Gamma(concentration=1., rate=1.)
+q = ds.Gamma(concentration=2., rate=3.)
+exact_kl_gamma_gamma = ds.kl_divergence(p, q)
+# ==> 0.37999129
+approx_kl_gamma_gamma = bf.expectation(
+    f=lambda x: p.log_prob(x) - q.log_prob(x),
+    samples=p.sample(num_draws, seed=42),
+    log_prob=p.log_prob,
+    use_reparametrization=(p.reparameterization_type
+                           == distribution.FULLY_REPARAMETERIZED))
+# ==> 0.37696719
+# Relative Error: <1%
+
+# For comparing the gradients, see `monte_carlo_test.py`.
+```
+
+Note: The above example is for illustration only. To compute approximate
+KL-divergence, the following is preferred:
+
+```python
+approx_kl_p_q = bf.monte_carlo_csiszar_f_divergence(
+    f=bf.kl_reverse,
+    p_log_prob=q.log_prob,
+    q=p,
+    num_draws=num_draws)
+```
 
 #### Args:
 
-* <b>`f`</b>: Callable mapping samples from `p` to `Tensors`.
-* <b>`p`</b>:  `tf.contrib.distributions.Distribution`.
-* <b>`z`</b>:  `Tensor` of samples from `p`, produced by `p.sample` for some `n`.
-* <b>`n`</b>:  Integer `Tensor`.  Number of samples to generate if `z` is not provided.
-* <b>`seed`</b>:  Python integer to seed the random number generator.
-* <b>`name`</b>:  A name to give this `Op`.
+* <b>`f`</b>: Python callable which can return `f(samples)`.
+* <b>`samples`</b>: `Tensor` of samples used to form the Monte-Carlo approximation of
+    `E_p[f(X)]`.  A batch of samples should be indexed by `axis` dimensions.
+* <b>`log_prob`</b>: Python callable which can return `log_prob(samples)`. Must
+    correspond to the natural-logarithm of the pdf/pmf of each sample. Only
+    required/used if `use_reparametrization=False`.
+    Default value: `None`.
+* <b>`use_reparametrization`</b>: Python `bool` indicating that the approximation
+    should use the fact that the gradient of samples is unbiased. Whether
+    `True` or `False`, this arg only affects the gradient of the resulting
+    `approx_expectation`.
+    Default value: `True`.
+* <b>`axis`</b>: The dimensions to average. If `None`, averages all
+    dimensions.
+    Default value: `0` (the left-most dimension).
+* <b>`keep_dims`</b>: If True, retains averaged dimensions using size `1`.
+    Default value: `False`.
+* <b>`name`</b>: A `name_scope` for operations created by this function.
+    Default value: `None` (which implies "expectation").
 
 
 #### Returns:
 
-  A `Tensor` with the same `dtype` as `p`.
+* <b>`approx_expectation`</b>: `Tensor` corresponding to the Monte-Carlo approximation
+    of `E_p[f(X)]`.
 
-Example:
 
-```python
-N_samples = 10000
+#### Raises:
 
-distributions = tf.contrib.distributions
-
-dist = distributions.Uniform([0.0, 0.0], [1.0, 2.0])
-elementwise_mean = lambda x: x
-mean_sum = lambda x: tf.reduce_sum(x, 1)
-
-estimate_elementwise_mean_tf = monte_carlo.expectation(elementwise_mean,
-                                                       dist,
-                                                       n=N_samples)
-estimate_mean_sum_tf = monte_carlo.expectation(mean_sum,
-                                               dist,
-                                               n=N_samples)
-
-with tf.Session() as sess:
-  estimate_elementwise_mean, estimate_mean_sum = (
-      sess.run([estimate_elementwise_mean_tf, estimate_mean_sum_tf]))
-print estimate_elementwise_mean
->>> np.array([ 0.50018013  1.00097895], dtype=np.float32)
-print estimate_mean_sum
->>> 1.49571
-
-```
+* <b>`ValueError`</b>: if `f` is not a Python `callable`.
+* <b>`ValueError`</b>: if `use_reparametrization=False` and `log_prob` is not a Python
+    `callable`.

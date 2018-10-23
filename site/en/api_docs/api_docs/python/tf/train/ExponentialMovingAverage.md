@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/moving_averages.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/moving_averages.py).
+Defined in [`tensorflow/python/training/moving_averages.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/moving_averages.py).
 
 See the guide: [Training > Moving Averages](../../../../api_guides/python/train#Moving_Averages)
 
@@ -65,14 +65,12 @@ opt_op = opt.minimize(my_loss, [var0, var1])
 # Create an ExponentialMovingAverage object
 ema = tf.train.ExponentialMovingAverage(decay=0.9999)
 
-# Create the shadow variables, and add ops to maintain moving averages
-# of var0 and var1.
-maintain_averages_op = ema.apply([var0, var1])
-
-# Create an op that will update the moving averages after each training
-# step.  This is what we will use in place of the usual training op.
 with tf.control_dependencies([opt_op]):
-    training_op = tf.group(maintain_averages_op)
+    # Create the shadow variables, and add ops to maintain moving averages
+    # of var0 and var1. This also creates an op that will update the moving
+    # averages after each training step.  This is what we will use in place
+    # of the usual training op.
+    training_op = ema.apply([var0, var1])
 
 ...train the model by running training_op...
 ```
@@ -165,7 +163,7 @@ variables.
 
 #### Returns:
 
-  An Operation that updates the moving averages.
+An Operation that updates the moving averages.
 
 
 #### Raises:
@@ -189,8 +187,8 @@ Returns the `Variable` holding the average of `var`.
 
 #### Returns:
 
-  A `Variable` object or `None` if the moving average of `var`
-  is not maintained.
+A `Variable` object or `None` if the moving average of `var`
+is not maintained.
 
 <h3 id="average_name"><code>average_name</code></h3>
 
@@ -218,9 +216,9 @@ to restore the variable from the moving average value with:
 
 #### Returns:
 
-  A string: The name of the variable that will be used or was used
-  by the `ExponentialMovingAverage class` to hold the moving average of
-  `var`.
+A string: The name of the variable that will be used or was used
+by the `ExponentialMovingAverage class` to hold the moving average of
+`var`.
 
 <h3 id="variables_to_restore"><code>variables_to_restore</code></h3>
 
@@ -256,9 +254,9 @@ Below is an example of such mapping:
 
 #### Returns:
 
-  A map from restore_names to variables. The restore_name can be the
-  moving_average version of the variable name if it exist, or the original
-  variable name.
+A map from restore_names to variables. The restore_name can be the
+moving_average version of the variable name if it exist, or the original
+variable name.
 
 
 

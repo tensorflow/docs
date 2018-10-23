@@ -14,7 +14,7 @@ Inherits From: [`ExternalOptimizerInterface`](../../../tf/contrib/opt/ExternalOp
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/external_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/opt/python/training/external_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/external_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/opt/python/training/external_optimizer.py).
 
 Wrapper allowing `scipy.optimize.minimize` to operate a `tf.Session`.
 
@@ -118,7 +118,7 @@ Initialize a new interface instance.
       than 2, etc.
     * `(-np.infty, [[1, 2, 3], [4, 5, 6]])`: Entry `var[0, 0]` less than 1,
       `var[0, 1]` less than 2, etc.
-  **optimizer_kwargs: Other subclass-specific keyword arguments.
+* <b>`**optimizer_kwargs`</b>: Other subclass-specific keyword arguments.
 
 <h3 id="minimize"><code>minimize</code></h3>
 
@@ -153,7 +153,7 @@ executing commands to control a `Session`.
     flattened into a single vector.
 * <b>`loss_callback`</b>: A function to be called every time the loss and gradients
     are computed, with evaluated fetches supplied as positional arguments.
-  **run_kwargs: kwargs to pass to `session.run`.
+* <b>`**run_kwargs`</b>: kwargs to pass to `session.run`.
 
 
 

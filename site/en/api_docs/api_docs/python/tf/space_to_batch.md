@@ -19,7 +19,7 @@ space_to_batch(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -128,4 +128,4 @@ block size.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
+A `Tensor`. Has the same type as `input`.

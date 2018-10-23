@@ -17,7 +17,7 @@ add_n(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Basic Math Functions](../../../api_guides/python/math_ops#Basic_Math_Functions)
 
@@ -31,7 +31,7 @@ Adds all input tensors element-wise.
 
 #### Returns:
 
-  A `Tensor` of same shape and type as the elements of `inputs`.
+A `Tensor` of same shape and type as the elements of `inputs`.
 
 
 #### Raises:

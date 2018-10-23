@@ -18,7 +18,7 @@ boolean_mask(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -28,7 +28,7 @@ Apply boolean mask to tensor.  Numpy equivalent is `tensor[mask]`.
 # 1-D example
 tensor = [0, 1, 2, 3]
 mask = np.array([True, False, True, False])
-boolean_mask(tensor, mask) ==> [0, 2]
+boolean_mask(tensor, mask)  # [0, 2]
 ```
 
 In general, `0 < dim(mask) = K <= dim(tensor)`, and `mask`'s shape must match
@@ -45,8 +45,8 @@ where `(i1,...,iK)` is the ith `True` entry of `mask` (row-major order).
 
 #### Returns:
 
-  (N-K+1)-dimensional tensor populated by entries in `tensor` corresponding
-  to `True` values in `mask`.
+(N-K+1)-dimensional tensor populated by entries in `tensor` corresponding
+to `True` values in `mask`.
 
 
 #### Raises:
@@ -59,5 +59,5 @@ Examples:
 # 2-D example
 tensor = [[1, 2], [3, 4], [5, 6]]
 mask = np.array([True, False, True])
-boolean_mask(tensor, mask) ==> [[1, 2], [5, 6]]
+boolean_mask(tensor, mask)  # [[1, 2], [5, 6]]
 ```

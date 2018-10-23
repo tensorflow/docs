@@ -17,7 +17,7 @@ get_variables_by_name(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/variables.py).
 
 See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
 
@@ -31,4 +31,4 @@ Gets the list of variables that were given that name.
 
 #### Returns:
 
-  a copied list of variables with the given name and scope.
+a copied list of variables with the given name and scope.

@@ -19,7 +19,7 @@ make_list_of_op(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/util.py).
+Defined in [`tensorflow/contrib/graph_editor/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/util.py).
 
 See the guide: [Graph Editor (contrib) > Module: util](../../../../../api_guides/python/contrib.graph_editor#Module_util)
 
@@ -35,7 +35,7 @@ Convert ops to a list of `tf.Operation`.
 
 #### Returns:
 
-  A newly created list of `tf.Operation`.
+A newly created list of `tf.Operation`.
 
 #### Raises:
 

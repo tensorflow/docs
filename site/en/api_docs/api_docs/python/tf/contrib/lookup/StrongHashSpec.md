@@ -14,7 +14,7 @@ Inherits From: [`HasherSpec`](../../../tf/contrib/lookup/HasherSpec)
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/lookup_ops.py).
 
 A structure to specify a key of the strong keyed hash spec.
 
@@ -43,6 +43,7 @@ Alias for field number 1
 <h3 id="__new__"><code>__new__</code></h3>
 
 ``` python
+@staticmethod
 __new__(
     cls,
     key

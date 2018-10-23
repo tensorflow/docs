@@ -17,7 +17,7 @@ l2_regularizer(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/regularizers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/regularizers.py).
 
 See the guide: [Layers (contrib) > Regularizers](../../../../../api_guides/python/contrib.layers#Regularizers)
 
@@ -33,7 +33,7 @@ Small values of L2 can help prevent overfitting the training data.
 
 #### Returns:
 
-  A function with signature `l2(weights)` that applies L2 regularization.
+A function with signature `l2(weights)` that applies L2 regularization.
 
 
 #### Raises:

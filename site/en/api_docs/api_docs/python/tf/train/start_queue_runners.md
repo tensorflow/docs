@@ -25,9 +25,9 @@ start_queue_runners(
 
 
 
-Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/queue_runner_impl.py).
+Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/queue_runner_impl.py).
 
-See the guides: [Reading data > Reading from files](../../../../api_guides/python/reading_data#Reading_from_files), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
+See the guides: [Reading data > Reading from files](../../../../api_guides/python/reading_data#Reading_from_files), [Threading and Queues > Queue usage overview](../../../../api_guides/python/threading_and_queues#Queue_usage_overview), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
 
 Starts all queue runners collected in the graph.
 
@@ -55,4 +55,4 @@ the list of all threads.
 
 #### Returns:
 
-  A list of threads.
+A list of threads.

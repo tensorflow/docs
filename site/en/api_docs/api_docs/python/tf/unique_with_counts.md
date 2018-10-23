@@ -11,7 +11,7 @@ page_type: reference
 ``` python
 unique_with_counts(
     x,
-    out_idx=None,
+    out_idx=tf.int32,
     name=None
 )
 ```
@@ -51,7 +51,7 @@ count ==> [2, 1, 3, 1, 2]
 
 #### Returns:
 
-  A tuple of `Tensor` objects (y, idx, count).
+A tuple of `Tensor` objects (y, idx, count).
 
 * <b>`y`</b>: A `Tensor`. Has the same type as `x`. 1-D.
 * <b>`idx`</b>: A `Tensor` of type `out_idx`. 1-D.

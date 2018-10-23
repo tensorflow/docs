@@ -36,4 +36,4 @@ Computes half the L2 norm of a tensor without the `sqrt`:
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `t`. 0-D.
+A `Tensor`. Has the same type as `t`. 0-D.

@@ -26,7 +26,7 @@ bidirectional_dynamic_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/rnn.py).
+Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/rnn.py).
 
 See the guide: [Neural Network > Recurrent Neural Networks](../../../../api_guides/python/nn#Recurrent_Neural_Networks)
 
@@ -84,8 +84,8 @@ given.
 
 #### Returns:
 
-  A tuple (outputs, output_states) where:
-    outputs: A tuple (output_fw, output_bw) containing the forward and
+A tuple (outputs, output_states) where:
+* <b>`outputs`</b>: A tuple (output_fw, output_bw) containing the forward and
       the backward rnn output `Tensor`.
       If time_major == False (default),
         output_fw will be a `Tensor` shaped:
@@ -101,7 +101,7 @@ given.
       in the `bidirectional_rnn`. If the concatenated one is preferred,
       the forward and backward outputs can be concatenated as
       `tf.concat(outputs, 2)`.
-    output_states: A tuple (output_state_fw, output_state_bw) containing
+* <b>`output_states`</b>: A tuple (output_state_fw, output_state_bw) containing
       the forward and the backward final states of bidirectional rnn.
 
 

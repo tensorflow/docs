@@ -23,7 +23,7 @@ read_batch_record_features(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_io/graph_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py).
+Defined in [`tensorflow/contrib/learn/python/learn/learn_io/graph_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py).
 
 See the guide: [Learn (contrib) > Input processing](../../../../../api_guides/python/contrib.learn#Input_processing)
 
@@ -52,7 +52,7 @@ See more detailed description in `read_examples`.
 
 #### Returns:
 
-  A dict of `Tensor` or `SparseTensor` objects for each in `features`.
+A dict of `Tensor` or `SparseTensor` objects for each in `features`.
 
 
 #### Raises:

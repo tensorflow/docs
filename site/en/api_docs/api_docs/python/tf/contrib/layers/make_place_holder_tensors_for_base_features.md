@@ -14,7 +14,7 @@ make_place_holder_tensors_for_base_features(feature_columns)
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/feature_column.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -27,5 +27,5 @@ Returns placeholder tensors for inference.
 
 #### Returns:
 
-  A dict mapping feature keys to SparseTensors (sparse columns) or
-  placeholder Tensors (dense columns).
+A dict mapping feature keys to SparseTensors (sparse columns) or
+placeholder Tensors (dense columns).

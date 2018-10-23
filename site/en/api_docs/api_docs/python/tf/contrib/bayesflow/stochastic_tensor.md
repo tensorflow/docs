@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/stochastic_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/stochastic_tensor.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/stochastic_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/stochastic_tensor.py).
 
 Support for creating Stochastic Tensors.
 

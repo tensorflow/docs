@@ -22,7 +22,7 @@ assert_same_float_dtype(
 
 
 
-Defined in [`tensorflow/python/ops/check_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/check_ops.py).
+Defined in [`tensorflow/python/ops/check_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/check_ops.py).
 
 See the guide: [Framework (contrib)](../../../api_guides/python/contrib.framework)
 
@@ -42,7 +42,7 @@ the function will return `dtypes.float32`.
 
 #### Returns:
 
-  Validated type.
+Validated type.
 
 #### Raises:
 

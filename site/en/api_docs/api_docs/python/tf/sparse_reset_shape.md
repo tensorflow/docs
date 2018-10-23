@@ -17,14 +17,15 @@ sparse_reset_shape(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Manipulation](../../../api_guides/python/sparse_ops#Manipulation)
 
 Resets the shape of a `SparseTensor` with indices and values unchanged.
 
 If `new_shape` is None, returns a copy of `sp_input` with its shape reset
-to the tight bounding box of `sp_input`.
+to the tight bounding box of `sp_input`. This will be a shape consisting of
+all zeros if sp_input has no values.
 
 If `new_shape` is provided, then it must be larger or equal in all dimensions
 compared to the shape of `sp_input`. When this condition is met, the returned
@@ -64,9 +65,9 @@ For example:
 
 #### Returns:
 
-  A `SparseTensor` indices and values unchanged from `input_sp`. Its shape is
-    `new_shape` if that is set. Otherwise it is  the tight bounding box of
-     `input_sp`
+A `SparseTensor` indices and values unchanged from `input_sp`. Its shape is
+  `new_shape` if that is set. Otherwise it is the tight bounding box of
+   `input_sp`
 
 
 #### Raises:
@@ -76,7 +77,6 @@ For example:
     that of `sp_input` (if shapes are known when graph is constructed).
 * <b>`ValueError`</b>:  If `new_shape` is determined during graph build to have
     dimension sizes that are too small.
-* <b>`OpError`</b>:
-    - If `new_shape` has dimension sizes that are too small.
+* <b>`OpError`</b>:     - If `new_shape` has dimension sizes that are too small.
     - If shapes are not known during graph construction time, and during run
       time it is found out that the ranks do not match.

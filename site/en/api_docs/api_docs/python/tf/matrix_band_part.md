@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.matrix_band_part
 
+### Aliases:
+
+* `tf.linalg.band_part`
+* `tf.matrix_band_part`
+
 ``` python
 matrix_band_part(
     input,
@@ -79,5 +84,5 @@ Useful special cases:
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
-  Rank `k` tensor of the same shape as input. The extracted banded tensor.
+A `Tensor`. Has the same type as `input`.
+Rank `k` tensor of the same shape as input. The extracted banded tensor.

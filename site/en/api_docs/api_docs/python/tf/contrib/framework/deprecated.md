@@ -11,13 +11,14 @@ page_type: reference
 ``` python
 deprecated(
     date,
-    instructions
+    instructions,
+    warn_once=True
 )
 ```
 
 
 
-Defined in [`tensorflow/python/util/deprecation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/deprecation.py).
+Defined in [`tensorflow/python/util/deprecation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/deprecation.py).
 
 See the guide: [Framework (contrib) > Deprecation](../../../../../api_guides/python/contrib.framework#Deprecation)
 
@@ -43,11 +44,13 @@ to the rest of the docstring.
     Must be ISO 8601 (YYYY-MM-DD), or None.
 * <b>`instructions`</b>: String. Instructions on how to update code using the
     deprecated function.
+* <b>`warn_once`</b>: Boolean. Set to `True` to warn only the first time the decorated
+    function is called. Otherwise, every call will log a warning.
 
 
 #### Returns:
 
-  Decorated function or method.
+Decorated function or method.
 
 
 #### Raises:

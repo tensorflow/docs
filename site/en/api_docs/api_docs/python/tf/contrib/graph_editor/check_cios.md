@@ -18,7 +18,7 @@ check_cios(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/select.py).
+Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/select.py).
 
 See the guide: [Graph Editor (contrib) > Module: select](../../../../../api_guides/python/contrib.graph_editor#Module_select)
 
@@ -36,9 +36,9 @@ Do various check on control_inputs and control_outputs.
 
 #### Returns:
 
-  A tuple `(control_inputs, control_outputs)` where:
-    `control_inputs` is a boolean indicating whether to use control inputs.
-    `control_outputs` is an instance of util.ControlOutputs or None
+A tuple `(control_inputs, control_outputs)` where:
+  `control_inputs` is a boolean indicating whether to use control inputs.
+  `control_outputs` is an instance of util.ControlOutputs or None
 
 #### Raises:
 

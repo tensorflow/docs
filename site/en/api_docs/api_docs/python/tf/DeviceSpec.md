@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/device.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/device.py).
+Defined in [`tensorflow/python/framework/device.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/device.py).
 
 Represents a (possibly partial) specification for a TensorFlow device.
 
@@ -99,6 +99,7 @@ Create a new `DeviceSpec` object.
 <h3 id="from_string"><code>from_string</code></h3>
 
 ``` python
+@staticmethod
 from_string(spec)
 ```
 
@@ -116,7 +117,7 @@ Construct a `DeviceSpec` from a string.
 
 #### Returns:
 
-  A DeviceSpec.
+A DeviceSpec.
 
 <h3 id="merge_from"><code>merge_from</code></h3>
 
@@ -150,7 +151,7 @@ Parse a `DeviceSpec` name into its components.
 
 #### Returns:
 
-  The `DeviceSpec`.
+The `DeviceSpec`.
 
 
 #### Raises:
@@ -167,8 +168,8 @@ Return a string representation of this `DeviceSpec`.
 
 #### Returns:
 
-  a string of the form
-  /job:<name>/replica:<id>/task:<id>/device:<device_type>:<id>.
+a string of the form
+/job:<name>/replica:<id>/task:<id>/device:<device_type>:<id>.
 
 
 

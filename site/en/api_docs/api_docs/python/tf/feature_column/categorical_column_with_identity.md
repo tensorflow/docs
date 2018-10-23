@@ -18,7 +18,7 @@ categorical_column_with_identity(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/feature_column/feature_column.py).
 
 A `_CategoricalColumn` that returns identity values.
 
@@ -71,7 +71,7 @@ dense_tensor = input_layer(features, columns)
 
 #### Returns:
 
-  A `_CategoricalColumn` that returns identity values.
+A `_CategoricalColumn` that returns identity values.
 
 
 #### Raises:

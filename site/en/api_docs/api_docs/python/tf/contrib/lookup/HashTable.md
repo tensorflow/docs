@@ -14,16 +14,16 @@ Inherits From: [`InitializableLookupTableBase`](../../../tf/contrib/lookup/Initi
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/lookup_ops.py).
 
 A generic hash table implementation.
 
 Example usage:
 
 ```python
-table = tf.contrib.lookup.HashTable(
-    tf.contrib.lookup.KeyValueTensorInitializer(keys, values), -1)
-out = table.lookup(input_tensor).
+table = tf.HashTable(
+    tf.KeyValueTensorInitializer(keys, values), -1)
+out = table.lookup(input_tensor)
 table.init.run()
 print(out.eval())
 ```
@@ -88,7 +88,7 @@ the table will be immutable.
 
 #### Returns:
 
-  A `HashTable` object.
+A `HashTable` object.
 
 <h3 id="lookup"><code>lookup</code></h3>
 
@@ -111,7 +111,7 @@ The `default_value` is used for keys not present in the table.
 
 #### Returns:
 
-  A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
+A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
 
 
 #### Raises:
@@ -134,7 +134,7 @@ Compute the number of elements in this table.
 
 #### Returns:
 
-  A scalar tensor containing the number of elements in this table.
+A scalar tensor containing the number of elements in this table.
 
 
 

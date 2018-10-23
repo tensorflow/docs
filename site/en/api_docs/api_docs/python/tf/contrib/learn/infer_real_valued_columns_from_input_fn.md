@@ -14,7 +14,7 @@ infer_real_valued_columns_from_input_fn(input_fn)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
 
 See the guide: [Learn (contrib) > Input processing](../../../../../api_guides/python/contrib.learn#Input_processing)
 
@@ -33,4 +33,4 @@ it.
 
 #### Returns:
 
-  List of `FeatureColumn` objects.
+List of `FeatureColumn` objects.

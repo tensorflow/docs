@@ -11,13 +11,14 @@ page_type: reference
 ``` python
 string_split(
     source,
-    delimiter=' '
+    delimiter=' ',
+    skip_empty=True
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/string_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/string_ops.py).
+Defined in [`tensorflow/python/ops/string_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/string_ops.py).
 
 See the guide: [Strings > Splitting](../../../api_guides/python/string_ops#Splitting)
 
@@ -49,6 +50,7 @@ st.values = ['hello', 'world', 'a', 'b', 'c']
 * <b>`source`</b>: `1-D` string `Tensor`, the strings to split.
 * <b>`delimiter`</b>: `0-D` string `Tensor`, the delimiter character, the string should
     be length 0 or 1.
+* <b>`skip_empty`</b>: A `bool`. If `True`, skip the empty strings from the result.
 
 
 #### Raises:
@@ -58,6 +60,6 @@ st.values = ['hello', 'world', 'a', 'b', 'c']
 
 #### Returns:
 
-  A `SparseTensor` of rank `2`, the strings split according to the delimiter.
-  The first column of the indices corresponds to the row in `source` and the
-  second column corresponds to the index of the split component in this row.
+A `SparseTensor` of rank `2`, the strings split according to the delimiter.
+The first column of the indices corresponds to the row in `source` and the
+second column corresponds to the index of the split component in this row.

@@ -17,7 +17,7 @@ zero_fraction(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 Returns the fraction of zeros in `value`.
 
@@ -38,4 +38,4 @@ This is useful in summaries to measure and report sparsity.  For example,
 
 #### Returns:
 
-  The fraction of zeros in `value`, with type `float32`.
+The fraction of zeros in `value`, with type `float32`.

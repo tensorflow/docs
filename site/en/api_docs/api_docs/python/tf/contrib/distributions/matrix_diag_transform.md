@@ -18,7 +18,7 @@ matrix_diag_transform(
 
 
 
-Defined in [`tensorflow/python/ops/distributions/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/distributions/util.py).
+Defined in [`tensorflow/python/ops/distributions/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/distributions/util.py).
 
 See the guide: [Statistical Distributions (contrib) > Multivariate distributions](../../../../../api_guides/python/contrib.distributions#Multivariate_distributions)
 
@@ -35,8 +35,8 @@ matrix = tf.reshape(matrix_values, (batch_size, 2, 2))
 # valid Cholesky factor.
 chol = matrix_diag_transform(matrix, transform=tf.nn.softplus)
 
-# OperatorPDCholesky ignores the upper triangle.
-operator = OperatorPDCholesky(chol)
+# LinearOperatorTriL ignores the upper triangle.
+operator = LinearOperatorTriL(chol)
 ```
 
 Example of heteroskedastic 2-D linear regression.
@@ -71,4 +71,4 @@ loss = -1 * tf.reduce_mean(dist.log_prob(labels))
 
 #### Returns:
 
-  A `Tensor` with same shape and `dtype` as `matrix`.
+A `Tensor` with same shape and `dtype` as `matrix`.

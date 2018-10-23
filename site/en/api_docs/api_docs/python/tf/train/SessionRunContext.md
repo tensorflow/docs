@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/session_run_hook.py).
+Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/session_run_hook.py).
 
 See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
 
@@ -36,7 +36,7 @@ field is equal to SessionRunArgs(a, b).
 
 #### Returns:
 
- A `SessionRunArgs` object
+A `SessionRunArgs` object
 
 <h3 id="session"><code>session</code></h3>
 
@@ -49,7 +49,7 @@ Returns whether a stop is requested or not.
 If true, `MonitoredSession` stops iterations.
 #### Returns:
 
-  A `bool`
+A `bool`
 
 
 

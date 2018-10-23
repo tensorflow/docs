@@ -19,7 +19,7 @@ deserialize_many_sparse(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 Deserialize and concatenate `SparseTensors` from a serialized minibatch.
 
@@ -76,7 +76,7 @@ then the final deserialized `SparseTensor` will be:
 
 #### Returns:
 
-  A `SparseTensor` representing the deserialized `SparseTensor`s,
-  concatenated along the `SparseTensor`s' first dimension.
+A `SparseTensor` representing the deserialized `SparseTensor`s,
+concatenated along the `SparseTensor`s' first dimension.
 
-  All of the serialized `SparseTensor`s must have had the same rank and type.
+All of the serialized `SparseTensor`s must have had the same rank and type.

@@ -26,7 +26,7 @@ static_state_saving_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/rnn.py).
+Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/rnn.py).
 
 See the guide: [RNN and Cells (contrib) > Recurrent Neural Networks](../../../../api_guides/python/contrib.rnn#Recurrent_Neural_Networks)
 
@@ -50,9 +50,9 @@ RNN that accepts a state saver for time-truncated RNN calculation.
 
 #### Returns:
 
-  A pair (outputs, state) where:
-    outputs is a length T list of outputs (one for each input)
-    states is the final state
+A pair (outputs, state) where:
+  outputs is a length T list of outputs (one for each input)
+  states is the final state
 
 
 #### Raises:

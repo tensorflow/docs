@@ -14,7 +14,7 @@ flatten_dict_items(dictionary)
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/nest.py).
 
 Returns a dictionary with flattened keys and values.
 
@@ -41,7 +41,7 @@ The input dictionary must satisfy two properties:
 
 #### Returns:
 
-  The zipped dictionary.
+The zipped dictionary.
 
 
 #### Raises:

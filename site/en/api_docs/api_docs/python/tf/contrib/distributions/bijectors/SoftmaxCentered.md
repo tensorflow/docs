@@ -14,7 +14,7 @@ Inherits From: [`Bijector`](../../../../tf/distributions/bijectors/Bijector)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/softmax_centered_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/distributions/python/ops/bijectors/softmax_centered_impl.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/softmax_centered_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/distributions/python/ops/bijectors/softmax_centered_impl.py).
 
 See the guide: [Random variable transformations (contrib) > Bijectors](../../../../../../api_guides/python/contrib.distributions.bijectors#Bijectors)
 
@@ -113,7 +113,7 @@ Returns the forward `Bijector` evaluation, i.e., X = g(Y).
 
 #### Returns:
 
-  `Tensor`.
+`Tensor`.
 
 
 #### Raises:
@@ -185,7 +185,8 @@ Returns both the forward_log_det_jacobian.
 
 #### Returns:
 
-  `Tensor`.
+`Tensor`, if this bijector is injective.
+  If not injective this is not implemented.
 
 
 #### Raises:
@@ -193,7 +194,8 @@ Returns both the forward_log_det_jacobian.
 * <b>`TypeError`</b>: if `self.dtype` is specified and `y.dtype` is not
     `self.dtype`.
 * <b>`NotImplementedError`</b>: if neither `_forward_log_det_jacobian`
-    nor {`_inverse`, `_inverse_log_det_jacobian`} are implemented.
+    nor {`_inverse`, `_inverse_log_det_jacobian`} are implemented, or
+    this is a non-injective bijector.
 
 <h3 id="inverse"><code>inverse</code></h3>
 
@@ -214,7 +216,9 @@ Returns the inverse `Bijector` evaluation, i.e., X = g^{-1}(Y).
 
 #### Returns:
 
-  `Tensor`.
+`Tensor`, if this bijector is injective.
+  If not injective, returns the k-tuple containing the unique
+  `k` points `(x1, ..., xk)` such that `g(xi) = y`.
 
 
 #### Raises:
@@ -280,7 +284,8 @@ Returns the (log o det o Jacobian o inverse)(y).
 
 Mathematically, returns: `log(det(dX/dY))(Y)`. (Recall that: `X=g^{-1}(Y)`.)
 
-Note that `forward_log_det_jacobian` is the negative of this function.
+Note that `forward_log_det_jacobian` is the negative of this function,
+evaluated at `g^{-1}(y)`.
 
 #### Args:
 
@@ -290,7 +295,10 @@ Note that `forward_log_det_jacobian` is the negative of this function.
 
 #### Returns:
 
-  `Tensor`.
+`Tensor`, if this bijector is injective.
+  If not injective, returns the tuple of local log det
+  Jacobians, `log(det(Dg_i^{-1}(y)))`, where `g_i` is the restriction
+  of `g` to the `ith` partition `Di`.
 
 
 #### Raises:

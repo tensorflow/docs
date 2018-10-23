@@ -17,7 +17,7 @@ init_from_checkpoint(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
+Defined in [`tensorflow/contrib/framework/python/framework/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
 
 See the guide: [Framework (contrib) > Checkpoint utilities](../../../../../api_guides/python/contrib.framework#Checkpoint_utilities)
 
@@ -87,5 +87,5 @@ Example:
 
 #### Raises:
 
-  tf.errors.OpError: If missing checkpoints or tensors in checkpoints.
+* <b>`tf.errors.OpError`</b>: If missing checkpoints or tensors in checkpoints.
 * <b>`ValueError`</b>: If missing variables in current graph.

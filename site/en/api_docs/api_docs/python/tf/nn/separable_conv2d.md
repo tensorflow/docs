@@ -23,7 +23,7 @@ separable_conv2d(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 See the guides: [Layers (contrib) > Higher level ops for building neural network layers](../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers), [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
@@ -36,7 +36,7 @@ dimensions `1` and `2`.
 
 In detail,
 
-    output[b, i, j, k] = sum_{di, dj, q, r]
+    output[b, i, j, k] = sum_{di, dj, q, r}
         input[b, strides[1] * i + di, strides[2] * j + dj, q] *
         depthwise_filter[di, dj, q, r] *
         pointwise_filter[0, 0, q * channel_multiplier + r, k]
@@ -71,6 +71,6 @@ to 1.
 
 #### Returns:
 
-  A 4-D `Tensor` with shape according to 'data_format'. For
-    example, with data_format="NHWC", shape is [batch, out_height,
-    out_width, out_channels].
+A 4-D `Tensor` with shape according to 'data_format'. For
+  example, with data_format="NHWC", shape is [batch, out_height,
+  out_width, out_channels].

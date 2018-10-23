@@ -18,11 +18,15 @@ remove_squeezable_dimensions(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/framework/tensor_util.py).
+Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/framework/tensor_util.py).
 
 See the guide: [Framework (contrib)](../../../../../api_guides/python/contrib.framework)
 
-Squeeze last dim if ranks of `predictions` and `labels` differ by 1.
+Squeeze last dim if ranks of `predictions` and `labels` differ by 1. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please switch to tf.confusion_matrix.remove_squeezable_dimensions. Note that order of the inputs and outputs of labels and predictions have also been switched.
 
 This will use static shape if available. Otherwise, it will add graph
 operations, which could result in a performance hit.
@@ -36,4 +40,4 @@ operations, which could result in a performance hit.
 
 #### Returns:
 
-  Tuple of `predictions` and `labels`, possibly with last dim squeezed.
+Tuple of `predictions` and `labels`, possibly with last dim squeezed.

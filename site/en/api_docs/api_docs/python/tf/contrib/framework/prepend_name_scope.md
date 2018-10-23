@@ -17,7 +17,7 @@ prepend_name_scope(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/ops.py).
 
 Prepends name scope to a name.
 
@@ -29,5 +29,5 @@ Prepends name scope to a name.
 
 #### Returns:
 
-  Name with name scope added, or the original name if import_scope
-  is None.
+Name with name scope added, or the original name if import_scope
+is None.

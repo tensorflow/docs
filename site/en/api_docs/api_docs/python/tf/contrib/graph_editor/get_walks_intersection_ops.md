@@ -23,7 +23,7 @@ get_walks_intersection_ops(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/select.py).
+Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/select.py).
 
 See the guide: [Graph Editor (contrib) > Module: select](../../../../../api_guides/python/contrib.graph_editor#Module_select)
 
@@ -54,8 +54,8 @@ Return the intersection of a forward and a backward walk.
 
 #### Returns:
 
-  A Python set of all the tf.Operation in the intersection of a forward and a
-    backward walk.
+A Python set of all the tf.Operation in the intersection of a forward and a
+  backward walk.
 
 #### Raises:
 

@@ -14,7 +14,7 @@ Inherits From: [`TrainingHelper`](../../../tf/contrib/seq2seq/TrainingHelper)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/helper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/helper.py).
 
 See the guide: [Seq2seq Library (contrib) > Dynamic Decoding](../../../../../api_guides/python/contrib.seq2seq#Dynamic_Decoding)
 
@@ -25,6 +25,14 @@ Returns False for sample_ids where no sampling took place; True elsewhere.
 ## Properties
 
 <h3 id="batch_size"><code>batch_size</code></h3>
+
+
+
+<h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
+
+
+
+<h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
 
 
 
@@ -41,7 +49,7 @@ __init__(
     sampling_probability,
     time_major=False,
     seed=None,
-    next_input_layer=None,
+    next_inputs_fn=None,
     auxiliary_inputs=None,
     name=None
 )
@@ -58,9 +66,9 @@ Initializer.
 * <b>`time_major`</b>: Python bool.  Whether the tensors in `inputs` are time major.
     If `False` (default), they are assumed to be batch major.
 * <b>`seed`</b>: The sampling seed.
-* <b>`next_input_layer`</b>: (Optional) An instance of `tf.layers.Layer`, i.e.,
-    `tf.layers.Dense`.  Optional layer to apply to the RNN output to create
-    the next input.
+* <b>`next_inputs_fn`</b>: (Optional) callable to apply to the RNN outputs to create
+    the next input when sampling. If `None` (default), the RNN outputs will
+    be used as the next inputs.
 * <b>`auxiliary_inputs`</b>: An optional (structure of) auxiliary input tensors with
     a shape that matches `inputs` in all but (potentially) the final
     dimension. These tensors will be concatenated to the sampled output or

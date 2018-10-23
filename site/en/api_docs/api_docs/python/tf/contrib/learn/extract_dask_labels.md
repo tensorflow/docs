@@ -14,7 +14,7 @@ extract_dask_labels(labels)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_io/dask_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/learn_io/dask_io.py).
+Defined in [`tensorflow/contrib/learn/python/learn/learn_io/dask_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/learn_io/dask_io.py).
 
 See the guide: [Learn (contrib) > Input processing](../../../../../api_guides/python/contrib.learn#Input_processing)
 
@@ -32,9 +32,9 @@ that can be iterated over.
 
 #### Returns:
 
-  A dask.DataFrame or dask.Series that can be iterated over.
-  If the supplied argument is neither a dask.DataFrame nor a dask.Series this
-  operation returns it without modification.
+A dask.DataFrame or dask.Series that can be iterated over.
+If the supplied argument is neither a dask.DataFrame nor a dask.Series this
+operation returns it without modification.
 
 
 #### Raises:

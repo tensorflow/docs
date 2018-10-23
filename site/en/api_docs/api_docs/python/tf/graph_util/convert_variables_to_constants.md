@@ -20,7 +20,7 @@ convert_variables_to_constants(
 
 
 
-Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/graph_util_impl.py).
+Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/graph_util_impl.py).
 
 Replaces all the variables in a graph with constants of the same values.
 
@@ -42,4 +42,4 @@ removal of a lot of ops related to loading and saving the variables.
 
 #### Returns:
 
-  GraphDef containing a simplified version of the original.
+GraphDef containing a simplified version of the original.

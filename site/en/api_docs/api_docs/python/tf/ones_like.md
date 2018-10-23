@@ -19,7 +19,7 @@ ones_like(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Constants, Sequences, and Random Values > Constant Value Tensors](../../../api_guides/python/constant_op#Constant_Value_Tensors)
 
@@ -32,8 +32,8 @@ specify a new type (`dtype`) for the returned tensor.
 For example:
 
 ```python
-# 'tensor' is [[1, 2, 3], [4, 5, 6]]
-tf.ones_like(tensor) ==> [[1, 1, 1], [1, 1, 1]]
+tensor = tf.constant([[1, 2, 3], [4, 5, 6]])
+tf.ones_like(tensor)  # [[1, 1, 1], [1, 1, 1]]
 ```
 
 #### Args:
@@ -49,4 +49,4 @@ tf.ones_like(tensor) ==> [[1, 1, 1], [1, 1, 1]]
 
 #### Returns:
 
-  A `Tensor` with all elements set to 1.
+A `Tensor` with all elements set to 1.

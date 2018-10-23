@@ -15,7 +15,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/platform/flags.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/platform/flags.py).
+Defined in [`tensorflow/python/platform/flags.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/platform/flags.py).
 
 Implementation of the flags interface.
 

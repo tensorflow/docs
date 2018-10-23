@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 Monotonic attention mechanism with Bahadanau-style energy function.
 
@@ -151,8 +151,8 @@ for all entries in the batch.
 
 #### Returns:
 
-  A `dtype` tensor shaped `[batch_size, alignments_size]`
-  (`alignments_size` is the values' `max_time`).
+A `dtype` tensor shaped `[batch_size, alignments_size]`
+(`alignments_size` is the values' `max_time`).
 
 
 

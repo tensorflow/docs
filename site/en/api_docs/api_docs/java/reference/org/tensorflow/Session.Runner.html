@@ -47,7 +47,7 @@
 <html devsite>
   <head>
     <title>Session.Runner</title>
-    <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+    <meta name="book_path" value="/versions/r1.4/_book.yaml" />
     <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
@@ -101,8 +101,8 @@
     <p>Run <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>s and evaluate <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.
 
  <p>A Runner runs the necessary graph fragments to execute every <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code> required to
- evaluate the <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s to fetch. The <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, int, org.tensorflow.Tensor)">feed(String, int, Tensor)</a></code> call allows callers
- to override the value of <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s in the graph by substituting the provided <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s for the outputs of the operations provided to <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, int, org.tensorflow.Tensor)">feed(String, int, Tensor)</a></code>.
+ evaluate the <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s to fetch. The <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, int, org.tensorflow.Tensor<?>)">feed(String, int, Tensor)</a></code> call allows callers
+ to override the value of <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s in the graph by substituting the provided <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s for the outputs of the operations provided to <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, int, org.tensorflow.Tensor<?>)">feed(String, int, Tensor)</a></code>.
 </p>
     
     
@@ -248,7 +248,7 @@
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, org.tensorflow.Tensor)">feed</a></span>(String operation, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a> t)
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, org.tensorflow.Tensor<?>)">feed</a></span>(String operation, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; t)
                 
                   <div class="jd-descrdiv">Avoid evaluating <code>operation</code> and substitute <code>t</code> for the value it produces.</div>
                 
@@ -269,7 +269,7 @@
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, int, org.tensorflow.Tensor)">feed</a></span>(String operation, int index, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a> t)
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, int, org.tensorflow.Tensor<?>)">feed</a></span>(String operation, int index, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; t)
                 
                   <div class="jd-descrdiv">Avoid evaluating the <code>index</code>-th output of <code>operation</code> by substituting <code>t</code>
  for the value it produces.</div>
@@ -291,7 +291,7 @@
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(org.tensorflow.Output, org.tensorflow.Tensor)">feed</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a> o, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a> t)
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(org.tensorflow.Output<?>, org.tensorflow.Tensor<?>)">feed</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;?&gt; o, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; t)
                 
                   <div class="jd-descrdiv">Use <code>t</code> instead of the Tensor referred to by executing the operation referred to by
  <code>output</code>.</div>
@@ -334,9 +334,9 @@
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#fetch(org.tensorflow.Output)">fetch</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a> output)
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#fetch(java.lang.String, int)">fetch</a></span>(String operation, int index)
                 
-                  <div class="jd-descrdiv">Makes <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> return the Tensor referred to by <code>output</code>.</div>
+                  <div class="jd-descrdiv">Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> return the <code>index</code>-th output of <code>operation</code>.</div>
                 
               </div>
           </td>
@@ -355,9 +355,9 @@
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#fetch(java.lang.String, int)">fetch</a></span>(String operation, int index)
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#fetch(org.tensorflow.Output<?>)">fetch</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;?&gt; output)
                 
-                  <div class="jd-descrdiv">Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> return the <code>index</code>-th output of <code>operation</code>.</div>
+                  <div class="jd-descrdiv">Makes <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> return the Tensor referred to by <code>output</code>.</div>
                 
               </div>
           </td>
@@ -372,7 +372,7 @@
                 
                 
                 
-                List&lt;<a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&gt;
+                List&lt;<a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt;&gt;
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
@@ -796,7 +796,7 @@
     </div>
     
     
-    <A NAME="feed(java.lang.String, org.tensorflow.Tensor)"></A>
+    <A NAME="feed(java.lang.String, org.tensorflow.Tensor<?>)"></A>
     
     <div class="jd-details">
         <h4 class="jd-details-title">
@@ -809,7 +809,7 @@
             <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
           </span>
           <span class="sympad"><strong>feed</strong></span>
-          <span class="params">(String operation, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a> t)</span>
+          <span class="params">(String operation, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; t)</span>
         </h4>
           <div class="api-level">
             <div></div>
@@ -842,7 +842,7 @@
     </div>
     
     
-    <A NAME="feed(java.lang.String, int, org.tensorflow.Tensor)"></A>
+    <A NAME="feed(java.lang.String, int, org.tensorflow.Tensor<?>)"></A>
     
     <div class="jd-details">
         <h4 class="jd-details-title">
@@ -855,7 +855,7 @@
             <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
           </span>
           <span class="sympad"><strong>feed</strong></span>
-          <span class="params">(String operation, int index, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a> t)</span>
+          <span class="params">(String operation, int index, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; t)</span>
         </h4>
           <div class="api-level">
             <div></div>
@@ -893,7 +893,7 @@
     </div>
     
     
-    <A NAME="feed(org.tensorflow.Output, org.tensorflow.Tensor)"></A>
+    <A NAME="feed(org.tensorflow.Output<?>, org.tensorflow.Tensor<?>)"></A>
     
     <div class="jd-details">
         <h4 class="jd-details-title">
@@ -906,7 +906,7 @@
             <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
           </span>
           <span class="sympad"><strong>feed</strong></span>
-          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a> o, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a> t)</span>
+          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;?&gt; o, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; t)</span>
         </h4>
           <div class="api-level">
             <div></div>
@@ -979,44 +979,6 @@
     </div>
     
     
-    <A NAME="fetch(org.tensorflow.Output)"></A>
-    
-    <div class="jd-details">
-        <h4 class="jd-details-title">
-          <span class="normal">
-            public
-            
-            
-            
-            
-            <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
-          </span>
-          <span class="sympad"><strong>fetch</strong></span>
-          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a> output)</span>
-        </h4>
-          <div class="api-level">
-            <div></div>
-            
-  
-
-          </div>
-        <div class="jd-details-descr">
-          
-  <div class="jd-tagdata jd-tagdescr"><p>Makes <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> return the Tensor referred to by <code>output</code>. </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>output</td>
-          <td><!-- no parameter comment --></td>
-        </tr>
-      </table>
-  </div>
-
-        </div>
-    </div>
-    
-    
     <A NAME="fetch(java.lang.String, int)"></A>
     
     <div class="jd-details">
@@ -1063,6 +1025,44 @@
     </div>
     
     
+    <A NAME="fetch(org.tensorflow.Output<?>)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
+          </span>
+          <span class="sympad"><strong>fetch</strong></span>
+          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;?&gt; output)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Makes <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> return the Tensor referred to by <code>output</code>. </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>output</td>
+          <td><!-- no parameter comment --></td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
     <A NAME="run()"></A>
     
     <div class="jd-details">
@@ -1073,7 +1073,7 @@
             
             
             
-            List&lt;<a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&gt;
+            List&lt;<a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt;&gt;
           </span>
           <span class="sympad"><strong>run</strong></span>
           <span class="params">()</span>
@@ -1096,6 +1096,9 @@
  easier for the caller to cleanup (perhaps returning something like AutoCloseableList in
  SessionTest.java), and (b) Evaluate whether the return value should be a list, or maybe a
  <code>Map&lt;Output, Tensor&gt;</code>?
+
+ <p>TODO(andrewmyers): It would also be good if whatever is returned here made it easier to
+ extract output tensors in a type-safe way.
 </p></div>
 
         </div>

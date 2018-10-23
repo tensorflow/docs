@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures)
 
@@ -119,7 +119,7 @@ inferred shape.
 
 #### Returns:
 
-  A `TensorShape` representing the shape of this tensor.
+A `TensorShape` representing the shape of this tensor.
 
 <h3 id="value_index"><code>value_index</code></h3>
 
@@ -168,10 +168,9 @@ Given a tensor `x` of complex numbers, this operation returns a tensor of type
 `float32` or `float64` that is the absolute value of each element in `x`. All
 elements in `x` must be complex numbers of the form \\(a + bj\\). The
 absolute value is computed as \\( \sqrt{a^2 + b^2}\\).  For example:
-
-```
-# tensor 'x' is [[-2.25 + 4.75j], [-3.25 + 5.75j]]
-tf.abs(x) ==> [5.25594902, 6.60492229]
+```python
+x = tf.constant([[-2.25 + 4.75j], [-3.25 + 5.75j]])
+tf.abs(x)  # [5.25594902, 6.60492229]
 ```
 
 #### Args:
@@ -183,10 +182,10 @@ tf.abs(x) ==> [5.25594902, 6.60492229]
 
 #### Returns:
 
-  A `Tensor` or `SparseTensor` the same size and type as `x` with absolute
-    values.
-  Note, for `complex64` or `complex128' input, the returned `Tensor` will be
-    of type `float32` or `float64`, respectively.
+A `Tensor` or `SparseTensor` the same size and type as `x` with absolute
+  values.
+Note, for `complex64` or `complex128' input, the returned `Tensor` will be
+  of type `float32` or `float64`, respectively.
 
 <h3 id="__add__"><code>__add__</code></h3>
 
@@ -211,7 +210,7 @@ Returns x + y element-wise.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__and__"><code>__and__</code></h3>
 
@@ -236,7 +235,7 @@ Returns the truth value of x AND y element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
@@ -263,7 +262,7 @@ dynamic condition of the `Tensor`.
 
 #### Raises:
 
-  `TypeError`.
+`TypeError`.
 
 <h3 id="__div__"><code>__div__</code></h3>
 
@@ -284,7 +283,7 @@ Divide two values using Python 2 semantics. Used for Tensor.__div__.
 
 #### Returns:
 
-  `x / y` returns the quotient of x and y.
+`x / y` returns the quotient of x and y.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
@@ -326,7 +325,7 @@ as well.
 
 #### Returns:
 
-  `x / y` rounded down (except possibly towards zero for negative integers).
+`x / y` rounded down (except possibly towards zero for negative integers).
 
 
 #### Raises:
@@ -357,7 +356,7 @@ Returns the truth value of (x >= y) element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
@@ -381,23 +380,24 @@ Some useful examples:
 ```python
 # strip leading and trailing 2 elements
 foo = tf.constant([1,2,3,4,5,6])
-print(foo[2:-2].eval()) # => [3,4]
+print(foo[2:-2].eval())  # [3,4]
 
 # skip every row and reverse every column
 foo = tf.constant([[1,2,3], [4,5,6], [7,8,9]])
-print(foo[::2,::-1].eval()) # => [[3,2,1], [9,8,7]]
+print(foo[::2,::-1].eval())  # [[3,2,1], [9,8,7]]
 
 # Insert another dimension
 foo = tf.constant([[1,2,3], [4,5,6], [7,8,9]])
 print(foo[tf.newaxis, :, :].eval()) # => [[[1,2,3], [4,5,6], [7,8,9]]]
 print(foo[:, tf.newaxis, :].eval()) # => [[[1,2,3]], [[4,5,6]], [[7,8,9]]]
-print(foo[:, :, tf.newaxis].eval()) # => [[[1],[2],[3]], [[4],[5],[6]], [[7],[8],[9]]]
+print(foo[:, :, tf.newaxis].eval()) # => [[[1],[2],[3]], [[4],[5],[6]],
+[[7],[8],[9]]]
 
 # Ellipses (3 equivalent operations)
 foo = tf.constant([[1,2,3], [4,5,6], [7,8,9]])
-print(foo[tf.newaxis, :, :].eval()) # => [[[1,2,3], [4,5,6], [7,8,9]]]
-print(foo[tf.newaxis, ...].eval()) # => [[[1,2,3], [4,5,6], [7,8,9]]]
-print(foo[tf.newaxis].eval()) # => [[[1,2,3], [4,5,6], [7,8,9]]]
+print(foo[tf.newaxis, :, :].eval())  # [[[1,2,3], [4,5,6], [7,8,9]]]
+print(foo[tf.newaxis, ...].eval())  # [[[1,2,3], [4,5,6], [7,8,9]]]
+print(foo[tf.newaxis].eval())  # [[[1,2,3], [4,5,6], [7,8,9]]]
 ```
 
 Notes:
@@ -416,7 +416,7 @@ Notes:
 
 #### Returns:
 
-  The appropriate slice of "tensor", based on "slice_spec".
+The appropriate slice of "tensor", based on "slice_spec".
 
 
 #### Raises:
@@ -448,7 +448,7 @@ Returns the truth value of (x > y) element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__invert__"><code>__invert__</code></h3>
 
@@ -469,7 +469,7 @@ Returns the truth value of NOT x element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
@@ -512,7 +512,7 @@ Returns the truth value of (x <= y) element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__lt__"><code>__lt__</code></h3>
 
@@ -538,7 +538,7 @@ Returns the truth value of (x < y) element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__matmul__"><code>__matmul__</code></h3>
 
@@ -572,35 +572,46 @@ For example:
 
 ```python
 # 2-D tensor `a`
-a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3]) => [[1. 2. 3.]
-                                                      [4. 5. 6.]]
+# [[1, 2, 3],
+#  [4, 5, 6]]
+a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3])
+
 # 2-D tensor `b`
-b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2]) => [[7. 8.]
-                                                         [9. 10.]
-                                                         [11. 12.]]
-c = tf.matmul(a, b) => [[58 64]
-                        [139 154]]
+# [[ 7,  8],
+#  [ 9, 10],
+#  [11, 12]]
+b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2])
+
+# `a` * `b`
+# [[ 58,  64],
+#  [139, 154]]
+c = tf.matmul(a, b)
 
 
 # 3-D tensor `a`
+# [[[ 1,  2,  3],
+#   [ 4,  5,  6]],
+#  [[ 7,  8,  9],
+#   [10, 11, 12]]]
 a = tf.constant(np.arange(1, 13, dtype=np.int32),
-                shape=[2, 2, 3])                  => [[[ 1.  2.  3.]
-                                                       [ 4.  5.  6.]],
-                                                      [[ 7.  8.  9.]
-                                                       [10. 11. 12.]]]
+                shape=[2, 2, 3])
 
 # 3-D tensor `b`
+# [[[13, 14],
+#   [15, 16],
+#   [17, 18]],
+#  [[19, 20],
+#   [21, 22],
+#   [23, 24]]]
 b = tf.constant(np.arange(13, 25, dtype=np.int32),
-                shape=[2, 3, 2])                   => [[[13. 14.]
-                                                        [15. 16.]
-                                                        [17. 18.]],
-                                                       [[19. 20.]
-                                                        [21. 22.]
-                                                        [23. 24.]]]
-c = tf.matmul(a, b) => [[[ 94 100]
-                         [229 244]],
-                        [[508 532]
-                         [697 730]]]
+                shape=[2, 3, 2])
+
+# `a` * `b`
+# [[[ 94, 100],
+#   [229, 244]],
+#  [[508, 532],
+#   [697, 730]]]
+c = tf.matmul(a, b)
 
 # Since python >= 3.5 the @ operator is supported (see PEP 465).
 # In TensorFlow, it simply calls the `tf.matmul()` function, so the
@@ -627,12 +638,12 @@ d = tf.matmul(tf.matmul(a, b), [[10.], [11.]])
 
 #### Returns:
 
-  A `Tensor` of the same type as `a` and `b` where each inner-most matrix is
-  the product of the corresponding matrices in `a` and `b`, e.g. if all
-  transpose or adjoint attributes are `False`:
+A `Tensor` of the same type as `a` and `b` where each inner-most matrix is
+the product of the corresponding matrices in `a` and `b`, e.g. if all
+transpose or adjoint attributes are `False`:
 
-  `output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
-  for all indices i, j.
+`output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
+for all indices i, j.
 
 * <b>`Note`</b>: This is matrix product, not element-wise product.
 
@@ -669,7 +680,7 @@ with a flooring divide. E.g. `floor(x / y) * y + mod(x, y) = x`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
@@ -703,7 +714,7 @@ I.e., \\(y = -x\\).
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
@@ -717,7 +728,7 @@ This is the Python 2.x counterpart to `__bool__()` above.
 
 #### Raises:
 
-  `TypeError`.
+`TypeError`.
 
 <h3 id="__or__"><code>__or__</code></h3>
 
@@ -742,7 +753,7 @@ Returns the truth value of x OR y element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__pow__"><code>__pow__</code></h3>
 
@@ -758,10 +769,10 @@ Computes the power of one value to another.
 Given a tensor `x` and a tensor `y`, this operation computes \\(x^y\\) for
 corresponding elements in `x` and `y`. For example:
 
-```
-# tensor 'x' is [[2, 2], [3, 3]]
-# tensor 'y' is [[8, 16], [2, 3]]
-tf.pow(x, y) ==> [[256, 65536], [9, 27]]
+```python
+x = tf.constant([[2, 2], [3, 3]])
+y = tf.constant([[8, 16], [2, 3]])
+tf.pow(x, y)  # [[256, 65536], [9, 27]]
 ```
 
 #### Args:
@@ -775,7 +786,7 @@ tf.pow(x, y) ==> [[256, 65536], [9, 27]]
 
 #### Returns:
 
-  A `Tensor`.
+A `Tensor`.
 
 <h3 id="__radd__"><code>__radd__</code></h3>
 
@@ -800,7 +811,7 @@ Returns x + y element-wise.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rand__"><code>__rand__</code></h3>
 
@@ -825,7 +836,7 @@ Returns the truth value of x AND y element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__rdiv__"><code>__rdiv__</code></h3>
 
@@ -846,7 +857,7 @@ Divide two values using Python 2 semantics. Used for Tensor.__div__.
 
 #### Returns:
 
-  `x / y` returns the quotient of x and y.
+`x / y` returns the quotient of x and y.
 
 <h3 id="__rfloordiv__"><code>__rfloordiv__</code></h3>
 
@@ -880,7 +891,7 @@ as well.
 
 #### Returns:
 
-  `x / y` rounded down (except possibly towards zero for negative integers).
+`x / y` rounded down (except possibly towards zero for negative integers).
 
 
 #### Raises:
@@ -919,35 +930,46 @@ For example:
 
 ```python
 # 2-D tensor `a`
-a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3]) => [[1. 2. 3.]
-                                                      [4. 5. 6.]]
+# [[1, 2, 3],
+#  [4, 5, 6]]
+a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3])
+
 # 2-D tensor `b`
-b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2]) => [[7. 8.]
-                                                         [9. 10.]
-                                                         [11. 12.]]
-c = tf.matmul(a, b) => [[58 64]
-                        [139 154]]
+# [[ 7,  8],
+#  [ 9, 10],
+#  [11, 12]]
+b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2])
+
+# `a` * `b`
+# [[ 58,  64],
+#  [139, 154]]
+c = tf.matmul(a, b)
 
 
 # 3-D tensor `a`
+# [[[ 1,  2,  3],
+#   [ 4,  5,  6]],
+#  [[ 7,  8,  9],
+#   [10, 11, 12]]]
 a = tf.constant(np.arange(1, 13, dtype=np.int32),
-                shape=[2, 2, 3])                  => [[[ 1.  2.  3.]
-                                                       [ 4.  5.  6.]],
-                                                      [[ 7.  8.  9.]
-                                                       [10. 11. 12.]]]
+                shape=[2, 2, 3])
 
 # 3-D tensor `b`
+# [[[13, 14],
+#   [15, 16],
+#   [17, 18]],
+#  [[19, 20],
+#   [21, 22],
+#   [23, 24]]]
 b = tf.constant(np.arange(13, 25, dtype=np.int32),
-                shape=[2, 3, 2])                   => [[[13. 14.]
-                                                        [15. 16.]
-                                                        [17. 18.]],
-                                                       [[19. 20.]
-                                                        [21. 22.]
-                                                        [23. 24.]]]
-c = tf.matmul(a, b) => [[[ 94 100]
-                         [229 244]],
-                        [[508 532]
-                         [697 730]]]
+                shape=[2, 3, 2])
+
+# `a` * `b`
+# [[[ 94, 100],
+#   [229, 244]],
+#  [[508, 532],
+#   [697, 730]]]
+c = tf.matmul(a, b)
 
 # Since python >= 3.5 the @ operator is supported (see PEP 465).
 # In TensorFlow, it simply calls the `tf.matmul()` function, so the
@@ -974,12 +996,12 @@ d = tf.matmul(tf.matmul(a, b), [[10.], [11.]])
 
 #### Returns:
 
-  A `Tensor` of the same type as `a` and `b` where each inner-most matrix is
-  the product of the corresponding matrices in `a` and `b`, e.g. if all
-  transpose or adjoint attributes are `False`:
+A `Tensor` of the same type as `a` and `b` where each inner-most matrix is
+the product of the corresponding matrices in `a` and `b`, e.g. if all
+transpose or adjoint attributes are `False`:
 
-  `output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
-  for all indices i, j.
+`output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
+for all indices i, j.
 
 * <b>`Note`</b>: This is matrix product, not element-wise product.
 
@@ -1016,7 +1038,7 @@ with a flooring divide. E.g. `floor(x / y) * y + mod(x, y) = x`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rmul__"><code>__rmul__</code></h3>
 
@@ -1052,7 +1074,7 @@ Returns the truth value of x OR y element-wise.
 
 #### Returns:
 
-  A `Tensor` of type `bool`.
+A `Tensor` of type `bool`.
 
 <h3 id="__rpow__"><code>__rpow__</code></h3>
 
@@ -1068,10 +1090,10 @@ Computes the power of one value to another.
 Given a tensor `x` and a tensor `y`, this operation computes \\(x^y\\) for
 corresponding elements in `x` and `y`. For example:
 
-```
-# tensor 'x' is [[2, 2], [3, 3]]
-# tensor 'y' is [[8, 16], [2, 3]]
-tf.pow(x, y) ==> [[256, 65536], [9, 27]]
+```python
+x = tf.constant([[2, 2], [3, 3]])
+y = tf.constant([[8, 16], [2, 3]])
+tf.pow(x, y)  # [[256, 65536], [9, 27]]
 ```
 
 #### Args:
@@ -1085,7 +1107,7 @@ tf.pow(x, y) ==> [[256, 65536], [9, 27]]
 
 #### Returns:
 
-  A `Tensor`.
+A `Tensor`.
 
 <h3 id="__rsub__"><code>__rsub__</code></h3>
 
@@ -1103,14 +1125,14 @@ Returns x - y element-wise.
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor`. Must be one of the following types: `half`, `float32`, `float64`, `int32`, `int64`, `complex64`, `complex128`.
+* <b>`x`</b>: A `Tensor`. Must be one of the following types: `half`, `float32`, `float64`, `uint8`, `int8`, `uint16`, `int16`, `int32`, `int64`, `complex64`, `complex128`.
 * <b>`y`</b>: A `Tensor`. Must have the same type as `x`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rtruediv__"><code>__rtruediv__</code></h3>
 
@@ -1150,14 +1172,14 @@ Returns x - y element-wise.
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor`. Must be one of the following types: `half`, `float32`, `float64`, `int32`, `int64`, `complex64`, `complex128`.
+* <b>`x`</b>: A `Tensor`. Must be one of the following types: `half`, `float32`, `float64`, `uint8`, `int8`, `uint16`, `int16`, `int32`, `int64`, `complex64`, `complex128`.
 * <b>`y`</b>: A `Tensor`. Must have the same type as `x`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
@@ -1191,7 +1213,7 @@ Returns a list of `Operation`s that consume this tensor.
 
 #### Returns:
 
-  A list of `Operation`s.
+A list of `Operation`s.
 
 <h3 id="eval"><code>eval</code></h3>
 
@@ -1223,7 +1245,7 @@ available, or `session` must be specified explicitly.
 
 #### Returns:
 
-  A numpy array corresponding to the value of this tensor.
+A numpy array corresponding to the value of this tensor.
 
 <h3 id="get_shape"><code>get_shape</code></h3>
 

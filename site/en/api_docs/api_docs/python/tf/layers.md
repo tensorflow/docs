@@ -10,12 +10,54 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/layers/layers.py).
+Defined in [`tensorflow/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/layers/layers.py).
 
 This library provides a set of high-level neural networks layers.
 
 
+
+
+## Classes
+
+[`class AveragePooling1D`](../tf/layers/AveragePooling1D): Average Pooling layer for 1D inputs.
+
+[`class AveragePooling2D`](../tf/layers/AveragePooling2D): Average pooling layer for 2D inputs (e.g. images).
+
+[`class AveragePooling3D`](../tf/layers/AveragePooling3D): Average pooling layer for 3D inputs (e.g. volumes).
+
+[`class BatchNormalization`](../tf/layers/BatchNormalization): Batch Normalization layer from http://arxiv.org/abs/1502.03167.
+
+[`class Conv1D`](../tf/layers/Conv1D): 1D convolution layer (e.g. temporal convolution).
+
+[`class Conv2D`](../tf/layers/Conv2D): 2D convolution layer (e.g. spatial convolution over images).
+
+[`class Conv2DTranspose`](../tf/layers/Conv2DTranspose): Transposed 2D convolution layer (sometimes called 2D Deconvolution).
+
+[`class Conv3D`](../tf/layers/Conv3D): 3D convolution layer (e.g. spatial convolution over volumes).
+
+[`class Conv3DTranspose`](../tf/layers/Conv3DTranspose): Transposed 3D convolution layer (sometimes called 3D Deconvolution).
+
+[`class Dense`](../tf/layers/Dense): Densely-connected layer class.
+
+[`class Dropout`](../tf/layers/Dropout): Applies Dropout to the input.
+
+[`class Flatten`](../tf/layers/Flatten): Flattens an input tensor while preserving the batch axis (axis 0).
+
+[`class InputSpec`](../tf/layers/InputSpec): Specifies the ndim, dtype and shape of every input to a layer.
+
+[`class Layer`](../tf/layers/Layer): Base layer class.
+
+[`class MaxPooling1D`](../tf/layers/MaxPooling1D): Max Pooling layer for 1D inputs.
+
+[`class MaxPooling2D`](../tf/layers/MaxPooling2D): Max pooling layer for 2D inputs (e.g. images).
+
+[`class MaxPooling3D`](../tf/layers/MaxPooling3D): Max pooling layer for 3D inputs (e.g. volumes).
+
+[`class SeparableConv2D`](../tf/layers/SeparableConv2D): Depthwise separable 2D convolution.
+
 ## Functions
+
+[`Input(...)`](../tf/layers/Input): `Input()` is used to instantiate an input tensor for use with a `Network`.
 
 [`average_pooling1d(...)`](../tf/layers/average_pooling1d): Average Pooling layer for 1D inputs.
 
@@ -38,6 +80,8 @@ This library provides a set of high-level neural networks layers.
 [`dense(...)`](../tf/layers/dense): Functional interface for the densely-connected layer.
 
 [`dropout(...)`](../tf/layers/dropout): Applies Dropout to the input.
+
+[`flatten(...)`](../tf/layers/flatten): Flattens an input tensor while preserving the batch axis (axis 0).
 
 [`max_pooling1d(...)`](../tf/layers/max_pooling1d): Max Pooling layer for 1D inputs.
 

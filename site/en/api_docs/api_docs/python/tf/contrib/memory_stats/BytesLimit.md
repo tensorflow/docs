@@ -14,6 +14,6 @@ BytesLimit()
 
 
 
-Defined in [`tensorflow/contrib/memory_stats/python/ops/memory_stats_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/memory_stats/python/ops/memory_stats_ops.py).
+Defined in [`tensorflow/contrib/memory_stats/python/ops/memory_stats_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/memory_stats/python/ops/memory_stats_ops.py).
 
 Generates an op that measures the total memory (in bytes) of a device.

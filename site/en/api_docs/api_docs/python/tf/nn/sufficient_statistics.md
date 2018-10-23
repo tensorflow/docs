@@ -20,7 +20,7 @@ sufficient_statistics(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Normalization](../../../../api_guides/python/nn#Normalization)
 
@@ -43,9 +43,9 @@ https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance#Computing_shif
 
 #### Returns:
 
-  Four `Tensor` objects of the same type as `x`:
+Four `Tensor` objects of the same type as `x`:
 
-  * the count (number of elements to average over).
-  * the (possibly shifted) sum of the elements in the array.
-  * the (possibly shifted) sum of squares of the elements in the array.
-  * the shift by which the mean must be corrected or None if `shift` is None.
+* the count (number of elements to average over).
+* the (possibly shifted) sum of the elements in the array.
+* the (possibly shifted) sum of squares of the elements in the array.
+* the shift by which the mean must be corrected or None if `shift` is None.

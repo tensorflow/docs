@@ -19,7 +19,7 @@ expand_dims(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Shapes and Shaping](../../../api_guides/python/array_ops#Shapes_and_Shaping)
 
@@ -39,14 +39,14 @@ Other examples:
 
 ```python
 # 't' is a tensor of shape [2]
-shape(expand_dims(t, 0)) ==> [1, 2]
-shape(expand_dims(t, 1)) ==> [2, 1]
-shape(expand_dims(t, -1)) ==> [2, 1]
+tf.shape(tf.expand_dims(t, 0))  # [1, 2]
+tf.shape(tf.expand_dims(t, 1))  # [2, 1]
+tf.shape(tf.expand_dims(t, -1))  # [2, 1]
 
 # 't2' is a tensor of shape [2, 3, 5]
-shape(expand_dims(t2, 0)) ==> [1, 2, 3, 5]
-shape(expand_dims(t2, 2)) ==> [2, 3, 1, 5]
-shape(expand_dims(t2, 3)) ==> [2, 3, 5, 1]
+tf.shape(tf.expand_dims(t2, 0))  # [1, 2, 3, 5]
+tf.shape(tf.expand_dims(t2, 2))  # [2, 3, 1, 5]
+tf.shape(tf.expand_dims(t2, 3))  # [2, 3, 5, 1]
 ```
 
 This operation requires that:
@@ -60,15 +60,16 @@ size 1.
 
 * <b>`input`</b>: A `Tensor`.
 * <b>`axis`</b>: 0-D (scalar). Specifies the dimension index at which to
-    expand the shape of `input`.
+    expand the shape of `input`. Must be in the range
+    `[-rank(input) - 1, rank(input)]`.
 * <b>`name`</b>: The name of the output `Tensor`.
 * <b>`dim`</b>: 0-D (scalar). Equivalent to `axis`, to be deprecated.
 
 
 #### Returns:
 
-  A `Tensor` with the same data as `input`, but its shape has an additional
-  dimension of size 1 added.
+A `Tensor` with the same data as `input`, but its shape has an additional
+dimension of size 1 added.
 
 
 #### Raises:

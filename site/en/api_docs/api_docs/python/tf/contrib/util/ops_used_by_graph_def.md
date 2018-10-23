@@ -14,7 +14,7 @@ ops_used_by_graph_def(graph_def)
 
 
 
-Defined in [`tensorflow/python/framework/meta_graph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/meta_graph.py).
+Defined in [`tensorflow/python/framework/meta_graph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/meta_graph.py).
 
 See the guide: [Utilities (contrib) > Miscellaneous Utility Functions](../../../../../api_guides/python/contrib.util#Miscellaneous_Utility_Functions)
 
@@ -29,4 +29,4 @@ Does not validate that the ops are all registered.
 
 #### Returns:
 
-  A list of strings, each naming an op used by the graph.
+A list of strings, each naming an op used by the graph.

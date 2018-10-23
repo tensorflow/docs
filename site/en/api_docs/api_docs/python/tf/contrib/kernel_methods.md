@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/kernel_methods/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/kernel_methods/__init__.py).
+Defined in [`tensorflow/contrib/kernel_methods/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/kernel_methods/__init__.py).
 
 Ops and estimators that enable explicit kernel methods in TensorFlow.
 
@@ -20,4 +20,8 @@ Ops and estimators that enable explicit kernel methods in TensorFlow.
 [`class KernelLinearClassifier`](../../tf/contrib/kernel_methods/KernelLinearClassifier): Linear classifier using kernel methods as feature preprocessing.
 
 [`class RandomFourierFeatureMapper`](../../tf/contrib/kernel_methods/RandomFourierFeatureMapper): Class that implements Random Fourier Feature Mapping (RFFM) in TensorFlow.
+
+## Functions
+
+[`sparse_multiclass_hinge_loss(...)`](../../tf/contrib/kernel_methods/sparse_multiclass_hinge_loss): Adds Ops for computing the multiclass hinge loss.
 

@@ -14,7 +14,7 @@ Inherits From: [`BaseEstimator`](../../../tf/contrib/learn/BaseEstimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
@@ -201,10 +201,10 @@ Please use Estimator.export_savedmodel() instead.
 
 #### Returns:
 
-  The string path to the exported directory. NB: this functionality was
-  added ca. 2016/09/25; clients that depend on the return value may need
-  to handle the case where this function returns None because subclasses
-  are not returning a value.
+The string path to the exported directory. NB: this functionality was
+added ca. 2016/09/25; clients that depend on the return value may need
+to handle the case where this function returns None because subclasses
+are not returning a value.
 
 <h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
 
@@ -215,7 +215,8 @@ export_savedmodel(
     default_output_alternative_key=None,
     assets_extra=None,
     as_text=False,
-    checkpoint_path=None
+    checkpoint_path=None,
+    graph_rewrite_specs=(GraphRewriteSpec((tag_constants.SERVING,), ()),)
 )
 ```
 
@@ -239,11 +240,15 @@ Exports inference graph as a SavedModel into given dir.
 * <b>`as_text`</b>: whether to write the SavedModel proto in text format.
 * <b>`checkpoint_path`</b>: The checkpoint path to export.  If None (the default),
     the most recent checkpoint found within the model directory is chosen.
+* <b>`graph_rewrite_specs`</b>: an iterable of `GraphRewriteSpec`.  Each element will
+    produce a separate MetaGraphDef within the exported SavedModel, tagged
+    and rewritten as specified.  Defaults to a single entry using the
+    default serving tag ("serve") and no rewriting.
 
 
 #### Returns:
 
-  The string path to the exported directory.
+The string path to the exported directory.
 
 
 #### Raises:
@@ -297,7 +302,7 @@ Get parameters for this estimator.
 
 #### Returns:
 
-  params : mapping of string to any
+* <b>`params `</b>: mapping of string to any
   Parameter names mapped to their values.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
@@ -310,7 +315,7 @@ Returns list of all variable names in this model.
 
 #### Returns:
 
-  List of names.
+List of names.
 
 <h3 id="get_variable_value"><code>get_variable_value</code></h3>
 
@@ -327,7 +332,7 @@ Returns value of the variable given by name.
 
 #### Returns:
 
-  Numpy array - value of the tensor.
+Numpy array - value of the tensor.
 
 <h3 id="partial_fit"><code>partial_fit</code></h3>
 
@@ -380,7 +385,7 @@ to converge, and you want to split up training into subparts.
 
 #### Returns:
 
-  `self`, for chaining.
+`self`, for chaining.
 
 
 #### Raises:
@@ -428,10 +433,10 @@ Example conversion:
 
 #### Returns:
 
-  A numpy array of predicted classes or regression values if the
-  constructor's `model_fn` returns a `Tensor` for `predictions` or a `dict`
-  of numpy arrays if `model_fn` returns a `dict`. Returns an iterable of
-  predictions if as_iterable is True.
+A numpy array of predicted classes or regression values if the
+constructor's `model_fn` returns a `Tensor` for `predictions` or a `dict`
+of numpy arrays if `model_fn` returns a `dict`. Returns an iterable of
+predictions if as_iterable is True.
 
 
 #### Raises:
@@ -453,12 +458,12 @@ component of a nested object.
 
 #### Args:
 
-  **params: Parameters.
+* <b>`**params`</b>: Parameters.
 
 
 #### Returns:
 
-  self
+self
 
 
 #### Raises:

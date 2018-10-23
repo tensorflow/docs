@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.norm
 
+### Aliases:
+
+* `tf.linalg.norm`
+* `tf.norm`
+
 ``` python
 norm(
     tensor,
@@ -20,7 +25,7 @@ norm(
 
 
 
-Defined in [`tensorflow/python/ops/linalg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/linalg_ops.py).
+Defined in [`tensorflow/python/ops/linalg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/linalg_ops.py).
 
 See the guide: [Math > Matrix Math Functions](../../../api_guides/python/math_ops#Matrix_Math_Functions)
 
@@ -33,7 +38,7 @@ matrix norms (Frobenius, 1-norm, and inf-norm).
 #### Args:
 
 * <b>`tensor`</b>: `Tensor` of types `float32`, `float64`, `complex64`, `complex128`
-* <b>`ord`</b>: Order of the norm. Supported values are 'fro', 'euclidean', `0`,
+* <b>`ord`</b>: Order of the norm. Supported values are 'fro', 'euclidean',
     `1`, `2`, `np.inf` and any positive real number yielding the corresponding
     p-norm. Default is 'euclidean' which is equivalent to Frobenius norm if
     `tensor` is a matrix and equivalent to 2-norm for vectors.

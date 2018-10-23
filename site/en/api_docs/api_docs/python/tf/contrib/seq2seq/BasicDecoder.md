@@ -14,7 +14,7 @@ Inherits From: [`Decoder`](../../../tf/contrib/seq2seq/Decoder)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/basic_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/basic_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
 
 See the guide: [Seq2seq Library (contrib) > Dynamic Decoding](../../../../../api_guides/python/contrib.seq2seq#Dynamic_Decoding)
 
@@ -58,7 +58,7 @@ Initialize BasicDecoder.
 * <b>`initial_state`</b>: A (possibly nested tuple of...) tensors and TensorArrays.
     The initial state of the RNNCell.
 * <b>`output_layer`</b>: (Optional) An instance of `tf.layers.Layer`, i.e.,
-    `tf.layers.Dense`.  Optional layer to apply to the RNN output prior
+    `tf.layers.Dense`. Optional layer to apply to the RNN output prior
     to storing the result or sampling.
 
 
@@ -93,7 +93,7 @@ Initialize the decoder.
 
 #### Returns:
 
-  `(finished, first_inputs, initial_state)`.
+`(finished, first_inputs, initial_state)`.
 
 <h3 id="step"><code>step</code></h3>
 
@@ -118,7 +118,7 @@ Perform a decoding step.
 
 #### Returns:
 
-  `(outputs, next_state, next_inputs, finished)`.
+`(outputs, next_state, next_inputs, finished)`.
 
 
 

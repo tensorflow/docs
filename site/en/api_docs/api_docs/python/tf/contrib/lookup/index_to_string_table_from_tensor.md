@@ -18,7 +18,7 @@ index_to_string_table_from_tensor(
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/lookup/lookup_ops.py).
 
 Returns a lookup table that maps a `Tensor` of indices into strings.
 
@@ -60,8 +60,8 @@ values.eval() ==> ["lake", "UNKNOWN"]
 
 #### Returns:
 
-  The lookup table to map a string values associated to a given index `int64`
-  `Tensors`.
+The lookup table to map a string values associated to a given index `int64`
+`Tensors`.
 
 
 #### Raises:

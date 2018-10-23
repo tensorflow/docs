@@ -21,7 +21,7 @@ audio_summary(
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/logging_ops.py).
+Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/logging_ops.py).
 
 Outputs a `Summary` protocol buffer with audio. (deprecated)
 
@@ -62,5 +62,5 @@ build the `tag` of the summary values:
 
 #### Returns:
 
-  A scalar `Tensor` of type `string`. The serialized `Summary` protocol
-  buffer.
+A scalar `Tensor` of type `string`. The serialized `Summary` protocol
+buffer.

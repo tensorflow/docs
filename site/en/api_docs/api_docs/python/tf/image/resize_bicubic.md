@@ -12,7 +12,7 @@ page_type: reference
 resize_bicubic(
     images,
     size,
-    align_corners=None,
+    align_corners=False,
     name=None
 )
 ```
@@ -42,5 +42,5 @@ Input images can be of different types but output images are always float.
 
 #### Returns:
 
-  A `Tensor` of type `float32`. 4-D with shape
-  `[batch, new_height, new_width, channels]`.
+A `Tensor` of type `float32`. 4-D with shape
+`[batch, new_height, new_width, channels]`.

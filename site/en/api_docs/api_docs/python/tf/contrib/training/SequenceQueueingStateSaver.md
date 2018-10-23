@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
+Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
 
 See the guide: [Training (contrib) > Splitting sequence inputs into minibatches with state saving](../../../../../api_guides/python/contrib.training#Splitting_sequence_inputs_into_minibatches_with_state_saving)
 
@@ -159,7 +159,7 @@ will not run.
 
 #### Returns:
 
-  A cached `NextQueuedSequenceBatch` instance.
+A cached `NextQueuedSequenceBatch` instance.
 
 <h3 id="num_unroll"><code>num_unroll</code></h3>
 
@@ -177,7 +177,7 @@ It should be run in a separate thread via e.g. a `QueueRunner`.
 
 #### Returns:
 
-  An `Operation` that performs prefetching.
+An `Operation` that performs prefetching.
 
 
 
@@ -287,7 +287,7 @@ immediately.
 
 #### Returns:
 
-  The operation that closes the barrier and the FIFOQueue.
+The operation that closes the barrier and the FIFOQueue.
 
 
 

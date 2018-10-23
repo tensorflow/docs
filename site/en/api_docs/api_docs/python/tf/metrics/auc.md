@@ -17,13 +17,14 @@ auc(
     metrics_collections=None,
     updates_collections=None,
     curve='ROC',
-    name=None
+    name=None,
+    summation_method='trapezoidal'
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/metrics_impl.py).
+Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/metrics_impl.py).
 
 Computes the approximate AUC via a Riemann sum.
 
@@ -44,7 +45,9 @@ dramatically depending on `num_thresholds`.
 
 For best results, `predictions` should be distributed approximately uniformly
 in the range [0, 1] and not peaked around 0 or 1. The quality of the AUC
-approximation may be poor if this is not the case.
+approximation may be poor if this is not the case. Setting `summation_method`
+to 'minoring' or 'majoring' can help quantify the error in the approximation
+by providing lower or upper bound estimate of the AUC.
 
 For estimation of the metric over a stream of data, the function creates an
 `update_op` operation that updates these variables and returns the `auc`.
@@ -67,8 +70,12 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 * <b>`updates_collections`</b>: An optional list of collections that `update_op` should
     be added to.
 * <b>`curve`</b>: Specifies the name of the curve to be computed, 'ROC' [default] or
-  'PR' for the Precision-Recall-curve.
+    'PR' for the Precision-Recall-curve.
 * <b>`name`</b>: An optional variable_scope name.
+* <b>`summation_method`</b>: Specifies the Riemann summation method used, 'trapezoidal'
+    [default] that applies the trapezoidal rule, 'minoring' that applies
+    left summation for increasing intervals and right summation for decreasing
+    intervals or 'majoring' that applies the opposite.
 
 
 #### Returns:

@@ -19,7 +19,7 @@ import_meta_graph(
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/saver.py).
 
 See the guides: [Exporting and Importing a MetaGraph](../../../../api_guides/python/meta_graph), [Variables > Exporting and Importing Meta Graphs](../../../../api_guides/python/state_ops#Exporting_and_Importing_Meta_Graphs)
 
@@ -81,12 +81,12 @@ device assignments have not changed.
     or `Tensor` during import.
 * <b>`import_scope`</b>: Optional `string`. Name scope to add. Only used when
     initializing from protocol buffer.
-  **kwargs: Optional keyed arguments.
+* <b>`**kwargs`</b>: Optional keyed arguments.
 
 
 #### Returns:
 
-  A saver constructed from `saver_def` in `MetaGraphDef` or None.
+A saver constructed from `saver_def` in `MetaGraphDef` or None.
 
-  A None value is returned if no variables exist in the `MetaGraphDef`
-  (i.e., there are no variables to restore).
+A None value is returned if no variables exist in the `MetaGraphDef`
+(i.e., there are no variables to restore).

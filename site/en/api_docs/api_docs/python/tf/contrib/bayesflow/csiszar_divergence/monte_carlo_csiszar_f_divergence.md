@@ -11,10 +11,10 @@ page_type: reference
 ``` python
 monte_carlo_csiszar_f_divergence(
     f,
-    p,
+    p_log_prob,
     q,
     num_draws,
-    use_reparametrization=True,
+    use_reparametrization=None,
     seed=None,
     name=None
 )
@@ -22,7 +22,7 @@ monte_carlo_csiszar_f_divergence(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py).
 
 Monte-Carlo approximation of the Csiszar f-Divergence.
 
@@ -86,22 +86,29 @@ BOund (ELBO) as a special case, i.e., `f(u) = -log(u)`, we call this framework
 
 #### Args:
 
-* <b>`f`</b>: Python callable representing a Csiszar-function in log-space.
-* <b>`p`</b>: `tf.Distribution`-like instance; must implement `log_prob(x)`.
+* <b>`f`</b>: Python `callable` representing a Csiszar-function in log-space, i.e.,
+    takes `p_log_prob(q_samples) - q.log_prob(q_samples)`.
+* <b>`p_log_prob`</b>: Python `callable` taking (a batch of) samples from `q` and
+    returning the natural-log of the probability under distribution `p`.
+    (In variational inference `p` is the joint distribution.)
 * <b>`q`</b>: `tf.Distribution`-like instance; must implement:
-    `reparameterization_type`, `sample(n)`, and `log_prob(x)`.
+    `reparameterization_type`, `sample(n, seed)`, and `log_prob(x)`.
+    (In variational inference `q` is the approximate posterior distribution.)
 * <b>`num_draws`</b>: Integer scalar number of draws used to approximate the
     f-Divergence expectation.
-* <b>`use_reparametrization`</b>: Python `bool`. When `True` uses the standard
-    Monte-Carlo average. When `False` uses the score-gradient trick. (See
-    above for details.)
+* <b>`use_reparametrization`</b>: Python `bool`. When `None` (the default),
+    automatically set to:
+    `q.reparameterization_type == distribution.FULLY_REPARAMETERIZED`.
+    When `True` uses the standard Monte-Carlo average. When `False` uses the
+    score-gradient trick. (See above for details.)  When `False`, consider
+    using `csiszar_vimco`.
 * <b>`seed`</b>: Python `int` seed for `q.sample`.
 * <b>`name`</b>: Python `str` name prefixed to Ops created by this function.
 
 
 #### Returns:
 
-* <b>`monte_carlo_csiszar_f_divergence`</b>: Floating-type `Tensor` Monte Carlo
+* <b>`monte_carlo_csiszar_f_divergence`</b>: `float`-like `Tensor` Monte Carlo
     approximation of the Csiszar f-Divergence.
 
 
@@ -113,3 +120,4 @@ BOund (ELBO) as a special case, i.e., `f(u) = -log(u)`, we call this framework
     samples of another distribution which does not depend on the
     parameterization of `q`. This property ensures the gradient (with respect
     to parameters) is valid.
+* <b>`TypeError`</b>: if `p_log_prob` is not a Python `callable`.

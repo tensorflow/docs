@@ -14,8 +14,8 @@ crop_and_resize(
     boxes,
     box_ind,
     crop_size,
-    method=None,
-    extrapolation_value=None,
+    method='bilinear',
+    extrapolation_value=0,
     name=None
 )
 ```
@@ -71,5 +71,5 @@ result is a 4-D tensor `[num_boxes, crop_height, crop_width, depth]`.
 
 #### Returns:
 
-  A `Tensor` of type `float32`.
-  A 4-D tensor of shape `[num_boxes, crop_height, crop_width, depth]`.
+A `Tensor` of type `float32`.
+A 4-D tensor of shape `[num_boxes, crop_height, crop_width, depth]`.

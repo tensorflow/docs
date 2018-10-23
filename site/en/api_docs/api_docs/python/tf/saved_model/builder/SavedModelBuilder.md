@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/saved_model/builder_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/saved_model/builder_impl.py).
+Defined in [`tensorflow/python/saved_model/builder_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/saved_model/builder_impl.py).
 
 Builds the `SavedModel` protocol buffer and saves variables and assets.
 
@@ -34,7 +34,6 @@ provide a means to identify the specific meta graph to load and restore, along
 with the shared set of variables and assets.
 
 Typical usage for the `SavedModelBuilder`:
-
 ```python
 ...
 builder = tf.saved_model.builder.SavedModelBuilder(export_dir)
@@ -96,13 +95,15 @@ API to have been invoked before.
       restore op upon a load.
 * <b>`clear_devices`</b>: Set to true if the device info on the default graph should
       be cleared.
-* <b>`main_op`</b>: Op or group of ops to execute when the graph is loaded.
+* <b>`main_op`</b>: Op or group of ops to execute when the graph is loaded. Note
+      that when the main_op is specified it is run after the restore op at
+      load-time.
 
 
 #### Raises:
 
 * <b>`AssertionError`</b>: If the variables for the SavedModel have not been saved
-      yet.
+      yet, or if the graph already contains one or more legacy init ops.
 
 <h3 id="add_meta_graph_and_variables"><code>add_meta_graph_and_variables</code></h3>
 
@@ -138,7 +139,9 @@ meta graph defs to be added, the `add_meta_graph()` API must be used.
       restore op upon a load.
 * <b>`clear_devices`</b>: Set to true if the device info on the default graph should
       be cleared.
-* <b>`main_op`</b>: Op or group of ops to execute when the graph is loaded.
+* <b>`main_op`</b>: Op or group of ops to execute when the graph is loaded. Note
+      that when the main_op is specified it is run after the restore op at
+      load-time.
 
 <h3 id="save"><code>save</code></h3>
 
@@ -158,7 +161,7 @@ in serialized format.
 
 #### Returns:
 
-  The path to which the SavedModel protocol buffer was written.
+The path to which the SavedModel protocol buffer was written.
 
 
 

@@ -21,7 +21,7 @@ atrous_conv2d_transpose(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
@@ -57,7 +57,7 @@ deconvolution.
 
 #### Returns:
 
-  A `Tensor` with the same type as `value`.
+A `Tensor` with the same type as `value`.
 
 
 #### Raises:

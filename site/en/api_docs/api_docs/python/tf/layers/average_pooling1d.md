@@ -21,7 +21,7 @@ average_pooling1d(
 
 
 
-Defined in [`tensorflow/python/layers/pooling.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/layers/pooling.py).
+Defined in [`tensorflow/python/layers/pooling.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/layers/pooling.py).
 
 Average Pooling layer for 1D inputs.
 
@@ -44,4 +44,4 @@ Average Pooling layer for 1D inputs.
 
 #### Returns:
 
-  The output tensor, of rank 3.
+The output tensor, of rank 3.

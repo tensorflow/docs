@@ -12,10 +12,10 @@ page_type: reference
 fake_quant_with_min_max_args_gradient(
     gradients,
     inputs,
-    min=None,
-    max=None,
-    num_bits=None,
-    narrow_range=None,
+    min=-6,
+    max=6,
+    num_bits=8,
+    narrow_range=False,
     name=None
 )
 ```
@@ -43,6 +43,6 @@ Compute gradients for a FakeQuantWithMinMaxArgs operation.
 
 #### Returns:
 
-  A `Tensor` of type `float32`.
-  Backpropagated gradients below the FakeQuantWithMinMaxArgs operation:
-  `gradients * (inputs >= min && inputs <= max)`.
+A `Tensor` of type `float32`.
+Backpropagated gradients below the FakeQuantWithMinMaxArgs operation:
+`gradients * (inputs >= min && inputs <= max)`.

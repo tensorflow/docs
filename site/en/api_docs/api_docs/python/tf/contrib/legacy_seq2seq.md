@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/legacy_seq2seq/__init__.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/legacy_seq2seq/__init__.py).
 
 Deprecated library for creating sequence-to-sequence models in TensorFlow.
 

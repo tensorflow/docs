@@ -22,7 +22,7 @@ renyi_ratio(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/entropy_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/entropy_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/entropy_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/entropy_impl.py).
 
 See the guide: [BayesFlow Entropy (contrib) > Ops](../../../../../../api_guides/python/contrib.bayesflow.entropy#Ops)
 

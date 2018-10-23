@@ -17,7 +17,7 @@ get_name_scope_ops(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/select.py).
+Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/select.py).
 
 See the guide: [Graph Editor (contrib) > Module: select](../../../../../api_guides/python/contrib.graph_editor#Module_select)
 
@@ -30,7 +30,7 @@ Get all the operations under the given scope path.
 
 #### Returns:
 
-  A list of tf.Operation.
+A list of tf.Operation.
 
 #### Raises:
 

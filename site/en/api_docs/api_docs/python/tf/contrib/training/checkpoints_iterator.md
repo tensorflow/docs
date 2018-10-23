@@ -19,7 +19,7 @@ checkpoints_iterator(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/evaluation.py).
+Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/evaluation.py).
 
 Continuously yield new checkpoint files as they appear.
 
@@ -60,4 +60,4 @@ they return `False` instead.
 
 #### Yields:
 
-  String paths to latest checkpoint files as they arrive.
+String paths to latest checkpoint files as they arrive.

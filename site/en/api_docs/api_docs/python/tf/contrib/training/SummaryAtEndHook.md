@@ -14,7 +14,7 @@ Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/evaluation.py).
+Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/evaluation.py).
 
 A run hook that saves a summary with the results of evaluation.
 
@@ -110,7 +110,7 @@ At this point graph is finalized and you can not add ops.
 
 #### Returns:
 
-  None or a `SessionRunArgs` object.
+None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 

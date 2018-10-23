@@ -19,7 +19,7 @@ weighted_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Classification](../../../../api_guides/python/nn#Classification)
 
@@ -66,8 +66,8 @@ the implementation uses
 
 #### Returns:
 
-  A `Tensor` of the same shape as `logits` with the componentwise
-  weighted logistic losses.
+A `Tensor` of the same shape as `logits` with the componentwise
+weighted logistic losses.
 
 
 #### Raises:

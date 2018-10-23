@@ -19,7 +19,7 @@ filter_variables(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/variables.py).
 
 See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
 
@@ -56,4 +56,4 @@ conv_weight_variables = tf.contrib.framework.filter_variables(
 
 #### Returns:
 
-  filtered list of variables.
+filtered list of variables.

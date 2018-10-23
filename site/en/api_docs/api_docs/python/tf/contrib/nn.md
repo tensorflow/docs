@@ -10,12 +10,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/nn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/nn/__init__.py).
+Defined in [`tensorflow/contrib/nn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/nn/__init__.py).
 
 Module for variants of ops in tf.nn.
 
 
 ## Functions
+
+[`alpha_dropout(...)`](../../tf/contrib/nn/alpha_dropout): Computes alpha dropout.
 
 [`deprecated_flipped_sigmoid_cross_entropy_with_logits(...)`](../../tf/contrib/nn/deprecated_flipped_sigmoid_cross_entropy_with_logits): Computes sigmoid cross entropy given `logits`.
 

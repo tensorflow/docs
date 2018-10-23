@@ -14,9 +14,40 @@ Inherits From: [`Decoder`](../../../tf/contrib/seq2seq/Decoder)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
 
 BeamSearch sampling decoder.
+
+**NOTE** If you are using the `BeamSearchDecoder` with a cell wrapped in
+`AttentionWrapper`, then you must ensure that:
+
+- The encoder output has been tiled to `beam_width` via
+  [`tf.contrib.seq2seq.tile_batch`](../../../tf/contrib/seq2seq/tile_batch) (NOT `tf.tile`).
+- The `batch_size` argument passed to the `zero_state` method of this
+  wrapper is equal to `true_batch_size * beam_width`.
+- The initial state created with `zero_state` above contains a
+  `cell_state` value containing properly tiled final state from the
+  encoder.
+
+An example:
+
+```
+tiled_encoder_outputs = tf.contrib.seq2seq.tile_batch(
+    encoder_outputs, multiplier=beam_width)
+tiled_encoder_final_state = tf.conrib.seq2seq.tile_batch(
+    encoder_final_state, multiplier=beam_width)
+tiled_sequence_length = tf.contrib.seq2seq.tile_batch(
+    sequence_length, multiplier=beam_width)
+attention_mechanism = MyFavoriteAttentionMechanism(
+    num_units=attention_depth,
+    memory=tiled_inputs,
+    memory_sequence_length=tiled_sequence_length)
+attention_cell = AttentionWrapper(cell, attention_mechanism, ...)
+decoder_initial_state = attention_cell.zero_state(
+    dtype, batch_size=true_batch_size * beam_width)
+decoder_initial_state = decoder_initial_state.clone(
+    cell_state=tiled_encoder_final_state)
+```
 
 ## Properties
 
@@ -51,7 +82,7 @@ __init__(
 )
 ```
 
-Initialize BeamSearchDecoder.
+Initialize the BeamSearchDecoder.
 
 #### Args:
 
@@ -92,7 +123,7 @@ Finalize and return the predicted_ids.
 * <b>`outputs`</b>: An instance of BeamSearchDecoderOutput.
 * <b>`final_state`</b>: An instance of BeamSearchDecoderState. Passed through to the
     output.
-* <b>`sequence_lengths`</b>: An `int32` tensor shaped `[batch_size, beam_width]`.
+* <b>`sequence_lengths`</b>: An `int64` tensor shaped `[batch_size, beam_width]`.
     The sequence lengths determined for each beam during decode.
 
 
@@ -117,7 +148,7 @@ Initialize the decoder.
 
 #### Returns:
 
-  `(finished, start_inputs, initial_state)`.
+`(finished, start_inputs, initial_state)`.
 
 <h3 id="step"><code>step</code></h3>
 
@@ -142,7 +173,7 @@ Perform a decoding step.
 
 #### Returns:
 
-  `(outputs, next_state, next_inputs, finished)`.
+`(outputs, next_state, next_inputs, finished)`.
 
 
 

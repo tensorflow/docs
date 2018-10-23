@@ -14,7 +14,7 @@ quantized_relu_x(
     max_value,
     min_features,
     max_features,
-    out_type=None,
+    out_type=tf.quint8,
     name=None
 )
 ```
@@ -41,7 +41,7 @@ Computes Quantized Rectified Linear X: `min(max(features, 0), max_value)`
 
 #### Returns:
 
-  A tuple of `Tensor` objects (activations, min_activations, max_activations).
+A tuple of `Tensor` objects (activations, min_activations, max_activations).
 
 * <b>`activations`</b>: A `Tensor` of type `out_type`. Has the same output shape as "features".
 * <b>`min_activations`</b>: A `Tensor` of type `float32`. The float value that the lowest quantized value represents.

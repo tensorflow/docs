@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures)
 
@@ -50,7 +50,7 @@ in the correct order.
 
 #### Returns:
 
-  A list of `Operation` objects.
+A list of `Operation` objects.
 
 <h3 id="device"><code>device</code></h3>
 
@@ -58,9 +58,9 @@ The name of the device to which this op has been assigned, if any.
 
 #### Returns:
 
-  The string name of the device to which this op has been
-  assigned, or an empty string if it has not been assigned to a
-  device.
+The string name of the device to which this op has been
+assigned, or an empty string if it has not been assigned to a
+device.
 
 <h3 id="graph"><code>graph</code></h3>
 
@@ -80,9 +80,9 @@ Returns a serialized `NodeDef` representation of this operation.
 
 #### Returns:
 
-  A
-  [`NodeDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/framework/node_def.proto)
-  protocol buffer.
+A
+[`NodeDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/framework/node_def.proto)
+protocol buffer.
 
 <h3 id="op_def"><code>op_def</code></h3>
 
@@ -90,9 +90,9 @@ Returns the `OpDef` proto that represents the type of this op.
 
 #### Returns:
 
-  An
-  [`OpDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/framework/op_def.proto)
-  protocol buffer.
+An
+[`OpDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/framework/op_def.proto)
+protocol buffer.
 
 <h3 id="outputs"><code>outputs</code></h3>
 
@@ -108,7 +108,7 @@ Same as traceback but includes start line of function definition.
 
 #### Returns:
 
-  A list of 5-tuples (filename, lineno, name, code, func_start_lineno).
+A list of 5-tuples (filename, lineno, name, code, func_start_lineno).
 
 <h3 id="type"><code>type</code></h3>
 
@@ -197,7 +197,7 @@ Returns the value of the attr of this op with the given `name`.
 
 #### Returns:
 
-  The value of the attr, as a Python object.
+The value of the attr, as a Python object.
 
 
 #### Raises:

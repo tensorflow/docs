@@ -24,7 +24,7 @@ rejection_sample(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/sampling_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/sampling_ops.py).
+Defined in [`tensorflow/contrib/training/python/training/sampling_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/sampling_ops.py).
 
 See the guide: [Training (contrib) > Online data resampling](../../../../../api_guides/python/contrib.training#Online_data_resampling)
 

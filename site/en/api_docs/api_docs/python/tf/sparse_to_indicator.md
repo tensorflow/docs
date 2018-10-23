@@ -18,7 +18,7 @@ sparse_to_indicator(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Conversion](../../../api_guides/python/sparse_ops#Conversion)
 
@@ -65,7 +65,7 @@ The input `SparseTensor` must be in row-major order.
 
 #### Returns:
 
-  A dense bool indicator tensor representing the indices with specified value.
+A dense bool indicator tensor representing the indices with specified value.
 
 
 #### Raises:

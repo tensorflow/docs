@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/entropy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/entropy.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/entropy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/entropy.py).
 
 Support for Entropy Ops. See ${python/contrib.bayesflow.entropy}.
 

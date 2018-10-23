@@ -17,7 +17,7 @@ multi_head(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/head.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/head.py).
 
 Creates a MultiHead stemming from same logits/hidden layer.
 
@@ -30,7 +30,7 @@ Creates a MultiHead stemming from same logits/hidden layer.
 
 #### Returns:
 
-  A instance of `Head` that merges multiple heads.
+A instance of `Head` that merges multiple heads.
 
 
 #### Raises:

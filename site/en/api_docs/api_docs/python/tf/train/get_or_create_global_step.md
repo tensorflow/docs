@@ -14,7 +14,7 @@ get_or_create_global_step(graph=None)
 
 
 
-Defined in [`tensorflow/python/training/training_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/training_util.py).
+Defined in [`tensorflow/python/training/training_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/training_util.py).
 
 Returns and create (if necessary) the global step tensor.
 
@@ -26,4 +26,4 @@ Returns and create (if necessary) the global step tensor.
 
 #### Returns:
 
-  The global step tensor.
+The global step tensor.

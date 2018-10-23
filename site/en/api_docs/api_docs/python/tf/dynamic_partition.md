@@ -75,4 +75,4 @@ See `dynamic_stitch` for an example on how to merge partitions back.
 
 #### Returns:
 
-  A list of `num_partitions` `Tensor` objects with the same type as `data`.
+A list of `num_partitions` `Tensor` objects with the same type as `data`.

@@ -17,7 +17,7 @@ global_norm(
 
 
 
-Defined in [`tensorflow/python/ops/clip_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/clip_ops.py).
+Defined in [`tensorflow/python/ops/clip_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/clip_ops.py).
 
 See the guide: [Training > Gradient Clipping](../../../api_guides/python/train#Gradient_Clipping)
 
@@ -39,7 +39,7 @@ Any entries in `t_list` that are of type None are ignored.
 
 #### Returns:
 
-  A 0-D (scalar) `Tensor` of type `float`.
+A 0-D (scalar) `Tensor` of type `float`.
 
 
 #### Raises:

@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/losses/losses.py).
+Defined in [`tensorflow/python/ops/losses/losses.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/losses/losses.py).
 
 Loss operations for use in neural networks.
 

@@ -19,7 +19,7 @@ sparse_softmax_cross_entropy(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/losses/python/losses/loss_ops.py).
+Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
 See the guide: [Losses (contrib) > Loss operations for use in neural networks.](../../../../../api_guides/python/contrib.losses#Loss_operations_for_use_in_neural_networks_)
 
@@ -46,7 +46,7 @@ corresponding sample.
 
 #### Returns:
 
-  A scalar `Tensor` representing the mean loss value.
+A scalar `Tensor` representing the mean loss value.
 
 
 #### Raises:

@@ -14,7 +14,7 @@ make_parse_example_spec(feature_columns)
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/feature_column/feature_column.py).
 
 Creates parsing spec dictionary from input feature_columns.
 
@@ -54,8 +54,8 @@ For the above example, make_parse_example_spec would return the dict:
 
 #### Returns:
 
-  A dict mapping each feature key to a `FixedLenFeature` or `VarLenFeature`
-  value.
+A dict mapping each feature key to a `FixedLenFeature` or `VarLenFeature`
+value.
 
 
 #### Raises:

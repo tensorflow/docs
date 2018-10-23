@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/__init__.py).
+Defined in [`tensorflow/contrib/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/__init__.py).
 
 contrib module containing volatile or experimental code.
 
@@ -19,6 +19,8 @@ contrib module containing volatile or experimental code.
 [`bayesflow`](../tf/contrib/bayesflow) module: Ops for representing Bayesian computation.
 
 [`cloud`](../tf/contrib/cloud) module: Module for cloud ops.
+
+[`cluster_resolver`](../tf/contrib/cluster_resolver) module
 
 [`compiler`](../tf/contrib/compiler) module: A module for controlling the Tensorflow/XLA JIT compiler.
 
@@ -36,17 +38,21 @@ contrib module containing volatile or experimental code.
 
 [`distributions`](../tf/contrib/distributions) module: Classes representing statistical distributions and ops for working with them.
 
+[`estimator`](../tf/contrib/estimator) module: Experimental utilities re:tf.estimator.*.
+
 [`factorization`](../tf/contrib/factorization) module: Ops and modules related to factorization.
 
 [`ffmpeg`](../tf/contrib/ffmpeg) module: Working with audio using FFmpeg.
 
 [`framework`](../tf/contrib/framework) module: Framework utilities.
 
+[`gan`](../tf/contrib/gan) module: TFGAN grouped API. Please see README.md for details and usage.
+
 [`graph_editor`](../tf/contrib/graph_editor) module: TensorFlow Graph Editor.
 
 [`grid_rnn`](../tf/contrib/grid_rnn) module: GridRNN cells
 
-[`image`](../tf/contrib/image) module: ##Ops for image manipulation.
+[`image`](../tf/contrib/image) module: Ops for image manipulation.
 
 [`input_pipeline`](../tf/contrib/input_pipeline) module: Ops and modules related to input_pipeline.
 
@@ -55,6 +61,8 @@ contrib module containing volatile or experimental code.
 [`keras`](../tf/contrib/keras) module: Implementation of the Keras API meant to be a high-level API for TensorFlow.
 
 [`kernel_methods`](../tf/contrib/kernel_methods) module: Ops and estimators that enable explicit kernel methods in TensorFlow.
+
+[`kfac`](../tf/contrib/kfac) module: Kronecker-factored Approximate Curvature Optimizer.
 
 [`labeled_tensor`](../tf/contrib/labeled_tensor) module: Labels for TensorFlow.
 
@@ -74,6 +82,8 @@ contrib module containing volatile or experimental code.
 
 [`memory_stats`](../tf/contrib/memory_stats) module: Ops for memory statistics.
 
+[`meta_graph_transform`](../tf/contrib/meta_graph_transform) module: Utility for applying the Graph Transform tool to a MetaGraphDef.
+
 [`metrics`](../tf/contrib/metrics) module: Ops for evaluation metrics and summary statistics.
 
 [`nccl`](../tf/contrib/nccl) module: Functions for using NVIDIA nccl collective ops.
@@ -88,6 +98,10 @@ contrib module containing volatile or experimental code.
 
 [`quantization`](../tf/contrib/quantization) module: Ops for building quantized models.
 
+[`quantize`](../tf/contrib/quantize) module: Functions for rewriting graphs for quantized training.
+
+[`reduce_slice_ops`](../tf/contrib/reduce_slice_ops) module: reduce by slice
+
 [`remote_fused_graph`](../tf/contrib/remote_fused_graph) module: Remote fused graph ops python library.
 
 [`resampler`](../tf/contrib/resampler) module: Ops and modules related to resampler.
@@ -100,7 +114,7 @@ contrib module containing volatile or experimental code.
 
 [`session_bundle`](../tf/contrib/session_bundle) module
 
-[`signal`](../tf/contrib/signal) module: ##Signal ops.
+[`signal`](../tf/contrib/signal) module: Signal processing operations.
 
 [`slim`](../tf/contrib/slim) module: Slim is an interface to contrib functions, examples and models.
 

@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/pywrap_tensorflow.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/pywrap_tensorflow.py).
+Defined in [`tensorflow/python/pywrap_tensorflow.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/pywrap_tensorflow.py).
 
-pywrap_tensorflow wrapper that exports all symbols with RTLD_GLOBAL.
+A wrapper for TensorFlow SWIG-generated bindings.
 

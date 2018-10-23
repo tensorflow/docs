@@ -23,7 +23,7 @@ compute_gradient(
 
 
 
-Defined in [`tensorflow/python/ops/gradient_checker.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/gradient_checker.py).
+Defined in [`tensorflow/python/ops/gradient_checker.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/gradient_checker.py).
 
 See the guide: [Testing > Gradient checking](../../../../api_guides/python/test#Gradient_checking)
 
@@ -61,7 +61,7 @@ with shape `[n]`, each Jacobian `J` will have shape `[m * 2, n * 2]` with
 
 #### Returns:
 
-  Two 2-d numpy arrays representing the theoretical and numerical
-  Jacobian for dy/dx. Each has "x_size" rows and "y_size" columns
-  where "x_size" is the number of elements in x and "y_size" is the
-  number of elements in y. If x is a list, returns a list of two numpy arrays.
+Two 2-d numpy arrays representing the theoretical and numerical
+Jacobian for dy/dx. Each has "x_size" rows and "y_size" columns
+where "x_size" is the number of elements in x and "y_size" is the
+number of elements in y. If x is a list, returns a list of two numpy arrays.

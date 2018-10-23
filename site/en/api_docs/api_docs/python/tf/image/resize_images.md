@@ -19,7 +19,7 @@ resize_images(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Resizing](../../../../api_guides/python/image#Resizing)
 
@@ -38,6 +38,12 @@ the same as `size`.  To avoid distortions see
 *   <b>`ResizeMethod.BICUBIC`</b>: [Bicubic interpolation.](
   https://en.wikipedia.org/wiki/Bicubic_interpolation)
 *   <b>`ResizeMethod.AREA`</b>: Area interpolation.
+
+The return value has the same type as `images` if `method` is
+`ResizeMethod.NEAREST_NEIGHBOR`. It will also have the same type as `images`
+if the size of `images` can be statically determined to be the same as `size`,
+because `images` is returned in this case. Otherwise, the return value has
+type `float32`.
 
 #### Args:
 
@@ -60,7 +66,7 @@ the same as `size`.  To avoid distortions see
 
 #### Returns:
 
-  If `images` was 4-D, a 4-D float Tensor of shape
-  `[batch, new_height, new_width, channels]`.
-  If `images` was 3-D, a 3-D float Tensor of shape
-  `[new_height, new_width, channels]`.
+If `images` was 4-D, a 4-D float Tensor of shape
+`[batch, new_height, new_width, channels]`.
+If `images` was 3-D, a 3-D float Tensor of shape
+`[new_height, new_width, channels]`.

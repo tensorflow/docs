@@ -43,7 +43,7 @@ Concatenates quantized tensors along one dimension.
 
 #### Returns:
 
-  A tuple of `Tensor` objects (output, output_min, output_max).
+A tuple of `Tensor` objects (output, output_min, output_max).
 
 * <b>`output`</b>: A `Tensor`. Has the same type as `values`. A `Tensor` with the concatenation of values stacked along the
     `concat_dim` dimension.  This tensor's shape matches that of `values` except

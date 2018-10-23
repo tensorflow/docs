@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
+Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
 
 See the guide: [Training (contrib) > Splitting sequence inputs into minibatches with state saving](../../../../../api_guides/python/contrib.training#Splitting_sequence_inputs_into_minibatches_with_state_saving)
 
@@ -35,7 +35,7 @@ exhausted.
 
 #### Returns:
 
-  A scalar integer tensor, the batch_size
+A scalar integer tensor, the batch_size
 
 <h3 id="context"><code>context</code></h3>
 
@@ -43,14 +43,18 @@ A dict mapping keys of `input_context` to batched context.
 
 #### Returns:
 
-  A dict mapping keys of `input_context` to tensors.
-  If we had at input:
+A dict mapping keys of `input_context` to tensors.
+If we had at input:
 
->     context["name"].get_shape() == [d1, d2, ...]
+```python
+context["name"].get_shape() == [d1, d2, ...]
+```
 
-  then for this property:
+then for this property:
 
->     context["name"].get_shape() == [batch_size, d1, d2, ...]
+```python
+context["name"].get_shape() == [batch_size, d1, d2, ...]
+```
 
 <h3 id="insertion_index"><code>insertion_index</code></h3>
 
@@ -64,7 +68,7 @@ by the prefetch op between iterations.
 
 #### Returns:
 
-  An int64 vector of length `batch_size`, the insertion indices.
+An int64 vector of length `batch_size`, the insertion indices.
 
 <h3 id="key"><code>key</code></h3>
 
@@ -80,7 +84,7 @@ where `original_key` is the unique key read in by the prefetcher.
 
 #### Returns:
 
-  A string vector of length `batch_size`, the keys.
+A string vector of length `batch_size`, the keys.
 
 <h3 id="length"><code>length</code></h3>
 
@@ -92,7 +96,7 @@ this number is between `0` and `num_unroll`.
 
 #### Returns:
 
-  An integer vector of length `batch_size`, the lengths.
+An integer vector of length `batch_size`, the lengths.
 
 <h3 id="next_key"><code>next_key</code></h3>
 
@@ -114,14 +118,13 @@ where `original_key` is the unique key read in by the prefetcher.
 
 #### Returns:
 
-  A string vector of length `batch_size`, the keys.
+A string vector of length `batch_size`, the keys.
 
 <h3 id="sequence"><code>sequence</code></h3>
 
 An int32 vector, length `batch_size`: the sequence index of each entry.
 
 When an input is split up, the sequence values
-
 ```
 0, 1, ..., sequence_count - 1
 ```
@@ -129,7 +132,7 @@ are assigned to each split.
 
 #### Returns:
 
-  An int32 vector `Tensor`.
+An int32 vector `Tensor`.
 
 <h3 id="sequence_count"><code>sequence_count</code></h3>
 
@@ -140,7 +143,7 @@ When an input is split up, the number of splits is equal to:
 
 #### Returns:
 
-  An int32 vector `Tensor`.
+An int32 vector `Tensor`.
 
 <h3 id="sequences"><code>sequences</code></h3>
 
@@ -148,14 +151,18 @@ A dict mapping keys of `input_sequences` to split and rebatched data.
 
 #### Returns:
 
-  A dict mapping keys of `input_sequences` to tensors.
-  If we had at input:
+A dict mapping keys of `input_sequences` to tensors.
+If we had at input:
 
->     sequences["name"].get_shape() == [None, d1, d2, ...]
+```python
+sequences["name"].get_shape() == [None, d1, d2, ...]
+```
 
-  where `None` meant the sequence time was dynamic, then for this property:
+where `None` meant the sequence time was dynamic, then for this property:
 
->     sequences["name"].get_shape() == [batch_size, num_unroll, d1, d2, ...].
+```python
+sequences["name"].get_shape() == [batch_size, num_unroll, d1, d2, ...].
+```
 
 <h3 id="total_length"><code>total_length</code></h3>
 
@@ -163,7 +170,7 @@ The lengths of the original (non-truncated) unrolled examples.
 
 #### Returns:
 
-  An integer vector of length `batch_size`, the total lengths.
+An integer vector of length `batch_size`, the total lengths.
 
 
 
@@ -211,10 +218,10 @@ Returns an op to save the current batch of state `state_name`.
 
 #### Returns:
 
-  A control flow op that stores the new state of each entry into
-  the state saver.  This op must be run for every iteration that
-  accesses data from the state saver (otherwise the state saver
-  will never progress through its states and run out of capacity).
+A control flow op that stores the new state of each entry into
+the state saver.  This op must be run for every iteration that
+accesses data from the state saver (otherwise the state saver
+will never progress through its states and run out of capacity).
 
 
 #### Raises:
@@ -237,17 +244,21 @@ Returns batched state tensors.
 
 #### Returns:
 
-  A `Tensor`: a batched set of states, either initial states (if this is
-  the first run of the given example), or a value as stored during
-  a previous iteration via `save_state` control flow.
-  Its type is the same as `initial_states["state_name"].dtype`.
-  If we had at input:
+A `Tensor`: a batched set of states, either initial states (if this is
+the first run of the given example), or a value as stored during
+a previous iteration via `save_state` control flow.
+Its type is the same as `initial_states["state_name"].dtype`.
+If we had at input:
 
->     initial_states[state_name].get_shape() == [d1, d2, ...],
+```python
+initial_states[state_name].get_shape() == [d1, d2, ...],
+```
 
-  then
+then
 
->     state(state_name).get_shape() == [batch_size, d1, d2, ...]
+```python
+state(state_name).get_shape() == [batch_size, d1, d2, ...]
+```
 
 
 #### Raises:

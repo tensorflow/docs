@@ -47,7 +47,7 @@
 <html devsite>
   <head>
     <title>Operation</title>
-    <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+    <meta name="book_path" value="/versions/r1.4/_book.yaml" />
     <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
@@ -276,8 +276,8 @@
                 
                 
                 
-                
-                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>
+                &lt;T&gt;
+                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;T&gt;
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
@@ -298,7 +298,7 @@
                 
                 
                 
-                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>
+                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt;
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
@@ -818,7 +818,7 @@
             
             
             
-            <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>
+            <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;T&gt;
           </span>
           <span class="sympad"><strong>output</strong></span>
           <span class="params">(int idx)</span>
@@ -831,13 +831,17 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p>Returns a symbolic handle to one of the tensors produced by this operation. </p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a symbolic handle to one of the tensors produced by this operation.
+
+ <p>Warning: Does not check that the type of the tensor matches T. It is recommended to call
+ this method with an explicit type parameter rather than letting it be inferred, e.g. <code>operation.&lt;Integer&gt;output(0)</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>idx</td>
-          <td><!-- no parameter comment --></td>
+          <td>The index of the output among the outputs produced by this operation.
+</td>
         </tr>
       </table>
   </div>
@@ -856,7 +860,7 @@
             
             
             
-            <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>
+            <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt;
           </span>
           <span class="sympad"><strong>outputList</strong></span>
           <span class="params">(int idx, int length)</span>

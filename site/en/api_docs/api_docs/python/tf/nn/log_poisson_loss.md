@@ -19,7 +19,7 @@ log_poisson_loss(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Losses](../../../../api_guides/python/nn#Losses)
 
@@ -57,8 +57,8 @@ loss is
 
 #### Returns:
 
-  A `Tensor` of the same shape as `log_input` with the componentwise
-  logistic losses.
+A `Tensor` of the same shape as `log_input` with the componentwise
+logistic losses.
 
 
 #### Raises:

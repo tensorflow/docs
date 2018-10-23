@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/tools/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/tools/__init__.py).
+Defined in [`tensorflow/tools/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/tools/__init__.py).
 
 
 

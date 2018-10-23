@@ -25,7 +25,7 @@ bias_add(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/layers.py).
 
 Adds a bias to the inputs.
 
@@ -52,7 +52,7 @@ Can be used as a normalizer function for conv2d and fully_connected.
 
 #### Returns:
 
-  A tensor representing the result of adding biases to the inputs.
+A tensor representing the result of adding biases to the inputs.
 
 
 #### Raises:

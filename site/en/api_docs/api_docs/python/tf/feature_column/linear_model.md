@@ -21,7 +21,7 @@ linear_model(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/feature_column/feature_column.py).
 
 Returns a linear prediction `Tensor` based on given `feature_columns`.
 
@@ -71,8 +71,8 @@ prediction = linear_model(features, columns)
 
 #### Returns:
 
-  A `Tensor` which represents predictions/logits of a linear model. Its shape
-  is (batch_size, units) and its dtype is `float32`.
+A `Tensor` which represents predictions/logits of a linear model. Its shape
+is (batch_size, units) and its dtype is `float32`.
 
 
 #### Raises:

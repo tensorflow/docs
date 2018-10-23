@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::Dilation2D Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -23,7 +23,7 @@
   <p>Max-pooling is a special case when the filter has size equal to the pooling kernel size and contains all zeros.</p>
   <p>Note on duality: The dilation of <code>input</code> by the <code>filter</code> is equal to the negation of the erosion of <code>-input</code> by the reflected <code>filter</code>.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>input: 4-D with shape <code>[batch, in_height, in_width, depth]</code>.</li>
       <li>filter: 3-D with shape <code>[filter_height, filter_width, depth]</code>.</li>
       <li>strides: The stride of the sliding window for each dimension of the input tensor. Must be: <code>[1, stride_height, stride_width, 1]</code>.</li>
@@ -31,7 +31,7 @@
       <li>padding: The type of padding algorithm to use.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with shape <code>[batch, out_height, out_width, depth]</code>. </li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with shape <code>[batch, out_height, out_width, depth]</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -41,7 +41,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_1aa7fba6ab148288fc230175c265483ff3">Dilation2D</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, const gtl::ArraySlice< int > & strides, const gtl::ArraySlice< int > & rates, StringPiece padding)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_1aa7fba6ab148288fc230175c265483ff3">Dilation2D</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, const gtl::ArraySlice< int > & strides, const gtl::ArraySlice< int > & rates, StringPiece padding)</code>
         <br />
       </td>
     </tr>
@@ -58,7 +58,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -103,16 +103,16 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_dilation2_d_1ae68b7f48c9fc91ffdef4e18bd34625f0">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_dilation2_d_1aa7fba6ab148288fc230175c265483ff3">
     <h3>Dilation2D</h3>
     <pre class="prettyprint"> Dilation2D(
-  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
   const gtl::ArraySlice< int > & strides,
   const gtl::ArraySlice< int > & rates,
   StringPiece padding

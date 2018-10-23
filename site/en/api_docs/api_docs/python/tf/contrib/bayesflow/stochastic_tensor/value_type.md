@@ -41,8 +41,8 @@ in a `stop_gradients` call to disable any possible backpropagation.
 
 #### Yields:
 
-  A context for `StochasticTensor` objects that controls the
-  value created when they are initialized.
+A context for `StochasticTensor` objects that controls the
+value created when they are initialized.
 
 
 #### Raises:

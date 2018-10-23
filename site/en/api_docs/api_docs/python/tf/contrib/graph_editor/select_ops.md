@@ -17,7 +17,7 @@ select_ops(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/select.py).
+Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/select.py).
 
 See the guide: [Graph Editor (contrib) > Module: select](../../../../../api_guides/python/contrib.graph_editor#Module_select)
 
@@ -25,9 +25,9 @@ Helper to select operations.
 
 #### Args:
 
-  *args: list of 1) regular expressions (compiled or not) or  2) (array of)
+* <b>`*args`</b>: list of 1) regular expressions (compiled or not) or 2) (array of)
     `tf.Operation`. `tf.Tensor` instances are silently ignored.
-  **kwargs: 'graph': `tf.Graph` in which to perform the regex query.This is
+* <b>`**kwargs`</b>: 'graph': `tf.Graph` in which to perform the regex query.This is
     required when using regex.
     'positive_filter': an elem if selected only if `positive_filter(elem)` is
       `True`. This is optional.
@@ -36,7 +36,7 @@ Helper to select operations.
 
 #### Returns:
 
-  A list of `tf.Operation`.
+A list of `tf.Operation`.
 
 #### Raises:
 

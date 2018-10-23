@@ -17,7 +17,7 @@ adjust_brightness(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Image Adjustments](../../../../api_guides/python/image#Image_Adjustments)
 
@@ -42,4 +42,4 @@ floating point representation, where pixel values are in the `[0,1)` range.
 
 #### Returns:
 
-  A brightness-adjusted tensor of the same shape and type as `image`.
+A brightness-adjusted tensor of the same shape and type as `image`.

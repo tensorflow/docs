@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/session_run_hook.py).
+Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/session_run_hook.py).
 
 See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
 
@@ -97,7 +97,7 @@ At this point graph is finalized and you can not add ops.
 
 #### Returns:
 
-  None or a `SessionRunArgs` object.
+None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 

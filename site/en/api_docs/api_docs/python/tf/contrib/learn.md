@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/__init__.py).
+Defined in [`tensorflow/contrib/learn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/__init__.py).
 
 High level API for learning.
 
@@ -149,6 +149,14 @@ See the [Learn (contrib)](../../../../api_guides/python/contrib.learn) guide.
 [`read_batch_features(...)`](../../tf/contrib/learn/read_batch_features): Adds operations to read, queue, batch and parse `Example` protos.
 
 [`read_batch_record_features(...)`](../../tf/contrib/learn/read_batch_record_features): Reads TFRecord, queues, batches and parses `Example` proto.
+
+[`read_keyed_batch_examples(...)`](../../tf/contrib/learn/read_keyed_batch_examples): Adds operations to read, queue, batch `Example` protos.
+
+[`read_keyed_batch_examples_shared_queue(...)`](../../tf/contrib/learn/read_keyed_batch_examples_shared_queue): Adds operations to read, queue, batch `Example` protos.
+
+[`read_keyed_batch_features(...)`](../../tf/contrib/learn/read_keyed_batch_features): Adds operations to read, queue, batch and parse `Example` protos.
+
+[`read_keyed_batch_features_shared_queue(...)`](../../tf/contrib/learn/read_keyed_batch_features_shared_queue): Adds operations to read, queue, batch and parse `Example` protos.
 
 [`regression_head(...)`](../../tf/contrib/learn/regression_head): Creates a `Head` for linear regression.
 

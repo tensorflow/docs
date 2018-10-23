@@ -14,7 +14,7 @@ Glob(filename)
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/lib/io/file_io.py).
+Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/lib/io/file_io.py).
 
 Returns a list of files that match the given pattern(s).
 
@@ -25,9 +25,9 @@ Returns a list of files that match the given pattern(s).
 
 #### Returns:
 
-  A list of strings containing filenames that match the given pattern(s).
+A list of strings containing filenames that match the given pattern(s).
 
 
 #### Raises:
 
-  errors.OpError: If there are filesystem / directory listing errors.
+* <b>`errors.OpError`</b>: If there are filesystem / directory listing errors.

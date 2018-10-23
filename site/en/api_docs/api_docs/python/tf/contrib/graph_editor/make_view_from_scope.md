@@ -22,7 +22,7 @@ make_view_from_scope(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/subgraph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/subgraph.py).
+Defined in [`tensorflow/contrib/graph_editor/subgraph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/subgraph.py).
 
 See the guides: [Graph Editor (contrib) > Module: subgraph](../../../../../api_guides/python/contrib.graph_editor#Module_subgraph), [Graph Editor (contrib) > Useful aliases](../../../../../api_guides/python/contrib.graph_editor#Useful_aliases)
 
@@ -35,4 +35,4 @@ Make a subgraph from a name scope.
 
 #### Returns:
 
-  A subgraph view representing the given scope.
+A subgraph view representing the given scope.

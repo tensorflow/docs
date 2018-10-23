@@ -24,7 +24,7 @@ watch_graph_with_blacklists(
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/debug/lib/debug_utils.py).
+Defined in [`tensorflow/python/debug/lib/debug_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/debug/lib/debug_utils.py).
 
 See the guide: [TensorFlow Debugger > Functions for adding debug watches](../../../api_guides/python/tfdbg#Functions_for_adding_debug_watches)
 

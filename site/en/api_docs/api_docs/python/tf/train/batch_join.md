@@ -24,7 +24,7 @@ batch_join(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/input.py).
 
 See the guide: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline)
 
@@ -84,7 +84,7 @@ If `allow_smaller_final_batch` is `True`, a smaller batch value than
 `batch_size` is returned when the queue is closed and there are not enough
 elements to fill the batch, otherwise the pending elements are discarded.
 In addition, all output tensors' static shapes, as accessed via the
-`get_shape` method will have a first `Dimension` value of `None`, and
+`shape` property will have a first `Dimension` value of `None`, and
 operations that depend on fixed batch_size would fail.
 
 #### Args:
@@ -108,8 +108,8 @@ operations that depend on fixed batch_size would fail.
 
 #### Returns:
 
-  A list or dictionary of tensors with the same number and types as
-  `tensors_list[i]`.
+A list or dictionary of tensors with the same number and types as
+`tensors_list[i]`.
 
 
 #### Raises:

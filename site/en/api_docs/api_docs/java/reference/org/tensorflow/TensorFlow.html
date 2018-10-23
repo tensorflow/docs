@@ -47,7 +47,7 @@
 <html devsite>
   <head>
     <title>TensorFlow</title>
-    <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+    <meta name="book_path" value="/versions/r1.4/_book.yaml" />
     <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
@@ -156,6 +156,28 @@
       <h3>Public Methods</h3>
       <table id="pubmethods" class="jd-sumtable">
       
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                static
+                
+                byte[]
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/TensorFlow.html#loadLibrary(java.lang.String)">loadLibrary</a></span>(String filename)
+                
+                  <div class="jd-descrdiv">Load the dynamic library in filename and register the operations and kernels present in that
+ library.</div>
+                
+              </div>
+          </td>
+        </tr>
     
     
         
@@ -451,6 +473,61 @@
     <section id="public-methods">
       <h2>Public Methods</h2>
       
+    
+    
+    <A NAME="loadLibrary(java.lang.String)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            static
+            
+            
+            
+            byte[]
+          </span>
+          <span class="sympad"><strong>loadLibrary</strong></span>
+          <span class="params">(String filename)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Load the dynamic library in filename and register the operations and kernels present in that
+ library.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>filename</td>
+          <td>Path of the dynamic library containing operations and kernels to load.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Serialized bytes of the <a
+     href="https://www.tensorflow.org/code/tensorflow/core/framework/op_def.proto">OpList</a>
+     protocol buffer message defining the operations defined in the library.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>UnsatisfiedLinkError</td>
+            <td>if filename cannot be loaded.
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
     
     
     <A NAME="registeredOpList()"></A>

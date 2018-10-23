@@ -10,18 +10,20 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/distributions/python/ops/bijectors/__init__.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/distributions/python/ops/bijectors/__init__.py).
 
 Bijector Ops.
 
 
 ## Classes
 
+[`class AbsoluteValue`](../../../tf/contrib/distributions/bijectors/AbsoluteValue): Computes `Y = g(X) = Abs(X)`, element-wise.
+
 [`class Affine`](../../../tf/contrib/distributions/bijectors/Affine): Compute `Y = g(X; shift, scale) = scale @ X + shift`.
 
 [`class AffineLinearOperator`](../../../tf/contrib/distributions/bijectors/AffineLinearOperator): Compute `Y = g(X; shift, scale) = scale @ X + shift`.
 
-[`class Bijector`](../../../tf/distributions/bijectors/Bijector): Interface for invertible transformations of a `Distribution` sample.
+[`class Bijector`](../../../tf/distributions/bijectors/Bijector): Interface for transformations of a `Distribution` sample.
 
 [`class Chain`](../../../tf/contrib/distributions/bijectors/Chain): Bijector which applies a sequence of bijectors.
 

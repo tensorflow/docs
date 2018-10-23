@@ -18,7 +18,7 @@ get_tensor_from_tensor_info(
 
 
 
-Defined in [`tensorflow/python/saved_model/utils_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/saved_model/utils_impl.py).
+Defined in [`tensorflow/python/saved_model/utils_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/saved_model/utils_impl.py).
 
 Returns the Tensor or SparseTensor described by a TensorInfo proto.
 
@@ -33,7 +33,7 @@ Returns the Tensor or SparseTensor described by a TensorInfo proto.
 
 #### Returns:
 
-  The Tensor or SparseTensor in `graph` described by `tensor_info`.
+The Tensor or SparseTensor in `graph` described by `tensor_info`.
 
 
 #### Raises:

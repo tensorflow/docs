@@ -22,7 +22,7 @@ percentile(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/sample_stats.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/distributions/python/ops/sample_stats.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/sample_stats.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/distributions/python/ops/sample_stats.py).
 
 Compute the `q`-th percentile of `x`.
 
@@ -73,7 +73,7 @@ Compare to `numpy.percentile`.
     The axis that hold independent samples over which to return the desired
     percentile.  If `None` (the default), treat every dimension as a sample
     dimension, returning a scalar.
-  interpolation : {"lower", "higher", "nearest"}.  Default: "nearest"
+* <b>`interpolation `</b>: {"lower", "higher", "nearest"}.  Default: "nearest"
     This optional parameter specifies the interpolation method to
     use when the desired quantile lies between two data points `i < j`:
       * lower: `i`.
@@ -88,8 +88,8 @@ Compare to `numpy.percentile`.
 
 #### Returns:
 
-  A `(N - len(axis))` dimensional `Tensor` of same dtype as `x`, or, if
-    `axis` is `None`, a scalar.
+A `(N - len(axis))` dimensional `Tensor` of same dtype as `x`, or, if
+  `axis` is `None`, a scalar.
 
 
 #### Raises:

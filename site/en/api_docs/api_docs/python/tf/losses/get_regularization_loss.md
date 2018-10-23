@@ -17,7 +17,7 @@ get_regularization_loss(
 
 
 
-Defined in [`tensorflow/python/ops/losses/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/losses/util.py).
+Defined in [`tensorflow/python/ops/losses/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/losses/util.py).
 
 Gets the total regularization loss.
 
@@ -29,4 +29,4 @@ Gets the total regularization loss.
 
 #### Returns:
 
-  A scalar regularization loss.
+A scalar regularization loss.

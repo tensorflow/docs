@@ -18,9 +18,9 @@ rfft2d(
 
 
 
-Defined in [`tensorflow/python/ops/spectral_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/spectral_ops.py).
+Defined in [`tensorflow/python/ops/spectral_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/spectral_ops.py).
 
-See the guide: [Spectral Functions > Fourier Transform Functions](../../../../api_guides/python/spectral_ops#Fourier_Transform_Functions)
+See the guide: [Spectral Functions > Discrete Fourier Transforms](../../../../api_guides/python/spectral_ops#Discrete_Fourier_Transforms)
 
 2D real-valued fast Fourier transform.
 
@@ -46,11 +46,11 @@ the dimension is padded with zeros.
 
 #### Returns:
 
-  A `Tensor` of type `complex64`.
-  A complex64 tensor of the same rank as `input`. The inner-most 2
-    dimensions of `input` are replaced with their 2D Fourier transform. The
-    inner-most dimension contains `fft_length / 2 + 1` unique frequency
-    components.
+A `Tensor` of type `complex64`.
+A complex64 tensor of the same rank as `input`. The inner-most 2
+  dimensions of `input` are replaced with their 2D Fourier transform. The
+  inner-most dimension contains `fft_length / 2 + 1` unique frequency
+  components.
 
 
 

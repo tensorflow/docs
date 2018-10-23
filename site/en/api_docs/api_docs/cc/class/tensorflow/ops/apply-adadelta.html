@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::ApplyAdadelta Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -14,7 +14,7 @@
   <h2>Summary</h2>
   <p>accum = rho() * accum + (1 - rho()) * grad.square(); update = (update_accum + epsilon).sqrt() * (accum + epsilon()).rsqrt() * grad; update_accum = rho() * update_accum + (1 - rho()) * update.square(); var -= update;</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>var: Should be from a Variable().</li>
       <li>accum: Should be from a Variable().</li>
       <li>accum_update: Should be from a Variable().</li>
@@ -23,11 +23,11 @@
       <li>epsilon: Constant factor. Must be a scalar.</li>
       <li>grad: The gradient.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs.html#structtensorflow_1_1ops_1_1_apply_adadelta_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs.html#structtensorflow_1_1ops_1_1_apply_adadelta_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: If True, updating of the var, accum and update_accum tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -37,13 +37,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_apply_adadelta_1aa28344b035c47c459fd0afca95547d97">ApplyAdadelta</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum_update, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adadelta_1aa28344b035c47c459fd0afca95547d97">ApplyAdadelta</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum_update, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_apply_adadelta_1a08f5d27287a3064abb5e3b83fadbe887">ApplyAdadelta</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum_update, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs.html#structtensorflow_1_1ops_1_1_apply_adadelta_1_1_attrs">ApplyAdadelta::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adadelta_1a08f5d27287a3064abb5e3b83fadbe887">ApplyAdadelta</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum_update, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs.html#structtensorflow_1_1ops_1_1_apply_adadelta_1_1_attrs">ApplyAdadelta::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -60,7 +60,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -114,7 +114,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs.html#structtensorflow_1_1ops_1_1_apply_adadelta_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs.html#structtensorflow_1_1ops_1_1_apply_adadelta_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -127,46 +127,46 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs">tensorflow::<wbr/>ops::<wbr/>ApplyAdadelta::<wbr/>Attrs</a>
+        <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs">tensorflow::<wbr/>ops::<wbr/>ApplyAdadelta::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/apply-adadelta.html#classtensorflow_1_1ops_1_1_apply_adadelta">ApplyAdadelta</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/apply-adadelta.html#classtensorflow_1_1ops_1_1_apply_adadelta">ApplyAdadelta</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_adadelta_1aaa46dd79340e6999dac483165b45499d">
     <h3>out</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_adadelta_1aa28344b035c47c459fd0afca95547d97">
     <h3>ApplyAdadelta</h3>
     <pre class="prettyprint"> ApplyAdadelta(
-  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum_update,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum_update,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_apply_adadelta_1a08f5d27287a3064abb5e3b83fadbe887">
     <h3>ApplyAdadelta</h3>
     <pre class="prettyprint"> ApplyAdadelta(
-  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum_update,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
-  const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs.html#structtensorflow_1_1ops_1_1_apply_adadelta_1_1_attrs">ApplyAdadelta::Attrs</a> & attrs
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum_update,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs.html#structtensorflow_1_1ops_1_1_apply_adadelta_1_1_attrs">ApplyAdadelta::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -188,7 +188,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_adadelta_1a8545cc26c688935679d0a732a1407986">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs.html#structtensorflow_1_1ops_1_1_apply_adadelta_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-adadelta/attrs.html#structtensorflow_1_1ops_1_1_apply_adadelta_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />

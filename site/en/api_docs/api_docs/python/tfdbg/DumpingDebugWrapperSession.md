@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/dumping_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/debug/wrappers/dumping_wrapper.py).
+Defined in [`tensorflow/python/debug/wrappers/dumping_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/debug/wrappers/dumping_wrapper.py).
 
 See the guide: [TensorFlow Debugger > Session wrapper class and `SessionRunHook` implementations](../../../api_guides/python/tfdbg#Session_wrapper_class_and_SessionRunHook_implementations)
 
@@ -27,6 +27,10 @@ Debug Session wrapper that dumps debug data to filesystem.
 
 
 <h3 id="graph_def"><code>graph_def</code></h3>
+
+
+
+<h3 id="run_call_count"><code>run_call_count</code></h3>
 
 
 
@@ -50,6 +54,7 @@ __init__(
     session_root,
     watch_fn=None,
     thread_name_filter=None,
+    pass_through_operrors=None,
     log_usage=True
 )
 ```
@@ -74,12 +79,14 @@ Constructor of DumpingDebugWrapperSession.
 * <b>`thread_name_filter`</b>: Regular-expression white list for threads on which the
     wrapper session will be active. See doc of `BaseDebugWrapperSession` for
     more details.
+* <b>`pass_through_operrors`</b>: If true, all captured OpErrors will be
+    propagated. By default this captures all OpErrors.
 * <b>`log_usage`</b>: (`bool`) whether the usage of this class is to be logged.
 
 
 #### Raises:
 
-   ValueError: If `session_root` is an existing and non-empty directory or
+* <b>`ValueError`</b>: If `session_root` is an existing and non-empty directory or
    if `session_root` is a file.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
@@ -114,6 +121,14 @@ as_default()
 
 ``` python
 close()
+```
+
+
+
+<h3 id="increment_run_call_count"><code>increment_run_call_count</code></h3>
+
+``` python
+increment_run_call_count()
 ```
 
 
@@ -265,13 +280,21 @@ Wrapper around Session.run() that inserts tensor watch options.
 
 #### Returns:
 
-  Simply forwards the output of the wrapped `Session.run()` call.
+Simply forwards the output of the wrapped `Session.run()` call.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: On invalid `OnRunStartAction` value. Or if `callable_runner`
     is not `None` and either or both of `fetches` and `feed_dict` is `None`.
+
+<h3 id="should_stop"><code>should_stop</code></h3>
+
+``` python
+should_stop()
+```
+
+
 
 
 

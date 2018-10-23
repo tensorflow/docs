@@ -14,7 +14,7 @@ add_arg_scope(func)
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/arg_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/arg_scope.py).
+Defined in [`tensorflow/contrib/framework/python/ops/arg_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/arg_scope.py).
 
 See the guide: [Framework (contrib) > Arg_Scope](../../../../../api_guides/python/contrib.framework#Arg_Scope)
 
@@ -27,4 +27,4 @@ Decorates a function with args so it can be used within an arg_scope.
 
 #### Returns:
 
-  A tuple with the decorated function func_with_args().
+A tuple with the decorated function func_with_args().

@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/lib/io/tf_record.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/lib/io/tf_record.py).
+Defined in [`tensorflow/python/lib/io/tf_record.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/lib/io/tf_record.py).
 
 See the guide: [Data IO (Python functions)](../../../../api_guides/python/python_io)
 
@@ -33,6 +33,7 @@ __init__(compression_type)
 <h3 id="get_compression_type_string"><code>get_compression_type_string</code></h3>
 
 ``` python
+@classmethod
 get_compression_type_string(
     cls,
     options

@@ -14,7 +14,7 @@ get_name_scope()
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/ops.py).
+Defined in [`tensorflow/contrib/framework/python/ops/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/ops.py).
 
 Returns the current name scope of the default graph.
 
@@ -27,4 +27,4 @@ For example:
 
 #### Returns:
 
-  A string representing the current name scope.
+A string representing the current name scope.

@@ -47,7 +47,7 @@
 <html devsite>
   <head>
     <title>Class Index</title>
-    <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+    <meta name="book_path" value="/versions/r1.4/_book.yaml" />
     <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
@@ -70,7 +70,7 @@
     
         <tr>
             <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType</a></td>
-            <td class="jd-descrcol" width="100%">Type of elements in a <code><a href="reference/org/tensorflow/Tensor.html">Tensor</a></code>.&nbsp;</td>
+            <td class="jd-descrcol" width="100%">Represents the type of elements in a <code><a href="reference/org/tensorflow/Tensor.html">Tensor</a></code> as an enum.&nbsp;</td>
         </tr>
     
     
@@ -95,7 +95,7 @@
     
     
         <tr>
-            <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/Operand.html">Operand</a></td>
+            <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/Operand.html">Operand</a>&lt;T&gt;</td>
             <td class="jd-descrcol" width="100%">Interface implemented by operands of a TensorFlow operation.&nbsp;</td>
         </tr>
     
@@ -113,7 +113,7 @@
     
     
         <tr>
-            <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a></td>
+            <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;T&gt;</td>
             <td class="jd-descrcol" width="100%">A symbolic handle to a tensor produced by an <code><a href="reference/org/tensorflow/Operation.html">Operation</a></code>.&nbsp;</td>
         </tr>
     
@@ -163,8 +163,8 @@
     
     
         <tr>
-            <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></td>
-            <td class="jd-descrcol" width="100%">A typed multi-dimensional array.&nbsp;</td>
+            <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;T&gt;</td>
+            <td class="jd-descrcol" width="100%">A statically typed multi-dimensional array whose elements are of a type described by T.&nbsp;</td>
         </tr>
     
     
@@ -177,6 +177,12 @@
         <tr>
             <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/TensorFlowException.html">TensorFlowException</a></td>
             <td class="jd-descrcol" width="100%">Unchecked exception thrown when executing TensorFlow Graphs.&nbsp;</td>
+        </tr>
+    
+    
+        <tr>
+            <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/Tensors.html">Tensors</a></td>
+            <td class="jd-descrcol" width="100%">Type-safe factory methods for creating <code><a href="reference/org/tensorflow/Tensor.html">Tensor</a></code> objects.&nbsp;</td>
         </tr>
     
     

@@ -11,11 +11,11 @@ page_type: reference
 ``` python
 as_string(
     input,
-    precision=None,
-    scientific=None,
-    shortest=None,
-    width=None,
-    fill=None,
+    precision=-1,
+    scientific=False,
+    shortest=False,
+    width=-1,
+    fill='',
     name=None
 )
 ```
@@ -53,4 +53,4 @@ types and boolean.
 
 #### Returns:
 
-  A `Tensor` of type `string`.
+A `Tensor` of type `string`.

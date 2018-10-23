@@ -19,7 +19,7 @@ parse_feature_columns_from_examples(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -71,4 +71,4 @@ my_features = [embedding_feature_b, real_feature_buckets, embedding_feature_a]
 
 #### Returns:
 
-  A `dict` mapping FeatureColumn to `Tensor` and `SparseTensor` values.
+A `dict` mapping FeatureColumn to `Tensor` and `SparseTensor` values.

@@ -34,7 +34,7 @@ train(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/graph_actions.py).
+Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/graph_actions.py).
 
 See the guide: [Learn (contrib) > Graph actions](../../../../../api_guides/python/contrib.learn#Graph_actions)
 
@@ -99,7 +99,7 @@ program is terminated with exit code 1.
 
 #### Returns:
 
-  The final loss value.
+The final loss value.
 
 
 #### Raises:

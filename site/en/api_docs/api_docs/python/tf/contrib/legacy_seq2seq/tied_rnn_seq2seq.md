@@ -21,7 +21,7 @@ tied_rnn_seq2seq(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 RNN sequence-to-sequence model with tied encoder and decoder parameters.
 
@@ -43,9 +43,9 @@ Encoder and decoder use the same RNN cell and share parameters.
 
 #### Returns:
 
-  A tuple of the form (outputs, state), where:
-    outputs: A list of the same length as decoder_inputs of 2D Tensors with
+A tuple of the form (outputs, state), where:
+* <b>`outputs`</b>: A list of the same length as decoder_inputs of 2D Tensors with
       shape [batch_size x output_size] containing the generated outputs.
-    state: The state of each decoder cell in each time-step. This is a list
+* <b>`state`</b>: The state of each decoder cell in each time-step. This is a list
       with length len(decoder_inputs) -- one item for each time-step.
       It is a 2D Tensor of shape [batch_size x cell.state_size].

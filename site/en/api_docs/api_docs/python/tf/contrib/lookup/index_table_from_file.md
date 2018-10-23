@@ -22,7 +22,7 @@ index_table_from_file(
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/lookup_ops.py).
 
 Returns a lookup table that converts a string tensor into int64 IDs.
 
@@ -76,7 +76,7 @@ ids.eval()  ==> [0, 1, 3, 2]  # where 3 is the out-of-vocabulary bucket
 
 #### Returns:
 
-  The lookup table to map a `key_dtype` `Tensor` to index `int64` `Tensor`.
+The lookup table to map a `key_dtype` `Tensor` to index `int64` `Tensor`.
 
 
 #### Raises:

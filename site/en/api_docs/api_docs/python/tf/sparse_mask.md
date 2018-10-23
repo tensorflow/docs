@@ -18,7 +18,7 @@ sparse_mask(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
 
@@ -36,17 +36,16 @@ For example:
 ```python
 # `a` contains slices at indices [12, 26, 37, 45] from a large tensor
 # with shape [1000, 10]
-a.indices => [12, 26, 37, 45]
-tf.shape(a.values) => [4, 10]
+a.indices  # [12, 26, 37, 45]
+tf.shape(a.values)  # [4, 10]
 
 # `b` will be the subset of `a` slices at its second and third indices, so
 # we want to mask its first and last indices (which are at absolute
 # indices 12, 45)
 b = tf.sparse_mask(a, [12, 45])
 
-b.indices => [26, 37]
-tf.shape(b.values) => [2, 10]
-
+b.indices  # [26, 37]
+tf.shape(b.values)  # [2, 10]
 ```
 
 #### Args:
@@ -58,4 +57,4 @@ tf.shape(b.values) => [2, 10]
 
 #### Returns:
 
-  The masked `IndexedSlices` instance.
+The masked `IndexedSlices` instance.

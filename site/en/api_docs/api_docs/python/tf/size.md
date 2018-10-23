@@ -18,7 +18,7 @@ size(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Shapes and Shaping](../../../api_guides/python/array_ops#Shapes_and_Shaping)
 
@@ -30,8 +30,8 @@ This operation returns an integer representing the number of elements in
 For example:
 
 ```python
-# 't' is [[[1, 1, 1], [2, 2, 2]], [[3, 3, 3], [4, 4, 4]]]]
-size(t) ==> 12
+t = tf.constant([[[1, 1, 1], [2, 2, 2]], [[3, 3, 3], [4, 4, 4]]])
+tf.size(t)  # 12
 ```
 
 #### Args:
@@ -44,4 +44,4 @@ size(t) ==> 12
 
 #### Returns:
 
-  A `Tensor` of type `out_type`. Defaults to tf.int32.
+A `Tensor` of type `out_type`. Defaults to tf.int32.

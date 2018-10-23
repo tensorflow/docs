@@ -18,7 +18,7 @@ complex(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Complex Number Functions](../../../api_guides/python/math_ops#Complex_Number_Functions)
 
@@ -33,10 +33,10 @@ The input tensors `real` and `imag` must have the same shape.
 
 For example:
 
-```
-# tensor 'real' is [2.25, 3.25]
-# tensor `imag` is [4.75, 5.75]
-tf.complex(real, imag) ==> [[2.25 + 4.75j], [3.25 + 5.75j]]
+```python
+real = tf.constant([2.25, 3.25])
+imag = tf.constant([4.75, 5.75])
+tf.complex(real, imag)  # [[2.25 + 4.75j], [3.25 + 5.75j]]
 ```
 
 #### Args:
@@ -49,4 +49,4 @@ tf.complex(real, imag) ==> [[2.25 + 4.75j], [3.25 + 5.75j]]
 
 #### Returns:
 
-  A `Tensor` of type `complex64` or `complex128`.
+A `Tensor` of type `complex64` or `complex128`.

@@ -22,7 +22,7 @@ sequence_loss(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 Weighted cross-entropy loss for a sequence of logits, batch-collapsed.
 
@@ -43,7 +43,7 @@ Weighted cross-entropy loss for a sequence of logits, batch-collapsed.
 
 #### Returns:
 
-  A scalar float Tensor: The average log-perplexity per symbol (weighted).
+A scalar float Tensor: The average log-perplexity per symbol (weighted).
 
 
 #### Raises:

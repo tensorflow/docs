@@ -25,7 +25,7 @@ sample_distorted_bounding_box(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Working with Bounding Boxes](../../../../api_guides/python/image#Working_with_Bounding_Boxes)
 
@@ -107,7 +107,7 @@ false and no bounding boxes are supplied, an error is raised.
 
 #### Returns:
 
-  A tuple of `Tensor` objects (begin, size, bboxes).
+A tuple of `Tensor` objects (begin, size, bboxes).
 
 * <b>`begin`</b>: A `Tensor`. Has the same type as `image_size`. 1-D, containing `[offset_height, offset_width, 0]`. Provide as input to
     `tf.slice`.

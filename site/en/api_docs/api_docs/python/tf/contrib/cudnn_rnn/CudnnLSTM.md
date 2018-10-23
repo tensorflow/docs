@@ -14,16 +14,17 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py).
+Defined in [`tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py).
 
 Cudnn implementation of the LSTM model.
 Cudnn RNN has an opaque parameter buffer that can be used for inference and
 training. But it is possible that the layout of the parameter buffers
 changes between generations. So it is highly recommended to use
-RNNParamsSaveable to save and restore weights and biases in a canonical
-format.
+CudnnOpaqueParamsSaveable to save and restore weights and biases in a
+canonical format.
 
 This is a typical use case:
+
   * The user creates a CudnnRNN model.
   * The user query that parameter buffer size.
   * The user creates a variable of that size that serves as the parameter
@@ -33,21 +34,25 @@ This is a typical use case:
   * The user calls the model with the parameter buffer for inference, or
       training.
   * If training, the user creates a Saver object.
-  * If training, the user creates a RNNParamsSaveable object from the
+  * If training, the user creates a CudnnOpaqueParamsSaveable object from the
       parameter buffer for it to be later saved in the canonical format. When
-      creating a RNNParamsSaveable object, a name could be provided, which is
-      useful in distinguishing the names of multiple RNNParamsSaveable
-      objects (e.g. for an encoder-decoder model).
+      creating a CudnnOpaqueParamsSaveable object, a name could be provided,
+      which is useful in distinguishing the names of multiple
+      CudnnOpaqueParamsSaveable objects (e.g. for an encoder-decoder model).
   * Once a while, the user saves the parameter buffer into model checkpoints
       with Saver.save().
-  * When restoring, the user creates a RNNParamsSaveable object and uses
-    Saver.restore() to restore the parameter buffer from the canonical format
-    to a user-defined format, as well as to restore other savable objects
-    in the checkpoint file.
+  * When restoring, the user creates a CudnnOpaqueParamsSaveable object and
+    uses Saver.restore() to restore the parameter buffer from the canonical
+    format to a user-defined format, as well as to restore other savable
+    objects in the checkpoint file.
 
 ## Properties
 
 <h3 id="direction"><code>direction</code></h3>
+
+
+
+<h3 id="input_mode"><code>input_mode</code></h3>
 
 
 
@@ -78,8 +83,9 @@ __init__(
     num_layers,
     num_units,
     input_size,
-    input_mode='linear_input',
+    input_mode=CUDNN_INPUT_LINEAR_MODE,
     direction=CUDNN_RNN_UNIDIRECTION,
+    dtype=tf.float32,
     dropout=0.0,
     seed=0
 )
@@ -101,6 +107,7 @@ Creates a Cudnn LSTM model from model spec.
       otherwise, it implies 'linear_input'.
 * <b>`direction`</b>: the direction model that the model operates. Could be either
       'unidirectional' or 'bidirectional'
+* <b>`dtype`</b>: dtype of params, tf.float32 or tf.float64.
 * <b>`dropout`</b>: whether to enable dropout. With it is 0, dropout is disabled.
 * <b>`seed`</b>: the seed used for initializing dropout.
 
@@ -129,7 +136,6 @@ Runs the forward step for the Cudnn LSTM model.
 * <b>`params`</b>: the parameter buffer created for this model.
 * <b>`is_training`</b>: whether this operation will be used in training or inference.
 
-
 #### Returns:
 
 * <b>`output`</b>: the output sequuence.
@@ -155,7 +161,7 @@ Converts params from the canonical format to a specific format of cuDNN.
 
 #### Returns:
 
-  A function for the canonical-to-params-to-specific conversion..
+A function for the canonical-to-params-to-specific conversion..
 
 <h3 id="params_size"><code>params_size</code></h3>
 
@@ -167,7 +173,7 @@ Calculates the size of the opaque parameter buffer needed for this model.
 
 #### Returns:
 
-  The calculated parameter buffer size.
+The calculated parameter buffer size.
 
 <h3 id="params_to_canonical"><code>params_to_canonical</code></h3>
 
@@ -184,7 +190,7 @@ Converts params from a specific format of cuDNN to the canonical format.
 
 #### Returns:
 
-  A function for the specific-to-canonical conversion.
+A function for the specific-to-canonical conversion.
 
 
 

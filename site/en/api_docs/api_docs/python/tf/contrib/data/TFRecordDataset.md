@@ -14,7 +14,7 @@ Inherits From: [`Dataset`](../../../tf/contrib/data/Dataset)
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/dataset_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/data/python/ops/dataset_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/data/python/ops/readers.py).
 
 A `Dataset` comprising records from one or more TFRecord files.
 
@@ -37,17 +37,54 @@ A `Dataset` comprising records from one or more TFRecord files.
 ``` python
 __init__(
     filenames,
-    compression_type=None
+    compression_type=None,
+    buffer_size=None
 )
 ```
 
-Creates a `TFRecordDataset`.
+Creates a `TFRecordDataset`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.TFRecordDataset`.
 
 #### Args:
 
 * <b>`filenames`</b>: A `tf.string` tensor containing one or more filenames.
-* <b>`compression_type`</b>: A `tf.string` scalar evaluating to one of `""` (no
-    compression), `"ZLIB"`, or `"GZIP"`.
+* <b>`compression_type`</b>: (Optional.) A `tf.string` scalar evaluating to one of
+    `""` (no compression), `"ZLIB"`, or `"GZIP"`.
+* <b>`buffer_size`</b>: (Optional.) A `tf.int64` scalar representing the number of
+    bytes in the read buffer. 0 means no buffering.
+
+<h3 id="apply"><code>apply</code></h3>
+
+``` python
+apply(transformation_func)
+```
+
+Apply a transformation function to this dataset.
+
+`apply` enables chaining of custom `Dataset` transformations, which are
+represented as functions that take one `Dataset` argument and return a
+transformed `Dataset`.
+
+For example:
+
+```
+dataset = (dataset.map(lambda x: x ** 2)
+           .(group_by_window(key_func, reduce_func, window_size))
+           .map(lambda x: x ** 3))
+```
+
+#### Args:
+
+* <b>`transformation_func`</b>: A function that takes one `Dataset` argument and
+    returns a `Dataset`.
+
+
+#### Returns:
+
+The `Dataset` returned by applying `transformation_func` to this dataset.
 
 <h3 id="batch"><code>batch</code></h3>
 
@@ -65,7 +102,7 @@ Combines consecutive elements of this dataset into batches.
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 <h3 id="cache"><code>cache</code></h3>
 
@@ -84,7 +121,7 @@ Caches the elements in this dataset.
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 <h3 id="concatenate"><code>concatenate</code></h3>
 
@@ -116,7 +153,7 @@ a.concatenate(b) == { 1, 2, 3, 4, 5, 6, 7 }
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 <h3 id="dense_to_sparse_batch"><code>dense_to_sparse_batch</code></h3>
 
@@ -127,47 +164,11 @@ dense_to_sparse_batch(
 )
 ```
 
-Batches ragged elements of this dataset into `tf.SparseTensor`s.
+Use: `Dataset.apply(tf.contrib.data.dense_to_sparse_batch(...))`. (deprecated)
 
-Like `Dataset.padded_batch()`, this method combines multiple
-consecutive elements of this dataset, which might have different
-shapes, into a single element. The resulting element has three
-components (`indices`, `values`, and `dense_shape`), which
-comprise a `tf.SparseTensor` that represents the same data. The
-`row_shape` represents the dense shape of each row in the
-resulting `tf.SparseTensor`, to which the effective batch size is
-prepended. For example:
-
-```python
-# NOTE: The following examples use `{ ... }` to represent the
-# contents of a dataset.
-a = { ['a', 'b', 'c'], ['a', 'b'], ['a', 'b', 'c', 'd'] }
-
-a.dense_to_sparse_batch(batch_size=2, row_shape=[6]) == {
-    ([[0, 0], [0, 1], [0, 2], [1, 0], [1, 1]],  # indices
-     ['a', 'b', 'c', 'a', 'b'],                 # values
-     [2, 6]),                                   # dense_shape
-    ([[2, 0], [2, 1], [2, 2], [2, 3]],
-     ['a', 'b', 'c', 'd'],
-     [1, 6])
-}
-```
-
-#### Args:
-
-* <b>`batch_size`</b>: A `tf.int64` scalar `tf.Tensor`, representing the
-    number of consecutive elements of this dataset to combine in a
-    single batch.
-* <b>`row_shape`</b>: A `tf.TensorShape` or `tf.int64` vector tensor-like
-    object representing the equivalent dense shape of a row in the
-    resulting `tf.SparseTensor`. Each element of this dataset must
-    have the same rank as `row_shape`, and must have size less
-    than or equal to `row_shape` in each dimension.
-
-
-#### Returns:
-
-  A `Dataset`.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `ds.apply(tf.contrib.data.dense_to_sparse_batch())`.
 
 <h3 id="enumerate"><code>enumerate</code></h3>
 
@@ -175,31 +176,11 @@ a.dense_to_sparse_batch(batch_size=2, row_shape=[6]) == {
 enumerate(start=0)
 ```
 
-Enumerate the elements of this dataset.  Similar to python's `enumerate`.
+Deprecated: Use `Dataset.apply(tf.contrib.data.enumerate_dataset(..)`. (deprecated)
 
-For example:
-
-```python
-# NOTE: The following examples use `{ ... }` to represent the
-# contents of a dataset.
-a = { 1, 2, 3 }
-b = { (7, 8), (9, 10), (11, 12) }
-
-# The nested structure of the `datasets` argument determines the
-# structure of elements in the resulting dataset.
-a.enumerate(start=5) == { (5, 1), (6, 2), (7, 3) }
-b.enumerate() == { (0, (7, 8)), (1, (9, 10)), (2, (11, 12)) }
-```
-
-#### Args:
-
-* <b>`start`</b>: A `tf.int64` scalar `tf.Tensor`, representing the start
-    value for enumeration.
-
-
-#### Returns:
-
-  A `Dataset`.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `ds.apply(tf.contrib.data.enumerate_dataset())`.
 
 <h3 id="filter"><code>filter</code></h3>
 
@@ -218,7 +199,7 @@ Filters this dataset according to `predicate`.
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 <h3 id="flat_map"><code>flat_map</code></h3>
 
@@ -237,7 +218,60 @@ Maps `map_func` across this dataset and flattens the result.
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
+
+<h3 id="from_generator"><code>from_generator</code></h3>
+
+``` python
+from_generator(
+    generator,
+    output_types,
+    output_shapes=None
+)
+```
+
+Creates a `Dataset` whose elements are generated by `generator`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.from_generator()`.
+
+The `generator` argument must be a callable object that returns
+an object that support the `iter()` protocol (e.g. a generator function).
+The elements generated by `generator` must be compatible with the given
+`output_types` and (optional) `output_shapes` arguments.
+
+For example:
+
+```python
+import itertools
+
+def gen():
+  for i in itertools.count(1):
+    yield (i, [1] * i)
+
+ds = Dataset.from_generator(
+    gen, (tf.int64, tf.int64), (tf.TensorShape([]), tf.TensorShape([None])))
+value = ds.make_one_shot_iterator().get_next()
+
+sess.run(value)  # (1, array([1]))
+sess.run(value)  # (2, array([1, 1]))
+```
+
+#### Args:
+
+* <b>`generator`</b>: A callable object that takes no arguments and returns an
+    object that supports the `iter()` protocol.
+* <b>`output_types`</b>: A nested structure of `tf.DType` objects corresponding to
+    each component of an element yielded by `generator`.
+* <b>`output_shapes`</b>: (Optional.) A nested structure of `tf.TensorShape`
+    objects corresponding to each component of an element yielded by
+    `generator`.
+
+
+#### Returns:
+
+A `Dataset`.
 
 <h3 id="from_sparse_tensor_slices"><code>from_sparse_tensor_slices</code></h3>
 
@@ -245,7 +279,11 @@ Maps `map_func` across this dataset and flattens the result.
 from_sparse_tensor_slices(sparse_tensor)
 ```
 
-Splits each rank-N `tf.SparseTensor` in this dataset row-wise.
+Splits each rank-N `tf.SparseTensor` in this dataset row-wise. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.from_sparse_tensor_slices()`.
 
 #### Args:
 
@@ -254,7 +292,7 @@ Splits each rank-N `tf.SparseTensor` in this dataset row-wise.
 
 #### Returns:
 
-  A `Dataset` of rank-(N-1) sparse tensors.
+A `Dataset` of rank-(N-1) sparse tensors.
 
 <h3 id="from_tensor_slices"><code>from_tensor_slices</code></h3>
 
@@ -262,7 +300,11 @@ Splits each rank-N `tf.SparseTensor` in this dataset row-wise.
 from_tensor_slices(tensors)
 ```
 
-Creates a `Dataset` whose elements are slices of the given tensors.
+Creates a `Dataset` whose elements are slices of the given tensors. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.from_tensor_slices()`.
 
 #### Args:
 
@@ -272,7 +314,7 @@ Creates a `Dataset` whose elements are slices of the given tensors.
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 <h3 id="from_tensors"><code>from_tensors</code></h3>
 
@@ -280,7 +322,11 @@ Creates a `Dataset` whose elements are slices of the given tensors.
 from_tensors(tensors)
 ```
 
-Creates a `Dataset` with a single element, comprising the given tensors.
+Creates a `Dataset` with a single element, comprising the given tensors. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.from_tensors()`.
 
 #### Args:
 
@@ -289,7 +335,7 @@ Creates a `Dataset` with a single element, comprising the given tensors.
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 <h3 id="group_by_window"><code>group_by_window</code></h3>
 
@@ -301,29 +347,11 @@ group_by_window(
 )
 ```
 
-Performs a windowed "group-by" operation on this dataset.
+Deprecated: Use `Dataset.apply(tf.contrib.data.group_by_window(...))`. (deprecated)
 
-This method maps each consecutive element in this dataset to a key
-using `key_func` and groups the elements by key. It then applies
-`reduce_func` to at most `window_size` elements matching the same
-key. All execpt the final window for each key will contain
-`window_size` elements; the final window may be smaller.
-
-#### Args:
-
-* <b>`key_func`</b>: A function mapping a nested structure of tensors
-    (having shapes and types defined by `self.output_shapes` and
-    `self.output_types`) to a scalar `tf.int64` tensor.
-* <b>`reduce_func`</b>: A function mapping a key and a dataset of up to `batch_size`
-    consecutive elements matching that key to another dataset.
-* <b>`window_size`</b>: A `tf.int64` scalar `tf.Tensor`, representing the number of
-    consecutive elements matching the same key to combine in a single
-    batch, which will be passed to `reduce_func`.
-
-
-#### Returns:
-
-  A `Dataset`.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `ds.apply(tf.contrib.data.group_by_window())`.
 
 <h3 id="ignore_errors"><code>ignore_errors</code></h3>
 
@@ -331,25 +359,11 @@ key. All execpt the final window for each key will contain
 ignore_errors()
 ```
 
-Creates a `Dataset` from this one and silently ignores any errors.
+Deprecated: Use `Dataset.apply(tf.contrib.data.ignore_errors())`. (deprecated)
 
-Use this transformation to produce a dataset that contains the same elements
-as the input, but silently drops any elements that caused an error. For
-example:
-
-```python
-dataset = tf.contrib.data.Dataset.from_tensor_slices([1., 2., 0., 4.])
-
-# Computing `tf.check_numerics(1. / 0.)` will raise an InvalidArgumentError.
-dataset = dataset.map(lambda x: tf.check_numerics(1. / x, "error"))
-
-# Using `ignore_errors()` will drop the element that causes an error.
-dataset = dataset.ignore_errors()  # ==> { 1., 0.5, 0.2 }
-```
-
-#### Returns:
-
-  A `Dataset`.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `ds.apply(tf.contrib.data.ignore_errors())`.
 
 <h3 id="interleave"><code>interleave</code></h3>
 
@@ -369,10 +383,10 @@ concurrently:
 ```python
 # Preprocess 4 files concurrently, and interleave blocks of 16 records from
 # each file.
-filenames = ["/var/data/file1.txt", "/var/data/file2.txt", ..."]
+filenames = ["/var/data/file1.txt", "/var/data/file2.txt", ...]
 dataset = (Dataset.from_tensor_slices(filenames)
-           .interleave(
-               lambda x: TextLineDataset(x).map(parse_fn, num_threads=1),
+           .interleave(lambda x:
+               TextLineDataset(x).map(parse_fn, num_parallel_calls=1),
                cycle_length=4, block_length=16))
 ```
 
@@ -410,6 +424,11 @@ a.interleave(lambda x: Dataset.from_tensors(x).repeat(6),
 }
 ```
 
+NOTE: The order of elements yielded by this transformation is
+deterministic, as long as `map_func` is a pure function. If
+`map_func` contains any stateful operations, the order in which
+that state is accessed is undefined.
+
 #### Args:
 
 * <b>`map_func`</b>: A function mapping a nested structure of tensors (having shapes
@@ -423,7 +442,7 @@ a.interleave(lambda x: Dataset.from_tensors(x).repeat(6),
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 <h3 id="list_files"><code>list_files</code></h3>
 
@@ -431,7 +450,11 @@ a.interleave(lambda x: Dataset.from_tensors(x).repeat(6),
 list_files(file_pattern)
 ```
 
-A dataset of all files matching a pattern.
+A dataset of all files matching a pattern. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.list_files()`.
 
 Example:
   If we had the following files on our filesystem:
@@ -451,7 +474,7 @@ Example:
 
 #### Returns:
 
- A `Dataset` of strings corresponding to file names.
+A `Dataset` of strings corresponding to file names.
 
 <h3 id="make_dataset_resource"><code>make_dataset_resource</code></h3>
 
@@ -459,7 +482,11 @@ Example:
 make_dataset_resource()
 ```
 
+DEPRECATED FUNCTION
 
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `ds._as_variant_tensor()`.
 
 <h3 id="make_initializable_iterator"><code>make_initializable_iterator</code></h3>
 
@@ -469,20 +496,26 @@ make_initializable_iterator(shared_name=None)
 
 Creates an `Iterator` for enumerating the elements of this dataset.
 
-**N.B.** The returned iterator will be in an uninitialized state,
-and you must run the `iterator.initializer` operation before using it.
+Note: The returned iterator will be in an uninitialized state,
+and you must run the `iterator.initializer` operation before using it:
+
+```python
+dataset = ...
+iterator = dataset.make_initializable_iterator()
+# ...
+sess.run(iterator.initializer)
+```
 
 #### Args:
 
-* <b>`shared_name`</b>: (Optional.) If non-empty, this iterator will be shared under
-    the given name across multiple sessions that share the same devices
-    (e.g. when using a remote server).
-
+* <b>`shared_name`</b>: (Optional.) If non-empty, the returned iterator will be
+    shared under the given name across multiple sessions that share the
+    same devices (e.g. when using a remote server).
 
 
 #### Returns:
 
-  An `Iterator` over the elements of this dataset.
+An `Iterator` over the elements of this dataset.
 
 <h3 id="make_one_shot_iterator"><code>make_one_shot_iterator</code></h3>
 
@@ -497,7 +530,7 @@ A "one-shot" iterator does not currently support re-initialization.
 
 #### Returns:
 
-  An `Iterator` over the elements of this dataset.
+An `Iterator` over the elements of this dataset.
 
 <h3 id="map"><code>map</code></h3>
 
@@ -505,29 +538,34 @@ A "one-shot" iterator does not currently support re-initialization.
 map(
     map_func,
     num_threads=None,
-    output_buffer_size=None
+    output_buffer_size=None,
+    num_parallel_calls=None
 )
 ```
 
-Maps `map_func` across this datset.
+Maps `map_func` across this datset. (deprecated arguments)
+
+SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
+Instructions for updating:
+Replace `num_threads=T` with `num_parallel_calls=T`. Replace `output_buffer_size=N` with `ds.prefetch(N)` on the returned dataset.
 
 #### Args:
 
 * <b>`map_func`</b>: A function mapping a nested structure of tensors (having
     shapes and types defined by `self.output_shapes` and
    `self.output_types`) to another nested structure of tensors.
-* <b>`num_threads`</b>: (Optional.) A `tf.int32` scalar `tf.Tensor`, representing
-    the number of threads to use for processing elements in parallel. If
-    not specified, elements will be processed sequentially without
-    buffering.
+* <b>`num_threads`</b>: (Optional.) Deprecated, use `num_parallel_calls` instead.
 * <b>`output_buffer_size`</b>: (Optional.) A `tf.int64` scalar `tf.Tensor`,
     representing the maximum number of processed elements that will be
-    buffered when processing in parallel.
+    buffered.
+* <b>`num_parallel_calls`</b>: (Optional.) A `tf.int32` scalar `tf.Tensor`,
+    representing the number elements to process in parallel. If not
+    specified, elements will be processed sequentially.
 
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 <h3 id="padded_batch"><code>padded_batch</code></h3>
 
@@ -566,7 +604,25 @@ padded to the respective shape in `padded_shapes`.
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
+
+<h3 id="prefetch"><code>prefetch</code></h3>
+
+``` python
+prefetch(buffer_size)
+```
+
+Creates a `Dataset` that prefetches elements from this dataset.
+
+#### Args:
+
+* <b>`buffer_size`</b>: A `tf.int64` scalar `tf.Tensor`, representing the
+    maximum number elements that will be buffered when prefetching.
+
+
+#### Returns:
+
+A `Dataset`.
 
 <h3 id="range"><code>range</code></h3>
 
@@ -574,7 +630,11 @@ padded to the respective shape in `padded_shapes`.
 range(*args)
 ```
 
-Creates a `Dataset` of a step-separated range of values.
+Creates a `Dataset` of a step-separated range of values. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.range()`.
 
 For example:
 
@@ -589,7 +649,7 @@ Dataset.range(5, 1, -2) == [5, 3]
 
 #### Args:
 
-  *args: follow same semantics as python's xrange.
+* <b>`*args`</b>: follow same semantics as python's xrange.
     len(args) == 1 -> start = 0, stop = args[0], step = 1
     len(args) == 2 -> start = args[0], stop = args[1], step = 1
     len(args) == 3 -> start = args[0], stop = args[1, stop = args[2]
@@ -597,50 +657,12 @@ Dataset.range(5, 1, -2) == [5, 3]
 
 #### Returns:
 
-  A `RangeDataset`.
+A `RangeDataset`.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: if len(args) == 0.
-
-<h3 id="read_batch_features"><code>read_batch_features</code></h3>
-
-``` python
-read_batch_features(
-    file_pattern,
-    batch_size,
-    features,
-    reader,
-    reader_args=None,
-    randomize_input=True,
-    num_epochs=None,
-    capacity=10000
-)
-```
-
-Reads batches of Examples.
-
-#### Args:
-
-* <b>`file_pattern`</b>: A string pattern or a placeholder with list of filenames.
-* <b>`batch_size`</b>: A `tf.int64` scalar `tf.Tensor`, representing the number of
-    consecutive elements of this dataset to combine in a single batch.
-* <b>`features`</b>: A `dict` mapping feature keys to `FixedLenFeature` or
-    `VarLenFeature` values. See `tf.parse_example`.
-* <b>`reader`</b>: A function or class that can be called with a `filenames` tensor
-    and (optional) `reader_args` and returns a `Dataset` of serialized
-    Examples.
-* <b>`reader_args`</b>: Additional arguments to pass to the reader class.
-* <b>`randomize_input`</b>: Whether the input should be randomized.
-* <b>`num_epochs`</b>: Integer specifying the number of times to read through the
-    dataset. If None, cycles through the dataset forever.
-* <b>`capacity`</b>: Capacity of the ShuffleDataset.
-
-
-#### Returns:
-
-  A `Dataset`.
 
 <h3 id="repeat"><code>repeat</code></h3>
 
@@ -660,7 +682,72 @@ Repeats this dataset `count` times.
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
+
+<h3 id="shard"><code>shard</code></h3>
+
+``` python
+shard(
+    num_shards,
+    index
+)
+```
+
+Creates a `Dataset` that includes only 1/`num_shards` of this dataset.
+
+This dataset operator is very useful when running distributed training, as
+it allows each worker to read a unique subset.
+
+When reading a single input file, you can skip elements as follows:
+
+```python
+d = tf.contrib.data.TFRecordDataset(FLAGS.input_file)
+d = d.shard(FLAGS.num_workers, FLAGS.worker_index)
+d = d.repeat(FLAGS.num_epochs)
+d = d.shuffle(FLAGS.shuffle_buffer_size)
+d = d.map(parser_fn, num_parallel_calls=FLAGS.num_map_threads)
+```
+
+Important caveats:
+
+- Be sure to shard before you use any randomizing operator (such as
+  shuffle).
+- Generally it is best if the shard operator is used early in the dataset
+  pipeline. For example, when reading from a set of TFRecord files, shard
+  before converting the dataset to input samples. This avoids reading every
+  file on every worker. The following is an example of an efficient
+  sharding strategy within a complete pipeline:
+
+```python
+d = Dataset.list_files(FLAGS.pattern)
+d = d.shard(FLAGS.num_workers, FLAGS.worker_index)
+d = d.repeat(FLAGS.num_epochs)
+d = d.shuffle(FLAGS.shuffle_buffer_size)
+d = d.repeat()
+d = d.interleave(tf.contrib.data.TFRecordDataset,
+                 cycle_length=FLAGS.num_readers, block_length=1)
+d = d.map(parser_fn, num_parallel_calls=FLAGS.num_map_threads)
+```
+
+#### Args:
+
+* <b>`num_shards`</b>: A `tf.int64` scalar `tf.Tensor`, representing the number of
+    shards operating in parallel.
+* <b>`index`</b>: A `tf.int64` scalar `tf.Tensor`, representing the worker index.
+
+
+#### Returns:
+
+A `Dataset`.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `num_shards` or `index` are illegal values. Note: error
+    checking is done on a best-effort basis, and aren't guaranteed to be
+    caught upon dataset creation. (e.g. providing in a placeholder tensor
+    bypasses the early checking, and will instead result in an error during
+    a session.run call.)
 
 <h3 id="shuffle"><code>shuffle</code></h3>
 
@@ -685,7 +772,7 @@ Randomly shuffles the elements of this dataset.
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 <h3 id="skip"><code>skip</code></h3>
 
@@ -706,7 +793,7 @@ Creates a `Dataset` that skips `count` elements from this dataset.
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 <h3 id="take"><code>take</code></h3>
 
@@ -726,7 +813,7 @@ Creates a `Dataset` with at most `count` elements from this dataset.
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 <h3 id="unbatch"><code>unbatch</code></h3>
 
@@ -734,16 +821,11 @@ Creates a `Dataset` with at most `count` elements from this dataset.
 unbatch()
 ```
 
-Splits elements of this dataset into sequences of consecutive elements.
+Deprecated: Use `Dataset.apply(tf.contrib.data.unbatch()`. (deprecated)
 
-For example, if elements of this dataset are shaped `[B, a0, a1, ...]`,
-where `B` may vary from element to element, then for each element in
-this dataset, the unbatched dataset will contain `B` consecutive elements
-of shape `[a0, a1, ...]`.
-
-#### Returns:
-
-  A `Dataset`.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `ds.apply(tf.contrib.data.unbatch())`.
 
 <h3 id="zip"><code>zip</code></h3>
 
@@ -751,7 +833,11 @@ of shape `[a0, a1, ...]`.
 zip(datasets)
 ```
 
-Creates a `Dataset` by zipping together the given datasets.
+Creates a `Dataset` by zipping together the given datasets. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.zip()`.
 
 This method has similar semantics to the built-in `zip()` function
 in Python, with the main difference being that the `datasets`
@@ -789,7 +875,7 @@ Dataset.zip((a, d)) == { (1, 13), (2, 14) }
 
 #### Returns:
 
-  A `Dataset`.
+A `Dataset`.
 
 
 

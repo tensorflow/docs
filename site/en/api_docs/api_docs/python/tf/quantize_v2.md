@@ -14,7 +14,7 @@ quantize_v2(
     min_range,
     max_range,
     T,
-    mode=None,
+    mode='MIN_COMBINED',
     name=None
 )
 ```
@@ -68,6 +68,47 @@ is rounded first, before it's subtracted from the rounded value. With
 MIN_COMBINED, a small bias is introduced where repeated iterations of quantizing
 and dequantizing will introduce a larger and larger error.
 
+*SCALED mode Example*
+
+`SCALED` mode matches the quantization approach used in
+`QuantizeAndDequantize{V2|V3}`.
+
+If the mode is `SCALED`, we do not use the full range of the output type,
+choosing to elide the lowest possible value for symmetry (e.g., output range is
+-127 to 127, not -128 to 127 for signed 8 bit quantization), so that 0.0 maps to
+0.
+
+We first find the range of values in our tensor. The
+range we use is always centered on 0, so we find m such that
+```
+  m = max(abs(input_min), abs(input_max))
+```
+
+Our input tensor range is then `[-m, m]`.
+
+Next, we choose our fixed-point quantization buckets, `[min_fixed, max_fixed]`.
+If T is signed, this is
+```
+  num_bits = sizeof(T) * 8
+  [min_fixed, max_fixed] =
+      [-(1 << (num_bits - 1) - 1), (1 << (num_bits - 1)) - 1]
+```
+
+Otherwise, if T is unsigned, the fixed-point range is
+```
+  [min_fixed, max_fixed] = [0, (1 << num_bits) - 1]
+```
+
+From this we compute our scaling factor, s:
+```
+  s = (max_fixed - min_fixed) / (2 * m)
+```
+
+Now we can quantize the elements of our tensor:
+```
+result = (input * s).round_to_nearest()
+```
+
 One thing to watch out for is that the operator may choose to adjust the
 requested minimum and maximum values slightly during the quantization process,
 so you should always use the output ports as the range for further calculations.
@@ -85,13 +126,13 @@ operations that have to perform further calculations on them.
 * <b>`max_range`</b>: A `Tensor` of type `float32`.
     The maximum scalar value possibly produced for the input.
 * <b>`T`</b>: A `tf.DType` from: `tf.qint8, tf.quint8, tf.qint16, tf.quint16, tf.qint32`.
-* <b>`mode`</b>: An optional `string` from: `"MIN_COMBINED", "MIN_FIRST"`. Defaults to `"MIN_COMBINED"`.
+* <b>`mode`</b>: An optional `string` from: `"MIN_COMBINED", "MIN_FIRST", "SCALED"`. Defaults to `"MIN_COMBINED"`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A tuple of `Tensor` objects (output, output_min, output_max).
+A tuple of `Tensor` objects (output, output_min, output_max).
 
 * <b>`output`</b>: A `Tensor` of type `T`. The quantized data produced from the float input.
 * <b>`output_min`</b>: A `Tensor` of type `float32`. The actual minimum scalar value used for the output.

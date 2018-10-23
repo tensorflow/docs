@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.variables_initializer
 
+### Aliases:
+
+* `tf.initializers.variables`
+* `tf.variables_initializer`
+
 ``` python
 variables_initializer(
     var_list,
@@ -17,7 +22,7 @@ variables_initializer(
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/variables.py).
+Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/variables.py).
 
 See the guide: [Variables > Variable helper functions](../../../api_guides/python/state_ops#Variable_helper_functions)
 
@@ -41,4 +46,4 @@ be run. That Op just has no effect.
 
 #### Returns:
 
-  An Op that run the initializers of all the specified variables.
+An Op that run the initializers of all the specified variables.

@@ -12,13 +12,14 @@ page_type: reference
 depth_to_space(
     input,
     block_size,
-    name=None
+    name=None,
+    data_format='NHWC'
 )
 ```
 
 
 
-Defined in `tensorflow/python/ops/gen_array_ops.py`.
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -34,23 +35,34 @@ The attr `block_size` indicates the input block size and how the data is moved.
     into non-overlapping blocks of size `block_size x block_size`
   * The width the output tensor is `input_depth * block_size`, whereas the
     height is `input_height * block_size`.
+  * The Y, X coordinates within each block of the output image are determined
+    by the high order component of the input channel index.
   * The depth of the input tensor must be divisible by
     `block_size * block_size`.
 
-That is, assuming the input is in the shape:
-`[batch, height, width, depth]`,
-the shape of the output will be:
-`[batch, height*block_size, width*block_size, depth/(block_size*block_size)]`
+The `data_format` attr specifies the layout of the input and output tensors
+with the following options:
+  "NHWC": `[ batch, height, width, channels ]`
+  "NCHW": `[ batch, channels, height, width ]`
+  "NCHW_VECT_C":
+      `qint8 [ batch, channels / 4, height, width, channels % 4 ]`
 
-This operation requires that the input tensor be of rank 4, and that
-`block_size` be >=1 and that `block_size * block_size` be a divisor of the
-input depth.
+It is useful to consider the operation as transforming a 6-D Tensor.
+e.g. for data_format = NHWC,
+     Each element in the input tensor can be specified via 6 coordinates,
+     ordered by decreasing memory layout significance as:
+     n,iY,iX,bY,bX,oC  (where n=batch index, iX, iY means X or Y coordinates
+                        within the input image, bX, bY means coordinates
+                        within the output block, oC means output channels).
+     The output would be the input transposed to the following layout:
+     n,iY,bY,iX,bX,oC
 
 This operation is useful for resizing the activations between convolutions
 (but keeping all data), e.g. instead of pooling. It is also useful for training
 purely convolutional models.
 
-For example, given this input of shape `[1, 1, 1, 4]`, and a block size of 2:
+For example, given an input of shape `[1, 1, 1, 4]`, data_format = "NHWC" and
+block_size = 2:
 
 ```
 x = [[[[1, 2, 3, 4]]]]
@@ -96,10 +108,10 @@ x =  [[[[1, 2, 3, 4],
 the operator will return the following tensor of shape `[1 4 4 1]`:
 
 ```
-x = [[ [1],   [2],  [5],  [6]],
-     [ [3],   [4],  [7],  [8]],
-     [ [9],  [10], [13],  [14]],
-     [ [11], [12], [15],  [16]]]
+x = [[[ [1],   [2],  [5],  [6]],
+      [ [3],   [4],  [7],  [8]],
+      [ [9],  [10], [13],  [14]],
+      [ [11], [12], [15],  [16]]]]
 
 ```
 
@@ -108,9 +120,10 @@ x = [[ [1],   [2],  [5],  [6]],
 * <b>`input`</b>: A `Tensor`.
 * <b>`block_size`</b>: An `int` that is `>= 2`.
     The size of the spatial block, same as in Space2Depth.
+* <b>`data_format`</b>: An optional `string` from: `"NHWC", "NCHW", "NCHW_VECT_C"`. Defaults to `"NHWC"`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
+A `Tensor`. Has the same type as `input`.

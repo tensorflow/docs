@@ -14,7 +14,7 @@ get_path_to_datafile(path)
 
 
 
-Defined in [`tensorflow/python/platform/resource_loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/platform/resource_loader.py).
+Defined in [`tensorflow/python/platform/resource_loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/platform/resource_loader.py).
 
 Get the path to the specified file in the data dependencies.
 
@@ -27,8 +27,8 @@ The path is relative to tensorflow/
 
 #### Returns:
 
-  The path to the specified file present in the data attribute of py_test
-  or py_binary.
+The path to the specified file present in the data attribute of py_test
+or py_binary.
 
 
 #### Raises:

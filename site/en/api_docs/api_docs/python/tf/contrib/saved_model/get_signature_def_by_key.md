@@ -17,7 +17,7 @@ get_signature_def_by_key(
 
 
 
-Defined in [`tensorflow/contrib/saved_model/python/saved_model/signature_def_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/saved_model/python/saved_model/signature_def_utils.py).
+Defined in [`tensorflow/contrib/saved_model/python/saved_model/signature_def_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/saved_model/python/saved_model/signature_def_utils.py).
 
 Utility function to get a SignatureDef protocol buffer by its key.
 
@@ -31,8 +31,8 @@ Utility function to get a SignatureDef protocol buffer by its key.
 
 #### Returns:
 
-  A SignatureDef protocol buffer corresponding to the supplied key, if it
-  exists.
+A SignatureDef protocol buffer corresponding to the supplied key, if it
+exists.
 
 
 #### Raises:

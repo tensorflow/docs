@@ -11,8 +11,8 @@ page_type: reference
 ``` python
 decode_png(
     contents,
-    channels=None,
-    dtype=None,
+    channels=0,
+    dtype=tf.uint8,
     name=None
 )
 ```
@@ -52,4 +52,4 @@ is the same, though it is cleaner to use `tf.image.decode_image`.
 
 #### Returns:
 
-  A `Tensor` of type `dtype`. 3-D with shape `[height, width, channels]`.
+A `Tensor` of type `dtype`. 3-D with shape `[height, width, channels]`.

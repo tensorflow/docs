@@ -20,7 +20,7 @@ log_loss(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/losses/python/losses/loss_ops.py).
+Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
 See the guide: [Losses (contrib) > Loss operations for use in neural networks.](../../../../../api_guides/python/contrib.losses#Loss_operations_for_use_in_neural_networks_)
 
@@ -28,7 +28,7 @@ Adds a Log Loss term to the training procedure. (deprecated)
 
 THIS FUNCTION IS DEPRECATED. It will be removed after 2016-12-30.
 Instructions for updating:
-Use tf.losses.log_loss instead. Note that the order of the predictions and labels arguments was changed.
+Use tf.losses.log_loss instead. Note that the order of the predictions and labels arguments has been changed.
 
 `weights` acts as a coefficient for the loss. If a scalar is provided, then
 the loss is simply scaled by the given value. If `weights` is a tensor of size
@@ -50,7 +50,7 @@ measurable element of `predictions` is scaled by the corresponding value of
 
 #### Returns:
 
-  A scalar `Tensor` representing the loss value.
+A scalar `Tensor` representing the loss value.
 
 
 #### Raises:

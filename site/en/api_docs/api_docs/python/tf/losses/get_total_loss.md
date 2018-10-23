@@ -17,7 +17,7 @@ get_total_loss(
 
 
 
-Defined in [`tensorflow/python/ops/losses/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/losses/util.py).
+Defined in [`tensorflow/python/ops/losses/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/losses/util.py).
 
 Returns a tensor whose value represents the total loss.
 
@@ -36,7 +36,7 @@ on `tf.layers` methods will not function.
 
 #### Returns:
 
-  A `Tensor` whose value represents the total loss.
+A `Tensor` whose value represents the total loss.
 
 
 #### Raises:

@@ -14,7 +14,7 @@ load_checkpoint(ckpt_dir_or_file)
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/checkpoint_utils.py).
+Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/checkpoint_utils.py).
 
 Returns `CheckpointReader` for checkpoint found in `ckpt_dir_or_file`.
 
@@ -29,7 +29,7 @@ reader for the latest checkpoint is returned.
 
 #### Returns:
 
-  `CheckpointReader` object.
+`CheckpointReader` object.
 
 
 #### Raises:

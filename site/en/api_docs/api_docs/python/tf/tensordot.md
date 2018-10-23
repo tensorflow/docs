@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.tensordot
 
+### Aliases:
+
+* `tf.linalg.tensordot`
+* `tf.tensordot`
+
 ``` python
 tensordot(
     a,
@@ -19,7 +24,7 @@ tensordot(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Tensor Math Function](../../../api_guides/python/math_ops#Tensor_Math_Function)
 
@@ -41,8 +46,8 @@ is equivalent to matrix multiplication.
 Example 2: When `a` and `b` are matrices (order 2), the case
 `axes = [[1], [0]]` is equivalent to matrix multiplication.
 
-Example 3: Suppose that \\(a_ijk\\) and \\(b_lmn\\) represent two
-tensors of order 3. Then, `contract(a, b, [0], [2])` is the order 4 tensor
+Example 3: Suppose that \\(a_{ijk}\\) and \\(b_{lmn}\\) represent two
+tensors of order 3. Then, `contract(a, b, [[0], [2]])` is the order 4 tensor
 \\(c_{jklm}\\) whose entry
 corresponding to the indices \\((j,k,l,m)\\) is given by:
 
@@ -66,7 +71,7 @@ In general, `order(c) = order(a) + order(b) - 2*len(axes[0])`.
 
 #### Returns:
 
-  A `Tensor` with the same type as `a`.
+A `Tensor` with the same type as `a`.
 
 
 #### Raises:

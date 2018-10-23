@@ -17,7 +17,7 @@ init_from_checkpoint(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/checkpoint_utils.py).
+Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/checkpoint_utils.py).
 
 Initializes current variables with tensors loaded from given checkpoint.
 
@@ -96,5 +96,5 @@ init_from_checkpoint('/tmp/model.ckpt',
 
 #### Raises:
 
-  tf.errors.OpError: If missing checkpoints or tensors in checkpoints.
+* <b>`tf.errors.OpError`</b>: If missing checkpoints or tensors in checkpoints.
 * <b>`ValueError`</b>: If missing variables in current graph.

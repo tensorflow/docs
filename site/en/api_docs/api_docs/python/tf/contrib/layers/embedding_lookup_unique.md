@@ -18,7 +18,7 @@ embedding_lookup_unique(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/embedding_ops.py).
+Defined in [`tensorflow/contrib/layers/python/layers/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/embedding_ops.py).
 
 Version of embedding_lookup that avoids duplicate lookups.
 
@@ -37,8 +37,8 @@ which allows to not reshape input/output to fit gather.
 
 #### Returns:
 
-  A `Tensor` with the same type as the tensors in `params` and dimension of
-  `[ids1, ids2, d1, d2, ...]`.
+A `Tensor` with the same type as the tensors in `params` and dimension of
+`[ids1, ids2, d1, d2, ...]`.
 
 
 #### Raises:

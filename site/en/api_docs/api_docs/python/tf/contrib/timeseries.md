@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/timeseries/__init__.py).
+Defined in [`tensorflow/contrib/timeseries/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/timeseries/__init__.py).
 
 A time series library in TensorFlow (TFTS).
 
@@ -31,6 +31,8 @@ A time series library in TensorFlow (TFTS).
 [`class CSVReader`](../../tf/contrib/timeseries/CSVReader): Reads from a collection of CSV-formatted files.
 
 [`class FilteringResults`](../../tf/contrib/timeseries/FilteringResults): Keys returned from evaluation/filtering.
+
+[`class NumpyReader`](../../tf/contrib/timeseries/NumpyReader): A time series parser for feeding Numpy arrays to a `TimeSeriesInputFn`.
 
 [`class RandomWindowInputFn`](../../tf/contrib/timeseries/RandomWindowInputFn): Wraps a `TimeSeriesReader` to create random batches of windows.
 

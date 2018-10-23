@@ -18,7 +18,7 @@ clip_by_average_norm(
 
 
 
-Defined in [`tensorflow/python/ops/clip_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/clip_ops.py).
+Defined in [`tensorflow/python/ops/clip_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/clip_ops.py).
 
 See the guide: [Training > Gradient Clipping](../../../api_guides/python/train#Gradient_Clipping)
 
@@ -47,4 +47,4 @@ an optimizer.
 
 #### Returns:
 
-  A clipped `Tensor`.
+A clipped `Tensor`.

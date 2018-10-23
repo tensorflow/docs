@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/local_cli_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/debug/wrappers/local_cli_wrapper.py).
+Defined in [`tensorflow/python/debug/wrappers/local_cli_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/debug/wrappers/local_cli_wrapper.py).
 
 See the guide: [TensorFlow Debugger > Session wrapper class and `SessionRunHook` implementations](../../../api_guides/python/tfdbg#Session_wrapper_class_and_SessionRunHook_implementations)
 
@@ -31,6 +31,10 @@ will launch the command-line interface (CLI) of tfdbg.
 
 
 <h3 id="graph_def"><code>graph_def</code></h3>
+
+
+
+<h3 id="run_call_count"><code>run_call_count</code></h3>
 
 
 
@@ -133,6 +137,14 @@ close()
 
 
 
+<h3 id="increment_run_call_count"><code>increment_run_call_count</code></h3>
+
+``` python
+increment_run_call_count()
+```
+
+
+
 <h3 id="invoke_node_stepper"><code>invoke_node_stepper</code></h3>
 
 ``` python
@@ -155,8 +167,8 @@ Overrides method in base class to implement interactive node stepper.
 
 #### Returns:
 
-  The same return values as the `Session.run()` call on the same fetches as
-    the NodeStepper.
+The same return values as the `Session.run()` call on the same fetches as
+  the NodeStepper.
 
 <h3 id="list_devices"><code>list_devices</code></h3>
 
@@ -200,7 +212,7 @@ Actions taken:
 
 #### Returns:
 
-  An instance of OnSessionInitResponse.
+An instance of OnSessionInitResponse.
 
 <h3 id="on_run_start"><code>on_run_start</code></h3>
 
@@ -220,7 +232,7 @@ Invoke the CLI to let user choose what action to take:
 
 #### Returns:
 
-  An instance of `OnRunStartResponse`.
+An instance of `OnRunStartResponse`.
 
 <h3 id="on_session_init"><code>on_session_init</code></h3>
 
@@ -237,7 +249,7 @@ Overrides on-session-init callback.
 
 #### Returns:
 
-  An instance of `OnSessionInitResponse`.
+An instance of `OnSessionInitResponse`.
 
 <h3 id="partial_run"><code>partial_run</code></h3>
 
@@ -301,13 +313,21 @@ Wrapper around Session.run() that inserts tensor watch options.
 
 #### Returns:
 
-  Simply forwards the output of the wrapped `Session.run()` call.
+Simply forwards the output of the wrapped `Session.run()` call.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: On invalid `OnRunStartAction` value. Or if `callable_runner`
     is not `None` and either or both of `fetches` and `feed_dict` is `None`.
+
+<h3 id="should_stop"><code>should_stop</code></h3>
+
+``` python
+should_stop()
+```
+
+
 
 
 

@@ -19,13 +19,13 @@ parse_example(
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/parsing_ops.py).
+Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/parsing_ops.py).
 
 See the guides: [Inputs and Readers > Converting](../../../api_guides/python/io_ops#Converting), [Reading data > Reading from files](../../../api_guides/python/reading_data#Reading_from_files)
 
 Parses `Example` protos into a `dict` of tensors.
 
-Parses a number of serialized [`Example`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/example/example.proto)
+Parses a number of serialized [`Example`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/example/example.proto)
 protos given in `serialized`. We refer to `serialized` as a batch with
 `batch_size` many entries of individual `Example` protos.
 
@@ -88,7 +88,7 @@ serialized = [
 
 then the output will look like:
 
-```
+```python
 {"ft": SparseTensor(indices=[[0, 0], [0, 1], [2, 0]],
                     values=[1.0, 2.0, 3.0],
                     dense_shape=(3, 2)) }
@@ -97,7 +97,7 @@ then the output will look like:
 If instead a `FixedLenSequenceFeature` with `default_value = -1.0` and
 `shape=[]` is used then the output will look like:
 
-```
+```python
 {"ft": [[1.0, 2.0], [3.0, -1.0]]}
 ```
 
@@ -232,7 +232,7 @@ Then the output is a dictionary:
 
 #### Returns:
 
-  A `dict` mapping feature keys to `Tensor` and `SparseTensor` values.
+A `dict` mapping feature keys to `Tensor` and `SparseTensor` values.
 
 
 #### Raises:

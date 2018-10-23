@@ -14,7 +14,7 @@ max_pool3d(
     ksize,
     strides,
     padding,
-    data_format=None,
+    data_format='NDHWC',
     name=None
 )
 ```
@@ -50,4 +50,4 @@ Performs 3D max pooling on the input.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`. The max pooled output tensor.
+A `Tensor`. Has the same type as `input`. The max pooled output tensor.

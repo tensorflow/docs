@@ -23,7 +23,7 @@ scan(
 
 
 
-Defined in [`tensorflow/python/ops/functional_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/functional_ops.py).
+Defined in [`tensorflow/python/ops/functional_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/functional_ops.py).
 
 See the guide: [Higher Order Functions > Higher Order Operators](../../../api_guides/python/functional_ops#Higher_Order_Operators)
 
@@ -82,9 +82,9 @@ For example, if `elems` is `(t1, [t2, t3])` and `initializer` is
 
 #### Returns:
 
-  A tensor or (possibly nested) sequence of tensors.  Each tensor packs the
-  results of applying `fn` to tensors unpacked from `elems` along the first
-  dimension, and the previous accumulator value(s), from first to last.
+A tensor or (possibly nested) sequence of tensors.  Each tensor packs the
+results of applying `fn` to tensors unpacked from `elems` along the first
+dimension, and the previous accumulator value(s), from first to last.
 
 
 #### Raises:

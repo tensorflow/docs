@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/summary/summary.py).
+Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/summary/summary.py).
 
 Tensor summaries for exporting information about a model.
 

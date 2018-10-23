@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/trainable.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/trainable.py).
+Defined in [`tensorflow/contrib/learn/python/learn/trainable.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/trainable.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
@@ -74,7 +74,7 @@ Trains a model given training data `x` predictions and `y` labels.
 
 #### Returns:
 
-  `self`, for chaining.
+`self`, for chaining.
 
 
 

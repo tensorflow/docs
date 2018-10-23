@@ -53,4 +53,4 @@ tf.linspace(10.0, 12.0, 3, name="linspace") => [ 10.0  11.0  12.0]
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `start`. 1-D. The generated values.
+A `Tensor`. Has the same type as `start`. 1-D. The generated values.

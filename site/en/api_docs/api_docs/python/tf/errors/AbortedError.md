@@ -14,7 +14,7 @@ Inherits From: [`OpError`](../../tf/OpError)
 
 
 
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/errors_impl.py).
+Defined in [`tensorflow/python/framework/errors_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/errors_impl.py).
 
 See the guide: [Running Graphs > Error classes and convenience functions](../../../../api_guides/python/client#Error_classes_and_convenience_functions)
 
@@ -54,7 +54,7 @@ discover information about the op.
 
 #### Returns:
 
-  The `Operation` that failed, or None.
+The `Operation` that failed, or None.
 
 
 

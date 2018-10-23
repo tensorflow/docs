@@ -14,7 +14,7 @@ stripped_op_list_for_graph(graph_def)
 
 
 
-Defined in [`tensorflow/python/framework/meta_graph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/meta_graph.py).
+Defined in [`tensorflow/python/framework/meta_graph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/meta_graph.py).
 
 See the guide: [Utilities (contrib) > Miscellaneous Utility Functions](../../../../../api_guides/python/contrib.util#Miscellaneous_Utility_Functions)
 
@@ -32,7 +32,7 @@ consumer, which can then use the C++ function
 
 #### Returns:
 
-  An `OpList` of ops used by the graph.
+An `OpList` of ops used by the graph.
 
 
 #### Raises:

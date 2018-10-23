@@ -17,7 +17,7 @@ to_float(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Tensor Transformations > Casting](../../../api_guides/python/array_ops#Casting)
 
@@ -31,7 +31,7 @@ Casts a tensor to type `float32`.
 
 #### Returns:
 
-  A `Tensor` or `SparseTensor` with same shape as `x` with type `float32`.
+A `Tensor` or `SparseTensor` with same shape as `x` with type `float32`.
 
 
 #### Raises:

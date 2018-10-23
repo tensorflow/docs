@@ -49,7 +49,7 @@ Produces the average pool of the input tensor for quantized types.
 
 #### Returns:
 
-  A tuple of `Tensor` objects (output, min_output, max_output).
+A tuple of `Tensor` objects (output, min_output, max_output).
 
 * <b>`output`</b>: A `Tensor`. Has the same type as `input`.
 * <b>`min_output`</b>: A `Tensor` of type `float32`. The float value that the lowest quantized output value represents.

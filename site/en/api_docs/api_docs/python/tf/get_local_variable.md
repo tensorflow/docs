@@ -17,7 +17,7 @@ get_local_variable(
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/variable_scope.py).
+Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/variable_scope.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 
@@ -32,11 +32,14 @@ and performs reuse checks. See the
 for an extensive description of how reusing works. Here is a basic example:
 
 ```python
-with tf.variable_scope("foo"):
-    v = tf.get_variable("v", [1])  # v.name == "foo/v:0"
-    w = tf.get_variable("w", [1])  # w.name == "foo/w:0"
-with tf.variable_scope("foo", reuse=True):
-    v1 = tf.get_variable("v")  # The same as v above.
+def foo():
+  with tf.variable_scope("foo", reuse=tf.AUTO_REUSE):
+    v = tf.get_variable("v", [1])
+  return v
+
+v1 = foo()  # Creates v.
+v2 = foo()  # Gets the same, existing v.
+assert v1 == v2
 ```
 
 If initializer is `None` (the default), the default initializer passed in
@@ -79,7 +82,8 @@ Some useful partitioners are available.  See, e.g.,
       must be known.
 * <b>`use_resource`</b>: If False, creates a regular Variable. If true, creates an
     experimental ResourceVariable instead with well-defined semantics.
-    Defaults to False (will later change to True).
+    Defaults to False (will later change to True). In Eager mode, this argument
+    is always forced to be True.
 * <b>`custom_getter`</b>: Callable that takes as a first argument the true getter, and
     allows overwriting the internal get_variable method.
     The signature of `custom_getter` should match that of this method,
@@ -88,7 +92,6 @@ Some useful partitioners are available.  See, e.g.,
     all `get_variable` parameters is also allowed:
     `def custom_getter(getter, name, *args, **kwargs)`.  A simple identity
     custom getter that simply creates variables with modified names is:
-
     ```python
     def custom_getter(getter, name, *args, **kwargs):
       return getter(name + '_suffix', *args, **kwargs)
@@ -97,8 +100,8 @@ Some useful partitioners are available.  See, e.g.,
 
 #### Returns:
 
-  The created or existing `Variable` (or `PartitionedVariable`, if a
-  partitioner was used).
+The created or existing `Variable` (or `PartitionedVariable`, if a
+partitioner was used).
 
 
 #### Raises:

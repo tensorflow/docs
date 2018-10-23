@@ -19,7 +19,7 @@ histogram(
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/summary/summary.py).
+Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/summary/summary.py).
 
 See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
 
@@ -31,7 +31,7 @@ TensorBoard histogram dashboard
 [here](https://www.tensorflow.org/get_started/tensorboard_histograms).
 
 The generated
-[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/framework/summary.proto)
+[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/framework/summary.proto)
 has one summary value containing a histogram for `values`.
 
 This op reports an `InvalidArgument` error if any value is not finite.
@@ -50,5 +50,5 @@ This op reports an `InvalidArgument` error if any value is not finite.
 
 #### Returns:
 
-  A scalar `Tensor` of type `string`. The serialized `Summary` protocol
-  buffer.
+A scalar `Tensor` of type `string`. The serialized `Summary` protocol
+buffer.

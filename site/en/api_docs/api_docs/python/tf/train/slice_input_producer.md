@@ -22,7 +22,7 @@ slice_input_producer(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/input.py).
 
 See the guides: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline), [Reading data > Preloaded data](../../../../api_guides/python/reading_data#Preloaded_data)
 
@@ -50,9 +50,9 @@ is added to the current `Graph`'s `QUEUE_RUNNER` collection.
 
 #### Returns:
 
-  A list of tensors, one for each element of `tensor_list`.  If the tensor
-  in `tensor_list` has shape `[N, a, b, .., z]`, then the corresponding output
-  tensor will have shape `[a, b, ..., z]`.
+A list of tensors, one for each element of `tensor_list`.  If the tensor
+in `tensor_list` has shape `[N, a, b, .., z]`, then the corresponding output
+tensor will have shape `[a, b, ..., z]`.
 
 
 #### Raises:

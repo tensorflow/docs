@@ -11,7 +11,7 @@ page_type: reference
 ``` python
 string_join(
     inputs,
-    separator=None,
+    separator='',
     name=None
 )
 ```
@@ -39,4 +39,4 @@ with the given separator (default is an empty separator).
 
 #### Returns:
 
-  A `Tensor` of type `string`.
+A `Tensor` of type `string`.

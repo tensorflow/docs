@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/monitored_session.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -36,7 +36,6 @@ differences between `MonitoredSession` and `SingularMonitoredSession` are:
 * All other functionality is identical.
 
 Example usage:
-
 ```python
 saver_hook = CheckpointSaverHook(...)
 summary_hook = SummarySaverHook(...)
@@ -88,7 +87,8 @@ __init__(
     master='',
     config=None,
     checkpoint_dir=None,
-    stop_grace_period_secs=120
+    stop_grace_period_secs=120,
+    checkpoint_filename_with_path=None
 )
 ```
 
@@ -105,6 +105,8 @@ Creates a SingularMonitoredSession.
     variables.
 * <b>`stop_grace_period_secs`</b>: Number of seconds given to threads to stop after
     `close()` has been called.
+* <b>`checkpoint_filename_with_path`</b>: A string. Optional path to a checkpoint
+    file from which to restore variables.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
@@ -167,7 +169,7 @@ This method is completely compatible with the `tf.Session.run()` method.
 
 #### Returns:
 
-  Same as `tf.Session.run()`.
+Same as `tf.Session.run()`.
 
 <h3 id="should_stop"><code>should_stop</code></h3>
 

@@ -8,9 +8,14 @@ page_type: reference
 
 # Module: tf.compat
 
+### Aliases:
+
+* Module `tf.compat`
+* Module `tf.contrib.meta_graph_transform.meta_graph_transform.compat`
 
 
-Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/compat.py).
+
+Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/compat.py).
 
 Functions for Python 2 vs. 3 compatibility.
 

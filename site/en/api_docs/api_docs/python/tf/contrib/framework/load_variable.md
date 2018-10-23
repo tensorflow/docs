@@ -17,7 +17,7 @@ load_variable(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
+Defined in [`tensorflow/contrib/framework/python/framework/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
 
 See the guide: [Framework (contrib) > Checkpoint utilities](../../../../../api_guides/python/contrib.framework#Checkpoint_utilities)
 
@@ -31,4 +31,4 @@ Returns a Tensor with the contents of the given variable in the checkpoint.
 
 #### Returns:
 
-  `Tensor` object.
+`Tensor` object.

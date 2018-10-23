@@ -19,7 +19,7 @@ deprecated_flipped_softmax_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/cross_entropy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/nn/python/ops/cross_entropy.py).
+Defined in [`tensorflow/contrib/nn/python/ops/cross_entropy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/nn/python/ops/cross_entropy.py).
 
 Computes softmax cross entropy between `logits` and `labels`.
 
@@ -56,5 +56,5 @@ and the same dtype (either `float16`, `float32`, or `float64`).
 
 #### Returns:
 
-  A 1-D `Tensor` of length `batch_size` of the same type as `logits` with the
-  softmax cross entropy loss.
+A 1-D `Tensor` of length `batch_size` of the same type as `logits` with the
+softmax cross entropy loss.

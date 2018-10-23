@@ -23,7 +23,7 @@ pool(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Pooling](../../../../api_guides/python/nn#Pooling)
 
@@ -87,23 +87,23 @@ simply transposed as follows:
 
 #### Returns:
 
-  Tensor of rank N+2, of shape
-    [batch_size] + output_spatial_shape + [num_channels]
+Tensor of rank N+2, of shape
+  [batch_size] + output_spatial_shape + [num_channels]
 
-  if data_format is None or does not start with "NC", or
+if data_format is None or does not start with "NC", or
 
-    [batch_size, num_channels] + output_spatial_shape
+  [batch_size, num_channels] + output_spatial_shape
 
-  if data_format starts with "NC",
-  where `output_spatial_shape` depends on the value of padding:
+if data_format starts with "NC",
+where `output_spatial_shape` depends on the value of padding:
 
-  If padding = "SAME":
-    output_spatial_shape[i] = ceil(input_spatial_shape[i] / strides[i])
+If padding = "SAME":
+  output_spatial_shape[i] = ceil(input_spatial_shape[i] / strides[i])
 
-  If padding = "VALID":
-    output_spatial_shape[i] =
-      ceil((input_spatial_shape[i] - (window_shape[i] - 1) * dilation_rate[i])
-           / strides[i]).
+If padding = "VALID":
+  output_spatial_shape[i] =
+    ceil((input_spatial_shape[i] - (window_shape[i] - 1) * dilation_rate[i])
+         / strides[i]).
 
 
 #### Raises:

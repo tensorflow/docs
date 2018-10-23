@@ -14,7 +14,7 @@ is_sequence(seq)
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/nest.py).
 
 Returns a true if its input is a collections.Sequence (except strings).
 
@@ -25,5 +25,5 @@ Returns a true if its input is a collections.Sequence (except strings).
 
 #### Returns:
 
-  True if the sequence is a not a string and is a collections.Sequence or a
-  dict.
+True if the sequence is a not a string and is a collections.Sequence or a
+dict.

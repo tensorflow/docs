@@ -23,7 +23,7 @@ multi_label_head(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/head.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/head.py).
 
 Creates a Head for multi label classification.
 
@@ -58,7 +58,7 @@ a multi-hot tensor of shape `(batch_size, num_classes)`.
 
 #### Returns:
 
-  An instance of `Head` for multi label classification.
+An instance of `Head` for multi label classification.
 
 
 #### Raises:

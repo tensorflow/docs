@@ -40,4 +40,4 @@ dimension. For example, tiling `[a b c d]` by `[2]` produces
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
+A `Tensor`. Has the same type as `input`.

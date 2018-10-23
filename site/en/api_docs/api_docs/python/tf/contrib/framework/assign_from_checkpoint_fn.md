@@ -19,7 +19,7 @@ assign_from_checkpoint_fn(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/variables.py).
 
 See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
 
@@ -44,9 +44,9 @@ it returns None.
 
 #### Returns:
 
-  A function that takes a single argument, a `tf.Session`, that applies the
-  assignment operation. If no matching variables were found in the checkpoint
-  then `None` is returned.
+A function that takes a single argument, a `tf.Session`, that applies the
+assignment operation. If no matching variables were found in the checkpoint
+then `None` is returned.
 
 
 #### Raises:

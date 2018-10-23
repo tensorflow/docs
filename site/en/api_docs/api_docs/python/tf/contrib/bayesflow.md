@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/__init__.py).
+Defined in [`tensorflow/contrib/bayesflow/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/__init__.py).
 
 Ops for representing Bayesian computation.
 
@@ -20,7 +20,13 @@ Ops for representing Bayesian computation.
 
 [`csiszar_divergence`](../../tf/contrib/bayesflow/csiszar_divergence) module: Csiszar f-Divergence and helpers.
 
+[`custom_grad`](../../tf/contrib/bayesflow/custom_grad) module: Functions for specifying custom gradients.
+
 [`entropy`](../../tf/contrib/bayesflow/entropy) module: Support for Entropy Ops. See ${python/contrib.bayesflow.entropy}.
+
+[`hmc`](../../tf/contrib/bayesflow/hmc) module: Hamiltonian Monte Carlo, a gradient-based MCMC algorithm.
+
+[`metropolis_hastings`](../../tf/contrib/bayesflow/metropolis_hastings) module: Functions to create a Markov Chain Monte Carlo Metropolis step.
 
 [`monte_carlo`](../../tf/contrib/bayesflow/monte_carlo) module: Monte Carlo integration and helpers.
 

@@ -38,7 +38,7 @@ conv3d_transpose(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/layers.py).
 
 Adds a convolution3d_transpose with an optional batch normalization layer.
 
@@ -51,8 +51,8 @@ second variable called 'biases' is added to the result of the operation.
     `[batch, depth, height, width, in_channels]` for `NDHWC` data format or
     `[batch, in_channels, depth, height, width]` for `NCDHW` data format.
 * <b>`num_outputs`</b>: Integer, the number of output filters.
-* <b>`kernel_size`</b>: A list of length 3 holding the [kernel_depth, kernel_height, kernel_width] of
-    of the filters. Can be an int if both values are the same.
+* <b>`kernel_size`</b>: A list of length 3 holding the [kernel_depth, kernel_height,
+    kernel_width] of the filters. Can be an int if both values are the same.
 * <b>`stride`</b>: A list of length 3: [stride_depth, stride_height, stride_width].
     Can be an int if both strides are the same.  Note that presently
     both strides must have the same value.
@@ -79,7 +79,7 @@ second variable called 'biases' is added to the result of the operation.
 
 #### Returns:
 
-  A tensor representing the output of the operation.
+A tensor representing the output of the operation.
 
 #### Raises:
 

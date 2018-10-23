@@ -22,7 +22,7 @@ set_size(
 
 
 
-Defined in [`tensorflow/python/ops/sets_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sets_impl.py).
+Defined in [`tensorflow/python/ops/sets_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sets_impl.py).
 
 See the guide: [Metrics (contrib) > Set `Ops`](../../../../api_guides/python/contrib.metrics#Set_Ops_)
 
@@ -37,9 +37,9 @@ Compute number of unique elements along last dimension of `a`.
 
 #### Returns:
 
-  `int32` `Tensor` of set sizes. For `a` ranked `n`, this is a `Tensor` with
-  rank `n-1`, and the same 1st `n-1` dimensions as `a`. Each value is the
-  number of unique elements in the corresponding `[0...n-1]` dimension of `a`.
+`int32` `Tensor` of set sizes. For `a` ranked `n`, this is a `Tensor` with
+rank `n-1`, and the same 1st `n-1` dimensions as `a`. Each value is the
+number of unique elements in the corresponding `[0...n-1]` dimension of `a`.
 
 
 #### Raises:

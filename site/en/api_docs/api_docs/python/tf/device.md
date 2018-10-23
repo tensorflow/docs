@@ -14,7 +14,7 @@ device(device_name_or_function)
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
 
@@ -32,5 +32,5 @@ for more details.
 
 #### Returns:
 
-  A context manager that specifies the default device to use for newly
-  created ops.
+A context manager that specifies the default device to use for newly
+created ops.

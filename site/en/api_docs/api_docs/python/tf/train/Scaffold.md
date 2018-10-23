@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/monitored_session.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -155,6 +155,7 @@ Creates operations if needed and finalizes the graph.
 <h3 id="get_or_default"><code>get_or_default</code></h3>
 
 ``` python
+@staticmethod
 get_or_default(
     arg_name,
     collection_key,

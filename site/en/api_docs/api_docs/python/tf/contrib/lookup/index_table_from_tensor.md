@@ -21,7 +21,7 @@ index_table_from_tensor(
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/lookup/lookup_ops.py).
 
 Returns a lookup table that converts a string tensor into int64 IDs.
 
@@ -71,7 +71,7 @@ ids.eval()  ==> [0, 1, 4, 2]
 
 #### Returns:
 
-  The lookup table to map an input `Tensor` to index `int64` `Tensor`.
+The lookup table to map an input `Tensor` to index `int64` `Tensor`.
 
 
 #### Raises:

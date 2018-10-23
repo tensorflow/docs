@@ -19,7 +19,7 @@ stack(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/layers.py).
 
 Builds a stack of layers by applying layer repeatedly using stack_args.
 
@@ -46,12 +46,12 @@ layers are called with `scope='stack'`.
 * <b>`inputs`</b>: A `Tensor` suitable for layer.
 * <b>`layer`</b>: A layer with arguments `(inputs, *args, **kwargs)`
 * <b>`stack_args`</b>: A list/tuple of parameters for each call of layer.
-  **kwargs: Extra kwargs for the layer.
+* <b>`**kwargs`</b>: Extra kwargs for the layer.
 
 
 #### Returns:
 
-  A `Tensor` result of applying the stacked layers.
+A `Tensor` result of applying the stacked layers.
 
 
 #### Raises:

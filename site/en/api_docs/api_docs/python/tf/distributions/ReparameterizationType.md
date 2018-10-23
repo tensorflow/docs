@@ -19,7 +19,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/distributions/distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/distributions/distribution.py).
+Defined in [`tensorflow/python/ops/distributions/distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/distributions/distribution.py).
 
 See the guide: [Statistical Distributions (contrib) > Base classes](../../../../api_guides/python/contrib.distributions#Base_classes)
 
@@ -66,7 +66,7 @@ instances, equality checks if two instances' id() values are equal.
 
 #### Returns:
 
-  `self is other`.
+`self is other`.
 
 
 

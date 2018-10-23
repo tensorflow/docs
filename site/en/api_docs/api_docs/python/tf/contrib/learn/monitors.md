@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/monitors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/monitors.py).
+Defined in [`tensorflow/contrib/learn/python/learn/monitors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/monitors.py).
 
 Monitors instrument the training process.
 

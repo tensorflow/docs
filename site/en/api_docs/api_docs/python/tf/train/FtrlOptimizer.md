@@ -14,7 +14,7 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/python/training/ftrl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/ftrl.py).
+Defined in [`tensorflow/python/training/ftrl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/ftrl.py).
 
 See the guide: [Training > Optimizers](../../../../api_guides/python/train#Optimizers)
 
@@ -110,8 +110,8 @@ applies gradients.
 
 #### Returns:
 
-  An `Operation` that applies the specified gradients. If `global_step`
-  was not None, that operation also increments `global_step`.
+An `Operation` that applies the specified gradients. If `global_step`
+was not None, that operation also increments `global_step`.
 
 
 #### Raises:
@@ -157,8 +157,8 @@ given variable.
 
 #### Returns:
 
-  A list of (gradient, variable) pairs. Variable is always present, but
-  gradient can be `None`.
+A list of (gradient, variable) pairs. Variable is always present, but
+gradient can be `None`.
 
 
 #### Raises:
@@ -200,7 +200,7 @@ Use `get_slot_names()` to get the list of slot names created by the
 
 #### Returns:
 
-  The `Variable` for the slot if it was created, `None` otherwise.
+The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
@@ -214,7 +214,7 @@ See `get_slot()`.
 
 #### Returns:
 
-  A list of strings.
+A list of strings.
 
 <h3 id="minimize"><code>minimize</code></h3>
 
@@ -258,8 +258,8 @@ of using this function.
 
 #### Returns:
 
-  An Operation that updates the variables in `var_list`.  If `global_step`
-  was not `None`, that operation also increments `global_step`.
+An Operation that updates the variables in `var_list`.  If `global_step`
+was not `None`, that operation also increments `global_step`.
 
 
 #### Raises:

@@ -18,7 +18,7 @@ adjust_gamma(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Image Adjustments](../../../../api_guides/python/image#Image_Adjustments)
 
@@ -30,14 +30,14 @@ Performs Gamma Correction on the input image.
 
 #### Args:
 
-  image : A Tensor.
-  gamma : A scalar. Non negative real number.
-  gain  : A scalar. The constant multiplier.
+* <b>`image `</b>: A Tensor.
+* <b>`gamma `</b>: A scalar. Non negative real number.
+* <b>`gain  `</b>: A scalar. The constant multiplier.
 
 
 #### Returns:
 
-  A Tensor. Gamma corrected output image.
+A Tensor. Gamma corrected output image.
 
 
 #### Raises:

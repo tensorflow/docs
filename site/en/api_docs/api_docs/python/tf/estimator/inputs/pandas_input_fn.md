@@ -23,7 +23,7 @@ pandas_input_fn(
 
 
 
-Defined in [`tensorflow/python/estimator/inputs/pandas_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/inputs/pandas_io.py).
+Defined in [`tensorflow/python/estimator/inputs/pandas_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/inputs/pandas_io.py).
 
 Returns input function that would feed Pandas DataFrame into the model.
 
@@ -47,7 +47,7 @@ Note: `y`'s index must match `x`'s index.
 
 #### Returns:
 
-  Function, that has signature of ()->(dict of `features`, `target`)
+Function, that has signature of ()->(dict of `features`, `target`)
 
 
 #### Raises:

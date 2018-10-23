@@ -14,7 +14,7 @@ Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/lookup_ops.py).
 
 Initializable lookup table interface.
 
@@ -93,7 +93,7 @@ The `default_value` is used for keys not present in the table.
 
 #### Returns:
 
-  A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
+A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
 
 
 #### Raises:
@@ -116,7 +116,7 @@ Compute the number of elements in this table.
 
 #### Returns:
 
-  A scalar tensor containing the number of elements in this table.
+A scalar tensor containing the number of elements in this table.
 
 
 

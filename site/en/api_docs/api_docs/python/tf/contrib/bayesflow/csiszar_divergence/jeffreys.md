@@ -17,7 +17,7 @@ jeffreys(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py).
 
 The Jeffreys Csiszar-function in log-space.
 
@@ -44,11 +44,11 @@ numerically unstable for `|logu| >> 0`.
 
 #### Args:
 
-* <b>`logu`</b>: Floating-type `Tensor` representing `log(u)` from above.
+* <b>`logu`</b>: `float`-like `Tensor` representing `log(u)` from above.
 * <b>`name`</b>: Python `str` name prefixed to Ops created by this function.
 
 
 #### Returns:
 
-* <b>`jeffreys_of_u`</b>: Floating-type `Tensor` of the Csiszar-function evaluated
+* <b>`jeffreys_of_u`</b>: `float`-like `Tensor` of the Csiszar-function evaluated
     at `u = exp(logu)`.

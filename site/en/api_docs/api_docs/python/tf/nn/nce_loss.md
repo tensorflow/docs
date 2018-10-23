@@ -26,7 +26,7 @@ nce_loss(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Candidate Sampling](../../../../api_guides/python/nn#Candidate_Sampling)
 
@@ -108,4 +108,4 @@ with an otherwise unused class.
 
 #### Returns:
 
-  A `batch_size` 1-D tensor of per-example NCE losses.
+A `batch_size` 1-D tensor of per-example NCE losses.

@@ -23,7 +23,7 @@ compute_gradient_error(
 
 
 
-Defined in [`tensorflow/python/ops/gradient_checker.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/gradient_checker.py).
+Defined in [`tensorflow/python/ops/gradient_checker.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/gradient_checker.py).
 
 See the guide: [Testing > Gradient checking](../../../../api_guides/python/test#Gradient_checking)
 
@@ -60,4 +60,4 @@ function in the session constructor).
 
 #### Returns:
 
-  The maximum error in between the two Jacobians.
+The maximum error in between the two Jacobians.

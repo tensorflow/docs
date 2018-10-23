@@ -20,7 +20,7 @@ mean(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/metrics_impl.py).
+Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/metrics_impl.py).
 
 Computes the (weighted) mean of the given values.
 
@@ -29,7 +29,7 @@ that are used to compute the average of `values`. This average is ultimately
 returned as `mean` which is an idempotent operation that simply divides
 `total` by `count`.
 
-For estimation of the metric  over a stream of data, the function creates an
+For estimation of the metric over a stream of data, the function creates an
 `update_op` operation that updates these variables and returns the `mean`.
 `update_op` increments `total` with the reduced sum of the product of `values`
 and `weights`, and it increments `count` with the reduced sum of `weights`.

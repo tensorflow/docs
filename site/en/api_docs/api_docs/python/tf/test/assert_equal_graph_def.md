@@ -18,7 +18,7 @@ assert_equal_graph_def(
 
 
 
-Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/test_util.py).
+Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/test_util.py).
 
 See the guide: [Testing > Utilities](../../../../api_guides/python/test#Utilities)
 

@@ -34,4 +34,4 @@ Web-safe means that input must use - and _ instead of + and /.
 
 #### Returns:
 
-  A `Tensor` of type `string`. Decoded strings.
+A `Tensor` of type `string`. Decoded strings.

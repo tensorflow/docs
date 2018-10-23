@@ -18,7 +18,7 @@ deprecated_flipped_sparse_softmax_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/cross_entropy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/nn/python/ops/cross_entropy.py).
+Defined in [`tensorflow/contrib/nn/python/ops/cross_entropy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/nn/python/ops/cross_entropy.py).
 
 Computes sparse softmax cross entropy between `logits` and `labels`.
 
@@ -59,8 +59,8 @@ labels of shape `[batch_size]`. But higher dimensions are supported.
 
 #### Returns:
 
-  A `Tensor` of the same shape as `labels` and of the same type as `logits`
-  with the softmax cross entropy loss.
+A `Tensor` of the same shape as `labels` and of the same type as `logits`
+with the softmax cross entropy loss.
 
 
 #### Raises:

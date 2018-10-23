@@ -14,7 +14,7 @@ load_file_system_library(library_filename)
 
 
 
-Defined in [`tensorflow/python/framework/load_library.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/load_library.py).
+Defined in [`tensorflow/python/framework/load_library.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/load_library.py).
 
 See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
 
@@ -32,7 +32,7 @@ library are platform-specific and are not documented here.
 
 #### Returns:
 
-  None.
+None.
 
 
 #### Raises:

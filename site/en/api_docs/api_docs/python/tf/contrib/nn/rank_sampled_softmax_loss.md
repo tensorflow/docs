@@ -28,7 +28,7 @@ rank_sampled_softmax_loss(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/sampling_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/nn/python/ops/sampling_ops.py).
+Defined in [`tensorflow/contrib/nn/python/ops/sampling_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/nn/python/ops/sampling_ops.py).
 
 Computes softmax loss using rank-based adaptive resampling.
 
@@ -114,7 +114,7 @@ elif mode == "eval":
 
 #### Returns:
 
-  A `batch_size` 1-D tensor of per-example sampled softmax losses.
+A `batch_size` 1-D tensor of per-example sampled softmax losses.
 
 
 #### Raises:

@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/basic_session_run_hooks.py).
+Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/basic_session_run_hooks.py).
 
 Timer that triggers at most once every N seconds or once every N steps.
   
@@ -63,9 +63,9 @@ Return true if the timer should trigger for the specified step.
 
 #### Returns:
 
-  True if the difference between the current time and the time of the last
-  trigger exceeds `every_secs`, or if the difference between the current
-  step and the last triggered step exceeds `every_steps`. False otherwise.
+True if the difference between the current time and the time of the last
+trigger exceeds `every_secs`, or if the difference between the current
+step and the last triggered step exceeds `every_steps`. False otherwise.
 
 <h3 id="update_last_triggered_step"><code>update_last_triggered_step</code></h3>
 

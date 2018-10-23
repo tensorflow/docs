@@ -18,7 +18,7 @@ Rename(
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/lib/io/file_io.py).
+Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/lib/io/file_io.py).
 
 Rename or move a file / directory.
 
@@ -26,10 +26,10 @@ Rename or move a file / directory.
 
 * <b>`oldname`</b>: string, pathname for a file
 * <b>`newname`</b>: string, pathname to which the file needs to be moved
-* <b>`overwrite`</b>: boolean, if false its an error for newpath to be occupied by an
-      existing file.
+* <b>`overwrite`</b>: boolean, if false it's an error for `newname` to be occupied by
+      an existing file.
 
 
 #### Raises:
 
-  errors.OpError: If the operation fails.
+* <b>`errors.OpError`</b>: If the operation fails.

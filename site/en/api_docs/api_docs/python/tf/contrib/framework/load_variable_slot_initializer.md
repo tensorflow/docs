@@ -28,7 +28,7 @@ load_variable_slot_initializer(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
+Defined in [`tensorflow/contrib/framework/python/ops/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
 
 Loads pre-trained multi-class slots for linear models from checkpoint.
 
@@ -85,10 +85,10 @@ primary scoping and partitioning information.
 
 #### Returns:
 
-  A variable initializer function that should be used to initialize a
-  (potentially partitioned) `Variable` whose complete shape is
-  `[new_row_vocab_size + num_row_oov_buckets, new_col_vocab_size +
-  num_col_oov_buckets]`.
+A variable initializer function that should be used to initialize a
+(potentially partitioned) `Variable` whose complete shape is
+`[new_row_vocab_size + num_row_oov_buckets, new_col_vocab_size +
+num_col_oov_buckets]`.
 
 
 #### Raises:

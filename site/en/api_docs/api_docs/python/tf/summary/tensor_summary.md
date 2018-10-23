@@ -22,7 +22,7 @@ tensor_summary(
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/summary_ops.py).
+Defined in [`tensorflow/python/ops/summary_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/summary_ops.py).
 
 See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
 
@@ -49,5 +49,5 @@ Outputs a `Summary` protocol buffer with a serialized tensor.proto.
 
 #### Returns:
 
-  A scalar `Tensor` of type `string`. The serialized `Summary` protocol
-  buffer.
+A scalar `Tensor` of type `string`. The serialized `Summary` protocol
+buffer.

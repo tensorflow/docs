@@ -18,7 +18,7 @@ infer(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/graph_actions.py).
+Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/graph_actions.py).
 
 See the guide: [Learn (contrib) > Graph actions](../../../../../api_guides/python/contrib.learn#Graph_actions)
 
@@ -42,9 +42,9 @@ init all variables.
 
 #### Returns:
 
-  Dict of values read from `output_dict` tensors. Keys are the same as
-  `output_dict`, values are the results read from the corresponding `Tensor`
-  in `output_dict`.
+Dict of values read from `output_dict` tensors. Keys are the same as
+`output_dict`, values are the results read from the corresponding `Tensor`
+in `output_dict`.
 
 
 #### Raises:

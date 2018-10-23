@@ -22,7 +22,7 @@ avg_pool2d(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/layers.py).
 
 See the guide: [Layers (contrib) > Higher level ops for building neural network layers](../../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers)
 
@@ -49,7 +49,7 @@ It is assumed that the pooling is done per image but not in batch or channels.
 
 #### Returns:
 
-  A `Tensor` representing the results of the pooling operation.
+A `Tensor` representing the results of the pooling operation.
 
 
 #### Raises:

@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/session_manager.py).
+Defined in [`tensorflow/python/training/session_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/session_manager.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -168,7 +168,7 @@ or `init_fn` or `local_init_op` are passed.
 
 #### Returns:
 
-  A `Session` object that can be used to drive the model.
+A `Session` object that can be used to drive the model.
 
 
 #### Raises:
@@ -214,8 +214,8 @@ and can be recovered from a checkpoint, recover it.
 
 #### Returns:
 
-  A pair (sess, initialized) where 'initialized' is `True` if
-  the session could be recovered and initialized, `False` otherwise.
+A pair (sess, initialized) where 'initialized' is `True` if
+the session could be recovered and initialized, `False` otherwise.
 
 
 #### Raises:
@@ -254,13 +254,13 @@ by max_wait_secs. By default, this function will wait indefinitely.
 
 #### Returns:
 
-  A `Session`. May be None if the operation exceeds the timeout
-  specified by config.operation_timeout_in_ms.
+A `Session`. May be None if the operation exceeds the timeout
+specified by config.operation_timeout_in_ms.
 
 
 #### Raises:
 
-  tf.DeadlineExceededError: if the session is not available after
+* <b>`tf.DeadlineExceededError`</b>: if the session is not available after
     max_wait_secs.
 
 

@@ -22,7 +22,7 @@ expectation_importance_sampler(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
 
 See the guide: [BayesFlow Monte Carlo (contrib) > Ops](../../../../../../api_guides/python/contrib.bayesflow.monte_carlo#Ops)
 
@@ -64,5 +64,5 @@ User supplies either `Tensor` of samples `z`, or number of samples to draw `n`
 
 #### Returns:
 
-  The importance sampling estimate.  `Tensor` with `shape` equal
-    to batch shape of `q`, and `dtype` = `q.dtype`.
+The importance sampling estimate.  `Tensor` with `shape` equal
+  to batch shape of `q`, and `dtype` = `q.dtype`.

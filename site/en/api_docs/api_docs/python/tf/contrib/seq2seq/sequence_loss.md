@@ -22,7 +22,7 @@ sequence_loss(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/loss.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/loss.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/loss.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/loss.py).
 
 Weighted cross-entropy loss for a sequence of logits.
 
@@ -58,10 +58,10 @@ is `False`, then the return Tensor will have shape `[batch_size]`.
 
 #### Returns:
 
-  A float Tensor of rank 0, 1, or 2 depending on the
-  `average_across_timesteps` and `average_across_batch` arguments. By default,
-  it has rank 0 (scalar) and is the weighted average cross-entropy
-  (log-perplexity) per symbol.
+A float Tensor of rank 0, 1, or 2 depending on the
+`average_across_timesteps` and `average_across_batch` arguments. By default,
+it has rank 0 (scalar) and is the weighted average cross-entropy
+(log-perplexity) per symbol.
 
 
 #### Raises:

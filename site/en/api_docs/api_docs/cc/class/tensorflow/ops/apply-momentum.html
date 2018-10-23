@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::ApplyMomentum Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -16,19 +16,19 @@
   <p>want to use Nesterov momentum.</p>
   <p>accum = accum * momentum + grad var -= lr * accum</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>var: Should be from a Variable().</li>
       <li>accum: Should be from a Variable().</li>
       <li>lr: Scaling factor. Must be a scalar.</li>
       <li>grad: The gradient.</li>
       <li>momentum: Momentum. Must be a scalar.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: If <code>True</code>, updating of the var and accum tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
       <li>use_nesterov: If <code>True</code>, the tensor passed to compute grad will be var - lr * momentum * accum, so in the end, the var you get is actually var - lr * momentum * accum.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -38,13 +38,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_apply_momentum_1a5049a3d6435e94f32d75072d46b2b6bf">ApplyMomentum</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_momentum_1a5049a3d6435e94f32d75072d46b2b6bf">ApplyMomentum</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_apply_momentum_1a8acb0c63affef19750579d082baf6761">ApplyMomentum</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">ApplyMomentum::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_momentum_1a8acb0c63affef19750579d082baf6761">ApplyMomentum</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">ApplyMomentum::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -61,7 +61,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -115,7 +115,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -125,7 +125,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -138,42 +138,42 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs">tensorflow::<wbr/>ops::<wbr/>ApplyMomentum::<wbr/>Attrs</a>
+        <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs">tensorflow::<wbr/>ops::<wbr/>ApplyMomentum::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/apply-momentum.html#classtensorflow_1_1ops_1_1_apply_momentum">ApplyMomentum</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/apply-momentum.html#classtensorflow_1_1ops_1_1_apply_momentum">ApplyMomentum</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_momentum_1adc714468dda0674aca4fa13fea935dcf">
     <h3>out</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_momentum_1a5049a3d6435e94f32d75072d46b2b6bf">
     <h3>ApplyMomentum</h3>
     <pre class="prettyprint"> ApplyMomentum(
-  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_apply_momentum_1a8acb0c63affef19750579d082baf6761">
     <h3>ApplyMomentum</h3>
     <pre class="prettyprint"> ApplyMomentum(
-  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
-  const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">ApplyMomentum::Attrs</a> & attrs
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
+  const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">ApplyMomentum::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -195,14 +195,14 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_momentum_1a4a0957d092a63a28884f092dfe199e60">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_apply_momentum_1aafa34ce6f18e9d85f9aa7e5484b54496">
     <h3>UseNesterov</h3>
-    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a> UseNesterov(
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a> UseNesterov(
   bool x
 )</pre>
     <div />

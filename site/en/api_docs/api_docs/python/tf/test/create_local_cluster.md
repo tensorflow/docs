@@ -20,12 +20,11 @@ create_local_cluster(
 
 
 
-Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/test_util.py).
+Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/test_util.py).
 
 Create and start local servers and return the associated `Server` objects.
 
 Example:
-
 ```python
 workers, _ = tf.test.create_local_cluster(num_workers=2, num_ps=2)
 
@@ -56,9 +55,9 @@ worker_sessions[0].run(...)
 
 #### Returns:
 
-  A tuple `(worker_servers, ps_servers)`.  `worker_servers` is a list
-  of `num_workers` objects of type `tf.train.Server` (all running locally);
-  and `ps_servers` is a list of `num_ps` objects of similar type.
+A tuple `(worker_servers, ps_servers)`.  `worker_servers` is a list
+of `num_workers` objects of type `tf.train.Server` (all running locally);
+and `ps_servers` is a list of `num_ps` objects of similar type.
 
 
 #### Raises:

@@ -14,7 +14,7 @@ get_default_session()
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/ops.py).
 
 See the guide: [Running Graphs > Session management](../../../api_guides/python/client#Session_management)
 
@@ -30,4 +30,4 @@ thread's function.
 
 #### Returns:
 
-  The default `Session` being used in the current thread.
+The default `Session` being used in the current thread.

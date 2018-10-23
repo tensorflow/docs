@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/__init__.py).
+Defined in [`tensorflow/contrib/seq2seq/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/__init__.py).
 
 Ops for building neural network seq2seq decoders and losses.
 
@@ -47,6 +47,8 @@ See the [Seq2seq Library (contrib)](../../../../api_guides/python/contrib.seq2se
 [`class GreedyEmbeddingHelper`](../../tf/contrib/seq2seq/GreedyEmbeddingHelper): A helper for use during inference.
 
 [`class Helper`](../../tf/contrib/seq2seq/Helper): Interface for implementing sampling in seq2seq decoders.
+
+[`class InferenceHelper`](../../tf/contrib/seq2seq/InferenceHelper): A helper to use during inference with a custom sampling function.
 
 [`class LuongAttention`](../../tf/contrib/seq2seq/LuongAttention): Implements Luong-style (multiplicative) attention scoring.
 

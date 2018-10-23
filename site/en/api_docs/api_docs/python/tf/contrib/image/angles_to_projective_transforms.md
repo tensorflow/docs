@@ -18,7 +18,7 @@ angles_to_projective_transforms(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/image/python/ops/image_ops.py).
 
 Returns projective transform(s) for the given angle(s).
 
@@ -32,5 +32,5 @@ Returns projective transform(s) for the given angle(s).
 
 #### Returns:
 
-  A tensor of shape (num_images, 8). Projective transforms which can be given
-    to `tf.contrib.image.transform`.
+A tensor of shape (num_images, 8). Projective transforms which can be given
+  to `tf.contrib.image.transform`.

@@ -28,7 +28,7 @@ bucket(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/bucket_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/bucket_ops.py).
+Defined in [`tensorflow/contrib/training/python/training/bucket_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/bucket_ops.py).
 
 See the guide: [Training (contrib) > Bucketing](../../../../../api_guides/python/contrib.training#Bucketing)
 
@@ -108,10 +108,10 @@ operations that depend on fixed batch_size would fail.
 
 #### Returns:
 
-  A tuple `(bucket, outputs)` where `bucket` is
-  a `int32` scalar tensor and `outputs` is a list or
-  dictionary of batched outputs corresponding to elements of `tensors`.
-  Every step will receive a new bucket of outputs.
+A tuple `(bucket, outputs)` where `bucket` is
+a `int32` scalar tensor and `outputs` is a list or
+dictionary of batched outputs corresponding to elements of `tensors`.
+Every step will receive a new bucket of outputs.
 
 
 #### Raises:

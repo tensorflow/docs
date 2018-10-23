@@ -24,7 +24,7 @@ stratified_sample(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/sampling_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/sampling_ops.py).
+Defined in [`tensorflow/contrib/training/python/training/sampling_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/sampling_ops.py).
 
 See the guide: [Training (contrib) > Online data resampling](../../../../../api_guides/python/contrib.training#Online_data_resampling)
 
@@ -39,7 +39,7 @@ batch.
 * <b>`tensors`</b>: List of tensors for data. All tensors are either one item or a
       batch, according to enqueue_many.
 * <b>`labels`</b>: Tensor for label of data. Label is a single integer or a batch,
-      depending on enqueue_many. It is not a one-hot vector.
+      depending on `enqueue_many`. It is not a one-hot vector.
 * <b>`target_probs`</b>: Target class proportions in batch. An object whose type has a
       registered Tensor conversion function.
 * <b>`batch_size`</b>: Size of batch to be returned.
@@ -55,9 +55,10 @@ batch.
 
 #### Raises:
 
-* <b>`ValueError`</b>: enqueue_many is True and labels doesn't have a batch
-      dimension, or if enqueue_many is False and labels isn't a scalar.
-* <b>`ValueError`</b>: enqueue_many is True, and batch dimension on data and labels
+* <b>`ValueError`</b>: If `tensors` isn't iterable.
+* <b>`ValueError`</b>: `enqueue_many` is True and labels doesn't have a batch
+      dimension, or if `enqueue_many` is False and labels isn't a scalar.
+* <b>`ValueError`</b>: `enqueue_many` is True, and batch dimension on data and labels
       don't match.
 * <b>`ValueError`</b>: if probs don't sum to one.
 * <b>`ValueError`</b>: if a zero initial probability class has a nonzero target

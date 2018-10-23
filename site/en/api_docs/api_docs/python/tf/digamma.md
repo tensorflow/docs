@@ -33,4 +33,4 @@ Computes Psi, the derivative of Lgamma (the log of the absolute value of
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

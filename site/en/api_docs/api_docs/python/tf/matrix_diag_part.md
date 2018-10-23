@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.matrix_diag_part
 
+### Aliases:
+
+* `tf.linalg.diag_part`
+* `tf.matrix_diag_part`
+
 ``` python
 matrix_diag_part(
     input,
@@ -60,6 +65,6 @@ which has shape (2, 4)
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
-  The extracted diagonal(s) having shape
-  `diagonal.shape = input.shape[:-2] + [min(input.shape[-2:])]`.
+A `Tensor`. Has the same type as `input`.
+The extracted diagonal(s) having shape
+`diagonal.shape = input.shape[:-2] + [min(input.shape[-2:])]`.

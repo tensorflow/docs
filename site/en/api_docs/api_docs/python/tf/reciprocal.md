@@ -33,4 +33,4 @@ I.e., \\(y = 1 / x\\).
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
 
 Scikit learn wrapper for TensorFlow Learn Estimator.
 
@@ -61,7 +61,7 @@ Get parameters for this estimator.
 
 #### Returns:
 
-  params : mapping of string to any
+* <b>`params `</b>: mapping of string to any
   Parameter names mapped to their values.
 
 <h3 id="predict"><code>predict</code></h3>
@@ -106,12 +106,12 @@ component of a nested object.
 
 #### Args:
 
-  **params: Parameters.
+* <b>`**params`</b>: Parameters.
 
 
 #### Returns:
 
-  self
+self
 
 
 #### Raises:

@@ -17,7 +17,7 @@ real(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Complex Number Functions](../../../api_guides/python/math_ops#Complex_Number_Functions)
 
@@ -31,9 +31,9 @@ imaginary part.
 
 For example:
 
-```
-# tensor 'input' is [-2.25 + 4.75j, 3.25 + 5.75j]
-tf.real(input) ==> [-2.25, 3.25]
+```python
+x = tf.constant([-2.25 + 4.75j, 3.25 + 5.75j])
+tf.real(x)  # [-2.25, 3.25]
 ```
 
 If `input` is already real, it is returned unchanged.
@@ -46,4 +46,4 @@ If `input` is already real, it is returned unchanged.
 
 #### Returns:
 
-  A `Tensor` of type `float32` or `float64`.
+A `Tensor` of type `float32` or `float64`.

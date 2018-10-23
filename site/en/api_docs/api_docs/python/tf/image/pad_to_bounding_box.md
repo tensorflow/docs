@@ -20,7 +20,7 @@ pad_to_bounding_box(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Cropping](../../../../api_guides/python/image#Cropping)
 
@@ -45,10 +45,10 @@ This op does nothing if `offset_*` is zero and the image already has size
 
 #### Returns:
 
-  If `image` was 4-D, a 4-D float Tensor of shape
-  `[batch, target_height, target_width, channels]`
-  If `image` was 3-D, a 3-D float Tensor of shape
-  `[target_height, target_width, channels]`
+If `image` was 4-D, a 4-D float Tensor of shape
+`[batch, target_height, target_width, channels]`
+If `image` was 3-D, a 3-D float Tensor of shape
+`[target_height, target_width, channels]`
 
 
 #### Raises:

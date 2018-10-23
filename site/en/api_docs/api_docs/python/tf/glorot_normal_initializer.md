@@ -17,7 +17,7 @@ glorot_normal_initializer(
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/init_ops.py).
 
 The Glorot normal initializer, also called Xavier normal initializer.
 
@@ -28,7 +28,7 @@ and `fan_out` is the number of output units in the weight tensor.
 
 Reference: http://jmlr.org/proceedings/papers/v9/glorot10a/glorot10a.pdf
 
-#### Arguments:
+#### Args:
 
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
     [`tf.set_random_seed`](../tf/set_random_seed)
@@ -38,4 +38,4 @@ Reference: http://jmlr.org/proceedings/papers/v9/glorot10a/glorot10a.pdf
 
 #### Returns:
 
-  An initializer.
+An initializer.

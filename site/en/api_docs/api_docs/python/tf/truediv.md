@@ -18,7 +18,7 @@ truediv(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Arithmetic Operators](../../../api_guides/python/math_ops#Arithmetic_Operators)
 
@@ -47,7 +47,7 @@ and `int64` (matching the behavior of Numpy).
 
 #### Returns:
 
-  `x / y` evaluated in floating point.
+`x / y` evaluated in floating point.
 
 
 #### Raises:

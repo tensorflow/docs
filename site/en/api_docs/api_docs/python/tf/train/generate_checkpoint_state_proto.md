@@ -18,7 +18,7 @@ generate_checkpoint_state_proto(
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/saver.py).
 
 Generates a checkpoint state proto.
 
@@ -34,6 +34,6 @@ Generates a checkpoint state proto.
 
 #### Returns:
 
-  CheckpointState proto with model_checkpoint_path and
-  all_model_checkpoint_paths updated to either absolute paths or
-  relative paths to the current save_dir.
+CheckpointState proto with model_checkpoint_path and
+all_model_checkpoint_paths updated to either absolute paths or
+relative paths to the current save_dir.

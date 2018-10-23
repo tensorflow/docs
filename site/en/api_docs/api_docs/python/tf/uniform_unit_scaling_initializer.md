@@ -10,11 +10,16 @@ page_type: reference
 
 ## Class `uniform_unit_scaling_initializer`
 
-Inherits From: [`Initializer`](../tf/contrib/keras/initializers/Initializer)
+Inherits From: [`Initializer`](../tf/keras/initializers/Initializer)
+
+### Aliases:
+
+* Class `tf.initializers.uniform_unit_scaling`
+* Class `tf.uniform_unit_scaling_initializer`
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/init_ops.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 
@@ -56,7 +61,11 @@ __init__(
 )
 ```
 
+DEPRECATED FUNCTION
 
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use tf.initializers.variance_scaling instead with distribution=uniform to get equivalent behavior.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
@@ -83,13 +92,13 @@ Instantiates an initializer from a configuration dictionary.
 
 Example:
 
-```
+```python
 initializer = RandomUniform(-1, 1)
 config = initializer.get_config()
 initializer = RandomUniform.from_config(config)
 ```
 
-#### Arguments:
+#### Args:
 
 * <b>`config`</b>: A Python dictionary.
     It will typically be the output of `get_config`.
@@ -97,7 +106,7 @@ initializer = RandomUniform.from_config(config)
 
 #### Returns:
 
-  An Initializer instance.
+An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 

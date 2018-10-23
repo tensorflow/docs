@@ -14,7 +14,7 @@ as_dtype(type_value)
 
 
 
-Defined in [`tensorflow/python/framework/dtypes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/dtypes.py).
+Defined in [`tensorflow/python/framework/dtypes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/dtypes.py).
 
 See the guide: [Building Graphs > Tensor types](../../../api_guides/python/framework#Tensor_types)
 
@@ -24,13 +24,13 @@ Converts the given `type_value` to a `DType`.
 
 * <b>`type_value`</b>: A value that can be converted to a `tf.DType`
     object. This may currently be a `tf.DType` object, a
-    [`DataType` enum](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/framework/types.proto),
+    [`DataType` enum](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/framework/types.proto),
     a string type name, or a `numpy.dtype`.
 
 
 #### Returns:
 
-  A `DType` corresponding to `type_value`.
+A `DType` corresponding to `type_value`.
 
 
 #### Raises:

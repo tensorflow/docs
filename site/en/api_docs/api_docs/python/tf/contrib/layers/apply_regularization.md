@@ -17,7 +17,7 @@ apply_regularization(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/regularizers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/regularizers.py).
 
 See the guide: [Layers (contrib) > Regularizers](../../../../../api_guides/python/contrib.layers#Regularizers)
 
@@ -39,7 +39,7 @@ subtraction, it usually shouldn't hurt much either.
 
 #### Returns:
 
-  A scalar representing the overall regularization penalty.
+A scalar representing the overall regularization penalty.
 
 
 #### Raises:

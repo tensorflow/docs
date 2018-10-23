@@ -19,7 +19,7 @@ bias_add(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Activation Functions](../../../../api_guides/python/nn#Activation_Functions)
 
@@ -43,4 +43,4 @@ case where both types are quantized.
 
 #### Returns:
 
-  A `Tensor` with the same type as `value`.
+A `Tensor` with the same type as `value`.

@@ -14,7 +14,7 @@ summary_iterator(path)
 
 
 
-Defined in [`tensorflow/python/summary/summary_iterator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/summary/summary_iterator.py).
+Defined in [`tensorflow/python/summary/summary_iterator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/summary/summary_iterator.py).
 
 See the guide: [Training > Reading Summaries from Event Files](../../../../api_guides/python/train#Reading_Summaries_from_Event_Files)
 
@@ -44,9 +44,9 @@ for e in tf.train.summary_iterator(path to events file):
 ```
 
 See the protocol buffer definitions of
-[Event](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/util/event.proto)
+[Event](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/util/event.proto)
 and
-[Summary](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/framework/summary.proto)
+[Summary](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/framework/summary.proto)
 for more information about their attributes.
 
 #### Args:
@@ -56,4 +56,4 @@ for more information about their attributes.
 
 #### Yields:
 
-  `Event` protocol buffers.
+`Event` protocol buffers.

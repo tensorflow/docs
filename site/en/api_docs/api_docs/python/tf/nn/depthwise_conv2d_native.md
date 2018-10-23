@@ -14,7 +14,7 @@ depthwise_conv2d_native(
     filter,
     strides,
     padding,
-    data_format=None,
+    data_format='NHWC',
     name=None
 )
 ```
@@ -66,4 +66,4 @@ horizontal and vertices strides, `strides = [1, stride, stride, 1]`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
+A `Tensor`. Has the same type as `input`.

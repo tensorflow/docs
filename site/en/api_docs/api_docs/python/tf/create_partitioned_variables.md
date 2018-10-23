@@ -23,7 +23,7 @@ create_partitioned_variables(
 
 
 
-Defined in [`tensorflow/python/ops/partitioned_variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/partitioned_variables.py).
+Defined in [`tensorflow/python/ops/partitioned_variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/partitioned_variables.py).
 
 Create a list of partitioned variables according to the given `slicing`.
 
@@ -64,7 +64,7 @@ list along that dimension.
 
 #### Returns:
 
-  A list of Variables corresponding to the slicing.
+A list of Variables corresponding to the slicing.
 
 
 #### Raises:

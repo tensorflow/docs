@@ -20,7 +20,7 @@ poisson_regression_head(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/head.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/head.py).
 
 Creates a `Head` for poisson regression.
 
@@ -44,4 +44,4 @@ Creates a `Head` for poisson regression.
 
 #### Returns:
 
-  An instance of `Head` for poisson regression.
+An instance of `Head` for poisson regression.

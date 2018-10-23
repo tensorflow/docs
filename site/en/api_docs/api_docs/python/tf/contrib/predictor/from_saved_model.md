@@ -20,7 +20,7 @@ from_saved_model(
 
 
 
-Defined in [`tensorflow/contrib/predictor/predictor_factories.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/predictor/predictor_factories.py).
+Defined in [`tensorflow/contrib/predictor/predictor_factories.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/predictor/predictor_factories.py).
 
 Constructs a `Predictor` from a `SavedModel` on disk.
 
@@ -41,7 +41,7 @@ Constructs a `Predictor` from a `SavedModel` on disk.
 
 #### Returns:
 
-  An initialized `Predictor`.
+An initialized `Predictor`.
 
 
 #### Raises:

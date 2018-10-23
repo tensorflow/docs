@@ -18,7 +18,9 @@ overlap_and_add(
 
 
 
-Defined in [`tensorflow/contrib/signal/python/ops/reconstruction_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/signal/python/ops/reconstruction_ops.py).
+Defined in [`tensorflow/contrib/signal/python/ops/reconstruction_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/signal/python/ops/reconstruction_ops.py).
+
+See the guide: [Signal Processing (contrib) > Reconstructing framed sequences and applying a tapering window](../../../../../api_guides/python/contrib.signal#Reconstructing_framed_sequences_and_applying_a_tapering_window)
 
 Reconstructs a signal from a framed representation.
 
@@ -39,8 +41,8 @@ The resulting tensor has shape `[..., output_size]` where
 
 #### Returns:
 
-  A `Tensor` with shape `[..., output_size]` containing the overlap-added
-  frames of `signal`'s inner-most two dimensions.
+A `Tensor` with shape `[..., output_size]` containing the overlap-added
+frames of `signal`'s inner-most two dimensions.
 
 
 #### Raises:

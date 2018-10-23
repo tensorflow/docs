@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/metrics/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/metrics/__init__.py).
+Defined in [`tensorflow/contrib/metrics/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/metrics/__init__.py).
 
 Ops for evaluation metrics and summary statistics.
 
@@ -36,6 +36,8 @@ See the [Metrics (contrib)](../../../../api_guides/python/contrib.metrics) guide
 [`set_size(...)`](../../tf/sets/set_size): Compute number of unique elements along last dimension of `a`.
 
 [`set_union(...)`](../../tf/sets/set_union): Compute set union of elements in last dimension of `a` and `b`.
+
+[`sparse_recall_at_top_k(...)`](../../tf/contrib/metrics/sparse_recall_at_top_k): Computes recall@k of top-k predictions with respect to sparse labels.
 
 [`streaming_accuracy(...)`](../../tf/contrib/metrics/streaming_accuracy): Calculates how often `predictions` matches `labels`.
 
@@ -85,7 +87,7 @@ See the [Metrics (contrib)](../../../../api_guides/python/contrib.metrics) guide
 
 [`streaming_root_mean_squared_error(...)`](../../tf/contrib/metrics/streaming_root_mean_squared_error): Computes the root mean squared error between the labels and predictions.
 
-[`streaming_sensitivity_at_specificity(...)`](../../tf/contrib/metrics/streaming_sensitivity_at_specificity): Computes the specificity at a given sensitivity.
+[`streaming_sensitivity_at_specificity(...)`](../../tf/contrib/metrics/streaming_sensitivity_at_specificity): Computes the sensitivity at a given specificity.
 
 [`streaming_sparse_average_precision_at_k(...)`](../../tf/contrib/metrics/streaming_sparse_average_precision_at_k): Computes average precision@k of predictions with respect to sparse labels.
 

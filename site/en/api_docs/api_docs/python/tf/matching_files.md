@@ -35,4 +35,4 @@ basename portion of the pattern, not in the directory portion.
 
 #### Returns:
 
-  A `Tensor` of type `string`. A vector of matching filenames.
+A `Tensor` of type `string`. A vector of matching filenames.

@@ -38,4 +38,4 @@ See `rgb_to_hsv` for a description of the HSV encoding.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `images`. `images` converted to RGB.
+A `Tensor`. Has the same type as `images`. `images` converted to RGB.

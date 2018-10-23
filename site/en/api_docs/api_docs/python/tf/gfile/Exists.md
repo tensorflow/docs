@@ -14,7 +14,7 @@ Exists(filename)
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/lib/io/file_io.py).
+Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/lib/io/file_io.py).
 
 Determines whether a path exists or not.
 
@@ -25,10 +25,10 @@ Determines whether a path exists or not.
 
 #### Returns:
 
-  True if the path exists, whether its a file or a directory.
-  False if the path does not exist and there are no filesystem errors.
+True if the path exists, whether its a file or a directory.
+False if the path does not exist and there are no filesystem errors.
 
 
 #### Raises:
 
-  errors.OpError: Propagates any errors reported by the FileSystem API.
+* <b>`errors.OpError`</b>: Propagates any errors reported by the FileSystem API.

@@ -14,7 +14,7 @@ get_summary_description(node_def)
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/summary/summary.py).
+Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/summary/summary.py).
 
 See the guide: [Summary Operations > Utilities](../../../../api_guides/python/summary#Utilities)
 
@@ -30,7 +30,7 @@ metadata is stored in its NodeDef. This method retrieves the description.
 
 #### Returns:
 
-  a summary_pb2.SummaryDescription
+a summary_pb2.SummaryDescription
 
 
 #### Raises:

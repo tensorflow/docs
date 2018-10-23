@@ -42,5 +42,5 @@ TODO(ebrevdo): fill in
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `step_ids`.
-  `[max_time, batch_size, beam_width]`.
+A `Tensor`. Has the same type as `step_ids`.
+`[max_time, batch_size, beam_width]`.

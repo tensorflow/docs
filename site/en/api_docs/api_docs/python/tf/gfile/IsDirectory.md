@@ -14,7 +14,7 @@ IsDirectory(dirname)
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/lib/io/file_io.py).
+Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/lib/io/file_io.py).
 
 Returns whether the path is a directory or not.
 
@@ -25,4 +25,4 @@ Returns whether the path is a directory or not.
 
 #### Returns:
 
-  True, if the path is a directory; False otherwise
+True, if the path is a directory; False otherwise

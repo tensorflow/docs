@@ -24,7 +24,7 @@ embed_sequence(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/encoders.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/encoders.py).
+Defined in [`tensorflow/contrib/layers/python/layers/encoders.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/encoders.py).
 
 See the guide: [Layers (contrib) > Higher level ops for building neural network layers](../../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers)
 
@@ -52,7 +52,7 @@ Typical use case would be reusing embeddings between an encoder and decoder.
 
 #### Returns:
 
-  `Tensor` of `[batch_size, doc_length, embed_dim]` with embedded sequences.
+`Tensor` of `[batch_size, doc_length, embed_dim]` with embedded sequences.
 
 
 #### Raises:

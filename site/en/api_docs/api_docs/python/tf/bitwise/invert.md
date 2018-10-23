@@ -32,4 +32,4 @@ computation is performed on the underlying representation of x.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

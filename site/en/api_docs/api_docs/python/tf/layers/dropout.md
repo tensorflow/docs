@@ -21,7 +21,7 @@ dropout(
 
 
 
-Defined in [`tensorflow/python/layers/core.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/layers/core.py).
+Defined in [`tensorflow/python/layers/core.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/layers/core.py).
 
 See the guide: [Reading data > Multiple input pipelines](../../../../api_guides/python/reading_data#Multiple_input_pipelines)
 
@@ -54,4 +54,4 @@ sum is unchanged at training time and inference time.
 
 #### Returns:
 
-  Output tensor.
+Output tensor.

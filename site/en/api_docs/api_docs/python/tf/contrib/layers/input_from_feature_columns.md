@@ -20,7 +20,7 @@ input_from_feature_columns(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -73,7 +73,7 @@ where feature_columns can be defined as follows:
 
 #### Returns:
 
-  A Tensor which can be consumed by hidden layers in the neural network.
+A Tensor which can be consumed by hidden layers in the neural network.
 
 
 #### Raises:

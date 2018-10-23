@@ -13,9 +13,9 @@ extract_glimpse(
     input,
     size,
     offsets,
-    centered=None,
-    normalized=None,
-    uniform_noise=None,
+    centered=True,
+    normalized=True,
+    uniform_noise=True,
     name=None
 )
 ```
@@ -76,6 +76,6 @@ The argument `normalized` and `centered` controls how the windows are built:
 
 #### Returns:
 
-  A `Tensor` of type `float32`.
-  A tensor representing the glimpses `[batch_size,
-  glimpse_height, glimpse_width, channels]`.
+A `Tensor` of type `float32`.
+A tensor representing the glimpses `[batch_size,
+glimpse_height, glimpse_width, channels]`.

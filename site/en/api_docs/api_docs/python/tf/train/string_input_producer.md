@@ -23,7 +23,7 @@ string_input_producer(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/input.py).
 
 See the guides: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline), [Reading data > Reading from files](../../../../api_guides/python/reading_data#Reading_from_files)
 
@@ -55,8 +55,8 @@ Note: if `num_epochs` is not `None`, this function creates local counter
 
 #### Returns:
 
-  A queue with the output strings.  A `QueueRunner` for the Queue
-  is added to the current `Graph`'s `QUEUE_RUNNER` collection.
+A queue with the output strings.  A `QueueRunner` for the Queue
+is added to the current `Graph`'s `QUEUE_RUNNER` collection.
 
 
 #### Raises:

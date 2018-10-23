@@ -14,7 +14,7 @@ maybe_saved_model_directory(export_dir)
 
 
 
-Defined in [`tensorflow/python/saved_model/loader_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/saved_model/loader_impl.py).
+Defined in [`tensorflow/python/saved_model/loader_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/saved_model/loader_impl.py).
 
 Checks whether the provided export directory could contain a SavedModel.
 
@@ -31,4 +31,4 @@ provides no guarantee that it can be loaded.
 
 #### Returns:
 
-  True if the export directory contains SavedModel files, False otherwise.
+True if the export directory contains SavedModel files, False otherwise.

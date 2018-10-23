@@ -14,11 +14,15 @@ create_global_step(graph=None)
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/variables.py).
 
 See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
 
-Create global step tensor in graph.
+Create global step tensor in graph. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.create_global_step
 
 This API is deprecated. Use core framework training version instead.
 
@@ -30,7 +34,7 @@ This API is deprecated. Use core framework training version instead.
 
 #### Returns:
 
-  Global step tensor.
+Global step tensor.
 
 
 #### Raises:

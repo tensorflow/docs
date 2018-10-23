@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/metrics.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/metrics.py).
+Defined in [`tensorflow/python/ops/metrics.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/metrics.py).
 
 Evaluation-related metrics.
 
@@ -23,7 +23,11 @@ Evaluation-related metrics.
 
 [`false_negatives(...)`](../tf/metrics/false_negatives): Computes the total number of false negatives.
 
+[`false_negatives_at_thresholds(...)`](../tf/metrics/false_negatives_at_thresholds): Computes false negatives at provided threshold values.
+
 [`false_positives(...)`](../tf/metrics/false_positives): Sum the weights of false positives.
+
+[`false_positives_at_thresholds(...)`](../tf/metrics/false_positives_at_thresholds): Computes false positives at provided threshold values.
 
 [`mean(...)`](../tf/metrics/mean): Computes the (weighted) mean of the given values.
 
@@ -63,5 +67,9 @@ Evaluation-related metrics.
 
 [`specificity_at_sensitivity(...)`](../tf/metrics/specificity_at_sensitivity): Computes the specificity at a given sensitivity.
 
+[`true_negatives_at_thresholds(...)`](../tf/metrics/true_negatives_at_thresholds): Computes true negatives at provided threshold values.
+
 [`true_positives(...)`](../tf/metrics/true_positives): Sum the weights of true_positives.
+
+[`true_positives_at_thresholds(...)`](../tf/metrics/true_positives_at_thresholds): Computes true positives at provided threshold values.
 

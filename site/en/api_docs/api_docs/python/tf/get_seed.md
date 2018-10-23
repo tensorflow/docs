@@ -14,7 +14,7 @@ get_seed(op_seed)
 
 
 
-Defined in [`tensorflow/python/framework/random_seed.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/random_seed.py).
+Defined in [`tensorflow/python/framework/random_seed.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/random_seed.py).
 
 See the guide: [Building Graphs > Defining new operations](../../../api_guides/python/framework#Defining_new_operations)
 
@@ -35,5 +35,5 @@ For details on how the graph-level seed interacts with op seeds, see
 
 #### Returns:
 
-  A tuple of two integers that should be used for the local seed of this
-  operation.
+A tuple of two integers that should be used for the local seed of this
+operation.

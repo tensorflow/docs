@@ -27,7 +27,7 @@ embedding_attention_seq2seq(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 Embedding sequence-to-sequence model with attention.
 
@@ -69,9 +69,9 @@ and variables will be made proportional to num_decoder_symbols, can be large.
 
 #### Returns:
 
-  A tuple of the form (outputs, state), where:
-    outputs: A list of the same length as decoder_inputs of 2D Tensors with
+A tuple of the form (outputs, state), where:
+* <b>`outputs`</b>: A list of the same length as decoder_inputs of 2D Tensors with
       shape [batch_size x num_decoder_symbols] containing the generated
       outputs.
-    state: The state of each decoder cell at the final time-step.
+* <b>`state`</b>: The state of each decoder cell at the final time-step.
       It is a 2D Tensor of shape [batch_size x cell.state_size].

@@ -20,7 +20,7 @@ dropout(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn_ops.py).
 
 See the guides: [Layers (contrib) > Higher level ops for building neural network layers](../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers), [Neural Network > Activation Functions](../../../../api_guides/python/nn#Activation_Functions)
 
@@ -40,7 +40,7 @@ kept independently and each row and column will be kept or not kept together.
 
 #### Args:
 
-* <b>`x`</b>: A tensor.
+* <b>`x`</b>: A floating point tensor.
 * <b>`keep_prob`</b>: A scalar `Tensor` with the same type as x. The probability
     that each element is kept.
 * <b>`noise_shape`</b>: A 1-D `Tensor` of type `int32`, representing the
@@ -53,9 +53,10 @@ kept independently and each row and column will be kept or not kept together.
 
 #### Returns:
 
-  A Tensor of the same shape of `x`.
+A Tensor of the same shape of `x`.
 
 
 #### Raises:
 
-* <b>`ValueError`</b>: If `keep_prob` is not in `(0, 1]`.
+* <b>`ValueError`</b>: If `keep_prob` is not in `(0, 1]` or if `x` is not a floating
+    point tensor.

@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/tensor_shape.py).
+Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/tensor_shape.py).
 
 See the guide: [Building Graphs > Defining new operations](../../../api_guides/python/framework#Defining_new_operations)
 
@@ -61,7 +61,7 @@ Creates a new TensorShape with the given dimensions.
 #### Args:
 
 * <b>`dims`</b>: A list of Dimensions, or None if the shape is unspecified.
-    DEPRECATED: A single integer is treated as a singleton list.
+* <b>`DEPRECATED`</b>: A single integer is treated as a singleton list.
 
 
 #### Raises:
@@ -101,8 +101,8 @@ Returns the value of a dimension or a shape, depending on the key.
 
 #### Returns:
 
-  A dimension if `key` is an integer, or a `TensorShape` if `key` is a
-  slice.
+A dimension if `key` is an integer, or a `TensorShape` if `key` is a
+slice.
 
 
 #### Raises:
@@ -152,7 +152,7 @@ Returns a list of integers or `None` for each dimension.
 
 #### Returns:
 
-  A list of integers or `None` for each dimension.
+A list of integers or `None` for each dimension.
 
 
 #### Raises:
@@ -254,8 +254,8 @@ information for use with slicing.
 
 #### Returns:
 
-  A `TensorShape` whose dimensions are the concatenation of the
-  dimensions in `self` and `other`.
+A `TensorShape` whose dimensions are the concatenation of the
+dimensions in `self` and `other`.
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 
@@ -300,7 +300,7 @@ TensorShape([4, 4]).
 
 #### Returns:
 
-  True iff `self` is compatible with `other`.
+True iff `self` is compatible with `other`.
 
 <h3 id="is_fully_defined"><code>is_fully_defined</code></h3>
 
@@ -328,8 +328,8 @@ according to the rules defined for `Dimension.merge_with()`.
 
 #### Returns:
 
-  A `TensorShape` containing the combined information of `self` and
-  `other`.
+A `TensorShape` containing the combined information of `self` and
+`other`.
 
 
 #### Raises:
@@ -360,8 +360,8 @@ Returns the most specific TensorShape compatible with `self` and `other`.
 
 #### Returns:
 
-  A `TensorShape` which is the most specific compatible shape of `self`
-  and `other`.
+A `TensorShape` which is the most specific compatible shape of `self`
+and `other`.
 
 <h3 id="num_elements"><code>num_elements</code></h3>
 
@@ -389,7 +389,7 @@ known rank.
 
 #### Returns:
 
-  A shape that is at least as specific as `self` with the given rank.
+A shape that is at least as specific as `self` with the given rank.
 
 
 #### Raises:
@@ -411,8 +411,8 @@ Returns a shape based on `self` with at least the given rank.
 
 #### Returns:
 
-  A shape that is at least as specific as `self` with at least the given
-  rank.
+A shape that is at least as specific as `self` with at least the given
+rank.
 
 
 #### Raises:
@@ -435,8 +435,8 @@ Returns a shape based on `self` with at most the given rank.
 
 #### Returns:
 
-  A shape that is at least as specific as `self` with at most the given
-  rank.
+A shape that is at least as specific as `self` with at most the given
+rank.
 
 
 #### Raises:

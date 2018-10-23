@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/model_fn.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/model_fn.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
@@ -31,6 +31,7 @@ The following standard keys are defined:
 <h3 id="validate"><code>validate</code></h3>
 
 ``` python
+@classmethod
 validate(
     cls,
     key

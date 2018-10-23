@@ -37,4 +37,4 @@ creates directory if not existing.
 
 #### Returns:
 
-  The created Operation.
+The created Operation.

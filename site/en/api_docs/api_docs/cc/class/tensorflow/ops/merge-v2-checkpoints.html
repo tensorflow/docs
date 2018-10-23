@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::MergeV2Checkpoints Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -17,15 +17,15 @@
   <p>Intended for "grouping" multiple checkpoints in a sharded checkpoint setup.</p>
   <p>If delete_old_dirs is true, attempts to delete recursively the dirname of each path in the input checkpoint_prefixes. This is useful when those paths are non user-facing temporary locations.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>checkpoint_prefixes: prefixes of V2 checkpoints to merge.</li>
       <li>destination_prefix: scalar. The desired final prefix. Allowed to be the same as one of the checkpoint_prefixes.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs.html#structtensorflow_1_1ops_1_1_merge_v2_checkpoints_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs.html#structtensorflow_1_1ops_1_1_merge_v2_checkpoints_1_1_attrs">Attrs</a></code>):<ul>
       <li>delete_old_dirs: see above.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li>the created <code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+      <li>the created <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -35,13 +35,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_merge_v2_checkpoints_1aa902c6451357a9d599c2c64f683945ed">MergeV2Checkpoints</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> checkpoint_prefixes, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> destination_prefix)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_merge_v2_checkpoints_1aa902c6451357a9d599c2c64f683945ed">MergeV2Checkpoints</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> checkpoint_prefixes, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> destination_prefix)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_merge_v2_checkpoints_1ad1192c95172d80f30658cfadf2a90ba1">MergeV2Checkpoints</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> checkpoint_prefixes, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> destination_prefix, const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs.html#structtensorflow_1_1ops_1_1_merge_v2_checkpoints_1_1_attrs">MergeV2Checkpoints::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_merge_v2_checkpoints_1ad1192c95172d80f30658cfadf2a90ba1">MergeV2Checkpoints</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> checkpoint_prefixes, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> destination_prefix, const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs.html#structtensorflow_1_1ops_1_1_merge_v2_checkpoints_1_1_attrs">MergeV2Checkpoints::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -58,7 +58,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -92,7 +92,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs.html#structtensorflow_1_1ops_1_1_merge_v2_checkpoints_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs.html#structtensorflow_1_1ops_1_1_merge_v2_checkpoints_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -105,36 +105,36 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs">tensorflow::<wbr/>ops::<wbr/>MergeV2Checkpoints::<wbr/>Attrs</a>
+        <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs">tensorflow::<wbr/>ops::<wbr/>MergeV2Checkpoints::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/merge-v2-checkpoints.html#classtensorflow_1_1ops_1_1_merge_v2_checkpoints">MergeV2Checkpoints</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/merge-v2-checkpoints.html#classtensorflow_1_1ops_1_1_merge_v2_checkpoints">MergeV2Checkpoints</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_merge_v2_checkpoints_1a01552fb0e89ef5dee73b9528d4c99733">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_merge_v2_checkpoints_1aa902c6451357a9d599c2c64f683945ed">
     <h3>MergeV2Checkpoints</h3>
     <pre class="prettyprint"> MergeV2Checkpoints(
-  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> checkpoint_prefixes,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> destination_prefix
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> checkpoint_prefixes,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> destination_prefix
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_merge_v2_checkpoints_1ad1192c95172d80f30658cfadf2a90ba1">
     <h3>MergeV2Checkpoints</h3>
     <pre class="prettyprint"> MergeV2Checkpoints(
-  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> checkpoint_prefixes,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> destination_prefix,
-  const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs.html#structtensorflow_1_1ops_1_1_merge_v2_checkpoints_1_1_attrs">MergeV2Checkpoints::Attrs</a> & attrs
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> checkpoint_prefixes,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> destination_prefix,
+  const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs.html#structtensorflow_1_1ops_1_1_merge_v2_checkpoints_1_1_attrs">MergeV2Checkpoints::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -146,7 +146,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_merge_v2_checkpoints_1aacd19b816ee69eb23b3a8390b61a5fdc">
     <h3>DeleteOldDirs</h3>
-    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs.html#structtensorflow_1_1ops_1_1_merge_v2_checkpoints_1_1_attrs">Attrs</a> DeleteOldDirs(
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/merge-v2-checkpoints/attrs.html#structtensorflow_1_1ops_1_1_merge_v2_checkpoints_1_1_attrs">Attrs</a> DeleteOldDirs(
   bool x
 )</pre>
     <div />

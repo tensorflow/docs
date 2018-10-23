@@ -18,7 +18,7 @@ assert_shallow_structure(
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/nest.py).
 
 Asserts that `shallow_tree` is a shallow structure of `input_tree`.
 
@@ -29,7 +29,6 @@ tree structures.
 Examples:
 
 The following code will raise an exception:
-
 ```python
   shallow_tree = ["a", "b"]
   input_tree = ["c", ["d", "e"], "f"]
@@ -37,7 +36,6 @@ The following code will raise an exception:
 ```
 
 The following code will not raise an exception:
-
 ```python
   shallow_tree = ["a", "b"]
   input_tree = ["c", ["d", "e"]]

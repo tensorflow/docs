@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/losses/losses_impl.py).
 
 Types of loss reduction.
 
@@ -23,6 +23,7 @@ Types of loss reduction.
 <h3 id="all"><code>all</code></h3>
 
 ``` python
+@classmethod
 all(cls)
 ```
 
@@ -31,6 +32,7 @@ all(cls)
 <h3 id="validate"><code>validate</code></h3>
 
 ``` python
+@classmethod
 validate(
     cls,
     key

@@ -19,7 +19,7 @@ random_crop(
 
 
 
-Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/random_ops.py).
+Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/random_ops.py).
 
 See the guide: [Constants, Sequences, and Random Values > Random Tensors](../../../api_guides/python/constant_op#Random_Tensors)
 
@@ -44,4 +44,4 @@ For example, RGB images can be cropped with
 
 #### Returns:
 
-  A cropped tensor of the same rank as `value` and shape `size`.
+A cropped tensor of the same rank as `value` and shape `size`.

@@ -17,7 +17,7 @@ sparsemax(
 
 
 
-Defined in [`tensorflow/contrib/sparsemax/python/ops/sparsemax.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/sparsemax/python/ops/sparsemax.py).
+Defined in [`tensorflow/contrib/sparsemax/python/ops/sparsemax.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/sparsemax/python/ops/sparsemax.py).
 
 Computes sparsemax activations [1].
 
@@ -35,4 +35,4 @@ For each batch `i` and class `j` we have
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `logits`.
+A `Tensor`. Has the same type as `logits`.

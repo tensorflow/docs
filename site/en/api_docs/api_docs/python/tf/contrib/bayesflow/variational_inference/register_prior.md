@@ -17,7 +17,7 @@ register_prior(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/variational_inference_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/variational_inference_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/variational_inference_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/variational_inference_impl.py).
 
 See the guide: [BayesFlow Variational Inference (contrib) > Ops](../../../../../../api_guides/python/contrib.bayesflow.variational_inference#Ops)
 
@@ -35,7 +35,7 @@ without having to pass in `variational_with_prior` explicitly.
 
 #### Returns:
 
-  None
+None
 
 
 #### Raises:

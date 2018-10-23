@@ -17,7 +17,7 @@ reduce_sum_n(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/framework/tensor_util.py).
+Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/framework/tensor_util.py).
 
 See the guide: [Framework (contrib)](../../../../../api_guides/python/contrib.framework)
 
@@ -34,7 +34,7 @@ adds them via `tf.add_n`.
 
 #### Returns:
 
-  Total loss tensor, or None if no losses have been configured.
+Total loss tensor, or None if no losses have been configured.
 
 
 #### Raises:

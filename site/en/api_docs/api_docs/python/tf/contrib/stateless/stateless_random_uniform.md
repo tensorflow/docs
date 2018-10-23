@@ -12,7 +12,7 @@ page_type: reference
 stateless_random_uniform(
     shape,
     seed,
-    dtype=None,
+    dtype=tf.float32,
     name=None
 )
 ```
@@ -40,4 +40,4 @@ The outputs are a deterministic function of `shape` and `seed`.
 
 #### Returns:
 
-  A `Tensor` of type `dtype`. Random values with specified shape.
+A `Tensor` of type `dtype`. Random values with specified shape.

@@ -47,4 +47,4 @@ invert_permutation(x) ==> [2, 4, 3, 0, 1]
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`. 1-D.
+A `Tensor`. Has the same type as `x`. 1-D.

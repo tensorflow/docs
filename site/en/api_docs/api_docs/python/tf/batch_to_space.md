@@ -19,7 +19,7 @@ batch_to_space(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -51,55 +51,71 @@ followed by cropping along the `height` and `width` dimensions.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
-  4-D with shape `[batch, height, width, depth]`, where:
+A `Tensor`. Has the same type as `input`.
+4-D with shape `[batch, height, width, depth]`, where:
 
-        height = height_pad - crop_top - crop_bottom
-        width = width_pad - crop_left - crop_right
+      height = height_pad - crop_top - crop_bottom
+      width = width_pad - crop_left - crop_right
 
-  The attr `block_size` must be greater than one. It indicates the block size.
+The attr `block_size` must be greater than one. It indicates the block size.
 
-  Some examples:
+Some examples:
 
-  (1) For the following input of shape `[4, 1, 1, 1]` and block_size of 2:
+(1) For the following input of shape `[4, 1, 1, 1]` and block_size of 2:
 
->     [[[[1]]], [[[2]]], [[[3]]], [[[4]]]]
+```
+[[[[1]]], [[[2]]], [[[3]]], [[[4]]]]
+```
 
-  The output tensor has shape `[1, 2, 2, 1]` and value:
+The output tensor has shape `[1, 2, 2, 1]` and value:
 
->     x = [[[[1], [2]], [[3], [4]]]]
+```
+x = [[[[1], [2]], [[3], [4]]]]
+```
 
-  (2) For the following input of shape `[4, 1, 1, 3]` and block_size of 2:
+(2) For the following input of shape `[4, 1, 1, 3]` and block_size of 2:
 
->     [[[1, 2, 3]], [[4, 5, 6]], [[7, 8, 9]], [[10, 11, 12]]]
+```
+[[[1, 2, 3]], [[4, 5, 6]], [[7, 8, 9]], [[10, 11, 12]]]
+```
 
-  The output tensor has shape `[1, 2, 2, 3]` and value:
+The output tensor has shape `[1, 2, 2, 3]` and value:
 
->     x = [[[[1, 2, 3], [4, 5, 6]],
->           [[7, 8, 9], [10, 11, 12]]]]
+```
+x = [[[[1, 2, 3], [4, 5, 6]],
+      [[7, 8, 9], [10, 11, 12]]]]
+```
 
-  (3) For the following input of shape `[4, 2, 2, 1]` and block_size of 2:
+(3) For the following input of shape `[4, 2, 2, 1]` and block_size of 2:
 
->     x = [[[[1], [3]], [[9], [11]]],
->          [[[2], [4]], [[10], [12]]],
->          [[[5], [7]], [[13], [15]]],
->          [[[6], [8]], [[14], [16]]]]
+```
+x = [[[[1], [3]], [[9], [11]]],
+     [[[2], [4]], [[10], [12]]],
+     [[[5], [7]], [[13], [15]]],
+     [[[6], [8]], [[14], [16]]]]
+```
 
-  The output tensor has shape `[1, 4, 4, 1]` and value:
+The output tensor has shape `[1, 4, 4, 1]` and value:
 
->     x = [[[1],   [2],  [3],  [4]],
->          [[5],   [6],  [7],  [8]],
->          [[9],  [10], [11],  [12]],
->          [[13], [14], [15],  [16]]]
+```
+x = [[[1],   [2],  [3],  [4]],
+     [[5],   [6],  [7],  [8]],
+     [[9],  [10], [11],  [12]],
+     [[13], [14], [15],  [16]]]
+```
 
-  (4) For the following input of shape `[8, 1, 2, 1]` and block_size of 2:
+(4) For the following input of shape `[8, 1, 2, 1]` and block_size of 2:
 
->     x = [[[[1], [3]]], [[[9], [11]]], [[[2], [4]]], [[[10], [12]]],
->          [[[5], [7]]], [[[13], [15]]], [[[6], [8]]], [[[14], [16]]]]
+```
+x = [[[[1], [3]]], [[[9], [11]]], [[[2], [4]]], [[[10], [12]]],
+     [[[5], [7]]], [[[13], [15]]], [[[6], [8]]], [[[14], [16]]]]
+```
 
-  The output tensor has shape `[2, 2, 4, 1]` and value:
+The output tensor has shape `[2, 2, 4, 1]` and value:
 
->     x = [[[[1], [3]], [[5], [7]]],
->          [[[2], [4]], [[10], [12]]],
->          [[[5], [7]], [[13], [15]]],
->          [[[6], [8]], [[14], [16]]]]
+```
+x = [[[[1], [3]], [[5], [7]]],
+     [[[2], [4]], [[10], [12]]],
+     [[[5], [7]], [[13], [15]]],
+     [[[6], [8]], [[14], [16]]]]
+```

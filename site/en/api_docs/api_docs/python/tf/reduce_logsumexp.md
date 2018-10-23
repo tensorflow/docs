@@ -20,7 +20,7 @@ reduce_logsumexp(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Reduction](../../../api_guides/python/math_ops#Reduction)
 
@@ -41,20 +41,20 @@ taking the log of small inputs.
 For example:
 
 ```python
-# 'x' is [[0, 0, 0]]
-#         [0, 0, 0]]
-tf.reduce_logsumexp(x) ==> log(6)
-tf.reduce_logsumexp(x, 0) ==> [log(2), log(2), log(2)]
-tf.reduce_logsumexp(x, 1) ==> [log(3), log(3)]
-tf.reduce_logsumexp(x, 1, keep_dims=True) ==> [[log(3)], [log(3)]]
-tf.reduce_logsumexp(x, [0, 1]) ==> log(6)
+x = tf.constant([[0., 0., 0.], [0., 0., 0.]])
+tf.reduce_logsumexp(x)  # log(6)
+tf.reduce_logsumexp(x, 0)  # [log(2), log(2), log(2)]
+tf.reduce_logsumexp(x, 1)  # [log(3), log(3)]
+tf.reduce_logsumexp(x, 1, keep_dims=True)  # [[log(3)], [log(3)]]
+tf.reduce_logsumexp(x, [0, 1])  # log(6)
 ```
 
 #### Args:
 
 * <b>`input_tensor`</b>: The tensor to reduce. Should have numeric type.
 * <b>`axis`</b>: The dimensions to reduce. If `None` (the default),
-    reduces all dimensions.
+    reduces all dimensions. Must be in the range
+    `[-rank(input_tensor), rank(input_tensor))`.
 * <b>`keep_dims`</b>: If true, retains reduced dimensions with length 1.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`reduction_indices`</b>: The old (deprecated) name for axis.
@@ -62,4 +62,4 @@ tf.reduce_logsumexp(x, [0, 1]) ==> log(6)
 
 #### Returns:
 
-  The reduced tensor.
+The reduced tensor.

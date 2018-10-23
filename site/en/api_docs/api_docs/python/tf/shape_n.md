@@ -11,7 +11,7 @@ page_type: reference
 ``` python
 shape_n(
     input,
-    out_type=None,
+    out_type=tf.int32,
     name=None
 )
 ```
@@ -35,4 +35,4 @@ This operation returns N 1-D integer tensors representing shape of `input[i]s`.
 
 #### Returns:
 
-  A list with the same length as `input` of `Tensor` objects with type `out_type`.
+A list with the same length as `input` of `Tensor` objects with type `out_type`.

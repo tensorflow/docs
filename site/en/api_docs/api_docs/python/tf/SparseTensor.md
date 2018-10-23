@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/sparse_tensor.py).
+Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/sparse_tensor.py).
 
 See the guide: [Sparse Tensors > Sparse Tensor Representation](../../../api_guides/python/sparse_ops#Sparse_Tensor_Representation)
 
@@ -96,8 +96,8 @@ The indices of non-zero values in the represented dense tensor.
 
 #### Returns:
 
-  A 2-D Tensor of int64 with dense_shape `[N, ndims]`, where `N` is the
-    number of non-zero values in the tensor, and `ndims` is the rank.
+A 2-D Tensor of int64 with dense_shape `[N, ndims]`, where `N` is the
+  number of non-zero values in the tensor, and `ndims` is the rank.
 
 <h3 id="op"><code>op</code></h3>
 
@@ -109,7 +109,7 @@ The non-zero values in the represented dense tensor.
 
 #### Returns:
 
-  A 1-D Tensor of any data type.
+A 1-D Tensor of any data type.
 
 
 
@@ -136,7 +136,7 @@ Creates a `SparseTensor`.
 
 #### Returns:
 
-  A `SparseTensor`.
+A `SparseTensor`.
 
 <h3 id="__div__"><code>__div__</code></h3>
 
@@ -168,8 +168,8 @@ the other direction.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `sp_values`.
-  1-D.  The `N` values that are operated on.
+A `Tensor`. Has the same type as `sp_values`.
+1-D.  The `N` values that are operated on.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
@@ -205,8 +205,8 @@ the other direction.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `sp_values`.
-  1-D.  The `N` values that are operated on.
+A `Tensor`. Has the same type as `sp_values`.
+1-D.  The `N` values that are operated on.
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
@@ -249,11 +249,12 @@ available, or `session` must be specified explicitly.
 
 #### Returns:
 
-  A `SparseTensorValue` object.
+A `SparseTensorValue` object.
 
 <h3 id="from_value"><code>from_value</code></h3>
 
 ``` python
+@classmethod
 from_value(
     cls,
     sparse_tensor_value
@@ -272,7 +273,7 @@ Get the `TensorShape` representing the shape of the dense tensor.
 
 #### Returns:
 
-  A `TensorShape` object.
+A `TensorShape` object.
 
 
 

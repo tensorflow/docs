@@ -21,7 +21,7 @@ average_pooling2d(
 
 
 
-Defined in [`tensorflow/python/layers/pooling.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/layers/pooling.py).
+Defined in [`tensorflow/python/layers/pooling.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/layers/pooling.py).
 
 Average pooling layer for 2D inputs (e.g. images).
 
@@ -48,4 +48,4 @@ Average pooling layer for 2D inputs (e.g. images).
 
 #### Returns:
 
-  Output tensor.
+Output tensor.

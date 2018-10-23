@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/estimator_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/estimator_lib.py).
+Defined in [`tensorflow/python/estimator/estimator_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/estimator_lib.py).
 
 Estimator: High level tools for working with models.
 
@@ -32,7 +32,15 @@ Estimator: High level tools for working with models.
 
 [`class Estimator`](../tf/estimator/Estimator): Estimator class to train and evaluate TensorFlow models.
 
-[`class EstimatorSpec`](../tf/estimator/EstimatorSpec): Ops and objects returned from a `model_fn` and passed to `Estimator`.
+[`class EstimatorSpec`](../tf/estimator/EstimatorSpec): Ops and objects returned from a `model_fn` and passed to an `Estimator`.
+
+[`class EvalSpec`](../tf/estimator/EvalSpec): Configuration for the "eval" part for the `train_and_evaluate` call.
+
+[`class Exporter`](../tf/estimator/Exporter): A class representing a type of model export.
+
+[`class FinalExporter`](../tf/estimator/FinalExporter): This class exports the serving graph and checkpoints in the end.
+
+[`class LatestExporter`](../tf/estimator/LatestExporter): This class regularly exports the serving graph and checkpoints.
 
 [`class LinearClassifier`](../tf/estimator/LinearClassifier): Linear classifier model.
 
@@ -42,9 +50,13 @@ Estimator: High level tools for working with models.
 
 [`class RunConfig`](../tf/estimator/RunConfig): This class specifies the configurations for an `Estimator` run.
 
+[`class TrainSpec`](../tf/estimator/TrainSpec): Configuration for the "train" part for the `train_and_evaluate` call.
+
 ## Functions
 
 [`classifier_parse_example_spec(...)`](../tf/estimator/classifier_parse_example_spec): Generates parsing spec for tf.parse_example to be used with classifiers.
 
 [`regressor_parse_example_spec(...)`](../tf/estimator/regressor_parse_example_spec): Generates parsing spec for tf.parse_example to be used with regressors.
+
+[`train_and_evaluate(...)`](../tf/estimator/train_and_evaluate): Train and evaluate the `estimator`.
 

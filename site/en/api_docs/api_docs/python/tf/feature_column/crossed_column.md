@@ -18,7 +18,7 @@ crossed_column(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/feature_column/feature_column.py).
 
 Returns a column for performing crosses of categorical features.
 
@@ -114,7 +114,7 @@ dense_tensor = input_layer(features, [vertical_id_x_price_embedded, ...])
 
 #### Returns:
 
-  A `_CrossedColumn`.
+A `_CrossedColumn`.
 
 
 #### Raises:

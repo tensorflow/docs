@@ -20,7 +20,7 @@ elbo(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/variational_inference_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/variational_inference_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/variational_inference_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/variational_inference_impl.py).
 
 See the guide: [BayesFlow Variational Inference (contrib) > Ops](../../../../../../api_guides/python/contrib.bayesflow.variational_inference#Ops)
 
@@ -81,7 +81,7 @@ e.g. `q(Z) = q(z1)q(z2)q(z3)`.
 
 #### Returns:
 
-  `Tensor` ELBO of the same type and shape as `log_likelihood`.
+`Tensor` ELBO of the same type and shape as `log_likelihood`.
 
 
 #### Raises:

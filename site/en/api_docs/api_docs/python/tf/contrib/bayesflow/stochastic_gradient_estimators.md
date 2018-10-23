@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/stochastic_gradient_estimators.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/stochastic_gradient_estimators.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/stochastic_gradient_estimators.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/stochastic_gradient_estimators.py).
 
 Stochastic gradient estimators.
 

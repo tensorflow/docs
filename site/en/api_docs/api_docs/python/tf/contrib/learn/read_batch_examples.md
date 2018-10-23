@@ -26,7 +26,7 @@ read_batch_examples(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_io/graph_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py).
+Defined in [`tensorflow/contrib/learn/python/learn/learn_io/graph_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py).
 
 See the guide: [Learn (contrib) > Input processing](../../../../../api_guides/python/contrib.learn#Input_processing)
 
@@ -69,7 +69,7 @@ Use `parse_fn` if you need to do parsing / processing on single examples.
 
 #### Returns:
 
-  String `Tensor` of batched `Example` proto.
+String `Tensor` of batched `Example` proto.
 
 
 #### Raises:

@@ -17,7 +17,7 @@ softmax(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/layers.py).
 
 Performs softmax on Nth dimension of N-dimensional logit tensor.
 
@@ -32,4 +32,4 @@ needs to have a specified number of elements (number of classes).
 
 #### Returns:
 
-  A `Tensor` with same shape and type as logits.
+A `Tensor` with same shape and type as logits.

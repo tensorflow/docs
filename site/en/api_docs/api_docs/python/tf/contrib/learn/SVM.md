@@ -14,7 +14,7 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/svm.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/svm.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/svm.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/svm.py).
 
 Support Vector Machine (SVM) model for binary classification.
 
@@ -25,9 +25,9 @@ method), should be set to (#concurrent train ops per worker) x (#workers). If
 num_loss_partitions is larger or equal to this value, convergence is
 guaranteed but becomes slower as num_loss_partitions increases. If it is set
 to a smaller value, the optimizer is more aggressive in reducing the global
-loss but convergence is not guaranteed. The recommended value in tf.learn
-(where there is one process per worker) is the number of workers running the
-train steps. It defaults to 1 (single machine).
+loss but convergence is not guaranteed. The recommended value in an
+`Estimator` (where there is one process per worker) is the number of workers
+running the train steps. It defaults to 1 (single machine).
 
 Example:
 
@@ -189,7 +189,8 @@ export_savedmodel(
     default_output_alternative_key=None,
     assets_extra=None,
     as_text=False,
-    checkpoint_path=None
+    checkpoint_path=None,
+    graph_rewrite_specs=(GraphRewriteSpec((tag_constants.SERVING,), ()),)
 )
 ```
 
@@ -213,11 +214,15 @@ Exports inference graph as a SavedModel into given dir.
 * <b>`as_text`</b>: whether to write the SavedModel proto in text format.
 * <b>`checkpoint_path`</b>: The checkpoint path to export.  If None (the default),
     the most recent checkpoint found within the model directory is chosen.
+* <b>`graph_rewrite_specs`</b>: an iterable of `GraphRewriteSpec`.  Each element will
+    produce a separate MetaGraphDef within the exported SavedModel, tagged
+    and rewritten as specified.  Defaults to a single entry using the
+    default serving tag ("serve") and no rewriting.
 
 
 #### Returns:
 
-  The string path to the exported directory.
+The string path to the exported directory.
 
 
 #### Raises:
@@ -289,7 +294,7 @@ Get parameters for this estimator.
 
 #### Returns:
 
-  params : mapping of string to any
+* <b>`params `</b>: mapping of string to any
   Parameter names mapped to their values.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
@@ -302,7 +307,7 @@ Returns list of all variable names in this model.
 
 #### Returns:
 
-  List of names.
+List of names.
 
 <h3 id="get_variable_value"><code>get_variable_value</code></h3>
 
@@ -319,7 +324,7 @@ Returns value of the variable given by name.
 
 #### Returns:
 
-  Numpy array - value of the tensor.
+Numpy array - value of the tensor.
 
 <h3 id="partial_fit"><code>partial_fit</code></h3>
 
@@ -372,7 +377,7 @@ to converge, and you want to split up training into subparts.
 
 #### Returns:
 
-  `self`, for chaining.
+`self`, for chaining.
 
 
 #### Raises:
@@ -420,10 +425,10 @@ Example conversion:
 
 #### Returns:
 
-  A numpy array of predicted classes or regression values if the
-  constructor's `model_fn` returns a `Tensor` for `predictions` or a `dict`
-  of numpy arrays if `model_fn` returns a `dict`. Returns an iterable of
-  predictions if as_iterable is True.
+A numpy array of predicted classes or regression values if the
+constructor's `model_fn` returns a `Tensor` for `predictions` or a `dict`
+of numpy arrays if `model_fn` returns a `dict`. Returns an iterable of
+predictions if as_iterable is True.
 
 
 #### Raises:
@@ -484,12 +489,12 @@ component of a nested object.
 
 #### Args:
 
-  **params: Parameters.
+* <b>`**params`</b>: Parameters.
 
 
 #### Returns:
 
-  self
+self
 
 
 #### Raises:

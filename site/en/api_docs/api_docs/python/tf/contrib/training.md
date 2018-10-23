@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/__init__.py).
+Defined in [`tensorflow/contrib/training/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/__init__.py).
 
 Training and input utilities.
 
@@ -26,6 +26,8 @@ See [Training (contrib)](../../../../api_guides/python/contrib.training) guide.
 [`class HParams`](../../tf/contrib/training/HParams): Class to hold a set of hyperparameters as name-value pairs.
 
 [`class NextQueuedSequenceBatch`](../../tf/contrib/training/NextQueuedSequenceBatch): NextQueuedSequenceBatch stores deferred SequenceQueueingStateSaver data.
+
+[`class RandomStrategy`](../../tf/contrib/training/RandomStrategy): Returns a random PS task for op placement.
 
 [`class SequenceQueueingStateSaver`](../../tf/contrib/training/SequenceQueueingStateSaver): SequenceQueueingStateSaver provides access to stateful values from input.
 
@@ -49,6 +51,8 @@ See [Training (contrib)](../../../../api_guides/python/contrib.training) guide.
 
 [`clip_gradient_norms(...)`](../../tf/contrib/training/clip_gradient_norms): Clips the gradients by the given value.
 
+[`clip_gradient_norms_fn(...)`](../../tf/contrib/training/clip_gradient_norms_fn): Returns a `transform_grads_fn` function for gradient clipping.
+
 [`create_train_op(...)`](../../tf/contrib/training/create_train_op): Creates an `Operation` that evaluates the gradients and returns the loss.
 
 [`evaluate_once(...)`](../../tf/contrib/training/evaluate_once): Evaluates the model at the given checkpoint path.
@@ -60,8 +64,6 @@ See [Training (contrib)](../../../../api_guides/python/contrib.training) guide.
 [`multiply_gradients(...)`](../../tf/contrib/training/multiply_gradients): Multiply specified gradients.
 
 [`parse_values(...)`](../../tf/contrib/training/parse_values): Parses hyperparameter values from a string into a python map..
-
-[`python_input(...)`](../../tf/contrib/training/python_input): Easily feed data from a python generator into TensorFlow queues.
 
 [`rejection_sample(...)`](../../tf/contrib/training/rejection_sample): Stochastically creates batches by rejection sampling.
 

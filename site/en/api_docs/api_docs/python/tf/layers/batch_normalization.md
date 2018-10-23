@@ -22,6 +22,8 @@ batch_normalization(
     moving_variance_initializer=tf.ones_initializer(),
     beta_regularizer=None,
     gamma_regularizer=None,
+    beta_constraint=None,
+    gamma_constraint=None,
     training=False,
     trainable=True,
     name=None,
@@ -29,13 +31,15 @@ batch_normalization(
     renorm=False,
     renorm_clipping=None,
     renorm_momentum=0.99,
-    fused=False
+    fused=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/layers/normalization.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/layers/normalization.py).
+Defined in [`tensorflow/python/layers/normalization.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/layers/normalization.py).
+
+See the guide: [Reading data > Multiple input pipelines](../../../../api_guides/python/reading_data#Multiple_input_pipelines)
 
 Functional interface for the batch normalization layer.
 
@@ -75,6 +79,14 @@ need to be added as a dependency to the `train_op`. For example:
 * <b>`moving_variance_initializer`</b>: Initializer for the moving variance.
 * <b>`beta_regularizer`</b>: Optional regularizer for the beta weight.
 * <b>`gamma_regularizer`</b>: Optional regularizer for the gamma weight.
+* <b>`beta_constraint`</b>: An optional projection function to be applied to the `beta`
+      weight after being updated by an `Optimizer` (e.g. used to implement
+      norm constraints or value constraints for layer weights). The function
+      must take as input the unprojected variable and must return the
+      projected variable (which must have the same shape). Constraints are
+      not safe to use when doing asynchronous distributed training.
+* <b>`gamma_constraint`</b>: An optional projection function to be applied to the
+      `gamma` weight after being updated by an `Optimizer`.
 * <b>`training`</b>: Either a Python boolean, or a TensorFlow boolean scalar tensor
     (e.g. a placeholder). Whether to return the output in training mode
     (normalized with statistics of the current batch) or in inference mode
@@ -99,10 +111,10 @@ need to be added as a dependency to the `train_op`. For example:
     and should be neither too small (which would add noise) nor too large
     (which would give stale estimates). Note that `momentum` is still applied
     to get the means and variances for inference.
-* <b>`fused`</b>: if `True`, use a faster, fused implementation based on
-    nn.fused_batch_norm. If `None`, use the fused implementation if possible.
+* <b>`fused`</b>: if `True`, use a faster, fused implementation if possible.
+    If `None`, use the system recommended implementation.
 
 
 #### Returns:
 
-  Output tensor.
+Output tensor.

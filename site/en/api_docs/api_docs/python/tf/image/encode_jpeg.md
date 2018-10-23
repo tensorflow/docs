@@ -11,15 +11,15 @@ page_type: reference
 ``` python
 encode_jpeg(
     image,
-    format=None,
-    quality=None,
-    progressive=None,
-    optimize_size=None,
-    chroma_downsampling=None,
-    density_unit=None,
-    x_density=None,
-    y_density=None,
-    xmp_metadata=None,
+    format='',
+    quality=95,
+    progressive=False,
+    optimize_size=False,
+    chroma_downsampling=True,
+    density_unit='in',
+    x_density=300,
+    y_density=300,
+    xmp_metadata='',
     name=None
 )
 ```
@@ -77,4 +77,4 @@ in function of the number of channels in `image`:
 
 #### Returns:
 
-  A `Tensor` of type `string`. 0-D. JPEG-encoded image.
+A `Tensor` of type `string`. 0-D. JPEG-encoded image.

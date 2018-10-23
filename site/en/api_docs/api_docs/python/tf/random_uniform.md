@@ -21,7 +21,7 @@ random_uniform(
 
 
 
-Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/random_ops.py).
+Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/random_ops.py).
 
 See the guide: [Constants, Sequences, and Random Values > Random Tensors](../../../api_guides/python/constant_op#Random_Tensors)
 
@@ -57,7 +57,7 @@ In the integer case, the random integers are slightly biased unless
 
 #### Returns:
 
-  A tensor of the specified shape filled with random uniform values.
+A tensor of the specified shape filled with random uniform values.
 
 
 #### Raises:

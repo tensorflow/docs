@@ -109,6 +109,6 @@ The resulting tensor would look like this:
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `updates`.
-  A new tensor with the given shape and updates applied according
-  to the indices.
+A `Tensor`. Has the same type as `updates`.
+A new tensor with the given shape and updates applied according
+to the indices.

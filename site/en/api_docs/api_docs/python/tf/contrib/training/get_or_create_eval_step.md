@@ -14,13 +14,13 @@ get_or_create_eval_step()
 
 
 
-Defined in [`tensorflow/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/evaluation.py).
+Defined in [`tensorflow/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/evaluation.py).
 
 Gets or creates the eval step `Tensor`.
 
 #### Returns:
 
-  A `Tensor` representing a counter for the evaluation step.
+A `Tensor` representing a counter for the evaluation step.
 
 
 #### Raises:

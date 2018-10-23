@@ -39,5 +39,5 @@ of corresponding 3-element vectors is cross-multiplied independently.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `a`.
-  Pairwise cross product of the vectors in `a` and `b`.
+A `Tensor`. Has the same type as `a`.
+Pairwise cross product of the vectors in `a` and `b`.

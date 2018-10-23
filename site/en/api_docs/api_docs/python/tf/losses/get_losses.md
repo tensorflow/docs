@@ -17,7 +17,7 @@ get_losses(
 
 
 
-Defined in [`tensorflow/python/ops/losses/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/losses/util.py).
+Defined in [`tensorflow/python/ops/losses/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/losses/util.py).
 
 Gets the list of losses from the loss_collection.
 
@@ -29,4 +29,4 @@ Gets the list of losses from the loss_collection.
 
 #### Returns:
 
-  a list of loss tensors.
+a list of loss tensors.

@@ -17,7 +17,7 @@ lbeta(
 
 
 
-Defined in [`tensorflow/python/ops/special_math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/special_math_ops.py).
+Defined in [`tensorflow/python/ops/special_math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/special_math_ops.py).
 
 See the guide: [Math > Basic Math Functions](../../../api_guides/python/math_ops#Basic_Math_Functions)
 
@@ -47,4 +47,4 @@ the empty set is zero, and the product is one.
 
 #### Returns:
 
-  The logarithm of \\(|Beta(x)|\\) reducing along the last dimension.
+The logarithm of \\(|Beta(x)|\\) reducing along the last dimension.

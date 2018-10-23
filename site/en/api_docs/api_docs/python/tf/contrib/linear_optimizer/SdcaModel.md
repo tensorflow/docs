@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py).
+Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py).
 
 Stochastic dual coordinate ascent solver for linear models.
 
@@ -104,8 +104,8 @@ Add operations to compute the approximate duality gap.
 
 #### Returns:
 
-  An Operation that computes the approximate duality gap over all
-  examples.
+An Operation that computes the approximate duality gap over all
+examples.
 
 <h3 id="minimize"><code>minimize</code></h3>
 
@@ -127,7 +127,7 @@ Add operations to train a linear model by minimizing the loss function.
 
 #### Returns:
 
-  An Operation that updates the variables passed in the constructor.
+An Operation that updates the variables passed in the constructor.
 
 <h3 id="predictions"><code>predictions</code></h3>
 
@@ -147,7 +147,7 @@ Otherwise, (raw) linear predictions (w*x) are returned.
 
 #### Returns:
 
-  An Operation that computes the predictions for examples.
+An Operation that computes the predictions for examples.
 
 
 #### Raises:
@@ -169,8 +169,8 @@ Add operations to compute the loss with regularization loss included.
 
 #### Returns:
 
-  An Operation that computes mean (regularized) loss for given set of
-  examples.
+An Operation that computes mean (regularized) loss for given set of
+examples.
 
 #### Raises:
 
@@ -191,8 +191,8 @@ Add operations to compute the loss (without the regularization loss).
 
 #### Returns:
 
-  An Operation that computes mean (unregularized) loss for given set of
-  examples.
+An Operation that computes mean (unregularized) loss for given set of
+examples.
 
 
 #### Raises:
@@ -218,7 +218,7 @@ speed up training.
 
 #### Returns:
 
-  An Operation that updates the model weights.
+An Operation that updates the model weights.
 
 
 

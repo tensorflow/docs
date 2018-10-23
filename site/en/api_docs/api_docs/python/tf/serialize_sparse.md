@@ -17,7 +17,7 @@ serialize_sparse(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 Serialize a `SparseTensor` into a string 3-vector (1-D `Tensor`) object.
 
@@ -29,8 +29,8 @@ Serialize a `SparseTensor` into a string 3-vector (1-D `Tensor`) object.
 
 #### Returns:
 
-  A string 3-vector (1D `Tensor`), with each column representing the
-  serialized `SparseTensor`'s indices, values, and shape (respectively).
+A string 3-vector (1D `Tensor`), with each column representing the
+serialized `SparseTensor`'s indices, values, and shape (respectively).
 
 
 #### Raises:

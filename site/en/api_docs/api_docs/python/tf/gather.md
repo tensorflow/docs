@@ -20,7 +20,7 @@ gather(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guides: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining), [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
 
@@ -63,6 +63,6 @@ params.shape[axis + 1:]` where:
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `params`.
-  Values from `params` gathered from indices given by `indices`, with
-  shape `params.shape[:axis] + indices.shape + params.shape[axis + 1:]`.
+A `Tensor`. Has the same type as `params`.
+Values from `params` gathered from indices given by `indices`, with
+shape `params.shape[:axis] + indices.shape + params.shape[axis + 1:]`.

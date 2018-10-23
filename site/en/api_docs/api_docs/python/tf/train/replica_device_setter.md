@@ -22,7 +22,7 @@ replica_device_setter(
 
 
 
-Defined in [`tensorflow/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/device_setter.py).
+Defined in [`tensorflow/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/device_setter.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -71,7 +71,8 @@ with tf.device(tf.train.replica_device_setter(cluster=cluster_spec)):
     than overriding them.
 * <b>`cluster`</b>: `ClusterDef` proto or `ClusterSpec`.
 * <b>`ps_ops`</b>: List of strings representing `Operation` types that need to be
-    placed on `ps` devices.  If `None`, defaults to `["Variable"]`.
+    placed on `ps` devices.  If `None`, defaults to
+    `["Variable", "VariableV2", "VarHandleOp"]`.
 * <b>`ps_strategy`</b>: A callable invoked for every ps `Operation` (i.e. matched by
     `ps_ops`), that takes the `Operation` and returns the ps task index to
     use.  If `None`, defaults to a round-robin strategy across all `ps`
@@ -80,10 +81,10 @@ with tf.device(tf.train.replica_device_setter(cluster=cluster_spec)):
 
 #### Returns:
 
-  A function to pass to `tf.device()`.
+A function to pass to `tf.device()`.
 
 
 #### Raises:
 
-  TypeError if `cluster` is not a dictionary or `ClusterDef` protocol buffer,
-  or if `ps_strategy` is provided but not a callable.
+TypeError if `cluster` is not a dictionary or `ClusterDef` protocol buffer,
+or if `ps_strategy` is provided but not a callable.

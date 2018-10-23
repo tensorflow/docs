@@ -18,7 +18,7 @@ resize_image_with_crop_or_pad(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Cropping](../../../../api_guides/python/image#Cropping)
 
@@ -48,8 +48,8 @@ dimension.
 
 #### Returns:
 
-  Cropped and/or padded image.
-  If `images` was 4-D, a 4-D float Tensor of shape
-  `[batch, new_height, new_width, channels]`.
-  If `images` was 3-D, a 3-D float Tensor of shape
-  `[new_height, new_width, channels]`.
+Cropped and/or padded image.
+If `images` was 4-D, a 4-D float Tensor of shape
+`[batch, new_height, new_width, channels]`.
+If `images` was 3-D, a 3-D float Tensor of shape
+`[new_height, new_width, channels]`.

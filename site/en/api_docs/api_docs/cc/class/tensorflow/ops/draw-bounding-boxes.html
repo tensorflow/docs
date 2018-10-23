@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::DrawBoundingBoxes Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,15 +13,15 @@
   <p>Draw bounding boxes on a batch of images. </p>
   <h2>Summary</h2>
   <p>Outputs a copy of <code>images</code> but draws on top of the pixels zero or more bounding boxes specified by the locations in <code>boxes</code>. The coordinates of the each bounding box in <code>boxes</code> are encoded as <code>[y_min, x_min, y_max, x_max]</code>. The bounding box coordinates are floats in <code>[0.0, 1.0]</code> relative to the width and height of the underlying image.</p>
-  <p>For example, if an image is 100 x 200 pixels and the bounding box is <code>[0.1, 0.2, 0.5, 0.9]</code>, the bottom-left and upper-right coordinates of the bounding box will be <code>(10, 40)</code> to <code>(50, 180)</code>.</p>
+  <p>For example, if an image is 100 x 200 pixels (height x width) and the bounding box is <code>[0.1, 0.2, 0.5, 0.9]</code>, the upper-left and bottom-right coordinates of the bounding box will be <code>(40, 10)</code> to <code>(100, 50)</code> (in (x,y) coordinates).</p>
   <p>Parts of the bounding box may fall outside the image.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>images: 4-D with shape <code>[batch, height, width, depth]</code>. A batch of images.</li>
       <li>boxes: 3-D with shape <code>[batch, num_bounding_boxes, 4]</code> containing bounding boxes.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with the same shape as <code>images</code>. The batch of input images with bounding boxes drawn on the images. </li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with the same shape as <code>images</code>. The batch of input images with bounding boxes drawn on the images. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -31,7 +31,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_draw_bounding_boxes_1a36778a64785d4874761fc8cd75c7963d">DrawBoundingBoxes</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_draw_bounding_boxes_1a36778a64785d4874761fc8cd75c7963d">DrawBoundingBoxes</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes)</code>
         <br />
       </td>
     </tr>
@@ -48,7 +48,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -93,16 +93,16 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_draw_bounding_boxes_1aefea4317485f5bf21a230bb2c5f1360a">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_draw_bounding_boxes_1a36778a64785d4874761fc8cd75c7963d">
     <h3>DrawBoundingBoxes</h3>
     <pre class="prettyprint"> DrawBoundingBoxes(
-  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes
 )</pre>
     <div />
   </div>

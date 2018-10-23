@@ -18,7 +18,7 @@ Copy(
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/lib/io/file_io.py).
+Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/lib/io/file_io.py).
 
 Copies data from oldpath to newpath.
 
@@ -32,4 +32,4 @@ Copies data from oldpath to newpath.
 
 #### Raises:
 
-  errors.OpError: If the operation fails.
+* <b>`errors.OpError`</b>: If the operation fails.

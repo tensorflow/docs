@@ -31,4 +31,4 @@ Computes softsign: `features / (abs(features) + 1)`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `features`.
+A `Tensor`. Has the same type as `features`.

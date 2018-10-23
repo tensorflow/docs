@@ -22,7 +22,7 @@ sigmoid_cross_entropy(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/losses/losses_impl.py).
 
 Creates a cross-entropy loss using tf.nn.sigmoid_cross_entropy_with_logits.
 
@@ -52,12 +52,12 @@ If `label_smoothing` is nonzero, smooth the labels towards 1/2:
 
 #### Returns:
 
-  Weighted loss `Tensor` of the same type as `logits`. If `reduction` is
-  `NONE`, this has the same shape as `logits`; otherwise, it is scalar.
+Weighted loss `Tensor` of the same type as `logits`. If `reduction` is
+`NONE`, this has the same shape as `logits`; otherwise, it is scalar.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: If the shape of `logits` doesn't match that of
     `multi_class_labels` or if the shape of `weights` is invalid, or if
-    `weights` is None.
+    `weights` is None.  Also if `multi_class_labels` or `logits` is None.

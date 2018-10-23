@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/server_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/server_lib.py).
+Defined in [`tensorflow/python/training/server_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/server_lib.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -55,7 +55,7 @@ Returns a list of job names in this cluster.
 
 #### Returns:
 
-  A list of strings, corresponding to the names of jobs in this cluster.
+A list of strings, corresponding to the names of jobs in this cluster.
 
 
 
@@ -137,8 +137,8 @@ addresses.
 
 #### Returns:
 
-  A dictionary mapping job names to lists or dictionaries
-  describing the tasks in those jobs.
+A dictionary mapping job names to lists or dictionaries
+describing the tasks in those jobs.
 
 <h3 id="job_tasks"><code>job_tasks</code></h3>
 
@@ -161,9 +161,9 @@ to find the number of tasks defined in a particular job.
 
 #### Returns:
 
-  A list of task addresses, where the index in the list
-  corresponds to the task index of each task. The list may contain
-  `None` if the job was defined with a sparse set of task indices.
+A list of task addresses, where the index in the list
+corresponds to the task index of each task. The list may contain
+`None` if the job was defined with a sparse set of task indices.
 
 
 #### Raises:
@@ -185,7 +185,7 @@ Returns the number of tasks defined in the given job.
 
 #### Returns:
 
-  The number of tasks defined in the given job.
+The number of tasks defined in the given job.
 
 
 #### Raises:
@@ -211,7 +211,7 @@ Returns the address of the given task in the given job.
 
 #### Returns:
 
-  The address of the given task in the given job.
+The address of the given task in the given job.
 
 
 #### Raises:
@@ -234,7 +234,7 @@ Returns a list of valid task indices in the given job.
 
 #### Returns:
 
-  A list of valid task indices in the given job.
+A list of valid task indices in the given job.
 
 
 #### Raises:

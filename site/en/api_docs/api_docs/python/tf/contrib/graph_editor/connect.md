@@ -18,7 +18,7 @@ connect(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/edit.py).
+Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/edit.py).
 
 See the guide: [Graph Editor (contrib) > Module: edit](../../../../../api_guides/python/contrib.graph_editor#Module_edit)
 
@@ -38,7 +38,7 @@ Connect the outputs of sgv0 to the inputs of sgv1.
 
 #### Returns:
 
-  A tuple `(sgv0, sgv1)` of the now connected subgraphs.
+A tuple `(sgv0, sgv1)` of the now connected subgraphs.
 
 #### Raises:
 

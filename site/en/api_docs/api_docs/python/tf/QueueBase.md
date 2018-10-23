@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Inputs and Readers > Queues](../../../api_guides/python/io_ops#Queues)
 
@@ -111,8 +111,9 @@ This operation signals that no more elements will be enqueued in
 the given queue. Subsequent `enqueue` and `enqueue_many`
 operations will fail. Subsequent `dequeue` and `dequeue_many`
 operations will continue to succeed if sufficient elements remain
-in the queue. Subsequent `dequeue` and `dequeue_many` operations
-that would block will fail immediately.
+in the queue. Subsequently dequeue and dequeue_many operations
+that would otherwise block waiting for more elements (if close
+hadn't been called) will now fail immediately.
 
 If `cancel_pending_enqueues` is `True`, all pending requests will also
 be canceled.
@@ -126,7 +127,7 @@ be canceled.
 
 #### Returns:
 
-  The operation that closes the queue.
+The operation that closes the queue.
 
 <h3 id="dequeue"><code>dequeue</code></h3>
 
@@ -154,7 +155,7 @@ enqueue operations that can fulfill this request,
 
 #### Returns:
 
-  The tuple of tensors that was dequeued.
+The tuple of tensors that was dequeued.
 
 <h3 id="dequeue_many"><code>dequeue_many</code></h3>
 
@@ -190,7 +191,7 @@ session is [`tf.Session.close`](../tf/Session#close),
 
 #### Returns:
 
-  The tuple of concatenated tensors that was dequeued.
+The tuple of concatenated tensors that was dequeued.
 
 <h3 id="dequeue_up_to"><code>dequeue_up_to</code></h3>
 
@@ -227,7 +228,7 @@ Otherwise the behavior is identical to `dequeue_many`.
 
 #### Returns:
 
-  The tuple of concatenated tensors that was dequeued.
+The tuple of concatenated tensors that was dequeued.
 
 <h3 id="enqueue"><code>enqueue</code></h3>
 
@@ -261,7 +262,7 @@ with `cancel_pending_enqueues=True`, or (ii) the session is
 
 #### Returns:
 
-  The operation that enqueues a new tuple of tensors to the queue.
+The operation that enqueues a new tuple of tensors to the queue.
 
 <h3 id="enqueue_many"><code>enqueue_many</code></h3>
 
@@ -299,11 +300,12 @@ with `cancel_pending_enqueues=True`, or (ii) the session is
 
 #### Returns:
 
-  The operation that enqueues a batch of tuples of tensors to the queue.
+The operation that enqueues a batch of tuples of tensors to the queue.
 
 <h3 id="from_list"><code>from_list</code></h3>
 
 ``` python
+@staticmethod
 from_list(
     index,
     queues
@@ -321,7 +323,7 @@ Create a queue using the queue reference from `queues[index]`.
 
 #### Returns:
 
-  A `QueueBase` object.
+A `QueueBase` object.
 
 
 #### Raises:
@@ -343,11 +345,11 @@ is open.
 #### Args:
 
 * <b>`name`</b>: A name for the operation (optional).
-    
+
 
 #### Returns:
 
-  True if the queue is closed and false if the queue is open.
+True if the queue is closed and false if the queue is open.
 
 <h3 id="size"><code>size</code></h3>
 
@@ -364,7 +366,7 @@ Compute the number of elements in this queue.
 
 #### Returns:
 
-  A scalar tensor containing the number of elements in this queue.
+A scalar tensor containing the number of elements in this queue.
 
 
 

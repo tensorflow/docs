@@ -18,7 +18,7 @@ concat(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -45,13 +45,13 @@ For example:
 ```python
 t1 = [[1, 2, 3], [4, 5, 6]]
 t2 = [[7, 8, 9], [10, 11, 12]]
-tf.concat([t1, t2], 0) ==> [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
-tf.concat([t1, t2], 1) ==> [[1, 2, 3, 7, 8, 9], [4, 5, 6, 10, 11, 12]]
+tf.concat([t1, t2], 0)  # [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+tf.concat([t1, t2], 1)  # [[1, 2, 3, 7, 8, 9], [4, 5, 6, 10, 11, 12]]
 
 # tensor t3 with shape [2, 3]
 # tensor t4 with shape [2, 3]
-tf.shape(tf.concat([t3, t4], 0)) ==> [4, 3]
-tf.shape(tf.concat([t3, t4], 1)) ==> [2, 6]
+tf.shape(tf.concat([t3, t4], 0))  # [4, 3]
+tf.shape(tf.concat([t3, t4], 1))  # [2, 6]
 ```
 
 Note: If you are concatenating along a new axis consider using stack.
@@ -70,10 +70,11 @@ tf.stack(tensors, axis=axis)
 #### Args:
 
 * <b>`values`</b>: A list of `Tensor` objects or a single `Tensor`.
-* <b>`axis`</b>: 0-D `int32` `Tensor`.  Dimension along which to concatenate.
+* <b>`axis`</b>: 0-D `int32` `Tensor`.  Dimension along which to concatenate. Must be
+    in the range `[-rank(values), rank(values))`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor` resulting from concatenation of the input tensors.
+A `Tensor` resulting from concatenation of the input tensors.

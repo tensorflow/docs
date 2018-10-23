@@ -19,7 +19,7 @@ run_n(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/graph_actions.py).
+Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/graph_actions.py).
 
 See the guide: [Learn (contrib) > Graph actions](../../../../../api_guides/python/contrib.learn#Graph_actions)
 
@@ -41,5 +41,5 @@ graph_actions.py will be deleted. Use tf.train.* utilities instead. You can use 
 
 #### Returns:
 
-  A list of `n` `dict` objects, each containing values read from `output_dict`
-  tensors.
+A list of `n` `dict` objects, each containing values read from `output_dict`
+tensors.

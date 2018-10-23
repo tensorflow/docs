@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/nn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/nn.py).
+Defined in [`tensorflow/python/ops/nn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/nn.py).
 
 Neural network support.
 
@@ -105,6 +105,8 @@ See the [Neural Network](../../../api_guides/python/nn) guide.
 
 [`l2_normalize(...)`](../tf/nn/l2_normalize): Normalizes along dimension `dim` using an L2 norm.
 
+[`leaky_relu(...)`](../tf/nn/leaky_relu): Compute the Leaky ReLU activation function.
+
 [`learned_unigram_candidate_sampler(...)`](../tf/nn/learned_unigram_candidate_sampler): Samples a set of classes from a distribution learned during training.
 
 [`local_response_normalization(...)`](../tf/nn/local_response_normalization): Local Response Normalization.
@@ -148,6 +150,8 @@ See the [Neural Network](../../../api_guides/python/nn) guide.
 [`relu_layer(...)`](../tf/nn/relu_layer): Computes Relu(x * weight + biases).
 
 [`sampled_softmax_loss(...)`](../tf/nn/sampled_softmax_loss): Computes and returns the sampled softmax training loss.
+
+[`selu(...)`](../tf/nn/selu): Computes scaled exponential linear: `scale * alpha * (exp(features) - 1)`
 
 [`separable_conv2d(...)`](../tf/nn/separable_conv2d): 2-D convolution with separable filters.
 

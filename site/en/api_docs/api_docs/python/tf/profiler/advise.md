@@ -18,7 +18,7 @@ advise(
 
 
 
-Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/profiler/model_analyzer.py).
+Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/profiler/model_analyzer.py).
 
 Auto profile and advise.
 
@@ -35,4 +35,4 @@ Auto profile and advise.
 
 #### Returns:
 
-  Returns AdviceProto proto
+Returns AdviceProto proto

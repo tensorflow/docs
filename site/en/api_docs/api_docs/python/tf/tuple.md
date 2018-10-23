@@ -18,7 +18,7 @@ tuple(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/control_flow_ops.py).
 
 See the guide: [Control Flow > Control Flow Operations](../../../api_guides/python/control_flow_ops#Control_Flow_Operations)
 
@@ -48,7 +48,7 @@ See also [group](../tf/group) and
 
 #### Returns:
 
-  Same as `tensors`.
+Same as `tensors`.
 
 
 #### Raises:

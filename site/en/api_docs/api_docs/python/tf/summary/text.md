@@ -18,7 +18,7 @@ text(
 
 
 
-Defined in [`tensorflow/python/summary/text_summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/summary/text_summary.py).
+Defined in [`tensorflow/python/summary/text_summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/summary/text_summary.py).
 
 Summarizes textual data.
 
@@ -41,9 +41,9 @@ plugin.)
 
 #### Returns:
 
-  A  TensorSummary op that is configured so that TensorBoard will recognize
-  that it contains textual data. The TensorSummary is a scalar `Tensor` of
-  type `string` which contains `Summary` protobufs.
+A TensorSummary op that is configured so that TensorBoard will recognize
+that it contains textual data. The TensorSummary is a scalar `Tensor` of
+type `string` which contains `Summary` protobufs.
 
 
 #### Raises:

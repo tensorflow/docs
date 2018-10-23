@@ -21,7 +21,7 @@ precision(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/metrics_impl.py).
+Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/metrics_impl.py).
 
 Computes the precision of the predictions with respect to the labels.
 
@@ -31,7 +31,7 @@ precision. This value is ultimately returned as `precision`, an idempotent
 operation that simply divides `true_positives` by the sum of `true_positives`
 and `false_positives`.
 
-For estimation of the metric  over a stream of data, the function creates an
+For estimation of the metric over a stream of data, the function creates an
 `update_op` operation that updates these variables and returns the
 `precision`. `update_op` weights each prediction by the corresponding value in
 `weights`.

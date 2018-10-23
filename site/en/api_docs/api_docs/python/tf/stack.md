@@ -18,7 +18,7 @@ stack(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guides: [Layers (contrib) > Higher level ops for building neural network layers](../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers), [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -35,24 +35,24 @@ Etc.
 For example:
 
 ```python
-# 'x' is [1, 4]
-# 'y' is [2, 5]
-# 'z' is [3, 6]
-stack([x, y, z])  # => [[1, 4], [2, 5], [3, 6]] (Pack along first dim.)
-stack([x, y, z], axis=1)  # => [[1, 2, 3], [4, 5, 6]]
+x = tf.constant([1, 4])
+y = tf.constant([2, 5])
+z = tf.constant([3, 6])
+tf.stack([x, y, z])  # [[1, 4], [2, 5], [3, 6]] (Pack along first dim.)
+tf.stack([x, y, z], axis=1)  # [[1, 2, 3], [4, 5, 6]]
 ```
 
 This is the opposite of unstack.  The numpy equivalent is
 
 ```python
-tf.stack([x, y, z]) = np.asarray([x, y, z])
+tf.stack([x, y, z]) = np.stack([x, y, z])
 ```
 
 #### Args:
 
 * <b>`values`</b>: A list of `Tensor` objects with the same shape and type.
 * <b>`axis`</b>: An `int`. The axis to stack along. Defaults to the first dimension.
-    Supports negative indexes.
+    Negative values wrap around, so the valid range is `[-(R+1), R+1)`.
 * <b>`name`</b>: A name for this operation (optional).
 
 

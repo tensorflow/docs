@@ -20,7 +20,7 @@ compute_weighted_loss(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/losses/losses_impl.py).
 
 Computes the weighted loss.
 
@@ -37,8 +37,8 @@ Computes the weighted loss.
 
 #### Returns:
 
-  Weighted loss `Tensor` of the same type as `losses`. If `reduction` is
-  `NONE`, this has the same shape as `losses`; otherwise, it is scalar.
+Weighted loss `Tensor` of the same type as `losses`. If `reduction` is
+`NONE`, this has the same shape as `losses`; otherwise, it is scalar.
 
 
 #### Raises:

@@ -17,6 +17,6 @@ readahead_file_path(
 
 
 
-Defined in [`tensorflow/python/platform/resource_loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/platform/resource_loader.py).
+Defined in [`tensorflow/python/platform/resource_loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/platform/resource_loader.py).
 
 Readahead files not implemented; simply returns given path.

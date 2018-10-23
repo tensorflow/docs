@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/saved_model/constants.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/saved_model/constants.py).
+Defined in [`tensorflow/python/saved_model/constants.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/saved_model/constants.py).
 
 Constants for SavedModel save and restore operations.
 

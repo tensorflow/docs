@@ -51,4 +51,4 @@ tf.diag_part(input) ==> [1, 2, 3, 4]
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`. The extracted diagonal.
+A `Tensor`. Has the same type as `input`. The extracted diagonal.

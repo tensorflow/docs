@@ -20,7 +20,7 @@ sparse_column_with_keys(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/feature_column.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -48,4 +48,4 @@ lookup_id = index_of_feature_in_keys if feature in keys else default_value
 
 #### Returns:
 
-  A _SparseColumnKeys with keys configuration.
+A _SparseColumnKeys with keys configuration.

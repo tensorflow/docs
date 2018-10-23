@@ -17,7 +17,7 @@ extract_sub_graph(
 
 
 
-Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/graph_util_impl.py).
+Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/graph_util_impl.py).
 
 Extract the subgraph that can reach any of the nodes in 'dest_nodes'.
 
@@ -28,7 +28,7 @@ Extract the subgraph that can reach any of the nodes in 'dest_nodes'.
 
 #### Returns:
 
-  The GraphDef of the sub-graph.
+The GraphDef of the sub-graph.
 
 
 #### Raises:

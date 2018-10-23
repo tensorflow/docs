@@ -14,12 +14,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py).
+Defined in [`tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py).
 
 Class that implements Random Fourier Feature Mapping (RFFM) in TensorFlow.
 
 The RFFM mapping is used to approximate the Gaussian (RBF) kernel:
-
 ```
 exp(-||x-y||_2^2 / (2 * sigma^2))
 ```
@@ -36,7 +35,6 @@ distribution and each entry of `b` is sampled independently and uniformly from
 [0, 2 * pi].
 
 For a single input feature vector x in R^d, its RFFM is defined as:
-
 ```
     sqrt(2/D) * cos(x * Omega + b)
 ```
@@ -59,7 +57,7 @@ id is returned.
 
 #### Returns:
 
-  A name for the `RandomFourierFeatureMapper` instance.
+A name for the `RandomFourierFeatureMapper` instance.
 
 <h3 id="output_dim"><code>output_dim</code></h3>
 
@@ -113,8 +111,8 @@ Maps each row of input_tensor using random Fourier features.
 
 #### Returns:
 
-  A `Tensor` of shape [batch_size, self._output_dim] containing RFFM-mapped
-  features.
+A `Tensor` of shape [batch_size, self._output_dim] containing RFFM-mapped
+features.
 
 
 #### Raises:

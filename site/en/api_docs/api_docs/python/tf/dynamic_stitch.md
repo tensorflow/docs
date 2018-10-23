@@ -49,7 +49,8 @@ must have `data[i].shape = indices[i].shape + constant`.  In terms of this
 
 Values are merged in order, so if an index appears in both `indices[m][i]` and
 `indices[n][j]` for `(m,i) < (n,j)` the slice `data[n][j]` will appear in the
-merged result.
+merged result. If you do not need this guarantee, ParallelDynamicStitch might
+perform better on some devices.
 
 For example:
 
@@ -95,4 +96,4 @@ as illustrated on the following example:
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `data`.
+A `Tensor`. Has the same type as `data`.

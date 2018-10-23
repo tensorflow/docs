@@ -12,10 +12,10 @@ page_type: reference
 sparse_matmul(
     a,
     b,
-    transpose_a=None,
-    transpose_b=None,
-    a_is_sparse=None,
-    b_is_sparse=None,
+    transpose_a=False,
+    transpose_b=False,
+    a_is_sparse=False,
+    b_is_sparse=False,
     name=None
 )
 ```
@@ -47,4 +47,4 @@ in the input gradient when that gradient comes from a Relu.
 
 #### Returns:
 
-  A `Tensor` of type `float32`.
+A `Tensor` of type `float32`.

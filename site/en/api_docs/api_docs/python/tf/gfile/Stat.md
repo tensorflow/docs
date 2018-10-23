@@ -14,7 +14,7 @@ Stat(filename)
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/lib/io/file_io.py).
+Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/lib/io/file_io.py).
 
 Returns file statistics for a given path.
 
@@ -25,9 +25,9 @@ Returns file statistics for a given path.
 
 #### Returns:
 
-  FileStatistics struct that contains information about the path
+FileStatistics struct that contains information about the path
 
 
 #### Raises:
 
-  errors.OpError: If the operation fails.
+* <b>`errors.OpError`</b>: If the operation fails.

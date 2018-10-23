@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/profiler/option_builder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/profiler/option_builder.py).
+Defined in [`tensorflow/python/profiler/option_builder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/profiler/option_builder.py).
 
 Option Builder for Profiling API.
 
@@ -79,7 +79,7 @@ Whether only account the statistics of displayed profiler nodes.
 
 #### Returns:
 
-  self
+self
 
 <h3 id="build"><code>build</code></h3>
 
@@ -91,11 +91,12 @@ Build a profiling option.
 
 #### Returns:
 
-  A dict of profiling options.
+A dict of profiling options.
 
 <h3 id="float_operation"><code>float_operation</code></h3>
 
 ``` python
+@staticmethod
 float_operation()
 ```
 
@@ -106,7 +107,7 @@ on the caveats of calculating float operations.
 
 #### Returns:
 
-  A dict of profiling options.
+A dict of profiling options.
 
 <h3 id="order_by"><code>order_by</code></h3>
 
@@ -125,7 +126,7 @@ https://github.com/tensorflow/tensorflow/tree/master/tensorflow/core/profiler/g3
 
 #### Returns:
 
-  self
+self
 
 <h3 id="select"><code>select</code></h3>
 
@@ -144,14 +145,20 @@ for supported attributes.
 
 #### Returns:
 
-  self
+self
 
 <h3 id="time_and_memory"><code>time_and_memory</code></h3>
 
 ``` python
+@staticmethod
 time_and_memory(
     min_micros=1,
-    min_bytes=1
+    min_bytes=1,
+    min_accelerator_micros=0,
+    min_cpu_micros=0,
+    min_peak_bytes=0,
+    min_residual_bytes=0,
+    min_output_bytes=0
 )
 ```
 
@@ -159,16 +166,33 @@ Show operation time and memory consumptions.
 
 #### Args:
 
-* <b>`min_micros`</b>: Only show profiler nodes with more execution time than this.
-* <b>`min_bytes`</b>: Only show profiler nodes consuming more memory than this.
+* <b>`min_micros`</b>: Only show profiler nodes with execution time
+      no less than this. It sums accelerator and cpu times.
+* <b>`min_bytes`</b>: Only show profiler nodes requested to allocate no less bytes
+      than this.
+* <b>`min_accelerator_micros`</b>: Only show profiler nodes spend no less than
+      this time on accelerator (e.g. GPU).
+* <b>`min_cpu_micros`</b>: Only show profiler nodes spend no less than
+      this time on cpu.
+* <b>`min_peak_bytes`</b>: Only show profiler nodes using no less than this bytes
+      at peak (high watermark). For profiler nodes consist of multiple
+      graph nodes, it sums the graph nodes' peak_bytes.
+* <b>`min_residual_bytes`</b>: Only show profiler nodes have no less than
+      this bytes not being de-allocated after Compute() ends. For
+      profiler nodes consist of multiple graph nodes, it sums the
+      graph nodes' residual_bytes.
+* <b>`min_output_bytes`</b>: Only show profiler nodes have no less than this bytes
+      output. The output are not necessarily allocated by this profiler
+      nodes.
 
 #### Returns:
 
-  A dict of profiling options.
+A dict of profiling options.
 
 <h3 id="trainable_variables_parameter"><code>trainable_variables_parameter</code></h3>
 
 ``` python
+@staticmethod
 trainable_variables_parameter()
 ```
 
@@ -178,7 +202,7 @@ Normally used together with 'scope' view.
 
 #### Returns:
 
-  A dict of profiling options.
+A dict of profiling options.
 
 <h3 id="with_accounted_types"><code>with_accounted_types</code></h3>
 
@@ -189,7 +213,7 @@ with_accounted_types(account_type_regexes)
 Selectively counting statistics based on node types.
 
 Here, 'types' means the profiler nodes' properties. Profiler by default
-consider device name (e.g. /job:xx/.../gpu:0) and operation type
+consider device name (e.g. /job:xx/.../device:GPU:0) and operation type
 (e.g. MatMul) as profiler nodes' properties. User can also associate
 customized 'types' to profiler nodes through OpLogProto proto.
 
@@ -205,7 +229,7 @@ not displayed nor accounted.
 
 #### Returns:
 
-  self.
+self.
 
 <h3 id="with_empty_output"><code>with_empty_output</code></h3>
 
@@ -241,12 +265,16 @@ of operation types (list), etc.
 
 #### Returns:
 
-  self
+self
 
 <h3 id="with_min_execution_time"><code>with_min_execution_time</code></h3>
 
 ``` python
-with_min_execution_time(min_micros)
+with_min_execution_time(
+    min_micros=0,
+    min_accelerator_micros=0,
+    min_cpu_micros=0
+)
 ```
 
 Only show profiler nodes consuming no less than 'min_micros'.
@@ -254,11 +282,15 @@ Only show profiler nodes consuming no less than 'min_micros'.
 #### Args:
 
 * <b>`min_micros`</b>: Only show profiler nodes with execution time
-      no less than this.
+      no less than this. It sums accelerator and cpu times.
+* <b>`min_accelerator_micros`</b>: Only show profiler nodes spend no less than
+      this time on accelerator (e.g. GPU).
+* <b>`min_cpu_micros`</b>: Only show profiler nodes spend no less than
+      this time on cpu.
 
 #### Returns:
 
-  self
+self
 
 <h3 id="with_min_float_operations"><code>with_min_float_operations</code></h3>
 
@@ -278,24 +310,39 @@ on the caveats of calculating float operations.
 
 #### Returns:
 
-  self
+self
 
 <h3 id="with_min_memory"><code>with_min_memory</code></h3>
 
 ``` python
-with_min_memory(min_bytes)
+with_min_memory(
+    min_bytes=0,
+    min_peak_bytes=0,
+    min_residual_bytes=0,
+    min_output_bytes=0
+)
 ```
 
 Only show profiler nodes consuming no less than 'min_bytes'.
 
 #### Args:
 
-* <b>`min_bytes`</b>: Only show profiler nodes with memory consumption
-      no less than this.
+* <b>`min_bytes`</b>: Only show profiler nodes requested to allocate no less bytes
+      than this.
+* <b>`min_peak_bytes`</b>: Only show profiler nodes using no less than this bytes
+      at peak (high watermark). For profiler nodes consist of multiple
+      graph nodes, it sums the graph nodes' peak_bytes.
+* <b>`min_residual_bytes`</b>: Only show profiler nodes have no less than
+      this bytes not being de-allocated after Compute() ends. For
+      profiler nodes consist of multiple graph nodes, it sums the
+      graph nodes' residual_bytes.
+* <b>`min_output_bytes`</b>: Only show profiler nodes have no less than this bytes
+      output. The output are not necessarily allocated by this profiler
+      nodes.
 
 #### Returns:
 
-  self
+self
 
 <h3 id="with_min_occurrence"><code>with_min_occurrence</code></h3>
 
@@ -316,7 +363,7 @@ line, while an operation type includes all graph nodes of that type.
 
 #### Returns:
 
-  self
+self
 
 <h3 id="with_min_parameters"><code>with_min_parameters</code></h3>
 
@@ -336,7 +383,7 @@ It reflects the 'capacity' of models.
 
 #### Returns:
 
-  self
+self
 
 <h3 id="with_node_names"><code>with_node_names</code></h3>
 
@@ -369,7 +416,26 @@ evaluated as follows:
 
 #### Returns:
 
-  self
+self
+
+<h3 id="with_pprof_output"><code>with_pprof_output</code></h3>
+
+``` python
+with_pprof_output(pprof_file)
+```
+
+Generate a pprof profile gzip file.
+
+To use the pprof file:
+  pprof -png --nodecount=100 --sample_index=1 <pprof_file>
+
+#### Args:
+
+* <b>`pprof_file`</b>: filename for output, usually suffixed with .pb.gz.
+
+#### Returns:
+
+self.
 
 <h3 id="with_stdout_output"><code>with_stdout_output</code></h3>
 
@@ -396,7 +462,7 @@ The 'step' here refers to the step defined by `Profiler.add_step()` API.
 
 #### Returns:
 
-  self
+self
 
 <h3 id="with_timeline_output"><code>with_timeline_output</code></h3>
 

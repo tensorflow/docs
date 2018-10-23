@@ -47,7 +47,7 @@
 <html devsite>
   <head>
     <title>Output</title>
-    <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+    <meta name="book_path" value="/versions/r1.4/_book.yaml" />
     <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
@@ -107,8 +107,8 @@
     
     <p>A symbolic handle to a tensor produced by an <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>.
 
- <p>An Output is a symbolic handle to a tensor. The value of the Tensor is computed by executing
- the <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code> in a <code><a href="/api_docs/java/reference/org/tensorflow/Session.html">Session</a></code>.
+ <p>An <code>Output&lt;T&gt;</code> is a symbolic handle to a <code>Tensor&lt;T&gt;</code>. The value of the tensor is
+ computed by executing the <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code> in a <code><a href="/api_docs/java/reference/org/tensorflow/Session.html">Session</a></code>.
 
  <p>By implementing the <code><a href="/api_docs/java/reference/org/tensorflow/Operand.html">Operand</a></code> interface, instances of this class also act as operands to
  <code><a href="">ERROR(Op/org.tensorflow.op.Op Op)</a></code> instances.
@@ -213,7 +213,7 @@
                 
                 
                 
-                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>
+                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;T&gt;
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
@@ -597,7 +597,7 @@
                 
                 
                 
-                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>
+                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;T&gt;
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
@@ -724,7 +724,7 @@
             
             
             
-            <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>
+            <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;T&gt;
           </span>
           <span class="sympad"><strong>asOutput</strong></span>
           <span class="params">()</span>

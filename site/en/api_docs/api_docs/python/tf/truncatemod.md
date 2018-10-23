@@ -39,4 +39,4 @@ y + truncate_mod(x, y) = x`.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

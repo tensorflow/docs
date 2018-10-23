@@ -17,7 +17,7 @@ total_variation(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Denoising](../../../../api_guides/python/image#Denoising)
 
@@ -51,9 +51,9 @@ https://en.wikipedia.org/wiki/Total_variation_denoising
 
 #### Returns:
 
-  The total variation of `images`.
+The total variation of `images`.
 
-  If `images` was 4-D, return a 1-D float Tensor of shape `[batch]` with the
-  total variation for each image in the batch.
-  If `images` was 3-D, return a scalar float with the total variation for
-  that image.
+If `images` was 4-D, return a 1-D float Tensor of shape `[batch]` with the
+total variation for each image in the batch.
+If `images` was 3-D, return a scalar float with the total variation for
+that image.

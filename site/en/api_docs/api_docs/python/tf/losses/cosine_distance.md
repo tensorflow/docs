@@ -22,7 +22,7 @@ cosine_distance(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/losses/losses_impl.py).
 
 Adds a cosine-distance loss to the training procedure.
 
@@ -44,11 +44,11 @@ unit-normalized.
 
 #### Returns:
 
-  Weighted loss float `Tensor`. If `reduction` is `NONE`, this has the same
-  shape as `labels`; otherwise, it is scalar.
+Weighted loss float `Tensor`. If `reduction` is `NONE`, this has the same
+shape as `labels`; otherwise, it is scalar.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: If `predictions` shape doesn't match `labels` shape, or
-    `weights` is `None`.
+    `dim`, `labels`, `predictions` or `weights` is `None`.

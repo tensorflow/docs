@@ -14,7 +14,7 @@ Inherits From: [`LSTMBlockWrapper`](../../../tf/contrib/rnn/LSTMBlockWrapper)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/lstm_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/rnn/python/ops/lstm_ops.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/lstm_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/rnn/python/ops/lstm_ops.py).
 
 See the guide: [RNN and Cells (contrib) > Core RNN Cell wrappers (RNNCells that wrap other RNNCells)](../../../../../api_guides/python/contrib.rnn#Core_RNN_Cell_wrappers_RNNCells_that_wrap_other_RNNCells_)
 
@@ -58,7 +58,7 @@ Initialize the LSTM cell.
 
 * <b>`num_units`</b>: int, The number of units in the LSTM cell.
 * <b>`forget_bias`</b>: float, The bias added to forget gates (see above).
-* <b>`cell_clip`</b>: clip the cell to this value. Defaults to `3`.
+* <b>`cell_clip`</b>: clip the cell to this value. Default is no cell clipping.
 * <b>`use_peephole`</b>: Whether to use peephole connections or not.
 
 <h3 id="__call__"><code>__call__</code></h3>
@@ -94,12 +94,12 @@ Run this LSTM on inputs, starting from the given state.
 
 #### Returns:
 
-  A pair containing:
+A pair containing:
 
-  - Output: A `3-D` tensor of shape `[time_len, batch_size, output_size]`
-    or a list of time_len tensors of shape `[batch_size, output_size]`,
-    to match the type of the `inputs`.
-  - Final state: a tuple `(cell_state, output)` matching `initial_state`.
+- Output: A `3-D` tensor of shape `[time_len, batch_size, output_size]`
+  or a list of time_len tensors of shape `[batch_size, output_size]`,
+  to match the type of the `inputs`.
+- Final state: a tuple `(cell_state, output)` matching `initial_state`.
 
 
 #### Raises:

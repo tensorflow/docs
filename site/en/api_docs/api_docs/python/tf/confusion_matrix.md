@@ -21,7 +21,7 @@ confusion_matrix(
 
 
 
-Defined in [`tensorflow/python/ops/confusion_matrix.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/confusion_matrix.py).
+Defined in [`tensorflow/python/ops/confusion_matrix.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/confusion_matrix.py).
 
 Computes the confusion matrix from predictions and labels.
 
@@ -70,8 +70,8 @@ resulting in a 5x5 confusion matrix.
 
 #### Returns:
 
-  A k X k matrix representing the confusion matrix, where k is the number of
-  possible labels in the classification task.
+A k X k matrix representing the confusion matrix, where k is the number of
+possible labels in the classification task.
 
 
 #### Raises:

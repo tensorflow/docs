@@ -18,7 +18,7 @@ decode_image(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Encoding and Decoding](../../../../api_guides/python/image#Encoding_and_Decoding)
 
@@ -45,9 +45,9 @@ and/or PNG files.
 
 #### Returns:
 
-  `Tensor` with type `uint8` with shape `[height, width, num_channels]` for
-    BMP, JPEG, and PNG images and shape `[num_frames, height, width, 3]` for
-    GIF images.
+`Tensor` with type `uint8` with shape `[height, width, num_channels]` for
+  BMP, JPEG, and PNG images and shape `[num_frames, height, width, 3]` for
+  GIF images.
 
 
 #### Raises:

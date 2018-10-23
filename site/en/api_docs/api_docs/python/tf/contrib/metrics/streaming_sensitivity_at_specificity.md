@@ -23,11 +23,11 @@ streaming_sensitivity_at_specificity(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 See the guide: [Metrics (contrib) > Metric `Ops`](../../../../../api_guides/python/contrib.metrics#Metric_Ops_)
 
-Computes the specificity at a given sensitivity.
+Computes the sensitivity at a given specificity.
 
 The `streaming_sensitivity_at_specificity` function creates four local
 variables, `true_positives`, `true_negatives`, `false_positives` and

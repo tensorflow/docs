@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/helper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/helper.py).
 
 See the guide: [Seq2seq Library (contrib) > Dynamic Decoding](../../../../../api_guides/python/contrib.seq2seq#Dynamic_Decoding)
 
@@ -29,6 +29,18 @@ Helper instances are used by `BasicDecoder`.
 Batch size of tensor returned by `sample`.
 
 Returns a scalar int32 tensor.
+
+<h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
+
+DType of tensor returned by `sample`.
+
+Returns a DType.
+
+<h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
+
+Shape of tensor returned by `sample`, excluding the batch dimension.
+
+Returns a `TensorShape`.
 
 
 

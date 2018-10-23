@@ -18,7 +18,7 @@ weighted_categorical_column(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/feature_column/feature_column.py).
 
 Applies weight values to a `_CategoricalColumn`.
 
@@ -81,8 +81,8 @@ the same indices and dense shape.
 
 #### Returns:
 
-  A `_CategoricalColumn` composed of two sparse features: one represents id,
-  the other represents weight (value) of the id feature in that example.
+A `_CategoricalColumn` composed of two sparse features: one represents id,
+the other represents weight (value) of the id feature in that example.
 
 
 #### Raises:

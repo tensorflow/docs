@@ -14,7 +14,7 @@ Inherits From: [`GreedyEmbeddingHelper`](../../../tf/contrib/seq2seq/GreedyEmbed
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/helper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/helper.py).
 
 A helper for use during inference.
 
@@ -24,6 +24,14 @@ result through an embedding layer to get the next input.
 ## Properties
 
 <h3 id="batch_size"><code>batch_size</code></h3>
+
+
+
+<h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
+
+
+
+<h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
 
 
 
@@ -38,6 +46,7 @@ __init__(
     embedding,
     start_tokens,
     end_token,
+    softmax_temperature=None,
     seed=None
 )
 ```
@@ -51,7 +60,12 @@ Initializer.
     will be passed to the decoder input.
 * <b>`start_tokens`</b>: `int32` vector shaped `[batch_size]`, the start tokens.
 * <b>`end_token`</b>: `int32` scalar, the token that marks end of decoding.
-* <b>`seed`</b>: The sampling seed.
+* <b>`softmax_temperature`</b>: (Optional) `float32` scalar, value to divide the
+    logits by before computing the softmax. Larger values (above 1.0) result
+    in more random samples, while smaller values push the sampling
+    distribution towards the argmax. Must be strictly greater than 0.
+    Defaults to 1.0.
+* <b>`seed`</b>: (Optional) The sampling seed.
 
 
 #### Raises:

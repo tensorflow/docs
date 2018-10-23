@@ -21,7 +21,7 @@ hinge_loss(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/losses/losses_impl.py).
 
 Adds a hinge loss to the training procedure.
 
@@ -40,10 +40,11 @@ Adds a hinge loss to the training procedure.
 
 #### Returns:
 
-  Weighted loss float `Tensor`. If `reduction` is `NONE`, this has the same
-  shape as `labels`; otherwise, it is scalar.
+Weighted loss float `Tensor`. If `reduction` is `NONE`, this has the same
+shape as `labels`; otherwise, it is scalar.
 
 
 #### Raises:
 
-* <b>`ValueError`</b>: If the shapes of `logits` and `labels` don't match.
+* <b>`ValueError`</b>: If the shapes of `logits` and `labels` don't match or
+    if `labels` or `logits` is None.

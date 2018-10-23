@@ -24,7 +24,7 @@ model_with_buckets(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 Create a sequence-to-sequence model with support for bucketing.
 
@@ -54,12 +54,12 @@ e.g., seq2seq = lambda x, y: basic_rnn_seq2seq(
 
 #### Returns:
 
-  A tuple of the form (outputs, losses), where:
-    outputs: The outputs for each bucket. Its j'th element consists of a list
+A tuple of the form (outputs, losses), where:
+* <b>`outputs`</b>: The outputs for each bucket. Its j'th element consists of a list
       of 2D Tensors. The shape of output tensors can be either
       [batch_size x output_size] or [batch_size x num_decoder_symbols]
       depending on the seq2seq model used.
-    losses: List of scalar Tensors, representing losses for each bucket, or,
+* <b>`losses`</b>: List of scalar Tensors, representing losses for each bucket, or,
       if per_example_loss is set, a list of 1D batch-sized float Tensors.
 
 

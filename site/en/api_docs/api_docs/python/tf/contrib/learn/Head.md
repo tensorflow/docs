@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/head.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/head.py).
 
 Interface for the head/top of a model.
 
@@ -92,7 +92,7 @@ Typically, logits is of shape `[batch_size, logits_dimension]`.
 
 #### Returns:
 
-  The expected size of the `logits` tensor.
+The expected size of the `logits` tensor.
 
 
 
@@ -139,7 +139,7 @@ Please note that,
 
 #### Returns:
 
-  An instance of `ModelFnOps`.
+An instance of `ModelFnOps`.
 
 
 #### Raises:

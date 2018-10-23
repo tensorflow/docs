@@ -14,7 +14,7 @@ Inherits From: [`StochasticTensor`](../../../../tf/contrib/bayesflow/stochastic_
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/stochastic_tensor_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/stochastic_tensor_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/stochastic_tensor_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/stochastic_tensor_impl.py).
 
 A StochasticTensor with an observed value.
 

@@ -17,7 +17,7 @@ get_collection(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Graph collections](../../../api_guides/python/framework#Graph_collections)
 
@@ -39,7 +39,7 @@ for more details.
 
 #### Returns:
 
-  The list of values in the collection with the given `name`, or
-  an empty list if no value has been added to that collection. The
-  list contains the values in the order under which they were
-  collected.
+The list of values in the collection with the given `name`, or
+an empty list if no value has been added to that collection. The
+list contains the values in the order under which they were
+collected.

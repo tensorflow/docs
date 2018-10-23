@@ -14,11 +14,11 @@ Inherits From: [`SessionCreator`](../../tf/train/SessionCreator)
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/monitored_session.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
-Creates a tf.Session  for a chief.
+Creates a tf.Session for a chief.
 
 ## Methods
 

@@ -18,7 +18,7 @@ categorical_column_with_hash_bucket(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/feature_column/feature_column.py).
 
 Represents sparse feature where ids are set by hashing.
 
@@ -57,7 +57,7 @@ dense_tensor = input_layer(features, columns)
 
 #### Returns:
 
-  A `_HashedCategoricalColumn`.
+A `_HashedCategoricalColumn`.
 
 
 #### Raises:

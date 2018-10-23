@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 Wraps a `TimeSeriesReader` to create random batches of windows.
 
@@ -107,9 +107,9 @@ Create queues to window and batch time series data.
 
 #### Returns:
 
-  A dictionary of Tensors corresponding to the output of `self._reader`
-  (from the `time_series_reader` constructor argument), each with shapes
-  prefixed by [`batch_size`, `window_size`].
+A dictionary of Tensors corresponding to the output of `self._reader`
+(from the `time_series_reader` constructor argument), each with shapes
+prefixed by [`batch_size`, `window_size`].
 
 
 

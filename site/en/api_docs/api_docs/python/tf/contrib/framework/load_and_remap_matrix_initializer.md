@@ -27,7 +27,7 @@ load_and_remap_matrix_initializer(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
+Defined in [`tensorflow/python/training/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/checkpoint_ops.py).
 
 Returns a var initializer for loading and remapping a 2-D (matrix) tensor.
 
@@ -130,10 +130,10 @@ same.
 
 #### Returns:
 
-  A variable initializer function that should be used to initialize a
-  (potentially partitioned) `Variable` whose complete shape is
-  `[new_row_vocab_size + num_row_oov_buckets, new_col_vocab_size +
-  num_col_oov_buckets]`.
+A variable initializer function that should be used to initialize a
+(potentially partitioned) `Variable` whose complete shape is
+`[new_row_vocab_size + num_row_oov_buckets, new_col_vocab_size +
+num_col_oov_buckets]`.
 
 
 #### Raises:

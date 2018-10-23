@@ -29,7 +29,7 @@ batch_sequences_with_states(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
+Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
 
 See the guide: [Training (contrib) > Splitting sequence inputs into minibatches with state saving](../../../../../api_guides/python/contrib.training#Splitting_sequence_inputs_into_minibatches_with_state_saving)
 
@@ -184,8 +184,8 @@ while True:
 
 #### Returns:
 
-  A NextQueuedSequenceBatch with segmented and batched inputs and their
-  states.
+A NextQueuedSequenceBatch with segmented and batched inputs and their
+states.
 
 
 #### Raises:

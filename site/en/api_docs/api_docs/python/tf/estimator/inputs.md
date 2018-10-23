@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/inputs/inputs.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/inputs/inputs.py).
+Defined in [`tensorflow/python/estimator/inputs/inputs.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/inputs/inputs.py).
 
 Utility methods to create simple input_fns.
 

@@ -8,6 +8,11 @@ page_type: reference
 
 # tf.trace
 
+### Aliases:
+
+* `tf.linalg.trace`
+* `tf.trace`
+
 ``` python
 trace(
     x,
@@ -17,7 +22,7 @@ trace(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Matrix Math Functions](../../../api_guides/python/math_ops#Matrix_Math_Functions)
 
@@ -32,22 +37,21 @@ is a tensor of rank `k-2` with dimensions `[I, J, K, ..., L]` where
 For example:
 
 ```python
-# 'x' is [[1, 2],
-#         [3, 4]]
-tf.trace(x) ==> 5
+x = tf.constant([[1, 2], [3, 4]])
+tf.trace(x)  # 5
 
-# 'x' is [[1,2,3],
-#         [4,5,6],
-#         [7,8,9]]
-tf.trace(x) ==> 15
+x = tf.constant([[1, 2, 3],
+                 [4, 5, 6],
+                 [7, 8, 9]])
+tf.trace(x)  # 15
 
-# 'x' is [[[1,2,3],
-#          [4,5,6],
-#          [7,8,9]],
-#         [[-1,-2,-3],
-#          [-4,-5,-6],
-#          [-7,-8,-9]]]
-tf.trace(x) ==> [15,-15]
+x = tf.constant([[[1, 2, 3],
+                  [4, 5, 6],
+                  [7, 8, 9]],
+                 [[-1, -2, -3],
+                  [-4, -5, -6],
+                  [-7, -8, -9]]])
+tf.trace(x)  # [15, -15]
 ```
 
 #### Args:
@@ -58,4 +62,4 @@ tf.trace(x) ==> [15,-15]
 
 #### Returns:
 
-  The trace of input tensor.
+The trace of input tensor.

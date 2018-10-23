@@ -14,7 +14,7 @@ compute_boundary_ts(ops)
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/select.py).
+Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/select.py).
 
 See the guide: [Graph Editor (contrib) > Module: select](../../../../../api_guides/python/contrib.graph_editor#Module_select)
 
@@ -35,12 +35,12 @@ consumed by operations both outside and inside of `ops`.
 
 #### Returns:
 
-  A tuple `(outside_input_ts, outside_output_ts, inside_ts)` where:
-    `outside_input_ts` is a Python list of input tensors;
-    `outside_output_ts` is a python list of output tensors;
-    `inside_ts` is a python list of inside tensors.
-  Since a tensor can be both an inside tensor and an output tensor,
-  `outside_output_ts` and `inside_ts` might intersect.
+A tuple `(outside_input_ts, outside_output_ts, inside_ts)` where:
+  `outside_input_ts` is a Python list of input tensors;
+  `outside_output_ts` is a python list of output tensors;
+  `inside_ts` is a python list of inside tensors.
+Since a tensor can be both an inside tensor and an output tensor,
+`outside_output_ts` and `inside_ts` might intersect.
 
 #### Raises:
 

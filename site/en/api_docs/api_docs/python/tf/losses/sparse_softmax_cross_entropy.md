@@ -21,7 +21,7 @@ sparse_softmax_cross_entropy(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/losses/losses_impl.py).
 
 Cross-entropy loss using `tf.nn.sparse_softmax_cross_entropy_with_logits`.
 
@@ -39,8 +39,8 @@ corresponding sample.
     loss and gradient rows on GPU.
 * <b>`logits`</b>: Unscaled log probabilities of shape
     `[d_0, d_1, ..., d_{r-1}, num_classes]` and dtype `float32` or `float64`.
-* <b>`weights`</b>: Coefficients for the loss. This must be scalar or of same rank as
-    `labels`
+* <b>`weights`</b>: Coefficients for the loss. This must be scalar or broadcastable to
+    `labels` (i.e. same rank and each dimension is either 1 or the same).
 * <b>`scope`</b>: the scope for the operations performed in computing the loss.
 * <b>`loss_collection`</b>: collection to which the loss will be added.
 * <b>`reduction`</b>: Type of reduction to apply to loss.
@@ -48,11 +48,11 @@ corresponding sample.
 
 #### Returns:
 
-  Weighted loss `Tensor` of the same type as `logits`. If `reduction` is
-  `NONE`, this has the same shape as `labels`; otherwise, it is scalar.
+Weighted loss `Tensor` of the same type as `logits`. If `reduction` is
+`NONE`, this has the same shape as `labels`; otherwise, it is scalar.
 
 
 #### Raises:
 
-* <b>`ValueError`</b>: If the shapes of logits, labels, and weight are incompatible, or
-    if `weights` is None.
+* <b>`ValueError`</b>: If the shapes of `logits`, `labels`, and `weights` are
+    incompatible, or if any of them are None.

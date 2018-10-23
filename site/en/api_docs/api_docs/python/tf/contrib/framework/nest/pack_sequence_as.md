@@ -17,12 +17,21 @@ pack_sequence_as(
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/nest.py).
 
-Returns a given flattened sequence packed into a nest.
+Returns a given flattened sequence packed into a given structure.
 
 If `structure` is a scalar, `flat_sequence` must be a single-element list;
 in this case the return value is `flat_sequence[0]`.
+
+If `structure` is or contains a dict instance, the keys will be sorted to
+pack the flat sequence in deterministic order. This is true also for
+`OrderedDict` instances: their sequence order is ignored, the sorting order of
+keys is used instead. The same convention is followed in `pack_sequence_as`.
+This correctly repacks dicts and `OrderedDict`s after they have been
+flattened, and also allows flattening an `OrderedDict` and then repacking it
+back using a correponding plain dict, or vice-versa.
+Dictionaries with non-sortable keys cannot be flattened.
 
 #### Args:
 
@@ -40,4 +49,6 @@ in this case the return value is `flat_sequence[0]`.
 
 #### Raises:
 
-* <b>`ValueError`</b>: If nest and structure have different element counts.
+* <b>`ValueError`</b>: If `flat_sequence` and `structure` have different
+    element counts.
+* <b>`TypeError`</b>: `structure` is or contains a dict with non-sortable keys.

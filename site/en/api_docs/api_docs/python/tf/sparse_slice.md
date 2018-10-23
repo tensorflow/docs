@@ -19,7 +19,7 @@ sparse_slice(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 Slice a `SparseTensor` based on the `start` and `size.
 
@@ -49,7 +49,7 @@ Graphically the output tensors are:
 
 #### Returns:
 
-  A `SparseTensor` objects resulting from splicing.
+A `SparseTensor` objects resulting from splicing.
 
 
 #### Raises:

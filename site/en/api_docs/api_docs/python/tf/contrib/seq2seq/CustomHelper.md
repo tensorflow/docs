@@ -14,7 +14,7 @@ Inherits From: [`Helper`](../../../tf/contrib/seq2seq/Helper)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/helper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/helper.py).
 
 See the guide: [Seq2seq Library (contrib) > Dynamic Decoding](../../../../../api_guides/python/contrib.seq2seq#Dynamic_Decoding)
 
@@ -23,6 +23,14 @@ Base abstract class that allows the user to customize sampling.
 ## Properties
 
 <h3 id="batch_size"><code>batch_size</code></h3>
+
+
+
+<h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
+
+
+
+<h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
 
 
 
@@ -36,7 +44,9 @@ Base abstract class that allows the user to customize sampling.
 __init__(
     initialize_fn,
     sample_fn,
-    next_inputs_fn
+    next_inputs_fn,
+    sample_ids_shape=None,
+    sample_ids_dtype=None
 )
 ```
 
@@ -50,6 +60,10 @@ Initializer.
     and emits tensor `sample_ids`.
 * <b>`next_inputs_fn`</b>: callable that takes `(time, outputs, state, sample_ids)`
     and emits `(finished, next_inputs, next_state)`.
+* <b>`sample_ids_shape`</b>: Either a list of integers, or a 1-D Tensor of type
+    `int32`, the shape of each value in the `sample_ids` batch. Defaults to
+    a scalar.
+* <b>`sample_ids_dtype`</b>: The dtype of the `sample_ids` tensor. Defaults to int32.
 
 <h3 id="initialize"><code>initialize</code></h3>
 

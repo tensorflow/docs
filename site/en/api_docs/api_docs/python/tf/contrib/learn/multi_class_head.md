@@ -24,7 +24,7 @@ multi_class_head(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/learn/python/learn/estimators/head.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/learn/python/learn/estimators/head.py).
 
 Creates a `Head` for multi class single label classification.
 
@@ -62,7 +62,7 @@ vocabulary.
 
 #### Returns:
 
-  An instance of `Head` for multi class classification.
+An instance of `Head` for multi class classification.
 
 
 #### Raises:

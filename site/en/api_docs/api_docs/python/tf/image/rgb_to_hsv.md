@@ -40,4 +40,4 @@ corresponds to pure red, hue 1/3 is pure green, and 2/3 is pure blue.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `images`. `images` converted to HSV.
+A `Tensor`. Has the same type as `images`. `images` converted to HSV.

@@ -17,7 +17,7 @@ with_shape(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/framework/tensor_util.py).
+Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/framework/tensor_util.py).
 
 See the guide: [Framework (contrib)](../../../../../api_guides/python/contrib.framework)
 
@@ -35,7 +35,7 @@ evaluated, and set shape on tensor.
 
 #### Returns:
 
-  tensor, perhaps with a dependent assert operation.
+tensor, perhaps with a dependent assert operation.
 
 #### Raises:
 

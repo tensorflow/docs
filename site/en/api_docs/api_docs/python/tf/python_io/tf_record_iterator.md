@@ -17,7 +17,7 @@ tf_record_iterator(
 
 
 
-Defined in [`tensorflow/python/lib/io/tf_record.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/lib/io/tf_record.py).
+Defined in [`tensorflow/python/lib/io/tf_record.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/lib/io/tf_record.py).
 
 See the guide: [Data IO (Python functions)](../../../../api_guides/python/python_io)
 
@@ -31,7 +31,7 @@ An iterator that read the records from a TFRecords file.
 
 #### Yields:
 
-  Strings.
+Strings.
 
 
 #### Raises:

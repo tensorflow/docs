@@ -14,7 +14,7 @@ Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/evaluation.py).
+Defined in [`tensorflow/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/evaluation.py).
 
 Run hook used by the evaluation routines to run the `eval_ops` N times.
 
@@ -33,7 +33,8 @@ Constructs the run hook.
 
 #### Args:
 
-* <b>`num_evals`</b>: The number of evaluations to run for.
+* <b>`num_evals`</b>: The number of evaluations to run for. if set to None, will
+    iterate the dataset until all inputs are exhausted.
 * <b>`log_progress`</b>: Whether to log evaluation progress, defaults to True.
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>

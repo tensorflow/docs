@@ -17,7 +17,7 @@ softplus_inverse(
 
 
 
-Defined in [`tensorflow/python/ops/distributions/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/distributions/util.py).
+Defined in [`tensorflow/python/ops/distributions/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/distributions/util.py).
 
 See the guide: [Statistical Distributions (contrib) > Utilities](../../../../../api_guides/python/contrib.distributions#Utilities)
 
@@ -37,4 +37,4 @@ softplus_inverse = log(exp(x) - 1.)
 
 #### Returns:
 
-  `Tensor`. Has the same type/shape as input `x`.
+`Tensor`. Has the same type/shape as input `x`.

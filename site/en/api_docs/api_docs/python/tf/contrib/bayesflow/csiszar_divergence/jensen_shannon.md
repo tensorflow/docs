@@ -18,7 +18,7 @@ jensen_shannon(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/bayesflow/python/ops/csiszar_divergence_impl.py).
 
 The Jensen-Shannon Csiszar-function in log-space.
 
@@ -58,7 +58,7 @@ For more information, see:
 
 #### Args:
 
-* <b>`logu`</b>: Floating-type `Tensor` representing `log(u)` from above.
+* <b>`logu`</b>: `float`-like `Tensor` representing `log(u)` from above.
 * <b>`self_normalized`</b>: Python `bool` indicating whether `f'(u=1)=0`. When
     `f'(u=1)=0` the implied Csiszar f-Divergence remains non-negative even
     when `p, q` are unnormalized measures.
@@ -67,5 +67,5 @@ For more information, see:
 
 #### Returns:
 
-* <b>`jensen_shannon_of_u`</b>: Floating-type `Tensor` of the Csiszar-function
+* <b>`jensen_shannon_of_u`</b>: `float`-like `Tensor` of the Csiszar-function
     evaluated at `u = exp(logu)`.

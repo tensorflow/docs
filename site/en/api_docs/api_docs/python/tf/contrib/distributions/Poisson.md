@@ -14,7 +14,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/poisson.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/distributions/python/ops/poisson.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/poisson.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/distributions/python/ops/poisson.py).
 
 See the guide: [Statistical Distributions (contrib) > Univariate (scalar) distributions](../../../../../api_guides/python/contrib.distributions#Univariate_scalar_distributions)
 
@@ -78,6 +78,10 @@ May be partially defined or unknown.
 
 * <b>`event_shape`</b>: `TensorShape`, possibly unknown.
 
+<h3 id="log_rate"><code>log_rate</code></h3>
+
+Log rate parameter.
+
 <h3 id="name"><code>name</code></h3>
 
 Name prepended to all ops created by this `Distribution`.
@@ -100,7 +104,7 @@ or `distributions.NOT_REPARAMETERIZED`.
 
 #### Returns:
 
-  An instance of `ReparameterizationType`.
+An instance of `ReparameterizationType`.
 
 <h3 id="validate_args"><code>validate_args</code></h3>
 
@@ -114,7 +118,8 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 ``` python
 __init__(
-    rate,
+    rate=None,
+    log_rate=None,
     validate_args=False,
     allow_nan_stats=True,
     name='Poisson'
@@ -125,8 +130,10 @@ Initialize a batch of Poisson distributions.
 
 #### Args:
 
-* <b>`rate`</b>: Floating point tensor, the rate parameter of the
-    distribution(s). `rate` must be positive.
+* <b>`rate`</b>: Floating point tensor, the rate parameter. `rate` must be positive.
+    Must specify exactly one of `rate` and `log_rate`.
+* <b>`log_rate`</b>: Floating point tensor, the log of the rate parameter.
+    Must specify exactly one of `rate` and `log_rate`.
 * <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
     parameters are checked for validity despite possibly degrading runtime
     performance. When `False` invalid inputs may silently render incorrect
@@ -136,6 +143,13 @@ Initialize a batch of Poisson distributions.
     result is undefined. When `False`, an exception is raised if one or
     more of the statistic's batch members are undefined.
 * <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if none or both of `rate`, `log_rate` are specified.
+* <b>`TypeError`</b>: if `rate` is not a float-type.
+* <b>`TypeError`</b>: if `log_rate` is not a float-type.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 
@@ -205,7 +219,7 @@ initialization arguments.
 
 #### Args:
 
-  **override_parameters_kwargs: String/value dictionary of initialization
+* <b>`**override_parameters_kwargs`</b>: String/value dictionary of initialization
     arguments to override with new values.
 
 
@@ -416,8 +430,8 @@ survival function, which are more accurate than `1 - cdf(x)` when `x >> 1`.
 
 #### Returns:
 
-  `Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
-    `self.dtype`.
+`Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
+  `self.dtype`.
 
 <h3 id="mean"><code>mean</code></h3>
 
@@ -467,7 +481,7 @@ Subclasses should override class method `_param_shapes`.
 
 #### Returns:
 
-  `dict` of parameter name to `Tensor` shapes.
+`dict` of parameter name to `Tensor` shapes.
 
 <h3 id="param_static_shapes"><code>param_static_shapes</code></h3>
 
@@ -496,7 +510,7 @@ constant-valued tensors when constant values are fed.
 
 #### Returns:
 
-  `dict` of parameter name to `TensorShape`.
+`dict` of parameter name to `TensorShape`.
 
 
 #### Raises:
@@ -633,8 +647,8 @@ survival_function(x) = P[X > x]
 
 #### Returns:
 
-  `Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
-    `self.dtype`.
+`Tensor` of shape `sample_shape(x) + self.batch_shape` with values of type
+  `self.dtype`.
 
 <h3 id="variance"><code>variance</code></h3>
 

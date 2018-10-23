@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::SparseCross Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -12,7 +12,7 @@
   <code>#include &lt;sparse_ops.h&gt;</code>
   <p>Generates sparse cross from a list of sparse and dense tensors. </p>
   <h2>Summary</h2>
-  <p>The op takes two lists, one of 2D <code>SparseTensor</code> and one of 2D <code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>, each representing features of one feature column. It outputs a 2D <code>SparseTensor</code> with the batchwise crosses of these features.</p>
+  <p>The op takes two lists, one of 2D <code>SparseTensor</code> and one of 2D <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>, each representing features of one feature column. It outputs a 2D <code>SparseTensor</code> with the batchwise crosses of these features.</p>
   <p>For example, if the inputs are <pre class="prettyprint">inputs[0]: SparseTensor with shape = [2, 2]
 [0, 0]: "a"
 [1, 0]: "b"
@@ -41,19 +41,19 @@ inputs[2]: Tensor [["f"], ["g"]]
                 Fingerprint64("e"), Fingerprint64("c")))
 </pre></p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>indices: 2-D. Indices of each input <code>SparseTensor</code>.</li>
       <li>values: 1-D. values of each <code>SparseTensor</code>.</li>
       <li>shapes: 1-D. Shapes of each <code>SparseTensor</code>.</li>
-      <li>dense_inputs: 2-D. Columns represented by dense <code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>.</li>
+      <li>dense_inputs: 2-D. Columns represented by dense <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>.</li>
       <li>hashed_output: If true, returns the hash of the cross instead of the string. This will allow us avoiding string manipulations.</li>
       <li>num_buckets: It is used if hashed_output is true. output = hashed_valuenum_buckets if num_buckets > 0 else hashed_value.</li>
       <li>hash_key: Specify the hash_key that will be used by the <code>FingerprintCat64</code> function to combine the crosses fingerprints.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_indices: 2-D. Indices of the concatenated <code>SparseTensor</code>.</li>
-      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_values: 1-D. Non-empty values of the concatenated or hashed <code>SparseTensor</code>.</li>
-      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_shape: 1-D. <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of the concatenated <code>SparseTensor</code>. </li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_indices: 2-D. Indices of the concatenated <code>SparseTensor</code>.</li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_values: 1-D. Non-empty values of the concatenated or hashed <code>SparseTensor</code>.</li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_shape: 1-D. <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of the concatenated <code>SparseTensor</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -63,7 +63,7 @@ inputs[2]: Tensor [["f"], ["g"]]
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_sparse_cross_1aed8888154d0f2d69bb849055ef8805ae">SparseCross</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> indices, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> shapes, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> dense_inputs, bool hashed_output, int64 num_buckets, int64 hash_key, DataType out_type, DataType internal_type)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_cross_1aed8888154d0f2d69bb849055ef8805ae">SparseCross</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> indices, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> shapes, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> dense_inputs, bool hashed_output, int64 num_buckets, int64 hash_key, DataType out_type, DataType internal_type)</code>
         <br />
       </td>
     </tr>
@@ -80,7 +80,7 @@ inputs[2]: Tensor [["f"], ["g"]]
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -90,7 +90,7 @@ inputs[2]: Tensor [["f"], ["g"]]
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -100,7 +100,7 @@ inputs[2]: Tensor [["f"], ["g"]]
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -108,28 +108,28 @@ inputs[2]: Tensor [["f"], ["g"]]
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_sparse_cross_1aff3e5729686b249a84f3047cd2c7b2fa">
     <h3>output_indices</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_indices</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_indices</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_sparse_cross_1a168d4af0a9f32f170b7fd033550d0d24">
     <h3>output_shape</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_shape</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_shape</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_sparse_cross_1a811794f95c743d1e8f345356e773447a">
     <h3>output_values</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_values</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_values</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_sparse_cross_1aed8888154d0f2d69bb849055ef8805ae">
     <h3>SparseCross</h3>
     <pre class="prettyprint"> SparseCross(
-  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> indices,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> shapes,
-  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> dense_inputs,
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> indices,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> shapes,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> dense_inputs,
   bool hashed_output,
   int64 num_buckets,
   int64 hash_key,

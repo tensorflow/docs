@@ -19,7 +19,7 @@ assert_type(
 
 
 
-Defined in [`tensorflow/python/ops/check_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/check_ops.py).
+Defined in [`tensorflow/python/ops/check_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/check_ops.py).
 
 See the guide: [Asserts and boolean checks](../../../api_guides/python/check_ops)
 
@@ -41,4 +41,4 @@ Statically asserts that the given `Tensor` is of the specified type.
 
 #### Returns:
 
-  A `no_op` that does nothing.  Type can be determined statically.
+A `no_op` that does nothing.  Type can be determined statically.

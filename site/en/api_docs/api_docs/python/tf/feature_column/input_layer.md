@@ -19,7 +19,7 @@ input_layer(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/feature_column/feature_column.py).
 
 Returns a dense `Tensor` as input layer based on given `feature_columns`.
 
@@ -61,9 +61,9 @@ prediction = tf.layers.dense(dense_tensor, 1)
 
 #### Returns:
 
-  A `Tensor` which represents input layer of a model. Its shape
-  is (batch_size, first_layer_dimension) and its dtype is `float32`.
-  first_layer_dimension is determined based on given `feature_columns`.
+A `Tensor` which represents input layer of a model. Its shape
+is (batch_size, first_layer_dimension) and its dtype is `float32`.
+first_layer_dimension is determined based on given `feature_columns`.
 
 
 #### Raises:

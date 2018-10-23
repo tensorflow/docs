@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/linalg/python/ops/linear_operator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/linalg/python/ops/linear_operator.py).
+Defined in [`tensorflow/contrib/linalg/python/ops/linear_operator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/linalg/python/ops/linear_operator.py).
 
 See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../../api_guides/python/contrib.linalg#_LinearOperator_)
 
@@ -129,7 +129,7 @@ If this operator acts like the batch matrix `A` with
 
 #### Returns:
 
-  `TensorShape`, statically determined, may be undefined.
+`TensorShape`, statically determined, may be undefined.
 
 <h3 id="domain_dimension"><code>domain_dimension</code></h3>
 
@@ -140,7 +140,7 @@ If this operator acts like the batch matrix `A` with
 
 #### Returns:
 
-  `Dimension` object.
+`Dimension` object.
 
 <h3 id="dtype"><code>dtype</code></h3>
 
@@ -179,7 +179,7 @@ If this operator acts like the batch matrix `A` with
 
 #### Returns:
 
-  `Dimension` object.
+`Dimension` object.
 
 <h3 id="shape"><code>shape</code></h3>
 
@@ -191,7 +191,7 @@ If this operator acts like the batch matrix `A` with
 
 #### Returns:
 
-  `TensorShape`, statically determined, may be undefined.
+`TensorShape`, statically determined, may be undefined.
 
 <h3 id="tensor_rank"><code>tensor_rank</code></h3>
 
@@ -207,7 +207,7 @@ If this operator acts like the batch matrix `A` with
 
 #### Returns:
 
-  Python integer, or None if the tensor rank is undefined.
+Python integer, or None if the tensor rank is undefined.
 
 
 
@@ -275,7 +275,7 @@ Add matrix represented by this operator to `x`.  Equivalent to `A + x`.
 
 #### Returns:
 
-  A `Tensor` with broadcast shape and same `dtype` as `self`.
+A `Tensor` with broadcast shape and same `dtype` as `self`.
 
 <h3 id="assert_non_singular"><code>assert_non_singular</code></h3>
 
@@ -299,8 +299,8 @@ eps := np.finfo(self.dtype.as_numpy_dtype).eps
 
 #### Returns:
 
-  An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
-    the operator is singular.
+An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
+  the operator is singular.
 
 <h3 id="assert_positive_definite"><code>assert_positive_definite</code></h3>
 
@@ -321,8 +321,8 @@ be self-adjoint to be positive definite.
 
 #### Returns:
 
-  An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
-    the operator is not positive definite.
+An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
+  the operator is not positive definite.
 
 <h3 id="assert_self_adjoint"><code>assert_self_adjoint</code></h3>
 
@@ -342,8 +342,8 @@ transpose.
 
 #### Returns:
 
-  An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
-    the operator is not self-adjoint.
+An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
+  the operator is not self-adjoint.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 
@@ -364,7 +364,7 @@ If this operator acts like the batch matrix `A` with
 
 #### Returns:
 
-  `int32` `Tensor`
+`int32` `Tensor`
 
 <h3 id="determinant"><code>determinant</code></h3>
 
@@ -381,7 +381,7 @@ Determinant for every batch member.
 
 #### Returns:
 
-  `Tensor` with shape `self.batch_shape` and same `dtype` as `self`.
+`Tensor` with shape `self.batch_shape` and same `dtype` as `self`.
 
 
 #### Raises:
@@ -441,7 +441,7 @@ If this operator acts like the batch matrix `A` with
 
 #### Returns:
 
-  `int32` `Tensor`
+`int32` `Tensor`
 
 <h3 id="log_abs_determinant"><code>log_abs_determinant</code></h3>
 
@@ -458,7 +458,7 @@ Log absolute value of determinant for every batch member.
 
 #### Returns:
 
-  `Tensor` with shape `self.batch_shape` and same `dtype` as `self`.
+`Tensor` with shape `self.batch_shape` and same `dtype` as `self`.
 
 
 #### Raises:
@@ -504,7 +504,7 @@ Y[..., :, r] = sum_j A[..., :, j] X[j, r]
 
 #### Returns:
 
-  A `Tensor` with shape `[..., M, R]` and same `dtype` as `self`.
+A `Tensor` with shape `[..., M, R]` and same `dtype` as `self`.
 
 <h3 id="matvec"><code>matvec</code></h3>
 
@@ -543,7 +543,7 @@ Y[..., :] = sum_j A[..., :, j] X[..., j]
 
 #### Returns:
 
-  A `Tensor` with shape `[..., M]` and same `dtype` as `self`.
+A `Tensor` with shape `[..., M]` and same `dtype` as `self`.
 
 <h3 id="range_dimension_tensor"><code>range_dimension_tensor</code></h3>
 
@@ -565,7 +565,7 @@ If this operator acts like the batch matrix `A` with
 
 #### Returns:
 
-  `int32` `Tensor`
+`int32` `Tensor`
 
 <h3 id="shape_tensor"><code>shape_tensor</code></h3>
 
@@ -586,7 +586,7 @@ If this operator acts like the batch matrix `A` with
 
 #### Returns:
 
-  `int32` `Tensor`
+`int32` `Tensor`
 
 <h3 id="solve"><code>solve</code></h3>
 
@@ -637,7 +637,7 @@ operator.matmul(X)
 
 #### Returns:
 
-  `Tensor` with shape `[...,N, R]` and same `dtype` as `rhs`.
+`Tensor` with shape `[...,N, R]` and same `dtype` as `rhs`.
 
 
 #### Raises:
@@ -690,7 +690,7 @@ operator.matvec(X)
 
 #### Returns:
 
-  `Tensor` with shape `[...,N]` and same `dtype` as `rhs`.
+`Tensor` with shape `[...,N]` and same `dtype` as `rhs`.
 
 
 #### Raises:
@@ -715,7 +715,7 @@ If this operator acts like the batch matrix `A` with
 
 #### Returns:
 
-  `int32` `Tensor`, determined at runtime.
+`int32` `Tensor`, determined at runtime.
 
 <h3 id="to_dense"><code>to_dense</code></h3>
 
@@ -742,7 +742,7 @@ If the operator is square, this is also the sum of the eigenvalues.
 
 #### Returns:
 
-  Shape `[B1,...,Bb]` `Tensor` of same `dtype` as `self`.
+Shape `[B1,...,Bb]` `Tensor` of same `dtype` as `self`.
 
 
 

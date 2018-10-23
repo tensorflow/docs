@@ -14,7 +14,7 @@ make_regex(obj)
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/graph_editor/select.py).
+Defined in [`tensorflow/contrib/graph_editor/select.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/graph_editor/select.py).
 
 Return a compiled regular expression.
 
@@ -24,7 +24,7 @@ Return a compiled regular expression.
 
 #### Returns:
 
-  A compiled regular expression.
+A compiled regular expression.
 
 #### Raises:
 

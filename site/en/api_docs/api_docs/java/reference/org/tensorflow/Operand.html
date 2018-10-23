@@ -47,7 +47,7 @@
 <html devsite>
   <head>
     <title>Operand</title>
-    <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+    <meta name="book_path" value="/versions/r1.4/_book.yaml" />
     <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
@@ -97,7 +97,7 @@
               >
           
             
-              <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>
+              <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;T&gt;
             
           
       </div>
@@ -106,7 +106,7 @@
               >
   <table class="jd-sumtable-expando">
         <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a></td>
+              <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;T&gt;</td>
               <td class="jd-descrcol" width="100%">A symbolic handle to a tensor produced by an <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>.&nbsp;</td>
           </tr>
   </table>
@@ -123,15 +123,15 @@
  <p>Example usage:
 
  <pre class="prettyprint"><code>// The "decodeJpeg" operation can be used as an operand to the "cast" operation
- Operand decodeJpeg = ops.image().decodeJpeg(...);
+ Operand&lt;UInt8&gt; decodeJpeg = ops.image().decodeJpeg(...);
  ops.math().cast(decodeJpeg, DataType.FLOAT);
 
  // The output "y" of the "unique" operation can be used as an operand to the "cast" operation
- Output y = ops.array().unique(...).y();
- ops.math().cast(y, DataType.FLOAT);
+ Output&lt;Integer&gt; y = ops.array().unique(...).y();
+ ops.math().cast(y, Float.class);
 
  // The "split" operation can be used as operand list to the "concat" operation
- Iterable&lt;? extends Operand&gt; split = ops.array().split(...);
+ Iterable&lt;? extends Operand&lt;Float&gt;&gt; split = ops.array().split(...);
  ops.array().concat(0, split);
  </code></pre>
 </p>
@@ -202,7 +202,7 @@
                 
                 
                 
-                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>
+                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;T&gt;
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
@@ -278,7 +278,7 @@
             
             abstract
             
-            <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>
+            <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;T&gt;
           </span>
           <span class="sympad"><strong>asOutput</strong></span>
           <span class="params">()</span>
@@ -297,7 +297,7 @@
  used to obtain a symbolic handle that represents the computation of the input.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#addInput(org.tensorflow.Output)">addInput(Output)</a></code></li>
+      <ul class="nolist"><li><code><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#addInput(org.tensorflow.Output<?>)">addInput(Output)</a></code></li>
       </ul>
   </div>
 

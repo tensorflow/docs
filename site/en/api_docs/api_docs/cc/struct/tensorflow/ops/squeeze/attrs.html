@@ -3,14 +3,14 @@
 <head>
   <title>tensorflow::ops::Squeeze::Attrs Struct Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>Squeeze::<wbr/>Attrs</h1>
   <code>#include &lt;array_ops.h&gt;</code>
-  <p>Optional attribute setters for <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/squeeze.html#classtensorflow_1_1ops_1_1_squeeze">Squeeze</a>. </p>
+  <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/squeeze.html#classtensorflow_1_1ops_1_1_squeeze">Squeeze</a>. </p>
   <h2>Summary</h2>
   <table class="properties responsive">
     <tr>
@@ -41,7 +41,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/squeeze/attrs.html#structtensorflow_1_1ops_1_1_squeeze_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/squeeze/attrs.html#structtensorflow_1_1ops_1_1_squeeze_1_1_attrs">Attrs</a></code>
         </div>
         <div>If specified, only squeezes the dimensions listed. </div>
       </td>
@@ -56,12 +56,12 @@
   <h2>Public functions</h2>
   <div id="structtensorflow_1_1ops_1_1_squeeze_1_1_attrs_1a15e305cfc9e4db9a49b25e584b3f0db5">
     <h3>SqueezeDims</h3>
-    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/squeeze/attrs.html#structtensorflow_1_1ops_1_1_squeeze_1_1_attrs">Attrs</a> tensorflow::ops::Squeeze::Attrs::SqueezeDims(
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/squeeze/attrs.html#structtensorflow_1_1ops_1_1_squeeze_1_1_attrs">Attrs</a> tensorflow::ops::Squeeze::Attrs::SqueezeDims(
   const gtl::ArraySlice< int > & x
 )</pre>
     <div>
       <p>If specified, only squeezes the dimensions listed. </p>
-      <p>The dimension index starts at 0. It is an error to squeeze a dimension that is not 1.</p>
+      <p>The dimension index starts at 0. It is an error to squeeze a dimension that is not 1. Must be in the range <code>[-rank(input), rank(input))</code>.</p>
       <p>Defaults to [] </p>
     </div>
   </div>

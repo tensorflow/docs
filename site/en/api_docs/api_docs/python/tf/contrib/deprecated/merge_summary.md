@@ -18,7 +18,7 @@ merge_summary(
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/logging_ops.py).
+Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/logging_ops.py).
 
 Merges summaries. (deprecated)
 
@@ -30,7 +30,7 @@ This op is deprecated. Please switch to tf.summary.merge, which has identical
 behavior.
 
 This op creates a
-[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/core/framework/summary.proto)
+[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/core/framework/summary.proto)
 protocol buffer that contains the union of all the values in the input
 summaries.
 
@@ -48,5 +48,5 @@ in the summaries to merge use the same tag.
 
 #### Returns:
 
-  A scalar `Tensor` of type `string`. The serialized `Summary` protocol
-  buffer resulting from the merging.
+A scalar `Tensor` of type `string`. The serialized `Summary` protocol
+buffer resulting from the merging.

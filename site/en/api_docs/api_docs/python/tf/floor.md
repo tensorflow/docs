@@ -31,4 +31,4 @@ Returns element-wise largest integer not greater than x.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as `x`.

@@ -21,7 +21,7 @@ predict_continuation(
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
 
 Perform prediction using an exported saved model.
 
@@ -55,9 +55,9 @@ saved model rather than feeding into Estimator's predict method.
 
 #### Returns:
 
-  A dictionary with model-specific predictions (typically having keys "mean"
-  and "covariance") and a feature_keys.PredictionResults.TIMES key indicating
-  the times for which the predictions were computed.
+A dictionary with model-specific predictions (typically having keys "mean"
+and "covariance") and a feature_keys.PredictionResults.TIMES key indicating
+the times for which the predictions were computed.
 
 #### Raises:
 

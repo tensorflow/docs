@@ -133,6 +133,6 @@ Batched indexing into a 3-tensor:
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `params`.
-  Values from `params` gathered from indices given by `indices`, with
-  shape `indices.shape[:-1] + params.shape[indices.shape[-1]:]`.
+A `Tensor`. Has the same type as `params`.
+Values from `params` gathered from indices given by `indices`, with
+shape `indices.shape[:-1] + params.shape[indices.shape[-1]:]`.

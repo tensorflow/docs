@@ -19,13 +19,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/rnn_cell_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/rnn_cell_impl.py).
+Defined in [`tensorflow/python/ops/rnn_cell_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/rnn_cell_impl.py).
 
 See the guide: [RNN and Cells (contrib) > Classes storing split `RNNCell` state](../../../../../api_guides/python/contrib.rnn#Classes_storing_split_RNNCell_state)
 
 Tuple used by LSTM Cells for `state_size`, `zero_state`, and output state.
 
-Stores two elements: `(c, h)`, in that order.
+Stores two elements: `(c, h)`, in that order. Where `c` is the hidden state
+and `h` is the output.
 
 Only used when `state_is_tuple=True`.
 

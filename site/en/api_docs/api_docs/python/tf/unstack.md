@@ -19,7 +19,7 @@ unstack(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -41,7 +41,7 @@ Etc.
 
 This is the opposite of stack.  The numpy equivalent is
 
-    tf.unstack(x, n) = list(x)
+    tf.unstack(x, n) = np.unstack(x)
 
 #### Args:
 
@@ -49,13 +49,13 @@ This is the opposite of stack.  The numpy equivalent is
 * <b>`num`</b>: An `int`. The length of the dimension `axis`. Automatically inferred
     if `None` (the default).
 * <b>`axis`</b>: An `int`. The axis to unstack along. Defaults to the first
-    dimension. Supports negative indexes.
+    dimension. Negative values wrap around, so the valid range is `[-R, R)`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  The list of `Tensor` objects unstacked from `value`.
+The list of `Tensor` objects unstacked from `value`.
 
 
 #### Raises:

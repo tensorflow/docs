@@ -19,7 +19,7 @@ sparse_tensor_to_dense(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Conversion](../../../api_guides/python/sparse_ops#Conversion)
 
@@ -55,9 +55,9 @@ tested if validate_indices is True.
 
 #### Returns:
 
-  A dense tensor with shape `sp_input.dense_shape` and values specified by
-  the non-empty values in `sp_input`. Indices not in `sp_input` are assigned
-  `default_value`.
+A dense tensor with shape `sp_input.dense_shape` and values specified by
+the non-empty values in `sp_input`. Indices not in `sp_input` are assigned
+`default_value`.
 
 
 #### Raises:

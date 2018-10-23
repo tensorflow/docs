@@ -11,12 +11,12 @@ page_type: reference
 ``` python
 decode_jpeg(
     contents,
-    channels=None,
-    ratio=None,
-    fancy_upscaling=None,
-    try_recover_truncated=None,
-    acceptable_fraction=None,
-    dct_method=None,
+    channels=0,
+    ratio=1,
+    fancy_upscaling=True,
+    try_recover_truncated=False,
+    acceptable_fraction=1,
+    dct_method='',
     name=None
 )
 ```
@@ -44,6 +44,7 @@ of color channels.
 The attr `ratio` allows downscaling the image by an integer factor during
 decoding.  Allowed values are: 1, 2, 4, and 8.  This is much faster than
 downscaling the image later.
+
 
 This op also supports decoding PNGs and non-animated GIFs since the interface is
 the same, though it is cleaner to use `tf.image.decode_image`.
@@ -74,4 +75,4 @@ the same, though it is cleaner to use `tf.image.decode_image`.
 
 #### Returns:
 
-  A `Tensor` of type `uint8`. 3-D with shape `[height, width, channels]`..
+A `Tensor` of type `uint8`. 3-D with shape `[height, width, channels]`..

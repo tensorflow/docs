@@ -14,7 +14,7 @@ Inherits From: [`ConditionalDistribution`](../../../tf/contrib/distributions/Con
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/conditional_transformed_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/distributions/python/ops/conditional_transformed_distribution.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/conditional_transformed_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/distributions/python/ops/conditional_transformed_distribution.py).
 
 A TransformedDistribution that allows intrinsic conditioning.
 
@@ -89,7 +89,7 @@ or `distributions.NOT_REPARAMETERIZED`.
 
 #### Returns:
 
-  An instance of `ReparameterizationType`.
+An instance of `ReparameterizationType`.
 
 <h3 id="validate_args"><code>validate_args</code></h3>
 
@@ -180,7 +180,7 @@ initialization arguments.
 
 #### Args:
 
-  **override_parameters_kwargs: String/value dictionary of initialization
+* <b>`**override_parameters_kwargs`</b>: String/value dictionary of initialization
     arguments to override with new values.
 
 
@@ -384,7 +384,7 @@ Subclasses should override class method `_param_shapes`.
 
 #### Returns:
 
-  `dict` of parameter name to `Tensor` shapes.
+`dict` of parameter name to `Tensor` shapes.
 
 <h3 id="param_static_shapes"><code>param_static_shapes</code></h3>
 
@@ -413,7 +413,7 @@ constant-valued tensors when constant values are fed.
 
 #### Returns:
 
-  `dict` of parameter name to `TensorShape`.
+`dict` of parameter name to `TensorShape`.
 
 
 #### Raises:

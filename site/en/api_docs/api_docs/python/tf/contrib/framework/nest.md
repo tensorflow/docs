@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/nest.py).
 
 ## Functions for working with arbitrarily nested sequences of elements.
 
@@ -31,11 +31,13 @@ Example structures: `((3, 4), 5, (6, 7, (9, 10), 8))`, `(np.array(0),
 
 [`assert_shallow_structure(...)`](../../../tf/contrib/framework/nest/assert_shallow_structure): Asserts that `shallow_tree` is a shallow structure of `input_tree`.
 
-[`flatten(...)`](../../../tf/contrib/framework/nest/flatten): Returns a flat sequence from a given nested structure.
+[`flatten(...)`](../../../tf/contrib/framework/nest/flatten): Returns a flat list from a given nested structure.
 
 [`flatten_dict_items(...)`](../../../tf/contrib/framework/nest/flatten_dict_items): Returns a dictionary with flattened keys and values.
 
 [`flatten_up_to(...)`](../../../tf/contrib/framework/nest/flatten_up_to): Flattens `input_tree` up to `shallow_tree`.
+
+[`get_traverse_shallow_structure(...)`](../../../tf/contrib/framework/nest/get_traverse_shallow_structure): Generates a shallow structure from a `traverse_fn` and `structure`.
 
 [`is_sequence(...)`](../../../tf/contrib/framework/nest/is_sequence): Returns a true if its input is a collections.Sequence (except strings).
 
@@ -43,5 +45,5 @@ Example structures: `((3, 4), 5, (6, 7, (9, 10), 8))`, `(np.array(0),
 
 [`map_structure_up_to(...)`](../../../tf/contrib/framework/nest/map_structure_up_to): Applies a function or op to a number of partially flattened inputs.
 
-[`pack_sequence_as(...)`](../../../tf/contrib/framework/nest/pack_sequence_as): Returns a given flattened sequence packed into a nest.
+[`pack_sequence_as(...)`](../../../tf/contrib/framework/nest/pack_sequence_as): Returns a given flattened sequence packed into a given structure.
 

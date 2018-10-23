@@ -18,7 +18,7 @@ sparse_transpose(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Manipulation](../../../api_guides/python/sparse_ops#Manipulation)
 
@@ -52,7 +52,7 @@ then the output will be a `SparseTensor` of shape `[5, 4]` and
 
 #### Returns:
 
-  A transposed `SparseTensor`.
+A transposed `SparseTensor`.
 
 
 #### Raises:

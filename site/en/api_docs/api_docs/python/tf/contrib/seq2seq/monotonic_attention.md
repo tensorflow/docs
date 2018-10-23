@@ -18,7 +18,7 @@ monotonic_attention(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 Compute monotonic attention distribution from choosing probabilities.
 
@@ -57,8 +57,8 @@ Attention by Enforcing Monotonic Alignments''.
 
 #### Returns:
 
-  A tensor of shape (batch_size, input_sequence_length) representing the
-  attention distributions for each sequence in the batch.
+A tensor of shape (batch_size, input_sequence_length) representing the
+attention distributions for each sequence in the batch.
 
 
 #### Raises:

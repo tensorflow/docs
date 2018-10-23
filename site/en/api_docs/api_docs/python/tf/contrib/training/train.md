@@ -25,7 +25,7 @@ train(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/training/python/training/training.py).
+Defined in [`tensorflow/contrib/training/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/training/python/training/training.py).
 
 Runs the training loop.
 
@@ -54,7 +54,7 @@ Runs the training loop.
 
 #### Returns:
 
-  the value of the loss function after training.
+the value of the loss function after training.
 
 
 #### Raises:

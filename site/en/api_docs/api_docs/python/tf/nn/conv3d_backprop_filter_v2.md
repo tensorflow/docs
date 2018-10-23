@@ -15,7 +15,7 @@ conv3d_backprop_filter_v2(
     out_backprop,
     strides,
     padding,
-    data_format=None,
+    data_format='NDHWC',
     name=None
 )
 ```
@@ -56,4 +56,4 @@ Computes the gradients of 3-D convolution with respect to the filter.
 
 #### Returns:
 
-  A `Tensor`. Has the same type as `input`.
+A `Tensor`. Has the same type as `input`.

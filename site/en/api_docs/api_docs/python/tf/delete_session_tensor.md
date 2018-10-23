@@ -17,7 +17,7 @@ delete_session_tensor(
 
 
 
-Defined in [`tensorflow/python/ops/session_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/session_ops.py).
+Defined in [`tensorflow/python/ops/session_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/session_ops.py).
 
 See the guide: [Tensor Handle Operations > Tensor Handle Operations](../../../api_guides/python/session_ops#Tensor_Handle_Operations)
 
@@ -36,5 +36,5 @@ in a previous run() and stored in the state of the session.
 
 #### Returns:
 
-  A pair of graph elements. The first is a placeholder for feeding a
-  tensor handle and the second is a deletion operation.
+A pair of graph elements. The first is a placeholder for feeding a
+tensor handle and the second is a deletion operation.

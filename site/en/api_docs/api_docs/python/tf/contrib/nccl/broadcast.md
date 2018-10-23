@@ -17,7 +17,7 @@ broadcast(
 
 
 
-Defined in [`tensorflow/contrib/nccl/python/ops/nccl_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/nccl/python/ops/nccl_ops.py).
+Defined in [`tensorflow/contrib/nccl/python/ops/nccl_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/nccl/python/ops/nccl_ops.py).
 
 Returns a list of tensors on `dst_devices`, each with value `tensor`.
 
@@ -33,5 +33,5 @@ hang.
 
 #### Returns:
 
-  List of tensors, each with the value of `src_tensor`, which the device
-  of tensor i is `dst_devices[i]`.
+An `Operation` to send the `src_tensor`, and a list of tensors, each with
+the value of `src_tensor`, where the device of tensor i is `dst_devices[i]`.

@@ -14,9 +14,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/training/monitored_session.py).
 
-See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
+See the guides: [Threading and Queues > Queue usage overview](../../../../api_guides/python/threading_and_queues#Queue_usage_overview), [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
 Session-like object that handles initialization, recovery and hooks.
 
@@ -92,7 +92,7 @@ Note: This is not a `tf.Session`. For example, it cannot do following:
 
 #### Returns:
 
-  A MonitoredSession object.
+A MonitoredSession object.
 
 ## Properties
 
@@ -169,7 +169,7 @@ This method is completely compatible with the `tf.Session.run()` method.
 
 #### Returns:
 
-  Same as `tf.Session.run()`.
+Same as `tf.Session.run()`.
 
 <h3 id="should_stop"><code>should_stop</code></h3>
 

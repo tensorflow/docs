@@ -23,7 +23,7 @@ load_linear_multiclass_bias_initializer(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
+Defined in [`tensorflow/contrib/framework/python/ops/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
 
 Loads pre-trained multi-class biases for linear models from checkpoint.
 
@@ -56,4 +56,4 @@ provided row_vocab is the class vocabulary, and the expected shape is
 
 #### Returns:
 
-  A variable initializer function.
+A variable initializer function.

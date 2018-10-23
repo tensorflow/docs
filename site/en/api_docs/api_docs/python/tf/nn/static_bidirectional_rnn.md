@@ -28,7 +28,7 @@ static_bidirectional_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/rnn.py).
+Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/rnn.py).
 
 See the guide: [RNN and Cells (contrib) > Recurrent Neural Networks](../../../../api_guides/python/contrib.rnn#Recurrent_Neural_Networks)
 
@@ -66,11 +66,11 @@ length(s) of the sequence(s) or completely unrolled if length(s) is not given.
 
 #### Returns:
 
-  A tuple (outputs, output_state_fw, output_state_bw) where:
-    outputs is a length `T` list of outputs (one for each input), which
-      are depth-concatenated forward and backward outputs.
-    output_state_fw is the final state of the forward rnn.
-    output_state_bw is the final state of the backward rnn.
+A tuple (outputs, output_state_fw, output_state_bw) where:
+  outputs is a length `T` list of outputs (one for each input), which
+    are depth-concatenated forward and backward outputs.
+  output_state_fw is the final state of the forward rnn.
+  output_state_bw is the final state of the backward rnn.
 
 
 #### Raises:

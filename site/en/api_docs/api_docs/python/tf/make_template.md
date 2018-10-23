@@ -21,7 +21,7 @@ make_template(
 
 
 
-Defined in [`tensorflow/python/ops/template.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/template.py).
+Defined in [`tensorflow/python/ops/template.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/template.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 
@@ -116,18 +116,18 @@ reduce the likelihood of collisions with kwargs.
 * <b>`custom_getter_`</b>: Optional custom getter for variables used in `func_`. See
     the [`tf.get_variable`](../tf/get_variable) `custom_getter` documentation for
     more information.
-  **kwargs: Keyword arguments to apply to `func_`.
+* <b>`**kwargs`</b>: Keyword arguments to apply to `func_`.
 
 
 #### Returns:
 
-  A function to encapsulate a set of variables which should be created once
-  and reused. An enclosing scope will created, either where `make_template`
-  is called, or wherever the result is called, depending on the value of
-  `create_scope_now_`. Regardless of the value, the first time the template
-  is called it will enter the scope with no reuse, and call `func_` to create
-  variables, which are guaranteed to be unique. All subsequent calls will
-  re-enter the scope and reuse those variables.
+A function to encapsulate a set of variables which should be created once
+and reused. An enclosing scope will created, either where `make_template`
+is called, or wherever the result is called, depending on the value of
+`create_scope_now_`. Regardless of the value, the first time the template
+is called it will enter the scope with no reuse, and call `func_` to create
+variables, which are guaranteed to be unique. All subsequent calls will
+re-enter the scope and reuse those variables.
 
 
 #### Raises:

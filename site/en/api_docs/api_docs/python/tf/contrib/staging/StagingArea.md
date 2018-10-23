@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Staging (contrib)](../../../../../api_guides/python/contrib.staging)
 
@@ -138,12 +138,12 @@ Clears the staging area.
 
 #### Args:
 
-    name: A name for the operation (optional)
+* <b>`name`</b>: A name for the operation (optional)
 
 
 #### Returns:
 
-    The created op
+The created op
 
 <h3 id="get"><code>get</code></h3>
 
@@ -173,7 +173,7 @@ device scope when this function is called.
 
 #### Returns:
 
-  The tuple of tensors that was gotten.
+The tuple of tensors that was gotten.
 
 <h3 id="peek"><code>peek</code></h3>
 
@@ -202,7 +202,7 @@ the current device scope when this function is called.
 
 #### Returns:
 
-  The tuple of tensors that was gotten.
+The tuple of tensors that was gotten.
 
 <h3 id="put"><code>put</code></h3>
 
@@ -226,7 +226,7 @@ its capacity.
 
 #### Returns:
 
-    The created op.
+The created op.
 
 
 #### Raises:
@@ -243,12 +243,12 @@ Returns the number of elements in the staging area.
 
 #### Args:
 
-    name: A name for the operation (optional)
+* <b>`name`</b>: A name for the operation (optional)
 
 
 #### Returns:
 
-    The created op
+The created op
 
 
 

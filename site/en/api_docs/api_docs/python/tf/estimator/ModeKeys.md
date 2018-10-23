@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/estimator/model_fn.py).
+Defined in [`tensorflow/python/estimator/model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/estimator/model_fn.py).
 
 Standard names for model modes.
 

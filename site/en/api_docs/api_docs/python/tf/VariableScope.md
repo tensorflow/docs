@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/variable_scope.py).
+Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/variable_scope.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 
@@ -28,7 +28,9 @@ easily handled with a context. This object is used for the defaults.
 * <b>`name`</b>: name of the current scope, used as prefix in get_variable.
 * <b>`initializer`</b>: default initializer passed to get_variable.
 * <b>`regularizer`</b>: default regularizer passed to get_variable.
-* <b>`reuse`</b>: Boolean or None, setting the reuse in get_variable.
+* <b>`reuse`</b>: Boolean, None, or tf.AUTO_REUSE, setting the reuse in
+    get_variable. In Eager mode, this argument is always forced to be
+    tf.AUTO_REUSE.
 * <b>`caching_device`</b>: string, callable, or None: the caching device passed to
     get_variable.
 * <b>`partitioner`</b>: callable or `None`: the partitioner passed to `get_variable`.
@@ -37,11 +39,23 @@ easily handled with a context. This object is used for the defaults.
 * <b>`dtype`</b>: default type passed to get_variable (defaults to DT_FLOAT).
 * <b>`use_resource`</b>: if False, create a normal Variable; if True create an
     experimental ResourceVariable with well-defined semantics. Defaults
-    to False (will later change to True).
+    to False (will later change to True). In Eager mode, this argument is
+    always forced to be True.
+* <b>`constraint`</b>: An optional projection function to be applied to the variable
+    after being updated by an `Optimizer` (e.g. used to implement norm
+    constraints or value constraints for layer weights). The function must
+    take as input the unprojected Tensor representing the value of the
+    variable and return the Tensor for the projected value
+    (which must have the same shape). Constraints are not safe to
+    use when doing asynchronous distributed training.
 
 ## Properties
 
 <h3 id="caching_device"><code>caching_device</code></h3>
+
+
+
+<h3 id="constraint"><code>constraint</code></h3>
 
 
 
@@ -98,7 +112,8 @@ __init__(
     custom_getter=None,
     name_scope='',
     dtype=tf.float32,
-    use_resource=None
+    use_resource=None,
+    constraint=None
 )
 ```
 
@@ -129,7 +144,8 @@ get_variable(
     partitioner=None,
     validate_shape=True,
     use_resource=None,
-    custom_getter=None
+    custom_getter=None,
+    constraint=None
 )
 ```
 
@@ -142,6 +158,14 @@ global_variables()
 ```
 
 Get this scope's global variables.
+
+<h3 id="local_variables"><code>local_variables</code></h3>
+
+``` python
+local_variables()
+```
+
+Get this scope's local variables.
 
 <h3 id="reuse_variables"><code>reuse_variables</code></h3>
 

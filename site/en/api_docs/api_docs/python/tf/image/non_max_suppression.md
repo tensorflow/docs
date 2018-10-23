@@ -13,20 +13,20 @@ non_max_suppression(
     boxes,
     scores,
     max_output_size,
-    iou_threshold=None,
+    iou_threshold=0.5,
     name=None
 )
 ```
 
 
 
-Defined in `tensorflow/python/ops/gen_image_ops.py`.
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Working with Bounding Boxes](../../../../api_guides/python/image#Working_with_Bounding_Boxes)
 
-Greedily selects a subset of bounding boxes in descending order of score,
+Greedily selects a subset of bounding boxes in descending order of score.
 
-pruning away boxes that have high intersection-over-union (IOU) overlap
+Prunes away boxes that have high intersection-over-union (IOU) overlap
 with previously selected boxes.  Bounding boxes are supplied as
 [y1, x1, y2, x2], where (y1, x1) and (y2, x2) are the coordinates of any
 diagonal pair of box corners and the coordinates can be provided as normalized
@@ -45,22 +45,17 @@ using the `tf.gather operation`.  For example:
 
 #### Args:
 
-* <b>`boxes`</b>: A `Tensor` of type `float32`.
-    A 2-D float tensor of shape `[num_boxes, 4]`.
-* <b>`scores`</b>: A `Tensor` of type `float32`.
-    A 1-D float tensor of shape `[num_boxes]` representing a single
+* <b>`boxes`</b>: A 2-D float `Tensor` of shape `[num_boxes, 4]`.
+* <b>`scores`</b>: A 1-D float `Tensor` of shape `[num_boxes]` representing a single
     score corresponding to each box (each row of boxes).
-* <b>`max_output_size`</b>: A `Tensor` of type `int32`.
-    A scalar integer tensor representing the maximum number of
-    boxes to be selected by non max suppression.
-* <b>`iou_threshold`</b>: An optional `float`. Defaults to `0.5`.
-    A float representing the threshold for deciding whether boxes
+* <b>`max_output_size`</b>: A scalar integer `Tensor` representing the maximum number
+    of boxes to be selected by non max suppression.
+* <b>`iou_threshold`</b>: A float representing the threshold for deciding whether boxes
     overlap too much with respect to IOU.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor` of type `int32`.
-  A 1-D integer tensor of shape `[M]` representing the selected
-  indices from the boxes tensor, where `M <= max_output_size`.
+* <b>`selected_indices`</b>: A 1-D integer `Tensor` of shape `[M]` representing the
+    selected indices from the boxes tensor, where `M <= max_output_size`.

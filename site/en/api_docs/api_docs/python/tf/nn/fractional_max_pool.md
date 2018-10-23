@@ -12,11 +12,11 @@ page_type: reference
 fractional_max_pool(
     value,
     pooling_ratio,
-    pseudo_random=None,
-    overlapping=None,
-    deterministic=None,
-    seed=None,
-    seed2=None,
+    pseudo_random=False,
+    overlapping=False,
+    deterministic=False,
+    seed=0,
+    seed2=0,
     name=None
 )
 ```
@@ -99,7 +99,7 @@ For more details on fractional max pooling, see this paper:
 
 #### Returns:
 
-  A tuple of `Tensor` objects (output, row_pooling_sequence, col_pooling_sequence).
+A tuple of `Tensor` objects (output, row_pooling_sequence, col_pooling_sequence).
 
 * <b>`output`</b>: A `Tensor`. Has the same type as `value`. output tensor after fractional max pooling.
 * <b>`row_pooling_sequence`</b>: A `Tensor` of type `int64`. row pooling sequence, needed to calculate gradient.

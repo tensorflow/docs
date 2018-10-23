@@ -18,7 +18,7 @@ zeros(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Constants, Sequences, and Random Values > Constant Value Tensors](../../../api_guides/python/constant_op#Constant_Value_Tensors)
 
@@ -30,16 +30,17 @@ all elements set to zero.
 For example:
 
 ```python
-tf.zeros([3, 4], tf.int32) ==> [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+tf.zeros([3, 4], tf.int32)  # [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 ```
 
 #### Args:
 
-* <b>`shape`</b>: A list of integers, a tuple of integers, or a 1-D `Tensor` of type `int32`.
+* <b>`shape`</b>: A list of integers, a tuple of integers, or a 1-D `Tensor` of type
+    `int32`.
 * <b>`dtype`</b>: The type of an element in the resulting `Tensor`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A `Tensor` with all elements set to zero.
+A `Tensor` with all elements set to zero.

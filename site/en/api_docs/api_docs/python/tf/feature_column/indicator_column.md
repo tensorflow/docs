@@ -14,7 +14,7 @@ indicator_column(categorical_column)
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/feature_column/feature_column.py).
 
 Represents multi-hot representation of given categorical column.
 
@@ -41,4 +41,4 @@ dense_tensor == [[2, 0, 0]]  # If "name" bytes_list is ["bob", "bob"]
 
 #### Returns:
 
-  An `_IndicatorColumn`.
+An `_IndicatorColumn`.

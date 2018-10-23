@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/profiler/model_analyzer.py).
+Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/profiler/model_analyzer.py).
 
 TensorFlow multi-step profiler.
 
@@ -23,7 +23,7 @@ https://github.com/tensorflow/tensorflow/tree/master/tensorflow/core/profiler/RE
 ```python
 Typical use case:
   # Currently we are only allowed to create 1 profiler per process.
-  profiler = Profile(sess.graph)
+  profiler = Profiler(sess.graph)
 
   for i in xrange(total_steps):
     if i % 10000 == 0:
@@ -86,7 +86,7 @@ Add statistics of a step.
 
 #### Args:
 
-* <b>`step`</b>: A step uint64 used to identify the RunMetadata. Must be different
+* <b>`step`</b>: int, A step used to identify the RunMetadata. Must be different
      across different AddStep() calls.
 * <b>`run_meta`</b>: RunMetadata proto that contains statistics of a session run.
 
@@ -104,7 +104,7 @@ Automatically detect problems and generate reports.
 
 #### Returns:
 
-  A Advise proto that conains the reports from all checkers.
+A Advise proto that conains the reports from all checkers.
 
 <h3 id="profile_graph"><code>profile_graph</code></h3>
 
@@ -120,7 +120,7 @@ Profile the statistics of graph nodes, organized by dataflow graph.
 
 #### Returns:
 
-  a GraphNodeProto that records the results.
+a GraphNodeProto that records the results.
 
 <h3 id="profile_name_scope"><code>profile_name_scope</code></h3>
 
@@ -136,7 +136,7 @@ Profile the statistics of graph nodes, organized by name scope.
 
 #### Returns:
 
-  a GraphNodeProto that records the results.
+a GraphNodeProto that records the results.
 
 <h3 id="profile_operations"><code>profile_operations</code></h3>
 
@@ -152,7 +152,7 @@ Profile the statistics of the Operation types (e.g. MatMul, Conv2D).
 
 #### Returns:
 
-  a MultiGraphNodeProto that records the results.
+a MultiGraphNodeProto that records the results.
 
 <h3 id="profile_python"><code>profile_python</code></h3>
 
@@ -172,7 +172,7 @@ Profile the statistics of the Python codes.
 
 #### Returns:
 
-  a MultiGraphNodeProto that records the results.
+a MultiGraphNodeProto that records the results.
 
 
 

@@ -31,4 +31,4 @@ Reads and outputs the entire contents of the input filename.
 
 #### Returns:
 
-  A `Tensor` of type `string`.
+A `Tensor` of type `string`.

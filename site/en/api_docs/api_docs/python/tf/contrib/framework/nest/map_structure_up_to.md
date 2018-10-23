@@ -18,7 +18,7 @@ map_structure_up_to(
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/util/nest.py).
 
 Applies a function or op to a number of partially flattened inputs.
 
@@ -65,7 +65,7 @@ out = map_structure_up_to(
 
 * <b>`shallow_tree`</b>: a shallow tree, common to all the inputs.
 * <b>`func`</b>: callable which will be applied to each input individually.
-  *inputs: arbitrarily nested combination of objects that are compatible with
+* <b>`*inputs`</b>: arbitrarily nested combination of objects that are compatible with
       shallow_tree. The function `func` is applied to corresponding
       partially flattened elements of each input, so the function must support
       arity of `len(inputs)`.
@@ -82,5 +82,5 @@ out = map_structure_up_to(
 
 #### Returns:
 
-  result of repeatedly applying `func`, with same structure as
-  `shallow_tree`.
+result of repeatedly applying `func`, with same structure as
+`shallow_tree`.

@@ -41,7 +41,7 @@ conv2d(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/contrib/layers/python/layers/layers.py).
 
 See the guide: [Layers (contrib) > Higher level ops for building neural network layers](../../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers)
 
@@ -110,7 +110,7 @@ if a value > 1 for any dimension of `rate` is specified.  In this case
 
 #### Returns:
 
-  A tensor representing the output of the operation.
+A tensor representing the output of the operation.
 
 
 #### Raises:

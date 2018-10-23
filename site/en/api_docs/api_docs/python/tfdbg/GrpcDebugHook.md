@@ -14,7 +14,7 @@ Inherits From: [`SessionRunHook`](../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/python/debug/wrappers/hooks.py).
+Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/python/debug/wrappers/hooks.py).
 
 A hook that streams debugger-related events to any grpc_debug_server.
 
@@ -125,7 +125,7 @@ Called right before a session is run.
 
 #### Returns:
 
-  A session_run_hook.SessionRunArgs object.
+A session_run_hook.SessionRunArgs object.
 
 <h3 id="begin"><code>begin</code></h3>
 
