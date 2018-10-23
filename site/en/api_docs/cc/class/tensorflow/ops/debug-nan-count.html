@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DebugNanCount Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DebugNanCount</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Debug NaN Value Counter Op. </p>
+  <h2>Summary</h2>
+  <p>Counts number of NaNs in the input tensor, for debugging.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: <a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> tensor, non-Reference type.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/api_docs/cc/struct/tensorflow/ops/debug-nan-count/attrs.html#structtensorflow_1_1ops_1_1_debug_nan_count_1_1_attrs">Attrs</a></code>):<ul>
+      <li>tensor_name: Name of the input tensor.</li>
+      <li>debug_urls: List of URLs to debug targets, e.g., <a href="file:///foo/tfdbg_dump,">file:///foo/tfdbg_dump,</a> grpc:://localhost:11011</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: An integer output tensor that is the number of NaNs in the input. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_nan_count_1ac004bd8e9a6376670c3a9683fd7ebe83">DebugNanCount</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_nan_count_1a40cd07f60acbd50aec73dcc8fc931723">DebugNanCount</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const <a href="/api_docs/cc/struct/tensorflow/ops/debug-nan-count/attrs.html#structtensorflow_1_1ops_1_1_debug_nan_count_1_1_attrs">DebugNanCount::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_nan_count_1a3b14b61528c2883de299f5192c678628">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_nan_count_1a72fe9571db63770174bd4d39e2a74a80">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_nan_count_1a5babfc4cf0369a9b399e89a68182a562">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_nan_count_1accf9b79aee73201d975e564f65cd25a7">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_nan_count_1a1a9c2eb95c5764a86dbda4564d423b68">DebugUrls</a>(const gtl::ArraySlice< string > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/debug-nan-count/attrs.html#structtensorflow_1_1ops_1_1_debug_nan_count_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_nan_count_1ac81b12f3aa5d6b19f527cacc7ae86804">TensorName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/debug-nan-count/attrs.html#structtensorflow_1_1ops_1_1_debug_nan_count_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/api_docs/cc/struct/tensorflow/ops/debug-nan-count/attrs">tensorflow::<wbr/>ops::<wbr/>DebugNanCount::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/api_docs/cc/class/tensorflow/ops/debug-nan-count.html#classtensorflow_1_1ops_1_1_debug_nan_count">DebugNanCount</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_debug_nan_count_1a3b14b61528c2883de299f5192c678628">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_debug_nan_count_1ac004bd8e9a6376670c3a9683fd7ebe83">
+    <h3>DebugNanCount</h3>
+    <pre class="prettyprint"> DebugNanCount(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_nan_count_1a40cd07f60acbd50aec73dcc8fc931723">
+    <h3>DebugNanCount</h3>
+    <pre class="prettyprint"> DebugNanCount(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const <a href="/api_docs/cc/struct/tensorflow/ops/debug-nan-count/attrs.html#structtensorflow_1_1ops_1_1_debug_nan_count_1_1_attrs">DebugNanCount::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_nan_count_1a72fe9571db63770174bd4d39e2a74a80">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_nan_count_1a5babfc4cf0369a9b399e89a68182a562">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_nan_count_1accf9b79aee73201d975e564f65cd25a7">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_debug_nan_count_1a1a9c2eb95c5764a86dbda4564d423b68">
+    <h3>DebugUrls</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/debug-nan-count/attrs.html#structtensorflow_1_1ops_1_1_debug_nan_count_1_1_attrs">Attrs</a> DebugUrls(
+  const gtl::ArraySlice< string > & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_nan_count_1ac81b12f3aa5d6b19f527cacc7ae86804">
+    <h3>TensorName</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/debug-nan-count/attrs.html#structtensorflow_1_1ops_1_1_debug_nan_count_1_1_attrs">Attrs</a> TensorName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

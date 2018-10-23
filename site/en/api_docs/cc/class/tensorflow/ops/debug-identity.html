@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DebugIdentity Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DebugIdentity</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Debug <a href="/api_docs/cc/class/tensorflow/ops/identity.html#classtensorflow_1_1ops_1_1_identity">Identity</a> Op. </p>
+  <h2>Summary</h2>
+  <p>Provides an identity mapping of the non-Ref type input tensor for debugging.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: <a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> tensor, non-Reference type.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/api_docs/cc/struct/tensorflow/ops/debug-identity/attrs.html#structtensorflow_1_1ops_1_1_debug_identity_1_1_attrs">Attrs</a></code>):<ul>
+      <li>tensor_name: Name of the input tensor.</li>
+      <li>debug_urls: List of URLs to debug targets, e.g., <a href="file:///foo/tfdbg_dump,">file:///foo/tfdbg_dump,</a> grpc:://localhost:11011</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: <a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> tensor that equals the input tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_identity_1ab2757e847736cf1e5171123b9f5545cf">DebugIdentity</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_identity_1a99865ce6e3e0ad9c43f1216f50aa6ebc">DebugIdentity</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const <a href="/api_docs/cc/struct/tensorflow/ops/debug-identity/attrs.html#structtensorflow_1_1ops_1_1_debug_identity_1_1_attrs">DebugIdentity::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_identity_1a0866a8f554dfc21ec56fe36878c257c6">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_identity_1a120914350a76bfab8c08807fadd887b5">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_identity_1aea8e8b8c827296e3ecc84ee8ab798943">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_identity_1a82e0429d7fc3b5573795c769c372bb45">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_identity_1ab48ea5cc39e65a011a7123f6b77f680d">DebugUrls</a>(const gtl::ArraySlice< string > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/debug-identity/attrs.html#structtensorflow_1_1ops_1_1_debug_identity_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_identity_1adb6bd9336b396b57476f7274010117f5">TensorName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/debug-identity/attrs.html#structtensorflow_1_1ops_1_1_debug_identity_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/api_docs/cc/struct/tensorflow/ops/debug-identity/attrs">tensorflow::<wbr/>ops::<wbr/>DebugIdentity::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/api_docs/cc/class/tensorflow/ops/debug-identity.html#classtensorflow_1_1ops_1_1_debug_identity">DebugIdentity</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_debug_identity_1a0866a8f554dfc21ec56fe36878c257c6">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_debug_identity_1ab2757e847736cf1e5171123b9f5545cf">
+    <h3>DebugIdentity</h3>
+    <pre class="prettyprint"> DebugIdentity(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_identity_1a99865ce6e3e0ad9c43f1216f50aa6ebc">
+    <h3>DebugIdentity</h3>
+    <pre class="prettyprint"> DebugIdentity(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const <a href="/api_docs/cc/struct/tensorflow/ops/debug-identity/attrs.html#structtensorflow_1_1ops_1_1_debug_identity_1_1_attrs">DebugIdentity::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_identity_1a120914350a76bfab8c08807fadd887b5">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_identity_1aea8e8b8c827296e3ecc84ee8ab798943">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_identity_1a82e0429d7fc3b5573795c769c372bb45">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_debug_identity_1ab48ea5cc39e65a011a7123f6b77f680d">
+    <h3>DebugUrls</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/debug-identity/attrs.html#structtensorflow_1_1ops_1_1_debug_identity_1_1_attrs">Attrs</a> DebugUrls(
+  const gtl::ArraySlice< string > & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_identity_1adb6bd9336b396b57476f7274010117f5">
+    <h3>TensorName</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/debug-identity/attrs.html#structtensorflow_1_1ops_1_1_debug_identity_1_1_attrs">Attrs</a> TensorName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

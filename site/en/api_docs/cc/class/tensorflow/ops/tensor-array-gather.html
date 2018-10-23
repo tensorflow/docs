@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::TensorArrayGather Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>TensorArrayGather</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p><a href="/api_docs/cc/class/tensorflow/ops/gather.html#classtensorflow_1_1ops_1_1_gather">Gather</a> specific elements from the <a href="/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> into output <code>value</code>. </p>
+  <h2>Summary</h2>
+  <p><a href="/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> elements selected by <code>indices</code> must have the same shape.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to a <a href="/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.</li>
+      <li>indices: The locations in the <a href="/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> from which to read tensor elements.</li>
+      <li>flow_in: A float scalar that enforces proper chaining of operations.</li>
+      <li>dtype: The type of the elem that is returned.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/api_docs/cc/struct/tensorflow/ops/tensor-array-gather/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_gather_1_1_attrs">Attrs</a></code>):<ul>
+      <li>element_shape: The expected shape of an element, if known. Used to validate the shapes of <a href="/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> elements. If this shape is not fully specified, gathering zero-size TensorArrays is an error.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: <a href="/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> of the elements in the <a href="/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>, concatenated along a new axis (the new dimension 0). </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_gather_1a217eb2eb8236b837dd4c47f33e149eb5">TensorArrayGather</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in, DataType dtype)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_gather_1acaf1d9394750550499a9d32ab5b6be2c">TensorArrayGather</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in, DataType dtype, const <a href="/api_docs/cc/struct/tensorflow/ops/tensor-array-gather/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_gather_1_1_attrs">TensorArrayGather::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_gather_1a2df8cf3f750a2eed7cb36b35f8f0ad1f">value</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_gather_1af03efcbaca9f1f8165d39cbf23acd99f">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_gather_1a4c95465b1cb37303cc4b7e3dad7ad411">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_gather_1a1d089d1cb6fab2fda60d0fe8b086e91d">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_gather_1a43659e8fa2255b54f3e4937aa9f23772">ElementShape</a>(TensorShape x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/tensor-array-gather/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_gather_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/api_docs/cc/struct/tensorflow/ops/tensor-array-gather/attrs">tensorflow::<wbr/>ops::<wbr/>TensorArrayGather::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/api_docs/cc/class/tensorflow/ops/tensor-array-gather.html#classtensorflow_1_1ops_1_1_tensor_array_gather">TensorArrayGather</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_gather_1a2df8cf3f750a2eed7cb36b35f8f0ad1f">
+    <h3>value</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> value</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_gather_1a217eb2eb8236b837dd4c47f33e149eb5">
+    <h3>TensorArrayGather</h3>
+    <pre class="prettyprint"> TensorArrayGather(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in,
+  DataType dtype
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_gather_1acaf1d9394750550499a9d32ab5b6be2c">
+    <h3>TensorArrayGather</h3>
+    <pre class="prettyprint"> TensorArrayGather(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in,
+  DataType dtype,
+  const <a href="/api_docs/cc/struct/tensorflow/ops/tensor-array-gather/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_gather_1_1_attrs">TensorArrayGather::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_gather_1af03efcbaca9f1f8165d39cbf23acd99f">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_gather_1a4c95465b1cb37303cc4b7e3dad7ad411">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_gather_1a1d089d1cb6fab2fda60d0fe8b086e91d">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_gather_1a43659e8fa2255b54f3e4937aa9f23772">
+    <h3>ElementShape</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/tensor-array-gather/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_gather_1_1_attrs">Attrs</a> ElementShape(
+  TensorShape x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

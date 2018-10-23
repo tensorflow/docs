@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DebugNumericSummary Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DebugNumericSummary</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Debug Numeric Summary Op. </p>
+  <h2>Summary</h2>
+  <p>Provide a basic summary of numeric value types, range and distribution.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: <a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> tensor, non-Reference type, float or double.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/api_docs/cc/struct/tensorflow/ops/debug-numeric-summary/attrs.html#structtensorflow_1_1ops_1_1_debug_numeric_summary_1_1_attrs">Attrs</a></code>):<ul>
+      <li>tensor_name: Name of the input tensor.</li>
+      <li>debug_urls: List of URLs to debug targets, e.g., <a href="file:///foo/tfdbg_dump,">file:///foo/tfdbg_dump,</a> grpc:://localhost:11011</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A double tensor of shape [12], the elements of which are: [0]: is initialized (1.0) or not (0.0). [1]: total number of elements [2]: -inf count [3]: negative element count (excluding -inf) [4]: zero element count [5]: positive element count (excluding +inf) [6]: +inf element count [7]: NaN element count <a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> elements [1:8] are all zero, if the tensor is uninitialized. [8]: minimum of all non-inf and non-NaN elements. If uninitialized or no such element exists: +inf. [9]: maximum of all non-inf and non-NaN elements. If uninitialized or no such element exists: -inf. [10]: mean of all non-inf and non-NaN elements. If uninitialized or no such element exists: NaN. [11]: variance of all non-inf and non-NaN elements. If uninitialized or no such element exists: NaN. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_numeric_summary_1afbd610c400ed5923ee4e69c74d7c6ad2">DebugNumericSummary</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_numeric_summary_1a82cb374d01875b4e9281137b850f1f1f">DebugNumericSummary</a>(const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const <a href="/api_docs/cc/struct/tensorflow/ops/debug-numeric-summary/attrs.html#structtensorflow_1_1ops_1_1_debug_numeric_summary_1_1_attrs">DebugNumericSummary::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_numeric_summary_1ac92b7793f2cd1fa1cb59a56792142fd9">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_numeric_summary_1a19627454e9b45a191428ae21d0d2148c">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_numeric_summary_1ab550aaf0747f63095b161f3cb373a965">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_numeric_summary_1a1f3b092dff2e19f5989057b655ab2c7b">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_numeric_summary_1aa8159f7f7072cb41918de227042a7289">DebugUrls</a>(const gtl::ArraySlice< string > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/debug-numeric-summary/attrs.html#structtensorflow_1_1ops_1_1_debug_numeric_summary_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_debug_numeric_summary_1a08334a282ec06a0621fa7c65d3f88b85">TensorName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/debug-numeric-summary/attrs.html#structtensorflow_1_1ops_1_1_debug_numeric_summary_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/api_docs/cc/struct/tensorflow/ops/debug-numeric-summary/attrs">tensorflow::<wbr/>ops::<wbr/>DebugNumericSummary::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/api_docs/cc/class/tensorflow/ops/debug-numeric-summary.html#classtensorflow_1_1ops_1_1_debug_numeric_summary">DebugNumericSummary</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_debug_numeric_summary_1ac92b7793f2cd1fa1cb59a56792142fd9">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_debug_numeric_summary_1afbd610c400ed5923ee4e69c74d7c6ad2">
+    <h3>DebugNumericSummary</h3>
+    <pre class="prettyprint"> DebugNumericSummary(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_numeric_summary_1a82cb374d01875b4e9281137b850f1f1f">
+    <h3>DebugNumericSummary</h3>
+    <pre class="prettyprint"> DebugNumericSummary(
+  const ::<a href="/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const <a href="/api_docs/cc/struct/tensorflow/ops/debug-numeric-summary/attrs.html#structtensorflow_1_1ops_1_1_debug_numeric_summary_1_1_attrs">DebugNumericSummary::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_numeric_summary_1a19627454e9b45a191428ae21d0d2148c">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_numeric_summary_1ab550aaf0747f63095b161f3cb373a965">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_numeric_summary_1a1f3b092dff2e19f5989057b655ab2c7b">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_debug_numeric_summary_1aa8159f7f7072cb41918de227042a7289">
+    <h3>DebugUrls</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/debug-numeric-summary/attrs.html#structtensorflow_1_1ops_1_1_debug_numeric_summary_1_1_attrs">Attrs</a> DebugUrls(
+  const gtl::ArraySlice< string > & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_debug_numeric_summary_1a08334a282ec06a0621fa7c65d3f88b85">
+    <h3>TensorName</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/debug-numeric-summary/attrs.html#structtensorflow_1_1ops_1_1_debug_numeric_summary_1_1_attrs">Attrs</a> TensorName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Stage::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.0/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Stage::<wbr/>Attrs</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/api_docs/cc/class/tensorflow/ops/stage.html#classtensorflow_1_1ops_1_1_stage">Stage</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1ae5180d0dde62f97e88d7891f439f3af2">container_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a11d9178ead9ed1cbc246ce54e8edbc57">shared_name_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a4b4e7b7d4d584b80b8a12742d9600dd8">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this queue is placed in the given container. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a14f3221a39f52f029f40d8e0f9502ef6">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>It is necessary to match this name to the matching <a href="/api_docs/cc/class/tensorflow/ops/unstage.html#classtensorflow_1_1ops_1_1_unstage">Unstage</a> Op. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1ae5180d0dde62f97e88d7891f439f3af2">
+    <h3>container_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::Stage::Attrs::container_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a11d9178ead9ed1cbc246ce54e8edbc57">
+    <h3>shared_name_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::Stage::Attrs::shared_name_ = ""</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a4b4e7b7d4d584b80b8a12742d9600dd8">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a> tensorflow::ops::Stage::Attrs::Container(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this queue is placed in the given container. </p>
+      <p>Otherwise, a default container is used.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a14f3221a39f52f029f40d8e0f9502ef6">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a> tensorflow::ops::Stage::Attrs::SharedName(
+  StringPiece x
+)</pre>
+    <div>
+      <p>It is necessary to match this name to the matching <a href="/api_docs/cc/class/tensorflow/ops/unstage.html#classtensorflow_1_1ops_1_1_unstage">Unstage</a> Op. </p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+</body>
+</html>
