@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::IdentityN Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>IdentityN</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Returns a list of tensors with the same shapes and contents as the input. </p>
+  <h2>Summary</h2>
+  <p>tensors.</p>
+  <p>This op can be used to override the gradient for complicated functions. For example, suppose y = f(x) and we wish to apply a custom function g for backprop such that dx = g(dy). In Python,</p>
+  <p>```python with tf.get_default_graph().gradient_override_map( {'<a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/identity-n.html#classtensorflow_1_1ops_1_1_identity_n">IdentityN</a>': 'OverrideGradientWithG'}): y, _ = identity_n([f(x), x])</p>
+  <p>.RegisterGradient('OverrideGradientWithG') def ApplyG(op, dy, _): return [None, g(dy)] # Do not backprop to f(x). ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code>OutputList</code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_n_1a6643cba5b78cac36cc7b45f5e6ac03be">IdentityN</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> input)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_n_1adcada4788c180a31ade058caf543a8ce">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_n_1ab03e879700560bb229b66d06d1bccc71">operator[]</a>(size_t index) const </code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_identity_n_1adcada4788c180a31ade058caf543a8ce">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_identity_n_1a6643cba5b78cac36cc7b45f5e6ac03be">
+    <h3>IdentityN</h3>
+    <pre class="prettyprint"> IdentityN(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_identity_n_1ab03e879700560bb229b66d06d1bccc71">
+    <h3>operator[]</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](
+  size_t index
+) const </pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Mod Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Mod</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Returns element-wise remainder of division. </p>
+  <h2>Summary</h2>
+  <p>This emulates C semantics in that</p>
+  <p>the result here is consistent with a truncating divide. E.g. <code>tf.truncatediv(x, y) * y + truncate_mod(x, y) = x</code>.</p>
+  <p><i>NOTE</i>: <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/mod.html#classtensorflow_1_1ops_1_1_mod">Mod</a></code> supports broadcasting. More about broadcasting <a href="http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">here</a></p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The z tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_mod_1a27b100e6a9d70861739b08fc2a2634fc">Mod</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mod_1a56c898e2535e3db1376a4ef0540968ec">z</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mod_1a1e04be7c4e0c388e1bbf2c9ac98b5bcf">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mod_1a258d8a1e6ba4f9eb68318ce6589db69e">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mod_1abd1ac656294ef54a21785384b04fe097">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_mod_1a56c898e2535e3db1376a4ef0540968ec">
+    <h3>z</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> z</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_mod_1a27b100e6a9d70861739b08fc2a2634fc">
+    <h3>Mod</h3>
+    <pre class="prettyprint"> Mod(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_mod_1a1e04be7c4e0c388e1bbf2c9ac98b5bcf">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_mod_1a258d8a1e6ba4f9eb68318ce6589db69e">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_mod_1abd1ac656294ef54a21785384b04fe097">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

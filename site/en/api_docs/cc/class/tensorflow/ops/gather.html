@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Gather Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Gather</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p><a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/gather.html#classtensorflow_1_1ops_1_1_gather">Gather</a> slices from <code>params</code> according to <code>indices</code>. </p>
+  <h2>Summary</h2>
+  <p><code>indices</code> must be an integer tensor of any dimension (usually 0-D or 1-D). Produces an output tensor with shape <code>indices.shape + params.shape[1:]</code> where:</p>
+  <p>```python Scalar indices</p>
+  <p>output[:, ..., :] = params[indices, :, ... :]</p>
+  <p>Vector indices</p>
+  <p>output[i, :, ..., :] = params[indices[i], :, ... :]</p>
+  <p>Higher rank indices</p>
+  <p>output[i, ..., j, :, ... :] = params[indices[i, ..., j], :, ..., :] ```</p>
+  <p>If <code>indices</code> is a permutation and <code>len(indices) == params.shape[0]</code> then this operation will permute <code>params</code> accordingly.</p>
+  <p><code>validate_indices</code>: DEPRECATED. If this operation is assigned to CPU, values in <code>indices</code> are always validated to be within range. If assigned to GPU, out-of-bound indices result in safe but unspecified behavior, which may include raising an error.</p>
+  <p>
+    <figure id="@name">
+      <img src="/versions/r1.5/api_docs/cc/images/Gather.png" />
+    </figure>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_1a839275b14b2a970a2bdaafee039469dd">Gather</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> params, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_1aafacd8f95dd561da28cb61d32a6a315f">Gather</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> params, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, const <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/gather/attrs.html#structtensorflow_1_1ops_1_1_gather_1_1_attrs">Gather::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_1a9d78b5b304387efee0e53b5afaa384ef">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_1a6861dab37fe274f230029422bd94b724">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_1a8ea808391c4824b35409a4427fcfd5eb">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_1a3dfd72e34f22afeaad6918d75a6cfdcd">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_1acb10767dcd5da7c1d454b97feafe2f3b">ValidateIndices</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/gather/attrs.html#structtensorflow_1_1ops_1_1_gather_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/gather/attrs">tensorflow::<wbr/>ops::<wbr/>Gather::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/gather.html#classtensorflow_1_1ops_1_1_gather">Gather</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_gather_1a9d78b5b304387efee0e53b5afaa384ef">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_gather_1a839275b14b2a970a2bdaafee039469dd">
+    <h3>Gather</h3>
+    <pre class="prettyprint"> Gather(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> params,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_1aafacd8f95dd561da28cb61d32a6a315f">
+    <h3>Gather</h3>
+    <pre class="prettyprint"> Gather(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> params,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  const <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/gather/attrs.html#structtensorflow_1_1ops_1_1_gather_1_1_attrs">Gather::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_1a6861dab37fe274f230029422bd94b724">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_1a8ea808391c4824b35409a4427fcfd5eb">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_1a3dfd72e34f22afeaad6918d75a6cfdcd">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_gather_1acb10767dcd5da7c1d454b97feafe2f3b">
+    <h3>ValidateIndices</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/gather/attrs.html#structtensorflow_1_1ops_1_1_gather_1_1_attrs">Attrs</a> ValidateIndices(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

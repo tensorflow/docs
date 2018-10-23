@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::QuantizedMatMul Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>QuantizedMatMul</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Perform a quantized matrix multiplication of <code>a</code> by the matrix <code>b</code>. </p>
+  <h2>Summary</h2>
+  <p>The inputs must be two-dimensional matrices and the inner dimension of <code>a</code> (after being transposed if <code>transpose_a</code> is non-zero) must match the outer dimension of <code>b</code> (after being transposed if <code>transposed_b</code> is non-zero).</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>a: Must be a two-dimensional tensor.</li>
+      <li>b: Must be a two-dimensional tensor.</li>
+      <li>min_a: The float value that the lowest quantized <code>a</code> value represents.</li>
+      <li>max_a: The float value that the highest quantized <code>a</code> value represents.</li>
+      <li>min_b: The float value that the lowest quantized <code>b</code> value represents.</li>
+      <li>max_b: The float value that the highest quantized <code>b</code> value represents.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a></code>):<ul>
+      <li>transpose_a: If true, <code>a</code> is transposed before multiplication.</li>
+      <li>transpose_b: If true, <code>b</code> is transposed before multiplication.</li>
+      <li>Tactivation: The type of output produced by activation function following this operation.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> out</li>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> min_out: The float value that the lowest quantized output value represents.</li>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> max_out: The float value that the highest quantized output value represents. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_mat_mul_1a0f09b0e35ddc6a6324c65db6ec69a731">QuantizedMatMul</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_a, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_a, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_b, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_b)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_mat_mul_1a882f02d4d46fa0c4ddb44a2e201929dc">QuantizedMatMul</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_a, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_a, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_b, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_b, const <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">QuantizedMatMul::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_mat_mul_1ad70908bf74ce2c40aa1f778693c60d8f">max_out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_mat_mul_1a8dfe353eb1695a006f27c2cd8210b728">min_out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_mat_mul_1a891101c5425593a778947c2a3019d4a3">out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_mat_mul_1adf046668cb84feff06bb62ac8dfe9cb9">Tactivation</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_mat_mul_1ab91328f7f63e496fbf14e3f2a7ca46fe">Toutput</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_mat_mul_1afbe2add319dc39e1db4dc583f556def9">TransposeA</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_mat_mul_1a6525a94155917583356eb70dd02f1f72">TransposeB</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs">tensorflow::<wbr/>ops::<wbr/>QuantizedMatMul::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/quantized-mat-mul.html#classtensorflow_1_1ops_1_1_quantized_mat_mul">QuantizedMatMul</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantized_mat_mul_1ad70908bf74ce2c40aa1f778693c60d8f">
+    <h3>max_out</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> max_out</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantized_mat_mul_1a8dfe353eb1695a006f27c2cd8210b728">
+    <h3>min_out</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> min_out</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantized_mat_mul_1a891101c5425593a778947c2a3019d4a3">
+    <h3>out</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantized_mat_mul_1a0f09b0e35ddc6a6324c65db6ec69a731">
+    <h3>QuantizedMatMul</h3>
+    <pre class="prettyprint"> QuantizedMatMul(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_a,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_a,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_b,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_b
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantized_mat_mul_1a882f02d4d46fa0c4ddb44a2e201929dc">
+    <h3>QuantizedMatMul</h3>
+    <pre class="prettyprint"> QuantizedMatMul(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_a,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_a,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_b,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_b,
+  const <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">QuantizedMatMul::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantized_mat_mul_1adf046668cb84feff06bb62ac8dfe9cb9">
+    <h3>Tactivation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a> Tactivation(
+  DataType x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantized_mat_mul_1ab91328f7f63e496fbf14e3f2a7ca46fe">
+    <h3>Toutput</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a> Toutput(
+  DataType x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantized_mat_mul_1afbe2add319dc39e1db4dc583f556def9">
+    <h3>TransposeA</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a> TransposeA(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantized_mat_mul_1a6525a94155917583356eb70dd02f1f72">
+    <h3>TransposeB</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a> TransposeB(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

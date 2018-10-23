@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::Scope Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>Scope</h1>
+  <code>#include &lt;scope.h&gt;</code>
+  <p>A <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code> object represents a set of related TensorFlow ops that have the same properties such as a common name prefix. </p>
+  <h2>Summary</h2>
+  <p>A <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object is a container for TensorFlow Op properties. Op constructors get a <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object as a mandatory first argument and the constructed op acquires the properties in the object.</p>
+  <p>A simple example: <pre class="prettyprint">using namespace ops;
+Scope root = Scope::NewRootScope();
+auto c1 = Const(root, { {1, 1} });
+auto m = MatMul(root, c1, { {41}, {1} });
+GraphDef gdef;
+Status s = root.ToGraphDef(&gdef);
+if (!s.ok()) { ... }
+</pre></p>
+  <p><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> hierarchy:</p>
+  <p>The <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> class provides various With<> functions that create a new scope. The new scope typically has one property changed while other properties are inherited from the parent scope. NewSubScope(name) method appends <code>name</code> to the prefix of names for ops created within the scope, and <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope_1a726021aa3104fec02353e8713f1e5b63">WithOpName()</a> changes the suffix which otherwise defaults to the type of the op.</p>
+  <p>Name examples: <pre class="prettyprint">Scope root = Scope::NewRootScope();
+Scope linear = root.NewSubScope("linear");
+// W will be named "linear/W"
+auto W = Variable(linear.WithOpName("W"),
+                  {2, 2}, DT_FLOAT);
+// b will be named "linear/b"
+auto b = Variable(linear.WithOpName("b"),
+                  {2}, DT_FLOAT);
+auto x = Const(linear, {...});  // name: "linear/Const"
+auto m = MatMul(linear, x, W);  // name: "linear/MatMul"
+auto r = BiasAdd(linear, m, b); // name: "linear/BiasAdd"
+</pre></p>
+  <p><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> lifetime:</p>
+  <p>A new scope is created by calling <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope_1a2bd1e548f919654da8f57402f844326c">Scope::NewRootScope</a>. This creates some resources that are shared by all the child scopes that inherit from this scope, directly or transitively. For instance, a new scope creates a new Graph object to which operations are added when the new scope or its children are used by an Op constructor. The new scope also has a <a href="/versions/r1.5/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> object which will be used to indicate errors by Op-constructor functions called on any child scope. The Op-constructor functions have to check the scope's status by calling the ok() method before proceeding to construct the op.</p>
+  <p>Thread safety:</p>
+  <p>A <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code> object is NOT thread-safe. Threads cannot concurrently call op-constructor functions on the same <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code> object. </p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_scope_1a1570deec3468ec4b858094b5b1a2f727">Scope</a>(const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & other)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_scope_1aa3b7d137ed47ff8d5fcc1cc114a181df">~Scope</a>()</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a385a544bd9ed2ef7805edf79e7be684f">ClearColocation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Clear all colocation constraints. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a6ad18f3a902eb624f93051812e19705a">ColocateWith</a>(const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> & op) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Return a new scope. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a0968351b7ff04a358364e7754008fbac">ColocateWith</a>(const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> & out) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Convenience function for above. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1ad3fd7ca2c3691a174d4ec3d7571277f8">ExitOnError</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Return a new scope. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1aaf707349b4c310fd8eb2198037d590cd">GetCompositeOpScopes</a>(const string & composite_op_name) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/composite-op-scopes.html#structtensorflow_1_1_composite_op_scopes">CompositeOpScopes</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1adc0862bbd6f5dd7e801e85aef1b3d244">GetUniqueNameForOp</a>(const string & default_name) const </code>
+      </td>
+      <td>
+        <div>
+          <code>string</code>
+        </div>
+        <div>Return a unique name, using default_name if an op name has not been specified. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1af9f03ca7ef0fdefd9b49378c19421210">NewSubScope</a>(const string & child_scope_name) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Return a new scope. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a48c527e5fd2d3735cf89474714fe1fb8">ToGraphDef</a>(GraphDef *gdef) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+        </div>
+        <div>If status() is Status::OK(), convert the Graph object stored in this scope to a GraphDef proto and return Status::OK(). </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a2d80252155972c9906919709a25513e2">UpdateStatus</a>(const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> s) const </code>
+      </td>
+      <td>
+        <div>
+          <code>void</code>
+        </div>
+        <div>Update the status on this scope. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a1df93e2ab5b0ab40ebba3028ac8b34c7">WithControlDependencies</a>(const gtl::ArraySlice< <a href="/versions/r1.5/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & control_deps) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Return a new scope. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1ae11bf1782c17453f8ed2f6338b6e3c18">WithControlDependencies</a>(const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> & control_dep) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Same as above, but convenient to add control dependency on the operation producing the control_dep output. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a89df9fb352b5c7a258cd05aaf4b244f0">WithDevice</a>(const string & device) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Return a new scope. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a56c8e5b2a135d7149ec21b7c959d2e76">WithKernelLabel</a>(const string & kernel_label) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Return a new scope. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a36af05b4dc1259caefd99539679e3733">WithNoControlDependencies</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Return a new scope. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a726021aa3104fec02353e8713f1e5b63">WithOpName</a>(const string & op_name) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Return a new scope. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a910cb669ff111f1b3b60a2fb1b18d0c7">control_deps</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>const std::vector< <a href="/versions/r1.5/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > &</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a19ac1f773b43a58ac8bbb02d6b57e6a0">graph</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>Graph *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a4e2e9083eaf863ee2269ecc069dc8544">graph_as_shared_ptr</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>std::shared_ptr< Graph ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1ab12601e783c660848b2a1d396cddcb03">ok</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a5d0e6525c7a10d5ff62035281656f25a">operator=</a>(const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & other)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> &</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1ac00d31d253853dacaab991a685fad31c">status</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_scope_1a2bd1e548f919654da8f57402f844326c">NewRootScope</a>()</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a></code>
+        </div>
+        <div>Return a new scope. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1_scope_1a385a544bd9ed2ef7805edf79e7be684f">
+    <h3>ClearColocation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> ClearColocation() const </pre>
+    <div>
+      <p>Clear all colocation constraints. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1a6ad18f3a902eb624f93051812e19705a">
+    <h3>ColocateWith</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> ColocateWith(
+  const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> & op
+) const </pre>
+    <div>
+      <p>Return a new scope. </p>
+      <p>All ops created within the returned scope will be co-located on the device where op is placed. NOTE: This function is intended to be use internal libraries only for controlling placement of ops on to devices. Public use is not encouraged because the implementation of device placement is subject to change. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1a0968351b7ff04a358364e7754008fbac">
+    <h3>ColocateWith</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> ColocateWith(
+  const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> & out
+) const </pre>
+    <div>
+      <p>Convenience function for above. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1ad3fd7ca2c3691a174d4ec3d7571277f8">
+    <h3>ExitOnError</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> ExitOnError() const </pre>
+    <div>
+      <p>Return a new scope. </p>
+      <p>The op-constructor functions taking the returned scope as the scope argument will exit as soon as an error is detected, instead of setting the status on the scope. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1aaf707349b4c310fd8eb2198037d590cd">
+    <h3>GetCompositeOpScopes</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/composite-op-scopes.html#structtensorflow_1_1_composite_op_scopes">CompositeOpScopes</a> GetCompositeOpScopes(
+  const string & composite_op_name
+) const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_scope_1adc0862bbd6f5dd7e801e85aef1b3d244">
+    <h3>GetUniqueNameForOp</h3>
+    <pre class="prettyprint">string GetUniqueNameForOp(
+  const string & default_name
+) const </pre>
+    <div>
+      <p>Return a unique name, using default_name if an op name has not been specified. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1af9f03ca7ef0fdefd9b49378c19421210">
+    <h3>NewSubScope</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> NewSubScope(
+  const string & child_scope_name
+) const </pre>
+    <div>
+      <p>Return a new scope. </p>
+      <p>Ops created with this scope will have <code>name/child_scope_name</code> as the prefix. The actual name will be unique in the current scope. All other properties are inherited from the current scope. If <code>child_scope_name</code> is empty, the <code>/</code> is elided. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1a1570deec3468ec4b858094b5b1a2f727">
+    <h3>Scope</h3>
+    <pre class="prettyprint"> Scope(
+  const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & other
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_scope_1a48c527e5fd2d3735cf89474714fe1fb8">
+    <h3>ToGraphDef</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> ToGraphDef(
+  GraphDef *gdef
+) const </pre>
+    <div>
+      <p>If status() is Status::OK(), convert the Graph object stored in this scope to a GraphDef proto and return Status::OK(). </p>
+      <p>Otherwise, return the error status as is without performing GraphDef conversion. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1a2d80252155972c9906919709a25513e2">
+    <h3>UpdateStatus</h3>
+    <pre class="prettyprint">void UpdateStatus(
+  const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> s
+) const </pre>
+    <div>
+      <p>Update the status on this scope. </p>
+      <p>Note: The status object is shared between all children of this scope. If the resulting status is not Status::OK() and exit_on_error_ is set on this scope, this function exits by calling LOG(FATAL). </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1a1df93e2ab5b0ab40ebba3028ac8b34c7">
+    <h3>WithControlDependencies</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> WithControlDependencies(
+  const gtl::ArraySlice< <a href="/versions/r1.5/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & control_deps
+) const </pre>
+    <div>
+      <p>Return a new scope. </p>
+      <p>All ops created within the returned scope will have as control dependencies the union of operations in the control_deps vector and the control dependencies of the current scope. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1ae11bf1782c17453f8ed2f6338b6e3c18">
+    <h3>WithControlDependencies</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> WithControlDependencies(
+  const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> & control_dep
+) const </pre>
+    <div>
+      <p>Same as above, but convenient to add control dependency on the operation producing the control_dep output. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1a89df9fb352b5c7a258cd05aaf4b244f0">
+    <h3>WithDevice</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> WithDevice(
+  const string & device
+) const </pre>
+    <div>
+      <p>Return a new scope. </p>
+      <p>All ops created within the returned scope will have the device field set to 'device'. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1a56c8e5b2a135d7149ec21b7c959d2e76">
+    <h3>WithKernelLabel</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> WithKernelLabel(
+  const string & kernel_label
+) const </pre>
+    <div>
+      <p>Return a new scope. </p>
+      <p>All ops created with the new scope will have kernel_label as the value for their '_kernel' attribute; </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1a36af05b4dc1259caefd99539679e3733">
+    <h3>WithNoControlDependencies</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> WithNoControlDependencies() const </pre>
+    <div>
+      <p>Return a new scope. </p>
+      <p>All ops created within the returned scope will have no control dependencies on other operations. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1a726021aa3104fec02353e8713f1e5b63">
+    <h3>WithOpName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> WithOpName(
+  const string & op_name
+) const </pre>
+    <div>
+      <p>Return a new scope. </p>
+      <p>All ops created within the returned scope will have names of the form <code>name/op_name[_suffix]</code>. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_scope_1a910cb669ff111f1b3b60a2fb1b18d0c7">
+    <h3>control_deps</h3>
+    <pre class="prettyprint">const std::vector< <a href="/versions/r1.5/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & control_deps() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_scope_1a19ac1f773b43a58ac8bbb02d6b57e6a0">
+    <h3>graph</h3>
+    <pre class="prettyprint">Graph * graph() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_scope_1a4e2e9083eaf863ee2269ecc069dc8544">
+    <h3>graph_as_shared_ptr</h3>
+    <pre class="prettyprint">std::shared_ptr< Graph > graph_as_shared_ptr() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_scope_1ab12601e783c660848b2a1d396cddcb03">
+    <h3>ok</h3>
+    <pre class="prettyprint">bool ok() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_scope_1a5d0e6525c7a10d5ff62035281656f25a">
+    <h3>operator=</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & operator=(
+  const <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & other
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_scope_1ac00d31d253853dacaab991a685fad31c">
+    <h3>status</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> status() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_scope_1aa3b7d137ed47ff8d5fcc1cc114a181df">
+    <h3>~Scope</h3>
+    <pre class="prettyprint"> ~Scope()</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1_scope_1a2bd1e548f919654da8f57402f844326c">
+    <h3>NewRootScope</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> NewRootScope()</pre>
+    <div>
+      <p>Return a new scope. </p>
+      <p>This creates a new graph and all operations constructed in this graph should use the returned object as the "root" scope. </p>
+    </div>
+  </div>
+</body>
+</html>

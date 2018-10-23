@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::MirrorPad Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>MirrorPad</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Pads a tensor with mirrored values. </p>
+  <h2>Summary</h2>
+  <p>This operation pads a <code>input</code> with mirrored values according to the <code>paddings</code> you specify. <code>paddings</code> is an integer tensor with shape <code>[n, 2]</code>, where n is the rank of <code>input</code>. For each dimension D of <code>input</code>, <code>paddings[D, 0]</code> indicates how many values to add before the contents of <code>input</code> in that dimension, and <code>paddings[D, 1]</code> indicates how many values to add after the contents of <code>input</code> in that dimension. Both <code>paddings[D, 0]</code> and <code>paddings[D, 1]</code> must be no greater than <code>input.dim_size(D)</code> (or <code>input.dim_size(D) - 1</code>) if <code>copy_border</code> is true (if false, respectively).</p>
+  <p>The padded size of each dimension D of the output is:</p>
+  <p>
+    <code>paddings(D, 0) + input.dim_size(D) + paddings(D, 1)</code>
+  </p>
+  <p>For example:</p>
+  <p>``` 't' is [[1, 2, 3], [4, 5, 6]].</p>
+  <p>'paddings' is [[1, 1]], [2, 2]].</p>
+  <p>'mode' is SYMMETRIC.</p>
+  <p>rank of 't' is 2.</p>
+  <p>pad(t, paddings) ==> [[2, 1, 1, 2, 3, 3, 2] [2, 1, 1, 2, 3, 3, 2] [5, 4, 4, 5, 6, 6, 5] [5, 4, 4, 5, 6, 6, 5]] ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: The input tensor to be padded.</li>
+      <li>paddings: A two-column matrix specifying the padding sizes. The number of rows must be the same as the rank of <code>input</code>.</li>
+      <li>mode: Either <code>REFLECT</code> or <code>SYMMETRIC</code>. In reflect mode the padded regions do not include the borders, while in symmetric mode the padded regions do include the borders. For example, if <code>input</code> is <code>[1, 2, 3]</code> and <code>paddings</code> is <code>[0, 2]</code>, then the output is <code>[1, 2, 3, 2, 1]</code> in reflect mode, and it is <code>[1, 2, 3, 3, 2]</code> in symmetric mode.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The padded tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_mirror_pad_1ade8674bcac38c7b92e49227402b3aeab">MirrorPad</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings, StringPiece mode)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mirror_pad_1acddc2951f705b38786a6c90517025bbd">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mirror_pad_1ac601ae413e0e24707abfe6bd6e000e3e">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mirror_pad_1a27d0164d159236fcb1639d0dd7604c31">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mirror_pad_1a682f1e9bfbad14b9b9529733b71dba26">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_mirror_pad_1acddc2951f705b38786a6c90517025bbd">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_mirror_pad_1ade8674bcac38c7b92e49227402b3aeab">
+    <h3>MirrorPad</h3>
+    <pre class="prettyprint"> MirrorPad(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings,
+  StringPiece mode
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_mirror_pad_1ac601ae413e0e24707abfe6bd6e000e3e">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_mirror_pad_1a27d0164d159236fcb1639d0dd7604c31">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_mirror_pad_1a682f1e9bfbad14b9b9529733b71dba26">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>
