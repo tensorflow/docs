@@ -1,0 +1,50 @@
+
+
+page_type: reference
+<style> table img { max-width: 100%; } </style>
+
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+# tf.contrib.checkpoint.NoDependency
+
+## Class `NoDependency`
+
+
+
+
+
+Defined in [`tensorflow/python/training/checkpointable/base.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/checkpointable/base.py).
+
+Allows attribute assignment to `Checkpointable` objects with no dependency.
+
+Example usage:
+
+```python
+obj = Checkpointable()
+obj.has_dependency = tf.Variable(0., name="dep")
+obj.no_dependency = NoDependency(tf.Variable(1., name="nodep"))
+assert obj.no_dependency.name == "nodep:0"
+```
+
+`obj` in this example has a dependency on the variable "dep", and both
+attributes contain un-wrapped `Variable` objects.
+
+`NoDependency` also works with <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a>, but only for checkpoint
+dependencies: wrapping a `Layer` in `NoDependency` will assign the (unwrapped)
+`Layer` to the attribute without a checkpoint dependency, but the `Model` will
+still track the `Layer` (so it will appear in `Model.layers`, and its
+variables will appear in `Model.variables`).
+
+## Methods
+
+<h3 id="__init__"><code>__init__</code></h3>
+
+``` python
+__init__(value)
+```
+
+
+
+
+

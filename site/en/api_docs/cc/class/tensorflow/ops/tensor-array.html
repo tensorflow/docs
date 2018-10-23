@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::TensorArray Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>TensorArray</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>An array of Tensors of given size. </p>
+  <h2>Summary</h2>
+  <p>Write data via Write and read via Read or Pack.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>size: The size of the array.</li>
+      <li>dtype: The type of the elements on the tensor_array.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">Attrs</a></code>):<ul>
+      <li>element_shape: The expected shape of an element, if known. Used to validate the shapes of <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> elements. If this shape is not fully specified, gathering zero-size TensorArrays is an error.</li>
+      <li>dynamic_size: A boolean that determines whether writes to the <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> are allowed to grow the size. By default, this is not allowed.</li>
+      <li>clear_after_read: If true (default), Tensors in the <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> are cleared after being read. This disables multiple read semantics but allows early release of memory.</li>
+      <li>identical_element_shapes: If true (default is false), then all elements in the <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> will be expected to have have identical shapes. This allows certain behaviors, like dynamically checking for consistent shapes on write, and being able to fill in properly shaped zero tensors on stack  even if the element_shape attribute is not fully defined.</li>
+      <li>tensor_array_name: Overrides the name used for the temporary tensor_array resource. Default value is the name of the '<a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>' op (which is guaranteed unique).</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> handle: The handle to the <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.</li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> flow: A scalar used to control gradient flow. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_1a17fb1bdb76e98f8c83ec1cf24af87f3d">TensorArray</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, DataType dtype)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_1afede14d69c65d1efdc36f5ac00fc6351">TensorArray</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, DataType dtype, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">TensorArray::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_1ac6f0c80567abf77dbae5528ef5257c3c">flow</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_1a238401c92769f36d04f2f3b2db163fdf">handle</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_1ada85e1cd0c0611935f275655748441b6">ClearAfterRead</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_1a3022cd4fccb5d056d0e670d51ad424b4">DynamicSize</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_1a4d87fc9eee4243549ee11e45bb697ba9">ElementShape</a>(PartialTensorShape x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_1a6e6597bdcb607f327ba2047f3dafa449">IdenticalElementShapes</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_1a26c71247662a164badad7ad3004f3409">TensorArrayName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs">tensorflow::<wbr/>ops::<wbr/>TensorArray::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_1ac6f0c80567abf77dbae5528ef5257c3c">
+    <h3>flow</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> flow</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_1a238401c92769f36d04f2f3b2db163fdf">
+    <h3>handle</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> handle</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_1a17fb1bdb76e98f8c83ec1cf24af87f3d">
+    <h3>TensorArray</h3>
+    <pre class="prettyprint"> TensorArray(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
+  DataType dtype
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_1afede14d69c65d1efdc36f5ac00fc6351">
+    <h3>TensorArray</h3>
+    <pre class="prettyprint"> TensorArray(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
+  DataType dtype,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">TensorArray::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_1ada85e1cd0c0611935f275655748441b6">
+    <h3>ClearAfterRead</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">Attrs</a> ClearAfterRead(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_1a3022cd4fccb5d056d0e670d51ad424b4">
+    <h3>DynamicSize</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">Attrs</a> DynamicSize(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_1a4d87fc9eee4243549ee11e45bb697ba9">
+    <h3>ElementShape</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">Attrs</a> ElementShape(
+  PartialTensorShape x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_1a6e6597bdcb607f327ba2047f3dafa449">
+    <h3>IdenticalElementShapes</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">Attrs</a> IdenticalElementShapes(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_1a26c71247662a164badad7ad3004f3409">
+    <h3>TensorArrayName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_1_1_attrs">Attrs</a> TensorArrayName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

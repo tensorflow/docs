@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ExtractGlimpse::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ExtractGlimpse::<wbr/>Attrs</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/extract-glimpse.html#classtensorflow_1_1ops_1_1_extract_glimpse">ExtractGlimpse</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1a091aa35c4372414f56642722f0662db5">centered_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1aafca1aa3f4c17329062219124a884db9">normalized_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1a0a0566a1fa43743a25bcd5e8dd9643cb">uniform_noise_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1a8988355f28f34b1a6ed803cfa297436e">Centered</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>indicates if the offset coordinates are centered relative to the image, in which case the (0, 0) offset is relative to the center of the input images. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1a2768807d142893eb4517d6a1ed7f6d06">Normalized</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>indicates if the offset coordinates are normalized. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1abd5583b6d3fa73a9cc9064fdb8320394">UniformNoise</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>indicates if the noise should be generated using a uniform distribution or a Gaussian distribution. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1a091aa35c4372414f56642722f0662db5">
+    <h3>centered_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::ExtractGlimpse::Attrs::centered_ = true</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1aafca1aa3f4c17329062219124a884db9">
+    <h3>normalized_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::ExtractGlimpse::Attrs::normalized_ = true</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1a0a0566a1fa43743a25bcd5e8dd9643cb">
+    <h3>uniform_noise_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::ExtractGlimpse::Attrs::uniform_noise_ = true</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1a8988355f28f34b1a6ed803cfa297436e">
+    <h3>Centered</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a> tensorflow::ops::ExtractGlimpse::Attrs::Centered(
+  bool x
+)</pre>
+    <div>
+      <p>indicates if the offset coordinates are centered relative to the image, in which case the (0, 0) offset is relative to the center of the input images. </p>
+      <p>If false, the (0,0) offset corresponds to the upper left corner of the input images.</p>
+      <p>Defaults to true </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1a2768807d142893eb4517d6a1ed7f6d06">
+    <h3>Normalized</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a> tensorflow::ops::ExtractGlimpse::Attrs::Normalized(
+  bool x
+)</pre>
+    <div>
+      <p>indicates if the offset coordinates are normalized. </p>
+      <p>Defaults to true </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs_1abd5583b6d3fa73a9cc9064fdb8320394">
+    <h3>UniformNoise</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/extract-glimpse/attrs.html#structtensorflow_1_1ops_1_1_extract_glimpse_1_1_attrs">Attrs</a> tensorflow::ops::ExtractGlimpse::Attrs::UniformNoise(
+  bool x
+)</pre>
+    <div>
+      <p>indicates if the noise should be generated using a uniform distribution or a Gaussian distribution. </p>
+      <p>Defaults to true </p>
+    </div>
+  </div>
+</body>
+</html>

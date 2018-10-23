@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::AsString::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>AsString::<wbr/>Attrs</h1>
+  <code>#include &lt;string_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/as-string.html#classtensorflow_1_1ops_1_1_as_string">AsString</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1a8bf611bad8c7bd4345908dbc3cd21786">fill_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1a30c509542b89243670993b5347796d9a">precision_</a> = -1</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1af02389c5b254a51ada2c93cf41be40f6">scientific_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1ae2b98a6a89a8b72580585a25a84535bb">shortest_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1a3851aec9e144cb466b18571b6fc39541">width_</a> = -1</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1accfa54faa153ce4b5e8dff7a8c8e63f8">Fill</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/as-string/attrs.html#structtensorflow_1_1ops_1_1_as_string_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The value to pad if width > -1. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1af2acaa70b9fad5b80d21a664a453bcaa">Precision</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/as-string/attrs.html#structtensorflow_1_1ops_1_1_as_string_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The post-decimal precision to use for floating point numbers. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1a119604909bb32fc0da005d1f55757f55">Scientific</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/as-string/attrs.html#structtensorflow_1_1ops_1_1_as_string_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Use scientific notation for floating point numbers. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1a7b38858066b92833780462277b3b6047">Shortest</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/as-string/attrs.html#structtensorflow_1_1ops_1_1_as_string_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Use shortest representation (either scientific or standard) for floating point numbers. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1af57583d51da956bc8128f61f1d08a284">Width</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/as-string/attrs.html#structtensorflow_1_1ops_1_1_as_string_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Pad pre-decimal numbers to this width. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1a8bf611bad8c7bd4345908dbc3cd21786">
+    <h3>fill_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::AsString::Attrs::fill_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1a30c509542b89243670993b5347796d9a">
+    <h3>precision_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::AsString::Attrs::precision_ = -1</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1af02389c5b254a51ada2c93cf41be40f6">
+    <h3>scientific_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::AsString::Attrs::scientific_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1ae2b98a6a89a8b72580585a25a84535bb">
+    <h3>shortest_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::AsString::Attrs::shortest_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1a3851aec9e144cb466b18571b6fc39541">
+    <h3>width_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::AsString::Attrs::width_ = -1</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1accfa54faa153ce4b5e8dff7a8c8e63f8">
+    <h3>Fill</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/as-string/attrs.html#structtensorflow_1_1ops_1_1_as_string_1_1_attrs">Attrs</a> tensorflow::ops::AsString::Attrs::Fill(
+  StringPiece x
+)</pre>
+    <div>
+      <p>The value to pad if width > -1. </p>
+      <p>If empty, pads with spaces. Another typical value is '0'. String cannot be longer than 1 character.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1af2acaa70b9fad5b80d21a664a453bcaa">
+    <h3>Precision</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/as-string/attrs.html#structtensorflow_1_1ops_1_1_as_string_1_1_attrs">Attrs</a> tensorflow::ops::AsString::Attrs::Precision(
+  int64 x
+)</pre>
+    <div>
+      <p>The post-decimal precision to use for floating point numbers. </p>
+      <p>Only used if precision > -1.</p>
+      <p>Defaults to -1 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1a119604909bb32fc0da005d1f55757f55">
+    <h3>Scientific</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/as-string/attrs.html#structtensorflow_1_1ops_1_1_as_string_1_1_attrs">Attrs</a> tensorflow::ops::AsString::Attrs::Scientific(
+  bool x
+)</pre>
+    <div>
+      <p>Use scientific notation for floating point numbers. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1a7b38858066b92833780462277b3b6047">
+    <h3>Shortest</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/as-string/attrs.html#structtensorflow_1_1ops_1_1_as_string_1_1_attrs">Attrs</a> tensorflow::ops::AsString::Attrs::Shortest(
+  bool x
+)</pre>
+    <div>
+      <p>Use shortest representation (either scientific or standard) for floating point numbers. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_as_string_1_1_attrs_1af57583d51da956bc8128f61f1d08a284">
+    <h3>Width</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/as-string/attrs.html#structtensorflow_1_1ops_1_1_as_string_1_1_attrs">Attrs</a> tensorflow::ops::AsString::Attrs::Width(
+  int64 x
+)</pre>
+    <div>
+      <p>Pad pre-decimal numbers to this width. </p>
+      <p>Applies to both floating point and integer numbers. Only used if width > -1.</p>
+      <p>Defaults to -1 </p>
+    </div>
+  </div>
+</body>
+</html>

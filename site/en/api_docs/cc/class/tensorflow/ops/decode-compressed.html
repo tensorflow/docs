@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DecodeCompressed Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DecodeCompressed</h1>
+  <code>#include &lt;parsing_ops.h&gt;</code>
+  <p>Decompress strings. </p>
+  <h2>Summary</h2>
+  <p>This op decompresses each element of the <code>bytes</code> input <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>, which is assumed to be compressed using the given <code>compression_type</code>.</p>
+  <p>The <code>output</code> is a string <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of the same shape as <code>bytes</code>, each element containing the decompressed data from the corresponding element in <code>bytes</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>bytes: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of string which is compressed.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/decode-compressed/attrs.html#structtensorflow_1_1ops_1_1_decode_compressed_1_1_attrs">Attrs</a></code>):<ul>
+      <li>compression_type: A scalar containing either (i) the empty string (no compression), (ii) "ZLIB", or (iii) "GZIP".</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> with the same shape as input <code>bytes</code>, uncompressed from bytes. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_compressed_1ab8554357582adeda4632efa64b36aa6c">DecodeCompressed</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bytes)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_compressed_1addfbc931c39601dfa456a863b56d6122">DecodeCompressed</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bytes, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/decode-compressed/attrs.html#structtensorflow_1_1ops_1_1_decode_compressed_1_1_attrs">DecodeCompressed::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_compressed_1ab6e1dc1de724893df3f343dc2478ae44">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_compressed_1ae93480b60d3827520c7310efcafeb089">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_compressed_1ad10af605db615b0d1f8a6e48722a69e9">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_compressed_1acfae46ee5362b2a4cf2619c372a971f0">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_compressed_1a09ef6d2bac5f47fc0bd7ed850345ab83">CompressionType</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/decode-compressed/attrs.html#structtensorflow_1_1ops_1_1_decode_compressed_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/decode-compressed/attrs">tensorflow::<wbr/>ops::<wbr/>DecodeCompressed::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/decode-compressed.html#classtensorflow_1_1ops_1_1_decode_compressed">DecodeCompressed</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_compressed_1ab6e1dc1de724893df3f343dc2478ae44">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_compressed_1ab8554357582adeda4632efa64b36aa6c">
+    <h3>DecodeCompressed</h3>
+    <pre class="prettyprint"> DecodeCompressed(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bytes
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_compressed_1addfbc931c39601dfa456a863b56d6122">
+    <h3>DecodeCompressed</h3>
+    <pre class="prettyprint"> DecodeCompressed(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bytes,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/decode-compressed/attrs.html#structtensorflow_1_1ops_1_1_decode_compressed_1_1_attrs">DecodeCompressed::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_compressed_1ae93480b60d3827520c7310efcafeb089">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_compressed_1ad10af605db615b0d1f8a6e48722a69e9">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_compressed_1acfae46ee5362b2a4cf2619c372a971f0">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_compressed_1a09ef6d2bac5f47fc0bd7ed850345ab83">
+    <h3>CompressionType</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/decode-compressed/attrs.html#structtensorflow_1_1ops_1_1_decode_compressed_1_1_attrs">Attrs</a> CompressionType(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
