@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::QuantizedReshape Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.6/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>QuantizedReshape</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Reshapes a quantized tensor as per the <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/reshape.html#classtensorflow_1_1ops_1_1_reshape">Reshape</a> op. </p>
+  <h2>Summary</h2>
+  <p>```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>shape: Defines the shape of the output tensor.</li>
+      <li>input_min: The minimum value of the input.</li>
+      <li>input_max: The maximum value of the input.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output</li>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_min: This value is copied from input_min.</li>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_max: This value is copied from input_max. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_reshape_1a1586a9fd66e72c76f752e7641f6a191f">QuantizedReshape</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_reshape_1a83f4f02b01effc15393ce0cd24cfee85">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_reshape_1ac5caddbc5b5bc5a524ff95ff71db1842">output_max</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_reshape_1aa5ba6ab97eb0e9e29852f08f1c63e136">output_min</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantized_reshape_1a83f4f02b01effc15393ce0cd24cfee85">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantized_reshape_1ac5caddbc5b5bc5a524ff95ff71db1842">
+    <h3>output_max</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantized_reshape_1aa5ba6ab97eb0e9e29852f08f1c63e136">
+    <h3>output_min</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantized_reshape_1a1586a9fd66e72c76f752e7641f6a191f">
+    <h3>QuantizedReshape</h3>
+    <pre class="prettyprint"> QuantizedReshape(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::UnravelIndex Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.6/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>UnravelIndex</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Converts a flat index or array of flat indices into a tuple of. </p>
+  <h2>Summary</h2>
+  <p>coordinate arrays.</p>
+  <p>(numpy) Equivalent to np.unravel_index </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>indices: An 0-D or 1-D <code>int</code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> whose elements are indices into the flattened version of an array of dimensions dims.</li>
+      <li>dims: An 1-D <code>int</code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. The shape of the array to use for unraveling indices.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: An 2-D (or 1-D if indices is 0-D) tensor where each row has the same shape as the indices array. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_unravel_index_1a2724a10576471d629bc8970f9e7aad13">UnravelIndex</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dims)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unravel_index_1af9eb8a767a3e4f54ffd3a43fc29e30cf">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unravel_index_1a5c974f548225ad711bf12f79d37c0338">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unravel_index_1adf8fdc6b1745c8da65c99d0324cd35b2">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unravel_index_1acdd12ca639f8d69c9a9f3af8281542f9">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_unravel_index_1af9eb8a767a3e4f54ffd3a43fc29e30cf">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_unravel_index_1a2724a10576471d629bc8970f9e7aad13">
+    <h3>UnravelIndex</h3>
+    <pre class="prettyprint"> UnravelIndex(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dims
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unravel_index_1a5c974f548225ad711bf12f79d37c0338">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unravel_index_1adf8fdc6b1745c8da65c99d0324cd35b2">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unravel_index_1acdd12ca639f8d69c9a9f3af8281542f9">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

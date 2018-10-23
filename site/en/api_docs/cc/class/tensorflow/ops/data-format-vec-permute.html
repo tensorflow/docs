@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DataFormatVecPermute Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.6/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DataFormatVecPermute</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Returns the permuted vector/tensor in the destination data format given the. </p>
+  <h2>Summary</h2>
+  <p>one in the source data format.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>x: Vector of size 4 or <a href="/versions/r1.6/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of shape (4, 2) in source data format.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/data-format-vec-permute/attrs.html#structtensorflow_1_1ops_1_1_data_format_vec_permute_1_1_attrs">Attrs</a></code>):<ul>
+      <li>src_format: source data format.</li>
+      <li>dst_format: destination data format.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Vector of size 4 or <a href="/versions/r1.6/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of shape (4, 2) in destination data format. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_data_format_vec_permute_1a8babb4c1e126e473efe79cc7083f1f6d">DataFormatVecPermute</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_data_format_vec_permute_1a6d0e6d800f5d0411c873343c3ce89ba9">DataFormatVecPermute</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, const <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/data-format-vec-permute/attrs.html#structtensorflow_1_1ops_1_1_data_format_vec_permute_1_1_attrs">DataFormatVecPermute::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_data_format_vec_permute_1a47a3e96570db483721681a470526eacd">y</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_data_format_vec_permute_1ac6c53640d6b53b6bb728f92a7d426855">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_data_format_vec_permute_1a8c97823cde5e0028f42b19a28d8855d0">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_data_format_vec_permute_1a19f5f9a816b2d7941524d4966f60c5a5">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_data_format_vec_permute_1af8e8527150fac801f3e4db0686f97871">DstFormat</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/data-format-vec-permute/attrs.html#structtensorflow_1_1ops_1_1_data_format_vec_permute_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_data_format_vec_permute_1a466d9b4a767bff538cc2de0b2c8992aa">SrcFormat</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/data-format-vec-permute/attrs.html#structtensorflow_1_1ops_1_1_data_format_vec_permute_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/data-format-vec-permute/attrs">tensorflow::<wbr/>ops::<wbr/>DataFormatVecPermute::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/data-format-vec-permute.html#classtensorflow_1_1ops_1_1_data_format_vec_permute">DataFormatVecPermute</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_data_format_vec_permute_1a47a3e96570db483721681a470526eacd">
+    <h3>y</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_data_format_vec_permute_1a8babb4c1e126e473efe79cc7083f1f6d">
+    <h3>DataFormatVecPermute</h3>
+    <pre class="prettyprint"> DataFormatVecPermute(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_data_format_vec_permute_1a6d0e6d800f5d0411c873343c3ce89ba9">
+    <h3>DataFormatVecPermute</h3>
+    <pre class="prettyprint"> DataFormatVecPermute(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  const <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/data-format-vec-permute/attrs.html#structtensorflow_1_1ops_1_1_data_format_vec_permute_1_1_attrs">DataFormatVecPermute::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_data_format_vec_permute_1ac6c53640d6b53b6bb728f92a7d426855">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_data_format_vec_permute_1a8c97823cde5e0028f42b19a28d8855d0">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_data_format_vec_permute_1a19f5f9a816b2d7941524d4966f60c5a5">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_data_format_vec_permute_1af8e8527150fac801f3e4db0686f97871">
+    <h3>DstFormat</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/data-format-vec-permute/attrs.html#structtensorflow_1_1ops_1_1_data_format_vec_permute_1_1_attrs">Attrs</a> DstFormat(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_data_format_vec_permute_1a466d9b4a767bff538cc2de0b2c8992aa">
+    <h3>SrcFormat</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/data-format-vec-permute/attrs.html#structtensorflow_1_1ops_1_1_data_format_vec_permute_1_1_attrs">Attrs</a> SrcFormat(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

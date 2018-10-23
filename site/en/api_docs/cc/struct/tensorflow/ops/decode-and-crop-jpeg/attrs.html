@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DecodeAndCropJpeg::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.6/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DecodeAndCropJpeg::<wbr/>Attrs</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/decode-and-crop-jpeg.html#classtensorflow_1_1ops_1_1_decode_and_crop_jpeg">DecodeAndCropJpeg</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1ade4565804d091b2ee9f3f71d7be3ffa2">acceptable_fraction_</a> = 1.0f</code>
+      </td>
+      <td>
+        <div>
+          <code>float</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1afe18a96df41f5b94c222496dc5206368">channels_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1ab6a1537364211645118c52ac8b3e530e">dct_method_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a96af21097f175c4dca629887cdb8acf4">fancy_upscaling_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a09f5eb7adce68e4626c89ab197d0a9ce">ratio_</a> = 1</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1ac266a7946265c4dc352d9d70e2259966">try_recover_truncated_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a2b6bf4f2ae4e1aadf5aab8fc8bd89a1f">AcceptableFraction</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The minimum required fraction of lines before a truncated input is accepted. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a9b307241f92870b831a01fddd4f88c9b">Channels</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Number of color channels for the decoded image. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1aaaa7c65b0b50ad9469adbbfd24f06c4f">DctMethod</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>string specifying a hint about the algorithm used for decompression. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1acbcec7603c851f8c694b8cc0d0e06b26">FancyUpscaling</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If true use a slower but nicer upscaling of the chroma planes (yuv420/422 only). </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a26833bcf62648262e1bc80f59aef44bb">Ratio</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Downscaling ratio. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a301bbe64c306eba220472fc52dba32d1">TryRecoverTruncated</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If true try to recover an image from truncated input. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1ade4565804d091b2ee9f3f71d7be3ffa2">
+    <h3>acceptable_fraction_</h3>
+    <pre class="prettyprint">float tensorflow::ops::DecodeAndCropJpeg::Attrs::acceptable_fraction_ = 1.0f</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1afe18a96df41f5b94c222496dc5206368">
+    <h3>channels_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::DecodeAndCropJpeg::Attrs::channels_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1ab6a1537364211645118c52ac8b3e530e">
+    <h3>dct_method_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::DecodeAndCropJpeg::Attrs::dct_method_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a96af21097f175c4dca629887cdb8acf4">
+    <h3>fancy_upscaling_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::DecodeAndCropJpeg::Attrs::fancy_upscaling_ = true</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a09f5eb7adce68e4626c89ab197d0a9ce">
+    <h3>ratio_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::DecodeAndCropJpeg::Attrs::ratio_ = 1</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1ac266a7946265c4dc352d9d70e2259966">
+    <h3>try_recover_truncated_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::DecodeAndCropJpeg::Attrs::try_recover_truncated_ = false</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a2b6bf4f2ae4e1aadf5aab8fc8bd89a1f">
+    <h3>AcceptableFraction</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeAndCropJpeg::Attrs::AcceptableFraction(
+  float x
+)</pre>
+    <div>
+      <p>The minimum required fraction of lines before a truncated input is accepted. </p>
+      <p>Defaults to 1 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a9b307241f92870b831a01fddd4f88c9b">
+    <h3>Channels</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeAndCropJpeg::Attrs::Channels(
+  int64 x
+)</pre>
+    <div>
+      <p>Number of color channels for the decoded image. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1aaaa7c65b0b50ad9469adbbfd24f06c4f">
+    <h3>DctMethod</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeAndCropJpeg::Attrs::DctMethod(
+  StringPiece x
+)</pre>
+    <div>
+      <p>string specifying a hint about the algorithm used for decompression. </p>
+      <p>Defaults to "" which maps to a system-specific default. Currently valid values are ["INTEGER_FAST", "INTEGER_ACCURATE"]. The hint may be ignored (e.g., the internal jpeg library changes to a version that does not have that specific option.)</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1acbcec7603c851f8c694b8cc0d0e06b26">
+    <h3>FancyUpscaling</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeAndCropJpeg::Attrs::FancyUpscaling(
+  bool x
+)</pre>
+    <div>
+      <p>If true use a slower but nicer upscaling of the chroma planes (yuv420/422 only). </p>
+      <p>Defaults to true </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a26833bcf62648262e1bc80f59aef44bb">
+    <h3>Ratio</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeAndCropJpeg::Attrs::Ratio(
+  int64 x
+)</pre>
+    <div>
+      <p>Downscaling ratio. </p>
+      <p>Defaults to 1 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs_1a301bbe64c306eba220472fc52dba32d1">
+    <h3>TryRecoverTruncated</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-and-crop-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_and_crop_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeAndCropJpeg::Attrs::TryRecoverTruncated(
+  bool x
+)</pre>
+    <div>
+      <p>If true try to recover an image from truncated input. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+</body>
+</html>
