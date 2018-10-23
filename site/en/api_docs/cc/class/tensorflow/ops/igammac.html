@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Igammac Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.1/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Igammac</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Compute the upper regularized incomplete Gamma function <code>Q(a, x)</code>. </p>
+  <h2>Summary</h2>
+  <p>The upper regularized incomplete Gamma function is defined as:</p>
+  <p>``` Q(a, x) = Gamma(a, x) / Gamma(a) = 1 - P(a, x) ``` where ``` Gamma(a, x) = int_{x}^{} t^{a-1} exp(-t) dt ``` is the upper incomplete Gama function.</p>
+  <p>Note, above <code>P(a, x)</code> (<code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/igamma.html#classtensorflow_1_1ops_1_1_igamma">Igamma</a></code>) is the lower regularized complete Gamma function.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The z tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#group__math__ops_1ga867ff7332904e014a469ad6b53e02243">Igammac</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1gaa4377078a3d027a75db11b2b85accf8f">z</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1ga47a0b8542b7285a8a0041d1df02bf9be">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1gaf16b9ff0899819a8d91c937f8e5846d3">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1gae10be53b838e3e96180c7c754fbb9e5e">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="group__math__ops_1gaa4377078a3d027a75db11b2b85accf8f">
+    <h3>z</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> z</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="group__math__ops_1ga867ff7332904e014a469ad6b53e02243">
+    <h3>Igammac</h3>
+    <pre class="prettyprint"> Igammac(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x
+)</pre>
+    <div />
+  </div>
+  <div id="group__math__ops_1ga47a0b8542b7285a8a0041d1df02bf9be">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="group__math__ops_1gaf16b9ff0899819a8d91c937f8e5846d3">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="group__math__ops_1gae10be53b838e3e96180c7c754fbb9e5e">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

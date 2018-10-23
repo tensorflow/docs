@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SaveSlices Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.1/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SaveSlices</h1>
+  <code>#include &lt;io_ops.h&gt;</code>
+  <p>Saves input tensors slices to disk. </p>
+  <h2>Summary</h2>
+  <p>This is like <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/save.html#classtensorflow_1_1ops_1_1_save">Save</a></code> except that tensors can be listed in the saved file as being a slice of a larger tensor. <code>shapes_and_slices</code> specifies the shape of the larger tensor and the slice that this tensor covers. <code>shapes_and_slices</code> must have as many elements as <code>tensor_names</code>.</p>
+  <p>Elements of the <code>shapes_and_slices</code> input must either be:</p>
+  <p>
+    <ul>
+      <li>The empty string, in which case the corresponding tensor is saved normally.</li>
+      <li>A string of the form <code>dim0 dim1 ... dimN-1 slice-spec</code> where the <code>dimI</code> are the dimensions of the larger tensor and <code>slice-spec</code> specifies what part is covered by the tensor to save.</li>
+    </ul>
+  </p>
+  <p><code>slice-spec</code> itself is a <code>:</code>-separated list: <code>slice0:slice1:...:sliceN-1</code> where each <code>sliceI</code> is either:</p>
+  <p>
+    <ul>
+      <li>The string <code>-</code> meaning that the slice covers all indices of this dimension</li>
+      <li><code>start,length</code> where <code>start</code> and <code>length</code> are integers. In that case the slice covers <code>length</code> indices starting at <code>start</code>.</li>
+    </ul>
+  </p>
+  <p>See also <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/save.html#classtensorflow_1_1ops_1_1_save">Save</a></code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>filename: Must have a single element. The name of the file to which we write the tensor.</li>
+      <li>tensor_names: <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a><code>[N]</code>. The names of the tensors to be saved.</li>
+      <li>shapes_and_slices: <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a><code>[N]</code>. The shapes and slice specifications to use when saving the tensors.</li>
+      <li>data: <code>N</code> tensors to save.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li>the created <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_save_slices_1a348703b8b3b5deaa67138609a3e7fa0c">SaveSlices</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filename, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shapes_and_slices, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> data)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_save_slices_1a0ef740836d01295141e4a0c6cfc9d4a2">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_save_slices_1a31b63fe266dfcc7f28eae47f400212b3">operator::tensorflow::Operation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_save_slices_1a0ef740836d01295141e4a0c6cfc9d4a2">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_save_slices_1a348703b8b3b5deaa67138609a3e7fa0c">
+    <h3>SaveSlices</h3>
+    <pre class="prettyprint"> SaveSlices(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filename,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shapes_and_slices,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> data
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_save_slices_1a31b63fe266dfcc7f28eae47f400212b3">
+    <h3>operator::tensorflow::Operation</h3>
+    <pre class="prettyprint"> operator::tensorflow::Operation() const </pre>
+    <div />
+  </div>
+</body>
+</html>

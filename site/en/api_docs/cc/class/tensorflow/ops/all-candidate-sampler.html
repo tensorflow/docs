@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::AllCandidateSampler Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.1/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>AllCandidateSampler</h1>
+  <code>#include &lt;candidate_sampling_ops.h&gt;</code>
+  <p>Generates labels for candidate sampling with a learned unigram distribution. </p>
+  <h2>Summary</h2>
+  <p>See explanations of candidate sampling and the data formats at go/candidate-sampling.</p>
+  <p>For each batch, this op picks a single set of sampled candidate labels.</p>
+  <p>The advantages of sampling candidates per-batch are simplicity and the possibility of efficient dense matrix multiplication. The disadvantage is that the sampled candidates must be chosen independently of the context and of the true labels.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>true_classes: A batch_size * num_true matrix, in which each row contains the IDs of the num_true target_classes in the corresponding original label.</li>
+      <li>num_true: Number of true labels per context.</li>
+      <li>num_sampled: Number of candidates to produce per batch.</li>
+      <li>unique: If unique is true, we sample with rejection, so that all sampled candidates in a batch are unique. This requires some approximation to estimate the post-rejection sampling probabilities.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs">Attrs</a></code>):<ul>
+      <li>seed: If either seed or seed2 are set to be non-zero, the random number generator is seeded by the given seed. Otherwise, it is seeded by a random seed.</li>
+      <li>seed2: An second seed to avoid seed collision.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sampled_candidates: A vector of length num_sampled, in which each element is the ID of a sampled candidate.</li>
+      <li><code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> true_expected_count: A batch_size * num_true matrix, representing the number of times each candidate is expected to occur in a batch of sampled candidates. If unique=true, then this is a probability.</li>
+      <li><code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sampled_expected_count: A vector of length num_sampled, for each sampled candidate representing the number of times the candidate is expected to occur in a batch of sampled candidates. If unique=true, then this is a probability. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_all_candidate_sampler_1aad2d9e73a8fc9a50a37699e20ebffa6a">AllCandidateSampler</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes, int64 num_true, int64 num_sampled, bool unique)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_all_candidate_sampler_1ad1521c027811f7f0e056b87d12071a4e">AllCandidateSampler</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes, int64 num_true, int64 num_sampled, bool unique, const <a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs">AllCandidateSampler::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_all_candidate_sampler_1a47ac61dc358107667c422fccbdd3418d">sampled_candidates</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_all_candidate_sampler_1a53a987bbc8c5b035948259ba9c90aa20">sampled_expected_count</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_all_candidate_sampler_1ac46a1428d3dc734892084c568c632d09">true_expected_count</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_all_candidate_sampler_1a4ab278d6ad3303f8d03b47ce43637cf5">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_all_candidate_sampler_1a412dc3eb4a931969a4cd51ca7837131f">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs">tensorflow::<wbr/>ops::<wbr/>AllCandidateSampler::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/all-candidate-sampler.html#classtensorflow_1_1ops_1_1_all_candidate_sampler">AllCandidateSampler</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_all_candidate_sampler_1a47ac61dc358107667c422fccbdd3418d">
+    <h3>sampled_candidates</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sampled_candidates</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_all_candidate_sampler_1a53a987bbc8c5b035948259ba9c90aa20">
+    <h3>sampled_expected_count</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sampled_expected_count</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_all_candidate_sampler_1ac46a1428d3dc734892084c568c632d09">
+    <h3>true_expected_count</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> true_expected_count</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_all_candidate_sampler_1aad2d9e73a8fc9a50a37699e20ebffa6a">
+    <h3>AllCandidateSampler</h3>
+    <pre class="prettyprint"> AllCandidateSampler(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes,
+  int64 num_true,
+  int64 num_sampled,
+  bool unique
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_all_candidate_sampler_1ad1521c027811f7f0e056b87d12071a4e">
+    <h3>AllCandidateSampler</h3>
+    <pre class="prettyprint"> AllCandidateSampler(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes,
+  int64 num_true,
+  int64 num_sampled,
+  bool unique,
+  const <a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs">AllCandidateSampler::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_all_candidate_sampler_1a4ab278d6ad3303f8d03b47ce43637cf5">
+    <h3>Seed</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs">Attrs</a> Seed(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_all_candidate_sampler_1a412dc3eb4a931969a4cd51ca7837131f">
+    <h3>Seed2</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs">Attrs</a> Seed2(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::LRN Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.1/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>LRN</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Local Response Normalization. </p>
+  <h2>Summary</h2>
+  <p>The 4-D <code>input</code> tensor is treated as a 3-D array of 1-D vectors (along the last dimension), and each vector is normalized independently. Within a given vector, each component is divided by the weighted, squared sum of inputs within <code>depth_radius</code>. In detail, <pre class="prettyprint">sqr_sum[a, b, c, d] =
+    sum(input[a, b, c, d - depth_radius : d + depth_radius + 1] ** 2)
+output = input / (bias + alpha * sqr_sum) ** beta
+</pre></p>
+  <p>For details, see <a href="http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks">Krizhevsky et al., ImageNet classification with deep convolutional neural networks (NIPS 2012)</a>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: 4-D.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs.html#structtensorflow_1_1ops_1_1_l_r_n_1_1_attrs">Attrs</a></code>):<ul>
+      <li>depth_radius: 0-D. Half-width of the 1-D normalization window.</li>
+      <li>bias: An offset (usually positive to avoid dividing by 0).</li>
+      <li>alpha: A scale factor, usually positive.</li>
+      <li>beta: An exponent.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_l_r_n_1adbadf9462bc6ae9916f535bb2aa2762f">LRN</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_l_r_n_1ab702d3657c46710fcf7a63f7c712c5df">LRN</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const <a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs.html#structtensorflow_1_1ops_1_1_l_r_n_1_1_attrs">LRN::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_l_r_n_1a69396918e55e1de00f68a1113ef173b0">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_l_r_n_1aa28d07232c5df13dad811653f1276a2a">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_l_r_n_1aa00d48e5a8ca805aa2532b7155b8c28b">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_l_r_n_1ae58da447d50c92abb12785d8ab7b618b">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_l_r_n_1a7788a93182ddfbf8bb5bd1820b081392">Alpha</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs.html#structtensorflow_1_1ops_1_1_l_r_n_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_l_r_n_1a6bbb26306e2265f6e2368f5dfb39ef13">Beta</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs.html#structtensorflow_1_1ops_1_1_l_r_n_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_l_r_n_1ac8da24639c0d90ef6e68df756f3e345f">Bias</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs.html#structtensorflow_1_1ops_1_1_l_r_n_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_l_r_n_1ac579054901f30ab7fd4989ca39237a0e">DepthRadius</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs.html#structtensorflow_1_1ops_1_1_l_r_n_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs">tensorflow::<wbr/>ops::<wbr/>LRN::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/l-r-n.html#classtensorflow_1_1ops_1_1_l_r_n">LRN</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_l_r_n_1a69396918e55e1de00f68a1113ef173b0">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_l_r_n_1adbadf9462bc6ae9916f535bb2aa2762f">
+    <h3>LRN</h3>
+    <pre class="prettyprint"> LRN(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_l_r_n_1ab702d3657c46710fcf7a63f7c712c5df">
+    <h3>LRN</h3>
+    <pre class="prettyprint"> LRN(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const <a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs.html#structtensorflow_1_1ops_1_1_l_r_n_1_1_attrs">LRN::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_l_r_n_1aa28d07232c5df13dad811653f1276a2a">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_l_r_n_1aa00d48e5a8ca805aa2532b7155b8c28b">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_l_r_n_1ae58da447d50c92abb12785d8ab7b618b">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_l_r_n_1a7788a93182ddfbf8bb5bd1820b081392">
+    <h3>Alpha</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs.html#structtensorflow_1_1ops_1_1_l_r_n_1_1_attrs">Attrs</a> Alpha(
+  float x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_l_r_n_1a6bbb26306e2265f6e2368f5dfb39ef13">
+    <h3>Beta</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs.html#structtensorflow_1_1ops_1_1_l_r_n_1_1_attrs">Attrs</a> Beta(
+  float x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_l_r_n_1ac8da24639c0d90ef6e68df756f3e345f">
+    <h3>Bias</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs.html#structtensorflow_1_1ops_1_1_l_r_n_1_1_attrs">Attrs</a> Bias(
+  float x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_l_r_n_1ac579054901f30ab7fd4989ca39237a0e">
+    <h3>DepthRadius</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/l-r-n/attrs.html#structtensorflow_1_1ops_1_1_l_r_n_1_1_attrs">Attrs</a> DepthRadius(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
