@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::MatMul Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>MatMul</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p><a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/multiply.html#classtensorflow_1_1ops_1_1_multiply">Multiply</a> the matrix "a" by the matrix "b". </p>
+  <h2>Summary</h2>
+  <p>The inputs must be two-dimensional matrices and the inner dimension of "a" (after being transposed if transpose_a is true) must match the outer dimension of "b" (after being transposed if transposed_b is true).</p>
+  <p><i>Note</i>: The default kernel implementation for <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/mat-mul.html#classtensorflow_1_1ops_1_1_mat_mul">MatMul</a> on GPUs uses cublas.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/mat-mul/attrs.html#structtensorflow_1_1ops_1_1_mat_mul_1_1_attrs">Attrs</a></code>):<ul>
+      <li>transpose_a: If true, "a" is transposed before multiplication.</li>
+      <li>transpose_b: If true, "b" is transposed before multiplication.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The product tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_mat_mul_1ab83040fb6ae9e56138c0f69b00760209">MatMul</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_mat_mul_1a34177e68c8f4fa1f1813814ce67d891c">MatMul</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a, ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b, const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/mat-mul/attrs.html#structtensorflow_1_1ops_1_1_mat_mul_1_1_attrs">MatMul::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mat_mul_1ab034be60cd7ec86407eb741bdfc5f379">product</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mat_mul_1a0336cd912c0b25144c3d9b57a626debf">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mat_mul_1abd3e6b08fb374614d203378c1dfaec97">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mat_mul_1a9882a2914eeb6bb488bf990e3240f05a">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mat_mul_1adde997ec4038167a5e5e31ad805e2651">TransposeA</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/mat-mul/attrs.html#structtensorflow_1_1ops_1_1_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_mat_mul_1a94996492e8e4ff12164accf93c28dabd">TransposeB</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/mat-mul/attrs.html#structtensorflow_1_1ops_1_1_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/mat-mul/attrs">tensorflow::<wbr/>ops::<wbr/>MatMul::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/mat-mul.html#classtensorflow_1_1ops_1_1_mat_mul">MatMul</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_mat_mul_1ab034be60cd7ec86407eb741bdfc5f379">
+    <h3>product</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> product</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_mat_mul_1ab83040fb6ae9e56138c0f69b00760209">
+    <h3>MatMul</h3>
+    <pre class="prettyprint"> MatMul(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_mat_mul_1a34177e68c8f4fa1f1813814ce67d891c">
+    <h3>MatMul</h3>
+    <pre class="prettyprint"> MatMul(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a,
+  ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b,
+  const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/mat-mul/attrs.html#structtensorflow_1_1ops_1_1_mat_mul_1_1_attrs">MatMul::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_mat_mul_1a0336cd912c0b25144c3d9b57a626debf">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_mat_mul_1abd3e6b08fb374614d203378c1dfaec97">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_mat_mul_1a9882a2914eeb6bb488bf990e3240f05a">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_mat_mul_1adde997ec4038167a5e5e31ad805e2651">
+    <h3>TransposeA</h3>
+    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/mat-mul/attrs.html#structtensorflow_1_1ops_1_1_mat_mul_1_1_attrs">Attrs</a> TransposeA(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_mat_mul_1a94996492e8e4ff12164accf93c28dabd">
+    <h3>TransposeB</h3>
+    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/mat-mul/attrs.html#structtensorflow_1_1ops_1_1_mat_mul_1_1_attrs">Attrs</a> TransposeB(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

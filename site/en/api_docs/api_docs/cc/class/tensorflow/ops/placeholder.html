@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Placeholder Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.3/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Placeholder</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>A placeholder op for a value that will be fed into the computation. </p>
+  <h2>Summary</h2>
+  <p>N.B. This operation will fail with an error if it is executed. It is intended as a way to represent a value that will always be fed, and to provide attrs that enable the fed value to be checked at runtime.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>dtype: The type of elements in the tensor.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/placeholder/attrs.html#structtensorflow_1_1ops_1_1_placeholder_1_1_attrs">Attrs</a></code>):<ul>
+      <li>shape: (Optional) The shape of the tensor. If the shape has 0 dimensions, the shape is unconstrained.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A placeholder tensor that must be replaced using the feed mechanism. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_placeholder_1adb3e3d0b072d160a2df953b84093f55d">Placeholder</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, DataType dtype)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_placeholder_1abb57d03cb93c356b129016dc3ff00e87">Placeholder</a>(const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, DataType dtype, const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/placeholder/attrs.html#structtensorflow_1_1ops_1_1_placeholder_1_1_attrs">Placeholder::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_placeholder_1a84e658dbf37cb549c1777496b6dbe5b7">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_placeholder_1a783185c82a138844a15cfc31b94d16ae">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_placeholder_1a698c9b9de24acafaccc356d925b22295">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_placeholder_1a22ddd47d22954ae354221696caf75d0b">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_placeholder_1a7b0844809be785ca077012ead552c73d">Shape</a>(PartialTensorShape x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/placeholder/attrs.html#structtensorflow_1_1ops_1_1_placeholder_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/placeholder/attrs">tensorflow::<wbr/>ops::<wbr/>Placeholder::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.3/api_docs/cc/class/tensorflow/ops/placeholder.html#classtensorflow_1_1ops_1_1_placeholder">Placeholder</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_placeholder_1a84e658dbf37cb549c1777496b6dbe5b7">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_placeholder_1adb3e3d0b072d160a2df953b84093f55d">
+    <h3>Placeholder</h3>
+    <pre class="prettyprint"> Placeholder(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  DataType dtype
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_placeholder_1abb57d03cb93c356b129016dc3ff00e87">
+    <h3>Placeholder</h3>
+    <pre class="prettyprint"> Placeholder(
+  const ::<a href="/versions/r1.3/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  DataType dtype,
+  const <a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/placeholder/attrs.html#structtensorflow_1_1ops_1_1_placeholder_1_1_attrs">Placeholder::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_placeholder_1a783185c82a138844a15cfc31b94d16ae">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_placeholder_1a698c9b9de24acafaccc356d925b22295">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_placeholder_1a22ddd47d22954ae354221696caf75d0b">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_placeholder_1a7b0844809be785ca077012ead552c73d">
+    <h3>Shape</h3>
+    <pre class="prettyprint"><a href="/versions/r1.3/api_docs/cc/struct/tensorflow/ops/placeholder/attrs.html#structtensorflow_1_1ops_1_1_placeholder_1_1_attrs">Attrs</a> Shape(
+  PartialTensorShape x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
