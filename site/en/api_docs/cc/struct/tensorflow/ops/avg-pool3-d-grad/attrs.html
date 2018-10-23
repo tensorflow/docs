@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::AvgPool3DGrad::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>AvgPool3DGrad::<wbr/>Attrs</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/avg-pool3-d-grad.html#classtensorflow_1_1ops_1_1_avg_pool3_d_grad">AvgPool3DGrad</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_avg_pool3_d_grad_1_1_attrs_1a5a6c933896a01f928632c2f59b4f34af">data_format_</a> = "NDHWC"</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_avg_pool3_d_grad_1_1_attrs_1a8a241e4ab1e60afe34124d193fcca40a">DataFormat</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/avg-pool3-d-grad/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_grad_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The data format of the input and output data. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_avg_pool3_d_grad_1_1_attrs_1a5a6c933896a01f928632c2f59b4f34af">
+    <h3>data_format_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::AvgPool3DGrad::Attrs::data_format_ = "NDHWC"</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_avg_pool3_d_grad_1_1_attrs_1a8a241e4ab1e60afe34124d193fcca40a">
+    <h3>DataFormat</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/avg-pool3-d-grad/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_grad_1_1_attrs">Attrs</a> tensorflow::ops::AvgPool3DGrad::Attrs::DataFormat(
+  StringPiece x
+)</pre>
+    <div>
+      <p>The data format of the input and output data. </p>
+      <p>With the default format "NDHWC", the data is stored in the order of: [batch, in_depth, in_height, in_width, in_channels]. Alternatively, the format could be "NCDHW", the data storage order is: [batch, in_channels, in_depth, in_height, in_width].</p>
+      <p>Defaults to "NDHWC" </p>
+    </div>
+  </div>
+</body>
+</html>

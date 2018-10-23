@@ -1,0 +1,24 @@
+
+
+page_type: reference
+<style> table img { max-width: 100%; } </style>
+
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+
+# tf.TensorInfo
+
+## Class `TensorInfo`
+
+
+
+
+
+Defined in [`tensorflow/core/protobuf/meta_graph.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.7/tensorflow/core/protobuf/meta_graph.proto).
+
+
+
+## Child Classes
+[`class CooSparse`](../tf/TensorInfo/CooSparse)
+

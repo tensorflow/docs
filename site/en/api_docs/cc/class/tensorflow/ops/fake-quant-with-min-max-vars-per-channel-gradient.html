@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::FakeQuantWithMinMaxVarsPerChannelGradient Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVarsPerChannelGradient</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Compute gradients for a <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars-per-channel.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel">FakeQuantWithMinMaxVarsPerChannel</a> operation. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>gradients: Backpropagated gradients above the <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars">FakeQuantWithMinMaxVars</a> operation, shape one of: <code>[d]</code>, <code>[b, d]</code>, <code>[b, h, w, d]</code>.</li>
+      <li>inputs: Values passed as inputs to the <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars">FakeQuantWithMinMaxVars</a> operation, shape same as <code>gradients</code>. min, max: Quantization interval, floats of shape <code>[d]</code>.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-per-channel-gradient/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1_1_attrs">Attrs</a></code>):<ul>
+      <li>num_bits: The bitwidth of the quantization; between 2 and 8, inclusive.</li>
+      <li>narrow_range: Whether to quantize into 2^num_bits - 1 distinct values.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> backprops_wrt_input: Backpropagated gradients w.r.t. inputs, shape same as <code>inputs</code>: <code>gradients * (inputs >= min && inputs <= max)</code>.</li>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> backprop_wrt_min: Backpropagated gradients w.r.t. min parameter, shape <code>[d]</code>: <code>sum_per_d(gradients * (inputs < min))</code>.</li>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> backprop_wrt_max: Backpropagated gradients w.r.t. max parameter, shape <code>[d]</code>: <code>sum_per_d(gradients * (inputs > max))</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1a7521d0f809a9a2bab753031ec59937a1">FakeQuantWithMinMaxVarsPerChannelGradient</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> gradients, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1abf40f598a2e88d6f3a163fc6ac8c5a7d">FakeQuantWithMinMaxVarsPerChannelGradient</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> gradients, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max, const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-per-channel-gradient/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1_1_attrs">FakeQuantWithMinMaxVarsPerChannelGradient::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1acc9bf06f7b09f2437e913f6f32f6dfe0">backprop_wrt_max</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1ae7efb996b2e96e793a55decfaac3bfc4">backprop_wrt_min</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1a99d7e4cadd3a7b374e246edb6cc207fe">backprops_wrt_input</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1a027f51a466b8dcf2dbff757b15dc7200">NarrowRange</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-per-channel-gradient/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1ad2357206b80cb845d85a727dcdd2d022">NumBits</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-per-channel-gradient/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-per-channel-gradient/attrs">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVarsPerChannelGradient::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars-per-channel-gradient.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient">FakeQuantWithMinMaxVarsPerChannelGradient</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1acc9bf06f7b09f2437e913f6f32f6dfe0">
+    <h3>backprop_wrt_max</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> backprop_wrt_max</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1ae7efb996b2e96e793a55decfaac3bfc4">
+    <h3>backprop_wrt_min</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> backprop_wrt_min</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1a99d7e4cadd3a7b374e246edb6cc207fe">
+    <h3>backprops_wrt_input</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> backprops_wrt_input</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1a7521d0f809a9a2bab753031ec59937a1">
+    <h3>FakeQuantWithMinMaxVarsPerChannelGradient</h3>
+    <pre class="prettyprint"> FakeQuantWithMinMaxVarsPerChannelGradient(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> gradients,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1abf40f598a2e88d6f3a163fc6ac8c5a7d">
+    <h3>FakeQuantWithMinMaxVarsPerChannelGradient</h3>
+    <pre class="prettyprint"> FakeQuantWithMinMaxVarsPerChannelGradient(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> gradients,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max,
+  const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-per-channel-gradient/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1_1_attrs">FakeQuantWithMinMaxVarsPerChannelGradient::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1a027f51a466b8dcf2dbff757b15dc7200">
+    <h3>NarrowRange</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-per-channel-gradient/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1_1_attrs">Attrs</a> NarrowRange(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1ad2357206b80cb845d85a727dcdd2d022">
+    <h3>NumBits</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-per-channel-gradient/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel_gradient_1_1_attrs">Attrs</a> NumBits(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DepthwiseConv2dNativeBackpropInput::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DepthwiseConv2dNativeBackpropInput::<wbr/>Attrs</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/depthwise-conv2d-native-backprop-input.html#classtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input">DepthwiseConv2dNativeBackpropInput</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs_1a26f5fbb513bf1e765c25e6c4f1a04cc7">data_format_</a> = "NHWC"</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs_1acb24883dc03d2d9afad50540635d020d">dilations_</a> = {1, 1, 1, 1}</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< int ></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs_1a9ea5e2ace7b86cb61ba6276927a29be4">DataFormat</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/depthwise-conv2d-native-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Specify the data format of the input and output data. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs_1acdab720d55c0c8d0d22f2031e83b6bc1">Dilations</a>(const gtl::ArraySlice< int > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/depthwise-conv2d-native-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>1-D tensor of length 4. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs_1a26f5fbb513bf1e765c25e6c4f1a04cc7">
+    <h3>data_format_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::DepthwiseConv2dNativeBackpropInput::Attrs::data_format_ = "NHWC"</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs_1acb24883dc03d2d9afad50540635d020d">
+    <h3>dilations_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< int > tensorflow::ops::DepthwiseConv2dNativeBackpropInput::Attrs::dilations_ = {1, 1, 1, 1}</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs_1a9ea5e2ace7b86cb61ba6276927a29be4">
+    <h3>DataFormat</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/depthwise-conv2d-native-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs">Attrs</a> tensorflow::ops::DepthwiseConv2dNativeBackpropInput::Attrs::DataFormat(
+  StringPiece x
+)</pre>
+    <div>
+      <p>Specify the data format of the input and output data. </p>
+      <p>With the default format "NHWC", the data is stored in the order of: [batch, height, width, channels]. Alternatively, the format could be "NCHW", the data storage order of: [batch, channels, height, width].</p>
+      <p>Defaults to "NHWC" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs_1acdab720d55c0c8d0d22f2031e83b6bc1">
+    <h3>Dilations</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/depthwise-conv2d-native-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_depthwise_conv2d_native_backprop_input_1_1_attrs">Attrs</a> tensorflow::ops::DepthwiseConv2dNativeBackpropInput::Attrs::Dilations(
+  const gtl::ArraySlice< int > & x
+)</pre>
+    <div>
+      <p>1-D tensor of length 4. </p>
+      <p>The dilation factor for each dimension of <code>input</code>. If set to k > 1, there will be k-1 skipped cells between each filter element on that dimension. The dimension order is determined by the value of <code>data_format</code>, see above for details. Dilations in the batch and depth dimensions must be 1.</p>
+      <p>Defaults to [1, 1, 1, 1] </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Cumsum Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Cumsum</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Compute the cumulative sum of the tensor <code>x</code> along <code>axis</code>. </p>
+  <h2>Summary</h2>
+  <p>By default, this op performs an inclusive cumsum, which means that the first element of the input is identical to the first element of the output:</p>
+  <p>
+    <pre class="prettyprint">
+tf.cumsum([a, b, c])  &#35; => [a, a + b, a + b + c]
+</pre>
+  </p>
+  <p>By setting the <code>exclusive</code> kwarg to <code>True</code>, an exclusive cumsum is performed instead:</p>
+  <p>
+    <pre class="prettyprint">
+tf.cumsum([a, b, c], exclusive=True)  &#35; => [0, a, a + b]
+</pre>
+  </p>
+  <p>By setting the <code>reverse</code> kwarg to <code>True</code>, the cumsum is performed in the opposite direction:</p>
+  <p>
+    <pre class="prettyprint">
+tf.cumsum([a, b, c], reverse=True)  &#35; => [a + b + c, b + c, c]
+</pre>
+  </p>
+  <p>This is more efficient than using separate <code>tf.reverse</code> ops.</p>
+  <p>The <code>reverse</code> and <code>exclusive</code> kwargs can also be combined:</p>
+  <p>
+    <pre class="prettyprint">
+tf.cumsum([a, b, c], exclusive=True, reverse=True)  &#35; => [b + c, c, 0]
+</pre>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>x: A <code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>. Must be one of the following types: <code>float32</code>, <code>float64</code>, <code>int64</code>, <code>int32</code>, <code>uint8</code>, <code>uint16</code>, <code>int16</code>, <code>int8</code>, <code>complex64</code>, <code>complex128</code>, <code>qint8</code>, <code>quint8</code>, <code>qint32</code>, <code>half</code>.</li>
+      <li>axis: A <code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of type <code>int32</code> (default: 0). Must be in the range <code>[-rank(x), rank(x))</code>.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/cumsum/attrs.html#structtensorflow_1_1ops_1_1_cumsum_1_1_attrs">Attrs</a></code>):<ul>
+      <li>exclusive: If <code>True</code>, perform exclusive cumsum.</li>
+      <li>reverse: A <code>bool</code> (default: False).</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The out tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_cumsum_1ac4bff34c1fffc1a64355bd97e38887d2">Cumsum</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_cumsum_1afe84204de0e7a885385374174240fcc3">Cumsum</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/cumsum/attrs.html#structtensorflow_1_1ops_1_1_cumsum_1_1_attrs">Cumsum::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumsum_1aa1249678696c8bec40fc3737ff3af4b0">out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumsum_1a638d380af05abb4f7dbdafb4d578e5c4">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumsum_1a433ea12bc76c446dca36009246b62bb4">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumsum_1a273a98f7b496769e405300dc1b76addd">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumsum_1a405094be636726578ca6715ceeb29637">Exclusive</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/cumsum/attrs.html#structtensorflow_1_1ops_1_1_cumsum_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumsum_1affad4b03f430a883b021c21fafd4ddbf">Reverse</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/cumsum/attrs.html#structtensorflow_1_1ops_1_1_cumsum_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/cumsum/attrs">tensorflow::<wbr/>ops::<wbr/>Cumsum::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/cumsum.html#classtensorflow_1_1ops_1_1_cumsum">Cumsum</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_cumsum_1aa1249678696c8bec40fc3737ff3af4b0">
+    <h3>out</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_cumsum_1ac4bff34c1fffc1a64355bd97e38887d2">
+    <h3>Cumsum</h3>
+    <pre class="prettyprint"> Cumsum(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_cumsum_1afe84204de0e7a885385374174240fcc3">
+    <h3>Cumsum</h3>
+    <pre class="prettyprint"> Cumsum(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis,
+  const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/cumsum/attrs.html#structtensorflow_1_1ops_1_1_cumsum_1_1_attrs">Cumsum::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_cumsum_1a638d380af05abb4f7dbdafb4d578e5c4">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_cumsum_1a433ea12bc76c446dca36009246b62bb4">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_cumsum_1a273a98f7b496769e405300dc1b76addd">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_cumsum_1a405094be636726578ca6715ceeb29637">
+    <h3>Exclusive</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/cumsum/attrs.html#structtensorflow_1_1ops_1_1_cumsum_1_1_attrs">Attrs</a> Exclusive(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_cumsum_1affad4b03f430a883b021c21fafd4ddbf">
+    <h3>Reverse</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/cumsum/attrs.html#structtensorflow_1_1ops_1_1_cumsum_1_1_attrs">Attrs</a> Reverse(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
