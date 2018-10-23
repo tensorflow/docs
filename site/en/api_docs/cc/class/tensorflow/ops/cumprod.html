@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Cumprod Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Cumprod</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Compute the cumulative product of the tensor <code>x</code> along <code>axis</code>. </p>
+  <h2>Summary</h2>
+  <p>By default, this op performs an inclusive cumprod, which means that the first element of the input is identical to the first element of the output:</p>
+  <p>```python tf.cumprod([a, b, c]) # => [a, a * b, a * b * c] ```</p>
+  <p>By setting the <code>exclusive</code> kwarg to <code>True</code>, an exclusive cumprod is performed instead:</p>
+  <p>```python tf.cumprod([a, b, c], exclusive=True) # => [1, a, a * b] ```</p>
+  <p>By setting the <code>reverse</code> kwarg to <code>True</code>, the cumprod is performed in the opposite direction:</p>
+  <p>```python tf.cumprod([a, b, c], reverse=True) # => [a * b * c, b * c, c] ```</p>
+  <p>This is more efficient than using separate <code>tf.reverse</code> ops.</p>
+  <p>The <code>reverse</code> and <code>exclusive</code> kwargs can also be combined:</p>
+  <p>```python tf.cumprod([a, b, c], exclusive=True, reverse=True) # => [b * c, c, 1] ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>x: A <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>. Must be one of the following types: <code>float32</code>, <code>float64</code>, <code>int64</code>, <code>int32</code>, <code>uint8</code>, <code>uint16</code>, <code>int16</code>, <code>int8</code>, <code>complex64</code>, <code>complex128</code>, <code>qint8</code>, <code>quint8</code>, <code>qint32</code>, <code>half</code>.</li>
+      <li>axis: A <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of type <code>int32</code> (default: 0). Must be in the range <code>[-rank(x), rank(x))</code>.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/cumprod/attrs.html#structtensorflow_1_1ops_1_1_cumprod_1_1_attrs">Attrs</a></code>):<ul>
+      <li>exclusive: If <code>True</code>, perform exclusive cumprod.</li>
+      <li>reverse: A <code>bool</code> (default: False).</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The out tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_cumprod_1a5cf5eb762b0a395c784265be34cefca9">Cumprod</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_cumprod_1af028aab7f34ea1aba5dd296b8cb2fdbc">Cumprod</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, const <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/cumprod/attrs.html#structtensorflow_1_1ops_1_1_cumprod_1_1_attrs">Cumprod::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumprod_1a993dbcb13834ecd895a4009ba5bdfb48">out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumprod_1abd920e1da9ceb0d441bb10250cc860cd">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumprod_1adc26a397e6b980247abf7fd333c0f389">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumprod_1acab6e7e1ab4245028ef1b8625859757a">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumprod_1aa8984f96042955a9b2c08528a49df924">Exclusive</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/cumprod/attrs.html#structtensorflow_1_1ops_1_1_cumprod_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_cumprod_1aafe8da11faadd6cca28c310fac8aec6d">Reverse</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/cumprod/attrs.html#structtensorflow_1_1ops_1_1_cumprod_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/cumprod/attrs">tensorflow::<wbr/>ops::<wbr/>Cumprod::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/cumprod.html#classtensorflow_1_1ops_1_1_cumprod">Cumprod</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_cumprod_1a993dbcb13834ecd895a4009ba5bdfb48">
+    <h3>out</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_cumprod_1a5cf5eb762b0a395c784265be34cefca9">
+    <h3>Cumprod</h3>
+    <pre class="prettyprint"> Cumprod(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_cumprod_1af028aab7f34ea1aba5dd296b8cb2fdbc">
+    <h3>Cumprod</h3>
+    <pre class="prettyprint"> Cumprod(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis,
+  const <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/cumprod/attrs.html#structtensorflow_1_1ops_1_1_cumprod_1_1_attrs">Cumprod::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_cumprod_1abd920e1da9ceb0d441bb10250cc860cd">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_cumprod_1adc26a397e6b980247abf7fd333c0f389">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_cumprod_1acab6e7e1ab4245028ef1b8625859757a">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_cumprod_1aa8984f96042955a9b2c08528a49df924">
+    <h3>Exclusive</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/cumprod/attrs.html#structtensorflow_1_1ops_1_1_cumprod_1_1_attrs">Attrs</a> Exclusive(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_cumprod_1aafe8da11faadd6cca28c310fac8aec6d">
+    <h3>Reverse</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/cumprod/attrs.html#structtensorflow_1_1ops_1_1_cumprod_1_1_attrs">Attrs</a> Reverse(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

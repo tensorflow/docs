@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ReduceJoin Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ReduceJoin</h1>
+  <code>#include &lt;string_ops.h&gt;</code>
+  <p>Joins a string <a href="/versions/r1.5/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> across the given dimensions. </p>
+  <h2>Summary</h2>
+  <p>Computes the string join across dimensions in the given string <a href="/versions/r1.5/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of shape <code>[d_0, d_1, ..., d_n-1]</code>. Returns a new <a href="/versions/r1.5/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> created by joining the input strings with the given separator (default: empty string). Negative indices are counted backwards from the end, with <code>-1</code> being equivalent to <code>n - 1</code>.</p>
+  <p>For example:</p>
+  <p>``<code>python <h1>tensor</code>a` is [["a", "b"], ["c", "d"]] tf.reduce_join(a, 0) ==> ["ac", "bd"] tf.reduce_join(a, 1) ==> ["ab", "cd"] tf.reduce_join(a, -2) = tf.reduce_join(a, 0) ==> ["ac", "bd"] tf.reduce_join(a, -1) = tf.reduce_join(a, 1) ==> ["ab", "cd"] tf.reduce_join(a, 0, keep_dims=True) ==> [["ac", "bd"]] tf.reduce_join(a, 1, keep_dims=True) ==> [["ab"], ["cd"]] tf.reduce_join(a, 0, separator=".") ==> ["a.c", "b.d"] tf.reduce_join(a, [0, 1]) ==> ["acbd"] tf.reduce_join(a, [1, 0]) ==> ["abcd"] tf.reduce_join(a, []) ==> ["abcd"] ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>inputs: The input to be joined. <a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> reduced indices must have non-zero size.</li>
+      <li>reduction_indices: The dimensions to reduce over. Dimensions are reduced in the order specified. Omitting <code>reduction_indices</code> is equivalent to passing <code>[n-1, n-2, ..., 0]</code>. Negative indices from <code>-n</code> to <code>-1</code> are supported.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/reduce-join/attrs.html#structtensorflow_1_1ops_1_1_reduce_join_1_1_attrs">Attrs</a></code>):<ul>
+      <li>keep_dims: If <code>True</code>, retain reduced dimensions with length <code>1</code>.</li>
+      <li>separator: The separator to use when joining.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Has shape equal to that of the input with reduced dimensions removed or set to <code>1</code> depending on <code>keep_dims</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_reduce_join_1a5a26b37735fa42ff7193a838ad779913">ReduceJoin</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> reduction_indices)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_reduce_join_1a16f60dfc9dd223f31647f7d6b2b8b2aa">ReduceJoin</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> reduction_indices, const <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/reduce-join/attrs.html#structtensorflow_1_1ops_1_1_reduce_join_1_1_attrs">ReduceJoin::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reduce_join_1aae2b38746b0a6787c6bda531650a94df">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reduce_join_1a82dc1971263a0bc85f85e9f9cba8ab5f">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reduce_join_1a205e8612d71b9bf0327d0983fceacbd7">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reduce_join_1ad25cf42911f8ba258fbaf2e6ccddb063">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reduce_join_1a308bbdd23abc9c952087a7842b3c3c62">KeepDims</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/reduce-join/attrs.html#structtensorflow_1_1ops_1_1_reduce_join_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reduce_join_1aa888289eecaa69b2883039ade1ad7598">Separator</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/reduce-join/attrs.html#structtensorflow_1_1ops_1_1_reduce_join_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/reduce-join/attrs">tensorflow::<wbr/>ops::<wbr/>ReduceJoin::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/reduce-join.html#classtensorflow_1_1ops_1_1_reduce_join">ReduceJoin</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_reduce_join_1aae2b38746b0a6787c6bda531650a94df">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_reduce_join_1a5a26b37735fa42ff7193a838ad779913">
+    <h3>ReduceJoin</h3>
+    <pre class="prettyprint"> ReduceJoin(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> reduction_indices
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reduce_join_1a16f60dfc9dd223f31647f7d6b2b8b2aa">
+    <h3>ReduceJoin</h3>
+    <pre class="prettyprint"> ReduceJoin(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> reduction_indices,
+  const <a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/reduce-join/attrs.html#structtensorflow_1_1ops_1_1_reduce_join_1_1_attrs">ReduceJoin::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reduce_join_1a82dc1971263a0bc85f85e9f9cba8ab5f">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reduce_join_1a205e8612d71b9bf0327d0983fceacbd7">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reduce_join_1ad25cf42911f8ba258fbaf2e6ccddb063">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_reduce_join_1a308bbdd23abc9c952087a7842b3c3c62">
+    <h3>KeepDims</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/reduce-join/attrs.html#structtensorflow_1_1ops_1_1_reduce_join_1_1_attrs">Attrs</a> KeepDims(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reduce_join_1aa888289eecaa69b2883039ade1ad7598">
+    <h3>Separator</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/reduce-join/attrs.html#structtensorflow_1_1ops_1_1_reduce_join_1_1_attrs">Attrs</a> Separator(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

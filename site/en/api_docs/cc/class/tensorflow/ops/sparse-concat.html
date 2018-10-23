@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseConcat Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseConcat</h1>
+  <code>#include &lt;sparse_ops.h&gt;</code>
+  <p>Concatenates a list of <code>SparseTensor</code> along the specified dimension. </p>
+  <h2>Summary</h2>
+  <p>Concatenation is with respect to the dense versions of these sparse tensors. It is assumed that each input is a <code>SparseTensor</code> whose elements are ordered along increasing dimension number.</p>
+  <p><a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> inputs' shapes must match, except for the concat dimension. The <code>indices</code>, <code>values</code>, and <code>shapes</code> lists must have the same length.</p>
+  <p>The output shape is identical to the inputs', except along the concat dimension, where it is the sum of the inputs' sizes along that dimension.</p>
+  <p>The output elements will be resorted to preserve the sort order along increasing dimension number.</p>
+  <p>This op runs in <code>O(M log M)</code> time, where <code>M</code> is the total number of non-empty values across all inputs. This is due to the need for an internal sort in order to concatenate efficiently across an arbitrary dimension.</p>
+  <p>For example, if <code>concat_dim = 1</code> and the inputs are <pre class="prettyprint">sp_inputs[0]: shape = [2, 3]
+[0, 2]: "a"
+[1, 0]: "b"
+[1, 1]: "c"
+
+sp_inputs[1]: shape = [2, 4]
+[0, 1]: "d"
+[0, 2]: "e"
+</pre></p>
+  <p>then the output will be <pre class="prettyprint">shape = [2, 7]
+[0, 2]: "a"
+[0, 4]: "d"
+[0, 5]: "e"
+[1, 0]: "b"
+[1, 1]: "c"
+</pre></p>
+  <p>Graphically this is equivalent to doing <pre class="prettyprint">[    a] concat [  d e  ] = [    a   d e  ]
+[b c  ]        [       ]   [b c          ]
+</pre></p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>indices: 2-D. Indices of each input <code>SparseTensor</code>.</li>
+      <li>values: 1-D. Non-empty values of each <code>SparseTensor</code>.</li>
+      <li>shapes: 1-D. Shapes of each <code>SparseTensor</code>.</li>
+      <li>concat_dim: Dimension to concatenate along. Must be in range [-rank, rank), where rank is the number of dimensions in each input <code>SparseTensor</code>.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_indices: 2-D. Indices of the concatenated <code>SparseTensor</code>.</li>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_values: 1-D. Non-empty values of the concatenated <code>SparseTensor</code>.</li>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_shape: 1-D. <a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of the concatenated <code>SparseTensor</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_concat_1a50aa275ec5a88496fd4e99f0f1003616">SparseConcat</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> indices, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> shapes, int64 concat_dim)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_concat_1a79b9cef174b8488e90f52907d6d64a0f">output_indices</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_concat_1ae3130991367ac10382b9a6a310b1eff5">output_shape</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_concat_1a626bd96bc86fb8ecddbd8cbb7a6828cf">output_values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_concat_1a79b9cef174b8488e90f52907d6d64a0f">
+    <h3>output_indices</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_indices</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_concat_1ae3130991367ac10382b9a6a310b1eff5">
+    <h3>output_shape</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_shape</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_concat_1a626bd96bc86fb8ecddbd8cbb7a6828cf">
+    <h3>output_values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_values</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_concat_1a50aa275ec5a88496fd4e99f0f1003616">
+    <h3>SparseConcat</h3>
+    <pre class="prettyprint"> SparseConcat(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> indices,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> shapes,
+  int64 concat_dim
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

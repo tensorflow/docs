@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::RecordInput::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>RecordInput::<wbr/>Attrs</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/record-input.html#classtensorflow_1_1ops_1_1_record_input">RecordInput</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a5e93b5c3afd9d100fa2d826b2eebc6ef">batch_size_</a> = 32</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a7eed7761965f835ba1ace20d5987432e">compression_type_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a88c16d81d3320ef5a8e8df9e88e37844">file_buffer_size_</a> = 10000</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a052209b9b34024362c66e051ae68b91a">file_parallelism_</a> = 16</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a4db56cae459a556a0c9e65a506e4c9c9">file_random_seed_</a> = 301</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a620f58ee4cd1533315f6518267466964">file_shuffle_shift_ratio_</a> = 0.0f</code>
+      </td>
+      <td>
+        <div>
+          <code>float</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a72b2dc96406c973986d6d928427de0d3">BatchSize</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The batch size. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a1638d988693489b5fdd9267e64a8738b">CompressionType</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The type of compression for the file. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1ad604681352b2b701bfec4b7b7b8a8a68">FileBufferSize</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The randomization shuffling buffer. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1af2d01e41404c09f367e9659828c52522">FileParallelism</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>How many sstables are opened and concurrently iterated over. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a8c9421e194df6f5a073eba0be0860834">FileRandomSeed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Random seeds used to produce randomized records. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a3722b984111ebdcb1ac9ddde9f83702a">FileShuffleShiftRatio</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Shifts the list of files after the list is randomly shuffled. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a5e93b5c3afd9d100fa2d826b2eebc6ef">
+    <h3>batch_size_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::RecordInput::Attrs::batch_size_ = 32</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a7eed7761965f835ba1ace20d5987432e">
+    <h3>compression_type_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::RecordInput::Attrs::compression_type_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a88c16d81d3320ef5a8e8df9e88e37844">
+    <h3>file_buffer_size_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::RecordInput::Attrs::file_buffer_size_ = 10000</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a052209b9b34024362c66e051ae68b91a">
+    <h3>file_parallelism_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::RecordInput::Attrs::file_parallelism_ = 16</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a4db56cae459a556a0c9e65a506e4c9c9">
+    <h3>file_random_seed_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::RecordInput::Attrs::file_random_seed_ = 301</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a620f58ee4cd1533315f6518267466964">
+    <h3>file_shuffle_shift_ratio_</h3>
+    <pre class="prettyprint">float tensorflow::ops::RecordInput::Attrs::file_shuffle_shift_ratio_ = 0.0f</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a72b2dc96406c973986d6d928427de0d3">
+    <h3>BatchSize</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> tensorflow::ops::RecordInput::Attrs::BatchSize(
+  int64 x
+)</pre>
+    <div>
+      <p>The batch size. </p>
+      <p>Defaults to 32 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a1638d988693489b5fdd9267e64a8738b">
+    <h3>CompressionType</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> tensorflow::ops::RecordInput::Attrs::CompressionType(
+  StringPiece x
+)</pre>
+    <div>
+      <p>The type of compression for the file. </p>
+      <p>Currently ZLIB and GZIP are supported. Defaults to none.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1ad604681352b2b701bfec4b7b7b8a8a68">
+    <h3>FileBufferSize</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> tensorflow::ops::RecordInput::Attrs::FileBufferSize(
+  int64 x
+)</pre>
+    <div>
+      <p>The randomization shuffling buffer. </p>
+      <p>Defaults to 10000 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1af2d01e41404c09f367e9659828c52522">
+    <h3>FileParallelism</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> tensorflow::ops::RecordInput::Attrs::FileParallelism(
+  int64 x
+)</pre>
+    <div>
+      <p>How many sstables are opened and concurrently iterated over. </p>
+      <p>Defaults to 16 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a8c9421e194df6f5a073eba0be0860834">
+    <h3>FileRandomSeed</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> tensorflow::ops::RecordInput::Attrs::FileRandomSeed(
+  int64 x
+)</pre>
+    <div>
+      <p>Random seeds used to produce randomized records. </p>
+      <p>Defaults to 301 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_record_input_1_1_attrs_1a3722b984111ebdcb1ac9ddde9f83702a">
+    <h3>FileShuffleShiftRatio</h3>
+    <pre class="prettyprint"><a href="/versions/r1.5/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> tensorflow::ops::RecordInput::Attrs::FileShuffleShiftRatio(
+  float x
+)</pre>
+    <div>
+      <p>Shifts the list of files after the list is randomly shuffled. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+</body>
+</html>

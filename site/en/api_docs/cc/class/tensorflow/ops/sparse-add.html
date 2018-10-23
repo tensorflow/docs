@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseAdd Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseAdd</h1>
+  <code>#include &lt;sparse_ops.h&gt;</code>
+  <p>Adds two <code>SparseTensor</code> objects to produce another <code>SparseTensor</code>. </p>
+  <h2>Summary</h2>
+  <p>The input <code>SparseTensor</code> objects' indices are assumed ordered in standard lexicographic order. If this is not the case, before this step run <code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/ops/sparse-reorder.html#classtensorflow_1_1ops_1_1_sparse_reorder">SparseReorder</a></code> to restore index ordering.</p>
+  <p>By default, if two values sum to zero at some index, the output <code>SparseTensor</code> would still include that particular location in its index, storing a zero in the corresponding value slot. To override this, callers can specify <code>thresh</code>, indicating that if the sum has a magnitude strictly smaller than <code>thresh</code>, its corresponding value and index would then not be included. In particular, <code>thresh == 0</code> (default) means everything is kept and actual thresholding happens only for a positive value.</p>
+  <p>In the following shapes, <code>nnz</code> is the count after taking <code>thresh</code> into account.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>a_indices: 2-D. The <code>indices</code> of the first <code>SparseTensor</code>, size <code>[nnz, ndims]</code> Matrix.</li>
+      <li>a_values: 1-D. The <code>values</code> of the first <code>SparseTensor</code>, size <code>[nnz]</code> Vector.</li>
+      <li>a_shape: 1-D. The <code>shape</code> of the first <code>SparseTensor</code>, size <code>[ndims]</code> Vector.</li>
+      <li>b_indices: 2-D. The <code>indices</code> of the second <code>SparseTensor</code>, size <code>[nnz, ndims]</code> Matrix.</li>
+      <li>b_values: 1-D. The <code>values</code> of the second <code>SparseTensor</code>, size <code>[nnz]</code> Vector.</li>
+      <li>b_shape: 1-D. The <code>shape</code> of the second <code>SparseTensor</code>, size <code>[ndims]</code> Vector.</li>
+      <li>thresh: 0-D. The magnitude threshold that determines if an output value/index pair takes space.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sum_indices</li>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sum_values</li>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sum_shape </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_add_1a07c65af8c10333ec7605e9a7f0a1be2b">SparseAdd</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_indices, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_values, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_shape, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> thresh)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_add_1a935595157260ea9fcff05da3c0341947">sum_indices</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_add_1a573a3dbb573b8d6fb0172ca669d4685f">sum_shape</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_add_1a2cc06856b4695dd0ba3ea4f686160ddf">sum_values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_add_1a935595157260ea9fcff05da3c0341947">
+    <h3>sum_indices</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sum_indices</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_add_1a573a3dbb573b8d6fb0172ca669d4685f">
+    <h3>sum_shape</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sum_shape</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_add_1a2cc06856b4695dd0ba3ea4f686160ddf">
+    <h3>sum_values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sum_values</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_add_1a07c65af8c10333ec7605e9a7f0a1be2b">
+    <h3>SparseAdd</h3>
+    <pre class="prettyprint"> SparseAdd(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_indices,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_values,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_shape,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> thresh
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SoftmaxCrossEntropyWithLogits Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.5/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SoftmaxCrossEntropyWithLogits</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Computes softmax cross entropy cost and gradients to backpropagate. </p>
+  <h2>Summary</h2>
+  <p>Inputs are the logits, not probabilities.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>features: batch_size x num_classes matrix</li>
+      <li>labels: batch_size x num_classes matrix The caller must ensure that each batch of labels represents a valid probability distribution.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> loss: Per example loss (batch_size vector).</li>
+      <li><code><a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> backprop: backpropagated gradients (batch_size x num_classes matrix). </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_softmax_cross_entropy_with_logits_1a4cbff4fa9d4606e374b1a88b5de132dc">SoftmaxCrossEntropyWithLogits</a>(const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> features, ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> labels)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_softmax_cross_entropy_with_logits_1a3f3e88d3a28b38d7190c586e53a90391">backprop</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_softmax_cross_entropy_with_logits_1ad3f6fea2fc731063932763fa4b3c8ce0">loss</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_softmax_cross_entropy_with_logits_1a3f3e88d3a28b38d7190c586e53a90391">
+    <h3>backprop</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> backprop</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_softmax_cross_entropy_with_logits_1ad3f6fea2fc731063932763fa4b3c8ce0">
+    <h3>loss</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> loss</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_softmax_cross_entropy_with_logits_1a4cbff4fa9d4606e374b1a88b5de132dc">
+    <h3>SoftmaxCrossEntropyWithLogits</h3>
+    <pre class="prettyprint"> SoftmaxCrossEntropyWithLogits(
+  const ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> features,
+  ::<a href="/versions/r1.5/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> labels
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
