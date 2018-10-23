@@ -1,0 +1,3951 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops Namespace</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.1/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops</h1>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3 />
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1gaeafa8f7448f93b4d545eec05f9b7a83b">ReduceSum</a></code>
+      </td>
+      <td>typedef<div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sum.html#classtensorflow_1_1ops_1_1_sum">Sum</a></code>
+        </div></td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1ga8872d71afb365f8e9c3547011fb33183">Sub</a></code>
+      </td>
+      <td>typedef<div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/subtract.html#classtensorflow_1_1ops_1_1_subtract">Subtract</a></code>
+        </div></td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Typedefs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1ga140a37e1e470845b8367ad7f8fadfe62">Mul</a></code>
+      </td>
+      <td>typedef<div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/multiply.html#classtensorflow_1_1ops_1_1_multiply">Multiply</a></code>
+        </div></td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1ga4297d27638dcfcc5e2170cba4400ddc6">Neg</a></code>
+      </td>
+      <td>typedef<div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/negate.html#classtensorflow_1_1ops_1_1_negate">Negate</a></code>
+        </div></td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1gab1830bf25a0925bbedf68012b34d2c40">ReduceAll</a></code>
+      </td>
+      <td>typedef<div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a></code>
+        </div></td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1gaff6970829de27cbeb20bbbe1fa32a9da">ReduceAny</a></code>
+      </td>
+      <td>typedef<div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/any.html#classtensorflow_1_1ops_1_1_any">Any</a></code>
+        </div></td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1gaf8bcf39ada7fa6d47cd3b3645a67bf39">ReduceMax</a></code>
+      </td>
+      <td>typedef<div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/max.html#classtensorflow_1_1ops_1_1_max">Max</a></code>
+        </div></td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1ga221ddf7df1fd59241146eacd0f37a140">ReduceMean</a></code>
+      </td>
+      <td>typedef<div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/mean.html#classtensorflow_1_1ops_1_1_mean">Mean</a></code>
+        </div></td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1gab24f67f5842374309f39e725d41daa84">ReduceMin</a></code>
+      </td>
+      <td>typedef<div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/min.html#classtensorflow_1_1ops_1_1_min">Min</a></code>
+        </div></td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__math__ops_1ga1c49c2968b61a54bad7b9b0583c2891a">ReduceProd</a></code>
+      </td>
+      <td>typedef<div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/prod.html#classtensorflow_1_1ops_1_1_prod">Prod</a></code>
+        </div></td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__const__op_1ga86cbc615b20b626a4c2502477553e0cf">AsNodeOut</a>(const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope, const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> & inp)</code>
+      </td>
+      <td>
+        <div>
+          <code>NodeBuilder::NodeOut</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__const__op_1ga785c00ec16205a136d2b7cd26106998c">AsNodeOutList</a>(const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope, const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">InputList</a> & inp)</code>
+      </td>
+      <td>
+        <div>
+          <code>std::vector< NodeBuilder::NodeOut ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga8aed7a42d0ca30d3a3ab4ccd255ce67e">AudioSummary</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sample_rate)</code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga09af34bc2ffdb04cf50a99dc80af1270">AudioSummary</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sample_rate, const AudioSummary::Attrs & attrs)</code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga7176bae75b2c957dad310936ece963e0">BadColor</a>(const TensorProto & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>Attrs</code>
+        </div>
+        <div>Color to use for pixels with non-finite values. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__const__op_1ga4f933e46abd09f80e753ad9b94bd9e08">Const</a>(const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope, const <a href="/versions/r1.1/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Input::Initializer</a> & val)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__const__op_1ga168731f2fa3ab15ae17f6e69049b8d97">Const</a>(const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope, const T & v, const TensorShape shape)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__const__op_1ga390e82ee5d30e67f6515e5cf9482d81f">Const</a>(const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope, const std::initializer_list< T > & v, const TensorShape shape)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga2a33be603203e103a752eb85bb18ee8a">ImageSummary</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor)</code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga8c0191c0b683fa90ad82e001da1f090a">ImageSummary</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, const ImageSummary::Attrs & attrs)</code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga882604c458700a6464ff6fc98c06a418">MaxImages</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>Attrs</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1gab25b29f077c1f74d45026b1078f33359">MaxOutputs</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>Attrs</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1ga9d6a6481d9f898bf8f65bb7ceeee1825">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#group__logging__ops_1gaf1f1a2e293bfef9331c356fa05b5c8ca">range</a>(It represents the value of a *pixel in the output image).Non-finite values in the input tensor are *replaced by this tensor in the output image.The default value is the color *red.**Arguments</code>
+      </td>
+      <td>
+        <div>
+          <code>image **If max_images is greater the summary value tags are *generated sequentially as *tag *tag etc **The bad_color argument is the color to use in the generated images for *non finite input values It is a unit8 D tensor of length channels *Each element must be in the</code>
+        </div>
+        <div><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/max.html#classtensorflow_1_1ops_1_1_max">Max</a> number of batch elements to generate images for. </div>
+      </td>
+    </tr>
+  </table>
+  <table class="nested-classes responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Classes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/abort">tensorflow::<wbr/>ops::<wbr/>Abort</a>
+      </td>
+      <td>
+        <p>Raise a exception to abort the process when called. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/abs">tensorflow::<wbr/>ops::<wbr/>Abs</a>
+      </td>
+      <td>
+        <p>Computes the absolute value of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/accumulator-apply-gradient">tensorflow::<wbr/>ops::<wbr/>AccumulatorApplyGradient</a>
+      </td>
+      <td>
+        <p>Applies a gradient to a given accumulator. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/accumulator-num-accumulated">tensorflow::<wbr/>ops::<wbr/>AccumulatorNumAccumulated</a>
+      </td>
+      <td>
+        <p>Returns the number of gradients aggregated in the given accumulators. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/accumulator-set-global-step">tensorflow::<wbr/>ops::<wbr/>AccumulatorSetGlobalStep</a>
+      </td>
+      <td>
+        <p>Updates the accumulator with a new value for global_step. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/accumulator-take-gradient">tensorflow::<wbr/>ops::<wbr/>AccumulatorTakeGradient</a>
+      </td>
+      <td>
+        <p>Extracts the average gradient in the given <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/conditional-accumulator.html#classtensorflow_1_1ops_1_1_conditional_accumulator">ConditionalAccumulator</a>, provided. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/acos">tensorflow::<wbr/>ops::<wbr/>Acos</a>
+      </td>
+      <td>
+        <p>Computes acos of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/add">tensorflow::<wbr/>ops::<wbr/>Add</a>
+      </td>
+      <td>
+        <p>Returns x + y element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/add-many-sparse-to-tensors-map">tensorflow::<wbr/>ops::<wbr/>AddManySparseToTensorsMap</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/add.html#classtensorflow_1_1ops_1_1_add">Add</a> an <code>N</code>-minibatch <code>SparseTensor</code> to a <code>SparseTensorsMap</code>, return <code>N</code> handles. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/add-n">tensorflow::<wbr/>ops::<wbr/>AddN</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/add.html#classtensorflow_1_1ops_1_1_add">Add</a> all input tensors element wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/add-sparse-to-tensors-map">tensorflow::<wbr/>ops::<wbr/>AddSparseToTensorsMap</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/add.html#classtensorflow_1_1ops_1_1_add">Add</a> a <code>SparseTensor</code> to a <code>SparseTensorsMap</code> return its handle. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/adjust-contrast">tensorflow::<wbr/>ops::<wbr/>AdjustContrast</a>
+      </td>
+      <td>
+        <p>Adjust the contrast of one or more images. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/adjust-hue">tensorflow::<wbr/>ops::<wbr/>AdjustHue</a>
+      </td>
+      <td>
+        <p>Adjust the hue of one or more images. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/adjust-saturation">tensorflow::<wbr/>ops::<wbr/>AdjustSaturation</a>
+      </td>
+      <td>
+        <p>Adjust the saturation of one or more images. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/all">tensorflow::<wbr/>ops::<wbr/>All</a>
+      </td>
+      <td>
+        <p>Computes the "logical and" of elements across dimensions of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/all-candidate-sampler">tensorflow::<wbr/>ops::<wbr/>AllCandidateSampler</a>
+      </td>
+      <td>
+        <p>Generates labels for candidate sampling with a learned unigram distribution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/any">tensorflow::<wbr/>ops::<wbr/>Any</a>
+      </td>
+      <td>
+        <p>Computes the "logical or" of elements across dimensions of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/apply-adadelta">tensorflow::<wbr/>ops::<wbr/>ApplyAdadelta</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the adadelta scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/apply-adagrad">tensorflow::<wbr/>ops::<wbr/>ApplyAdagrad</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the adagrad scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/apply-adagrad-d-a">tensorflow::<wbr/>ops::<wbr/>ApplyAdagradDA</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the proximal adagrad scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/apply-adam">tensorflow::<wbr/>ops::<wbr/>ApplyAdam</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the Adam algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/apply-centered-r-m-s-prop">tensorflow::<wbr/>ops::<wbr/>ApplyCenteredRMSProp</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the centered RMSProp algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/apply-ftrl">tensorflow::<wbr/>ops::<wbr/>ApplyFtrl</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the Ftrl-proximal scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/apply-gradient-descent">tensorflow::<wbr/>ops::<wbr/>ApplyGradientDescent</a>
+      </td>
+      <td>
+        <p>Update '*var' by subtracting 'alpha' * 'delta' from it. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/apply-momentum">tensorflow::<wbr/>ops::<wbr/>ApplyMomentum</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the momentum scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/apply-proximal-adagrad">tensorflow::<wbr/>ops::<wbr/>ApplyProximalAdagrad</a>
+      </td>
+      <td>
+        <p>Update '*var' and '*accum' according to FOBOS with Adagrad learning rate. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/apply-proximal-gradient-descent">tensorflow::<wbr/>ops::<wbr/>ApplyProximalGradientDescent</a>
+      </td>
+      <td>
+        <p>Update '*var' as FOBOS algorithm with fixed learning rate. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/apply-r-m-s-prop">tensorflow::<wbr/>ops::<wbr/>ApplyRMSProp</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the RMSProp algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/approximate-equal">tensorflow::<wbr/>ops::<wbr/>ApproximateEqual</a>
+      </td>
+      <td>
+        <p>Returns the truth value of abs(x-y) < tolerance element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/arg-max">tensorflow::<wbr/>ops::<wbr/>ArgMax</a>
+      </td>
+      <td>
+        <p>Returns the index with the largest value across dimensions of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/arg-min">tensorflow::<wbr/>ops::<wbr/>ArgMin</a>
+      </td>
+      <td>
+        <p>Returns the index with the smallest value across dimensions of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/as-string">tensorflow::<wbr/>ops::<wbr/>AsString</a>
+      </td>
+      <td>
+        <p>Converts each entry in the given tensor to strings. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/asin">tensorflow::<wbr/>ops::<wbr/>Asin</a>
+      </td>
+      <td>
+        <p>Computes asin of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/assert">tensorflow::<wbr/>ops::<wbr/>Assert</a>
+      </td>
+      <td>
+        <p>Asserts that the given condition is true. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/assign">tensorflow::<wbr/>ops::<wbr/>Assign</a>
+      </td>
+      <td>
+        <p>Update 'ref' by assigning 'value' to it. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/assign-add">tensorflow::<wbr/>ops::<wbr/>AssignAdd</a>
+      </td>
+      <td>
+        <p>Update 'ref' by adding 'value' to it. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/assign-sub">tensorflow::<wbr/>ops::<wbr/>AssignSub</a>
+      </td>
+      <td>
+        <p>Update 'ref' by subtracting 'value' from it. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/atan">tensorflow::<wbr/>ops::<wbr/>Atan</a>
+      </td>
+      <td>
+        <p>Computes atan of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/avg-pool">tensorflow::<wbr/>ops::<wbr/>AvgPool</a>
+      </td>
+      <td>
+        <p>Performs average pooling on the input. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/avg-pool3-d">tensorflow::<wbr/>ops::<wbr/>AvgPool3D</a>
+      </td>
+      <td>
+        <p>Performs 3D average pooling on the input. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/avg-pool3-d-grad">tensorflow::<wbr/>ops::<wbr/>AvgPool3DGrad</a>
+      </td>
+      <td>
+        <p>Computes gradients of average pooling function. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/barrier">tensorflow::<wbr/>ops::<wbr/>Barrier</a>
+      </td>
+      <td>
+        <p>Defines a barrier that persists across different graph executions. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/barrier-close">tensorflow::<wbr/>ops::<wbr/>BarrierClose</a>
+      </td>
+      <td>
+        <p>Closes the given barrier. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/barrier-incomplete-size">tensorflow::<wbr/>ops::<wbr/>BarrierIncompleteSize</a>
+      </td>
+      <td>
+        <p>Computes the number of incomplete elements in the given barrier. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/barrier-insert-many">tensorflow::<wbr/>ops::<wbr/>BarrierInsertMany</a>
+      </td>
+      <td>
+        <p>For each key, assigns the respective value to the specified component. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/barrier-ready-size">tensorflow::<wbr/>ops::<wbr/>BarrierReadySize</a>
+      </td>
+      <td>
+        <p>Computes the number of complete elements in the given barrier. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/barrier-take-many">tensorflow::<wbr/>ops::<wbr/>BarrierTakeMany</a>
+      </td>
+      <td>
+        <p>Takes the given number of completed elements from a barrier. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/batch-mat-mul">tensorflow::<wbr/>ops::<wbr/>BatchMatMul</a>
+      </td>
+      <td>
+        <p>Multiplies slices of two tensors in batches. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/batch-to-space">tensorflow::<wbr/>ops::<wbr/>BatchToSpace</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/batch-to-space.html#classtensorflow_1_1ops_1_1_batch_to_space">BatchToSpace</a> for 4-D tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/batch-to-space-n-d">tensorflow::<wbr/>ops::<wbr/>BatchToSpaceND</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/batch-to-space.html#classtensorflow_1_1ops_1_1_batch_to_space">BatchToSpace</a> for N-D tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/betainc">tensorflow::<wbr/>ops::<wbr/>Betainc</a>
+      </td>
+      <td>
+        <p>Compute the regularized incomplete beta integral \(I_x(a, b)\). </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/bias-add">tensorflow::<wbr/>ops::<wbr/>BiasAdd</a>
+      </td>
+      <td>
+        <p>Adds <code>bias</code> to <code>value</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/bias-add-grad">tensorflow::<wbr/>ops::<wbr/>BiasAddGrad</a>
+      </td>
+      <td>
+        <p>The backward operation for "BiasAdd" on the "bias" tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/bincount">tensorflow::<wbr/>ops::<wbr/>Bincount</a>
+      </td>
+      <td>
+        <p>Counts the number of occurrences of each value in an integer array. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/bitcast">tensorflow::<wbr/>ops::<wbr/>Bitcast</a>
+      </td>
+      <td>
+        <p>Bitcasts a tensor from one type to another without copying data. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/broadcast-dynamic-shape">tensorflow::<wbr/>ops::<wbr/>BroadcastDynamicShape</a>
+      </td>
+      <td>
+        <p>Return the shape of s0 op s1 with broadcast. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/cast">tensorflow::<wbr/>ops::<wbr/>Cast</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/cast.html#classtensorflow_1_1ops_1_1_cast">Cast</a> x of type SrcT to y of DstT. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/ceil">tensorflow::<wbr/>ops::<wbr/>Ceil</a>
+      </td>
+      <td>
+        <p>Returns element-wise smallest integer in not less than x. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/check-numerics">tensorflow::<wbr/>ops::<wbr/>CheckNumerics</a>
+      </td>
+      <td>
+        <p>Checks a tensor for NaN and Inf values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/complex">tensorflow::<wbr/>ops::<wbr/>Complex</a>
+      </td>
+      <td>
+        <p>Converts two real numbers to a complex number. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/complex-abs">tensorflow::<wbr/>ops::<wbr/>ComplexAbs</a>
+      </td>
+      <td>
+        <p>Computes the complex absolute value of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/compute-accidental-hits">tensorflow::<wbr/>ops::<wbr/>ComputeAccidentalHits</a>
+      </td>
+      <td>
+        <p>Computes the ids of the positions in sampled_candidates that match true_labels. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/concat">tensorflow::<wbr/>ops::<wbr/>Concat</a>
+      </td>
+      <td>
+        <p>Concatenates tensors along one dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/conditional-accumulator">tensorflow::<wbr/>ops::<wbr/>ConditionalAccumulator</a>
+      </td>
+      <td>
+        <p>A conditional accumulator for aggregating gradients. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/conj">tensorflow::<wbr/>ops::<wbr/>Conj</a>
+      </td>
+      <td>
+        <p>Returns the complex conjugate of a complex number. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/control-trigger">tensorflow::<wbr/>ops::<wbr/>ControlTrigger</a>
+      </td>
+      <td>
+        <p>Does nothing. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/conv2-d">tensorflow::<wbr/>ops::<wbr/>Conv2D</a>
+      </td>
+      <td>
+        <p>Computes a 2-D convolution given 4-D <code>input</code> and <code>filter</code> tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/conv2-d-backprop-filter">tensorflow::<wbr/>ops::<wbr/>Conv2DBackpropFilter</a>
+      </td>
+      <td>
+        <p>Computes the gradients of convolution with respect to the filter. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/conv2-d-backprop-input">tensorflow::<wbr/>ops::<wbr/>Conv2DBackpropInput</a>
+      </td>
+      <td>
+        <p>Computes the gradients of convolution with respect to the input. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/conv3-d">tensorflow::<wbr/>ops::<wbr/>Conv3D</a>
+      </td>
+      <td>
+        <p>Computes a 3-D convolution given 5-D <code>input</code> and <code>filter</code> tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/conv3-d-backprop-filter-v2">tensorflow::<wbr/>ops::<wbr/>Conv3DBackpropFilterV2</a>
+      </td>
+      <td>
+        <p>Computes the gradients of 3-D convolution with respect to the filter. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/conv3-d-backprop-input-v2">tensorflow::<wbr/>ops::<wbr/>Conv3DBackpropInputV2</a>
+      </td>
+      <td>
+        <p>Computes the gradients of 3-D convolution with respect to the input. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/cos">tensorflow::<wbr/>ops::<wbr/>Cos</a>
+      </td>
+      <td>
+        <p>Computes cos of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/count-up-to">tensorflow::<wbr/>ops::<wbr/>CountUpTo</a>
+      </td>
+      <td>
+        <p>Increments 'ref' until it reaches 'limit'. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/crop-and-resize">tensorflow::<wbr/>ops::<wbr/>CropAndResize</a>
+      </td>
+      <td>
+        <p>Extracts crops from the input image tensor and bilinearly resizes them (possibly. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/crop-and-resize-grad-boxes">tensorflow::<wbr/>ops::<wbr/>CropAndResizeGradBoxes</a>
+      </td>
+      <td>
+        <p>Computes the gradient of the crop_and_resize op wrt the input boxes tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/crop-and-resize-grad-image">tensorflow::<wbr/>ops::<wbr/>CropAndResizeGradImage</a>
+      </td>
+      <td>
+        <p>Computes the gradient of the crop_and_resize op wrt the input image tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/cross">tensorflow::<wbr/>ops::<wbr/>Cross</a>
+      </td>
+      <td>
+        <p>Compute the pairwise cross product. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/cumprod">tensorflow::<wbr/>ops::<wbr/>Cumprod</a>
+      </td>
+      <td>
+        <p>Compute the cumulative product of the tensor <code>x</code> along <code>axis</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/cumsum">tensorflow::<wbr/>ops::<wbr/>Cumsum</a>
+      </td>
+      <td>
+        <p>Compute the cumulative sum of the tensor <code>x</code> along <code>axis</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/decode-base64">tensorflow::<wbr/>ops::<wbr/>DecodeBase64</a>
+      </td>
+      <td>
+        <p>Decode web-safe base64-encoded strings. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/decode-c-s-v">tensorflow::<wbr/>ops::<wbr/>DecodeCSV</a>
+      </td>
+      <td>
+        <p>Convert CSV records to tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/decode-gif">tensorflow::<wbr/>ops::<wbr/>DecodeGif</a>
+      </td>
+      <td>
+        <p>Decode the first frame of a GIF-encoded image to a uint8 tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/decode-j-s-o-n-example">tensorflow::<wbr/>ops::<wbr/>DecodeJSONExample</a>
+      </td>
+      <td>
+        <p>Convert JSON-encoded Example records to binary protocol buffer strings. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/decode-jpeg">tensorflow::<wbr/>ops::<wbr/>DecodeJpeg</a>
+      </td>
+      <td>
+        <p>Decode a JPEG-encoded image to a uint8 tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/decode-png">tensorflow::<wbr/>ops::<wbr/>DecodePng</a>
+      </td>
+      <td>
+        <p>Decode a PNG-encoded image to a uint8 or uint16 tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/decode-raw">tensorflow::<wbr/>ops::<wbr/>DecodeRaw</a>
+      </td>
+      <td>
+        <p>Reinterpret the bytes of a string as a vector of numbers. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/delete-session-tensor">tensorflow::<wbr/>ops::<wbr/>DeleteSessionTensor</a>
+      </td>
+      <td>
+        <p>Delete the tensor specified by its handle in the session. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/depth-to-space">tensorflow::<wbr/>ops::<wbr/>DepthToSpace</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/depth-to-space.html#classtensorflow_1_1ops_1_1_depth_to_space">DepthToSpace</a> for tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/depthwise-conv2d-native">tensorflow::<wbr/>ops::<wbr/>DepthwiseConv2dNative</a>
+      </td>
+      <td>
+        <p>Computes a 2-D depthwise convolution given 4-D <code>input</code> and <code>filter</code> tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/depthwise-conv2d-native-backprop-filter">tensorflow::<wbr/>ops::<wbr/>DepthwiseConv2dNativeBackpropFilter</a>
+      </td>
+      <td>
+        <p>Computes the gradients of depthwise convolution with respect to the filter. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/depthwise-conv2d-native-backprop-input">tensorflow::<wbr/>ops::<wbr/>DepthwiseConv2dNativeBackpropInput</a>
+      </td>
+      <td>
+        <p>Computes the gradients of depthwise convolution with respect to the input. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/dequantize">tensorflow::<wbr/>ops::<wbr/>Dequantize</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/dequantize.html#classtensorflow_1_1ops_1_1_dequantize">Dequantize</a> the 'input' tensor into a float <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/deserialize-many-sparse">tensorflow::<wbr/>ops::<wbr/>DeserializeManySparse</a>
+      </td>
+      <td>
+        <p>Deserialize and concatenate <code>SparseTensors</code> from a serialized minibatch. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/destroy-temporary-variable">tensorflow::<wbr/>ops::<wbr/>DestroyTemporaryVariable</a>
+      </td>
+      <td>
+        <p>Destroys the temporary variable and returns its final value. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/diag">tensorflow::<wbr/>ops::<wbr/>Diag</a>
+      </td>
+      <td>
+        <p>Returns a diagonal tensor with a given diagonal values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/diag-part">tensorflow::<wbr/>ops::<wbr/>DiagPart</a>
+      </td>
+      <td>
+        <p>Returns the diagonal part of the tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/digamma">tensorflow::<wbr/>ops::<wbr/>Digamma</a>
+      </td>
+      <td>
+        <p>Computes Psi, the derivative of <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/lgamma.html#classtensorflow_1_1ops_1_1_lgamma">Lgamma</a> (the log of the absolute value of. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/dilation2-d">tensorflow::<wbr/>ops::<wbr/>Dilation2D</a>
+      </td>
+      <td>
+        <p>Computes the grayscale dilation of 4-D <code>input</code> and 3-D <code>filter</code> tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/dilation2-d-backprop-filter">tensorflow::<wbr/>ops::<wbr/>Dilation2DBackpropFilter</a>
+      </td>
+      <td>
+        <p>Computes the gradient of morphological 2-D dilation with respect to the filter. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/dilation2-d-backprop-input">tensorflow::<wbr/>ops::<wbr/>Dilation2DBackpropInput</a>
+      </td>
+      <td>
+        <p>Computes the gradient of morphological 2-D dilation with respect to the input. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/div">tensorflow::<wbr/>ops::<wbr/>Div</a>
+      </td>
+      <td>
+        <p>Returns x / y element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/draw-bounding-boxes">tensorflow::<wbr/>ops::<wbr/>DrawBoundingBoxes</a>
+      </td>
+      <td>
+        <p>Draw bounding boxes on a batch of images. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/dynamic-partition">tensorflow::<wbr/>ops::<wbr/>DynamicPartition</a>
+      </td>
+      <td>
+        <p>Partitions <code>data</code> into <code>num_partitions</code> tensors using indices from <code>partitions</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/dynamic-stitch">tensorflow::<wbr/>ops::<wbr/>DynamicStitch</a>
+      </td>
+      <td>
+        <p>Interleave the values from the <code>data</code> tensors into a single tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/edit-distance">tensorflow::<wbr/>ops::<wbr/>EditDistance</a>
+      </td>
+      <td>
+        <p>Computes the (possibly normalized) Levenshtein Edit Distance. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/elu">tensorflow::<wbr/>ops::<wbr/>Elu</a>
+      </td>
+      <td>
+        <p>Computes exponential linear: <code>exp(features) - 1</code> if < 0, <code>features</code> otherwise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/encode-base64">tensorflow::<wbr/>ops::<wbr/>EncodeBase64</a>
+      </td>
+      <td>
+        <p>Encode strings into web-safe base64 format. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/encode-jpeg">tensorflow::<wbr/>ops::<wbr/>EncodeJpeg</a>
+      </td>
+      <td>
+        <p>JPEG-encode an image. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/encode-png">tensorflow::<wbr/>ops::<wbr/>EncodePng</a>
+      </td>
+      <td>
+        <p>PNG-encode an image. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/equal">tensorflow::<wbr/>ops::<wbr/>Equal</a>
+      </td>
+      <td>
+        <p>Returns the truth value of (x == y) element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/erf">tensorflow::<wbr/>ops::<wbr/>Erf</a>
+      </td>
+      <td>
+        <p>Computes the Gauss error function of <code>x</code> element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/erfc">tensorflow::<wbr/>ops::<wbr/>Erfc</a>
+      </td>
+      <td>
+        <p>Computes the complementary error function of <code>x</code> element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/exp">tensorflow::<wbr/>ops::<wbr/>Exp</a>
+      </td>
+      <td>
+        <p>Computes exponential of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/expand-dims">tensorflow::<wbr/>ops::<wbr/>ExpandDims</a>
+      </td>
+      <td>
+        <p>Inserts a dimension of 1 into a tensor's shape. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/expm1">tensorflow::<wbr/>ops::<wbr/>Expm1</a>
+      </td>
+      <td>
+        <p>Computes exponential of x - 1 element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/extract-glimpse">tensorflow::<wbr/>ops::<wbr/>ExtractGlimpse</a>
+      </td>
+      <td>
+        <p>Extracts a glimpse from the input tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/extract-image-patches">tensorflow::<wbr/>ops::<wbr/>ExtractImagePatches</a>
+      </td>
+      <td>
+        <p>Extract <code>patches</code> from <code>images</code> and put them in the "depth" output dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/f-i-f-o-queue">tensorflow::<wbr/>ops::<wbr/>FIFOQueue</a>
+      </td>
+      <td>
+        <p>A queue that produces elements in first-in first-out order. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fact">tensorflow::<wbr/>ops::<wbr/>Fact</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> a fact about factorials. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-args">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxArgs</a>
+      </td>
+      <td>
+        <p>Fake-quantize the 'inputs' tensor, type float to 'outputs' tensor of same type. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-args-gradient">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxArgsGradient</a>
+      </td>
+      <td>
+        <p>Compute gradients for a <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-args.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_args">FakeQuantWithMinMaxArgs</a> operation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVars</a>
+      </td>
+      <td>
+        <p>Fake-quantize the 'inputs' tensor of type float via global float scalars <code>min</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars-gradient">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVarsGradient</a>
+      </td>
+      <td>
+        <p>Compute gradients for a <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars">FakeQuantWithMinMaxVars</a> operation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars-per-channel">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVarsPerChannel</a>
+      </td>
+      <td>
+        <p>Fake-quantize the 'inputs' tensor of type float and one of the shapes: <code>[d]</code>,. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars-per-channel-gradient">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVarsPerChannelGradient</a>
+      </td>
+      <td>
+        <p>Compute gradients for a <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars-per-channel.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_per_channel">FakeQuantWithMinMaxVarsPerChannel</a> operation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fill">tensorflow::<wbr/>ops::<wbr/>Fill</a>
+      </td>
+      <td>
+        <p>Creates a tensor filled with a scalar value. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fixed-length-record-reader">tensorflow::<wbr/>ops::<wbr/>FixedLengthRecordReader</a>
+      </td>
+      <td>
+        <p>A Reader that outputs fixed-length records from a file. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fixed-unigram-candidate-sampler">tensorflow::<wbr/>ops::<wbr/>FixedUnigramCandidateSampler</a>
+      </td>
+      <td>
+        <p>Generates labels for candidate sampling with a learned unigram distribution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/floor">tensorflow::<wbr/>ops::<wbr/>Floor</a>
+      </td>
+      <td>
+        <p>Returns element-wise largest integer not greater than x. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/floor-div">tensorflow::<wbr/>ops::<wbr/>FloorDiv</a>
+      </td>
+      <td>
+        <p>Returns x // y element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/floor-mod">tensorflow::<wbr/>ops::<wbr/>FloorMod</a>
+      </td>
+      <td>
+        <p>Returns element-wise remainder of division. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fractional-avg-pool">tensorflow::<wbr/>ops::<wbr/>FractionalAvgPool</a>
+      </td>
+      <td>
+        <p>Performs fractional average pooling on the input. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fractional-max-pool">tensorflow::<wbr/>ops::<wbr/>FractionalMaxPool</a>
+      </td>
+      <td>
+        <p>Performs fractional max pooling on the input. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fused-batch-norm">tensorflow::<wbr/>ops::<wbr/>FusedBatchNorm</a>
+      </td>
+      <td>
+        <p>Batch normalization. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fused-batch-norm-grad">tensorflow::<wbr/>ops::<wbr/>FusedBatchNormGrad</a>
+      </td>
+      <td>
+        <p>Gradient for batch normalization. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fused-pad-conv2-d">tensorflow::<wbr/>ops::<wbr/>FusedPadConv2D</a>
+      </td>
+      <td>
+        <p>Performs a padding as a preprocess during a convolution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/fused-resize-and-pad-conv2-d">tensorflow::<wbr/>ops::<wbr/>FusedResizeAndPadConv2D</a>
+      </td>
+      <td>
+        <p>Performs a resize and padding as a preprocess during a convolution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/gather">tensorflow::<wbr/>ops::<wbr/>Gather</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/gather.html#classtensorflow_1_1ops_1_1_gather">Gather</a> slices from <code>params</code> according to <code>indices</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/gather-nd">tensorflow::<wbr/>ops::<wbr/>GatherNd</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/gather.html#classtensorflow_1_1ops_1_1_gather">Gather</a> values or slices from <code>params</code> according to <code>indices</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/get-session-handle">tensorflow::<wbr/>ops::<wbr/>GetSessionHandle</a>
+      </td>
+      <td>
+        <p>DEPRECATED at GraphDef version 23: Use <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/get-session-handle-v2.html#classtensorflow_1_1ops_1_1_get_session_handle_v2">GetSessionHandleV2</a>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/get-session-handle-v2">tensorflow::<wbr/>ops::<wbr/>GetSessionHandleV2</a>
+      </td>
+      <td>
+        <p>Store the input tensor in the state of the current session. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/get-session-tensor">tensorflow::<wbr/>ops::<wbr/>GetSessionTensor</a>
+      </td>
+      <td>
+        <p>Get the value of the tensor specified by its handle. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/greater">tensorflow::<wbr/>ops::<wbr/>Greater</a>
+      </td>
+      <td>
+        <p>Returns the truth value of (x > y) element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/greater-equal">tensorflow::<wbr/>ops::<wbr/>GreaterEqual</a>
+      </td>
+      <td>
+        <p>Returns the truth value of (x >= y) element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/h-s-v-to-r-g-b">tensorflow::<wbr/>ops::<wbr/>HSVToRGB</a>
+      </td>
+      <td>
+        <p>Convert one or more images from HSV to RGB. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/histogram-summary">tensorflow::<wbr/>ops::<wbr/>HistogramSummary</a>
+      </td>
+      <td>
+        <p>Outputs a <code>Summary</code> protocol buffer with a histogram. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/identity">tensorflow::<wbr/>ops::<wbr/>Identity</a>
+      </td>
+      <td>
+        <p>Return a tensor with the same shape and contents as the input tensor or value. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/identity-reader">tensorflow::<wbr/>ops::<wbr/>IdentityReader</a>
+      </td>
+      <td>
+        <p>A Reader that outputs the queued work as both the key and value. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/igamma">tensorflow::<wbr/>ops::<wbr/>Igamma</a>
+      </td>
+      <td>
+        <p>Compute the lower regularized incomplete Gamma function <code>Q(a, x)</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/igammac">tensorflow::<wbr/>ops::<wbr/>Igammac</a>
+      </td>
+      <td>
+        <p>Compute the upper regularized incomplete Gamma function <code>Q(a, x)</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/imag">tensorflow::<wbr/>ops::<wbr/>Imag</a>
+      </td>
+      <td>
+        <p>Returns the imaginary part of a complex number. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/immutable-const">tensorflow::<wbr/>ops::<wbr/>ImmutableConst</a>
+      </td>
+      <td>
+        <p>Returns immutable tensor from memory region. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/in-top-k">tensorflow::<wbr/>ops::<wbr/>InTopK</a>
+      </td>
+      <td>
+        <p>Says whether the targets are in the top <code>K</code> predictions. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/invert-permutation">tensorflow::<wbr/>ops::<wbr/>InvertPermutation</a>
+      </td>
+      <td>
+        <p>Computes the inverse permutation of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/is-finite">tensorflow::<wbr/>ops::<wbr/>IsFinite</a>
+      </td>
+      <td>
+        <p>Returns which elements of x are finite. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/is-inf">tensorflow::<wbr/>ops::<wbr/>IsInf</a>
+      </td>
+      <td>
+        <p>Returns which elements of x are Inf. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/is-nan">tensorflow::<wbr/>ops::<wbr/>IsNan</a>
+      </td>
+      <td>
+        <p>Returns which elements of x are NaN. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/is-variable-initialized">tensorflow::<wbr/>ops::<wbr/>IsVariableInitialized</a>
+      </td>
+      <td>
+        <p>Checks whether a tensor has been initialized. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/l2-loss">tensorflow::<wbr/>ops::<wbr/>L2Loss</a>
+      </td>
+      <td>
+        <p>L2 Loss. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/l-r-n">tensorflow::<wbr/>ops::<wbr/>LRN</a>
+      </td>
+      <td>
+        <p>Local Response Normalization. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/learned-unigram-candidate-sampler">tensorflow::<wbr/>ops::<wbr/>LearnedUnigramCandidateSampler</a>
+      </td>
+      <td>
+        <p>Generates labels for candidate sampling with a learned unigram distribution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/less">tensorflow::<wbr/>ops::<wbr/>Less</a>
+      </td>
+      <td>
+        <p>Returns the truth value of (x < y) element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/less-equal">tensorflow::<wbr/>ops::<wbr/>LessEqual</a>
+      </td>
+      <td>
+        <p>Returns the truth value of (x <= y) element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/lgamma">tensorflow::<wbr/>ops::<wbr/>Lgamma</a>
+      </td>
+      <td>
+        <p>Computes the log of the absolute value of <code>Gamma(x)</code> element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/lin-space">tensorflow::<wbr/>ops::<wbr/>LinSpace</a>
+      </td>
+      <td>
+        <p>Generates values in an interval. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/log">tensorflow::<wbr/>ops::<wbr/>Log</a>
+      </td>
+      <td>
+        <p>Computes natural logarithm of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/log1p">tensorflow::<wbr/>ops::<wbr/>Log1p</a>
+      </td>
+      <td>
+        <p>Computes natural logarithm of (1 + x) element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/log-softmax">tensorflow::<wbr/>ops::<wbr/>LogSoftmax</a>
+      </td>
+      <td>
+        <p>Computes log softmax activations. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/log-uniform-candidate-sampler">tensorflow::<wbr/>ops::<wbr/>LogUniformCandidateSampler</a>
+      </td>
+      <td>
+        <p>Generates labels for candidate sampling with a log-uniform distribution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/logical-and">tensorflow::<wbr/>ops::<wbr/>LogicalAnd</a>
+      </td>
+      <td>
+        <p>Returns the truth value of x AND y element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/logical-not">tensorflow::<wbr/>ops::<wbr/>LogicalNot</a>
+      </td>
+      <td>
+        <p>Returns the truth value of NOT x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/logical-or">tensorflow::<wbr/>ops::<wbr/>LogicalOr</a>
+      </td>
+      <td>
+        <p>Returns the truth value of x OR y element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/lookup-table-export">tensorflow::<wbr/>ops::<wbr/>LookupTableExport</a>
+      </td>
+      <td>
+        <p>Outputs all keys and values in the table. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/loop-cond">tensorflow::<wbr/>ops::<wbr/>LoopCond</a>
+      </td>
+      <td>
+        <p>Forwards the input to the output. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/mat-mul">tensorflow::<wbr/>ops::<wbr/>MatMul</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/multiply.html#classtensorflow_1_1ops_1_1_multiply">Multiply</a> the matrix "a" by the matrix "b". </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/matching-files">tensorflow::<wbr/>ops::<wbr/>MatchingFiles</a>
+      </td>
+      <td>
+        <p>Returns the set of files matching one or more glob patterns. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/matrix-band-part">tensorflow::<wbr/>ops::<wbr/>MatrixBandPart</a>
+      </td>
+      <td>
+        <p>Copy a tensor setting everything outside a central band in each innermost matrix. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/matrix-diag">tensorflow::<wbr/>ops::<wbr/>MatrixDiag</a>
+      </td>
+      <td>
+        <p>Returns a batched diagonal tensor with a given batched diagonal values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/matrix-diag-part">tensorflow::<wbr/>ops::<wbr/>MatrixDiagPart</a>
+      </td>
+      <td>
+        <p>Returns the batched diagonal part of a batched tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/matrix-set-diag">tensorflow::<wbr/>ops::<wbr/>MatrixSetDiag</a>
+      </td>
+      <td>
+        <p>Returns a batched matrix tensor with new batched diagonal values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/max">tensorflow::<wbr/>ops::<wbr/>Max</a>
+      </td>
+      <td>
+        <p>Computes the maximum of elements across dimensions of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/max-pool">tensorflow::<wbr/>ops::<wbr/>MaxPool</a>
+      </td>
+      <td>
+        <p>Performs max pooling on the input. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/max-pool3-d">tensorflow::<wbr/>ops::<wbr/>MaxPool3D</a>
+      </td>
+      <td>
+        <p>Performs 3D max pooling on the input. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/max-pool3-d-grad">tensorflow::<wbr/>ops::<wbr/>MaxPool3DGrad</a>
+      </td>
+      <td>
+        <p>Computes gradients of max pooling function. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/max-pool-with-argmax">tensorflow::<wbr/>ops::<wbr/>MaxPoolWithArgmax</a>
+      </td>
+      <td>
+        <p>Performs max pooling on the input and outputs both max values and indices. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/maximum">tensorflow::<wbr/>ops::<wbr/>Maximum</a>
+      </td>
+      <td>
+        <p>Returns the max of x and y (i.e. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/mean">tensorflow::<wbr/>ops::<wbr/>Mean</a>
+      </td>
+      <td>
+        <p>Computes the mean of elements across dimensions of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/merge">tensorflow::<wbr/>ops::<wbr/>Merge</a>
+      </td>
+      <td>
+        <p>Forwards the value of an available tensor from <code>inputs</code> to <code>output</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/merge-summary">tensorflow::<wbr/>ops::<wbr/>MergeSummary</a>
+      </td>
+      <td>
+        <p>Merges summaries. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/merge-v2-checkpoints">tensorflow::<wbr/>ops::<wbr/>MergeV2Checkpoints</a>
+      </td>
+      <td>
+        <p>V2 format specific: merges the metadata files of sharded checkpoints. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/min">tensorflow::<wbr/>ops::<wbr/>Min</a>
+      </td>
+      <td>
+        <p>Computes the minimum of elements across dimensions of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/minimum">tensorflow::<wbr/>ops::<wbr/>Minimum</a>
+      </td>
+      <td>
+        <p>Returns the min of x and y (i.e. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/mirror-pad">tensorflow::<wbr/>ops::<wbr/>MirrorPad</a>
+      </td>
+      <td>
+        <p>Pads a tensor with mirrored values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/mod">tensorflow::<wbr/>ops::<wbr/>Mod</a>
+      </td>
+      <td>
+        <p>Returns element-wise remainder of division. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/multinomial">tensorflow::<wbr/>ops::<wbr/>Multinomial</a>
+      </td>
+      <td>
+        <p>Draws samples from a multinomial distribution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/multiply">tensorflow::<wbr/>ops::<wbr/>Multiply</a>
+      </td>
+      <td>
+        <p>Returns x * y element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/negate">tensorflow::<wbr/>ops::<wbr/>Negate</a>
+      </td>
+      <td>
+        <p>Computes numerical negative value element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/next-iteration">tensorflow::<wbr/>ops::<wbr/>NextIteration</a>
+      </td>
+      <td>
+        <p>Makes its input available to the next iteration. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/no-op">tensorflow::<wbr/>ops::<wbr/>NoOp</a>
+      </td>
+      <td>
+        <p>Does nothing. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/non-max-suppression">tensorflow::<wbr/>ops::<wbr/>NonMaxSuppression</a>
+      </td>
+      <td>
+        <p>Greedily selects a subset of bounding boxes in descending order of score,. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/not-equal">tensorflow::<wbr/>ops::<wbr/>NotEqual</a>
+      </td>
+      <td>
+        <p>Returns the truth value of (x != y) element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/one-hot">tensorflow::<wbr/>ops::<wbr/>OneHot</a>
+      </td>
+      <td>
+        <p>Returns a one-hot tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/pad">tensorflow::<wbr/>ops::<wbr/>Pad</a>
+      </td>
+      <td>
+        <p>Pads a tensor with zeros. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/padding-f-i-f-o-queue">tensorflow::<wbr/>ops::<wbr/>PaddingFIFOQueue</a>
+      </td>
+      <td>
+        <p>A queue that produces elements in first-in first-out order. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/parallel-concat">tensorflow::<wbr/>ops::<wbr/>ParallelConcat</a>
+      </td>
+      <td>
+        <p>Concatenates a list of <code>N</code> tensors along the first dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/parameterized-truncated-normal">tensorflow::<wbr/>ops::<wbr/>ParameterizedTruncatedNormal</a>
+      </td>
+      <td>
+        <p>Outputs random values from a normal distribution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/parse-example">tensorflow::<wbr/>ops::<wbr/>ParseExample</a>
+      </td>
+      <td>
+        <p>Transforms a vector of brain.Example protos (as strings) into typed tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/parse-single-sequence-example">tensorflow::<wbr/>ops::<wbr/>ParseSingleSequenceExample</a>
+      </td>
+      <td>
+        <p>Transforms a scalar brain.SequenceExample proto (as strings) into typed tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/parse-tensor">tensorflow::<wbr/>ops::<wbr/>ParseTensor</a>
+      </td>
+      <td>
+        <p>Transforms a serialized tensorflow.TensorProto proto into a <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/placeholder">tensorflow::<wbr/>ops::<wbr/>Placeholder</a>
+      </td>
+      <td>
+        <p>A placeholder op for a value that will be fed into the computation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/placeholder-v2">tensorflow::<wbr/>ops::<wbr/>PlaceholderV2</a>
+      </td>
+      <td>
+        <p>A placeholder op for a value that will be fed into the computation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/placeholder-with-default">tensorflow::<wbr/>ops::<wbr/>PlaceholderWithDefault</a>
+      </td>
+      <td>
+        <p>A placeholder op that passes through <code>input</code> when its output is not fed. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/polygamma">tensorflow::<wbr/>ops::<wbr/>Polygamma</a>
+      </td>
+      <td>
+        <p>Compute the polygamma function \(^{(n)}(x)\). </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/pow">tensorflow::<wbr/>ops::<wbr/>Pow</a>
+      </td>
+      <td>
+        <p>Computes the power of one value to another. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/prevent-gradient">tensorflow::<wbr/>ops::<wbr/>PreventGradient</a>
+      </td>
+      <td>
+        <p>An identity op that triggers an error if a gradient is requested. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/print">tensorflow::<wbr/>ops::<wbr/>Print</a>
+      </td>
+      <td>
+        <p>Prints a list of tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/priority-queue">tensorflow::<wbr/>ops::<wbr/>PriorityQueue</a>
+      </td>
+      <td>
+        <p>A queue that produces elements sorted by the first component value. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/prod">tensorflow::<wbr/>ops::<wbr/>Prod</a>
+      </td>
+      <td>
+        <p>Computes the product of elements across dimensions of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantize-and-dequantize">tensorflow::<wbr/>ops::<wbr/>QuantizeAndDequantize</a>
+      </td>
+      <td>
+        <p>Use <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantize-and-dequantize-v2.html#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v2">QuantizeAndDequantizeV2</a> instead. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantize-and-dequantize-v2">tensorflow::<wbr/>ops::<wbr/>QuantizeAndDequantizeV2</a>
+      </td>
+      <td>
+        <p>Quantizes then dequantizes a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantize-down-and-shrink-range">tensorflow::<wbr/>ops::<wbr/>QuantizeDownAndShrinkRange</a>
+      </td>
+      <td>
+        <p>Convert the quantized 'input' tensor into a lower-precision 'output', using the. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantize-v2">tensorflow::<wbr/>ops::<wbr/>QuantizeV2</a>
+      </td>
+      <td>
+        <p>Quantize the 'input' tensor of type float to 'output' tensor of type 'T'. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-avg-pool">tensorflow::<wbr/>ops::<wbr/>QuantizedAvgPool</a>
+      </td>
+      <td>
+        <p>Produces the average pool of the input tensor for quantized types. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-batch-norm-with-global-normalization">tensorflow::<wbr/>ops::<wbr/>QuantizedBatchNormWithGlobalNormalization</a>
+      </td>
+      <td>
+        <p>Quantized Batch normalization. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-bias-add">tensorflow::<wbr/>ops::<wbr/>QuantizedBiasAdd</a>
+      </td>
+      <td>
+        <p>Adds <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> 'bias' to <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> 'input' for Quantized types. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-concat">tensorflow::<wbr/>ops::<wbr/>QuantizedConcat</a>
+      </td>
+      <td>
+        <p>Concatenates quantized tensors along one dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-conv2-d">tensorflow::<wbr/>ops::<wbr/>QuantizedConv2D</a>
+      </td>
+      <td>
+        <p>Computes a 2D convolution given quantized 4D input and filter tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-instance-norm">tensorflow::<wbr/>ops::<wbr/>QuantizedInstanceNorm</a>
+      </td>
+      <td>
+        <p>Quantized Instance normalization. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-mat-mul">tensorflow::<wbr/>ops::<wbr/>QuantizedMatMul</a>
+      </td>
+      <td>
+        <p>Perform a quantized matrix multiplication of <code>a</code> by the matrix <code>b</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-max-pool">tensorflow::<wbr/>ops::<wbr/>QuantizedMaxPool</a>
+      </td>
+      <td>
+        <p>Produces the max pool of the input tensor for quantized types. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-mul">tensorflow::<wbr/>ops::<wbr/>QuantizedMul</a>
+      </td>
+      <td>
+        <p>Returns x * y element-wise, working on quantized buffers. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-relu">tensorflow::<wbr/>ops::<wbr/>QuantizedRelu</a>
+      </td>
+      <td>
+        <p>Computes Quantized Rectified Linear: <code>max(features, 0)</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-relu6">tensorflow::<wbr/>ops::<wbr/>QuantizedRelu6</a>
+      </td>
+      <td>
+        <p>Computes Quantized Rectified Linear 6: <code>min(max(features, 0), 6)</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-relu-x">tensorflow::<wbr/>ops::<wbr/>QuantizedReluX</a>
+      </td>
+      <td>
+        <p>Computes Quantized Rectified Linear X: <code>min(max(features, 0), max_value)</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/quantized-reshape">tensorflow::<wbr/>ops::<wbr/>QuantizedReshape</a>
+      </td>
+      <td>
+        <p>Reshapes a quantized tensor as per the <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reshape.html#classtensorflow_1_1ops_1_1_reshape">Reshape</a> op. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/queue-close">tensorflow::<wbr/>ops::<wbr/>QueueClose</a>
+      </td>
+      <td>
+        <p>Closes the given queue. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/queue-dequeue">tensorflow::<wbr/>ops::<wbr/>QueueDequeue</a>
+      </td>
+      <td>
+        <p>Dequeues a tuple of one or more tensors from the given queue. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/queue-dequeue-many">tensorflow::<wbr/>ops::<wbr/>QueueDequeueMany</a>
+      </td>
+      <td>
+        <p>Dequeues n tuples of one or more tensors from the given queue. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/queue-dequeue-up-to">tensorflow::<wbr/>ops::<wbr/>QueueDequeueUpTo</a>
+      </td>
+      <td>
+        <p>Dequeues n tuples of one or more tensors from the given queue. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/queue-enqueue">tensorflow::<wbr/>ops::<wbr/>QueueEnqueue</a>
+      </td>
+      <td>
+        <p>Enqueues a tuple of one or more tensors in the given queue. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/queue-enqueue-many">tensorflow::<wbr/>ops::<wbr/>QueueEnqueueMany</a>
+      </td>
+      <td>
+        <p>Enqueues zero or more tuples of one or more tensors in the given queue. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/queue-size">tensorflow::<wbr/>ops::<wbr/>QueueSize</a>
+      </td>
+      <td>
+        <p>Computes the number of elements in the given queue. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/r-g-b-to-h-s-v">tensorflow::<wbr/>ops::<wbr/>RGBToHSV</a>
+      </td>
+      <td>
+        <p>Converts one or more images from RGB to HSV. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/random-gamma">tensorflow::<wbr/>ops::<wbr/>RandomGamma</a>
+      </td>
+      <td>
+        <p>Outputs random values from the Gamma distribution(s) described by alpha. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/random-normal">tensorflow::<wbr/>ops::<wbr/>RandomNormal</a>
+      </td>
+      <td>
+        <p>Outputs random values from a normal distribution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/random-poisson">tensorflow::<wbr/>ops::<wbr/>RandomPoisson</a>
+      </td>
+      <td>
+        <p>Outputs random values from the Poisson distribution(s) described by rate. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/random-shuffle">tensorflow::<wbr/>ops::<wbr/>RandomShuffle</a>
+      </td>
+      <td>
+        <p>Randomly shuffles a tensor along its first dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/random-shuffle-queue">tensorflow::<wbr/>ops::<wbr/>RandomShuffleQueue</a>
+      </td>
+      <td>
+        <p>A queue that randomizes the order of elements. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/random-uniform">tensorflow::<wbr/>ops::<wbr/>RandomUniform</a>
+      </td>
+      <td>
+        <p>Outputs random values from a uniform distribution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/random-uniform-int">tensorflow::<wbr/>ops::<wbr/>RandomUniformInt</a>
+      </td>
+      <td>
+        <p>Outputs random integers from a uniform distribution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/range">tensorflow::<wbr/>ops::<wbr/>Range</a>
+      </td>
+      <td>
+        <p>Creates a sequence of numbers. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/rank">tensorflow::<wbr/>ops::<wbr/>Rank</a>
+      </td>
+      <td>
+        <p>Returns the rank of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/read-file">tensorflow::<wbr/>ops::<wbr/>ReadFile</a>
+      </td>
+      <td>
+        <p>Reads and outputs the entire contents of the input filename. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reader-num-records-produced">tensorflow::<wbr/>ops::<wbr/>ReaderNumRecordsProduced</a>
+      </td>
+      <td>
+        <p>Returns the number of records this Reader has produced. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reader-num-work-units-completed">tensorflow::<wbr/>ops::<wbr/>ReaderNumWorkUnitsCompleted</a>
+      </td>
+      <td>
+        <p>Returns the number of work units this Reader has finished processing. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reader-read">tensorflow::<wbr/>ops::<wbr/>ReaderRead</a>
+      </td>
+      <td>
+        <p>Returns the next record (key, value pair) produced by a Reader. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reader-read-up-to">tensorflow::<wbr/>ops::<wbr/>ReaderReadUpTo</a>
+      </td>
+      <td>
+        <p>Returns up to <code>num_records</code> (key, value) pairs produced by a Reader. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reader-reset">tensorflow::<wbr/>ops::<wbr/>ReaderReset</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/restore.html#classtensorflow_1_1ops_1_1_restore">Restore</a> a Reader to its initial clean state. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reader-restore-state">tensorflow::<wbr/>ops::<wbr/>ReaderRestoreState</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/restore.html#classtensorflow_1_1ops_1_1_restore">Restore</a> a reader to a previously saved state. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reader-serialize-state">tensorflow::<wbr/>ops::<wbr/>ReaderSerializeState</a>
+      </td>
+      <td>
+        <p>Produce a string tensor that encodes the state of a Reader. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/real">tensorflow::<wbr/>ops::<wbr/>Real</a>
+      </td>
+      <td>
+        <p>Returns the real part of a complex number. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/real-div">tensorflow::<wbr/>ops::<wbr/>RealDiv</a>
+      </td>
+      <td>
+        <p>Returns x / y element-wise for real types. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reciprocal">tensorflow::<wbr/>ops::<wbr/>Reciprocal</a>
+      </td>
+      <td>
+        <p>Computes the reciprocal of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/record-input">tensorflow::<wbr/>ops::<wbr/>RecordInput</a>
+      </td>
+      <td>
+        <p>Emits randomized records. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reduce-join">tensorflow::<wbr/>ops::<wbr/>ReduceJoin</a>
+      </td>
+      <td>
+        <p>Joins a string <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> across the given dimensions. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/ref-next-iteration">tensorflow::<wbr/>ops::<wbr/>RefNextIteration</a>
+      </td>
+      <td>
+        <p>Makes its input available to the next iteration. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/ref-select">tensorflow::<wbr/>ops::<wbr/>RefSelect</a>
+      </td>
+      <td>
+        <p>Forwards the <code>index</code>th element of <code>inputs</code> to <code>output</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/ref-switch">tensorflow::<wbr/>ops::<wbr/>RefSwitch</a>
+      </td>
+      <td>
+        <p>Forwards the ref tensor <code>data</code> to the output port determined by <code>pred</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/relu">tensorflow::<wbr/>ops::<wbr/>Relu</a>
+      </td>
+      <td>
+        <p>Computes rectified linear: <code>max(features, 0)</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/relu6">tensorflow::<wbr/>ops::<wbr/>Relu6</a>
+      </td>
+      <td>
+        <p>Computes rectified linear 6: <code>min(max(features, 0), 6)</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/requantization-range">tensorflow::<wbr/>ops::<wbr/>RequantizationRange</a>
+      </td>
+      <td>
+        <p>Given a quantized tensor described by (input, input_min, input_max), outputs a. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/requantize">tensorflow::<wbr/>ops::<wbr/>Requantize</a>
+      </td>
+      <td>
+        <p>Convert the quantized 'input' tensor into a lower-precision 'output', using the. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reshape">tensorflow::<wbr/>ops::<wbr/>Reshape</a>
+      </td>
+      <td>
+        <p>Reshapes a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resize-area">tensorflow::<wbr/>ops::<wbr/>ResizeArea</a>
+      </td>
+      <td>
+        <p>Resize <code>images</code> to <code>size</code> using area interpolation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resize-bicubic">tensorflow::<wbr/>ops::<wbr/>ResizeBicubic</a>
+      </td>
+      <td>
+        <p>Resize <code>images</code> to <code>size</code> using bicubic interpolation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resize-bilinear">tensorflow::<wbr/>ops::<wbr/>ResizeBilinear</a>
+      </td>
+      <td>
+        <p>Resize <code>images</code> to <code>size</code> using bilinear interpolation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resize-nearest-neighbor">tensorflow::<wbr/>ops::<wbr/>ResizeNearestNeighbor</a>
+      </td>
+      <td>
+        <p>Resize <code>images</code> to <code>size</code> using nearest neighbor interpolation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-apply-adadelta">tensorflow::<wbr/>ops::<wbr/>ResourceApplyAdadelta</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the adadelta scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-apply-adagrad">tensorflow::<wbr/>ops::<wbr/>ResourceApplyAdagrad</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the adagrad scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-apply-adagrad-d-a">tensorflow::<wbr/>ops::<wbr/>ResourceApplyAdagradDA</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the proximal adagrad scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-apply-adam">tensorflow::<wbr/>ops::<wbr/>ResourceApplyAdam</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the Adam algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-apply-centered-r-m-s-prop">tensorflow::<wbr/>ops::<wbr/>ResourceApplyCenteredRMSProp</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the centered RMSProp algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-apply-ftrl">tensorflow::<wbr/>ops::<wbr/>ResourceApplyFtrl</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the Ftrl-proximal scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-apply-gradient-descent">tensorflow::<wbr/>ops::<wbr/>ResourceApplyGradientDescent</a>
+      </td>
+      <td>
+        <p>Update '*var' by subtracting 'alpha' * 'delta' from it. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-apply-momentum">tensorflow::<wbr/>ops::<wbr/>ResourceApplyMomentum</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the momentum scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-apply-proximal-adagrad">tensorflow::<wbr/>ops::<wbr/>ResourceApplyProximalAdagrad</a>
+      </td>
+      <td>
+        <p>Update '*var' and '*accum' according to FOBOS with Adagrad learning rate. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-apply-proximal-gradient-descent">tensorflow::<wbr/>ops::<wbr/>ResourceApplyProximalGradientDescent</a>
+      </td>
+      <td>
+        <p>Update '*var' as FOBOS algorithm with fixed learning rate. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-apply-r-m-s-prop">tensorflow::<wbr/>ops::<wbr/>ResourceApplyRMSProp</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the RMSProp algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-adadelta">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyAdadelta</a>
+      </td>
+      <td>
+        <p>var: Should be from a Variable(). </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-adagrad">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyAdagrad</a>
+      </td>
+      <td>
+        <p>Update relevant entries in '*var' and '*accum' according to the adagrad scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-adagrad-d-a">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyAdagradDA</a>
+      </td>
+      <td>
+        <p>Update entries in '*var' and '*accum' according to the proximal adagrad scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyCenteredRMSProp</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the centered RMSProp algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-ftrl">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyFtrl</a>
+      </td>
+      <td>
+        <p>Update relevant entries in '*var' according to the Ftrl-proximal scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-momentum">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyMomentum</a>
+      </td>
+      <td>
+        <p>Update relevant entries in '*var' and '*accum' according to the momentum scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-proximal-adagrad">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyProximalAdagrad</a>
+      </td>
+      <td>
+        <p>Sparse update entries in '*var' and '*accum' according to FOBOS algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-proximal-gradient-descent">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyProximalGradientDescent</a>
+      </td>
+      <td>
+        <p>Sparse update '*var' as FOBOS algorithm with fixed learning rate. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-r-m-s-prop">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyRMSProp</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the RMSProp algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/restore">tensorflow::<wbr/>ops::<wbr/>Restore</a>
+      </td>
+      <td>
+        <p>Restores a tensor from checkpoint files. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/restore-slice">tensorflow::<wbr/>ops::<wbr/>RestoreSlice</a>
+      </td>
+      <td>
+        <p>Restores a tensor from checkpoint files. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/restore-v2">tensorflow::<wbr/>ops::<wbr/>RestoreV2</a>
+      </td>
+      <td>
+        <p>Restores tensors from a V2 checkpoint. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reverse">tensorflow::<wbr/>ops::<wbr/>Reverse</a>
+      </td>
+      <td>
+        <p>Reverses specific dimensions of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/reverse-sequence">tensorflow::<wbr/>ops::<wbr/>ReverseSequence</a>
+      </td>
+      <td>
+        <p>Reverses variable length slices. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/rint">tensorflow::<wbr/>ops::<wbr/>Rint</a>
+      </td>
+      <td>
+        <p>Returns element-wise integer closest to x. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/round">tensorflow::<wbr/>ops::<wbr/>Round</a>
+      </td>
+      <td>
+        <p>Rounds the values of a tensor to the nearest integer, element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/rsqrt">tensorflow::<wbr/>ops::<wbr/>Rsqrt</a>
+      </td>
+      <td>
+        <p>Computes reciprocal of square root of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sample-distorted-bounding-box">tensorflow::<wbr/>ops::<wbr/>SampleDistortedBoundingBox</a>
+      </td>
+      <td>
+        <p>Generate a single randomly distorted bounding box for an image. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/save">tensorflow::<wbr/>ops::<wbr/>Save</a>
+      </td>
+      <td>
+        <p>Saves the input tensors to disk. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/save-slices">tensorflow::<wbr/>ops::<wbr/>SaveSlices</a>
+      </td>
+      <td>
+        <p>Saves input tensors slices to disk. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/save-v2">tensorflow::<wbr/>ops::<wbr/>SaveV2</a>
+      </td>
+      <td>
+        <p>Saves tensors in V2 checkpoint format. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/scalar-summary">tensorflow::<wbr/>ops::<wbr/>ScalarSummary</a>
+      </td>
+      <td>
+        <p>Outputs a <code>Summary</code> protocol buffer with scalar values. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/scatter-add">tensorflow::<wbr/>ops::<wbr/>ScatterAdd</a>
+      </td>
+      <td>
+        <p>Adds sparse updates to a variable reference. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/scatter-div">tensorflow::<wbr/>ops::<wbr/>ScatterDiv</a>
+      </td>
+      <td>
+        <p>Divides a variable reference by sparse updates. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/scatter-mul">tensorflow::<wbr/>ops::<wbr/>ScatterMul</a>
+      </td>
+      <td>
+        <p>Multiplies sparse updates into a variable reference. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/scatter-nd">tensorflow::<wbr/>ops::<wbr/>ScatterNd</a>
+      </td>
+      <td>
+        <p>Creates a new tensor by applying sparse <code>updates</code> to individual. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/scatter-nd-add">tensorflow::<wbr/>ops::<wbr/>ScatterNdAdd</a>
+      </td>
+      <td>
+        <p>Applies sparse addition between <code>updates</code> and individual values or slices. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/scatter-nd-sub">tensorflow::<wbr/>ops::<wbr/>ScatterNdSub</a>
+      </td>
+      <td>
+        <p>Applies sparse subtraction between <code>updates</code> and individual values or slices. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/scatter-nd-update">tensorflow::<wbr/>ops::<wbr/>ScatterNdUpdate</a>
+      </td>
+      <td>
+        <p>Applies sparse <code>updates</code> to individual values or slices within a given. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/scatter-sub">tensorflow::<wbr/>ops::<wbr/>ScatterSub</a>
+      </td>
+      <td>
+        <p>Subtracts sparse updates to a variable reference. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/scatter-update">tensorflow::<wbr/>ops::<wbr/>ScatterUpdate</a>
+      </td>
+      <td>
+        <p>Applies sparse updates to a variable reference. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/segment-max">tensorflow::<wbr/>ops::<wbr/>SegmentMax</a>
+      </td>
+      <td>
+        <p>Computes the maximum along segments of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/segment-mean">tensorflow::<wbr/>ops::<wbr/>SegmentMean</a>
+      </td>
+      <td>
+        <p>Computes the mean along segments of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/segment-min">tensorflow::<wbr/>ops::<wbr/>SegmentMin</a>
+      </td>
+      <td>
+        <p>Computes the minimum along segments of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/segment-prod">tensorflow::<wbr/>ops::<wbr/>SegmentProd</a>
+      </td>
+      <td>
+        <p>Computes the product along segments of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/segment-sum">tensorflow::<wbr/>ops::<wbr/>SegmentSum</a>
+      </td>
+      <td>
+        <p>Computes the sum along segments of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/serialize-many-sparse">tensorflow::<wbr/>ops::<wbr/>SerializeManySparse</a>
+      </td>
+      <td>
+        <p>Serialize an <code>N</code>-minibatch <code>SparseTensor</code> into an <code>[N, 3]</code> string <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/serialize-sparse">tensorflow::<wbr/>ops::<wbr/>SerializeSparse</a>
+      </td>
+      <td>
+        <p>Serialize a <code>SparseTensor</code> into a string 3-vector (1-D <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>) object. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/set-diff1-d">tensorflow::<wbr/>ops::<wbr/>SetDiff1D</a>
+      </td>
+      <td>
+        <p>Computes the difference between two lists of numbers or strings. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/shape">tensorflow::<wbr/>ops::<wbr/>Shape</a>
+      </td>
+      <td>
+        <p>Returns the shape of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/shape-n">tensorflow::<wbr/>ops::<wbr/>ShapeN</a>
+      </td>
+      <td>
+        <p>Returns shape of tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sharded-filename">tensorflow::<wbr/>ops::<wbr/>ShardedFilename</a>
+      </td>
+      <td>
+        <p>Generate a sharded filename. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sharded-filespec">tensorflow::<wbr/>ops::<wbr/>ShardedFilespec</a>
+      </td>
+      <td>
+        <p>Generate a glob pattern matching all sharded file names. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sigmoid">tensorflow::<wbr/>ops::<wbr/>Sigmoid</a>
+      </td>
+      <td>
+        <p>Computes sigmoid of <code>x</code> element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sign">tensorflow::<wbr/>ops::<wbr/>Sign</a>
+      </td>
+      <td>
+        <p>Returns an element-wise indication of the sign of a number. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sin">tensorflow::<wbr/>ops::<wbr/>Sin</a>
+      </td>
+      <td>
+        <p>Computes sin of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/size">tensorflow::<wbr/>ops::<wbr/>Size</a>
+      </td>
+      <td>
+        <p>Returns the size of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/slice">tensorflow::<wbr/>ops::<wbr/>Slice</a>
+      </td>
+      <td>
+        <p>Return a slice from 'input'. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/softmax">tensorflow::<wbr/>ops::<wbr/>Softmax</a>
+      </td>
+      <td>
+        <p>Computes softmax activations. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/softmax-cross-entropy-with-logits">tensorflow::<wbr/>ops::<wbr/>SoftmaxCrossEntropyWithLogits</a>
+      </td>
+      <td>
+        <p>Computes softmax cross entropy cost and gradients to backpropagate. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/softplus">tensorflow::<wbr/>ops::<wbr/>Softplus</a>
+      </td>
+      <td>
+        <p>Computes softplus: <code>log(exp(features) + 1)</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/softsign">tensorflow::<wbr/>ops::<wbr/>Softsign</a>
+      </td>
+      <td>
+        <p>Computes softsign: <code>features / (abs(features) + 1)</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/space-to-batch">tensorflow::<wbr/>ops::<wbr/>SpaceToBatch</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/space-to-batch.html#classtensorflow_1_1ops_1_1_space_to_batch">SpaceToBatch</a> for 4-D tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/space-to-batch-n-d">tensorflow::<wbr/>ops::<wbr/>SpaceToBatchND</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/space-to-batch.html#classtensorflow_1_1ops_1_1_space_to_batch">SpaceToBatch</a> for N-D tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/space-to-depth">tensorflow::<wbr/>ops::<wbr/>SpaceToDepth</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/space-to-depth.html#classtensorflow_1_1ops_1_1_space_to_depth">SpaceToDepth</a> for tensors of type T. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-accumulator-apply-gradient">tensorflow::<wbr/>ops::<wbr/>SparseAccumulatorApplyGradient</a>
+      </td>
+      <td>
+        <p>Applies a sparse gradient to a given accumulator. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-accumulator-take-gradient">tensorflow::<wbr/>ops::<wbr/>SparseAccumulatorTakeGradient</a>
+      </td>
+      <td>
+        <p>Extracts the average sparse gradient in the given <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-conditional-accumulator.html#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator">SparseConditionalAccumulator</a>,. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-add">tensorflow::<wbr/>ops::<wbr/>SparseAdd</a>
+      </td>
+      <td>
+        <p>Adds two <code>SparseTensor</code> objects to produce another <code>SparseTensor</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-add-grad">tensorflow::<wbr/>ops::<wbr/>SparseAddGrad</a>
+      </td>
+      <td>
+        <p>The gradient operator for the <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-add.html#classtensorflow_1_1ops_1_1_sparse_add">SparseAdd</a> op. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-apply-adadelta">tensorflow::<wbr/>ops::<wbr/>SparseApplyAdadelta</a>
+      </td>
+      <td>
+        <p>var: Should be from a Variable(). </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-apply-adagrad">tensorflow::<wbr/>ops::<wbr/>SparseApplyAdagrad</a>
+      </td>
+      <td>
+        <p>Update relevant entries in '*var' and '*accum' according to the adagrad scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-apply-adagrad-d-a">tensorflow::<wbr/>ops::<wbr/>SparseApplyAdagradDA</a>
+      </td>
+      <td>
+        <p>Update entries in '*var' and '*accum' according to the proximal adagrad scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-apply-centered-r-m-s-prop">tensorflow::<wbr/>ops::<wbr/>SparseApplyCenteredRMSProp</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the centered RMSProp algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-apply-ftrl">tensorflow::<wbr/>ops::<wbr/>SparseApplyFtrl</a>
+      </td>
+      <td>
+        <p>Update relevant entries in '*var' according to the Ftrl-proximal scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-apply-momentum">tensorflow::<wbr/>ops::<wbr/>SparseApplyMomentum</a>
+      </td>
+      <td>
+        <p>Update relevant entries in '*var' and '*accum' according to the momentum scheme. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-apply-proximal-adagrad">tensorflow::<wbr/>ops::<wbr/>SparseApplyProximalAdagrad</a>
+      </td>
+      <td>
+        <p>Sparse update entries in '*var' and '*accum' according to FOBOS algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-apply-proximal-gradient-descent">tensorflow::<wbr/>ops::<wbr/>SparseApplyProximalGradientDescent</a>
+      </td>
+      <td>
+        <p>Sparse update '*var' as FOBOS algorithm with fixed learning rate. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-apply-r-m-s-prop">tensorflow::<wbr/>ops::<wbr/>SparseApplyRMSProp</a>
+      </td>
+      <td>
+        <p>Update '*var' according to the RMSProp algorithm. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-concat">tensorflow::<wbr/>ops::<wbr/>SparseConcat</a>
+      </td>
+      <td>
+        <p>Concatenates a list of <code>SparseTensor</code> along the specified dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-conditional-accumulator">tensorflow::<wbr/>ops::<wbr/>SparseConditionalAccumulator</a>
+      </td>
+      <td>
+        <p>A conditional accumulator for aggregating sparse gradients. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-dense-cwise-add">tensorflow::<wbr/>ops::<wbr/>SparseDenseCwiseAdd</a>
+      </td>
+      <td>
+        <p>Adds up a SparseTensor and a dense <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>, using these special rules: </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-dense-cwise-div">tensorflow::<wbr/>ops::<wbr/>SparseDenseCwiseDiv</a>
+      </td>
+      <td>
+        <p>Component-wise divides a SparseTensor by a dense <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-dense-cwise-mul">tensorflow::<wbr/>ops::<wbr/>SparseDenseCwiseMul</a>
+      </td>
+      <td>
+        <p>Component-wise multiplies a SparseTensor by a dense <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-mat-mul">tensorflow::<wbr/>ops::<wbr/>SparseMatMul</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/multiply.html#classtensorflow_1_1ops_1_1_multiply">Multiply</a> matrix "a" by matrix "b". </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-reduce-sum">tensorflow::<wbr/>ops::<wbr/>SparseReduceSum</a>
+      </td>
+      <td>
+        <p>Computes the sum of elements across dimensions of a SparseTensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-reduce-sum-sparse">tensorflow::<wbr/>ops::<wbr/>SparseReduceSumSparse</a>
+      </td>
+      <td>
+        <p>Computes the sum of elements across dimensions of a SparseTensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-reorder">tensorflow::<wbr/>ops::<wbr/>SparseReorder</a>
+      </td>
+      <td>
+        <p>Reorders a SparseTensor into the canonical, row-major ordering. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-reshape">tensorflow::<wbr/>ops::<wbr/>SparseReshape</a>
+      </td>
+      <td>
+        <p>Reshapes a SparseTensor to represent values in a new dense shape. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-segment-mean">tensorflow::<wbr/>ops::<wbr/>SparseSegmentMean</a>
+      </td>
+      <td>
+        <p>Computes the mean along sparse segments of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-segment-mean-grad">tensorflow::<wbr/>ops::<wbr/>SparseSegmentMeanGrad</a>
+      </td>
+      <td>
+        <p>Computes gradients for <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-segment-mean.html#classtensorflow_1_1ops_1_1_sparse_segment_mean">SparseSegmentMean</a>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-segment-sqrt-n">tensorflow::<wbr/>ops::<wbr/>SparseSegmentSqrtN</a>
+      </td>
+      <td>
+        <p>Computes the sum along sparse segments of a tensor divided by the sqrt of N. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-segment-sqrt-n-grad">tensorflow::<wbr/>ops::<wbr/>SparseSegmentSqrtNGrad</a>
+      </td>
+      <td>
+        <p>Computes gradients for <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-segment-sqrt-n.html#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n">SparseSegmentSqrtN</a>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-segment-sum">tensorflow::<wbr/>ops::<wbr/>SparseSegmentSum</a>
+      </td>
+      <td>
+        <p>Computes the sum along sparse segments of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-softmax">tensorflow::<wbr/>ops::<wbr/>SparseSoftmax</a>
+      </td>
+      <td>
+        <p>Applies softmax to a batched N-D <code>SparseTensor</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-softmax-cross-entropy-with-logits">tensorflow::<wbr/>ops::<wbr/>SparseSoftmaxCrossEntropyWithLogits</a>
+      </td>
+      <td>
+        <p>Computes softmax cross entropy cost and gradients to backpropagate. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-sparse-maximum">tensorflow::<wbr/>ops::<wbr/>SparseSparseMaximum</a>
+      </td>
+      <td>
+        <p>Returns the element-wise max of two SparseTensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-sparse-minimum">tensorflow::<wbr/>ops::<wbr/>SparseSparseMinimum</a>
+      </td>
+      <td>
+        <p>Returns the element-wise min of two SparseTensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-split">tensorflow::<wbr/>ops::<wbr/>SparseSplit</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> a <code>SparseTensor</code> into <code>num_split</code> tensors along one dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-tensor-dense-add">tensorflow::<wbr/>ops::<wbr/>SparseTensorDenseAdd</a>
+      </td>
+      <td>
+        <p>Adds up a <code>SparseTensor</code> and a dense <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>, producing a dense <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-tensor-dense-mat-mul">tensorflow::<wbr/>ops::<wbr/>SparseTensorDenseMatMul</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/multiply.html#classtensorflow_1_1ops_1_1_multiply">Multiply</a> SparseTensor (of rank 2) "A" by dense matrix "B". </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sparse-to-dense">tensorflow::<wbr/>ops::<wbr/>SparseToDense</a>
+      </td>
+      <td>
+        <p>Converts a sparse representation into a dense tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/split">tensorflow::<wbr/>ops::<wbr/>Split</a>
+      </td>
+      <td>
+        <p>Splits a tensor into <code>num_split</code> tensors along one dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/split-v">tensorflow::<wbr/>ops::<wbr/>SplitV</a>
+      </td>
+      <td>
+        <p>Splits a tensor into <code>num_split</code> tensors along one dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sqrt">tensorflow::<wbr/>ops::<wbr/>Sqrt</a>
+      </td>
+      <td>
+        <p>Computes square root of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/square">tensorflow::<wbr/>ops::<wbr/>Square</a>
+      </td>
+      <td>
+        <p>Computes square of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/squared-difference">tensorflow::<wbr/>ops::<wbr/>SquaredDifference</a>
+      </td>
+      <td>
+        <p>Returns (x - y)(x - y) element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/squeeze">tensorflow::<wbr/>ops::<wbr/>Squeeze</a>
+      </td>
+      <td>
+        <p>Removes dimensions of size 1 from the shape of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/stack">tensorflow::<wbr/>ops::<wbr/>Stack</a>
+      </td>
+      <td>
+        <p>Packs a list of <code>N</code> rank-<code>R</code> tensors into one rank-<code>(R+1)</code> tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/stage">tensorflow::<wbr/>ops::<wbr/>Stage</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/stage.html#classtensorflow_1_1ops_1_1_stage">Stage</a> values similar to a lightweight Enqueue. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/stop-gradient">tensorflow::<wbr/>ops::<wbr/>StopGradient</a>
+      </td>
+      <td>
+        <p>Stops gradient computation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/strided-slice">tensorflow::<wbr/>ops::<wbr/>StridedSlice</a>
+      </td>
+      <td>
+        <p>Return a strided slice from <code>input</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/strided-slice-assign">tensorflow::<wbr/>ops::<wbr/>StridedSliceAssign</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a><code>value</code> to the sliced l-value reference of <code>ref</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/strided-slice-grad">tensorflow::<wbr/>ops::<wbr/>StridedSliceGrad</a>
+      </td>
+      <td>
+        <p>Returns the gradient of <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/strided-slice.html#classtensorflow_1_1ops_1_1_strided_slice">StridedSlice</a></code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/string-join">tensorflow::<wbr/>ops::<wbr/>StringJoin</a>
+      </td>
+      <td>
+        <p>Joins the strings in the given list of string tensors into one tensor;. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/string-split">tensorflow::<wbr/>ops::<wbr/>StringSplit</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> elements of <code>input</code> based on <code>delimiter</code> into a <code>SparseTensor</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/string-to-hash-bucket">tensorflow::<wbr/>ops::<wbr/>StringToHashBucket</a>
+      </td>
+      <td>
+        <p>Converts each string in the input <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to its hash mod by a number of buckets. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/string-to-hash-bucket-fast">tensorflow::<wbr/>ops::<wbr/>StringToHashBucketFast</a>
+      </td>
+      <td>
+        <p>Converts each string in the input <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to its hash mod by a number of buckets. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/string-to-hash-bucket-strong">tensorflow::<wbr/>ops::<wbr/>StringToHashBucketStrong</a>
+      </td>
+      <td>
+        <p>Converts each string in the input <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to its hash mod by a number of buckets. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/string-to-number">tensorflow::<wbr/>ops::<wbr/>StringToNumber</a>
+      </td>
+      <td>
+        <p>Converts each string in the input <a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to the specified numeric type. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/substr">tensorflow::<wbr/>ops::<wbr/>Substr</a>
+      </td>
+      <td>
+        <p>Return substrings from <code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of strings. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/subtract">tensorflow::<wbr/>ops::<wbr/>Subtract</a>
+      </td>
+      <td>
+        <p>Returns x - y element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sum">tensorflow::<wbr/>ops::<wbr/>Sum</a>
+      </td>
+      <td>
+        <p>Computes the sum of elements across dimensions of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/switch">tensorflow::<wbr/>ops::<wbr/>Switch</a>
+      </td>
+      <td>
+        <p>Forwards <code>data</code> to the output port determined by <code>pred</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/t-f-record-reader">tensorflow::<wbr/>ops::<wbr/>TFRecordReader</a>
+      </td>
+      <td>
+        <p>A Reader that outputs the records from a TensorFlow Records file. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/take-many-sparse-from-tensors-map">tensorflow::<wbr/>ops::<wbr/>TakeManySparseFromTensorsMap</a>
+      </td>
+      <td>
+        <p>Read <code>SparseTensors</code> from a <code>SparseTensorsMap</code> and concatenate them. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tan">tensorflow::<wbr/>ops::<wbr/>Tan</a>
+      </td>
+      <td>
+        <p>Computes tan of x element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tanh">tensorflow::<wbr/>ops::<wbr/>Tanh</a>
+      </td>
+      <td>
+        <p>Computes hyperbolic tangent of <code>x</code> element-wise. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/temporary-variable">tensorflow::<wbr/>ops::<wbr/>TemporaryVariable</a>
+      </td>
+      <td>
+        <p>Returns a tensor that may be mutated, but only persists within a single step. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array">tensorflow::<wbr/>ops::<wbr/>TensorArray</a>
+      </td>
+      <td>
+        <p>An array of Tensors of given size, with data written via Write and read. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array-close">tensorflow::<wbr/>ops::<wbr/>TensorArrayClose</a>
+      </td>
+      <td>
+        <p>Delete the <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> from its resource container. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array-concat">tensorflow::<wbr/>ops::<wbr/>TensorArrayConcat</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/concat.html#classtensorflow_1_1ops_1_1_concat">Concat</a> the elements from the <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> into value <code>value</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array-gather">tensorflow::<wbr/>ops::<wbr/>TensorArrayGather</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/gather.html#classtensorflow_1_1ops_1_1_gather">Gather</a> specific elements from the <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> into output <code>value</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array-grad">tensorflow::<wbr/>ops::<wbr/>TensorArrayGrad</a>
+      </td>
+      <td>
+        <p>Creates a <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> for storing the gradients of values in the given handle. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array-read">tensorflow::<wbr/>ops::<wbr/>TensorArrayRead</a>
+      </td>
+      <td>
+        <p>Read an element from the <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> into output <code>value</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array-scatter">tensorflow::<wbr/>ops::<wbr/>TensorArrayScatter</a>
+      </td>
+      <td>
+        <p>Scatter the data from the input value into specific <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> elements. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array-size">tensorflow::<wbr/>ops::<wbr/>TensorArraySize</a>
+      </td>
+      <td>
+        <p>Get the current size of the <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array-split">tensorflow::<wbr/>ops::<wbr/>TensorArraySplit</a>
+      </td>
+      <td>
+        <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> the data from the input value into <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> elements. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-array-write">tensorflow::<wbr/>ops::<wbr/>TensorArrayWrite</a>
+      </td>
+      <td>
+        <p>Push an element onto the tensor_array. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tensor-summary">tensorflow::<wbr/>ops::<wbr/>TensorSummary</a>
+      </td>
+      <td>
+        <p>Outputs a <code>Summary</code> protocol buffer with a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/text-line-reader">tensorflow::<wbr/>ops::<wbr/>TextLineReader</a>
+      </td>
+      <td>
+        <p>A Reader that outputs the lines of a file delimited by '<br />
+'. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/tile">tensorflow::<wbr/>ops::<wbr/>Tile</a>
+      </td>
+      <td>
+        <p>Constructs a tensor by tiling a given tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/top-k">tensorflow::<wbr/>ops::<wbr/>TopK</a>
+      </td>
+      <td>
+        <p>Finds values and indices of the <code>k</code> largest elements for the last dimension. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/transpose">tensorflow::<wbr/>ops::<wbr/>Transpose</a>
+      </td>
+      <td>
+        <p>Shuffle dimensions of x according to a permutation. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/truncate-div">tensorflow::<wbr/>ops::<wbr/>TruncateDiv</a>
+      </td>
+      <td>
+        <p>Returns x / y element-wise for integer types. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/truncate-mod">tensorflow::<wbr/>ops::<wbr/>TruncateMod</a>
+      </td>
+      <td>
+        <p>Returns element-wise remainder of division. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/truncated-normal">tensorflow::<wbr/>ops::<wbr/>TruncatedNormal</a>
+      </td>
+      <td>
+        <p>Outputs random values from a truncated normal distribution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/uniform-candidate-sampler">tensorflow::<wbr/>ops::<wbr/>UniformCandidateSampler</a>
+      </td>
+      <td>
+        <p>Generates labels for candidate sampling with a uniform distribution. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/unique">tensorflow::<wbr/>ops::<wbr/>Unique</a>
+      </td>
+      <td>
+        <p>Finds unique elements in a 1-D tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/unique-with-counts">tensorflow::<wbr/>ops::<wbr/>UniqueWithCounts</a>
+      </td>
+      <td>
+        <p>Finds unique elements in a 1-D tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/unsorted-segment-max">tensorflow::<wbr/>ops::<wbr/>UnsortedSegmentMax</a>
+      </td>
+      <td>
+        <p>Computes the <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/max.html#classtensorflow_1_1ops_1_1_max">Max</a> along segments of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/unsorted-segment-sum">tensorflow::<wbr/>ops::<wbr/>UnsortedSegmentSum</a>
+      </td>
+      <td>
+        <p>Computes the sum along segments of a tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/unstack">tensorflow::<wbr/>ops::<wbr/>Unstack</a>
+      </td>
+      <td>
+        <p>Unpacks a given dimension of a rank-<code>R</code> tensor into <code>num</code> rank-<code>(R-1)</code> tensors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/unstage">tensorflow::<wbr/>ops::<wbr/>Unstage</a>
+      </td>
+      <td>
+        <p>Op is similar to a lightweight Dequeue. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/variable">tensorflow::<wbr/>ops::<wbr/>Variable</a>
+      </td>
+      <td>
+        <p>Holds state in the form of a tensor that persists across steps. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/where">tensorflow::<wbr/>ops::<wbr/>Where</a>
+      </td>
+      <td>
+        <p>Returns locations of true values in a boolean tensor. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/where3">tensorflow::<wbr/>ops::<wbr/>Where3</a>
+      </td>
+      <td>
+        <p>Selects elements from <code>x</code> or <code>y</code>, depending on <code>condition</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/whole-file-reader">tensorflow::<wbr/>ops::<wbr/>WholeFileReader</a>
+      </td>
+      <td>
+        <p>A Reader that outputs the entire contents of a file as a value. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/write-file">tensorflow::<wbr/>ops::<wbr/>WriteFile</a>
+      </td>
+      <td>
+        <p>Writes contents to the file at input filename. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/zeros-like">tensorflow::<wbr/>ops::<wbr/>ZerosLike</a>
+      </td>
+      <td>
+        <p>Returns a tensor of zeros with the same shape and type as x. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/zeta">tensorflow::<wbr/>ops::<wbr/>Zeta</a>
+      </td>
+      <td>
+        <p>Compute the Hurwitz zeta function \((x, q)\). </p>
+      </td>
+    </tr>
+  </table>
+  <h2 />
+  <div id="group__math__ops_1gaeafa8f7448f93b4d545eec05f9b7a83b">
+    <h3>ReduceSum</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/sum.html#classtensorflow_1_1ops_1_1_sum">Sum</a> ReduceSum</pre>
+    <div />
+  </div>
+  <div id="group__math__ops_1ga8872d71afb365f8e9c3547011fb33183">
+    <h3>Sub</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/subtract.html#classtensorflow_1_1ops_1_1_subtract">Subtract</a> Sub</pre>
+    <div />
+  </div>
+  <h2>Typedefs</h2>
+  <div id="group__math__ops_1ga140a37e1e470845b8367ad7f8fadfe62">
+    <h3>Mul</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/multiply.html#classtensorflow_1_1ops_1_1_multiply">Multiply</a> Mul</pre>
+    <div />
+  </div>
+  <div id="group__math__ops_1ga4297d27638dcfcc5e2170cba4400ddc6">
+    <h3>Neg</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/negate.html#classtensorflow_1_1ops_1_1_negate">Negate</a> Neg</pre>
+    <div />
+  </div>
+  <div id="group__math__ops_1gab1830bf25a0925bbedf68012b34d2c40">
+    <h3>ReduceAll</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> ReduceAll</pre>
+    <div />
+  </div>
+  <div id="group__math__ops_1gaff6970829de27cbeb20bbbe1fa32a9da">
+    <h3>ReduceAny</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/any.html#classtensorflow_1_1ops_1_1_any">Any</a> ReduceAny</pre>
+    <div />
+  </div>
+  <div id="group__math__ops_1gaf8bcf39ada7fa6d47cd3b3645a67bf39">
+    <h3>ReduceMax</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/max.html#classtensorflow_1_1ops_1_1_max">Max</a> ReduceMax</pre>
+    <div />
+  </div>
+  <div id="group__math__ops_1ga221ddf7df1fd59241146eacd0f37a140">
+    <h3>ReduceMean</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/mean.html#classtensorflow_1_1ops_1_1_mean">Mean</a> ReduceMean</pre>
+    <div />
+  </div>
+  <div id="group__math__ops_1gab24f67f5842374309f39e725d41daa84">
+    <h3>ReduceMin</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/min.html#classtensorflow_1_1ops_1_1_min">Min</a> ReduceMin</pre>
+    <div />
+  </div>
+  <div id="group__math__ops_1ga1c49c2968b61a54bad7b9b0583c2891a">
+    <h3>ReduceProd</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/prod.html#classtensorflow_1_1ops_1_1_prod">Prod</a> ReduceProd</pre>
+    <div />
+  </div>
+  <h2>Functions</h2>
+  <div id="group__const__op_1ga86cbc615b20b626a4c2502477553e0cf">
+    <h3>AsNodeOut</h3>
+    <pre class="prettyprint">NodeBuilder::NodeOut AsNodeOut(
+  const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope,
+  const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> & inp
+)</pre>
+    <div />
+  </div>
+  <div id="group__const__op_1ga785c00ec16205a136d2b7cd26106998c">
+    <h3>AsNodeOutList</h3>
+    <pre class="prettyprint">std::vector< NodeBuilder::NodeOut > AsNodeOutList(
+  const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope,
+  const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">InputList</a> & inp
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga8aed7a42d0ca30d3a3ab4ccd255ce67e">
+    <h3>AudioSummary</h3>
+    <pre class="prettyprint"> AudioSummary(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sample_rate
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga09af34bc2ffdb04cf50a99dc80af1270">
+    <h3>AudioSummary</h3>
+    <pre class="prettyprint"> AudioSummary(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sample_rate,
+  const AudioSummary::Attrs & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga7176bae75b2c957dad310936ece963e0">
+    <h3>BadColor</h3>
+    <pre class="prettyprint">Attrs BadColor(
+  const TensorProto & x
+)</pre>
+    <div>
+      <p>Color to use for pixels with non-finite values. </p>
+      <p>Defaults to Tensor<type: uint8 shape: [4] values: 255 0 0...> </p>
+    </div>
+  </div>
+  <div id="group__const__op_1ga4f933e46abd09f80e753ad9b94bd9e08">
+    <h3>Const</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> Const(
+  const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope,
+  const <a href="/versions/r1.1/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Input::Initializer</a> & val
+)</pre>
+    <div />
+  </div>
+  <div id="group__const__op_1ga168731f2fa3ab15ae17f6e69049b8d97">
+    <h3>Const</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> Const(
+  const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope,
+  const T & v,
+  const TensorShape shape
+)</pre>
+    <div />
+  </div>
+  <div id="group__const__op_1ga390e82ee5d30e67f6515e5cf9482d81f">
+    <h3>Const</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> Const(
+  const <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope,
+  const std::initializer_list< T > & v,
+  const TensorShape shape
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga2a33be603203e103a752eb85bb18ee8a">
+    <h3>ImageSummary</h3>
+    <pre class="prettyprint"> ImageSummary(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga8c0191c0b683fa90ad82e001da1f090a">
+    <h3>ImageSummary</h3>
+    <pre class="prettyprint"> ImageSummary(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  const ImageSummary::Attrs & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga882604c458700a6464ff6fc98c06a418">
+    <h3>MaxImages</h3>
+    <pre class="prettyprint">Attrs MaxImages(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1gab25b29f077c1f74d45026b1078f33359">
+    <h3>MaxOutputs</h3>
+    <pre class="prettyprint">Attrs MaxOutputs(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1ga9d6a6481d9f898bf8f65bb7ceeee1825">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="group__logging__ops_1gaf1f1a2e293bfef9331c356fa05b5c8ca">
+    <h3>range</h3>
+    <pre class="prettyprint">image **If max_images is greater the summary value tags are *generated sequentially as *tag *tag etc **The bad_color argument is the color to use in the generated images for *non finite input values It is a unit8 D tensor of length channels *Each element must be in the range(
+  It represents the value of a *pixel in the output image
+).Non-finite values in the input tensor are *replaced by this tensor in the output image.The default value is the color *red.**Arguments</pre>
+    <div>
+      <p><a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/max.html#classtensorflow_1_1ops_1_1_max">Max</a> number of batch elements to generate images for. </p>
+      <p>Defaults to 3 </p>
+    </div>
+  </div>
+</body>
+</html>

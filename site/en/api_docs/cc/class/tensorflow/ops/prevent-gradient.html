@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::PreventGradient Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.1/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>PreventGradient</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>An identity op that triggers an error if a gradient is requested. </p>
+  <h2>Summary</h2>
+  <p>When executed in a graph, this op outputs its input tensor as-is.</p>
+  <p>When building ops to compute gradients, the TensorFlow gradient system will return an error when trying to lookup the gradient of this op, because no gradient must ever be registered for this function. This op exists to prevent subtle bugs from silently returning unimplemented gradients in some corner cases.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: any tensor.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/prevent-gradient/attrs.html#structtensorflow_1_1ops_1_1_prevent_gradient_1_1_attrs">Attrs</a></code>):<ul>
+      <li>message: Will be printed in the error when anyone tries to differentiate this operation.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: the same input tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_prevent_gradient_1a0b9966e0dc996fe02edcdfc60584d033">PreventGradient</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_prevent_gradient_1ae19edcd4e91e9dc4bc39684dfd8cfa74">PreventGradient</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const <a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/prevent-gradient/attrs.html#structtensorflow_1_1ops_1_1_prevent_gradient_1_1_attrs">PreventGradient::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_prevent_gradient_1a4c8f001d1b1f87090e63ed718977d582">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_prevent_gradient_1a039d4498a7fd50b84e4246f6adab399e">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_prevent_gradient_1a20ebe0054ff4d6f2d7bb35242547bb7b">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_prevent_gradient_1a2e068c7e108d2325da28edbfd997cd02">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_prevent_gradient_1a5e4b110d0c0f8f247fd80301b88df40d">Message</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/prevent-gradient/attrs.html#structtensorflow_1_1ops_1_1_prevent_gradient_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/prevent-gradient/attrs">tensorflow::<wbr/>ops::<wbr/>PreventGradient::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.1/api_docs/cc/class/tensorflow/ops/prevent-gradient.html#classtensorflow_1_1ops_1_1_prevent_gradient">PreventGradient</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_prevent_gradient_1a4c8f001d1b1f87090e63ed718977d582">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_prevent_gradient_1a0b9966e0dc996fe02edcdfc60584d033">
+    <h3>PreventGradient</h3>
+    <pre class="prettyprint"> PreventGradient(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_prevent_gradient_1ae19edcd4e91e9dc4bc39684dfd8cfa74">
+    <h3>PreventGradient</h3>
+    <pre class="prettyprint"> PreventGradient(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const <a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/prevent-gradient/attrs.html#structtensorflow_1_1ops_1_1_prevent_gradient_1_1_attrs">PreventGradient::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_prevent_gradient_1a039d4498a7fd50b84e4246f6adab399e">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_prevent_gradient_1a20ebe0054ff4d6f2d7bb35242547bb7b">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_prevent_gradient_1a2e068c7e108d2325da28edbfd997cd02">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_prevent_gradient_1a5e4b110d0c0f8f247fd80301b88df40d">
+    <h3>Message</h3>
+    <pre class="prettyprint"><a href="/versions/r1.1/api_docs/cc/struct/tensorflow/ops/prevent-gradient/attrs.html#structtensorflow_1_1ops_1_1_prevent_gradient_1_1_attrs">Attrs</a> Message(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

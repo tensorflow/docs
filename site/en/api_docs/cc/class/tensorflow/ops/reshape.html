@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Reshape Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.1/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Reshape</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Reshapes a tensor. </p>
+  <h2>Summary</h2>
+  <p>Given <code>tensor</code>, this operation returns a tensor that has the same values as <code>tensor</code> with shape <code>shape</code>.</p>
+  <p>If one component of <code>shape</code> is the special value -1, the size of that dimension is computed so that the total size remains constant. In particular, a <code>shape</code> of <code>[-1]</code> flattens into 1-D. At most one component of <code>shape</code> can be -1.</p>
+  <p>If <code>shape</code> is 1-D or higher, then the operation returns a tensor with shape <code>shape</code> filled with the values of <code>tensor</code>. In this case, the number of elements implied by <code>shape</code> must be the same as the number of elements in <code>tensor</code>.</p>
+  <p>For example:</p>
+  <p>```prettyprint tensor 't' is [1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
+  <p>tensor 't' has shape [9]</p>
+  <p>reshape(t, [3, 3]) ==> [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</p>
+  <p>tensor 't' is [[[1, 1], [2, 2]],</p>
+  <p>[[3, 3], [4, 4]]]</p>
+  <p>tensor 't' has shape [2, 2, 2]</p>
+  <p>reshape(t, [2, 4]) ==> [[1, 1, 2, 2], [3, 3, 4, 4]]</p>
+  <p>tensor 't' is [[[1, 1, 1],</p>
+  <p>[2, 2, 2]],</p>
+  <p>[[3, 3, 3],</p>
+  <p>[4, 4, 4]],</p>
+  <p>[[5, 5, 5],</p>
+  <p>[6, 6, 6]]]</p>
+  <p>tensor 't' has shape [3, 2, 3]</p>
+  <p>pass '[-1]' to flatten 't'</p>
+  <p>reshape(t, [-1]) ==> [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6]</p>
+  <p>-1 can also be used to infer the shape</p>
+  <p>-1 is inferred to be 9:</p>
+  <p>reshape(t, [2, -1]) ==> [[1, 1, 1, 2, 2, 2, 3, 3, 3], [4, 4, 4, 5, 5, 5, 6, 6, 6]] -1 is inferred to be 2:</p>
+  <p>reshape(t, [-1, 9]) ==> [[1, 1, 1, 2, 2, 2, 3, 3, 3], [4, 4, 4, 5, 5, 5, 6, 6, 6]] -1 is inferred to be 3:</p>
+  <p>reshape(t, [ 2, -1, 3]) ==> [[[1, 1, 1], [2, 2, 2], [3, 3, 3]], [[4, 4, 4], [5, 5, 5], [6, 6, 6]]]</p>
+  <p>tensor 't' is [7]</p>
+  <p>shape <code>[]</code> reshapes to a scalar</p>
+  <p>reshape(t, []) ==> 7 ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>shape: Defines the shape of the output tensor.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_reshape_1a3f0e153af59995afc36449c44ba502a4">Reshape</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reshape_1adc4080566860f6f2e44f7824961cc897">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reshape_1a281a5bd4f7d3574b12ebb087387a083d">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reshape_1a6cbc13f6b9466e15e020746892c29de1">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reshape_1ad0490be76f4f2778a0f302fd3e477e96">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_reshape_1adc4080566860f6f2e44f7824961cc897">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_reshape_1a3f0e153af59995afc36449c44ba502a4">
+    <h3>Reshape</h3>
+    <pre class="prettyprint"> Reshape(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reshape_1a281a5bd4f7d3574b12ebb087387a083d">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reshape_1a6cbc13f6b9466e15e020746892c29de1">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reshape_1ad0490be76f4f2778a0f302fd3e477e96">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

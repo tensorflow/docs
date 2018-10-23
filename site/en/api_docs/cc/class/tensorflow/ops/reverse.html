@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Reverse Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.1/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Reverse</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Reverses specific dimensions of a tensor. </p>
+  <h2>Summary</h2>
+  <p>NOTE <code>tf.reverse</code> has now changed behavior in preparation for 1.0. <code>tf.reverse_v2</code> is currently an alias that will be deprecated before TF 1.0.</p>
+  <p>Given a <code>tensor</code>, and a <code>int32</code> tensor <code>axis</code> representing the set of dimensions of <code>tensor</code> to reverse. This operation reverses each dimension <code>i</code> for which there exists <code>j</code> s.t. <code>axis[j] == i</code>.</p>
+  <p><code>tensor</code> can have up to 8 dimensions. The number of dimensions specified in <code>axis</code> may be 0 or more entries. If an index is specified more than once, a InvalidArgument error is raised.</p>
+  <p>For example:</p>
+  <p>```prettyprint tensor 't' is [[[[ 0, 1, 2, 3],</p>
+  <p>[ 4, 5, 6, 7],</p>
+  <p>[ 8, 9, 10, 11]],</p>
+  <p>[[12, 13, 14, 15],</p>
+  <p>[16, 17, 18, 19],</p>
+  <p>[20, 21, 22, 23]]]]</p>
+  <p>tensor 't' shape is [1, 2, 3, 4]</p>
+  <p>'dims' is [3] or 'dims' is -1</p>
+  <p>reverse(t, dims) ==> [[[[ 3, 2, 1, 0], [ 7, 6, 5, 4], [ 11, 10, 9, 8]], [[15, 14, 13, 12], [19, 18, 17, 16], [23, 22, 21, 20]]]]</p>
+  <p>'dims' is '[1]' (or 'dims' is '[-3]')</p>
+  <p>reverse(t, dims) ==> [[[[12, 13, 14, 15], [16, 17, 18, 19], [20, 21, 22, 23] [[ 0, 1, 2, 3], [ 4, 5, 6, 7], [ 8, 9, 10, 11]]]]</p>
+  <p>'dims' is '[2]' (or 'dims' is '[-2]')</p>
+  <p>reverse(t, dims) ==> [[[[8, 9, 10, 11], [4, 5, 6, 7], [0, 1, 2, 3]] [[20, 21, 22, 23], [16, 17, 18, 19], [12, 13, 14, 15]]]] ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>tensor: Up to 8-D.</li>
+      <li>axis: 1-D. The indices of the dimensions to reverse.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The same shape as <code>tensor</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_1af4cad64f1ac48691c5c3e61f2dadbdac">Reverse</a>(const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_1a80c9bcc7bfb12f0f14d9068b89531ba6">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_1ade37b7e69fcf839699c33598341253ca">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_1aed03e3f2a6fd77d814e6bb685e639b72">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_1a015e5104a892a11cfbbbe928708ce040">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_reverse_1a80c9bcc7bfb12f0f14d9068b89531ba6">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_reverse_1af4cad64f1ac48691c5c3e61f2dadbdac">
+    <h3>Reverse</h3>
+    <pre class="prettyprint"> Reverse(
+  const ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  ::<a href="/versions/r1.1/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reverse_1ade37b7e69fcf839699c33598341253ca">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reverse_1aed03e3f2a6fd77d814e6bb685e639b72">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reverse_1a015e5104a892a11cfbbbe928708ce040">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>
