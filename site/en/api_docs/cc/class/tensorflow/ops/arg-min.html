@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ArgMin Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ArgMin</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Returns the index with the smallest value across dimensions of a tensor. </p>
+  <h2>Summary</h2>
+  <p>Note that in case of ties the identity of the return value is not guaranteed.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>dimension: int32 or int64, must be in the range <code>[-rank(input), rank(input))</code>. Describes which dimension of the input <a href="/versions/r1.7/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to reduce across. For vectors, use dimension = 0.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_arg_min_1a168791dd65474f6516ead5c14c228809">ArgMin</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dimension)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_arg_min_1a585efda09c698305c3b4d4bd52e2ef89">ArgMin</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dimension, const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/arg-min/attrs.html#structtensorflow_1_1ops_1_1_arg_min_1_1_attrs">ArgMin::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_arg_min_1adf842d8733fb5c05cf8773604ce4e39c">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_arg_min_1aaa10eba6321c4a8bc4d7cf58a21e3328">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_arg_min_1a03587f44a8e9ecd6778a4a68e0fcf506">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_arg_min_1a191191cb11c666a611ba6e2bf95c15b7">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_arg_min_1a164b1adce713e1a74f370b6fd657626f">OutputType</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/arg-min/attrs.html#structtensorflow_1_1ops_1_1_arg_min_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/arg-min/attrs">tensorflow::<wbr/>ops::<wbr/>ArgMin::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/arg-min.html#classtensorflow_1_1ops_1_1_arg_min">ArgMin</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_arg_min_1adf842d8733fb5c05cf8773604ce4e39c">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_arg_min_1a168791dd65474f6516ead5c14c228809">
+    <h3>ArgMin</h3>
+    <pre class="prettyprint"> ArgMin(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dimension
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_arg_min_1a585efda09c698305c3b4d4bd52e2ef89">
+    <h3>ArgMin</h3>
+    <pre class="prettyprint"> ArgMin(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dimension,
+  const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/arg-min/attrs.html#structtensorflow_1_1ops_1_1_arg_min_1_1_attrs">ArgMin::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_arg_min_1aaa10eba6321c4a8bc4d7cf58a21e3328">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_arg_min_1a03587f44a8e9ecd6778a4a68e0fcf506">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_arg_min_1a191191cb11c666a611ba6e2bf95c15b7">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_arg_min_1a164b1adce713e1a74f370b6fd657626f">
+    <h3>OutputType</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/arg-min/attrs.html#structtensorflow_1_1ops_1_1_arg_min_1_1_attrs">Attrs</a> OutputType(
+  DataType x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

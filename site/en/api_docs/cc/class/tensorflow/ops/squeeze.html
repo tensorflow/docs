@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Squeeze Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Squeeze</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Removes dimensions of size 1 from the shape of a tensor. </p>
+  <h2>Summary</h2>
+  <p>Given a tensor <code>input</code>, this operation returns a tensor of the same type with all dimensions of size 1 removed. If you don't want to remove all size 1 dimensions, you can remove specific size 1 dimensions by specifying <code>axis</code>.</p>
+  <p>For example:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; 't' is a tensor of shape [1, 2, 1, 3, 1, 1]
+shape(squeeze(t)) ==> [2, 3]
+</pre>
+  </p>
+  <p>Or, to remove specific size 1 dimensions:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; 't' is a tensor of shape [1, 2, 1, 3, 1, 1]
+shape(squeeze(t, [2, 4])) ==> [1, 2, 3, 1]
+</pre>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: The <code>input</code> to squeeze.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/squeeze/attrs.html#structtensorflow_1_1ops_1_1_squeeze_1_1_attrs">Attrs</a></code>):<ul>
+      <li>axis: If specified, only squeezes the dimensions listed. The dimension index starts at 0. It is an error to squeeze a dimension that is not 1. Must be in the range <code>[-rank(input), rank(input))</code>.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Contains the same data as <code>input</code>, but has one or more dimensions of size 1 removed. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_squeeze_1a84228c2aee3bb07506757922e6954bd9">Squeeze</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_squeeze_1a4de379374b54ea8f3239041ede2cadf0">Squeeze</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/squeeze/attrs.html#structtensorflow_1_1ops_1_1_squeeze_1_1_attrs">Squeeze::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_squeeze_1ac5ce74535ede8cf74f0b6f14bcaa04ce">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_squeeze_1a09e9f6e0a8ccd7b3b08c392ec02506a7">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_squeeze_1ae9786432807df65aa03bc8d6bebe261e">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_squeeze_1a1b393e2315aba12808969304cf641049">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_squeeze_1a42fc7cdefa2e644b9887ec04a93c25f8">Axis</a>(const gtl::ArraySlice< int > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/squeeze/attrs.html#structtensorflow_1_1ops_1_1_squeeze_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/squeeze/attrs">tensorflow::<wbr/>ops::<wbr/>Squeeze::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/squeeze.html#classtensorflow_1_1ops_1_1_squeeze">Squeeze</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_squeeze_1ac5ce74535ede8cf74f0b6f14bcaa04ce">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_squeeze_1a84228c2aee3bb07506757922e6954bd9">
+    <h3>Squeeze</h3>
+    <pre class="prettyprint"> Squeeze(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_squeeze_1a4de379374b54ea8f3239041ede2cadf0">
+    <h3>Squeeze</h3>
+    <pre class="prettyprint"> Squeeze(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/squeeze/attrs.html#structtensorflow_1_1ops_1_1_squeeze_1_1_attrs">Squeeze::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_squeeze_1a09e9f6e0a8ccd7b3b08c392ec02506a7">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_squeeze_1ae9786432807df65aa03bc8d6bebe261e">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_squeeze_1a1b393e2315aba12808969304cf641049">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_squeeze_1a42fc7cdefa2e644b9887ec04a93c25f8">
+    <h3>Axis</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/squeeze/attrs.html#structtensorflow_1_1ops_1_1_squeeze_1_1_attrs">Attrs</a> Axis(
+  const gtl::ArraySlice< int > & x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ApplyAdam Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ApplyAdam</h1>
+  <code>#include &lt;training_ops.h&gt;</code>
+  <p>Update '*var' according to the Adam algorithm. </p>
+  <h2>Summary</h2>
+  <p>lr_t <- learning_rate * sqrt(1 - beta2^t) / (1 - beta1^t) m_t <- beta1 * m_{t-1} + (1 - beta1) * g_t v_t <- beta2 * v_{t-1} + (1 - beta2) * g_t * g_t variable <- variable - lr_t * m_t / (sqrt(v_t) + epsilon)</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>var: Should be from a Variable().</li>
+      <li>m: Should be from a Variable().</li>
+      <li>v: Should be from a Variable().</li>
+      <li>beta1_power: Must be a scalar.</li>
+      <li>beta2_power: Must be a scalar.</li>
+      <li>lr: Scaling factor. Must be a scalar.</li>
+      <li>beta1: Momentum factor. Must be a scalar.</li>
+      <li>beta2: Momentum factor. Must be a scalar.</li>
+      <li>epsilon: Ridge term. Must be a scalar.</li>
+      <li>grad: The gradient.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs.html#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs">Attrs</a></code>):<ul>
+      <li>use_locking: If <code>True</code>, updating of the var, m, and v tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
+      <li>use_nesterov: If <code>True</code>, uses the nesterov update.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adam_1a63f38ab9210b19bbb905e9d494fd0d7c">ApplyAdam</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> v, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta1_power, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta2_power, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta1, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta2, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adam_1a23c9c116f231e976487216fbf1d880dd">ApplyAdam</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> v, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta1_power, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta2_power, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta1, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta2, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs.html#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs">ApplyAdam::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adam_1a51b86c03755b5fa8584c9228a13594d2">out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adam_1aca5ba972ba714c19db3728d2dab29a8e">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adam_1a8e17d2267864bd25f3ab523a287abb8a">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adam_1a596890f0d578e64a6f55540e249ca5c8">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adam_1adf5062f34d44b504f428d128fcfecf94">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs.html#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adam_1ae368b25e083d00d0d74551be052064c3">UseNesterov</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs.html#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs">tensorflow::<wbr/>ops::<wbr/>ApplyAdam::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/apply-adam.html#classtensorflow_1_1ops_1_1_apply_adam">ApplyAdam</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_apply_adam_1a51b86c03755b5fa8584c9228a13594d2">
+    <h3>out</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_apply_adam_1a63f38ab9210b19bbb905e9d494fd0d7c">
+    <h3>ApplyAdam</h3>
+    <pre class="prettyprint"> ApplyAdam(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> v,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta1_power,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta2_power,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta1,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta2,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_apply_adam_1a23c9c116f231e976487216fbf1d880dd">
+    <h3>ApplyAdam</h3>
+    <pre class="prettyprint"> ApplyAdam(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> v,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta1_power,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta2_power,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta1,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta2,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs.html#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs">ApplyAdam::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_apply_adam_1aca5ba972ba714c19db3728d2dab29a8e">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_apply_adam_1a8e17d2267864bd25f3ab523a287abb8a">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_apply_adam_1a596890f0d578e64a6f55540e249ca5c8">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_apply_adam_1adf5062f34d44b504f428d128fcfecf94">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs.html#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs">Attrs</a> UseLocking(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_apply_adam_1ae368b25e083d00d0d74551be052064c3">
+    <h3>UseNesterov</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs.html#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs">Attrs</a> UseNesterov(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

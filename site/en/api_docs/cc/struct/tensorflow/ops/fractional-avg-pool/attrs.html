@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::FractionalAvgPool::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>FractionalAvgPool::<wbr/>Attrs</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/fractional-avg-pool.html#classtensorflow_1_1ops_1_1_fractional_avg_pool">FractionalAvgPool</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a61f280a9ce83539a26b89a4651db132c">deterministic_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a50e61bdb802b360a726be83b8660daad">overlapping_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1afac27e665631052f0b4f64af3ceefcfe">pseudo_random_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a9faa5b56888e5aa067e9cc4e4ea0ff3a">seed2_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1adda88abb2a9de85ca5971ef4315d9bb6">seed_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a873dc80042303bc7f645e56ebb80f7aa">Deterministic</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>When set to True, a fixed pooling region will be used when iterating over a <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/fractional-avg-pool.html#classtensorflow_1_1ops_1_1_fractional_avg_pool">FractionalAvgPool</a> node in the computation graph. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a4e52f1f09ad181656cef01b39205ed6e">Overlapping</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>When set to True, it means when pooling, the values at the boundary of adjacent pooling cells are used by both cells. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1ac235854793b77d8528a50eb19c7d3009">PseudoRandom</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>When set to True, generates the pooling sequence in a pseudorandom fashion, otherwise, in a random fashion. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a44e0ebd8a59b50d13a18fcce75087c8c">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If either seed or seed2 are set to be non-zero, the random number generator is seeded by the given seed. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1afc60d67272d3e8eea9e3da45b6b17d12">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>An second seed to avoid seed collision. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a61f280a9ce83539a26b89a4651db132c">
+    <h3>deterministic_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::FractionalAvgPool::Attrs::deterministic_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a50e61bdb802b360a726be83b8660daad">
+    <h3>overlapping_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::FractionalAvgPool::Attrs::overlapping_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1afac27e665631052f0b4f64af3ceefcfe">
+    <h3>pseudo_random_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::FractionalAvgPool::Attrs::pseudo_random_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a9faa5b56888e5aa067e9cc4e4ea0ff3a">
+    <h3>seed2_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::FractionalAvgPool::Attrs::seed2_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1adda88abb2a9de85ca5971ef4315d9bb6">
+    <h3>seed_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::FractionalAvgPool::Attrs::seed_ = 0</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a873dc80042303bc7f645e56ebb80f7aa">
+    <h3>Deterministic</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> tensorflow::ops::FractionalAvgPool::Attrs::Deterministic(
+  bool x
+)</pre>
+    <div>
+      <p>When set to True, a fixed pooling region will be used when iterating over a <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/fractional-avg-pool.html#classtensorflow_1_1ops_1_1_fractional_avg_pool">FractionalAvgPool</a> node in the computation graph. </p>
+      <p>Mainly used in unit test to make <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/fractional-avg-pool.html#classtensorflow_1_1ops_1_1_fractional_avg_pool">FractionalAvgPool</a> deterministic.</p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a4e52f1f09ad181656cef01b39205ed6e">
+    <h3>Overlapping</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> tensorflow::ops::FractionalAvgPool::Attrs::Overlapping(
+  bool x
+)</pre>
+    <div>
+      <p>When set to True, it means when pooling, the values at the boundary of adjacent pooling cells are used by both cells. </p>
+      <p>For example:</p>
+      <p>
+        <code>index 0 1 2 3 4</code>
+      </p>
+      <p>
+        <code>value 20 5 16 3 7</code>
+      </p>
+      <p>If the pooling sequence is [0, 2, 4], then 16, at index 2 will be used twice. The result would be [41/3, 26/3] for fractional avg pooling.</p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1ac235854793b77d8528a50eb19c7d3009">
+    <h3>PseudoRandom</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> tensorflow::ops::FractionalAvgPool::Attrs::PseudoRandom(
+  bool x
+)</pre>
+    <div>
+      <p>When set to True, generates the pooling sequence in a pseudorandom fashion, otherwise, in a random fashion. </p>
+      <p>Check paper <a href="http://arxiv.org/abs/1412.6071">Benjamin Graham, Fractional Max-Pooling</a> for difference between pseudorandom and random.</p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1a44e0ebd8a59b50d13a18fcce75087c8c">
+    <h3>Seed</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> tensorflow::ops::FractionalAvgPool::Attrs::Seed(
+  int64 x
+)</pre>
+    <div>
+      <p>If either seed or seed2 are set to be non-zero, the random number generator is seeded by the given seed. </p>
+      <p>Otherwise, it is seeded by a random seed.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs_1afc60d67272d3e8eea9e3da45b6b17d12">
+    <h3>Seed2</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> tensorflow::ops::FractionalAvgPool::Attrs::Seed2(
+  int64 x
+)</pre>
+    <div>
+      <p>An second seed to avoid seed collision. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+</body>
+</html>

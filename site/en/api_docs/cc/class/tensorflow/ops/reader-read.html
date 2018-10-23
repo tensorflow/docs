@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ReaderRead Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ReaderRead</h1>
+  <code>#include &lt;io_ops.h&gt;</code>
+  <p>Returns the next record (key, value pair) produced by a Reader. </p>
+  <h2>Summary</h2>
+  <p>Will dequeue from the input queue if necessary (e.g. when the Reader needs to start reading from a new file since it has finished with the previous file).</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>reader_handle: Handle to a Reader.</li>
+      <li>queue_handle: Handle to a Queue, with string work items.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> key: A scalar.</li>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> value: A scalar. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_reader_read_1a7d1eef47d4a87dceeded2d6750e7cb0e">ReaderRead</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> reader_handle, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> queue_handle)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reader_read_1a0d1111765b2bd6b3cbab0cbe8fe599f5">key</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reader_read_1a80683cdf25825be1e931e1def4ac07bb">value</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_reader_read_1a0d1111765b2bd6b3cbab0cbe8fe599f5">
+    <h3>key</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> key</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reader_read_1a80683cdf25825be1e931e1def4ac07bb">
+    <h3>value</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> value</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_reader_read_1a7d1eef47d4a87dceeded2d6750e7cb0e">
+    <h3>ReaderRead</h3>
+    <pre class="prettyprint"> ReaderRead(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> reader_handle,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> queue_handle
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

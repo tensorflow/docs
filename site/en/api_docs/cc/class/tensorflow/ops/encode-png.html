@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::EncodePng Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>EncodePng</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>PNG-encode an image. </p>
+  <h2>Summary</h2>
+  <p><code>image</code> is a 3-D uint8 or uint16 <a href="/versions/r1.7/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of shape <code>[height, width, channels]</code> where <code>channels</code> is:</p>
+  <p>
+    <ul>
+      <li>1: for grayscale.</li>
+      <li>2: for grayscale + alpha.</li>
+      <li>3: for RGB.</li>
+      <li>4: for RGBA.</li>
+    </ul>
+  </p>
+  <p>The ZLIB compression level, <code>compression</code>, can be -1 for the PNG-encoder default or a value from 0 to 9. 9 is the highest compression level, generating the smallest output, but is slower.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>image: 3-D with shape <code>[height, width, channels]</code>.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/encode-png/attrs.html#structtensorflow_1_1ops_1_1_encode_png_1_1_attrs">Attrs</a></code>):<ul>
+      <li>compression: Compression level.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 0-D. PNG-encoded image. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_encode_png_1a1dd56a89fbfdf0a35eb444d4342b2c7a">EncodePng</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_encode_png_1a3f8275d8de85c565db8baef06d518dfa">EncodePng</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image, const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/encode-png/attrs.html#structtensorflow_1_1ops_1_1_encode_png_1_1_attrs">EncodePng::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_encode_png_1aac6f3548cb8e0539d4e65ddba93ac4b0">contents</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_encode_png_1a19512289f1f780298ec73b5fd6f54ce4">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_encode_png_1aece039de4b9b0ff1b8b1462ceae15a1b">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_encode_png_1ac1a34a63520602afd8ee1c203bc2ba30">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_encode_png_1ab763cfa8c279c172c2ee539abdad9338">Compression</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/encode-png/attrs.html#structtensorflow_1_1ops_1_1_encode_png_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/encode-png/attrs">tensorflow::<wbr/>ops::<wbr/>EncodePng::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/encode-png.html#classtensorflow_1_1ops_1_1_encode_png">EncodePng</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_encode_png_1aac6f3548cb8e0539d4e65ddba93ac4b0">
+    <h3>contents</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> contents</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_encode_png_1a1dd56a89fbfdf0a35eb444d4342b2c7a">
+    <h3>EncodePng</h3>
+    <pre class="prettyprint"> EncodePng(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_encode_png_1a3f8275d8de85c565db8baef06d518dfa">
+    <h3>EncodePng</h3>
+    <pre class="prettyprint"> EncodePng(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image,
+  const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/encode-png/attrs.html#structtensorflow_1_1ops_1_1_encode_png_1_1_attrs">EncodePng::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_encode_png_1a19512289f1f780298ec73b5fd6f54ce4">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_encode_png_1aece039de4b9b0ff1b8b1462ceae15a1b">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_encode_png_1ac1a34a63520602afd8ee1c203bc2ba30">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_encode_png_1ab763cfa8c279c172c2ee539abdad9338">
+    <h3>Compression</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/encode-png/attrs.html#structtensorflow_1_1ops_1_1_encode_png_1_1_attrs">Attrs</a> Compression(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

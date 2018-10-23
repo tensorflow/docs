@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Assign Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Assign</h1>
+  <code>#include &lt;state_ops.h&gt;</code>
+  <p>Update 'ref' by assigning 'value' to it. </p>
+  <h2>Summary</h2>
+  <p>This operation outputs "ref" after the assignment is done. This makes it easier to chain operations that need to use the reset value.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>ref: Should be from a <code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a></code> node. May be uninitialized.</li>
+      <li>value: The value to be assigned to the variable.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/assign/attrs.html#structtensorflow_1_1ops_1_1_assign_1_1_attrs">Attrs</a></code>):<ul>
+      <li>validate_shape: If true, the operation will validate that the shape of 'value' matches the shape of the <a href="/versions/r1.7/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> being assigned to. If false, 'ref' will take on the shape of 'value'.</li>
+      <li>use_locking: If True, the assignment will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: = Same as "ref". Returned as a convenience for operations that want to use the new value after the variable has been reset. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_assign_1a9d092527e56dc2c2349ea73d983cf65d">Assign</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_assign_1a8ba8288a592f24c065bcae0d32b770f6">Assign</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/assign/attrs.html#structtensorflow_1_1ops_1_1_assign_1_1_attrs">Assign::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_assign_1a20cf92e3af8c7164b3eb17ee05479ac2">output_ref</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_assign_1a4ec3c136c0a49e9b3e9312cdb704455f">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_assign_1a3a8d284c3415f19eb7954bbf703b7af2">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_assign_1aedefc46ede817c8851373351603d9508">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_assign_1a013fcdc58dfe9ea5bfd88550e231d936">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/assign/attrs.html#structtensorflow_1_1ops_1_1_assign_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_assign_1adfed4e6b56c404a19c1a4eb89e4277c8">ValidateShape</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/assign/attrs.html#structtensorflow_1_1ops_1_1_assign_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/assign/attrs">tensorflow::<wbr/>ops::<wbr/>Assign::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_assign_1a20cf92e3af8c7164b3eb17ee05479ac2">
+    <h3>output_ref</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_assign_1a9d092527e56dc2c2349ea73d983cf65d">
+    <h3>Assign</h3>
+    <pre class="prettyprint"> Assign(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_assign_1a8ba8288a592f24c065bcae0d32b770f6">
+    <h3>Assign</h3>
+    <pre class="prettyprint"> Assign(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+  const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/assign/attrs.html#structtensorflow_1_1ops_1_1_assign_1_1_attrs">Assign::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_assign_1a4ec3c136c0a49e9b3e9312cdb704455f">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_assign_1a3a8d284c3415f19eb7954bbf703b7af2">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_assign_1aedefc46ede817c8851373351603d9508">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_assign_1a013fcdc58dfe9ea5bfd88550e231d936">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/assign/attrs.html#structtensorflow_1_1ops_1_1_assign_1_1_attrs">Attrs</a> UseLocking(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_assign_1adfed4e6b56c404a19c1a4eb89e4277c8">
+    <h3>ValidateShape</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/assign/attrs.html#structtensorflow_1_1ops_1_1_assign_1_1_attrs">Attrs</a> ValidateShape(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

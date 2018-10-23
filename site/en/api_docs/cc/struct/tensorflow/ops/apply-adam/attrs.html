@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ApplyAdam::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ApplyAdam::<wbr/>Attrs</h1>
+  <code>#include &lt;training_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/apply-adam.html#classtensorflow_1_1ops_1_1_apply_adam">ApplyAdam</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs_1ac8731d1313e9d173653d72aa98fd469e">use_locking_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs_1a9d29f57b29dfb8727abe91e039b845c8">use_nesterov_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs_1af74bb7622434e9215eb3e7f9f0c540cd">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs.html#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If <code>True</code>, updating of the var, m, and v tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs_1a311bb8045db468e4f40e0321a23db614">UseNesterov</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs.html#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If <code>True</code>, uses the nesterov update. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs_1ac8731d1313e9d173653d72aa98fd469e">
+    <h3>use_locking_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::ApplyAdam::Attrs::use_locking_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs_1a9d29f57b29dfb8727abe91e039b845c8">
+    <h3>use_nesterov_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::ApplyAdam::Attrs::use_nesterov_ = false</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs_1af74bb7622434e9215eb3e7f9f0c540cd">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs.html#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs">Attrs</a> tensorflow::ops::ApplyAdam::Attrs::UseLocking(
+  bool x
+)</pre>
+    <div>
+      <p>If <code>True</code>, updating of the var, m, and v tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs_1a311bb8045db468e4f40e0321a23db614">
+    <h3>UseNesterov</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/apply-adam/attrs.html#structtensorflow_1_1ops_1_1_apply_adam_1_1_attrs">Attrs</a> tensorflow::ops::ApplyAdam::Attrs::UseNesterov(
+  bool x
+)</pre>
+    <div>
+      <p>If <code>True</code>, uses the nesterov update. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+</body>
+</html>

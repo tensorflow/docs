@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::MaxPool3D Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.7/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>MaxPool3D</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Performs 3D max pooling on the input. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a><code>[batch, depth, rows, cols, channels]</code> tensor to pool over.</li>
+      <li>ksize: 1-D tensor of length 5. The size of the window for each dimension of the input tensor. Must have <code>ksize[0] = ksize[4] = 1</code>.</li>
+      <li>strides: 1-D tensor of length 5. The stride of the sliding window for each dimension of <code>input</code>. Must have <code>strides[0] = strides[4] = 1</code>.</li>
+      <li>padding: The type of padding algorithm to use.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/max-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_max_pool3_d_1_1_attrs">Attrs</a></code>):<ul>
+      <li>data_format: The data format of the input and output data. With the default format "NDHWC", the data is stored in the order of: [batch, in_depth, in_height, in_width, in_channels]. Alternatively, the format could be "NCDHW", the data storage order is: [batch, in_channels, in_depth, in_height, in_width].</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The max pooled output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool3_d_1aeb6586ec4fe23863dadcdf397955938c">MaxPool3D</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool3_d_1a881d1a222223a16559edc5edc2dbb26a">MaxPool3D</a>(const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/max-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_max_pool3_d_1_1_attrs">MaxPool3D::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool3_d_1a205fc0930f581dc28a140df0227f881d">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool3_d_1a65dc0444be728bff9614929b11ee04a7">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool3_d_1a53f97b9d2f3e3cb1e294decc0c7db353">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool3_d_1ad647c73e65c2224bd258d40b817e3984">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool3_d_1adb9ab115eeca3aca6a708bdd6fc136a0">DataFormat</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/max-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_max_pool3_d_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/max-pool3-d/attrs">tensorflow::<wbr/>ops::<wbr/>MaxPool3D::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.7/api_docs/cc/class/tensorflow/ops/max-pool3-d.html#classtensorflow_1_1ops_1_1_max_pool3_d">MaxPool3D</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_max_pool3_d_1a205fc0930f581dc28a140df0227f881d">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_max_pool3_d_1aeb6586ec4fe23863dadcdf397955938c">
+    <h3>MaxPool3D</h3>
+    <pre class="prettyprint"> MaxPool3D(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const gtl::ArraySlice< int > & ksize,
+  const gtl::ArraySlice< int > & strides,
+  StringPiece padding
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_max_pool3_d_1a881d1a222223a16559edc5edc2dbb26a">
+    <h3>MaxPool3D</h3>
+    <pre class="prettyprint"> MaxPool3D(
+  const ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.7/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const gtl::ArraySlice< int > & ksize,
+  const gtl::ArraySlice< int > & strides,
+  StringPiece padding,
+  const <a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/max-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_max_pool3_d_1_1_attrs">MaxPool3D::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_max_pool3_d_1a65dc0444be728bff9614929b11ee04a7">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_max_pool3_d_1a53f97b9d2f3e3cb1e294decc0c7db353">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_max_pool3_d_1ad647c73e65c2224bd258d40b817e3984">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_max_pool3_d_1adb9ab115eeca3aca6a708bdd6fc136a0">
+    <h3>DataFormat</h3>
+    <pre class="prettyprint"><a href="/versions/r1.7/api_docs/cc/struct/tensorflow/ops/max-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_max_pool3_d_1_1_attrs">Attrs</a> DataFormat(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
