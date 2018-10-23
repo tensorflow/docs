@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::BarrierTakeMany::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>BarrierTakeMany::<wbr/>Attrs</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/barrier-take-many.html#classtensorflow_1_1ops_1_1_barrier_take_many">BarrierTakeMany</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1a34d07b8141f8932782c1220bf109b30a">allow_small_batch_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1a2f4ea01b5e1dd39701b7fd0074f6ce54">timeout_ms_</a> = -1</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1ab4e44ba0532a127592c8b8a94c33a241">wait_for_incomplete_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1aec679b098755b6b4ca9d073bb9568926">AllowSmallBatch</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Allow to return less than num_elements items if barrier is already closed. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1aa0f0241ac020b40fd27981895b3281e7">TimeoutMs</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If the queue is empty, this operation will block for up to timeout_ms milliseconds. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1a211df1df8dc75156a16e8d24f538ca13">WaitForIncomplete</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Defaults to false. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1a34d07b8141f8932782c1220bf109b30a">
+    <h3>allow_small_batch_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::BarrierTakeMany::Attrs::allow_small_batch_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1a2f4ea01b5e1dd39701b7fd0074f6ce54">
+    <h3>timeout_ms_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::BarrierTakeMany::Attrs::timeout_ms_ = -1</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1ab4e44ba0532a127592c8b8a94c33a241">
+    <h3>wait_for_incomplete_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::BarrierTakeMany::Attrs::wait_for_incomplete_ = false</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1aec679b098755b6b4ca9d073bb9568926">
+    <h3>AllowSmallBatch</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a> tensorflow::ops::BarrierTakeMany::Attrs::AllowSmallBatch(
+  bool x
+)</pre>
+    <div>
+      <p>Allow to return less than num_elements items if barrier is already closed. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1aa0f0241ac020b40fd27981895b3281e7">
+    <h3>TimeoutMs</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a> tensorflow::ops::BarrierTakeMany::Attrs::TimeoutMs(
+  int64 x
+)</pre>
+    <div>
+      <p>If the queue is empty, this operation will block for up to timeout_ms milliseconds. </p>
+      <p>Note: This option is not supported yet.</p>
+      <p>Defaults to -1 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs_1a211df1df8dc75156a16e8d24f538ca13">
+    <h3>WaitForIncomplete</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a> tensorflow::ops::BarrierTakeMany::Attrs::WaitForIncomplete(
+  bool x
+)</pre>
+    <div>
+      <p>Defaults to false. </p>
+    </div>
+  </div>
+</body>
+</html>

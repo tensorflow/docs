@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::MatrixSetDiag Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>MatrixSetDiag</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Returns a batched matrix tensor with new batched diagonal values. </p>
+  <h2>Summary</h2>
+  <p>Given <code>input</code> and <code>diagonal</code>, this operation returns a tensor with the same shape and values as <code>input</code>, except for the main diagonal of the innermost matrices. These will be overwritten by the values in <code>diagonal</code>.</p>
+  <p>The output is computed as follows:</p>
+  <p>Assume <code>input</code> has <code>k+1</code> dimensions <code>[I, J, K, ..., M, N]</code> and <code>diagonal</code> has <code>k</code> dimensions <code>[I, J, K, ..., min(M, N)]</code>. Then the output is a tensor of rank <code>k+1</code> with dimensions <code>[I, J, K, ..., M, N]</code> where:</p>
+  <p>
+    <ul>
+      <li><code>output[i, j, k, ..., m, n] = diagonal[i, j, k, ..., n]</code> for <code>m == n</code>.</li>
+      <li><code>output[i, j, k, ..., m, n] = input[i, j, k, ..., m, n]</code> for <code>m != n</code>.</li>
+    </ul>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/rank.html#classtensorflow_1_1ops_1_1_rank">Rank</a><code>k+1</code>, where <code>k >= 1</code>.</li>
+      <li>diagonal: <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/rank.html#classtensorflow_1_1ops_1_1_rank">Rank</a><code>k</code>, where <code>k >= 1</code>.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/rank.html#classtensorflow_1_1ops_1_1_rank">Rank</a><code>k+1</code>, with <code>output.shape = input.shape</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_set_diag_1af9f6deaf5d71f88356239fd1fceb3bd5">MatrixSetDiag</a>(const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> diagonal)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_set_diag_1a58d08deb35db4f1602c1df59432ade6c">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_set_diag_1a20fc7ca0974220bfcd3a3aee08803d6c">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_set_diag_1af98eee12ae5e443a923b794be760afd7">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_set_diag_1adf4b733c12f7c7dc2387318fafff0413">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_matrix_set_diag_1a58d08deb35db4f1602c1df59432ade6c">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_matrix_set_diag_1af9f6deaf5d71f88356239fd1fceb3bd5">
+    <h3>MatrixSetDiag</h3>
+    <pre class="prettyprint"> MatrixSetDiag(
+  const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> diagonal
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_set_diag_1a20fc7ca0974220bfcd3a3aee08803d6c">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_set_diag_1af98eee12ae5e443a923b794be760afd7">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_set_diag_1adf4b733c12f7c7dc2387318fafff0413">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

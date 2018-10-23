@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::MatrixDiag Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>MatrixDiag</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Returns a batched diagonal tensor with a given batched diagonal values. </p>
+  <h2>Summary</h2>
+  <p>Given a <code>diagonal</code>, this operation returns a tensor with the <code>diagonal</code> and everything else padded with zeros. The diagonal is computed as follows:</p>
+  <p>Assume <code>diagonal</code> has <code>k</code> dimensions <code>[I, J, K, ..., N]</code>, then the output is a tensor of rank <code>k+1</code> with dimensions [I, J, K, ..., N, N]` where:</p>
+  <p><code>output[i, j, k, ..., m, n] = 1{m=n} * diagonal[i, j, k, ..., n]</code>.</p>
+  <p>For example:</p>
+  <p>``` 'diagonal' is [[1, 2, 3, 4], [5, 6, 7, 8]]</p>
+  <p>and diagonal.shape = (2, 4)</p>
+  <p>tf.matrix_diag(diagonal) ==> [[[1, 0, 0, 0] [0, 2, 0, 0] [0, 0, 3, 0] [0, 0, 0, 4]], [[5, 0, 0, 0] [0, 6, 0, 0] [0, 0, 7, 0] [0, 0, 0, 8]]]</p>
+  <p>which has shape (2, 4, 4) ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>diagonal: <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/rank.html#classtensorflow_1_1ops_1_1_rank">Rank</a><code>k</code>, where <code>k >= 1</code>.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/rank.html#classtensorflow_1_1ops_1_1_rank">Rank</a><code>k+1</code>, with <code>output.shape = diagonal.shape + [diagonal.shape[-1]]</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_1a2b263945a55c830cec2aa8e732ad4c37">MatrixDiag</a>(const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> diagonal)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_1aba2480ed932f279c48fc6028f6be7a92">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_1aa1db7faefb57b9fee4eddaee99c3a5a3">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_1ae38fc37ca0a5a229e9c9d3f827ebfa6d">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_1aaaad00f636d2ad7be0fd131133b79006">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_matrix_diag_1aba2480ed932f279c48fc6028f6be7a92">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_matrix_diag_1a2b263945a55c830cec2aa8e732ad4c37">
+    <h3>MatrixDiag</h3>
+    <pre class="prettyprint"> MatrixDiag(
+  const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> diagonal
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_diag_1aa1db7faefb57b9fee4eddaee99c3a5a3">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_diag_1ae38fc37ca0a5a229e9c9d3f827ebfa6d">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_diag_1aaaad00f636d2ad7be0fd131133b79006">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

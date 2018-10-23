@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::BiasAdd::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>BiasAdd::<wbr/>Attrs</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/bias-add.html#classtensorflow_1_1ops_1_1_bias_add">BiasAdd</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs_1a33b25792508b49c3a77e2296f9688e69">data_format_</a> = "NHWC"</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs_1a8f868d2f2852b3f206b39d5f2d8485ce">DataFormat</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Specify the data format of the input and output data. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_bias_add_1_1_attrs_1a33b25792508b49c3a77e2296f9688e69">
+    <h3>data_format_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::BiasAdd::Attrs::data_format_ = "NHWC"</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_bias_add_1_1_attrs_1a8f868d2f2852b3f206b39d5f2d8485ce">
+    <h3>DataFormat</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">Attrs</a> tensorflow::ops::BiasAdd::Attrs::DataFormat(
+  StringPiece x
+)</pre>
+    <div>
+      <p>Specify the data format of the input and output data. </p>
+      <p>With the default format "NHWC", the bias tensor will be added to the last dimension of the value tensor. Alternatively, the format could be "NCHW", the data storage order of: [batch, in_channels, in_height, in_width]. The tensor will be added to "in_channels", the third-to-the-last dimension.</p>
+      <p>Defaults to "NHWC" </p>
+    </div>
+  </div>
+</body>
+</html>

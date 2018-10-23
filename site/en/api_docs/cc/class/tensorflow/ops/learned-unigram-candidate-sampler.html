@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::LearnedUnigramCandidateSampler Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>LearnedUnigramCandidateSampler</h1>
+  <code>#include &lt;candidate_sampling_ops.h&gt;</code>
+  <p>Generates labels for candidate sampling with a learned unigram distribution. </p>
+  <h2>Summary</h2>
+  <p>See explanations of candidate sampling and the data formats at go/candidate-sampling.</p>
+  <p>For each batch, this op picks a single set of sampled candidate labels.</p>
+  <p>The advantages of sampling candidates per-batch are simplicity and the possibility of efficient dense matrix multiplication. The disadvantage is that the sampled candidates must be chosen independently of the context and of the true labels.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>true_classes: A batch_size * num_true matrix, in which each row contains the IDs of the num_true target_classes in the corresponding original label.</li>
+      <li>num_true: Number of true labels per context.</li>
+      <li>num_sampled: Number of candidates to randomly sample.</li>
+      <li>unique: If unique is true, we sample with rejection, so that all sampled candidates in a batch are unique. This requires some approximation to estimate the post-rejection sampling probabilities.</li>
+      <li>range_max: The sampler will sample integers from the interval [0, range_max).</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/learned-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1_1_attrs">Attrs</a></code>):<ul>
+      <li>seed: If either seed or seed2 are set to be non-zero, the random number generator is seeded by the given seed. Otherwise, it is seeded by a random seed.</li>
+      <li>seed2: An second seed to avoid seed collision.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sampled_candidates: A vector of length num_sampled, in which each element is the ID of a sampled candidate.</li>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> true_expected_count: A batch_size * num_true matrix, representing the number of times each candidate is expected to occur in a batch of sampled candidates. If unique=true, then this is a probability.</li>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sampled_expected_count: A vector of length num_sampled, for each sampled candidate representing the number of times the candidate is expected to occur in a batch of sampled candidates. If unique=true, then this is a probability. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1a7c50027fcf319a0ac7abcc8af2d8861a">LearnedUnigramCandidateSampler</a>(const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes, int64 num_true, int64 num_sampled, bool unique, int64 range_max)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1aaddf15821aae74450fc3b415e18376a9">LearnedUnigramCandidateSampler</a>(const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes, int64 num_true, int64 num_sampled, bool unique, int64 range_max, const <a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/learned-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1_1_attrs">LearnedUnigramCandidateSampler::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1a590ac067c5a83a4dba8105564bc56b88">sampled_candidates</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1ab7da3d1ba0800e7229aedb76fafaae7b">sampled_expected_count</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1a91c0061329f572532d581b4175a2a8c6">true_expected_count</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1a7993b832d420f9ac8835e0070689ea0d">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/learned-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1a043a0a13bbd736a96b60b0a030061638">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/learned-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/learned-unigram-candidate-sampler/attrs">tensorflow::<wbr/>ops::<wbr/>LearnedUnigramCandidateSampler::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.2/api_docs/cc/class/tensorflow/ops/learned-unigram-candidate-sampler.html#classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler">LearnedUnigramCandidateSampler</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1a590ac067c5a83a4dba8105564bc56b88">
+    <h3>sampled_candidates</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sampled_candidates</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1ab7da3d1ba0800e7229aedb76fafaae7b">
+    <h3>sampled_expected_count</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sampled_expected_count</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1a91c0061329f572532d581b4175a2a8c6">
+    <h3>true_expected_count</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> true_expected_count</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1a7c50027fcf319a0ac7abcc8af2d8861a">
+    <h3>LearnedUnigramCandidateSampler</h3>
+    <pre class="prettyprint"> LearnedUnigramCandidateSampler(
+  const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes,
+  int64 num_true,
+  int64 num_sampled,
+  bool unique,
+  int64 range_max
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1aaddf15821aae74450fc3b415e18376a9">
+    <h3>LearnedUnigramCandidateSampler</h3>
+    <pre class="prettyprint"> LearnedUnigramCandidateSampler(
+  const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes,
+  int64 num_true,
+  int64 num_sampled,
+  bool unique,
+  int64 range_max,
+  const <a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/learned-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1_1_attrs">LearnedUnigramCandidateSampler::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1a7993b832d420f9ac8835e0070689ea0d">
+    <h3>Seed</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/learned-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1_1_attrs">Attrs</a> Seed(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1a043a0a13bbd736a96b60b0a030061638">
+    <h3>Seed2</h3>
+    <pre class="prettyprint"><a href="/versions/r1.2/api_docs/cc/struct/tensorflow/ops/learned-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_learned_unigram_candidate_sampler_1_1_attrs">Attrs</a> Seed2(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

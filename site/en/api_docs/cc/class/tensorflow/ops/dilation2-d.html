@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Dilation2D Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.2/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Dilation2D</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Computes the grayscale dilation of 4-D <code>input</code> and 3-D <code>filter</code> tensors. </p>
+  <h2>Summary</h2>
+  <p>The <code>input</code> tensor has shape <code>[batch, in_height, in_width, depth]</code> and the <code>filter</code> tensor has shape <code>[filter_height, filter_width, depth]</code>, i.e., each input channel is processed independently of the others with its own structuring function. The <code>output</code> tensor has shape <code>[batch, out_height, out_width, depth]</code>. The spatial dimensions of the output tensor depend on the <code>padding</code> algorithm. We currently only support the default "NHWC" <code>data_format</code>.</p>
+  <p>In detail, the grayscale morphological 2-D dilation is the max-sum correlation (for consistency with <code>conv2d</code>, we use unmirrored filters): <pre class="prettyprint">output[b, y, x, c] =
+   max_{dy, dx} input[b,
+                      strides[1] * y + rates[1] * dy,
+                      strides[2] * x + rates[2] * dx,
+                      c] +
+                filter[dy, dx, c]
+</pre></p>
+  <p>Max-pooling is a special case when the filter has size equal to the pooling kernel size and contains all zeros.</p>
+  <p>Note on duality: The dilation of <code>input</code> by the <code>filter</code> is equal to the negation of the erosion of <code>-input</code> by the reflected <code>filter</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: 4-D with shape <code>[batch, in_height, in_width, depth]</code>.</li>
+      <li>filter: 3-D with shape <code>[filter_height, filter_width, depth]</code>.</li>
+      <li>strides: The stride of the sliding window for each dimension of the input tensor. Must be: <code>[1, stride_height, stride_width, 1]</code>.</li>
+      <li>rates: The input stride for atrous morphological dilation. Must be: <code>[1, rate_height, rate_width, 1]</code>.</li>
+      <li>padding: The type of padding algorithm to use.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with shape <code>[batch, out_height, out_width, depth]</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_1aa7fba6ab148288fc230175c265483ff3">Dilation2D</a>(const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, const gtl::ArraySlice< int > & strides, const gtl::ArraySlice< int > & rates, StringPiece padding)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_1ae68b7f48c9fc91ffdef4e18bd34625f0">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_1a965eb807b87a9ac84ef8533e6da72768">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_1ae1a45a55c3092ef319c027a697e3e667">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_dilation2_d_1a451d294669723935c6618946259273c3">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_dilation2_d_1ae68b7f48c9fc91ffdef4e18bd34625f0">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_dilation2_d_1aa7fba6ab148288fc230175c265483ff3">
+    <h3>Dilation2D</h3>
+    <pre class="prettyprint"> Dilation2D(
+  const ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.2/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
+  const gtl::ArraySlice< int > & strides,
+  const gtl::ArraySlice< int > & rates,
+  StringPiece padding
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_dilation2_d_1a965eb807b87a9ac84ef8533e6da72768">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_dilation2_d_1ae1a45a55c3092ef319c027a697e3e667">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_dilation2_d_1a451d294669723935c6618946259273c3">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

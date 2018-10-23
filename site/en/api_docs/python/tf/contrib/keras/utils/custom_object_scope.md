@@ -1,0 +1,48 @@
+
+
+page_type: reference
+
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+
+# tf.contrib.keras.utils.custom_object_scope
+
+### `tf.contrib.keras.utils.custom_object_scope`
+
+``` python
+custom_object_scope(*args)
+```
+
+
+
+Defined in [`tensorflow/contrib/keras/python/keras/utils/generic_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.2/tensorflow/contrib/keras/python/keras/utils/generic_utils.py).
+
+Provides a scope that changes to `_GLOBAL_CUSTOM_OBJECTS` cannot escape.
+
+Convenience wrapper for `CustomObjectScope`.
+Code within a `with` statement will be able to access custom objects
+by name. Changes to global custom objects persist
+within the enclosing `with` statement. At end of the `with` statement,
+global custom objects are reverted to state
+at beginning of the `with` statement.
+
+Example:
+
+Consider a custom object `MyObject`
+
+```python
+    with custom_object_scope({"MyObject":MyObject}):
+        layer = Dense(..., W_regularizer="MyObject")
+        # save, load, etc. will recognize custom object by name
+```
+
+#### Arguments:
+
+    *args: Variable length list of dictionaries of name,
+        class pairs to add to custom objects.
+
+
+#### Returns:
+
+    Object of type `CustomObjectScope`.
