@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::FIFOQueue Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>FIFOQueue</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>A queue that produces elements in first-in first-out order. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>component_types: The type of each component in a value.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a></code>):<ul>
+      <li>shapes: The shape of each component in a value. The length of this attr must be either 0 or the same as the length of component_types. If the length of this attr is 0, the shapes of queue elements are not constrained, and only one element may be dequeued at a time.</li>
+      <li>capacity: The upper bound on the number of elements in this queue. Negative numbers mean no limit.</li>
+      <li>container: If non-empty, this queue is placed in the given container. Otherwise, a default container is used.</li>
+      <li>shared_name: If non-empty, this queue will be shared under the given name across multiple sessions.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The handle to the queue. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a1c4179dc27fa96d5281e93d9a3338692">FIFOQueue</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & component_types)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_f_i_f_o_queue_1ac34f4b514c9af822272c71feb7f677b5">FIFOQueue</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & component_types, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">FIFOQueue::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a278c966891168437dc2427d0153e906b">handle</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a66ea9cbb97c7e62c6aa576004425cdb4">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_f_i_f_o_queue_1aa5121be97faefda41b54364feaa448b1">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a2b012663c6c3edc28889f5c65791f216">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a9ebf2a962891d957c7e151de30bec6e1">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a409f6e87e8cab1a1346f65c79692f7b1">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a20662d0a789a4c8ebbad5f624937c20e">Shapes</a>(const gtl::ArraySlice< PartialTensorShape > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a47d8ebb6d1a6256e217e6878b87e8206">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs">tensorflow::<wbr/>ops::<wbr/>FIFOQueue::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/f-i-f-o-queue.html#classtensorflow_1_1ops_1_1_f_i_f_o_queue">FIFOQueue</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a278c966891168437dc2427d0153e906b">
+    <h3>handle</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> handle</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a1c4179dc27fa96d5281e93d9a3338692">
+    <h3>FIFOQueue</h3>
+    <pre class="prettyprint"> FIFOQueue(
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const DataTypeSlice & component_types
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_f_i_f_o_queue_1ac34f4b514c9af822272c71feb7f677b5">
+    <h3>FIFOQueue</h3>
+    <pre class="prettyprint"> FIFOQueue(
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const DataTypeSlice & component_types,
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">FIFOQueue::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a66ea9cbb97c7e62c6aa576004425cdb4">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_f_i_f_o_queue_1aa5121be97faefda41b54364feaa448b1">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a2b012663c6c3edc28889f5c65791f216">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a9ebf2a962891d957c7e151de30bec6e1">
+    <h3>Capacity</h3>
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a> Capacity(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a409f6e87e8cab1a1346f65c79692f7b1">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a20662d0a789a4c8ebbad5f624937c20e">
+    <h3>Shapes</h3>
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a> Shapes(
+  const gtl::ArraySlice< PartialTensorShape > & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_f_i_f_o_queue_1a47d8ebb6d1a6256e217e6878b87e8206">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

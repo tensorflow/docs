@@ -1,0 +1,166 @@
+
+
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+# tf.contrib.kfac.fisher_blocks.FullyConnectedKFACBasicFB
+
+## Class `FullyConnectedKFACBasicFB`
+
+Inherits From: [`KroneckerProductFB`](../../../../tf/contrib/kfac/fisher_blocks/KroneckerProductFB)
+
+
+
+Defined in [`tensorflow/contrib/kfac/python/ops/fisher_blocks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/fisher_blocks.py).
+
+K-FAC FisherBlock for fully-connected (dense) layers.
+
+This uses the Kronecker-factorized approximation from the original
+K-FAC paper (https://arxiv.org/abs/1503.05671)
+
+## Properties
+
+<h3 id="num_registered_towers"><code>num_registered_towers</code></h3>
+
+
+
+
+
+## Methods
+
+<h3 id="__init__"><code>__init__</code></h3>
+
+``` python
+__init__(
+    layer_collection,
+    has_bias=False
+)
+```
+
+Creates a FullyConnectedKFACBasicFB block.
+
+#### Args:
+
+* <b>`layer_collection`</b>: The collection of all layers in the K-FAC approximate
+      Fisher information matrix to which this FisherBlock belongs.
+* <b>`has_bias`</b>: Whether the component Kronecker factors have an additive bias.
+      (Default: False)
+
+<h3 id="full_fisher_block"><code>full_fisher_block</code></h3>
+
+``` python
+full_fisher_block()
+```
+
+Explicitly constructs the full Fisher block.
+
+Used for testing purposes. (In general, the result may be very large.)
+
+#### Returns:
+
+The full Fisher block.
+
+<h3 id="instantiate_factors"><code>instantiate_factors</code></h3>
+
+``` python
+instantiate_factors(
+    grads_list,
+    damping
+)
+```
+
+Instantiate Kronecker Factors for this FisherBlock.
+
+#### Args:
+
+* <b>`grads_list`</b>: List of list of Tensors. grads_list[i][j] is the
+    gradient of the loss with respect to 'outputs' from source 'i' and
+    tower 'j'. Each Tensor has shape [tower_minibatch_size, output_size].
+* <b>`damping`</b>: 0-D Tensor or float. 'damping' * identity is approximately added
+    to this FisherBlock's Fisher approximation.
+
+<h3 id="multiply"><code>multiply</code></h3>
+
+``` python
+multiply(vector)
+```
+
+Multiplies the vector by the (damped) block.
+
+#### Args:
+
+* <b>`vector`</b>: The vector (a Tensor or tuple of Tensors) to be multiplied.
+
+
+#### Returns:
+
+The vector left-multiplied by the (damped) block.
+
+<h3 id="multiply_inverse"><code>multiply_inverse</code></h3>
+
+``` python
+multiply_inverse(vector)
+```
+
+Multiplies the vector by the (damped) inverse of the block.
+
+#### Args:
+
+* <b>`vector`</b>: The vector (a Tensor or tuple of Tensors) to be multiplied.
+
+
+#### Returns:
+
+The vector left-multiplied by the (damped) inverse of the block.
+
+<h3 id="multiply_matpower"><code>multiply_matpower</code></h3>
+
+``` python
+multiply_matpower(
+    vector,
+    exp
+)
+```
+
+
+
+<h3 id="register_additional_tower"><code>register_additional_tower</code></h3>
+
+``` python
+register_additional_tower(
+    inputs,
+    outputs
+)
+```
+
+
+
+<h3 id="register_inverse"><code>register_inverse</code></h3>
+
+``` python
+register_inverse()
+```
+
+Registers a matrix inverse to be computed by the block.
+
+<h3 id="register_matpower"><code>register_matpower</code></h3>
+
+``` python
+register_matpower(exp)
+```
+
+
+
+<h3 id="tensors_to_compute_grads"><code>tensors_to_compute_grads</code></h3>
+
+``` python
+tensors_to_compute_grads()
+```
+
+Tensors to compute derivative of loss with respect to.
+
+
+

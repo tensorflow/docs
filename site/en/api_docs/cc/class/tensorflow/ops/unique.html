@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Unique Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Unique</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Finds unique elements in a 1-D tensor. </p>
+  <h2>Summary</h2>
+  <p>This operation returns a tensor <code>y</code> containing all of the unique elements of <code>x</code> sorted in the same order that they occur in <code>x</code>. This operation also returns a tensor <code>idx</code> the same size as <code>x</code> that contains the index of each value of <code>x</code> in the unique output <code>y</code>. In other words:</p>
+  <p>
+    <code>y[idx[i]] = x[i] for i in [0, 1,...,rank(x) - 1]</code>
+  </p>
+  <p>For example:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; tensor 'x' is [1, 1, 2, 4, 4, 4, 7, 8, 8]
+y, idx = unique(x)
+y ==> [1, 2, 4, 7, 8]
+idx ==> [0, 0, 1, 2, 2, 2, 3, 4, 4]
+</pre>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>x: 1-D.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> y: 1-D.</li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> idx: 1-D. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_unique_1ac48667eade8839f06349940abc6c7942">Unique</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_unique_1a82ab5ffbe3f297690eca1dec89a69f7e">Unique</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/unique/attrs.html#structtensorflow_1_1ops_1_1_unique_1_1_attrs">Unique::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unique_1a2e887167f730929ab8b5685d4ed596da">idx</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unique_1a2b5e26c99474b167bf7baa8e76c33ee3">y</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unique_1ae24461caa94d7f90d2a988d4d1991e7d">OutIdx</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/unique/attrs.html#structtensorflow_1_1ops_1_1_unique_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/unique/attrs">tensorflow::<wbr/>ops::<wbr/>Unique::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/unique.html#classtensorflow_1_1ops_1_1_unique">Unique</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_unique_1a2e887167f730929ab8b5685d4ed596da">
+    <h3>idx</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unique_1a2b5e26c99474b167bf7baa8e76c33ee3">
+    <h3>y</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_unique_1ac48667eade8839f06349940abc6c7942">
+    <h3>Unique</h3>
+    <pre class="prettyprint"> Unique(
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unique_1a82ab5ffbe3f297690eca1dec89a69f7e">
+    <h3>Unique</h3>
+    <pre class="prettyprint"> Unique(
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/unique/attrs.html#structtensorflow_1_1ops_1_1_unique_1_1_attrs">Unique::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_unique_1ae24461caa94d7f90d2a988d4d1991e7d">
+    <h3>OutIdx</h3>
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/unique/attrs.html#structtensorflow_1_1ops_1_1_unique_1_1_attrs">Attrs</a> OutIdx(
+  DataType x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

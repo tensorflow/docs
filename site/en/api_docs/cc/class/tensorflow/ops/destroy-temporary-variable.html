@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DestroyTemporaryVariable Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DestroyTemporaryVariable</h1>
+  <code>#include &lt;state_ops.h&gt;</code>
+  <p>Destroys the temporary variable and returns its final value. </p>
+  <h2>Summary</h2>
+  <p>Sets output to the value of the <a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> pointed to by 'ref', then destroys the temporary variable called 'var_name'. <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> other uses of 'ref' <i>must</i> have executed before this op. This is typically achieved by chaining the ref through each assign op, or by using control dependencies.</p>
+  <p>Outputs the final value of the tensor pointed to by 'ref'.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>ref: A reference to the temporary variable tensor.</li>
+      <li>var_name: Name of the temporary variable, usually the name of the matching '<a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/temporary-variable.html#classtensorflow_1_1ops_1_1_temporary_variable">TemporaryVariable</a>' op.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The value tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_destroy_temporary_variable_1a01f12d953d9078e0133345ecad76f629">DestroyTemporaryVariable</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, StringPiece var_name)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_destroy_temporary_variable_1a2a3151dd005ff60e1fbc92d9f72c51d0">value</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_destroy_temporary_variable_1ab3002dc3d20c1e4e20f1fb219714c7e8">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_destroy_temporary_variable_1a36cd6c9de3fec498a9b6f32078402e1a">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_destroy_temporary_variable_1a94ad142b7443111409db522488894175">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_destroy_temporary_variable_1a2a3151dd005ff60e1fbc92d9f72c51d0">
+    <h3>value</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> value</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_destroy_temporary_variable_1a01f12d953d9078e0133345ecad76f629">
+    <h3>DestroyTemporaryVariable</h3>
+    <pre class="prettyprint"> DestroyTemporaryVariable(
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  StringPiece var_name
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_destroy_temporary_variable_1ab3002dc3d20c1e4e20f1fb219714c7e8">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_destroy_temporary_variable_1a36cd6c9de3fec498a9b6f32078402e1a">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_destroy_temporary_variable_1a94ad142b7443111409db522488894175">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>
