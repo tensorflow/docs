@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ResourceApplyGradientDescent Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.6/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ResourceApplyGradientDescent</h1>
+  <code>#include &lt;training_ops.h&gt;</code>
+  <p>Update '*var' by subtracting 'alpha' * 'delta' from it. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>var: Should be from a Variable().</li>
+      <li>alpha: Scaling factor. Must be a scalar.</li>
+      <li>delta: The change.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/resource-apply-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1_1_attrs">Attrs</a></code>):<ul>
+      <li>use_locking: If <code>True</code>, the subtraction will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li>the created <code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1ad2c03e2384a20f89b22a617a6bef1266">ResourceApplyGradientDescent</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delta)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1adaccd5611930bc42bc3813780e45ec68">ResourceApplyGradientDescent</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delta, const <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/resource-apply-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1_1_attrs">ResourceApplyGradientDescent::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1a0ed7094e3b62584bc00bd0a2de76737c">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1a063bfdd6045330eed2802d02a8a00c8e">operator::tensorflow::Operation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1a48f17ade21c3f87c38fbfa29434ba55c">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/resource-apply-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/resource-apply-gradient-descent/attrs">tensorflow::<wbr/>ops::<wbr/>ResourceApplyGradientDescent::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/resource-apply-gradient-descent.html#classtensorflow_1_1ops_1_1_resource_apply_gradient_descent">ResourceApplyGradientDescent</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1a0ed7094e3b62584bc00bd0a2de76737c">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1ad2c03e2384a20f89b22a617a6bef1266">
+    <h3>ResourceApplyGradientDescent</h3>
+    <pre class="prettyprint"> ResourceApplyGradientDescent(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delta
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1adaccd5611930bc42bc3813780e45ec68">
+    <h3>ResourceApplyGradientDescent</h3>
+    <pre class="prettyprint"> ResourceApplyGradientDescent(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delta,
+  const <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/resource-apply-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1_1_attrs">ResourceApplyGradientDescent::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1a063bfdd6045330eed2802d02a8a00c8e">
+    <h3>operator::tensorflow::Operation</h3>
+    <pre class="prettyprint"> operator::tensorflow::Operation() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1a48f17ade21c3f87c38fbfa29434ba55c">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/resource-apply-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_gradient_descent_1_1_attrs">Attrs</a> UseLocking(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

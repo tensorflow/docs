@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::FixedUnigramCandidateSampler::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.6/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>FixedUnigramCandidateSampler::<wbr/>Attrs</h1>
+  <code>#include &lt;candidate_sampling_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/fixed-unigram-candidate-sampler.html#classtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler">FixedUnigramCandidateSampler</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1aaf268f89a26f0acc04e771e1c1a6e6bd">distortion_</a> = 1.0f</code>
+      </td>
+      <td>
+        <div>
+          <code>float</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a64e5762acf09fc03718c87c760acaa1e">num_reserved_ids_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a047de7fcc4dccbc6d65632f777c1d5a8">num_shards_</a> = 1</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a7745f33f2eab5114f7259cbe5080bd0b">seed2_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1af9b0dbb31a29d03a7e405a889173f436">seed_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a421654daea215ea84ba93df3e1fad899">shard_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1ab6b3dd4be9d50b34457736a2f6a0c8fe">unigrams_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< float ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a65fa5ff8412e37984a4c29a46f8dedd7">vocab_file_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a7ae67bfacf978242bbf98ea0afc05013">Distortion</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The distortion is used to skew the unigram probability distribution. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a009b243bc0fa89231fb4bd054e90ba48">NumReservedIds</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Optionally some reserved IDs can be added in the range [0, ..., num_reserved_ids) by the users. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a43950da4ca4b7179342839af9c290e6f">NumShards</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A sampler can be used to sample from a subset of the original range in order to speed up the whole computation through parallelism. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1aa0956ef64784bb07e0199cd0ac0e48e5">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If either seed or seed2 are set to be non-zero, the random number generator is seeded by the given seed. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a81f1d40f3f31c3906f4d24e28f60ffcf">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>An second seed to avoid seed collision. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1afd62e27a2edf17ce34a98c8d288e9853">Shard</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A sampler can be used to sample from a subset of the original range in order to speed up the whole computation through parallelism. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1ae7db793bcb1a3122fdbf854feea79b24">Unigrams</a>(const gtl::ArraySlice< float > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A list of unigram counts or probabilities, one per ID in sequential order. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a8d2459e8d7826b0db2d109a2cd37dccb">VocabFile</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Each valid line in this file (which should have a CSV-like format) corresponds to a valid word ID. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1aaf268f89a26f0acc04e771e1c1a6e6bd">
+    <h3>distortion_</h3>
+    <pre class="prettyprint">float tensorflow::ops::FixedUnigramCandidateSampler::Attrs::distortion_ = 1.0f</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a64e5762acf09fc03718c87c760acaa1e">
+    <h3>num_reserved_ids_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::FixedUnigramCandidateSampler::Attrs::num_reserved_ids_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a047de7fcc4dccbc6d65632f777c1d5a8">
+    <h3>num_shards_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::FixedUnigramCandidateSampler::Attrs::num_shards_ = 1</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a7745f33f2eab5114f7259cbe5080bd0b">
+    <h3>seed2_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::FixedUnigramCandidateSampler::Attrs::seed2_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1af9b0dbb31a29d03a7e405a889173f436">
+    <h3>seed_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::FixedUnigramCandidateSampler::Attrs::seed_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a421654daea215ea84ba93df3e1fad899">
+    <h3>shard_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::FixedUnigramCandidateSampler::Attrs::shard_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1ab6b3dd4be9d50b34457736a2f6a0c8fe">
+    <h3>unigrams_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< float > tensorflow::ops::FixedUnigramCandidateSampler::Attrs::unigrams_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a65fa5ff8412e37984a4c29a46f8dedd7">
+    <h3>vocab_file_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::FixedUnigramCandidateSampler::Attrs::vocab_file_ = ""</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a7ae67bfacf978242bbf98ea0afc05013">
+    <h3>Distortion</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a> tensorflow::ops::FixedUnigramCandidateSampler::Attrs::Distortion(
+  float x
+)</pre>
+    <div>
+      <p>The distortion is used to skew the unigram probability distribution. </p>
+      <p>Each weight is first raised to the distortion's power before adding to the internal unigram distribution. As a result, distortion = 1.0 gives regular unigram sampling (as defined by the vocab file), and distortion = 0.0 gives a uniform distribution.</p>
+      <p>Defaults to 1 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a009b243bc0fa89231fb4bd054e90ba48">
+    <h3>NumReservedIds</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a> tensorflow::ops::FixedUnigramCandidateSampler::Attrs::NumReservedIds(
+  int64 x
+)</pre>
+    <div>
+      <p>Optionally some reserved IDs can be added in the range [0, ..., num_reserved_ids) by the users. </p>
+      <p>One use case is that a special unknown word token is used as ID 0. These IDs will have a sampling probability of 0.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a43950da4ca4b7179342839af9c290e6f">
+    <h3>NumShards</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a> tensorflow::ops::FixedUnigramCandidateSampler::Attrs::NumShards(
+  int64 x
+)</pre>
+    <div>
+      <p>A sampler can be used to sample from a subset of the original range in order to speed up the whole computation through parallelism. </p>
+      <p>This parameter (together with 'shard') indicates the number of partitions that are being used in the overall computation.</p>
+      <p>Defaults to 1 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1aa0956ef64784bb07e0199cd0ac0e48e5">
+    <h3>Seed</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a> tensorflow::ops::FixedUnigramCandidateSampler::Attrs::Seed(
+  int64 x
+)</pre>
+    <div>
+      <p>If either seed or seed2 are set to be non-zero, the random number generator is seeded by the given seed. </p>
+      <p>Otherwise, it is seeded by a random seed.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a81f1d40f3f31c3906f4d24e28f60ffcf">
+    <h3>Seed2</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a> tensorflow::ops::FixedUnigramCandidateSampler::Attrs::Seed2(
+  int64 x
+)</pre>
+    <div>
+      <p>An second seed to avoid seed collision. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1afd62e27a2edf17ce34a98c8d288e9853">
+    <h3>Shard</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a> tensorflow::ops::FixedUnigramCandidateSampler::Attrs::Shard(
+  int64 x
+)</pre>
+    <div>
+      <p>A sampler can be used to sample from a subset of the original range in order to speed up the whole computation through parallelism. </p>
+      <p>This parameter (together with 'num_shards') indicates the particular partition number of a sampler op, when partitioning is being used.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1ae7db793bcb1a3122fdbf854feea79b24">
+    <h3>Unigrams</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a> tensorflow::ops::FixedUnigramCandidateSampler::Attrs::Unigrams(
+  const gtl::ArraySlice< float > & x
+)</pre>
+    <div>
+      <p>A list of unigram counts or probabilities, one per ID in sequential order. </p>
+      <p>Exactly one of vocab_file and unigrams should be passed to this op.</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs_1a8d2459e8d7826b0db2d109a2cd37dccb">
+    <h3>VocabFile</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/fixed-unigram-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_fixed_unigram_candidate_sampler_1_1_attrs">Attrs</a> tensorflow::ops::FixedUnigramCandidateSampler::Attrs::VocabFile(
+  StringPiece x
+)</pre>
+    <div>
+      <p>Each valid line in this file (which should have a CSV-like format) corresponds to a valid word ID. </p>
+      <p>IDs are in sequential order, starting from num_reserved_ids. The last entry in each line is expected to be a value corresponding to the count or relative probability. Exactly one of vocab_file and unigrams needs to be passed to this op.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+</body>
+</html>

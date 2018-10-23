@@ -1,0 +1,33 @@
+
+
+page_type: reference
+
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+
+# tf.compat.path_to_str
+
+### Aliases:
+
+* `tf.compat.path_to_str`
+* `tf.contrib.meta_graph_transform.meta_graph_transform.compat.path_to_str`
+
+``` python
+tf.compat.path_to_str(path)
+```
+
+
+
+Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.6/tensorflow/python/util/compat.py).
+
+Returns the file system path representation of a `PathLike` object, else as it is.
+
+#### Args:
+
+* <b>`path`</b>: An object that can be converted to path representation.
+
+
+#### Returns:
+
+A `str` object.

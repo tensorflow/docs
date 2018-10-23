@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SampleDistortedBoundingBoxV2 Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.6/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SampleDistortedBoundingBoxV2</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Generate a single randomly distorted bounding box for an image. </p>
+  <h2>Summary</h2>
+  <p>Bounding box annotations are often supplied in addition to ground-truth labels in image recognition or object localization tasks. A common technique for training such a system is to randomly distort an image while preserving its content, i.e. <i>data augmentation</i>. This Op outputs a randomly distorted localization of an object, i.e. bounding box, given an <code>image_size</code>, <code>bounding_boxes</code> and a series of constraints.</p>
+  <p>The output of this Op is a single bounding box that may be used to crop the original image. The output is returned as 3 tensors: <code>begin</code>, <code>size</code> and <code>bboxes</code>. The first 2 tensors can be fed directly into <code>tf.slice</code> to crop the image. The latter may be supplied to <code>tf.image.draw_bounding_boxes</code> to visualize what the bounding box looks like.</p>
+  <p>Bounding boxes are supplied and returned as <code>[y_min, x_min, y_max, x_max]</code>. The bounding box coordinates are floats in <code>[0.0, 1.0]</code> relative to the width and height of the underlying image.</p>
+  <p>For example,</p>
+  <p>```python Generate a single distorted bounding box.</p>
+  <p>begin, size, bbox_for_draw = tf.image.sample_distorted_bounding_box( tf.shape(image), bounding_boxes=bounding_boxes)</p>
+  <p>Draw the bounding box in an image summary.</p>
+  <p>image_with_box = tf.image.draw_bounding_boxes(tf.expand_dims(image, 0), bbox_for_draw) tf.summary.image('images_with_box', image_with_box)</p>
+  <p>Employ the bounding box to distort the image.</p>
+  <p>distorted_image = tf.slice(image, begin, size) ```</p>
+  <p>Note that if no bounding box information is available, setting <code>use_image_if_no_bounding_boxes = true</code> will assume there is a single implicit bounding box covering the whole image. If <code>use_image_if_no_bounding_boxes</code> is false and no bounding boxes are supplied, an error is raised.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>image_size: 1-D, containing <code>[height, width, channels]</code>.</li>
+      <li>bounding_boxes: 3-D with shape <code>[batch, N, 4]</code> describing the N bounding boxes associated with the image.</li>
+      <li>min_object_covered: The cropped area of the image must contain at least this fraction of any bounding box supplied. The value of this parameter should be non-negative. In the case of 0, the cropped area does not need to overlap any of the bounding boxes supplied.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>):<ul>
+      <li>seed: If either <code>seed</code> or <code>seed2</code> are set to non-zero, the random number generator is seeded by the given <code>seed</code>. Otherwise, it is seeded by a random seed.</li>
+      <li>seed2: A second seed to avoid seed collision.</li>
+      <li>aspect_ratio_range: The cropped area of the image must have an aspect ratio = width / height within this range.</li>
+      <li>area_range: The cropped area of the image must contain a fraction of the supplied image within in this range.</li>
+      <li>max_attempts: Number of attempts at generating a cropped region of the image of the specified constraints. After <code>max_attempts</code> failures, return the entire image.</li>
+      <li>use_image_if_no_bounding_boxes: Controls behavior if no bounding boxes supplied. If true, assume an implicit bounding box covering the whole input. If false, raise an error.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> begin: 1-D, containing <code>[offset_height, offset_width, 0]</code>. Provide as input to <code>tf.slice</code>.</li>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> size: 1-D, containing <code>[target_height, target_width, -1]</code>. Provide as input to <code>tf.slice</code>.</li>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> bboxes: 3-D with shape <code>[1, 1, 4]</code> containing the distorted bounding box. Provide as input to <code>tf.image.draw_bounding_boxes</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a633c7a8fbd11d968753f7db7f8cb7c77">SampleDistortedBoundingBoxV2</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bounding_boxes, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_object_covered)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a1ef02f96804b5d3af88d2d7cae711680">SampleDistortedBoundingBoxV2</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bounding_boxes, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_object_covered, const <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">SampleDistortedBoundingBoxV2::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a5d0358f3cdc7973434e015fa6f3fe62b">bboxes</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1af9d2d6c57b4b1e64bc1ab2995e11a8ef">begin</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a5fd41322042a9c0f149f4ac711dd3447">size</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1abba18b38ff171324e05dac58493e7b90">AreaRange</a>(const gtl::ArraySlice< float > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1aa01c6c23d7fc5888fc28358d4408fe10">AspectRatioRange</a>(const gtl::ArraySlice< float > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1adfa00342bdb57c3ba355f97d1b57f525">MaxAttempts</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a019982d4504da89850b6e7ca7aa91ad3">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1ad49de5c7f25d7017493f33cc34503692">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a9e8e8674c6cfb73384697ffb8da60062">UseImageIfNoBoundingBoxes</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs">tensorflow::<wbr/>ops::<wbr/>SampleDistortedBoundingBoxV2::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/sample-distorted-bounding-box-v2.html#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2">SampleDistortedBoundingBoxV2</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a5d0358f3cdc7973434e015fa6f3fe62b">
+    <h3>bboxes</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> bboxes</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1af9d2d6c57b4b1e64bc1ab2995e11a8ef">
+    <h3>begin</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> begin</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a5fd41322042a9c0f149f4ac711dd3447">
+    <h3>size</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> size</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a633c7a8fbd11d968753f7db7f8cb7c77">
+    <h3>SampleDistortedBoundingBoxV2</h3>
+    <pre class="prettyprint"> SampleDistortedBoundingBoxV2(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bounding_boxes,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_object_covered
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a1ef02f96804b5d3af88d2d7cae711680">
+    <h3>SampleDistortedBoundingBoxV2</h3>
+    <pre class="prettyprint"> SampleDistortedBoundingBoxV2(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bounding_boxes,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_object_covered,
+  const <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">SampleDistortedBoundingBoxV2::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1abba18b38ff171324e05dac58493e7b90">
+    <h3>AreaRange</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> AreaRange(
+  const gtl::ArraySlice< float > & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1aa01c6c23d7fc5888fc28358d4408fe10">
+    <h3>AspectRatioRange</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> AspectRatioRange(
+  const gtl::ArraySlice< float > & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1adfa00342bdb57c3ba355f97d1b57f525">
+    <h3>MaxAttempts</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> MaxAttempts(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a019982d4504da89850b6e7ca7aa91ad3">
+    <h3>Seed</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> Seed(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1ad49de5c7f25d7017493f33cc34503692">
+    <h3>Seed2</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> Seed2(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1a9e8e8674c6cfb73384697ffb8da60062">
+    <h3>UseImageIfNoBoundingBoxes</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> UseImageIfNoBoundingBoxes(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

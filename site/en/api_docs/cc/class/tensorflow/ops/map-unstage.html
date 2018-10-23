@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::MapUnstage Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.6/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>MapUnstage</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Op removes and returns the values associated with the key. </p>
+  <h2>Summary</h2>
+  <p>from the underlying container. If the underlying container does not contain this key, the op will block until it does.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code>OutputList</code>: The values tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_map_unstage_1a507cfd6b94db6018cf4bc2ceb519e383">MapUnstage</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, const DataTypeSlice & dtypes)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_map_unstage_1a5ce4089b5a5b9bf85877425d13dc1b49">MapUnstage</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, const DataTypeSlice & dtypes, const <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/map-unstage/attrs.html#structtensorflow_1_1ops_1_1_map_unstage_1_1_attrs">MapUnstage::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_unstage_1a5418fbabe0895fa460e28b2694c81d39">values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_unstage_1a813608c15ad1f77c488bf244b5b798de">operator[]</a>(size_t index) const </code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_unstage_1aac6c05112bba8a0b99ef373f35b307b4">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/map-unstage/attrs.html#structtensorflow_1_1ops_1_1_map_unstage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_unstage_1af9a176503b7fbffef43f8b5e669ba873">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/map-unstage/attrs.html#structtensorflow_1_1ops_1_1_map_unstage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_unstage_1a3adf8cce8d2e39b22b892719b267f762">MemoryLimit</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/map-unstage/attrs.html#structtensorflow_1_1ops_1_1_map_unstage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_unstage_1aa3c016e8cc900640155e2eb7a791e5ca">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/map-unstage/attrs.html#structtensorflow_1_1ops_1_1_map_unstage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/map-unstage/attrs">tensorflow::<wbr/>ops::<wbr/>MapUnstage::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/map-unstage.html#classtensorflow_1_1ops_1_1_map_unstage">MapUnstage</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_map_unstage_1a5418fbabe0895fa460e28b2694c81d39">
+    <h3>values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> values</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_map_unstage_1a507cfd6b94db6018cf4bc2ceb519e383">
+    <h3>MapUnstage</h3>
+    <pre class="prettyprint"> MapUnstage(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  const DataTypeSlice & dtypes
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_unstage_1a5ce4089b5a5b9bf85877425d13dc1b49">
+    <h3>MapUnstage</h3>
+    <pre class="prettyprint"> MapUnstage(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  const DataTypeSlice & dtypes,
+  const <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/map-unstage/attrs.html#structtensorflow_1_1ops_1_1_map_unstage_1_1_attrs">MapUnstage::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_unstage_1a813608c15ad1f77c488bf244b5b798de">
+    <h3>operator[]</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](
+  size_t index
+) const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_map_unstage_1aac6c05112bba8a0b99ef373f35b307b4">
+    <h3>Capacity</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/map-unstage/attrs.html#structtensorflow_1_1ops_1_1_map_unstage_1_1_attrs">Attrs</a> Capacity(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_unstage_1af9a176503b7fbffef43f8b5e669ba873">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/map-unstage/attrs.html#structtensorflow_1_1ops_1_1_map_unstage_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_unstage_1a3adf8cce8d2e39b22b892719b267f762">
+    <h3>MemoryLimit</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/map-unstage/attrs.html#structtensorflow_1_1ops_1_1_map_unstage_1_1_attrs">Attrs</a> MemoryLimit(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_unstage_1aa3c016e8cc900640155e2eb7a791e5ca">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/map-unstage/attrs.html#structtensorflow_1_1ops_1_1_map_unstage_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

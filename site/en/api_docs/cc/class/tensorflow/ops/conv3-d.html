@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Conv3D Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.6/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Conv3D</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Computes a 3-D convolution given 5-D <code>input</code> and <code>filter</code> tensors. </p>
+  <h2>Summary</h2>
+  <p>In signal processing, cross-correlation is a measure of similarity of two waveforms as a function of a time-lag applied to one of them. This is also known as a sliding dot product or sliding inner-product.</p>
+  <p>Our <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/conv3-d.html#classtensorflow_1_1ops_1_1_conv3_d">Conv3D</a> implements a form of cross-correlation.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a><code>[batch, in_depth, in_height, in_width, in_channels]</code>.</li>
+      <li>filter: <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a><code>[filter_depth, filter_height, filter_width, in_channels, out_channels]</code>. <code>in_channels</code> must match between <code>input</code> and <code>filter</code>.</li>
+      <li>strides: 1-D tensor of length 5. The stride of the sliding window for each dimension of <code>input</code>. Must have <code>strides[0] = strides[4] = 1</code>.</li>
+      <li>padding: The type of padding algorithm to use.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/conv3-d/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_1_1_attrs">Attrs</a></code>):<ul>
+      <li>data_format: The data format of the input and output data. With the default format "NDHWC", the data is stored in the order of: [batch, in_depth, in_height, in_width, in_channels]. Alternatively, the format could be "NCDHW", the data storage order is: [batch, in_channels, in_depth, in_height, in_width].</li>
+      <li>dilations: 1-D tensor of length 5. The dilation factor for each dimension of <code>input</code>. If set to k > 1, there will be k-1 skipped cells between each filter element on that dimension. The dimension order is determined by the value of <code>data_format</code>, see above for details. Dilations in the batch and depth dimensions must be 1.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_1aef63039997c4f9586d2b8627e3cf5c5a">Conv3D</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_1abb396c1cb8bf48f57ad11862ac7406ad">Conv3D</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/conv3-d/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_1_1_attrs">Conv3D::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_1a426b9a63272f1905184fdfd1b78ba33a">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_1a33ab1a0f2fa69089a8f835175d1dc732">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_1a418b91ef5b6437901248965d572533e5">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_1abebfb46d5b9c472aebb4f25ad6d2eeb6">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_1a148ca9c798353ee9073c60f57e45a41f">DataFormat</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/conv3-d/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_1a90d138624ebc69f365e225d25ece6e2a">Dilations</a>(const gtl::ArraySlice< int > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/conv3-d/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/conv3-d/attrs">tensorflow::<wbr/>ops::<wbr/>Conv3D::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/conv3-d.html#classtensorflow_1_1ops_1_1_conv3_d">Conv3D</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_1a426b9a63272f1905184fdfd1b78ba33a">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_1aef63039997c4f9586d2b8627e3cf5c5a">
+    <h3>Conv3D</h3>
+    <pre class="prettyprint"> Conv3D(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
+  const gtl::ArraySlice< int > & strides,
+  StringPiece padding
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_1abb396c1cb8bf48f57ad11862ac7406ad">
+    <h3>Conv3D</h3>
+    <pre class="prettyprint"> Conv3D(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
+  const gtl::ArraySlice< int > & strides,
+  StringPiece padding,
+  const <a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/conv3-d/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_1_1_attrs">Conv3D::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_1a33ab1a0f2fa69089a8f835175d1dc732">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_1a418b91ef5b6437901248965d572533e5">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_1abebfb46d5b9c472aebb4f25ad6d2eeb6">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_1a148ca9c798353ee9073c60f57e45a41f">
+    <h3>DataFormat</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/conv3-d/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_1_1_attrs">Attrs</a> DataFormat(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conv3_d_1a90d138624ebc69f365e225d25ece6e2a">
+    <h3>Dilations</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/conv3-d/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_1_1_attrs">Attrs</a> Dilations(
+  const gtl::ArraySlice< int > & x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

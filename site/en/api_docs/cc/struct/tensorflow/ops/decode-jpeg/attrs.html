@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DecodeJpeg::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.6/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DecodeJpeg::<wbr/>Attrs</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/decode-jpeg.html#classtensorflow_1_1ops_1_1_decode_jpeg">DecodeJpeg</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a0b10d4d030a8ca14ac7570161190c83a">acceptable_fraction_</a> = 1.0f</code>
+      </td>
+      <td>
+        <div>
+          <code>float</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a18e020f1e5ff8cfbd4d78478415d1ddb">channels_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a56dbd1f5b3b6ad2f2f6109d261a1b2c0">dct_method_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a8e1e67750ce05d148e582c0da4a2279e">fancy_upscaling_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a9e510e74b3307b51218f9ba73bb88299">ratio_</a> = 1</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1aa2cf39a88d8a81dcb7db8e5a5e0d370e">try_recover_truncated_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1af1979fff94b6b6536f48258ce12b1323">AcceptableFraction</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The minimum required fraction of lines before a truncated input is accepted. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a1a00ed985d3ac05876a84b4f886651d4">Channels</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Number of color channels for the decoded image. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a6cadd5f484cf75d1dbb5b69ed3770528">DctMethod</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>string specifying a hint about the algorithm used for decompression. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1aa20905f84ec3baeacec9ec1db093cd3e">FancyUpscaling</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If true use a slower but nicer upscaling of the chroma planes (yuv420/422 only). </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1aa12af33d84b9b6716634e512569121ae">Ratio</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Downscaling ratio. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a4ff9649c75eb4330b19833fe2837f972">TryRecoverTruncated</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If true try to recover an image from truncated input. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a0b10d4d030a8ca14ac7570161190c83a">
+    <h3>acceptable_fraction_</h3>
+    <pre class="prettyprint">float tensorflow::ops::DecodeJpeg::Attrs::acceptable_fraction_ = 1.0f</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a18e020f1e5ff8cfbd4d78478415d1ddb">
+    <h3>channels_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::DecodeJpeg::Attrs::channels_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a56dbd1f5b3b6ad2f2f6109d261a1b2c0">
+    <h3>dct_method_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::DecodeJpeg::Attrs::dct_method_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a8e1e67750ce05d148e582c0da4a2279e">
+    <h3>fancy_upscaling_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::DecodeJpeg::Attrs::fancy_upscaling_ = true</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a9e510e74b3307b51218f9ba73bb88299">
+    <h3>ratio_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::DecodeJpeg::Attrs::ratio_ = 1</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1aa2cf39a88d8a81dcb7db8e5a5e0d370e">
+    <h3>try_recover_truncated_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::DecodeJpeg::Attrs::try_recover_truncated_ = false</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1af1979fff94b6b6536f48258ce12b1323">
+    <h3>AcceptableFraction</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeJpeg::Attrs::AcceptableFraction(
+  float x
+)</pre>
+    <div>
+      <p>The minimum required fraction of lines before a truncated input is accepted. </p>
+      <p>Defaults to 1 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a1a00ed985d3ac05876a84b4f886651d4">
+    <h3>Channels</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeJpeg::Attrs::Channels(
+  int64 x
+)</pre>
+    <div>
+      <p>Number of color channels for the decoded image. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a6cadd5f484cf75d1dbb5b69ed3770528">
+    <h3>DctMethod</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeJpeg::Attrs::DctMethod(
+  StringPiece x
+)</pre>
+    <div>
+      <p>string specifying a hint about the algorithm used for decompression. </p>
+      <p>Defaults to "" which maps to a system-specific default. Currently valid values are ["INTEGER_FAST", "INTEGER_ACCURATE"]. The hint may be ignored (e.g., the internal jpeg library changes to a version that does not have that specific option.)</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1aa20905f84ec3baeacec9ec1db093cd3e">
+    <h3>FancyUpscaling</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeJpeg::Attrs::FancyUpscaling(
+  bool x
+)</pre>
+    <div>
+      <p>If true use a slower but nicer upscaling of the chroma planes (yuv420/422 only). </p>
+      <p>Defaults to true </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1aa12af33d84b9b6716634e512569121ae">
+    <h3>Ratio</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeJpeg::Attrs::Ratio(
+  int64 x
+)</pre>
+    <div>
+      <p>Downscaling ratio. </p>
+      <p>Defaults to 1 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs_1a4ff9649c75eb4330b19833fe2837f972">
+    <h3>TryRecoverTruncated</h3>
+    <pre class="prettyprint"><a href="/versions/r1.6/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> tensorflow::ops::DecodeJpeg::Attrs::TryRecoverTruncated(
+  bool x
+)</pre>
+    <div>
+      <p>If true try to recover an image from truncated input. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+</body>
+</html>

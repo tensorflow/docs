@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseAccumulatorTakeGradient Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.6/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseAccumulatorTakeGradient</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Extracts the average sparse gradient in a <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/sparse-conditional-accumulator.html#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator">SparseConditionalAccumulator</a>. </p>
+  <h2>Summary</h2>
+  <p>The op will blocks until sufficient (i.e., more than num_required) gradients have been accumulated. If the accumulator has already aggregated more than num_required gradients, it will return its average of the accumulated gradients. Also automatically increments the recorded global_step in the accumulator by 1, and resets the aggregate to 0.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to a <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/sparse-conditional-accumulator.html#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator">SparseConditionalAccumulator</a>.</li>
+      <li>num_required: Number of gradients required before we return an aggregate.</li>
+      <li>dtype: The data type of accumulated gradients. Needs to correspond to the type of the accumulator.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> indices: Indices of the average of the accumulated sparse gradients.</li>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> values: Values of the average of the accumulated sparse gradients.</li>
+      <li><code><a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> shape: <a href="/versions/r1.6/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of the average of the accumulated sparse gradients. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_accumulator_take_gradient_1a54dc667e3f29216b387adf94e4ef4e18">SparseAccumulatorTakeGradient</a>(const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_required, DataType dtype)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_accumulator_take_gradient_1aa27589031abec3face075eee8e143f70">indices</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_accumulator_take_gradient_1abaf43bc2f46333ed065180b5a922c901">shape</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_accumulator_take_gradient_1a0aec4d550ca79eebbf67045528376cbf">values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_accumulator_take_gradient_1aa27589031abec3face075eee8e143f70">
+    <h3>indices</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> indices</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_accumulator_take_gradient_1abaf43bc2f46333ed065180b5a922c901">
+    <h3>shape</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> shape</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_accumulator_take_gradient_1a0aec4d550ca79eebbf67045528376cbf">
+    <h3>values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> values</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_accumulator_take_gradient_1a54dc667e3f29216b387adf94e4ef4e18">
+    <h3>SparseAccumulatorTakeGradient</h3>
+    <pre class="prettyprint"> SparseAccumulatorTakeGradient(
+  const ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.6/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_required,
+  DataType dtype
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
