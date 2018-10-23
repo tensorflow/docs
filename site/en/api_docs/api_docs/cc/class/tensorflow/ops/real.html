@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Real Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Real</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Returns the real part of a complex number. </p>
+  <h2>Summary</h2>
+  <p>Given a tensor <code>input</code> of complex numbers, this operation returns a tensor of type <code>float</code> that is the real part of each element in <code>input</code>. <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> elements in <code>input</code> must be complex numbers of the form \(a + bj\), where <i>a</i> is the real part returned by this operation and <i>b</i> is the imaginary part.</p>
+  <p>For example:</p>
+  <p>``` tensor 'input' is [-2.25 + 4.75j, 3.25 + 5.75j]</p>
+  <p>tf.real(input) ==> [-2.25, 3.25] ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_real_1a325ef3b733f6ad8692d9720b7e54225d">Real</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_real_1af45fe6c2bfe92acdfcd8e336edae84fa">Real</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/real/attrs.html#structtensorflow_1_1ops_1_1_real_1_1_attrs">Real::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_real_1a9cea0b88989b3dbfc93309a32579998f">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_real_1a867b9ea135418a9d1464fdfe16980b7f">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_real_1acd53e8c51378fa3ea7d4bdba4a188c3f">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_real_1a58cc5679f42ee343e17d4ac4cea1aae7">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_real_1a3978d1a4514b02a46543aaa1dc8ce5ef">Tout</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/real/attrs.html#structtensorflow_1_1ops_1_1_real_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/real/attrs">tensorflow::<wbr/>ops::<wbr/>Real::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/real.html#classtensorflow_1_1ops_1_1_real">Real</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_real_1a9cea0b88989b3dbfc93309a32579998f">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_real_1a325ef3b733f6ad8692d9720b7e54225d">
+    <h3>Real</h3>
+    <pre class="prettyprint"> Real(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_real_1af45fe6c2bfe92acdfcd8e336edae84fa">
+    <h3>Real</h3>
+    <pre class="prettyprint"> Real(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/real/attrs.html#structtensorflow_1_1ops_1_1_real_1_1_attrs">Real::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_real_1a867b9ea135418a9d1464fdfe16980b7f">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_real_1acd53e8c51378fa3ea7d4bdba4a188c3f">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_real_1a58cc5679f42ee343e17d4ac4cea1aae7">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_real_1a3978d1a4514b02a46543aaa1dc8ce5ef">
+    <h3>Tout</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/real/attrs.html#structtensorflow_1_1ops_1_1_real_1_1_attrs">Attrs</a> Tout(
+  DataType x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

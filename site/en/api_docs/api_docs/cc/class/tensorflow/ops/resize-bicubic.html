@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ResizeBicubic Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ResizeBicubic</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Resize <code>images</code> to <code>size</code> using bicubic interpolation. </p>
+  <h2>Summary</h2>
+  <p><a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> images can be of different types but output images are always float.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>images: 4-D with shape <code>[batch, height, width, channels]</code>.</li>
+      <li>size: = A 1-D int32 <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of 2 elements: <code>new_height, new_width</code>. The new size for the images.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/resize-bicubic/attrs.html#structtensorflow_1_1ops_1_1_resize_bicubic_1_1_attrs">Attrs</a></code>):<ul>
+      <li>align_corners: If true, rescale input by (new_height - 1) / (height - 1), which exactly aligns the 4 corners of images and resized images. If false, rescale by new_height / height. Treat similarly the width dimension.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with shape <code>[batch, new_height, new_width, channels]</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bicubic_1a096d544f83cc6f082255083cb48d02fe">ResizeBicubic</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bicubic_1a9ab221a334d2ffb94c5adf308f8b6bfd">ResizeBicubic</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/resize-bicubic/attrs.html#structtensorflow_1_1ops_1_1_resize_bicubic_1_1_attrs">ResizeBicubic::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bicubic_1abacd676e0eccfa1ed35dce58f9b1baea">resized_images</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bicubic_1a53f33ac8a7c45193dc998500b92f8b39">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bicubic_1ab5a27bb0ada787a04cba91cf8511ce13">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bicubic_1a31ee74b6628f0dfd0a3721d7f306d5a7">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bicubic_1af6ac21d35f211eaeff6d5eb37dc3f9ba">AlignCorners</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/resize-bicubic/attrs.html#structtensorflow_1_1ops_1_1_resize_bicubic_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/resize-bicubic/attrs">tensorflow::<wbr/>ops::<wbr/>ResizeBicubic::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/resize-bicubic.html#classtensorflow_1_1ops_1_1_resize_bicubic">ResizeBicubic</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_resize_bicubic_1abacd676e0eccfa1ed35dce58f9b1baea">
+    <h3>resized_images</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> resized_images</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_resize_bicubic_1a096d544f83cc6f082255083cb48d02fe">
+    <h3>ResizeBicubic</h3>
+    <pre class="prettyprint"> ResizeBicubic(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_bicubic_1a9ab221a334d2ffb94c5adf308f8b6bfd">
+    <h3>ResizeBicubic</h3>
+    <pre class="prettyprint"> ResizeBicubic(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
+  const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/resize-bicubic/attrs.html#structtensorflow_1_1ops_1_1_resize_bicubic_1_1_attrs">ResizeBicubic::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_bicubic_1a53f33ac8a7c45193dc998500b92f8b39">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_bicubic_1ab5a27bb0ada787a04cba91cf8511ce13">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_bicubic_1a31ee74b6628f0dfd0a3721d7f306d5a7">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_resize_bicubic_1af6ac21d35f211eaeff6d5eb37dc3f9ba">
+    <h3>AlignCorners</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/resize-bicubic/attrs.html#structtensorflow_1_1ops_1_1_resize_bicubic_1_1_attrs">Attrs</a> AlignCorners(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

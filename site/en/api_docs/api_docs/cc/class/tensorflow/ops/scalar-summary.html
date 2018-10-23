@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ScalarSummary Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ScalarSummary</h1>
+  <code>#include &lt;logging_ops.h&gt;</code>
+  <p>Outputs a <code>Summary</code> protocol buffer with scalar values. </p>
+  <h2>Summary</h2>
+  <p>The input <code>tags</code> and <code>values</code> must have the same shape. The generated summary has a summary value for each tag-value pair in <code>tags</code> and <code>values</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>tags: Tags for the summary.</li>
+      <li>values: Same shape as `tags. Values for the summary.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Scalar. Serialized <code>Summary</code> protocol buffer. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_scalar_summary_1a37ead9a3e40afb5ca6c768bd9964fc60">ScalarSummary</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tags, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scalar_summary_1a8d164e18d2a22962eacd48e8f77ab864">summary</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scalar_summary_1a8541b3eb0514c816421a7f1ac6343083">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scalar_summary_1aedb9308de46ad38d9bb8d680ad4e9419">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scalar_summary_1a4a426ca21e1f1e4df05580aba8f22238">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_scalar_summary_1a8d164e18d2a22962eacd48e8f77ab864">
+    <h3>summary</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> summary</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_scalar_summary_1a37ead9a3e40afb5ca6c768bd9964fc60">
+    <h3>ScalarSummary</h3>
+    <pre class="prettyprint"> ScalarSummary(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tags,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scalar_summary_1a8541b3eb0514c816421a7f1ac6343083">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scalar_summary_1aedb9308de46ad38d9bb8d680ad4e9419">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scalar_summary_1a4a426ca21e1f1e4df05580aba8f22238">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

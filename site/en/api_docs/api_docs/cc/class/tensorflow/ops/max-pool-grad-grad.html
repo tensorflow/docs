@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::MaxPoolGradGrad Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>MaxPoolGradGrad</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Computes second-order gradients of the maxpooling function. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>orig_input: The original input tensor.</li>
+      <li>orig_output: The original output tensor.</li>
+      <li>grad: 4-D. Gradients of gradients w.r.t. the input of <code>max_pool</code>.</li>
+      <li>ksize: The size of the window for each dimension of the input tensor.</li>
+      <li>strides: The stride of the sliding window for each dimension of the input tensor.</li>
+      <li>padding: The type of padding algorithm to use.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/max-pool-grad-grad/attrs.html#structtensorflow_1_1ops_1_1_max_pool_grad_grad_1_1_attrs">Attrs</a></code>):<ul>
+      <li>data_format: Specify the data format of the input and output data. With the default format "NHWC", the data is stored in the order of: [batch, in_height, in_width, in_channels]. Alternatively, the format could be "NCHW", the data storage order of: [batch, in_channels, in_height, in_width].</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Gradients of gradients w.r.t. the input to <code>max_pool</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a624a485e1ee030cfb203f5767164e05d">MaxPoolGradGrad</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> orig_input, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> orig_output, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a105790392c03a29e7a1a93c4a25f1065">MaxPoolGradGrad</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> orig_input, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> orig_output, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/max-pool-grad-grad/attrs.html#structtensorflow_1_1ops_1_1_max_pool_grad_grad_1_1_attrs">MaxPoolGradGrad::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a1db2508c1fc12d0bbbaf034e1332e8e9">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a0a817f73310d28bd0344cba01c80d9eb">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_grad_grad_1aa9cf85f8e08191a34aec8a97b5c7d7b5">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a85951360272d8bcb3d56b273d5e3a06a">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a2595c027a5b997820e1f11301e2f8e5b">DataFormat</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/max-pool-grad-grad/attrs.html#structtensorflow_1_1ops_1_1_max_pool_grad_grad_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/max-pool-grad-grad/attrs">tensorflow::<wbr/>ops::<wbr/>MaxPoolGradGrad::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/max-pool-grad-grad.html#classtensorflow_1_1ops_1_1_max_pool_grad_grad">MaxPoolGradGrad</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a1db2508c1fc12d0bbbaf034e1332e8e9">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a624a485e1ee030cfb203f5767164e05d">
+    <h3>MaxPoolGradGrad</h3>
+    <pre class="prettyprint"> MaxPoolGradGrad(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> orig_input,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> orig_output,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  const gtl::ArraySlice< int > & ksize,
+  const gtl::ArraySlice< int > & strides,
+  StringPiece padding
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a105790392c03a29e7a1a93c4a25f1065">
+    <h3>MaxPoolGradGrad</h3>
+    <pre class="prettyprint"> MaxPoolGradGrad(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> orig_input,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> orig_output,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  const gtl::ArraySlice< int > & ksize,
+  const gtl::ArraySlice< int > & strides,
+  StringPiece padding,
+  const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/max-pool-grad-grad/attrs.html#structtensorflow_1_1ops_1_1_max_pool_grad_grad_1_1_attrs">MaxPoolGradGrad::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a0a817f73310d28bd0344cba01c80d9eb">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_max_pool_grad_grad_1aa9cf85f8e08191a34aec8a97b5c7d7b5">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a85951360272d8bcb3d56b273d5e3a06a">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_max_pool_grad_grad_1a2595c027a5b997820e1f11301e2f8e5b">
+    <h3>DataFormat</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/max-pool-grad-grad/attrs.html#structtensorflow_1_1ops_1_1_max_pool_grad_grad_1_1_attrs">Attrs</a> DataFormat(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

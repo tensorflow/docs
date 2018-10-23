@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SetDiff1D Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SetDiff1D</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Computes the difference between two lists of numbers or strings. </p>
+  <h2>Summary</h2>
+  <p>Given a list <code>x</code> and a list <code>y</code>, this operation returns a list <code>out</code> that represents all values that are in <code>x</code> but not in <code>y</code>. The returned list <code>out</code> is sorted in the same order that the numbers appear in <code>x</code> (duplicates are preserved). This operation also returns a list <code>idx</code> that represents the position of each <code>out</code> element in <code>x</code>. In other words:</p>
+  <p>
+    <code>out[i] = x[idx[i]] for i in [0, 1, ..., len(out) - 1]</code>
+  </p>
+  <p>For example, given this input:</p>
+  <p>``` x = [1, 2, 3, 4, 5, 6] y = [1, 3, 5] ```</p>
+  <p>This operation would return:</p>
+  <p>``` out ==> [2, 4, 6] idx ==> [1, 3, 5] ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>x: 1-D. Values to keep.</li>
+      <li>y: 1-D. Values to remove.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> out: 1-D. Values present in <code>x</code> but not in <code>y</code>.</li>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> idx: 1-D. Positions of <code>x</code> values preserved in <code>out</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_set_diff1_d_1a6710b0de19cc8ed8db1fd0affa254ef2">SetDiff1D</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_set_diff1_d_1ab8dc6a2fee78ba148fd712ea5d8b54c5">SetDiff1D</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y, const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/set-diff1-d/attrs.html#structtensorflow_1_1ops_1_1_set_diff1_d_1_1_attrs">SetDiff1D::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_set_diff1_d_1a7a2e1946513c22df219161e501162ab0">idx</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_set_diff1_d_1a9ce116feeef14a58ab2608142f3b632b">out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_set_diff1_d_1aa928e875080781e6e3d4fd2e82eca555">OutIdx</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/set-diff1-d/attrs.html#structtensorflow_1_1ops_1_1_set_diff1_d_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/set-diff1-d/attrs">tensorflow::<wbr/>ops::<wbr/>SetDiff1D::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/set-diff1-d.html#classtensorflow_1_1ops_1_1_set_diff1_d">SetDiff1D</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_set_diff1_d_1a7a2e1946513c22df219161e501162ab0">
+    <h3>idx</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_set_diff1_d_1a9ce116feeef14a58ab2608142f3b632b">
+    <h3>out</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_set_diff1_d_1a6710b0de19cc8ed8db1fd0affa254ef2">
+    <h3>SetDiff1D</h3>
+    <pre class="prettyprint"> SetDiff1D(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_set_diff1_d_1ab8dc6a2fee78ba148fd712ea5d8b54c5">
+    <h3>SetDiff1D</h3>
+    <pre class="prettyprint"> SetDiff1D(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y,
+  const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/set-diff1-d/attrs.html#structtensorflow_1_1ops_1_1_set_diff1_d_1_1_attrs">SetDiff1D::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_set_diff1_d_1aa928e875080781e6e3d4fd2e82eca555">
+    <h3>OutIdx</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/set-diff1-d/attrs.html#structtensorflow_1_1ops_1_1_set_diff1_d_1_1_attrs">Attrs</a> OutIdx(
+  DataType x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

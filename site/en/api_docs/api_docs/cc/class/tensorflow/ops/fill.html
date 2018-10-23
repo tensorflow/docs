@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Fill Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Fill</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Creates a tensor filled with a scalar value. </p>
+  <h2>Summary</h2>
+  <p>This operation creates a tensor of shape <code>dims</code> and fills it with <code>value</code>.</p>
+  <p>For example:</p>
+  <p>``` <a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> tensor has shape [2, 3].</p>
+  <p>fill([2, 3], 9) ==> [[9, 9, 9] [9, 9, 9]] ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>dims: 1-D. Represents the shape of the output tensor.</li>
+      <li>value: 0-D (scalar). Value to fill the returned tensor.</li>
+    </ul></p>
+  <p>(numpy) Equivalent to np.full </p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_fill_1a01c1c041aa66636af36c215a28cad8f8">Fill</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dims, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fill_1af59efc826ad951c4bb994ccf186b0e3c">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fill_1a470a2e887eb44734252766d0f4759b04">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fill_1a7eb9e821e29fbfa81a25dd5ae382ce1f">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fill_1a952032189c0e55332094cc69e197ae06">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_fill_1af59efc826ad951c4bb994ccf186b0e3c">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_fill_1a01c1c041aa66636af36c215a28cad8f8">
+    <h3>Fill</h3>
+    <pre class="prettyprint"> Fill(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dims,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fill_1a470a2e887eb44734252766d0f4759b04">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fill_1a7eb9e821e29fbfa81a25dd5ae382ce1f">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fill_1a952032189c0e55332094cc69e197ae06">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

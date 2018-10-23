@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::QuantizeAndDequantizeV3 Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>QuantizeAndDequantizeV3</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Quantizes then dequantizes a tensor. </p>
+  <h2>Summary</h2>
+  <p>This is almost identical to <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/quantize-and-dequantize-v2.html#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v2">QuantizeAndDequantizeV2</a>, except that num_bits is a tensor, so its value can change during training.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a2b0da7dac824893b88830e315543a00d">QuantizeAndDequantizeV3</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_bits)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a5ec28b67b64ef7a45785390e91042d6d">QuantizeAndDequantizeV3</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_bits, const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v3/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1_1_attrs">QuantizeAndDequantizeV3::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a237fd659faaa4a2508a141f02bd2fda1">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a2fe42b89b1a1a5d4a9e2e772624f3859">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a315fb3b3e2ca6a75ed7d8e22d90b4086">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a7bcde8fb5d1f0e0285a036916e243aab">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1ab62c72984150a3a4ed4feffb9fa6ec95">RangeGiven</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v3/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1af8150be09574c209bb7af62829d2518c">SignedInput</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v3/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v3/attrs">tensorflow::<wbr/>ops::<wbr/>QuantizeAndDequantizeV3::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/quantize-and-dequantize-v3.html#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3">QuantizeAndDequantizeV3</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a237fd659faaa4a2508a141f02bd2fda1">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a2b0da7dac824893b88830e315543a00d">
+    <h3>QuantizeAndDequantizeV3</h3>
+    <pre class="prettyprint"> QuantizeAndDequantizeV3(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_bits
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a5ec28b67b64ef7a45785390e91042d6d">
+    <h3>QuantizeAndDequantizeV3</h3>
+    <pre class="prettyprint"> QuantizeAndDequantizeV3(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_bits,
+  const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v3/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1_1_attrs">QuantizeAndDequantizeV3::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a2fe42b89b1a1a5d4a9e2e772624f3859">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a315fb3b3e2ca6a75ed7d8e22d90b4086">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1a7bcde8fb5d1f0e0285a036916e243aab">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1ab62c72984150a3a4ed4feffb9fa6ec95">
+    <h3>RangeGiven</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v3/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1_1_attrs">Attrs</a> RangeGiven(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1af8150be09574c209bb7af62829d2518c">
+    <h3>SignedInput</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v3/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v3_1_1_attrs">Attrs</a> SignedInput(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

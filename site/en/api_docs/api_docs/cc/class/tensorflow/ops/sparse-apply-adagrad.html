@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseApplyAdagrad Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseApplyAdagrad</h1>
+  <code>#include &lt;training_ops.h&gt;</code>
+  <p>Update relevant entries in '*var' and '*accum' according to the adagrad scheme. </p>
+  <h2>Summary</h2>
+  <p>That is for rows we have grad for, we update var and accum as follows: accum += grad * grad var -= lr * grad * (1 / sqrt(accum))</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>var: Should be from a Variable().</li>
+      <li>accum: Should be from a Variable().</li>
+      <li>lr: Learning rate. Must be a scalar.</li>
+      <li>grad: The gradient.</li>
+      <li>indices: A vector of indices into the first dimension of var and accum.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/sparse-apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_sparse_apply_adagrad_1_1_attrs">Attrs</a></code>):<ul>
+      <li>use_locking: If <code>True</code>, updating of the var and accum tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1a8654c81ae7fb822d3d68cf07933298c5">SparseApplyAdagrad</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1a065426b919fd035ddb0cff7f0d0383b2">SparseApplyAdagrad</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/sparse-apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_sparse_apply_adagrad_1_1_attrs">SparseApplyAdagrad::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1acfcb53bfa0178d5f4531764444a70568">out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1a82b4ae6551f4a0d9456891da05823903">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1a1bd37515accb4c3505c3432dbcaaff2d">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1ab850cf3221b4383f0d773d8211173ac7">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1ab561ae2919f29d971d0c0b28448f1695">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/sparse-apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_sparse_apply_adagrad_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/sparse-apply-adagrad/attrs">tensorflow::<wbr/>ops::<wbr/>SparseApplyAdagrad::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/sparse-apply-adagrad.html#classtensorflow_1_1ops_1_1_sparse_apply_adagrad">SparseApplyAdagrad</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1acfcb53bfa0178d5f4531764444a70568">
+    <h3>out</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1a8654c81ae7fb822d3d68cf07933298c5">
+    <h3>SparseApplyAdagrad</h3>
+    <pre class="prettyprint"> SparseApplyAdagrad(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1a065426b919fd035ddb0cff7f0d0383b2">
+    <h3>SparseApplyAdagrad</h3>
+    <pre class="prettyprint"> SparseApplyAdagrad(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/sparse-apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_sparse_apply_adagrad_1_1_attrs">SparseApplyAdagrad::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1a82b4ae6551f4a0d9456891da05823903">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1a1bd37515accb4c3505c3432dbcaaff2d">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1ab850cf3221b4383f0d773d8211173ac7">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_adagrad_1ab561ae2919f29d971d0c0b28448f1695">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/sparse-apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_sparse_apply_adagrad_1_1_attrs">Attrs</a> UseLocking(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

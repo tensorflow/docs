@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::QuantizedInstanceNorm::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>QuantizedInstanceNorm::<wbr/>Attrs</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/quantized-instance-norm.html#classtensorflow_1_1ops_1_1_quantized_instance_norm">QuantizedInstanceNorm</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a143f0f1661df75a9345104b53d2a23a1">given_y_max_</a> = 0.0f</code>
+      </td>
+      <td>
+        <div>
+          <code>float</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a66a475c41d1d5351475d1b41f4c722b9">given_y_min_</a> = 0.0f</code>
+      </td>
+      <td>
+        <div>
+          <code>float</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a02e61831bb492f7e82ab72cfdd164bcd">min_separation_</a> = 0.001f</code>
+      </td>
+      <td>
+        <div>
+          <code>float</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a90012c405dc0d5545b200b2a7ca74651">output_range_given_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a3eb30df9c538c1316ba64edd59220592">variance_epsilon_</a> = 1e-05f</code>
+      </td>
+      <td>
+        <div>
+          <code>float</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1ae1c25c3d98c6a1d1d53410f8e08c5c6a">GivenYMax</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantized-instance-norm/attrs.html#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs">Attrs</a></code>
+        </div>
+        <div><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in <code>y_max</code> if <code>output_range_given</code> is True. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1af1390512d2d0acf466a829ed529667d2">GivenYMin</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantized-instance-norm/attrs.html#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs">Attrs</a></code>
+        </div>
+        <div><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in <code>y_min</code> if <code>output_range_given</code> is True. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a3be430b0cb05487cc71cd6d67ca2ad69">MinSeparation</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantized-instance-norm/attrs.html#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs">Attrs</a></code>
+        </div>
+        <div><a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/minimum.html#classtensorflow_1_1ops_1_1_minimum">Minimum</a> value of <code>y_max - y_min</code></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1ade171912aed133c1b54692cff79d10ad">OutputRangeGiven</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantized-instance-norm/attrs.html#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If True, <code>given_y_min</code> and <code>given_y_min</code> and <code>given_y_max</code> are used as the output range. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a5845c91fe53a5d2deea44efe824fddea">VarianceEpsilon</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantized-instance-norm/attrs.html#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A small float number to avoid dividing by 0. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a143f0f1661df75a9345104b53d2a23a1">
+    <h3>given_y_max_</h3>
+    <pre class="prettyprint">float tensorflow::ops::QuantizedInstanceNorm::Attrs::given_y_max_ = 0.0f</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a66a475c41d1d5351475d1b41f4c722b9">
+    <h3>given_y_min_</h3>
+    <pre class="prettyprint">float tensorflow::ops::QuantizedInstanceNorm::Attrs::given_y_min_ = 0.0f</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a02e61831bb492f7e82ab72cfdd164bcd">
+    <h3>min_separation_</h3>
+    <pre class="prettyprint">float tensorflow::ops::QuantizedInstanceNorm::Attrs::min_separation_ = 0.001f</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a90012c405dc0d5545b200b2a7ca74651">
+    <h3>output_range_given_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::QuantizedInstanceNorm::Attrs::output_range_given_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a3eb30df9c538c1316ba64edd59220592">
+    <h3>variance_epsilon_</h3>
+    <pre class="prettyprint">float tensorflow::ops::QuantizedInstanceNorm::Attrs::variance_epsilon_ = 1e-05f</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1ae1c25c3d98c6a1d1d53410f8e08c5c6a">
+    <h3>GivenYMax</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantized-instance-norm/attrs.html#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs">Attrs</a> tensorflow::ops::QuantizedInstanceNorm::Attrs::GivenYMax(
+  float x
+)</pre>
+    <div>
+      <p><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in <code>y_max</code> if <code>output_range_given</code> is True. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1af1390512d2d0acf466a829ed529667d2">
+    <h3>GivenYMin</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantized-instance-norm/attrs.html#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs">Attrs</a> tensorflow::ops::QuantizedInstanceNorm::Attrs::GivenYMin(
+  float x
+)</pre>
+    <div>
+      <p><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in <code>y_min</code> if <code>output_range_given</code> is True. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a3be430b0cb05487cc71cd6d67ca2ad69">
+    <h3>MinSeparation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantized-instance-norm/attrs.html#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs">Attrs</a> tensorflow::ops::QuantizedInstanceNorm::Attrs::MinSeparation(
+  float x
+)</pre>
+    <div>
+      <p><a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/minimum.html#classtensorflow_1_1ops_1_1_minimum">Minimum</a> value of <code>y_max - y_min</code></p>
+      <p>Defaults to 0.001 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1ade171912aed133c1b54692cff79d10ad">
+    <h3>OutputRangeGiven</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantized-instance-norm/attrs.html#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs">Attrs</a> tensorflow::ops::QuantizedInstanceNorm::Attrs::OutputRangeGiven(
+  bool x
+)</pre>
+    <div>
+      <p>If True, <code>given_y_min</code> and <code>given_y_min</code> and <code>given_y_max</code> are used as the output range. </p>
+      <p>Otherwise, the implementation computes the output range.</p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs_1a5845c91fe53a5d2deea44efe824fddea">
+    <h3>VarianceEpsilon</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/quantized-instance-norm/attrs.html#structtensorflow_1_1ops_1_1_quantized_instance_norm_1_1_attrs">Attrs</a> tensorflow::ops::QuantizedInstanceNorm::Attrs::VarianceEpsilon(
+  float x
+)</pre>
+    <div>
+      <p>A small float number to avoid dividing by 0. </p>
+      <p>Defaults to 1e-05 </p>
+    </div>
+  </div>
+</body>
+</html>

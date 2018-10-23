@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DecodeCSV Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DecodeCSV</h1>
+  <code>#include &lt;parsing_ops.h&gt;</code>
+  <p>Convert CSV records to tensors. </p>
+  <h2>Summary</h2>
+  <p>Each column maps to one tensor.</p>
+  <p>RFC 4180 format is expected for the CSV records. (<a href="https://tools.ietf.org/html/rfc4180">https://tools.ietf.org/html/rfc4180</a>) Note that we allow leading and trailing spaces with int or float field.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>records: Each string is a record/row in the csv and all records should have the same format.</li>
+      <li>record_defaults: One tensor per column of the input record, with either a scalar default value for that column or empty if the column is required.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>):<ul>
+      <li>field_delim: char delimiter to separate fields in a record.</li>
+      <li>use_quote_delim: If false, treats double quotation marks as regular characters inside of the string fields (ignoring RFC 4180, Section 2, Bullet 5).</li>
+      <li>na_value: Additional string to recognize as NA/NaN.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code>OutputList</code>: Each tensor will have the same shape as records. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_c_s_v_1abb564f0f8635299e4d247579c3573a82">DecodeCSV</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> records, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> record_defaults)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_c_s_v_1ae32db75a692e4afe6b70cc30598e4011">DecodeCSV</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> records, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> record_defaults, const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">DecodeCSV::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_c_s_v_1af13fac27cc90a9988b6f3130be188b14">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_c_s_v_1aba6179f5920348d20cc574fa0921ae82">operator[]</a>(size_t index) const </code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_c_s_v_1a783b3fcdf01d0b499e1a5f72a5b042a2">FieldDelim</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_c_s_v_1a357f7eec9a91b48588facfab257e46a5">NaValue</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_c_s_v_1aa67991c469762771d5aa77050b8808a3">UseQuoteDelim</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs">tensorflow::<wbr/>ops::<wbr/>DecodeCSV::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/decode-c-s-v.html#classtensorflow_1_1ops_1_1_decode_c_s_v">DecodeCSV</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_c_s_v_1af13fac27cc90a9988b6f3130be188b14">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_c_s_v_1abb564f0f8635299e4d247579c3573a82">
+    <h3>DecodeCSV</h3>
+    <pre class="prettyprint"> DecodeCSV(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> records,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> record_defaults
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_c_s_v_1ae32db75a692e4afe6b70cc30598e4011">
+    <h3>DecodeCSV</h3>
+    <pre class="prettyprint"> DecodeCSV(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> records,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> record_defaults,
+  const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">DecodeCSV::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_c_s_v_1aba6179f5920348d20cc574fa0921ae82">
+    <h3>operator[]</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](
+  size_t index
+) const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_c_s_v_1a783b3fcdf01d0b499e1a5f72a5b042a2">
+    <h3>FieldDelim</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> FieldDelim(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_c_s_v_1a357f7eec9a91b48588facfab257e46a5">
+    <h3>NaValue</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> NaValue(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_c_s_v_1aa67991c469762771d5aa77050b8808a3">
+    <h3>UseQuoteDelim</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> UseQuoteDelim(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

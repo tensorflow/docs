@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseAccumulatorApplyGradient Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseAccumulatorApplyGradient</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Applies a sparse gradient to a given accumulator. </p>
+  <h2>Summary</h2>
+  <p>Does not add if local_step is smaller than the accumulator's global_step.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to a accumulator.</li>
+      <li>local_step: The local_step value at which the sparse gradient was computed.</li>
+      <li>gradient_indices: Indices of the sparse gradient to be accumulated. Must be a vector.</li>
+      <li>gradient_values: Values are the non-zero slices of the gradient, and must have the same first dimension as indices, i.e., the nnz represented by indices and values must be consistent.</li>
+      <li>gradient_shape: <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of the sparse gradient to be accumulated.</li>
+      <li>has_known_shape: Boolean indicating whether gradient_shape is unknown, in which case the input is ignored during validation.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li>the created <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_accumulator_apply_gradient_1aea8779790821fa94116859fd1dd3b604">SparseAccumulatorApplyGradient</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> local_step, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> gradient_indices, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> gradient_values, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> gradient_shape, bool has_known_shape)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_accumulator_apply_gradient_1ae497952e7990fb56ce68d8add07c12c7">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_accumulator_apply_gradient_1a5ddfee38bced0cfafa1b427590f331ef">operator::tensorflow::Operation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_accumulator_apply_gradient_1ae497952e7990fb56ce68d8add07c12c7">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_accumulator_apply_gradient_1aea8779790821fa94116859fd1dd3b604">
+    <h3>SparseAccumulatorApplyGradient</h3>
+    <pre class="prettyprint"> SparseAccumulatorApplyGradient(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> local_step,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> gradient_indices,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> gradient_values,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> gradient_shape,
+  bool has_known_shape
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_accumulator_apply_gradient_1a5ddfee38bced0cfafa1b427590f331ef">
+    <h3>operator::tensorflow::Operation</h3>
+    <pre class="prettyprint"> operator::tensorflow::Operation() const </pre>
+    <div />
+  </div>
+</body>
+</html>

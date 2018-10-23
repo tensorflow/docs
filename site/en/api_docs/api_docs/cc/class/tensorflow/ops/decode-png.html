@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DecodePng Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DecodePng</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Decode a PNG-encoded image to a uint8 or uint16 tensor. </p>
+  <h2>Summary</h2>
+  <p>The attr <code>channels</code> indicates the desired number of color channels for the decoded image.</p>
+  <p>Accepted values are:</p>
+  <p>
+    <ul>
+      <li>0: Use the number of channels in the PNG-encoded image.</li>
+      <li>1: output a grayscale image.</li>
+      <li>3: output an RGB image.</li>
+      <li>4: output an RGBA image.</li>
+    </ul>
+  </p>
+  <p>If needed, the PNG-encoded image is transformed to match the requested number of color channels.</p>
+  <p>This op also supports decoding JPEGs and non-animated GIFs since the interface is the same, though it is cleaner to use <code>tf.image.decode_image</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>contents: 0-D. The PNG-encoded image.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-png/attrs.html#structtensorflow_1_1ops_1_1_decode_png_1_1_attrs">Attrs</a></code>):<ul>
+      <li>channels: Number of color channels for the decoded image.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 3-D with shape <code>[height, width, channels]</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_png_1ab7adeeb5aa6b10893fb6063ee8d6fc87">DecodePng</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_png_1aa2df55e8e1eed056df69f127ca4cba25">DecodePng</a>(const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents, const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-png/attrs.html#structtensorflow_1_1ops_1_1_decode_png_1_1_attrs">DecodePng::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_png_1a493e0f58c502e83895b5ab8df3ed277c">image</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_png_1adea6247b44969accb1513a6b237bd2d3">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_png_1a1449fe5081528b4cb081cb224ba20d96">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_png_1a19025343d7746c9091afcf01dbba03fd">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_png_1ac0322c095dfd2d11bca81c46b421847a">Channels</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-png/attrs.html#structtensorflow_1_1ops_1_1_decode_png_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_png_1a656dedb17c75247c916d54efef9fb4f6">Dtype</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-png/attrs.html#structtensorflow_1_1ops_1_1_decode_png_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-png/attrs">tensorflow::<wbr/>ops::<wbr/>DecodePng::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.4/api_docs/cc/class/tensorflow/ops/decode-png.html#classtensorflow_1_1ops_1_1_decode_png">DecodePng</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_png_1a493e0f58c502e83895b5ab8df3ed277c">
+    <h3>image</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> image</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_png_1ab7adeeb5aa6b10893fb6063ee8d6fc87">
+    <h3>DecodePng</h3>
+    <pre class="prettyprint"> DecodePng(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_png_1aa2df55e8e1eed056df69f127ca4cba25">
+    <h3>DecodePng</h3>
+    <pre class="prettyprint"> DecodePng(
+  const ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.4/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents,
+  const <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-png/attrs.html#structtensorflow_1_1ops_1_1_decode_png_1_1_attrs">DecodePng::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_png_1adea6247b44969accb1513a6b237bd2d3">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_png_1a1449fe5081528b4cb081cb224ba20d96">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_png_1a19025343d7746c9091afcf01dbba03fd">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_png_1ac0322c095dfd2d11bca81c46b421847a">
+    <h3>Channels</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-png/attrs.html#structtensorflow_1_1ops_1_1_decode_png_1_1_attrs">Attrs</a> Channels(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_png_1a656dedb17c75247c916d54efef9fb4f6">
+    <h3>Dtype</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/ops/decode-png/attrs.html#structtensorflow_1_1ops_1_1_decode_png_1_1_attrs">Attrs</a> Dtype(
+  DataType x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

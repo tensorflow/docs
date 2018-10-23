@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ClientSession Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.4/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ClientSession</h1>
+  <code>#include &lt;client_session.h&gt;</code>
+  <p>A <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session">ClientSession</a></code> object lets the caller drive the evaluation of the TensorFlow graph constructed with the C++ API. </p>
+  <h2>Summary</h2>
+  <p>Example: <pre class="prettyprint">Scope root = Scope::NewRootScope();
+auto a = Placeholder(root, DT_INT32);
+auto c = Add(root, a, {41});
+
+ClientSession session(root);
+std::vector<Tensor> outputs;
+
+Status s = session.Run({ {a, {1}} }, {c}, &outputs);
+if (!s.ok()) { ... }  </pre></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_client_session_1ac52798100986741ff24aba4a758d8e4d">ClientSession</a>(const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope, const string & target)</code>
+        <br />
+        <div>Create a new session to evaluate the graph contained in <code>scope</code> by connecting to the TensorFlow runtime specified by <code>target</code>. </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_client_session_1a791dce94ca627aec0c4318b125f60b6f">ClientSession</a>(const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope)</code>
+        <br />
+        <div>Same as above, but use the empty string ("") as the target specification. </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_client_session_1a997f25e1940f59e004d99be1ce8b1d6a">ClientSession</a>(const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope, const SessionOptions & session_options)</code>
+        <br />
+        <div>Create a new session, configuring it with <code>session_options</code>. </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_client_session_1a9372a82c049463a1197b002f8d08808d">~ClientSession</a>()</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public types</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a></code>
+      </td>
+      <td>typedef<div>
+          <code>std::unordered_map< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a>, <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Input::Initializer</a>, <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/output-hash.html#structtensorflow_1_1_output_hash">OutputHash</a> ></code>
+        </div><div>A data type to represent feeds to a Run call. </div></td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_client_session_1abba158c5343b74800d2d00b6ce75cf79">Run</a>(const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+        </div>
+        <div>Evaluate the tensors in <code>fetch_outputs</code>. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_client_session_1a69299ff76cb16b83467e93569870250a">Run</a>(const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs, const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+        </div>
+        <div>Same as above, but use the mapping in <code>inputs</code> as feeds. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_client_session_1a706a9b3dfde4aa64c7ca9e85ac666b1d">Run</a>(const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs, const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs, std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+        </div>
+        <div>Same as above. Additionally runs the operations ins <code>run_outputs</code>. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_client_session_1a46e06a478a61001923a545e0922038e2">Run</a>(const RunOptions & run_options, const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs, const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs, std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs, RunMetadata *run_metadata) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+        </div>
+        <div>Use <code>run_options</code> to turn on performance profiling. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public types</h2>
+  <div id="classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">
+    <h3>FeedType</h3>
+    <pre class="prettyprint">std::unordered_map< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a>, <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Input::Initializer</a>, <a href="/versions/r1.4/api_docs/cc/struct/tensorflow/output-hash.html#structtensorflow_1_1_output_hash">OutputHash</a> > FeedType</pre>
+    <div>
+      <p>A data type to represent feeds to a Run call. </p>
+      <p>This is a map of <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> objects returned by op-constructors to the value to feed them with. See <code><a href="/versions/r1.4/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Input::Initializer</a></code> for details on what can be used as feed values. </p>
+    </div>
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1_client_session_1ac52798100986741ff24aba4a758d8e4d">
+    <h3>ClientSession</h3>
+    <pre class="prettyprint"> ClientSession(
+  const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope,
+  const string & target
+)</pre>
+    <div>
+      <p>Create a new session to evaluate the graph contained in <code>scope</code> by connecting to the TensorFlow runtime specified by <code>target</code>. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_client_session_1a791dce94ca627aec0c4318b125f60b6f">
+    <h3>ClientSession</h3>
+    <pre class="prettyprint"> ClientSession(
+  const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope
+)</pre>
+    <div>
+      <p>Same as above, but use the empty string ("") as the target specification. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_client_session_1a997f25e1940f59e004d99be1ce8b1d6a">
+    <h3>ClientSession</h3>
+    <pre class="prettyprint"> ClientSession(
+  const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope,
+  const SessionOptions & session_options
+)</pre>
+    <div>
+      <p>Create a new session, configuring it with <code>session_options</code>. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_client_session_1abba158c5343b74800d2d00b6ce75cf79">
+    <h3>Run</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
+  const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
+  std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs
+) const </pre>
+    <div>
+      <p>Evaluate the tensors in <code>fetch_outputs</code>. </p>
+      <p>The values are returned as <code><a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> objects in <code>outputs</code>. The number and order of <code>outputs</code> will match <code>fetch_outputs</code>. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_client_session_1a69299ff76cb16b83467e93569870250a">
+    <h3>Run</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
+  const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs,
+  const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
+  std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs
+) const </pre>
+    <div>
+      <p>Same as above, but use the mapping in <code>inputs</code> as feeds. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_client_session_1a706a9b3dfde4aa64c7ca9e85ac666b1d">
+    <h3>Run</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
+  const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs,
+  const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
+  const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs,
+  std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs
+) const </pre>
+    <div>
+      <p>Same as above. Additionally runs the operations ins <code>run_outputs</code>. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_client_session_1a46e06a478a61001923a545e0922038e2">
+    <h3>Run</h3>
+    <pre class="prettyprint"><a href="/versions/r1.4/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
+  const RunOptions & run_options,
+  const <a href="/versions/r1.4/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs,
+  const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
+  const std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs,
+  std::vector< <a href="/versions/r1.4/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs,
+  RunMetadata *run_metadata
+) const </pre>
+    <div>
+      <p>Use <code>run_options</code> to turn on performance profiling. </p>
+      <p><code>run_metadata</code>, if not null, is filled in with the profiling results. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_client_session_1a9372a82c049463a1197b002f8d08808d">
+    <h3>~ClientSession</h3>
+    <pre class="prettyprint"> ~ClientSession()</pre>
+    <div />
+  </div>
+</body>
+</html>
