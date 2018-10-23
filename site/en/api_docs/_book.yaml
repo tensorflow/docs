@@ -1,0 +1,42 @@
+upper_tabs:
+- include: /_upper_tabs_left.yaml
+
+- name: API r1.8
+  path: /api_docs/python/tf
+  menu:
+  - include: /versions/_menu_toc.yaml
+  lower_tabs:
+    other:
+    - name: Python
+      contents:
+      - title: Python r1.8
+      - include: /versions/r1.8/api_docs/python/_toc.yaml
+      - title: All Symbols
+        path: /versions/r1.8/api_docs/python/
+      - title: Guides
+      - include: /versions/r1.8/api_guides/python/_toc.yaml
+
+    - name: JavaScript
+      contents:
+      - title: JavaScript
+        path: https://js.tensorflow.org/api/latest/
+
+    - name: C++
+      contents:
+      - title: C++
+        path: /versions/r1.8/api_docs/cc/
+      - include: /versions/r1.8/api_docs/cc/_doxygen.yaml
+      - title: Guides
+        path: /api_guides/cc/guide
+    - name: Java
+      contents:
+      - title: Java
+        path: /versions/r1.8/api_docs/java/reference/org/tensorflow/package-summary.html
+      - include: /versions/r1.8/api_docs/java/reference/_toc.yaml
+    - name: More…
+      contents:
+      - title: Overview
+        path: /versions/r1.8/api_docs/
+      - include: /versions/r1.8/api_docs/_more_toc.yaml
+
+- include: /ecosystem/_upper_tabs_ecosystem.yaml
