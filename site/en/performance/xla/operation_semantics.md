@@ -1156,25 +1156,25 @@ For a more intuitive description, see the "Informal Description" section below.
 |----------------- | ----------------------- | --------------------------------|
 |`operand`         | `XlaOp`                 | The array we’re gathering       |
 :                  :                         : from.                           :
-|`start_indices`   | `XlaOp`                 | Array containing the starting  |
+|`start_indices`   | `XlaOp`                 | Array containing the starting   |
 :                  :                         : indices of the slices we gather.:
 |`index_vector_dim` | `int64`                | The dimension in                |
 :                  :                         : `start_indices` that "contains" :
 :                  :                         : the starting indices.  See      :
 :                  :                         : below for a detailed            :
 :                  :                         : description.                    :
-|`offset_dims`     | `ArraySlice<int64>`     | The set of dimensions in  the   :
+|`offset_dims`     | `ArraySlice<int64>`     | The set of dimensions in  the   |
 :                  :                         : output shape that offset into a :
-:                  :                         : array sliced from operand.     :
+:                  :                         : array sliced from operand.      :
 |`slice_sizes`     | `ArraySlice<int64>`      | `slice_sizes[i]` is the bounds |
 :                  :                          : for the slice on dimension `i`.:
 |`collapsed_slice_dims` | `ArraySlice<int64>` | The set of dimensions in each  :
-|                  :                          | slice that are collapsed away. :
-|                  :                          | These dimensions must have size:
-|                  :                          | 1.                             |
+:                  :                          : slice that are collapsed away. :
+:                  :                          : These dimensions must have size:
+:                  :                          : 1.                             :
 |`start_index_map` | `ArraySlice<int64>`      | A map that describes how to map|
 :                  :                          : indices in `start_indices` to  :
-:                  :                          : to legal indices into operand. :
+:                  :                          : legal indices into operand.    :
 
 For convenience, we label dimensions in the output array not in `offset_dims`
 as `batch_dims`.
