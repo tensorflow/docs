@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::StridedSlice::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>StridedSlice::<wbr/>Attrs</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/strided-slice.html#classtensorflow_1_1ops_1_1_strided_slice">StridedSlice</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1a5035279e2d7d223aa5ab97d324c4d594">begin_mask_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1adaba8ddf6fbdd29988881457c47d53ed">ellipsis_mask_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1acdea91bbd29db41f908501f9fcf34d59">end_mask_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1a92415d237da7f607e68a55acccff6e59">new_axis_mask_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1a3594f4518ecdf9098df9d69b7d827f7c">shrink_axis_mask_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1a0541f2adc7c68a36ce87e48fce3837d0">BeginMask</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>a bitmask where a bit i being 1 means to ignore the begin value and instead use the largest interval possible. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1ab062c7bb8685b7522e8c2dcabac8f9ab">EllipsisMask</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>a bitmask where bit <code>i</code> being 1 means the <code>i</code>th position is actually an ellipsis. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1ae6bcc85ec9c26bac95ec84603f558e1a">EndMask</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>analogous to <code>begin_mask</code></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1ad758400f96fbd20f49e1ea6915847a60">NewAxisMask</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>a bitmask where bit <code>i</code> being 1 means the <code>i</code>th specification creates a new shape 1 dimension. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1a725701c71b52d810f9d018c9eed81645">ShrinkAxisMask</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>a bitmask where bit <code>i</code> implies that the <code>i</code>th specification should shrink the dimensionality. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1a5035279e2d7d223aa5ab97d324c4d594">
+    <h3>begin_mask_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::StridedSlice::Attrs::begin_mask_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1adaba8ddf6fbdd29988881457c47d53ed">
+    <h3>ellipsis_mask_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::StridedSlice::Attrs::ellipsis_mask_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1acdea91bbd29db41f908501f9fcf34d59">
+    <h3>end_mask_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::StridedSlice::Attrs::end_mask_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1a92415d237da7f607e68a55acccff6e59">
+    <h3>new_axis_mask_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::StridedSlice::Attrs::new_axis_mask_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1a3594f4518ecdf9098df9d69b7d827f7c">
+    <h3>shrink_axis_mask_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::StridedSlice::Attrs::shrink_axis_mask_ = 0</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1a0541f2adc7c68a36ce87e48fce3837d0">
+    <h3>BeginMask</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> tensorflow::ops::StridedSlice::Attrs::BeginMask(
+  int64 x
+)</pre>
+    <div>
+      <p>a bitmask where a bit i being 1 means to ignore the begin value and instead use the largest interval possible. </p>
+      <p>At runtime begin[i] will be replaced with <code>[0, n-1) if</code>stride[i] > 0<code>or </code>[-1, n-1]<code>if</code>stride[i] < 0`</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1ab062c7bb8685b7522e8c2dcabac8f9ab">
+    <h3>EllipsisMask</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> tensorflow::ops::StridedSlice::Attrs::EllipsisMask(
+  int64 x
+)</pre>
+    <div>
+      <p>a bitmask where bit <code>i</code> being 1 means the <code>i</code>th position is actually an ellipsis. </p>
+      <p>One bit at most can be 1. If <code>ellipsis_mask == 0</code>, then an implicit ellipsis mask of <code>1 << (m+1)</code> is provided. This means that <code>foo[3:5] == foo[3:5, ...]</code>. An ellipsis implicitly creates as many range specifications as necessary to fully specify the sliced range for every dimension. For example for a 4-dimensional tensor <code>foo</code> the slice <code>foo[2, ..., 5:8]</code> implies <code>foo[2, :, :, 5:8]</code>.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1ae6bcc85ec9c26bac95ec84603f558e1a">
+    <h3>EndMask</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> tensorflow::ops::StridedSlice::Attrs::EndMask(
+  int64 x
+)</pre>
+    <div>
+      <p>analogous to <code>begin_mask</code></p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1ad758400f96fbd20f49e1ea6915847a60">
+    <h3>NewAxisMask</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> tensorflow::ops::StridedSlice::Attrs::NewAxisMask(
+  int64 x
+)</pre>
+    <div>
+      <p>a bitmask where bit <code>i</code> being 1 means the <code>i</code>th specification creates a new shape 1 dimension. </p>
+      <p>For example <code>foo[:4, tf.newaxis, :2]</code> would produce a shape <code>(4, 1, 2)</code> tensor.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs_1a725701c71b52d810f9d018c9eed81645">
+    <h3>ShrinkAxisMask</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> tensorflow::ops::StridedSlice::Attrs::ShrinkAxisMask(
+  int64 x
+)</pre>
+    <div>
+      <p>a bitmask where bit <code>i</code> implies that the <code>i</code>th specification should shrink the dimensionality. </p>
+      <p>begin and end must imply a slice of size 1 in the dimension. For example in python one might do <code>foo[:, 3, :]</code> which would result in <code>shrink_axis_mask</code> being 2.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+</body>
+</html>

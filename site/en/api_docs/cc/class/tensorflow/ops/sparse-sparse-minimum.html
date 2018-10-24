@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseSparseMinimum Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseSparseMinimum</h1>
+  <code>#include &lt;sparse_ops.h&gt;</code>
+  <p>Returns the element-wise min of two SparseTensors. </p>
+  <h2>Summary</h2>
+  <p>Assumes the two SparseTensors have the same shape, i.e., no broadcasting.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>a_indices: 2-D. <code>N x R</code> matrix with the indices of non-empty values in a SparseTensor, in the canonical lexicographic ordering.</li>
+      <li>a_values: 1-D. <code>N</code> non-empty values corresponding to <code>a_indices</code>.</li>
+      <li>a_shape: 1-D. <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of the input SparseTensor.</li>
+      <li>b_indices: counterpart to <code>a_indices</code> for the other operand.</li>
+      <li>b_values: counterpart to <code>a_values</code> for the other operand; must be of the same dtype.</li>
+      <li>b_shape: counterpart to <code>a_shape</code> for the other operand; the two shapes must be equal.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_indices: 2-D. The indices of the output SparseTensor.</li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_values: 1-D. The values of the output SparseTensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_sparse_minimum_1a618817c1bf273d356c39d50665159337">SparseSparseMinimum</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_values, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_shape)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_sparse_minimum_1a7453ec5556b383b524e2f500ceb09bb4">output_indices</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_sparse_minimum_1a38a8cf1da768df6042ab605760ace807">output_values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_sparse_minimum_1a7453ec5556b383b524e2f500ceb09bb4">
+    <h3>output_indices</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_indices</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_sparse_minimum_1a38a8cf1da768df6042ab605760ace807">
+    <h3>output_values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_values</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_sparse_minimum_1a618817c1bf273d356c39d50665159337">
+    <h3>SparseSparseMinimum</h3>
+    <pre class="prettyprint"> SparseSparseMinimum(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_indices,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_values,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b_shape
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ResizeBilinear Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ResizeBilinear</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Resize <code>images</code> to <code>size</code> using bilinear interpolation. </p>
+  <h2>Summary</h2>
+  <p><a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> images can be of different types but output images are always float.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>images: 4-D with shape <code>[batch, height, width, channels]</code>.</li>
+      <li>size: = A 1-D int32 <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of 2 elements: <code>new_height, new_width</code>. The new size for the images.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-bilinear/attrs.html#structtensorflow_1_1ops_1_1_resize_bilinear_1_1_attrs">Attrs</a></code>):<ul>
+      <li>align_corners: If true, the centers of the 4 corner pixels of the input and output tensors are aligned, preserving the values at the corner pixels. Defaults to false.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with shape <code>[batch, new_height, new_width, channels]</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bilinear_1a981aa658a845a625503e7e42c2f0885c">ResizeBilinear</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bilinear_1ad887a5d2954f777b5528579f4c60589b">ResizeBilinear</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-bilinear/attrs.html#structtensorflow_1_1ops_1_1_resize_bilinear_1_1_attrs">ResizeBilinear::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bilinear_1a6487d7e2a3fd89b0ba594300ddd2e2d7">resized_images</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bilinear_1af9816ad8aa06bfbe416f9ada05a5367c">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bilinear_1a0f822a29ed600eb63bccc395b6540a83">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bilinear_1aafa3001b38c457833115ce0f523e3751">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_bilinear_1a16fe808dfb000fd2694d1fbe1b706437">AlignCorners</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-bilinear/attrs.html#structtensorflow_1_1ops_1_1_resize_bilinear_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-bilinear/attrs">tensorflow::<wbr/>ops::<wbr/>ResizeBilinear::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/resize-bilinear.html#classtensorflow_1_1ops_1_1_resize_bilinear">ResizeBilinear</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_resize_bilinear_1a6487d7e2a3fd89b0ba594300ddd2e2d7">
+    <h3>resized_images</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> resized_images</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_resize_bilinear_1a981aa658a845a625503e7e42c2f0885c">
+    <h3>ResizeBilinear</h3>
+    <pre class="prettyprint"> ResizeBilinear(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_bilinear_1ad887a5d2954f777b5528579f4c60589b">
+    <h3>ResizeBilinear</h3>
+    <pre class="prettyprint"> ResizeBilinear(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-bilinear/attrs.html#structtensorflow_1_1ops_1_1_resize_bilinear_1_1_attrs">ResizeBilinear::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_bilinear_1af9816ad8aa06bfbe416f9ada05a5367c">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_bilinear_1a0f822a29ed600eb63bccc395b6540a83">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_bilinear_1aafa3001b38c457833115ce0f523e3751">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_resize_bilinear_1a16fe808dfb000fd2694d1fbe1b706437">
+    <h3>AlignCorners</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/resize-bilinear/attrs.html#structtensorflow_1_1ops_1_1_resize_bilinear_1_1_attrs">Attrs</a> AlignCorners(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
