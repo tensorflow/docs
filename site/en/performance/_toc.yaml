@@ -16,5 +16,3 @@ toc:
 - title: Post-training quantization example
   path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/tutorials/post_training_quant.ipynb
   status: external
-
-- include: /performance/xla/_toc.yaml
