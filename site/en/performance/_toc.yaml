@@ -17,18 +17,4 @@ toc:
   path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/tutorials/post_training_quant.ipynb
   status: external
 
-- heading: XLA
-- title: XLA overview
-  path: /performance/xla/
-- title: Broadcasting semantics
-  path: /performance/xla/broadcasting
-- title: Developing a new backend for XLA
-  path: /performance/xla/developing_new_backend
-- title: Using JIT compilation
-  path: /performance/xla/jit
-- title: Operation semantics
-  path: /performance/xla/operation_semantics
-- title: Shapes and layout
-  path: /performance/xla/shapes
-- title: Using AOT compilation
-  path: /performance/xla/tfcompile
+- include: /performance/xla/_toc.yaml
