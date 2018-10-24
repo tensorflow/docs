@@ -14,15 +14,12 @@
 # ==============================================================================
 """Tests for documentation control decorators."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
+from absl.testing import absltest
 
-from tensorflow.python.platform import googletest
-from tensorflow.tools.docs import doc_controls
+from tensorflow_docs.api_generator import doc_controls
 
 
-class DocControlsTest(googletest.TestCase):
+class DocControlsTest(absltest.TestCase):
 
   def test_do_not_generate_docs(self):
 
@@ -215,6 +212,29 @@ class DocControlsTest(googletest.TestCase):
     self.assertTrue(
         doc_controls.should_skip_class_attr(Grand2Child, 'my_method'))
 
+  def test_skip_class_short_circuit(self):
+
+    class GrandParent(object):
+
+      def my_method(self):
+        pass
+
+    @doc_controls.do_not_generate_docs
+    class Parent(GrandParent):
+      pass
+
+    class Child(Parent):
+      pass
+
+    self.assertFalse(doc_controls.should_skip(Child))
+    self.assertTrue(doc_controls.should_skip(Parent))
+    self.assertFalse(doc_controls.should_skip(GrandParent))
+
+    self.assertFalse(
+        doc_controls.should_skip_class_attr(GrandParent, 'my_method'))
+    self.assertFalse(doc_controls.should_skip_class_attr(Parent, 'my_method'))
+    self.assertTrue(doc_controls.should_skip_class_attr(Child, 'my_method'))
+
 
 if __name__ == '__main__':
-  googletest.main()
+  absltest.main()

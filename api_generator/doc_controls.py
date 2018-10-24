@@ -251,6 +251,13 @@ def should_skip(obj):
   Returns:
     True if the object should be skipped
   """
+  if isinstance(obj, type):
+    # For classes, only skip if the attribute is set on _this_ class.
+    if _DO_NOT_DOC in obj.__dict__:
+      return True
+    else:
+      return False
+
   # Unwrap fget if the object is a property
   if isinstance(obj, property):
     obj = obj.fget
@@ -299,6 +306,10 @@ def should_skip_class_attr(cls, name):
 
   # for each parent class
   for parent in cls.__mro__[1:]:
+    # if the class should be skipped, don't doc this object.
+    if should_skip(parent):
+      return True
+
     obj = getattr(parent, name, None)
 
     if obj is None:

@@ -18,7 +18,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from tensorflow.tools.common import test_module2
+from tensorflow_docs.api_generator import test_module2
 
 
 class ModuleClass1(object):
@@ -28,4 +28,3 @@ class ModuleClass1(object):
 
   def __model_class1_method__(self):
     pass
-

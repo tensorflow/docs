@@ -18,10 +18,12 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from tensorflow.python.platform import googletest
-from tensorflow.tools.common import test_module1
-from tensorflow.tools.common import test_module2
-from tensorflow.tools.common import traverse
+from absl.testing import absltest
+
+from tensorflow_docs.api_generator import test_module1
+from tensorflow_docs.api_generator import test_module2
+
+from tensorflow_docs.api_generator import traverse
 
 
 class TestVisitor(object):
@@ -33,7 +35,7 @@ class TestVisitor(object):
     self.call_log += [(path, parent, children)]
 
 
-class TraverseTest(googletest.TestCase):
+class TraverseTest(absltest.TestCase):
 
   def test_cycle(self):
 
@@ -76,4 +78,4 @@ class TraverseTest(googletest.TestCase):
 
 
 if __name__ == '__main__':
-  googletest.main()
+  absltest.main()

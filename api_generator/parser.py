@@ -20,26 +20,27 @@ from __future__ import print_function
 
 import ast
 import collections
-import functools
+
 import itertools
 import json
 import os
 import re
+from absl import logging
 
 import astor
 import six
 
+from tensorflow_docs.api_generator import doc_controls
+from tensorflow_docs.api_generator import tf_inspect
+
 from google.protobuf.message import Message as ProtoMessage
-from tensorflow.python.platform import tf_logging as logging
-from tensorflow.python.util import tf_inspect
-from tensorflow.tools.docs import doc_controls
 
 
 def is_free_function(py_object, full_name, index):
   """Check if input is a free function (and not a class- or static method).
 
   Args:
-    py_object: The the object in question.
+    py_object: The object in question.
     full_name: The full name of the object, like `tf.module.symbol`.
     index: The {full_name:py_object} dictionary for the public API.
 
@@ -446,7 +447,7 @@ class ReferenceResolver(object):
   def _cc_link(self, string, link_text, unused_manual_link_text,
                relative_path_to_root):
     """Generate a link for a @{tensorflow::...} reference."""
-    # TODO(josh11b): Fix this hard-coding of paths.
+    # TODO(joshl): Fix this hard-coding of paths.
     if string == 'tensorflow::ClientSession':
       ret = 'class/tensorflow/client-session.md'
     elif string == 'tensorflow::Scope':
@@ -643,57 +644,6 @@ def _parse_md_docstring(py_object, relative_path_to_root, reference_resolver):
       docstring.split('\n')[0], docstring, function_details, compatibility)
 
 
-def _get_arg_spec(func):
-  """Extracts signature information from a function or functools.partial object.
-
-  For functions, uses `tf_inspect.getfullargspec`. For `functools.partial`
-  objects, corrects the signature of the underlying function to take into
-  account the removed arguments.
-
-  Args:
-    func: A function whose signature to extract.
-
-  Returns:
-    An `FullArgSpec` namedtuple `(args, varargs, varkw, defaults, etc.)`,
-    as returned by `tf_inspect.getfullargspec`.
-  """
-  # getfullargspec does not work for functools.partial objects directly.
-  if isinstance(func, functools.partial):
-    argspec = tf_inspect.getfullargspec(func.func)
-    # Remove the args from the original function that have been used up.
-    first_default_arg = (
-        len(argspec.args or []) - len(argspec.defaults or []))
-    partial_args = len(func.args)
-    argspec_args = []
-
-    if argspec.args:
-      argspec_args = list(argspec.args[partial_args:])
-
-    argspec_defaults = list(argspec.defaults or ())
-    if argspec.defaults and partial_args > first_default_arg:
-      argspec_defaults = list(argspec.defaults[partial_args-first_default_arg:])
-
-    first_default_arg = max(0, first_default_arg - partial_args)
-    for kwarg in (func.keywords or []):
-      if kwarg in (argspec.args or []):
-        i = argspec_args.index(kwarg)
-        argspec_args.pop(i)
-        if i >= first_default_arg:
-          argspec_defaults.pop(i-first_default_arg)
-        else:
-          first_default_arg -= 1
-    return tf_inspect.FullArgSpec(
-        args=argspec_args,
-        varargs=argspec.varargs,
-        varkw=argspec.varkw,
-        defaults=tuple(argspec_defaults),
-        kwonlyargs=[],
-        kwonlydefaults=None,
-        annotations={})
-  else:  # Regular function or method, getargspec will work fine.
-    return tf_inspect.getfullargspec(func)
-
-
 def _remove_first_line_indent(string):
   indent = len(re.match(r'^\s*', string).group(0))
   return '\n'.join([line[indent:] for line in string.split('\n')])
@@ -728,7 +678,7 @@ def _generate_signature(func, reverse_index):
 
   args_list = []
 
-  argspec = _get_arg_spec(func)
+  argspec = tf_inspect.getfullargspec(func)
   first_arg_with_default = (
       len(argspec.args or []) - len(argspec.defaults or []))
 
@@ -1448,7 +1398,7 @@ class ParserConfig(object):
   """Stores all indexes required to parse the docs."""
 
   def __init__(self, reference_resolver, duplicates, duplicate_of, tree, index,
-               reverse_index, guide_index, base_dir):
+               reverse_index, guide_index, base_dir, code_url_prefix):
     """Object with the common config for docs_for_object() calls.
 
     Args:
@@ -1468,6 +1418,7 @@ class ParserConfig(object):
 
       base_dir: A base path that is stripped from file locations written to the
         docs.
+      code_url_prefix: A Url to pre-pend to the links to file locations.
     """
     self.reference_resolver = reference_resolver
     self.duplicates = duplicates
@@ -1478,8 +1429,7 @@ class ParserConfig(object):
     self.guide_index = guide_index
     self.base_dir = base_dir
     self.defined_in_prefix = 'tensorflow/'
-    self.code_url_prefix = (
-        '/code/stable/tensorflow/')  # pylint: disable=line-too-long
+    self.code_url_prefix = code_url_prefix
 
   def py_name_to_object(self, full_name):
     """Return the Python object for a Python symbol name."""
@@ -1667,8 +1617,8 @@ def _get_defined_in(py_object, parser_config):
   # TODO(wicke): Only use decorators that support this in TF.
 
   try:
-    path = os.path.relpath(path=tf_inspect.getfile(py_object),
-                           start=parser_config.base_dir)
+    path = os.path.relpath(
+        path=tf_inspect.getfile(py_object), start=parser_config.base_dir)
   except TypeError:  # getfile throws TypeError if py_object is a builtin.
     return _PythonBuiltin()
 
