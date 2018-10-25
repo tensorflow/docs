@@ -13,3 +13,5 @@ toc:
   path: /extend/language_bindings
 - title: "A Tool Developer's Guide to TensorFlow Model Files"
   path: /extend/tool_developers/
+
+- include: /extend/xla/_toc.yaml
