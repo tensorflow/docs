@@ -7,12 +7,3 @@ toc:
   path: /performance/datasets_performance
 - title: Benchmarks
   path: /performance/benchmarks
-
-- heading: Model optimization toolkit
-- title: Model optimization methods
-  path: /performance/model_optimization
-- title: Post-training quantization
-  path: /performance/post_training_quantization
-- title: Post-training quantization example
-  path: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/lite/tutorials/post_training_quant.ipynb
-  status: external
