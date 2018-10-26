@@ -16,10 +16,6 @@ and highest throughput for inference.
 * For optimizing inference on GPUs, refer to
   [NVIDIA TensorRT™ integration with TensorFlow.](https://medium.com/tensorflow/speed-up-tensorflow-inference-on-gpus-with-tensorrt-13b49f3db3fa)
 
-Tensorflow Model Optimization Toolkit is a set of techniques for optimizing models
-for inference:
-
-* [Overview](../performance/model_optimization.md), which introduces 
-  the model optimization toolkit.
-* [Post-training quantization](../performance/post_training_quantization.md), describes
-  post training quantization.
+[TensorFlow Lite](../lite) has
+[optimization techniques](../lite/performance/best_practices) for mobile and
+embedded devices.
