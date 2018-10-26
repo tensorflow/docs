@@ -1,9 +1,0 @@
-toc:
-- title: Performance
-  path: /performance/
-- title: Performance guide
-  path: /performance/performance_guide
-- title: Input pipeline performance guide
-  path: /performance/datasets_performance
-- title: Benchmarks
-  path: /performance/benchmarks

@@ -1,4 +1,4 @@
-# Performance Guide
+# Performance Overview
 
 This guide contains a collection of best practices for optimizing TensorFlow
 code. The guide is divided into a few sections:

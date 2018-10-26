@@ -1,6 +1,7 @@
 toc:
 - title: "TensorFlow Guide"
   path: /guide/
+
 - heading: High Level APIs
 - title: "Keras"
   path: /guide/keras
@@ -10,6 +11,7 @@ toc:
   path: /guide/datasets
 - title: "Introduction to Estimators"
   path: /guide/estimators
+
 - heading: Estimators
 - title: "Premade Estimators"
   path: /guide/premade_estimators
@@ -21,11 +23,13 @@ toc:
   path: /guide/datasets_for_estimators
 - title: "Creating Custom Estimators"
   path: /guide/custom_estimators
+
 - heading: Accelerators
 - title: "Using GPUs"
   path: /guide/using_gpu
 - title: "Using TPUs"
   path: /guide/using_tpu
+
 - heading: Low Level APIs
 - title: "Introduction"
   path: /guide/low_level_intro
@@ -39,12 +43,15 @@ toc:
   path: /guide/saved_model
 - title: "Control flow"
   path: /guide/autograph
+
 - heading: ML Concepts
 - title: "Embeddings"
   path: /guide/embedding
+
 - heading: Debugging
 - title: "TensorFlow Debugger"
   path: /guide/debugger
+
 - heading: TensorBoard
 - title: "Visualizing Learning"
   path: /guide/summaries_and_tensorboard
@@ -52,6 +59,17 @@ toc:
   path: /guide/graph_viz
 - title: "Histograms"
   path: /guide/tensorboard_histograms
+
+- heading: Performance
+- title: Overview
+  path: /guide/performance/overview
+- title: Data input pipeline
+  path: /guide/performance/datasets
+- title: Models
+  path: /guide/performance/models
+- title: Benchmarks
+  path: /guide/performance/benchmarks
+
 - heading: Misc
 - title: "TensorFlow Version Compatibility"
   path: /guide/version_compat
