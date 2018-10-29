@@ -1,50 +1,32 @@
 # Performance
 
 Better TensorFlow performance comes out-of-the-box by using the high-level APIs.
-The subsections below detail the high-level APIs to use as well a few tips for
+The sections below detail the high-level APIs to use as well a few tips for
 debugging, a little history, and a few instances where manual tuning is
-beneficial.
-
-* [General best practices](#general-best-practices) covers which APIs to use
-  and information common across a variety of model types and hardware.
-* [Optimizing for GPU](#optimizing-for-gpu) details tips specifically relevant
-  to GPUs.
-* [Optimizing for CPU](#optimizing-for-cpu) details tips specifically relevant
-  to CPUs.
-
-
-## APIs
-
-The sections below cover best practices that are relevant to a variety of
-hardware and models. The best practices section is broken down into the
-following sections:
-
-* [Input pipeline optimizations](#input-pipeline-optimization)
-* [Common fused Ops](#common-fused-ops)
-* [RNN Performance](#rnn-performance)
-* [Building and installing from source](#building-and-installing-from-source)
+beneficial. It covers best practices that are relevant to a variety of hardware
+and models.
 
 ### Input pipeline
 
 The input pipeline extracts data from a location, transforms it, and loads it
-onto an accelerator for processing. As accelerators become faster it is
-imperative to have an input pipeline that keeps up with the demand. The
-`tf.data` API has been designed with flexibility, ease of use, and
-performance in mind. Details for using and maximizing performance with
-`tf.data API` are detailed in the [data input pipeline](datasets.md) guide.
+onto an accelerator for processing. As accelerators become faster, it is
+important that the input pipeline keeps up with the demand. The `tf.data` API is
+designed with flexibility, ease of use, and performance in mind. For using and
+maximizing performance with the `tf.data` API, see the
+[data input pipeline](datasets.md) guide.
 
 Reading large numbers of small files significantly impacts I/O performance.
 One approach to get maximum I/O throughput is to preprocess input data into
 larger (~100MB) `TFRecord` files. For smaller data sets (200MB-1GB), the best
 approach is often to load the entire data set into memory. The document
 [Downloading and converting to TFRecord format](https://github.com/tensorflow/models/tree/master/research/slim#downloading-and-converting-to-tfrecord-format)
-includes information and scripts for creating `TFRecord`s and this
+includes information and scripts for creating `TFRecord`s, and this
 [script](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10_estimator/generate_cifar10_tfrecords.py)
-converts the CIFAR-10 data set into `TFRecord`s.
+converts the CIFAR-10 dataset into `TFRecord`s.
 
 While feeding data using a `feed_dict` offers a high level of flexibility, in
-general `feed_dict` does not provide a scalable solution. Our recommendation is
-to avoid using `feed_dict` for all but trivial examples.
+general, `feed_dict` does not provide a scalable solution. Avoid using `feed_dict`
+for all but trivial examples.
 
 ```python
 # feed_dict often results in suboptimal performance.
@@ -90,11 +72,11 @@ For all of the less common cell types like `tf.contrib.rnn.NASCell`,
 `tf.contrib.rnn.PhasedLSTMCell`, `tf.contrib.rnn.UGRNNCell`,
 `tf.contrib.rnn.GLSTMCell`, `tf.contrib.rnn.Conv1DLSTMCell`,
 `tf.contrib.rnn.Conv2DLSTMCell`, `tf.contrib.rnn.LayerNormBasicLSTMCell`,
-etc., one should be aware that they are implemented in the graph like
-`tf.contrib.rnn.BasicLSTMCell` and as such will suffer from the same poor
-performance and high memory usage. One should consider whether or not those
+etc., be aware that they are implemented in the graph like
+`tf.contrib.rnn.BasicLSTMCell` and will suffer from the same poor
+performance and high memory usage. Consider whether or not those
 trade-offs are worth it before using these cells. For example, while layer
-normalization can speed up convergence, because cuDNN is 20x faster the fastest
+normalization can speed up convergence, because cuDNN is 20x faster, the fastest
 wall clock time to convergence is usually obtained without it.
 
 
@@ -109,9 +91,9 @@ instructions supported by the target CPU.
 Beyond using the latest instruction sets, Intel® has added support for the
 Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) to
 TensorFlow. While the name is not completely accurate, these optimizations are
-often simply referred to as 'MKL' or 'TensorFlow with MKL'.
+often simply referred to as *MKL* or *TensorFlow with MKL*.
 [TensorFlow with Intel® MKL-DNN](#tensorflow-with-intel-mkl-dnn) contains details
-on the MKL optimizations.
+about the MKL optimizations.
 
 The two configurations listed below are used to optimize CPU performance by
 adjusting the thread pools.
@@ -120,7 +102,7 @@ adjusting the thread pools.
   parallelize their execution will schedule the individual pieces into this pool.
 * `inter_op_parallelism_threads`: All ready nodes are scheduled in this pool.
 
-These configurations are set via the `tf.ConfigProto` and passed to `tf.Session`
+These configurations are set using the `tf.ConfigProto` and passed to `tf.Session`
 in the `config` attribute as shown in the snippet below. For both configuration
 options, if they are unset or set to 0, will default to the number of logical
 CPU cores. Testing has shown that the default is effective for systems ranging
@@ -280,7 +262,7 @@ bazel build -c opt --copt=-march="broadwell" --config=cuda //tensorflow/tools/pi
   [compute capabilities](http://developer.nvidia.com/cuda-gpus)
   of the GPUs that will be used, e.g. P100: 6.0, Titan X (Pascal): 6.1,
   Titan X (Maxwell): 5.2, and K80: 3.7.
-* Use a version of gcc that supports all of the optimizations of the target
+* Use a version of `gcc` that supports all of the optimizations of the target
   CPU. The recommended minimum gcc version is 4.8.3. On OS X, upgrade to the
   latest Xcode version and use the version of clang that comes with Xcode.
 * Install the latest stable CUDA platform and cuDNN libraries supported by
@@ -291,7 +273,7 @@ bazel build -c opt --copt=-march="broadwell" --config=cuda //tensorflow/tools/pi
 
 ### Data formats
 
-Data formats refers to the structure of the Tensor passed to a given Op. The
+Data formats refers to the structure of the Tensor passed to a given *op*. The
 discussion below is specifically about 4D Tensors representing images. In
 TensorFlow the parts of the 4D tensor are often referred to by the following
 letters:
@@ -321,7 +303,7 @@ CPU when using `NCHW`.
 The brief history of these two formats is that TensorFlow started by using
 `NHWC` because it was a little faster on CPUs. In the long term, we are working
 on tools to auto rewrite graphs to make switching between the formats
-transparent and take advantages of micro optimizations where a GPU Op may be
+transparent and take advantages of micro optimizations where a GPU op may be
 faster using `NHWC` than the normally most efficient `NCHW`.
 
 
