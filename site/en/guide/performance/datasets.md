@@ -1,4 +1,4 @@
-# Input Pipeline Performance Guide
+# Data Input Pipeline Performance
 
 GPUs and TPUs can radically reduce the time required to execute a single
 training step. Achieving peak performance requires an efficient input pipeline

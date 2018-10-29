@@ -73,6 +73,21 @@ The following guides explain how to use TensorBoard:
   * [TensorBoard Histogram Dashboard](../guide/tensorboard_histograms.md) which demonstrates the how to
     use TensorBoard's histogram dashboard.
 
+## Performance
+
+Performance is an important consideration when training machine learning models.
+Performance speeds up and scales research while also providing end users with
+near instant predictions.
+
+* [Performance overview](./performance/overview.md) contains a collection of best
+  practices for optimizing your TensorFlow code.
+* [Data input pipeline](./performance/datasets.md) describes the `tf.data` API
+  for building efficient data input pipelines for TensorFlow.
+* [Benchmarks](./performance/benchmarks.md) contain a collection of benchmark
+  results for a variety of hardware configurations.
+
+Additionally, [TensorFlow Lite](../lite) has [optimization techniques](../lite/performance/best_practices)
+for mobile and embedded devices.
 
 ## Misc
 
