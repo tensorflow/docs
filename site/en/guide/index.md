@@ -83,8 +83,6 @@ near instant predictions.
   practices for optimizing your TensorFlow code.
 * [Data input pipeline](./performance/datasets.md) describes the `tf.data` API
   for building efficient data input pipelines for TensorFlow.
-* [High-performance models](./performance/models.md) shows how to build highly
-  scalable models that target a variety of systems and network topologies.
 * [Benchmarks](./performance/benchmarks.md) contain a collection of benchmark
   results for a variety of hardware configurations.
 

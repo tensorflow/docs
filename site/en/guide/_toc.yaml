@@ -65,8 +65,6 @@ toc:
   path: /guide/performance/overview
 - title: Data input pipeline
   path: /guide/performance/datasets
-- title: Models
-  path: /guide/performance/models
 - title: Benchmarks
   path: /guide/performance/benchmarks
 
