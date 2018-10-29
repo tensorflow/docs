@@ -1,8 +1,6 @@
-# Upper tab dropdown menu used in TFX sub-site.
-
 upper_tabs:
 - include: /_upper_tabs_left.yaml
-- include: /versions/_upper_tabs_versions.yaml
+- include: /api_docs/_upper_tabs_api.yaml
 
 - name: Ecosystem
   path: /ecosystem

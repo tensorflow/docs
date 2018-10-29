@@ -4,7 +4,7 @@ upper_tabs:
 - name: API {VERSION}
   path: /api_docs/python/tf
   menu:
-  - include: /versions/_menu_toc.yaml
+  - include: /api_docs/_menu_toc.yaml
   lower_tabs:
     other:
     - name: Python
@@ -32,11 +32,48 @@ upper_tabs:
       - title: Java
         path: {VERSION_ROOT}/api_docs/java/reference/org/tensorflow/package-summary.html
       - include: {VERSION_ROOT}/api_docs/java/reference/_toc.yaml
-      
+
     - name: More…
       contents:
       - title: Overview
         path: {VERSION_ROOT}/api_docs/
-      - include: {VERSION_ROOT}/api_docs/_more_toc.yaml
+
+      - heading: Implementations
+      - title: "TensorFlow.js"
+        path: https://js.tensorflow.org/api/latest/
+      - title: Swift
+        path: /swift/api_docs/
+      - title: "Go"
+        path: https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go
+        status: external
+      - title: "Haskell"
+        path: https://github.com/tensorflow/haskell
+        status: external
+      - title: Community Supported
+        section:
+        - title: "C#"
+          path: htps://github.com/migueldeicaza/TensorFlowSharp
+        - title: "Julia"
+          path: https://github.com/malmaud/TensorFlow.jl
+          status: external
+        - title: "Ruby"
+          path: https://github.com/somaticio/tensorflow.rb
+          status: external
+        - title: "Rust"
+          path: https://github.com/tensorflow/rust
+          status: external
+        - title: "Scala"
+          path: https://github.com/eaplatanios/tensorflow_scala
+          status: external
+
+      - heading: Ecosystem
+      - title: Hub
+        path: /hub/api_docs/python/hub
+      - title: Probability
+        path: /probability/api_docs/python/tfp
+      - title: Serving
+        path: /serving/api_docs/cc
+      - title: TFX
+        path: /tfx/api_docs/
 
 - include: /ecosystem/_upper_tabs_ecosystem.yaml
