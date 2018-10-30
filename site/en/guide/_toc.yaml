@@ -70,17 +70,17 @@ toc:
 
 - heading: Extend
 - title: TensorFlow architecture
-  path: /guide/extend/architecture.md
+  path: /guide/extend/architecture
 - title: Create an op
-  path: /guide/extend/op.md
+  path: /guide/extend/op
 - title: Custom filesystem plugin
-  path: /guide/extend/filesystem.md
+  path: /guide/extend/filesystem
 - title: Custom file and record formats
-  path: /guide/extend/formats.md
+  path: /guide/extend/formats
 - title: Language bindings
-  path: /guide/extend/bindings.md
+  path: /guide/extend/bindings
 - title: Model files
-  path: /guide/extend/model_files.md
+  path: /guide/extend/model_files
 
 - heading: Misc
 - title: "TensorFlow Version Compatibility"

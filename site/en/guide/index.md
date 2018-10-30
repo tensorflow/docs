@@ -97,7 +97,7 @@ capabilities.
 * [TensorFlow architecture](./extend/architecture.md) presents an architectural
   overview.
 * [Create an op](./extend/op.md), which explains how to create your own operations.
-* [Custom filesystem plugin](./extend/filesystems.md), which explains how to add
+* [Custom filesystem plugin](./extend/filesystem.md), which explains how to add
   support for your own shared or distributed filesystem.
 * [Custom file and record formats](./extend/formats.md), which details how to add
   support for your own file and record formats.
@@ -107,8 +107,8 @@ capabilities.
 * [Model files](./extend/model_files.md), for creating tools compatible with
   TensorFlow's model format.
 
-*Accelerated Linear Algebra* (XLA) is an experimental compiler for linear algebra
-that optimizes TensorFlow computations. For details, see the [XLA guides](../xla).
+[XLA (Accelerated Linear Algebra)](../xla) is an experimental compiler for linear
+algebra that optimizes TensorFlow computations.
 
 ## Misc
 
