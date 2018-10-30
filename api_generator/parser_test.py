@@ -21,12 +21,13 @@ from __future__ import print_function
 import collections
 import functools
 import os
-import sys
+import tempfile
 
-from tensorflow.python.platform import googletest
-from tensorflow.python.util import tf_inspect
-from tensorflow.tools.docs import doc_controls
-from tensorflow.tools.docs import parser
+from absl.testing import absltest
+
+from tensorflow_docs.api_generator import doc_controls
+from tensorflow_docs.api_generator import parser
+from tensorflow_docs.api_generator import tf_inspect
 
 # The test needs a real module. `types.ModuleType()` doesn't work, as the result
 # is a `builtin` module. Using "parser" here is arbitraty. The tests don't
@@ -85,7 +86,7 @@ class DummyVisitor(object):
     self.duplicate_of = duplicate_of
 
 
-class ParserTest(googletest.TestCase):
+class ParserTest(absltest.TestCase):
 
   def test_documentation_path(self):
     self.assertEqual('test.md', parser.documentation_path('test'))
@@ -173,7 +174,8 @@ class ParserTest(googletest.TestCase):
         index=index,
         reverse_index={},
         guide_index={},
-        base_dir='/')
+        base_dir='/',
+        code_url_prefix='/')
 
     page_info = parser.docs_for_object(
         full_name='TestClass', py_object=TestClass, parser_config=parser_config)
@@ -225,7 +227,8 @@ class ParserTest(googletest.TestCase):
         index=index,
         reverse_index={},
         guide_index={},
-        base_dir='/')
+        base_dir='/',
+        code_url_prefix='/')
 
     page_info = parser.docs_for_object(
         full_name='namedtupleclass',
@@ -276,7 +279,8 @@ class ParserTest(googletest.TestCase):
         index=index,
         reverse_index={},
         guide_index={},
-        base_dir='/')
+        base_dir='/',
+        code_url_prefix='/')
 
     page_info = parser.docs_for_object(
         full_name='Child', py_object=Child, parser_config=parser_config)
@@ -329,7 +333,8 @@ class ParserTest(googletest.TestCase):
         index=index,
         reverse_index={},
         guide_index={},
-        base_dir='/')
+        base_dir='/',
+        code_url_prefix='/')
 
     page_info = parser.docs_for_object(
         full_name='ChildMessage',
@@ -369,7 +374,8 @@ class ParserTest(googletest.TestCase):
         index=index,
         reverse_index={},
         guide_index={},
-        base_dir='/')
+        base_dir='/',
+        code_url_prefix='/')
 
     page_info = parser.docs_for_object(
         full_name='TestModule',
@@ -412,7 +418,8 @@ class ParserTest(googletest.TestCase):
         index=index,
         reverse_index={},
         guide_index={},
-        base_dir='/')
+        base_dir='/',
+        code_url_prefix='/')
 
     page_info = parser.docs_for_object(
         full_name='test_function',
@@ -451,7 +458,8 @@ class ParserTest(googletest.TestCase):
         index=index,
         reverse_index={},
         guide_index={},
-        base_dir='/')
+        base_dir='/',
+        code_url_prefix='/')
 
     page_info = parser.docs_for_object(
         full_name='test_function_with_args_kwargs',
@@ -568,9 +576,6 @@ class ParserTest(googletest.TestCase):
     # pylint: disable=unused-argument
     def test_function_for_partial1(arg1, arg2, kwarg1=1, kwarg2=2):
       pass
-
-    def test_function_for_partial2(arg1, arg2, *my_args, **my_kwargs):
-      pass
     # pylint: enable=unused-argument
 
     # pylint: disable=protected-access
@@ -583,7 +588,8 @@ class ParserTest(googletest.TestCase):
         kwonlyargs=[],
         kwonlydefaults=None,
         annotations={})
-    self.assertEqual(expected, parser._get_arg_spec(test_function_for_partial1))
+    self.assertEqual(expected,
+                     tf_inspect.getfullargspec(test_function_for_partial1))
 
     # Make sure doing nothing works.
     expected = tf_inspect.FullArgSpec(
@@ -595,7 +601,7 @@ class ParserTest(googletest.TestCase):
         kwonlydefaults=None,
         annotations={})
     partial = functools.partial(test_function_for_partial1)
-    self.assertEqual(expected, parser._get_arg_spec(partial))
+    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
 
     # Make sure setting args from the front works.
     expected = tf_inspect.FullArgSpec(
@@ -607,7 +613,7 @@ class ParserTest(googletest.TestCase):
         kwonlydefaults=None,
         annotations={})
     partial = functools.partial(test_function_for_partial1, 1)
-    self.assertEqual(expected, parser._get_arg_spec(partial))
+    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
 
     expected = tf_inspect.FullArgSpec(
         args=['kwarg2'],
@@ -618,56 +624,98 @@ class ParserTest(googletest.TestCase):
         kwonlydefaults=None,
         annotations={})
     partial = functools.partial(test_function_for_partial1, 1, 2, 3)
-    self.assertEqual(expected, parser._get_arg_spec(partial))
+    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
 
     # Make sure setting kwargs works.
     expected = tf_inspect.FullArgSpec(
-        args=['arg1', 'arg2', 'kwarg2'],
+        args=['arg1', 'arg2'],
         varargs=None,
         varkw=None,
-        defaults=(2,),
-        kwonlyargs=[],
-        kwonlydefaults=None,
+        defaults=None,
+        kwonlyargs=['kwarg1', 'kwarg2'],
+        kwonlydefaults={
+            'kwarg1': 0,
+            'kwarg2': 2
+        },
         annotations={})
     partial = functools.partial(test_function_for_partial1, kwarg1=0)
-    self.assertEqual(expected, parser._get_arg_spec(partial))
+    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
 
     expected = tf_inspect.FullArgSpec(
         args=['arg1', 'arg2', 'kwarg1'],
         varargs=None,
         varkw=None,
         defaults=(1,),
-        kwonlyargs=[],
-        kwonlydefaults=None,
+        kwonlyargs=['kwarg2'],
+        kwonlydefaults={'kwarg2': 0},
         annotations={})
     partial = functools.partial(test_function_for_partial1, kwarg2=0)
-    self.assertEqual(expected, parser._get_arg_spec(partial))
+    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
 
     expected = tf_inspect.FullArgSpec(
         args=['arg1'],
         varargs=None,
         varkw=None,
-        defaults=(),
-        kwonlyargs=[],
-        kwonlydefaults=None,
+        defaults=None,
+        kwonlyargs=['arg2', 'kwarg1', 'kwarg2'],
+        kwonlydefaults={
+            'arg2': 0,
+            'kwarg1': 0,
+            'kwarg2': 0
+        },
         annotations={})
     partial = functools.partial(test_function_for_partial1,
                                 arg2=0, kwarg1=0, kwarg2=0)
-    self.assertEqual(expected, parser._get_arg_spec(partial))
+    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
+
+  def test_argspec_for_functools_partial_starargs(self):
+    # pylint: disable=unused-argument
+    def test_function_for_partial2(arg1, arg2, *my_args, **my_kwargs):
+      pass
+    # pylint: enable=unused-argument
+    # Make sure *args, *kwargs is accounted for.
+    expected = tf_inspect.FullArgSpec(
+        args=[],
+        varargs='my_args',
+        varkw='my_kwargs',
+        defaults=None,
+        kwonlyargs=[],
+        kwonlydefaults=None,
+        annotations={})
+    partial = functools.partial(test_function_for_partial2, 0, 1)
+    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
 
     # Make sure *args, *kwargs is accounted for.
     expected = tf_inspect.FullArgSpec(
         args=[],
         varargs='my_args',
         varkw='my_kwargs',
-        defaults=(),
+        defaults=None,
         kwonlyargs=[],
         kwonlydefaults=None,
         annotations={})
-    partial = functools.partial(test_function_for_partial2, 0, 1)
-    self.assertEqual(expected, parser._get_arg_spec(partial))
+    partial = functools.partial(test_function_for_partial2, 0, 1, 2, 3, 4, 5)
+    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
 
-    # pylint: enable=protected-access
+    # Make sure *args, *kwargs is accounted for.
+    expected = tf_inspect.FullArgSpec(
+        args=['arg1', 'arg2'],
+        varargs='my_args',
+        varkw='my_kwargs',
+        defaults=None,
+        kwonlyargs=[],
+        kwonlydefaults=None,
+        annotations={})
+    partial = functools.partial(test_function_for_partial2, a=1, b=2, c=3)
+    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
+
+
+class TestReferenceResolver(absltest.TestCase):
+  _BASE_DIR = tempfile.mkdtemp()
+
+  def setUp(self):
+    self.workdir = os.path.join(self._BASE_DIR, self.id())
+    os.makedirs(self.workdir)
 
   def testSaveReferenceResolver(self):
     you_cant_serialize_this = object()
@@ -687,7 +735,7 @@ class ParserTest(googletest.TestCase):
     resolver = parser.ReferenceResolver(duplicate_of, doc_index, is_fragment,
                                         py_module_names)
 
-    outdir = googletest.GetTempDir()
+    outdir = self.workdir
 
     filepath = os.path.join(outdir, 'resolver.json')
 
@@ -727,7 +775,7 @@ Returns:
 """
 
 
-class TestParseFunctionDetails(googletest.TestCase):
+class TestParseFunctionDetails(absltest.TestCase):
 
   def test_parse_function_details(self):
     docstring, function_details = parser._parse_function_details(RELU_DOC)
@@ -753,7 +801,7 @@ class TestParseFunctionDetails(googletest.TestCase):
         docstring + ''.join(str(detail) for detail in function_details))
 
 
-class TestGenerateSignature(googletest.TestCase):
+class TestGenerateSignature(absltest.TestCase):
 
   def test_known_object(self):
     known_object = object()
@@ -766,10 +814,6 @@ class TestGenerateSignature(googletest.TestCase):
     self.assertEqual(sig, ['arg=location.of.object.in.api'])
 
   def test_literals(self):
-    if sys.version_info >= (3, 0):
-      print('Warning: Doc generation is not supported from python3.')
-      return
-
     def example_fun(a=5, b=5.0, c=None, d=True, e='hello', f=(1, (2, 3))):  # pylint: disable=g-bad-name, unused-argument
       pass
 
@@ -778,11 +822,8 @@ class TestGenerateSignature(googletest.TestCase):
         sig, ['a=5', 'b=5.0', 'c=None', 'd=True', "e='hello'", 'f=(1, (2, 3))'])
 
   def test_dotted_name(self):
-    if sys.version_info >= (3, 0):
-      print('Warning: Doc generation is not supported from python3.')
-      return
-
     # pylint: disable=g-bad-name
+
     class a(object):
 
       class b(object):
@@ -804,4 +845,4 @@ class TestGenerateSignature(googletest.TestCase):
     self.assertEqual(sig, ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', "arg3=e['f']"])
 
 if __name__ == '__main__':
-  googletest.main()
+  absltest.main()

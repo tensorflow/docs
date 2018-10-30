@@ -20,8 +20,7 @@ from __future__ import print_function
 
 import six
 
-from tensorflow.python.util import tf_export
-from tensorflow.python.util import tf_inspect
+from tensorflow_docs.api_generator import tf_inspect
 
 
 class DocGeneratorVisitor(object):
@@ -260,15 +259,9 @@ class DocGeneratorVisitor(object):
     duplicates = {}
     for names in raw_duplicates.values():
       names = sorted(names)
-      master_name = (
-          tf_export.get_canonical_name_for_symbol(self._index[names[0]])
-          if names else None)
-      if master_name:
-        master_name = 'tf.%s' % master_name
-      else:
-        # Choose the master name with a lexical sort on the tuples returned by
-        # by _score_name.
-        master_name = min(names, key=self._score_name)
+      # Choose the master name with a lexical sort on the tuples returned by
+      # by _score_name.
+      master_name = min(names, key=self._score_name)
 
       duplicates[master_name] = names
       for name in names:

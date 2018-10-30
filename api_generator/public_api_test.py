@@ -18,11 +18,11 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from tensorflow.python.platform import googletest
-from tensorflow.tools.common import public_api
+from absl.testing import absltest
+from tensorflow_docs.api_generator import public_api
 
 
-class PublicApiTest(googletest.TestCase):
+class PublicApiTest(absltest.TestCase):
 
   class TestVisitor(object):
 
@@ -65,4 +65,4 @@ class PublicApiTest(googletest.TestCase):
 
 
 if __name__ == '__main__':
-  googletest.main()
+  absltest.main()

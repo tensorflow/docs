@@ -23,17 +23,16 @@ import fnmatch
 import os
 import shutil
 import tempfile
-
 import six
 
-from tensorflow.python.util import tf_inspect
-from tensorflow.tools.common import public_api
-from tensorflow.tools.common import traverse
-from tensorflow.tools.docs import doc_controls
-from tensorflow.tools.docs import doc_generator_visitor
-from tensorflow.tools.docs import parser
-from tensorflow.tools.docs import pretty_docs
-from tensorflow.tools.docs import py_guide_parser
+from tensorflow_docs.api_generator import doc_controls
+from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import parser
+from tensorflow_docs.api_generator import pretty_docs
+from tensorflow_docs.api_generator import public_api
+from tensorflow_docs.api_generator import py_guide_parser
+from tensorflow_docs.api_generator import tf_inspect
+from tensorflow_docs.api_generator import traverse
 
 
 def write_docs(output_dir,
@@ -222,61 +221,6 @@ def add_dict_to_dict(add_from, add_to):
       add_to[key].extend(add_from[key])
     else:
       add_to[key] = add_from[key]
-
-
-# Exclude some libraries in contrib from the documentation altogether.
-def _get_default_private_map():
-  return {
-      'tf.contrib.autograph': ['utils', 'operators'],
-      'tf.test': ['mock'],
-      'tf.compat': ['v1', 'v2'],
-  }
-
-
-# Exclude members of some libraries.
-def _get_default_do_not_descend_map():
-  # TODO(markdaoust): Use docs_controls decorators, locally, instead.
-  return {
-      'tf': ['cli', 'lib', 'wrappers'],
-      'tf.contrib': [
-          'compiler',
-          'grid_rnn',
-          # Block contrib.keras to de-clutter the docs
-          'keras',
-          'labeled_tensor',
-          'quantization',
-          'session_bundle',
-          'slim',
-          'solvers',
-          'specs',
-          'tensor_forest',
-          'tensorboard',
-          'testing',
-          'tfprof',
-      ],
-      'tf.contrib.bayesflow': [
-          'special_math', 'stochastic_gradient_estimators',
-          'stochastic_variables'
-      ],
-      'tf.contrib.ffmpeg': ['ffmpeg_ops'],
-      'tf.contrib.graph_editor': [
-          'edit', 'match', 'reroute', 'subgraph', 'transform', 'select', 'util'
-      ],
-      'tf.contrib.keras': ['api', 'python'],
-      'tf.contrib.layers': ['feature_column', 'summaries'],
-      'tf.contrib.learn': [
-          'datasets',
-          'head',
-          'graph_actions',
-          'io',
-          'models',
-          'monitors',
-          'ops',
-          'preprocessing',
-          'utils',
-      ],
-      'tf.contrib.util': ['loader'],
-  }
 
 
 class DocControlsAwareCrawler(public_api.PublicAPIVisitor):
@@ -518,11 +462,11 @@ def replace_refs(src_dir,
 class DocGenerator(object):
   """Main entry point for generating docs."""
 
-  def __init__(self):
+  def __init__(self, default_base_dir):
     self.argument_parser = argparse.ArgumentParser()
     self._py_modules = None
-    self._private_map = _get_default_private_map()
-    self._do_not_descend_map = _get_default_do_not_descend_map()
+    self._private_map = {}
+    self._do_not_descend_map = {}
     self.yaml_toc = True
 
     self.argument_parser.add_argument(
@@ -544,7 +488,6 @@ class DocGenerator(object):
         help='Path to store a json-serialized api-index, so links can be '
         'inserted into docs without rebuilding the api_docs')
 
-  def add_output_dir_argument(self):
     self.argument_parser.add_argument(
         '--output_dir',
         type=str,
@@ -552,7 +495,6 @@ class DocGenerator(object):
         required=True,
         help='Directory to write docs to.')
 
-  def add_src_dir_argument(self):
     self.argument_parser.add_argument(
         '--src_dir',
         type=str,
@@ -560,7 +502,6 @@ class DocGenerator(object):
         required=False,
         help='Optional directory of source docs to add api_docs links to')
 
-  def add_base_dir_argument(self, default_base_dir):
     self.argument_parser.add_argument(
         '--base_dir',
         type=str,
@@ -570,12 +511,6 @@ class DocGenerator(object):
   def parse_known_args(self):
     flags, _ = self.argument_parser.parse_known_args()
     return flags
-
-  def add_to_private_map(self, d):
-    add_dict_to_dict(d, self._private_map)
-
-  def add_to_do_not_descend_map(self, d):
-    add_dict_to_dict(d, self._do_not_descend_map)
 
   def set_private_map(self, d):
     self._private_map = d

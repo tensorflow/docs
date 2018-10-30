@@ -20,10 +20,15 @@ from __future__ import print_function
 
 import os
 import sys
+import tempfile
 
-from tensorflow.python.platform import googletest
-from tensorflow.tools.docs import generate_lib
-from tensorflow.tools.docs import parser
+from absl import flags
+from absl.testing import absltest
+
+from tensorflow_docs.api_generator import generate_lib
+from tensorflow_docs.api_generator import parser
+
+FLAGS = flags.FLAGS
 
 
 def test_function():
@@ -49,7 +54,12 @@ class DummyVisitor(object):
     self.duplicate_of = duplicate_of
 
 
-class GenerateTest(googletest.TestCase):
+class GenerateTest(absltest.TestCase):
+  _BASE_DIR = tempfile.mkdtemp()
+
+  def setUp(self):
+    self.workdir = os.path.join(self._BASE_DIR, self.id())
+    os.makedirs(self.workdir)
 
   def get_test_objects(self):
     # These are all mutable objects, so rebuild them for each test.
@@ -98,14 +108,15 @@ class GenerateTest(googletest.TestCase):
         index=index,
         reverse_index={},
         guide_index={},
-        base_dir=base_dir)
+        base_dir=base_dir,
+        code_url_prefix='/')
 
     return reference_resolver, parser_config
 
   def test_write(self):
     _, parser_config = self.get_test_objects()
 
-    output_dir = googletest.GetTempDir()
+    output_dir = self.workdir
 
     generate_lib.write_docs(output_dir, parser_config, yaml_toc=True,
                             site_api_path='api_docs/python')
@@ -146,7 +157,7 @@ class GenerateTest(googletest.TestCase):
             os.path.join(output_dir, 'tf/TestModule/test_function.md')))
 
   def test_update_id_tags_inplace(self):
-    test_dir = googletest.GetTempDir()
+    test_dir = self.workdir
     test_sub_dir = os.path.join(test_dir, 'a/b')
     os.makedirs(test_sub_dir)
 
@@ -184,7 +195,7 @@ class GenerateTest(googletest.TestCase):
     self.assertEqual(content, "## don\'t change this")
 
   def test_replace_refes(self):
-    test_dir = googletest.GetTempDir()
+    test_dir = self.workdir
     test_in_dir = os.path.join(test_dir, 'in')
     test_in_dir_a = os.path.join(test_dir, 'in/a')
     test_in_dir_b = os.path.join(test_dir, 'in/b')
@@ -248,4 +259,4 @@ class GenerateTest(googletest.TestCase):
 
 
 if __name__ == '__main__':
-  googletest.main()
+  absltest.main()

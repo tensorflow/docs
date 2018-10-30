@@ -20,9 +20,10 @@ from __future__ import print_function
 
 import types
 
-from tensorflow.python.platform import googletest
-from tensorflow.tools.docs import doc_generator_visitor
-from tensorflow.tools.docs import generate_lib
+from absl.testing import absltest
+
+from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import generate_lib
 
 
 class NoDunderVisitor(doc_generator_visitor.DocGeneratorVisitor):
@@ -35,7 +36,7 @@ class NoDunderVisitor(doc_generator_visitor.DocGeneratorVisitor):
     super(NoDunderVisitor, self).__call__(parent_name, parent, children)
 
 
-class DocGeneratorVisitorTest(googletest.TestCase):
+class DocGeneratorVisitorTest(absltest.TestCase):
 
   def test_call_module(self):
     visitor = doc_generator_visitor.DocGeneratorVisitor()
@@ -251,4 +252,4 @@ class DocGeneratorVisitorTest(googletest.TestCase):
     }, visitor.reverse_index)
 
 if __name__ == '__main__':
-  googletest.main()
+  absltest.main()
