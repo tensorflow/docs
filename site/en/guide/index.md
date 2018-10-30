@@ -89,6 +89,27 @@ near instant predictions.
 Additionally, [TensorFlow Lite](../lite) has [optimization techniques](../lite/performance/best_practices)
 for mobile and embedded devices.
 
+## Extend
+
+This section explains how developers can add functionality to TensorFlow's
+capabilities.
+
+* [TensorFlow architecture](./extend/architecture.md) presents an architectural
+  overview.
+* [Create an op](./extend/op.md), which explains how to create your own operations.
+* [Custom filesystem plugin](./extend/filesystems.md), which explains how to add
+  support for your own shared or distributed filesystem.
+* [Custom file and record formats](./extend/formats.md), which details how to add
+  support for your own file and record formats.
+* [Language bindings](./extend/bindings.md), Python is currently the only
+  language supported by TensorFlow's API stability promises. However, TensorFlow
+  also provides functionality to create or develop features in other languages.
+* [Model files](./extend/model_files.md), for creating tools compatible with
+  TensorFlow's model format.
+
+*Accelerated Linear Algebra* (XLA) is an experimental compiler for linear algebra
+that optimizes TensorFlow computations. For details, see the [XLA guides](../xla).
+
 ## Misc
 
   * [TensorFlow Version Compatibility](../guide/version_compat.md),
