@@ -68,6 +68,20 @@ toc:
 - title: Benchmarks
   path: /guide/performance/benchmarks
 
+- heading: Extend
+- title: TensorFlow architecture
+  path: /guide/extend/architecture
+- title: Create an op
+  path: /guide/extend/op
+- title: Custom filesystem plugin
+  path: /guide/extend/filesystem
+- title: Custom file and record formats
+  path: /guide/extend/formats
+- title: Language bindings
+  path: /guide/extend/bindings
+- title: Model files
+  path: /guide/extend/model_files
+
 - heading: Misc
 - title: "TensorFlow Version Compatibility"
   path: /guide/version_compat
