@@ -28,7 +28,7 @@ input pipeline and the underlying disk I/O are saturating the compute units.
 ### Training with NVIDIA® DGX-1™ (NVIDIA® Tesla® P100)
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:80%" src="../images/perf_summary_p100_single_server.png">
+  <img style="width:80%" src="../../images/perf_summary_p100_single_server.png">
 </div>
 
 Details and additional results are in the [Details for NVIDIA® DGX-1™ (NVIDIA®
@@ -37,7 +37,7 @@ Tesla® P100)](#details_for_nvidia_dgx-1tm_nvidia_tesla_p100) section.
 ### Training with NVIDIA® Tesla® K80
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:80%" src="../images/perf_summary_k80_single_server.png">
+  <img style="width:80%" src="../../images/perf_summary_k80_single_server.png">
 </div>
 
 Details and additional results are in the [Details for Google Compute Engine
@@ -48,7 +48,7 @@ K80)](#details_for_amazon_ec2_nvidia_tesla_k80) sections.
 ### Distributed training with NVIDIA® Tesla® K80
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:80%" src="../images/perf_summary_k80_aws_distributed.png">
+  <img style="width:80%" src="../../images/perf_summary_k80_aws_distributed.png">
 </div>
 
 Details and additional results are in the [Details for Amazon EC2 Distributed
@@ -60,15 +60,15 @@ section.
 **NVIDIA® Tesla® P100**
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:35%" src="../images/perf_summary_p100_data_compare_inceptionv3.png">
-  <img style="width:35%" src="../images/perf_summary_p100_data_compare_resnet50.png">
+  <img style="width:35%" src="../../images/perf_summary_p100_data_compare_inceptionv3.png">
+  <img style="width:35%" src="../../images/perf_summary_p100_data_compare_resnet50.png">
 </div>
 
 **NVIDIA® Tesla® K80**
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:35%" src="../images/perf_summary_k80_data_compare_inceptionv3.png">
-  <img style="width:35%" src="../images/perf_summary_k80_data_compare_resnet50.png">
+  <img style="width:35%" src="../../images/perf_summary_k80_data_compare_inceptionv3.png">
+  <img style="width:35%" src="../../images/perf_summary_k80_data_compare_resnet50.png">
 </div>
 
 ## Details for NVIDIA® DGX-1™ (NVIDIA® Tesla® P100)
@@ -110,12 +110,12 @@ VGG16       | replicated (with NCCL) | n/a
 ### Results
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:80%" src="../images/perf_summary_p100_single_server.png">
+  <img style="width:80%" src="../../images/perf_summary_p100_single_server.png">
 </div>
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:35%" src="../images/perf_dgx1_synth_p100_single_server_scaling.png">
-  <img style="width:35%" src="../images/perf_dgx1_real_p100_single_server_scaling.png">
+  <img style="width:35%" src="../../images/perf_dgx1_synth_p100_single_server_scaling.png">
+  <img style="width:35%" src="../../images/perf_dgx1_real_p100_single_server_scaling.png">
 </div>
 
 **Training synthetic data**
@@ -193,8 +193,8 @@ The configuration used for each model was `variable_update` equal to
 ### Results
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:35%" src="../images/perf_gce_synth_k80_single_server_scaling.png">
-  <img style="width:35%" src="../images/perf_gce_real_k80_single_server_scaling.png">
+  <img style="width:35%" src="../../images/perf_gce_synth_k80_single_server_scaling.png">
+  <img style="width:35%" src="../../images/perf_gce_real_k80_single_server_scaling.png">
 </div>
 
 **Training synthetic data**
@@ -275,8 +275,8 @@ VGG16       | parameter_server          | gpu
 ### Results
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:35%" src="../images/perf_aws_synth_k80_single_server_scaling.png">
-  <img style="width:35%" src="../images/perf_aws_real_k80_single_server_scaling.png">
+  <img style="width:35%" src="../../images/perf_aws_synth_k80_single_server_scaling.png">
+  <img style="width:35%" src="../../images/perf_aws_real_k80_single_server_scaling.png">
 </div>
 
 **Training synthetic data**
@@ -365,11 +365,11 @@ used with the following exceptions:
 ### Results
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:80%" src="../images/perf_summary_k80_aws_distributed.png">
+  <img style="width:80%" src="../../images/perf_summary_k80_aws_distributed.png">
 </div>
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:70%" src="../images/perf_aws_synth_k80_distributed_scaling.png">
+  <img style="width:70%" src="../../images/perf_aws_synth_k80_distributed_scaling.png">
 </div>
 
 **Training synthetic data**
@@ -385,7 +385,7 @@ GPUs | InceptionV3 | ResNet-50 | ResNet-152
 ### Other Results
 
 <div style="width:95%; margin:auto; margin-bottom:10px; margin-top:20px;">
-  <img style="width:50%" src="../images/perf_aws_synth_k80_multi_server_batch32.png">
+  <img style="width:50%" src="../../images/perf_aws_synth_k80_multi_server_batch32.png">
 </div>
 
 **Training synthetic data**
