@@ -216,7 +216,7 @@ run on older CPUs.
 Use `bazel` to make the TensorFlow package builder with CPU-only support:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
+bazel build //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
 #### GPU support
@@ -224,7 +224,7 @@ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 To make the TensorFlow package builder with GPU support:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
+bazel build --config=cuda //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
 #### Bazel build options
@@ -313,7 +313,7 @@ virtual environment:
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # answer prompts or use defaults</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package</code>
+<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:build_pip_package</code>
 
 <code class="devsite-terminal tfo-terminal-root">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /mnt  # create package</code>
 
@@ -360,7 +360,7 @@ with GPU support:
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # answer prompts or use defaults</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package</code>
+<code class="devsite-terminal tfo-terminal-root">bazel build --config=cuda //tensorflow/tools/pip_package:build_pip_package</code>
 
 <code class="devsite-terminal tfo-terminal-root">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /mnt  # create package</code>
 
