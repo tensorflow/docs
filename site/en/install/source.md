@@ -80,10 +80,16 @@ to build:
 git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
 </pre>
 
-To test your copy of the source tree, run the following test (this may take a while):
+To test your copy of the source tree, run the following test for versions r1.12 and before (this may take a while):
 
 <pre class="devsite-terminal prettyprint lang-bsh">
 bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/contrib/lite/...
+</pre>
+
+For versions after r1.12 (like `master`), run the following:
+
+<pre class="devsite-terminal prettyprint lang-bsh">
+bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/lite/...
 </pre>
 
 Key Point: If you're having build problems on the latest development branch, try
