@@ -8,35 +8,42 @@ answer on one of the TensorFlow [community resources](../about/index.md).
 
 ## Features and Compatibility
 
-#### Can I run distributed training on multiple computers?
+#### Can I run distributed training on multiple GPUs?
 
-Yes! TensorFlow gained
-[support for distributed computation](../deploy/distributed.md) in
-version 0.8. TensorFlow now supports multiple devices (CPUs and GPUs) in one or
-more computers.
+Yes! TensorFlow gained support for distributed computation back in
+version 0.8, see the [distributed computation guide](../deploy/distributed.md).
+TensorFlow supports multiple devices (CPUs and GPUs) on one or more computers.
 
 #### Does TensorFlow work with Python 3?
 
-As of the 0.6.0 release timeframe (Early December 2015), we do support Python
-3.3+.
+Yes.
 
-## Building a TensorFlow graph
+## TensorFlow graphs and eager execution
 
-See also the
-[API documentation on building graphs](../api_guides/python/framework.md).
+See the [graphs and sessions guide](./graphs.md) and the
+[eager execution guide](./eager.md).
 
-#### Why does `c = tf.matmul(a, b)` not execute the matrix multiplication immediately?
+#### Do TensorFlow operations return immediately?
 
-In the TensorFlow Python API, `a`, `b`, and `c` are
-`tf.Tensor` objects. A `Tensor` object is
-a symbolic handle to the result of an operation, but does not actually hold the
-values of the operation's output. Instead, TensorFlow encourages users to build
-up complicated expressions (such as entire neural networks and its gradients) as
-a dataflow graph. You then offload the computation of the entire dataflow graph
-(or a subgraph of it) to a TensorFlow
-`tf.Session`, which is able to execute the
-whole computation much more efficiently than executing the operations
-one-by-one.
+If you enable eager execution, operations like `c = tf.matmul(a, b)` are executed
+immediately. See the [eager execution guide](./eager.md) for using eager execution
+to create more readable, intuitive TensorFlow code.
+
+However, without eager execution enabled, an operation like `tf.matmul` above does
+*not* execute immediately, but, instead, builds a fragment of a TensorFlow graph.
+
+Why graphs?  TensorFlow graphs can help with distribution, optimization, and putting
+models into production. In the suggested expression, `a`, `b`, and `c` are `tf.Tensor`
+objects. A `tf.Tensor` object is a symbolic handle to the result of an
+operation, but does not actually hold the values of the operation's
+output. Instead, you can build up complicated expressions (such as
+entire neural networks and their gradients) as a dataflow graph. You
+then offload the computation of the entire dataflow graph (or a
+subgraph of it) to a TensorFlow `tf.Session`, which is able to execute
+the whole computation much more efficiently than executing the
+operations one-by-one.
+
+Note: In upcoming TensorFlow 2.0, all operations will be eagerly executed.
 
 #### How are devices named?
 
@@ -45,28 +52,37 @@ device, and `"/device:GPU:i"` (or `"/gpu:i"`) for the *i*th GPU device.
 
 #### How do I place operations on a particular device?
 
-To place a group of operations on a device, create them within a
-`tf.device` context.  See
-the how-to documentation on
-[using GPUs with TensorFlow](../guide/using_gpu.md) for details of how
-TensorFlow assigns operations to devices, and the
+To explicitly place a group of operations on a device, create them within a
+`tf.device` context.  See the [using GPUs guide](./using_gpu.md) for details
+about how TensorFlow assigns operations to devices.
+
+You can also look at
 [CIFAR-10 tutorial](../tutorials/images/deep_cnn.md) for an example model that
 uses multiple GPUs.
 
+As of r1.12, we recommend trying
+`tf.contrib.distribute.DistributionStrategy` as an easy way to
+distribute computation with Keras and Estimator models. It is under
+development.
 
 ## Running a TensorFlow computation
 
-See also the
+See the
 [API documentation on running graphs](../api_guides/python/client.md).
 
-#### What's the deal with feeding and placeholders?
+#### What is feeding and placeholders?
 
-Feeding is a mechanism in the TensorFlow Session API that allows you to
-substitute different values for one or more tensors at run time. The `feed_dict`
-argument to `tf.Session.run` is a
-dictionary that maps `tf.Tensor` objects to
-numpy arrays (and some other types), which will be used as the values of those
-tensors in the execution of a step.
+The recommended way of providing data to a model for training or
+inference is via the `tf.data` API; see the
+[Importing Data guide](./datasets.md).
+
+However, in some older models you may find feeds and placeholders.
+Feeding is a mechanism in the `tf.Session` API that allows you
+to substitute different values for one or more tensors at run
+time. The `feed_dict` argument to `tf.Session.run` is a dictionary
+that maps `tf.Tensor` objects to numpy arrays (and some other types),
+which will be used as the values of those tensors in the execution of
+a step.
 
 #### What is the difference between `Session.run()` and `Tensor.eval()`?
 
@@ -111,8 +127,8 @@ end of the call.
 
 #### Does the runtime parallelize parts of graph execution?
 
-The TensorFlow runtime parallelizes graph execution across many different
-dimensions:
+When you use graph execution, the TensorFlow runtime parallelizes
+execution across many different dimensions:
 
 * The individual ops have parallel implementations, using multiple cores in a
   CPU, or multiple threads in a GPU.
@@ -136,20 +152,22 @@ TensorFlow also has a
 to help build support for more client languages.  We invite contributions of new
 language bindings.
 
-Bindings for various other languages (such as [C#](https://github.com/migueldeicaza/TensorFlowSharp), [Julia](https://github.com/malmaud/TensorFlow.jl), [Ruby](https://github.com/somaticio/tensorflow.rb) and [Scala](https://github.com/eaplatanios/tensorflow_scala)) created and supported by the open source community build on top of the C API supported by the TensorFlow maintainers.
+Bindings for various other languages (such as
+[C#](https://github.com/migueldeicaza/TensorFlowSharp),
+[Julia](https://github.com/malmaud/TensorFlow.jl),
+[Ruby](https://github.com/somaticio/tensorflow.rb) and
+[Scala](https://github.com/eaplatanios/tensorflow_scala)) created and
+supported by the open source community build on top of the C API
+supported by the TensorFlow maintainers.
 
-#### Does TensorFlow make use of all the devices (GPUs and CPUs) available on my machine?
-
-TensorFlow supports multiple GPUs and CPUs. See the how-to documentation on
-[using GPUs with TensorFlow](../guide/using_gpu.md) for details of how
-TensorFlow assigns operations to devices, and the
-[CIFAR-10 tutorial](../tutorials/images/deep_cnn.md) for an example model that
-uses multiple GPUs.
-
-Note that TensorFlow only uses GPU devices with a compute capability greater
-than 3.5.
+Separately, there is the
+[Swift for TensorFlow](http://tensorflow.org/swift) project, which
+integrates TensorFlow directly into the Swift programming language.
 
 #### Why does `Session.run()` hang when using a reader or a queue?
+
+Note: Queues are discouraged in favor of `tf.data`, which provides a
+simpler interface and improved performance.
 
 The `tf.ReaderBase` and
 `tf.QueueBase` classes provide special operations that
@@ -163,8 +181,13 @@ for more information on how to use them.
 
 ## Variables
 
-See also the how-to documentation on [variables](../guide/variables.md) and
-[the API documentation for variables](../api_guides/python/state_ops.md).
+See the [variables guide](./variables.md) and the
+[variables API reference](../api_guides/python/state_ops.md).
+
+#### Should I turn on `use_resource=True` when constructing variables?
+
+Yes.  This uses safer memory behavior, and will be the default in
+TensorFlow 2.0.
 
 #### What is the lifetime of a variable?
 
@@ -172,6 +195,9 @@ A variable is created when you first run the
 `tf.Variable.initializer`
 operation for that variable in a session. It is destroyed when that
 `tf.Session.close`.
+
+In eager execution, variables are freed when their associated Python
+objects are cleaned up.
 
 #### How do variables behave when they are concurrently accessed?
 
@@ -208,7 +234,7 @@ a new tensor with a different dynamic shape.
 
 #### How do I build a graph that works with variable batch sizes?
 
-It is often useful to build a graph that works with variable batch sizes 
+It is often useful to build a graph that works with variable batch sizes
 so that the same code can be used for (mini-)batch training, and
 single-instance inference. The resulting graph can be
 `tf.Graph.as_graph_def`
