@@ -8,42 +8,33 @@ answer on one of the TensorFlow [community resources](../about/index.md).
 
 ## Features and Compatibility
 
-#### Can I run distributed training on multiple GPUs, or on
-     multiple computers in a cluster?
+#### Can I run distributed training on multiple GPUs?
 
-Yes! TensorFlow gained [support for distributed
-computation](../deploy/distributed.md) long ago in version
-0.8. TensorFlow supports multiple devices (CPUs and GPUs) in one or
-more computers.
-
-There is a [guide for distributing TensorFlow
-operations](../../deploy/distributed).
+Yes! TensorFlow gained support for distributed computation back in
+version 0.8, see the [distributed computation guide](../deploy/distributed.md).
+TensorFlow supports multiple devices (CPUs and GPUs) on one or more computers.
 
 #### Does TensorFlow work with Python 3?
 
 Yes.
 
-## Building TensorFlow graphs and using eager execution
+## TensorFlow graphs and eager execution
 
-See also the
-[API documentation on building graphs](../api_guides/python/framework.md).
+See the [graphs and sessions guide](./graphs.md) and the
+[eager execution guide](./eager.md).
 
-#### I heard that in TensorFlow, operations like `c = tf.matmul(a, b)`
-     don't return immediately.  Is that true?
+#### Do TensorFlow operations return immediately?
 
-If you are using eager execution, operations will be executed
-immediately.  See the [guides](../../guide/eager) for details on how
-to use eager execution for readable, intuitive TensorFlow.
+If you enable eager execution, operations like `c = tf.matmul(a, b)` are executed
+immediately. See the [eager execution guide](./eager.md) for using eager execution
+to create more readable, intuitive TensorFlow code.
 
-Without eager execution enabled, however, an operation like the
-`matmul()` above will *not* execute immediately.  It will instead
-build a fragment of a TensorFlow graph.
+However, without eager execution enabled, an operation like `tf.matmul` above does
+*not* execute immediately, but, instead, builds a fragment of a TensorFlow graph.
 
-Why graphs?  TensorFlow graphs can help with distribution,
-optimization, and putting models into production.
-
-In the suggested expression, `a`, `b`, and `c` would be `tf.Tensor`
-objects. A `Tensor` object is a symbolic handle to the result of an
+Why graphs?  TensorFlow graphs can help with distribution, optimization, and putting
+models into production. In the suggested expression, `a`, `b`, and `c` are `tf.Tensor`
+objects. A `tf.Tensor` object is a symbolic handle to the result of an
 operation, but does not actually hold the values of the operation's
 output. Instead, you can build up complicated expressions (such as
 entire neural networks and their gradients) as a dataflow graph. You
@@ -52,8 +43,7 @@ subgraph of it) to a TensorFlow `tf.Session`, which is able to execute
 the whole computation much more efficiently than executing the
 operations one-by-one.
 
-Note: In upcoming TensorFlow 2.0, all operations will be eagerly
-executed.
+Note: In upcoming TensorFlow 2.0, all operations will be eagerly executed.
 
 #### How are devices named?
 
@@ -63,9 +53,8 @@ device, and `"/device:GPU:i"` (or `"/gpu:i"`) for the *i*th GPU device.
 #### How do I place operations on a particular device?
 
 To explicitly place a group of operations on a device, create them within a
-`tf.device` context.  See the how-to documentation on
-[using GPUs with TensorFlow](../guide/using_gpu.md) for details of how
-TensorFlow assigns operations to devices.
+`tf.device` context.  See the [using GPUs guide](./using_gpu.md) for details
+about how TensorFlow assigns operations to devices.
 
 You can also look at
 [CIFAR-10 tutorial](../tutorials/images/deep_cnn.md) for an example model that
@@ -73,7 +62,7 @@ uses multiple GPUs.
 
 As of r1.12, we recommend trying
 `tf.contrib.distribute.DistributionStrategy` as an easy way to
-distribute computation with Keras and Estimator models.  It is under
+distribute computation with Keras and Estimator models. It is under
 development.
 
 ## Running a TensorFlow computation
@@ -81,14 +70,14 @@ development.
 See the
 [API documentation on running graphs](../api_guides/python/client.md).
 
-#### What's the deal with feeding and placeholders?
+#### What is feeding and placeholders?
 
 The recommended way of providing data to a model for training or
-inference is via the `tf.data` API; see the [Importing Data
-guide](../../guide/datasets).
+inference is via the `tf.data` API; see the
+[Importing Data guide](./datasets.md).
 
 However, in some older models you may find feeds and placeholders.
-Feeding is a mechanism in the TensorFlow Session API that allows you
+Feeding is a mechanism in the `tf.Session` API that allows you
 to substitute different values for one or more tensors at run
 time. The `feed_dict` argument to `tf.Session.run` is a dictionary
 that maps `tf.Tensor` objects to numpy arrays (and some other types),
@@ -192,9 +181,8 @@ for more information on how to use them.
 
 ## Variables
 
-See also the how-to documentation on [variables](../guide/variables.md) and
-[the API documentation for
-variables](../api_guides/python/state_ops.md).
+See the [variables guide](./variables.md) and the
+[variables API reference](../api_guides/python/state_ops.md).
 
 #### Should I turn on `use_resource=True` when constructing variables?
 
