@@ -1,19 +1,8 @@
 # C++ API
 
-Note: By default [tensorflow.org](https://www.tensorflow.org) shows docs for the
-most recent stable version. The instructions in this doc require building from
-source. You will probably want to build from the `master` version of tensorflow.
-You should, as a result, be sure you are following the
-[`master` version of this doc](https://www.tensorflow.org/versions/master/api_guides/cc/guide),
-in case there have been any changes.
-
-Note: The C++ API is only designed to work with TensorFlow `bazel build`.
-If you need a stand-alone option use the [C-api](../../install/lang_c.md).
-See [these instructions](https://docs.bazel.build/versions/master/external.html)
-for details on how to include TensorFlow as a subproject (instead of building
-your project from inside TensorFlow, as in this example).
-
-[TOC]
+Note: The instructions in this doc require
+[building from source](../../install/source.md). You probably want to build from
+the `master` branch of TensorFlow.
 
 TensorFlow's C++ API provides mechanisms for constructing and executing a data
 flow graph. The API is designed to be simple and concise: graph operations are
@@ -22,6 +11,12 @@ specification of names, device placement, etc., and the resulting graph can be
 efficiently run and the desired outputs fetched in a few lines of code. This
 guide explains the basic concepts and data structures needed to get started with
 TensorFlow graph construction and execution in C++.
+
+The C++ API is only designed to work with TensorFlow `bazel build`.
+If you need a stand-alone option, use the [C API](../../install/lang_c.md).
+See [these instructions](https://docs.bazel.build/versions/master/external.html)
+for details on how to include TensorFlow as a subproject (instead of building
+your project from inside TensorFlow, as in this example).
 
 ## The Basics
 
@@ -58,7 +53,7 @@ int main() {
 Place this example code in the file `tensorflow/cc/example/example.cc` inside a
 clone of the
 TensorFlow
-[github repository](http://www.github.com/tensorflow/tensorflow). Also place a
+[GitHub repository](http://www.github.com/tensorflow/tensorflow). Also place a
 `BUILD` file in the same directory with the following contents:
 
 ```python

@@ -77,10 +77,12 @@ toc:
   path: /guide/extend/filesystem
 - title: Custom file and record formats
   path: /guide/extend/formats
-- title: Language bindings
-  path: /guide/extend/bindings
 - title: Model files
   path: /guide/extend/model_files
+- title: Language bindings
+  path: /guide/extend/bindings
+- title: C++ guide
+  path: /guide/extend/cc
 
 - heading: Misc
 - title: "TensorFlow Version Compatibility"

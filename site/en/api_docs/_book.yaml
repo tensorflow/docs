@@ -24,8 +24,6 @@ upper_tabs:
       - title: C++
         path: {VERSION_ROOT}/api_docs/cc/
       - include: {VERSION_ROOT}/api_docs/cc/_doxygen.yaml
-      - title: Guides
-        path: /api_guides/cc/guide
 
     - name: Java
       contents:

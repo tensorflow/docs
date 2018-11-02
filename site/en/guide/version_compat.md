@@ -78,7 +78,7 @@ backward incompatible ways between minor releases. These include:
 *   **Other languages**: TensorFlow APIs in languages other than Python and C,
     such as:
 
-  - [C++](../api_guides/cc/guide.md) (exposed through header files in
+  - [C++](./extend/cc.md) (exposed through header files in
     [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
   - [Java](../api_docs/java/reference/org/tensorflow/package-summary),
   - [Go](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go)
