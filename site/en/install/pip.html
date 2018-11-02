@@ -300,7 +300,7 @@
 <h3>Virtualenv install</h3>
 <pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">pip install --upgrade tensorflow</pre>
 <p>Verify the install:</p>
-<pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf; print(tf.__version__)"</pre>
+<pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"</pre>
 </section>
 
 <section>
@@ -308,11 +308,11 @@
 {% dynamic if request.query_string.lang == "python2" %}
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">pip install --user --upgrade tensorflow  # install in $HOME</pre>
 <p>Verify the install:</p>
-<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf; print(tf.__version__)"</pre>
+<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"</pre>
 {% dynamic else %}<!--python3-->
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">pip3 install --user --upgrade tensorflow  # install in $HOME</pre>
 <p>Verify the install:</p>
-<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python3 -c "import tensorflow as tf; print(tf.__version__)"</pre>
+<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"</pre>
 {% dynamic endif %}
 </section>
 </div><!--/ds-selector-tabs-->
