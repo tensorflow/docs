@@ -35,3 +35,5 @@ upper_tabs:
         path: /tfx/api_docs/
       - heading: Transform
       - include: /tfx/transform/api_docs/python/_toc.yaml
+      - heading: Model Analysis
+      - include: /tfx/model_analysis/api_docs/python/_toc.yaml
