@@ -50,9 +50,8 @@ during evaluation to boost predictive performance.
 * Implementation of a
 `tf.train.exponential_decay`
 that systematically decrements over time.
-* Prefetching `tf.train.shuffle_batch`
-for input
-data to isolate the model from disk latency and expensive image pre-processing.
+* Prefetching input data to isolate the model from disk latency and expensive
+image pre-processing.
 
 We also provide a [multi-GPU version](#training-a-model-using-multiple-gpu-cards)
 of the model which demonstrates:
@@ -84,12 +83,17 @@ The code for this tutorial resides in
 
 File | Purpose
 --- | ---
-[`cifar10_input.py`](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10/cifar10_input.py) | Reads the native CIFAR-10 binary file format.
+[`cifar10_input.py`](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10/cifar10_input.py) | Loads CIFAR-10 dataset using [tensorflow-datasets library](https://github.com/tensorflow/datasets).
 [`cifar10.py`](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10/cifar10.py) | Builds the CIFAR-10 model.
 [`cifar10_train.py`](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10/cifar10_train.py) | Trains a CIFAR-10 model on a CPU or GPU.
 [`cifar10_multi_gpu_train.py`](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10/cifar10_multi_gpu_train.py) | Trains a CIFAR-10 model on multiple GPUs.
 [`cifar10_eval.py`](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10/cifar10_eval.py) | Evaluates the predictive performance of a CIFAR-10 model.
 
+To run this tutorial, you will need to:
+
+```shell
+pip install tensorflow-datasets
+```
 
 ## CIFAR-10 Model
 
@@ -110,12 +114,8 @@ gradients, variable updates and visualization summaries.
 
 ### Model Inputs
 
-The input part of the model is built by the functions `inputs()` and
-`distorted_inputs()` which read images from the CIFAR-10 binary data files.
-These files contain fixed byte length records, so we use
-`tf.FixedLengthRecordReader`.
-See [Reading Data](../../api_guides/python/reading_data.md#reading-from-files) to
-learn more about how the `Reader` class works.
+The input part of the model is built by the functions `_get_images_labels()` and
+`Transformer()`.
 
 The images are processed as follows:
 
@@ -142,9 +142,9 @@ This is a good practice to verify that inputs are built correctly.
 </div>
 
 Reading images from disk and distorting them can use a non-trivial amount of
-processing time. To prevent these operations from slowing down training, we run
-them inside 16 separate threads which continuously fill a TensorFlow
-`tf.train.shuffle_batch`.
+processing time. To prevent these operations from slowing down training, we
+apply the transformation in parallel (`num_parallel_calls` argument of
+`dataset.map()`), and `prefetch` the data.
 
 ### Model Prediction
 
@@ -228,13 +228,12 @@ python cifar10_train.py
 ```
 
 > **NOTE:** The first time you run any target in the CIFAR-10 tutorial,
-the CIFAR-10 dataset is automatically downloaded. The data set is ~160MB
+the CIFAR-10 dataset is automatically downloaded. The dataset is ~160MB
 so you may want to grab a quick cup of coffee for your first run.
 
 You should see the output:
 
 ```shell
-Filling queue with 20000 CIFAR images before starting to train. This will take a few minutes.
 2015-11-04 11:45:45.927302: step 0, loss = 4.68 (2.0 examples/sec; 64.221 sec/batch)
 2015-11-04 11:45:49.133065: step 10, loss = 4.66 (533.8 examples/sec; 0.240 sec/batch)
 2015-11-04 11:45:51.397710: step 20, loss = 4.64 (597.4 examples/sec; 0.214 sec/batch)
@@ -257,12 +256,6 @@ this loss is the sum of the cross entropy and all weight decay terms.
 * Keep an eye on the processing speed of a batch. The numbers shown above were
 obtained on a Tesla K40c. If you are running on a CPU, expect slower performance.
 
-
-> **EXERCISE:** When experimenting, it is sometimes annoying that the first
-training step can take so long. Try decreasing the number of images that
-initially fill up the queue.  Search for `min_fraction_of_examples_in_queue`
-in `cifar10_input.py`.
-
 `cifar10_train.py` periodically uses a  `tf.train.Saver` to save
 all model parameters in
 [checkpoint files](../../guide/saved_model.md)
@@ -284,8 +277,11 @@ how the model is training. We want more insight into the model during training:
 
 [TensorBoard](../../guide/summaries_and_tensorboard.md) provides this
 functionality, displaying data exported periodically from `cifar10_train.py` via
-a
-`tf.summary.FileWriter`.
+a `tf.summary.FileWriter`. You can view the results in TensorBoard by running:
+
+```shell
+tensorboard --logdir /tmp/cifar10_train
+```
 
 For instance, we can watch how the distribution of activations and degree of
 sparsity in `local3` features evolve during training:
@@ -333,7 +329,12 @@ You should see the output:
 The script merely returns the precision @ 1 periodically -- in this case
 it returned 86% accuracy. `cifar10_eval.py` also
 exports summaries that may be visualized in TensorBoard. These summaries
-provide additional insight into the model during evaluation.
+provide additional insight into the model during evaluation. You can view 
+the results in TensorBoard by running:
+
+```shell
+tensorboard --logdir /tmp/cifar10_eval
+```
 
 The training script calculates the
 `tf.train.ExponentialMovingAverage` of all learned variables.
