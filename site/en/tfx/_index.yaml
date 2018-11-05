@@ -2,6 +2,7 @@ book_path: /tfx/_book.yaml
 project_path: /tfx/_project.yaml
 description: <!--no description-->
 landing_page:
+  custom_css_path: /site-assets/css/style.css
   rows:
   - heading: TFX is an end-to-end machine learning platform for TensorFlow.
     items:
@@ -11,7 +12,9 @@ landing_page:
         learning platform implemented at Google. We've already open sourced some
         TFX libraries with the rest of the system to come. For an overview of
         TFX, read our
-        <a href='https://dl.acm.org/citation.cfm?id=3098021' class='external'>KDD’2017 paper</a>.
+        <a href='https://dl.acm.org/citation.cfm?id=3098021' class='external'>KDD’2017 paper</a>
+        and watch the
+        <a href='https://www.youtube.com/watch?v=vdG7uKQ2eKk' class='external'>Dev Summit talk</a>.
       list:
       - heading: TensorFlow Data Validation
         description: >
@@ -49,10 +52,6 @@ landing_page:
           foreground: theme
           background: grey
       youtube_id: vdG7uKQ2eKk
-      buttons:
-      - label: Watch the Dev Summit talk
-        path: https://www.youtube.com/watch?v=vdG7uKQ2eKk
-        classname: button button-primary
 
   - classname: devsite-landing-row-cards
     background: grey
