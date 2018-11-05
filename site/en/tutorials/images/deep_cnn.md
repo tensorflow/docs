@@ -277,8 +277,7 @@ how the model is training. We want more insight into the model during training:
 
 [TensorBoard](../../guide/summaries_and_tensorboard.md) provides this
 functionality, displaying data exported periodically from `cifar10_train.py` via
-a
-`tf.summary.FileWriter`.
+a `tf.summary.FileWriter`. You can view the results in TensorBoard by running:
 
 ```shell
 tensorboard --logdir /tmp/cifar10_train
@@ -330,7 +329,8 @@ You should see the output:
 The script merely returns the precision @ 1 periodically -- in this case
 it returned 86% accuracy. `cifar10_eval.py` also
 exports summaries that may be visualized in TensorBoard. These summaries
-provide additional insight into the model during evaluation.
+provide additional insight into the model during evaluation. You can view 
+the results in TensorBoard by running:
 
 ```shell
 tensorboard --logdir /tmp/cifar10_eval
