@@ -177,8 +177,8 @@ For transfers between tasks, TensorFlow uses multiple protocols, including:
 *  RDMA over Converged Ethernet.
 
 We also have preliminary support for NVIDIA's NCCL library for multi-GPU
-communication (see [`tf.contrib.nccl`](
-https://www.tensorflow.org/code/tensorflow/contrib/nccl/python/ops/nccl_ops.py)).
+communication, see:
+[`tf.contrib.nccl`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/nccl_ops.py).
 
 ![Partitioned Graph](https://www.tensorflow.org/images/graph_send_recv.svg){: width="700"}
 
