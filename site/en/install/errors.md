@@ -12,6 +12,19 @@ question on Stack Overflow with the `tensorflow` tag.
 <table>
 <tr><th>GitHub issue or Stack&nbsp;Overflow</th> <th>Error Message</th></tr>
 <tr>
+  <td><a href="https://github.com/tensorflow/tensorflow/issues/22390">22390</a></td>
+  <td><pre>Unzipping simple_console_for_windows.zip to create runfiles tree...
+[./bazel-bin/tensorflow/tools/pip_package/simple_console_for_windows.zip]
+  End-of-central-directory signature not found.  Either this file is not
+  a zipfile, or it constitutes one disk of a multi-part archive.  In the
+  latter case the central directory and zipfile comment will be found on
+  the last disk(s) of this archive.
+unzip: cannot find zipfile directory in one of ./bazel-bin/tensorflow/tools/pip_package/simple_console_for_windows.zip or
+        ./bazel-bin/tensorflow/tools/pip_package/simple_console_for_windows.zip.zip, and cannot find ./bazel-bin/tensorflow/tools/pip_package/simple_console_for_windows.zip.ZIP, period.
+</pre></td>
+</tr>
+
+<tr>
   <td><a href="https://stackoverflow.com/q/36159194">36159194</a></td>
   <td><pre>ImportError: libcudart.so.<i>Version</i>: cannot open shared object file:
   No such file or directory</pre></td>
