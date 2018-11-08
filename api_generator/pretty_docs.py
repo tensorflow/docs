@@ -71,7 +71,6 @@ def _build_function_page(page_info):
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
 
-  parts.append(page_info.guides)
   parts.append(page_info.doc.docstring)
   parts.append(_build_function_details(page_info.doc.function_details))
   parts.append(_build_compatibility(page_info.doc.compatibility))
@@ -111,7 +110,6 @@ def _build_class_page(page_info):
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
 
-  parts.append(page_info.guides)
   parts.append(page_info.doc.docstring)
   parts.append(_build_function_details(page_info.doc.function_details))
   parts.append(_build_compatibility(page_info.doc.compatibility))
