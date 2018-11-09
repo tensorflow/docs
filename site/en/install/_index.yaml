@@ -2,47 +2,43 @@ project_path: /_project.yaml
 book_path: /_book.yaml
 description: <!--no description-->
 landing_page:
+  body_class: tfo-install
   custom_css_path: /site-assets/css/style.css
   show_side_navs: True
   rows:
-  - description: >
-      <style>
-      /* override space between rows on this page */
-      .devsite-landing-row:not(.devsite-background):not(.devsite-landing-row-cta):not(.devsite-landing-row-marquee) {
-        padding-top: 0px;
-      }
-      </style>
-      <h1 class="hide-from-toc">Install TensorFlow</h1>
-      <p>TensorFlow is tested and supported on the following 64-bit systems:</p>
-      <table class="columns">
-        <tr><td>
-          <ul>
-            <li>Ubuntu 16.04 or later</li>
-            <li>Windows 7 or later</li>
-          </ul>
-        </td><td>
-          <ul>
-            <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
-            <li>Raspbian 9.0 or later</li>
-          </ul>
-        </td></tr>
-      </table>
+  - classname:
+      devsite-landing-row-large-headings
+      devsite-landing-row-100
+    items:
+    - heading: Install TensorFlow
+      description: >
+        <p>TensorFlow is tested and supported on the following 64-bit systems:</p>
+        <table class="columns">
+          <tr><td>
+            <ul>
+              <li>Ubuntu 16.04 or later</li>
+              <li>Windows 7 or later</li>
+            </ul>
+          </td><td>
+            <ul>
+              <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
+              <li>Raspbian 9.0 or later</li>
+            </ul>
+          </td></tr>
+        </table
 
-  - items:
-    - custom_html: >
-        <div class="devsite-landing-row-item-description">
-          <h2 class="hide-from-toc">Download a package</h2>
-          <div class="devsite-landing-row-item-description-content">
-            <p>
-              Install TensorFlow with Python's <em>pip</em> package manager.
-            </p>
-            <p>Official packages available for Ubuntu, Windows, macOS, and the Raspberry Pi.</p>
-            <p>GPU packages require a <a href="./gpu">CUDA®-enabled GPU card</a>.</p>
-          </div>
-          <div class="devsite-landing-row-item-buttons" style="margin-top:0;">
-            <a class="button button-primary tfo-button-primary" href="./pip">Read the pip install guide</a>
-          </div>
-        </div>
+  - classname: devsite-landing-row-large-headings
+    items:
+    - heading: Download a package
+      description: >
+        <p>Install TensorFlow with Python's <em>pip</em> package manager.</p>
+        <p>Official packages available for Ubuntu, Windows, macOS, and the Raspberry Pi.</p>
+        <p>GPU packages require a <a href="./gpu">CUDA®-enabled GPU card</a>.</p>
+      buttons:
+      - label: Read the pip install guide
+        path: ./pip
+        classname: button button-primary tfo-button-primary
+
     - classname: tfo-landing-row-item-code-block
       code_block: |
         <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
@@ -56,47 +52,51 @@ landing_page:
         <code class="devsite-terminal">pip install tf-nightly-gpu</code><br/>
         </pre>
 
-  - description: >
-      <h2 class="hide-from-toc">Run a TensorFlow container</h2>
-      <p>
-        The <a href="https://hub.docker.com/r/tensorflow/tensorflow/" class="external">TensorFlow Docker images</a>
-        are already configured to run TensorFlow. A <a href="https://docs.docker.com/install/" class="external">Docker</a>
-        container runs in a virtual environment and is the easiest way to set up <a href="./gpu">GPU support</a>.
-      </p>
-      <pre class="prettyprint lang-bsh">
-      <code class="devsite-terminal">docker pull tensorflow/tensorflow                  # Download latest image</code><br/>
-      <code class="devsite-terminal">docker run -it -p 8888:8888 tensorflow/tensorflow  # Start a Jupyter notebook server</code>
-      </pre>
-      <a class="button button-primary tfo-button-primary" href="./docker">Read the Docker install guide</a>
-
-  - description: >
-      <h2 class="hide-from-toc">Google Colab&#58; An easy way to learn and use TensorFlow</h2>
-      <p>
-        No install necessary—run the <a href="../tutorials">TensorFlow tutorials</a>
-        directly in the browser with <a href="https://colab.research.google.com/notebooks/welcome.ipynb" class="external">Colaboratory</a>,
-        a Google research project created to help disseminate machine learning
-        education and research. It's a Jupyter notebook environment that requires
-        no setup to use and runs entirely in the cloud.
-        <a href="https://medium.com/tensorflow/colab-an-easy-way-to-learn-and-use-tensorflow-d74d1686e309" class="external">Read the blog post</a>.
-      </p>
-
-  - description: >
-      <h2 class="hide-from-toc">Build your first ML app</h2>
-      <p>Create and deploy TensorFlow models on web and mobile.</p>
-    background: grey
+  - classname: devsite-landing-row-100
+    heading: Run a TensorFlow container
     items:
-    - custom_html: >
-        <div class="devsite-landing-row-item-description tfo-landing-row-item-inset-white">
-          <a href="https://js.tensorflow.org"><h3 class="hide-from-toc">Web developers</h3></a>
-          <div class="devsite-landing-row-item-description-content">
-            TensorFlow.js is a WebGL accelerated, JavaScript library to train and
-            deploy ML models in the browser and for Node.js.
-          </div>
-        </div>
-    - custom_html: >
-        <div class="devsite-landing-row-item-description tfo-landing-row-item-inset-white">
-          <a href="/lite/"><h3 class="hide-from-toc">Mobile developers</h3></a>
-          <div class="devsite-landing-row-item-description-content">
-            TensorFlow Lite is lightweight solution for mobile and embedded devices.
-          </div>
-        </div>
+    - description: >
+        <p>
+          The <a href="https://hub.docker.com/r/tensorflow/tensorflow/" class="external">TensorFlow Docker images</a>
+          are already configured to run TensorFlow. A <a href="https://docs.docker.com/install/" class="external">Docker</a>
+          container runs in a virtual environment and is the easiest way to set up <a href="./gpu">GPU support</a>.
+        </p>
+        <pre class="prettyprint lang-bsh">
+        <code class="devsite-terminal">docker pull tensorflow/tensorflow                  # Download latest image</code><br/>
+        <code class="devsite-terminal">docker run -it -p 8888:8888 tensorflow/tensorflow  # Start a Jupyter notebook server</code>
+        </pre>
+      buttons:
+      - label: Read the Docker install guide
+        path: ./docker
+        classname: button button-primary tfo-button-primary
+
+  - classname:
+      devsite-landing-row-large-headings
+      devsite-landing-row-100
+    items:
+    - heading: Google Colab&#58; An easy way to learn and use TensorFlow
+      description: >
+        <p>
+          No install necessary—run the <a href="../tutorials">TensorFlow tutorials</a>
+          directly in the browser with <a href="https://colab.research.google.com/notebooks/welcome.ipynb" class="external">Colaboratory</a>,
+          a Google research project created to help disseminate machine learning
+          education and research. It's a Jupyter notebook environment that requires
+          no setup to use and runs entirely in the cloud.
+          <a href="https://medium.com/tensorflow/colab-an-easy-way-to-learn-and-use-tensorflow-d74d1686e309" class="external">Read the blog post</a>.
+        </p>
+
+  - background: grey
+    heading: Build your first ML app
+    description: Create and deploy TensorFlow models on web and mobile.
+    items:
+    - classname: tfo-landing-row-item-inset-white
+      heading: Web developers
+      path: https://js.tensorflow.org
+      description: >
+        TensorFlow.js is a WebGL accelerated, JavaScript library to train and
+        deploy ML models in the browser and for Node.js.
+    - classname: tfo-landing-row-item-inset-white
+      heading: Mobile developers
+      path: /lite/
+      description: >
+        TensorFlow Lite is lightweight solution for mobile and embedded devices.
