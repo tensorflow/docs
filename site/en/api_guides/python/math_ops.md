@@ -3,7 +3,7 @@
 Note: Functions taking `Tensor` arguments can also take anything accepted by
 `tf.convert_to_tensor`.
 
-[TOC]
+
 
 Note: Elementwise binary operations in TensorFlow follow [numpy-style
 broadcasting](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html).
