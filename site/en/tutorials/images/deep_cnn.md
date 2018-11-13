@@ -19,7 +19,8 @@ network](https://en.wikipedia.org/wiki/Convolutional_neural_network) (CNN) for
 recognizing images. In the process, this tutorial:
 
 1. Highlights a canonical organization for network architecture,
-training and evaluation.
+   training and evaluation.
+
 2. Provides a template for constructing larger and more sophisticated models.
 
 The reason CIFAR-10 was selected was that it is complex enough to exercise

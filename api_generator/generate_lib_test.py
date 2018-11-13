@@ -98,7 +98,7 @@ class GenerateTest(absltest.TestCase):
     visitor = DummyVisitor(index, duplicate_of)
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index={}, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'])
 
     parser_config = parser.ParserConfig(
         reference_resolver=reference_resolver,
@@ -107,7 +107,6 @@ class GenerateTest(absltest.TestCase):
         tree=tree,
         index=index,
         reverse_index={},
-        guide_index={},
         base_dir=base_dir,
         code_url_prefix='/')
 
@@ -119,7 +118,7 @@ class GenerateTest(absltest.TestCase):
     output_dir = self.workdir
 
     generate_lib.write_docs(output_dir, parser_config, yaml_toc=True,
-                            site_api_path='api_docs/python')
+                            site_path='api_docs/python')
 
     # Check redirects
     redirects_file = os.path.join(output_dir, '_redirects.yaml')
@@ -156,43 +155,6 @@ class GenerateTest(absltest.TestCase):
         os.path.exists(
             os.path.join(output_dir, 'tf/TestModule/test_function.md')))
 
-  def test_update_id_tags_inplace(self):
-    test_dir = self.workdir
-    test_sub_dir = os.path.join(test_dir, 'a/b')
-    os.makedirs(test_sub_dir)
-
-    test_path1 = os.path.join(test_dir, 'file1.md')
-    test_path2 = os.path.join(test_sub_dir, 'file2.md')
-    test_path3 = os.path.join(test_sub_dir, 'file3.notmd')
-
-    with open(test_path1, 'w') as f:
-      f.write('## abc&123')
-
-    with open(test_path2, 'w') as f:
-      f.write('# A Level 1 Heading\n')
-      f.write('## A Level 2 Heading')
-
-    with open(test_path3, 'w') as f:
-      f.write("## don\'t change this")
-
-    generate_lib.update_id_tags_inplace(test_dir)
-
-    with open(test_path1) as f:
-      content = f.read()
-
-    self.assertEqual(content, '<h2 id="abc_123">abc&123</h2>')
-
-    with open(test_path2) as f:
-      content = f.read()
-
-    self.assertEqual(
-        content, '# A Level 1 Heading\n'
-        '<h2 id="A_Level_2_Heading">A Level 2 Heading</h2>')
-
-    with open(test_path3) as f:
-      content = f.read()
-
-    self.assertEqual(content, "## don\'t change this")
 
   def test_replace_refes(self):
     test_dir = self.workdir
@@ -215,13 +177,13 @@ class GenerateTest(absltest.TestCase):
       f.write('Use `tf.test_function` to test things.')
 
     with open(test_path2, 'w') as f:
-      f.write('Use @{tf.TestModule.TestClass.ChildClass} to test things.\n'
+      f.write('Use `tf.TestModule.TestClass.ChildClass` to test things.\n'
               "`tf.whatever` doesn't exist")
 
     with open(test_path3, 'w') as f:
       file3_content = (
           'Not a .md file. Should be copied unchanged:'
-          '@{tf.TestModule.TestClass.ChildClass}, `tf.test_function`')
+          '`tf.TestModule.TestClass.ChildClass`, `tf.test_function`')
       f.write(file3_content)
 
     with open(test_path4, 'w') as f:

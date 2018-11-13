@@ -22,36 +22,52 @@ This section describes some of the current uses of the TensorFlow system.
 > description of how you're using TensorFlow, or even better, send us a
 > pull request to add an entry to this file.
 
-* **Deep Speech**
-   * **Organization**: Mozilla
-   * **Domain**: Speech Recognition
-   * **Description**:  A TensorFlow implementation motivated by Baidu's Deep Speech architecture.
-   * **More info**: [GitHub Repo](https://github.com/mozilla/deepspeech)
+*   **Deep Speech**
 
-* **RankBrain**
-   * **Organization**: Google
-   * **Domain**: Information Retrieval
-   * **Description**:  A large-scale deployment of deep neural nets for search ranking on www.google.com.
-   * **More info**: ["Google Turning Over Its Lucrative Search to AI Machines"](http://www.bloomberg.com/news/articles/2015-10-26/google-turning-its-lucrative-web-search-over-to-ai-machines)
+    *   **Organization**: Mozilla
+    *   **Domain**: Speech Recognition
+    *   **Description**: A TensorFlow implementation motivated by Baidu's Deep
+        Speech architecture.
+    *   **More info**: [GitHub Repo](https://github.com/mozilla/deepspeech)
 
-* **Inception Image Classification Model**
-   * **Organization**: Google
-   * **Description**: Baseline model and follow on research into highly accurate computer vision models, starting with the model that won the 2014 Imagenet image classification challenge
-   * **More Info**: Baseline model described in [Arxiv paper](http://arxiv.org/abs/1409.4842)
+*   **RankBrain**
 
-* **SmartReply**
-  * **Organization**: Google
-  * **Description**: Deep LSTM model to automatically generate email responses
-  * **More Info**: [Google research blog post](http://googleresearch.blogspot.com/2015/11/computer-respond-to-this-email.html)
+    *   **Organization**: Google
+    *   **Domain**: Information Retrieval
+    *   **Description**: A large-scale deployment of deep neural nets for search
+        ranking on www.google.com.
+    *   **More info**:
+        ["Google Turning Over Its Lucrative Search to AI Machines"](http://www.bloomberg.com/news/articles/2015-10-26/google-turning-its-lucrative-web-search-over-to-ai-machines)
 
-* **Massively Multitask Networks for Drug Discovery**
-  * **Organization**: Google and Stanford University
-  * **Domain**: Drug discovery
-  * **Description**:  A deep neural network model for identifying promising drug candidates.
-  * **More info**: [Arxiv paper](http://arxiv.org/abs/1502.02072)
+*   **Inception Image Classification Model**
 
-* **On-Device Computer Vision for OCR**
-  * **Organization**: Google
-  * **Description**: On-device computer vision model to do optical character recognition to enable real-time translation.
-  * **More info**: [Google Research blog post](http://googleresearch.blogspot.com/2015/07/how-google-translate-squeezes-deep.html)
+    *   **Organization**: Google
+    *   **Description**: Baseline model and follow on research into highly
+        accurate computer vision models, starting with the model that won the
+        2014 Imagenet image classification challenge.
+    *   **More Info**: Baseline model described in
+        [Arxiv paper](http://arxiv.org/abs/1409.4842)
 
+*   **SmartReply**
+
+    *   **Organization**: Google
+    *   **Description**: Deep LSTM model to automatically generate email
+        responses
+    *   **More Info**:
+        [Google research blog post](http://googleresearch.blogspot.com/2015/11/computer-respond-to-this-email.html)
+
+*   **Massively Multitask Networks for Drug Discovery**
+
+    *   **Organization**: Google and Stanford University
+    *   **Domain**: Drug discovery
+    *   **Description**: A deep neural network model for identifying promising
+        drug candidates.
+    *   **More info**: [Arxiv paper](http://arxiv.org/abs/1502.02072)
+
+*   **On-Device Computer Vision for OCR**
+
+    *   **Organization**: Google
+    *   **Description**: On-device computer vision model to do optical character
+        recognition to enable real-time translation.
+    *   **More info**:
+        [Google Research blog post](http://googleresearch.blogspot.com/2015/07/how-google-translate-squeezes-deep.html)

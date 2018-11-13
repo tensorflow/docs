@@ -27,3 +27,9 @@ class ModuleClass2(object):
   def __model_class1_method__(self):
     pass
 
+
+class Hidden(object):
+  pass
+
+
+__all__ = ['ModuleClass2']

@@ -55,6 +55,7 @@ class TraverseTest(absltest.TestCase):
 
     self.assertIn(test_module1.ModuleClass1, called)
     self.assertIn(test_module2.ModuleClass2, called)
+    self.assertNotIn(test_module2.Hidden, called)
 
   def test_class(self):
     visitor = TestVisitor()

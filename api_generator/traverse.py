@@ -32,7 +32,10 @@ def _traverse_internal(root, visit, stack, path):
     return
 
   try:
-    children = inspect.getmembers(root)
+    if inspect.ismodule(root) and hasattr(root, '__all__'):
+      children = [(name, getattr(root, name)) for name in root.__all__]
+    else:
+      children = inspect.getmembers(root)
   except ImportError:
     # On some Python installations, some modules do not support enumerating
     # members (six in particular), leading to import errors.

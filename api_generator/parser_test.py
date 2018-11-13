@@ -98,10 +98,7 @@ class ParserTest(absltest.TestCase):
       def foo(self):
         pass
 
-    string = (
-        'A @{tf.reference}, another @{tf.reference$with\nnewline}, a member '
-        '@{tf.reference.foo}, and a @{tf.third$link `text` with `code` in '
-        'it}.')
+    string = 'A `tf.reference`, a member `tf.reference.foo`, and a `tf.third`.'
     duplicate_of = {'tf.third': 'tf.fourth'}
     index = {'tf.reference': HasOneMember,
              'tf.reference.foo': HasOneMember.foo,
@@ -111,42 +108,16 @@ class ParserTest(absltest.TestCase):
     visitor = DummyVisitor(index, duplicate_of)
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index={}, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'])
 
     result = reference_resolver.replace_references(string, '../..')
     self.assertEqual('A <a href="../../tf/reference.md">'
                      '<code>tf.reference</code></a>, '
-                     'another <a href="../../tf/reference.md">'
-                     'with\nnewline</a>, '
                      'a member <a href="../../tf/reference.md#foo">'
                      '<code>tf.reference.foo</code></a>, '
-                     'and a <a href="../../tf/fourth.md">link '
-                     '<code>text</code> with '
-                     '<code>code</code> in it</a>.', result)
-
-  def test_doc_replace_references(self):
-    string = '@{$doc1} @{$doc1#abc} @{$doc1$link} @{$doc1#def$zelda} @{$do/c2}'
-
-    class DocInfo(object):
-      pass
-    doc1 = DocInfo()
-    doc1.title = 'Title1'
-    doc1.url = 'URL1'
-    doc2 = DocInfo()
-    doc2.title = 'Two words'
-    doc2.url = 'somewhere/else'
-    doc_index = {'doc1': doc1, 'do/c2': doc2}
-
-    visitor = DummyVisitor(index={}, duplicate_of={})
-
-    reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index=doc_index, py_module_names=['tf'])
-    result = reference_resolver.replace_references(string, 'python')
-    self.assertEqual('<a href="../URL1">Title1</a> '
-                     '<a href="../URL1#abc">Title1</a> '
-                     '<a href="../URL1">link</a> '
-                     '<a href="../URL1#def">zelda</a> '
-                     '<a href="../somewhere/else">Two words</a>', result)
+                     'and a <a href="../../tf/fourth.md">'
+                     '<code>tf.third</code></a>.',
+                     result)
 
   def test_docs_for_class(self):
 
@@ -161,7 +132,7 @@ class ParserTest(absltest.TestCase):
     visitor = DummyVisitor(index=index, duplicate_of={})
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index={}, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'])
 
     tree = {
         'TestClass': ['a_method', 'a_property', 'ChildClass', 'CLASS_MEMBER']
@@ -173,7 +144,6 @@ class ParserTest(absltest.TestCase):
         tree=tree,
         index=index,
         reverse_index={},
-        guide_index={},
         base_dir='/',
         code_url_prefix='/')
 
@@ -216,7 +186,7 @@ class ParserTest(absltest.TestCase):
     visitor = DummyVisitor(index=index, duplicate_of={})
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index={}, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'])
 
     tree = {'namedtupleclass': {'u', 'v', 'w', 'x', 'y', 'z'}}
     parser_config = parser.ParserConfig(
@@ -226,7 +196,6 @@ class ParserTest(absltest.TestCase):
         tree=tree,
         index=index,
         reverse_index={},
-        guide_index={},
         base_dir='/',
         code_url_prefix='/')
 
@@ -265,7 +234,7 @@ class ParserTest(absltest.TestCase):
     visitor = DummyVisitor(index=index, duplicate_of={})
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index={}, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'])
 
     tree = {
         'Child': ['a_method'],
@@ -278,7 +247,6 @@ class ParserTest(absltest.TestCase):
         tree=tree,
         index=index,
         reverse_index={},
-        guide_index={},
         base_dir='/',
         code_url_prefix='/')
 
@@ -321,7 +289,7 @@ class ParserTest(absltest.TestCase):
     visitor = DummyVisitor(index=index, duplicate_of={})
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index={}, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'])
 
     tree = {'ChildMessage': ['hidden', 'hidden2', 'hidden3', 'my_method']}
 
@@ -332,7 +300,6 @@ class ParserTest(absltest.TestCase):
         tree=tree,
         index=index,
         reverse_index={},
-        guide_index={},
         base_dir='/',
         code_url_prefix='/')
 
@@ -360,7 +327,7 @@ class ParserTest(absltest.TestCase):
     visitor = DummyVisitor(index=index, duplicate_of={})
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index={}, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'])
 
     tree = {
         'TestModule': ['TestClass', 'test_function',
@@ -373,7 +340,6 @@ class ParserTest(absltest.TestCase):
         tree=tree,
         index=index,
         reverse_index={},
-        guide_index={},
         base_dir='/',
         code_url_prefix='/')
 
@@ -405,7 +371,7 @@ class ParserTest(absltest.TestCase):
     visitor = DummyVisitor(index=index, duplicate_of={})
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index={}, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'])
 
     tree = {
         '': ['test_function']
@@ -417,7 +383,6 @@ class ParserTest(absltest.TestCase):
         tree=tree,
         index=index,
         reverse_index={},
-        guide_index={},
         base_dir='/',
         code_url_prefix='/')
 
@@ -445,7 +410,7 @@ class ParserTest(absltest.TestCase):
     visitor = DummyVisitor(index=index, duplicate_of={})
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index={}, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'])
 
     tree = {
         '': ['test_function_with_args_kwargs']
@@ -457,7 +422,6 @@ class ParserTest(absltest.TestCase):
         tree=tree,
         index=index,
         reverse_index={},
-        guide_index={},
         base_dir='/',
         code_url_prefix='/')
 
@@ -480,8 +444,8 @@ class ParserTest(absltest.TestCase):
     def test_function_with_fancy_docstring(arg):
       """Function with a fancy docstring.
 
-      And a bunch of references: @{tf.reference}, another @{tf.reference},
-          a member @{tf.reference.foo}, and a @{tf.third}.
+      And a bunch of references: `tf.reference`, another `tf.reference`,
+          a member `tf.reference.foo`, and a `tf.third`.
 
       Args:
         arg: An argument.
@@ -524,7 +488,7 @@ class ParserTest(absltest.TestCase):
     visitor = DummyVisitor(index=index, duplicate_of=duplicate_of)
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index={}, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'])
 
     doc_info = parser._parse_md_docstring(test_function_with_fancy_docstring,
                                           '../..', reference_resolver)
@@ -556,7 +520,7 @@ class ParserTest(absltest.TestCase):
     visitor = DummyVisitor(index=index, duplicate_of=duplicate_of)
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, doc_index={}, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'])
 
     docs = parser.generate_global_index('TestLibrary', index=index,
                                         reference_resolver=reference_resolver)
@@ -718,10 +682,7 @@ class TestReferenceResolver(absltest.TestCase):
     os.makedirs(self.workdir)
 
   def testSaveReferenceResolver(self):
-    you_cant_serialize_this = object()
-
     duplicate_of = {'AClass': ['AClass2']}
-    doc_index = {'doc': you_cant_serialize_this}
     is_fragment = {
         'tf': False,
         'tf.VERSION': True,
@@ -732,7 +693,7 @@ class TestReferenceResolver(absltest.TestCase):
     }
     py_module_names = ['tf', 'tfdbg']
 
-    resolver = parser.ReferenceResolver(duplicate_of, doc_index, is_fragment,
+    resolver = parser.ReferenceResolver(duplicate_of, is_fragment,
                                         py_module_names)
 
     outdir = self.workdir
@@ -740,7 +701,7 @@ class TestReferenceResolver(absltest.TestCase):
     filepath = os.path.join(outdir, 'resolver.json')
 
     resolver.to_json_file(filepath)
-    resolver2 = parser.ReferenceResolver.from_json_file(filepath, doc_index)
+    resolver2 = parser.ReferenceResolver.from_json_file(filepath)
 
     # There are no __slots__, so all fields are visible in __dict__.
     self.assertEqual(resolver.__dict__, resolver2.__dict__)
