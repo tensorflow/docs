@@ -913,7 +913,7 @@ the following command:
 
 ```
 $ saved_model_cli run --dir /tmp/saved_model_dir --tag_set serve \
---signature_def x1_x2_to_y --inputs x1=/tmp/my_data1.npy;x2=/tmp/my_data2.npy \
+--signature_def x1_x2_to_y --inputs 'x1=/tmp/my_data1.npy;x2=/tmp/my_data2.npy' \
 --outdir /tmp/out
 Result for output key y:
 [[ 1.5]
@@ -928,7 +928,7 @@ you want to overwrite any existing output file.  Here's the command:
 ```
 $ saved_model_cli run --dir /tmp/saved_model_dir --tag_set serve \
 --signature_def x1_x2_to_y \
---inputs x1=/tmp/my_data1.npz[x];x2=/tmp/my_data2.pkl --outdir /tmp/out \
+--inputs 'x1=/tmp/my_data1.npz[x];x2=/tmp/my_data2.pkl' --outdir /tmp/out \
 --overwrite
 Result for output key y:
 [[ 1.5]
