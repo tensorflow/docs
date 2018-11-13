@@ -125,6 +125,7 @@ follows:
 ```
 writer = tf.summary.FileWriter('.')
 writer.add_graph(tf.get_default_graph())
+writer.flush()
 ```
 
 This will produce an `event` file in the current directory with a name in the
