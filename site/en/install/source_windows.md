@@ -167,10 +167,16 @@ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 To make the TensorFlow package builder with GPU support:
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
-bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
+bazel build --config=opt --config=cuda --define=no_tensorflow_py_deps=true //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
 #### Bazel build options
+
+Use this option when building to avoid issue with package creation: https://github.com/tensorflow/tensorflow/issues/22390
+
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
+--define=no_tensorflow_py_deps=true
+</pre>
 
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_resources 2048,.5,1.0`.
