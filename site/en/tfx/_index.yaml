@@ -33,20 +33,20 @@ landing_page:
           icon_name: chevron_right
           foreground: theme
           background: grey
-      - heading: TensorFlow Serving
-        description: >
-          A flexible, high-performance serving system for machine learning
-          models, designed for production environments.
-        path: /serving
-        icon:
-          icon_name: chevron_right
-          foreground: theme
-          background: grey
       - heading: TensorFlow Model Analysis
         description: >
           Libraries and visualization components to compute full-pass and sliced
           model metrics over large datasets, and analyze them in a notebook.
         path: /tfx/model_analysis
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - heading: TensorFlow Serving
+        description: >
+          A flexible, high-performance serving system for machine learning
+          models, designed for production environments.
+        path: /serving
         icon:
           icon_name: chevron_right
           foreground: theme
@@ -68,18 +68,18 @@ landing_page:
       buttons:
       - label: Read on Google Research blog
         path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
-    - heading: Latest Innovations in TensorFlow Serving
-      image_path: /ecosystem/images/google-research-card-16x9.png
-      path: https://research.googleblog.com/2017/11/latest-innovations-in-tensorflow-serving.html
-      buttons:
-      - label: Read on Google Research blog
-        path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
     - heading: "Introducing TensorFlow Model Analysis: Scaleable, Sliced, and Full-Pass Metrics"
       image_path: /ecosystem/images/tf-logo-card-16x9.png
       path: https://medium.com/tensorflow/introducing-tensorflow-model-analysis-scaleable-sliced-and-full-pass-metrics-5cde7baf0b7b
       buttons:
       - label: Read on TensorFlow blog
         path: https://medium.com/tensorflow/introducing-tensorflow-model-analysis-scaleable-sliced-and-full-pass-metrics-5cde7baf0b7b
+    - heading: Latest Innovations in TensorFlow Serving
+      image_path: /ecosystem/images/google-research-card-16x9.png
+      path: https://research.googleblog.com/2017/11/latest-innovations-in-tensorflow-serving.html
+      buttons:
+      - label: Read on Google Research blog
+        path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
 
   - classname: devsite-landing-row-cards
     background: grey
@@ -96,15 +96,15 @@ landing_page:
       buttons:
       - label: View on GitHub
         path: https://github.com/tensorflow/transform
-    - heading: TensorFlow Serving on GitHub
-      image_path: /ecosystem/images/github-card-16x9.png
-      path: https://github.com/tensorflow/serving
-      buttons:
-      - label: View on GitHub
-        path: https://github.com/tensorflow/serving
     - heading: Model Analysis on GitHub
       image_path: /ecosystem/images/github-card-16x9.png
       path: https://github.com/tensorflow/model-analysis
       buttons:
       - label: View on GitHub
         path: https://github.com/tensorflow/model-analysis
+    - heading: TensorFlow Serving on GitHub
+      image_path: /ecosystem/images/github-card-16x9.png
+      path: https://github.com/tensorflow/serving
+      buttons:
+      - label: View on GitHub
+        path: https://github.com/tensorflow/serving
