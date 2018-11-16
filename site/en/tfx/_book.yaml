@@ -30,6 +30,7 @@ upper_tabs:
         path: /tfx/serving
       - include: /tfx/serving/_toc.yaml
     - name: API
+      skip_translation: true
       contents:
       - title: TFX API
         path: /tfx/api_docs/
