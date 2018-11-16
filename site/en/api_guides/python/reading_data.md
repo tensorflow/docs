@@ -483,12 +483,6 @@ using the `shuffle_batch` functions, we use the plain
 multiple preprocessing threads, set the `num_threads` parameter to a number
 bigger than 1.
 
-An MNIST example that preloads the data using constants can be found in
-[`tensorflow/examples/how_tos/reading_data/fully_connected_preloaded.py`](https://www.tensorflow.org/code/tensorflow/examples/how_tos/reading_data/fully_connected_preloaded.py), and one that preloads the data using variables can be found in
-[`tensorflow/examples/how_tos/reading_data/fully_connected_preloaded_var.py`](https://www.tensorflow.org/code/tensorflow/examples/how_tos/reading_data/fully_connected_preloaded_var.py),
-You can compare these with the `fully_connected_feed` and
-`fully_connected_reader` versions above.
-
 ## Multiple input pipelines
 
 Commonly you will want to train on one dataset and evaluate (or "eval") on

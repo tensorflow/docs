@@ -80,10 +80,16 @@ to build:
 git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
 </pre>
 
-To test your copy of the source tree, run the following test (this may take a while):
+To test your copy of the source tree, run the following test for versions r1.12 and before (this may take a while):
 
 <pre class="devsite-terminal prettyprint lang-bsh">
 bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/contrib/lite/...
+</pre>
+
+For versions after r1.12 (like `master`), run the following:
+
+<pre class="devsite-terminal prettyprint lang-bsh">
+bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/lite/...
 </pre>
 
 Key Point: If you're having build problems on the latest development branch, try
@@ -200,7 +206,7 @@ for examples.
 There are some preconfigured build configs available that can be added to the
 `bazel build` command, for example:
 
-* `--config=mk1` —Support for the [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
+* `--config=mkl` —Support for the [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
 * `--config=monolithic` —Configuration for a mostly static, monolithic build.
 
 Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
@@ -258,7 +264,7 @@ The filename of the generated `.whl` file depends on the TensorFlow version and
 your platform. Use `pip install` to install the package, for example:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
-pip install /tmp/tensorflow_pkg/tensorflow-<var>version</var>-cp27-cp27mu-linux_x86_64.whl
+pip install /tmp/tensorflow_pkg/tensorflow-<var>version</var>-<var>tags</var>.whl
 </pre>
 
 Success: TensorFlow is now installed.
@@ -317,7 +323,7 @@ virtual environment:
 
 <code class="devsite-terminal tfo-terminal-root">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /mnt  # create package</code>
 
-<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-cp27-cp27mu-linux_x86_64.whl</code>
+<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
 
 Install and verify the package within the container:
@@ -325,7 +331,7 @@ Install and verify the package within the container:
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">pip uninstall tensorflow  # remove current version</code>
 
-<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-cp27-cp27mu-linux_x86_64.whl</code>
+<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 <code class="devsite-terminal tfo-terminal-root">cd /tmp  # don't import from source directory</code>
 <code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(tf.__version__)"</code>
 </pre>
@@ -333,7 +339,7 @@ Install and verify the package within the container:
 Success: TensorFlow is now installed.
 
 On your host machine, the TensorFlow *pip* package is in the current directory
-(with host user permissions): <code>./tensorflow-<var>version</var>-cp27-cp27mu-linux_x86_64.whl</code>
+(with host user permissions): <code>./tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 
 ### GPU support
 
@@ -364,7 +370,7 @@ with GPU support:
 
 <code class="devsite-terminal tfo-terminal-root">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /mnt  # create package</code>
 
-<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-cp35-cp35m-linux_x86_64.whl</code>
+<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
 
 Install and verify the package within the container and check for a GPU:
@@ -372,7 +378,7 @@ Install and verify the package within the container and check for a GPU:
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">pip uninstall tensorflow  # remove current version</code>
 
-<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-cp27-cp27mu-linux_x86_64.whl</code>
+<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 <code class="devsite-terminal tfo-terminal-root">cd /tmp  # don't import from source directory</code>
 <code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(tf.contrib.eager.num_gpus())"</code>
 </pre>
@@ -386,6 +392,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-1.12.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.11.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.10.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.9.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.11.0</td></tr>
@@ -402,6 +409,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow_gpu-1.12.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.11.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.10.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.9.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.11.0</td><td>7</td><td>9</td></tr>
@@ -422,6 +430,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-1.12.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.11.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.10.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.9.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.11.0</td></tr>

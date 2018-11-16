@@ -1,8 +1,6 @@
-# Upper tab dropdown menu used in TFX sub-site.
-
 upper_tabs:
 - include: /_upper_tabs_left.yaml
-- include: /versions/_upper_tabs_versions.yaml
+- include: /api_docs/_upper_tabs_api.yaml
 
 - name: Ecosystem
   path: /ecosystem
@@ -32,8 +30,15 @@ upper_tabs:
         path: /tfx/serving
       - include: /tfx/serving/_toc.yaml
     - name: API
+      skip_translation: true
       contents:
       - title: TFX API
         path: /tfx/api_docs/
+      - heading: Data Validation
+      - include: /tfx/data_validation/api_docs/python/_toc.yaml
       - heading: Transform
       - include: /tfx/transform/api_docs/python/_toc.yaml
+      - heading: Model Analysis
+      - include: /tfx/model_analysis/api_docs/python/_toc.yaml
+      - heading: Serving
+      - include: /tfx/serving/api_docs/rest/_toc.yaml

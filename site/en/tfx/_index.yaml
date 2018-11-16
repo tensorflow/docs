@@ -2,6 +2,7 @@ book_path: /tfx/_book.yaml
 project_path: /tfx/_project.yaml
 description: <!--no description-->
 landing_page:
+  custom_css_path: /site-assets/css/style.css
   rows:
   - heading: TFX is an end-to-end machine learning platform for TensorFlow.
     items:
@@ -11,7 +12,9 @@ landing_page:
         learning platform implemented at Google. We've already open sourced some
         TFX libraries with the rest of the system to come. For an overview of
         TFX, read our
-        <a href='https://dl.acm.org/citation.cfm?id=3098021' class='external'>KDD’2017 paper</a>.
+        <a href='https://dl.acm.org/citation.cfm?id=3098021' class='external'>KDD’2017 paper</a>
+        and watch the
+        <a href='https://www.youtube.com/watch?v=vdG7uKQ2eKk' class='external'>Dev Summit talk</a>.
       list:
       - heading: TensorFlow Data Validation
         description: >
@@ -49,26 +52,28 @@ landing_page:
           foreground: theme
           background: grey
       youtube_id: vdG7uKQ2eKk
-      buttons:
-      - label: Watch the Dev Summit talk
-        path: https://www.youtube.com/watch?v=vdG7uKQ2eKk
-        classname: button button-primary
 
   - classname: devsite-landing-row-cards
     background: grey
     items:
-    - heading: "Introducing TensorFlow Model Analysis: Scaleable, Sliced, and Full-Pass Metrics"
+    - heading: "Introducing TensorFlow Data Validation: Data Understanding, Validation, and Monitoring At Scale"
       image_path: /ecosystem/images/tf-logo-card-16x9.png
-      path: https://medium.com/tensorflow/introducing-tensorflow-model-analysis-scaleable-sliced-and-full-pass-metrics-5cde7baf0b7b
+      path: https://medium.com/tensorflow/introducing-tensorflow-data-validation-data-understanding-validation-and-monitoring-at-scale-d38e3952c2f0
       buttons:
       - label: Read on TensorFlow blog
-        path: https://medium.com/tensorflow/introducing-tensorflow-model-analysis-scaleable-sliced-and-full-pass-metrics-5cde7baf0b7b
+        path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
     - heading: Preprocessing for Machine Learning with tf.Transform
       image_path: /ecosystem/images/google-research-card-16x9.png
       path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
       buttons:
       - label: Read on Google Research blog
         path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
+    - heading: "Introducing TensorFlow Model Analysis: Scaleable, Sliced, and Full-Pass Metrics"
+      image_path: /ecosystem/images/tf-logo-card-16x9.png
+      path: https://medium.com/tensorflow/introducing-tensorflow-model-analysis-scaleable-sliced-and-full-pass-metrics-5cde7baf0b7b
+      buttons:
+      - label: Read on TensorFlow blog
+        path: https://medium.com/tensorflow/introducing-tensorflow-model-analysis-scaleable-sliced-and-full-pass-metrics-5cde7baf0b7b
     - heading: Latest Innovations in TensorFlow Serving
       image_path: /ecosystem/images/google-research-card-16x9.png
       path: https://research.googleblog.com/2017/11/latest-innovations-in-tensorflow-serving.html
