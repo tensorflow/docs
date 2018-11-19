@@ -64,7 +64,7 @@ upper_tabs:
           path: https://github.com/eaplatanios/tensorflow_scala
           status: external
 
-      - heading: Ecosystem
+      - heading: Resources
       - title: Hub
         path: /hub/api_docs/python/hub
       - title: Probability
@@ -74,4 +74,4 @@ upper_tabs:
       - title: TFX
         path: /tfx/api_docs/
 
-- include: /ecosystem/_upper_tabs_ecosystem.yaml
+- include: /resources/_upper_tabs_resources.yaml

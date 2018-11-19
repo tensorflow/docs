@@ -57,25 +57,25 @@ landing_page:
     background: grey
     items:
     - heading: "Introducing TensorFlow Data Validation: Data Understanding, Validation, and Monitoring At Scale"
-      image_path: /ecosystem/images/tf-logo-card-16x9.png
+      image_path: /resources/images/tf-logo-card-16x9.png
       path: https://medium.com/tensorflow/introducing-tensorflow-data-validation-data-understanding-validation-and-monitoring-at-scale-d38e3952c2f0
       buttons:
       - label: Read on TensorFlow blog
         path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
     - heading: Preprocessing for Machine Learning with tf.Transform
-      image_path: /ecosystem/images/google-research-card-16x9.png
+      image_path: /resources/images/google-research-card-16x9.png
       path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
       buttons:
       - label: Read on Google Research blog
         path: https://research.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
     - heading: "Introducing TensorFlow Model Analysis: Scaleable, Sliced, and Full-Pass Metrics"
-      image_path: /ecosystem/images/tf-logo-card-16x9.png
+      image_path: /resources/images/tf-logo-card-16x9.png
       path: https://medium.com/tensorflow/introducing-tensorflow-model-analysis-scaleable-sliced-and-full-pass-metrics-5cde7baf0b7b
       buttons:
       - label: Read on TensorFlow blog
         path: https://medium.com/tensorflow/introducing-tensorflow-model-analysis-scaleable-sliced-and-full-pass-metrics-5cde7baf0b7b
     - heading: Latest Innovations in TensorFlow Serving
-      image_path: /ecosystem/images/google-research-card-16x9.png
+      image_path: /resources/images/google-research-card-16x9.png
       path: https://research.googleblog.com/2017/11/latest-innovations-in-tensorflow-serving.html
       buttons:
       - label: Read on Google Research blog
@@ -85,25 +85,25 @@ landing_page:
     background: grey
     items:
     - heading: Data Validation on GitHub
-      image_path: /ecosystem/images/github-card-16x9.png
+      image_path: /resources/images/github-card-16x9.png
       path: https://github.com/tensorflow/data-validation
       buttons:
       - label: View on GitHub
         path: https://github.com/tensorflow/data-validation
     - heading: TensorFlow Transform on GitHub
-      image_path: /ecosystem/images/github-card-16x9.png
+      image_path: /resources/images/github-card-16x9.png
       path: https://github.com/tensorflow/transform
       buttons:
       - label: View on GitHub
         path: https://github.com/tensorflow/transform
     - heading: Model Analysis on GitHub
-      image_path: /ecosystem/images/github-card-16x9.png
+      image_path: /resources/images/github-card-16x9.png
       path: https://github.com/tensorflow/model-analysis
       buttons:
       - label: View on GitHub
         path: https://github.com/tensorflow/model-analysis
     - heading: TensorFlow Serving on GitHub
-      image_path: /ecosystem/images/github-card-16x9.png
+      image_path: /resources/images/github-card-16x9.png
       path: https://github.com/tensorflow/serving
       buttons:
       - label: View on GitHub
