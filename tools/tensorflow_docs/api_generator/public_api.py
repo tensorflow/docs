@@ -19,13 +19,18 @@ from __future__ import division
 from __future__ import print_function
 
 import inspect
-import re
+
+from tensorflow_docs.api_generator import doc_controls
 
 
 class PublicAPIVisitor(object):
   """Visitor to use with `traverse` to visit exactly the public TF API."""
 
-  def __init__(self, visitor):
+  def __init__(self,
+               visitor,
+               base_dir,
+               do_not_descend_map=None,
+               private_map=None):
     """Constructor.
 
     `visitor` should be a callable suitable as a visitor for `traverse`. It will
@@ -33,108 +38,61 @@ class PublicAPIVisitor(object):
 
     Args:
       visitor: A visitor to call for the public API.
+      base_dir: The directory to take source file paths relative to.
+      do_not_descend_map: A mapping from dotted path like "tf.symbol" to a list
+        of names. Included names will have no children listed.
+      private_map: A mapping from dotted path like "tf.symbol" to a list
+        of names. Included names will not be listed at that location.
     """
     self._visitor = visitor
-    self._root_name = 'tf'
+    self._base_dir = base_dir
+    self._do_not_descend_map = do_not_descend_map or {}
+    self._private_map = private_map or {}
 
-    # Modules/classes we want to suppress entirely.
-    self._private_map = {
-        # Some implementations have this internal module that we shouldn't
-        # expose.
-        'tf.flags': ['cpp_flags'],
-    }
-
-    # Modules/classes we do not want to descend into if we hit them. Usually,
-    # system modules exposed through platforms for compatibility reasons.
-    # Each entry maps a module path to a name to ignore in traversal.
-    self._do_not_descend_map = {
-        'tf': [
-            'compiler',
-            'core',
-            'examples',
-            'flags',  # Don't add flags
-            # TODO(drpng): This can be removed once sealed off.
-            'platform',
-            # TODO(drpng): This can be removed once sealed.
-            'pywrap_tensorflow',
-            # TODO(drpng): This can be removed once sealed.
-            'user_ops',
-            'python',
-            'tools',
-            'tensorboard',
-        ],
-
-        ## Everything below here is legitimate.
-        # It'll stay, but it's not officially part of the API.
-        'tf.app': ['flags'],
-        # Imported for compatibility between py2/3.
-        'tf.test': ['mock'],
-        # Externalized modules of the Keras API.
-        'tf.keras': ['applications', 'preprocessing']
-    }
-
-  @property
-  def private_map(self):
-    """A map from parents to symbols that should not be included at all.
-
-    This map can be edited, but it should not be edited once traversal has
-    begun.
-
-    Returns:
-      The map marking symbols to not include.
-    """
-    return self._private_map
-
-  @property
-  def do_not_descend_map(self):
-    """A map from parents to symbols that should not be descended into.
-
-    This map can be edited, but it should not be edited once traversal has
-    begun.
-
-    Returns:
-      The map marking symbols to not explore.
-    """
-    return self._do_not_descend_map
-
-  def set_root_name(self, root_name):
-    """Override the default root name of 'tf'."""
-    self._root_name = root_name
-
-  def _is_private(self, path, name, obj=None):
+  def _is_private(self, path, name, obj):
     """Return whether a name is private."""
-    # TODO(wicke): Find out what names to exclude.
-    del obj  # Unused.
-    return ((path in self._private_map and
-             name in self._private_map[path]) or
-            (name.startswith('_') and not re.match('__.*__$', name) or
-             name in ['__base__', '__class__']))
+    # Skip objects blocked by doc_controls.
+    if doc_controls.should_skip(obj):
+      return True
 
-  def _do_not_descend(self, path, name):
-    """Safely queries if a specific fully qualified name should be excluded."""
-    return (path in self._do_not_descend_map and
-            name in self._do_not_descend_map[path])
+    # Skip modules outside of the package root.
+    if inspect.ismodule(obj):
+      if hasattr(obj, '__file__'):
+        if not obj.__file__.startswith(self._base_dir):
+          return True
+
+    # Skip objects blocked by the private_map
+    if name in self._private_map.get('.'.join(path), []):
+      return True
+
+    # Skip "_" hidden attributes
+    is_dunder = name.startswith('__') and name.endswith('__')
+    if name.startswith('_') and not is_dunder:
+      return True
+
+    if name in ['__base__', '__class__']:
+      return True
+
+    return False
 
   def __call__(self, path, parent, children):
     """Visitor interface, see `traverse` for details."""
 
     # Avoid long waits in cases of pretty unambiguous failure.
-    if inspect.ismodule(parent) and len(path.split('.')) > 10:
-      raise RuntimeError('Modules nested too deep:\n%s.%s\n\nThis is likely a '
-                         'problem with an accidental public import.' %
-                         (self._root_name, path))
+    if inspect.ismodule(parent) and len(path) > 10:
+      raise RuntimeError(
+          'Modules nested too deep:\n\n%s\n\nThis is likely a '
+          'problem with an accidental public import.' % ('.'.join(path)))
 
-    # Includes self._root_name
-    full_path = '.'.join([self._root_name, path]) if path else self._root_name
+    # No children if "do_not_descend" is set.
+    parent_path = '.'.join(path[:-1])
+    name = path[-1]
+    if name in self._do_not_descend_map.get(parent_path, []):
+      del children[:]
 
     # Remove things that are not visible.
-    for name, child in list(children):
-      if self._is_private(full_path, name, child):
-        children.remove((name, child))
+    for child_name, child in list(children):
+      if self._is_private(path, child_name, child):
+        children.remove((child_name, child))
 
     self._visitor(path, parent, children)
-
-    # Remove things that are visible, but which should not be descended into.
-    for name, child in list(children):
-      if self._do_not_descend(full_path, name):
-        children.remove((name, child))

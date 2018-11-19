@@ -56,8 +56,6 @@ if sys.version_info < (3, 4):
   # enum introduced in Python 3.4
   REQUIRED_PKGS.append('enum34')
 
-print(find_packages())
-
 setup(
     name=project_name,
     version=version,
@@ -68,7 +66,7 @@ setup(
     url='http://github.com/tensorflow/docs',
     download_url='https://github.com/tensorflow/docs/tags',
     license='Apache 2.0',
-    packages= find_packages(),#['tensorflow_docs'],
+    packages=find_packages(),
     scripts=[],
     install_requires=REQUIRED_PKGS,
     extras_require={

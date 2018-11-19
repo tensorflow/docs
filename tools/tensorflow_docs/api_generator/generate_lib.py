@@ -25,7 +25,6 @@ import subprocess
 import tempfile
 import six
 
-from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import pretty_docs
@@ -113,7 +112,8 @@ def write_docs(output_dir,
       while True:
         subname = subname[:subname.rindex('.')]
         if tf_inspect.ismodule(parser_config.index[subname]):
-          module_children.setdefault(subname, []).append(full_name)
+          module_name = parser_config.duplicate_of.get(subname, subname)
+          module_children.setdefault(module_name, []).append(full_name)
           break
 
     # Generate docs for `py_object`, resolving references.
@@ -221,34 +221,21 @@ def add_dict_to_dict(add_from, add_to):
       add_to[key] = add_from[key]
 
 
-class DocControlsAwareCrawler(public_api.PublicAPIVisitor):
-  """A `docs_controls` aware API-crawler."""
-
-  def _is_private(self, path, name, obj):
-    if doc_controls.should_skip(obj):
-      return True
-    return super(DocControlsAwareCrawler, self)._is_private(path, name, obj)
-
-
 def extract(py_modules,
+            base_dir,
             private_map,
             do_not_descend_map,
             visitor_cls=doc_generator_visitor.DocGeneratorVisitor):
   """Extract docs from tf namespace and write them to disk."""
   # Traverse the first module.
-  visitor = visitor_cls(py_modules[0][0])
-  api_visitor = DocControlsAwareCrawler(visitor)
-  api_visitor.set_root_name(py_modules[0][0])
-  add_dict_to_dict(private_map, api_visitor.private_map)
-  add_dict_to_dict(do_not_descend_map, api_visitor.do_not_descend_map)
+  if len(py_modules) != 1:
+    raise ValueError("only pass one [('name',module)] pair in py_modules")
+  short_name, py_module = py_modules[0]
+  visitor = visitor_cls()
+  api_visitor = public_api.PublicAPIVisitor(visitor, base_dir, private_map,
+                                            do_not_descend_map)
 
-  traverse.traverse(py_modules[0][1], api_visitor)
-
-  # Traverse all py_modules after the first:
-  for module_name, module in py_modules[1:]:
-    visitor.set_root_name(module_name)
-    api_visitor.set_root_name(module_name)
-    traverse.traverse(module, api_visitor)
+  traverse.traverse(py_module, api_visitor, short_name)
 
   return visitor
 
@@ -344,8 +331,27 @@ class DocGenerator(object):
                do_not_descend_map=None,
                visitor_cls=doc_generator_visitor.DocGeneratorVisitor,
                api_cache=True):
+    """Creates a doc-generator.
+
+    Args:
+      root_title: A string. The main title for the project. Like "TensorFlow"
+      py_modules: The python module to document.
+      code_url_prefix: The prefix to add to "defined in" paths.
+      search_hints: Bool. Include metadata search hints at the top of each file.
+      site_path:
+      private_map: A {"module.path.to.object": ["names"]} dictionary. Specific
+        aliases that should not be shown in the resulting docs.
+      do_not_descend_map: A {"module.path.to.object": ["names"]} dictionary.
+        Specific aliases that will be shown, but not expanded.
+      visitor_cls: An option to override the default visitor class
+        `doc_generator_visitor.DocGeneratorVisitor`.
+      api_cache: Bool. Generate an api_cache file. This is used to easily add
+        api links for backticked symbols (like `tf.add`) in other docs.
+    """
     self._root_title = root_title
     self._py_modules = py_modules
+    self._short_name = py_modules[0][0]
+    self._py_module = py_modules[0][1]
     self._base_dir = base_dir
     self._code_url_prefix = code_url_prefix
     self._search_hints = search_hints
@@ -355,15 +361,9 @@ class DocGenerator(object):
     self._visitor_cls = visitor_cls
     self.api_cache = api_cache
 
-  def py_module_names(self):
-    if self._py_modules is None:
-      raise RuntimeError(
-          'Must call set_py_modules() before running py_module_names().')
-    return [name for (name, _) in self._py_modules]
-
   def make_reference_resolver(self, visitor):
     return parser.ReferenceResolver.from_visitor(
-        visitor, py_module_names=self.py_module_names())
+        visitor, py_module_names=[self._short_name])
 
   def make_parser_config(self, visitor, reference_resolver):
     return parser.ParserConfig(
@@ -377,22 +377,19 @@ class DocGenerator(object):
         code_url_prefix=self._code_url_prefix)
 
   def run_extraction(self):
-    return extract(self._py_modules, self._private_map,
-                   self._do_not_descend_map, self._visitor_cls)
+    return extract(self._py_modules, self._base_dir,
+                   self._private_map, self._do_not_descend_map,
+                   self._visitor_cls)
 
   def build(self, output_dir):
     """Build all the docs.
 
     This produces python api docs:
-      * generated from modules listed in `py_modules`.
+      * generated from `py_module`.
       * written to '{output_dir}/api_docs/python/'
-
 
     Args:
       output_dir: Where to write the resulting docs.
-
-    Returns:
-      The number of errors encountered while processing.
     """
     workdir = tempfile.mkdtemp()
 
@@ -414,7 +411,8 @@ class DocGenerator(object):
 
     if self.api_cache:
       reference_resolver.to_json_file(
-          os.path.join(workdir, 'api_docs/python/_api_cache.json'))
+          os.path.join(workdir, 'api_docs/python/', self._short_name,
+                       '_api_cache.json'))
 
     try:
       os.makedirs(output_dir)
@@ -423,16 +421,9 @@ class DocGenerator(object):
         raise
 
     base_command = ['rsync', '--recursive', '--quiet', '--delete']
-    for name, _ in self._py_modules:
-      cmd = base_command + [
-          os.path.join(workdir, 'api_docs/python/', name),
-          os.path.join(workdir, 'api_docs/python/', name + '.md'), output_dir
-      ]
-
-      subprocess.check_call(cmd)
-
     cmd = base_command + [
-        os.path.join(workdir, 'api_docs/python/', '_api_cache.json'),
+        os.path.join(workdir, 'api_docs/python/', self._short_name),
+        os.path.join(workdir, 'api_docs/python/', self._short_name + '.md'),
         output_dir
     ]
 
