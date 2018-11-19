@@ -172,7 +172,8 @@ bazel build --config=opt --config=cuda --define=no_tensorflow_py_deps=true //ten
 
 #### Bazel build options
 
-Use this option when building to avoid issue with package creation: https://github.com/tensorflow/tensorflow/issues/22390
+Use this option when building to avoid issue with package creation:
+https://github.com/tensorflow/tensorflow/issues/22390
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 --define=no_tensorflow_py_deps=true

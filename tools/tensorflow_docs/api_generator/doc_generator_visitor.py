@@ -26,28 +26,34 @@ from tensorflow_docs.api_generator import tf_inspect
 class DocGeneratorVisitor(object):
   """A visitor that generates docs for a python object when __call__ed."""
 
-  def __init__(self, root_name=''):
+  def __init__(self):
     """Make a visitor.
 
-    As this visitor is starting its traversal at a module or class, it will not
-    be told the name of that object during traversal. `root_name` is the name it
-    should use for that object, effectively prefixing all names with
-    "root_name.".
+    This visitor expects to be called on each node in the api. It is passed the
+    path to an object, the object, and the filtered list of the object's
+    children. (see the `__call__` method for details.
 
-    Args:
-      root_name: The name of the root module/class.
+    This object accumulates the various data-structures necessary to build the
+    docs, including (see the property definitions for details.):
+
+    In the decsription below "master name" is the object's preferred fully
+    qualified name.
+
+    Params:
+      index: A mapping from master names to python python objects.
+      tree: A mapping from master names to a list if attribute names.
+      reverse_index: Mapping from python object ids to master names.
+        Note that this doesn't work for python numbers, strings or tuples.
+      duplicate_of: A mapping from a fully qualified names to the object's
+        master name. The master names are not included as keys.
+      duplicates: A mapping from master names to lists of other fully qualified
+        names for the object.
     """
-    self.set_root_name(root_name)
     self._index = {}
     self._tree = {}
     self._reverse_index = None
     self._duplicates = None
     self._duplicate_of = None
-
-  def set_root_name(self, root_name):
-    """Sets the root name for subsequent __call__s."""
-    self._root_name = root_name or ''
-    self._prefix = (root_name + '.') if root_name else ''
 
   @property
   def index(self):
@@ -118,11 +124,7 @@ class DocGeneratorVisitor(object):
     self._maybe_find_duplicates()
     return self._duplicates
 
-  def _add_prefix(self, name):
-    """Adds the root name to a name."""
-    return self._prefix + name if name else self._root_name
-
-  def __call__(self, parent_name, parent, children):
+  def __call__(self, parent_path, parent, children):
     """Visitor interface, see `tensorflow/tools/common:traverse` for details.
 
     This method is called for each symbol found in a traversal using
@@ -130,7 +132,8 @@ class DocGeneratorVisitor(object):
     user code.
 
     Args:
-      parent_name: The fully qualified name of a symbol found during traversal.
+      parent_path: A tuple of strings. The fully qualified path to a symbol
+        found during traversal.
       parent: The Python object referenced by `parent_name`.
       children: A list of `(name, py_object)` pairs enumerating, in alphabetical
         order, the children (as determined by `tf_inspect.getmembers`) of
@@ -140,7 +143,7 @@ class DocGeneratorVisitor(object):
       RuntimeError: If this visitor is called with a `parent` that is not a
         class or module.
     """
-    parent_name = self._add_prefix(parent_name)
+    parent_name = '.'.join(parent_path)
     self._index[parent_name] = parent
     self._tree[parent_name] = []
 
@@ -179,6 +182,8 @@ class DocGeneratorVisitor(object):
     """
     parts = name.split('.')
     short_name = parts[-1]
+    if len(parts) == 1:
+      return (-99, -99, -99, short_name)
 
     container = self._index['.'.join(parts[:-1])]
 

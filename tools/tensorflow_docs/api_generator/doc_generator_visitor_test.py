@@ -18,6 +18,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import os
 import types
 
 from absl.testing import absltest
@@ -41,7 +42,7 @@ class DocGeneratorVisitorTest(absltest.TestCase):
   def test_call_module(self):
     visitor = doc_generator_visitor.DocGeneratorVisitor()
     visitor(
-        'doc_generator_visitor', doc_generator_visitor,
+        ('doc_generator_visitor',), doc_generator_visitor,
         [('DocGeneratorVisitor', doc_generator_visitor.DocGeneratorVisitor)])
 
     self.assertEqual({'doc_generator_visitor': ['DocGeneratorVisitor']},
@@ -55,21 +56,22 @@ class DocGeneratorVisitorTest(absltest.TestCase):
   def test_call_class(self):
     visitor = doc_generator_visitor.DocGeneratorVisitor()
     visitor(
-        'DocGeneratorVisitor', doc_generator_visitor.DocGeneratorVisitor,
-        [('index', doc_generator_visitor.DocGeneratorVisitor.index)])
+        ('DocGeneratorVisitor',), doc_generator_visitor.DocGeneratorVisitor,
+        [('index', doc_generator_visitor.DocGeneratorVisitor.reverse_index)])
 
     self.assertEqual({'DocGeneratorVisitor': ['index']},
                      visitor.tree)
     self.assertEqual({
-        'DocGeneratorVisitor': doc_generator_visitor.DocGeneratorVisitor,
+        'DocGeneratorVisitor':
+            doc_generator_visitor.DocGeneratorVisitor,
         'DocGeneratorVisitor.index':
-        doc_generator_visitor.DocGeneratorVisitor.index
+            doc_generator_visitor.DocGeneratorVisitor.reverse_index
     }, visitor.index)
 
   def test_call_raises(self):
     visitor = doc_generator_visitor.DocGeneratorVisitor()
     with self.assertRaises(RuntimeError):
-      visitor('non_class_or_module', 'non_class_or_module_object', [])
+      visitor(('non_class_or_module',), 'non_class_or_module_object', [])
 
   def test_duplicates_module_class_depth(self):
 
@@ -79,12 +81,14 @@ class DocGeneratorVisitorTest(absltest.TestCase):
         pass
 
     tf = types.ModuleType('tf')
+    tf.__file__ = '/tmp/tf/__init__.py'
     tf.Parent = Parent
     tf.submodule = types.ModuleType('submodule')
     tf.submodule.Parent = Parent
 
     visitor = generate_lib.extract(
         [('tf', tf)],
+        base_dir=os.path.dirname(tf.__file__),
         private_map={},
         do_not_descend_map={},
         visitor_cls=NoDunderVisitor)
@@ -120,6 +124,7 @@ class DocGeneratorVisitorTest(absltest.TestCase):
       pass
 
     tf = types.ModuleType('tf')
+    tf.__file__ = '/tmp/tf/__init__.py'
     tf.contrib = types.ModuleType('contrib')
     tf.submodule = types.ModuleType('submodule')
     tf.contrib.Parent = Parent
@@ -127,6 +132,7 @@ class DocGeneratorVisitorTest(absltest.TestCase):
 
     visitor = generate_lib.extract(
         [('tf', tf)],
+        base_dir=os.path.dirname(tf.__file__),
         private_map={},
         do_not_descend_map={},
         visitor_cls=NoDunderVisitor)
@@ -156,11 +162,13 @@ class DocGeneratorVisitorTest(absltest.TestCase):
       pass
 
     tf = types.ModuleType('tf')
+    tf.__file__ = '/tmp/tf/__init__.py'
     tf.Parent = Parent
     tf.Child = Child
 
     visitor = generate_lib.extract(
         [('tf', tf)],
+        base_dir=os.path.dirname(tf.__file__),
         private_map={},
         do_not_descend_map={},
         visitor_cls=NoDunderVisitor)
@@ -189,6 +197,7 @@ class DocGeneratorVisitorTest(absltest.TestCase):
       pass
 
     tf = types.ModuleType('tf')
+    tf.__file__ = '/tmp/tf/__init__.py'
     tf.submodule = types.ModuleType('submodule')
     tf.submodule.submodule2 = types.ModuleType('submodule2')
     tf.Parent = Parent
@@ -196,6 +205,7 @@ class DocGeneratorVisitorTest(absltest.TestCase):
 
     visitor = generate_lib.extract(
         [('tf', tf)],
+        base_dir=os.path.dirname(tf.__file__),
         private_map={},
         do_not_descend_map={},
         visitor_cls=NoDunderVisitor)
@@ -223,11 +233,13 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     Parent.obj2 = Parent.obj1
 
     tf = types.ModuleType('tf')
+    tf.__file__ = '/tmp/tf/__init__.py'
     tf.submodule = types.ModuleType('submodule')
     tf.submodule.Parent = Parent
 
     visitor = generate_lib.extract(
         [('tf', tf)],
+        base_dir=os.path.dirname(tf.__file__),
         private_map={},
         do_not_descend_map={},
         visitor_cls=NoDunderVisitor)
