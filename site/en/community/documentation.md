@@ -91,7 +91,7 @@ For links on between files in this repository use relative links: `[Eager Basics
 
 API links are converted when the site is published. To link to the python API simply enclose the full symbol path in backticks: \`tf.data.Dataset\` to produce `tf.data.Dataset`. For the C++ API use the namespace path: \`tensorflow::Tensor\`  to produce `tensorflow::Tensor`.
 
-For external links including files on tensorflow.org that are not in the `tensorflow/docs` repository (anything in [ecosystem](https://tensorflow.org/ecosystem)), just use regular markdown links with the full URL.
+For external links including files on tensorflow.org that are not in the `tensorflow/docs` repository (anything in [resources](https://tensorflow.org/resources)), just use regular markdown links with the full URL.
 
 To link to source code, use a link starting with:
 `https://www.tensorflow.org/code/`, followed by
