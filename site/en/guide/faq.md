@@ -277,7 +277,7 @@ the flag --host=localhost. This should quiet any security warnings.
 ## Extending TensorFlow
 
 See the how-to documentation for
-[adding a new operation to TensorFlow](../extend/adding_an_op.md).
+[adding a new operation to TensorFlow](../extend/op.md).
 
 #### My data is in a custom format. How do I read it using TensorFlow?
 
@@ -299,7 +299,7 @@ consider converting it, offline, to a format that is easily parsable, such
 as `tf.python_io.TFRecordWriter` format.
 
 The most efficient method to customize the parsing behavior is to
-[add a new op written in C++](../extend/adding_an_op.md) that parses your
+[add a new op written in C++](../extend/op.md) that parses your
 data format. The [guide to handling new data formats](../extend/new_data_formats.md) has
 more information about the steps for doing this.
 
