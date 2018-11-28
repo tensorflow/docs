@@ -44,7 +44,7 @@ relevant SIG leader.  Membership policies vary on a per-SIG basis.
 * **SIG Build** focuses on issues surrounding building, packaging, and
   distribution of TensorFlow. [Mailing list](https://groups.google.com/a/tensorflow.org/d/forum/build).
   
-* **SIG IO** works on support for file systems and formats other than those supported in core TensorFlow, as subclasses of tf.data.Dataset and TensorFlow filesystems, and supporting code. [Mailing list](https://groups.google.com/a/tensorflow.org/d/forum/io)
+* **SIG IO** works on support for file systems and formats other than those in core TensorFlow (such as Apache Ignite FS,  or Apache Hadoop SequenceFile), as subclasses of tf.data.Dataset and TensorFlow filesystems. [Mailing list](https://groups.google.com/a/tensorflow.org/d/forum/io)
 
 * **SIG Networking**  maintains network fabrics and protocols not available in core TensorFlow. [Mailing list](https://groups.google.com/a/tensorflow.org/d/forum/networking).
 
