@@ -107,7 +107,7 @@ The command outputs: <code>Hello from TensorFlow C library version <em>number</e
 Success: The TensorFlow C library is configured.
 
 If the program doesn't build, make sure that `gcc` can access the TensorFlow C
-library. If extracted to `/usr/local`, explictly pass the library location to
+library. If extracted to `/usr/local`, explicitly pass the library location to
 the compiler:
 
 <pre class="devsite-terminal devsite-click-to-copy">
