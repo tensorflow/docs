@@ -45,8 +45,13 @@ community collaboration on particular project focuses. Members of these groups
 work together to build and support TensorFlow related projects. While their
 archives are public, different SIGs have their own membership policies.
 
+* [addons](https://groups.google.com/a/tensorflow.org/d/forum/addons) - Supporting SIG Addons, for extensions to TensorFlow that confirm to the stable API.
 * [build](https://groups.google.com/a/tensorflow.org/d/forum/build) -
   Supporting SIG Build, for build, distribution and packaging of TensorFlow.
+* [io](https://groups.google.com/a/tensorflow.org/d/forum/io) -
+  Supporting SIG IO, for file systems and formats not available in core TensorFlow.
+* [networking](https://groups.google.com/a/tensorflow.org/d/forum/networking) -
+  Supporting SIG Networking, for adding network protocols other than gRPC.
 * [sig-tensorboard](https://groups.google.com/a/tensorflow.org/d/forum/sig-tensorboard) -
   Supporting SIG TensorBoard, for plugin development and other contribution.
 * [rust](https://groups.google.com/a/tensorflow.org/d/forum/rust) -
