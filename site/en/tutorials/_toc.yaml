@@ -82,6 +82,10 @@ toc:
     path: /tutorials/images/image_recognition
   - title: Image retraining
     path: /hub/tutorials/image_retraining
+  - title: Transfer learning
+    path: /tutorials/images/transfer_learning
+  - title: Hub with Keras
+    path: /tutorials/images/hub_with_keras
   - title: Advanced CNN
     path: /tutorials/images/deep_cnn
 
