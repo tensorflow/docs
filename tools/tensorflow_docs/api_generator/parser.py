@@ -290,7 +290,14 @@ class ReferenceResolver(object):
     Raises:
       TFDocsError: If the symbol is not found.
     """
-    master_name = self._duplicate_of.get(ref_full_name, ref_full_name)
+    if self._is_fragment.get(ref_full_name, False):
+      # methods and constants get duplicated. And that's okay.
+      # Use the master name of their parent.
+      parent_name, short_name = ref_full_name.rsplit('.', 1)
+      parent_master_name = self._duplicate_of.get(parent_name, parent_name)
+      master_name = '.'.join([parent_master_name, short_name])
+    else:
+      master_name = self._duplicate_of.get(ref_full_name, ref_full_name)
 
     # Check whether this link exists
     if master_name not in self._all_names:
@@ -303,46 +310,27 @@ class ReferenceResolver(object):
   def _one_ref(self, match, relative_path_to_root):
     """Return a link for a single "`tf.symbol`" reference."""
     string = match.group(1)
+    link_text = string
 
-    # Look for link text after $.
-    dollar = string.rfind('$')
-    if dollar > 0:  # Ignore $ in first character
-      link_text = string[dollar + 1:]
-      string = string[:dollar]
-      manual_link_text = True
-    else:
-      link_text = string
-      manual_link_text = False
-
-    # Handle different types of references.
-    if string.startswith('$'):  # Doc reference
-      return self._doc_link(string, link_text, manual_link_text,
-                            relative_path_to_root)
-
-    elif string.startswith('tensorflow::'):
+    if string.startswith('tensorflow::'):
       # C++ symbol
-      return self._cc_link(string, link_text, manual_link_text,
-                           relative_path_to_root)
+      return self._cc_link(string, link_text, relative_path_to_root)
 
-    else:
-      is_python = False
-      for py_module_name in self._py_module_names:
-        if string == py_module_name or string.startswith(py_module_name + '.'):
-          is_python = True
-          break
-      if is_python:  # Python symbol
-        return self.python_link(
-            link_text,
-            string,
-            relative_path_to_root,
-            code_ref=not manual_link_text)
+    is_python = False
+    for py_module_name in self._py_module_names:
+      if string == py_module_name or string.startswith(py_module_name + '.'):
+        is_python = True
+        break
+
+    if is_python:  # Python symbol
+      return self.python_link(
+          link_text, string, relative_path_to_root, code_ref=True)
 
     # Error!
     raise TFDocsError('Did not understand "%s"' % match.group(0),
                       'BROKEN_LINK')
 
-  def _cc_link(self, string, link_text, unused_manual_link_text,
-               relative_path_to_root):
+  def _cc_link(self, string, link_text, relative_path_to_root):
     """Generate a link for a `tensorflow::...` reference."""
     # TODO(joshl): Fix this hard-coding of paths.
     if string == 'tensorflow::ClientSession':
