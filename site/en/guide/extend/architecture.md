@@ -4,12 +4,12 @@ We designed TensorFlow for large-scale distributed training and inference, but
 it is also flexible enough to support experimentation with new machine
 learning models and system-level optimizations.
 
-This document describes the system architecture that makes this
-combination of scale and flexibility possible. It assumes that you have basic familiarity
-with TensorFlow programming concepts such as the computation graph, operations,
-and sessions. See [this document](../guide/low_level_intro.md) for an introduction to
-these topics. Some familiarity with [distributed TensorFlow](../deploy/distributed.md)
-will also be helpful.
+This document describes the system architecture that makes this combination of
+scale and flexibility possible. It assumes that you have basic familiarity with
+TensorFlow programming concepts such as the computation graph, operations, and
+sessions. See [this document](../low_level_intro.md) for an introduction to
+these topics. Some familiarity with
+[distributed TensorFlow](../../deploy/distributed.md) will also be helpful.
 
 This document is for developers who want to extend TensorFlow in some way not
 supported by current APIs, hardware engineers who want to optimize for
@@ -34,7 +34,7 @@ This document focuses on the following layers:
 *  **Client**:
    *  Defines the computation as a dataflow graph.
    *  Initiates graph execution using a [**session**](
-      https://www.tensorflow.org/code/tensorflow/python/client/session.py).
+      https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/python/client/session.py).
 *  **Distributed Master**
    *  Prunes a specific subgraph from the graph, as defined by the arguments
       to Session.run().
@@ -144,8 +144,8 @@ The distributed master then ships the graph pieces to the distributed tasks.
 
 ### Code
 
-*  [MasterService API definition](https://www.tensorflow.org/code/tensorflow/core/protobuf/master_service.proto)
-*  [Master interface](https://www.tensorflow.org/code/tensorflow/core/distributed_runtime/master_interface.h)
+*  [MasterService API definition](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/protobuf/master_service.proto)
+*  [Master interface](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/distributed_runtime/master_interface.h)
 
 ## Worker Service
 
@@ -186,9 +186,9 @@ communication, see:
 
 ### Code
 
-*   [WorkerService API definition](https://www.tensorflow.org/code/tensorflow/core/protobuf/worker_service.proto)
-*   [Worker interface](https://www.tensorflow.org/code/tensorflow/core/distributed_runtime/worker_interface.h)
-*   [Remote rendezvous (for Send and Recv implementations)](https://www.tensorflow.org/code/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.h)
+*   [WorkerService API definition](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/protobuf/worker_service.proto)
+*   [Worker interface](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/distributed_runtime/worker_interface.h)
+*   [Remote rendezvous (for Send and Recv implementations)](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.h)
 
 ## Kernel Implementations
 
@@ -199,19 +199,20 @@ Many of the operation kernels are implemented using Eigen::Tensor, which uses
 C++ templates to generate efficient parallel code for multicore CPUs and GPUs;
 however, we liberally use libraries like cuDNN where a more efficient kernel
 implementation is possible. We have also implemented
-[quantization](../performance/quantization.md), which enables
-faster inference in environments such as mobile devices and high-throughput
-datacenter applications, and use the
-[gemmlowp](https://github.com/google/gemmlowp) low-precision matrix library to
-accelerate quantized computation.
+[quantization](../../performance/quantization.md), which enables faster
+inference in environments such as mobile devices and high-throughput datacenter
+applications, and use the [gemmlowp](https://github.com/google/gemmlowp)
+low-precision matrix library to accelerate quantized computation.
 
 If it is difficult or inefficient to represent a subcomputation as a composition
 of operations, users can register additional kernels that provide an efficient
 implementation written in C++. For example, we recommend registering your own
 fused kernels for some performance critical operations, such as the ReLU and
-Sigmoid activation functions and their corresponding gradients. The [XLA Compiler](../performance/xla/index.md) has an
-experimental implementation of automatic kernel fusion.
+Sigmoid activation functions and their corresponding gradients. The
+[XLA Compiler](../../performance/xla/index.md) has an experimental
+implementation of automatic kernel fusion.
 
 ### Code
 
-*   [`OpKernel` interface](https://www.tensorflow.org/code/tensorflow/core/framework/op_kernel.h)
+*   [`OpKernel` interface](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/framework/op_kernel.h)
+
