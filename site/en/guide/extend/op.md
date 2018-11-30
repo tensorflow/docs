@@ -56,8 +56,8 @@ PREREQUISITES:
 
 *   Some familiarity with C++.
 *   Must have installed the
-    [TensorFlow binary](../install), or must have
-    [downloaded TensorFlow source](../install/source.md),
+    [TensorFlow binary](../../install), or must have
+    [downloaded TensorFlow source](../../install/source.md),
     and be able to build it.
 
 [TOC]
@@ -1261,8 +1261,7 @@ For example, add `-L /usr/local/cuda-8.0/lib64/` if your CUDA is installed in
 
 Given a graph of ops, TensorFlow uses automatic differentiation
 (backpropagation) to add new ops representing gradients with respect to the
-existing ops (see
-[Gradient Computation](../api_guides/python/train.md#Gradient_Computation)).
+existing ops.
 To make automatic differentiation work for new ops, you must register a gradient
 function which computes gradients with respect to the ops' inputs given
 gradients with respect to the ops' outputs.
