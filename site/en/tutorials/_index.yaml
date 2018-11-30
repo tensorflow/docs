@@ -16,7 +16,6 @@ landing_page:
       </p>
     items:
     - heading: Learn and use ML
-      classname: colab-callout-row
       description: >
         <p>
           The high-level Keras API provides building blocks to create and
@@ -59,11 +58,9 @@ landing_page:
         model.fit(x_train, y_train, epochs=5)
         model.evaluate(x_test, y_test)
         </pre>
+
         {% dynamic if request.tld != 'cn' %}
-        <div class="colab-callout-footer">
-          <a class="button" target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/_index.ipynb">Run code now</a>
-          <a target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/_index.ipynb"><span>Try in Google's interactive notebook</span></a>
-        </div>
+          <a class="colab-button" target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/_index.ipynb">Run in a <span>Notebook</span></a>
         {% dynamic endif %}
 
   - items:

@@ -429,3 +429,5 @@ class DocGenerator(object):
     cmd = ['rsync', '--recursive', '--quiet', '--delete']
     cmd.extend(str(path) for path in work_py_dir.glob('*'))
     cmd.append(output_dir)
+
+    subprocess.check_call(cmd)
