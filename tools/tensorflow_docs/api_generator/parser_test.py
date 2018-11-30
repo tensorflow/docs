@@ -98,7 +98,10 @@ class ParserTest(absltest.TestCase):
       def foo(self):
         pass
 
-    string = 'A `tf.reference`, a member `tf.reference.foo`, and a `tf.third`.'
+    string = (
+        'A `tf.reference`, a member `tf.reference.foo`, and a `tf.third`. '
+        'This is `not a symbol`, and this is `tf.not.a.real.symbol`')
+
     duplicate_of = {'tf.third': 'tf.fourth'}
     index = {'tf.reference': HasOneMember,
              'tf.reference.foo': HasOneMember.foo,
@@ -116,7 +119,9 @@ class ParserTest(absltest.TestCase):
                      'a member <a href="../../tf/reference.md#foo">'
                      '<code>tf.reference.foo</code></a>, '
                      'and a <a href="../../tf/fourth.md">'
-                     '<code>tf.third</code></a>.',
+                     '<code>tf.third</code></a>. '
+                     'This is `not a symbol`, and this is '
+                     '`tf.not.a.real.symbol`',
                      result)
 
   def test_docs_for_class(self):
@@ -254,7 +259,7 @@ class ParserTest(absltest.TestCase):
         full_name='Child', py_object=Child, parser_config=parser_config)
 
     # Make sure the `a_method` is not present
-    self.assertEqual(0, len(page_info.methods))
+    self.assertEmpty(page_info.methods)
 
   def test_docs_for_message_class(self):
 
@@ -308,7 +313,7 @@ class ParserTest(absltest.TestCase):
         py_object=ChildMessage,
         parser_config=parser_config)
 
-    self.assertEqual(1, len(page_info.methods))
+    self.assertLen(page_info.methods, 1)
     self.assertEqual('my_method', page_info.methods[0].short_name)
 
   def test_docs_for_module(self):
@@ -497,8 +502,8 @@ class ParserTest(absltest.TestCase):
     self.assertNotIn('compatibility', doc_info.docstring)
     self.assertNotIn('Raises:', doc_info.docstring)
 
-    self.assertEqual(len(doc_info.function_details), 3)
-    self.assertEqual(set(doc_info.compatibility.keys()), {'numpy', 'theano'})
+    self.assertLen(doc_info.function_details, 3)
+    self.assertCountEqual(doc_info.compatibility.keys(), {'numpy', 'theano'})
 
     self.assertEqual(doc_info.compatibility['numpy'],
                      'NumPy has nothing as awesome as this function.\n')
@@ -722,6 +727,40 @@ class TestReferenceResolver(absltest.TestCase):
     result = parser.is_free_function(test_module, 'test_module', {})
     self.assertFalse(result)
 
+  def test_duplicate_fragment(self):
+    duplicate_of = {
+        'tf.Class2.method': 'tf.Class1.method',
+        'tf.sub.Class2.method': 'tf.Class1.method',
+        'tf.sub.Class2': 'tf.Class2'
+    }
+    is_fragment = {
+        'tf.Class1.method': True,
+        'tf.Class2.method': True,
+        'tf.sub.Class2.method': True,
+        'tf.Class1': False,
+        'tf.Class2': False,
+        'tf.sub.Class2': False
+    }
+    py_module_names = ['tf']
+
+    reference_resolver = parser.ReferenceResolver(duplicate_of, is_fragment,
+                                                  py_module_names)
+
+    # Method references point to the method, in the canonical class alias.
+    result = reference_resolver.reference_to_url('tf.Class1.method', '')
+    self.assertEqual('tf/Class1.md#method', result)
+    result = reference_resolver.reference_to_url('tf.Class2.method', '')
+    self.assertEqual('tf/Class2.md#method', result)
+    result = reference_resolver.reference_to_url('tf.sub.Class2.method', '')
+    self.assertEqual('tf/Class2.md#method', result)
+
+    # Class references point to the canonical class alias
+    result = reference_resolver.reference_to_url('tf.Class1', '')
+    self.assertEqual('tf/Class1.md', result)
+    result = reference_resolver.reference_to_url('tf.Class2', '')
+    self.assertEqual('tf/Class2.md', result)
+    result = reference_resolver.reference_to_url('tf.sub.Class2', '')
+    self.assertEqual('tf/Class2.md', result)
 
 RELU_DOC = """Computes rectified linear: `max(features, 0)`
 
@@ -741,11 +780,11 @@ class TestParseFunctionDetails(absltest.TestCase):
   def test_parse_function_details(self):
     docstring, function_details = parser._parse_function_details(RELU_DOC)
 
-    self.assertEqual(len(function_details), 2)
+    self.assertLen(function_details, 2)
     args = function_details[0]
     self.assertEqual(args.keyword, 'Args')
-    self.assertEqual(len(args.header), 0)
-    self.assertEqual(len(args.items), 2)
+    self.assertEmpty(args.header, 0)
+    self.assertLen(args.items, 2)
     self.assertEqual(args.items[0][0], 'features')
     self.assertEqual(args.items[1][0], 'name')
     self.assertEqual(args.items[1][1],
