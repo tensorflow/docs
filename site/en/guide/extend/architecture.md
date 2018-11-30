@@ -215,4 +215,3 @@ implementation of automatic kernel fusion.
 ### Code
 
 *   [`OpKernel` interface](https://www.tensorflow.org/code/tensorflow/core/framework/op_kernel.h)
-
