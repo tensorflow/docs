@@ -391,6 +391,9 @@ included in the repo demonstrate all of these best-practices.
 
 * [Google Cloud TPU Documentation](https://cloud.google.com/tpu/docs/) —Set up
   and run a Google&nbsp;Cloud&nbsp;TPU.
+* [Migrating to TPUEstimator API](https://cloud.google.com/tpu/docs/tutorials/migrating-to-tpuestimator-api)
+  —This tutorial describes how to convert a model program using the Estimator&nbsp;API
+    to one using the `TPUEstimator` API.
 * [TPU Demos Repository](https://github.com/tensorflow/tpu) —Examples of
   Cloud&nbsp;TPU compatible models.
 * The [Google Cloud TPU Performance Guide](https://cloud.google.com/tpu/docs/performance-guide)

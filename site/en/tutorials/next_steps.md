@@ -12,7 +12,7 @@
   on mobile devices.
 * [TensorFlow Serving](../serving) is an open-source project that can put
   TensorFlow models in production quickly.
-* The [ecosystem](../ecosystem) contains more projects, including
+* [Resources](../resources) contain more projects, including
   [Magenta](https://magenta.tensorflow.org/), [TFX](../tfx),
   [Swift for TensorFlow](https://github.com/tensorflow/swift), and more.
 
