@@ -199,7 +199,7 @@ Many of the operation kernels are implemented using Eigen::Tensor, which uses
 C++ templates to generate efficient parallel code for multicore CPUs and GPUs;
 however, we liberally use libraries like cuDNN where a more efficient kernel
 implementation is possible. We have also implemented
-[quantization](../../performance/quantization.md), which enables faster
+[quantization](../../lite/performance/post_training_quantization.md), which enables faster
 inference in environments such as mobile devices and high-throughput datacenter
 applications, and use the [gemmlowp](https://github.com/google/gemmlowp)
 low-precision matrix library to accelerate quantized computation.
@@ -209,7 +209,7 @@ of operations, users can register additional kernels that provide an efficient
 implementation written in C++. For example, we recommend registering your own
 fused kernels for some performance critical operations, such as the ReLU and
 Sigmoid activation functions and their corresponding gradients. The
-[XLA Compiler](../../performance/xla/index.md) has an experimental
+[XLA Compiler](../../xla/) has an experimental
 implementation of automatic kernel fusion.
 
 ### Code
