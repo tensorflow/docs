@@ -212,6 +212,7 @@ fused kernels for some performance critical operations, such as the ReLU and
 Sigmoid activation functions and their corresponding gradients. The [XLA Compiler](../../xla/) has an
 experimental implementation of automatic kernel fusion.
 
+
 ### Code
 
 *   [`OpKernel` interface](https://www.tensorflow.org/code/tensorflow/core/framework/op_kernel.h)
