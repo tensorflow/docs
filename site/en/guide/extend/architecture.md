@@ -34,7 +34,7 @@ This document focuses on the following layers:
 *  **Client**:
    *  Defines the computation as a dataflow graph.
    *  Initiates graph execution using a [**session**](
-      https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/python/client/session.py).
+      https://www.tensorflow.org/code/tensorflow/python/client/session.py).
 *  **Distributed Master**
    *  Prunes a specific subgraph from the graph, as defined by the arguments
       to Session.run().
@@ -144,8 +144,8 @@ The distributed master then ships the graph pieces to the distributed tasks.
 
 ### Code
 
-*  [MasterService API definition](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/protobuf/master_service.proto)
-*  [Master interface](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/distributed_runtime/master_interface.h)
+*  [MasterService API definition](https://www.tensorflow.org/code/tensorflow/core/protobuf/master_service.proto)
+*  [Master interface](https://www.tensorflow.org/code/tensorflow/core/distributed_runtime/master_interface.h)
 
 ## Worker Service
 
@@ -186,9 +186,9 @@ communication, see:
 
 ### Code
 
-*   [WorkerService API definition](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/protobuf/worker_service.proto)
-*   [Worker interface](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/distributed_runtime/worker_interface.h)
-*   [Remote rendezvous (for Send and Recv implementations)](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.h)
+*   [WorkerService API definition](https://www.tensorflow.org/code/tensorflow/core/protobuf/worker_service.proto)
+*   [Worker interface](https://www.tensorflow.org/code/tensorflow/core/distributed_runtime/worker_interface.h)
+*   [Remote rendezvous (for Send and Recv implementations)](https://www.tensorflow.org/code/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.h)
 
 ## Kernel Implementations
 
@@ -214,5 +214,5 @@ implementation of automatic kernel fusion.
 
 ### Code
 
-*   [`OpKernel` interface](https://cs.corp.google.com/#piper///depot/google3/third_party/tensorflow/core/framework/op_kernel.h)
+*   [`OpKernel` interface](https://www.tensorflow.org/code/tensorflow/core/framework/op_kernel.h)
 
