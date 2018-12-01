@@ -23,6 +23,8 @@ import os
 import shutil
 import subprocess
 import tempfile
+
+import pathlib
 import six
 
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -336,7 +338,10 @@ class DocGenerator(object):
     Args:
       root_title: A string. The main title for the project. Like "TensorFlow"
       py_modules: The python module to document.
-      code_url_prefix: The prefix to add to "defined in" paths.
+      base_dir: The directory that "Defined in" links are generated relative to.
+        Defined in links are not defined for objects defined outside this
+        directory.
+      code_url_prefix: The prefix to add to "Defined in" paths.
       search_hints: Bool. Include metadata search hints at the top of each file.
       site_path:
       private_map: A {"module.path.to.object": ["names"]} dictionary. Specific
@@ -391,18 +396,20 @@ class DocGenerator(object):
     Args:
       output_dir: Where to write the resulting docs.
     """
-    workdir = tempfile.mkdtemp()
+    workdir = pathlib.Path(tempfile.mkdtemp())
 
     # Extract the python api from the _py_modules
     visitor = self.run_extraction()
     reference_resolver = self.make_reference_resolver(visitor)
     # Replace all the `tf.symbol` references in the workdir.
-    replace_refs(workdir, workdir, reference_resolver, file_pattern='*.md')
+    replace_refs(
+        str(workdir), str(workdir), reference_resolver, file_pattern='*.md')
 
     # Write the api docs.
     parser_config = self.make_parser_config(visitor, reference_resolver)
+    work_py_dir = workdir / 'api_docs/python'
     write_docs(
-        output_dir=os.path.join(workdir, 'api_docs/python'),
+        output_dir=str(work_py_dir),
         parser_config=parser_config,
         yaml_toc=True,
         root_title=self._root_title,
@@ -411,8 +418,7 @@ class DocGenerator(object):
 
     if self.api_cache:
       reference_resolver.to_json_file(
-          os.path.join(workdir, 'api_docs/python/', self._short_name,
-                       '_api_cache.json'))
+          str(work_py_dir / self._short_name / '_api_cache.json'))
 
     try:
       os.makedirs(output_dir)
@@ -420,11 +426,6 @@ class DocGenerator(object):
       if 'File exists' not in e:
         raise
 
-    base_command = ['rsync', '--recursive', '--quiet', '--delete']
-    cmd = base_command + [
-        os.path.join(workdir, 'api_docs/python/', self._short_name),
-        os.path.join(workdir, 'api_docs/python/', self._short_name + '.md'),
-        output_dir
-    ]
-
-    subprocess.check_call(cmd)
+    cmd = ['rsync', '--recursive', '--quiet', '--delete']
+    cmd.extend(str(path) for path in work_py_dir.glob('*'))
+    cmd.append(output_dir)
