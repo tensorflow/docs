@@ -10,7 +10,7 @@ We welcome contributions to the TensorFlow documentation from the community. See
 the [Writing TensorFlow Documentation](https://www.tensorflow.org/community/documentation)
 guide.
 
-To file an issue, use the [tensorflow/tensorflow issue tracker](https://github.com/tensorflow/tensorflow/issues/new?template=20-documentation-issue.md).
+To file an issue, use the tracker in the [tensorflow/tensorflow](https://github.com/tensorflow/tensorflow/issues/new?template=20-documentation-issue.md) repo and add the label `type:docs`.
 
 ## Contribution guidelines
 
