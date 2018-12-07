@@ -14,7 +14,7 @@ inside the organization, including:
 * [TensorBoard](https://github.com/tensorflow/tensorboard)
 * [TensorFlow.js](https://github.com/tensorflow/tfjs)
 * [TensorFlow Serving](https://github.com/tensorflow/serving)
-* [TensorFlow Documentation](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/docs_src)
+* [TensorFlow Documentation](https://github.com/tensorflow/docs)
 
 ## Contributor checklist
 
