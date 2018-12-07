@@ -7,7 +7,7 @@ particular, this document explains the following:
 * Where the documentation is located.
 * How to make conformant edits.
 
-You can view TensorFlow documentation at [tensorflow.org](https://www.tensorflow.org), and you
+You can view TensorFlow documentation on https://www.tensorflow.org, and you
 can view and edit the raw files at the corresponding paths in
 [the `site/en` directory](https://github.com/tensorflow/docs/tree/master/site/en).
 
@@ -49,7 +49,7 @@ in the code:
 
 To modify the reference documentation, you edit the appropriate code comments and doc strings. These are only updated with new releases, as they reflect the contents of the default installation.
 
-The Python API documentation is generated from the main TensorFlow repository using the `//tensorflow/tools/docs:generate` bazel build target:
+The python API documented is generated, from main tensorflow repository, using the `//tensorflow/tools/docs:generate` bazel build target:
 
 ```sh
 bazel run //tensorflow/tools/docs:generate -- --output_dir=/tmp/master_out
@@ -73,7 +73,7 @@ You may use MathJax within TensorFlow when editing Markdown files, but note the
 following:
 
 - MathJax renders properly on [tensorflow.org](https://www.tensorflow.org)
-- MathJax does not render properly on [GitHub](https://github.com/tensorflow/tensorflow).
+- MathJax does not render properly on [github](https://github.com/tensorflow/tensorflow).
 
 When writing MathJax, you can use <code>&#36;&#36;</code> and `\\(` and `\\)` to
 surround your math.  <code>&#36;&#36;</code> guards will cause line breaks, so
@@ -87,15 +87,15 @@ Links fall into a few categories.
 - Links to API documentation.
 - External links
 
-For links between files in this repository use relative links: `[Eager Basics](../tutorials/eager/eager_basics.ipynb)` produces [Eager Basics](../tutorials/eager/eager_basics.ipynb). These links will work on both GitHub, and tensorflow.org
+For links on between files in this repository use relative links: `[Eager Basics](../tutorials/eager/eager_basics.ipynb)` produces [Eager Basics](../tutorials/eager/eager_basics.ipynb). These links will work on both github, and tensorflow.org
 
-API links are converted when the site is published. To link to the Python API simply enclose the full symbol path in backticks: <code>\`tf.data.Dataset\`</code> to produce `tf.data.Dataset`. For the C++ API use the namespace path: <code>\`tensorflow::Tensor\`</code> to produce `tensorflow::Tensor`.
+API links are converted when the site is published. To link to the python API simply enclose the full symbol path in backticks: \`tf.data.Dataset\` to produce `tf.data.Dataset`. For the C++ API use the namespace path: \`tensorflow::Tensor\`  to produce `tensorflow::Tensor`.
 
-For external links including files on tensorflow.org that are not in the `tensorflow/docs` repository (anything in [resources](https://tensorflow.org/resources)), just use regular Markdown links with the full URL.
+For external links including files on tensorflow.org that are not in the `tensorflow/docs` repository (anything in [resources](https://tensorflow.org/resources)), just use regular markdown links with the full URL.
 
 To link to source code, use a link starting with:
 `https://www.tensorflow.org/code/`, followed by
-the file name starting at the GitHub root.
+the file name starting at the github root. 
 
 This URL naming scheme ensures
 that [tensorflow.org](https://www.tensorflow.org/) can forward the link to the
@@ -410,7 +410,7 @@ image: Must be 4-D. The image to resize.
 image:= A 4-D `float` tensor. The image to resize.
 ```
 
-In the documentation, these will be rendered to Markdown as
+In the documentation, these will be rendered to markdown as
 
 ```
 image: A `float` Tensor. Must be 4-D. The image to resize.
