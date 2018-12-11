@@ -20,8 +20,8 @@ Install the TensorFlow *pip* package dependencies:
 
 <pre class="devsite-click-to-copy">
 <code class="devsite-terminal tfo-terminal-windows">pip3 install six numpy wheel</code>
-<code class="devsite-terminal tfo-terminal-windows">pip3 install keras_applications==1.0.5 --no-deps</code>
-<code class="devsite-terminal tfo-terminal-windows">pip3 install keras_preprocessing==1.0.3 --no-deps</code>
+<code class="devsite-terminal tfo-terminal-windows">pip3 install keras_applications==1.0.6 --no-deps</code>
+<code class="devsite-terminal tfo-terminal-windows">pip3 install keras_preprocessing==1.0.5 --no-deps</code>
 </pre>
 
 The dependencies are listed in the
