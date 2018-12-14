@@ -1,16 +1,7 @@
 toc:
 - title: Deploy
-  path: /deploy/
-- title: TensorFlow Serving
-  path: /serving
-- title: TensorFlow Extended (TFX)
-  path: /tfx
-- title: Deploy to JavaScript
-  path: https://js.tensorflow.org/
-  status: external
-- title: Deploy to Mobile
-  path: /lite
-- section: Other Deployment Scenarios
+  path: /deploy
+- heading: Other Deployment Scenarios
 - title: Distributed TensorFlow
   path: /deploy/distributed
 - title: TensorFlow on Hadoop

@@ -32,12 +32,12 @@ perform A/B testing. With TFX, your models are ready for production.
 ## TensorFlow.js
 
 With [TensorFlow.js](https://js.tensorflow.org/) you can train and deploy your
-TensorFlow models in the browser and in Node.js. Use flexible and intuitive APIs
-to build and train models from scratch using the low-level JavaScript linear
-algebra library or the high-level layers API. Use TensorFlow.js model converters
-to run pre-existing TensorFlow models right in the browser or under Node.js.
-Retrain pre-existing ML models using sensor data connected to the browser, or
-other client-side data.
+TensorFlow models in the browser and in Node.js. Use flexible and intuitive
+APIs to build and train models from scratch using the low-level JavaScript
+linear algebra library or the high-level layers API. Use TensorFlow.js model
+converters to run pre-existing TensorFlow models right in the browser or under
+Node.js. Retrain pre-existing ML models using sensor data connected to the
+browser, or other client-side data.
 
 ## TensorFlow Lite
 
