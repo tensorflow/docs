@@ -5,6 +5,9 @@ simplify installation and avoid library conflicts, we recommend using a
 [TensorFlow Docker image with GPU support](./docker.md) (Linux only). This setup
 only requires the [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external}.
 
+The versions and instructions below are for the latest release of TensorFlow.
+This [table](./sources.md#linux) tracks the versions of CUDA and cuDNN used for
+past releases of TensorFlow.
 
 ## Hardware requirements
 
@@ -18,12 +21,11 @@ The following GPU-enabled devices are supported:
 
 The following NVIDIA® software must be installed on your system:
 
-* [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external} —CUDA 9.0 requires 384.x or higher.
-* [CUDA® Toolkit](https://developer.nvidia.com/cuda-zone){:.external} —TensorFlow supports CUDA 9.0.
+* [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external} —CUDA 10.0 requires 410.x or higher.
+* [CUDA® Toolkit](https://developer.nvidia.com/cuda-zone){:.external} —TensorFlow supports CUDA 10.0 (TensorFlow >= 1.13.0)
 * [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA Toolkit.
-* [cuDNN SDK](https://developer.nvidia.com/cudnn){:.external} (>= 7.2)
-* *(Optional)* [NCCL 2.2](https://developer.nvidia.com/nccl){:.external} for multiple GPU support.
-* *(Optional)* [TensorRT 4.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
+* [cuDNN SDK](https://developer.nvidia.com/cudnn){:.external} (>= 7.4.1)
+* *(Optional)* [TensorRT 5.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
   to improve latency and throughput for inference on some models.
 
 
@@ -47,11 +49,83 @@ NVIDIA libraries, see the [Linux build from source](./source.md) guide.
 
 ### Install CUDA with apt
 
-For Ubuntu&nbsp;16.04—and possibly other Debian-based Linux distros—add the
-NVIDIA package repository and use `apt` to install CUDA.
+Instructions for installing CUDA 10 (TensorFlow >= 13.0) and CUDA 9 are below
+for Ubuntu 16.04 and 18.04. These instructions may work for other Debian-based
+distros.
 
-Caution: `apt` installs the NVIDIA libraries and headers to locations that make
-it difficult to configure and debug build issues.
+Caution: Secure Boot can complicate installation of the NVIDIA driver and is
+beyond the scope of these install instructions.
+
+
+#### Ubuntu 18.04 (CUDA 10)
+
+<pre class="prettyprint lang-bsh">
+# Adds NVIDIA package repositories
+<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.0.130-1_amd64.deb</code>
+<code class="devsite-terminal">sudo dpkg -i cuda-repo-ubuntu1804_10.0.130-1_amd64.deb</code>
+<code class="devsite-terminal">sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub</code>
+<code class="devsite-terminal">sudo apt-get update</code>
+<code class="devsite-terminal">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</code>
+<code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</code>
+<code class="devsite-terminal">sudo apt-get update</code>
+
+# Installs NVIDIA Driver.
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-410</code>
+# Reboot. Suggest checking GPUs are visible with nvidia-smi.
+
+# Installs development and runtime libraries ~4GB.
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends \
+    cuda-10-0 \
+    libcudnn7=7.4.1.5-1+cuda10.0  \
+    libcudnn7-dev=7.4.1.5-1+cuda10.0
+</code>
+
+# Installs TensorRT. Cannot be done until libcudnn7 is installed above.
+<code class="devsite-terminal">sudo apt-get update && \
+        sudo apt-get install nvinfer-runtime-trt-repo-ubuntu1804-5.0.2-ga-cuda10.0 \
+        && sudo apt-get update \
+        && sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.0.2-1+cuda10.0
+</code>
+</pre>
+
+
+#### Ubuntu 16.04 (CUDA 10)
+
+<pre class="prettyprint lang-bsh">
+# Adds NVIDIA package repositories
+# Adds https support for apt-key
+<code class="devsite-terminal">sudo apt-get install gnupg-curl</code>
+<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_10.0.130-1_amd64.deb</code>
+<code class="devsite-terminal">sudo dpkg -i cuda-repo-ubuntu1604_10.0.130-1_amd64.deb</code>
+<code class="devsite-terminal">sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</code>
+<code class="devsite-terminal">sudo apt-get update</code>
+<code class="devsite-terminal">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
+<code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
+<code class="devsite-terminal">sudo apt-get update</code>
+
+# Installs NVIDIA Driver.
+# Issue with driver install requires creating /usr/lib/nvidia
+<code class="devsite-terminal">sudo mkdir /usr/lib/nvidia</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-410</code>
+# Reboot. Suggest checking GPUs are visible with nvidia-smi.
+
+# Installs development and runtime libraries ~4GB.
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends \
+    cuda-10-0 \
+    libcudnn7=7.4.1.5-1+cuda10.0  \
+    libcudnn7-dev=7.4.1.5-1+cuda10.0
+</code>
+
+# Installs TensorRT. Cannot be done until libcudnn7 is installed above.
+<code class="devsite-terminal">sudo apt-get update && \
+        sudo apt-get install nvinfer-runtime-trt-repo-ubuntu1604-5.0.2-ga-cuda10.0 \
+        && sudo apt-get update \
+        && sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.0.2-1+cuda10.0
+</code>
+</pre>
+
+
+#### Ubuntu 16.04 (CUDA 9.0 for TensorFlow < 1.13.0)
 
 <pre class="prettyprint lang-bsh">
 # Add NVIDIA package repository
@@ -85,11 +159,11 @@ different version, see the [Windows build from source](./source_windows.md) guid
 
 Add the CUDA, CUPTI, and cuDNN installation directories to the `%PATH%`
 environmental variable. For example, if the CUDA Toolkit is installed to
-`C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0` and cuDNN to
+`C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0` and cuDNN to
 `C:\tools\cuda`, update your `%PATH%` to match:
 
 <pre class="devsite-click-to-copy">
-<code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin;%PATH%</code>
-<code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\extras\CUPTI\libx64;%PATH%</code>
+<code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin;%PATH%</code>
+<code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\extras\CUPTI\libx64;%PATH%</code>
 <code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\tools\cuda\bin;%PATH%</code>
 </pre>
