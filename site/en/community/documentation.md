@@ -190,8 +190,10 @@ specific about the size, use these conventions:
 Use the word "shape" to detail the dimensions of a tensor, and show the shape in
 square brackets with backticks. For example:
 
-    If `input` is a 3-D tensor with shape `[3, 4, 3]`, this operation
-    returns a 3-D tensor with shape `[6, 8, 6]`.
+```none
+If `input` is a 3-D tensor with shape `[3, 4, 3]`, this operation
+returns a 3-D tensor with shape `[6, 8, 6]`.
+```
 
 ### Ops defined in C++
 
@@ -297,23 +299,23 @@ This section details each of the elements in docstrings.
 
 Examples:
 
-```
+```none
 Concatenates tensors.
 ```
 
-```
+```none
 Flips an image horizontally from left to right.
 ```
 
-```
+```none
 Computes the Levenshtein distance between two sequences.
 ```
 
-```
+```none
 Saves a list of tensors to a file.
 ```
 
-```
+```none
 Extracts a slice from a tensor.
 ```
 
@@ -321,14 +323,16 @@ Extracts a slice from a tensor.
 
 Examples:
 
-    Given a tensor input of numerical type, this operation returns a tensor of
-    the same type and size with values reversed along dimension `seq_dim`. A
-    vector `seq_lengths` determines which elements are reversed for each index
-    within dimension 0 (usually the batch dimension).
+```none
+Given a tensor input of numerical type, this operation returns a tensor of
+the same type and size with values reversed along dimension `seq_dim`. A
+vector `seq_lengths` determines which elements are reversed for each index
+within dimension 0 (usually the batch dimension).
 
 
-    This operation returns a tensor of type `dtype` and dimensions `shape`, with
-    all elements set to zero.
+This operation returns a tensor of type `dtype` and dimensions `shape`, with
+all elements set to zero.
+```
 
 ### Example demonstrating the op
 
@@ -339,12 +343,16 @@ the before and after, as well.
 
 The `squeeze()` op has a nice pseudocode example:
 
-    # 't' is a tensor of shape [1, 2, 1, 3, 1, 1]
-    shape(squeeze(t)) ==> [2, 3]
+```none
+# 't' is a tensor of shape [1, 2, 1, 3, 1, 1]
+shape(squeeze(t)) ==> [2, 3]
+```
 
 The `tile()` op provides a good example in descriptive text:
 
-    For example, tiling `[a, b, c, d]` by `[2]` produces `[a b c d a b c d]`.
+```none
+For example, tiling `[a, b, c, d]` by `[2]` produces `[a b c d a b c d]`.
+```
 
 It is often helpful to show code samples in Python. Never put them in the C++
 Ops file, and avoid putting them in the Python Ops doc. We recommend, if
@@ -355,32 +363,34 @@ are called out.
 
 Here's an example from the module docstring in `api_guides/python/math_ops.md`:
 
-    ## Segmentation
+<pre>
+## Segmentation
 
-    TensorFlow provides several operations that you can use to perform common
-    math computations on tensor segments.
-    ...
-    In particular, a segmentation of a matrix tensor is a mapping of rows to
-    segments.
+TensorFlow provides several operations that you can use to perform common
+math computations on tensor segments.
+...
+In particular, a segmentation of a matrix tensor is a mapping of rows to
+segments.
 
-    For example:
+For example:
 
-    ```python
-    c = tf.constant([[1,2,3,4], [-1,-2,-3,-4], [5,6,7,8]])
-    tf.segment_sum(c, tf.constant([0, 0, 1]))
-      ==>  [[0 0 0 0]
-            [5 6 7 8]]
-    ```
+```python
+c = tf.constant([[1,2,3,4], [-1,-2,-3,-4], [5,6,7,8]])
+tf.segment_sum(c, tf.constant([0, 0, 1]))
+  ==>  [[0 0 0 0]
+        [5 6 7 8]]
+```
+</pre>
 
 ### Requirements, caveats, important notes
 
 Examples:
 
-```
+```none
 This operation requires that: `-1-input.dims() <= dim <= input.dims()`
 ```
 
-```
+```none
 Note: This tensor will produce an error if evaluated. Its value must
 be fed using the `feed_dict` optional argument to `Session.run()`,
 `Tensor.eval()`, or `Operation.run()`.
@@ -402,21 +412,21 @@ float tensor".
 For example, here are two ways to document an image argument of a C++ op (note
 the "=" sign):
 
-```
+```none
 image: Must be 4-D. The image to resize.
 ```
 
-```
+```none
 image:= A 4-D `float` tensor. The image to resize.
 ```
 
 In the documentation, these will be rendered to Markdown as
 
-```
+```none
 image: A `float` Tensor. Must be 4-D. The image to resize.
 ```
 
-```
+```none
 image: A 4-D `float` Tensor. The image to resize.
 ```
 
@@ -432,42 +442,46 @@ descriptions follow afterwards. Therefore, complete sentences are best.
 
 Here's an example from `image_ops.cc`:
 
-    REGISTER_OP("DecodePng")
-        .Input("contents: string")
-        .Attr("channels: int = 0")
-        .Attr("dtype: {uint8, uint16} = DT_UINT8")
-        .Output("image: dtype")
-        .SetShapeFn(DecodeImageShapeFn)
-        .Doc(R"doc(
-    Decode a PNG-encoded image to a uint8 or uint16 tensor.
+```none
+REGISTER_OP("DecodePng")
+    .Input("contents: string")
+    .Attr("channels: int = 0")
+    .Attr("dtype: {uint8, uint16} = DT_UINT8")
+    .Output("image: dtype")
+    .SetShapeFn(DecodeImageShapeFn)
+    .Doc(R"doc(
+Decode a PNG-encoded image to a uint8 or uint16 tensor.
 
-    The attr `channels` indicates the desired number of color channels for the
-    decoded image.
+The attr `channels` indicates the desired number of color channels for the
+decoded image.
 
-    Accepted values are:
+Accepted values are:
 
-    *   0: Use the number of channels in the PNG-encoded image.
-    *   1: output a grayscale image.
-    *   3: output an RGB image.
-    *   4: output an RGBA image.
+*   0: Use the number of channels in the PNG-encoded image.
+*   1: output a grayscale image.
+*   3: output an RGB image.
+*   4: output an RGBA image.
 
-    If needed, the PNG-encoded image is transformed to match the requested
-    number of color channels.
+If needed, the PNG-encoded image is transformed to match the requested
+number of color channels.
 
-    contents: 0-D.  The PNG-encoded image.
-    channels: Number of color channels for the decoded image.
-    image: 3-D with shape `[height, width, channels]`.
-    )doc");
+contents: 0-D.  The PNG-encoded image.
+channels: Number of color channels for the decoded image.
+image: 3-D with shape `[height, width, channels]`.
+)doc");
+```
 
 This generates the following Args section in
 `api_docs/python/tf/image/decode_png.md`:
 
-    #### Args:
+```none
+#### Args:
 
-    * **`contents`**: A `Tensor` of type `string`. 0-D.  The PNG-encoded
-      image.
-    * **`channels`**: An optional `int`. Defaults to `0`. Number of color
-      channels for the decoded image.
-    * **`dtype`**: An optional `tf.DType` from: `tf.uint8,
-      tf.uint16`. Defaults to `tf.uint 8`.
-    * **`name`**: A name for the operation (optional).
+* **`contents`**: A `Tensor` of type `string`. 0-D.  The PNG-encoded
+  image.
+* **`channels`**: An optional `int`. Defaults to `0`. Number of color
+  channels for the decoded image.
+* **`dtype`**: An optional `tf.DType` from: `tf.uint8,
+  tf.uint16`. Defaults to `tf.uint 8`.
+* **`name`**: A name for the operation (optional).
+```
