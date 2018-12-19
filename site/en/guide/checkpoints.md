@@ -74,7 +74,7 @@ The first call to train().
 To see the objects in the created `model_dir` directory on a
 UNIX-based system, just call `ls` as follows:
 
-```none
+<pre>
 $ ls -1 models/iris
 checkpoint
 events.out.tfevents.timestamp.hostname
@@ -85,7 +85,7 @@ model.ckpt-1.meta
 model.ckpt-200.data-00000-of-00001
 model.ckpt-200.index
 model.ckpt-200.meta
-```
+</pre>
 
 The preceding `ls` command shows that the Estimator created checkpoints
 at steps 1 (the start of training) and 200 (the end of training).
@@ -112,9 +112,9 @@ The `tempfile.mkdtemp` function picks a secure, temporary directory
 appropriate for your operating system. For example, a typical temporary
 directory on macOS might be something like the following:
 
-```None
+<pre>
 /var/folders/0s/5q9kfzfj3gx2knj0vj8p68yc00dhcr/T/tmpYm1Rwa
-```
+</pre>
 
 ### Checkpointing Frequency
 
@@ -214,12 +214,12 @@ classifier.train(
 Since the state in the checkpoint is incompatible with the model described
 in `classifier2`, retraining fails with the following error:
 
-```None
+<pre>
 ...
 InvalidArgumentError (see above for traceback): tensor_name =
 dnn/hiddenlayer_1/bias/t_0/Adagrad; shape in shape_and_slice spec [10]
 does not match the shape stored in checkpoint: [20]
-```
+</pre>
 
 To run experiments in which you train and compare slightly different
 versions of a model, save a copy of the code that created each

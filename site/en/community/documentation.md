@@ -190,10 +190,10 @@ specific about the size, use these conventions:
 Use the word "shape" to detail the dimensions of a tensor, and show the shape in
 square brackets with backticks. For example:
 
-```none
+<pre>
 If `input` is a 3-D tensor with shape `[3, 4, 3]`, this operation
 returns a 3-D tensor with shape `[6, 8, 6]`.
-```
+</pre>
 
 ### Ops defined in C++
 
@@ -299,31 +299,31 @@ This section details each of the elements in docstrings.
 
 Examples:
 
-```none
+<pre>
 Concatenates tensors.
-```
+</pre>
 
-```none
+<pre>
 Flips an image horizontally from left to right.
-```
+</pre>
 
-```none
+<pre>
 Computes the Levenshtein distance between two sequences.
-```
+</pre>
 
-```none
+<pre>
 Saves a list of tensors to a file.
-```
+</pre>
 
-```none
+<pre>
 Extracts a slice from a tensor.
-```
+</pre>
 
 ### Short description of what happens when you pass arguments to the op
 
 Examples:
 
-```none
+<pre>
 Given a tensor input of numerical type, this operation returns a tensor of
 the same type and size with values reversed along dimension `seq_dim`. A
 vector `seq_lengths` determines which elements are reversed for each index
@@ -332,7 +332,7 @@ within dimension 0 (usually the batch dimension).
 
 This operation returns a tensor of type `dtype` and dimensions `shape`, with
 all elements set to zero.
-```
+</pre>
 
 ### Example demonstrating the op
 
@@ -343,16 +343,16 @@ the before and after, as well.
 
 The `squeeze()` op has a nice pseudocode example:
 
-```none
+<pre>
 # 't' is a tensor of shape [1, 2, 1, 3, 1, 1]
 shape(squeeze(t)) ==> [2, 3]
-```
+</pre>
 
 The `tile()` op provides a good example in descriptive text:
 
-```none
+<pre>
 For example, tiling `[a, b, c, d]` by `[2]` produces `[a b c d a b c d]`.
-```
+</pre>
 
 It is often helpful to show code samples in Python. Never put them in the C++
 Ops file, and avoid putting them in the Python Ops doc. We recommend, if
@@ -386,15 +386,15 @@ tf.segment_sum(c, tf.constant([0, 0, 1]))
 
 Examples:
 
-```none
+<pre>
 This operation requires that: `-1-input.dims() <= dim <= input.dims()`
-```
+</pre>
 
-```none
+<pre>
 Note: This tensor will produce an error if evaluated. Its value must
 be fed using the `feed_dict` optional argument to `Session.run()`,
 `Tensor.eval()`, or `Operation.run()`.
-```
+</pre>
 
 ### Descriptions of arguments and output (returned) tensors.
 
@@ -412,23 +412,23 @@ float tensor".
 For example, here are two ways to document an image argument of a C++ op (note
 the "=" sign):
 
-```none
+<pre>
 image: Must be 4-D. The image to resize.
-```
+</pre>
 
-```none
+<pre>
 image:= A 4-D `float` tensor. The image to resize.
-```
+</pre>
 
 In the documentation, these will be rendered to Markdown as
 
-```none
+<pre>
 image: A `float` Tensor. Must be 4-D. The image to resize.
-```
+</pre>
 
-```none
+<pre>
 image: A 4-D `float` Tensor. The image to resize.
-```
+</pre>
 
 ### Optional arguments descriptions ("attrs")
 
@@ -442,7 +442,7 @@ descriptions follow afterwards. Therefore, complete sentences are best.
 
 Here's an example from `image_ops.cc`:
 
-```none
+<pre>
 REGISTER_OP("DecodePng")
     .Input("contents: string")
     .Attr("channels: int = 0")
@@ -469,12 +469,12 @@ contents: 0-D.  The PNG-encoded image.
 channels: Number of color channels for the decoded image.
 image: 3-D with shape `[height, width, channels]`.
 )doc");
-```
+</pre>
 
 This generates the following Args section in
 `api_docs/python/tf/image/decode_png.md`:
 
-```none
+<pre>
 #### Args:
 
 * **`contents`**: A `Tensor` of type `string`. 0-D.  The PNG-encoded
@@ -484,4 +484,4 @@ This generates the following Args section in
 * **`dtype`**: An optional `tf.DType` from: `tf.uint8,
   tf.uint16`. Defaults to `tf.uint 8`.
 * **`name`**: A name for the operation (optional).
-```
+</pre>

@@ -722,9 +722,9 @@ SignatureDef key: "serving_default"
 If a `MetaGraphDef` has *multiple* tags in the tag-set, you must specify
 all tags, each tag separated by a comma. For example:
 
-```none
+<pre>
 $ saved_model_cli show --dir /tmp/saved_model_dir --tag_set serve,gpu
-```
+</pre>
 
 To show all inputs and outputs TensorInfo for a specific `SignatureDef`, pass in
 the `SignatureDef` key to `signature_def` option. This is very useful when you
@@ -750,7 +750,7 @@ Method name is: tensorflow/serving/predict
 To show all available information in the SavedModel, use the `--all` option.
 For example:
 
-```none
+<pre>
 $ saved_model_cli show --dir /tmp/saved_model_dir --all
 MetaGraphDef with tag-set: 'serve' contains the following SignatureDefs:
 
@@ -781,7 +781,7 @@ signature_def['serving_default']:
         shape: (-1, 1)
         name: y:0
   Method name is: tensorflow/serving/predict
-```
+</pre>
 
 
 ### `run` command
