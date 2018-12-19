@@ -236,9 +236,9 @@ additional features:
     redirects the output of the pt command to the `/tmp/xent_value_slices.txt`
     file:
 
-  <pre>
-  tfdbg> pt cross_entropy/Log:0[:, 0:10] > /tmp/xent_value_slices.txt
-  ```
+<pre>
+tfdbg> pt cross_entropy/Log:0[:, 0:10] > /tmp/xent_value_slices.txt
+</pre>
 
 ### Finding `nan`s and `inf`s
 
@@ -328,9 +328,9 @@ tfdbg> /(inf|nan)
 You can also use the `-s` or `--numeric_summary` command to get a quick summary
 of the types of numeric values in the tensor:
 
-</pre> none
+<pre>
 tfdbg> pt -s cross_entropy/Log:0
-```
+</pre>
 
 From the summary, you can see that several of the 1000 elements of the
 `cross_entropy/Log:0` tensor are `-inf`s (negative infinities).
