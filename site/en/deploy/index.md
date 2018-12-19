@@ -20,14 +20,15 @@ amazing model to work and move it to production, [TFX](/tfx) is there to help
 you build a complete ML pipeline.
 
 TFX pipelines can be deployed to on-premises infrastructure, or a hybrid of
-on-prem and cloud, a pure cloud deployment on the Google Cloud Platform. Your
-models can be deployed to be served online, or included in a mobile app, or
-both. You can run TFX on Flink or Spark cluster to distribute processing across
-your resources, and take advantage of Kubernetes for task management.
+on-prem and cloud, or a pure cloud deployment on the <a
+href='https://cloud.google.com/products/ai/' target='_blank'>Google Cloud
+Platform</a>. Your models can be deployed to be served online, or in a mobile
+app, or in a JavaScript app, or all of the above.
 
-With a TFX pipeline you can continuously retrain and update your models, manage
-versioning and life cycle, monitor performance and validate new data, and
-perform A/B testing. With TFX, your models are ready for production.
+With a TFX pipeline you can continuously retrain and update your models, and
+manage your model versioning and life cycle. TFX gives you the tools to validate
+and transform new data, monitor model performance, perform A/B testing, serve
+your trained models, and more. With TFX, your models are ready for production.
 
 ## TensorFlow.js
 
