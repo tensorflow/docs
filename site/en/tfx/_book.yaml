@@ -42,3 +42,5 @@ upper_tabs:
       - include: /tfx/model_analysis/api_docs/python/_toc.yaml
       - heading: Serving
       - include: /tfx/serving/api_docs/rest/_toc.yaml
+
+- include: /_upper_tabs_right.yaml

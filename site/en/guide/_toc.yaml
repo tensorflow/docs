@@ -43,6 +43,8 @@ toc:
   path: /guide/saved_model
 - title: "Control flow"
   path: /guide/autograph
+- title: "Ragged Tensors"
+  path: /guide/ragged_tensors
 
 - heading: ML Concepts
 - title: "Embeddings"

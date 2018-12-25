@@ -32,26 +32,28 @@ The official TensorFlow Docker images are located in the
 Docker Hub repository. Image releases [are tagged](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}
 using the following format:
 
-<table>
-  <tr><th>Tag</th><th>Description</th></tr>
-  <tr><td><code>latest</code></td><td>The latest release of TensorFlow CPU binary image. Default.</td></tr>
-  <tr><td><code>nightly</code></td><td>Nightly builds of the TensorFlow image. (unstable)</td></tr>
-  <tr><td><code><em>version</em></code></td><td>Specify the <em>version</em> of the TensorFlow binary image, for example: <em>1.11</em></td></tr>
-  <tr class="alt"><td colspan="2">Tag variant</td></tr>
-  <tr><td><code><em>tag</em>-devel<code></td><td>The specified <em>tag</em> release and the source code.</td></tr>
-  <tr><td><code><em>tag</em>-gpu<code></td><td>The specified <em>tag</em> release with GPU support. (<a href="#gpu_support">See below</a>)</td></tr>
-  <tr><td><code><em>tag</em>-py3<code></td><td>The specified <em>tag</em> release with Python 3 support.</td></tr>
-  <tr><td><code><em>tag</em>-gpu-py3<code></td><td>The specified <em>tag</em> release with GPU and Python 3 support.</td></tr>
-  <tr><td><code><em>tag</em>-devel-py3<code></td><td>The specified <em>tag</em> release with Python 3 support and the source code.</td></tr>
-  <tr><td><code><em>tag</em>-devel-gpu<code></td><td>The specified <em>tag</em> release with GPU support and the source code.</td></tr>
-  <tr><td><code><em>tag</em>-devel-gpu-py3<code></td><td>The specified <em>tag</em> release with GPU and Python 3 support, and the source code.</td></tr>
-</table>
+| Tag         | Description                                                                                       |
+| ---         | ---                                                                                               |
+| `latest`    | The latest release of TensorFlow CPU binary image. Default.                                       |
+| `nightly`   | Nightly builds of the TensorFlow image. (unstable)                                                |
+| *`version`* | Specify the *version* of the TensorFlow binary image, for example: *1.12.0*                       |
+| `devel`     | Nightly builds of a TensorFlow `master` development environment. Includes TensorFlow source code. |
 
-For example, the following downloads TensorFlow release images to your machine:
+Each base *tag* has variants that add or change functionality:
+
+| Tag Variants      | Description                                                                       |
+| ---               | ---                                                                               |
+| *`tag`*`-gpu`     | The specified *tag* release with GPU support. ([See below](#gpu_support))         |
+| *`tag`*`-py3`     | The specified *tag* release with Python 3 support.                                |
+| *`tag`*`-jupyter` | The specified *tag* release with Jupyter (includes TensorFlow tutorial notebooks) |
+
+You can use multiple variants at once. For example, the following downloads
+TensorFlow release images to your machine:
 
 <pre class="devsite-click-to-copy prettyprint lang-bsh">
-<code class="devsite-terminal">docker pull tensorflow/tensorflow                    # latest stable release</code>
-<code class="devsite-terminal">docker pull tensorflow/tensorflow:nightly-devel-gpu  # nightly dev release w/ GPU support</code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow                     # latest stable release</code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow:devel-gpu           # nightly dev release w/ GPU support</code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow:latest-gpu-jupyter  # latest release w/ GPU support and Jupyter</code>
 </pre>
 
 
@@ -101,7 +103,7 @@ Start a [Jupyter Notebook](https://jupyter.org/){:.external} server using
 TensorFlow's nightly build with Python 3 support:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-docker run -it -p 8888:8888 tensorflow/tensorflow:nightly-py3
+docker run -it -p 8888:8888 tensorflow/tensorflow:nightly-py3-jupyter
 </pre>
 
 Follow the instructions and open the URL in your host web browser:

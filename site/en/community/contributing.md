@@ -14,7 +14,7 @@ inside the organization, including:
 * [TensorBoard](https://github.com/tensorflow/tensorboard)
 * [TensorFlow.js](https://github.com/tensorflow/tfjs)
 * [TensorFlow Serving](https://github.com/tensorflow/serving)
-* [TensorFlow Documentation](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/docs_src)
+* [TensorFlow Documentation](https://github.com/tensorflow/docs)
 
 ## Contributor checklist
 
@@ -39,8 +39,14 @@ Special Interest Groups (SIGs). SIGs do their work in public: if you want to
 join and contribute, review the work of the group, and get in touch with the
 relevant SIG leader.  Membership policies vary on a per-SIG basis.
 
+* **SIG Addons** maintains a repository of contributions that conform to well-established API patterns, but implement new functionality not available in core TensorFlow. [Mailing list](https://groups.google.com/a/tensorflow.org/d/forum/addons).
+
 * **SIG Build** focuses on issues surrounding building, packaging, and
   distribution of TensorFlow. [Mailing list](https://groups.google.com/a/tensorflow.org/d/forum/build).
+  
+* **SIG IO** works on support for file systems and formats other than those in core TensorFlow (such as Apache Ignite FS,  or Apache Hadoop SequenceFile), as subclasses of tf.data.Dataset and TensorFlow filesystems. [Mailing list](https://groups.google.com/a/tensorflow.org/d/forum/io)
+
+* **SIG Networking**  maintains network fabrics and protocols not available in core TensorFlow. [Mailing list](https://groups.google.com/a/tensorflow.org/d/forum/networking).
 
 * **SIG TensorBoard** furthers the development and direction of TensorBoard and its plugins.
   [Mailing list](https://groups.google.com/a/tensorflow.org/d/forum/sig-tensorboard).

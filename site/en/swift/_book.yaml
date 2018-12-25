@@ -20,3 +20,5 @@ upper_tabs:
         path: https://github.com/tensorflow/swift
         status: external
       - include: /swift/api_docs/_toc.yaml
+
+- include: /_upper_tabs_right.yaml
