@@ -136,14 +136,14 @@ variables locally to where they are being used.
 Contrast:
 
 ```
-def linear(x, W, b):
+def dense(x, W, b):
   return tf.nn.sigmoid(tf.matmul(x, W) + b)
 
 @tf.function
 def multilayer_perceptron(x, w0, b0, w1, b1, w2, b2 ...):
-  x = linear(x, w0, b0)
-  x = linear(x, w1, b1)
-  x = linear(x, w2, b2)
+  x = dense(x, w0, b0)
+  x = dense(x, w1, b1)
+  x = dense(x, w2, b2)
   ...
 
 # You still have to manage w_i and b_i, and their shapes are defined far away from the code.
