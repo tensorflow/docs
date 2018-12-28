@@ -109,6 +109,8 @@ toc:
     path: /tutorials/representation/kernel_methods
   - title: Large-scale linear models
     path: /tutorials/representation/linear
+  - title: Unicode
+    path: /tutorials/representation/unicode
 
 - title: Non-ML
   style: accordion

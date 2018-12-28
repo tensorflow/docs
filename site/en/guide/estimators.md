@@ -13,8 +13,8 @@ You may either use the pre-made Estimators we provide or write your
 own custom Estimators.  All Estimators—whether pre-made or custom—are
 classes based on the `tf.estimator.Estimator` class.
 
-For a quick example try [Estimator tutorials](../tutorials/estimators/linear).
-To see each sub-topic in depth, see the [Estimator guides](premade_estimators).
+For a quick example try [Estimator tutorials](../tutorials/estimators/linear.ipynb).
+To see each sub-topic in depth, see the [Estimator guides](premade_estimators.md).
 For an overview of the API design, see our white paper [here](https://arxiv.org/abs/1708.02637).
 
 Note: TensorFlow also includes a deprecated `Estimator` class at
