@@ -75,3 +75,4 @@ upper_tabs:
         path: /tfx/api_docs/
 
 - include: /resources/_upper_tabs_resources.yaml
+- include: /_upper_tabs_right.yaml

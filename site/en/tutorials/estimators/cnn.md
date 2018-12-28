@@ -199,8 +199,8 @@ skip ahead to ["Training and Evaluating the CNN MNIST Classifier"](#train_eval_m
 The methods in the `layers` module for creating convolutional and pooling layers
 for two-dimensional image data expect input tensors to have a shape of
 <code>[<em>batch_size</em>, <em>image_height</em>, <em>image_width</em>,
-<em>channels</em>]</code> by default. This behavior can be changed using the <code><em>data_format</em></code> parameter; defined as follows:
-
+<em>channels</em>]</code> by default. This behavior can be changed using the
+<code><em>data_format</em></code> parameter; defined as follows:
 
 *   _`batch_size`_. Size of the subset of examples to use when performing
     gradient descent during training.

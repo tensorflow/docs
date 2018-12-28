@@ -48,6 +48,8 @@ works. The units are as follows:
     can still be helpful.
   * [Save and Restore](../guide/saved_model.md), which
     explains how to save and restore variables and models.
+  * [Ragged Tensors](../guide/ragged_tensors), which explains how to use
+    Ragged Tensors to encode nested variable-length lists.
 
 ## ML Concepts
 
