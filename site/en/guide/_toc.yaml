@@ -25,6 +25,8 @@ toc:
   path: /guide/custom_estimators
 
 - heading: Accelerators
+- title: "Distribute Strategy"
+  path: /guide/distribute_strategy
 - title: "Using GPUs"
   path: /guide/using_gpu
 - title: "Using TPUs"
