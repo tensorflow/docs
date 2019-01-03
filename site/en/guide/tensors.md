@@ -1,9 +1,13 @@
-# Tensors
+# Тензоры
 
 TensorFlow, as the name indicates, is a framework to define and run computations
 involving tensors. A **tensor** is a generalization of vectors and matrices to
 potentially higher dimensions. Internally, TensorFlow represents tensors as
 n-dimensional arrays of base datatypes.
+
+Как понятно из названия, TensorFlow - это фреймворк для определения и вычисления
+операций с тензорами. **Тензор** - это обобщенное название векторов и матриц,
+вплоть
 
 When writing a TensorFlow program, the main object you manipulate and pass
 around is the `tf.Tensor`. A `tf.Tensor` object represents a partially defined
