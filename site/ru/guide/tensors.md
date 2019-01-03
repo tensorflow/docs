@@ -1,12 +1,12 @@
-# Тензоры
+# Tensors
 
 TensorFlow, as the name indicates, is a framework to define and run computations
 involving tensors. A tensor is a generalization of vectors and matrices to
 potentially higher dimensions. Internally, TensorFlow represents tensors as
 n-dimensional arrays of base datatypes.
 
-Как понятно из названия, TensorFlow - это фреймворк для определения и вычисления
-операций с тензорами. Тензор - это обобщенное название векторов и матриц,
+Как понятно из названия, TensorFlow ("поток тензоров") - это фреймворк для определения 
+и вычисления операций с тензорами. Тензор - это обобщенное название векторов и матриц,
 вплоть до потенциально высоких размерностей. Во внутренней структуре TensorFlow
 векторы представлены как n-размерные массивы примитивных типов данных.
 
@@ -17,10 +17,19 @@ first building a graph of `tf.Tensor` objects, detailing how each tensor is
 computed based on the other available tensors and then by running parts of this
 graph to achieve the desired results.
 
-A `tf.Tensor` has the following properties
+При написании программы в TensorFlow, ключевым объектом всех операций является
+`tf.Tensor`. Этот объект представляет собой частично определенное вычисление,
+которое в конечном итоге выдаст какое-либо значение. Программа TensorFlow
+сначала строит граф объектов `tf.Tensor`, детализирует как каждый тензор будет
+вычисляться на других доступных тензорах, а затем запускает построение этого
+графа для получения желаемых результатов.
 
-  a data type (`float32`, `int32`, or `string`, for example)
-  a shape
+Объект `tf.Tensor` имеет следующие параметры:
+
+
+
+ * тип данных (например`float32`, `int32`, или `string`)
+ * размерность (a shape)
 
 
 Each element in the Tensor has the same data type, and the data type is always
@@ -30,13 +39,23 @@ fully-known shapes if the shapes of their inputs are also fully known, but in
 some cases it's only possible to find the shape of a tensor at graph execution
 time.
 
-Some types of tensors are special, and these will be covered in other
-units of the TensorFlow guide. The main ones are
+Каждый элемент в тензоре имеет одинаковый тип данных, и этот тип всегда известен.
+Размерность, которая определяется количеством размерностей и размером каждого
+массива, может быть известна частично. Большинство операций производят
+тензоры полностью известных размерностей, если эти входные размерности также
+известны, но в некоторых случаях узнать размерность тензора можно только в режиме
+graph execution.
 
-   `tf.Variable`
-   `tf.constant`
-   `tf.placeholder`
-   `tf.SparseTensor`
+Some types of tensors are special, and these will be covered in other
+units of the TensorFlow guide. The main ones are:
+
+Некоторые типы тензоров являются специализированными, и будут описаны в
+других статьях руководства по TensorFlow. Ключевыми являются:
+
+  * `tf.Variable`
+  * `tf.constant`
+  * `tf.placeholder`
+  * `tf.SparseTensor`
 
 With the exception of `tf.Variable`, the value of a tensor is immutable, which
 means that in the context of a single execution tensors only have a single
@@ -44,44 +63,57 @@ value. However, evaluating the same tensor twice can return different values;
 for example that tensor can be the result of reading data from disk, or
 generating a random number.
 
-## Rank
+За исключением `tf.Variable`, значение тензора является неизменным, что означает
+в контексте единичного вычисления тензор будет иметь всего одно значение. Однако,
+при расчете одного и того же тензора дважды, он может возвращать разные значения;
+например, тензор может быть результатом прочтения данных с диска, или случайно
+сгенерированного числа.
 
-The rank of a `tf.Tensor` object is its number of dimensions. Synonyms for
-rank include order or degree or n-dimension.
+
+## Ранг
+
+The **rank** of a `tf.Tensor` object is its number of dimensions. Synonyms for
+rank include **order** or **degree** or **n-dimension**.
 Note that rank in TensorFlow is not the same as matrix rank in mathematics.
 As the following table shows, each rank in TensorFlow corresponds to a
-different mathematical entity
+different mathematical entity:
 
-Rank  Math entity
----  ---
-0  Scalar (magnitude only)
-1  Vector (magnitude and direction)
-2  Matrix (table of numbers)
-3  3-Tensor (cube of numbers)
-n  n-Tensor (you get the idea)
+**Ранг** объекта `tf.Tensor` - это количество размерностей массива. Синонимомами
+ранга являются **порядок**, **степень** или **n-размерность**.
+Обрати внимание, что ранг в TensorFlow это не то же самое, что ранг матрицы в
+математике. Из следующей таблицы видно, что каждый ранг в TensorFlow соответствует
+разным математическим категориям:
+
+Rank | Math entity
+--- | ---
+0 | Scalar (magnitude only)
+1 | Vector (magnitude and direction)
+2 | Matrix (table of numbers)
+3 | 3-Tensor (cube of numbers)
+n | n-Tensor (you get the idea)
 
 
 ### Rank 0
 
-The following snippet demonstrates creating a few rank 0 variables
+The following snippet demonstrates creating a few rank 0 variables:
 
 ```python
-mammal = tf.Variable(Elephant, tf.string)
+mammal = tf.Variable("Elephant", tf.string)
 ignition = tf.Variable(451, tf.int16)
 floating = tf.Variable(3.14159265359, tf.float64)
 its_complicated = tf.Variable(12.3 - 4.85j, tf.complex64)
 ```
 
-Note A string is treated as a single item in TensorFlow, not as a sequence of
+Note: A string is treated as a single item in TensorFlow, not as a sequence of
 characters. It is possible to have scalar strings, vectors of strings, etc.
 
 ### Rank 1
 
 To create a rank 1 `tf.Tensor` object, you can pass a list of items as the
-initial value. For example
+initial value. For example:
 
 ```python
-mystr = tf.Variable([Hello], tf.string)
+mystr = tf.Variable(["Hello"], tf.string)
 cool_numbers  = tf.Variable([3.14159, 2.71828], tf.float32)
 first_primes = tf.Variable([2, 3, 5, 7, 11], tf.int32)
 its_very_complicated = tf.Variable([12.3 - 4.85j, 7.5 - 6.23j], tf.complex64)
@@ -91,7 +123,7 @@ its_very_complicated = tf.Variable([12.3 - 4.85j, 7.5 - 6.23j], tf.complex64)
 ### Higher ranks
 
 A rank 2 `tf.Tensor` object consists of at least one row and at least
-one column
+one column:
 
 ```python
 mymat = tf.Variable([[7],[11]], tf.int16)
@@ -114,7 +146,7 @@ my_image = tf.zeros([10, 299, 299, 3])  # batch x height x width x color
 
 To determine the rank of a `tf.Tensor` object, call the `tf.rank` method.
 For example, the following method programmatically determines the rank
-of the `tf.Tensor` defined in the previous section
+of the `tf.Tensor` defined in the previous section:
 
 ```python
 r = tf.rank(my_image)
@@ -130,7 +162,7 @@ For a rank 0 tensor (a scalar), no indices are necessary, since it is already a
 single number.
 
 For a rank 1 tensor (a vector), passing a single index allows you to access a
-number
+number:
 
 ```python
 my_scalar = my_vector[2]
@@ -140,7 +172,7 @@ Note that the index passed inside the `[]` can itself be a scalar `tf.Tensor`, i
 you want to dynamically choose an element from the vector.
 
 For tensors of rank 2 or higher, the situation is more interesting. For a
-`tf.Tensor` of rank 2, passing two numbers returns a scalar, as expected
+`tf.Tensor` of rank 2, passing two numbers returns a scalar, as expected:
 
 
 ```python
@@ -148,39 +180,39 @@ my_scalar = my_matrix[1, 2]
 ```
 
 
-Passing a single number, however, returns a subvector of a matrix, as follows
+Passing a single number, however, returns a subvector of a matrix, as follows:
 
 
 ```python
 my_row_vector = my_matrix[2]
-my_column_vector = my_matrix[, 3]
+my_column_vector = my_matrix[:, 3]
 ```
 
-The `` notation is python slicing syntax for leave this dimension alone. This
+The `:` notation is python slicing syntax for "leave this dimension alone". This
 is useful in higher-rank Tensors, as it allows you to access its subvectors,
 submatrices, and even other subtensors.
 
 
 ## Shape
 
-The shape of a tensor is the number of elements in each dimension.
+The **shape** of a tensor is the number of elements in each dimension.
 TensorFlow automatically infers shapes during graph construction. These inferred
 shapes might have known or unknown rank. If the rank is known, the sizes of each
 dimension might be known or unknown.
 
 The TensorFlow documentation uses three notational conventions to describe
-tensor dimensionality rank, shape, and dimension number. The following table
-shows how these relate to one another
+tensor dimensionality: rank, shape, and dimension number. The following table
+shows how these relate to one another:
 
-Rank  Shape  Dimension number  Example
----  ---  ---  ---
-0  []  0-D  A 0-D tensor.  A scalar.
-1  [D0]  1-D  A 1-D tensor with shape [5].
-2  [D0, D1]  2-D  A 2-D tensor with shape [3, 4].
-3  [D0, D1, D2]  3-D  A 3-D tensor with shape [1, 4, 3].
-n  [D0, D1, ... Dn-1]  n-D  A tensor with shape [D0, D1, ... Dn-1].
+Rank | Shape | Dimension number | Example
+--- | --- | --- | ---
+0 | [] | 0-D | A 0-D tensor.  A scalar.
+1 | [D0] | 1-D | A 1-D tensor with shape [5].
+2 | [D0, D1] | 2-D | A 2-D tensor with shape [3, 4].
+3 | [D0, D1, D2] | 3-D | A 3-D tensor with shape [1, 4, 3].
+n | [D0, D1, ... Dn-1] | n-D | A tensor with shape [D0, D1, ... Dn-1].
 
-Shapes can be represented via Python lists  tuples of ints, or with the
+Shapes can be represented via Python lists / tuples of ints, or with the
 `tf.TensorShape`.
 
 ### Getting a `tf.Tensor` object's shape
@@ -199,7 +231,7 @@ tensors by building other tensors that depend on the dynamic shape of the input
 `tf.Tensor`.
 
 For example, here is how to make a vector of zeros with the same size as the
-number of columns in a given matrix
+number of columns in a given matrix:
 
 ``` python
 zeros = tf.zeros(my_matrix.shape[1])
@@ -207,13 +239,13 @@ zeros = tf.zeros(my_matrix.shape[1])
 
 ### Changing the shape of a `tf.Tensor`
 
-The number of elements of a tensor is the product of the sizes of all its
+The **number of elements** of a tensor is the product of the sizes of all its
 shapes. The number of elements of a scalar is always `1`. Since there are often
 many different shapes that have the same number of elements, it's often
 convenient to be able to change the shape of a `tf.Tensor`, keeping its elements
 fixed. This can be done with `tf.reshape`.
 
-The following examples demonstrate how to reshape tensors
+The following examples demonstrate how to reshape tensors:
 
 ```python
 rank_three_tensor = tf.ones([3, 4, 5])
@@ -242,7 +274,7 @@ possible, however, to serialize arbitrary data structures as `string`s and store
 those in `tf.Tensor`s.
 
 It is possible to cast `tf.Tensor`s from one datatype to another using
-`tf.cast`
+`tf.cast`:
 
 ``` python
 # Cast a constant integer tensor into floating point.
@@ -265,11 +297,11 @@ often useful for debugging as well as being required for much of TensorFlow to
 work.
 
 The simplest way to evaluate a Tensor is using the `Tensor.eval` method. For
-example
+example:
 
 ```python
 constant = tf.constant([1, 2, 3])
-tensor = constant  constant
+tensor = constant * constant
 print(tensor.eval())
 ```
 
@@ -287,7 +319,7 @@ providing a value for the `placeholder`.
 p = tf.placeholder(tf.float32)
 t = p + 1.0
 t.eval()  # This will fail, since the placeholder did not get a value.
-t.eval(feed_dict={p2.0})  # This will succeed because we're feeding a value
+t.eval(feed_dict={p:2.0})  # This will succeed because we're feeding a value
                            # to the placeholder.
 ```
 
@@ -303,14 +335,14 @@ to call `tf.train.start_queue_runners` before evaluating any `tf.Tensor`s.
 ## Printing Tensors
 
 For debugging purposes you might want to print the value of a `tf.Tensor`. While
- [tfdbg](..guidedebugger.md) provides advanced debugging support, TensorFlow also has an
+ [tfdbg](../guide/debugger.md) provides advanced debugging support, TensorFlow also has an
  operation to directly print the value of a `tf.Tensor`.
 
 Note that you rarely want to use the following pattern when printing a
-`tf.Tensor`
+`tf.Tensor`:
 
 ``` python
-t = some tensorflow operation
+t = <<some tensorflow operation>>
 print(t)  # This will print the symbolic tensor when the graph is being built.
           # This tensor does not have a value in this context.
 ```
@@ -323,7 +355,7 @@ returns its first tensor argument unchanged while printing the set of
 To correctly use `tf.Print` its return value must be used. See the example below
 
 ``` python
-t = some tensorflow operation
+t = <<some tensorflow operation>>
 tf.Print(t, [t])  # This does nothing
 t = tf.Print(t, [t])  # Here we are using the value returned by tf.Print
 result = t + 1  # Now when result is evaluated the value of `t` will be printed.
