@@ -247,15 +247,26 @@ submatrices, and even other subtensors.
 
 
 ## Shape
+## Форма
 
 The **shape** of a tensor is the number of elements in each dimension.
 TensorFlow automatically infers shapes during graph construction. These inferred
 shapes might have known or unknown rank. If the rank is known, the sizes of each
 dimension might be known or unknown.
 
+**Форма** тензора - это количество элементов в каждой размерности.
+TensorFlow автоматически назначает формы во время работы в graph execution.
+Назначенные формы могут иметь известный или неизвестный ранг. Если ранг
+известен, то элементы каждой размерности также могут быть известны или
+неизвестны.
+
 The TensorFlow documentation uses three notational conventions to describe
 tensor dimensionality: rank, shape, and dimension number. The following table
 shows how these relate to one another:
+
+В документации TensorFlow используются три правила для описания размерности
+тензоров: ранг, форма и номер размерности. В следующией таблице видно, как эти
+три параметра соотносятся друг с другом:
 
 Rank | Shape | Dimension number | Example
 --- | --- | --- | ---
@@ -265,10 +276,22 @@ Rank | Shape | Dimension number | Example
 3 | [D0, D1, D2] | 3-D | A 3-D tensor with shape [1, 4, 3].
 n | [D0, D1, ... Dn-1] | n-D | A tensor with shape [D0, D1, ... Dn-1].
 
+Ранг | Форма | Номер размерности | Пример
+--- | --- | --- | ---
+0 | [] | 0-D | Тензор 0-D .  Скаляр.
+1 | [D0] | 1-D | Тензор 1-D формы [5].
+2 | [D0, D1] | 2-D | Тензор 2-D формы [3, 4].
+3 | [D0, D1, D2] | 3-D | Тензор 3-D формы [1, 4, 3].
+n | [D0, D1, ... Dn-1] | n-D | Тензор формы [D0, D1, ... Dn-1].
+
 Shapes can be represented via Python lists / tuples of ints, or with the
 `tf.TensorShape`.
 
+Формы могут быть представлены в Python как списки или кортежи целых чисел,
+или как `tf.TensorShape`
+
 ### Getting a `tf.Tensor` object's shape
+### Получаем форму объекта `tf.Tensor`
 
 There are two ways of accessing the shape of a `tf.Tensor`. While building the
 graph, it is often useful to ask what is already known about a tensor's
@@ -277,20 +300,37 @@ This method returns a `TensorShape` object, which is a convenient way of
 representing partially-specified shapes (since, when building the graph, not all
 shapes will be fully known).
 
+Есть два способа получить форму `tf.Tensor`. Во время построения графа часто
+является полезным узнать, что уже известно о форме тензора. Это можно сделать
+прочтя параметр `shape` объека `tf.Tensor`. Этот метод возвращает объект
+`TensorShape`, который является весьма удобным способом представления
+частично определенных форм, поскольку во время построения графа не все формы
+известны полностью.
+
 It is also possible to get a `tf.Tensor` that will represent the fully-defined
 shape of another `tf.Tensor` at runtime. This is done by calling the `tf.shape`
 operation. This way, you can build a graph that manipulates the shapes of
 tensors by building other tensors that depend on the dynamic shape of the input
 `tf.Tensor`.
 
+Также возможно получить `tf.Tensor`, который будет представлять полностью
+определенную форму другого объекта `tf.Tensor` в рабочей среде. Это достигается
+путем вызова операции `tf.shape`. Таким образом ты можешь построить граф, который
+манипулирует формами тензоров при помощи создания других тензоров, который зависят
+от динамической формы входящего `tf.Tensor`.
+
 For example, here is how to make a vector of zeros with the same size as the
 number of columns in a given matrix:
+
+Например, вот как мы можем сделать вектор нулей с одинаковым размером и числом
+столбцов в матрице:
 
 ``` python
 zeros = tf.zeros(my_matrix.shape[1])
 ```
 
 ### Changing the shape of a `tf.Tensor`
+### Изменяем форму `tf.Tensor`
 
 The **number of elements** of a tensor is the product of the sizes of all its
 shapes. The number of elements of a scalar is always `1`. Since there are often
@@ -298,43 +338,67 @@ many different shapes that have the same number of elements, it's often
 convenient to be able to change the shape of a `tf.Tensor`, keeping its elements
 fixed. This can be done with `tf.reshape`.
 
+**Количество элементов** тензора является продуктом размеров их форм. Количество
+элементов - это скаляр, который всегда равен `1`. Посколько часто множесто разных
+форм имеют одинаковое количество элементов, то часто удобно позволять менять форму
+`tf.Tensor`, зафиксировав его элементы. Это можно сделать с помощью `tf.reshape`.
+
 The following examples demonstrate how to reshape tensors:
+
+В следующем примере показано как изменить форму тензоров:
 
 ```python
 rank_three_tensor = tf.ones([3, 4, 5])
-matrix = tf.reshape(rank_three_tensor, [6, 10])  # Reshape existing content into
-                                                 # a 6x10 matrix
-matrixB = tf.reshape(matrix, [3, -1])  #  Reshape existing content into a 3x20
-                                       # matrix. -1 tells reshape to calculate
-                                       # the size of this dimension.
-matrixAlt = tf.reshape(matrixB, [4, 3, -1])  # Reshape existing content into a
-                                             #4x3x5 tensor
+matrix = tf.reshape(rank_three_tensor, [6, 10])  # Reshape existing content into Изменяем существующую форму на
+                                                 # a 6x10 matrix матрицу 6x10
+matrixB = tf.reshape(matrix, [3, -1])  #  Reshape existing content into a 3x20 Изменяем форму на матрицу 3х20
+                                       # matrix. -1 tells reshape to calculate -1 требует `reshape` рассчитать
+                                       # the size of this dimension. размерность тензора.
+matrixAlt = tf.reshape(matrixB, [4, 3, -1])  # Reshape existing content into a Изменяет форму на
+                                             #4x3x5 tensor тензор 4х3х5
 
 # Note that the number of elements of the reshaped Tensors has to match the
 # original number of elements. Therefore, the following example generates an
 # error because no possible value for the last dimension will match the number
 # of elements.
+# Обрати внимание, что количество элементов измененных тензоров должно совпадать
+# с изначальным количеством элементов. Таким образом, следующий пример выдает
+# ошибку, так как нет значения для последней размерности, которое бы совпадало
+# с количеством элементов.
 yet_another = tf.reshape(matrixAlt, [13, 2, -1])  # ERROR!
 ```
 
-## Data types
+## Типы данных
 
 In addition to dimensionality, Tensors have a data type. Refer to the
 `tf.DType` page for a complete list of the data types.
+
+В дополнение к размерностям, тензоры имеют тип данных. Смотри документацию
+[`tf.DType`](https://www.tensorflow.org/api_docs/python/tf/dtypes/DType) для
+ознакомления с полным списком типов данных.
 
 It is not possible to have a `tf.Tensor` with more than one data type. It is
 possible, however, to serialize arbitrary data structures as `string`s and store
 those in `tf.Tensor`s.
 
+Невозможно иметь `tf.Tensor` более чем с одним типом данных. Тем не менее возможно
+сериализовать произвольные структуры данных как строки и сохранить их в `tf.Tensor`.
+
 It is possible to cast `tf.Tensor`s from one datatype to another using
 `tf.cast`:
 
+Также возможно перенести тип данных из одного `tf.Tensor` в другой при помощи
+метода `tf.cast`:
+
 ``` python
 # Cast a constant integer tensor into floating point.
+# Переводим константу тензора в число с плавающей запятой.
 float_tensor = tf.cast(tf.constant([1, 2, 3]), dtype=tf.float32)
 ```
 
 To inspect a `tf.Tensor`'s data type use the `Tensor.dtype` property.
+
+Для проверки тип данных `tf.Tensor` используй параметр `Tensor.dtype`.
 
 When creating a `tf.Tensor` from a python object you may optionally specify the
 datatype. If you don't, TensorFlow chooses a datatype that can represent your
