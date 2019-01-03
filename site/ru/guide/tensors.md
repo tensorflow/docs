@@ -7,7 +7,8 @@ n-dimensional arrays of base datatypes.
 
 Как понятно из названия, TensorFlow - это фреймворк для определения и вычисления
 операций с тензорами. Тензор - это обобщенное название векторов и матриц,
-вплоть
+вплоть до потенциально высоких размерностей. Во внутренней структуре TensorFlow.
+векторы представлены ка как n-размерные массивы примитивных типов данных.
 
 When writing a TensorFlow program, the main object you manipulate and pass
 around is the `tf.Tensor`. A `tf.Tensor` object represents a partially defined
