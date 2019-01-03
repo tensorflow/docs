@@ -230,7 +230,7 @@ yet_another = tf.reshape(matrixAlt, [13, 2, -1])  # ERROR!
 ## Data types
 
 In addition to dimensionality, Tensors have a data type. Refer to the
-`tf.DType` page for a complete list of the data types.
+[`tf.DType`](https://www.tensorflow.org/api_docs/python/tf/dtypes/DType) page for a complete list of the data types.
 
 It is not possible to have a `tf.Tensor` with more than one data type. It is
 possible, however, to serialize arbitrary data structures as `string`s and store
