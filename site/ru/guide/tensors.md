@@ -406,15 +406,30 @@ data. TensorFlow converts Python integers to `tf.int32` and python floating
 point numbers to `tf.float32`. Otherwise TensorFlow uses the same rules numpy
 uses when converting to arrays.
 
+При создании `tf.Tensor` из объекта Python, ты можешь также уточнить тип данных
+этого тензора. Если этого не сделать, то TensorFlow сам выберет тип данных, 
+который будет представлять твои данные. TensorFlow автоматически конвертирует
+целые числа Python в `tf.int32`, а числа с плавающей запятой - в `tf.float32`.
+Другими словами, TensorFlow использует те же самые правила, что и NumPy при
+конвертации в массивы.
+
 ## Evaluating Tensors
+## Оценка тензоров
 
 Once the computation graph has been built, you can run the computation that
 produces a particular `tf.Tensor` and fetch the value assigned to it. This is
 often useful for debugging as well as being required for much of TensorFlow to
 work.
 
+Когда вычислительный граф был построен, ты можешь запустить вычисление, которое
+будет производить определенный `tf.Tensor` и извлекать присвоенное ему значение.
+Это часто является полезным как для отладки, так и необходимо для работы TensorFlow.
+
 The simplest way to evaluate a Tensor is using the `Tensor.eval` method. For
 example:
+
+Самый легкий способ оценить тензор - использовать метод `Tensor.eval`. Вот пример
+кода оценки тензора:
 
 ```python
 constant = tf.constant([1, 2, 3])
@@ -423,7 +438,12 @@ print(tensor.eval())
 ```
 
 The `eval` method only works when a default `tf.Session` is active (see
-Graphs and Sessions for more information).
+[Graphs and Sessions](https://www.tensorflow.org/guide/graphs) for more 
+information).
+
+Метод `eval` работает тольк когда активирована стандартная `tf.Session`
+(смотри [Графы и сессии](https://www.tensorflow.org/guide/graphs) для
+более подробной информации).
 
 `Tensor.eval` returns a numpy array with the same contents as the tensor.
 
