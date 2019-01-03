@@ -269,7 +269,8 @@ print(tensor.eval())
 ```
 
 The `eval` method only works when a default `tf.Session` is active (see
-Graphs and Sessions for more information).
+[Graphs and Sessions](https://www.tensorflow.org/guide/graphs) for more 
+information).
 
 `Tensor.eval` returns a numpy array with the same contents as the tensor.
 
