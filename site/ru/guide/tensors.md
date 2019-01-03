@@ -84,7 +84,7 @@ different mathematical entity:
 математике. Из следующей таблицы видно, что каждый ранг в TensorFlow соответствует
 разным математическим категориям:
 
-Rank | Math entity
+Ранг | Математическая категория
 --- | ---
 0 | Scalar (magnitude only)
 1 | Vector (magnitude and direction)
@@ -92,10 +92,21 @@ Rank | Math entity
 3 | 3-Tensor (cube of numbers)
 n | n-Tensor (you get the idea)
 
+Ранг | Математическая категория
+--- | ---
+0 | Скаляр (только величина)
+1 | Вектор (величина и направление)
+2 | Матрица (таблица чисел)
+3 | 3-Тензор (куб чисел)
+n | n-Тензор (ты понял идею)
 
-### Rank 0
+
+### Ранг 0
 
 The following snippet demonstrates creating a few rank 0 variables:
+
+Следующий пример кода демонстрирует создание нескольких переменных
+ранга 0:
 
 ```python
 mammal = tf.Variable("Elephant", tf.string)
@@ -107,10 +118,16 @@ its_complicated = tf.Variable(12.3 - 4.85j, tf.complex64)
 Note: A string is treated as a single item in TensorFlow, not as a sequence of
 characters. It is possible to have scalar strings, vectors of strings, etc.
 
-### Rank 1
+Обрати внимание: строка в TensorFlow является одним объектом, а не последовательностью
+символов. Возможно также использовать скалярные строки, вектор строк и так далее.
+
+### Ранг 1
 
 To create a rank 1 `tf.Tensor` object, you can pass a list of items as the
 initial value. For example:
+
+Чтобы создать объект `tf.Tensor` ранга 1, ты можешь передать список элементов
+как первичное значение. Например:
 
 ```python
 mystr = tf.Variable(["Hello"], tf.string)
@@ -121,9 +138,13 @@ its_very_complicated = tf.Variable([12.3 - 4.85j, 7.5 - 6.23j], tf.complex64)
 
 
 ### Higher ranks
+### Высшие ранги
 
 A rank 2 `tf.Tensor` object consists of at least one row and at least
 one column:
+
+Ранг 2 объекта `tf.Tensor` состоит из как минимум одного ряда и одного
+столбца:
 
 ```python
 mymat = tf.Variable([[7],[11]], tf.int16)
@@ -138,31 +159,51 @@ Higher-rank Tensors, similarly, consist of an n-dimensional array. For example,
 during image processing, many tensors of rank 4 are used, with dimensions
 corresponding to example-in-batch, image width, image height, and color channel.
 
+Тензоры высшего ранга подобным образом состоят из n-размерных массивов. Например,
+во время обработки изображения используются тензоры ранга 4 с соответствующими
+им размерносятми примеров в батче, шириной и высотой изображения, и цветовой модели.
+
 ``` python
 my_image = tf.zeros([10, 299, 299, 3])  # batch x height x width x color
 ```
 
 ### Getting a `tf.Tensor` object's rank
+### Получаем ранг объекта `tf.Tensor`
 
 To determine the rank of a `tf.Tensor` object, call the `tf.rank` method.
 For example, the following method programmatically determines the rank
 of the `tf.Tensor` defined in the previous section:
 
+Чтобы определить ранг объекта `tf.Tensor`, вызови метод `tf.rank`. Например,
+следующий метод программным способом определит ранг `tf.Tensor`, определенного
+в предыдущем блоке кода:
+
 ```python
 r = tf.rank(my_image)
 # After the graph runs, r will hold the value 4.
+# После запуска графа, r присвоится значения 4.
 ```
 
 ### Referring to `tf.Tensor` slices
+### Работаем с частями `tf.Tensor`
 
 Since a `tf.Tensor` is an n-dimensional array of cells, to access a single cell
 in a `tf.Tensor` you need to specify n indices.
 
+Поскольку `tf.Tensor` является n-размерным массивом элементов, для доступа к
+конкретному элементу `tf.Tensor` потребуется уточнить индексы n.
+
 For a rank 0 tensor (a scalar), no indices are necessary, since it is already a
 single number.
 
+Для тензора ранг 0 (скалярного) не требуется никаких индексов, посколько это
+уже одно единственное значение.
+
 For a rank 1 tensor (a vector), passing a single index allows you to access a
 number:
+
+Для тензора ранга 1 (вектора) потребуется передать всего один индекс, который
+предоставит нам доступ к значению:
 
 ```python
 my_scalar = my_vector[2]
@@ -171,9 +212,14 @@ my_scalar = my_vector[2]
 Note that the index passed inside the `[]` can itself be a scalar `tf.Tensor`, if
 you want to dynamically choose an element from the vector.
 
+Обрати внимание, что индекс, передаваемый внутри `[]`, может сам быть скалярным
+`tf.Tensor`, если ты хочешь динамически выбирать элементы из вектора.
+
 For tensors of rank 2 or higher, the situation is more interesting. For a
 `tf.Tensor` of rank 2, passing two numbers returns a scalar, as expected:
 
+С тензорами ранга 2 и выше ситуация более интересная. Передавая два значения
+`tf.Tenosor` ранга 2, он возвращает скаляр, что ожидаемо:
 
 ```python
 my_scalar = my_matrix[1, 2]
@@ -181,6 +227,9 @@ my_scalar = my_matrix[1, 2]
 
 
 Passing a single number, however, returns a subvector of a matrix, as follows:
+
+Однако, передвая одно единственное значение, он возвращает подвектор матрицы как
+в этом примере:
 
 
 ```python
@@ -191,6 +240,10 @@ my_column_vector = my_matrix[:, 3]
 The `:` notation is python slicing syntax for "leave this dimension alone". This
 is useful in higher-rank Tensors, as it allows you to access its subvectors,
 submatrices, and even other subtensors.
+
+Нотация `:` в Python делит синтаксис, оставляя эту размерность "в покое". Этот
+прием полезен при работе с тензорами высшего ранга, поскольку предоставляет
+доступ к его подвекторам, подматрицам и даже подтензорам.
 
 
 ## Shape
