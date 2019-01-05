@@ -447,20 +447,31 @@ information).
 
 `Tensor.eval` returns a numpy array with the same contents as the tensor.
 
+`Tensor.eval` возвращает массив NumPy с тем же самым содержимым, что и
+тензор.
+
 Sometimes it is not possible to evaluate a `tf.Tensor` with no context because
 its value might depend on dynamic information that is not available. For
 example, tensors that depend on `placeholder`s can't be evaluated without
 providing a value for the `placeholder`.
 
+Иногда невозможно произвести оценку `tf.Tensor` без контекста, потому что
+его значение может зависеть от динамичности информации, которая недоступна.
+Например, тензоры, которые зависят от `placeholder`'ов не могут быть оценены
+без присвоения значения для `placeholder`.
+
 ``` python
 p = tf.placeholder(tf.float32)
 t = p + 1.0
-t.eval()  # This will fail, since the placeholder did not get a value.
-t.eval(feed_dict={p:2.0})  # This will succeed because we're feeding a value
-                           # to the placeholder.
+t.eval()  # This will fail, since the placeholder did not get a value. # Эта операция не будет выполнена, так как нет значения.
+t.eval(feed_dict={p:2.0})  # This will succeed because we're feeding a value  # Эта операция будет произведены успешно, поскольку
+                           # to the placeholder.  # мы присваиваем значение placeholder.
 ```
 
 Note that it is possible to feed any `tf.Tensor`, not just placeholders.
+
+Отемтим, что возможно производить оценку любых `tf.Tensor`, а не только
+placeholder.
 
 Other model constructs might make evaluating a `tf.Tensor`
 complicated. TensorFlow can't directly evaluate `tf.Tensor`s defined inside
@@ -469,19 +480,37 @@ from a queue, evaluating the `tf.Tensor` will only work once something has been
 enqueued; otherwise, evaluating it will hang. When working with queues, remember
 to call `tf.train.start_queue_runners` before evaluating any `tf.Tensor`s.
 
+Другие структуры модели могут усложнить оценку `tf.Tensor`. TensorFlow
+не может напрямую оценить `tf.Tensor`, определенные внутри функций или внутри
+порядка выполнения структуры модели. Если `tf.Tensor` зависит от значения из
+очереди, то оценка `tf.Tensor` будет работать только если какое-то значение
+было поставлено в очередь; в других случаях оценка будет приостановлена. При
+работе с очередями, всегда вызывай `tf.train.start_queue_runners` преждем чем
+производить оценку каких-либо `tf.Tensor`.
+
 ## Printing Tensors
+
+## Выводим значения тензоров
 
 For debugging purposes you might want to print the value of a `tf.Tensor`. While
  [tfdbg](../guide/debugger.md) provides advanced debugging support, TensorFlow also has an
  operation to directly print the value of a `tf.Tensor`.
+ 
+Чтобы произвести отладку коду возможно понадобится выводить значения `tf.Tensor`.
+Несмотря на то, что [tfdbg](../guide/debugger.md) хоть и предлагает углубленную 
+поддержку отладки, TensorFlow также имеет операцию для неспоредственного вывода 
+значения `tf.Tensor` на экран.
 
 Note that you rarely want to use the following pattern when printing a
 `tf.Tensor`:
 
+Отметим, что только в редких случаях потребуется использовать следующий
+шаблон для вывода значения `tf.Tensor`:
+
 ``` python
-t = <<some tensorflow operation>>
-print(t)  # This will print the symbolic tensor when the graph is being built.
-          # This tensor does not have a value in this context.
+t = <<какая-либо операция tensorflow>>
+print(t)  # This will print the symbolic tensor when the graph is being built.  # Выводим символический тензор при построении графа.
+          # This tensor does not have a value in this context.  # Этот тензор не имеет значения в данном контексте.
 ```
 
 This code prints the `tf.Tensor` object (which represents deferred computation)
@@ -489,16 +518,29 @@ and not its value. Instead, TensorFlow provides the `tf.Print` operation, which
 returns its first tensor argument unchanged while printing the set of
 `tf.Tensor`s it is passed as the second argument.
 
+Этот код выведет на экран объект `tf.Tensor` (который представляет
+отложенное вычисление), но не его значение. Вместо этого TensorFlow обеспечит
+операцию `tf.Print`, которая возвратит его первый неизменный аргумент тензора,
+в то время как также выведет набор `tf.Tensor`, который были переданы как второй
+аргумент.
+
 To correctly use `tf.Print` its return value must be used. See the example below
 
+Чтобы правильно использовать `tf.Print`, необходимо использовать его возвращенное
+значение как в примере ниже:
+
 ``` python
-t = <<some tensorflow operation>>
-tf.Print(t, [t])  # This does nothing
-t = tf.Print(t, [t])  # Here we are using the value returned by tf.Print
-result = t + 1  # Now when result is evaluated the value of `t` will be printed.
+t = <<какая-либо операция tensorflow>>
+tf.Print(t, [t])  # This does nothing  # Не возвращает ничего
+t = tf.Print(t, [t])  # Here we are using the value returned by tf.Print  # Здесь мы используем значение, возвращенное `tf.Print`.
+result = t + 1  # Now when result is evaluated the value of `t` will be printed.  # Теперь результат оценен, и значение `t` будет выведено.
 ```
 
 When you evaluate `result` you will evaluate everything `result` depends
 upon. Since `result` depends upon `t`, and evaluating `t` has the side effect of
 printing its input (the old value of `t`), `t` gets printed.
+
+При оценке `result` мы также оцениваем все, от чего зависит `result`.
+Поскольку `result` зависит от `t` и оценка `t` окажет эффект на вывод его
+значения (предыдущего значения `t`), значение `t` будет выведено на экран.
 
