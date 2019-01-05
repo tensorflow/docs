@@ -412,7 +412,7 @@ python -m tensorflow.python.debug.examples.debug_mnist --debug
 At the `tfdbg>` prompt, enter the following command:
 
 ```none
-run -f has_inf_or_nan`
+run -f has_inf_or_nan
 ```
 
 Confirm that no tensors are flagged as containing `nan` or `inf` values, and
