@@ -58,6 +58,7 @@ class GenerateTest(absltest.TestCase):
   _BASE_DIR = tempfile.mkdtemp()
 
   def setUp(self):
+    super(GenerateTest, self).setUp()
     self.workdir = os.path.join(self._BASE_DIR, self.id())
     os.makedirs(self.workdir)
 
@@ -118,7 +119,7 @@ class GenerateTest(absltest.TestCase):
     output_dir = self.workdir
 
     generate_lib.write_docs(output_dir, parser_config, yaml_toc=True,
-                            site_path='api_docs/python')
+                            site_path='')
 
     # Check redirects
     redirects_file = os.path.join(output_dir, '_redirects.yaml')
@@ -154,7 +155,6 @@ class GenerateTest(absltest.TestCase):
     self.assertTrue(
         os.path.exists(
             os.path.join(output_dir, 'tf/TestModule/test_function.md')))
-
 
   def test_replace_refes(self):
     test_dir = self.workdir

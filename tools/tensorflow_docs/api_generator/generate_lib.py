@@ -149,8 +149,10 @@ def write_docs(output_dir,
     duplicates = [item for item in duplicates if item != full_name]
 
     for dup in duplicates:
-      from_path = os.path.join(site_path, dup.replace('.', '/'))
-      to_path = os.path.join(site_path, full_name.replace('.', '/'))
+      from_path = os.path.join(site_path, 'api_docs/python',
+                               dup.replace('.', '/'))
+      to_path = os.path.join(site_path, 'api_docs/python',
+                             full_name.replace('.', '/'))
       redirects.append((
           os.path.join('/', from_path),
           os.path.join('/', to_path)))
