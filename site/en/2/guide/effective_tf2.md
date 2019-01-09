@@ -1,27 +1,19 @@
-# Effective TF 2.0
+# Effective TensorFlow 2.0
 
-Author: brianklee@google.com Created: 2018-12-12
-
-## Background
-
-TensorFlow 2.0 makes multiple changes to help TensorFlow users be more
-productive. In short, TensorFlow 2.0 removes redundant APIs
-([RFC](https://github.com/tensorflow/community/blob/master/rfcs/20180827-api-names.md),
+There are multiple changes in TensorFlow 2.0 to make TensorFlow users more
+productive. TensorFlow 2.0 removes
+[redundant APIs](https://github.com/tensorflow/community/blob/master/rfcs/20180827-api-names.md),
 makes APIs more consistent
-([Unified RNNs](https://github.com/tensorflow/community/blob/master/rfcs/20180920-unify-rnn-interface.md)
+([Unified RNNs](https://github.com/tensorflow/community/blob/master/rfcs/20180920-unify-rnn-interface.md),
 [Unified Optimizers](https://github.com/tensorflow/community/blob/master/rfcs/20181016-optimizer-unification.md)),
-and better integrates with the Python runtime via
+and better integrates with the Python runtime with
 [Eager execution](https://www.tensorflow.org/guide/eager).
-
-## Objective
 
 Many
 [RFCs](https://github.com/tensorflow/community/pulls?utf8=%E2%9C%93&q=is%3Apr)
-have explained the individual changes that have gone into the making of
-TensorFlow 2.0. This document presents a vision for what development in
-TensorFlow 2.0 should look like, following TensorFlow 2.0's individual design
-decisions to their logical conclusion. This document assumes some familiarity
-with TensorFlow 1.X.
+have explained the changes that have gone into making TensorFlow 2.0. This
+guide presents a vision for what development in TensorFlow 2.0 should look like.
+It's assumeed you have some familiarity with TensorFlow 1.x.
 
 ## A brief summary of major changes
 
@@ -113,9 +105,7 @@ sequence models, reinforcement learning, custom training loops, and more.
 ## Recommendations for idiomatic TensorFlow 2.0
 
 For complete examples, see
-[MNIST (basic example)](https://github.com/tensorflow/docs/blob/master/site/en/2/guide/tf2.ipynb)
-and
-[NMT with attention (advanced example)](https://github.com/tensorflow/docs/blob/master/site/en/2/guide/_nmt_with_attention.ipynb).
+[MNIST (basic example)](../tutorials/beginner/tf2_overview.ipynb)
 
 ### Refactor your code into smaller functions
 
