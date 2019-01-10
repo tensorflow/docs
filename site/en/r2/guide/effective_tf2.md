@@ -247,7 +247,7 @@ class DynamicRNN(tf.keras.models.Model):
 ```
 
 For a more detailed overview of AutoGraph's features, see
-[the guide](https://github.com/tensorflow/docs/blob/master/site/en/2/guide/autograph.ipynb).
+[the guide](./autograph.ipynb).
 
 ### Use tf.metrics to aggregate data and tf.summary to log it
 
