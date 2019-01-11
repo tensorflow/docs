@@ -76,117 +76,118 @@ Estimators обеспечивают следующие преимущества:
     Например, в коде ниже показан пример основного скелета для функции ввода
     данных:
 
-        def input_fn(dataset):
+        def data_input(dataset):
            ...  # манипулирует датасетом, извлекая словарь параметров и метки
            return feature_dict, label
 
     (Смотри подбробнее в [Загрузка данных](../guide/datasets.md))
 
-2.  **Define the feature columns.** Each `tf.feature_column`
-    identifies a feature name, its type, and any input pre-processing.
-    For example, the following snippet creates three feature
-    columns that hold integer or floating-point data.  The first two
-    feature columns simply identify the feature's name and type. The
-    third feature column also specifies a lambda the program will invoke
-    to scale the raw data:
-
-        # Define three numeric feature columns.
+2.  **Определение колонок параметров.** Каждая `tf.feature_column`
+    определяет имя параметра, его тип и любой предварительную обработку
+    входных данных. Например, в следующем примере кода мы создадим три
+    колонки параметров, в которых будут хранится данные в формате целых
+    чисел с плавающей запятой. Первые две колонки параметров будут просто
+	идентифицировать имя и тип параметра. Третья колонка параметров указывает
+	лямбду-выражение, которое будут вызываться для оценки необработанных
+	данных:
+							
+		        # Определим три числовых колонки параметров.
         population = tf.feature_column.numeric_column('population')
         crime_rate = tf.feature_column.numeric_column('crime_rate')
         median_education = tf.feature_column.numeric_column('median_education',
                             normalizer_fn=lambda x: x - global_education_mean)
-
-3.  **Instantiate the relevant pre-made Estimator.**  For example, here's
-    a sample instantiation of a pre-made Estimator named `LinearClassifier`:
-
-        # Instantiate an estimator, passing the feature columns.
+	
+3.  **Укажем подходящий готовый Estimator.**  Например так мы укажем
+    готовый Estimator для решения модели `линейного классификатора`:
+			
+		# Указываем estimator, передаем колонки параметров.
         estimator = tf.estimator.LinearClassifier(
             feature_columns=[population, crime_rate, median_education],
             )
 
-4.  **Call a training, evaluation, or inference method.**
-    For example, all Estimators provide a `train` method, which trains a model.
+4.  **Вызов метода обучения, оценки или предсказания**
+    Например, все Estimators имеют метод `train` для начала обучения модели.
 
-        # my_training_set is the function created in Step 1
-        estimator.train(input_fn=my_training_set, steps=2000)
-
-
-### Benefits of pre-made Estimators
-
-Pre-made Estimators encode best practices, providing the following benefits:
-
-*   Best practices for determining where different parts of the computational
-    graph should run, implementing strategies on a single machine or on a
-    cluster.
-*   Best practices for event (summary) writing and universally useful
-    summaries.
-
-If you don't use pre-made Estimators, you must implement the preceding
-features yourself.
+        # `data_input` - функция, созданная в самом первом шаге
+        estimator.train(data_input=my_training_set, steps=2000)
 
 
-## Custom Estimators
+### Преимущества использования готовых Estimators
 
-The heart of every Estimator—whether pre-made or custom—is its
-**model function**, which is a method that builds graphs for training,
-evaluation, and prediction. When you are using a pre-made Estimator,
-someone else has already implemented the model function. When relying
-on a custom Estimator, you must write the model function yourself. A
-[companion document](../guide/custom_estimators.md)
-explains how to write the model function.
+В готовых Estimators используются лучшие практики, которые обеспечивают
+следующие преимущества:
 
+*   Лучшие практики для определения какие части вычислительного графа
+    запускать сначала, а также стратегии для обучения на одном устройстве
+	или целом кластере
+*   Стандартизированная практика записи логов и полезной статистики
 
-## Recommended workflow
-
-We recommend the following workflow:
-
-1.  Assuming a suitable pre-made Estimator exists, use it to build your
-    first model and use its results to establish a baseline.
-2.  Build and test your overall pipeline, including the integrity and
-    reliability of your data with this pre-made Estimator.
-3.  If suitable alternative pre-made Estimators are available, run
-    experiments to determine which pre-made Estimator produces the
-    best results.
-4.  Possibly, further improve your model by building your own custom Estimator.
+Если ты не собираешься использовать готовые Estimators, то тогда тебе
+придется указывать все необходимые параметры самому.
 
 
-## Creating Estimators from Keras models
+## Собственные Estimators
 
-You can convert existing Keras models to Estimators. Doing so enables your Keras
-model to access Estimator's strengths, such as distributed training. Call
-`tf.keras.estimator.model_to_estimator` as in the
-following sample:
+Ядром каждого Estimator, готового или написанного с нуля, является
+**функция модели**, которая представляет из себя метод для построения
+графа для обучения, оценки и предсказаний. Когда ты используешь готовый
+Estimator, кто-то уже написал функцию модели для тебя. В том случае,
+когда ты полагаешься на свой современный Estimator, ты должен сам
+написать эту функцию. Более подробно о том, как написать функцию модели
+ты можешь узнать в [сопутствующей статье](../guide/custom_estimators.md)
+
+
+## Рекомендуемый ход работы
+
+Мы рекомендуем следующий порядок написания модели с помощью Estimators:
+
+1.  Предположим, что есть готовый Estimator, и мы используем его для
+    построения нашей модели, а также используем результаты оценки для 
+	формирования эталонной модели
+2.  Создаем и тестируем процесс загрузки данных, проверяем целостность и
+    надежность наших данных с готовым Estimator
+3.  Если есть другие подходящие альтернативы, тогда экспериментируем с ними
+    для поиска Estimator, который покажет лучшие результаты
+4.  Возможно потребуется улучшить нашу модель при помощи создания нашего
+    собственного Estimator.
+
+
+
+## Создание Estimators из моделей Keras 
+
+Ты можешь конвертировать уже существующие модели Keras в Estimators. Это позволит
+тебе использовать все преимущества Estimators для данной модели, например распределенное
+обучение. Вызови функцию `tf.keras.estimator.model_to_estimator` как в примере ниже:
 
 ```python
-# Instantiate a Keras inception v3 model.
+# Создаем модель Inception v3 в Keras
 keras_inception_v3 = tf.keras.applications.inception_v3.InceptionV3(weights=None)
-# Compile model with the optimizer, loss, and metrics you'd like to train with.
+# Компилируем модель с оптимизатором, функцией потерь и метриками обучения по выбору.
 keras_inception_v3.compile(optimizer=tf.keras.optimizers.SGD(lr=0.0001, momentum=0.9),
                           loss='categorical_crossentropy',
                           metric='accuracy')
-# Create an Estimator from the compiled Keras model. Note the initial model
-# state of the keras model is preserved in the created Estimator.
+# Создаем Estimator из скомпилированной модели Keras. Обрати внимание что изначальное
+# состояние модели Keras сохраняется при создании Estimator.
 est_inception_v3 = tf.keras.estimator.model_to_estimator(keras_model=keras_inception_v3)
 
-# Treat the derived Estimator as you would with any other Estimator.
-# First, recover the input name(s) of Keras model, so we can use them as the
-# feature column name(s) of the Estimator input function:
-keras_inception_v3.input_names  # print out: ['input_1']
-# Once we have the input name(s), we can create the input function, for example,
-# for input(s) in the format of numpy ndarray:
+# Теперь мы можем использовать полученный Estimator как любой другой.
+# Во-первых, восстановим вводное имя (имена) модели Keras, чтобы мы могли использовать их
+# как имена колонок параметров функции ввода данных Estimator:
+keras_inception_v3.input_names  # выводит: ['input_1']
+# Как только мы получим вводные имена, мы можем создать функцию ввода данных, например,
+# для входа данных в формате NumPy ndarray:
 train_input_fn = tf.estimator.inputs.numpy_input_fn(
     x={"input_1": train_data},
     y=train_labels,
     num_epochs=1,
     shuffle=False)
-# To train, we call Estimator's train function:
+# Для обучения вызываем функцию `train` нашего Estimator:
 est_inception_v3.train(input_fn=train_input_fn, steps=2000)
 ```
-Note that the names of feature columns and labels of a keras estimator come from
-the corresponding compiled keras model. For example, the input key names for
-`train_input_fn` above can be obtained from `keras_inception_v3.input_names`,
-and similarly, the predicted output names can be obtained from
-`keras_inception_v3.output_names`.
 
-For more details, please refer to the documentation for
-`tf.keras.estimator.model_to_estimator`.
+Обрати внимание, что имена колонок параметров и меток Esitmator мы получили
+из соответствующей модели Keras. Например, имена вводных ключей для `train_input_fn`
+выше могут быть получены из `keras_inception_v3.input_names`, и таким же образом
+предсказанные имена могут быть получены из `keras_inception_v3.output_names`.
+
+Подробнее смотри документацию в статье `tf.keras.estimator.model_to_estimator`.
