@@ -163,10 +163,12 @@ Estimator, кто-то уже написал функцию модели для 
 ```python
 # Создаем модель Inception v3 в Keras
 keras_inception_v3 = tf.keras.applications.inception_v3.InceptionV3(weights=None)
+
 # Компилируем модель с оптимизатором, функцией потерь и метриками обучения по выбору.
 keras_inception_v3.compile(optimizer=tf.keras.optimizers.SGD(lr=0.0001, momentum=0.9),
                           loss='categorical_crossentropy',
                           metric='accuracy')
+			  
 # Создаем Estimator из скомпилированной модели Keras. Обрати внимание что изначальное
 # состояние модели Keras сохраняется при создании Estimator.
 est_inception_v3 = tf.keras.estimator.model_to_estimator(keras_model=keras_inception_v3)
@@ -175,6 +177,7 @@ est_inception_v3 = tf.keras.estimator.model_to_estimator(keras_model=keras_incep
 # Во-первых, восстановим вводное имя (имена) модели Keras, чтобы мы могли использовать их
 # как имена колонок параметров функции ввода данных Estimator:
 keras_inception_v3.input_names  # выводит: ['input_1']
+
 # Как только мы получим вводные имена, мы можем создать функцию ввода данных, например,
 # для входа данных в формате NumPy ndarray:
 train_input_fn = tf.estimator.inputs.numpy_input_fn(
@@ -182,6 +185,7 @@ train_input_fn = tf.estimator.inputs.numpy_input_fn(
     y=train_labels,
     num_epochs=1,
     shuffle=False)
+    
 # Для обучения вызываем функцию `train` нашего Estimator:
 est_inception_v3.train(input_fn=train_input_fn, steps=2000)
 ```
