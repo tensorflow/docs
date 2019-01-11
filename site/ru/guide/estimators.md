@@ -35,6 +35,7 @@ Estimators обеспечивают следующие преимущества:
 *   Estimators строят граф
 *   Estimators обеспечивают простой распределенный цикл обучения, который контроллирует
     как и когда:
+    
     *   строить граф
     *   инициализировать переменные
     *   загружать данные
@@ -91,7 +92,7 @@ Estimators обеспечивают следующие преимущества:
 	лямбду-выражение, которое будут вызываться для оценки необработанных
 	данных:
 							
-		        # Определим три числовых колонки параметров.
+	# Определим три числовых колонки параметров.
         population = tf.feature_column.numeric_column('population')
         crime_rate = tf.feature_column.numeric_column('crime_rate')
         median_education = tf.feature_column.numeric_column('median_education',
