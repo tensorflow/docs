@@ -61,7 +61,7 @@ vision tasks.
 We're excited to see what the community will do with this model.
 
 
-##Usage with Python API
+## Usage with Python API
 
 `classify_image.py` downloads the trained model from `tensorflow.org`
 when the program is run for the first time. You'll need about 200M of free space
