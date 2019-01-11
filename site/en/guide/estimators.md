@@ -38,6 +38,7 @@ Estimators provide the following benefits:
 *   Estimators build the graph for you.
 *   Estimators provide a safe distributed training loop that controls how and
     when to:
+    
     *   build the graph
     *   initialize variables
     *   load data
