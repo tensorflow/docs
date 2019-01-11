@@ -3,7 +3,7 @@
 Eager execution provides an imperative, define-by-run interface for advanced
 operations. Write custom layers, forward passes, and training loops with
 auto&nbsp;differentiation. Start with these notebooks, then read the
-[eager execution guide](../../guide/eager).
+[eager execution guide](../../guide/eager.ipynb).
 
 1. [Eager execution](eager_basics.ipynb)
 2. [Automatic differentiation and gradient tape](automatic_differentiation.ipynb)
