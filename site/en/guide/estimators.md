@@ -82,7 +82,7 @@ of the following four steps:
     For example, the following code illustrates the basic skeleton for
     an input function:
 
-        def data_input(dataset):
+        def input_fn(dataset):
            ...  # manipulate dataset, extracting the feature dict and the label
            return feature_dict, label
 
@@ -113,8 +113,8 @@ of the following four steps:
 4.  **Call a training, evaluation, or inference method.**
     For example, all Estimators provide a `train` method, which trains a model.
 
-        # `data_input` is the function created in Step 1
-        estimator.train(data_input=my_training_set, steps=2000)
+        # `input_fn` is the function created in Step 1
+        estimator.train(input_fn=my_training_set, steps=2000)
 
 
 ### Benefits of pre-made Estimators
