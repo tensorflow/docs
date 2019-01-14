@@ -12,6 +12,8 @@ see [how to get help](/community/#get_help).
 * [announce](https://groups.google.com/a/tensorflow.org/d/forum/announce) - Low-volume announcements of new releases.
 * [discuss](https://groups.google.com/a/tensorflow.org/d/forum/discuss) - General community discussion around TensorFlow.
 * [developers](https://groups.google.com/a/tensorflow.org/d/forum/developers) - Discussion for developers contributing to TensorFlow.
+* [documentation](https://groups.google.com/a/tensorflow.org/forum/?utm_medium=email&utm_source=footer#!forum/docs) - Discussion for contributing to TensorFlow documentation.
+* [testing](https://groups.google.com/a/tensorflow.org/forum/?utm_medium=email&utm_source=footer#!forum/testing) - Discussion and questions on TensorFlow 2.0 testing.
 
 ## Project-specific lists
 
