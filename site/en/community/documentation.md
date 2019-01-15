@@ -64,8 +64,12 @@ however, those tools are not available in open source at this time.
 TensorFlow documentation is written in Markdown (`.md`) or Notebooks (`.ipynb`). With a few exceptions,
 TensorFlow uses the [standard Markdown rules](https://daringfireball.net/projects/markdown/).
 
+Use
+[this template](https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb)
+for TensorFlow notebooks.
+
 This section explains the primary differences between standard Markdown rules
-and the Markdown rules that editable TensorFlow documentation uses.
+and the Markdown rules that TensorFlow documentation uses.
 
 ### Math in Markdown
 
