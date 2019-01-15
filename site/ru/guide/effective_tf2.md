@@ -74,11 +74,18 @@ compilation so that TensorFlow runs it as a single graph
 ([Functions 2.0 RFC](https://github.com/tensorflow/community/pull/20)). This
 mechanism allows TensorFlow 2.0 to gain all of the benefits of graph mode:
 
--   Performance: The function can be optimized (node pruning, kernel fusion,
-    etc.)
--   Portability: The function can be exported/reimported
-    ([SavedModel 2.0 RFC](https://github.com/tensorflow/community/pull/34)),
-    allowing users to reuse and share modular TensorFlow functions.
+Вызов `session.run()` работал почти как вызов функции: ты определял вводные данные
+и вызывал функцию, получая на выходе результаты. В TensorFlow 2.0, ты можешь
+декорировать функцию Python при помощи `tf.function()`, отметив ее как JIT
+компиляцию, чтобы TensorFlow запустил ее на одном единственном графе
+([Функции 2.0 RFC](https://github.com/tensorflow/community/pull/20)). Этот
+механизм позволяет TensorFlow 2.0 получить все преимущества режима graph:
+
+-   Производительность: функции могут быть оптимизированы (отсечение узлов графа,
+    слияние ядра и так далее)
+-   Портативность: The function can be exported/reimported функции могут быть экспортированы
+    или импортированы повторно ([Сохранение моделей 2.0 RFC](https://github.com/tensorflow/community/pull/34)),
+    позволяя пользователям использовать и делиться модульными функциями TensorFlow.
 
 ```python
 # TensorFlow 1.X
@@ -87,29 +94,30 @@ outputs = session.run(f(placeholder), feed_dict={placeholder: input})
 outputs = f(input)
 ```
 
-With the power to freely intersperse Python and TensorFlow code, we expect that
-users will take full advantage of Python's expressiveness. But portable
-TensorFlow executes in contexts without a Python interpreter - mobile, C++, and
-JS. To help users avoid having to rewrite their code when adding `@tf.function`,
-[AutoGraph](autograph.md) will convert a subset of
-Python constructs into their TensorFlow equivalents:
+С новой возможностью просто использовать вместе код Python и TensorFlow, мы ожидаем
+что пользователи воспользуются всеми преимуществами выразительности языка Python.
+Но портативный TensorFlow выполняет операции в окружении без интерпретатора Python -
+на мобильных устройствах, C++ и JavaScript. Чтобы помочь пользователям легко переписать
+свой код при использовании новой `@tf.function`, используй [AutoGraph](autograph.md)
+для конвертации кода Python в их эквиваленты TensorFlow:
 
 *   `print` -> `tf.print`
 *   `assert` -> `tf.Assert`
-*   `for`/`while` -> `tf.while_loop` (`break` and `continue` are supported)
+*   `for`/`while` -> `tf.while_loop` (поддерживаются `break` и `continue`)
 *   `if` -> `tf.cond`
 *   `for _ in dataset` -> `dataset.reduce`
 
-AutoGraph supports arbitrary nestings of control flow, which makes it possible
-to performantly and concisely implement many complex ML programs such as
-sequence models, reinforcement learning, custom training loops, and more.
+AutoGraph поддерживает вложенные функции в порядке выполнения программы, что
+делает возможным производительно и точно внедрять комплексные программы
+машинного обучения, например такие как последовательные модели, обучение с
+подкреплением, собственные циклы обучения и многие другие.
 
-## Recommendations for idiomatic TensorFlow 2.0
+## Рекомендации и идиомы TensorFlow 2.0
 
-For complete examples, see
-[MNIST (basic example)](../tutorials/beginner/tf2_overview.ipynb)
+Смотри все примеры использования
+[MNIST (стандартный пример)](../tutorials/beginner/tf2_overview.ipynb)
 
-### Refactor your code into smaller functions
+### Рефакторинг кода на малые функции
 
 A common usage pattern in TensorFlow 1.X was the "kitchen sink" strategy, where
 the union of all possible computations was preemptively laid out, and then
@@ -119,13 +127,13 @@ general, it's not necessary to decorate each of these smaller functions with
 `tf.function`; only use `tf.function` to decorate high-level computations - for
 example, one step of training, or the forward pass of your model.
 
-### Use Keras layers and models to manage variables
+### Используй слои и модели Keras для управления переменными
 
 Keras models and layers offer the convenient `.variables` property, which
 recursively gather up all dependent variables. This makes it very easy to manage
 variables locally to where they are being used.
 
-Contrast:
+Сравни:
 
 ```python
 def dense(x, W, b):
@@ -138,10 +146,10 @@ def multilayer_perceptron(x, w0, b0, w1, b1, w2, b2 ...):
   x = dense(x, w2, b2)
   ...
 
-# You still have to manage w_i and b_i, and their shapes are defined far away from the code.
+# Тебе все равно придется управлять w_i и b_i, так как их формы определяются не в коде.
 ```
 
-with the Keras version:
+Версия с использованием Keras:
 
 ```python
 # Each layer can be called, with a signature equivalent to linear(x)
