@@ -30,7 +30,7 @@
 `tf.keras.optimizers`. Самый простой способ автоматически переименовать все функции -
 это воспользоваться [скриптом для обновления до 2.0](upgrade.md).
 
-### Eager execution
+### Активный Eager execution
 
 В TensorFlow 1.X от пользователя требовалось вручную строить
 [абстрактное синтаксическое дерево](https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BD%D0%BE%D0%B5_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE) (граф) при помощи API вызовов `tf.*`. Для этого было нужно вручную
@@ -38,10 +38,6 @@
 `session.run()`. TensorFlow 2.0 теперь выполняет все операции мгновенно (точно
 так же, как и обычный Python), все графы и сессии теперь будут работать как
 стандартное выполнение операций.
-
-One notable byproduct of eager execution is that `tf.control_dependencies()` is
-no longer required, as all lines of code execute in order (within a
-`tf.function`, code with side effects execute in the order written).
 
 Раньше побочным продуктом eager execution метод `tf.control_dependencies()`,
 который теперь не треубется, и все строки кода будут исполняться в последовательном
