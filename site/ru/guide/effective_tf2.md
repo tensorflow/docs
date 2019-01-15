@@ -1,69 +1,75 @@
-# Effective TensorFlow 2.0
+# Как использовать TensorFlow 2.0?
 
-There are multiple changes in TensorFlow 2.0 to make TensorFlow users more
-productive. TensorFlow 2.0 removes
-[redundant APIs](https://github.com/tensorflow/community/blob/master/rfcs/20180827-api-names.md),
-makes APIs more consistent
-([Unified RNNs](https://github.com/tensorflow/community/blob/master/rfcs/20180920-unify-rnn-interface.md),
-[Unified Optimizers](https://github.com/tensorflow/community/blob/master/rfcs/20181016-optimizer-unification.md)),
-and better integrates with the Python runtime with
+В TensorFlow 2.0 были сделаны несколько изменений, которые позволят более продуктивно работать всем 
+пользователям TensorFlow. В TensorFlow 2.0 были удалены
+[ненужные APIs](https://github.com/tensorflow/community/blob/master/rfcs/20180827-api-names.md),
+существующие и используемые API были проработаны 
+([объединены RNN](https://github.com/tensorflow/community/blob/master/rfcs/20180920-unify-rnn-interface.md),
+[а также оптимизаторы](https://github.com/tensorflow/community/blob/master/rfcs/20181016-optimizer-unification.md)),
+улучшена интеграция с рабочей средой Python в режиме
 [Eager execution](https://www.tensorflow.org/guide/eager).
 
-Many
-[RFCs](https://github.com/tensorflow/community/pulls?utf8=%E2%9C%93&q=is%3Apr)
-have explained the changes that have gone into making TensorFlow 2.0. This
-guide presents a vision for what development in TensorFlow 2.0 should look like.
-It's assumeed you have some familiarity with TensorFlow 1.x.
+Во многих
+[запросах RFC](https://github.com/tensorflow/community/pulls?utf8=%E2%9C%93&q=is%3Apr)
+объяснялись основные изменения, которые затронут TensorFlow 2.0. В этом документе
+будет показан, как должен выглядеть процесс работы с новым TensorFlow 2.0.
+Подразумевается, что ты уже знаком с TensorFlow 1.x.
 
-## A brief summary of major changes
+## Краткий список основных изменений
 
-### API Cleanup
+### Чистка API
 
-Many APIs are either
-[gone or moved](https://github.com/tensorflow/community/blob/master/rfcs/20180827-api-names.md)
-in TF 2.0. Some of the major changes include removing `tf.app`, `tf.flags`, and
-`tf.logging` in favor of the now open-source
-[absl-py](https://github.com/abseil/abseil-py), rehoming projects that lived in
-`tf.contrib`, and cleaning up the main `tf.*` namespace by moving lesser used
-functions into subpackages like `tf.math`. Some APIs have been replaced with
-their 2.0 equivalents - `tf.summary`, `tf.keras.metrics`, and
-`tf.keras.optimizers`. The easiest way to automatically apply these renames
-is to use the [v2 upgrade script](upgrade.md).
+Многие API были либо
+[удалены, либо перемещены](https://github.com/tensorflow/community/blob/master/rfcs/20180827-api-names.md)
+в TF 2.0. Самыми крупными изменениями являются удаление `tf.app`, `tf.flags`, а также
+`tf.logging` в пользу новой библиотеки с открытым исходным кодом
+[absl-py](https://github.com/abseil/abseil-py), перемещение проектов, которые были в
+`tf.contrib`, а также чистка основного имени `tf.*`: редко используемые функции 
+были объединены в отдельные модули, например `tf.math`. Некоторые API были заменены
+их 2.0 эквивалентами - `tf.summary`, `tf.keras.metrics`, и
+`tf.keras.optimizers`. Самый простой способ автоматически переименовать все функции -
+это воспользоваться [скриптом для обновления до 2.0](upgrade.md).
 
 ### Eager execution
 
-TensorFlow 1.X requires users to manually stitch together an
-[abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (the
-graph) by making `tf.*` API calls. It then requires users to manually compile
-the abstract syntax tree by passing a set of output tensors and input tensors to
-a `session.run()` call. TensorFlow 2.0 executes eagerly (like Python normally
-does) and in 2.0, graphs and sessions should feel like implementation details.
+В TensorFlow 1.X от пользователя требовалось вручную строить
+[абстрактное синтаксическое дерево](https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BD%D0%BE%D0%B5_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE) (граф) при помощи API вызовов `tf.*`. Для этого было нужно вручную
+компилировать дерево, передавая набор получаемых и входящих тензоров к вызову 
+`session.run()`. TensorFlow 2.0 теперь выполняет все операции мгновенно (точно
+так же, как и обычный Python), все графы и сессии теперь будут работать как
+стандартное выполнение операций.
 
 One notable byproduct of eager execution is that `tf.control_dependencies()` is
 no longer required, as all lines of code execute in order (within a
 `tf.function`, code with side effects execute in the order written).
 
-### No more globals
+Раньше побочным продуктом eager execution метод `tf.control_dependencies()`,
+который теперь не треубется, и все строки кода будут исполняться в последовательном
+порядке, определенном `tf.function`. Сторонний код будет выполняться в 
+определенном ему порядке.
 
-TensorFlow 1.X relied heavily on implicitly global namespaces. When you called
-`tf.Variable()`, it would be put into the default graph, and it would remain
-there, even if you lost track of the Python variable pointing to it. You could
-then recover that `tf.Variable`, but only if you knew the name that it had been
-created with. This was difficult to do if you were not in control of the
-variable's creation. As a result, all sorts of mechanisms proliferated to
-attempt to help users find their variables again, and for frameworks to find
-user-created variables: Variable scopes, global collections, helper methods like
-`tf.get_global_step()`, `tf.global_variables_initializer()`, optimizers
-implicitly computing gradients over all trainable variables, and so on.
-TensorFlow 2.0 eliminates all of these mechanisms
-([Variables 2.0 RFC](https://github.com/tensorflow/community/pull/11)) in favor
-of the default mechanism: Keep track of your variables! If you lose track of a
-`tf.Variable`, it gets garbage collected.
+### Никаких глобальных переменных
+
+TensorFlow 1.X внутренне полагался на глобальные переменные. Когда ты вызывал
+`tf.Variable()`, то эта переменная помещалась в стандартный граф и оставалась там
+даже если уже было изменено имя, присвоенное этой переменной. Ты мог восстановить
+эту переменную `tf.Variable`, но только если тебе было известно имя, которое было
+присвоено ей при создании. В результате все механизмы были направлены на то, чтобы
+помочь пользователю отыскать имя их переменных еще раз: `tf.get_global_step()`, 
+`tf.global_variables_initializer()`, оптимизаторы, которые рассчитывали
+градиенты по всем обучаемым перменным и так далее. В TensorFlow 2.0 были устранены
+все эти механизмы ([Переменные 2.0 RFC](https://github.com/tensorflow/community/pull/11))
+в пользу нового: следи за состоянием рабочих переменных! Если ты потеряешь `tf.Variable`
+(например, ей будет присвоено новое имя), то старая будет удалена из памяти в порядке
+процесса garbage collection.
 
 The requirement to track variables creates some extra work for the user, but
 with Keras objects (see below), the burden is minimized.
 
-### Functions, not sessions
+Требование следить за переменными создает дополнительную нагрузку на пользователя,
+но в случае с объектами Keras (см. ниже), это нагрузка - минимальная.
+
+### Функции, а не сессии
 
 A `session.run()` call is almost like a function call: You specify the inputs
 and the function to be called, and you get back a set of outputs. In TensorFlow
