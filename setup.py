@@ -66,7 +66,8 @@ setup(
     url='http://github.com/tensorflow/docs',
     download_url='https://github.com/tensorflow/docs/tags',
     license='Apache 2.0',
-    packages=find_packages(),
+    packages=find_packages('tools'),
+    package_dir={'': 'tools'},
     scripts=[],
     install_requires=REQUIRED_PKGS,
     extras_require={
