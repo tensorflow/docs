@@ -1,27 +1,19 @@
-# Effective TF 2.0
+# Effective TensorFlow 2.0
 
-Author: brianklee@google.com Created: 2018-12-12
-
-## Background
-
-TensorFlow 2.0 makes multiple changes to help TensorFlow users be more
-productive. In short, TensorFlow 2.0 removes redundant APIs
-([RFC](https://github.com/tensorflow/community/blob/master/rfcs/20180827-api-names.md),
+There are multiple changes in TensorFlow 2.0 to make TensorFlow users more
+productive. TensorFlow 2.0 removes
+[redundant APIs](https://github.com/tensorflow/community/blob/master/rfcs/20180827-api-names.md),
 makes APIs more consistent
-([Unified RNNs](https://github.com/tensorflow/community/blob/master/rfcs/20180920-unify-rnn-interface.md)
+([Unified RNNs](https://github.com/tensorflow/community/blob/master/rfcs/20180920-unify-rnn-interface.md),
 [Unified Optimizers](https://github.com/tensorflow/community/blob/master/rfcs/20181016-optimizer-unification.md)),
-and better integrates with the Python runtime via
+and better integrates with the Python runtime with
 [Eager execution](https://www.tensorflow.org/guide/eager).
-
-## Objective
 
 Many
 [RFCs](https://github.com/tensorflow/community/pulls?utf8=%E2%9C%93&q=is%3Apr)
-have explained the individual changes that have gone into the making of
-TensorFlow 2.0. This document presents a vision for what development in
-TensorFlow 2.0 should look like, following TensorFlow 2.0's individual design
-decisions to their logical conclusion. This document assumes some familiarity
-with TensorFlow 1.X.
+have explained the changes that have gone into making TensorFlow 2.0. This
+guide presents a vision for what development in TensorFlow 2.0 should look like.
+It's assumeed you have some familiarity with TensorFlow 1.x.
 
 ## A brief summary of major changes
 
@@ -32,19 +24,19 @@ Many APIs are either
 in TF 2.0. Some of the major changes include removing `tf.app`, `tf.flags`, and
 `tf.logging` in favor of the now open-source
 [absl-py](https://github.com/abseil/abseil-py), rehoming projects that lived in
-tf.contrib, and cleaning up the main tf.* namespace by moving lesser used
-functions into subpackages like tf.math. Some APIs have been replaced with their
-2.0 equivalents - tf.summary, tf.keras.metrics, and tf.keras.optimizers. The
-easiest way to automatically apply these renames is to use the
-[v2 upgrade script](upgrade.md).
+`tf.contrib`, and cleaning up the main `tf.*` namespace by moving lesser used
+functions into subpackages like `tf.math`. Some APIs have been replaced with
+their 2.0 equivalents - `tf.summary`, `tf.keras.metrics`, and
+`tf.keras.optimizers`. The easiest way to automatically apply these renames
+is to use the [v2 upgrade script](upgrade.md).
 
 ### Eager execution
 
 TensorFlow 1.X requires users to manually stitch together an
 [abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (the
-graph) by making tf.* API calls. It then requires users to manually compile the
-abstract syntax tree by passing a set of output tensors and input tensors to a
-`session.run()` call. TensorFlow 2.0 executes eagerly (like Python normally
+graph) by making `tf.*` API calls. It then requires users to manually compile
+the abstract syntax tree by passing a set of output tensors and input tensors to
+a `session.run()` call. TensorFlow 2.0 executes eagerly (like Python normally
 does) and in 2.0, graphs and sessions should feel like implementation details.
 
 One notable byproduct of eager execution is that `tf.control_dependencies()` is
@@ -54,9 +46,9 @@ no longer required, as all lines of code execute in order (within a
 ### No more globals
 
 TensorFlow 1.X relied heavily on implicitly global namespaces. When you called
-tf.Variable(), it would be put into the default graph, and it would remain
+`tf.Variable()`, it would be put into the default graph, and it would remain
 there, even if you lost track of the Python variable pointing to it. You could
-then recover that tf.Variable, but only if you knew the name that it had been
+then recover that `tf.Variable`, but only if you knew the name that it had been
 created with. This was difficult to do if you were not in control of the
 variable's creation. As a result, all sorts of mechanisms proliferated to
 attempt to help users find their variables again, and for frameworks to find
@@ -86,7 +78,7 @@ mechanism allows TensorFlow 2.0 to gain all of the benefits of graph mode:
     ([SavedModel 2.0 RFC](https://github.com/tensorflow/community/pull/34)),
     allowing users to reuse and share modular TensorFlow functions.
 
-```
+```python
 # TensorFlow 1.X
 outputs = session.run(f(placeholder), feed_dict={placeholder: input})
 # TensorFlow 2.0
@@ -113,9 +105,7 @@ sequence models, reinforcement learning, custom training loops, and more.
 ## Recommendations for idiomatic TensorFlow 2.0
 
 For complete examples, see
-[MNIST (basic example)](https://github.com/tensorflow/docs/blob/master/site/en/2/guide/tf2.ipynb)
-and
-[NMT with attention (advanced example)](https://github.com/tensorflow/docs/blob/master/site/en/2/guide/_nmt_with_attention.ipynb).
+[MNIST (basic example)](../tutorials/beginner/tf2_overview.ipynb)
 
 ### Refactor your code into smaller functions
 
@@ -135,15 +125,15 @@ variables locally to where they are being used.
 
 Contrast:
 
-```
-def linear(x, W, b):
+```python
+def dense(x, W, b):
   return tf.nn.sigmoid(tf.matmul(x, W) + b)
 
 @tf.function
 def multilayer_perceptron(x, w0, b0, w1, b1, w2, b2 ...):
-  x = linear(x, w0, b0)
-  x = linear(x, w1, b1)
-  x = linear(x, w2, b2)
+  x = dense(x, w0, b0)
+  x = dense(x, w1, b1)
+  x = dense(x, w2, b2)
   ...
 
 # You still have to manage w_i and b_i, and their shapes are defined far away from the code.
@@ -151,7 +141,7 @@ def multilayer_perceptron(x, w0, b0, w1, b1, w2, b2 ...):
 
 with the Keras version:
 
-```
+```python
 # Each layer can be called, with a signature equivalent to linear(x)
 layers = [tf.keras.layers.Dense(hidden_size, activation=tf.nn.sigmoid) for _ in range(n)]
 perceptron = tf.keras.Sequential(layers)
@@ -169,7 +159,7 @@ Here's a transfer learning example that demonstrates how Keras makes it easy to
 collect a subset of relevant variables. Let's say you're training a multi-headed
 model with a shared trunk:
 
-```
+```python
 trunk = tf.keras.Sequential([...])
 head1 = tf.keras.Sequential([...])
 head2 = tf.keras.Sequential([...])
@@ -202,15 +192,15 @@ tf.saved_model.save(trunk, output_path)
 ### Combine tf.data.Datasets and @tf.function
 
 When iterating over training data that fits in memory, feel free to use regular
-Python iteration. Otherwise, tf.data.Dataset is the best way to stream training
-data from disk. Datasets are
+Python iteration. Otherwise, `tf.data.Dataset` is the best way to stream
+training data from disk. Datasets are
 [iterables (not iterators)](https://docs.python.org/3/glossary.html#term-iterable),
 and work just like other Python iterables in Eager mode. You can fully utilize
 dataset async prefetching/streaming features by wrapping your code in
 `tf.function()`, which replaces Python iteration with the equivalent graph
 operations using AutoGraph.
 
-```
+```python
 @tf.function
 def train(model, dataset, optimizer):
   for x, y in dataset:
@@ -224,7 +214,7 @@ def train(model, dataset, optimizer):
 If you use the Keras `.fit()` API, you won't have to worry about dataset
 iteration.
 
-```
+```python
 model.compile(optimizer=optimizer, loss=loss_fn)
 model.fit(dataset)
 ```
@@ -239,8 +229,9 @@ models. `tf.keras.layers.RNN` wraps an RNN cell, allowing you to either
 statically or dynamically unroll the recurrence. For demonstration's sake, you
 could reimplement dynamic unroll as follows:
 
-```
-class DynamicRNN(tf.keras.models.Model):
+```python
+class DynamicRNN(tf.keras.Model):
+
   def __init__(self, rnn_cell):
     super(DynamicRNN, self).__init__(self)
     self.cell = rnn_cell
@@ -257,14 +248,14 @@ class DynamicRNN(tf.keras.models.Model):
 ```
 
 For a more detailed overview of AutoGraph's features, see
-[the guide](https://github.com/tensorflow/docs/blob/master/site/en/2/guide/autograph.ipynb).
+[the guide](./autograph.ipynb).
 
 ### Use tf.metrics to aggregate data and tf.summary to log it
 
 A complete set of `tf.summary` symbols are coming soon. You can access the
-2.0 version of tf.summary with:
+2.0 version of `tf.summary` with:
 
-```
+```python
 from tensorflow.python.ops import summary_ops_v2
 ```
 
@@ -273,7 +264,7 @@ doesn't actually do anything; the summaries need to be redirected to an
 appropriate file writer by using a context manager. (This allows you to avoid
 hardcoding summary output to a particular file writer.)
 
-```
+```python
 summary_writer = tf.summary.create_file_writer('/tmp/summaries')
 with summary_writer.as_default():
   summary_ops_v2.scalar('loss', 0.1, step=42)
@@ -283,12 +274,12 @@ To aggregate data before logging them as summaries, use `tf.metrics`. Metrics
 are stateful; they accumulate values and return a cumulative result when you
 call `.result()`. Clear accumulated values with `.reset_states()`.
 
-```
+```python
 def train(model, optimizer, dataset, log_freq=10):
-  avg_loss = tf.keras.metrics.Mean('loss', dtype=tf.float32)
+  avg_loss = tf.keras.metrics.Mean(name='loss', dtype=tf.float32)
   for images, labels in dataset:
     loss = train_step(model, optimizer, images, labels)
-    avg_loss(loss)
+    avg_loss.update_state(loss)
     if tf.equal(optimizer.iterations % log_freq, 0):
       summary_ops_v2.scalar('loss', avg_loss.result(), step=optimizer.iterations)
       avg_loss.reset_states()

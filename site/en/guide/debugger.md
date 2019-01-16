@@ -1,7 +1,5 @@
 # TensorFlow Debugger
 
-<!-- [comment]: TODO(barryr): Links to and from sections on "Graphs" & "Monitoring Learning". -->
-
 [TOC]
 
 `tfdbg` is a specialized debugger for TensorFlow. It lets you view the internal
@@ -412,7 +410,7 @@ python -m tensorflow.python.debug.examples.debug_mnist --debug
 At the `tfdbg>` prompt, enter the following command:
 
 <pre>
-run -f has_inf_or_nan`
+run -f has_inf_or_nan
 </pre>
 
 Confirm that no tensors are flagged as containing `nan` or `inf` values, and

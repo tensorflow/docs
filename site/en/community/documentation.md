@@ -64,8 +64,12 @@ however, those tools are not available in open source at this time.
 TensorFlow documentation is written in Markdown (`.md`) or Notebooks (`.ipynb`). With a few exceptions,
 TensorFlow uses the [standard Markdown rules](https://daringfireball.net/projects/markdown/).
 
+Use
+[this template](https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb)
+for TensorFlow notebooks.
+
 This section explains the primary differences between standard Markdown rules
-and the Markdown rules that editable TensorFlow documentation uses.
+and the Markdown rules that TensorFlow documentation uses.
 
 ### Math in Markdown
 
@@ -81,26 +85,68 @@ within text, use `\\(` `\\)` instead.
 
 ### Links in Markdown
 
-Links fall into a few categories.
+#### Links between files in this repository
 
-- Links between files in this repository.
-- Links to API documentation.
-- External links
+For links between files in this repository, use relative links and include the
+file extension.
 
-For links between files in this repository use relative links: `[Eager Basics](../tutorials/eager/eager_basics.ipynb)` produces [Eager Basics](../tutorials/eager/eager_basics.ipynb). These links will work on both GitHub, and tensorflow.org
+<code>&#91;Eager Basics&#93;(../tutorials/eager/eager_basics.ipynb)</code>
 
-API links are converted when the site is published. To link to the Python API simply enclose the full symbol path in backticks: <code>\`tf.data.Dataset\`</code> to produce `tf.data.Dataset`. For the C++ API use the namespace path: <code>\`tensorflow::Tensor\`</code> to produce `tensorflow::Tensor`.
+> [Eager Basics](../tutorials/eager/eager_basics.ipynb)
 
-For external links including files on tensorflow.org that are not in the `tensorflow/docs` repository (anything in [resources](https://tensorflow.org/resources)), just use regular Markdown links with the full URL.
+These links will work on GitHub (linking to the source file), and tensorflow.org
+(linking to the rendered page).
+
+#### Links to TensorFlow API documentation
+
+Links to the TensorFlow API documentation are converted when the site is
+published.
+
+For the Python API, enclose the full symbol path in backticks:
+
+<code>
+\`tf.data.Dataset\`
+</code>
+
+> `tf.data.Dataset`
+
+For the C++ API, use the namespace path in backticks:
+
+```
+`tensorflow::Tensor`
+```
+
+> `tensorflow::Tensor`
+
+#### Links to TensorFlow source code
 
 To link to source code, use a link starting with:
-`https://www.tensorflow.org/code/`, followed by
-the file name starting at the GitHub root.
+`https://github.com/tensorflow/tensorflow/blob/master`, followed by the file
+path starting *from* the GitHub project root. (That is, don't repeat the name of
+the GitHub repository a second time).
 
-This URL naming scheme ensures
-that [tensorflow.org](https://www.tensorflow.org/) can forward the link to the
-branch of the code corresponding to the version of the documentation you're
-viewing. Do not include url parameters in the source code URL.
+```
+[Example link to tensorflow/python/__init__.py,
+in the TensorFlow repo](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/__init__.py)
+```
+
+> [Example link to tensorflow/python/__init__.py, in the TensorFlow repo](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/__init__.py)
+
+Do not include any additional parameters or query strings in the Markdown URL.
+
+#### External Links
+
+Use regular Markdown links for:
+
+-   external pages
+-   pages on tensorflow.org that are not sourced in the
+    [tensorflow/docs](https://github.com/tensorflow/docs) repository
+-   pages on tensorflow.org that are sourced from the
+    [tensorflow/docs](https://github.com/tensorflow/docs) repository, but from a
+    non-Markdown file (for example, a `.yaml` file).
+
+In these cases, follow the standard Markdown link syntax, and include the full
+URL.
 
 ## Op documentation style guide
 
