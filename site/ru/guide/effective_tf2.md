@@ -59,20 +59,10 @@ TensorFlow 1.X внутренне полагался на глобальные �
 (например, ей будет присвоено новое имя), то старая будет удалена из памяти в порядке
 процесса garbage collection.
 
-The requirement to track variables creates some extra work for the user, but
-with Keras objects (see below), the burden is minimized.
-
 Требование следить за переменными создает дополнительную нагрузку на пользователя,
 но в случае с объектами Keras (см. ниже), это нагрузка - минимальная.
 
 ### Функции, а не сессии
-
-A `session.run()` call is almost like a function call: You specify the inputs
-and the function to be called, and you get back a set of outputs. In TensorFlow
-2.0, you can decorate a Python function using `tf.function()` to mark it for JIT
-compilation so that TensorFlow runs it as a single graph
-([Functions 2.0 RFC](https://github.com/tensorflow/community/pull/20)). This
-mechanism allows TensorFlow 2.0 to gain all of the benefits of graph mode:
 
 Вызов `session.run()` работал почти как вызов функции: ты определял вводные данные
 и вызывал функцию, получая на выходе результаты. В TensorFlow 2.0, ты можешь
@@ -98,7 +88,7 @@ outputs = f(input)
 что пользователи воспользуются всеми преимуществами выразительности языка Python.
 Но портативный TensorFlow выполняет операции в окружении без интерпретатора Python -
 на мобильных устройствах, C++ и JavaScript. Чтобы помочь пользователям легко переписать
-свой код при использовании новой `@tf.function`, используй [AutoGraph](autograph.md)
+свой код при использовании новой `@tf.function`, используй [AutoGraph](autograph.ipynb)
 для конвертации кода Python в их эквиваленты TensorFlow:
 
 *   `print` -> `tf.print`
