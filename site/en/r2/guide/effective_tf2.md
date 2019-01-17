@@ -89,7 +89,7 @@ With the power to freely intersperse Python and TensorFlow code, we expect that
 users will take full advantage of Python's expressiveness. But portable
 TensorFlow executes in contexts without a Python interpreter - mobile, C++, and
 JS. To help users avoid having to rewrite their code when adding `@tf.function`,
-[AutoGraph](autograph.md) will convert a subset of
+[AutoGraph](autograph.ipynb) will convert a subset of
 Python constructs into their TensorFlow equivalents:
 
 *   `print` -> `tf.print`
