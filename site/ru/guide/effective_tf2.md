@@ -109,19 +109,23 @@ AutoGraph поддерживает вложенные функции в поря
 
 ### Рефакторинг кода на малые функции
 
-A common usage pattern in TensorFlow 1.X was the "kitchen sink" strategy, where
-the union of all possible computations was preemptively laid out, and then
-selected tensors were evaluated via `session.run()`. In TensorFlow 2.0, users
-should refactor their code into smaller functions which are called as needed. In
-general, it's not necessary to decorate each of these smaller functions with
-`tf.function`; only use `tf.function` to decorate high-level computations - for
-example, one step of training, or the forward pass of your model.
+Часто используемый шаблон использования в TensorFlow 1.X работал по принципу
+"кухонной раковины", когда быа выложена совокупность всех возможных вычислений,
+а затем выбранные тензоры вычислялись с помощью `session.run()`. В TensorFlow 2.0
+пользователи должны сами разбивать код на более мелкие функции и вызывать каждую
+когда это необходимо. Необязательно декорировать каждую из этих небольших функций
+с `tf.function`; используй `tf.function` для дкеорации только высокоуровневых
+вычислений - например, один шаг обучения или прямого прохода для модели.
 
 ### Используй слои и модели Keras для управления переменными
 
 Keras models and layers offer the convenient `.variables` property, which
 recursively gather up all dependent variables. This makes it very easy to manage
 variables locally to where they are being used.
+
+Модели и слои Keras предлагают использовать удобное свойство `.variables`, которое
+рекурсивно собирает все зависимые переменные. Это значительно облегчает локальное управление
+переменными.
 
 Сравни:
 
@@ -136,13 +140,13 @@ def multilayer_perceptron(x, w0, b0, w1, b1, w2, b2 ...):
   x = dense(x, w2, b2)
   ...
 
-# Тебе все равно придется управлять w_i и b_i, так как их формы определяются не в коде.
+# Нам все равно придется управлять w_i и b_i, так как их формы определяются не в коде.
 ```
 
 Версия с использованием Keras:
 
 ```python
-# Each layer can be called, with a signature equivalent to linear(x)
+# Каждый слой может быть вызван с сигнатурой равной linear(x)
 layers = [tf.keras.layers.Dense(hidden_size, activation=tf.nn.sigmoid) for _ in range(n)]
 perceptron = tf.keras.Sequential(layers)
 
@@ -150,14 +154,18 @@ perceptron = tf.keras.Sequential(layers)
 # perceptron.variables => returns [w0, b0, ...]
 ```
 
-Keras layers/models inherit from `tf.train.Checkpointable` and are integrated
-with `@tf.function`, which makes it possible to directly checkpoint or export
-SavedModels from Keras objects. You do not necessarily have to use Keras's
-`.fit()` API to take advantage of these integrations.
+Модели и слои Keras наследуются из `tf.train.Checkpointable` и интегрируются с
+`@tf.function`, что делает возможным сохранить или непосредственно экспортировать
+сохраненные модели из объектов Keras. Необязательно использовать метод `.fit()` из
+Keras API для этих интеграций.
 
 Here's a transfer learning example that demonstrates how Keras makes it easy to
 collect a subset of relevant variables. Let's say you're training a multi-headed
 model with a shared trunk:
+
+Вот пример переноса обучения (transfer learning), который демонстрирует как легко
+собрать подмножество необходимых переменных с помощью Keras. Предположим, мы обучаем
+модель разветвленную (multi-head) модель с общим корнем (trunk):
 
 ```python
 trunk = tf.keras.Sequential([...])
@@ -167,29 +175,30 @@ head2 = tf.keras.Sequential([...])
 path1 = tf.keras.Sequential([trunk, head1])
 path2 = tf.keras.Sequential([trunk, head2])
 
-# Train on primary dataset
+# Обучаем на основном датасете:
 for x, y in main_dataset:
   with tf.GradientTape() as tape:
     prediction = path1(x)
     loss = loss_fn_head1(prediction, y)
-  # Simultaneously optimize trunk and head1 weights.
+  # Одновременно оптимизируем корень и веса первой ветви:
   gradients = tape.gradients(loss, path1.variables)
   optimizer.apply_gradients(gradients, path1.variables)
 
-# Fine-tune second head, reusing the trunk
+# Настраиваем вторую ветвь, повторно используя корень:
 for x, y in small_dataset:
   with tf.GradientTape() as tape:
     prediction = path2(x)
     loss = loss_fn_head2(prediction, y)
-  # Only optimize head2 weights, not trunk weights
+  # Оптимизируем веса только второй ветви, без весов корня:
   gradients = tape.gradients(loss, head2.variables)
   optimizer.apply_gradients(gradients, head2.variables)
 
-# You can publish just the trunk computation for other people to reuse.
+# 
+# Можем сохранить вычисления корня, чтобы другие также могли им воспользоваться.
 tf.saved_model.save(trunk, output_path)
 ```
 
-### Combine tf.data.Datasets and @tf.function
+### Объединение tf.data.Datasets и @tf.function
 
 When iterating over training data that fits in memory, feel free to use regular
 Python iteration. Otherwise, `tf.data.Dataset` is the best way to stream
