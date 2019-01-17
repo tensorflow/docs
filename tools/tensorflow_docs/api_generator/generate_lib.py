@@ -428,7 +428,7 @@ class DocGenerator(object):
     try:
       os.makedirs(output_dir)
     except OSError as e:
-      if 'File exists' not in e:
+      if e.strerror != 'File exists':
         raise
 
     cmd = ['rsync', '--recursive', '--quiet', '--delete']
