@@ -1,0 +1,39 @@
+upper_tabs:
+# Tabs left of dropdown menu
+- include: /_upper_tabs_left.yaml
+- include: /api_docs/_upper_tabs_api.yaml
+# Dropdown menu
+- name: Resources
+  path: /resources
+  is_default: true
+  menu:
+  - include: /resources/_menu_toc.yaml
+  lower_tabs:
+    # Subsite tabs
+    other:
+    - name: Tutorials
+      contents:
+      - title: Tutorials overview
+        path: /PROJECT_NAME/tutorials/
+      - title: Foo tutorial
+        path: /PROJECT_NAME/tutorials/foo_tutorial
+#      - title: Notebook tutorial
+#        path: /PROJECT_NAME/tutorials/notebook
+    - name: Guide
+      contents:
+      - title: Guide overview
+        path: /PROJECT_NAME/overview
+      - title: Bar guide
+        path: /PROJECT_NAME/bar_guide
+    - name: Examples
+      contents:
+      - title: Examples overview
+        path: /PROJECT_NAME/examples/
+      - title: Baz example
+        path: /PROJECT_NAME/examples/baz_example
+    - name: API
+      skip_translation: true
+      contents:
+      - include: /PROJECT_NAME/api_docs/python/_toc.yaml
+
+- include: /_upper_tabs_right.yaml
