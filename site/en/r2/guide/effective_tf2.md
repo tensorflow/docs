@@ -119,9 +119,10 @@ example, one step of training, or the forward pass of your model.
 
 ### Use Keras layers and models to manage variables
 
-Keras models and layers offer the convenient `.variables` property, which
-recursively gather up all dependent variables. This makes it very easy to manage
-variables locally to where they are being used.
+Keras models and layers offer the convenient `variables` and
+`trainable_variables` properties, which recursively gather up all dependent
+variables. This makes it very easy to manage variables locally to where they are
+being used.
 
 Contrast:
 
@@ -146,8 +147,8 @@ with the Keras version:
 layers = [tf.keras.layers.Dense(hidden_size, activation=tf.nn.sigmoid) for _ in range(n)]
 perceptron = tf.keras.Sequential(layers)
 
-# layers[3].variables => returns [w3, b3]
-# perceptron.variables => returns [w0, b0, ...]
+# layers[3].trainable_variables => returns [w3, b3]
+# perceptron.trainable_variables => returns [w0, b0, ...]
 ```
 
 Keras layers/models inherit from `tf.train.Checkpointable` and are integrated
@@ -173,8 +174,8 @@ for x, y in main_dataset:
     prediction = path1(x)
     loss = loss_fn_head1(prediction, y)
   # Simultaneously optimize trunk and head1 weights.
-  gradients = tape.gradients(loss, path1.variables)
-  optimizer.apply_gradients(gradients, path1.variables)
+  gradients = tape.gradients(loss, path1.trainable_variables)
+  optimizer.apply_gradients(gradients, path1.trainable_variables)
 
 # Fine-tune second head, reusing the trunk
 for x, y in small_dataset:
@@ -182,8 +183,8 @@ for x, y in small_dataset:
     prediction = path2(x)
     loss = loss_fn_head2(prediction, y)
   # Only optimize head2 weights, not trunk weights
-  gradients = tape.gradients(loss, head2.variables)
-  optimizer.apply_gradients(gradients, head2.variables)
+  gradients = tape.gradients(loss, head2.trainable_variables)
+  optimizer.apply_gradients(gradients, head2.trainable_variables)
 
 # You can publish just the trunk computation for other people to reuse.
 tf.saved_model.save(trunk, output_path)
@@ -207,8 +208,8 @@ def train(model, dataset, optimizer):
     with tf.GradientTape() as tape:
       prediction = model(x)
       loss = loss_fn(prediction, y)
-    gradients = tape.gradients(loss, model.variables)
-    optimizer.apply_gradients(gradients, model.variables)
+    gradients = tape.gradients(loss, model.trainable_variables)
+    optimizer.apply_gradients(gradients, model.trainable_variables)
 ```
 
 If you use the Keras `.fit()` API, you won't have to worry about dataset
