@@ -100,6 +100,13 @@ toc:
     path: https://github.com/tensorflow/nmt
     status: external
 
+- title: Loading Data
+  style: accordion
+  - title: Loading Images with tf.data
+    path: /tutorials/load_data/images
+  - title: TFRecords and tf.Example
+    path: /tutorials/load_data/images/tf-example
+
 - title: Data representation
   style: accordion
   section:
