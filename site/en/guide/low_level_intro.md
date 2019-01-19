@@ -181,9 +181,9 @@ print(sess.run({'ab':(a, b), 'total':total}))
 
 which returns the results in a structure of the same layout:
 
-``` None
+<pre>
 {'total': 7.0, 'ab': (3.0, 4.0)}
-```
+</pre>
 
 During a call to `tf.Session.run` any `tf.Tensor` only has a single value.
 For example, the following code calls `tf.random_uniform` to produce a
@@ -444,12 +444,12 @@ print(sess.run(inputs))
 This shows how the feature columns have packed the input vectors, with the
 one-hot "department" as the first two indices and "sales" as the third.
 
-```None
+<pre>
 [[  1.   0.   5.]
  [  1.   0.  10.]
  [  0.   1.   8.]
  [  0.   1.   9.]]
-```
+</pre>
 
 ## Training
 
@@ -489,12 +489,12 @@ print(sess.run(y_pred))
 The model hasn't yet been trained, so the four "predicted" values aren't very
 good. Here's what we got; your own output will almost certainly differ:
 
-``` None
+<pre>
 [[ 0.02631879]
  [ 0.05263758]
  [ 0.07895637]
  [ 0.10527515]]
-```
+</pre>
 
 ### Loss
 
@@ -512,9 +512,9 @@ print(sess.run(loss))
 ```
 This will produce a loss value, something like:
 
-``` None
+<pre>
 2.23962
-```
+</pre>
 
 ### Training
 
@@ -547,7 +547,7 @@ Since `train` is an op, not a tensor, it doesn't return a value when run.
 To see the progression of the loss during training, we run the loss tensor at
 the same time, producing output like the following:
 
-``` None
+<pre>
 1.35659
 1.00412
 0.759167
@@ -559,7 +559,7 @@ the same time, producing output like the following:
 0.261112
 0.241046
 ...
-```
+</pre>
 
 ### Complete program
 
