@@ -95,9 +95,9 @@ This will print the following line, showing the
 [types](../guide/tensors.md#data_types) of the items in
 the dataset. Note that a `Dataset` does not know how many items it contains.
 
-``` None
+<pre>
 <TensorSliceDataset shapes: (28,28), types: tf.uint8>
-```
+</pre>
 
 The `Dataset` above represents a simple collection of arrays, but datasets are
 much more powerful than this. A `Dataset` can transparently handle any nested
@@ -113,7 +113,7 @@ to a `Dataset` of dictionaries as follows:
 dataset = tf.data.Dataset.from_tensor_slices(dict(features))
 print(dataset)
 ```
-``` None
+<pre>
 <TensorSliceDataset
 
   shapes: {
@@ -124,7 +124,7 @@ print(dataset)
       SepalLength: tf.float64, PetalWidth: tf.float64,
       PetalLength: tf.float64, SepalWidth: tf.float64}
 >
-```
+</pre>
 
 Here we see that when a `Dataset` contains structured elements, the `shapes`
 and `types` of the `Dataset` take on the same structure. This dataset contains
@@ -188,11 +188,11 @@ the `batch` method on the MNIST `Dataset`, from earlier. This results in a
 print(mnist_ds.batch(100))
 ```
 
-``` none
+<pre>
 <BatchDataset
   shapes: (?, 28, 28),
   types: tf.uint8>
-```
+</pre>
 Note that the dataset has an unknown batch size because the last batch will
 have fewer elements.
 
@@ -322,7 +322,7 @@ So to parse the lines as they are streamed out of the csv file, we pass our
 ds = ds.map(_parse_line)
 print(ds)
 ```
-``` None
+<pre>
 <MapDataset
 shapes: (
     {SepalLength: (), PetalWidth: (), ...},
@@ -330,7 +330,7 @@ shapes: (
 types: (
     {SepalLength: tf.float32, PetalWidth: tf.float32, ...},
     tf.int32)>
-```
+</pre>
 
 Now instead of simple scalar strings, the dataset contains `(features, label)`
 pairs.

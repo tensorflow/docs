@@ -64,8 +64,12 @@ however, those tools are not available in open source at this time.
 TensorFlow documentation is written in Markdown (`.md`) or Notebooks (`.ipynb`). With a few exceptions,
 TensorFlow uses the [standard Markdown rules](https://daringfireball.net/projects/markdown/).
 
+Use
+[this template](https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb)
+for TensorFlow notebooks.
+
 This section explains the primary differences between standard Markdown rules
-and the Markdown rules that editable TensorFlow documentation uses.
+and the Markdown rules that TensorFlow documentation uses.
 
 ### Math in Markdown
 
@@ -81,26 +85,68 @@ within text, use `\\(` `\\)` instead.
 
 ### Links in Markdown
 
-Links fall into a few categories.
+#### Links between files in this repository
 
-- Links between files in this repository.
-- Links to API documentation.
-- External links
+For links between files in this repository, use relative links and include the
+file extension.
 
-For links between files in this repository use relative links: `[Eager Basics](../tutorials/eager/eager_basics.ipynb)` produces [Eager Basics](../tutorials/eager/eager_basics.ipynb). These links will work on both GitHub, and tensorflow.org
+<code>&#91;Eager Basics&#93;(../tutorials/eager/eager_basics.ipynb)</code>
 
-API links are converted when the site is published. To link to the Python API simply enclose the full symbol path in backticks: <code>\`tf.data.Dataset\`</code> to produce `tf.data.Dataset`. For the C++ API use the namespace path: <code>\`tensorflow::Tensor\`</code> to produce `tensorflow::Tensor`.
+> [Eager Basics](../tutorials/eager/eager_basics.ipynb)
 
-For external links including files on tensorflow.org that are not in the `tensorflow/docs` repository (anything in [resources](https://tensorflow.org/resources)), just use regular Markdown links with the full URL.
+These links will work on GitHub (linking to the source file), and tensorflow.org
+(linking to the rendered page).
+
+#### Links to TensorFlow API documentation
+
+Links to the TensorFlow API documentation are converted when the site is
+published.
+
+For the Python API, enclose the full symbol path in backticks:
+
+<code>
+\`tf.data.Dataset\`
+</code>
+
+> `tf.data.Dataset`
+
+For the C++ API, use the namespace path in backticks:
+
+```
+`tensorflow::Tensor`
+```
+
+> `tensorflow::Tensor`
+
+#### Links to TensorFlow source code
 
 To link to source code, use a link starting with:
-`https://www.tensorflow.org/code/`, followed by
-the file name starting at the GitHub root.
+`https://github.com/tensorflow/tensorflow/blob/master`, followed by the file
+path starting *from* the GitHub project root. (That is, don't repeat the name of
+the GitHub repository a second time).
 
-This URL naming scheme ensures
-that [tensorflow.org](https://www.tensorflow.org/) can forward the link to the
-branch of the code corresponding to the version of the documentation you're
-viewing. Do not include url parameters in the source code URL.
+```
+[Example link to tensorflow/python/__init__.py,
+in the TensorFlow repo](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/__init__.py)
+```
+
+> [Example link to tensorflow/python/__init__.py, in the TensorFlow repo](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/__init__.py)
+
+Do not include any additional parameters or query strings in the Markdown URL.
+
+#### External Links
+
+Use regular Markdown links for:
+
+-   external pages
+-   pages on tensorflow.org that are not sourced in the
+    [tensorflow/docs](https://github.com/tensorflow/docs) repository
+-   pages on tensorflow.org that are sourced from the
+    [tensorflow/docs](https://github.com/tensorflow/docs) repository, but from a
+    non-Markdown file (for example, a `.yaml` file).
+
+In these cases, follow the standard Markdown link syntax, and include the full
+URL.
 
 ## Op documentation style guide
 
@@ -190,8 +236,10 @@ specific about the size, use these conventions:
 Use the word "shape" to detail the dimensions of a tensor, and show the shape in
 square brackets with backticks. For example:
 
-    If `input` is a 3-D tensor with shape `[3, 4, 3]`, this operation
-    returns a 3-D tensor with shape `[6, 8, 6]`.
+<pre>
+If `input` is a 3-D tensor with shape `[3, 4, 3]`, this operation
+returns a 3-D tensor with shape `[6, 8, 6]`.
+</pre>
 
 ### Ops defined in C++
 
@@ -297,38 +345,40 @@ This section details each of the elements in docstrings.
 
 Examples:
 
-```
+<pre>
 Concatenates tensors.
-```
+</pre>
 
-```
+<pre>
 Flips an image horizontally from left to right.
-```
+</pre>
 
-```
+<pre>
 Computes the Levenshtein distance between two sequences.
-```
+</pre>
 
-```
+<pre>
 Saves a list of tensors to a file.
-```
+</pre>
 
-```
+<pre>
 Extracts a slice from a tensor.
-```
+</pre>
 
 ### Short description of what happens when you pass arguments to the op
 
 Examples:
 
-    Given a tensor input of numerical type, this operation returns a tensor of
-    the same type and size with values reversed along dimension `seq_dim`. A
-    vector `seq_lengths` determines which elements are reversed for each index
-    within dimension 0 (usually the batch dimension).
+<pre>
+Given a tensor input of numerical type, this operation returns a tensor of
+the same type and size with values reversed along dimension `seq_dim`. A
+vector `seq_lengths` determines which elements are reversed for each index
+within dimension 0 (usually the batch dimension).
 
 
-    This operation returns a tensor of type `dtype` and dimensions `shape`, with
-    all elements set to zero.
+This operation returns a tensor of type `dtype` and dimensions `shape`, with
+all elements set to zero.
+</pre>
 
 ### Example demonstrating the op
 
@@ -339,12 +389,16 @@ the before and after, as well.
 
 The `squeeze()` op has a nice pseudocode example:
 
-    # 't' is a tensor of shape [1, 2, 1, 3, 1, 1]
-    shape(squeeze(t)) ==> [2, 3]
+<pre>
+# 't' is a tensor of shape [1, 2, 1, 3, 1, 1]
+shape(squeeze(t)) ==> [2, 3]
+</pre>
 
 The `tile()` op provides a good example in descriptive text:
 
-    For example, tiling `[a, b, c, d]` by `[2]` produces `[a b c d a b c d]`.
+<pre>
+For example, tiling `[a, b, c, d]` by `[2]` produces `[a b c d a b c d]`.
+</pre>
 
 It is often helpful to show code samples in Python. Never put them in the C++
 Ops file, and avoid putting them in the Python Ops doc. We recommend, if
@@ -355,36 +409,38 @@ are called out.
 
 Here's an example from the module docstring in `api_guides/python/math_ops.md`:
 
-    ## Segmentation
+<pre>
+## Segmentation
 
-    TensorFlow provides several operations that you can use to perform common
-    math computations on tensor segments.
-    ...
-    In particular, a segmentation of a matrix tensor is a mapping of rows to
-    segments.
+TensorFlow provides several operations that you can use to perform common
+math computations on tensor segments.
+...
+In particular, a segmentation of a matrix tensor is a mapping of rows to
+segments.
 
-    For example:
+For example:
 
-    ```python
-    c = tf.constant([[1,2,3,4], [-1,-2,-3,-4], [5,6,7,8]])
-    tf.segment_sum(c, tf.constant([0, 0, 1]))
-      ==>  [[0 0 0 0]
-            [5 6 7 8]]
-    ```
+```python
+c = tf.constant([[1,2,3,4], [-1,-2,-3,-4], [5,6,7,8]])
+tf.segment_sum(c, tf.constant([0, 0, 1]))
+  ==>  [[0 0 0 0]
+        [5 6 7 8]]
+```
+</pre>
 
 ### Requirements, caveats, important notes
 
 Examples:
 
-```
+<pre>
 This operation requires that: `-1-input.dims() <= dim <= input.dims()`
-```
+</pre>
 
-```
+<pre>
 Note: This tensor will produce an error if evaluated. Its value must
 be fed using the `feed_dict` optional argument to `Session.run()`,
 `Tensor.eval()`, or `Operation.run()`.
-```
+</pre>
 
 ### Descriptions of arguments and output (returned) tensors.
 
@@ -402,23 +458,23 @@ float tensor".
 For example, here are two ways to document an image argument of a C++ op (note
 the "=" sign):
 
-```
+<pre>
 image: Must be 4-D. The image to resize.
-```
+</pre>
 
-```
+<pre>
 image:= A 4-D `float` tensor. The image to resize.
-```
+</pre>
 
 In the documentation, these will be rendered to Markdown as
 
-```
+<pre>
 image: A `float` Tensor. Must be 4-D. The image to resize.
-```
+</pre>
 
-```
+<pre>
 image: A 4-D `float` Tensor. The image to resize.
-```
+</pre>
 
 ### Optional arguments descriptions ("attrs")
 
@@ -432,42 +488,46 @@ descriptions follow afterwards. Therefore, complete sentences are best.
 
 Here's an example from `image_ops.cc`:
 
-    REGISTER_OP("DecodePng")
-        .Input("contents: string")
-        .Attr("channels: int = 0")
-        .Attr("dtype: {uint8, uint16} = DT_UINT8")
-        .Output("image: dtype")
-        .SetShapeFn(DecodeImageShapeFn)
-        .Doc(R"doc(
-    Decode a PNG-encoded image to a uint8 or uint16 tensor.
+<pre>
+REGISTER_OP("DecodePng")
+    .Input("contents: string")
+    .Attr("channels: int = 0")
+    .Attr("dtype: {uint8, uint16} = DT_UINT8")
+    .Output("image: dtype")
+    .SetShapeFn(DecodeImageShapeFn)
+    .Doc(R"doc(
+Decode a PNG-encoded image to a uint8 or uint16 tensor.
 
-    The attr `channels` indicates the desired number of color channels for the
-    decoded image.
+The attr `channels` indicates the desired number of color channels for the
+decoded image.
 
-    Accepted values are:
+Accepted values are:
 
-    *   0: Use the number of channels in the PNG-encoded image.
-    *   1: output a grayscale image.
-    *   3: output an RGB image.
-    *   4: output an RGBA image.
+*   0: Use the number of channels in the PNG-encoded image.
+*   1: output a grayscale image.
+*   3: output an RGB image.
+*   4: output an RGBA image.
 
-    If needed, the PNG-encoded image is transformed to match the requested
-    number of color channels.
+If needed, the PNG-encoded image is transformed to match the requested
+number of color channels.
 
-    contents: 0-D.  The PNG-encoded image.
-    channels: Number of color channels for the decoded image.
-    image: 3-D with shape `[height, width, channels]`.
-    )doc");
+contents: 0-D.  The PNG-encoded image.
+channels: Number of color channels for the decoded image.
+image: 3-D with shape `[height, width, channels]`.
+)doc");
+</pre>
 
 This generates the following Args section in
 `api_docs/python/tf/image/decode_png.md`:
 
-    #### Args:
+<pre>
+#### Args:
 
-    * **`contents`**: A `Tensor` of type `string`. 0-D.  The PNG-encoded
-      image.
-    * **`channels`**: An optional `int`. Defaults to `0`. Number of color
-      channels for the decoded image.
-    * **`dtype`**: An optional `tf.DType` from: `tf.uint8,
-      tf.uint16`. Defaults to `tf.uint 8`.
-    * **`name`**: A name for the operation (optional).
+* **`contents`**: A `Tensor` of type `string`. 0-D.  The PNG-encoded
+  image.
+* **`channels`**: An optional `int`. Defaults to `0`. Number of color
+  channels for the decoded image.
+* **`dtype`**: An optional `tf.DType` from: `tf.uint8,
+  tf.uint16`. Defaults to `tf.uint 8`.
+* **`name`**: A name for the operation (optional).
+</pre>

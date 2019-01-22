@@ -100,6 +100,13 @@ toc:
     path: https://github.com/tensorflow/nmt
     status: external
 
+- title: Loading Data
+  style: accordion
+  - title: Loading Images with tf.data
+    path: /tutorials/load_data/images
+  - title: TFRecords and tf.Example
+    path: /tutorials/load_data/images/tf-example
+
 - title: Data representation
   style: accordion
   section:
@@ -109,6 +116,8 @@ toc:
     path: /tutorials/representation/kernel_methods
   - title: Large-scale linear models
     path: /tutorials/representation/linear
+  - title: Unicode
+    path: /tutorials/representation/unicode
 
 - title: Non-ML
   style: accordion

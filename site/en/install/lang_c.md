@@ -12,7 +12,7 @@ TensorFlow for C is supported on the following systems:
 
 * Linux, 64-bit, x86
 * macOS X, Version 10.12.6 (Sierra) or higher
-
+* Windows, 64-bit x86
 
 ## Setup
 
@@ -34,27 +34,38 @@ TensorFlow for C is supported on the following systems:
     <td>macOS CPU only</td>
     <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-darwin-x86_64-1.12.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-darwin-x86_64-1.12.0.tar.gz</a></td>
   </tr>
+  <tr class="alt"><td colspan="2">Windows</td></tr>
+  <tr>
+    <td>Windows CPU only</td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-1.12.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-1.12.0.zip</a></td>
+  </tr>
+  <tr>
+    <td>Windows GPU only</td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-windows-x86_64-1.12.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-windows-x86_64-1.12.0.zip</a></td>
+  </tr>
 </table>
 
 ### Extract
 
-Extract the downloaded TensorFlow C library to `/usr/local/lib` (or use a
-different directory, if preferred):
+Extract the downloaded archive, which contains the header files to include in
+your C program and the shared libraries to link against.
+
+On Linux and macOS, you may want to extract to `/usr/local/lib`:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-sudo tar -xz <var>libtensorflow.tar.gz</var> -C /usr/local
+sudo tar -C /usr/local -xzf <var>(downloaded file)</var>
 </pre>
 
 ### Linker
 
-If you extract the TensorFlow C library to a system directory, such as
-`/usr/local`, configure the linker with `ldconfig`:
+On Linux/macOS, if you extract the TensorFlow C library to a system directory,
+such as `/usr/local`, configure the linker with `ldconfig`:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 sudo ldconfig
 </pre>
 
-Or, if you extract the TensorFlow C library to a non-system directory, such as
+If you extract the TensorFlow C library to a non-system directory, such as
 `~/mydir`, then configure the linker environmental variables:
 
 <div class="ds-selector-tabs">
@@ -97,7 +108,7 @@ int main() {
 Compile the example program to create an executable, then run:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">gcc hello_tf.c -o hello_tf</code>
+<code class="devsite-terminal">gcc hello_tf.c -ltensorflow -o hello_tf</code>
 
 <code class="devsite-terminal">./hello_tf</code>
 </pre>

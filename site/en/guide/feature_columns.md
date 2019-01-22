@@ -267,11 +267,11 @@ vocabulary_feature_column =
 `product_class.txt` should contain one line for each vocabulary element. In our
 case:
 
-```None
+<pre>
 kitchenware
 electronics
 sports
-```
+</pre>
 
 ### Hashed Column
 
@@ -396,12 +396,12 @@ When the feature columns `latitude_bucket_fc` and `longitude_bucket_fc` are
 crossed, TensorFlow will create `(latitude_fc, longitude_fc)` pairs for each
 example. This would produce a full grid of possibilities as follows:
 
-``` None
+<pre>
  (0,0),  (0,1)...  (0,99)
  (1,0),  (1,1)...  (1,99)
    ...     ...       ...
 (99,0), (99,1)...(99, 99)
-```
+</pre>
 
 Except that a full grid would only be tractable for inputs with limited
 vocabularies. Instead of building this, potentially huge, table of inputs,

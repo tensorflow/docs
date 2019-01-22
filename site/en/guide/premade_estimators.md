@@ -49,14 +49,14 @@ the model thinks there is a 99.6% chance that the first example in the test
 set is a Setosa. Since the test set expected Setosa, this appears to be
 a good prediction.
 
-``` None
+<pre>
 ...
 Prediction is "Setosa" (99.6%), expected "Setosa"
 
 Prediction is "Versicolor" (99.8%), expected "Versicolor"
 
 Prediction is "Virginica" (97.9%), expected "Virginica"
-```
+</pre>
 
 If the program generates errors instead of answers, ask yourself the following
 questions:
@@ -362,9 +362,9 @@ argument to evaluate. Our `eval_input_fn` only yields a single
 
 Running this code yields the following output (or something similar):
 
-```none
+<pre>
 Test set accuracy: 0.967
-```
+</pre>
 
 The `eval_result` dictionary also contains the `average_loss` (mean loss per sample), the `loss` (mean loss per mini-batch) and the value of the estimator's `global_step` (the number of training iterations it underwent).
 
@@ -408,14 +408,14 @@ for pred_dict, expec in zip(predictions, expected):
 
 Running the preceding code yields the following output:
 
-``` None
+<pre>
 ...
 Prediction is "Setosa" (99.6%), expected "Setosa"
 
 Prediction is "Versicolor" (99.8%), expected "Versicolor"
 
 Prediction is "Virginica" (97.9%), expected "Virginica"
-```
+</pre>
 
 
 ## Summary
