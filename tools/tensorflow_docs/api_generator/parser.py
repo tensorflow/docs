@@ -1333,25 +1333,6 @@ def docs_for_object(full_name, py_object, parser_config):
   return page_info
 
 
-class _PythonBuiltin(object):
-  """This class indicated that the object in question is a python builtin.
-
-  This can be used for the `defined_in` slot of the `PageInfo` objects.
-  """
-
-  def is_builtin(self):
-    return True
-
-  def is_python_file(self):
-    return False
-
-  def is_generated_file(self):
-    return False
-
-  def __str__(self):
-    return 'This is an alias for a Python built-in.\n\n'
-
-
 class _PythonFile(object):
   """This class indicates that the object is defined in a regular python file.
 
@@ -1361,15 +1342,6 @@ class _PythonFile(object):
   def __init__(self, path, parser_config):
     self.path = path
     self.code_url_prefix = parser_config.code_url_prefix
-
-  def is_builtin(self):
-    return False
-
-  def is_python_file(self):
-    return True
-
-  def is_generated_file(self):
-    return False
 
   def __str__(self):
     return 'Defined in [`{path}`]({code_prefix}{path}).\n\n'.format(
@@ -1385,15 +1357,6 @@ class _ProtoFile(object):
   def __init__(self, path, parser_config):
     self.path = path
     self.code_url_prefix = parser_config.code_url_prefix
-
-  def is_builtin(self):
-    return False
-
-  def is_python_file(self):
-    return False
-
-  def is_generated_file(self):
-    return False
 
   def __str__(self):
     return 'Defined in [`{path}`]({code_prefix}{path}).\n\n'.format(
@@ -1411,15 +1374,6 @@ class _GeneratedFile(object):
   def __init__(self, path):
     self.path = path
 
-  def is_builtin(self):
-    return False
-
-  def is_python_file(self):
-    return False
-
-  def is_generated_file(self):
-    return True
-
   def __str__(self):
     return 'Defined in generated file: `{}`.\n\n'.format(self.path)
 
@@ -1432,7 +1386,7 @@ def _get_defined_in(py_object, parser_config):
     parser_config: A ParserConfig object.
 
   Returns:
-    Either a `_PythonBuiltin`, `_PythonFile`, or a `_GeneratedFile`
+    Either a `_PythonFile`, `_ProtoFile`, or a `_GeneratedFile`
   """
   # Every page gets a note about where this object is defined
   # TODO(wicke): If py_object is decorated, get the decorated object instead.
@@ -1442,7 +1396,7 @@ def _get_defined_in(py_object, parser_config):
     path = os.path.relpath(
         path=tf_inspect.getfile(py_object), start=parser_config.base_dir)
   except TypeError:  # getfile throws TypeError if py_object is a builtin.
-    return _PythonBuiltin()
+    return None
 
   # TODO(wicke): If this is a generated file, link to the source instead.
   # TODO(wicke): Move all generated files to a generated/ directory.

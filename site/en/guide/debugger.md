@@ -1,7 +1,5 @@
 # TensorFlow Debugger
 
-<!-- [comment]: TODO(barryr): Links to and from sections on "Graphs" & "Monitoring Learning". -->
-
 [TOC]
 
 `tfdbg` is a specialized debugger for TensorFlow. It lets you view the internal
@@ -40,21 +38,21 @@ To *observe* such an issue, run the following command without the debugger (the
 source code can be found
 [here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/debug/examples/debug_mnist.py)):
 
-```none
+<pre>
 python -m tensorflow.python.debug.examples.debug_mnist
-```
+</pre>
 
 This code trains a simple neural network for MNIST digit image recognition.
 Notice that the accuracy increases slightly after the first training step, but
 then gets stuck at a low (near-chance) level:
 
-```none
+<pre>
 Accuracy at step 0: 0.1113
 Accuracy at step 1: 0.3183
 Accuracy at step 2: 0.098
 Accuracy at step 3: 0.098
 Accuracy at step 4: 0.098
-```
+</pre>
 
 Wondering what might have gone wrong, you suspect that certain nodes in the
 training graph generated bad numeric values such as `inf`s and `nan`s, because
@@ -105,9 +103,9 @@ for additional information.
 
 Let's try training the model again, but with the `--debug` flag added this time:
 
-```none
+<pre>
 python -m tensorflow.python.debug.examples.debug_mnist --debug
-```
+</pre>
 
 The debug wrapper session will prompt you when it is about to execute the first
 `Session.run()` call, with information regarding the fetched tensor and feed
@@ -236,9 +234,9 @@ additional features:
     redirects the output of the pt command to the `/tmp/xent_value_slices.txt`
     file:
 
-  ```none
-  tfdbg> pt cross_entropy/Log:0[:, 0:10] > /tmp/xent_value_slices.txt
-  ```
+<pre>
+tfdbg> pt cross_entropy/Log:0[:, 0:10] > /tmp/xent_value_slices.txt
+</pre>
 
 ### Finding `nan`s and `inf`s
 
@@ -264,9 +262,9 @@ stopping at the run-start or run-end prompt, until the first `nan` or `inf`
 value shows up in the graph. This is analogous to *conditional breakpoints* in
 some procedural-language debuggers:
 
-```none
+<pre>
 tfdbg> run -f has_inf_or_nan
-```
+</pre>
 
 > NOTE: The preceding command works properly because a tensor filter called
 > `has_inf_or_nan` has been registered for you when the wrapped session is
@@ -307,30 +305,30 @@ first surfaced: `cross_entropy/Log:0`.
 To view the value of the tensor, click the underlined tensor name
 `cross_entropy/Log:0` or enter the equivalent command:
 
-```none
+<pre>
 tfdbg> pt cross_entropy/Log:0
-```
+</pre>
 
 Scroll down a little and you will notice some scattered `inf` values. If the
 instances of `inf` and `nan` are difficult to spot by eye, you can use the
 following command to perform a regex search and highlight the output:
 
-```none
+<pre>
 tfdbg> /inf
-```
+</pre>
 
 Or, alternatively:
 
-```none
+<pre>
 tfdbg> /(inf|nan)
-```
+</pre>
 
 You can also use the `-s` or `--numeric_summary` command to get a quick summary
 of the types of numeric values in the tensor:
 
-``` none
+<pre>
 tfdbg> pt -s cross_entropy/Log:0
-```
+</pre>
 
 From the summary, you can see that several of the 1000 elements of the
 `cross_entropy/Log:0` tensor are `-inf`s (negative infinities).
@@ -339,9 +337,9 @@ Why did these infinities appear? To further debug, display more information
 about the node `cross_entropy/Log` by clicking the underlined `node_info` menu
 item on the top or entering the equivalent node_info (`ni`) command:
 
-```none
+<pre>
 tfdbg> ni cross_entropy/Log
-```
+</pre>
 
 ![tfdbg run-end UI: infs and nans](https://www.tensorflow.org/images/tfdbg_screenshot_run_end_node_info.png)
 
@@ -349,24 +347,24 @@ You can see that this node has the op type `Log`
 and that its input is the node `Softmax`. Run the following command to
 take a closer look at the input tensor:
 
-```none
+<pre>
 tfdbg> pt Softmax:0
-```
+</pre>
 
 Examine the values in the input tensor, searching for zeros:
 
-```none
+<pre>
 tfdbg> /0\.000
-```
+</pre>
 
 Indeed, there are zeros. Now it is clear that the origin of the bad numerical
 values is the node `cross_entropy/Log` taking logs of zeros. To find out the
 culprit line in the Python source code, use the `-t` flag of the `ni` command
 to show the traceback of the node's construction:
 
-```none
+<pre>
 tfdbg> ni -t cross_entropy/Log
-```
+</pre>
 
 If you click "node_info" at the top of the screen, tfdbg automatically shows the
 traceback of the node's construction.
@@ -405,15 +403,15 @@ diff = tf.losses.softmax_cross_entropy(labels=y_, logits=logits)
 
 Rerun with the `--debug` flag as follows:
 
-```none
+<pre>
 python -m tensorflow.python.debug.examples.debug_mnist --debug
-```
+</pre>
 
 At the `tfdbg>` prompt, enter the following command:
 
-```none
+<pre>
 run -f has_inf_or_nan
-```
+</pre>
 
 Confirm that no tensors are flagged as containing `nan` or `inf` values, and
 accuracy now continues to rise rather than getting stuck. Success!
@@ -464,9 +462,9 @@ predict_results = classifier.predict(predict_input_fn, hooks=hooks)
 contains a full example of how to use the tfdbg with `Estimator`s.
 To run this example, do:
 
-```none
+<pre>
 python -m tensorflow.python.debug.examples.debug_tflearn_iris --debug
-```
+</pre>
 
 The `LocalCLIDebugHook` also allows you to configure a `watch_fn` that can be
 used to flexibly specify what `Tensor`s to watch on different `Session.run()`
@@ -579,10 +577,10 @@ computer that can access the shared storage location specified in the code
 above), you can load and inspect the data in the dump directory on the shared
 storage by using the `offline_analyzer` binary of `tfdbg`. For example:
 
-```none
+<pre>
 python -m tensorflow.python.debug.cli.offline_analyzer \
     --dump_dir=/shared/storage/location/tfdbg_dumps_1
-```
+</pre>
 
 The `Session` wrapper `DumpingDebugWrapperSession` offers an easier and more
 flexible way to generate file-system dumps that can be analyzed offline.
@@ -676,7 +674,7 @@ sess = tf_debug.LocalCLIDebugWrapperSession(sess)
        the errors with some debug instructions to the user in the CLI.
        See examples:
 
-```none
+<pre>
 # Debugging shape mismatch during matrix multiplication.
 python -m tensorflow.python.debug.examples.debug_errors \
     --error shape_mismatch --debug
@@ -684,7 +682,7 @@ python -m tensorflow.python.debug.examples.debug_errors \
 # Debugging uninitialized variable.
 python -m tensorflow.python.debug.examples.debug_errors \
     --error uninitialized_variable --debug
-```
+</pre>
 
 **Q**: _How can I let my tfdbg-wrapped Sessions or Hooks run the debug mode
 only from the main thread?_

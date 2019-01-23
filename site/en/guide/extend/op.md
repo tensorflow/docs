@@ -833,7 +833,7 @@ REGISTER_KERNEL_BUILDER(
     Name("ZeroOut")
     .Device(DEVICE_CPU)
     .TypeConstraint<int32>("T"),
-    ZeroOutOpInt32);
+    ZeroOutInt32Op);
 REGISTER_KERNEL_BUILDER(
     Name("ZeroOut")
     .Device(DEVICE_CPU)
