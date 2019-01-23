@@ -102,6 +102,7 @@ toc:
 
 - title: Loading Data
   style: accordion
+  section:
   - title: Loading Images with tf.data
     path: /tutorials/load_data/images
   - title: TFRecords and tf.Example
