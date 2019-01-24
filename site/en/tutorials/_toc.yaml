@@ -72,10 +72,10 @@ toc:
   - title: Pix2Pix
     path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/pix2pix/pix2pix_eager.ipynb
     status: external
-  - title: Neural Style Transfer
+  - title: Neural style transfer
     path: https://github.com/tensorflow/models/blob/master/research/nst_blogpost/4_Neural_Style_Transfer_with_Eager_Execution.ipynb
     status: external
-  - title: Image Segmentation
+  - title: Image segmentation
     path: https://github.com/tensorflow/models/blob/master/samples/outreach/blogs/segmentation_blogpost/image_segmentation.ipynb
     status: external
   - title: Image recognition
@@ -100,13 +100,13 @@ toc:
     path: https://github.com/tensorflow/nmt
     status: external
 
-- title: Loading Data
+- title: Load data
   style: accordion
   section:
-  - title: Loading Images with tf.data
+  - title: Load images with tf.data
     path: /tutorials/load_data/images
   - title: TFRecords and tf.Example
-    path: /tutorials/load_data/images/tf-example
+    path: /tutorials/load_data/tf_records
 
 - title: Data representation
   style: accordion
