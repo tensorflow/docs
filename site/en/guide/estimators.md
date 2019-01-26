@@ -38,6 +38,7 @@ Estimators provide the following benefits:
 *   Estimators build the graph for you.
 *   Estimators provide a safe distributed training loop that controls how and
     when to:
+    
     *   build the graph
     *   initialize variables
     *   load data
@@ -112,7 +113,7 @@ of the following four steps:
 4.  **Call a training, evaluation, or inference method.**
     For example, all Estimators provide a `train` method, which trains a model.
 
-        # my_training_set is the function created in Step 1
+        # `input_fn` is the function created in Step 1
         estimator.train(input_fn=my_training_set, steps=2000)
 
 
@@ -165,10 +166,12 @@ following sample:
 ```python
 # Instantiate a Keras inception v3 model.
 keras_inception_v3 = tf.keras.applications.inception_v3.InceptionV3(weights=None)
+
 # Compile model with the optimizer, loss, and metrics you'd like to train with.
 keras_inception_v3.compile(optimizer=tf.keras.optimizers.SGD(lr=0.0001, momentum=0.9),
                           loss='categorical_crossentropy',
                           metric='accuracy')
+                          
 # Create an Estimator from the compiled Keras model. Note the initial model
 # state of the keras model is preserved in the created Estimator.
 est_inception_v3 = tf.keras.estimator.model_to_estimator(keras_model=keras_inception_v3)
@@ -177,6 +180,7 @@ est_inception_v3 = tf.keras.estimator.model_to_estimator(keras_model=keras_incep
 # First, recover the input name(s) of Keras model, so we can use them as the
 # feature column name(s) of the Estimator input function:
 keras_inception_v3.input_names  # print out: ['input_1']
+
 # Once we have the input name(s), we can create the input function, for example,
 # for input(s) in the format of numpy ndarray:
 train_input_fn = tf.estimator.inputs.numpy_input_fn(
@@ -184,9 +188,11 @@ train_input_fn = tf.estimator.inputs.numpy_input_fn(
     y=train_labels,
     num_epochs=1,
     shuffle=False)
+    
 # To train, we call Estimator's train function:
 est_inception_v3.train(input_fn=train_input_fn, steps=2000)
 ```
+
 Note that the names of feature columns and labels of a keras estimator come from
 the corresponding compiled keras model. For example, the input key names for
 `train_input_fn` above can be obtained from `keras_inception_v3.input_names`,
