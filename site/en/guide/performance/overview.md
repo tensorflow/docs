@@ -117,10 +117,6 @@ config.inter_op_parallelism_threads = 44
 tf.Session(config=config)
 ```
 
-The [comparing compiler optimizations](#comparing-compiler-optimizations)
-section contains the results of tests that used different compiler
-optimizations.
-
 ### TensorFlow with Intel® MKL DNN
 
 Intel® has added optimizations to TensorFlow for Intel® Xeon® and Intel® Xeon
@@ -237,8 +233,7 @@ Each variable that impacts performance is discussed below.
 The default TensorFlow binaries target the broadest range of hardware to make
 TensorFlow accessible to everyone. If using CPUs for training or inference, it
 is recommended to compile TensorFlow with all of the optimizations available for
-the CPU in use. Speedups for training and inference on CPU are documented below
-in [Comparing compiler optimizations](#comparing-compiler-optimizations).
+the CPU in use.
 
 To install the most optimized version of TensorFlow, build and install
 [from source](../../install/source.md). If there is a need to build TensorFlow
