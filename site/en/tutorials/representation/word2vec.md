@@ -389,7 +389,7 @@ modeling, we've actually already done this for you as an example in
 
 If your model is no longer I/O bound but you want still more performance, you
 can take things further by writing your own TensorFlow Ops, as described in
-[Adding a New Op](../../extend/op.md).  Again we've provided an
+[Adding a New Op](../../guide/extend/op.md).  Again we've provided an
 example of this for the Skip-Gram case
 [models/tutorials/embedding/word2vec_optimized.py](https://github.com/tensorflow/models/tree/master/tutorials/embedding/word2vec_optimized.py).
 Feel free to benchmark these against each other to measure performance
