@@ -293,7 +293,6 @@ with tf.variable_scope("model"):
   output1 = my_image_filter(input1)
 with tf.variable_scope("model", reuse=True):
   output2 = my_image_filter(input2)
-
 ```
 
 You can also call `scope.reuse_variables()` to trigger a reuse:
@@ -303,7 +302,6 @@ with tf.variable_scope("model") as scope:
   output1 = my_image_filter(input1)
   scope.reuse_variables()
   output2 = my_image_filter(input2)
-
 ```
 
 Since depending on exact string names of scopes can feel dangerous, it's also
@@ -314,6 +312,4 @@ with tf.variable_scope("model") as scope:
   output1 = my_image_filter(input1)
 with tf.variable_scope(scope, reuse=True):
   output2 = my_image_filter(input2)
-
 ```
-

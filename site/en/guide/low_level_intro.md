@@ -239,6 +239,7 @@ the `tf.Session.run` method to feed concrete values to the placeholders:
 print(sess.run(z, feed_dict={x: 3, y: 4.5}))
 print(sess.run(z, feed_dict={x: [1, 3], y: [2, 4]}))
 ```
+
 This results in the following output:
 
 ```
@@ -601,5 +602,3 @@ here:
 * [Graphs and Sessions](../guide/graphs.md)
 * [Tensors](../guide/tensors.md)
 * [Variables](../guide/variables.md)
-
-

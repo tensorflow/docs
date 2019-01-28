@@ -350,9 +350,11 @@ Server binary. See [instructions](https://www.tensorflow.org/serving/setup#insta
 on how to install the server, or build it if you wish.
 
 Once you have the Model Server, run it with:
+
 ```
 tensorflow_model_server --port=port-numbers --model_name=your-model-name --model_base_path=your_model_base_path
 ```
+
 Set the port and model_name flags to values of your choosing. The
 model_base_path flag expects to be to a base directory, with each version of
 your model residing in a numerically named subdirectory. If you only have a
@@ -803,7 +805,6 @@ The `run` command provides the following three ways to pass inputs to the model:
 * `--inputs` option enables you to pass numpy ndarray in files.
 * `--input_exprs` option enables you to pass Python expressions.
 * `--input_examples` option enables you to pass `tf.train.Example`.
-
 
 #### `--inputs`
 

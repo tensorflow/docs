@@ -142,6 +142,7 @@ The following code shows that the label is a scalar with type `int64`:
 dataset = tf.data.Dataset.from_tensor_slices((dict(features), labels))
 print(dataset)
 ```
+
 ```
 <TensorSliceDataset
     shapes: (
@@ -202,6 +203,7 @@ elements where each scalar was previously:
 ```python
 print(dataset)
 ```
+
 ```
 <TensorSliceDataset
     shapes: (
@@ -216,7 +218,6 @@ print(dataset)
           PetalLength: tf.float64, SepalWidth: tf.float64},
         tf.int64)>
 ```
-
 
 ### Return
 

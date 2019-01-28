@@ -332,6 +332,7 @@ if mode == tf.estimator.ModeKeys.PREDICT:
     }
     return tf.estimator.EstimatorSpec(mode, predictions=predictions)
 ```
+
 The prediction dictionary contains everything that your model returns when run
 in prediction mode.
 
@@ -483,6 +484,7 @@ Instantiate the custom Estimator through the Estimator base class as follows:
             'n_classes': 3,
         })
 ```
+
 Here the `params` dictionary serves the same purpose as the key-word
 arguments of `DNNClassifier`; that is, the `params` dictionary lets you
 configure your Estimator without modifying the code in the `model_fn`.

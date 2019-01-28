@@ -518,7 +518,8 @@ number of dimensions is 3:
 ``` python
 3 =  81**0.25
 ```
-Note that this is just a general guideline; you can set the number of embedding
+
+Note: This is just a general guideline; you can set the number of embedding
 dimensions as you please.
 
 Call `tf.feature_column.embedding_column` to create an `embedding_column` as
