@@ -33,6 +33,9 @@ file under `REQUIRED_PACKAGES`.
 [Install Bazel](https://docs.bazel.build/versions/master/install-windows.html){:.external},
 the build tool used to compile TensorFlow.
 
+[Set Bazel Up for C++](https://docs.bazel.build/versions/master/windows.html){:.external},
+Configure bazel to build for C++ which TensorFlow is written in.
+
 Add the location of the Bazel executable to your `%PATH%` environment variable.
 
 ### Install MSYS2
