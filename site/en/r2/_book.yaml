@@ -1,0 +1,6 @@
+upper_tabs:
+- include: /r2/_upper_tabs_left.yaml
+- include: /api_docs/_upper_tabs_api.yaml
+- include: /resources/_upper_tabs_resources.yaml
+- include: /_upper_tabs_right.yaml
+

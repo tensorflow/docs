@@ -1,0 +1,56 @@
+toc:
+- title: Get started with TensorFlow
+  path: /r2/tutorials/
+
+- title: Learn and use ML
+  style: accordion
+  section:
+  - title: Overview
+    path: /r2/tutorials/keras/
+  - title: Basic classification
+    path: /r2/tutorials/keras/basic_classification
+  - title: Text classification
+    path: /r2/tutorials/keras/basic_text_classification
+  - title: Regression
+    path: /r2/tutorials/keras/basic_regression
+  - title: Overfitting and underfitting
+    path: /r2/tutorials/keras/overfit_and_underfit
+  - title: Save and restore models
+    path: /r2/tutorials/keras/save_and_restore_models
+
+- title: Customization
+  style: accordion
+  section:
+  - title: Overview
+    path: /r2/tutorials/eager/
+  - title: Eager execution
+    path: /r2/tutorials/eager/eager_basics
+  - title: Automatic differentiation
+    path: /r2/tutorials/eager/automatic_differentiation
+  - title: "Custom training: basics"
+    path: /r2/tutorials/eager/custom_training
+  - title: Custom layers
+    path: /r2/tutorials/eager/custom_layers
+  - title: "Custom training: walkthrough"
+    path: /r2/tutorials/eager/custom_training_walkthrough
+
+- title: Generative models
+  style: accordion
+  section:
+  - heading: Images
+  - title: Pix2Pix
+    path: /r2/tutorials/generative/pix2pix.ipynb
+  - title: DCGAN
+    path: /r2/tutorials/generative/dcgan.ipynb
+  - title: VAE
+    path: /r2/tutorials/generative/cvae
+
+- title: Sequences
+  style: accordion
+  section:
+  - title: Text classification RNN
+    path: /r2/tutorials/sequences/text_classification_rnn
+  - title: Neural machine translation
+    path: /r2/tutorials/sequences/nmt_with_attention
+    status: external
+

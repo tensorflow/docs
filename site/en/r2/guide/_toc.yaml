@@ -1,0 +1,25 @@
+toc:
+- title: High Level APIs
+  style: accordion
+  section:
+  - title: Upgrading to TF2
+    path: /r2/guide/upgrade
+  - title: "Keras"
+    path: /r2/guide/keras
+  - title: "Eager Execution"
+    path: /r2/guide/eager
+
+- title: Accelerators
+  style: accordion
+  section:
+  - heading: Accelerators
+  - title: "Distribute Strategy"
+    path: /r2/guide/distribute_strategy
+
+- title: Low Level APIs
+  style: accordion
+  section:
+  - title: "Checkpoints"
+    path: /r2/guide/saved_model
+  - title: "Control flow"
+    path: /r2/guide/autograph

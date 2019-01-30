@@ -1,0 +1,30 @@
+# All upper-tabs left of the "API" tab
+toc:
+- name: "Install"
+  lower_tabs:
+    guides:
+    - include: /install/_toc.yaml
+- name: "Learn"
+  lower_tabs:
+    other:
+    - name: "Tutorials"
+      contents:
+      - include: /tutorials/_toc.yaml
+    - name: "Guide"
+      contents:
+      - include: /guide/_toc.yaml
+    - name: "Deploy"
+      contents:
+      - include: /deploy/_toc.yaml
+    - name: "TF2"
+      contents:
+      - heading: "TensorFlow 2"
+      - title: "Quick start"
+        path: /r2/tutorials/beginner/tf2_overview
+      - title: "Overview"
+        path: /r2/guide/effective_tf2
+      - heading: "Tutorials"
+      - include: /r2/tutorials/_toc.yaml
+      - heading: "Guide"
+      - include: /r2/guide/_toc.yaml
+
