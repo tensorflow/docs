@@ -359,6 +359,7 @@ Set the port and model_name flags to values of your choosing. The
 model_base_path flag expects to be to a base directory, with each version of
 your model residing in a numerically named subdirectory. If you only have a
 single version of your model, simply place it in a subdirectory like so:
+
 * Place the model in /tmp/model/0001
 * Set model_base_path to /tmp/model
 
