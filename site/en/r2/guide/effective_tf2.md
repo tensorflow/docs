@@ -92,8 +92,6 @@ JS. To help users avoid having to rewrite their code when adding `@tf.function`,
 [AutoGraph](autograph.ipynb) will convert a subset of
 Python constructs into their TensorFlow equivalents:
 
-*   `print` -> `tf.print`
-*   `assert` -> `tf.Assert`
 *   `for`/`while` -> `tf.while_loop` (`break` and `continue` are supported)
 *   `if` -> `tf.cond`
 *   `for _ in dataset` -> `dataset.reduce`
