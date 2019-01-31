@@ -69,6 +69,8 @@ toc:
 - title: Images
   style: accordion
   section:
+  - title: Image recognition
+    path: /tutorials/images/hub_with_keras
   - title: Pix2Pix
     path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/pix2pix/pix2pix_eager.ipynb
     status: external
@@ -78,10 +80,6 @@ toc:
   - title: Image segmentation
     path: https://github.com/tensorflow/models/blob/master/samples/outreach/blogs/segmentation_blogpost/image_segmentation.ipynb
     status: external
-  - title: Image recognition
-    path: /tutorials/images/image_recognition
-  - title: Image retraining
-    path: /hub/tutorials/image_retraining
   - title: Advanced CNN
     path: /tutorials/images/deep_cnn
 
