@@ -210,7 +210,7 @@ Each variable that impacts performance is discussed below.
 
 * `KMP_BLOCKTIME`: The MKL default is 200ms, which was not optimal in our
   testing. 0 (0ms) was a good default for CNN based models that were tested.
-  The best performance for AlexNex was achieved at 30ms and both GoogleNet and
+  The best performance for AlexNet was achieved at 30ms and both GoogleNet and
   VGG11 performed best set at 1ms.
 * `KMP_AFFINITY`: The recommended setting is `granularity=fine,verbose,compact,1,0`.
 * `OMP_NUM_THREADS`: This defaults to the number of physical cores.
