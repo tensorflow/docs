@@ -350,13 +350,16 @@ Server binary. See [instructions](https://www.tensorflow.org/serving/setup#insta
 on how to install the server, or build it if you wish.
 
 Once you have the Model Server, run it with:
+
 ```
 tensorflow_model_server --port=port-numbers --model_name=your-model-name --model_base_path=your_model_base_path
 ```
+
 Set the port and model_name flags to values of your choosing. The
 model_base_path flag expects to be to a base directory, with each version of
 your model residing in a numerically named subdirectory. If you only have a
 single version of your model, simply place it in a subdirectory like so:
+
 * Place the model in /tmp/model/0001
 * Set model_base_path to /tmp/model
 
@@ -722,9 +725,9 @@ SignatureDef key: "serving_default"
 If a `MetaGraphDef` has *multiple* tags in the tag-set, you must specify
 all tags, each tag separated by a comma. For example:
 
-```none
+<pre>
 $ saved_model_cli show --dir /tmp/saved_model_dir --tag_set serve,gpu
-```
+</pre>
 
 To show all inputs and outputs TensorInfo for a specific `SignatureDef`, pass in
 the `SignatureDef` key to `signature_def` option. This is very useful when you
@@ -750,7 +753,7 @@ Method name is: tensorflow/serving/predict
 To show all available information in the SavedModel, use the `--all` option.
 For example:
 
-```none
+<pre>
 $ saved_model_cli show --dir /tmp/saved_model_dir --all
 MetaGraphDef with tag-set: 'serve' contains the following SignatureDefs:
 
@@ -781,7 +784,7 @@ signature_def['serving_default']:
         shape: (-1, 1)
         name: y:0
   Method name is: tensorflow/serving/predict
-```
+</pre>
 
 
 ### `run` command
@@ -803,7 +806,6 @@ The `run` command provides the following three ways to pass inputs to the model:
 * `--inputs` option enables you to pass numpy ndarray in files.
 * `--input_exprs` option enables you to pass Python expressions.
 * `--input_examples` option enables you to pass `tf.train.Example`.
-
 
 #### `--inputs`
 

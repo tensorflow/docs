@@ -42,7 +42,6 @@ a: /job:localhost/replica:0/task:0/device:GPU:0
 MatMul: /job:localhost/replica:0/task:0/device:GPU:0
 [[ 22.  28.]
  [ 49.  64.]]
-
 ```
 
 ## Manual device placement

@@ -1,0 +1,6 @@
+# This file will be automatically generated when the API generator is configured
+toc:
+- title: PROJECT_NAME
+  section:
+  - title: Overview
+    path: /PROJECT_NAME/api_docs/python/

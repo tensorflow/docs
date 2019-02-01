@@ -1,0 +1,47 @@
+book_path: /PROJECT_NAME/_book.yaml
+project_path: /PROJECT_NAME/_project.yaml
+description: <!--no description-->
+landing_page:
+  custom_css_path: /site-assets/css/style.css
+  rows:
+  - heading: PROJECT_NAME does something great.
+    items:
+    - classname: devsite-landing-row-50
+      description: >
+        This is a description of PROJECT_NAME. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+      code_block: |
+        <pre class = "prettyprint">
+        import tensorflow as tf
+        import PROJECT_NAME
+
+        # This is a short code snippet that shows off your project.
+        # Launch a Colab notebook to run this example.
+        print("Hello, PROJECT_NAME")
+        </pre>
+        {% dynamic if request.tld != 'cn' %}
+        <a class="colab-button" target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/_index.ipynb">Run in a <span>Notebook</span></a>
+        {% dynamic endif %}
+
+  - classname: devsite-landing-row-cards
+    items:
+    - heading: "Introducing PROJECT_NAME"
+      image_path: /resources/images/tf-logo-card-16x9.png
+      path: https://blog.tensorflow.org
+      buttons:
+      - label: "Read on TensorFlow blog"
+        path: https://blog.tensorflow.org
+    - heading: "PROJECT_NAME video"
+      youtube_id: 3d34Hkf7KXA
+      buttons:
+      - label: Watch the video
+        path: https://www.youtube.com/watch?v=3d34Hkf7KXA
+    - heading: "PROJECT_NAME on GitHub"
+      image_path: /resources/images/github-card-16x9.png
+      path: https://github.com/tensorflow/PROJECT_NAME
+      buttons:
+      - label: "View on GitHub"
+        path: https://github.com/tensorflow/PROJECT_NAME

@@ -54,34 +54,32 @@ toc:
   style: accordion
   section:
   - title: Translation with attention
-    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb
+    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb
     status: external
   - title: Image captioning
-    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/generative_examples/image_captioning_with_attention.ipynb
+    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/generative_examples/image_captioning_with_attention.ipynb
     status: external
   - title: DCGAN
-    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/generative_examples/dcgan.ipynb
+    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/generative_examples/dcgan.ipynb
     status: external
   - title: VAE
-    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/generative_examples/cvae.ipynb
+    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/generative_examples/cvae.ipynb
     status: external
 
 - title: Images
   style: accordion
   section:
+  - title: Image recognition
+    path: /tutorials/images/hub_with_keras
   - title: Pix2Pix
-    path: https://github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/examples/pix2pix/pix2pix_eager.ipynb
+    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/pix2pix/pix2pix_eager.ipynb
     status: external
-  - title: Neural Style Transfer
+  - title: Neural style transfer
     path: https://github.com/tensorflow/models/blob/master/research/nst_blogpost/4_Neural_Style_Transfer_with_Eager_Execution.ipynb
     status: external
-  - title: Image Segmentation
+  - title: Image segmentation
     path: https://github.com/tensorflow/models/blob/master/samples/outreach/blogs/segmentation_blogpost/image_segmentation.ipynb
     status: external
-  - title: Image recognition
-    path: /tutorials/images/image_recognition
-  - title: Image retraining
-    path: /hub/tutorials/image_retraining
   - title: Advanced CNN
     path: /tutorials/images/deep_cnn
 
@@ -99,6 +97,14 @@ toc:
   - title: Neural machine translation
     path: https://github.com/tensorflow/nmt
     status: external
+
+- title: Load data
+  style: accordion
+  section:
+  - title: Load images
+    path: /tutorials/load_data/images
+  - title: TFRecords and tf.Example
+    path: /tutorials/load_data/tf_records
 
 - title: Data representation
   style: accordion
@@ -120,6 +126,5 @@ toc:
   - title: Partial differential equations
     path: /tutorials/non-ml/pdes
 
-- break: true
 - title: Next steps
   path: /tutorials/next_steps

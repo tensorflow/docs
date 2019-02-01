@@ -86,7 +86,7 @@ During training, all three programs output the following information:
 For example, here's some possible output for the `linear_regressor.py`
 program:
 
-``` None
+<pre>
 INFO:tensorflow:Saving checkpoints for 1 into /tmp/tmpAObiz9/model.ckpt.
 INFO:tensorflow:loss = 161.308, step = 1
 INFO:tensorflow:global_step/sec: 1557.24
@@ -98,7 +98,7 @@ INFO:tensorflow:global_step/sec: 1663.86
 INFO:tensorflow:loss = 6.99378, step = 901 (0.058 sec)
 INFO:tensorflow:Saving checkpoints for 1000 into /tmp/tmpAObiz9/model.ckpt.
 INFO:tensorflow:Loss for final step: 5.12413.
-```
+</pre>
 
 
 <a name="basic"></a>

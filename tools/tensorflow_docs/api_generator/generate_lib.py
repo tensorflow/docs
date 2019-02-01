@@ -236,8 +236,11 @@ def extract(py_modules,
     raise ValueError("only pass one [('name',module)] pair in py_modules")
   short_name, py_module = py_modules[0]
   visitor = visitor_cls()
-  api_visitor = public_api.PublicAPIVisitor(visitor, base_dir, private_map,
-                                            do_not_descend_map)
+  api_visitor = public_api.PublicAPIVisitor(
+      visitor=visitor,
+      base_dir=base_dir,
+      do_not_descend_map=do_not_descend_map,
+      private_map=private_map)
 
   traverse.traverse(py_module, api_visitor, short_name)
 
@@ -425,7 +428,7 @@ class DocGenerator(object):
     try:
       os.makedirs(output_dir)
     except OSError as e:
-      if 'File exists' not in e:
+      if e.strerror != 'File exists':
         raise
 
     cmd = ['rsync', '--recursive', '--quiet', '--delete']
