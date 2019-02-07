@@ -107,8 +107,7 @@ of the following four steps:
 
         # Instantiate an estimator, passing the feature columns.
         estimator = tf.estimator.LinearClassifier(
-            feature_columns=[population, crime_rate, median_education],
-            )
+            feature_columns=[population, crime_rate, median_education])
 
 4.  **Call a training, evaluation, or inference method.**
     For example, all Estimators provide a `train` method, which trains a model.
