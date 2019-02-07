@@ -6,8 +6,8 @@
 
 머신러닝의 기본 원리와 개념을 배우려면 [머신러닝 단기집중과정](https://developers.google.com/machine-learning/crash-course/)을 수강해 보세요. [추가 자료](../next_steps) 페이지에 텐서플로와 머신러닝에 대한 더 많은 정보가 정리되어 있습니다.
 
-1. [기초적인 분류 문제](./basic_classification)
-2. [텍스트 분류](./basic_text_classification)
-3. [회귀](./basic_regression)
-4. [과대적합과 과소적합](./overfit_and_underfit)
-5. [모델의 저장과 복원](./save_and_restore_models)
+1. [기초적인 분류 문제](./basic_classification.ipynb)
+2. [텍스트 분류](./basic_text_classification.ipynb)
+3. [회귀](./basic_regression.ipynb)
+4. [과대적합과 과소적합](./overfit_and_underfit.ipynb)
+5. [모델의 저장과 복원](./save_and_restore_models.ipynb)
