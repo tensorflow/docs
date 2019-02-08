@@ -8,7 +8,7 @@ point.  (We may end up providing a more elaborate implementation down the line
 to produce more truly beautiful images.)
 
 
-## Basic Setup
+## Basic Setup 
 
 We'll need a few imports to get started.
 
