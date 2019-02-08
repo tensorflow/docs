@@ -4,7 +4,7 @@ description: <!--no description-->
 landing_page:
   body_class: tfo-install
   custom_css_path: /site-assets/css/style.css
-  show_side_navs: True
+  nav: both
   rows:
   - classname:
       devsite-landing-row-large-headings
