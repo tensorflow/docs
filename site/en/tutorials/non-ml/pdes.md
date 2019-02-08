@@ -120,7 +120,7 @@ step = tf.group(
   Ut.assign(Ut_))
 ```
 
-## Run The Simulation
+## Run The Simulation 
 
 This is where it gets fun -- running time forward with a simple for loop.
 
