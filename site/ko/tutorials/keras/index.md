@@ -1,12 +1,12 @@
 # 머신러닝을 배우고 사용하기
 
-Note: 아래는 저희 텐서플로우 커뮤니티에서 번역한 문서들입니다. 커뮤니티 번역활동의 특성상 정확한 번역과 항상 최신의 내용을 반영하기 위한 노력에도
-불구하고 [공식 영문 문서](https://www.tensorflow.org/?hl=en)의 내용과 일치하지 않는 부분이 있을 수 있습니다.
-만약 번역에 대한 개선점에 대한 제안이 있으신 분은
+이 문서들은 텐서플로 커뮤니티에서 번역했습니다. 커뮤니티 번역 활동의 특성상 정확한 번역과 최신 내용을 반영하기 위해 노력함에도
+불구하고 [공식 영문 문서](https://www.tensorflow.org/?hl=en)의 내용과 일치하지 않을 수 있습니다.
+이 번역에 개선할 부분이 있다면
 [tensorflow/docs](https://github.com/tensorflow/docs) 깃헙 저장소로 풀 리퀘스트를 보내주시기 바랍니다.
-문서를 작성하거나 커뮤니티 번역에 대한 리뷰를 남기시길 원하시는 분은 [본 양식](https://bit.ly/tf-translate)을
-작성하시거나
-[docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)로
+문서 번역이나 리뷰에 지원하려면 [이 양식](https://bit.ly/tf-translate)을
+작성하거나
+[docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)로
 메일을 보내주시기 바랍니다.
 
 
