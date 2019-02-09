@@ -27,3 +27,25 @@ Some technical words in English do not have a natural translation. Do *not*
 translate the following words:
 
 *   mini-batch
+*   batch
+*   label
+*   class
+*   helper
+*   hyperparameter
+*   optimizer
+*   one-hot encoding
+*   epoch
+*   callback
+*   sequence
+*   dictionary (in python)
+*   embedding
+*   padding
+*   unit
+*   node
+*   nueron
+*   target
+*   import
+*   checkpoint
+*   compile
+*   dropout
+*   penalty
