@@ -11,12 +11,12 @@
 
 2. Если вы хотите помочь сделать документацию по Tensorflow
 лучше (сделать сам перевод или проверить перевод подготовленный кем-то другим),
-заполните [эту форму](https://bit.ly/tf-translate) или напишите нам на
+напишите нам на
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
 # Community translations
 
-These docs were translated by our TensorFlow community. Because community
+Our TensorFlow community has translated these documents. Because community
 translations are *best-effort*, there is no guarantee that this is an accurate
 and up-to-date reflection of the
 [official English documentation](https://www.tensorflow.org/?hl=en). 
@@ -24,8 +24,7 @@ and up-to-date reflection of the
 1. If you have suggestions to improve this translation, please send a pull request 
 to the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository. 
 
-2. To volunteer to write or review community translations, fill out
-[this form](https://bit.ly/tf-translate) or contact the
+2. To volunteer to write or review community translations, contact the
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
 # Russian translation guide
