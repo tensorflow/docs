@@ -305,4 +305,8 @@ ImportError: cannot import name 'descriptor'</pre>
   <td><a href="https://github.com/tensorflow/tensorflow/issues/22512">22512</a>, <a href="https://github.com/tensorflow/tensorflow/issues/22794">22794</a></td>
   <td><pre>ImportError: DLL load failed: The specified module could not be found.</pre></td>
 </tr>
+<tr>
+  <td><a href="https://github.com/tensorflow/tensorflow/issues/24835">24835</a></td>
+  <td><pre>Could not install packages due to an EnvironmentError: [Errno 2] No such file or directory: [long path name]</pre></td>
+</tr>
 </table>
