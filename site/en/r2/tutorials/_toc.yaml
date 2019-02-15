@@ -24,13 +24,13 @@ toc:
   - title: Overview
     path: /r2/tutorials/eager/
   - title: Eager execution
-    path: /r2/tutorials/eager/eager_basics
+    path: /r2/tutorials/eager/basics
+  - title: Custom layers
+    path: /r2/tutorials/eager/custom_layers
   - title: Automatic differentiation
     path: /r2/tutorials/eager/automatic_differentiation
   - title: "Custom training: basics"
     path: /r2/tutorials/eager/custom_training
-  - title: Custom layers
-    path: /r2/tutorials/eager/custom_layers
   - title: "Custom training: walkthrough"
     path: /r2/tutorials/eager/custom_training_walkthrough
 
