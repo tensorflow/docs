@@ -4,7 +4,7 @@
 [Unified Optimizers](https://github.com/tensorflow/community/blob/master/rfcs/20181016-optimizer-unification.md))을 높였으며 파이썬 런타임(runtime)과 [즉시 실행](https://www.tensorflow.org/guide/eager)(eager execution)을 통합하였습니다.
 
 
-[RFC](https://github.com/tensorflow/community/pulls?utf8=%E2%9C%93&q=is%3Apr) 문서에서 텐서플로 2.0의 변경 내용을 확인할 수 있습니다. 이 가이드는 텐서플로 2.0을 사용한 개발 방식을 소개합니다. 여러분이 텐서플로 1.x에 친숙하다고 가정하겠습니다.
+여러 [RFC](https://github.com/tensorflow/community/pulls?utf8=%E2%9C%93&q=is%3Apr) 문서에서 텐서플로 2.0의 변경 내용을 확인할 수 있습니다. 이 가이드는 텐서플로 2.0을 사용한 개발 방식을 소개합니다. 여러분이 텐서플로 1.x에 친숙하다고 가정하겠습니다.
 
 ## 주요 변경 사항 요약
 
@@ -14,98 +14,51 @@
 
 ### 즉시 실행
 
+텐서플로 1.x에서는 사용자가 `tf.*` API를 호출하여 수동으로 [추상 구문 트리](https://ko.wikipedia.org/wiki/%EC%B6%94%EC%83%81_%EA%B5%AC%EB%AC%B8_%ED%8A%B8%EB%A6%AC)를 구성해야 합니다. 그다음 `session.run()`을 호출할 때 출력 텐서와 입력 텐서를 전달하여 추상 구문 트리를 수동으로 컴파일합니다. 텐서플로 2.0은 즉시 실행됩니다(보통의 파이썬처럼). 2.0에서 그래프와 세션은 구현 상세(implementation detail)로 느껴질 것입니다.
 
-TensorFlow 1.X requires users to manually stitch together an
-[abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (the
-graph) by making `tf.*` API calls. It then requires users to manually compile
-the abstract syntax tree by passing a set of output tensors and input tensors to
-a `session.run()` call. TensorFlow 2.0 executes eagerly (like Python normally
-does) and in 2.0, graphs and sessions should feel like implementation details.
+즉시 실행으로 인한 부수효과 중 하나는 더이상 `tf.control_dependencies()`이 필요하지 않다는 것입니다. 모든 코드는 라인 순서대로 실행되기 때문입니다(`tf.function` 안의 코드도 이 효과로 쓰여진 순서대로 실행됩니다).
 
-One notable byproduct of eager execution is that `tf.control_dependencies()` is
-no longer required, as all lines of code execute in order (within a
-`tf.function`, code with side effects execute in the order written).
+### 전역 메커니즘 제거
 
-### No more globals
+텐서플로 1.x는 드러나진 않았지만 전역 이름 공간(namespace)에 크게 의존했습니다. `tf.Variable()`를 호출하면 기본 그래프에 변수 노드를 추가합니다. 노드를 참조하는 파이썬 변수가 삭제되더라도 그래프에 그대로 남아 있습니다. 이 `tf.Variable` 노드를 다시 참조할 수 있지만 생성할 때 지정한 이름을 알아야만 가능합니다. 변수를 직접 만들지 않았다면 어려운 일입니다. 이 때문에 사용자와 프레임워크가 변수를 추적하기 위한 여러 종류의 메커니즘이 늘어 났습니다. 변수 범위(variable scope), 전역 컬렉션(global collection), `tf.get_global_step()`이나 `tf.global_variables_initializer()` 같은 헬퍼 메서드 등입니다. 또 옵티마이저(optimizer)는 암묵적으로 훈련 가능한 모든 변수의 그래디언트(graident)를 계산합니다. 텐서플로 2.0은 이런 모든 메커니즘을 삭제했습니다([Variables 2.0 RFC](https://github.com/tensorflow/community/pull/11)). 대신 파이썬 변수를 사용하는 기본 메커니즘을 채택합니다! `tf.Variable`의 참조를 잃어 버렸다면 자동으로 가비지 컬렉션(garbage collection)될 것입니다.
 
-TensorFlow 1.X relied heavily on implicitly global namespaces. When you called
-`tf.Variable()`, it would be put into the default graph, and it would remain
-there, even if you lost track of the Python variable pointing to it. You could
-then recover that `tf.Variable`, but only if you knew the name that it had been
-created with. This was difficult to do if you were not in control of the
-variable's creation. As a result, all sorts of mechanisms proliferated to
-attempt to help users find their variables again, and for frameworks to find
-user-created variables: Variable scopes, global collections, helper methods like
-`tf.get_global_step()`, `tf.global_variables_initializer()`, optimizers
-implicitly computing gradients over all trainable variables, and so on.
-TensorFlow 2.0 eliminates all of these mechanisms
-([Variables 2.0 RFC](https://github.com/tensorflow/community/pull/11)) in favor
-of the default mechanism: Keep track of your variables! If you lose track of a
-`tf.Variable`, it gets garbage collected.
+사용자가 변수를 관리하는 일이 늘어나지만 케라스(Keras)(아래 참조)를 사용하면 최소화할 수 있습니다.
 
-The requirement to track variables creates some extra work for the user, but
-with Keras objects (see below), the burden is minimized.
+### 세션 대신 함수
 
-### Functions, not sessions
+`session.run()`은 거의 함수 호출과 비슷합니다. 입력과 호출할 노드를 지정하면 일련의 출력을 얻습니다. 텐서플로 2.0에서는 `tf.function()` 데코레이터(decorator)로 파이썬 함수를 감쌀 수 있습니다. 이렇게 하면 텐서플로가 이 함수를 하나의 그래프로 실행하기 위해 JIT 컴파일합니다([Functions 2.0 RFC](https://github.com/tensorflow/community/pull/20)). 이 메커니즘 덕택에 텐서플로 2.0에서 그래프 모드의 장점을 모두 계승할 수 있습니다.
 
-A `session.run()` call is almost like a function call: You specify the inputs
-and the function to be called, and you get back a set of outputs. In TensorFlow
-2.0, you can decorate a Python function using `tf.function()` to mark it for JIT
-compilation so that TensorFlow runs it as a single graph
-([Functions 2.0 RFC](https://github.com/tensorflow/community/pull/20)). This
-mechanism allows TensorFlow 2.0 to gain all of the benefits of graph mode:
-
--   Performance: The function can be optimized (node pruning, kernel fusion,
-    etc.)
--   Portability: The function can be exported/reimported
-    ([SavedModel 2.0 RFC](https://github.com/tensorflow/community/pull/34)),
-    allowing users to reuse and share modular TensorFlow functions.
+-   성능: 함수를 최적화할 수 있습니다(노드 가지치기(pruning), 커널 융합(kernel fusion) 등).
+-   이식성(portability): 함수를 저장하고 다시 불러올 수 있습니다([SavedModel 2.0 RFC](https://github.com/tensorflow/community/pull/34)). 모듈화된 텐서플로 함수는 재사용하고 공유하기 좋습니다.
 
 ```python
-# TensorFlow 1.X
+# 텐서플로 1.x
 outputs = session.run(f(placeholder), feed_dict={placeholder: input})
-# TensorFlow 2.0
+# 텐서플로 2.0
 outputs = f(input)
 ```
 
-With the power to freely intersperse Python and TensorFlow code, we expect that
-users will take full advantage of Python's expressiveness. But portable
-TensorFlow executes in contexts without a Python interpreter - mobile, C++, and
-JS. To help users avoid having to rewrite their code when adding `@tf.function`,
-[AutoGraph](autograph.ipynb) will convert a subset of
-Python constructs into their TensorFlow equivalents:
+파이썬과 텐서플로 코드를 자유롭게 섞어 쓸 수 있기 때문에 파이썬의 장점을 최대한 활용할 것입니다. 텐서플로는 파이썬 인터프리터 없는 모바일, C++, 자바스크립트 같은 환경에서도 실행됩니다. 사용자가 환경에 따라 코드를 재작성하지 않도록 `@tf.function`를 추가하면 [오토그래프](autograph.ipynb)(AutoGraph)가 파이썬 코드를 동일한 텐서플로 코드로 변경합니다.
 
-*   `for`/`while` -> `tf.while_loop` (`break` and `continue` are supported)
+*   `for`/`while` -> `tf.while_loop` (`break`과 `continue` 문을 지원합니다.)
 *   `if` -> `tf.cond`
 *   `for _ in dataset` -> `dataset.reduce`
 
-AutoGraph supports arbitrary nestings of control flow, which makes it possible
-to performantly and concisely implement many complex ML programs such as
-sequence models, reinforcement learning, custom training loops, and more.
+오토그래프는 어떤 중첩된 제어 흐름도 지원합니다. 시퀀스(sequence) 모델, 강화 학습(reinforcement learning), 독자적인 훈련 루프 등 복잡한 머신러닝 프로그램을 간결하면서 높은 성능을 내도록 구현할 수 있습니다.
 
-## Recommendations for idiomatic TensorFlow 2.0
+## 텐서플로 2.0의 권장 사항
 
-For complete examples, see
-[MNIST (basic example)](../tutorials/beginner/tf2_overview.ipynb)
+완전한 예제는 [MNIST (basic example)](../tutorials/beginner/tf2_overview.ipynb)을 참고하세요.
 
-### Refactor your code into smaller functions
+### 작은 함수로 코드를 리팩토링하세요.
 
-A common usage pattern in TensorFlow 1.X was the "kitchen sink" strategy, where
-the union of all possible computations was preemptively laid out, and then
-selected tensors were evaluated via `session.run()`. In TensorFlow 2.0, users
-should refactor their code into smaller functions which are called as needed. In
-general, it's not necessary to decorate each of these smaller functions with
-`tf.function`; only use `tf.function` to decorate high-level computations - for
-example, one step of training, or the forward pass of your model.
+텐서플로 1.x의 일반적인 사용 패턴은 "키친 싱크(kitchen sink)" 전략입니다. 모든 연산을 결합하여 먼저 준비한 다음 `session.run()`을 사용해 선택한 텐서를 평가합니다. 텐서플로 2.0에서는 코드를 필요할 때 호출하는 작은 함수로 리팩토링(refactoring)해야 합니다. 모든 함수를 `tf.function` 데코레이터를 적용할 필요는 없습니다. 모델 훈련의 한 단계나 정방향 연산(forward pass) 같은 고수준 연산에만 `tf.function` 데코레이터를 적용하세요.
 
-### Use Keras layers and models to manage variables
+### 케라스 층과 모델을 사용해 변수를 관리하세요.
 
-Keras models and layers offer the convenient `variables` and
-`trainable_variables` properties, which recursively gather up all dependent
-variables. This makes it very easy to manage variables locally to where they are
-being used.
+케라스 모델과 층은 재귀적으로 의존하는 모든 변수를 수집하여 `variables`와 `trainable_variables` 속성으로 제공합니다. 이는 변수를 지역 범위로 관리하기 매우 쉽게 만듭니다.
 
-Contrast:
+기본 버전:
 
 ```python
 def dense(x, W, b):
@@ -118,13 +71,13 @@ def multilayer_perceptron(x, w0, b0, w1, b1, w2, b2 ...):
   x = dense(x, w2, b2)
   ...
 
-# You still have to manage w_i and b_i, and their shapes are defined far away from the code.
+# 여전히 w_i, b_i 변수를 직접 관리해야 합니다. 변수는 다른 곳에 정의되어 있습니다.
 ```
 
-with the Keras version:
+케라스 버전:
 
 ```python
-# Each layer can be called, with a signature equivalent to linear(x)
+# 각 층은 linear(x)처럼 호출 가능합니다.
 layers = [tf.keras.layers.Dense(hidden_size, activation=tf.nn.sigmoid) for _ in range(n)]
 perceptron = tf.keras.Sequential(layers)
 
@@ -132,14 +85,9 @@ perceptron = tf.keras.Sequential(layers)
 # perceptron.trainable_variables => returns [w0, b0, ...]
 ```
 
-Keras layers/models inherit from `tf.train.Checkpointable` and are integrated
-with `@tf.function`, which makes it possible to directly checkpoint or export
-SavedModels from Keras objects. You do not necessarily have to use Keras's
-`.fit()` API to take advantage of these integrations.
+케라스의 층과 모델은 `tf.train.Checkpointable`을 상속하고 `@tf.function`를 사용하여 통합되어 있습니다. 케라스 객체에서 바로 체크포인트나 SavedModels로 저장할 수 있습니다. 케라스 `.fit()` API를 사용해야 이런 장점을 얻을 수 있는 것은 아닙니다.
 
-Here's a transfer learning example that demonstrates how Keras makes it easy to
-collect a subset of relevant variables. Let's say you're training a multi-headed
-model with a shared trunk:
+전이 학습(transfer learning) 예제를 통해서 어떻게 케라스가 관련된 변수를 쉽게 모으는지 알아 보겠습니다. 몸통(trunk)을 공유하는 다중 출력(multi-headed) 모델을 훈련한다고 가정해 보죠.
 
 ```python
 trunk = tf.keras.Sequential([...])
@@ -149,38 +97,31 @@ head2 = tf.keras.Sequential([...])
 path1 = tf.keras.Sequential([trunk, head1])
 path2 = tf.keras.Sequential([trunk, head2])
 
-# Train on primary dataset
+# 주된 데이터셋에서 훈련합니다.
 for x, y in main_dataset:
   with tf.GradientTape() as tape:
     prediction = path1(x)
     loss = loss_fn_head1(prediction, y)
-  # Simultaneously optimize trunk and head1 weights.
+  # trunk와 head1 가중치를 동시에 최적화합니다.
   gradients = tape.gradients(loss, path1.trainable_variables)
   optimizer.apply_gradients(gradients, path1.trainable_variables)
 
-# Fine-tune second head, reusing the trunk
+# trunk를 재사용하여 head2를 세부 튜닝합니다.
 for x, y in small_dataset:
   with tf.GradientTape() as tape:
     prediction = path2(x)
     loss = loss_fn_head2(prediction, y)
-  # Only optimize head2 weights, not trunk weights
+  # trunk 가중치는 제외하고 head2 가중치만 최적화합니다.
   gradients = tape.gradients(loss, head2.trainable_variables)
   optimizer.apply_gradients(gradients, head2.trainable_variables)
 
-# You can publish just the trunk computation for other people to reuse.
+# trunk 연산만 재사용을 위해 저장할 수 있습니다.
 tf.saved_model.save(trunk, output_path)
 ```
 
-### Combine tf.data.Datasets and @tf.function
+### tf.data.Datasets과 @tf.function을 연결하세요.
 
-When iterating over training data that fits in memory, feel free to use regular
-Python iteration. Otherwise, `tf.data.Dataset` is the best way to stream
-training data from disk. Datasets are
-[iterables (not iterators)](https://docs.python.org/3/glossary.html#term-iterable),
-and work just like other Python iterables in Eager mode. You can fully utilize
-dataset async prefetching/streaming features by wrapping your code in
-`tf.function()`, which replaces Python iteration with the equivalent graph
-operations using AutoGraph.
+메모리 공간에 맞는 훈련 데이터를 반복할 때는 보통의 파이썬 반복자를 사용해도 좋습니다. 그렇지 않다면 디스크에서 훈련 데이터를 읽는 가장 좋은 방법은 `tf.data.Dataset`입니다. 데이터셋이 [반복 가능](https://docs.python.org/ko/3/glossary.html#term-iterable)(반복자가 아닙니다)하면 즉시 실행 모드에서는 파이썬의 다른 반복 가능 객체처럼 동작합니다. `tf.function()`으로 코드를 감싸서 비동기 프리페치(prefetch)/스트리밍(streaming) 기능을 모두 사용할 수 있습니다. 또한 오토그래프를 사용하여 파이썬 반복문을 동일한 그래프 연산으로 바꾸어 줍니다.
 
 ```python
 @tf.function
@@ -193,23 +134,18 @@ def train(model, dataset, optimizer):
     optimizer.apply_gradients(gradients, model.trainable_variables)
 ```
 
-If you use the Keras `.fit()` API, you won't have to worry about dataset
-iteration.
+케라스의 `.fit()` API를 사용하면 데이터셋 반복에 관해 신경 쓸 필요가 없습니다.
 
 ```python
 model.compile(optimizer=optimizer, loss=loss_fn)
 model.fit(dataset)
 ```
 
-### Take advantage of AutoGraph with Python control flow
+### 파이썬의 제어 흐름으로 오토그래프의 장점을 사용하세요.
 
-AutoGraph provides a way to convert data-dependent control flow into graph-mode
-equivalents like `tf.cond` and `tf.while_loop`.
+오토그래프는 데이터 의존적인 제어 흐름을 `tf.cond`와 `tf.while_loop` 같은 그래프 모드 연산으로 변환할 수 있는 방법을 제공합니다.
 
-One common place where data-dependent control flow appears is in sequence
-models. `tf.keras.layers.RNN` wraps an RNN cell, allowing you to either
-statically or dynamically unroll the recurrence. For demonstration's sake, you
-could reimplement dynamic unroll as follows:
+데이터 의존적인 제어 흐름이 나타나는 대표적인 곳은 시퀀스 모델입니다. `tf.keras.layers.RNN`은 RNN 셀(cell)을 감싸서 순환 셀을 정적으로 또는 동적으로 펼칠 수 있습니다. 다음에 예시를 위해서 동적으로 펼치는 구현을 만들었습니다.
 
 ```python
 class DynamicRNN(tf.keras.Model):
@@ -229,22 +165,17 @@ class DynamicRNN(tf.keras.Model):
     return tf.transpose(outputs.stack(), [1, 0, 2]), state
 ```
 
-For a more detailed overview of AutoGraph's features, see
-[the guide](./autograph.ipynb).
+오토그래프의 특징에 관한 더 자세한 내용은 이 [가이드](./autograph.ipynb)를 참고하세요.
 
-### Use tf.metrics to aggregate data and tf.summary to log it
+### tf.metrics를 사용하여 데이터를 수집하고 tf.summary를 사용하여 로그를 기록하세요.
 
-A complete set of `tf.summary` symbols are coming soon. You can access the
-2.0 version of `tf.summary` with:
+완전한 `tf.summary` 메서드가 곧 제공됩니다. 다음처럼 `tf.summary`의 2.0 버전을 사용할 수 있습니다.
 
 ```python
 from tensorflow.python.ops import summary_ops_v2
 ```
 
-To log summaries, use `tf.summary.(scalar|histogram|...)`. In isolation, this
-doesn't actually do anything; the summaries need to be redirected to an
-appropriate file writer by using a context manager. (This allows you to avoid
-hardcoding summary output to a particular file writer.)
+`tf.summary.(scalar|histogram|...)`를 사용하여 기록합니다. 이 함수는 독립적으로 아무 일도 하지 않습니다. 기록할 정보를 컨택스트 관리자(context manager)를 사용한 적절한 `FileWriter`로 전달해야 합니다. (`summary`의 출력을 특정 파일에 기록하도록 하드코딩하지 않아도 됩니다.)
 
 ```python
 summary_writer = tf.summary.create_file_writer('/tmp/summaries')
@@ -252,9 +183,7 @@ with summary_writer.as_default():
   summary_ops_v2.scalar('loss', 0.1, step=42)
 ```
 
-To aggregate data before logging them as summaries, use `tf.metrics`. Metrics
-are stateful; they accumulate values and return a cumulative result when you
-call `.result()`. Clear accumulated values with `.reset_states()`.
+데이터를 `summary`로 기록하기 전에 수집하려면 `tf.metrics`를 사용하세요. 측정 정보들은 상태를 유지합니다. 값이 누적되고 `.result()`를 호출하면 누적된 결과를 반환합니다. `.reset_stats()`를 사용하여 누적된 값을 초기화할 수 있습니다.
 
 ```python
 def train(model, optimizer, dataset, log_freq=10):
@@ -280,5 +209,5 @@ with test_summary_writer.as_default():
   test(model, test_x, test_y, optimizer.iterations)
 ```
 
-By then pointing TensorBoard at the summary directory (`tensorboard --logdir
-/tmp/summaries`), you can then visualize the generated summaries.
+로그 디렉토리를 지정하여 텐서보드(TensorBoard)를 실행하면(`tensorboard --logdir
+/tmp/summaries`) 생성된 로그 데이터를 그래프로 제공합니다.
