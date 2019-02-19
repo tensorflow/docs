@@ -13,5 +13,3 @@ toc:
   path: /community/documentation
 - title: "TensorFlow Style Guide"
   path: /community/style_guide
-- title: "Defining and Running Benchmarks"
-  path: /community/benchmarks
