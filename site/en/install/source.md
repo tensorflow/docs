@@ -197,23 +197,6 @@ There are some preconfigured build configs available that can be added to the
 Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
 run on older CPUs.
 
-## Run the tests (optional)
-
-To test your copy of the source tree, run the following test for versions r1.12
-and before (this may take a while):
-
-<pre class="devsite-terminal prettyprint lang-bsh">
-bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/contrib/lite/...
-</pre>
-
-For versions after r1.12 (like `master`), run the following:
-
-<pre class="devsite-terminal prettyprint lang-bsh">
-bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/lite/...
-</pre>
-
-Key Point: If you're having build problems on the latest development branch, try
-a release branch that is known to work.
 
 ## Build the pip package
 
