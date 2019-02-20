@@ -192,7 +192,8 @@ def parse_line(ndjson_line):
   scale[scale == 0] = 1
   np_ink[:, 0:2] = (np_ink[:, 0:2] - lower) / scale
   # 2. Compute deltas.
-  np_ink = np_ink[1:, 0:2] - np_ink[0:-1, 0:2]
+  np_ink[1:, 0:2] -= np_ink[0:-1, 0:2]
+  np_ink = np_ink[1:, :]
   return np_ink, class_name
 ```
 
