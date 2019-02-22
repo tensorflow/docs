@@ -3,7 +3,7 @@ toc:
   - heading: API r1
     links:
     - label: r1.13 (rc)
-      path: /versions/r1.13/api_docs/python/tf
+      path: /api_docs/python/tf
     - label: r1.12 (stable)
       path: /versions/r1.12/api_docs/python/tf
     - label: r1.11
