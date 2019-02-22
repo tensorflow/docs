@@ -18,6 +18,12 @@ toc:
   - title: Save and restore models
     path: /r2/tutorials/keras/save_and_restore_models
 
+- title: Pre-made models
+  style: accordion
+  section:
+  - title: Linear model
+    path: /r2/tutorials/estimators/linear
+
 - title: Customization
   style: accordion
   section:
