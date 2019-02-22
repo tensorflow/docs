@@ -23,6 +23,8 @@ toc:
   section:
   - title: Linear model
     path: /r2/tutorials/estimators/linear
+  - title: Boosted Trees model
+    path: /r2/tutorials/estimators/boosted_trees
 
 - title: Customization
   style: accordion
