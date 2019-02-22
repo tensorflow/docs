@@ -197,23 +197,6 @@ There are some preconfigured build configs available that can be added to the
 Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
 run on older CPUs.
 
-## Run the tests (optional)
-
-To test your copy of the source tree, run the following test for versions r1.12
-and before (this may take a while):
-
-<pre class="devsite-terminal prettyprint lang-bsh">
-bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/contrib/lite/...
-</pre>
-
-For versions after r1.12 (like `master`), run the following:
-
-<pre class="devsite-terminal prettyprint lang-bsh">
-bazel test -c opt -- //tensorflow/... -//tensorflow/compiler/... -//tensorflow/lite/...
-</pre>
-
-Key Point: If you're having build problems on the latest development branch, try
-a release branch that is known to work.
 
 ## Build the pip package
 
@@ -411,6 +394,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow_gpu-1.13.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.19.2</td><td>7.4</td><td>10.0</td></tr>
 <tr><td>tensorflow_gpu-1.12.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.11.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.10.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
