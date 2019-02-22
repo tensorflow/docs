@@ -29,4 +29,4 @@ For example, see the bindings for:
 
 We also provide the C++ API reference for TensorFlow Serving:
 
-* [TensorFlow Serving](/api_docs/serving)
+* [TensorFlow Serving](/tfx/serving/api_docs/cc/)

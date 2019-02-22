@@ -13,9 +13,6 @@ toc:
     - name: "Guide"
       contents:
       - include: /guide/_toc.yaml
-    - name: "Deploy"
-      contents:
-      - include: /deploy/_toc.yaml
     - name: "TF2"
       contents:
       - heading: "TensorFlow 2"
