@@ -5,7 +5,7 @@ toc:
     - label: r1.13 (rc)
       path: /versions/r1.13/api_docs/python/tf
     - label: r1.12 (stable)
-      path: /api_docs/python/tf
+      path: /versions/r1.12/api_docs/python/tf
     - label: r1.11
       path: /versions/r1.11/api_docs/python/tf
     - label: r1.10
