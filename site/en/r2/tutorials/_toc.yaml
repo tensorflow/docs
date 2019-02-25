@@ -60,4 +60,11 @@ toc:
     path: /r2/tutorials/sequences/text_classification_rnn
   - title: Neural machine translation
     path: /r2/tutorials/sequences/nmt_with_attention
-    status: external
+
+- title: Distributing models
+  style: accordion
+  section:
+  - title: Keras
+    path: /r2/tutorials/distribute/keras
+  - title: Training Loops
+    path: /r2/tutorials/distribute/training_loops
