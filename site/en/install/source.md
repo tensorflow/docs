@@ -23,7 +23,7 @@ Install the following build tools to configure your development environment.
 </section>
 <section>
 <h3>mac OS</h3>
-<p>Requires Xcode 8.3 or later.</p>
+<p>Requires Xcode 9.2 or later.</p>
 <p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
