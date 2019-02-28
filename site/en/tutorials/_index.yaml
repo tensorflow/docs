@@ -1,5 +1,5 @@
-project_path: /_project.yaml
-book_path: /_book.yaml
+project_path: /overview/_project.yaml
+book_path: /overview/_book.yaml
 description: <!--no description-->
 landing_page:
   body_class: tfo-tutorials
