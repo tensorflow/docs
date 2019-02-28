@@ -56,14 +56,6 @@ toc:
 - title: "TensorFlow Debugger"
   path: /guide/debugger
 
-- heading: TensorBoard
-- title: "Visualizing Learning"
-  path: /guide/summaries_and_tensorboard
-- title: "Graphs"
-  path: /guide/graph_viz
-- title: "Histograms"
-  path: /guide/tensorboard_histograms
-
 - heading: Performance
 - title: Overview
   path: /guide/performance/overview
