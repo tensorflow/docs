@@ -1,25 +1,32 @@
 toc:
-- title: High Level APIs
-  style: accordion
-  section:
-  - title: Upgrading to TF2
-    path: /r2/guide/upgrade
-  - title: "Keras"
-    path: /r2/guide/keras
-  - title: "Eager Execution"
-    path: /r2/guide/eager
+- heading: "Guide"
+  style: divider
 
-- title: Accelerators
-  style: accordion
-  section:
-  - heading: Accelerators
-  - title: "Distribute Strategy"
-    path: /r2/guide/distribute_strategy
+- title: "AutoGraph"
+  path: /alpha/guide/autograph
+- title: "Eager execution"
+  path: /alpha/guide/eager
+- title: "Variables"
+  path: /alpha/guide/variables
 
-- title: Low Level APIs
-  style: accordion
-  section:
-  - title: "Checkpoints"
-    path: /r2/guide/saved_model
-  - title: "Control flow"
-    path: /r2/guide/autograph
+- heading: "TensorFlow Keras 2.0"
+- title: "Keras overview"
+  path: /alpha/guide/keras/keras-overview
+- title: "Keras functional API"
+  path: /alpha/guide/keras/keras-functional-api-in-tensorflow-2
+- title: "Train and evaluate"
+  path: /alpha/guide/keras/training-and-evaluation-with-keras-in-tensorflow-2
+- title: "Write layers and models from scratch"
+  path: /alpha/guide/keras/writing-layers-and-models-from-scratch-in-tensorflow-2
+- title: "Save and serialize models"
+  path: /alpha/guide/keras/saving-and-serializing-models-with-keras-in-tensorflow-2
+
+- heading: "Accelerators"
+- title: "Distribution strategy"
+  path: /alpha/guide/distribute_strategy
+
+- heading: "Low-level APIs"
+- title: "Checkpoints"
+  path: /alpha/guide/checkpoints
+- title: "Saved models"
+  path: /alpha/guide/saved_model
