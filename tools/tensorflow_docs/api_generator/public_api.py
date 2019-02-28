@@ -58,6 +58,7 @@ class PublicAPIVisitor(object):
     # Skip modules outside of the package root.
     if inspect.ismodule(obj):
       if hasattr(obj, '__file__'):
+        # `startswith` will match any item in a tuple.
         if not obj.__file__.startswith(self._base_dir):
           return True
 
