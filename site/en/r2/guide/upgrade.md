@@ -1,4 +1,4 @@
-# Upgrade your code to TensorFlow 2.0
+# Upgrade code to TensorFlow 2.0
 
 TensorFlow 2.0 includes many API changes, such as reordering arguments, renaming symbols, and changing default values for parameters. Manually performing all of these modifications would be tedious and prone to error. To streamline the changes, and to make your transition to TF 2.0 as seamless as possible, the TensorFlow team has created the `tf_upgrade_v2` utility to help transition legacy code to the new API.
 
