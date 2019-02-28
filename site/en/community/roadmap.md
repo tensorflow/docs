@@ -15,7 +15,7 @@ to TensorFlow.
 
 * Eager execution is a central feature of 2.0. It aligns users’ expectations about the programming model better with TensorFlow practice and should make TensorFlow easier to learn and apply.
 * Support for more platforms and languages, and improved compatibility and parity between these components via standardization on exchange formats and alignment of APIs.
-* We will remove deprecated APIs and reduce the amount of duplication, which has confused for users.
+* We will remove deprecated APIs and reduce the amount of duplication, which has caused confusion for some users.
 
 For more details on 2.0 and associated public design consultations, please see the [full announcement](https://groups.google.com/a/tensorflow.org/forum/#!topic/discuss/bgug1G6a89A).
 
