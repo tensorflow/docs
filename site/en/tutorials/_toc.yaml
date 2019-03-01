@@ -46,8 +46,6 @@ toc:
     path: /tutorials/estimators/boosted_trees
   - title: Boosted trees model understanding
     path: /tutorials/estimators/boosted_trees_model_understanding
-  - title: Text classifier with TF-Hub
-    path: /hub/tutorials/text_classification_with_tf_hub
   - title: Build a CNN using Estimators
     path: /tutorials/estimators/cnn
 
@@ -126,6 +124,3 @@ toc:
     path: /tutorials/non-ml/mandelbrot
   - title: Partial differential equations
     path: /tutorials/non-ml/pdes
-
-- title: Next steps
-  path: /tutorials/next_steps

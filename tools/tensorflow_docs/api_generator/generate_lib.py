@@ -343,10 +343,13 @@ class DocGenerator(object):
     Args:
       root_title: A string. The main title for the project. Like "TensorFlow"
       py_modules: The python module to document.
-      base_dir: The directory that "Defined in" links are generated relative to.
-        Defined in links are not defined for objects defined outside this
-        directory.
-      code_url_prefix: The prefix to add to "Defined in" paths.
+      base_dir: String or tuple of strings. Directories that "Defined in" links
+        are generated relative to. Modules outside one of these directories are
+        not documented. No `base_dir` should be inside another.
+      code_url_prefix: String or tuple of strings. The prefix to add to
+        "Defined in" paths. These are zipped with `base-dir`, to set the
+        `defined_in` path for each file. The defined in link for
+        `{base_dir}/path/to/file` is set to `{code_url_prefix}/path/to/file`.
       search_hints: Bool. Include metadata search hints at the top of each file.
       site_path:
       private_map: A {"module.path.to.object": ["names"]} dictionary. Specific
@@ -362,8 +365,17 @@ class DocGenerator(object):
     self._py_modules = py_modules
     self._short_name = py_modules[0][0]
     self._py_module = py_modules[0][1]
-    self._base_dir = base_dir
-    self._code_url_prefix = code_url_prefix
+
+    if isinstance(base_dir, str):
+      base_dir = (base_dir,)
+    self._base_dir = tuple(base_dir)
+    assert self._base_dir, '`base_dir` cannot be empty'
+
+    if isinstance(code_url_prefix, str):
+      code_url_prefix = (code_url_prefix,)
+    self._code_url_prefix = tuple(code_url_prefix)
+    assert self._code_url_prefix, '`code_url_prefix` cannot be empty'
+
     self._search_hints = search_hints
     self._site_path = site_path
     self._private_map = private_map or {}

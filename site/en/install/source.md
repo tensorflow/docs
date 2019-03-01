@@ -23,7 +23,7 @@ Install the following build tools to configure your development environment.
 </section>
 <section>
 <h3>mac OS</h3>
-<p>Requires Xcode 8.3 or later.</p>
+<p>Requires Xcode 9.2 or later.</p>
 <p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
@@ -232,11 +232,19 @@ the GCC 5 built package.
 ### Build the package
 
 The `bazel build` command creates an executable named `build_pip_package`—this
-is the program that builds the `pip` package. For example, the following builds a
-`.whl` package in the `/tmp/tensorflow_pkg` directory:
+is the program that builds the `pip` package. Run the executable as shown
+below to build a `.whl` package in the `/tmp/tensorflow_pkg` directory.
+
+To build from a release branch:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+</pre>
+
+To build from master, use `--nightly_flag` to get the right dependencies:
+
+<pre class="devsite-terminal devsite-click-to-copy">
+./bazel-bin/tensorflow/tools/pip_package/build_pip_package --nightly_flag /tmp/tensorflow_pkg
 </pre>
 
 Although it is possible to build both CUDA and non-CUDA configurations under the

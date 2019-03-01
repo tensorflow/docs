@@ -488,7 +488,7 @@ dataset = dataset.flat_map(
 ### Consuming CSV data
 
 The CSV file format is a popular format for storing tabular data in plain text.
-The `tf.contrib.data.CsvDataset` class provides a way to extract records from
+The `tf.data.experimental.CsvDataset` class provides a way to extract records from
 one or more CSV files that comply with [RFC 4180](https://tools.ietf.org/html/rfc4180).
 Given one or more filenames and a list of defaults, a `CsvDataset` will produce
 a tuple of elements whose types correspond to the types of the defaults
@@ -501,7 +501,7 @@ by passing a  `tf.placeholder(tf.string)`.
 # eight float columns
 filenames = ["/var/data/file1.csv", "/var/data/file2.csv"]
 record_defaults = [tf.float32] * 8   # Eight required float columns
-dataset = tf.contrib.data.CsvDataset(filenames, record_defaults)
+dataset = tf.data.experimental.CsvDataset(filenames, record_defaults)
 ```
 
 If some columns are empty, you can provide defaults instead of types.
@@ -510,7 +510,7 @@ If some columns are empty, you can provide defaults instead of types.
 # Creates a dataset that reads all of the records from two CSV files, each with
 # four float columns which may have missing values
 record_defaults = [[0.0]] * 8
-dataset = tf.contrib.data.CsvDataset(filenames, record_defaults)
+dataset = tf.data.experimental.CsvDataset(filenames, record_defaults)
 ```
 
 By default, a `CsvDataset` yields *every* column of *every* line of the file,
@@ -523,7 +523,7 @@ arguments respectively.
 # Creates a dataset that reads all of the records from two CSV files with
 # headers, extracting float data from columns 2 and 4.
 record_defaults = [[0.0]] * 2  # Only provide defaults for the selected columns
-dataset = tf.contrib.data.CsvDataset(filenames, record_defaults, header=True, select_cols=[2,4])
+dataset = tf.data.experimental.CsvDataset(filenames, record_defaults, header=True, select_cols=[2,4])
 ```
 <!--
 TODO(mrry): Add these sections.

@@ -2,7 +2,6 @@ project_path: /_project.yaml
 book_path: /_book.yaml
 description: <!--no description-->
 landing_page:
-  body_class: tfo-install
   custom_css_path: /site-assets/css/style.css
   nav: both
   rows:

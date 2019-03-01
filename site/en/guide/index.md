@@ -63,18 +63,6 @@ works. The units are as follows:
   * [TensorFlow Debugger](../guide/debugger.md), which
     explains how to use the TensorFlow debugger (tfdbg).
 
-## TensorBoard
-
-TensorBoard is a utility to visualize different aspects of machine learning.
-The following guides explain how to use TensorBoard:
-
-  * [TensorBoard: Visualizing Learning](../guide/summaries_and_tensorboard.md),
-    which introduces TensorBoard.
-  * [TensorBoard: Graph Visualization](../guide/graph_viz.md), which
-    explains how to visualize the computational graph.
-  * [TensorBoard Histogram Dashboard](../guide/tensorboard_histograms.md) which demonstrates the how to
-    use TensorBoard's histogram dashboard.
-
 ## Performance
 
 Performance is an important consideration when training machine learning models.

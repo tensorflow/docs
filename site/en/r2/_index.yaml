@@ -1,0 +1,12 @@
+book_path: /overview/_book.yaml
+project_path: /overview/_project.yaml
+description: <!--no description-->
+landing_page:
+  nav: left
+  custom_css_path: /site-assets/css/style.css
+  rows:
+  - heading: TF2.0 Alpha
+    items:
+    - classname: devsite-landing-row-50
+      description: >
+        Cool new stuff!

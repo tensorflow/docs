@@ -1339,13 +1339,13 @@ class _PythonFile(object):
   This can be used for the `defined_in` slot of the `PageInfo` objects.
   """
 
-  def __init__(self, path, parser_config):
+  def __init__(self, path, code_url_prefix):
     self.path = path
-    self.code_url_prefix = parser_config.code_url_prefix
+    self.code_url_prefix = code_url_prefix
 
   def __str__(self):
-    return 'Defined in [`{path}`]({code_prefix}{path}).\n\n'.format(
-        path=self.path, code_prefix=self.code_url_prefix)
+    return 'Defined in [`{path}`]({url}).\n\n'.format(
+        path=self.path, url=os.path.join(self.code_url_prefix, self.path))
 
 
 class _ProtoFile(object):
@@ -1354,13 +1354,13 @@ class _ProtoFile(object):
   This can be used for the `defined_in` slot of the `PageInfo` objects.
   """
 
-  def __init__(self, path, parser_config):
+  def __init__(self, path, code_url_prefix):
     self.path = path
-    self.code_url_prefix = parser_config.code_url_prefix
+    self.code_url_prefix = code_url_prefix
 
   def __str__(self):
-    return 'Defined in [`{path}`]({code_prefix}{path}).\n\n'.format(
-        path=self.path, code_prefix=self.code_url_prefix)
+    return 'Defined in [`{path}`]({url}).\n\n'.format(
+        path=self.path, url=os.path.join(self.code_url_prefix, self.path))
 
 
 class _GeneratedFile(object):
@@ -1389,13 +1389,27 @@ def _get_defined_in(py_object, parser_config):
     Either a `_PythonFile`, `_ProtoFile`, or a `_GeneratedFile`
   """
   # Every page gets a note about where this object is defined
-  # TODO(wicke): If py_object is decorated, get the decorated object instead.
-  # TODO(wicke): Only use decorators that support this in TF.
+  base_dirs_and_prefixes = zip(parser_config.base_dir,
+                               parser_config.code_url_prefix)
+  code_url_prefix = None
+  for base_dir, temp_prefix in base_dirs_and_prefixes:
+    try:
+      obj_path = tf_inspect.getfile(py_object)
+    except TypeError:  # getfile throws TypeError if py_object is a builtin.
+      continue
 
-  try:
-    path = os.path.relpath(
-        path=tf_inspect.getfile(py_object), start=parser_config.base_dir)
-  except TypeError:  # getfile throws TypeError if py_object is a builtin.
+    rel_path = os.path.relpath(
+        path=obj_path, start=base_dir)
+    # A leading ".." indicates that the file is not inside `base_dir`, and
+    # the search should continue.
+    if rel_path.startswith('..'):
+      continue
+    else:
+      code_url_prefix = temp_prefix
+      break
+
+  # No link if the file was not found in a `base_dir`, or the prefix is None.
+  if code_url_prefix is None:
     return None
 
   # TODO(wicke): If this is a generated file, link to the source instead.
@@ -1403,22 +1417,22 @@ def _get_defined_in(py_object, parser_config):
   # TODO(wicke): And make their source file predictable from the file name.
 
   # In case this is compiled, point to the original
-  if path.endswith('.pyc'):
-    path = path[:-1]
+  if rel_path.endswith('.pyc'):
+    rel_path = rel_path[:-1]
 
   # Never include links outside this code base.
-  if path.startswith('..') or re.search(r'\b_api\b', path):
+  if re.search(r'\b_api\b', rel_path):
     return None
 
-  if re.match(r'.*/gen_[^/]*\.py$', path):
-    return _GeneratedFile(path)
-  if 'genfiles' in path or 'tools/api/generator' in path:
-    return _GeneratedFile(path)
-  elif re.match(r'.*_pb2\.py$', path):
+  if re.match(r'.*/gen_[^/]*\.py$', rel_path):
+    return _GeneratedFile(rel_path)
+  if 'genfiles' in rel_path:
+    return _GeneratedFile(rel_path)
+  elif re.match(r'.*_pb2\.py$', rel_path):
     # The _pb2.py files all appear right next to their defining .proto file.
-    return _ProtoFile(path[:-7] + '.proto', parser_config)
+    return _ProtoFile(rel_path[:-7] + '.proto', code_url_prefix)  # pylint: disable=undefined-loop-variable
   else:
-    return _PythonFile(path, parser_config)
+    return _PythonFile(rel_path, code_url_prefix)  # pylint: disable=undefined-loop-variable
 
 
 # TODO(markdaoust): This should just parse, pretty_docs should generate the md.
