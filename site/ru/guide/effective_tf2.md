@@ -201,6 +201,15 @@ dataset async prefetching/streaming features by wrapping your code in
 `tf.function()`, which replaces Python iteration with the equivalent graph
 operations using AutoGraph.
 
+При обучении модели на данных, которые находятся в памяти, используй стандартный
+итератор Python. В остальных случаях `tf.data.Dataset` является лучшим способом
+для потока тренировочных данных с диска. Датасеты являются
+[итерируемыми (не итераторами)](https://docs.python.org/3/glossary.html#term-iterable),
+и работают так же, как и другие итераторы Python в режиме Eager. Вы можете наиболее
+полно использовать асинхронные возможности prefetch и stream при помощи
+`tf.function()`, которая заменяет итерации Python их эквивалентами операций графов
+посредством AutoGraph.
+
 ```python
 @tf.function
 def train(model, dataset, optimizer):
@@ -215,20 +224,32 @@ def train(model, dataset, optimizer):
 If you use the Keras `.fit()` API, you won't have to worry about dataset
 iteration.
 
+Если вы используете метод `.fit()` из Keras API, то вам не придется
+волноваться об итерации датасета.
+
 ```python
 model.compile(optimizer=optimizer, loss=loss_fn)
 model.fit(dataset)
 ```
 
 ### Take advantage of AutoGraph with Python control flow
+### Воспользуйтесь премиуществами AutoGraph с порядком выполнения Python
 
 AutoGraph provides a way to convert data-dependent control flow into graph-mode
 equivalents like `tf.cond` and `tf.while_loop`.
+
+AutoGraph обеспечивает способ конвертации зависимого от данных порядка
+выполнения в его эквиваленты в режиме graph, например `tf.cond` и `tf.while_loop`
 
 One common place where data-dependent control flow appears is in sequence
 models. `tf.keras.layers.RNN` wraps an RNN cell, allowing you to either
 statically or dynamically unroll the recurrence. For demonstration's sake, you
 could reimplement dynamic unroll as follows:
+
+Единственное место, где появляется зависимый от данных порядок выполнения это
+последовательные модели. `tf.keras.layers.RNN` использует элемент RNN, позволяя
+вам развернуть повтор статически или динамически. Для примера, вы можете
+использовать динамическое развертывание:
 
 ```python
 class DynamicRNN(tf.keras.Model):
@@ -238,7 +259,7 @@ class DynamicRNN(tf.keras.Model):
     self.cell = rnn_cell
 
   def call(self, input_data):
-    # [batch, time, features] -> [time, batch, features]
+    # [батч, время, параметры] -> [время, батч, параметры]
     input_data = tf.transpose(input_data, [1, 0, 2])
     outputs = tf.TensorArray(tf.float32, input_data.shape[0])
     state = self.cell.zero_state(input_data.shape[1], dtype=tf.float32)
@@ -251,10 +272,17 @@ class DynamicRNN(tf.keras.Model):
 For a more detailed overview of AutoGraph's features, see
 [the guide](./autograph.ipynb).
 
+Для более детального описание возможностей AutoGraph ознакомьтесь с
+[руководством](./autograph.ipynb).
+
 ### Use tf.metrics to aggregate data and tf.summary to log it
+### Используйте tf.metrics для сбора данных и tf.summary для логов
 
 A complete set of `tf.summary` symbols are coming soon. You can access the
 2.0 version of `tf.summary` with:
+
+Скоро будет доступен полный набор операций `tf.summary`. Вы можете получить
+доступ к `tf.summary` 2.0 при помощи:
 
 ```python
 from tensorflow.python.ops import summary_ops_v2
@@ -265,6 +293,11 @@ doesn't actually do anything; the summaries need to be redirected to an
 appropriate file writer by using a context manager. (This allows you to avoid
 hardcoding summary output to a particular file writer.)
 
+Для записи логов, используйте `tf.summary.(scalar|histogram|...)`. Если использовать
+данные методы отдельно, то они не будут ничего делать; результаты должны быть
+перенаправлены к соответствующему file writer, используя контекстный менеджер
+(это позволит вам избежать записи логов в file writer).
+
 ```python
 summary_writer = tf.summary.create_file_writer('/tmp/summaries')
 with summary_writer.as_default():
@@ -274,6 +307,11 @@ with summary_writer.as_default():
 To aggregate data before logging them as summaries, use `tf.metrics`. Metrics
 are stateful; they accumulate values and return a cumulative result when you
 call `.result()`. Clear accumulated values with `.reset_states()`.
+
+Чтобы собрать данные перед записью их в лог, используйте `tf.metrics`. Метрики
+сохраняют свое состояние; они накапливают значения и возвращают собирательный 
+результат, когда вы вызываете метод `.result()`. Чтобы очистить все значения 
+используйте метод `.reset_states()`.
 
 ```python
 def train(model, optimizer, dataset, log_freq=10):
@@ -301,3 +339,8 @@ with test_summary_writer.as_default():
 
 By then pointing TensorBoard at the summary directory (`tensorboard --logdir
 /tmp/summaries`), you can then visualize the generated summaries.
+
+Указав папку с результами в TensorBoard (`tensorboard --logdir
+/tmp/summaries`), вы можете визуализировать полученные в ходе обучения
+данные на графиках.
+
