@@ -1,0 +1,21 @@
+toc:
+- title: "Contributing to TensorFlow"
+  path: /community/contributing
+- title: "Contributing to Code"
+  path: /community/code
+- title: "Contributing to Documentation"
+  path: /community/documentation
+- title: "Contributing to the Community"
+  path: /community/community
+
+- heading: Contributor Resources
+- title: "Code Style Guide"
+  path: /community/code_style
+- title: "Documentation Style Guide"
+  path: /community/docs_style
+
+- heading: Community Resources
+- title: "SIG Playbook"
+  path: /community/sig_playbook
+- title: "RFC Process"
+  path: /community/rfc_process
