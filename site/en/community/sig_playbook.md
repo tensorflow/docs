@@ -2,6 +2,8 @@
 
 ## Scope of a SIG
 
+To enable focused collaboration on particular areas of TensorFlow, we host **Special Interest Groups (SIGs)**. SIGs do their work in public: if you want to join and contribute, review the work of the group, and get in touch with the relevant SIG leader. Membership policies vary on a per-SIG basis.
+
 The ideal scope for a SIG will meet a well-defined domain, where the majority of
 participation will be from the community. Additionally, there should be
 sufficient evidence that there are community members willing to engage and
@@ -10,16 +12,20 @@ contribute should the interest group be established.
 Not all SIGs will have the same level of energy, breadth of scope, or governance
 models, so we should expect some variability.
 
-### What a SIG is **not**
+For a complete list of TensorFlow SIGs, check [here](https://www.tensorflow.org/community/lists#special_interest_groups).
+
+### Non-goals: What a SIG is **not**
 
 The intent of a SIG is to facilitate collaboration on shared work. A SIG is
 therefore:
 
-*   **Not a support forum**: a mailing list and a SIG is not the same thing
+*   **Not a support forum**: a mailing list and a SIG is not the same thing.
 *   **Not immediately required**: early on in a project's life, you may not know
-    if you have shared work or collaborators
+    if you have shared work or collaborators.
 *   **Not free labor**: energy is required to grow and coordinate the work
     collaboratively.
+    
+Our approach to SIG creation will be conservative: thanks to the ease of starting projects on GitHub, there are many avenues where collaboration can happen without the need for a SIG.
 
 ## SIG lifecycle
 
@@ -49,7 +55,7 @@ must demonstrate:
 *   Two or more contributors willing to act as group leads, existence of other
     contributors, and evidence of demand for the group
 *   Resources it will initially require (usually, mailing list and regular VC
-    call.) \
+    call.) 
 
 Approval for the group will be given by a decision of the TF Community Team,
 defined as being the maintainers of the tensorflow/community project. The team
@@ -103,9 +109,8 @@ group to discussion and action as appropriate.
 
 Required activities:
 
-*   Notifying TensorFlow general mailing lists (discuss@, developers ML) of new
-    group.
-*   Adding SIG to the community pages on TensorFlow web site. \
+*   Notifying TensorFlow general discussion groups (discuss@, developers@).
+*   Adding SIG to the community pages on TensorFlow web site. 
 
 Optional activities:
 
