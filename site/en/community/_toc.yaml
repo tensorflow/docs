@@ -14,21 +14,21 @@ toc:
 
 - name: "Contribute"
   contents:
-  - title: "Contributing to TensorFlow"
-    path: /community/contributing
-  - title: "Contributing to Code"
-    path: /community/code
-  - title: "Contributing to Documentation"
-    path: /community/documentation
-  - title: "Contributing to the Community"
-    path: /community/community
+  - title: "Contribute to TensorFlow"
+    path: /community/contribute
+  - title: "Code"
+    path: /community/contribute/code
+  - title: "Documentation"
+    path: /community/contribute/documentation
+  - title: "Community"
+    path: /community/contribute/community
 
-  - heading: Contributor Resources
-  - title: "Code Style Guide"
-    path: /community/code_style
-  - title: "Documentation Style Guide"
-    path: /community/docs_style
+  - heading: "Contributor resources"
+  - title: "Code style guide"
+    path: /community/contribute/code_style
+  - title: "Documentation style guide"
+    path: /community/contribute/docs_style
 
-  - heading: Community Resources
-  - title: "RFC Process"
-    path: /community/rfc_process
+  - heading: "Community resources"
+  - title: "RFC process"
+    path: /community/contribute/rfc_process
