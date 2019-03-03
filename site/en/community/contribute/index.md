@@ -1,4 +1,4 @@
-# The TensorFlow contributor community
+# Contribute to TensorFlow
 
 The TensorFlow ecosystem can only grow through the contributions of this community. Thanks so much for your enthusiasm and your work—we appreciate everything you do!
 

@@ -1,8 +1,8 @@
-# Contributing to the Community
+# Contribute to the community
 
 An open source project isn't just about the code, it's also about the community of users, developers, writers, researchers, and other contributors. You can help grow and support this community.
 
-## Community Support
+## Community support
 
 Many people [ask questions about TensorFlow on StackOverflow](https://stackoverflow.com/questions/tagged/tensorflow). Answering those questions and pointing people to the relevant documentation is a great service to the community.
 
@@ -31,7 +31,7 @@ Mailing lists are reserved for announcements and contrinbutor conversation. They
 *   [developers@tensorflow.org](mailto:developers@tensorflow.org) — Discussion for developers who are contributing to TensorFlow.
 
 
-#### Project-specific Lists
+#### Project-specific lists
 
 *   [docs@tensorflow.org](mailto:docs@tensorflow.org) — If you are interested in contributing to the TensorFlow documentation, join this mailing list.
 *   [hub@tensorflow.org](mailto:hub@tensorflow.org) — Discussion and collaboration around TensorFlow Hub.
@@ -61,7 +61,7 @@ The [Roadmap](https://www.tensorflow.org/community/roadmap) summarizes plans for
 
 TensorFlow has many communities all over the world! For a complete listing, please refer to the [Community](https://www.tensorflow.org/community/groups) section on the TensorFlow website.
 
-### Special Interest Groups (SIGs) {#special-interest-groups-sigs}
+### Special Interest Groups (SIGs)
 
 To enable focused collaboration on particular areas of TensorFlow, we host Special Interest Groups (SIGs). SIGs do their work in public. If you want to join and contribute, review the work of the group, and get in touch with the relevant SIG leader. Membership policies vary on a per-SIG basis.
 
@@ -112,4 +112,3 @@ As of January 2019, the current TF-SIGs are:
 If you believe there is a strong need for a new SIG,
 please read the [SIG playbook]() and get in touch with
 the TensorFlow Developer Relations Team.
-

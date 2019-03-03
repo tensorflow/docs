@@ -1,6 +1,6 @@
-# TensorFlow Documentation Style Guide
+# TensorFlow documentation style guide
 
-## Best practices {#best-practices}
+## Best practices
 
 *   Focus on user intent and audience.
 *   Use every-day words, and keep sentences short.
@@ -17,7 +17,7 @@ With a few exceptions, TensorFlow uses the standard Markdown rules. This section
 explains the primary differences between standard Markdown rules and the
 Markdown rules that TensorFlow documentation uses.
 
-### Math in Markdown {#math-in-markdown}
+### Math in Markdown
 
 You may use MathJax within TensorFlow when editing Markdown files, but note the
 following:
@@ -28,7 +28,7 @@ following:
 When writing MathJax, you can use $$ and \\( and \\) to surround your math. $$
 guards will cause line breaks, so within text use $$ $$ instead.
 
-### Writing about code {#writing-about-code}
+### Write about code
 
 #### Inline mentions of code
 
@@ -60,7 +60,7 @@ specify the language.
 
 
 
-### Links in Markdown {#links-in-markdown}
+### Links in Markdown
 
 #### Links between files in this repository
 

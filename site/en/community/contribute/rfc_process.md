@@ -1,4 +1,4 @@
-# The RFC Process
+# The RFC process
 
 Every new TensorFlow feature begins life as a Request for Comment (RFC).
 
@@ -90,7 +90,7 @@ Many people are involved in the RFC process:
 *   Any **community member** may help by providing feedback on whether the RFC
     will meet their needs.
 
-### RFC sponsors {#rfc-sponsors}
+### RFC sponsors
 
 A sponsor is a project maintainer responsible for ensuring the best possible
 outcome of the RFC process. This includes:
@@ -149,7 +149,7 @@ If you are working on new code to implement an RFC:
 *   Run Unit Tests before submitting your code.
 *   Work with the RFC sponsor to successfully land the new code.
 
-## Keeping the bar high {#keeping-the-bar-high}
+## Keeping the bar high
 
 While we encourage and celebrate every contributor, the bar for RFC acceptance
 is kept intentionally high. A new feature may be rejected or need significant

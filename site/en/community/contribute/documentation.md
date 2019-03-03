@@ -1,4 +1,4 @@
-# Contributing to Documentation
+# Contribute to documentation
 
 TensorFlow welcomes contributions to documentation. Improving the documentation
 is improving the TensorFlow library itself. Often, documentation is an easier
@@ -22,7 +22,7 @@ specific documentation projects other than core, see the `CONTRIBUTING.md` in
 the project repo, or contact the maintainers of the project you are interested
 in.
 
-## API Documentation
+## API documentation
 
 ### Versions and branches
 
@@ -95,7 +95,7 @@ TensorFlow2, and will fail if you attempt to build TensorFlow1.X docs with it.
 The C++ API documentation is generated from XML files generated via doxygen;
 however, those tools are not available in open-source at this time.
 
-## Narrative Documentation
+## Narrative documentation
 
 [TensorFlow guides](https://www.tensorflow.org/guide) and
 [tutorials](https://www.tensorflow.org/tutorials) are written
