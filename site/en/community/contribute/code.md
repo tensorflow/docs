@@ -1,99 +1,21 @@
 # Contributing to Code
 
+Whether you are adding a loss function, improving test coverage, or writing an RFC for a major design change, this portion of the contributor guide will help you get started. Thank you for work, and for your interest in improving the TensorFlow API!
+
 ## Before you get started
 
-Before contributing source code to a TensorFlow project, please review the `CONTRIBUTING.md` file in the GitHub repo of the project. (For example, see the [CONTRIBUTING.md file for the core TensorFlow repo](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md).) Also, see the [TensorFlow Code Style Guide](#tensorflow-code-style-guide).
+Before contributing source code to a TensorFlow project, please review the `CONTRIBUTING.md` file in the GitHub repo of the project. (For example, see the [CONTRIBUTING.md file for the core TensorFlow repo](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md).) All code contributors are required to [sign a Contributor License Agreement](https://cla.developers.google.com/clas).
 
-### Contributor License Agreement (CLA)
+To avoid duplicating work, please review [current RFCs](https://github.com/tensorflow/community/tree/master/rfcs) and contact the developers on our TensorFlow forums before starting work on a non-trivial feature. We are somewhat selective when it comes to adding new functionality, and the best way to contribute and help the project is to work on known issues. 
 
-All code contributors are required to [sign a Contributor License Agreement](https://cla.developers.google.com/clas).
+## Issues for New Contributors
+New contributors should look for the following tags when searching for a first contribution to the TensorFlow code base. We strongly recommend that new contributors tackle “easy” and "good first issue" projects first; this helps the contributor become familiar with the contribution workflow, and for the core devs to become acquainted with the contributor.
 
+- Good First Issue
+- Easy
+- Contributions Welcome
 
-## Reporting and Fixing Bugs
-
-If you experience a bug while using TensorFlow, please do not hesitate to open an issue in GitHub.
-
-### How to make a good bug report {#how-to-make-a-good-bug-report}
-
-When you submit an issue to GitHub, please do your best to follow these guidelines:
-
-*   Make sure you are **actually reporting a bug**, not requesting a new feature. If you want to suggest a new feature, please see the section on [requesting and implementing new features](#new-features).
-
-*   Verify that your **issue is not being addressed** by [other issues](https://github.com/tensorflow/tensorflow/issues) or [pull requests](https://github.com/tensorflow/tensorflow/pulls). 
-
-*   The ideal bug report contains a **short, reproducible code snippet**. If your snippet is longer than 50 lines, please link to a [gist](https://gist.github.com/) or a GitHub repo.
-
-*   If you cannot include a reproducible code snippet, please **be specific** about what **classes, functions, or ops** are involved, and mention the **shape and format** of your input data. Any visualizations you can add would also be appreciated.
-
-*   If an exception is raised, please **provide the full traceback**. Include any error messages or logs that are produced by your code.
-
-*   Please make sure to include your **operating system and distribution**, the **version of TensorFlow** that you are using, your **Python version**, whether TensorFlow was installed from **source or binary**, your **CUDA/cuDNN version**, your **GPU model and memory**, and your **Bazel version** (if compiling from source).
-
-*   If you are submitting a link to a friction log, use the [friction log template](https://docs.google.com/document/d/1_-0Zzn0hqS4ltLwqWAHm41-MgE60_9zlKyPHr5c-HCs/edit?usp=sharing).
-
-*   Please ensure all **code snippets and error messages are formatted in appropriate code blocks**. See [Op documentation style guide](#style-and-voice-quick-start) for more details.
-
-*   For documentation issues, please provide **TensorFlow version**, a **URL link to the page or file**, and a detailed description of the location of the error. For documentation that is generated from docstrings, provide the line that contains the error.
-
-You can use one of the following issue templates to structure your bug report:
-
-*   [Bug / Performance Issues](https://github.com/tensorflow/tensorflow/issues/new?template=00-bug-performance-issue.md)
-*   [Build / Installation Issues](https://github.com/tensorflow/tensorflow/issues/new?template=10-build-installation-issue.md)
-*   [Documentation Issue](https://github.com/tensorflow/tensorflow/issues/new?template=20-documentation-issue.md)
-*   [Other Issues](https://github.com/tensorflow/tensorflow/issues/new?template=50-other-issues.md)
-
-
-### Contributing bug fixes
-
-Generally, the process for fixing bugs is:
-
-1. Fork the repo on GitHub from the TensorFlow organiztion to your personal account.
-2. Clone the repo down to your development machine.
-3. Create a new branch for working on the bug fix.
-4. Complete the work.
-5. Push the branch back to your GitHub copy of the repo.
-6. Open a Pull Request against the relevant branch (usually `master`) on the main repo.
-7. Once the code has been reviewed and approved, it will be merged by the maintainers.
-
-Some of the projects use a slightly modified version of this workflow, so be sure to read the `CONTRIBUTING.md` file for the repo you are working on, and ask questions if you are unsure.
-
-
-#### Before beginning
-
-*   Do not submit PRs to fix bugs that have not been reported as issues. If you discover a bug, and know how to fix it, submit the issue first before beginning work on the fix.
-*   Read the original issue and the entire conversation that follows. Ask questions to make sure you understand the bug. Discuss your planned approach to fixing it, and your testing strategy.
-*   Make sure no one else is already working on fixing the bug.
-*   Once you are ready to begin work, make a note of this in the issue thread and have the bug assigned to you.
-
-#### Working on the bug
-
-*   Bug fixes should include new unit tests that verify the fix and guard against regressions. It's a good idea to write these tests before writing the code.
-*   Follow the [TensorFlow Code Style Guide](#tensorflow-code-style-guide)
-*   Add or update relevant API documentation if needed.
-*   Run Unit Tests.
-*   Follow any other guidelines laid out in the `CONTRIBUTING.md` file in the project repo you're contributing to.
-
-#### Getting your fix merged
-
-Once you have completed the work, open a PR against the main repo. Be sure to reference the original issue in your PR summary.
-
-*   Be prepared for a thorough review of your code from the maintainers and other community members.
-*   Update your PR if the maintainers ask for changes.
-
-
-## Requesting and Implementing New Features
-
-We are selective about adding new features to TensorFlow, and we do not accept unsolicited PRs unrelated to existing issues or feature requests. If you are interested in writing code for TensorFlow, the best place to start is by fixing known bugs. (See [Issues for new contributors](#issues-for-new-contributors) if you're looking for ideas of what to work on.)
-
-### Feature requests
-
-If you have a feature request, you can [submit your feature request as a GitHub issue](https://github.com/tensorflow/tensorflow/issues/new?template=30-feature-request.md).
-
-You can also submit [TensorFlow Lite Ops Requests](https://github.com/tensorflow/tensorflow/issues/new?template=40-tflite-op-request.md) as GitHub issues.
-
-To help move a feature request from an idea to an implemented feature, you can get involved with the Request for Comment (RFC) process.
-
-
+If you are interested in recruiting a team to help tackle a large-scale problem or a new feature, please email the developers@ group and review our current list of RFCs. 
 
 ## Code Review
 
@@ -121,37 +43,19 @@ Of particular concerns in **adequate testing.**
 *   Do the tests **pass the continuous integration** build?
 *   Do the tests **cover every line of code?** If not, are the exceptions reasonable and explicit?
 
-
 If you find any problems, please consider helping the contributor understand those problems and resolve them. 
 
+## Testing and improving test coverage
 
-## Testing
+High-quality unit testing is a corner-stone of the TensorFlow development process. For this purpose, we use Docker images. The test functions are appropriately named, and are responsible for checking the validity of algorithms as well as different options of the code.
 
-Thorough testing is a important to the health and longevity of TensorFlow, and you can help.
+All new features and bug fixes **must** include adequate test coverage. We also welcome contributions of new test cases or improvements to existing tests. If you discover that our existing tests are not complete — even if that is not currently causing a bug — please file an issue and, if possible, a pull request.
 
 For the specific details of testing procedures in each TensorFlow project, see the `README.md` and `CONTRIBUTING.md` files in the project repo on GitHub.
 
-### Improving Test Coverage
+## Improving error messages or logs
 
-All new features and bug fixes must include adequate test coverage. We also welcome contributions of new test cases or improvements to existing tests. If you discover that our existing tests are not complete — even if that is not currently causing a bug — please file an issue and, if possible, a pull request.
-
-### User Testing
-
-The best way to uncover software bugs is for a lot of people to use the software. Each time you use TensorFlow, be on the lookout for odd or unexpected behavior. If you discover a bug, please report it.
-
-If you are able, we encourage you to try out nightly builds, alphas, and release candidates. These give you access to recent bug fixes and upcoming feature, and the project benefits because bugs and rough edges are discovered early.
-
-To access nightly builds:
-
-*   `pip install tf-nightly`
-*   `pip install tf-nightly-gpu`
-
-For alphas, release candidates, and other version releases, see:
-
-*   [TensorFlow Installation Guide](https://www.tensorflow.org/install)
-*   [TensorFlow Docker Guide](https://www.tensorflow.org/install/docker)
-
-
+We welcome contributions that improve error messages and logging. 
 
 ## Contribution workflow
 
@@ -211,8 +115,6 @@ Additional git and GitHub resources:
 *   [Git documentation](https://git-scm.com/documentation)
 *   [Git development workflow](https://docs.scipy.org/doc/numpy/dev/gitwash/development_workflow.html)
 *   [Resolving merge conflicts](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/).
-
-
 
 
 ## Contributor checklist
