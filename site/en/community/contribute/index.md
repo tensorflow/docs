@@ -33,7 +33,7 @@ Whether you want to contribute code, make improvements to the TensorFlow API doc
 - Give a “thumbs up” on issues that are relevant to you.
 - Reference TensorFlow in your blogs, papers, and articles.
 - Talk about TensorFlow on social media.
-- ... even just starring the repos you like on Github!
+- ... even just starring the repos you like on GitHub!
 
 We're excited to have you here, and thank you for your interest in contributing to the project! This is an exciting time to be working on scientific computation and machine learning, and it's only just beginning.
 

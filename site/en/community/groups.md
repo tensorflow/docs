@@ -1,4 +1,4 @@
-# User Groups
+# User groups
 
 TensorFlow has communities around the world. [Submit your community!](https://docs.google.com/forms/d/e/1FAIpQLSc_RQIUYtVgLLihzATaO_WUXkEyBDE_OoRoOXYDPmBEvHuEBA/viewform)
 
