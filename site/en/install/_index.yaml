@@ -50,7 +50,7 @@ landing_page:
         # Nightly build with GPU support (unstable)
         <code class="devsite-terminal">pip install tf-nightly-gpu</code><br/>
         # TensorFlow 2.0 Alpha
-        <code class="devsite-terminal">pip install --pre tensorflow</code><br/>
+        <code class="devsite-terminal">pip install tf-nightly-2.0-preview</code><br/>
         </pre>
 
   - classname:
