@@ -1,4 +1,4 @@
-# The RFC process
+# The TensorFlow RFC process
 
 Every new TensorFlow feature begins life as a Request for Comment (RFC).
 

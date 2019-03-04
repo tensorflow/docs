@@ -1,4 +1,4 @@
-# Contribute to documentation
+# Contribute to the TensorFlow documentation
 
 TensorFlow welcomes contributions to documentation. Improving the documentation
 is improving the TensorFlow library itself. Often, documentation is an easier
