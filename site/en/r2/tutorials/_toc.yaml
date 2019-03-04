@@ -55,7 +55,7 @@ toc:
   - title: "Boosted trees"
     path: /alpha/tutorials/estimators/boosted_trees
   - title: "Boosted trees (model understanding)"
-    path: /alpha/tutorials/estimators/boosted_trees_model_understanding.ipynb
+    path: /alpha/tutorials/estimators/boosted_trees_model_understanding
   - title: "Linear models"
     path: /alpha/tutorials/estimators/linear
 
@@ -83,16 +83,20 @@ toc:
 - title: "Text and sequences"
   style: accordion
   section:
+  - title: "Word Embeddings"
+    path: /alpha/tutorials/sequences/word_embeddings
+  - title: "Text Classification with as RNN"
+    path: /alpha/tutorials/sequences/text_generation
   - title: "Generate text with an RNN"
     path: /alpha/tutorials/sequences/text_generation
   - title: "Neural Machine Translation with Attention"
     path: /alpha/tutorials/sequences/nmt_with_attention
+  - title: "Image captioning"
+    path: /alpha/tutorials/generative/image_captioning
 
 - title: "GANs and VAEs"
   style: accordion
   section:
-  - title: "VAE"
-    path: /alpha/tutorials/generative/cvae
   - title: "DCGAN"
     path: /alpha/tutorials/generative/dcgan
   - title: "Pix2Pix"
