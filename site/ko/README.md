@@ -58,7 +58,7 @@ Whole file structure can be changed even if you modify only a chunk in the noteb
 It is hard to review such a file in Github.
 You should use a text editor when you edit a few words of existing notebook.
 You should test the notebook in your repository with Colab after you finish the translation.
-You should request for review if there is no error.
+You can request for review if there is no error.
 
 Thanks!
 
