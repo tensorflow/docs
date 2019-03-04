@@ -32,11 +32,14 @@ volunteer to write or review community translations, fill out
 다른 사람이 작업 중인 파일이 아니라면 en 폴더 안의 파일을 ko 폴더 아래 같은 위치에 복사하여 시작합니다.
 site/ko/ 는 텐서플로 1.x 버전을 위한 파일입니다.
 site/ko/r2/ 는 텐서플로 2.x 버전을 위한 파일입니다.
+
+막다운(markdown)과 주석을 모두 번역합니다. 코드 셀(cell)은 실행하지 않습니다.
 주피터 노트북은 조금만 수정하더라도 파일 소스 전체가 변경될 수 있습니다.
 이런 파일은 깃허브에서 리뷰하기 어렵습니다.
 기존 노트북에서 간단한 내용을 수정할 때는 가능하면 텍스트 편집기를 사용하여 직접 노트북 소스를 수정해야 합니다. 
 노트북 파일의 번역이 완료되면 포크된 자신의 저장소에서 코랩(Colab)에서 실행이 잘되는지 확인해야 합니다.
 코랩에서 실행에 문제가 없다면 리뷰를 요청합니다.
+
 감사합니다!
 
 Thanks for joining translation.
@@ -49,11 +52,14 @@ Copy a file in `en` folder to same location under `ko` folder if anybody doesn't
 and get it start.
 `site/ko/` are for TensorFlow 1.x.
 `site/ko/r2` are for TensorFlow 2.x.
+
+You should translate markdown and comments. You should not run code cells.
 Whole file structure can be changed even if you modify only a chunk in the notebook.
 It is hard to review such a file in Github.
 You should use a text editor when you edit a few words of existing notebook.
 You should test the notebook in your repository with Colab after you finish the translation.
 You should request for review if there is no error.
+
 Thanks!
 
 # Korean translation guide
