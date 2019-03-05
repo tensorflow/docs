@@ -28,7 +28,7 @@ toc:
   path: /alpha/guide/using_gpu
 
 - heading: "Data Loading"
-- title: "data_performance.md"
+- title: "Performance"
   path: /alpha/guide/data_performance
 
 - heading: "Serialization"
