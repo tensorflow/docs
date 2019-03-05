@@ -26,7 +26,7 @@ For example, see the bindings for:
 * [Ruby](https://github.com/somaticio/tensorflow.rb),
 * [Rust](https://github.com/tensorflow/rust), and
 * [Scala](https://github.com/eaplatanios/tensorflow_scala).
-
+ 
 We also provide the C++ API reference for TensorFlow Serving:
 
 * [TensorFlow Serving](/tfx/serving/api_docs/cc/)
