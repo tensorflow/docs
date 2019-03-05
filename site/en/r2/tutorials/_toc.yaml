@@ -25,7 +25,7 @@ toc:
   - title: "Classify text"
     path: /alpha/tutorials/keras/basic_text_classification
   - title: "Classify structured data"
-    path: /alpha/tutorials/structured_data/feature_columns
+    path: /alpha/tutorials/keras/feature_columns
   - title: "Regression"
     path: /alpha/tutorials/keras/basic_regression
   - title: "Overfitting and underfitting"
