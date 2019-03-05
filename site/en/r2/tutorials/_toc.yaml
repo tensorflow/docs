@@ -36,9 +36,9 @@ toc:
 - title: "Images"
   style: accordion
   section:
-  - title: "Intro to Convolutional Neural Networks"
+  - title: "Convolutional Neural Networks"
     path: /alpha/tutorials/images/intro_to_cnns
-  - title: "Transfer learning using pretrained CNNs"
+  - title: "Transfer learning with pretrained CNNs"
     path: /alpha/tutorials/images/transfer_learning
 
 - title: "Text and sequences"
