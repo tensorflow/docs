@@ -27,7 +27,7 @@ GPU support, choose a stable or development package:
 install:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install tf-nightly-2.0-preview-gpu</code>
+<code class="devsite-terminal">pip install tf-nightly-gpu-2.0-preview</code>
 </pre>
 
 ## Hardware requirements
