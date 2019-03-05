@@ -170,18 +170,12 @@ class DynamicRNN(tf.keras.Model):
 
 ### tf.metrics로 데이터를 수집하고 tf.summary로 기록하세요.
 
-완전한 `tf.summary` 메서드가 곧 제공됩니다. 다음처럼 `tf.summary`의 2.0 버전을 사용해 볼 수 있습니다.
-
-```python
-from tensorflow.python.ops import summary_ops_v2
-```
-
-`tf.summary.(scalar|histogram|...)`와 같이 사용하여 기록합니다. 이 함수는 독립적으로 아무 일도 하지 않습니다. 기록할 정보를 컨텍스트 관리자(context manager)를 사용한 적절한 `FileWriter`로 전달해야 합니다. (`summary`의 출력을 특정 파일에 기록하도록 하드코딩하지 않아도 됩니다.)
+서머리(summary) 로그를 기록하려면 `tf.summary.(scalar|histogram|...)`를 사용합니다. 컨텍스트 관리자(context manager)를 사용하는 파일 쓰기 객체에 전달해야 합니다. (컨텍스트 관리자를 사용하지 않으면 아무 일도 일어나지 않습니다.) TF 1.x과 달리 서머리는 바로 파일 쓰기 객체에 전달됩니다. 별도의 "머지(merge)" 연산이나 `add_summary()` 호출이 없습니다. 따라서 로그를 기록할 때 `step` 값이 함께 제공되어야 합니다.
 
 ```python
 summary_writer = tf.summary.create_file_writer('/tmp/summaries')
 with summary_writer.as_default():
-  summary_ops_v2.scalar('loss', 0.1, step=42)
+  tf.summary.scalar('loss', 0.1, step=42)
 ```
 
 `summary`로 기록할 데이터를 수집하려면 `tf.metrics`를 사용하세요. 측정 정보들은 상태가 있습니다. 이 값들은 누적되어 `.result()`를 호출하면 누적된 결과가 반환됩니다. `.reset_stats()`를 사용하여 누적된 값을 초기화할 수 있습니다.
@@ -193,12 +187,12 @@ def train(model, optimizer, dataset, log_freq=10):
     loss = train_step(model, optimizer, images, labels)
     avg_loss.update_state(loss)
     if tf.equal(optimizer.iterations % log_freq, 0):
-      summary_ops_v2.scalar('loss', avg_loss.result(), step=optimizer.iterations)
+      tf.summary.scalar('loss', avg_loss.result(), step=optimizer.iterations)
       avg_loss.reset_states()
 
 def test(model, test_x, test_y, step_num):
   loss = loss_fn(model(test_x), test_y)
-  summary_ops_v2.scalar('loss', step=step_num)
+  tf.summary.scalar('loss', loss, step=step_num)
 
 train_summary_writer = tf.summary.create_file_writer('/tmp/summaries/train')
 test_summary_writer = tf.summary.create_file_writer('/tmp/summaries/test')
@@ -210,5 +204,4 @@ with test_summary_writer.as_default():
   test(model, test_x, test_y, optimizer.iterations)
 ```
 
-로그 디렉토리를 지정하여 텐서보드(TensorBoard)를 실행하면(`tensorboard --logdir
-/tmp/summaries`) 생성된 로그 데이터를 시각화할 수 있습니다.
+텐서보드(TensorBoard)에 로그 디렉토리를 지정하여 생성된 서머리 로그를 시각화해 보세요: `tensorboard --logdir /tmp/summaries`
