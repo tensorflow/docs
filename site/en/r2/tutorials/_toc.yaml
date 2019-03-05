@@ -4,13 +4,13 @@ toc:
 - title: "Effective TensorFlow"
   path: /alpha/guide/effective_tf2
 - title: "Migrate from TF 1 to TF 2"
-  path: /alpha/guide/
+  path: /alpha/guide/migration_guide
 - title: "Convert with the upgrade script"
   path: /alpha/guide/upgrade
 - title: "Get started for beginners"
-  path: /alpha/tutorials/quickstart/beginner.ipynb
+  path: /alpha/tutorials/quickstart/beginner
 - title: "Get started for experts"
-  path: /alpha/tutorials/quickstart/advanced.ipynb
+  path: /alpha/tutorials/quickstart/advanced
 
 - heading: "Beginner tutorials"
   style: divider
@@ -83,10 +83,6 @@ toc:
 - title: "Text and sequences"
   style: accordion
   section:
-  - title: "Word Embeddings"
-    path: /alpha/tutorials/sequences/word_embeddings
-  - title: "Text Classification with as RNN"
-    path: /alpha/tutorials/sequences/text_generation
   - title: "Generate text with an RNN"
     path: /alpha/tutorials/sequences/text_generation
   - title: "Neural Machine Translation with Attention"
@@ -97,6 +93,8 @@ toc:
 - title: "GANs and VAEs"
   style: accordion
   section:
+  - title: "VAE"
+    path: /alpha/tutorials/generative/cvae
   - title: "DCGAN"
     path: /alpha/tutorials/generative/dcgan
   - title: "Pix2Pix"
