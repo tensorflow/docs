@@ -45,9 +45,9 @@ toc:
   style: accordion
   section:
   - title: "Intro to word embeddings"
-    path: /alpha/tutorials/tutorials/sequences/word_embeddings
+    path: /alpha/tutorials/sequences/word_embeddings
   - title: "Classify text with a RNN"
-    path: /alpha/tutorials/tutorials/sequences/text_classification_rnn
+    path: /alpha/tutorials/sequences/text_classification_rnn
 
 - title: "Estimators"
   style: accordion
