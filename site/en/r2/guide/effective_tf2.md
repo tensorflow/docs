@@ -251,16 +251,11 @@ For a more detailed overview of AutoGraph's features, see
 
 ### Use tf.metrics to aggregate data and tf.summary to log it
 
-To log summaries, use `tf.summary.(scalar|histogram|...)`. In isolation, this
-doesn't actually do anything; the summaries need to be redirected to an
-appropriate file writer by using a context manager. (This allows you to avoid
-hardcoding summary output to a particular file writer.) Unlike TF 1.x, the
-summaries are emitted directly to the writer; there is no separate "merge" op
-and no separate `add_summary()` call, which means that the `step` value must be
-provided at the callsite.
-
-Note: in TF 2.0, you must have TensorBoard installed to be able to access the
-full summary-writing API. TensorBoard is installed with TensorFlow by default.
+To log summaries, use `tf.summary.(scalar|histogram|...)` and redirect it to a
+writer using a context manager. (If you omit the context manager, nothing will
+happen.) Unlike TF 1.x, the summaries are emitted directly to the writer; there
+is no separate "merge" op and no separate `add_summary()` call, which means that
+the `step` value must be provided at the callsite.
 
 ```python
 summary_writer = tf.summary.create_file_writer('/tmp/summaries')
