@@ -4,13 +4,13 @@ toc:
 - title: "Effective TensorFlow"
   path: /alpha/guide/effective_tf2
 - title: "Migrate from TF 1 to TF 2"
-  path: /alpha/guide/
+  path: /alpha/guide/migration_guide
 - title: "Convert with the upgrade script"
   path: /alpha/guide/upgrade
 - title: "Get started for beginners"
-  path: /alpha/tutorials/quickstart/beginner.ipynb
+  path: /alpha/tutorials/quickstart/beginner
 - title: "Get started for experts"
-  path: /alpha/tutorials/quickstart/advanced.ipynb
+  path: /alpha/tutorials/quickstart/advanced
 
 - heading: "Beginner tutorials"
   style: divider
@@ -25,7 +25,7 @@ toc:
   - title: "Classify text"
     path: /alpha/tutorials/keras/basic_text_classification
   - title: "Classify structured data"
-    path: /alpha/tutorials/structured_data/feature_columns
+    path: /alpha/tutorials/keras/feature_columns
   - title: "Regression"
     path: /alpha/tutorials/keras/basic_regression
   - title: "Overfitting and underfitting"
@@ -36,18 +36,18 @@ toc:
 - title: "Images"
   style: accordion
   section:
-  - title: "Intro to Convolutional Neural Networks"
+  - title: "Convolutional Neural Networks"
     path: /alpha/tutorials/images/intro_to_cnns
-  - title: "Transfer learning using pretrained CNNs"
+  - title: "Transfer learning with pretrained CNNs"
     path: /alpha/tutorials/images/transfer_learning
 
 - title: "Text and sequences"
   style: accordion
   section:
   - title: "Intro to word embeddings"
-    path: /alpha/tutorials/tutorials/sequences/word_embeddings
+    path: /alpha/tutorials/sequences/word_embeddings
   - title: "Classify text with a RNN"
-    path: /alpha/tutorials/tutorials/sequences/text_classification_rnn
+    path: /alpha/tutorials/sequences/text_classification_rnn
 
 - title: "Estimators"
   style: accordion
@@ -55,7 +55,7 @@ toc:
   - title: "Boosted trees"
     path: /alpha/tutorials/estimators/boosted_trees
   - title: "Boosted trees (model understanding)"
-    path: /alpha/tutorials/estimators/boosted_trees_model_understanding.ipynb
+    path: /alpha/tutorials/estimators/boosted_trees_model_understanding
   - title: "Linear models"
     path: /alpha/tutorials/estimators/linear
 
@@ -87,6 +87,8 @@ toc:
     path: /alpha/tutorials/sequences/text_generation
   - title: "Neural Machine Translation with Attention"
     path: /alpha/tutorials/sequences/nmt_with_attention
+  - title: "Image captioning"
+    path: /alpha/tutorials/generative/image_captioning
 
 - title: "GANs and VAEs"
   style: accordion

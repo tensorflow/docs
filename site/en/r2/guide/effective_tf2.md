@@ -251,22 +251,16 @@ For a more detailed overview of AutoGraph's features, see
 
 ### Use tf.metrics to aggregate data and tf.summary to log it
 
-A complete set of `tf.summary` symbols are coming soon. You can access the
-2.0 version of `tf.summary` with:
-
-```python
-from tensorflow.python.ops import summary_ops_v2
-```
-
-To log summaries, use `tf.summary.(scalar|histogram|...)`. In isolation, this
-doesn't actually do anything; the summaries need to be redirected to an
-appropriate file writer by using a context manager. (This allows you to avoid
-hardcoding summary output to a particular file writer.)
+To log summaries, use `tf.summary.(scalar|histogram|...)` and redirect it to a
+writer using a context manager. (If you omit the context manager, nothing will
+happen.) Unlike TF 1.x, the summaries are emitted directly to the writer; there
+is no separate "merge" op and no separate `add_summary()` call, which means that
+the `step` value must be provided at the callsite.
 
 ```python
 summary_writer = tf.summary.create_file_writer('/tmp/summaries')
 with summary_writer.as_default():
-  summary_ops_v2.scalar('loss', 0.1, step=42)
+  tf.summary.scalar('loss', 0.1, step=42)
 ```
 
 To aggregate data before logging them as summaries, use `tf.metrics`. Metrics
@@ -280,12 +274,12 @@ def train(model, optimizer, dataset, log_freq=10):
     loss = train_step(model, optimizer, images, labels)
     avg_loss.update_state(loss)
     if tf.equal(optimizer.iterations % log_freq, 0):
-      summary_ops_v2.scalar('loss', avg_loss.result(), step=optimizer.iterations)
+      tf.summary.scalar('loss', avg_loss.result(), step=optimizer.iterations)
       avg_loss.reset_states()
 
 def test(model, test_x, test_y, step_num):
   loss = loss_fn(model(test_x), test_y)
-  summary_ops_v2.scalar('loss', step=step_num)
+  tf.summary.scalar('loss', loss, step=step_num)
 
 train_summary_writer = tf.summary.create_file_writer('/tmp/summaries/train')
 test_summary_writer = tf.summary.create_file_writer('/tmp/summaries/test')
@@ -297,5 +291,5 @@ with test_summary_writer.as_default():
   test(model, test_x, test_y, optimizer.iterations)
 ```
 
-By then pointing TensorBoard at the summary directory (`tensorboard --logdir
-/tmp/summaries`), you can then visualize the generated summaries.
+Visualize the generated summaries by pointing TensorBoard at the summary log
+directory: `tensorboard --logdir /tmp/summaries`.

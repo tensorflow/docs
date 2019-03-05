@@ -9,6 +9,27 @@ These install instructions are for the latest release of TensorFlow. See the
 [tested build configurations](./source.md#linux) for CUDA and cuDNN versions to use
 with older TensorFlow releases.
 
+## Pip package
+
+See the [pip install guide](./pip) for available packages, systems
+requirements, and instructions. To `pip` install a TensorFlow package with
+GPU support, choose a stable or development package:
+
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">pip install tensorflow-gpu  # stable</code>
+
+<code class="devsite-terminal">pip install tf-nightly-gpu  # preview</code>
+</pre>
+
+### TensorFlow 2.0 Alpha
+
+[TensorFlow 2.0 Alpha](../alpha) is available for testing with GPU support. To
+install:
+
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">pip install tf-nightly-2.0-preview-gpu</code>
+</pre>
+
 ## Hardware requirements
 
 The following GPU-enabled devices are supported:

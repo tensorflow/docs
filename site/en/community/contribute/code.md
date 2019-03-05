@@ -1,4 +1,4 @@
-# Contribute to code
+# Contribute to the TensorFlow code
 
 Whether you are adding a loss function, improving test coverage, or writing an RFC for a major design change, this portion of the contributor guide will help you get started. Thank you for work and interest in improving the TensorFlow API.
 

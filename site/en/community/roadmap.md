@@ -1,163 +1,139 @@
 # Roadmap
-**Last updated: Sep 4, 2018**
 
-TensorFlow is a rapidly moving, community supported project. This document is intended
-to provide guidance about priorities and focus areas of the core set of TensorFlow
-developers and expected functionality in the upcoming releases of TensorFlow. Many of
-these areas are driven by community use cases, and we welcome further
+*Last updated: Mar 4, 2019*
+
+TensorFlow is a fast-moving, community supported project. This roadmap provides
+guidance about priorities and focus areas of the TensorFlow team and lists the
+functionality expected in upcoming releases of TensorFlow. Many of these areas
+are driven by community use cases, and we welcome further
 [contributions](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md)
 to TensorFlow.
 
+## TensorFlow 2.0 Alpha is available
 
-## TensorFlow 2.0 is coming
+[As announced previously](https://groups.google.com/a/tensorflow.org/forum/#!topic/discuss/bgug1G6a89A),
+we have been working on TensorFlow 2.0, which is a significant milestone and a
+major new release, with a focus on ease of use and simplification.
 
-[As announced recently](https://groups.google.com/a/tensorflow.org/forum/#!topic/discuss/bgug1G6a89A), we have started work on the next major version of TensorFlow. TensorFlow 2.0 will be a significant milestone, with a focus on ease of use. Here are some highlights of what users can expect with TensorFlow 2.0:
+The 2.0 Alpha release is available now. Users can use this today and get started
+with all that TensorFlow 2.0 has to offer. This is an early version meant to
+share with users what the TensorFlow 2.0 API will be like, to gather feedback,
+and to identify and fix issues. Below are some of the key enhancements:
 
-* Eager execution is a central feature of 2.0. It aligns users’ expectations about the programming model better with TensorFlow practice and should make TensorFlow easier to learn and apply.
-* Support for more platforms and languages, and improved compatibility and parity between these components via standardization on exchange formats and alignment of APIs.
-* We will remove deprecated APIs and reduce the amount of duplication, which has caused confusion for some users.
-
-For more details on 2.0 and associated public design consultations, please see the [full announcement](https://groups.google.com/a/tensorflow.org/forum/#!topic/discuss/bgug1G6a89A).
-
+*   Eager execution as a central feature of 2.0. It aligns users’ expectations
+    about the programming model better with TensorFlow practice and should make
+    TensorFlow easier to learn and apply.
+*   Keras tightly integrated with the TensorFlow ecosystem, and has support for
+    Eager execution, tf.data API, tf.distribute.MirroredStrategy for multi-GPU
+    training, TensorBoard visualization, and TF Lite and TF.js conversion.
+*   Starter list of TF-Hub models loadable in TF 2.0.
+*   Autograph making it easier to write models with custom control flow ops and
+    getting graph performance with tf.function.
+*   Flexible API choices that let users build models quickly using high level
+    building blocks, or take full control by writing custom models and custom
+    training loops using lower level constructs.
+*   Support for TPUs using the TPUStrategy with tf.estimator.
+*   Support for multi worker synchronous training using tf.distribute.Strategy
+    with tf.estimator.
+*   New end-to-end ML framework for building ML pipelines with TFX.
+*   Simplified and cleaned-up API by removing deprecated APIs, reducing
+    redundancies, renaming symbols to more intuitive names, simplifying how
+    variables are treated.
+*   Removal of tf.contrib - These features have been either moved to TensorFlow
+    Core, or to tensorflow/addons, or are no longer part of the TensorFlow build
+    but are developed and maintained by their respective owners.
+*   Updated and revised documentation, examples, and website, including
+    migration docs and TF 1.x to 2.0 converter guide.
+*   New releases of TensorFlow.js and Swift for TensorFlow packages.
+*   Many more add-ons and extensions (eg. TF Datasets, TF Federated, TF Privacy,
+    etc).
 
 ## Roadmap
 
-The features below do not have concrete release dates. However, the majority are
-expected in the next one to two releases.
+After the TensorFlow 2.0 release, we will identify and fix issues, and test the
+TensorFlow 2.0 Alpha with internal and external partners. The official 2.0
+release target is Q2 2019. This is a list of features on the short term roadmap
+and beyond:
 
-### APIs
+#### APIs
 
-#### High-level APIs
-
-* Stronger integration of Keras, Eager, and Estimators to use same data pipelines, APIs, and serialization formats (Saved Model).
-* Canned Estimators for commonly used ML models (such as TimeSeries, RNNs, TensorForest, additional boosted trees features) and related functionality (like sequence feature columns) in TensorFlow Core (migrated from contrib if they exist).
-
-#### Eager execution
-
-* Use DistributionStrategy to utilize multiple GPUs and multiple TPU cores.
-* Distributed training support (multi-machine).
-* Performance improvements.
-* Simpler export to a GraphDef/SavedModel.
+*   Mixed precision training API in Keras.
+*   Premade estimators for boosted trees, random forest, approximate
+    nearest-neighbor search, k-means clustering, and more.
+*   `tf.distribute.Strategy` support for Keras subclass models, TPUs, and
+    multi-node training
+*   Improved support for model saving and loading `SavedModel`, and conversion
+    of existing 1.x TF-Hub modules
 
 #### Reference models
 
-* Building out a set of [models](https://github.com/tensorflow/models/tree/master/official)
-  across image recognition, object detection, speech, translation, recommendation,
-  and reinforcement learning that demonstrate best practices and serve as a starting point for
-  high-performance model development.
-* A growing set of high-performance [Cloud TPU reference models](https://github.com/tensorflow/tpu).
+*   Updated model repository with TF 2.0 best-practice reference models and
+    research model implementations. These will include ResNet, MobileNet,
+    DenseNet, Mask-RCNN, NMT, NCF, Transformer, and many other models
+*   Collection of [TF Hub modules](https://tfhub.dev/s?q=tf2-preview), loadable
+    in TensorFlow 2.0.
+*   More performance optimizations.
 
-#### Contrib
+#### TensorBoard
 
-* Deprecate parts of `tf.contrib` where preferred implementations exist outside of `tf.contrib`.
-* As much as possible, move large projects inside `tf.contrib` to separate repositories.
-* The `tf.contrib` module will be discontinued in its current form with TensorFlow 2.0. Experimental
-  development will happen in other repositories in the future.
-
-### Platforms
+*   General bug fixes and enhancements to make TensorBoard great with TensorFlow
+    2.0.
+*   Improvements to hyperparameter tuning capabilities and workflow.
+*   Enable hosted TensorBoard to make sharing dashboards easy and search/compare
+    experiments.
+*   Create a better plugin process for testing and adding TensorBoard plugins.
+*   Enable plugins to use different frontend technologies (like React).
 
 #### TensorFlow Lite
 
-* Increase coverage of supported ops in TensorFlow Lite.
-* Easier conversion of a trained TensorFlow graph for use on TensorFlow Lite.
-* Tools for mobile model optimization.
-* Extend support for Edge TPUs, TPU AIY boards.
-* Better documentation and tutorials.
+*   Increase coverage of supported ops in TensorFlow Lite.
+*   Easier conversion of TensorFlow 2.0 models to use in TensorFlow Lite.
+*   Extended support for Edge TPUs, TPU AIY boards.
+*   More documentation and tutorials.
 
 #### TensorFlow.js
 
-* Improve performance of TensorFlow.js in the browser; Implement prototype using compute shaders or WebGPU,
-  when available; Improve CPU performance, implement SIMD+ Web Assembly support when available.
-* Expand support for importing TensorFlow SavedModels and Keras models, with focus on audio and text-based models.
-* Release a new tfjs-data API for efficient data input pipelines, and a new tfjs-vis library for interactive model visualizations during browser training.
-* For server-side TensorFlow.js using Node - improve parity with native TensorFlow ops and model formats by
-  exposing all TensorFlow ops; Add async mode support using libuv.
+*   Continued browser performance improvements.
+*   Implement prototype using compute shaders or WebGPU.
+*   Improve CPU performance, implement SIMD+ Web Assembly support (when
+    available).
+*   More off-the-shelf models for image, audio, text models, and more.
+*   Improve parity in features and performance on Node with core TensorFlow.
+*   Support for TensorBoard visualization in Node training with TensorFlow.js.
+*   Integration with more JavaScript platforms.
+*   More documentation and getting started content.
 
 #### TensorFlow with Swift
 
-* Continue to refine the design and implementation through 2018.
-* Core components (Graph Program Extraction, Basic AutoDiff, Send/Receives) reliable enough for general use by the
-  end of 2018.
-* Explore the use of Swift for TensorFlow for building dynamic models through 2018.
-* Basic tutorials for getting started on Swift for TensorFlow in Colab in early 2019.
+*   Focus on researchers for the first half of 2019.
+*   Significant new feature development, such as support for transfer learning.
+*   Polish existing features, such as control flow support by the AutoDiff
+    system.
+*   Deeper integrations with the TensorFlow ecosystem, such as TensorBoard.
+*   End-to-end tutorials for getting started on Swift for TensorFlow in Colab
+    and additional technical documentation.
+*   Collaboration with fast.ai
 
-### Performance
+#### TensorFlow Extended (TFX)
 
-#### Distributed TensorFlow
+*   Integration of all TFX components with TensorFlow 2.0.
+*   Fully orchestrated end-to-end workflows with common configuration and
+    metadata tracking.
+*   Advanced training features, such as warm-starting.
+*   Notebook embedded visualizations and experiment tracking,
 
-* Expand new distribution strategy API to support Keras on TPUs and multi-node GPU.
-* Demonstrate great out-of-the-box performance and easy deployment.
+#### Extensions and add-ons
 
-#### GPU optimizations
+*   Migration and TensorFlow 2.0 support for all major extensions to TensorFlow,
+    including Probability, Agents, Tensor2Tensor, TensorRT, and more.
+*   More data sets in TensorFlow Datasets.
+*   Documentation and resources for extension libraries.
 
-* Simplify mixed precision API with public design review.
-* Finalize TensorRT API and move to core.
-* TensorRT support for SavedModel and TF Serving.
-* CUDA 10 integration (plan to skip CUDA 9.2 as it has minimal advantages to CUDA 9.0 when using the same version of cuDNN).
-* Optimizations for DGX-2.
+#### Community and engagement
 
-#### Cloud TPUs and Cloud TPU Pods
+*   New resources for community discussion and feedback.
+*   Launch new SIGs aligned with TensorFlow roadmap.
+*   Gather and highlight novel TensorFlow use cases and applications.
 
-* Expand support for Keras on Cloud TPUs and further optimize performance.
-* Extend support for image segmentation - add Mask R-CNN to current
-  [RetinaNet](https://github.com/tensorflow/tpu/tree/master/models/official/retinanet) and
-  [DeepLab](https://github.com/tensorflow/tpu/tree/master/models/experimental/deeplab) semantic
-  segmentation reference models.
-* Optimize new Cloud TPU integrations: GKE, CMLE, Cloud Bigtable, gRPC data input.
-* Enable large-scale model parallelism on Cloud TPU Pods.
-* Optimize reference model performance on Cloud TPU v3.
-
-#### CPU optimizations
-
-* Int8 support for SkyLake via MKL.
-* Faster 3D ops via MKL.
-* Dynamic loading of SIMD-optimized kernels.
-* MKL for Linux and Windows.
-
-### Other packages
-
-#### TensorFlow Probability
-
-* Additional implementations of Gaussian processes, including applications to hyperparameter optimization.
-* Bayesian Structural Time Series models.
-* Enhancements to sampling and optimization methods.
-* Rich set of Colab tutorials for using TFP.
-
-#### Tensor2Tensor library
-
-* New datasets and models for video, speech, and music with support for autoencoders, GANs, and RL.
-* Improve support for all platforms and simplify internals using TensorFlow 2.0 best practices.
-* Train huge models with model-parallelism with Mesh TensorFlow.
-
-### End-to-end ML systems
-
-#### TensorFlow Hub
-
-* Expand support for TF-Hub modules with TF Eager integration, Keras layers integration,
-  and TensorFlow.js integration, and support for TF-Transform and TF-Data workflows.
-
-#### TensorFlow Extended
-
-* Open source more of the TensorFlow Extended platform to facilitate the adoption of TensorFlow in production settings.
-* Package TF Model Analysis for model evaluation and validation.
-* Release TFX libraries for Data Validation.
-* Publish end-to-end ML pipeline workflow examples.
-
-### Community and partner engagement
-
-#### Special Interest Groups (SIGs)
-
-* Mobilize the community to work together in focused domains.
-* [Evaluate and form new SIGs](https://github.com/tensorflow/community/blob/master/governance/SIGS.md) as
-  needed to support ecosystem.
-
-#### Community
-
-* Continue public feedback on significant design decisions through the
-  [Request-for-Comment (RFC) process](https://github.com/tensorflow/community/blob/master/governance/TF-RFCs.md).
-* Create a contributors’ guide to augment our
-  [published governance and process](https://github.com/tensorflow/community/tree/master/governance).
-* Grow global TensorFlow communities and user groups.
-* Collaborate with partners to co-develop and publish research papers.
-* Continue to publish blog posts and YouTube videos showcasing applications of TensorFlow and build user
-  case studies for high impact applications.
+Track the progress of these features and TensorFlow 2.0 development in the
+[GitHub project tracker](https://github.com/orgs/tensorflow/projects/4).
