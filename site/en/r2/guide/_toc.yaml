@@ -9,7 +9,7 @@ toc:
 - title: "AutoGraph"
   path: /alpha/guide/autograph
 
-- heading: "TensorFlow Keras 2.0"
+- heading: "Keras"
 - title: "Keras overview"
   path: /alpha/guide/keras/overview
 - title: "Keras functional API"
