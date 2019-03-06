@@ -104,9 +104,6 @@ AutoGraph поддерживает вложенные функции в поря
 
 ## Рекомендации и идиомы TensorFlow 2.0
 
-Смотри все примеры использования
-[MNIST (стандартный пример)](../tutorials/beginner/tf2_overview.ipynb)
-
 ### Рефакторинг кода на малые функции
 
 Часто используемый шаблон использования в TensorFlow 1.X работал по принципу
@@ -253,13 +250,6 @@ class DynamicRNN(tf.keras.Model):
 
 ### Используйте tf.metrics для сбора данных и tf.summary для логов
 
-Скоро будет доступен полный набор операций `tf.summary`. Вы можете получить
-доступ к `tf.summary` 2.0 при помощи:
-
-```python
-from tensorflow.python.ops import summary_ops_v2
-```
-
 Для записи логов, используйте `tf.summary.(scalar|histogram|...)`. Если использовать
 данные методы отдельно, то они не будут ничего делать; результаты должны быть
 перенаправлены к соответствующему file writer, при помощи контекстного менеджера
@@ -268,7 +258,7 @@ from tensorflow.python.ops import summary_ops_v2
 ```python
 summary_writer = tf.summary.create_file_writer('/tmp/summaries')
 with summary_writer.as_default():
-  summary_ops_v2.scalar('loss', 0.1, step=42)
+  tf.summary.scalar('loss', 0.1, step=42)
 ```
 
 Чтобы собрать данные перед записью в лог, используйте `tf.metrics`. Метрики
@@ -283,12 +273,12 @@ def train(model, optimizer, dataset, log_freq=10):
     loss = train_step(model, optimizer, images, labels)
     avg_loss.update_state(loss)
     if tf.equal(optimizer.iterations % log_freq, 0):
-      summary_ops_v2.scalar('loss', avg_loss.result(), step=optimizer.iterations)
+      tf.summary.scalar('loss', avg_loss.result(), step=optimizer.iterations)
       avg_loss.reset_states()
 
 def test(model, test_x, test_y, step_num):
   loss = loss_fn(model(test_x), test_y)
-  summary_ops_v2.scalar('loss', step=step_num)
+  tf.summary.scalar('loss', loss, step=step_num)
 
 train_summary_writer = tf.summary.create_file_writer('/tmp/summaries/train')
 test_summary_writer = tf.summary.create_file_writer('/tmp/summaries/test')

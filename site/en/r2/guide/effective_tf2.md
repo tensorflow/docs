@@ -102,9 +102,6 @@ sequence models, reinforcement learning, custom training loops, and more.
 
 ## Recommendations for idiomatic TensorFlow 2.0
 
-For complete examples, see
-[MNIST (basic example)](../tutorials/beginner/tf2_overview.ipynb)
-
 ### Refactor your code into smaller functions
 
 A common usage pattern in TensorFlow 1.X was the "kitchen sink" strategy, where

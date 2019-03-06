@@ -49,8 +49,6 @@ outputs = f(input)
 
 ## 텐서플로 2.0의 권장 사항
 
-완전한 예제는 [MNIST (basic example)](../tutorials/beginner/tf2_overview.ipynb)을 참고하세요.
-
 ### 작은 함수로 코드를 리팩토링하세요.
 
 텐서플로 1.x의 일반적인 사용 패턴은 "키친 싱크(kitchen sink)" 전략입니다. 먼저 모든 연산을 결합하여 준비한 다음 `session.run()`을 사용해 선택한 텐서를 평가합니다. 텐서플로 2.0에서는 필요할 때 호출할 수 있는 작은 함수로 코드를 리팩토링(refactoring)해야 합니다. 모든 함수에 `tf.function` 데코레이터를 적용할 필요는 없습니다. 모델 훈련의 한 단계(step)나 정방향 연산(forward pass) 같은 고수준 연산에만 `tf.function` 데코레이터를 적용하세요.
