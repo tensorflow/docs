@@ -82,7 +82,7 @@ is generated from the main TensorFlow repository using the
 ```bash
 $ git clone https://github.com/tensorflow/tensorflow tensorflow
 $ cd tensorflow/tensorflow/tools/docs
-$ pip install tf-nightly-2.0-preview
+$ pip install tensorflow==2.0.0-alpha0
 $ python generate2.py --output_dir=/tmp/out
 ```
 

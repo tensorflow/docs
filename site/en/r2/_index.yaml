@@ -24,7 +24,7 @@ landing_page:
     - description: >
         <p>Install the TensorFlow 2.0 Alpha preview package. See the <a href="/install/gpu">GPU guide</a> for CUDA®-enabled cards.</p>
         <pre class="prettyprint lang-bsh">
-        <code class="devsite-terminal">pip install tf-nightly-2.0-preview</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
         </pre>
 
   - classname:
