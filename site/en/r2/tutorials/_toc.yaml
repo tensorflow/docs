@@ -87,6 +87,8 @@ toc:
     path: /alpha/tutorials/sequences/text_generation
   - title: "Neural Machine Translation with Attention"
     path: /alpha/tutorials/sequences/nmt_with_attention
+  - title: "Image captioning"
+    path: /alpha/tutorials/sequences/image_captioning
 
 - title: "GANs and VAEs"
   style: accordion
