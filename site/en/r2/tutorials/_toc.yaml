@@ -1,7 +1,7 @@
 toc:
 - title: "Get started with TensorFlow 2.0"
   path: /alpha/
-- title: "Effective TensorFlow"
+- title: "Effective TensorFlow 2"
   path: /alpha/guide/effective_tf2
 - title: "Migrate from TF 1 to TF 2"
   path: /alpha/guide/migration_guide
