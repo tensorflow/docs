@@ -101,6 +101,8 @@ A:  API symbol 1:1 map (work in progress, not yet including tensorflow/addons!).
 
 A: Ease of use, eager execution, accelerating the speed of development, giving your engineers the ability to rapidly prototype, and still offering the performance and production-ready functionality that you’ve come to expect from TensorFlow. An early alpha for TF 2.0 has been released at the TF Dev Summit, if you are interested in kicking the tires and testing. For more information on what to expect in TensorFlow 2.0, check out this blog post.
 
+-------------------------------
+
 ### :: MIGRATION SUPPORT ::
 
 **Q. How can I upgrade my TensorFlow 1.x models to TensorFlow 2.0?**
