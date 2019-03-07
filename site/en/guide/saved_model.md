@@ -346,7 +346,7 @@ LoadSavedModel(session_options, run_options, export_dir, {kSavedModelTagTrain},
 ### Load and serve a SavedModel in TensorFlow serving
 
 You can easily load and serve a SavedModel with the TensorFlow Serving Model
-Server binary. See [instructions](https://www.tensorflow.org/serving/setup#installing_using_apt-get)
+Server binary. See [instructions](https://www.tensorflow.org/tfx/serving/setup)
 on how to install the server, or build it if you wish.
 
 Once you have the Model Server, run it with:
