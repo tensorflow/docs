@@ -77,6 +77,8 @@ A:  TPUs are supported in the alpha release via the TPUStrategy and tf.estimator
 
 A:  We list the status of continuous builds in the README for tensorflow/tensorflow. You can go and take a look at it here. 
 
+---------------
+
 ### :: FUNCTIONALITY ::
 
 **Q: What is eager execution? Why is it useful?**
@@ -136,6 +138,8 @@ A: tf.contrib will be deprecated, but many of its modules will be moving to new 
 **Q. Where can I find a list of TensorFlow 2.0-related issues?**
 
 A: All of our issues are tagged with 2.0 and viewable on GitHub. Take a look!
+
+---------------------------
 
 ### :: GENERAL ::
 
@@ -197,6 +201,8 @@ A: We will release an alpha at the TensorFlow Dev Summit (March 6th, 2019).
 **Q. When will TensorFlow support [my most favorite and beloved language]?**
 
 A: If you would like to have your language of choice supported in TensorFlow, we highly encourage you to create a Special Interest Group and potentially a Keras binding. An example would be the Rust and the R communities. Learn more about SIGs here.
+
+-------------------------------
 
 ### :: TECHNICAL ::
 
@@ -284,7 +290,9 @@ tf.data allows you to build a variety of complex data input pipelines for your m
 
 A. KubeFlow Pipelines is intended for scaling production machine learning workloads with Kubernetes on Google Cloud. It uses many TFX components for its orchestration, including TensorFlow Transform (TFT), TensorFlow Serving, and TensorFlow Data Validation (TFDV). TFX is open-source, which means you can use it on any infrastructure you wish.
 
-### :: MLIR: Multi-Level Intermediate Representation ::
+-------------------------
+
+#### :: MLIR: Multi-Level Intermediate Representation ::
 
 **Q.  I heard something about an intermediate representation layer?**
 
