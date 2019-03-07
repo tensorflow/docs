@@ -40,21 +40,15 @@ landing_page:
           </td></tr>
         </table>
 
-  - classname: devsite-landing-row-large-headings
+  - classname:
+      devsite-landing-row-100
+      devsite-landing-row-large-headings
     items:
     - heading: Download a package
       description: >
         <p>Install TensorFlow with Python's <em>pip</em> package manager.</p>
         <p>Official packages available for Ubuntu, Windows, macOS, and the Raspberry Pi.</p>
         <p>See the <a href="./gpu">GPU guide</a> for CUDA®-enabled cards.</p>
-
-      buttons:
-      - label: Read the pip install guide
-        path: /install/pip
-        classname: button button-primary tfo-button-primary
-
-    - classname: tfo-landing-row-item-code-block
-      code_block: |
         <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
         # Current stable release for CPU-only
         <code class="devsite-terminal">pip install tensorflow</code><br/>
@@ -62,6 +56,11 @@ landing_page:
         <code class="devsite-terminal">pip install tf-nightly</code><br/>
         # Install TensorFlow 2.0 Alpha
         <code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
+        </pre>
+      buttons:
+      - label: Read the pip install guide
+        path: /install/pip
+        classname: button button-primary tfo-button-primary
 
   - classname:
       devsite-landing-row-100
