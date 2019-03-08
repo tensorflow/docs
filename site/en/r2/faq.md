@@ -1,6 +1,6 @@
 '# TensorFlow 2.0: An Overview
 
-Last Updated: _Feb 27, 2019_
+Last Updated: _Mar 6, 2019_
 
 A key element of the evolution of TensorFlow (TF) is TF 2.0, which is primarily focused on:
 
