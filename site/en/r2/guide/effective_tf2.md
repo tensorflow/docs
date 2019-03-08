@@ -13,7 +13,7 @@ Many
 [RFCs](https://github.com/tensorflow/community/pulls?utf8=%E2%9C%93&q=is%3Apr)
 have explained the changes that have gone into making TensorFlow 2.0. This
 guide presents a vision for what development in TensorFlow 2.0 should look like.
-It's assumeed you have some familiarity with TensorFlow 1.x.
+It's assumed you have some familiarity with TensorFlow 1.x.
 
 ## A brief summary of major changes
 

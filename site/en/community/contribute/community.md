@@ -22,7 +22,7 @@ The primary communication about work on TensorFlow happens in the [TensorFlow re
 
 ### Mailing lists
 
-Mailing lists are reserved for announcements and contrinbutor conversation. They are not intended to provide technical support.
+Mailing lists are reserved for announcements and contributor conversation. They are not intended to provide technical support.
 
 #### General TensorFlow lists
 
