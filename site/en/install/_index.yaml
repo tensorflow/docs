@@ -40,7 +40,9 @@ landing_page:
           </td></tr>
         </table>
 
-  - classname: devsite-landing-row-large-headings
+  - classname: >
+      devsite-landing-row-large-headings
+      devsite-landing-row-50
     items:
     - heading: Download a package
       description: >
@@ -53,7 +55,6 @@ landing_page:
         path: /install/pip
         classname: button button-primary tfo-button-primary
 
-    - classname: tfo-landing-row-item-code-block
       code_block: |
         <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
         # Current stable release for CPU-only
