@@ -12,9 +12,9 @@ A key element of the evolution of TensorFlow (TF) is TF 2.0, which is primarily 
 
 You can experiment with the alpha release today - please let us know what you create, and your overall experience with it. Over the course of the next few months, we will be focused on making TF 2.0:
 
- * RC/Production ready
- * Making it 100% compatible with the rest of TF ecosystem
- * Incorporating major feedback from the community
+* RC/Production ready
+* Making it 100% compatible with the rest of TF ecosystem
+* Incorporating major feedback from the community
 
 and sharing this process as openly as we can.
 
@@ -84,11 +84,11 @@ We are working with many TensorFlow related project to make them ready for 2.0. 
 
 **Does TensorFlow 2.0 have support for TPU?**
 
- TPUs are supported in the alpha release via the TPUStrategy and tf.estimator API. Full support with tf.keras is limited at the moment. You can track [this issue](https://github.com/tensorflow/tensorflow/issues/24412) on GitHub to keep updated.
+TPUs are supported in the alpha release via the TPUStrategy and tf.estimator API. Full support with tf.keras is limited at the moment. You can track [this issue](https://github.com/tensorflow/tensorflow/issues/24412) on GitHub to keep updated.
 
 **Does TensorFlow 2.0 support Windows?**
 
- We list the status of continuous builds in the README for tensorflow/tensorflow. You can go and take a look at it [here](https://github.com/tensorflow/tensorflow#continuous-build-status).
+We list the status of continuous builds in the README for tensorflow/tensorflow. You can go and take a look at it [here](https://github.com/tensorflow/tensorflow#continuous-build-status).
 
 <a name="functionality"></a>
 ### Functionality
@@ -103,11 +103,11 @@ Yes. Use tf.disable_eager_execution() or tf.compat.v1.disable_eager_execution().
 
 **Where can I find a style guide for TensorFlow 2.0?**
 
- There are multiple changes in TensorFlow 2.0 to help support end-user productivity. For a style guide including best practices for API clean-up, @tf.function, see [Effective TF 2.0 Style Guide](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/effective_tf2.md) and this accompanying [blog post](https://medium.com/tensorflow/effective-tensorflow-2-0-best-practices-and-whats-changed-a0ca48767aff).
+There are multiple changes in TensorFlow 2.0 to help support end-user productivity. For a style guide including best practices for API clean-up, @tf.function, see [Effective TF 2.0 Style Guide](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/effective_tf2.md) and this accompanying [blog post](https://medium.com/tensorflow/effective-tensorflow-2-0-best-practices-and-whats-changed-a0ca48767aff).
 
 **Where can I find a mapping of all API symbols in TensorFlow 1.x to their equivalents in TF 2.0, TensorFlow Probability, addons, etc.?**
 
- You can find the API symbol 1:1 map [here](https://docs.google.com/spreadsheets/d/1FLFJLzg7WNP6JHODX5q8BDgptKafq_slHpnHVbJIteQ/edit#gid=0).
+You can find the API symbol 1:1 map [here](https://docs.google.com/spreadsheets/d/1FLFJLzg7WNP6JHODX5q8BDgptKafq_slHpnHVbJIteQ/edit#gid=0).
 
 **Why should I upgrade to TensorFlow 2.0?**
 
@@ -140,10 +140,6 @@ We have created a special interest group called [TensorFlow Addons](http://www.g
 
 Once the final version of 2.0 is released, semantic versioning backwards compatibility guarantees apply. All 2.x releases will be backwards compatible with 2.0. We do not make strict compatibility guarantees for 2.0.0-alpha, but we do not expect major breaking API changes.
 
-**How can I migrate and support functionality in tf.contrib?**
-
-We have created a special interest group called [TensorFlow Addons](http://www.github.com/tensorflow/addons) that is responsible for migrating functionality from tf.contrib. If you have interest in migrating functionality, please join the SIG.
-
 **My project relies on tf.contrib. How will I be impacted?**
 
 tf.contrib will be [deprecated](https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md), but many of its modules will be relocated to part of the core TensorFlow API , or as tensorflow/addons. You are encouraged to take a look at the 1:1 symbol map [here](https://docs.google.com/spreadsheets/d/1FLFJLzg7WNP6JHODX5q8BDgptKafq_slHpnHVbJIteQ/edit#gid=0), and if you feel strongly about one of the modules that has not been migrated, please consider supporting it in tensorflow/addons.
@@ -172,7 +168,7 @@ You can file an issue with TF 2.0 on GitHub. Please make sure to include “Tens
 
 **Can I try TensorFlow 2.0 right now?**
 
- Yes. Just pip [install](https://www.tensorflow.org/install) tf-nightly-2.0-preview or pip install tf-nightly-gpu-2.0-preview.
+Yes. Just pip [install](https://www.tensorflow.org/install) tf-nightly-2.0-preview or pip install tf-nightly-gpu-2.0-preview.
 
 **What is the plan for support of stand-alone Keras (not tf.keras)?**
 
@@ -321,7 +317,7 @@ We expect this project to be of great interest to compiler developers, system in
 
 We don't have more to announce at this stage. However:
 
-- You can see Chris Lattner slides from [c4ml.org](https://drive.google.com/file/d/1hUeAJXcAXwz82RXA5VtO5ZoH8cVQhrOK/view)
+- You can see Chris Lattner's slides from [c4ml.org](https://drive.google.com/file/d/1hUeAJXcAXwz82RXA5VtO5ZoH8cVQhrOK/view)
 - Stay tuned to the TensorFlow Blog for more information.
 
 **What about XLA?**
