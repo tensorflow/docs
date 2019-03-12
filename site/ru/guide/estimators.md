@@ -78,9 +78,11 @@ Estimators обеспечивают следующие преимущества:
     Например, в коде ниже показан пример основного скелета для функции ввода
     данных:
 
+```python
         def input_fn(dataset):
            ...  # манипулирует датасетом, извлекая словарь параметров и метки
            return feature_dict, label
+```
 
     (Смотри подробнее в статье [Загрузка данных и датасетов](../guide/datasets.md))
 
@@ -92,27 +94,32 @@ Estimators обеспечивают следующие преимущества:
     просто идентифицировать имя и тип параметра. Третья колонка параметров указывает
     на лямбду-выражение, которое будут вызываться для оценки необработанных
     данных:
-							
+
+```python
 	# Определим три числовых колонки параметров.
         population = tf.feature_column.numeric_column('population')
         crime_rate = tf.feature_column.numeric_column('crime_rate')
         median_education = tf.feature_column.numeric_column('median_education',
                             normalizer_fn=lambda x: x - global_education_mean)
+```
 	
 3.  **Укажем подходящий готовый Estimator.**  Например так мы укажем
     готовый Estimator для решения модели `линейного классификатора`:
 			
+```python
 		# Указываем estimator, передаем колонки параметров.
         estimator = tf.estimator.LinearClassifier(
             feature_columns=[population, crime_rate, median_education],
             )
+```
 
 4.  **Вызов метода обучения, оценки или предсказания**
     Например, все Estimators имеют метод `train` для начала обучения модели:
 
+```python
         # `input_fn` - функция, созданная в самом первом шаге
         estimator.train(input_fn=my_training_set, steps=2000)
-
+```
 
 ### Преимущества использования готовых Estimators
 
