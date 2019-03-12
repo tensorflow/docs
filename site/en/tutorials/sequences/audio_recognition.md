@@ -436,7 +436,7 @@ Commands set has people repeating the same word multiple times. Each one of
 those repetitions is likely to be pretty close to the others, so if training was
 overfitting and memorizing one, it could perform unrealistically well when it
 saw a very similar copy in the test set. To avoid this danger, Speech Commands
-trys to ensure that all clips featuring the same word spoken by a single person
+tries to ensure that all clips featuring the same word spoken by a single person
 are put into the same partition. Clips are assigned to training, test, or
 validation sets based on a hash of their filename, to ensure that the
 assignments remain steady even as new clips are added and avoid any training
