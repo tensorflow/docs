@@ -53,7 +53,7 @@ landing_page:
       buttons:
       - label: Read the pip install guide
         path: /install/pip
-        classname: button button-primary tfo-button-primary
+        classname: button button-primary
 
       code_block: |
         <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
@@ -84,7 +84,7 @@ landing_page:
       buttons:
       - label: Read the Docker install guide
         path: /install/docker
-        classname: button button-primary tfo-button-primary
+        classname: button button-primary
 
   - classname:
       devsite-landing-row-large-headings
