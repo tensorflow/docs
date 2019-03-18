@@ -1,4 +1,4 @@
-# Community translations
+# Traduções da Comunidade
 
 A nossa comunidade TensorFlow traduziu estes documentos. Como as traduções da
 comunidade são *o melhor esforço*, não há garantias de que sejam uma reflexão
