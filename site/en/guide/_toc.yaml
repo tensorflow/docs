@@ -83,5 +83,3 @@ toc:
 - heading: Misc
 - title: "TensorFlow Version Compatibility"
   path: /guide/version_compat
-- title: "Frequently Asked Questions"
-  path: /guide/faq
