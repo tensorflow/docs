@@ -219,11 +219,11 @@ task in the worker job (`"/job:worker"`):
 ```python
 with tf.device("/job:ps/task:0"):
   weights_1 = tf.Variable(tf.truncated_normal([784, 100]))
-  biases_1 = tf.Variable(tf.zeroes([100]))
+  biases_1 = tf.Variable(tf.zeros([100]))
 
 with tf.device("/job:ps/task:1"):
   weights_2 = tf.Variable(tf.truncated_normal([100, 10]))
-  biases_2 = tf.Variable(tf.zeroes([10]))
+  biases_2 = tf.Variable(tf.zeros([10]))
 
 with tf.device("/job:worker"):
   layer_1 = tf.matmul(train_batch, weights_1) + biases_1

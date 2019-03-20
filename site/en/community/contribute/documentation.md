@@ -9,7 +9,7 @@ TensorFlow core has two broad categories of documentation:
 *   **API documentation** — Reference docs, which are written along with the
     TensorFlow API code, and built from the same source.
     [You can view the API documentation here.](https://www.tensorflow.org/api_docs/)
-*   **Narrative documentaton** -
+*   **Narrative documentation** -
     [Tutorials](https://www.tensorflow.org/tutorials),
     [guides](https://www.tensorflow.org/guide), and other "long-form" writing
     which is written apart from the code and kept

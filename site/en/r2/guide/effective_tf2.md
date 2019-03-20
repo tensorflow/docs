@@ -13,7 +13,7 @@ Many
 [RFCs](https://github.com/tensorflow/community/pulls?utf8=%E2%9C%93&q=is%3Apr)
 have explained the changes that have gone into making TensorFlow 2.0. This
 guide presents a vision for what development in TensorFlow 2.0 should look like.
-It's assumeed you have some familiarity with TensorFlow 1.x.
+It's assumed you have some familiarity with TensorFlow 1.x.
 
 ## A brief summary of major changes
 
@@ -170,7 +170,7 @@ for x, y in main_dataset:
     loss = loss_fn_head1(prediction, y)
   # Simultaneously optimize trunk and head1 weights.
   gradients = tape.gradients(loss, path1.trainable_variables)
-  optimizer.apply_gradients(gradients, path1.trainable_variables)
+  optimizer.apply_gradients(zip(gradients, path1.trainable_variables))
 
 # Fine-tune second head, reusing the trunk
 for x, y in small_dataset:
@@ -179,7 +179,7 @@ for x, y in small_dataset:
     loss = loss_fn_head2(prediction, y)
   # Only optimize head2 weights, not trunk weights
   gradients = tape.gradients(loss, head2.trainable_variables)
-  optimizer.apply_gradients(gradients, head2.trainable_variables)
+  optimizer.apply_gradients(zip(gradients, head2.trainable_variables))
 
 # You can publish just the trunk computation for other people to reuse.
 tf.saved_model.save(trunk, output_path)
@@ -204,7 +204,7 @@ def train(model, dataset, optimizer):
       prediction = model(x)
       loss = loss_fn(prediction, y)
     gradients = tape.gradients(loss, model.trainable_variables)
-    optimizer.apply_gradients(gradients, model.trainable_variables)
+    optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 ```
 
 If you use the Keras `.fit()` API, you won't have to worry about dataset

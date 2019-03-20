@@ -60,7 +60,7 @@ To see what else we're working on at any time, see the [TensorFlow organization 
 
 ### Related community projects
 
-An important part of the TensorFlow ecoystem is the network of related (but unaffiliated) projects. Each of these projects has its own sponsors, contributors, and community. 
+An important part of the TensorFlow ecosystem is the network of related (but unaffiliated) projects. Each of these projects has its own sponsors, contributors, and community. 
 
 *   [OpenSeq2Seq](https://github.com/NVIDIA/OpenSeq2Seq) — distributed and mixed-precision training of sequence-to-sequence models, created by the folks at NVIDIA.
 *   [TensorBoardX](https://tensorboardx.readthedocs.io/en/latest/tensorboard.html)

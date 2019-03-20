@@ -61,6 +61,11 @@ All of this information is included in the `report.txt` file that will be export
 
 - Do not update parts of your code manually before running this script. In particular, functions that have had reordered arguments like `tf.argmax` or `tf.batch_to_space` cause the script to incorrectly add keyword arguments that mismap your existing code.
 
+- The script assumes that `tensorflow` is imported using `import tensorflow as tf`.
+
 - This script does not reorder arguments. Instead, the script adds keyword arguments to functions that have their arguments reordered.
+
+- Check out [tf2up.ml](http://tf2up.ml) for a convenient tool to upgrade Jupyter
+  notebooks and Python files in a GitHub repository.
 
 To report upgrade script bugs or make feature requests, please file an issue on [GitHub](https://github.com/tensorflow/tensorflow/issues). And if you’re testing TensorFlow 2.0, we want to hear about it! Join the [TF 2.0 Testing community](https://groups.google.com/a/tensorflow.org/forum/#!forum/testing) and send questions and discussion to [testing@tensorflow.org](mailto:testing@tensorflow.org).

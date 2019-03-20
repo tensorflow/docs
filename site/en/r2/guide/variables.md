@@ -82,7 +82,7 @@ variables in a (say) model.
 While you can keep track of variables ad-hoc in your own Python code we
 recommend you use `tf.Module` as a base class for your classes which own
 variables. Instances of `tf.Module` have a `variables` and a
-`trainable_variables` methods which return all (trainable) variables rechable
+`trainable_variables` methods which return all (trainable) variables reachable
 from that model, potentially navigating through other modules.
 
 ```python
