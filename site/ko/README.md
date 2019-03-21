@@ -13,14 +13,13 @@
 Our TensorFlow community has translated these documents. Because community
 translations are *best-effort*, there is no guarantee that this is an accurate
 and up-to-date reflection of the
-[official English documentation](https://www.tensorflow.org/?hl=en). If you have
-suggestions to improve this translation, please send a pull request to the
-[tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository. To
-volunteer to write or review community translations, fill out
-[this form](https://bit.ly/tf-translate) or contact the
+[official English documentation](https://www.tensorflow.org/?hl=en). 
+If you have suggestions to improve this translation, please send a pull request 
+to the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository. 
+To volunteer to write or review community translations, contact the
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
-# For New Contributors
+# For new contributors
 
 문서 번역에 참여해 주셔서 감사합니다.
 번역에 참여하기 전에 번역된 [문서](https://github.com/tensorflow/docs/tree/master/site/ko)를 먼저 읽어 보길 권합니다.
