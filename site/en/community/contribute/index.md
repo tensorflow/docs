@@ -24,7 +24,7 @@ Whether you want to contribute code, make improvements to the TensorFlow API doc
 
 - [Write code](code.md).
 - [Improve documentation](documentation.md).
-- Answer questions on StackOverflow.
+- Answer questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow).
 - Participate in the discussion on the TensorFlow forums.
 - Contribute [example notebooks](http://www.github.com/tensorflow/examples).
 - Investigate bugs and issues on GitHub.
