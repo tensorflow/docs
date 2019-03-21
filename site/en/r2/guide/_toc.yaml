@@ -20,6 +20,8 @@ toc:
   path: /alpha/guide/keras/custom_layers_and_models
 - title: "Save and serialize models"
   path: /alpha/guide/keras/saving_and_serializing
+- title: "Write custom callbacks"
+  path: /alpha/guide/keras/custom_callback
 
 - heading: "Accelerators"
 - title: "Distribution strategy"

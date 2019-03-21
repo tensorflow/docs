@@ -16,3 +16,4 @@ To dive more in depth into the API, see the following set of 4 guides, covering 
 -   [Guide to Training & Evaluation](./training_and_evaluation.ipynb)
 -   [Guide to writing layers and models from scratch with subclassing](./custom_layers_and_models.ipynb)
 -   [Guide to Saving and Serializing Models](./saving_and_serializing.ipynb)
+-   [Guide to writing custom callbacks](./custom_callback.ipynb)
