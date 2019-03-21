@@ -7,7 +7,7 @@ This guide shows how to make contributions to [tensorflow.org](https://www.tenso
 For documentation questions or guidance, see the
 [docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)
 mailing list. Questions about TensorFlow usage are better addressed on
-[StackOverflow](https://stackoverflow.com/questions/tagged/tensorflow) or the
+[Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow) or the
 [discuss@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/discuss)
 mailing list.
 
