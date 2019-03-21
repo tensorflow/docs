@@ -4,7 +4,7 @@ An open source project isn't just about the code, it's also about the community 
 
 ## Community support
 
-Many people [ask questions about TensorFlow on StackOverflow](https://stackoverflow.com/questions/tagged/tensorflow). Answering those questions and pointing people to the relevant documentation is a great service to the community.
+Many people [ask questions about TensorFlow on Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow). Answering those questions and pointing people to the relevant documentation is a great service to the community.
 
 Some users also ask support questions as GitHub issues. We try to discourage this, as GitHub issues are not the best place to ask for technical support. However, if you notice these issues, you are encouraged to answer them and point people to the relevant documentation.
 
