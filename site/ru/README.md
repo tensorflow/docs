@@ -35,6 +35,7 @@ To volunteer to write or review community translations, contact the
 1. Не стесняйтесь добавлять не полностью переведенные документации: таким образом другие участники смогут увидеть ваш Pull Request и помочь если требуется
 2. Вы также можете [создать черновик (Draft)](https://help.github.com/en/articles/about-pull-requests#draft-pull-requests) для будущего Pull Request. Таким образом вы сможете добавлять изменения, не уведомляя владельца репозитария: это удобно для работы над крупными текстами
 3. Используйте комментарии TODO или IMPROVE в тексте и коде в тех местах, где можно объяснить код или операцию более понятным языком, но вы пока не знаете как (это позволит другим переводчикам помочь вам с толкованием)
+4. Проверьте основные моменты [Google Developer Documentation Style Guide](https://developers.google.com/style/highlights): это поможет вам с переводом и проверкой технической документации и уроков
 
 # Russian translation guide
 
