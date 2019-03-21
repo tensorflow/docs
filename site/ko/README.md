@@ -30,7 +30,7 @@ volunteer to write or review community translations, fill out
 작업을 시작할 때 깃허브의 [드래프트 PR](https://help.github.com/en/articles/about-pull-requests#draft-pull-requests) 기능을 사용하여 작업 중임을 알려 주세요.
 다른 사람이 작업 중인 파일이 아니라면 en 폴더 안의 파일을 ko 폴더 아래 같은 위치에 복사하여 시작합니다.
 site/ko/ 는 텐서플로 1.x 버전을 위한 파일입니다.
-site/ko/r2/ 는 텐서플로 2.x 버전을 위한 파일입니다.
+site/ko/alpha/ 는 텐서플로 2.x 버전을 위한 파일입니다.
 
 막다운(markdown)과 주석을 모두 번역합니다. 코드 셀(cell)은 실행하지 않습니다.
 주피터 노트북은 조금만 수정하더라도 파일 소스 전체가 변경될 수 있습니다.
@@ -50,7 +50,7 @@ Notify the work using Github's [Draft PR](https://help.github.com/en/articles/ab
 Copy a file in `en` folder to same location under `ko` folder if anybody doesn't work on the file,
 and get it start.
 `site/ko/` are for TensorFlow 1.x.
-`site/ko/r2` are for TensorFlow 2.x.
+`site/ko/alpha` are for TensorFlow 2.x.
 
 You should translate markdown and comments. You should not run code cells.
 Whole file structure can be changed even if you modify only a chunk in the notebook.
