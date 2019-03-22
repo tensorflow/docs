@@ -140,9 +140,9 @@ model.compile(optimizer=optimizer, loss=loss_fn)
 model.fit(dataset)
 ```
 
-### 파이썬의 제어 흐름으로 오토그래프의 장점을 사용하세요.
+### 파이썬의 제어 흐름과 함께 오토그래프를 사용하세요.
 
-오토그래프는 데이터 의존적인 제어 흐름을 `tf.cond`와 `tf.while_loop` 같은 그래프 모드 연산으로 변환할 수 있는 방법을 제공합니다.
+오토그래프는 데이터에 따라 결정되는 제어 흐름(control flow)을 `tf.cond`와 `tf.while_loop` 같은 그래프 모드 연산으로 변환시켜 줍니다.
 
 데이터에 의존하는 제어 흐름이 나타나는 대표적인 곳은 시퀀스(sequence) 모델입니다. `tf.keras.layers.RNN`은 RNN 셀(cell)을 감싸서 순환(recurrent) 셀을 정적으로 또는 동적으로 펼칠 수 있습니다. 다음처럼 직접 동적으로 펼치는 구현을 만들어서 확인할 수 있습니다.
 
