@@ -35,12 +35,12 @@ translate the following words, use katakana otherwise:
 *   epoch
 *   callback
 *   sequence
-*   dictionary (in python)
+*   dictionary (in Python)
 *   embedding
 *   padding
 *   unit
 *   node
-*   nueron
+*   neuron
 *   target
 *   import
 *   checkpoint
@@ -50,5 +50,5 @@ translate the following words, use katakana otherwise:
 *   scalar
 *   tensor
 *   decode
-*   tupple
+*   tuple
 *   protocol buffer
