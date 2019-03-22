@@ -1,7 +1,7 @@
 # TensorFlow Documentation
 
 <div align="center">
-  <img src="https://www.tensorflow.org/images/tf_logo_transp.png"><br><br>
+  <img src="https://www.tensorflow.org/images/tf_logo_social.png"><br><br>
 </div>
 
 This is the TensorFlow documentation for [tensorflow.org](https://www.tensorflow.org).
