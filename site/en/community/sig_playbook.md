@@ -12,7 +12,7 @@ contribute should the interest group be established.
 Not all SIGs will have the same level of energy, breadth of scope, or governance
 models, so expect some variability.
 
-See the complete list of [TensorFlow SIGs](https://www.tensorflow.org/community/lists#special_interest_groups).
+See the complete list of [TensorFlow SIGs](https://github.com/tensorflow/community/tree/master/sigs).
 
 ### Non-goals: What a SIG is *not*
 
