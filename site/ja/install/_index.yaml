@@ -1,0 +1,118 @@
+project_path: /_project.yaml
+book_path: /_book.yaml
+description: <!--no description-->
+landing_page:
+  custom_css_path: /site-assets/css/style.css
+  nav: both
+  rows:
+  - classname:
+      devsite-landing-row-large-headings
+      devsite-landing-row-100
+    items:
+    - heading: "TensorFlow 2.0 Alpha is available"
+      description: >
+        <p>
+          Install the preview release of <a href="/alpha">TensorFlow 2.0 Alpha</a>.
+          See the <a href="./gpu">GPU guide</a> for CUDA®-enabled cards.
+        </p>
+        <pre class="prettyprint lang-bsh">
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
+        </pre>
+
+  - classname:
+      devsite-landing-row-large-headings
+      devsite-landing-row-100
+    items:
+    - heading: "Install TensorFlow"
+      description: >
+        <p>TensorFlow is tested and supported on the following 64-bit systems:</p>
+        <table class="columns">
+          <tr><td>
+            <ul>
+              <li>Ubuntu 16.04 or later</li>
+              <li>Windows 7 or later</li>
+            </ul>
+          </td><td>
+            <ul>
+              <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
+              <li>Raspbian 9.0 or later</li>
+            </ul>
+          </td></tr>
+        </table>
+
+  - classname: >
+      devsite-landing-row-large-headings
+      devsite-landing-row-50
+    items:
+    - heading: Download a package
+      description: >
+        <p>Install TensorFlow with Python's <em>pip</em> package manager.</p>
+        <p>Official packages available for Ubuntu, Windows, macOS, and the Raspberry Pi.</p>
+        <p>See the <a href="./gpu">GPU guide</a> for CUDA®-enabled cards.</p>
+
+      buttons:
+      - label: Read the pip install guide
+        path: /install/pip
+        classname: button button-primary
+
+      code_block: |
+        <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
+        # Current stable release for CPU-only
+        <code class="devsite-terminal">pip install tensorflow</code><br/>
+        # Preview nightly build for CPU-only (unstable)
+        <code class="devsite-terminal">pip install tf-nightly</code><br/>
+        # Install TensorFlow 2.0 Alpha
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
+
+  - classname:
+      devsite-landing-row-100
+      devsite-landing-row-large-headings
+    items:
+    - heading: Run a TensorFlow container
+      description: >
+        <p>
+          The <a href="https://hub.docker.com/r/tensorflow/tensorflow/" class="external">TensorFlow
+          Docker images</a> are already configured to run TensorFlow. A
+          <a href="https://docs.docker.com/install/" class="external">Docker</a> container runs in a
+          virtual environment and is the easiest way to set up <a href="/install/gpu">GPU
+          support</a>.
+        </p>
+        <pre class="prettyprint lang-bsh">
+        <code class="devsite-terminal">docker pull tensorflow/tensorflow                  # Download latest image</code><br/>
+        <code class="devsite-terminal">docker run -it -p 8888:8888 tensorflow/tensorflow  # Start a Jupyter notebook server</code>
+        </pre>
+      buttons:
+      - label: Read the Docker install guide
+        path: /install/docker
+        classname: button button-primary
+
+  - classname:
+      devsite-landing-row-large-headings
+      devsite-landing-row-100
+    items:
+    - heading: Google Colab&#58; An easy way to learn and use TensorFlow
+      description: >
+        <p>
+          No install necessary—run the <a href="/tutorials">TensorFlow tutorials</a> directly in
+          the browser with <a href="https://colab.research.google.com/notebooks/welcome.ipynb"
+          class="external">Colaboratory</a>, a Google research project created to help disseminate
+          machine learning education and research. It's a Jupyter notebook environment that requires
+          no setup to use and runs entirely in the cloud.
+          <a href="https://medium.com/tensorflow/colab-an-easy-way-to-learn-and-use-tensorflow-d74d1686e309" class="external">Read the blog post</a>.
+        </p>
+
+  - background: grey
+    heading: Build your first ML app
+    description: Create and deploy TensorFlow models on web and mobile.
+    items:
+    - classname: tfo-landing-row-item-inset-white
+      heading: Web developers
+      path: https://js.tensorflow.org
+      description: >
+        TensorFlow.js is a WebGL accelerated, JavaScript library to train and
+        deploy ML models in the browser and for Node.js.
+    - classname: tfo-landing-row-item-inset-white
+      heading: Mobile developers
+      path: /lite/
+      description: >
+        TensorFlow Lite is a lightweight solution for mobile and embedded devices.
