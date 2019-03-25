@@ -25,8 +25,10 @@ To volunteer to write or review community translations, contact the
 # Как добавить свой перевод?
 
 1. Ознакомьтесь с [уже имеющейся документацией на русском языке](https://github.com/tensorflow/docs/tree/master/site/ru)
-2. Внесите правки в уже готовый перевод или [выберите новый в разделе site/en/](https://github.com/tensorflow/docs/tree/master/site/en)
+2. Внесите правки в уже готовый перевод или [выберите еще не переведенный в папке site/en/](https://github.com/tensorflow/docs/tree/master/site/en)
 3. Переводите на русский язык блоки основные текста документации, а также поясняющие комментарии в коде
+
+Обратите внимание: документы, которые начинаются с символа нижнего подчеркивания (например, `_style_transfer.ipynb`) все еще находятся в процессе работы и пока не импортируются на [tensorflow.org](https://www.tensorflow.org/)
 
 Смотрите хороший пример переведенного нами [урока по TensorFlow Keras API здесь](https://github.com/tensorflow/docs/blob/master/site/ru/tutorials/keras/basic_classification.ipynb).
 
