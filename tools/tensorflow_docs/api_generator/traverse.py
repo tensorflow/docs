@@ -24,7 +24,7 @@ import sys
 __all__ = ['traverse']
 
 
-def _traverse_internal(root, visit, stack, path):
+def _traverse_internal(root, visitors, stack, path):
   """Internal helper for traverse."""
   new_stack = stack + [root]
 
@@ -58,15 +58,17 @@ def _traverse_internal(root, visit, stack, path):
 
   children = filtered_children
 
-  visit(path, root, children)
+  # Apply all callbacks, allowing each to filter the children
+  for callback in visitors:
+    children = callback(path, root, list(children))
 
   for name, child in children:
     # Break cycles
     child_path = path + (name,)
-    _traverse_internal(child, visit, new_stack, child_path)
+    _traverse_internal(child, visitors, new_stack, child_path)
 
 
-def traverse(root, visit, root_name):
+def traverse(root, visitors, root_name):
   """Recursively enumerate all members of `root`.
 
   Similar to the Python library function `os.path.walk`.
@@ -97,8 +99,8 @@ def traverse(root, visit, root_name):
 
   Args:
     root: A python object with which to start the traversal.
-    visit: A function taking arguments `(path, parent, children)`. Will be
-      called for each object found in the traversal.
+    visitors: A list of callables. Each taking `(path, parent, children)` as
+      arguments, and returns a list of accepted children.
     root_name: The short-name of the root module.
   """
-  _traverse_internal(root, visit, [], (root_name,))
+  _traverse_internal(root, visitors, [], (root_name,))

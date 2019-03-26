@@ -139,6 +139,9 @@ class DocGeneratorVisitor(object):
         order, the children (as determined by `tf_inspect.getmembers`) of
           `parent`. `name` is the local name of `py_object` in `parent`.
 
+    Returns:
+      The list of children, with any __metaclass__ removed.
+
     Raises:
       RuntimeError: If this visitor is called with a `parent` that is not a
         class or module.
@@ -160,6 +163,8 @@ class DocGeneratorVisitor(object):
       full_name = '.'.join([parent_name, name]) if parent_name else name
       self._index[full_name] = child
       self._tree[parent_name].append(name)
+
+    return children
 
   def _score_name(self, name):
     """Return a tuple of scores indicating how to sort for the best name.

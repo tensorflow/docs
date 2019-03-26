@@ -34,7 +34,7 @@ class NoDunderVisitor(doc_generator_visitor.DocGeneratorVisitor):
     children = [
         (name, obj) for (name, obj) in children if not name.startswith('_')
     ]
-    super(NoDunderVisitor, self).__call__(parent_name, parent, children)
+    return super(NoDunderVisitor, self).__call__(parent_name, parent, children)
 
 
 class DocGeneratorVisitorTest(absltest.TestCase):

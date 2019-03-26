@@ -23,28 +23,99 @@ import inspect
 from tensorflow_docs.api_generator import doc_controls
 
 
-class PublicAPIVisitor(object):
-  """Visitor to use with `traverse` to visit exactly the public TF API."""
+def local_definitions_filter(path, parent, children):
+  """Filters children recursively.
+
+  Only returns those defined in this package.
+
+  This follows the API for visitors defined by `traverse.traverse`.
+
+  This is a much tighter constraint than the default "base_dir" filter which
+  ensures that that only objects defined within the package root are documented.
+  This applies a similar constraint, to each submodule.
+
+  in the api-tree below, `Dense` is defined in `tf.keras.layers`, but imported
+  into `tf.layers` and `tf.keras`.
+
+  ```
+  tf
+    keras
+      from tf.keras.layers import Dense
+      layers
+         class Dense(...)
+    layers
+      from tf.keras.layers import Dense
+  ```
+
+  This filter hides the `tf.layers.Dense` reference as `Dense` is not defined
+  within the `tf.layers` package. The reference at `tf.keras.Dense` is still
+  visible because dense is defined inside the `tf.keras` tree.
+
+  One issue/feature to be aware of with this approach is that if you hide
+  the defining module, the object will not be visible in the docs at all. For
+  example, if used with the package below, `util_1` and `util_2` are never
+  documented.
+
+  ```
+  my_package
+    _utils    # leading `_` means private.
+      def util_1
+      def util_2
+    subpackage
+      from my_package._utils import *
+  ```
+  Arguments:
+    path: A tuple or name parts forming the attribute-lookup path to this
+      object. For `tf.keras.layers.Dense` path is:
+        ("tf","keras","layers","Dense")
+    parent: The parent object.
+    children: A list of (name, value) pairs. The attributes of the patent.
+
+  Returns:
+    A filtered list of children `(name, value)` pairs.
+  """
+  del path
+
+  if not inspect.ismodule(parent):
+    return children
+
+  filtered_children = []
+  for pair in children:
+    # Find the name of the module the child was defined in.
+    _, child = pair
+    if inspect.ismodule(child):
+      maybe_submodule = child.__name__
+    elif inspect.isfunction(child) or inspect.isclass(child):
+      maybe_submodule = child.__module__
+    else:
+      maybe_submodule = parent.__name__
+
+    # Skip if child was not defined within the parent module
+    in_submodule = maybe_submodule.startswith(parent.__name__)
+    if not in_submodule:
+      continue
+
+    filtered_children.append(pair)
+
+  return filtered_children
+
+
+class PublicAPIFilter(object):
+  """Visitor to use with `traverse` to filter just the public API."""
 
   def __init__(self,
-               visitor,
                base_dir,
                do_not_descend_map=None,
                private_map=None):
     """Constructor.
 
-    `visitor` should be a callable suitable as a visitor for `traverse`. It will
-    be called only for members of the public TensorFlow API.
-
     Args:
-      visitor: A visitor to call for the public API.
       base_dir: The directory to take source file paths relative to.
       do_not_descend_map: A mapping from dotted path like "tf.symbol" to a list
         of names. Included names will have no children listed.
       private_map: A mapping from dotted path like "tf.symbol" to a list
         of names. Included names will not be listed at that location.
     """
-    self._visitor = visitor
     self._base_dir = base_dir
     self._do_not_descend_map = do_not_descend_map or {}
     self._private_map = private_map or {}
@@ -96,4 +167,4 @@ class PublicAPIVisitor(object):
       if self._is_private(path, child_name, child):
         children.remove((child_name, child))
 
-    self._visitor(path, parent, children)
+    return children

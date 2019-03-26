@@ -33,6 +33,7 @@ class TestVisitor(object):
 
   def __call__(self, path, parent, children):
     self.call_log += [(path, parent, children)]
+    return children
 
 
 class TraverseTest(absltest.TestCase):
@@ -44,12 +45,12 @@ class TraverseTest(absltest.TestCase):
     Cyclist.cycle = Cyclist
 
     visitor = TestVisitor()
-    traverse.traverse(Cyclist, visitor, root_name='root_name')
+    traverse.traverse(Cyclist, [visitor], root_name='root_name')
     # We simply want to make sure we terminate.
 
   def test_module(self):
     visitor = TestVisitor()
-    traverse.traverse(test_module1, visitor, root_name='root_name')
+    traverse.traverse(test_module1, [visitor], root_name='root_name')
 
     called = [parent for _, parent, _ in visitor.call_log]
 
@@ -59,7 +60,7 @@ class TraverseTest(absltest.TestCase):
 
   def test_class(self):
     visitor = TestVisitor()
-    traverse.traverse(TestVisitor, visitor, root_name='root_name')
+    traverse.traverse(TestVisitor, [visitor], root_name='root_name')
     self.assertEqual(TestVisitor,
                      visitor.call_log[0][1])
     # There are a bunch of other members, but make sure that the ones we know
@@ -74,7 +75,7 @@ class TraverseTest(absltest.TestCase):
   def test_non_class(self):
     integer = 5
     visitor = TestVisitor()
-    traverse.traverse(integer, visitor, root_name='root_name')
+    traverse.traverse(integer, [visitor], root_name='root_name')
     self.assertEqual([], visitor.call_log)
 
 
