@@ -1,24 +1,24 @@
 toc:
-- title: Install TensorFlow
+- title: TensorFlowのインストール
   path: /install/
-- heading: Packages
+- heading: パッケージ
 - title: pip
   path: /install/pip
 - title: Docker
   path: /install/docker
-- heading: Additional setup
-- title: GPU support
+- heading: 追加のセットアップ
+- title: GPUサポート
   path: /install/gpu
-- title: Problems
+- title: 問題
   path: /install/errors
-- heading: Build from source
+- heading: ソースからのビルド
 - title: Linux / macOS
   path: /install/source
 - title: Windows
   path: /install/source_windows
 - title: Raspberry Pi
   path: /install/source_rpi
-- heading: Language bindings
+- heading: 言語バインディング
 - title: Java
   path: /install/lang_java
 - title: C

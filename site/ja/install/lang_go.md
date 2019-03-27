@@ -1,50 +1,48 @@
-# Install TensorFlow for Go
+# Go用のTensorFlowをインストールする
 
-TensorFlow provides a
-[Go API](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go){:.external}—
-particularly useful for loading models created with Python and running them
-within a Go application.
+TensorFlowは[Go API](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go){:.external}を提供します。
+このAPIは、Pythonで作成したモデルを読み込んでGoアプリケーション内で実行する場合に特に便利です。
 
-Caution: The TensorFlow Go API is *not* covered by the TensorFlow
-[API stability guarantees](../guide/version_compat.md).
+注意: TensorFlowのGo APIはTensorFlowの
+[APIの安定性保証](../guide/version_compat.md)に*カバーされていません*。
 
 
-## Supported Platforms
+## サポートされているプラットフォーム
 
-TensorFlow for Go is supported on the following systems:
+Go用のTensorFlowは以下のシステムでサポートされています:
 
 * Linux, 64-bit, x86
-* macOS X, Version 10.12.6 (Sierra) or higher
+* macOS X, Version 10.12.6 (Sierra) 以降
 
 
-## Setup
+## セットアップ
 
-### TensorFlow C library
+### TensorFlowのCライブラリ
 
-Install the [TensorFlow C library](./lang_c.md) which is required for the
-TensorFlow Go package.
+TensorFlowのGoパッケージに必要な
+[TensorFlowのCライブラリ](./lang_c.md)をインストールします。
 
-### Download
+### ダウンロード
 
-Download and install the TensorFlow Go package and its dependencies:
+TensorFlowのGoパッケージとその依存関係をダウンロードしてインストールします:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 go get github.com/tensorflow/tensorflow/tensorflow/go
 </pre>
 
-And validate your installation:
+次にインストール結果を検証します:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 go test github.com/tensorflow/tensorflow/tensorflow/go
 </pre>
 
 
-## Build
+## ビルド
 
-### Example program
+### プログラム例
 
-With the TensorFlow Go package installed, create an example program with the
-following source code (`hello_tf.go`):
+TensorFlowのGoライブラリをインストールした状態で、
+以下のソースコード(`hello_tf.go`)のようにプログラム例を作成してください:
 
 ```go
 package main
@@ -77,19 +75,19 @@ func main() {
 }
 ```
 
-### Run
+### 実行
 
-Run the example program:
+プログラム例を実行してください:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 go run hello_tf.go
 </pre>
 
-The command outputs: <code>Hello from TensorFlow version <em>number</em></code>
+このコマンドの出力: <code>Hello from TensorFlow version <em>number</em></code>
 
-Success: The TensorFlow for Go is configured.
+成功: TensorFlowのGoライブラリが設定されました。
 
-The program may generate the following warning messages, which you can ignore:
+このプログラムは次の警告メッセージを生成することがありますが、無視してかまいません:
 
 <pre>
 W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library
@@ -97,8 +95,9 @@ wasn't compiled to use *Type* instructions, but these are available on your
 machine and could speed up CPU computations.
 </pre>
 
-## Build from source
+## ソースからビルドする
 
-TensorFlow is open source. Read
-[the instructions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/go/README.md){:.external}
-to build TensorFlow for Go from source code.
+TensorFlowはオープンソースです。
+ソースコードからTensorFlowのGoライブラリをビルドする場合は
+[手順](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/go/README.md){:.external}
+を参照してください。

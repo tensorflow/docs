@@ -1,42 +1,42 @@
 <html devsite>
   <head>
-    <title>Install TensorFlow with pip</title>
+    <title>pipでTensorFlowをインストールする</title>
     <meta name="project_path" value="/_project.yaml" />
     <meta name="book_path" value="/_book.yaml" />
     <link rel="stylesheet" href="/site-assets/css/style.css">
   </head>
   <body>
 
-<h3>TensorFlow 2.0 Alpha is available</h3>
+<h3>TensorFlow 2.0 Alphaが利用可能です</h3>
 <ul>
-	<li><code>tensorflow==2.0.0-alpha0</code> —Preview <a href="/alpha">TF 2.0 Alpha</a> build for CPU-only <em>(unstable)</em></li>
-  <li><code>tensorflow-gpu==2.0.0-alpha0</code> —Preview <a href="/alpha">TF 2.0 Alpha</a> build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
+	<li><code>tensorflow==2.0.0-alpha0</code> —Preview <a href="/alpha">TF 2.0 Alpha</a> CPUのみのビルド<em>(不安定)</em></li>
+  <li><code>tensorflow-gpu==2.0.0-alpha0</code> —Preview <a href="/alpha">TF 2.0 Alpha</a> <a href="./gpu">GPUサポート</a>付きのビルド <em>(不安定、UbuntuおよびWindows)</em></li>
 </ul>
 
-<h3>Available packages</h3>
+<h3>追加パッケージ</h3>
 <ul>
-  <li><code>tensorflow</code> —Latest stable release for CPU-only <em>(Ubuntu and Windows)</em></li>
-  <li><code>tensorflow-gpu</code> —Latest stable release with <a href="./gpu">GPU support</a> <em>(Ubuntu and Windows)</em></li>
-  <li><code>tf-nightly</code> —Preview nightly build for CPU-only <em>(unstable)</em></li>
-  <li><code>tf-nightly-gpu</code> —Preview nightly build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
+  <li><code>tensorflow</code> —CPU用の最新の安定版リリース<em>(UbuntuおよびWindows)</em></li>
+  <li><code>tensorflow-gpu</code> —<a href="./gpu">GPUサポート</a>付きの最新の安定版リリース <em>(UbuntuおよびWindows)</em></li>
+  <li><code>tf-nightly</code> —CPU用のプレビューnightlyビルド <em>(不安定)</em></li>
+  <li><code>tf-nightly-gpu</code> —<a href="./gpu">GPUサポート</a>付きのプレビューnightlyビルド <em>(不安定、UbuntuおよびWindows)</em></li>
 </ul>
 
-<h3>System requirements</h3>
+<h3>システム要件</h3>
 <ul>
-  <li>Ubuntu 16.04 or later (64-bit)</li>
-  <li>macOS 10.12.6 (Sierra) or later (64-bit) <em>(no GPU support)</em></li>
-  <li>Windows 7 or later (64-bit) <em>(Python 3 only)</em></li>
-  <li>Raspbian 9.0 or later</li>
+  <li>Ubuntu 16.04 以降 (64-bit)</li>
+  <li>macOS 10.12.6 (Sierra) 以降 (64-bit) <em>(GPUサポートは無し)</em></li>
+  <li>Windows 7 以降 (64-bit) <em>(Python 3 のみ)</em></li>
+  <li>Raspbian 9.0 以降</li>
 </ul>
 
-<h3>Hardware requirements</h3>
+<h3>ハードウェア要件</h3>
 <ul>
-  <li>Starting with TensorFlow 1.6, binaries use <a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX" class="external">AVX instructions</a> which may not run on older CPUs.</li>
-  <li>Read the <a href="./gpu">GPU support guide</a> to set up a CUDA®-enabled GPU card on Ubuntu or Windows.</li>
+  <li>TensorFlow 1.6 以降、バイナリーは<a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX" class="external">AVX手順</a>を使用しており、古いCPU上で実行できないおそれがあります。</li>
+  <li><a href="./gpu">GPUサポートガイド</a>を読み、UbuntuもしくはWindows上でCUDA®対応のGPUカードをセットアップしてください。</li>
 </ul>
 
 
-<h2>1. Install the Python development environment on your system</h2>
+<h2>1. ご自身のシステムにPython開発環境をインストールする</h2>
 
 <devsite-nav-buttons name="lang">
   <button value="python3" default>Python 3</button>
@@ -44,7 +44,7 @@
 </devsite-nav-buttons>
 
 <p>
-  Check if your Python environment is already configured:
+  Python環境が設定済みであることを確認してください:
 </p>
 
 {% dynamic if request.query_string.lang == "python2" %}
@@ -64,10 +64,10 @@
 {% dynamic endif %}
 
 <p>
-  If these packages are already installed, skip to the next step.<br/>
-  Otherwise, install <a href="https://www.python.org/" class="external">Python</a>, the
-  <a href="https://pip.pypa.io/en/stable/installing/" class="external">pip package manager</a>,
-  and <a href="https://virtualenv.pypa.io/en/stable/" class="external">Virtualenv</a>:
+  これらのパッケージがインストール済みの場合、次の手順はスキップしてください。<br/>
+  そうでなければ、<a href="https://www.python.org/" class="external">Python</a>、
+  <a href="https://pip.pypa.io/en/stable/installing/" class="external">pip package manager</a>、
+  <a href="https://virtualenv.pypa.io/en/stable/" class="external">Virtualenv</a>をインストールしてください:
 </p>
 
 {% dynamic if request.query_string.lang == "python2" %}
@@ -84,7 +84,7 @@
 
 <section>
 <h3>mac OS</h3>
-<p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
+<p><a href="https://brew.sh/" class="external">Homebrew</a>パッケージマネージャーを使用してインストールしてください:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
 <code class="devsite-terminal">export PATH="/usr/local/bin:/usr/local/sbin:$PATH"</code>
@@ -96,7 +96,7 @@
 
 <section>
 <h3>Raspberry Pi</h3>
-<p>Requirements for the <a href="https://www.raspberrypi.org/downloads/raspbian/" class="external">Raspbian</a> operating system:</p>
+<p><a href="https://www.raspberrypi.org/downloads/raspbian/" class="external">Raspbian</a>オペレーティングシステム用の要件:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">sudo apt update</code>
 <code class="devsite-terminal">sudo apt install python-dev python-pip</code>
@@ -106,7 +106,7 @@
 </section>
 
 <section>
-<h3>Other</h3>
+<h3>その他</h3>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code>
 <code class="devsite-terminal">python get-pip.py</code>
@@ -129,7 +129,7 @@
 
 <section>
 <h3>mac OS</h3><!--python3-->
-<p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
+<p><a href="https://brew.sh/" class="external">Homebrew</a>パッケージマネージャーを使用してインストールしてください:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
 <code class="devsite-terminal">export PATH="/usr/local/bin:/usr/local/sbin:$PATH"</code>
@@ -142,22 +142,22 @@
 <section>
 <h3>Windows</h3><!--python3-->
 <p>
-  Install the <em>Microsoft Visual C++ 2015 Redistributable Update 3</em>. This
-  comes with <em>Visual Studio 2015</em> but can be installed separately:
+  <em>Microsoft Visual C++ 2015 Redistributable Update 3</em>をインストールしてください。これは
+  <em>Visual Studio 2015</em>に付属していますが、別々にインストールすることもできます:
 </p>
 <ol>
-<li>Go to the <a href="https://visualstudio.microsoft.com/vs/older-downloads/" class="external">Visual Studio downloads</a>,</li>
-<li>Select <em>Redistributables and Build Tools</em>,</li>
-<li>Download and install the <em>Microsoft Visual C++ 2015 Redistributable Update 3</em>.</li>
+<li><a href="https://visualstudio.microsoft.com/vs/older-downloads/" class="external">Visual Studio downloads</a>にアクセスし、</li>
+<li><em>Redistributables and Build Tools</em>を選択、</li>
+<li><em>Microsoft Visual C++ 2015 Redistributable Update 3</em>をダウンロードしてインストールしてください。</li>
 </ol>
-<p>Make sure <a href="https://superuser.com/questions/1119883/windows-10-enable-ntfs-long-paths-policy-option-missing" class="external">long paths are enabled</a> on Windows.</p>
-<p>Install the <em>64-bit</em> <a href="https://www.python.org/downloads/windows/" class="external">Python 3 release for Windows</a> (select <code>pip</code> as an optional feature).</p>
+<p>Windows上で<a href="https://superuser.com/questions/1119883/windows-10-enable-ntfs-long-paths-policy-option-missing" class="external">long pathsが有効</a>であることを確認してください。</p>
+<p><em>64-bit</em> <a href="https://www.python.org/downloads/windows/" class="external">Windows用のPython 3 リリース</a>をインストールしてください。 (オプション機能として<code>pip</code>を選択してください。)</p>
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">pip3 install -U pip virtualenv</pre>
 </section>
 
 <section>
 <h3>Raspberry Pi</h3>
-<p>Requirements for the <a href="https://www.raspberrypi.org/downloads/raspbian/" class="external">Raspbian</a> operating system:</p>
+<p><a href="https://www.raspberrypi.org/downloads/raspbian/" class="external">Raspbian</a>オペレーティングシステム用の要件:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">sudo apt update</code>
 <code class="devsite-terminal">sudo apt install python3-dev python3-pip</code>
@@ -167,7 +167,7 @@
 </section>
 
 <section>
-<h3>Other</h3><!--python3-->
+<h3>その他</h3><!--python3-->
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code>
 <code class="devsite-terminal">python get-pip.py</code>
@@ -179,18 +179,18 @@
 {% dynamic endif %}
 
 
-<h2>2. Create a virtual environment (recommended)</h2>
+<h2>2. 仮想環境を作成する (推奨)</h2>
 
 <p>
-  Python virtual environments are used to isolate package installation from the system.
+  Python仮想環境は、システムからパッケージのインストールを分離するために使用されます。
 </p>
 
 <div class="ds-selector-tabs">
 <section>
 <h3>Ubuntu / mac OS</h3>
 <p>
-  Create a new virtual environment by choosing a Python interpreter and making a
-  <code>./venv</code> directory to hold it:
+  Pythonインタープリターを選択、その情報を<code>./venv</code>ディレクトリーに保持することで、
+  新しい仮想環境を作成します:
 </p>
 {% dynamic if request.query_string.lang == "python2" %}
 <pre class="devsite-terminal devsite-click-to-copy">virtualenv --system-site-packages -p python2.7 <var>./venv</var></pre>
@@ -198,15 +198,15 @@
 <pre class="devsite-terminal devsite-click-to-copy">virtualenv --system-site-packages -p python3 <var>./venv</var></pre>
 {% dynamic endif %}
 <p>
-  Activate the virtual environment using a shell-specific command:
+  シェル固有のコマンドを使用して仮想環境を有効にします:
 </p>
 <pre class="devsite-terminal prettyprint lang-bsh">source <var>./venv</var>/bin/activate  # sh, bash, ksh, or zsh</pre>
 <p>
-  When virtualenv is active, your shell prompt is prefixed with <code>(venv)</code>.
+  virtualenvば有効な場合、シェルプロンプトの先頭は<code>(venv)</code>となっています。
 </p>
 <p>
-  Install packages within a virtual environment without affecting the host system
-  setup. Start by upgrading <code>pip</code>:
+  ホストシステムの設定に影響を与えずに仮想環境内にパッケージをインストールします。 
+  <code>pip</code>をアップグレードすることから始めます:
 </p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-venv">pip install --upgrade pip</code>
@@ -214,7 +214,7 @@
 <code class="devsite-terminal tfo-terminal-venv">pip list  # show packages installed within the virtual environment</code>
 </pre>
 <p>
-  And to exit virtualenv later:
+  そして、後ほどvirtualenvを終了します:
 </p>
 <pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">deactivate  # don't exit until you're done using TensorFlow</pre>
 </section>
@@ -223,8 +223,8 @@
 <section>
   <h3>Windows</h3>
   <p>
-  Create a new virtual environment by choosing a Python interpreter and making a
-  <code>.\venv</code> directory to hold it:
+  Pythonインタープリターを選択、その情報を<code>.\venv</code>ディレクトリーに保持することで、
+  新しい仮想環境を作成します:
 </p>
 {% dynamic if request.query_string.lang == "python2" %}
 <aside class="warning">TensorFlow is not supported on Windows with Python 2.7</aside>
@@ -232,12 +232,12 @@
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">virtualenv --system-site-packages -p python3 <var>./venv</var></pre>
 {% dynamic endif %}
 <p>
-  Activate the virtual environment:
+  仮想環境を有効にします:
 </p>
 <pre class="devsite-terminal tfo-terminal-windows-venv"><var>.\venv</var>\Scripts\activate</pre>
 <p>
-  Install packages within a virtual environment without affecting the host system
-  setup. Start by upgrading <code>pip</code>:
+  ホストシステムの設定に影響を与えずに仮想環境内にパッケージをインストールします。 
+  <code>pip</code>をアップグレードすることから始めます:
 </p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-windows-venv">pip install --upgrade pip</code>
@@ -245,7 +245,7 @@
 <code class="devsite-terminal tfo-terminal-windows-venv">pip list  # show packages installed within the virtual environment</code>
 </pre>
 <p>
-  And to exit virtualenv later:
+  そして、後ほどvirtualenvを終了します:
 </p>
 <pre class="devsite-terminal tfo-terminal-windows-venv prettyprint lang-bsh">deactivate  # don't exit until you're done using TensorFlow</pre>
 </section>
@@ -254,122 +254,122 @@
 <section>
 <h3>Conda</h3>
 <aside class="note">
-  While we recommend the TensorFlow-provided <em>pip</em> package, a
-  <em>community-supported</em> <a href="https://anaconda.org/conda-forge/tensorflow" class="external">Anaconda package</a>
-  is available.
+  TensorFlow提供の<em>pip</em>パッケージを推奨しますが、
+  <em>コミュニティサポートの</em> <a href="https://anaconda.org/conda-forge/tensorflow" class="external">Anacondaパッケージ</a>
+  が利用可能です。
 </aside>
 <p>
-  Create a new virtual environment by choosing a Python interpreter and making a
-  <code>./venv</code> directory to hold it:
+  Pythonインタープリターを選択、その情報を<code>./venv</code>ディレクトリーに保持することで、
+  新しい仮想環境を作成します:
 </p>
 {% dynamic if request.query_string.lang == "python2" %}
 <pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=2.7</pre>
 {% dynamic else %}
 <pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=3.6  # select python version</pre>
 {% dynamic endif %}
-<p>Activate the virtual environment:</p>
+<p>仮想環境を有効にします:</p>
 <pre class="devsite-terminal devsite-click-to-copy">source activate <var>venv</var></pre>
 <p>
-  Within the virtual environment, install the TensorFlow pip package using its <a href="#package-location">complete URL</a>:
+  仮想環境内で、<a href="#package-location">完全なURL</a>を使用してTensoFlowのpipパッケージをインストールしてください:
 </p>
 <pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">pip install --ignore-installed --upgrade <var>packageURL</var></pre>
 <p>
-  And to exit virtualenv later:
+  そして、後ほどvirtualenvを終了します:
 </p>
 <pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">source deactivate</pre>
 </section>
 </div><!--/ds-selector-tabs-->
 
 
-<h2>3. Install the TensorFlow pip package</h2>
+<h2>3. TensorFlowのpipパッケージをインストールする</h2>
 
 <p>
-  Choose one of the following TensorFlow packages to install <a href="https://pypi.org/project/tensorflow/" class="external">from PyPI</a>:
+  <a href="https://pypi.org/project/tensorflow/" class="external">PyPI</a>から、以下のTensorFlowパッケージの中から一つ選択してインストールしてください:
 </p>
 
 <ul>
-  <li><code>tensorflow</code> —Latest stable release for CPU-only <em>(recommended for beginners)</em></li>
-  <li><code>tensorflow-gpu</code> —Latest stable release with <a href="./gpu">GPU support</a> <em>(Ubuntu and Windows)</em></li>
-  <li><code>tf-nightly</code> —Preview nightly build for CPU-only <em>(unstable)</em></li>
-  <li><code>tf-nightly-gpu</code> —Preview nightly build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
-  <li><code>tensorflow==2.0.0-alpha0</code> —Preview TF 2.0 Alpha build for CPU-only <em>(unstable)</em></li>
-  <li><code>tensorflow-gpu==2.0.0-alpha0</code> —Preview TF 2.0 Alpha build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
+  <li><code>tensorflow</code> —CPUのみの最新の安定版リリース <em>(初心者におすすめ)</em></li>
+  <li><code>tensorflow-gpu</code> —<a href="./gpu">GPUサポート</a>付きの最新の安定版リリース <em>(UbuntuおよびWindows)</em></li>
+  <li><code>tf-nightly</code> —CPUのみのプレビューnightlyビルド <em>(不安定)</em></li>
+  <li><code>tf-nightly-gpu</code> —<a href="./gpu">GPUサポート</a>付きのプレビューnightlyビルド <em>(不安定、UbuntuおよびWindows)</em></li>
+  <li><code>tensorflow==2.0.0-alpha0</code> —CPUのみのプレビュー TF 2.0 Alpha ビルド <em>(不安定)</em></li>
+  <li><code>tensorflow-gpu==2.0.0-alpha0</code> —<a href="./gpu">GPUサポート</a>付きのTF 2.0 Alpha ビルド <em>(不安定、UbuntuおよびWindows)</em></li>
 </ul>
 
 <aside class="note">
-  Package dependencies are automatically installed. These are listed in the
+  パッケージ依存関係は自動的にインストールされます。これらは
   <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
-  file under <code>REQUIRED_PACKAGES</code>.
+  ファイルの<code>REQUIRED_PACKAGES</code>の下に一覧があります。
 </aside>
 
 <div class="ds-selector-tabs">
 <section>
-<h3>Virtualenv install</h3>
+<h3>Virtualenvをインストールする</h3>
 <pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">pip install --upgrade tensorflow</pre>
-<p>Verify the install:</p>
+<p>インストールされたことを確認します:</p>
 <pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"</pre>
 </section>
 
 <section>
-<h3>System install</h3>
+<h3>システムインストール</h3>
 {% dynamic if request.query_string.lang == "python2" %}
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">pip install --user --upgrade tensorflow  # install in $HOME</pre>
-<p>Verify the install:</p>
+<p>インストールされたことを確認します:</p>
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"</pre>
 {% dynamic else %}<!--python3-->
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">pip3 install --user --upgrade tensorflow  # install in $HOME</pre>
-<p>Verify the install:</p>
+<p>インストールされたことを確認します:</p>
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"</pre>
 {% dynamic endif %}
 </section>
 </div><!--/ds-selector-tabs-->
 
-<aside class="success"><b>Success:</b> TensorFlow is now installed. Read the <a href="../tutorials">tutorials</a> to get started.</aside>
+<aside class="success"><b>成功:</b> TensorFlowがインストールされました。<a href="../tutorials">チュートリアル</a>を読んで始めましょう。</aside>
 
-<h2>Package location</h2>
+<h2>パッケージの場所</h2>
 
 <p>
-  A few installation mechanisms require the URL of the TensorFlow Python package.
-  The value you specify depends on your Python version.
+  いくつかのインストールメカニズムはTensorFlowのPythonパッケージのURLを必要とします。
+  指定する値はお使いのPythonのバージョンによって異なります。
 </p>
 
 <table>
-  <tr><th>Version</th><th>URL</th></tr>
+  <tr><th>バージョン</th><th>URL</th></tr>
   <tr class="alt"><td colspan="2">Linux</td></tr>
   <tr>
-    <td>Python 2.7 CPU-only</td>
+    <td>Python 2.7 CPUのみ</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.12.0-cp27-none-linux_x86_64.whl</td>
   </tr>
   <tr>
-    <td>Python 2.7 GPU&nbsp;support</td>
+    <td>Python 2.7 GPU&nbsp;サポート</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.12.0-cp27-none-linux_x86_64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.4 CPU-only</td>
+    <td>Python 3.4 CPUのみ</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.12.0-cp34-cp34m-linux_x86_64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.4 GPU&nbsp;support</td>
+    <td>Python 3.4 GPU&nbsp;サポート</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.12.0-cp34-cp34m-linux_x86_64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.5 CPU-only</td>
+    <td>Python 3.5 CPUのみ</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.12.0-cp35-cp35m-linux_x86_64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.5 GPU&nbsp;support</td>
+    <td>Python 3.5 GPU&nbsp;サポート</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.12.0-cp35-cp35m-linux_x86_64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.6 CPU-only</td>
+    <td>Python 3.6 CPUのみ</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.12.0-cp36-cp36m-linux_x86_64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.6 GPU&nbsp;support</td>
+    <td>Python 3.6 GPU&nbsp;サポート</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.12.0-cp36-cp36m-linux_x86_64.whl</td>
   </tr>
 
-  <tr class="alt"><td colspan="2">macOS (CPU-only)</td></tr>
+  <tr class="alt"><td colspan="2">macOS (CPUのみ)</td></tr>
   <tr>
     <td>Python 2.7</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.12.0-py2-none-any.whl</td>
@@ -381,19 +381,19 @@
 
   <tr class="alt"><td colspan="2">Windows</td></tr>
   <tr>
-    <td>Python 3.5 CPU-only</td>
+    <td>Python 3.5 CPUのみ</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.12.0-cp35-cp35m-win_amd64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.5 GPU&nbsp;support</td>
+    <td>Python 3.5 GPU&nbsp;サポート</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-1.12.0-cp35-cp35m-win_amd64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.6 CPU-only</td>
+    <td>Python 3.6 CPUのみ</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.12.0-cp36-cp36m-win_amd64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.6 GPU&nbsp;support</td>
+    <td>Python 3.6 GPU&nbsp;サポート</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-1.12.0-cp36-cp36m-win_amd64.whl</td>
   </tr>
 </table>

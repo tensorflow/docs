@@ -1,32 +1,31 @@
-# Install TensorFlow for Java
+# Java用のTensorFlowをインストールする
 
-TensorFlow provides a
-[Java API](https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary)—
-particularly useful for loading models created with Python and running them
-within a Java application.
+TensorFlowは[Java API](https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary)を提供します。
+このAPIは、Pythonで作成したモデルを読み込んでJavaアプリケーション内で実行する場合に特に便利です。
 
-Caution: The TensorFlow Java API is *not* covered by the TensorFlow
-[API stability guarantees](../guide/version_compat.md).
+注意: TensorFlowのJava APIはTensorFlowの
+[APIの安定性保証](../guide/version_compat.md)に*カバーされていません*。
 
 
-## Supported Platforms
+## サポートされているプラットフォーム
 
-TensorFlow for Java is supported on the following systems:
+Java用のTensorFlowは以下のシステムでサポートされています:
 
 * Ubuntu 16.04 or higher; 64-bit, x86
-* macOS 10.12.6 (Sierra) or higher
+* macOS 10.12.6 (Sierra) 以降
 * Windows 7 or higher; 64-bit, x86
 
-To install TensorFlow on Android, see
-[Android TensorFlow support](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/android){:.external}
-and the
-[TensorFlow Android Camera Demo](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android){:.external}.
+AndroidにTensorFlowをインストールするには、
+[AndroidのTensorFlowサポート](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/android){:.external}
+と
+[TensorFlow Android Cameraデモ](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android){:.external}.
+を参照してください。
 
 
-## TensorFlow with Apache Maven
+## Apache Mavenを使ったTensorFlow
 
-To use TensorFlow with [Apache Maven](https://maven.apache.org){:.external},
-add the dependency to the project's `pom.xml` file:
+[Apache Maven](https://maven.apache.org){:.external}でTensorFlowを使う場合、
+プロジェクトの`pom.xml`ファイルに次の依存関係を追加してください:
 
 ```xml
 <dependency>
@@ -36,10 +35,10 @@ add the dependency to the project's `pom.xml` file:
 </dependency>
 ```
 
-### GPU support
+### GPUサポート
 
-If your system has [GPU support](./gpu.md), add the following TensorFlow
-dependencies to the project's `pom.xml` file:
+ご使用のシステムが[GPUサポート](./gpu.md)に対応している場合、
+プロジェクトの`pom.xml`ファイルに以下のTensorFlowの依存関係を追加してください:
 
 ```xml
 <dependency>
@@ -54,10 +53,10 @@ dependencies to the project's `pom.xml` file:
 </dependency>
 ```
 
-### Example program
+### プログラム例
 
-This example shows how to build an Apache Maven project with TensorFlow. First,
-add the TensorFlow dependency to the project's `pom.xml` file:
+この例は、TensorFlowを使用してApache Mavenプロジェクトをビルドする方法を示しています。
+まず、プロジェクトの`pom.xml`ファイルにTensorFlowの依存関係を追加します:
 
 ```xml
 <project>
@@ -82,7 +81,7 @@ add the TensorFlow dependency to the project's `pom.xml` file:
 </project>
 ```
 
-Create the source file (`src/main/java/HelloTensorFlow.java`):
+ソース・ファイルを作成します (`src/main/java/HelloTensorFlow.java`):
 
 ```java
 import org.tensorflow.Graph;
@@ -114,73 +113,72 @@ public class HelloTensorFlow {
 }
 ```
 
-Compile and execute:
+コンパイルし、実行します:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
 mvn -q compile exec:java  # Use -q to hide logging
 </pre>
 
-The command outputs: <code>Hello from <em>version</em></code>
+このコマンドの出力: <code>Hello from <em>version</em></code>
 
-Success: TensorFlow for Java is configured.
+成功: Java用のTensorFlowが設定されました。
 
 
-## TensorFlow with the JDK
+## JDKを使ったTensorFlow
 
-TensorFlow can be used with the JDK through the Java Native Interface (JNI).
+TensorFlowは、Java Native Interface (JNI)を介してJDKともに使用できます。
 
-### Download
+### ダウンロード
 
-1. Download the TensorFlow Jar Archive (JAR): [libtensorflow.jar](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-1.12.0.jar)
-2. Download and extract the Java Native Interface (JNI) file for your operating
-system and processor support:
+1. TensorFlow Jar Archive (JAR)をダウンロードします: [libtensorflow.jar](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-1.12.0.jar)
+2. ご使用のオペレーティングシステムおよびプロセッサーサポート用のJava Native Interface (JNI)ファイルをダウンロードし、実行します:
 
 <table>
   <tr><th>JNI version</th><th>URL</th></tr>
   <tr class="alt"><td colspan="2">Linux</td></tr>
   <tr>
-    <td>Linux CPU only</td>
+    <td>Linux CPUのみ</td>
     <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-1.12.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-1.12.0.tar.gz</a></td>
   </tr>
   <tr>
-    <td>Linux GPU support</td>
+    <td>Linux GPUサポート</td>
     <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-1.12.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-1.12.0.tar.gz</a></td>
   </tr>
   <tr class="alt"><td colspan="2">macOS</td></tr>
   <tr>
-    <td>macOS CPU only</td>
+    <td>macOS CPUのみ</td>
     <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-1.12.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-1.12.0.tar.gz</a></td>
   </tr>
   <tr class="alt"><td colspan="2">Windows</td></tr>
   <tr>
-    <td>Windows CPU only</td>
+    <td>Windows CPUのみ</td>
     <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-1.12.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-1.12.0.zip</a></td>
   </tr>
   <tr>
-    <td>Windows GPU support</td>
+    <td>Windows GPUサポート</td>
     <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-1.12.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-1.12.0.zip</a></td>
   </tr>
 </table>
 
-Note: On Windows, the native library (`tensorflow_jni.dll`) requires
-`msvcp140.dll` at runtime. See the [Windows build from source](./source_windows.md)
-guide to install the [Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145){:.external}.
+注: Windowsでは、ネイティブライブラリー (`tensorflow_jni.dll`)が実行時に`msvcp140.dll`を必要とします。
+[Windows build from source](./source_windows.md)ガイドを参照して、
+[Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145){:.external}をインストールしてください。
 
 
-### Compile
+### コンパイル
 
-Using the `HelloTensorFlow.java` file from the [previous example](#example),
-compile a program that uses TensorFlow. Make sure the `libtensorflow.jar` is
-accessible to your `classpath`:
+[前の例](#example)の`HelloTensorFlow.java`ファイルを使って、
+TensorFlowを使うプログラムをコンパイルしてください。
+`libtensorflow.jar`が`classpath`にアクセス可能であることを確認してください:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 javac -cp libtensorflow-1.12.0.jar HelloTensorFlow.java
 </pre>
 
-### Run
+### 実行
 
-To execute a TensorFlow Java program, the JVM must access `libtensorflow.jar` and
-the extracted JNI library.
+TensorFlowのJavaプログラムを実行するために、
+JVMは`libtensorflow.jar`と解凍されたJNIライブラリにアクセスしなければなりません。
 
 <div class="ds-selector-tabs">
 <section>
@@ -193,13 +191,14 @@ the extracted JNI library.
 </section>
 </div><!--/ds-selector-tabs-->
 
-The command outputs: <code>Hello from <em>version</em></code>
+このコマンドの出力: <code>Hello from <em>version</em></code>
 
-Success: TensorFlow for Java is configured.
+成功: Java用のTensorFlowが設定されました。
 
 
-## Build from source
+## ソースからビルドする
 
-TensorFlow is open source. Read
-[the instructions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/README.md){:.external}
-to build TensorFlow's Java and native libraries from source code.
+TensorFlowはオープンソースです。
+ソースコードからTensorFlowのJavaとネイティブライブラリをビルドする場合は
+[手順](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/README.md){:.external}
+を参照してください。

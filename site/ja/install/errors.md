@@ -1,16 +1,15 @@
 # Build and install error messages
 
-TensorFlow uses [GitHub issues](https://github.com/tensorflow/tensorflow/issues){:.external}
-and [Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow){:.external}
-to track and document build and installation problems.
+TensorFlowは[GitHub issues](https://github.com/tensorflow/tensorflow/issues){:.external}
+と[Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow){:.external}
+を使用してビルドやインストールの問題を追跡し、ドキュメント化します。
 
-The following list links error messages to a solution or discussion. If you find
-an installation or build problem that is not listed, please search the GitHub
-issues and Stack Overflow. If you still can't find the error message, ask a new
-question on Stack Overflow with the `tensorflow` tag.
+次の一覧は、エラーメッセージと解決策またはディスカッションを紐づけています。
+一覧にないインストールまたはビルドの問題が見つかった場合は、GitHub issueとStack Overflowで検索してください。
+それでもエラーメッセージが見つからない場合は、`tensorflow`タグを使ってStack Overflowに関する新しい質問をしてください。
 
 <table>
-<tr><th>GitHub issue or Stack&nbsp;Overflow</th> <th>Error Message</th></tr>
+<tr><th>GitHub issueまたはStack&nbsp;Overflow</th> <th>エラーメッセージ</th></tr>
 <tr>
   <td><a href="https://github.com/tensorflow/tensorflow/issues/22390">22390</a></td>
   <td><pre>Unzipping simple_console_for_windows.zip to create runfiles tree...
