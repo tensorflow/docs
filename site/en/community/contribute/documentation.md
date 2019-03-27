@@ -42,7 +42,7 @@ In the rare case that there is a major update for a new feature that we do not
 publish to the site in the meantime, the docs will be developed in a feature
 branch, and then merged to `master` when ready.
 
-### Authoring and editing
+### Author and edit
 
 The following reference documentation is automatically generated from comments
 in the code:
