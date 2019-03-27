@@ -1,18 +1,16 @@
-# Build from source
+# ソースからビルドする
 
-Build a TensorFlow *pip* package from source and install it on Ubuntu Linux and
-macOS. While the instructions might work for other systems, it is only tested and
-supported for Ubuntu and macOS.
+ソースからTensorFlow *pip* パッケージをビルドし、それをUbuntu LinuxとmacOSにインストールします。
+この手順は他のシステムでも機能するかもしれませんが、UbuntuとmacOSでのみテスト・サポートされています。
 
-Note: We already provide well-tested, pre-built [TensorFlow packages](./pip.md)
-for Linux and macOS systems.
+注: LinuxおよびmacOSシステム用に、十分にテストされたビルド済みの[TensorFlow packages](./pip.md)をすでに提供しています。
 
 
-## Setup for Linux and macOS
+## LinuxとmacOS用にセットアップする
 
-Install the following build tools to configure your development environment.
+以下のビルドツールをインストールして開発環境を設定してください。
 
-### Install Python and the TensorFlow package dependencies
+### PythonとTensorFlowの依存パッケージをインストールする
 
 <div class="ds-selector-tabs">
 <section>
@@ -23,8 +21,8 @@ Install the following build tools to configure your development environment.
 </section>
 <section>
 <h3>mac OS</h3>
-<p>Requires Xcode 9.2 or later.</p>
-<p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
+<p>Xcode 9.2以降が必要です</p>
+<p><a href="https://brew.sh/" class="external">Homebrew</a>パッケージマネージャーを使用してインストールします:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
 <code class="devsite-terminal">export PATH="/usr/local/bin:/usr/local/sbin:$PATH"</code>
@@ -33,8 +31,8 @@ Install the following build tools to configure your development environment.
 </section>
 </div><!--/ds-selector-tabs-->
 
-Install the TensorFlow *pip* package dependencies (if using a virtual environment,
-omit the `--user` argument):
+TensorFlow *pip* 依存パッケージをインストールします。
+(仮想環境を使用している場合、`--user`引数は省いてください)
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">pip install -U --user pip six numpy wheel setuptools mock</code>
@@ -42,57 +40,54 @@ omit the `--user` argument):
 <code class="devsite-terminal">pip install -U --user keras_preprocessing==1.0.5 --no-deps</code>
 </pre>
 
-The dependencies are listed in the
+依存パッケージは
 <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
-file under `REQUIRED_PACKAGES`.
+の`REQUIRED_PACKAGES`の下に一覧があります。
 
-### Install Bazel
+### Bazelをインストールする
 
 [Install Bazel](https://docs.bazel.build/versions/master/install.html){:.external},
-the build tool used to compile TensorFlow.
+TensorFlowをコンパイルするのに使用するビルドツールです。
 
-Add the location of the Bazel executable to your `PATH` environment variable.
+Bazel実行可能ファイルの場所を`PATH`環境変数に追加してください。
 
-### Install GPU support (optional, Linux only)
+### GPUサポートをインストールします (オプション、Linuxnのみ)
 
-There is *no* GPU support for macOS.
+macOSには*GPUサポートがありません*。
 
-Read the [GPU support](./gpu.md) guide to install the drivers and additional
-software required to run TensorFlow on a GPU.
+[GPUサポート](./gpu.md)ガイドを読み、GPU上でTensorFlowを実行するために必要なドライバーと追加ソフトウェアをインストールしてください。
 
-Note: It is easier to set up one of TensorFlow's GPU-enabled [Docker images](#docker_linux_builds).
+注: TensorFlowのGPU対応の[Docker images](#docker_linux_builds)をセットアップする方が簡単です。
 
-### Download the TensorFlow source code
+### TensorFlowのソースコードをダウンロードする
 
-Use [Git](https://git-scm.com/){:.external} to clone the
-[TensorFlow repository](https://github.com/tensorflow/tensorflow){:.external}:
+[Git](https://git-scm.com/){:.external}を使って
+[TensorFlow repository](https://github.com/tensorflow/tensorflow){:.external}をcloneしてください:
 
 <pre class="devsite-click-to-copy">
 <code class="devsite-terminal">git clone https://github.com/tensorflow/tensorflow.git</code>
 <code class="devsite-terminal">cd tensorflow</code>
 </pre>
 
-The repo defaults to the `master` development branch. You can also checkout a
-[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}
-to build:
+レポジトリのデフォルトは `master` 開発ブランチです。
+[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}をcheckoutしてビルドすることもできます:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
 git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
 </pre>
 
 
-## Configure the build
+## ビルドを設定する
 
-Configure your system build by running the following at the root of your
-TensorFlow source tree:
+TensorFlowソースツリーのルートディレクトリーで次のコマンドを実行してシステムビルドを設定します:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 ./configure
 </pre>
 
-This script prompts you for the location of TensorFlow dependencies and asks for
-additional build configuration options (compiler flags, for example). The
-following shows a sample run of `./configure` (your session may differ):
+このスクリプトは、TensorFlow依存関係の場所をたずねるプロンプトを出し、
+追加のビルド設定オプション（例えば、コンパイラーフラグ）を求めます。
+以下は `./configure` の実行例です (セッションは異なるかもしれません):
 
 <section class="expandable">
 <h4 class="showalways">View sample configuration session</h4>
@@ -174,111 +169,110 @@ Configuration finished
 </pre>
 </section>
 
-### Configuration options
+### 設定オプション
 
-For [GPU support](./gpu.md), specify the versions of CUDA and cuDNN. If your
-system has multiple versions of CUDA or cuDNN installed, explicitly set the
-version instead of relying on the default. `./configure` creates symbolic links
-to your system's CUDA libraries—so if you update your CUDA library paths, this
-configuration step must be run again before building.
+[GPUサポート](./gpu.md)用に、CUDAとcuDNNのバージョンを指定してください。
+ご自身のシステムに複数バージョンのCUDAもしくはcuDNNがインストールされている場合、
+デフォルトバージョンに頼らず明示的にバージョンを設定してください。
+`./configure` はシステムのCUDAのライブラリにシンボリックリンクを作成しますので、
+CUDAのライブラリのパスを更新する場合、この設定ステップはビルドの前に再び実行する必要があります。
 
-For compilation optimization flags, the default (`-march=native`) optimizes the
-generated code for your machine's CPU type. However, if building TensorFlow for a
-different CPU type, consider a more specific optimization flag. See the
+コンパイル最適化フラグの場合、デフォルト (`-march=native`) はご自身のマシンのCPUタイプ用の生成コードに最適化します。
+ただし、異なるCPUタイプ用にTensorFlowをビルドする場合は、より具体的な最適化フラグを検討してください。
+例については
 [GCC manual](https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html){:.external}
-for examples.
+を参照してください。
 
-There are some preconfigured build configs available that can be added to the
-`bazel build` command, for example:
+`bazel build` コマンドに追加できるいくつかの設定済みのビルド設定が利用可能です。
+例えば:
 
-* `--config=mkl` —Support for the [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
-* `--config=monolithic` —Configuration for a mostly static, monolithic build.
+* `--config=mkl` —[Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}用のサポート
+* `--config=monolithic` —ほとんど静的でモノリシックなビルド設定
 
-Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
-run on older CPUs.
+注: TensorFlow 1.6以降、バイナリは古いCPUでは動作しない可能性があるAVX命令を使用しています。
 
 
-## Build the pip package
+## pipパッケージをビルドする
 
-### Bazel build
+### Bazelでのビルド
 
-#### CPU-only
+#### CPUのみ
 
-Use `bazel` to make the TensorFlow package builder with CPU-only support:
+TensorFlowパッケージビルダーをCPUのみサポートするようにするには `bazel` を使います:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-#### GPU support
+#### GPUサポート
 
-To make the TensorFlow package builder with GPU support:
+TensorFlowパッケージビルダーをGPUサポート付きにするには:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-#### Bazel build options
+#### Bazelのビルドオプション
 
-Building TensorFlow from source can use a lot of RAM. If your system is
-memory-constrained, limit Bazel's RAM usage with: `--local_resources 2048,.5,1.0`.
+ソースからTensorFlowをビルドすると、大量のRAMを使用する可能性があります。
+ご自身のシステムのメモリが制限されている場合は、BazelのRAM使用量を制限してください: `--local_resources 2048,.5,1.0`
 
-The [official TensorFlow packages](./pip.md) are built with GCC 4 and use the
-older ABI. For GCC 5 and later, make your build compatible with the older ABI
-using: `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`. ABI compatibility ensures that
-custom ops built against the official TensorFlow package continue to work with
-the GCC 5 built package.
+[公式TensorFlowパッケージ](./pip.md)はGCC 4で構築されており、古いABIを使用しています。
+GCC 5以降では、ビルドを古いABIと互換してください: `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`
+ABI互換性により、公式のTensorFlowパッケージに対してビルドされたカスタムオペレーションは、
+引き続きGCC 5ビルドパッケージとともに機能します。
 
-### Build the package
 
-The `bazel build` command creates an executable named `build_pip_package`—this
-is the program that builds the `pip` package. Run the executable as shown
-below to build a `.whl` package in the `/tmp/tensorflow_pkg` directory.
+### パッケージをビルドする
 
-To build from a release branch:
+
+`bazel build`コマンドは`build_pip_package`という名前の実行ファイルを作成します。
+これは`pip`パッケージをビルドするプログラムです。
+下記のように実行ファイルを実行して`/tmp/tensorflow_pkg`ディレクトリーに`.whl`パッケージをビルドしてください。
+
+releaseブランチからビルドするには:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 </pre>
 
-To build from master, use `--nightly_flag` to get the right dependencies:
+masterからビルドするには、`--nightly_flag`を使用して正しい依存関係を取得してください:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 ./bazel-bin/tensorflow/tools/pip_package/build_pip_package --nightly_flag /tmp/tensorflow_pkg
 </pre>
 
-Although it is possible to build both CUDA and non-CUDA configurations under the
-same source tree, it's recommended to run `bazel clean` when switching between
-these two configurations in the same source tree.
+同じソースツリーの下でCUDAと非CUDAの両方の設定をビルドすることは可能ですが、
+同じソースツリー内でこれら2つの設定を切り替えるときは`bazel clean`を実行することを推奨します。
 
-### Install the package
+### パッケージをインストールする
 
-The filename of the generated `.whl` file depends on the TensorFlow version and
-your platform. Use `pip install` to install the package, for example:
+生成された`.whl`ファイルのファイル名はTensorFlowのバージョンとプラットフォームに依存します。
+パッケージをインストールするには `pip install`を使います。例えば:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
 pip install /tmp/tensorflow_pkg/tensorflow-<var>version</var>-<var>tags</var>.whl
 </pre>
 
-Success: TensorFlow is now installed.
+成功: TensorFlowがインストールできました。
 
 
-## Docker Linux builds
+## DockerのLinuxビルド
 
-TensorFlow's Docker development images are an easy way to set up an environment
-to build Linux packages from source. These images already contain the source
-code and dependencies required to build TensorFlow. See the TensorFlow
-[Docker guide](./docker.md) for installation and the
-[list of available image tags](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}.
+ソースからLinuxパッケージをビルドするには、TensorFlowのDocker開発イメージを使うのが簡単です。
+これらのイメージは、TensorFlowをビルドするために必要なソースコードと必要な依存関係をすでに含んでいます。
+インストールのためのTensorFlowの
+[Dockerガイド](./docker.md)と
+[list of available image tags](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}を参照してください。
 
-### CPU-only
 
-The following example uses the `:nightly-devel` image to build a CPU-only
-Python&nbsp;2 package from the latest TensorFlow source code. See the
-[Docker guide](./docker.md) for available TensorFlow `-devel` tags.
+### CPUのみ
 
-Download the latest development image and start a Docker container that we'll
-use to build the *pip* package:
+以下の例は、`:nightly-devel`イメージを使用して
+最新のTensorFlowソースコードからCPUのみのPython&nbps;2パッケージをビルドします。
+使用可能なTensorFlowの`-devel`タグは、[Dockerガイド](./docker.md)を参照してください。
+
+最新の開発用イメージをダウンロードして、*pip*パッケージをビルドするために使用するDockerコンテナを起動します:
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:nightly-devel</var></code>
@@ -288,26 +282,25 @@ use to build the *pip* package:
 <code class="devsite-terminal tfo-terminal-root">git pull  # within the container, download the latest source code</code>
 </pre>
 
-The above `docker run` command starts a shell in the `/tensorflow` directory—the
-root of the source tree. It mounts the host's current directory in the container's
-`/mnt` directory, and passes the host user's information to the container through
-an environmental variable (used to set permissions—Docker can make this tricky).
+上記の`docker run`コマンドは`/tensorflow`ディレクトリー、つまりソースツリーのルートでシェルを起動します。
+ホストの現在のディレクトリをコンテナの`/mnt`ディレクトリーにマウントし、
+環境変数を通してコンテナにホストユーザーの情報を渡します。
+(この環境変数はアクセス権を設定するために使用されます。Dockerはこれらを巧妙に行うことができます)
 
-Alternatively, to build a host copy of TensorFlow within a container, mount the
-host source tree at the container's `/tensorflow` directory:
+あるいは、コンテナ内にTensorFlowのホストコピーを構築するには、
+ホストのソースツリーをコンテナの`/tensorflow`ディレクトリーにマウントします:
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run -it -w /tensorflow -v <var>/path/to/tensorflow</var>:/tensorflow -v $PWD:/mnt \
     -e HOST_PERMS="$(id -u):$(id -g)" tensorflow/tensorflow:<var>nightly-devel</var> bash
 </pre>
 
-With the source tree set up, build the TensorFlow package within the container's
-virtual environment:
+ソースツリーを設定したら、コンテナの仮想環境内にTensorFlowパッケージをビルドします:
 
-1. Configure the build—this prompts the user to answer build configuration questions.
-2. Build the tool used to create the *pip* package.
-3. Run the tool to create the *pip* package.
-4. Adjust the ownership permissions of the file for outside the container.
+1. ビルドを設定する-ビルド設定の質問に答えるようにユーザーに促します。
+2. *pip*パッケージを作成するために使用されるツールをビルドします。
+3. ツールを実行して*pip*パッケージを作成します。
+4. ファイルの所有権をコンテナの外で調整します。
 
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # answer prompts or use defaults</code>
@@ -319,7 +312,7 @@ virtual environment:
 <code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
 
-Install and verify the package within the container:
+コンテナ内にパッケージをインストールして確認します:
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">pip uninstall tensorflow  # remove current version</code>
@@ -329,23 +322,22 @@ Install and verify the package within the container:
 <code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(tf.__version__)"</code>
 </pre>
 
-Success: TensorFlow is now installed.
+成功: TensorFlowがインストールできました。
 
-On your host machine, the TensorFlow *pip* package is in the current directory
-(with host user permissions): <code>./tensorflow-<var>version</var>-<var>tags</var>.whl</code>
+ご使用のホストマシンでは、TensorFlowの*pip*パッケージは(ホストユーザー権限を持つ)
+現在のディレクトリーにあります: <code>./tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 
-### GPU support
+### GPUサポート
 
-Docker is the easiest way to build GPU support for TensorFlow since the *host*
-machine only requires the
-[NVIDIA®&nbsp;driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
-(the *NVIDIA® CUDA® Toolkit* doesn't have to be installed). See the
-[GPU support guide](./gpu.md) and the TensorFlow [Docker guide](./docker.md)
-to set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} (Linux only).
+*ホスト*マシンは
+[NVIDIA®&nbsp;driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}しか必要としないので、DockerはTensorFlowのGPUサポートをビルドする最も簡単な方法です。
+(*NVIDIA® CUDA ツールキット*はインストールする必要はありません)
+[nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} (Linuxのみ)をセットアップするには、
+[GPU supportガイド](./gpu.md)とTensorFlowの[Dockerガイド](./docker.md)を参照してください。
 
-The following example downloads the TensorFlow `:nightly-devel-gpu-py3` image
-and uses `nvidia-docker` to run the GPU-enabled container. This development image
-is configured to build a Python 3 *pip* package with GPU support:
+以下の例ではTensorFlowの`:nightly-devel-gpu-py3`イメージをダウンロードし、
+`nvidia-docker`を使ってGPU対応のコンテナを実行します。
+この開発用イメージは、GPUをサポートするPython 3 *pip*パッケージをビルドするように設定されています:
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:nightly-devel-gpu-py3</var></code>
@@ -353,8 +345,7 @@ is configured to build a Python 3 *pip* package with GPU support:
     tensorflow/tensorflow<var>:nightly-devel-gpu-py3</var> bash</code>
 </pre>
 
-Then, within the container's virtual environment, build the TensorFlow package
-with GPU support:
+次に、コンテナの仮想環境内で、GPUサポート付きのTensorFlowパッケージをビルドします:
 
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # answer prompts or use defaults</code>
@@ -366,7 +357,7 @@ with GPU support:
 <code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
 
-Install and verify the package within the container and check for a GPU:
+パッケージをコンテナ内にインストールして検証し、GPUを確認します。
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">pip uninstall tensorflow  # remove current version</code>
@@ -376,10 +367,10 @@ Install and verify the package within the container and check for a GPU:
 <code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(tf.contrib.eager.num_gpus())"</code>
 </pre>
 
-Success: TensorFlow is now installed.
+成功: TensorFlowがインストールできました。
 
 
-## Tested build configurations
+## テスト済みのビルド設定
 
 ### Linux
 
