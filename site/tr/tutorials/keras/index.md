@@ -1,10 +1,8 @@
-# Learn and use machine learning
+# Makine öğrenimini öğrenelim ve kullanalım
 
-This notebook collection is inspired by the book
-*[Deep Learning with Python](https://books.google.com/books?id=Yo3CAQAACAAJ)*.
-These tutorials use `tf.keras`, TensorFlow's high-level Python API for building
-and training deep learning models. To learn more about using Keras with
-TensorFlow, see the [TensorFlow Keras Guide](../../guide/keras).
+Aşağıda linkleri verilmiş olan Juypter Notebook'ları
+*[Deep Learning with Python](https://books.google.com/books?id=Yo3CAQAACAAJ)* kitabından esinlenerek hazırlanmıştır.
+Bu yardımcı eğitim dökümanları, TensorFlow derin öğrenme modellerinin oluşturulması ve eğitiminde kullanılan yüksek-seviye Python API si `tf.keras`'ı kullanmaktadır.  Keras ile ilgili daha fazla bildi edinmek için, [TensorFlow Keras Guide](../../guide/keras) göz atabilirsiniz.
 
 Publisher's note: *Deep Learning with Python* introduces the field of deep
 learning using the Python language and the powerful Keras library. Written by
