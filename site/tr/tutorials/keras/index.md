@@ -1,4 +1,4 @@
-# Makine öğrenmesini öğrenelim ve kullanalım
+# Makine öğrenmesini anlayalım ve kullanalım
 
 Aşağıda linkleri verilmiş olan Juypter Notebook'ları
 *[Deep Learning with Python](https://books.google.com/books?id=Yo3CAQAACAAJ)* kitabından esinlenerek hazırlanmıştır.
