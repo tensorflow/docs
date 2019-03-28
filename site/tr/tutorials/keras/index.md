@@ -1,6 +1,6 @@
 # Makine öğrenmesini anlayalım ve kullanalım
 
-Aşağıda linkleri verilmiş olan Juypter Notebook'ları
+Aşağıda linkleri verilmiş olan Juypter Notebook'ları,
 *[Deep Learning with Python](https://books.google.com/books?id=Yo3CAQAACAAJ)* kitabından esinlenerek hazırlanmıştır.
 Bu yardımcı eğitim dökümanları, TensorFlow derin öğrenme modellerinin oluşturulması ve eğitiminde kullanılan yüksek-seviye Python API si `tf.keras`'ı kullanmaktadır. Keras ile ilgili daha fazla bildi edinmek için, [TensorFlow Keras Guide](../../guide/keras) 'a göz atabilirsiniz.
 
