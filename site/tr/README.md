@@ -25,5 +25,5 @@ To volunteer to write or review community translations, contact the
 Some technical words in English do not have a natural translation. Do *not*
 translate the following words:
 
-*   estimator
-*   pull request
+* estimator
+* pull request
