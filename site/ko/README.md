@@ -51,7 +51,7 @@ and get it start.
 `site/ko/` are for TensorFlow 1.x.
 `site/ko/alpha` are for TensorFlow 2.x.
 
-You should translate markdown and comments. You should not run code cells.
+You should translate Markdown and comments. You should not run code cells.
 Whole file structure can be changed even if you modify only a chunk in the notebook.
 It is hard to review such a file in Github.
 You should use a text editor when you edit a few words of existing notebook.
