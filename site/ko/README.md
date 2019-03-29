@@ -19,7 +19,7 @@ to the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository.
 To volunteer to write or review community translations, contact the
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
-# For new contributors
+# 처음 참여하는 사람들에게
 
 문서 번역에 참여해 주셔서 감사합니다.
 번역에 참여하기 전에 번역된 [문서](https://github.com/tensorflow/docs/tree/master/site/ko)를 먼저 읽어 보길 권합니다.
@@ -38,7 +38,11 @@ site/ko/alpha/ 는 텐서플로 2.x 버전을 위한 파일입니다.
 노트북 파일의 번역이 완료되면 포크된 자신의 저장소에서 코랩(Colab)에서 실행이 잘되는지 확인해야 합니다.
 코랩에서 실행에 문제가 없다면 리뷰를 요청합니다.
 
+번역과 관련되어 문의 사항이 있다면 언제든지 [텐서플로 한글 문서 기여자](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko) 메일링 리스트로 메일을 보내 주세요.
+
 감사합니다!
+
+# For new contributors
 
 Thanks for joining translation.
 You should read existing [KO documents](https://github.com/tensorflow/docs/tree/master/site/ko) before starting translation.
@@ -57,6 +61,8 @@ It is hard to review such a file in Github.
 You should use a text editor when you edit a few words of existing notebook.
 You should test the notebook in your repository with Colab after you finish the translation.
 You can request for review if there is no error.
+
+If you have any question about translation, feel free to contact [Korean TensorFlow Documentation Contributors](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko) mailing list.
 
 Thanks!
 
