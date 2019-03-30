@@ -1,22 +1,19 @@
-# Build from source on Windows
+# Windows向けにソースからビルドする
 
-Build a TensorFlow *pip* package from source and install it on Windows.
+ソースからTensorFlow *pip* パッケージをビルドし、それをWindowsにインストールします。
 
-Note: We already provide well-tested, pre-built [TensorFlow packages](./pip.md)
-for Windows systems.
+注: Windowsシステム用に、十分にテストされたビルド済みの[TensorFlow packages](./pip.md)をすでに提供しています。
 
-## Setup for Windows
+## Windwos用にセットアップする
 
-Install the following build tools to configure your Windows development
-environment.
+以下のビルドツールをインストールしてWindows用開発環境を設定します。
 
-### Install Python and the TensorFlow package dependencies
+### PythonとTensorFlowの依存パッケージをインストールする
 
-Install a
-[Python 3.5.x or Python 3.6.x 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}.
-Select *pip* as an optional feature and add it to your `%PATH%` environmental variable.
+[Python 3.5.x or Python 3.6.x 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}をインストールしてください。
+オプション機能として*pip*を選択し、それをあなたの`％PATH％`環境変数に追加してください。
 
-Install the TensorFlow *pip* package dependencies:
+TensorFlowの*pip*依存パッケージをインストールします:
 
 <pre class="devsite-click-to-copy">
 <code class="devsite-terminal tfo-terminal-windows">pip3 install six numpy wheel</code>
@@ -24,82 +21,80 @@ Install the TensorFlow *pip* package dependencies:
 <code class="devsite-terminal tfo-terminal-windows">pip3 install keras_preprocessing==1.0.5 --no-deps</code>
 </pre>
 
-The dependencies are listed in the
+依存パッケージは
 <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
-file under `REQUIRED_PACKAGES`.
+の`REQUIRED_PACKAGES`の下に一覧があります。
 
-### Install Bazel
+### Bazelをインストールする
 
 [Install Bazel](https://docs.bazel.build/versions/master/install-windows.html){:.external},
-the build tool used to compile TensorFlow. Set up Bazel to [build C++](https://docs.bazel.build/versions/master/windows.html#build-c){:.external}.
+TensorFlowをコンパイルするのに使用するビルドツールです。
+[build C++](https://docs.bazel.build/versions/master/windows.html#build-c){:.external}でBazelをセットアップしてください。
 
-Add the location of the Bazel executable to your `%PATH%` environment variable.
+Bazel実行可能ファイルの場所を`PATH`環境変数に追加してください。
 
-### Install MSYS2
+### MSYS2をインストールする
 
-[Install MSYS2](https://www.msys2.org/){:.external} for the bin tools needed to
-build TensorFlow. If MSYS2 is installed to `C:\msys64`, add
-`C:\msys64\usr\bin` to your `%PATH%` environment variable. Then, using `cmd.exe`,
-run:
+TensorFlowをビルドするのに必要なbinツールのため、[Install MSYS2](https://www.msys2.org/){:.external}を行ってください。
+`C:\msys64`にMSYS2がインストールされている場合、`C:\msys64\usr\bin`を`%PATH%`環境変数に追加してください。
+次に`cmd.exe`を使用して実行してください:
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 pacman -S git patch unzip
 </pre>
 
-### Install Visual C++ Build Tools 2015
+### Visual C++ Build Tools 2015をインストールする
 
-Install the *Visual C++ build tools 2015*. This comes with *Visual Studio 2015*
-but can be installed separately:
+*Visual C++ build tools 2015*をインストールしてください。
+これは*Visual Studio 2015*に付属していますが、別々にインストールすることができます:
 
-1. Go to the [Visual Studio downloads](https://visualstudio.microsoft.com/vs/older-downloads/){:.external},
-2. Select *Redistributables and Build Tools*,
-3. Download and install:
+1. [Visual Studio downloads](https://visualstudio.microsoft.com/vs/older-downloads/){:.external}に移動します
+2. *Redistributables and Build Tools*を選択します
+3. ダウンロード・インストールします:
    - *Microsoft Visual C++ 2015 Redistributable Update 3*
    - *Microsoft Build Tools 2015 Update 3*
 
-Note: TensorFlow is tested against the *Visual Studio 2015 Update 3*.
+注: TensorFlowは*Visual Studio 2015 Update 3*に対してテスト済みです。
 
-### Install GPU support (optional)
+### GPUサポートをインストールする (オプション)
 
-See the Windows [GPU support](./gpu.md) guide to install the drivers and additional
-software required to run TensorFlow on a GPU.
+Windows用の[GPUサポート](./gpu.md)ガイドを読み、
+GPU上でTensorFlowを実行するために必要なドライバーと追加ソフトウェアをインストールしてください。
 
 
-### Download the TensorFlow source code
+### TensorFlowのソースコードをダウンロードする
 
-Use [Git](https://git-scm.com/){:.external} to clone the
-[TensorFlow repository](https://github.com/tensorflow/tensorflow){:.external}
-(`git` is installed with MSYS2):
+
+[Git](https://git-scm.com/){:.external}を使って
+[TensorFlow repository](https://github.com/tensorflow/tensorflow){:.external}をcloneしてください (`git`はMSYS2と一緒にインストールされています):
 
 <pre class="devsite-click-to-copy">
 <code class="devsite-terminal tfo-terminal-windows">git clone https://github.com/tensorflow/tensorflow.git</code>
 <code class="devsite-terminal tfo-terminal-windows">cd tensorflow</code>
 </pre>
 
-The repo defaults to the `master` development branch. You can also checkout a
-[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}
-to build:
+レポジトリのデフォルトは `master` 開発ブランチです。
+[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}をcheckoutしてビルドすることもできます:
 
 <pre class="devsite-terminal tfo-terminal-windows prettyprint lang-bsh">
 git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
 </pre>
 
-Key Point: If you're having build problems on the latest development branch, try
-a release branch that is known to work.
+ポイント: 最新の開発ブランチでビルドの問題が発生している場合は、
+動作が確認されているreleaseブランチを試してください。
 
 
-## Configure the build
+## ビルドを設定する
 
-Configure your system build by running the following at the root of your
-TensorFlow source tree:
+TensorFlowソースツリーのルートディレクトリーで次のコマンドを実行してシステムビルドを設定します:
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 python ./configure.py
 </pre>
 
-This script prompts you for the location of TensorFlow dependencies and asks for
-additional build configuration options (compiler flags, for example). The
-following shows a sample run of `python ./configure.py` (your session may differ):
+このスクリプトは、TensorFlow依存関係の場所をたずねるプロンプトを出し、
+追加のビルド設定オプション（例えば、コンパイラーフラグ）を求めます。
+以下は `python ./configure.py` の実行例です (セッションは異なるかもしれません):
 
 <section class="expandable">
 <h4 class="showalways">View sample configuration session</h4>
@@ -138,109 +133,107 @@ Configuration finished
 </pre>
 </section>
 
-### Configuration options
+### 設定オプション
 
-For [GPU support](./gpu.md), specify the versions of CUDA and cuDNN. If your
-system has multiple versions of CUDA or cuDNN installed, explicitly set the
-version instead of relying on the default. `./configure.py` creates symbolic links
-to your system's CUDA libraries—so if you update your CUDA library paths, this
-configuration step must be run again before building.
+[GPUサポート](./gpu.md)用に、CUDAとcuDNNのバージョンを指定してください。
+ご自身のシステムに複数バージョンのCUDAもしくはcuDNNがインストールされている場合、
+デフォルトバージョンに頼らず明示的にバージョンを設定してください。
+`./configure.py` はシステムのCUDAのライブラリにシンボリックリンクを作成しますので、
+CUDAのライブラリのパスを更新する場合、この設定ステップはビルドの前に再び実行する必要があります。
 
-Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
-run on older CPUs.
+注: TensorFlow 1.6以降、バイナリは古いCPUでは動作しない可能性があるAVX命令を使用しています。
 
 
-## Build the pip package
+## pipパッケージをビルドする
 
-### Bazel build
+### Bazelでのビルド
 
-#### CPU-only
+#### CPUのみ
 
-Use `bazel` to make the TensorFlow package builder with CPU-only support:
+TensorFlowパッケージビルダーをCPUのみサポートするようにするには `bazel` を使います:
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-#### GPU support
+#### GPUサポート
 
-To make the TensorFlow package builder with GPU support:
+TensorFlowパッケージビルダーをGPUサポート付きにするには:
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 bazel build --config=opt --config=cuda --define=no_tensorflow_py_deps=true //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-#### Bazel build options
+#### Bazelのビルドオプション
 
-Use this option when building to avoid issue with package creation:
+ビルド時にこのオプションを使用して、パッケージ作成に関する問題を回避します。
 https://github.com/tensorflow/tensorflow/issues/22390
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 --define=no_tensorflow_py_deps=true
 </pre>
 
-Building TensorFlow from source can use a lot of RAM. If your system is
-memory-constrained, limit Bazel's RAM usage with: `--local_resources 2048,.5,1.0`.
+ソースからTensorFlowをビルドすると、大量のRAMを使用する可能性があります。
+ご自身のシステムのメモリが制限されている場合は、BazelのRAM使用量を制限してください: `--local_resources 2048,.5,1.0`
 
-If building with GPU support, add `--copt=-nvcc_options=disable-warnings`
-to suppress nvcc warning messages.
+GPUサポート付きでビルドしている場合、nvccの警告メッセージを抑制するために
+`--copt=-nvcc_options=disable-warnings`を追加してください。
 
-### Build the package
+### パッケージをビルドする
 
-The `bazel build` command creates an executable named `build_pip_package`—this
-is the program that builds the `pip` package. For example, the following builds a
-`.whl` package in the `C:/tmp/tensorflow_pkg` directory:
+
+`bazel build`コマンドは`build_pip_package`という名前の実行ファイルを作成します。
+これは`pip`パッケージをビルドするプログラムです。
+例えば、以下は`C:/tmp/tensorflow_pkg`ディレクトリーに`.whl`パッケージをビルドします:
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg
 </pre>
 
-Although it is possible to build both CUDA and non-CUDA configs under the
-same source tree, we recommend running `bazel clean` when switching between
-these two configurations in the same source tree.
+同じソースツリーの下でCUDAと非CUDAの両方の設定をビルドすることは可能ですが、
+同じソースツリー内でこれら2つの設定を切り替えるときは`bazel clean`を実行することを推奨します。
 
-### Install the package
+### パッケージをインストールする
 
-The filename of the generated `.whl` file depends on the TensorFlow version and
-your platform. Use `pip3 install` to install the package, for example:
+生成された`.whl`ファイルのファイル名はTensorFlowのバージョンとプラットフォームに依存します。
+パッケージをインストールするには `pip3 install`を使います。例えば:
 
 <pre class="devsite-terminal tfo-terminal-windows prettyprint lang-bsh">
 pip3 install C:/tmp/tensorflow_pkg/tensorflow-<var>version</var>-cp36-cp36m-win_amd64.whl
 </pre>
 
-Success: TensorFlow is now installed.
+成功: TensorFlowがインストールできました。
 
 
-## Build using the MSYS shell
+## MSYSシェルを使用してビルドする
 
-TensorFlow can also be built using the MSYS shell. Make the changes listed
-below, then follow the previous instructions for the Windows native command line
-(`cmd.exe`).
+TensorFlowはMSYSシェルを使ってビルドすることもできます。以下の項目に変更を加え、
+Windowsのネイティブコマンドライン(`cmd.exe`)の前の指示に従ってください。
 
-### Disable MSYS path conversion {:.hide-from-toc}
+### MSYSパス変換を無効にする {:.hide-from-toc}
 
-MSYS automatically converts arguments that look like Unix paths to Windows paths,
-and this doesn't work with `bazel`. (The label `//foo/bar:bin` is considered a
-Unix absolute path since it starts with a slash.)
+MSYSは自動的にUnixパスのように見える引数をWindowsパスに変換します。
+そしてこれは `bazel`では動作しません。
+(ラベル`//foo/bar:bin`はスラッシュで始まるのでUnixの絶対パスと見なされます)
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">export MSYS_NO_PATHCONV=1</code>
 <code class="devsite-terminal">export MSYS2_ARG_CONV_EXCL="*"</code>
 </pre>
 
-### Set your PATH {:.hide-from-toc}
+### PATHをセットします {:.hide-from-toc}
 
-Add the Bazel and Python installation directories to your `$PATH` environmental
-variable. If Bazel is installed to `C:\tools\bazel.exe`, and Python to
-`C:\Python36\python.exe`, set your `PATH` with:
+BazelとPythonのインストールディレクトリーを`$PATH`環境変数に追加してください。
+Bazelが`C:\tools\bazel.exe`に、そしてPythonが`C:\Python36\python.exe`にインストールされている場合、
+`PATH`を以下のように設定してください:
 
 <pre class="prettyprint lang-bsh">
-# Use Unix-style with ':' as separator
+# 区切り文字としてUnixスタイルの':'を使用します
 <code class="devsite-terminal">export PATH="/c/tools:$PATH"</code>
 <code class="devsite-terminal">export PATH="/c/Python36:$PATH"</code>
 </pre>
 
-For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
+GPUサポート用に、CUDAとcuDNNのbinディレクトリー`$PATH`に追加します:
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">export PATH="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/bin:$PATH"</code>
@@ -249,7 +242,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 </pre>
 
 
-## Tested build configurations
+## テスト済みのビルド設定
 
 ### CPU
 
