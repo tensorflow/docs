@@ -84,6 +84,7 @@ Code contributions—bug fixes, new development, test improvement—all follow a
 5.  Commit your changes.
 
     `$ git add -a`
+
     `$ git commit -m "commit message here"`
 
 6.  Push your changes to your GitHub repo.

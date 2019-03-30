@@ -93,7 +93,7 @@ A _Python operation_ is a function that, given input tensors and parameters, cre
 *   Each Python operation should have a `name_scope` like below. Pass as arguments `name`, a default name of the op, and a list of the input tensors.
 *   Operations should contain an extensive Python comment with Args and Returns declarations that explain both the type and meaning of each value. Possible shapes, dtypes, or ranks should be specified in the description. See documentation details.
 *   For increased usability, include an example of usage with inputs / outputs of the op in Example section.
-*   Avoid making explicit use of `tf.Tensor.eval` or `tf.Session.run`. For example, to write logic that depends on the Tensor value, use TensorFlow control flow. Alternatively, restrict the operation to only run when eager execution is enabled (`tf.executing_eagerly()`).
+*   Avoid making explicit use of `tf.Tensor.eval` or `tf.Session.run`. For example, to write logic that depends on the Tensor value, use the TensorFlow control flow. Alternatively, restrict the operation to only run when eager execution is enabled (`tf.executing_eagerly()`).
 
 Example:
 

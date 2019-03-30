@@ -127,12 +127,14 @@ Then, everytime you start a new bit of work:
 
     `$ git checkout -b new-branch-name`
 
-2.  **Work on the docs in your favorite editor.** Be sure to follow the markdown
+2.  **Work on the docs in your favorite editor.** Be sure to follow the Markdown
     syntax guide and TensorFlow style guide.
 
 3.  **Commit your changes.**
 
-    `$ git add -A` `$ git commit -m "meaningful commit message here"`
+    `$ git add -A`
+
+    `$ git commit -m "meaningful commit message here"`
 
 4.  **Push your changes to your GitHub copy of the repo.**
 
@@ -188,7 +190,7 @@ Once you have installed the Chrome extension, setup a GitHub account, and forked
 the docs repo, you are ready to begin.
 
 1.  Use the GitHub web UI to
-    [**create a new branch](https://help.github.com/en/articles/creating-and-deleting-branches-within-your-repository)**.
+    **[create a new branch](https://help.github.com/en/articles/creating-and-deleting-branches-within-your-repository)**.
 
 2.  Navigate to the file you want to work on in.
 
