@@ -1,59 +1,57 @@
-# Build from source for the Raspberry Pi
+# Raspberry Pi用にソースからビルドする
 
-This guide builds a TensorFlow package for a
-[Raspberry Pi](https://www.raspberrypi.org/){:.external} device running
-[Raspbian 9.0](https://www.raspberrypi.org/downloads/raspbian/){:.external}.
-While the instructions might work for other Raspberry Pi variants, it is only
-tested and supported for this configuration.
+このガイドは
+[Raspbian 9.0](https://www.raspberrypi.org/downloads/raspbian/){:.external}を実行する
+[Raspberry Pi](https://www.raspberrypi.org/){:.external}デバイスにTensorFlowパッケージをビルドします。
 
-We recommend *cross-compiling* the TensorFlow Raspbian package. Cross-compilation
-is using a different platform to build the package than deploy to. Instead of
-using the Raspberry Pi's limited RAM and comparatively slow processor, it's
-easier to build TensorFlow on a more powerful host machine running Linux, macOS,
-or Windows.
+この手順は他のRaspberry Piの亜種でも機能するかもしれませんが、
+この構成でのみテストおよびサポートされています。
 
-Note: We already provide well-tested, pre-built [TensorFlow packages](./pip.md)
-for Raspbian systems.
+TensorFlow Raspbianパッケージの*クロスコンパイル*をおすすめします。
+クロスコンパイルは、パッケージのビルドにデプロイとは異なるプラットフォームを使用しています。
+Raspberry Piの限られたRAMと比較的遅いプロセッサーを使用する代わりに、
+Linux、macOS、またはWindowsを実行している、より強力なホストマシン上でTensorFlowをビルドする方が簡単です。
+
+注: Raspbianシステム用に、十分にテストされたビルド済みの[TensorFlow packages](./pip.md)をすでに提供しています。
 
 
-## Setup for host
+## ホスト用にセットアップする
 
-### Install Docker
+### Dockerをインストールする
 
-To simplify dependency management, the build script uses
-[Docker](https://docs.docker.com/install/){:.external} to create a virtual Linux
-development environment for compilation. Verify your Docker install by executing:
+依存関係の管理を簡単にするために、ビルドスクリプトは
+[Docker](https://docs.docker.com/install/){:.external}を使ってコンパイル用の仮想Linux開発環境を作成します。
+以下を実行してDockerがインストールされていることを確認します:
 `docker run --rm hello-world`
 
-### Download the TensorFlow source code
+### TensorFlowのソースコードをダウンロードする
 
-Use [Git](https://git-scm.com/){:.external} to clone the
-[TensorFlow repository](https://github.com/tensorflow/tensorflow){:.external}:
+[Git](https://git-scm.com/){:.external}を使って
+[TensorFlow repository](https://github.com/tensorflow/tensorflow){:.external}をcloneしてください:
 
 <pre class="devsite-click-to-copy">
 <code class="devsite-terminal">git clone https://github.com/tensorflow/tensorflow.git</code>
 <code class="devsite-terminal">cd tensorflow</code>
 </pre>
 
-The repo defaults to the `master` development branch. You can also checkout a
-[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}
-to build:
+レポジトリのデフォルトは `master` 開発ブランチです。
+[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}をcheckoutしてビルドすることもできます:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
 git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
 </pre>
 
-Key Point: If you're having build problems on the latest development branch, try
-a release branch that is known to work.
+ポイント: 最新の開発ブランチでビルドの問題が発生している場合は、
+動作が確認されているreleaseブランチを試してください。
 
 
-## Build from source
+## ソースからビルドする
 
-Cross-compile the TensorFlow source code to build a Python *pip* package with
+Raspberry 2と3のデバイス上で動作する
 ARMv7 [NEON instructions](https://developer.arm.com/technologies/neon){:.external}
-that works on Raspberry Pi 2 and 3 devices. The build script launches a Docker
-container for compilation. Choose between Python 3 and Python 2.7 for the target
-package:
+とともにPythonの*pip*パッケージをビルドするため、TensorFlowのソースコードをクロスコンパイルします。
+ビルドスクリプトはコンパイルのためにDockerコンテナを起動します。
+ターゲットパッケージとしてPython 3とPython 2.7のどちらかを選択してください:
 
 <div class="ds-selector-tabs">
   <section>
@@ -73,20 +71,20 @@ tensorflow/tools/ci_build/ci_build.sh PI \\
   </section>
 </div><!--/ds-selector-tabs-->
 
-To build a package that supports all Raspberry Pi devices—including the Pi 1 and
-Zero—pass the `PI_ONE` argument, for example:
+Pi 1とZeroを含むすべてのRaspberry Piデバイスをサポートするパッケージをビルドするには、
+`PI_ONE`引数を渡します。例えば:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
 tensorflow/tools/ci_build/ci_build.sh PI \
     tensorflow/tools/ci_build/pi/build_raspberry_pi.sh PI_ONE
 </pre>
 
-When the build finishes (~30 minutes), a `.whl` package file is created in the
-output-artifacts directory of the host's source tree. Copy the wheel file to the
-Raspberry Pi and install with `pip`:
+ビルドが完了すると(〜30分)、`.whl`パッケージファイルがホストのソースツリーの
+output-artifactsディレクトリーに作成されます。
+wheelファイルをRaspberry Piにコピーして、`pip`を使ってインストールします:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 pip install tensorflow-<var>version</var>-cp34-none-linux_armv7l.whl
 </pre>
 
-Success: TensorFlow is now installed on Raspian.
+成功: TensorFlowをRaspian上にインストールできました。
