@@ -71,6 +71,9 @@ def _build_function_page(page_info):
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
 
+  # This will be replaced by the "Used in: <notebooks>" whenever it is run.
+  parts.append('<!-- Placeholder for "Used in" -->\n\n')
+
   parts.append(page_info.doc.docstring)
   parts.append(_build_function_details(page_info.doc.function_details))
   parts.append(_build_compatibility(page_info.doc.compatibility))
@@ -109,6 +112,9 @@ def _build_class_page(page_info):
   if page_info.defined_in is not None:
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
+
+  # This will be replaced by the "Used in: <notebooks>" whenever it is run.
+  parts.append('<!-- Placeholder for "Used in" -->\n\n')
 
   parts.append(page_info.doc.docstring)
   parts.append(_build_function_details(page_info.doc.function_details))
@@ -206,6 +212,9 @@ def _build_module_page(page_info):
   if page_info.defined_in is not None:
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
+
+  # This will be replaced by the "Used in: <notebooks>" whenever it is run.
+  parts.append('<!-- Placeholder for "Used in" -->\n\n')
 
   parts.append(page_info.doc.docstring)
   parts.append(_build_compatibility(page_info.doc.compatibility))
