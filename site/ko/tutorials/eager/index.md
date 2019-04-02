@@ -14,8 +14,8 @@
 [eager execution guide](../../guide/eager).
 
 1. [즉시실행(Eager execution)](eager_basics.ipynb)
-2. [Automatic differentiation and gradient tape](automatic_differentiation.ipynb)
-3. [사용자 정의 학습 : 기본(Custom training: basics)](custom_training.ipynb)
+2. [자동미분과 그래디언트 테이프(Automatic differentiation and gradient tape)](automatic_differentiation.ipynb)
+3. [사용자 정의 학습 : 기초(Custom training: basics)](custom_training.ipynb)
 4. [사용자 정의 layer(Custom layers)](custom_layers.ipynb)
 5. [사용자 정의 학습 : walkthrough(Custom training: walkthrough)](custom_training_walkthrough.ipynb)
 
