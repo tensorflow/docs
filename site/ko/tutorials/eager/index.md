@@ -15,7 +15,7 @@
 
 1. [즉시 실행(Eager execution)](eager_basics.ipynb)
 2. [자동 미분과 그래디언트 테이프(Automatic differentiation and gradient tape)](automatic_differentiation.ipynb)
-3. [사용자 정의 학습 : 기초(Custom training: basics)](custom_training.ipynb)
-4. [사용자 정의 layer(Custom layers)](custom_layers.ipynb)
-5. [사용자 정의 학습 : 둘러보기(Custom training: walkthrough)](custom_training_walkthrough.ipynb)
+3. [사용자 정의 학습 : 기초](custom_training.ipynb)
+4. [사용자 정의 layer](custom_layers.ipynb)
+5. [사용자 정의 학습 : 둘러보기](custom_training_walkthrough.ipynb)
 
