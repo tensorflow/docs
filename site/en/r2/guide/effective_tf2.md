@@ -291,6 +291,7 @@ with test_summary_writer.as_default():
 Visualize the generated summaries by pointing TensorBoard at the summary log
 directory:
 
+
 ```
 tensorboard --logdir /tmp/summaries
 ```
