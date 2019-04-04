@@ -13,8 +13,8 @@
 사용자 정의 층, 정방향 전파, 자동 미분을 사용한 훈련 루프를 작성하세요. 이 노트북으로 시작한 다음 순서대로 진행하세요.
 [즉시 실행 가이드](../../guide/eager).
 
-1. [즉시 실행(Eager execution)](eager_basics.ipynb)
-2. [자동 미분과 그래디언트 테이프(Automatic differentiation and gradient tape)](automatic_differentiation.ipynb)
+1. [즉시 실행](eager_basics.ipynb)
+2. [자동 미분과 그래디언트 테이프](automatic_differentiation.ipynb)
 3. [사용자 정의 학습 : 기초](custom_training.ipynb)
 4. [사용자 정의 층](custom_layers.ipynb)
 5. [사용자 정의 학습 : 둘러보기](custom_training_walkthrough.ipynb)
