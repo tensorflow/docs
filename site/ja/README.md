@@ -5,7 +5,7 @@
 最新の状態を反映したものであることを保証することはできません。
 この翻訳の品質を向上させるためのご意見をお持ちの方は、GitHubリポジトリ[tensorflow/docs](https://github.com/tensorflow/docs)にプルリクエストをお送りください。  
 コミュニティによる翻訳やレビューに参加していただける方は、
-[docs@tensorflow.org メーリングリスト](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)にご連絡ください。
+[docs-ja@tensorflow.org メーリングリスト](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ja)にご連絡ください。
 
 # Community translations
 
