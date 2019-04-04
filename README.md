@@ -16,5 +16,5 @@ And join the TensorFlow documentation contributors on the
 [docs@tensorflow.org mailing list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
 ## License
-
+ 
 [Apache License 2.0](LICENSE)
