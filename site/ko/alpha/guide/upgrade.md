@@ -1,46 +1,48 @@
-# Upgrade code to TensorFlow 2.0
+# 텐서플로 2.0으로 코드 업그레이드
 
-TensorFlow 2.0 includes many API changes, such as reordering arguments, renaming symbols, and changing default values for parameters. Manually performing all of these modifications would be tedious and prone to error. To streamline the changes, and to make your transition to TF 2.0 as seamless as possible, the TensorFlow team has created the `tf_upgrade_v2` utility to help transition legacy code to the new API.
+Note: 이 문서는 텐서플로 커뮤니티에서 번역했습니다. 커뮤니티 번역 활동의 특성상 정확한 번역과 최신 내용을 반영하기 위해 노력함에도 불구하고 [공식 영문 문서](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/effective_tf2.md)의 내용과 일치하지 않을 수 있습니다. 이 번역에 개선할 부분이 있다면 [tensorflow/docs](https://github.com/tensorflow/docs) 깃헙 저장소로 풀 리퀘스트를 보내주시기 바랍니다. 문서 번역이나 리뷰에 참여하려면 [docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)로 메일을 보내주시기 바랍니다.
 
-The `tf_upgrade_v2` utility is included automatically with a `pip install` of TF 2.0. It will accelerate your upgrade process by converting existing TensorFlow 1.x Python scripts to TensorFlow 2.0.
+텐서플로 2.0은 인자 재배치, 심볼 이름 변경, 파라미터 기본값 변경과 같은 많은 API 변화가 있습니다. 이러한 수정사항들을 일일히 다 반영하는 건 지루하고 실수하기 쉽습니다. 변화들을 간소하게 그리고 가능한한 TF 2.0에 매끄럽게 옮겨가기 위해, 텐서플로 팀은 기존 코드를 새로운 API로 수정하는 것을 돕기 위해 `tf_upgrade_v2` 유틸리티를 개발하였습니다.  
 
-The conversion script automates as much as possible, but there are still syntactical and stylistic changes that cannot be performed by the script.
+`tf_upgrade_v2` 유틸리티는 TF 2.0을 `pip install` 하면 자동적으로 설치됩니다. 이것은 기존의 텐서플로 1.x 파이썬 스크립트를 텐서플로 2.0으로 변환하여 업그레이드를 빠르게 합니다. 
 
-## Compatibility module
+변환 스크립트는 가능한한 자동화되어 있지만 구문적이고 문체적인 변환은 스크립트에 이해 수행되지 않습니다. 
 
-Certain API symbols can not be upgraded simply by using a string replacement. To ensure your code is still supported in TensorFlow 2.0, the upgrade script includes a `compat.v1` module. This module replaces TF 1.x symbols like `tf.foo` with the equivalent `tf.compat.v1.foo` reference. While the compatibility module is nice, we recommend that you manually proofread replacements and migrate them to new APIs in the `tf.*` namespace instead of `tf.compat.v1.*` namespace as quickly as possible.
+## 호환성 모듈
 
-Because of TensorFlow 2.x module deprecations (for example, `tf.flags` and `tf.contrib`), some changes can not be worked around by switching to `compat.v1`. Upgrading this code may require using an additional library (for example, `absl.flags`) or switching to a package in [tensorflow/addons](http://www.github.com/tensorflow/addons).
+어떤 API 심볼들은 단순히 문자열을 변경하는 것만으로는 업그레이드가 안될 수도 있습니다. 코드를 텐서플로 2.0에서 동작시키기 위해 , `compat.v1` 모듈을 포함하도록 스크립트를 업그레이드 하세요. 이 모듈은 `tf.foo`와 동등한 심볼을 찾기위해 `tf.compat.v1.foo`를 참조하는 것과 같은 방식으로 TF 1.x 심볼들을 대체합니다. 호환성 모듈이 좋으면 직접 수정사항들을 교정하고 빠르게 그것을 `tf.compat.v1.*` 네임스페이스(namespace) 대신 `tf.*` 네임스페이스에 있는 새로운 API로 마이그레이션 합니다. 
 
-## Upgrade script
+텐서플로 2.x 모듈에서 사라지는 것들(예를들면, `tf.flags`와 `tf.contrib`) 때문에, 어떤 변동사항은 `compat.v1`으로 스위칭하는 것만으로는 동작하지 않을 수 있습니다. 이 코드를 업그레이드하려면 다른 라이브러리가 필요하거나(예를 들면, `absl.flags`) [tensorflow/addons](http://www.github.com/tensorflow/addons)에 있는 패키지로 스위칭해야 할 수도 있습니다. 
 
-To convert your code from TensorFlow 1.x to TensorFlow 2.x, follow these instructions:
+## 스크립트 업그레이드
 
-### Run the script from the pip package
+작성한 코드를 텐서플로 1.x에서 텐서플로 2.x로 변경하려면, 다음의 지시에 따르세요:
 
-First, `pip install` the `tensorflow==2.0.0-alpha0` or `tensorflow-gpu==2.0.0-alpha0` package.
+### pip 패키지로부터 스크립트 실행
 
-Note: `tf_upgrade_v2` is installed automatically for TensorFlow 1.13 and later (including the nightly TF 2.0 builds).
+첫째로, `pip install`로 `tensorflow==2.0.0-alpha0` 또는 `tensorflow-gpu=2.0.0-alpha0` 패키지를 설치합니다.
 
-The upgrade script can be run on a single Python file:
+Note: `tf_upgrade_v2`는 텐서플로 1.13 그리고 이후 버전에서 자동으로 설치되었습니다. (nightly TF 2.0 빌드를 포함)
+
+업그레이드 스크립트는 하나의 파이썬 파일에서 실행됩니다:
 
 ```sh
 tf_upgrade_v2 --infile tensorfoo.py --outfile tensorfoo-upgraded.py
 ```
 
-The script will print errors if it can not find a fix for the code. You can also run it on a directory tree:
+스크립트는 코드에서 대체할 부분을 찾지 못하면 에러 메시지를 표시합니다. 디렉토리 트리에서도 실행가능 합니다:
 
 ```
-# upgrade the .py files and copy all the other files to the outtree
+# .py 파일을 업그레이드하고 다른 모든 파일들을 아웃트리에 복사
 tf_upgrade_v2 --intree coolcode --outtree coolcode-upgraded
 
-# just upgrade the .py files
+# .py 파일만 업그레이드
 tf_upgrade_v2 --intree coolcode --outtree coolcode-upgraded --copyotherfiles False
 ```
 
-## Detailed report
+## 자세한 리포트
 
-The script also reports a list of detailed changes, for example:
+스크립트는 자세한 변동사항들의 리스트를 보여줍니다, 예를들면:
 
 ```
 'tensorflow/tools/compatibility/testdata/test_file_v1_12.py' Line 65
@@ -54,18 +56,17 @@ Renamed keyword argument from 'dimension' to 'axis'
     New:         tf.argmax(input=[[1, 3, 2]], axis=0))
 
 ```
-All of this information is included in the `report.txt` file that will be exported to your current directory. Once `tf_upgrade_v2` has run and exported your upgraded script, you can run your model and check to ensure your outputs are similar to TF 1.x.
+이 모든 정보는 `report.txt` 파일에 포함되어 있고 이 파일은 현재 디렉토리에 생성될 것입니다. `tf_upgrade_v2`가 실행되고 업그레이드 스크립트에 포함되면 각자의 모델을 실행하여 출력이 TF 1.x과 비슷한지 확인할 수 있습니다.
 
 
-## Caveats
+## 주의사항 
 
-- Do not update parts of your code manually before running this script. In particular, functions that have had reordered arguments like `tf.argmax` or `tf.batch_to_space` cause the script to incorrectly add keyword arguments that mismap your existing code.
+- 이 스크립트를 실행하기 전에 대상 코드의 일부를 수동으로 업데이트하지 마세요. 특히, `tf.argmax` 또는 `tf.batch_to_space`와 같이 인자의 순서가 변동된 함수는 스크립트가 부정확한 키워드 인자를 추가하여 기존 코드를 잘못 바꿀 수 있습니다.
 
-- The script assumes that `tensorflow` is imported using `import tensorflow as tf`.
+- 스크립트는 `tensorflow`가 `import tensorflow as tf`로 임포트 되어있다고 가정합니다.
 
-- This script does not reorder arguments. Instead, the script adds keyword arguments to functions that have their arguments reordered.
+- 이 스크립트는 인자의 순서를 바꾸지는 않습니다. 대신에 스크립트는 인자의 순서가 바뀐 함수들에 대해서 키워드 인자를 추가합니다.
 
-- Check out [tf2up.ml](http://tf2up.ml) for a convenient tool to upgrade Jupyter
-  notebooks and Python files in a GitHub repository.
+- [tf2up.ml](http://tf2up.ml)을 방문해서 깃헙 저장소의 주피터 노트북과 파이썬 파일들을 업그레이드할 수 있는 편리한 툴을 확인하세요.
 
-To report upgrade script bugs or make feature requests, please file an issue on [GitHub](https://github.com/tensorflow/tensorflow/issues). And if you’re testing TensorFlow 2.0, we want to hear about it! Join the [TF 2.0 Testing community](https://groups.google.com/a/tensorflow.org/forum/#!forum/testing) and send questions and discussion to [testing@tensorflow.org](mailto:testing@tensorflow.org).
+업그레이드 스크립트의 버그를 제보하거나 기능 추가 요청을 하려면 [Github](https://github.com/tensorflow/tensorflow/issues). 그리고 텐서플로 2.0을 테스트하고 있다면, 의견을 듣고 싶습니다! [TF 2.0 Testing community](https://groups.google.com/a/tensorflow.org/forum/#!forum/testing)에 가입해 주세요. 질문과 토론은 [testing@tensorflow.org](mailto:testing@tensorflow.org)로 메일주시기 바랍니다. 
