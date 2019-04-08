@@ -105,3 +105,5 @@ translate the following words:
 *   compile
 *   dropout
 *   penalty
+    here
+

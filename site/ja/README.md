@@ -53,3 +53,4 @@ translate the following words, use katakana otherwise:
 *   decode
 *   tuple
 *   protocol buffer
+    hyeho
