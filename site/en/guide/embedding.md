@@ -211,11 +211,14 @@ vectors in the embedding variable, except for the header.  Consequently, the
 variable.  If the TSV metadata file has only a single column, then we don’t
 expect a header row, and assume each row is the label of the embedding. We
 include this exception because it matches the commonly-used "vocab file"
-format.
+format.Also, when you open the load data tab in the embedding visualizer there
+it is specified about what is TSV file of vector and what is the TSV file
+of metadata with an example.
 
 To use images as metadata, you must produce a single
 [sprite image](https://www.google.com/webhp#q=what+is+a+sprite+image),
-consisting of small thumbnails, one for each vector in the embedding.  The
+consisting of small thumbnails,  one for each vector in the embedding.
+This single image contain all the images the dataset has.The
 sprite should store thumbnails in row-first order: the first data point placed
 in the top left and the last data point in the bottom right, though the last
 row doesn't have to be filled, as shown below.
