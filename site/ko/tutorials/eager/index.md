@@ -9,7 +9,7 @@
 [docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)로
 메일을 보내주시기 바랍니다.
 
-즉시실행(Eager execution)은 더 나은 연산을 위한 실행에 의해 정의되는 명령형 인터페이스를 제공합니다. 
+즉시 실행(Eager execution)은 더 나은 연산을 위한 실행에 의해 정의되는 명령형 인터페이스를 제공합니다. 
 사용자 정의 층, 정방향 전파, 자동 미분을 사용한 훈련 루프를 작성하세요. 이 노트북으로 시작한 다음 순서대로 진행하세요.
 [즉시 실행 가이드](../../guide/eager).
 
