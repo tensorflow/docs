@@ -193,7 +193,10 @@ containing the labels for each point and clicking "Load data" in the data panel
 of the Embedding Projector.
 
 The metadata can be either labels or images, which are
-stored in a separate file. For labels, the format should
+stored in a separate file. For Images till many different file
+formats can be used but the most popular format is the
+[PNG file](https://en.wikipedia.org/wiki/Portable_Network_Graphics).
+For labels, the format should
 be a [TSV file](https://en.wikipedia.org/wiki/Tab-separated_values)
 (tab characters shown in red) whose first line contains column headers
 (shown in bold) and subsequent lines contain the metadata values. For example:
@@ -215,8 +218,9 @@ format.
 
 To use images as metadata, you must produce a single
 [sprite image](https://www.google.com/webhp#q=what+is+a+sprite+image),
-consisting of small thumbnails, one for each vector in the embedding.  The
-sprite should store thumbnails in row-first order: the first data point placed
+consisting of small thumbnails, one for each vector in the embedding. Basically 
+a Sprite image store thumbnails of all the sample images in a very large image.
+The sprite should store thumbnails in row-first order: the first data point placed
 in the top left and the last data point in the bottom right, though the last
 row doesn't have to be filled, as shown below.
 
