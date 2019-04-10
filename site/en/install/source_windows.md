@@ -162,6 +162,18 @@ Use `bazel` to make the TensorFlow package builder with CPU-only support:
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
+#### CPU and MKL-DNN support
+
+To build TensorFlow with MKL-DNN support, we need to do two additional steps. First, install [this](https://support.microsoft.com/en-us/help/4020481/fix-link-exe-crashes-with-a-fatal-lnk1000-error-when-you-use-wholearch){:.external} fix to overcome a MSVS 2015 linker bug. Second, edit the `PATH` environment variable
+to include the location where the MKL runtime libraries will be downloaded during the build process.
+The base download location can be specified in the bazel build command by using the `--output_base` option, and the MKL-DNN libraries will then be downloaded into a directory relative to that base.
+For example, if `output_dir` is your output location, use:
+
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
+set PATH=%PATH%;output_dir\external\mkl_windows\lib
+bazel --output_base=output_dir build --config=mkl --config=opt //tensorflow/tools/pip_package:build_pip_package
+</pre>
+
 #### GPU support
 
 To make the TensorFlow package builder with GPU support:
