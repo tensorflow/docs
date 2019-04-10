@@ -113,7 +113,7 @@ creates a part of the graph and returns output tensors.
     convert non-tensor inputs into tensors if they are using C++ operations.
     Note that the arguments are still described as a `Tensor` object of a
     specific dtype in the documentation.
-*   Each Python operation should have a `name_scope` like below. Pass as arguments a name of the op as a string or string variable. In case the variable is passed, then also add keyworkd `or`, and a default name as string that is used when the variable has a value of None.
+*   Each Python operation should have a `name_scope` like below. Pass as arguments a name of the op as a string or string variable. In case the variable is passed, then also add keyword `or`, and a default name as string that is used when the variable has a value of None.
 *   Operations should contain an extensive Python comment with Args and Returns
     declarations that explain both the type and meaning of each value. Possible
     shapes, dtypes, or ranks should be specified in the description. See
