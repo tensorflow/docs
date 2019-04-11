@@ -16,34 +16,34 @@ landing_page:
           building on any platform. Start with the
           <a href="/alpha/tutorials/quickstart/beginner">beginner notebook</a> tutorial and
           the <a href="/alpha/guide/effective_tf2">Effective&nbsp;TensorFlow&nbsp;2.0</a> guide.
+          Install the TensorFlow 2.0 Alpha preview package:
+        </p>
+        <pre class="prettyprint lang-bsh">
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
+        </pre>
+        <p>
+          See the <a href="/install/gpu">GPU guide</a> for CUDA®-enabled cards. The
+          <a href="https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md" class="external">TensorFlow 2.0 community testing FAQ</a>
+          contains additional compatibility and migration details.
         </p>
       youtube_id: TTQQiJ-mHYA?rel=0&show_info=0
 
   - classname: devsite-landing-row-100
     items:
     - description: >
-        <p>Install the TensorFlow 2.0 Alpha preview package. See the <a href="/install/gpu">GPU guide</a> for CUDA®-enabled cards.</p>
-        <pre class="prettyprint lang-bsh">
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
-        </pre>
-
-  - classname:
-      devsite-landing-row-100
-      devsite-landing-row-large-headings
-  - description: >
-      <h3>For beginners</h3>
-      <p>The best place to start is with the user-friendly Sequential API. Create
-      models by plugging together building blocks.<br>
-      Run this
-      <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/r2/tutorials/quickstart/beginner.ipynb">“Hello World” example</a>,
-      then read the guides and tutorials to learn more.</p>
-      <h3>For experts</h3>
-      The Subclassing API provides a define-by-run interface for advanced
-      research. Create a class for your model, then write the forward pass
-      imperatively. Easily write custom layers, activations, and training loops.<br>
-      Run this
-      <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/r2/tutorials/quickstart/advanced.ipynb">“Hello, World” example</a>,
-      then read the guides and and tutorials to learn more.
+        <h3>For beginners</h3>
+        <p>The best place to start is with the user-friendly Sequential API. Create
+        models by plugging together building blocks.<br>
+        Run this
+        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/r2/tutorials/quickstart/beginner.ipynb">“Hello World” example</a>,
+        then read the guides and tutorials to learn more.</p>
+        <h3>For experts</h3>
+        The Subclassing API provides a define-by-run interface for advanced
+        research. Create a class for your model, then write the forward pass
+        imperatively. Easily write custom layers, activations, and training loops.<br>
+        Run this
+        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/r2/tutorials/quickstart/advanced.ipynb">“Hello, World” example</a>,
+        then read the guides and and tutorials to learn more.
 
   - classname: devsite-landing-row-cards
     items:
