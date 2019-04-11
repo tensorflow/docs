@@ -1,9 +1,8 @@
-# TensorFlow Version Compatibility
+# 텐서플로 버전 호환성
 
-This document is for users who need backwards compatibility across different
-versions of TensorFlow (either for code or data), and for developers who want
-to modify TensorFlow while preserving compatibility.
+이 문서는 텐서플로(코드이거나 데이터)의 다른 버전들간의 하위 호환성이 필요한 사용자와 텐서플로의 호환성을 유지하면서 텐서플로를 수정하고 싶어하는 개발자들을 위한 문서입니다.
 
+## 
 ## Semantic Versioning 2.0
 
 TensorFlow follows Semantic Versioning 2.0 ([semver](http://semver.org)) for its
@@ -11,6 +10,7 @@ public API. Each release version of TensorFlow has the form `MAJOR.MINOR.PATCH`.
 For example, TensorFlow version 1.2.3 has `MAJOR` version 1, `MINOR` version 2,
 and `PATCH` version 3. Changes to each number have the following meaning:
 
+* **MAJOR**: 
 * **MAJOR**:  Potentially backwards incompatible changes.  Code and data that
   worked with a previous major release will not necessarily work with the new
   release. However, in some cases existing TensorFlow graphs and checkpoints
@@ -23,42 +23,30 @@ and `PATCH` version 3. Changes to each number have the following meaning:
   non-experimental public API will continue to work unchanged.  For details on
   what is and is not the public API, see [What is covered](#what_is_covered).
 
-* **PATCH**: Backwards compatible bug fixes.
+* **PATCH**: 하위 호환되는 버그 픽스들
 
 For example, release 1.0.0 introduced backwards *incompatible* changes from
 release 0.12.1.  However, release 1.1.1 was backwards *compatible* with release
 1.0.0.
 
-## What is covered
+## 포함되는 것들
 
-Only the public APIs of TensorFlow are backwards compatible across minor and
-patch versions.  The public APIs consist of
+텐서플로의 공개 API만이 마이너와 패치 버전에서 하위 호환성을 가집니다. 공개 API는 다음을 포함합니다.
 
-* All the documented [Python](../api_docs/python) functions and classes in the
-  `tensorflow` module and its submodules, except for
+* 모든 문서화된 [Python](../api_docs/python) `tensorflow` 모듈과 서브모듈에 있는 함수와 클래스, 다음은 제외
 
-    * Private symbols: any function, class, etc., whose name start with `_`
-    * Experimental and `tf.contrib` symbols, see [below](#not_covered) for
-      details.
+    * 개인 심볼: `_`로 시작하는 어떠한 함수나 클래스 등
+    * 실험적인 그리고 `tf.contrib` 심볼, 자세한건 [아래](#not_covered)를 참조하세요.
 
-  Note that the code in the `examples/` and `tools/` directories is not
-  reachable through the `tensorflow` Python module and is thus not covered by
-  the compatibility guarantee.
+  `examples/`와 `tools/` 경로에 있는 코드는 `tensorflow` 파이썬 모듈을 통해 접근할 수 없고 따라서 호환성을 보장할 수 없습니다.
 
-  If a symbol is available through the `tensorflow` Python module or its
-  submodules, but is not documented, then it is **not** considered part of the
-  public API.
+  한 심볼이 `tensorflow` 파이썬 모듈이나 서브모듈에서 사용가능하지만 문서화되지는 않은 경우, 공개 API의 일부로 간주하지 **않습니다**.
 
-* The compatibility API (in Python, the `tf.compat` module). At major versions,
-  we may release utilities and additional endpoints to help users with the
-  transition to a new major version. These API symbols are deprecated and not
-  supported (i.e., we will not add any features, and we will not fix bugs
-  other than to fix vulnerabilities), but they do fall under our compatibility
-  guarantees.
+* 호환성 API(파이썬의 `tf.compat` 모듈). 주 버전에서 사용자들이 새로운 주 버전으로 옮겨가는 것을 도와주는 유틸리티와 추가적인 엔드포인트가 공개될 수도 있습니다. 이러한 API 심볼들은 없어지고 지원되지 않지만(즉, 기능을 추가하지 않고 취약성 이외의 버그를 수정하지 않습니다) 호환성은 보장됩니다.
 
-* The [C API](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h).
+* [C API](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h).
 
-* The following protocol buffer files:
+* 다음의 프로토콜 버퍼 파일들:
 
     * [`attr_value`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/attr_value.proto)
     * [`config`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/config.proto)
@@ -72,7 +60,7 @@ patch versions.  The public APIs consist of
     * [`types`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/types.proto)
 
 <a name="not_covered"></a>
-## What is *not* covered
+## 포함되지 *않는* 것들
 
 Some parts of TensorFlow can change in backward incompatible ways at any point.
 These include:
