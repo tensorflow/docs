@@ -12,18 +12,16 @@
 my_variable = tf.Variable(tf.zeros([1., 2., 3.]))
 ```
 
-이렇게 하면 모양이 `[1, 2, 3]`이고 값은 0으로 채워진 3차원 텐서가 변수로 생성됩니다. 이 변수는 기본적으로 `dtype` `tf.float32`로 설정될 것입니다. dtype은 지정하지 않은 경우 초기값으로부터 추정됩니다.
+이렇게 하면 모양이 `[1, 2, 3]`이고 값은 0으로 채워진 3차원 텐서가 변수로 생성됩니다. 이 변수는 기본적으로 `dtype` `tf.float32`로 설정될 것입니다. dtype을 지정하지 않은 경우 초기값으로부터 추정됩니다.
 
-`tf.device` 범위(scope)가 유효하다면, 변수는 해당 장치에 위치합니다; 그렇지 않은 경우 변수는 dtype에 호환되는 "가장 빠른" 장치에 위치합니다.(GPU가 가용하다면 대부분의 변수들이 자동적으로 GPU에 위치한다는 의미입니다) 예를들어, 다음의 코드는 `v`라는 변수를 만들고 두 번째 GPU에 위치시킵니다:
+`tf.device` 범위(scope)가 유효하다면, 변수는 해당 장치에 위치합니다; 그렇지 않은 경우, 변수는 dtype에 호환되는 "가장 빠른" 장치에 위치합니다.(GPU가 가용하다면 대부분의 변수들이 자동적으로 GPU에 위치한다는 의미입니다) 예를들어, 다음의 코드는 `v`라는 변수를 만들고 두 번째 GPU에 위치시킵니다:
 
 ``` python
 with tf.device("/device:GPU:1"):
   v = tf.Variable(tf.zeros([10, 10]))
 ```
 
-이상적으로는 `tf.distribute` API를 통해 코드를 한번 작성할 수 있게 하고 다양한 분산 설정에서 작동되도록 하세요.
-Ideally though you should use the `tf.distribute` API, as that allows you to
-write your code once and have it work under many different distributed setups.
+이상적으로는 `tf.distribute` API를 통해 코드를 한번 작성하고 다양한 분산 설정에서 작동되도록 하세요.
 
 ## 변수의 사용
 
@@ -36,10 +34,7 @@ w = v + 1  # w는 v값 기준으로 계산되는 tf.Tensor 입니다.
            # tf.Tensor로 변환되어 값을 표현합니다.
 ```
 
-값을 변수에 할당하려면 `assign`, `assign_add` 메소드와 `tf.Variable` 클래스에 있는 친구들을 사용하세요. 예를들어, 여기에 이 메서드를 호출하는 방법이 있습니다:
-To assign a value to a variable, use the methods `assign`, `assign_add`, and
-friends in the `tf.Variable` class. For example, here is how you can call these
-methods:
+값을 변수에 할당하려면 `assign`, `assign_add` 메소드와 `tf.Variable` 클래스에 있는 친구들(friends)을 사용하세요. 예를들어, 여기에 이 메서드를 호출하는 방법이 있습니다:
 
 ``` python
 v = tf.Variable(0.0)
