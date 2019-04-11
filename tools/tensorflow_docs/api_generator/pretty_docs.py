@@ -213,10 +213,11 @@ def _build_module_page(page_info):
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
 
+  parts.append(page_info.doc.docstring)
+
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n\n')
 
-  parts.append(page_info.doc.docstring)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
