@@ -281,7 +281,7 @@ REGISTER_GPU(int32);
 #ifdef GOOGLE_CUDA
 #define EIGEN_USE_GPU
 #include "example.h"
-#include "tensorflow/core/util/gpu_kernel_helper.h"
+#include "tensorflow/core/util/cuda_kernel_helper.h"
 
 using namespace tensorflow;
 
@@ -302,7 +302,7 @@ void ExampleFunctor<GPUDevice, T>::operator()(
     const GPUDevice& d, int size, const T* in, T* out) {
   // Launch the cuda kernel.
   //
-  // See core/util/gpu_kernel_helper.h for example of computing
+  // See core/util/cuda_kernel_helper.h for example of computing
   // block count and thread_per_block count.
   int block_count = 1024;
   int thread_per_block = 20;
