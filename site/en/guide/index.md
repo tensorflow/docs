@@ -5,9 +5,9 @@ works. The units are as follows:
 
 ## High Level APIs
 
-  * [Keras](../guide/keras.md), TensorFlow's high-level API for building and
+  * [Keras](../guide/keras.ipynb), TensorFlow's high-level API for building and
     training deep learning models.
-  * [Eager Execution](../guide/eager.md), an API for writing TensorFlow code
+  * [Eager Execution](../guide/eager.ipynb), an API for writing TensorFlow code
     imperatively, like you would use Numpy.
   * [Importing Data](../guide/datasets.md), easy input pipelines to bring your data into
     your TensorFlow program.
@@ -48,7 +48,7 @@ works. The units are as follows:
     can still be helpful.
   * [Save and Restore](../guide/saved_model.md), which
     explains how to save and restore variables and models.
-  * [Ragged Tensors](../guide/ragged_tensors), which explains how to use
+  * [Ragged Tensors](../guide/ragged_tensors.ipynb), which explains how to use
     Ragged Tensors to encode nested variable-length lists.
 
 ## ML Concepts
