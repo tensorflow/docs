@@ -89,6 +89,8 @@ toc:
     path: /alpha/tutorials/sequences/nmt_with_attention
   - title: "Image captioning"
     path: /alpha/tutorials/sequences/image_captioning
+  - title: "Transformer model for language understanding"
+    path: /alpha/tutorials/sequences/transformer
 
 - title: "GANs and VAEs"
   style: accordion

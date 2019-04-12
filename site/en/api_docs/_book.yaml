@@ -70,7 +70,7 @@ upper_tabs:
       - title: Probability
         path: /probability/api_docs/python/tfp
       - title: Serving
-        path: /serving/api_docs/cc
+        path: /tfx/serving/api_docs/cc
       - title: TFX
         path: /tfx/api_docs/
 

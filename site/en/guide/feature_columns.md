@@ -14,7 +14,7 @@ the lengths of petals and sepals effectively, real world data sets contain all
 kinds of features, many of which are non-numerical.
 
 <div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/feature_columns/feature_cloud.jpg">
+<img style="width:100%" src="https://www.tensorflow.org/images/feature_columns/feature_cloud.jpg">
 </div>
 <div style="text-align: center">
 Some real-world features (such as, longitude) are numerical, but many are not.
@@ -52,7 +52,7 @@ As the following figure suggests, you specify the input to a model through the
 Feature Columns bridge input data (as returned by `input_fn`) with your model.
 
 <div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/feature_columns/inputs_to_model_bridge.jpg">
+<img style="width:100%" src="https://www.tensorflow.org/images/feature_columns/inputs_to_model_bridge.jpg">
 </div>
 <div style="text-align: center">
 Feature columns bridge raw data with the data your model needs.
@@ -65,7 +65,7 @@ Categorical-Column or a Dense-Column object, except `bucketized_column`, which
 inherits from both classes:
 
 <div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/feature_columns/some_constructors.jpg">
+<img style="width:100%" src="https://www.tensorflow.org/images/feature_columns/some_constructors.jpg">
 </div>
 <div style="text-align: center">
 Feature column methods fall into two main categories and one hybrid category.
@@ -125,7 +125,7 @@ of representing that year as a scalar numeric column, we could split the year
 into the following four buckets:
 
 <div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/feature_columns/bucketized_column.jpg">
+<img style="width:100%" src="https://www.tensorflow.org/images/feature_columns/bucketized_column.jpg">
 </div>
 <div style="text-align: center">
 Dividing year data into four buckets.
@@ -178,7 +178,7 @@ integers 0, 1, 2, or 3. In this case, the categorical identity mapping looks
 like this:
 
 <div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/feature_columns/categorical_column_with_identity.jpg">
+<img style="width:100%" src="https://www.tensorflow.org/images/feature_columns/categorical_column_with_identity.jpg">
 </div>
 <div style="text-align: center">
 A categorical identity column mapping. Note that this is a one-hot
@@ -220,7 +220,7 @@ to numeric or categorical values. Categorical vocabulary columns provide a good
 way to represent strings as a one-hot vector. For example:
 
 <div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/feature_columns/categorical_column_with_vocabulary.jpg">
+<img style="width:100%" src="https://www.tensorflow.org/images/feature_columns/categorical_column_with_vocabulary.jpg">
 </div>
 <div style="text-align: center">
 Mapping string values to vocabulary columns.
@@ -308,7 +308,7 @@ following figure illustrates this dilemma, showing that kitchenware and sports
 both get assigned to category (hash bucket) 12:
 
 <div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/feature_columns/hashed_column.jpg">
+<img style="width:100%" src="https://www.tensorflow.org/images/feature_columns/hashed_column.jpg">
 </div>
 <div style="text-align: center">
 Representing data with hash buckets.
@@ -341,7 +341,7 @@ The following figure shows our plan, with the latitude & longitude values for
 the corners of the city in red text:
 
 <div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/feature_columns/Atlanta.jpg">
+<img style="width:100%" src="https://www.tensorflow.org/images/feature_columns/Atlanta.jpg">
 </div>
 <div style="text-align: center">
 Map of Atlanta. Imagine this map divided into 10,000 sections of
@@ -433,7 +433,7 @@ we've seen in our categorical product_class example. That is, an
 where the matching category has value 1 and the rest have 0s:
 
 <div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/feature_columns/categorical_column_with_identity.jpg">
+<img style="width:100%" src="https://www.tensorflow.org/images/feature_columns/categorical_column_with_identity.jpg">
 </div>
 <div style="text-align: center">
 Representing data in indicator columns.
@@ -474,7 +474,7 @@ In that case, the following figure illustrates the processing path for
 embedding columns or indicator columns.
 
 <div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/feature_columns/embedding_vs_indicator.jpg">
+<img style="width:100%" src="https://www.tensorflow.org/images/feature_columns/embedding_vs_indicator.jpg">
 </div>
 <div style="text-align: center">
 An embedding column stores categorical data in a lower-dimensional
