@@ -38,6 +38,8 @@ toc:
   section:
   - title: "Convolutional Neural Networks"
     path: /alpha/tutorials/images/intro_to_cnns
+  - title: "Transfer learning with TFHub"
+    path: /alpha/tutorials/images/hub_with_keras
   - title: "Transfer learning with pretrained CNNs"
     path: /alpha/tutorials/images/transfer_learning
 
@@ -92,15 +94,22 @@ toc:
   - title: "Transformer model for language understanding"
     path: /alpha/tutorials/sequences/transformer
 
-- title: "GANs and VAEs"
+- title: "Image Generation"
   style: accordion
   section:
-  - title: "VAE"
-    path: /alpha/tutorials/generative/cvae
+  - heading: Image Optimization
+  - title: "Style Transfer"
+    path: /alpha/tutorials/generative/style_transfer
+  - heading: GANs
   - title: "DCGAN"
     path: /alpha/tutorials/generative/dcgan
   - title: "Pix2Pix"
     path: /alpha/tutorials/generative/pix2pix
+  - heading: Auto Encoders
+  - title: "VAE"
+    path: /alpha/tutorials/generative/cvae
+
+
 
 - title: "Loading data"
   style: accordion
