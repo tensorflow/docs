@@ -59,6 +59,8 @@ def _build_function_page(page_info):
   """Given a FunctionPageInfo object Return the page as an md string."""
   parts = ['# %s\n\n' % page_info.full_name]
 
+  parts.append(page_info.doc.brief + '\n\n')
+
   if len(page_info.aliases) > 1:
     parts.append('### Aliases:\n\n')
     parts.extend('* `%s`\n' % name for name in page_info.aliases)
@@ -71,11 +73,10 @@ def _build_function_page(page_info):
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
 
-  parts.append(page_info.doc.docstring + '\n\n')
-
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
-  parts.append('<!-- Placeholder for "Used in" -->\n\n')
+  parts.append('<!-- Placeholder for "Used in" -->\n')
 
+  parts.append('\n'.join(page_info.doc.docstring.split('\n')[1:]))
   parts.append(_build_function_details(page_info.doc.function_details))
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
@@ -87,6 +88,9 @@ def _build_class_page(page_info):
   parts = ['# {page_info.full_name}\n\n'.format(page_info=page_info)]
 
   parts.append('## Class `%s`\n\n' % page_info.full_name.split('.')[-1])
+
+  parts.append(page_info.doc.brief + '\n\n')
+
   if page_info.bases:
     parts.append('Inherits From: ')
 
@@ -114,11 +118,10 @@ def _build_class_page(page_info):
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
 
-  parts.append(page_info.doc.docstring + '\n\n')
-
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
-  parts.append('<!-- Placeholder for "Used in" -->\n\n')
+  parts.append('<!-- Placeholder for "Used in" -->\n')
 
+  parts.append('\n'.join(page_info.doc.docstring.split('\n')[1:]))
   parts.append(_build_function_details(page_info.doc.function_details))
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
@@ -206,6 +209,9 @@ def _build_module_page(page_info):
   """Given a ClassPageInfo object Return the page as an md string."""
   parts = ['# Module: {full_name}\n\n'.format(full_name=page_info.full_name)]
 
+  # First line of the docstring i.e. a brief introduction about the symbol.
+  parts.append(page_info.doc.brief + '\n\n')
+
   if len(page_info.aliases) > 1:
     parts.append('### Aliases:\n\n')
     parts.extend('* Module `%s`\n' % name for name in page_info.aliases)
@@ -215,11 +221,11 @@ def _build_module_page(page_info):
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
 
-  parts.append(page_info.doc.docstring + '\n\n')
-
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
-  parts.append('<!-- Placeholder for "Used in" -->\n\n')
+  parts.append('<!-- Placeholder for "Used in" -->\n')
 
+  # All lines in the docstring, expect the brief introduction.
+  parts.append('\n'.join(page_info.doc.docstring.split('\n')[1:]))
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
