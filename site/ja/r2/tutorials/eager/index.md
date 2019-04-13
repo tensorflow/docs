@@ -7,8 +7,8 @@ auto&nbsp;differentiation. Start with these notebooks, then read the
 [eager execution guide](../../guide/eager.ipynb).
 
 Eager execution は、高度な操作のための命令形の define-by-run インターフェイスを提供します。
-自動微分を使って、カスタム層や順伝搬計算、訓練ループを書きましょう。これらのノートブックから
-はじめ、その後、[eager execution guide](../../guide/eager.ipynb)を読んでください。
+自動微分を使って、カスタム層や順伝搬計算、訓練ループを書きましょう。これらのノートブック
+から始めて、その後、[eager execution guide](../../guide/eager.ipynb)を読んでください。
 
 1. [Tensors and operations](basics.ipynb)
 2. [Custom layers](custom_layers.ipynb)
