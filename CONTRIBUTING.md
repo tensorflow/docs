@@ -35,7 +35,7 @@ signed the CLA.
 # About our docs
 
 The TensorFlow documentation is written in [Markdown](https://commonmark.org/help/)
-and [Jupter/Colab notebooks](https://colab.research.google.com/notebooks/welcome.ipynb).
+and [Jupyter/Colab notebooks](https://colab.research.google.com/notebooks/welcome.ipynb).
 
 The root of [tensorflow.org/](https://www.tensorflow.org/) is found in the
 `site/en` directory.

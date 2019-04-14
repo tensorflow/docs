@@ -2,7 +2,11 @@
 
 ## Python style
 
-Follow the [PEP 8 Python style guide](https://www.python.org/dev/peps/pep-0008/), except TensorFlow uses 2 spaces instead of 4. Please conform to the [Google Python Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md), and use [pylint](https://www.pylint.org/) to check your Python changes. 
+Follow the [PEP 8 Python style
+guide](https://www.python.org/dev/peps/pep-0008/), except TensorFlow uses 2
+spaces instead of 4. Please conform to the
+[Google Python Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md),
+and use [pylint](https://www.pylint.org/) to check your Python changes.
 
 
 ### pylint
@@ -27,11 +31,18 @@ $ pylint --rcfile=/tmp/pylintrc myfile.py
 
 We currently support Python 3.4, 3.5, 3.6, and 2.7.
 
-A full list of official and community-supported builds can be found in the README file in [tensorflow/tensorflow](https://github.com/tensorflow/tensorflow), and detailed installation instructions can be found [here](https://www.tensorflow.org/install/pip#1-install-the-python-development-environment-on-your-system).
+A full list of official and community-supported builds can be found in the
+README file in
+[tensorflow/tensorflow](https://github.com/tensorflow/tensorflow), and detailed
+installation instructions can be found
+[here](https://www.tensorflow.org/install/pip#1-install-the-python-development-environment-on-your-system).
 
 #### Legacy Python compatibility
 
-TensorFlow will support Legacy Python (Python 2.7) until [January 1, 2020](https://groups.google.com/a/tensorflow.org/forum/#!searchin/announce/python$202.7%7Csort:date/announce/gVwS5RC8mds/dCt1ka2XAAAJ). Until that time, all code will need to be compatible with the Python versions listed above.
+TensorFlow will support Legacy Python (Python 2.7) until
+[January 1, 2020](https://groups.google.com/a/tensorflow.org/forum/#!searchin/announce/python$202.7%7Csort:date/announce/gVwS5RC8mds/dCt1ka2XAAAJ).
+Until that time, all code will need to be compatible with the Python versions
+listed above.
 
 These lines should be present in every Python file:
 
@@ -47,7 +58,9 @@ Use `six` to write compatible code (for example, `six.moves.range`).
 
 ## C++ coding style
 
-Changes to TensorFlow C++ code should conform to the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html). Use `clang-tidy` to check your C/C++ changes. 
+Changes to TensorFlow C++ code should conform to the [Google C++ Style
+Guide](https://google.github.io/styleguide/cppguide.html). Use `clang-tidy` to
+check your C/C++ changes.
 
 To install `clang-tidy` on Ubuntu 16+, do:
 
@@ -77,23 +90,40 @@ $ diff <my_cc_file> /tmp/my_cc_file.cc
 
 ### Tensors
 
-*   Operations that deal with batches may assume that the **first dimension** of a Tensor is the batch dimension.
+*   Operations that deal with batches may assume that the **first dimension** of
+    a Tensor is the batch dimension.
 *   In most models, the **last dimension** is the number of _channels_.
-*   Dimensions excluding the first and last usually make up the _space_ dimensions: sequence-length, or image-size.
-*   When possible, use a Tensor's overloaded operators rather than TensorFlow functions. For example, we prefer `**`, `+`, `/`, `*`, `-`, `and/or` over `tf.pow`, `tf.add`, `tf.div`, `tf.mul`, `tf.subtract`, and `tf.logical_*` — unless a specific name for the operation is desired.
+*   Dimensions excluding the first and last usually make up the _space_
+    dimensions: sequence-length, or image-size.
+*   When possible, use a Tensor's overloaded operators rather than TensorFlow
+    functions. For example, we prefer `**`, `+`, `/`, `*`, `-`, `and/or` over
+    `tf.pow`, `tf.add`, `tf.div`, `tf.mul`, `tf.subtract`, and `tf.logical_*` —
+    unless a specific name for the operation is desired.
 
 
 ### Python operations
 
-A _Python operation_ is a function that, given input tensors and parameters, creates a part of the graph and returns output tensors.
+A _Python operation_ is a function that, given input tensors and parameters,
+creates a part of the graph and returns output tensors.
 
-*   The first argument should be tensors, followed by basic Python parameters. The last argument is `name` with a default value of `None`. 
+*   The first argument should be tensors, followed by basic Python parameters.
+    The last argument is `name` with a default value of `None`.
 *   Tensor arguments should be either a single tensor or an iterable of tensors. That is, a "Tensor or list of Tensors" is too broad. See `assert_proper_iterable`.
-*   Operations that take tensors as arguments should call `convert_to_tensor` to convert non-tensor inputs into tensors if they are using C++ operations. Note that the arguments are still described as a `Tensor` object of a specific dtype in the documentation.
+*   Operations that take tensors as arguments should call `convert_to_tensor` to
+    convert non-tensor inputs into tensors if they are using C++ operations.
+    Note that the arguments are still described as a `Tensor` object of a
+    specific dtype in the documentation.
 *   Each Python operation should have a `name_scope` like below. Pass as arguments `name`, a default name of the op, and a list of the input tensors.
-*   Operations should contain an extensive Python comment with Args and Returns declarations that explain both the type and meaning of each value. Possible shapes, dtypes, or ranks should be specified in the description. See documentation details.
-*   For increased usability, include an example of usage with inputs / outputs of the op in Example section.
-*   Avoid making explicit use of `tf.Tensor.eval` or `tf.Session.run`. For example, to write logic that depends on the Tensor value, use TensorFlow control flow. Alternatively, restrict the operation to only run when eager execution is enabled (`tf.executing_eagerly()`).
+*   Operations should contain an extensive Python comment with Args and Returns
+    declarations that explain both the type and meaning of each value. Possible
+    shapes, dtypes, or ranks should be specified in the description. See
+    documentation details.
+*   For increased usability, include an example of usage with inputs / outputs
+    of the op in Example section.
+*   Avoid making explicit use of `tf.Tensor.eval` or `tf.Session.run`. For
+    example, to write logic that depends on the Tensor value, use the TensorFlow
+    control flow. Alternatively, restrict the operation to only run when eager
+    execution is enabled (`tf.executing_eagerly()`).
 
 Example:
 
