@@ -169,7 +169,7 @@ for x, y in main_dataset:
     prediction = path1(x)
     loss = loss_fn_head1(prediction, y)
   # Simultaneously optimize trunk and head1 weights.
-  gradients = tape.gradients(loss, path1.trainable_variables)
+  gradients = tape.gradient(loss, path1.trainable_variables)
   optimizer.apply_gradients(zip(gradients, path1.trainable_variables))
 
 # Fine-tune second head, reusing the trunk
@@ -178,7 +178,7 @@ for x, y in small_dataset:
     prediction = path2(x)
     loss = loss_fn_head2(prediction, y)
   # Only optimize head2 weights, not trunk weights
-  gradients = tape.gradients(loss, head2.trainable_variables)
+  gradients = tape.gradient(loss, head2.trainable_variables)
   optimizer.apply_gradients(zip(gradients, head2.trainable_variables))
 
 # You can publish just the trunk computation for other people to reuse.
@@ -203,7 +203,7 @@ def train(model, dataset, optimizer):
     with tf.GradientTape() as tape:
       prediction = model(x)
       loss = loss_fn(prediction, y)
-    gradients = tape.gradients(loss, model.trainable_variables)
+    gradients = tape.gradient(loss, model.trainable_variables)
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 ```
 
