@@ -85,6 +85,8 @@ toc:
 - title: "Text and sequences"
   style: accordion
   section:
+  - title: "Unicode strings"
+    path: /alpha/tutorials/sequences/unicode
   - title: "Generate text with an RNN"
     path: /alpha/tutorials/sequences/text_generation
   - title: "Neural Machine Translation with Attention"
