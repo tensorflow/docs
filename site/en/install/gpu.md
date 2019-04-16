@@ -157,6 +157,12 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
 <code class="devsite-terminal">sudo apt update</code>
 
+# Install NVIDIA Driver
+# Issue with driver install requires creating /usr/lib/nvidia
+<code class="devsite-terminal">sudo mkdir /usr/lib/nvidia</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-410</code>
+# Reboot. Check that GPUs are visible using the command: nvidia-smi
+
 # Install CUDA and tools. Include optional NCCL 2.x
 <code class="devsite-terminal">sudo apt install cuda9.0 cuda-cublas-9-0 cuda-cufft-9-0 cuda-curand-9-0 \
     cuda-cusolver-9-0 cuda-cusparse-9-0 libcudnn7=7.2.1.38-1+cuda9.0 \
