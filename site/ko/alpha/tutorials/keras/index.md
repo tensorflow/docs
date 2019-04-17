@@ -14,7 +14,9 @@
 
 출판사 노트: *Deep Learning with Python*은 딥러닝을 설명하기 위해 파이썬과 케라스 라이브러리를 사용합니다. 이 책은 케라스 창시자이고 구글 AI 연구원인 프랑소와 숄레(François Chollet)가 썼습니다. 이 책에서 직관적인 설명과 실용적인 예제를 통해 딥러닝을 배울 수 있습니다. (이 책의 한글 번역서는 *[케라스 창시자에게 배우는 딥러닝](https://books.google.co.kr/books?id=EJV5DwAAQBAJ)* 입니다)
 
-머신러닝의 기본 원리와 개념을 배우려면 [머신러닝 단기집중과정](https://developers.google.com/machine-learning/crash-course/)을 수강해 보세요.
+머신러닝의 기본 원리와 개념을 배우려면
+[머신러닝 단기집중과정](https://developers.google.com/machine-learning/crash-course/)을
+수강해 보세요.
 
 1. [기초적인 분류 문제](./basic_classification.ipynb)
 2. [텍스트 분류](./basic_text_classification.ipynb)
