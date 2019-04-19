@@ -111,13 +111,13 @@ toc:
   - title: "VAE"
     path: /alpha/tutorials/generative/cvae
 
-
-
 - title: "Loading data"
   style: accordion
   section:
   - title: "Build an image input pipeline"
     path: /alpha/tutorials/load_data/images
+  - title: "Load text with tf.data"
+    path: /alpha/tutorials/load_data/text
   - title: "Use TFRecords and tf.Example"
     path: /alpha/tutorials/load_data/tf_records
 
