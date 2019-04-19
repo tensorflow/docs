@@ -85,8 +85,6 @@ toc:
 - title: "Text and sequences"
   style: accordion
   section:
-  - title: "Unicode strings"
-    path: /alpha/tutorials/text/unicode
   - title: "Generate text with an RNN"
     path: /alpha/tutorials/text/text_generation
   - title: "Neural Machine Translation with Attention"
@@ -120,6 +118,8 @@ toc:
     path: /alpha/tutorials/load_data/text
   - title: "Use TFRecords and tf.Example"
     path: /alpha/tutorials/load_data/tf_records
+  - title: "Unicode strings"
+    path: /alpha/tutorials/text/unicode
 
 - title: "Distributed training"
   style: accordion
