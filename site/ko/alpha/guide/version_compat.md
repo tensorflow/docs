@@ -2,40 +2,25 @@
 
 이 문서는 텐서플로(코드이거나 데이터)의 다른 버전들간의 하위 호환성이 필요한 사용자와 텐서플로의 호환성을 유지하면서 텐서플로를 수정하고 싶어하는 개발자들을 위한 문서입니다.
 
-## 
-## Semantic Versioning 2.0
+## 유의적 버저닝 2.0
 
-TensorFlow follows Semantic Versioning 2.0 ([semver](http://semver.org)) for its
-public API. Each release version of TensorFlow has the form `MAJOR.MINOR.PATCH`.
-For example, TensorFlow version 1.2.3 has `MAJOR` version 1, `MINOR` version 2,
-and `PATCH` version 3. Changes to each number have the following meaning:
+텐서플로는 공개 API에 유의적 버저닝 2.0([semver](http://semver.org))을 준수합니다. 텐서플로의 각 릴리즈 버전은 `MAJOR.MINOR.PATCH` 형식입니다. 이를테면 텐서플로 버전 1.2.3은 `MAJOR` 버전 1, `MINOR` 버전 2, `PATCH` 버전 3을 뜻합니다. 각 숫자의 변화는 다음을 뜻합니다:
 
-* **MAJOR**: 
-* **MAJOR**:  Potentially backwards incompatible changes.  Code and data that
-  worked with a previous major release will not necessarily work with the new
-  release. However, in some cases existing TensorFlow graphs and checkpoints
-  may be migratable to the newer release; see
-  [Compatibility of graphs and checkpoints](#compatibility_of_graphs_and_checkpoints)
-  for details on data compatibility.
+* **MAJOR**: 하위 호환성이 없는 변동일 수 있습니다. 이전 주(major) 버전에서 동작했었던 코드와 데이터는 새로운 버전에서 동작하지 않을 수 있습니다. 그러나, 어떤 경우에는 기존 텐서플로 그래프와 체크포인트를 새로운 버전에 마이그레이션할 수도 있습니다; 자세한 사항은 [그래프와 체크포인트의 호환성](#compatibility_of_graphs_and_checkpoints)을 참고하세요.
 
-* **MINOR**: Backwards compatible features, speed improvements, etc. Code and
-  data that worked with a previous minor release *and* which depends only on the
-  non-experimental public API will continue to work unchanged.  For details on
-  what is and is not the public API, see [What is covered](#what_is_covered).
+* **MINOR**: 하위 호환되는 특성, 속도 개선 등 입니다. 이전 부(minor) 버전*과* 이전 부 버전의 비실험적인 공개 API를 사용했던 코드와 데이터는 정상적으로 동작합니다. 공개 API에 무엇이 포함되고 포함되지 않는지는 [포함되는 것들](#What_is_covered)를 참조하세요.
 
 * **PATCH**: 하위 호환되는 버그 픽스들
 
-For example, release 1.0.0 introduced backwards *incompatible* changes from
-release 0.12.1.  However, release 1.1.1 was backwards *compatible* with release
-1.0.0.
+이를테면 릴리즈 1.0.0은 릴리즈 0.12.1에서 하위 호환성이 *없는* 변동사항이 있습니다. 그러나, 릴리즈 1.1.1은 릴리즈 1.0.0과 하위 호환성이 있습니다.
 
 ## 포함되는 것들
 
 텐서플로의 공개 API만이 마이너와 패치 버전에서 하위 호환성을 가집니다. 공개 API는 다음을 포함합니다.
 
-* 모든 문서화된 [Python](../api_docs/python) `tensorflow` 모듈과 서브모듈에 있는 함수와 클래스, 다음은 제외
+* 모든 문서화된 [파이썬](../api_docs/python) `tensorflow` 모듈과 서브모듈에 있는 함수와 클래스, 다음은 제외
 
-    * 개인 심볼: `_`로 시작하는 어떠한 함수나 클래스 등
+    * 개인 심볼(private symbol): `_`로 시작하는 어떠한 함수나 클래스 등
     * 실험적인 그리고 `tf.contrib` 심볼, 자세한건 [아래](#not_covered)를 참조하세요.
 
   `examples/`와 `tools/` 경로에 있는 코드는 `tensorflow` 파이썬 모듈을 통해 접근할 수 없고 따라서 호환성을 보장할 수 없습니다.
@@ -62,94 +47,42 @@ release 0.12.1.  However, release 1.1.1 was backwards *compatible* with release
 <a name="not_covered"></a>
 ## 포함되지 *않는* 것들
 
-Some parts of TensorFlow can change in backward incompatible ways at any point.
-These include:
+텐서플로의 어떤 부분은 모든 곳에서 하위 호환성이 없도록 변동될 수 있습니다. 이는 다음을 포함합니다:
 
-*   **Experimental APIs**: To facilitate development, we exempt some API symbols
-    clearly marked as experimental from the compatibility guarantees. In
-    particular, the following are not covered by any compatibility guarantees:
+*   **실험적인 API**: 개발을 용이하게 하기 위해, 어떤 API 심볼들은 실험적인 것으로 규정하고 하위 호환성을 보장하지 않습니다. 특히 다음은 어떠한 호환성 보장도 하지 않습니다:
 
-  - any symbol in the `tf.contrib` module or its submodules;
-  - any symbol (module, function, argument, property, class, or constant) whose
-    name contains `experimental` or `Experimental`; or
-  - any symbol whose fully qualified name includes a module or class which is
-    itself experimental. This includes fields and submessages of any protocol
-    buffer called `experimental`.
+  - `tf.contrib` 모듈이나 서브모듈에 있는 모든 심볼들
+  - `experimental` 또는 `Experimental`이라는 이름을 포함하는 모든 심볼(모듈, 함수, 매개변수, 속성, 클래스, 상수); 또는
+  - 모듈이나 클래스가 포함하는 절대 표기가 그 자체로 실험적인 모든 심볼들. `experimental`로 분류되는 모든 프로토콜 버퍼의 필드나 서브메시지 포함.
 
-*   **Other languages**: TensorFlow APIs in languages other than Python and C,
-    such as:
+*   **다른 언어들:** 파이썬과 C 이외의 텐서플로 API 언어들, 이를테면:
 
-  - [C++](../api_guides/cc/guide.md) (exposed through header files in
-    [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
+  - [C++](../api_guides/cc/guide.md) ([`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)의 헤더파일들을 통해 공개되어 있음).
   - [Java](../api_docs/java/reference/org/tensorflow/package-summary),
   - [Go](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go)
   - [JavaScript](https://js.tensorflow.org)
 
-*   **Details of composite ops:** Many public functions in Python expand to
-    several primitive ops in the graph, and these details will be part of any
-    graphs saved to disk as `GraphDef`s. These details may change for
-    minor releases. In particular, regressions tests that check for exact
-    matching between graphs are likely to break across minor releases, even
-    though the behavior of the graph should be unchanged and existing
-    checkpoints will still work.
+*   **합성 연산 세부사항:** 파이썬의 많은 공개함수가 그래프의 몇몇의 원시 연산에 확장됩니다, 그리고 이러한 세부사항은 `GraphDef`로 디스크에 저장되는 그래프의 한 부분입니다. 이러한 세부사항은 부(minor) 버전에서 변경될 수 있습니다. 특히, 그래프간 정확한 매칭이 되는지 확인하는 회귀테스트는 그래프의 행동이 변경되지 않고 기존의 체크포인트가 아직 동작할지라도 서로 다른 부 버전에서는 호환되지 않을 가능성이 높습니다.
 
-*   **Floating point numerical details:** The specific floating point values
-    computed by ops may change at any time.  Users should rely only on
-    approximate accuracy and numerical stability, not on the specific bits
-    computed. Changes to numerical formulas in minor and patch releases should
-    result in comparable or improved accuracy, with the caveat that in machine
-    learning improved accuracy of specific formulas may result in decreased
-    accuracy for the overall system.
+*   **부동 소수점 세부사항:** 연산을 통해 계산되는 특정 부동 소수점 값은 언제든지 변경될 수 있습니다. 사용자는 계산된 특정 비트에 의존하면 안되고, 근사적인 정밀도와 수치적 안정성에 초점을 두어야 합니다. 부 버전과 패치에서 수식의 변화는 상당히 정확도를 높입니다. (기계학습에서 특정 공식의 향상된 정확도는 전체 시스템에서의 정확도를 낮추는 경우도 있습니다.)
 
-*   **Random numbers:** The specific random numbers computed by the
-    [random ops](../api_guides/python/constant_op.md#Random_Tensors) may change
-    at any time. Users should rely only on approximately correct distributions
-    and statistical strength, not the specific bits computed. However, we will
-    make changes to random bits rarely (or perhaps never) for patch releases. We
-    will, of course, document all such changes.
+*   **랜덤 숫자:** 특정한 랜덤 숫자가 [random ops](../api_guides/python/constant_op.md#Random_Tensors)를 통해 계산되고 언제든지 바뀔 수 있습니다. 사용자는 계산된 특정 비트에 의존하지 말고, 근사적으로 적절한 분포와 통계적 강도에 초점을 두어야 합니다. 그러나, 패치 버전에서는 특정한 비트를 거의 바꾸지 않도록 합니다. 당연히 이러한 모든 변동사항은 문서화합니다.
 
-*   **Version skew in distributed Tensorflow:** Running two different versions
-    of TensorFlow in a single cluster is unsupported. There are no guarantees
-    about backwards compatibility of the wire protocol.
+*   **분산 텐서플로에서의 버전 엇갈림:** 하나의 클러스터에서 서로 다른 두 버전의 텐서플로를 실행하는 것은 지원되지 않습니다. 와이어 프로토콜(wire protocol)의 하위 호환성을 보장할 수 없습니다. 
 
-*   **Bugs:** We reserve the right to make backwards incompatible behavior
-    (though not API) changes if the current implementation is clearly broken,
-    that is, if it contradicts the documentation or if a well-known and
-    well-defined intended behavior is not properly implemented due to a bug.
-    For example, if an optimizer claims to implement a well-known optimization
-    algorithm but does not match that algorithm due to a bug, then we will fix
-    the optimizer. Our fix may break code relying on the wrong behavior for
-    convergence. We will note such changes in the release notes.
+*   **버그들:** 현재의 구현이 명백하게 문제가 있는 경우, 하위 호환성을 유지하지 않는 변동사항을 만들 수 있습니다. 문서와 구현이 서로 모순되는 경우 또는 잘 알려져있고 잘 정의된 의도를 가진 행동이 버그때문에 적절하게 구현되지 않은 경우가 이에 해당됩니다. 이를테면, 잘 알려진 최적화 알고리즘이 최적화기에 구현되어야 하지만 버그때문에 그 알고리즘과 매치되지 않는다면, 최적화기를 수정할 것입니다. 수정사항은 통합을 위해서 잘못 동작하는 부분에 의존하는 코드를 포함합니다. 릴리즈 노트에 그러한 변동사항들이 기록될 것입니다.
 
-*   **Error behavior:** We may replace errors with non-error behavior. For
-    instance, we may change a function to compute a result instead or raising
-    an error, even if that error is documented. We also reserve the right to
-    change the text of error messages. In addition, the type of an error may
-    change unless the exception type for a specific error condition is specified
-    in the documentation.
+*   **에러 동작:** 에러를 에러가 없는 동작으로 수정합니다. 이를테면, 어떤 에러가 문서화되더라도 결과를 계산하거나 에러를 올리는 함수를 변경할 수 있습니다. 또한 에러 메시지의 텍스트를 수정할 수 있습니다. 덧붙여, 에러의 타입은 에러가 나는 특정한 조건에 대해 기대하는 타입이 문서에 기술되지 않는다면 변경될 수 있습니다.
 
-## Compatibility of SavedModels, graphs and checkpoints
+## 저장된 모델의 호환성, 그래프와 체크포인트
 
-SavedModel is the preferred serialization format to use in TensorFlow programs.
-SavedModels contain two parts: One or more graphs encoded as `GraphDefs` and a
-Checkpoint. The graphs describe the data flow of ops to be run, and checkpoints
-contain the saved tensor values of variables in a graph.
+저장된 모델은 텐서플로 프로그램에서 사용하기 위해서 직렬화된 형식(serialization format)이 좋습니다. 저장된 모델은 두 부분으로 이루어져 있습니다: 하나 또는 더 많은 그래프들이 `GraphDefs`와 체크포인트로 인코드 됩니다. 그래프는 실행할 연산의 데이터 흐름를 기술하고 체크포인트는 그래프 변수들의 저장된 텐서값을 포함합니다.
 
-Many TensorFlow users create SavedModels, and load and execute them with a
-later release of TensorFlow. In compliance with [semver](https://semver.org),
-SavedModels written with one version of TensorFlow can be loaded and evaluated
-with a later version of TensorFlow with the same major release.
+많은 텐서플로 사용자들이 저장된 모델을 만들고 나중에 릴리즈된 텐서플로에서 로드하여 실행합니다. [semver](https://semver.org)에 따라 어떤 버전의 텐서플로에서 저장된 모델은 같은 주 버전에 속한 나중 버전의 텐서플로에서는 로드되고 실행될 수 있습니다.
 
-We make additional guarantees for *supported* SavedModels. We call a SavedModel
-which was created using **only non-deprecated, non-experimental,
-non-compatibility APIs** in TensorFlow major version `N` a *SavedModel supported
-in version `N`*. Any SavedModel supported in TensorFlow major version `N` can be
-loaded and executed with TensorFlow major version `N+1`. However, the
-functionality required to build or modify such a model may not be available any
-more, so this guarantee only applies to the unmodified SavedModel.
+*지원하는* 저장된 모델에서는 추가적인 보장이 있습니다. 텐서플로 주 버전 `N`에서 **사라지지 않고 실험적이지도 않으며 호환되지 않는 API**를 사용하여 만든 저장된 모델은 *버전 `N`에서 지원됩니다.* 텐서플로 주 버전 `N`에서 지원하는 모든 저장된 모델은 텐서플로 주 버전 `N+1`에서도 로드되고 실행될 수 있습니다. 그러나, 그 모델을 만들고 수정하기 위해 필요한 기능들을 더 이상 사용할 수 없는 경우, 이 보장은 수정하지 않은 저장된 모델에만 적용됩니다.
 
-We will endeavor to preserve backwards compatibility as long as possible, so
-that the serialized files are usable over long periods of time.
+가능하면 하위 호환성을 유지하기위해 노력할 것이라서 직렬화된 파일들은 오랫동안 사용가능합니다.
 
 ### GraphDef compatibility
 
