@@ -13,7 +13,6 @@ understanding through intuitive explanations and practical examples.
 
 To learn about machine learning fundamentals and concepts, consider taking the
 [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/).
-Additional TensorFlow and machine learning resources are listed in [next steps](../next_steps).
 
 1. [Basic classification](./basic_classification.ipynb)
 2. [Text classification](./basic_text_classification.ipynb)

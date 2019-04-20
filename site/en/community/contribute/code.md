@@ -1,6 +1,8 @@
 # Contribute to the TensorFlow code
 
-Whether you are adding a loss function, improving test coverage, or writing an RFC for a major design change, this portion of the contributor guide will help you get started. Thank you for work and interest in improving the TensorFlow API.
+Whether you are adding a loss function, improving test coverage, or writing an
+RFC for a major design change, this portion of the contributor guide will help
+you get started. Thank you for work and interest in improving TensorFlow.
 
 ## Before you get started
 
@@ -84,6 +86,7 @@ Code contributions—bug fixes, new development, test improvement—all follow a
 5.  Commit your changes.
 
     `$ git add -a`
+
     `$ git commit -m "commit message here"`
 
 6.  Push your changes to your GitHub repo.
