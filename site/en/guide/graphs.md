@@ -557,3 +557,80 @@ returns a `tf.Graph` object:
 g = tf.get_default_graph()
 print(g.get_operations())
 ```
+
+
+## Graph Optimization
+
+TensorFlow optimizes the TensorFlow graph before executing operations.
+This makes the TensorFlow graph more efficiently and less peak memory usage.
+As most of optimizations are enabled automatically, you don't need to know what optimizations are perfomred under the TensorFlow.
+On the other hand, TensorFlow provides the way for the advanced TensorFlow users to enable/disable the optimization by passing `tf.ConfigProto` to `tf.Session`.
+
+
+### Graph Optimization performed in TensorFlow
+
+TensorFlow performs many optimizations to the TensorFlow Graph such as Constant Foling, Memory Optimizer, etc...
+You can see all optimizations in [RewriterConfig](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/rewriter_config.proto) and [GraphOptions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/config.proto).
+Below optimizations are typical optimizations performed in TensorFlow.
+
+* **Constant Folding** evaluates the operations whose input tensors are all constant.
+* **Memory Optimizer** analyzes the TensorFlow graph to inspect the peak memory usage at each operations. To reduce a peak memory usage, Memory Optimizer inserts CPU-GPU memory copy operations for swapping GPU memory to CPU, or rewrites TensorFlow graph in order to the recomputation.
+* **Layout Optimizer** inserts Transpose operation to change data-format in order to execute data-format depended operation more efficiently on GPU.
+* **Arithmentic Optimizer** is an optimization to rewrite the TensorFlow graph using mathematical equivalence relation.
+
+
+### Enable/Disable Graph Optimization from Python API
+
+Most of optimizations can be enabled/disabled by passing `tf.ConfigProto` to Session.
+You can enable/disable the graph optimizations by changing the options in [GraphOptions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/config.proto) included to `tf.ConfigProto`.
+Below simple code shows the example to enable/disable a specific optimization.
+
+* Enable Debug Stripper
+
+**Debug Stripper** which is disabled by default, strips the operations used for the debug purpose (Assert, CheckNumerics, Print).
+To enable Debug Stripper, you need to write codes as follows.
+
+Only you need to do is changing `RewriteOptions::debug_stripper` enabled.
+
+```python
+import tensorflow as tf
+from tensorflow.core.protobuf import config_pb2
+from tensorflow.core.protobuf import rewriter_config_pb2
+
+# enable Debug Stripper
+cfg = config_pb2.ConfigProto()
+cfg.graph_options.rewrite_options.debug_stripper = rewriter_config_pb2.RewriterConfig.ON
+
+# build the computation graph
+train_op = ...
+
+# execute the computation graph with Debug Stripper ON
+with tf.Session(config=cfg) as sess:
+  sess.run(train_op)
+```
+
+* Disable Constant Folding
+
+**Constant Folding** which is enabled by default, evaluates operations whose input tensors are all constant before executing operations.
+To disable Constant Folding, you need to write code as follows.
+
+**Constant Folding** is performed more than two times on the graph optimization process in TensorFlow.
+You need to change not only `RewriteOptions::constant_folding`, but also `OptimizerOptions::opt_level`.
+
+```python
+import tensorflow as tf
+from tensorflow.core.protobuf import config_pb2
+from tensorflow.core.protobuf import rewriter_config_pb2
+
+# disable Constant Folding
+cfg = config_pb2.ConfigProto()
+cfg.graph_options.rewrite_options.constant_folding = rewriter_config_pb2.RewriterConfig.OFF
+cfg.graph_options.optimizer_options.opt_level = config_pb2.OptimizerOptions.L0
+
+# build the computation graph
+train_op = ...
+
+# execute the computation graph with Debug Stripper ON
+with tf.Session(config=cfg) as sess:
+  sess.run(train_op)
+```
