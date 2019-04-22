@@ -8,7 +8,6 @@ Yayıncı notu: *Deep Learning with Python* kitabı, Python dili ve Keras kütü
 
 Makine Öğrenmesinin temellerini ve ilgili kavramları öğrenmek için
 [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/) ' a katılmayı düşünebilirsiniz.
-Tensorflow ve makine öğrenmesi ile ilgili daha fazla kaynak [sonraki adımlar](../next_steps) 'da listelenmiştir.
 
 1. [Temel sınıflandırma](./basic_classification.ipynb)
 2. [Metin sınıflandırma](./basic_text_classification.ipynb)
