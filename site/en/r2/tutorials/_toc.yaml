@@ -42,6 +42,8 @@ toc:
     path: /alpha/tutorials/images/hub_with_keras
   - title: "Transfer learning with pretrained CNNs"
     path: /alpha/tutorials/images/transfer_learning
+  - title: "Image classification"
+    path: /alpha/tutorials/images/image_classification
 
 - title: "Text and sequences"
   style: accordion
