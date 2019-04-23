@@ -1,7 +1,7 @@
 These are the source files for the guides and tutorials on
 [tensorflow.org](https://www.tensorflow.org).
 
-The [en/](./en) directory is the *source-of-truth* Read the
+The [en/](./en) directory is the *source-of-truth*. Read the
 [documentation contributor guide](https://www.tensorflow.org/community/contribute/docs)
 for guidance.
 
