@@ -5,7 +5,7 @@
 [官方英文文档](https://www.tensorflow.org/?hl=en)。如果您有改进此翻译的建议，
 请提交 pull request 到 [tensorflow/docs](https://github.com/tensorflow/docs)
 GitHub 仓库。要志愿地撰写或者审核译文，请加入
-[docs@tensorflow.org Google Groups](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)。
+[docs-zh-cn@tensorflow.org Google Groups](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-zh-cn)。
 
 # Community translations
 
