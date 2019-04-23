@@ -9,7 +9,7 @@
 репозиторий GitHub. Если вы хотите помочь сделать документацию по Tensorflow
 лучше (сделать сам перевод или проверить перевод подготовленный кем-то другим),
 напишите нам на
-[docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
+[docs-ru@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ru).
 
 # Community translations
 
