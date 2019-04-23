@@ -5,7 +5,7 @@
 이 번역에 개선할 부분이 있다면
 [tensorflow/docs](https://github.com/tensorflow/docs) 깃헙 저장소로 풀 리퀘스트를 보내주시기 바랍니다.
 문서 번역이나 리뷰에 참여하려면 
-[docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)로
+[docs-ko@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)로
 메일을 보내주시기 바랍니다.
 
 
