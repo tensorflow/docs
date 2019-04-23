@@ -1,13 +1,12 @@
 # TensorFlow Documentation
 
 <div align="center">
-  <img src="https://www.tensorflow.org/images/tf_logo_social.png"><br><br>
+  <img src="https://www.tensorflow.org/images/tf_logo_horizontal.png"><br><br>
 </div>
 
 This is the TensorFlow documentation for [tensorflow.org](https://www.tensorflow.org).
-We welcome community contributions, see [CONTRIBUTING.md](CONTRIBUTING.md) and the
-[Writing TensorFlow documentation](https://www.tensorflow.org/community/documentation)
-guide.
+To contribute, see [CONTRIBUTING.md](CONTRIBUTING.md) and the
+[docs contributor guide](https://www.tensorflow.org/community/contribute/docs).
 
 To file a docs issue, use the tracker in the
 [tensorflow/tensorflow](https://github.com/tensorflow/tensorflow/issues/new?template=20-documentation-issue.md) repo.
