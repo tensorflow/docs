@@ -6,7 +6,7 @@ güncellendiği için [Resmi İngilizce dökümanlar](https://www.tensorflow.org
 ile bire bir aynı olmasını garantileyemeyiz. Eğer bu tercümeleri iyileştirmek
 için önerileriniz var ise lütfen [tensorflow/docs](https://github.com/tensorflow/docs)
 havuzuna pull request gönderin. Gönüllü olarak çevirilere katkıda bulunmak için
-[docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)
+[docs-tr@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-tr)
 listesi ile iletişime geçebilirsiniz.
 
 # Community translations
