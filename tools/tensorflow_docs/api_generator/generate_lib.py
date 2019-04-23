@@ -359,9 +359,9 @@ class DocGenerator(object):
   def __init__(self,
                root_title,
                py_modules,
-               base_dir,
-               code_url_prefix,
-               search_hints=False,
+               base_dir=None,
+               code_url_prefix=(),
+               search_hints=True,
                site_path='',
                private_map=None,
                do_not_descend_map=None,
@@ -381,7 +381,7 @@ class DocGenerator(object):
         `defined_in` path for each file. The defined in link for
         `{base_dir}/path/to/file` is set to `{code_url_prefix}/path/to/file`.
       search_hints: Bool. Include metadata search hints at the top of each file.
-      site_path:
+      site_path: Path prefix in the "_toc.yaml"
       private_map: A {"module.path.to.object": ["names"]} dictionary. Specific
         aliases that should not be shown in the resulting docs.
       do_not_descend_map: A {"module.path.to.object": ["names"]} dictionary.
@@ -400,6 +400,8 @@ class DocGenerator(object):
     self._short_name = py_modules[0][0]
     self._py_module = py_modules[0][1]
 
+    if base_dir is None:
+      base_dir = os.path.dirname(self._py_module.__file__)
     if isinstance(base_dir, str):
       base_dir = (base_dir,)
     self._base_dir = tuple(base_dir)
@@ -408,7 +410,13 @@ class DocGenerator(object):
     if isinstance(code_url_prefix, str):
       code_url_prefix = (code_url_prefix,)
     self._code_url_prefix = tuple(code_url_prefix)
-    assert self._code_url_prefix, '`code_url_prefix` cannot be empty'
+    if not self._code_url_prefix:
+      raise ValueError('`code_url_prefix` cannot be empty')
+
+    if len(self._code_url_prefix) != len(base_dir):
+      raise ValueError('The `base_dir` list should have the same number of '
+                       'elements as the `code_url_prefix` list (they get '
+                       'zipped together).')
 
     self._search_hints = search_hints
     self._site_path = site_path
