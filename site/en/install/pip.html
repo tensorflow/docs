@@ -9,7 +9,7 @@
 
 <h3>TensorFlow 2.0 Alpha is available</h3>
 <ul>
-	<li><code>tensorflow==2.0.0-alpha0</code> —Preview <a href="/alpha">TF 2.0 Alpha</a> build for CPU-only <em>(unstable)</em></li>
+  <li><code>tensorflow==2.0.0-alpha0</code> —Preview <a href="/alpha">TF 2.0 Alpha</a> build for CPU-only <em>(unstable)</em></li>
   <li><code>tensorflow-gpu==2.0.0-alpha0</code> —Preview <a href="/alpha">TF 2.0 Alpha</a> build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
 </ul>
 
@@ -54,7 +54,7 @@
 <code class="devsite-terminal">virtualenv --version</code>
 </pre>
 {% dynamic else %}<!-- python3 -->
-<aside class="note">Requires Python 3.4, 3.5, or 3.6</aside>
+<aside class="note">Requires Python &gt; 3.4</aside>
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">python3 --version</code>
@@ -265,7 +265,7 @@
 {% dynamic if request.query_string.lang == "python2" %}
 <pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=2.7</pre>
 {% dynamic else %}
-<pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=3.6  # select python version</pre>
+<pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=3.7  # select python version</pre>
 {% dynamic endif %}
 <p>Activate the virtual environment:</p>
 <pre class="devsite-terminal devsite-click-to-copy">source activate <var>venv</var></pre>
@@ -368,6 +368,14 @@
     <td>Python 3.6 GPU&nbsp;support</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.13.1-cp36-cp36m-linux_x86_64.whl</td>
   </tr>
+  <tr>
+    <td>Python 3.7 CPU-only</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.13.1-cp37-cp37m-linux_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.7 GPU&nbsp;support</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.13.1-cp37-cp37m-linux_x86_64.whl</td>
+  </tr>
 
   <tr class="alt"><td colspan="2">macOS (CPU-only)</td></tr>
   <tr>
@@ -375,7 +383,7 @@
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.13.1-py2-none-any.whl</td>
   </tr>
   <tr>
-    <td>Python 3.4, 3.5, 3.6</td>
+    <td>Python &gt; 3.4</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.13.1-py3-none-any.whl</td>
   </tr>
 

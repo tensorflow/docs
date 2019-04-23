@@ -190,12 +190,12 @@ through a sequence of bookmarks.
 If you are working with an embedding, you'll probably want to attach
 labels/images to the data points. You can do this by generating a metadata file
 containing the labels for each point and clicking "Load data" in the data panel
-of the Embedding Projector.
+of the Embedding Projector. The metadata can be either *labels* or *images* that
+are stored in a separate file.
 
-The metadata can be either labels or images, which are
-stored in a separate file. For labels, the format should
+For labels metadata, the format should
 be a [TSV file](https://en.wikipedia.org/wiki/Tab-separated_values)
-(tab characters shown in red) whose first line contains column headers
+(tab characters shown in red) where the first line contains column headers
 (shown in bold) and subsequent lines contain the metadata values. For example:
 
 <code>
@@ -213,12 +213,12 @@ expect a header row, and assume each row is the label of the embedding. We
 include this exception because it matches the commonly-used "vocab file"
 format.
 
-To use images as metadata, you must produce a single
-[sprite image](https://www.google.com/webhp#q=what+is+a+sprite+image),
-consisting of small thumbnails, one for each vector in the embedding.  The
-sprite should store thumbnails in row-first order: the first data point placed
-in the top left and the last data point in the bottom right, though the last
-row doesn't have to be filled, as shown below.
+To use images as metadata, create a single sprite image consisting of small
+thumbnails—one for each vector in the embedding. A sprite image stores
+thumbnails for all the sample images in a single large image. The sprite should
+store thumbnails in row-first order: the first data point placed in the top left
+and the last data point in the bottom right, though the last row doesn't have to
+be filled, as shown below.
 
 <table style="border: none;">
 <tr style="background-color: transparent;">
