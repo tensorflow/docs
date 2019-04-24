@@ -1,28 +1,20 @@
-# TensorFlow Lite converter
+# TensorFlow Lite コンバーター
 
-The TensorFlow Lite converter takes a TensorFlow model and generates a
-TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) file
-(`.tflite`). The converter supports
-[SavedModel directories](https://www.tensorflow.org/alpha/guide/saved_model),
-[`tf.keras` models](https://www.tensorflow.org/alpha/guide/keras/overview), and
-[concrete functions](concrete_function.md).
+TensorFlow Lite コンバーターは TensorFlow モデルを入力として、TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) ファイルを生成します.
 
-Note: This page contains documentation on the converter API for TensorFlow 2.0.
-The API for TensorFlow 1.X is available
-[here](https://www.tensorflow.org/lite/convert/).
+コンバーターは [SavedModel directories](https://www.tensorflow.org/alpha/guide/saved_model)、 [`tf.keras` models](https://www.tensorflow.org/alpha/guide/keras/overview)、 [concrete functions](concrete_function.md) をサポートしています.
 
-## Device deployment
+Note: このページは TensorFlow 2.0 のコンバータAPIに関するドキュメントです。TensorFlow 1.X のAPIについては [こちら](https://www.tensorflow.org/lite/convert/) をご覧ください.
 
-The TensorFlow Lite `FlatBuffer` file is then deployed to a client device (e.g.
-mobile, embedded) and run locally using the TensorFlow Lite interpreter. This
-conversion process is shown in the diagram below:
+## デバイスへのデプロイ
+
+TensorFlow Lite `FlatBuffer` ファイルは、クライアントデバイス(モバイルデバイスや組み込みデバイス)にデプロイし、TensorFlow Lite インタープリターを利用してローカルで実行できます. この変換プロセスは下図のとおりです.
 
 ![TFLite converter workflow](../images/convert/workflow.svg)
 
-## Converting models
+## モデルを変換する
 
-The TensorFlow Lite converter should be used from the
-[Python API](python_api.md). Using the Python API makes it easier to convert
-models as part of a model development pipeline and helps mitigate
-[compatibility](../../guide/ops_compatibility.md) issues early on.
-Alternatively, the [command line tool](cmdline.md) supports basic models.
+TensorFlow Lite コンバーターは [Python API](python_api.md) を使うべきです. Python API を使うことで、モデルの変換をデプロイパイプラインの中に組み込むことが簡単になり、[互換性](../../guide/ops_compatibility.md) の問題に早い段階で対処しやすくなります.
+
+代わりの方法として [コマンドラインツール](cmdline.md) を使って基本的なモデルを変換することもできます.
+
