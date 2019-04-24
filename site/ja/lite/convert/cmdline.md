@@ -1,29 +1,23 @@
-# Converter command line reference
+# コンバーターのコマンドラインリファレンス
 
-This page describes how to use the [TensorFlow Lite converter](index.md) using
-the command line tool in TensorFlow 2.0. The preferred approach for conversion
-is using the [Python API](python_api.md).
+このページでは、TensorFlow 2.0において、コマンドラインの[TensorFlow Liteコンバータ]（index.md）を使用する方法について説明します。ただし、変換のための好ましいアプローチは[Python API](python_api.md)を使用することです。
 
 [TOC]
 
-## High-level overview
+## 概要の概要
 
-The TensorFlow Lite Converter has a command line tool `tflite_convert` which
-supports basic models. Use the `TFLiteConverter` [Python API](python_api.md) for
-any conversions involving quantization or any additional parameters (e.g.
-signatures in SavedModels or custom objects in Keras models).
+TensorFlow Liteコンバーターには基本的なモデルをサポートするコマンドラインツール `tflite_convert`がありますが、量子化やその他のパラメータ（SavedModelのシグネチャやKerasモデルのカスタムオブジェクトなど）を含む場合には、 `TFLiteConverter`[Python API](python_api.md) を使用してください。
 
-## Usage
+## 使い方
 
-The following flags specify the input and output files.
+以下のフラグで入力ファイルと出力ファイルを指定します。
 
-*   `--output_file`. Type: string. Specifies the full path of the output file.
-*   --saved_model_dir. Type: string. Specifies the full path to the directory
-    containing the SavedModel generated in 1.X or 2.0.
-*   --keras_model_file. Type: string. Specifies the full path of the HDF5 file
-    containing the tf.keras model generated in 1.X or 2.0.
+*   `--output_file`. 文字列型. 出力ファイルのパスを指定
+*   --saved_model_dir. 文字列型. TensorFlow 1.x もしくは 2.0 で構築した SavedModel を含むディレクトリのパスを指定
+*   --keras_model_file. 文字列型. TensorFlow 1.x もしくは 2.0 で構築した tf.keras モデルを含む HDF5ファイルのパスを指定
 
-The following is an example usage.
+
+使用例は以下のとおりです.
 
 ```
 tflite_convert \
@@ -31,14 +25,13 @@ tflite_convert \
   --output_file=/tmp/mobilenet.tflite
 ```
 
-## Additional instructions
+## 追加のインストラクション
 
-### Building from source
+### ソースからビルドする
 
-In order to run the latest version of the TensorFlow Lite Converter either
-install the nightly build using [pip](https://www.tensorflow.org/install/pip) or
-[clone the TensorFlow repository](https://www.tensorflow.org/install/source) and
-use `bazel`. An example can be seen below.
+TensorFlow Lite Converterの最新バージョンを利用するには[pip](https://www.tensorflow.org/install/pip) を使用してナイトリービルドをインストールする方法に加えて、[TensorFlowリポジトリを複製する](https://www.tensorflow.org/install/source) と`bazel`を使う方法があります。
+
+使用例は以下のとおりです.
 
 ```
 bazel run //third_party/tensorflow/lite/python:tflite_convert -- \
