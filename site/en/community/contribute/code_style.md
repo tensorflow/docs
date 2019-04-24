@@ -113,7 +113,8 @@ creates a part of the graph and returns output tensors.
     convert non-tensor inputs into tensors if they are using C++ operations.
     Note that the arguments are still described as a `Tensor` object of a
     specific dtype in the documentation.
-*   Each Python operation should have a `name_scope` like below. Pass as arguments `name`, a default name of the op, and a list of the input tensors.
+*   Each Python operation should have a `name_scope`. As seen below, pass the name
+    of the op as a string.
 *   Operations should contain an extensive Python comment with Args and Returns
     declarations that explain both the type and meaning of each value. Possible
     shapes, dtypes, or ranks should be specified in the description. See
