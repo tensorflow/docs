@@ -1,9 +1,8 @@
-# Embeddings
+# 埋め込みベクトル 
 
-This document introduces the concept of embeddings, gives a simple example of
-how to train an embedding in TensorFlow, and explains how to view embeddings
-with the TensorBoard Embedding Projector
-([live example](http://projector.tensorflow.org)). The first two parts target
+このドキュメントでは埋め込みベクトルの概念を紹介し、TensorFlowで埋め込みベクトルを学習する簡単な例、そしてTensorBoardのEmbedding Projector([live example](http://projector.tensorflow.org))
+で、埋め込みベクトルを可視化する方法を紹介します。
+The first two parts target
 newcomers to machine learning or TensorFlow, and the Embedding Projector how-to
 is for users at all levels.
 
