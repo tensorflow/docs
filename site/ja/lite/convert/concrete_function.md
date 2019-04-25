@@ -1,46 +1,38 @@
-# Generate a concrete function
+# 具象関数の生成
 
-In order to convert TensorFlow 2.0 models to TensorFlow Lite, the model needs to
-be exported as a concrete function. This document outlines what a concrete
-function is and how to generate one for an existing model.
+TensorFlow 2.0モデルをTensorFlow Liteに変換するには、モデルを具象関数（concrete function）としてエクスポートする必要があります.
+このドキュメントでは、具象関数とは何か、既存のモデルからどのように具象関数を生成するか、について概説します.
 
 [TOC]
 
-## Background
+## 背景
 
-In TensorFlow 2.0, eager execution is on by default. TensorFlow's eager
-execution is an imperative programming environment that evaluates operations
-immediately, without building graphs. Operations return concrete values instead
-of constructing a computational graph to run later. A detailed guide on eager
-execution is available
-[here](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/eager.ipynb).
+TensorFlow 2.0では、eager execution がデフォルトでオンになっています.
+TensorFlowにおいて eager execution とは、グラフを作成せずに、演算を即時評価する命令型プログラミング環境のことです.
+各演算は、後で実行するための計算グラフを作成する代わりに具体的な値を返します.
+eager execution に関する詳細なガイドは[こちら](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/eager.ipynb)にあります.
 
-While running imperatively with eager execution makes development and debugging
-more interactive, it doesn't allow for deploying on-device. The `tf.function`
-API makes it possible to save models as graphs, which is required to run
-TensorFlow Lite in 2.0. All operations wrapped in the `tf.function` decorator
-can be exported as a graph which can then be converted to the TensorFlow Lite
-FlatBuffer format.
+eager execution で命令的に実行すると開発とデバッグがより対話的になりますが、デバイス上へのデプロイはできません.
+ `tf.function` APIはモデルをグラフとして保存することを可能にします. これはTensorFlow2.0でTensorFlow Liteを実行するために必要です.
+ `tf.function` デコレータでラップされたすべてのオペレーションはグラフとしてエクスポートすることができ、それはTensorFlow Lite FlatBufferフォーマットに変換することができます。
 
-## Terminology
+## 用語
 
-The following terminology is used in this document:
+この文書では次の用語が使用されています。
 
-*   **Signature** - The inputs and outputs for a set of operations.
-*   **Concrete function** - Graph with a single signature.
-*   **Polymorphic function** - Python callable that encapsulates several
-    concrete function graphs behind one API.
+*   **シグネチャー** - 一連のオペレーションの入力と出力.
+*   **具象関数**  - 単一のシグネチャーを持つグラフ.
+*   **多相関数**  -  いくつかのconclute functionグラフを1つの関数内にカプセル化したPythonの呼び出し可能オブジェクト.
 
-## Methodology
+## メソドロジー
 
-This section describes how to export a concrete function.
+この章では、具象関数をエクスポートする方法について説明します
 
-### Annotate functions with `tf.function`
+### 関数に`tf.function`アノテーションを付与する
 
-Annotating a function with `tf.function` generates a *polymorphic function*
-containing those operations. All operations that are not annotated with
-`tf.function` will be evaluated with eager execution. The examples below show
-how to use `tf.function`.
+関数に `tf.function` アノテーションを付与すると、その関数のオペレーションを含む *多相関数* が生成されます.
+ `tf.function`のアノテーションが付けられていないすべてのオペレーションは eager execution で評価されます.
+以下の例は `tf.function`の使い方を示しています。
 
 ```python
 @tf.function
@@ -52,11 +44,11 @@ def pow(x):
 tf.function(lambda x : x ** 2)
 ```
 
-### Create an object to save
+### 保存したいオブジェクトを生成する
 
-The `tf.function` can be optionally stored as part of a `tf.Module` object.
-Variables should only be defined once within the `tf.Module`. The examples below
-show two different approaches for creating a class that derives `Checkpoint`.
+`tf.function`は、` tf.Module`オブジェクトの一部として保存することもできます.
+その際、変数は `tf.Module`内で一度だけ定義されるべきです.
+以下の例は `Checkpoint` を派生するクラスを作成するための2つの異なるアプローチを示しています.
 
 ```python
 class BasicModel(tf.Module):
@@ -79,21 +71,17 @@ root.const = tf.Variable(2.)
 root.pow = tf.function(lambda x : x ** root.const)
 ```
 
-### Exporting the concrete function
+###具象関数をエクスポートする
 
-The concrete function defines a graph that can be converted to TensorFlow Lite
-model or be exported to a SavedModel. In order to export a concrete function
-from the polymorphic function, the signature needs to be defined. The signature
-can be defined the following ways:
+具象関数は、TensorFlow Liteモデルに変換したり、SavedModelにエクスポートしたりできるグラフを定義します.
+多相関数から具象関数をエクスポートするには、シグネチャを定義する必要があります.
+シグネチャーは次のように定義できます.
 
-*   Define `input_signature` parameter in `tf.function`.
-*   Pass in `tf.TensorSpec` into `get_concrete_function`: e.g.
-    `tf.TensorSpec(shape=[1], dtype=tf.float32)`.
-*   Pass in a sample input tensor into `get_concrete_function`: e.g.
-    `tf.constant(1., shape=[1])`.
+*   `tf.function`に` input_signature`パラメータを定義します.
+*   `tf.TensorSpec`を` get_concrete_function`に渡します: 例) `tf.TensorSpec（shape = [1]、dtype = tf.float32）`
+*   サンプルの入力テンソルを `get_concrete_function`に渡します: 例) `tf.constant（1。、shape = [1]）`
 
-The follow example shows how to define the `input_signature` parameter for
-`tf.function`.
+次の例は `tf.function`の` input_signature`パラメータを定義する方法を示しています。
 
 ```python
 class BasicModel(tf.Module):
@@ -107,78 +95,74 @@ class BasicModel(tf.Module):
       self.const = tf.Variable(2.)
     return x ** self.const
 
-# Create the tf.Module object.
+# tf.Module オブジェクトを生成
 root = BasicModel()
 
-# Get the concrete function.
+# 具象関数を取得
 concrete_func = root.pow.get_concrete_function()
 ```
 
-The example below passes in a sample input tensor into `get_concrete_function`.
+以下の例では、サンプルの入力テンソルを`get_concrete_function`に渡しています。
 
 ```python
-# Create the tf.Module object.
+# tf.Module オブジェクトを生成
 root = tf.Module()
 root.const = tf.Variable(2.)
 root.pow = tf.function(lambda x : x ** root.const)
 
-# Get the concrete function.
+# 具象関数を取得
 input_data = tf.constant(1., shape=[1])
 concrete_func = root.pow.get_concrete_function(input_data)
 ```
 
-## Example program
+## プログラム例
 
 ```python
 import tensorflow as tf
 
-# Initialize the tf.Module object.
+# tf.Module オブジェクトを初期化
 root = tf.Module()
 
-# Instantiate the variable once.
+# 変数を一度だけインスタンス化する
 root.var = None
 
-# Define a function so that the operations aren't computed in advance.
+# 演算が事前に計算されないように関数を定義
 @tf.function
 def exported_function(x):
-  # Each variable can only be defined once. The variable can be defined within
-  # the function but needs to contain a reference outside of the function.
+  # 変数は一度だけ定義できます。変数は関数内で定義できますが、関数外の参照を含める必要があります。
   if root.var is None:
     root.var = tf.Variable(tf.random.uniform([2, 2]))
   root.const = tf.constant([[37.0, -23.0], [1.0, 4.0]])
   root.mult = tf.matmul(root.const, root.var)
   return root.mult * x
 
-# Save the function as part of the tf.Module object.
+# tf.Moduleオブジェクトのいち部として関数を保存
 root.func = exported_function
 
-# Get the concrete function.
+# 具象関数を取得
 concrete_func = root.func.get_concrete_function(
   tf.TensorSpec([1, 1], tf.float32))
 ```
 
-## Common Questions
+## よくある質問
 
-### How do I save a concrete function as a SavedModel?
+### 具象関数をSavedModelとして保存するにはどうすればいいですか？
 
-Users who want to save their TensorFlow model before converting it to TensorFlow
-Lite should save it as a SavedModel. After getting the concrete function, call
-`tf.saved_model.save` to save the model. The example above can be saved using
-the following instruction.
+TensorFlow Liteに変換する前にTensorFlowモデルを保存したい場合は、SavedModelとして保存する必要があります.
+具象関数を取得ししたあとで`tf.saved_model.save`を呼び出すことでモデルを保存できます.
+前出の例の場合、以下のようにして保存できます。
 
 ```python
 tf.saved_model.save(root, export_dir, concrete_func)
 ```
+SavedModelの使用方法の詳細については、[SavedModelガイド](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/saved_model.ipynb) を参照してください。
 
-Reference the
-[SavedModel guide](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/saved_model.ipynb)
-for detailed instructions on using SavedModels.
 
-### How do I get a concrete function from the SavedModel?
+### SavedModelから具象関数を得るにはどうすればいいですか？
 
-Each concrete function within a SavedModel can be identified by a signature key.
-The default signature key is `tf.saved_model.DEFAULT_SERVING_SIGNATURE_DEF_KEY`.
-The example below shows how to get the concrete function from a model.
+SavedModel内の各象徴関数は、シグネチャーキーによって識別できます.
+デフォルトのシグネチャーキーは `tf.saved_model.DEFAULT_SERVING_SIGNATURE_DEF_KEY`です.
+以下の例は、モデルから具象関数を取得する方法を示しています.
 
 ```python
 model = tf.saved_model.load(export_dir)
@@ -186,23 +170,23 @@ concrete_func = model.signatures[
   tf.saved_model.DEFAULT_SERVING_SIGNATURE_DEF_KEY]
 ```
 
-### How do I get a concrete function for a `tf.Keras` model?
+### `tf.Keras` モデルから具象関数を得るにはどうしたらいいですか？
 
-There are two approaches that you can use:
+方法が2つあります:
 
-1.  Save the model as a SavedModel. A concrete function will be generated during
-    the saving process, which can be accessed upon loading the model.
-2.  Annotate the model with `tf.function` as seen below.
+1.  モデルをSavedModelとして保存します。保存処理中にモデル関数が生成されるので、上述の容量でモデルをロードして具象関数を取得することができます.
+2.  下記のようにモデルに `tf.function`で注釈を付けます。
+
 
 ```python
 model = tf.keras.Sequential([tf.keras.layers.Dense(units=1, input_shape=[1])])
 model.compile(optimizer='sgd', loss='mean_squared_error')
 model.fit(x=[-1, 0, 1, 2, 3, 4], y=[-3, -1, 1, 3, 5, 7], epochs=50)
 
-# Get the concrete function from the Keras model.
+# 具象関数を Keras モデルから取得
 run_model = tf.function(lambda x : model(x))
 
-# Save the concrete function.
+# 具象関数を保存
 concrete_func = run_model.get_concrete_function(
     tf.TensorSpec(model.inputs[0].shape, model.inputs[0].dtype))
 ```
