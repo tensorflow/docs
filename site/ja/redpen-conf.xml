@@ -1,0 +1,24 @@
+<redpen-conf lang="ja" type="hankaku">
+    <validators>
+        <validator name="SentenceLength">
+            <property name="max_len" value="100"/>
+        </validator>
+        <validator name="SuggestExpression">
+            <property name="dict" value="terminologies.txt" />
+        </validator>
+        <!--
+        <validator name="SpaceBetweenAlphabeticalWord">
+            <property name="forbidden" value="false" />
+        </validator>
+        -->
+        <validator name="HankakuKana">
+        </validator>
+        <validator name="Okurigana">
+        </validator>
+    </validators>
+    <symbols>
+      <symbol name="FULL_STOP" value="。" invalid-chars="．" />
+      <symbol name="COMMA" value="、" invalid-chars="，"/>
+      <symbol name="COLON" value="：" />
+    </symbols>
+</redpen-conf>
