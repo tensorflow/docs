@@ -43,7 +43,8 @@ The following GPU-enabled devices are supported:
 The following NVIDIA® software must be installed on your system:
 
 * [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external} —CUDA 10.0 requires 410.x or higher.
-* [CUDA® Toolkit](https://developer.nvidia.com/cuda-zone){:.external} —TensorFlow supports CUDA 10.0 (TensorFlow >= 1.13.0)
+* [CUDA® Toolkit](https://developer.nvidia.com/cuda-toolkit-archive){:.external}
+  —TensorFlow supports CUDA 10.0 (TensorFlow >= 1.13.0)
 * [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA Toolkit.
 * [cuDNN SDK](https://developer.nvidia.com/cudnn){:.external} (>= 7.4.1)
 * *(Optional)* [TensorRT 5.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
