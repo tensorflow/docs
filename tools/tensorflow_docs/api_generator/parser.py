@@ -386,9 +386,7 @@ def _gen_pairs(items):
     The original items, in pairs
   """
   assert len(items) % 2 == 0
-  items = iter(items)
-  while True:
-    yield next(items), next(items)
+  return zip(items[::2], items[1::2])
 
 
 class _FunctionDetail(
