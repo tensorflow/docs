@@ -1,6 +1,6 @@
 # 機械学習資料
 
-TensorFlow.jsで機械学習を行うには、特に機械学習やニューラルネットワーク、JavaScript、そしてNode.JSまたはブラウザベース開発などのさまざまなドメインの知識が必要です。あなたのバックグラウンドによっては、それらの領域のいくつかに馴染みがにないということもあるでしょう。ウェブ上にはすばらしい学習資料が数多くあります。このページではニューラルネットワークを使用した機械学習の知識の一歩目を得る助けになる資料をいくつか紹介します。
+TensorFlow.jsで機械学習を行うには、特に機械学習やニューラルネットワーク、JavaScript、そしてNode.JSまたはブラウザベース開発などのさまざまなドメインの知識が必要です。あなたのバックグラウンドによっては、それらの領域のいくつかに馴染みがにないということもあるでしょう。ウェブ上にはすばらしい学習資料が数多くあります。このページではニューラルネットワークを使用した機械学習の知識獲得の第一歩となる資料をいくつか紹介します。
 
 
 ## 高度な紹介
@@ -28,8 +28,8 @@ TensorFlow.jsで機械学習を行うには、特に機械学習やニューラ�
 
 ## 包括的な書籍
 
-- [ニューラルネットワークと深層学習](https://nnadl-ja.github.io/nnadl_site_ja/) by Michael Nielsen
-- [Deep Learning with Python](https://www.manning.com/books/deep-learning-with-python) by Francois Chollet
+- [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)（邦訳「[ニューラルネットワークと深層学習](https://nnadl-ja.github.io/nnadl_site_ja/)」） by Michael Nielsen
+- [Deep Learning with Python](https://www.manning.com/books/deep-learning-with-python) （邦訳「[PythonとKerasによるディープラーニング](https://book.mynavi.jp/ec/products/detail/id=90124)」）by Francois Chollet
 
 
 ## 数学的な概念
