@@ -2,7 +2,7 @@
 
 ```
 $ cd text-lint
-$ make build-image`   #create Docker image to run text lint
+$ make build-image   #create Docker image to run text lint
 $ make run-check       # run text lint on the Docker container
 Please choose language.
 ja
