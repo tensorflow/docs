@@ -1,65 +1,58 @@
-# Converter Python API guide
+# コンバーター Python API ガイド
 
-This page provides examples on how to use the
-[TensorFlow Lite converter](index.md) using the Python API in TensorFlow 2.0.
+このページでは、TensorFlow 2.0でPython API による [TensorFlow Lite コンバーター](TensorFlow Lite converter)の使用例を説明します.
 
 [TOC]
 
 ## Python API
 
-The Python API for converting TensorFlow models to TensorFlow Lite in TensorFlow
-2.0 is `tf.lite.TFLiteConverter`. `TFLiteConverter` provides the following
-classmethods to convert a model based on the original model format:
+TensorFlow 2.0において、TensorFlowモデルをTensorFlow Liteに変換するのPython APIは `tf.lite.TFLiteConverter`です.
+ `TFLiteConverter`には、元のモデルフォーマットに基づいてモデルを変換する以下のクラスメソッドがあります：
 
-*   `TFLiteConverter.from_saved_model()`: Converts
-    [SavedModel directories](https://www.tensorflow.org/alpha/guide/saved_model).
-*   `TFLiteConverter.from_keras_model()`: Converts
-    [`tf.keras` models](https://www.tensorflow.org/alpha/guide/keras/overview).
-*   `TFLiteConverter.from_concrete_functions()`: Converts
-    [concrete functions](concrete_function.md).
+*   `TFLiteConverter.from_saved_model()`: 
+    [SavedModel ディレクトリ](https://www.tensorflow.org/alpha/guide/saved_model) を変換します.
+*   `TFLiteConverter.from_keras_model()`: 
+    [`tf.keras` モデル](https://www.tensorflow.org/alpha/guide/keras/overview) を変換します.
+*   `TFLiteConverter.from_concrete_functions()`: 
+    [concrete functions](concrete_function.md) を変換します.
 
-This document contains [example usages](#examples) of the API, a detailed list
-of [changes in the API between 1.X and 2.0](#differences), and
-[instructions](#versioning) on running the different versions of TensorFlow.
+このドキュメントではAPIの[使用例](＃examples)、[1.X と 2.0 の間のAPIの変更点の詳細なリスト](#differences)、TensorFlowの異なるバージョンで実行する[方法](#versioning)を含みます.
 
-## Examples <a name="examples"></a>
+## 例 <a name="examples"></a>
 
-### Converting a SavedModel <a name="saved_model"></a>
+### SavedModelを変換する <a name="saved_model"></a>
 
-The following example shows how to convert a
-[SavedModel](https://www.tensorflow.org/alpha/guide/saved_model) into a
-TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/).
+以下の例は[SavedModel](https://www.tensorflow.org/alpha/guide/saved_model) を TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています.
 
 ```python
 import tensorflow as tf
 
-# Construct a basic model.
+# 基本的な関数を構築
 root = tf.train.Checkpoint()
 root.v1 = tf.Variable(3.)
 root.v2 = tf.Variable(2.)
 root.f = tf.function(lambda x: root.v1 * root.v2 * x)
 
-# Save the model.
+# モデルを保存
 export_dir = "/tmp/test_saved_model"
 input_data = tf.constant(1., shape=[1, 1])
 to_save = root.f.get_concrete_function(input_data)
 tf.saved_model.save(root, export_dir, to_save)
 
-# Convert the model.
+# モデルを変換
 converter = tf.lite.TFLiteConverter.from_saved_model(export_dir)
 tflite_model = converter.convert()
 ```
 
-### Converting a Keras model <a name="keras"></a>
+### Keras モデルを変換する <a name="keras"></a>
 
-The following example shows how to convert a
-[`tf.keras` model](https://www.tensorflow.org/alpha/guide/keras/overview) into a
-TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/).
+以下の例は[`tf.keras` model](https://www.tensorflow.org/alpha/guide/keras/overview)を TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています.
+
 
 ```python
 import tensorflow as tf
 
-# Create a simple Keras model.
+# シンプルな Keras モデルを構築
 x = [-1, 0, 1, 2, 3, 4]
 y = [-3, -1, 1, 3, 5, 7]
 
@@ -68,67 +61,65 @@ model = tf.keras.models.Sequential(
 model.compile(optimizer='sgd', loss='mean_squared_error')
 model.fit(x, y, epochs=50)
 
-# Convert the model.
+# モデルを変換
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
 tflite_model = converter.convert()
 ```
 
-### Converting a concrete function <a name="concrete_function"></a>
+### 具象関数を変換する <a name="concrete_function"></a>
 
-The following example shows how to convert a TensorFlow
-[concrete function](concrete_function.md) into a TensorFlow Lite
-[`FlatBuffer`](https://google.github.io/flatbuffers/).
+以下の例は TensorFlow[具象関数](concrete_function.md) をTensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています.
+
 
 ```python
 import tensorflow as tf
 
-# Construct a basic model.
+# 基本的な関数を構築
 root = tf.train.Checkpoint()
 root.v1 = tf.Variable(3.)
 root.v2 = tf.Variable(2.)
 root.f = tf.function(lambda x: root.v1 * root.v2 * x)
 
-# Create the concrete function.
+# 具象関数を生成
 input_data = tf.constant(1., shape=[1, 1])
 concrete_func = root.f.get_concrete_function(input_data)
 
-# Convert the model.
+# モデルを変換
 #
-# `from_concrete_function` takes in a list of concrete functions, however,
-# currently only supports converting one function at a time. Converting multiple
-# functions is under development.
+# `from_concrete_function` は具象関数のリストを引数に取りますが、
+# 現在のところは1つの関数のみをサポートしています. 複数関数の変換は開発中です
 converter = tf.lite.TFLiteConverter.from_concrete_functions([concrete_func])
 tflite_model = converter.convert()
 ```
 
-### End-to-end MobileNet conversion <a name="mobilenet"></a>
+### End-to-end な MobileNet の変換 <a name="mobilenet"></a>
 
-The following example shows how to convert and run inference on a pre-trained
-`tf.keras` MobileNet model to TensorFlow Lite. It compares the results of the
-TensorFlow and TensorFlow Lite model on random data. In order to load the model
-from file, use `model_path` instead of `model_content`.
+以下の例は、事前に訓練された `tf.keras` MobileNetモデルをTensorFlow Liteに変換して実行する方法を示しています.
+また、 元のTensorFlowモデルとTensorFlow Liteモデルの結果をランダムデータで比較しています.
+モデルをファイルからロードするために、 `model_content`の代わりに` model_path`を使用しています.
+
 
 ```python
 import numpy as np
 import tensorflow as tf
 
-# Load the MobileNet tf.keras model.
+# MobileNet tf.keras モデルをロード.
 model = tf.keras.applications.MobileNetV2(
     weights="imagenet", input_shape=(224, 224, 3))
 
-# Convert the model.
+# モデルを変換.
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
 tflite_model = converter.convert()
 
-# Load TFLite model and allocate tensors.
+# TFLite モデルを変換し、テンソルを割当て
 interpreter = tf.lite.Interpreter(model_content=tflite_model)
 interpreter.allocate_tensors()
 
-# Get input and output tensors.
+# 入出力テンソルを取得.
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
-# Test the TensorFlow Lite model on random input data.
+# TensorFlow Lite モデルをランダムな入力データでテスト
 input_shape = input_details[0]['shape']
 input_data = np.array(np.random.random_sample(input_shape), dtype=np.float32)
 interpreter.set_tensor(input_details[0]['index'], input_data)
@@ -136,32 +127,30 @@ interpreter.set_tensor(input_details[0]['index'], input_data)
 interpreter.invoke()
 tflite_results = interpreter.get_tensor(output_details[0]['index'])
 
-# Test the TensorFlow model on random input data.
+# 元の TensorFlow モデルをランダムな入力データでテスト
 tf_results = model(tf.constant(input_data))
 
-# Compare the result.
+# 結果を比較
 for tf_result, tflite_result in zip(tf_results, tflite_results):
   np.testing.assert_almost_equal(tf_result, tflite_result, decimal=5)
 ```
 
-## Summary of changes in Python API between 1.X and 2.0 <a name="differences"></a>
+## 1.Xと2.0の間のPython APIの変更のまとめ <a name="differences"></a>
 
-The following section summarizes the changes in the Python API from 1.X to 2.0.
-If any of the changes raise concerns, please file a
-[GitHub issue](https://github.com/tensorflow/tensorflow/issues).
+以降の章では、Python APIの1.Xから2.0への変更点についてまとめていますが、
+もしなにか懸念が生じた場合は[GitHubのissue](https://github.com/tensorflow/tensorflow/issues)を出してください.
 
-### Formats supported by `TFLiteConverter`
+### `TFLiteConverter`のサポートしているフォーマット
 
-`TFLiteConverter` in 2.0 supports SavedModels and Keras model files generated in
-both 1.X and 2.0. However, the conversion process no longer supports frozen
-`GraphDefs` generated in 1.X. Users who want to convert frozen `GraphDefs` to
-TensorFlow Lite should use `tf.compat.v1.TFLiteConverter`.
+2.0の `TFLiteConverter`は1.Xと2.0の両方で生成されたSavedModelとKerasモデルファイルをサポートしていますが、
+1.Xで生成されたfrozen `GraphDefs`はサポートしていません.
+frozen `GraphDefs`をTensorFlow Liteに変換したい場合は` tf.compat.v1.TFLiteConverter`を使う必要があります.
+
 
 ### Quantization-aware training
 
-The following attributes and methods associated with
-[quantization-aware training](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/quantize)
-have been removed from `TFLiteConverter` in TensorFlow 2.0:
+以下の、[quantization-aware training](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/quantize) に関連する属性とメソッドは、TensorFlow 2.0の `TFLiteConverter`から削除されました:
+
 
 *   `inference_type`
 *   `inference_input_type`
@@ -172,48 +161,79 @@ have been removed from `TFLiteConverter` in TensorFlow 2.0:
 *   `post_training_quantize` - Deprecated in the 1.X API
 *   `get_input_arrays()`
 
-The rewriter function that supports quantization-aware training does not support
-models generated by TensorFlow 2.0. Additionally, TensorFlow Lite’s quantization
-API is being reworked and streamlined in a direction that supports
-quantization-aware training through the Keras API. These attributes will be
-removed in the 2.0 API until the new quantization API is launched. Users who
-want to convert models generated by the rewriter function can use
-`tf.compat.v1.TFLiteConverter`.
+quantization-aware training をサポートしていた計算グラフの書き換えは、TensorFlow 2.0によるモデルをサポートしません.
+さらに、TensorFlow Liteの quantization API は、Keras API通じて quantization-aware training をサポートする方向で作り直されて合理化されている最中です.新しい quantization APIがローンチされるまでは、これらの属性は2.0 APIから削除されます.
+リライタ関数によってモデルを変換したい場合は `tf.compat.v1.TFLiteConverter`を使うことができます.
 
-### Changes to `TFLiteConverter` attributes
+### `TFLiteConverter` の属性に対する変更点
 
-The `target_ops` attribute has become an attribute of `TargetSpec` and renamed
-to `supported_ops` in line with future additions to the optimization framework.
+`target_ops` 属性は `TargetSpec` 型となり、将来追加される予定の最適化フレームワークに合わせて `supported_ops` にリネームされました.
+更に、以下の属性が削除されています:
 
-Additionally, the following attributes have been removed:
-
-*   `drop_control_dependency` (default: `True`) - Control flow is currently not
-    supported by TFLite so it is always `True`.
-*   _Graph visualization_ - The recommended approach for visualizing a
-    TensorFlow Lite graph in TensorFlow 2.0 will be to use
-    [visualize.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/tools/visualize.py).
-    Unlike GraphViz, it enables users to visualize the graph after post training
-    quantization has occurred. The following attributes related to graph
-    visualization will be removed:
+*   `drop_control_dependency` (default: `True`) - 現在のところコントロールフローはTFLiteでサポートされていないので、常に `True` です.
+*   _Graph visualization_ - TensorFlow 2.0 において、 TensorFlow Lite グラフの可視化で推奨されるのは　
+    [visualize.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/tools/visualize.py) を使うことです.
+    GraphViz と違い、 post training quantization が施された後のグラフを可視化できます.グラフの可視化に関する以下の属性は削除される予定です:
     *   `output_format`
     *   `dump_graphviz_dir`
     *   `dump_graphviz_video`
 
-### General API changes
+### 一般的な API に対する変更点
 
-#### Conversion methods
+#### 変換方法
 
-The following methods that were previously deprecated in 1.X will no longer be
-exported in 2.0:
+
+4310/5000
+次のセクションでは、Python APIの1.Xから2.0への変更点について要約します。いずれかの変更で懸念が生じた場合は、GitHubの問題（https://github.com/tensorflow/tensorflow/issues）を提出してください。
+
+### `TFLiteConverter`がサポートしているフォーマット
+
+2.0の `TFLiteConverter`は1.Xと2.0の両方で生成されたSavedModelとKerasモデルファイルをサポートします。しかしながら、変換プロセスは1.Xで生成された凍結された `GraphDefs`をもはやサポートしません。凍結した `GraphDefs`をTensorFlow Liteに変換したいユーザーは` tf.compat.v1.TFLiteConverter`を使うべきです。
+
+###量子化を意識したトレーニング
+
+以下の属性と量子化を意識したトレーニングに関連するメソッドはTensorFlow 2.0の `TFLiteConverter`から削除されました：
+
+* `inference_type`
+* `inference_input_type`
+* `quantized_input_stats`
+* `default_ranges_stats`
+* `reorder_across_fake_quant`
+* `change_concat_input_ranges`
+* `post_training_quantize`  -  1.X APIでは推奨されていません
+* `get_input_arrays（）`
+
+量子化対応トレーニングをサポートするリライタ機能は、TensorFlow 2.0によって生成されたモデルをサポートしません。さらに、TensorFlow Liteの量子化APIは、Keras APIを介した量子化対応トレーニングをサポートする方向に作り直され、合理化されています。新しい量子化APIが起動されるまで、これらの属性は2.0 APIで削除されます。リライタ関数によって生成されたモデルを変換したいユーザは `tf.compat.v1.TFLiteConverter`を使うことができます。
+
+### `TFLiteConverter`属性への変更
+
+`target_ops`属性は` TargetSpec`の属性となり、最適化フレームワークへの将来の追加に合わせて `supported_ops`に改名されました。
+
+さらに、次の属性が削除されました。
+
+* `drop_control_dependency`（デフォルト：` True`） - 制御フローは現在ありません
+    TFLiteによってサポートされているので、それは常に `True`です。
+* _Graph visualization_  - を視覚化するための推奨アプローチ
+    TensorFlow 2.0のTensorFlow Liteグラフは使用することになります
+    [visualize.py]（https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/tools/visualize.py）。
+    GraphVizとは異なり、ユーザーはトレーニング後の量子化が行われた後にグラフを視覚化できます。グラフの視覚化に関連する次の属性は削除されます。
+    * `output_format`
+    * `dump_graphviz_dir`
+    * `dump_graphviz_video`
+
+###一般的なAPIの変更
+
+####変換方法
+
+1.Xで既にdeprecatedとなっていた以下のメソッドは、2.0では削除されています:
 
 *   `lite.toco_convert`
 *   `lite.TocoConverter`
 
 #### `lite.constants`
 
-The `lite.constants` API was removed in 2.0 in order to decrease duplication
-between TensorFlow and TensorFlow Lite. The following list maps the
-`lite.constant` type to the TensorFlow type:
+TensorFlowとTensorFlow Liteの間の重複を減らすために `lite.constants` APIは2.0で削除されました.
+`lite.constant`型とTensorFlow型の対応は以下のとおりです.
 
 *   `lite.constants.FLOAT`: `tf.float32`
 *   `lite.constants.INT8`: `tf.int8`
@@ -222,30 +242,33 @@ between TensorFlow and TensorFlow Lite. The following list maps the
 *   `lite.constants.STRING`: `tf.string`
 *   `lite.constants.QUANTIZED_UINT8`: `tf.uint8`
 
-Additionally, `lite.constants.TFLITE` and `lite.constants.GRAPHVIZ_DOT` were
-removed due to the deprecation of the `output_format` flag in `TFLiteConverter`.
+更に、`lite.constants.TFLITE` と `lite.constants.GRAPHVIZ_DOT` は、
+`TFLiteConverter` の `output_format` の廃止に伴い削除されました.
 
 #### `lite.OpHint`
+
+`OpHint` APIは、2.0 APIとの互換性がないため、現在2.0では利用できません.
+このAPIはLSTMベースのモデルの変換を可能にするものですが、2.0におけるLSTMのサポートは検証中のため、
+関連する `lite.experimental` APIはすべて削除されています.
 
 The `OpHint` API is currently not available in 2.0 due to an incompatibility
 with the 2.0 APIs. This API enables conversion of LSTM based models. Support for
 LSTMs in 2.0 is being investigated. All related `lite.experimental` APIs have
 been removed due to this issue.
 
-## Installing TensorFlow <a name="versioning"></a>
+## TensorFlow のインストール <a name="versioning"></a>
 
-### Installing the TensorFlow 2.0 nightly <a name="2.0-nightly"></a>
+### TensorFlow 2.0 nightly のインストール <a name="2.0-nightly"></a>
 
-The TensorFlow 2.0 nightly can be installed using the following command:
+TensorFlow 2.0 nightly は以下のコマンドでインストールできます:
 
 ```
 pip install tf-nightly-2.0-preview
 ```
 
-### Using TensorFlow 2.0 from a 1.X installation <a name="use-2.0-from-1.X"></a>
+### インストール済の TensorFlow 1.X から 2.0 を使う <a name="use-2.0-from-1.X"></a>
 
-TensorFlow 2.0 can be enabled from recent 1.X installations using the following
-code snippet.
+TensorFlow 2.0 は、最近の 1.X から以下のようにして利用することができます
 
 ```python
 import tensorflow.compat.v2 as tf
@@ -253,10 +276,6 @@ import tensorflow.compat.v2 as tf
 tf.enable_v2_behavior()
 ```
 
-### Build from source code <a name="latest_package"></a>
+### ソースコードからのビルド <a name="latest_package"></a>
 
-In order to run the latest version of the TensorFlow Lite Converter Python API,
-either install the nightly build with
-[pip](https://www.tensorflow.org/install/pip) (recommended) or
-[Docker](https://www.tensorflow.org/install/docker), or
-[build the pip package from source](https://www.tensorflow.org/install/source).
+TensorFlow LiteコンバータPython APIの最新バージョンを実行するには、[pip](https://www.tensorflow.org/install/pip)（推奨）または[Docker]（https://www.tensorflow.org/install/docker）を使用してナイトリービルドをインストールするか、[ソースからpipパッケージをビルド]（https://www.tensorflow.org/install/source）してください.
