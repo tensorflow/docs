@@ -24,6 +24,8 @@ These projects inside the TensorFlow GitHub organization have lists dedicated to
 * [magenta-discuss](https://groups.google.com/a/tensorflow.org/d/forum/magenta-discuss) -
   General discussion about [Magenta](https://magenta.tensorflow.org/)
   development and directions.
+* [mlir](https://groups.google.com/a/tensorflow.org/d/forum/mlir) -
+  Community and collaboration around MLIR, Multi-Level Intermediate Representation.
 * [swift](https://groups.google.com/a/tensorflow.org/d/forum/swift) -
   Community and collaboration around Swift for TensorFlow.
 * [tensor2tensor](https://groups.google.com/d/forum/tensor2tensor) - Discussion
