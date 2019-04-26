@@ -38,6 +38,8 @@ toc:
   section:
   - title: "Convolutional Neural Networks"
     path: /alpha/tutorials/images/intro_to_cnns
+  - title: "Transfer learning with TFHub"
+    path: /alpha/tutorials/images/hub_with_keras
   - title: "Transfer learning with pretrained CNNs"
     path: /alpha/tutorials/images/transfer_learning
 
@@ -45,9 +47,9 @@ toc:
   style: accordion
   section:
   - title: "Intro to word embeddings"
-    path: /alpha/tutorials/sequences/word_embeddings
+    path: /alpha/tutorials/text/word_embeddings
   - title: "Classify text with a RNN"
-    path: /alpha/tutorials/sequences/text_classification_rnn
+    path: /alpha/tutorials/text/text_classification_rnn
 
 - title: "Estimators"
   style: accordion
@@ -84,29 +86,40 @@ toc:
   style: accordion
   section:
   - title: "Generate text with an RNN"
-    path: /alpha/tutorials/sequences/text_generation
+    path: /alpha/tutorials/text/text_generation
   - title: "Neural Machine Translation with Attention"
-    path: /alpha/tutorials/sequences/nmt_with_attention
+    path: /alpha/tutorials/text/nmt_with_attention
   - title: "Image captioning"
-    path: /alpha/tutorials/sequences/image_captioning
+    path: /alpha/tutorials/text/image_captioning
+  - title: "Transformer model for language understanding"
+    path: /alpha/tutorials/text/transformer
 
-- title: "GANs and VAEs"
+- title: "Image Generation"
   style: accordion
   section:
-  - title: "VAE"
-    path: /alpha/tutorials/generative/cvae
+  - heading: Image Optimization
+  - title: "Style Transfer"
+    path: /alpha/tutorials/generative/style_transfer
+  - heading: GANs
   - title: "DCGAN"
     path: /alpha/tutorials/generative/dcgan
   - title: "Pix2Pix"
     path: /alpha/tutorials/generative/pix2pix
+  - heading: Auto Encoders
+  - title: "VAE"
+    path: /alpha/tutorials/generative/cvae
 
 - title: "Loading data"
   style: accordion
   section:
   - title: "Build an image input pipeline"
     path: /alpha/tutorials/load_data/images
+  - title: "Load text with tf.data"
+    path: /alpha/tutorials/load_data/text
   - title: "Use TFRecords and tf.Example"
     path: /alpha/tutorials/load_data/tf_records
+  - title: "Unicode strings"
+    path: /alpha/tutorials/text/unicode
 
 - title: "Distributed training"
   style: accordion

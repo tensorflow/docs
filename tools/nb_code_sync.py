@@ -184,6 +184,9 @@ def get_src_path(user_flags, notebook):
 
 
 def main(argv):
+  if len(argv) < 2:
+    raise app.UsageError("Missing command-line arguments.")
+
   for dest_path in argv[1:]:
     if not Notebook.is_notebook(dest_path):
       print("Not a notebook file, skipping: {}".format(dest_path),

@@ -586,6 +586,9 @@ def _generate_signature(func, reverse_index):
       # If we cannot get the source, assume the AST would be equal to the repr
       # of the defaults.
       ast_defaults = [None] * len(argspec.defaults)
+    except SyntaxError:
+      # You may get a SyntaxError using pytype in python 2.
+      ast_defaults = [None] * len(argspec.defaults)
 
     for arg, default, ast_default in zip(
         argspec.args[first_arg_with_default:], argspec.defaults, ast_defaults):
