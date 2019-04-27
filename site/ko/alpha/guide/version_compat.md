@@ -140,46 +140,25 @@ of existing ops.  The previous section should suffice for most users.
 
 ### Backward and partial forward compatibility
 
-Our versioning scheme has three requirements:
+버저닝 계획의 세 가지 요건:
 
-*   **Backward compatibility** to support loading graphs and checkpoints
-    created with older versions of TensorFlow.
-*   **Forward compatibility** to support scenarios where the producer of a
-    graph or checkpoint is upgraded to a newer version of TensorFlow before
-    the consumer.
-*   Enable evolving TensorFlow in incompatible ways. For example, removing ops,
-    adding attributes, and removing attributes.
+*   이전 버전의 텐서플로에서 만들어진 그래프와 체크포인트 로딩하기 위한 **하위 호환성**
+*   그래프나 체크포인트의 프로듀서(producer)가 컨슈머(consumer)이전에 새 버전의 텐서플로로 업그레이드되는 시나리오를 위한 **상위 호환성**
+*   텐서플로가 호환하지 않는 방향으로 개선되는 것을 가능하게 함. 이를테면, 연산을 제거하거나 속성을 추가하고 제거하는 것 
 
-Note that while the `GraphDef` version mechanism is separate from the TensorFlow
-version, backwards incompatible changes to the `GraphDef` format are still
-restricted by Semantic Versioning.  This means functionality can only be removed
-or changed between `MAJOR` versions of TensorFlow (such as `1.7` to `2.0`).
-Additionally, forward compatibility is enforced within Patch releases (`1.x.1`
-to `1.x.2` for example).
+`GraphDef` 버전 메커니즘은 텐서플로 버전과는 분리되어 있지만, `GraphDef` 형식에 하위 호환되지 않는 변동사항은 유의적 버저닝에서 제한됩니다. 즉, 텐서플로 `주 (MAJOR)` 버전간(이를테면 `1.7`과 `2.0`) 기능이 제거되거나 변할 수 있습니다. 상위 호환성은 패치 릴리즈(이를테면 `1.x.1`에서 `1.x.2`)안에서 강제됩니다.
 
-To achieve backward and forward compatibility and to know when to enforce changes
-in formats, graphs and checkpoints have metadata that describes when they
-were produced. The sections below detail the TensorFlow implementation and
-guidelines for evolving `GraphDef` versions.
+상위 호환성과 하위 호환성을 가능하게 하고 형식의 변동을 언제 강제해야 할지 알기 위해서, 그래프와 체크포인트는 언제 생성되었는지에 대한 메타데이터를 가집니다. 아래의 섹션은 텐서플로 구현과 `GraphDef` 버전업에 대한 가이드라인이 자세히 나와있습니다.
 
-### Independent data version schemes
+### 독립적인 데이터 버전 계획
 
-There are different data versions for graphs and checkpoints. The two data
-formats evolve at different rates from each other and also at different rates
-from TensorFlow. Both versioning systems are defined in
-[`core/public/version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/version.h).
-Whenever a new version is added, a note is added to the header detailing what
-changed and the date.
+그래프와 체크포인트에는 서로 다른 데이터 버전이 있습니다. 두 데이터 형식은 서로 다른 비율로 버전업되고 또한 텐서플로와도 서로 다른 비율로 버전업된다. 두 버저닝 시스템 모두 [`core/public/version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/version.h). 새 버전이 추가될때마다 어떤 것들이 변화하였고 날짜는 어떻게 되는지가 헤더에 추가됩니다. 
 
-### Data, producers, and consumers
+### 데이터, 프로듀서, 그리고 컨슈머
 
-We distinguish between the following kinds of data version information:
-* **producers**: binaries that produce data.  Producers have a version
-  (`producer`) and a minimum consumer version that they are compatible with
-  (`min_consumer`).
-* **consumers**: binaries that consume data.  Consumers have a version
-  (`consumer`) and a minimum producer version that they are compatible with
-  (`min_producer`).
+다음과 같은 데이터 버전 정보를 구분할 것입니다:
+* **프로듀서**: 데이터를 생성하는 바이너리. 프로듀서는 (`producer`)라는 버전이 있고 호환되는 최소 컨슈머 버전(`min_consumer`)이 있습니다.
+* **컨슈머**: 데이터를 소비하는 바이너리. 컨슈머는 (`consumer`)라는 버전이 있고 호환되는 최소 프로듀서 버전(`min_producer`)이 있습니다.
 
 Each piece of versioned data has a [`VersionDef
 versions`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/versions.proto)
