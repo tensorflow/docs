@@ -1207,7 +1207,8 @@ class _ModulePageInfo(object):
 
       if name in ['__builtins__', '__doc__', '__file__',
                   '__name__', '__path__', '__package__',
-                  '__cached__', '__loader__', '__spec__']:
+                  '__cached__', '__loader__', '__spec__', 'absolute_import',
+                  'division', 'print_function', 'unicode_literals']:
         continue
 
       member_full_name = self.full_name + '.' + name if self.full_name else name
