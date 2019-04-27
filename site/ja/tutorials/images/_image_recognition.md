@@ -1,4 +1,4 @@
-# Image Recognition
+# 画像認識
 
 私たちの脳は視覚をみやすい形に変換します。ライオンとジャガーを区別したり、看板を読んだり、  
 または人の顔を認識する事に、その人自身にはなんの労力を必要ありません。  
@@ -6,28 +6,21 @@
 に非常に優れているので、簡単に見えるだけです。
 
 ここ数年、機械学習の分野は、これらの難しい問題に取り組む上で、途轍もない進歩を遂げました。  
-特に、私たちは深層
-[畳み込みニューラルネットワーク (CNN) ](https://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
+特に、私たちはDeep
+[CNN (Convolutional neural network: 畳み込みニューラルネットワーク) ](https://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
 と呼ばれる種類のモデルが、  
 難しい視覚認識のタスクにおいて悪くない性能を達成することができることを発見しました。  
 いくつかの領域では人間の能力に匹敵する、または超えるほどです。
 
 研究者たちは彼らの研究を、コンピュータビジョンにおける学術的なベンチマークである  
-[ImageNet](http://www.image-net.org)に対して、検証することによって、コンピュータビジョンにおける着実な進歩を  
+[ImageNet] に対して、検証することによって、コンピュータビジョンにおける着実な進歩を  
 証明してきました。
-[QuocNet], [AlexNet], [Inception (GoogLeNet)], [BN-Inception-v2]のように、次々とモデルは改善され続け、その度に新しい最先端の結果を達成してきています。
-Google内部および外部の研究者たちは、論文を発表してきました。
-
-Researchers have demonstrated steady progress
-in computer vision by validating their work against
-[ImageNet](http://www.image-net.org) -- an academic benchmark for computer vision.
-Successive models continue to show improvements, each time achieving
-a new state-of-the-art result:
-[QuocNet], [AlexNet], [Inception (GoogLeNet)], [BN-Inception-v2].
-Researchers both internal and external to Google have published papers describing all
-these models but the results are still hard to reproduce.
-We're now taking the next step by releasing code for running image recognition
-on our latest model, [Inception-v3].
+[QuocNet], [AlexNet], [Inception (GoogLeNet)], [BN-Inception-v2] のように、  
+次々とモデルは改善され続け、その度に新しい最先端の結果を達成してきています。  
+Google内部および外部の研究者たちは、これらの全てのモデルについて説明した論文を発表して  
+きました。しかしながらその結果を再現することは未だ難しいままです。  
+私たちは今、私たちの最新のモデルである [Inception-v3] で画像認識を実行するコードをリリース  
+することで、次のステップに進んでいってます。
 
 [QuocNet]: https://static.googleusercontent.com/media/research.google.com/en//archive/unsupervised_icml2012.pdf
 [AlexNet]: https://www.cs.toronto.edu/~fritz/absps/imagenet.pdf
@@ -35,56 +28,51 @@ on our latest model, [Inception-v3].
 [BN-Inception-v2]: https://arxiv.org/abs/1502.03167
 [Inception-v3]: https://arxiv.org/abs/1512.00567
 
-Inception-v3 is trained for the [ImageNet] Large Visual Recognition Challenge
-using the data from 2012. This is a standard task in computer vision,
-where models try to classify entire
-images into [1000 classes], like "Zebra", "Dalmatian", and "Dishwasher".
-For example, here are the results from [AlexNet] classifying some images:
+Inception-v3 は2012年のデータを使った [ImageNet] Large Scale Visual Recognition Challenge (ILSVRC)å のために学習させました。  
+これは、「Zebra (シマウマ)」、「Dalmatian (ダルメシアン)」、そして「Dishwasher (食器洗い機)」  
+のような[1000クラス]に画像全体を分類する、コンピュータビジョンの基本的なタスクです。  
+例えば、これはいくつかのイメージを[AlexNet]が分類した結果です。å
 
 <div style="width:50%; margin:auto; margin-bottom:10px; margin-top:20px;">
 <img style="width:100%" src="https://www.tensorflow.org/images/AlexClassification.png">
 </div>
 
-To compare models, we examine how often the model fails to predict the
-correct answer as one of their top 5 guesses -- termed "top-5 error rate".
-[AlexNet] achieved by setting a top-5 error rate of 15.3% on the 2012
-validation data set; [Inception (GoogLeNet)] achieved 6.67%;
-[BN-Inception-v2] achieved 4.9%; [Inception-v3] reaches 3.46%.
+モデルの比較をするために、私たちは「トップ5エラー率」と呼ばれる上位5つの推測の1つで、  
+モデルが正しい答えの予測にどれくらいの頻度で失敗するか調べます。  
+[AlexNet]は2012の検証データセットで15.3%のトップ5エラー率の設定で達成しました。  
+[Inception (GoogLeNet)] は6.67%を達成し、[BN-Inception-v2] は4.9%を達成し、  
+[Inception-v3]では3.46%に達しました。
 
-> How well do humans do on ImageNet Challenge? There's a [blog post] by
-Andrej Karpathy who attempted to measure his own performance. He reached
-5.1% top-5 error rate.
+> 人間ではImageNet Challengeでどのくらいの成績を出せるでしょうか？ 自身のパフォーマンス測定しようとしたAndrej Karpathyによるブログ記事があります。彼は5.1%のトップ5エラー率に達しました。
 
 [ImageNet]: http://image-net.org/
-[1000 classes]: http://image-net.org/challenges/LSVRC/2014/browse-synsets
+[1000クラス]: http://image-net.org/challenges/LSVRC/2014/browse-synsets
 [blog post]: https://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/
 
-This tutorial will teach you how to use [Inception-v3]. You'll learn how to
-classify images into [1000 classes] in Python or C++. We'll also discuss how to
-extract higher level features from this model which may be reused for other
-vision tasks.
+このチュートリアルでは、[Inception-v3]の使い方を教えます。PythonまたはC++での画像を[1000クラス]に分類する方法を学びます。
+他のヴィジョンタスクで再利用されるかもしれないこのモデルから、よりハイレベルな機能の抜き出し方についても説明します。
 
-We're excited to see what the community will do with this model.
+私たちはコミュニティがこのモデルで何をするのかをとても楽しみにしています。
 
 
-## Usage with Python API
+## Python APIの使用
 
-`classify_image.py` downloads the trained model from `tensorflow.org`
-when the program is run for the first time. You'll need about 200M of free space
-available on your hard disk.
+`classify_image.py` は、プログラムを初めて実行した際に、`tensorflow.org`から  
+学習済みモデルをダウンロードしてきます。ハードディスクには200MBの空き容量が必要になります。
 
-Start by cloning the [TensorFlow models repo](https://github.com/tensorflow/models) from GitHub. Run the following commands:
+GitHubの[TensorFlow models repo](https://github.com/tensorflow/models)をクローンすることから始めます。以下のコマンドを実行してください。
 
     cd models/tutorials/image/imagenet
     python classify_image.py
 
-The above command will classify a supplied image of a panda bear.
+
+上のコマンドは渡されたパンダの画像を分類します。
 
 <div style="width:15%; margin:auto; margin-bottom:10px; margin-top:20px;">
   <img style="width:100%" src="https://www.tensorflow.org/images/cropped_panda.jpg">
 </div>
 
-If the model runs correctly, the script will produce the following output:
+もし、モデルが正常に実行されれば、スクリプトは次のような出力を生成します。
 
     giant panda, panda, panda bear, coon bear, Ailuropoda melanoleuca (score = 0.88493)
     indri, indris, Indri indri, Indri brevicaudatus (score = 0.00878)
@@ -92,13 +80,12 @@ If the model runs correctly, the script will produce the following output:
     custard apple (score = 0.00149)
     earthstar (score = 0.00127)
 
-If you wish to supply other JPEG images, you may do so by editing
-the `--image_file` argument.
+もし、他のJPEG画像を渡したければ、引数`--image_file`を編集することで可能です。
 
-> If you download the model data to a different directory, you
-will need to point `--model_dir`  to the directory used.
+> もし、別のディレクトリにモデルデータをダウンロードする場合は、`--model_dir`を使用するディレクトリに指定する必要があります。
 
-## Usage with the C++ API
+## C++ APIの使用
+
 
 You can run the same [Inception-v3] model in C++ for use in production
 environments. You can download the archive containing the GraphDef that defines
