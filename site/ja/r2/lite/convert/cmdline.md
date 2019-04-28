@@ -1,4 +1,4 @@
-# コンバーターのコマンドラインリファレンス
+# コンバータのコマンドラインリファレンス
 
 このページでは、TensorFlow 2.0 でコマンドラインから [TensorFlow Lite コンバータ](index.md) を使用する方法を説明します。 ただし、より好ましいのは [Python API](python_api.md) を使用する方法です。
 
@@ -6,7 +6,7 @@
 
 ## 概要の概要
 
-TensorFlow Lite コンバーターには基本的なモデルをサポートするコマンドラインツール `tflite_convert` がありますが、量子化やその他のパラメータ (SavedModel のシグネチャや Keras モデルのカスタムオブジェクトなど) を含む場合には、 `TFLiteConverter`[Python API](python_api.md) を使用してください。
+TensorFlow Lite コンバータには基本的なモデルをサポートするコマンドラインツール `tflite_convert` がありますが、量子化やその他のパラメータ (SavedModel のシグネチャや Keras モデルのカスタムオブジェクトなど) を含む場合には、 `TFLiteConverter`[Python API](python_api.md) を使用してください。
 
 ## 使い方
 

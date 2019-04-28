@@ -1,4 +1,4 @@
-# コンバーター Python API ガイド
+# コンバータ Python API ガイド
 
 このページでは、TensorFlow 2.0 の Python API による [TensorFlow Lite コンバータ](index.md) の使用例を説明します。
 
