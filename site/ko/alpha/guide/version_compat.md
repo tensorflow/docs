@@ -116,9 +116,9 @@
 
 버저닝 계획의 세 가지 요건:
 
-*   이전 버전의 텐서플로에서 만들어진 그래프와 체크포인트 로딩하기 위한 **하위 호환성**
-*   그래프나 체크포인트의 프로듀서(producer)가 컨슈머(consumer)이전에 새 버전의 텐서플로로 업그레이드되는 시나리오를 위한 **상위 호환성**
-*   텐서플로가 호환하지 않는 방향으로 개선되는 것을 가능하게 함. 이를테면, 연산을 제거하거나 속성을 추가하고 제거하는 것 
+*   이전 버전의 텐서플로에서 만들어진 그래프와 체크포인트 로딩하기 위한 **하위 호환성**.
+*   그래프나 체크포인트의 프로듀서(producer)가 컨슈머(consumer)이전에 새 버전의 텐서플로로 업그레이드되는 시나리오를 위한 **상위 호환성**.
+*   텐서플로가 호환하지 않는 방향으로 개선되는 것을 가능하게 함. 이를테면, 연산을 제거하거나 속성을 추가하고 제거하는 것.
 
 `GraphDef` 버전 메커니즘은 텐서플로 버전과는 분리되어 있지만, `GraphDef` 형식에 하위 호환되지 않는 변동사항은 유의적 버저닝에서 제한됩니다. 즉, 텐서플로 `주 (MAJOR)` 버전간(이를테면 `1.7`과 `2.0`) 기능이 제거되거나 변할 수 있습니다. 상위 호환성은 패치 릴리즈(이를테면 `1.x.1`에서 `1.x.2`)안에서 강제됩니다.
 
@@ -134,105 +134,56 @@
 * **프로듀서**: 데이터를 생성하는 바이너리. 프로듀서는 (`producer`)라는 버전이 있고 호환되는 최소 컨슈머 버전(`min_consumer`)이 있습니다.
 * **컨슈머**: 데이터를 소비하는 바이너리. 컨슈머는 (`consumer`)라는 버전이 있고 호환되는 최소 프로듀서 버전(`min_producer`)이 있습니다.
 
-Each piece of versioned data has a [`VersionDef
-versions`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/versions.proto)
-field which records the `producer` that made the data, the `min_consumer`
-that it is compatible with, and a list of `bad_consumers` versions that are
-disallowed.
+데이터 버전은 데이터를 만든 `프로듀서`와 호환이 되는 `min_consumer`, 그리고 허용되지 않은 `bad_consumers` 버전 리스트를 기록하는 [`VersionDef versions`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/versions.proto) 필드를 가지고 있습니다.
 
-By default, when a producer makes some data, the data inherits the producer's
-`producer` and `min_consumer` versions. `bad_consumers` can be set if specific
-consumer versions are known to contain bugs and must be avoided. A consumer can
-accept a piece of data if the following are all true:
+기본적으로, 프로듀서가 데이터를 만들면 데이터는 프로듀서의 `producer`와 `min_consumer` 버전을 물려받습니다. 특정한 컨슈머 버전이 버그를 포함하고 있거나 반드시 피해야 한다면 `bad_consumers`가 설정될 수 있습니다. 컨슈머는 다음이 모두 성립하는 경우 데이터를 받아들일 수 있습니다:
 
-*   `consumer` >= data's `min_consumer`
-*   data's `producer` >= consumer's `min_producer`
-*   `consumer` not in data's `bad_consumers`
+*   `consumer` >= 데이터의 `min_consumer`
+*   데이터의 `producer` >= 컨슈머의 `min_producer`
+*   데이터의 `bad_consumers`에 없는 `consumer`
 
-Since both producers and consumers come from the same TensorFlow code base,
-[`core/public/version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/version.h)
-contains a main data version which is treated as either `producer` or
-`consumer` depending on context and both `min_consumer` and `min_producer`
-(needed by producers and consumers, respectively). Specifically,
+프로듀서와 컨슈머 모두 같은 텐서플로 코드 베이스로부터 나온 것이기 때문에, [`core/public/version.h`](https:/github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/version.h)는 문맥과 `min_consumer`와 `min_producer`(프로듀서와 컨슈머 각각이 필요로 하는)에 따라 `producer`나 `consumer` 둘 중 하나로 취급되는 메인 데이터 버전을 포함합니다. 구체적으로,
+ 
+*   `GraphDef` 버전으로 `TF_GRAPH_DEF_VERSION`, `TF_GRAPH_DEF_VERSION_MIN_CONSUMER`, `TF_GRAPH_DEF_VERSION_MIN_PRODUCER`.
+*   체크포인트 버전으로 `TF_CHECKPOINT_VERSION`, `TF_CHECKPOINT_VERSION_MIN_CONSUMER`, `TF_CHECKPOINT_VERSION_MIN_PRODUCER`.
 
-*   For `GraphDef` versions, we have `TF_GRAPH_DEF_VERSION`,
-    `TF_GRAPH_DEF_VERSION_MIN_CONSUMER`, and
-    `TF_GRAPH_DEF_VERSION_MIN_PRODUCER`.
-*   For checkpoint versions, we have `TF_CHECKPOINT_VERSION`,
-    `TF_CHECKPOINT_VERSION_MIN_CONSUMER`, and
-    `TF_CHECKPOINT_VERSION_MIN_PRODUCER`.
+### 기존 연산에 새로운 속성을 기본값으로 추가
 
-### Add a new attribute with default to an existing op
+다음의 가이드를 따르면 일련의 연산이 변하지 않았을때만 상위 호환성이 있게 됩니다:
 
-Following the guidance below gives you forward compatibility only if the set of
-ops has not changed:
+1. 상위 호환성이 필요하다면, `SavedModelBuilder`클래스의 `tf.saved_model.SavedModelBuilder.add_meta_graph_and_variables`와 `tf.saved_model.SavedModelBuilder.add_meta_graph`메소드를 사용하거나 `tf.estimator.Estimator.export_saved_model`을 사용하는 모델을 내보내는 동안 `strip_default_attrs`를 `True`로 설정합니다.
+2. 이렇게 하면 모델을 생성하고 내보낼 때 기본값 속성을 제거하게 됩니다.
+3. 이 컨트롤을 사용하면 오래된 컨슈머(예를들면, 훈련 바이너리에 뒤쳐진 바이너리를 제공하는)가 모델을 불러오기를 계속 할 수 있게 하고  모델 서비스 중단을 막을 수 있습니다.
 
-1. If forward compatibility is desired, set `strip_default_attrs` to `True`
-   while exporting the model using either the
-   `tf.saved_model.SavedModelBuilder.add_meta_graph_and_variables`
-   and `tf.saved_model.SavedModelBuilder.add_meta_graph`
-   methods of the `SavedModelBuilder` class, or
-   `tf.estimator.Estimator.export_saved_model`
-2. This strips off the default valued attributes at the time of
-   producing/exporting the models. This makes sure that the exported
-   `tf.MetaGraphDef` does not contain the new op-attribute when the default
-   value is used.
-3. Having this control could allow out-of-date consumers (for example, serving
-   binaries that lag behind training binaries) to continue loading the models
-   and prevent interruptions in model serving.
+### GraphDef 버전업
 
-### Evolving GraphDef versions
+이 섹션은 `GraphDef` 형식에 다른 타입의 변동사항을 만들기 위한 버저닝 방법을 설명합니다. 
 
-This section explains how to use this versioning mechanism to make different
-types of changes to the `GraphDef` format.
+#### 하나의 연산을 추가하기
 
-#### Add an op
+`GraphDef`버전을 바꾸지 않고 컨슈머와 프로듀서에 동시에 새로운 연산을 추가합니다. 이러한 종류의 변동사항은 자동적으로 하위 호환성이 있고 기존 프로듀서 스크립트가 갑자기 새로운 기능을 사용하지는 않을 것이기 때문에 상위 호환 계획에 영향을 주지 않습니다.
 
-Add the new op to both consumers and producers at the same time, and do not
-change any `GraphDef` versions. This type of change is automatically
-backward compatible, and does not impact forward compatibility plan since
-existing producer scripts will not suddenly use the new functionality.
+#### 연산을 추가하고 이를 사용하기 위해 기존 파이썬 래퍼로 바꾸기
 
-#### Add an op and switch existing Python wrappers to use it
+1.  새로운 컨슈머 기능을 구현하고 `GraphDef` 버전을 올립니다.
+2.  이전에 동작하지 않았던 새로운 기능을 사용하는 래퍼를 만들 수 있습니다, 래퍼는 지금 업데이트 가능합니다. 
+3.  파이썬 래퍼를 변경하여 새로운 기능을 사용하세요. 이 연산을 사용하지 않는 모델은 고장나지 않아야 하므로 `min_consumer`를 올리지 마세요.
 
-1.  Implement new consumer functionality and increment the `GraphDef` version.
-2.  If it is possible to make the wrappers use the new functionality only in
-    cases that did not work before, the wrappers can be updated now.
-3.  Change Python wrappers to use the new functionality. Do not increment
-    `min_consumer`, since models that do not use this op should not break.
+#### 연산의 기능을 제거하거나 제한하기
 
-#### Remove or restrict an op's functionality
+1.  금지된 연산이나 기능을 사용하기 않기 위해 모든 프로듀서 스크립트(텐서플로 자체가 아닌)를 고정합니다.
+2.  `GraphDef`버전을 올리고 새 버전의 GraphDef나 그 이상에서 제거된 연산이나 기능을 금지하는 새로운 컨슈머 기능을 구현하세요. 가능하다면 텐서플로에서 금지된 기능으로 `GraphDefs`를 만들지 않도록 하세요. 그렇게 하려면 [`REGISTER_OP(...).Deprecated(deprecated_at_version, message)`](https://github.com/tensorflow/tensorflow/blob/b289bc7a50fc0254970c60aaeba01c33de61a728/tensorflow/core/ops/array_ops.cc#L1009)를 추가하세요.
+3.  하위 호환성을 목적으로 주 릴리즈를 기다리세요.
+4.  (2)에서의 GraphDef 버전에서 `min_producer`를 올리고 기능을 완전히 제거하세요.
 
-1.  Fix all producer scripts (not TensorFlow itself) to not use the banned op or
-    functionality.
-2.  Increment the `GraphDef` version and implement new consumer functionality
-    that bans the removed op or functionality for GraphDefs at the new version
-    and above. If possible, make TensorFlow stop producing `GraphDefs` with the
-    banned functionality. To do so, add the
-    [`REGISTER_OP(...).Deprecated(deprecated_at_version,
-    message)`](https://github.com/tensorflow/tensorflow/blob/b289bc7a50fc0254970c60aaeba01c33de61a728/tensorflow/core/ops/array_ops.cc#L1009).
-3.  Wait for a major release for backward compatibility purposes.
-4.  Increase `min_producer` to the GraphDef version from (2) and remove the
-    functionality entirely.
+#### 연산의 기능을 변동시키기
 
-#### Change an op's functionality
+1.  `SomethingV2`와 같이 비슷한 연산의 이름을 추가하며 이를 위한 절차를 거치고 기존 파이썬 래퍼가 이를 사용할 수 있도록 전환하세요. 파이썬 래퍼를 변경할 때 상위 호환성확인을 위해 [compat.py](https://www.tensorflow.org/code/tensorflow/python/compat/compat.py)에 있는 제안사항을 확인하세요.
+2.  예전의 연산을 제거하세요(하위 호환성때문에 주 버전이 변경할때만 발생합니다).
+3.  예전의 연산을 사용하는 컨슈머를 배제하기 위해 `min_consumer`를 올리고 예전 연산에 `SomethingV2`를 위한 별칭을 달아주세요. 그리고 기존 파이썬 래퍼가 사용할 수 있도록 변환하는 절차를 거치세요.
+4.  `SomethingV2`를 제거하는 절차를 거치세요.
 
-1.  Add a new similar op named `SomethingV2` or similar and go through the
-    process of adding it and switching existing Python wrappers to use it.
-    To ensure forward compatibility use the checks suggested in
-    [compat.py](https://www.tensorflow.org/code/tensorflow/python/compat/compat.py)
-    when changing the Python wrappers.
-2.  Remove the old op (Can only take place with a major version change due to
-    backward compatibility).
-3.  Increase `min_consumer` to rule out consumers with the old op, add back the
-    old op as an alias for `SomethingV2`, and go through the process to switch
-    existing Python wrappers to use it.
-4.  Go through the process to remove `SomethingV2`.
+#### 안전하지 않은 컨슈머 버전을 금지하기
 
-#### Ban a single unsafe consumer version
-
-1.  Bump the `GraphDef` version and add the bad version to `bad_consumers` for
-    all new GraphDefs. If possible, add to `bad_consumers` only for GraphDefs
-    which contain a certain op or similar.
-2.  If existing consumers have the bad version, push them out as soon as
-    possible.
+1.  `GraphDef` 버전을 충돌시키고 나쁜 버전을 모든 새로운 GraphDef의 `bad_consumers`에 추가합니다. 가능하면 특정한 연산이나 비슷한 것들을 포함하는 GraphDef에만 `bad_consumers`를 추가합니다.
+2.  기존 컨슈머가 나쁜 버전인 경우, 최대한 빠르게 제거합니다.
