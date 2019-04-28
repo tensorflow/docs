@@ -1,20 +1,14 @@
 # 具象関数の生成
 
-TensorFlow 2.0 モデルを TensorFlow Lite に変換するには、モデルを具象関数（concrete function）としてエクスポートする必要があります.
-このドキュメントでは、具象関数とは何か、既存のモデルからどのように具象関数を生成するか、について概説します。
+TensorFlow 2.0 モデルを TensorFlow Lite に変換するには、モデルを具象関数 (concrete function) としてエクスポートする必要があります。 このドキュメントでは、具象関数とは何か、既存のモデルからどのように具象関数を生成するか、について概説します。
 
 [TOC]
 
 ## 背景
 
-TensorFlow 2.0 では、eager execution がデフォルトでオンになっています。
-TensorFlow において eager execution とは、グラフを作成せずにオペレーションを即時評価する命令型プログラミング環境のことです。
-各オペレーションは、後で実行するために計算グラフを構築するのではなく、具体的な値を返します。
-eager execution に関する詳細なガイドは[こちら](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/eager.ipynb)にあります。
+TensorFlow 2.0 では、eager execution がデフォルトでオンになっています。 TensorFlow において eager execution とは、グラフを作成せずにオペレーションを即時評価する命令型プログラミング環境のことです。各オペレーションは、後で実行するために計算グラフを構築するのではなく、具体的な値を返します。 eager execution に関する詳細なガイドは[こちら](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/eager.ipynb)にあります。
 
-eager execution で命令的に実行すると開発とデバッグがより対話的になりますが、デバイスへのデプロイはできなくなってしまいます。
- `tf.function` APIはモデルをグラフとして保存することを可能にします。 これはTensorFlow2.0でTensorFlow Liteを実行するために必要です。
- `tf.function` デコレータでラップされたオペレーションはすべてグラフとしてエクスポートすることができ、 TensorFlow Lite FlatBuffer フォーマットに変換することができます。
+eager execution で命令的に実行すると開発とデバッグがより対話的になりますが、デバイスへのデプロイはできなくなります。 `tf.function` API はモデルをグラフとして保存することを可能にします。 これは TensorFlow2.0 で TensorFlow Lite を実行するために必要です。 `tf.function` デコレータでラップされたオペレーションはすべてグラフとしてエクスポートできるので、 TensorFlow Lite FlatBuffer フォーマットに変換できます。
 
 ## 用語
 
@@ -22,17 +16,15 @@ eager execution で命令的に実行すると開発とデバッグがより対�
 
 *   **シグネチャ** - 一連のオペレーションの入力と出力.
 *   **具象関数**  - 単一のシグネチャを持つグラフ.
-*   **多相関数**  -  いくつかの具象関数グラフを1つの関数内にカプセル化したPythonの呼び出し可能オブジェクト.
+*   **多相関数**  -  いくつかの具象関数グラフを1つの関数内にカプセル化した Python の呼び出し可能オブジェクト.
 
 ## メソドロジー
 
 この章では、具象関数をエクスポートする方法を解説します。
 
-### 関数に`tf.function` デコーレータを付与する
+### 関数に `tf.function` デコーレータを付与する
 
-関数に `tf.function` デコレータを付与すると、その関数のオペレーションを含む *多相関数* が生成されます。
- `tf.function` のデコレータが付けられていないオペレーションはすべて eager execution で評価されます。
-以下の例は `tf.function` の使い方を示しています。
+関数に `tf.function` デコレータを付与すると、その関数のオペレーションを含む *多相関数* が生成されます。 `tf.function` のデコレータが付けられていないオペレーションはすべて eager execution で評価されます。 以下の例は `tf.function` の使い方を示しています。
 
 ```python
 @tf.function
@@ -46,9 +38,7 @@ tf.function(lambda x : x ** 2)
 
 ### 保存したいオブジェクトを生成する
 
-`tf.function` は、` tf.Module` オブジェクトの一部として保存することもできます。
-その際、変数は `tf.Module`内で一度だけ定義されるべきです。
-以下の例は `Checkpoint` を派生するクラスを作成するための2つの異なるアプローチを示しています。
+`tf.function` は、` tf.Module` オブジェクトの一部として保存することもできます。 その際、変数は `tf.Module` 内で一度だけ定義されるべきです。 以下の例は `Checkpoint` を派生するクラスを作成するための2つの異なるアプローチを示しています。
 
 ```python
 class BasicModel(tf.Module):
@@ -78,8 +68,8 @@ root.pow = tf.function(lambda x : x ** root.const)
 シグネチャは次のようにして定義できます。
 
 *   `tf.function` に ` input_signature` パラメータを定義します。
-*   `tf.TensorSpec` を ` get_concrete_function` に渡します: 例) `tf.TensorSpec（shape = [1]、dtype = tf.float32）`
-*   サンプルの入力テンソルを `get_concrete_function` に渡します: 例) `tf.constant（1。、shape = [1]）`
+*   `tf.TensorSpec` を ` get_concrete_function` に渡します: 例) `tf.TensorSpec(shape=[1], dtype = tf.float32)`
+*   サンプルの入力テンソルを `get_concrete_function` に渡します: 例) `tf.constant(1., shape=[1])`
 
 次の例は `tf.function` の ` input_signature` パラメータを定義する方法を示しています。
 
@@ -102,7 +92,7 @@ root = BasicModel()
 concrete_func = root.pow.get_concrete_function()
 ```
 
-以下の例では、サンプルの入力テンソルを`get_concrete_function`に渡しています。
+以下の例では、サンプルの入力テンソルを `get_concrete_function` に渡しています。
 
 ```python
 # tf.Module オブジェクトを生成
@@ -155,13 +145,13 @@ TensorFlow Lite に変換する前に TensorFlow モデルを保存したい場�
 tf.saved_model.save(root, export_dir, concrete_func)
 ```
 
-SavedModel の使用方法の詳細については、[SavedModelガイド](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/saved_model.ipynb) を参照してください。
+SavedModel の使用方法の詳細については、[SavedModel ガイド](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/saved_model.ipynb) を参照してください。
 
 
 ### SavedModel から具象関数を得るにはどうすればいいですか？
 
 SavedModel 内の各象徴関数は、シグネチャキーによって識別できます。
-デフォルトのシグネチャキーは `tf.saved_model.DEFAULT_SERVING_SIGNATURE_DEF_KEY`です。以下の例は、モデルから具象関数を取得する方法を示しています。
+デフォルトのシグネチャキーは `tf.saved_model.DEFAULT_SERVING_SIGNATURE_DEF_KEY` です。以下の例は、モデルから具象関数を取得する方法を示しています。
 
 ```python
 model = tf.saved_model.load(export_dir)
@@ -173,7 +163,7 @@ concrete_func = model.signatures[
 
 方法が2つあります:
 
-1.  モデルをSavedModelとして保存します。保存処理中にモデル関数が生成されるので、上述の要領でモデルをロードして具象関数を取得することができます。
+1.  モデルを SavedModel として保存します。保存処理中にモデル関数が生成されるので、上述の要領でモデルをロードして具象関数を取得することができます。
 2.  下記のようにモデルを `tf.function` でラップします。
 
 

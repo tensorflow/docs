@@ -1,6 +1,6 @@
 # コンバーター Python API ガイド
 
-このページでは、TensorFlow 2.0 の Python API による [TensorFlow Lite コンバーター](TensorFlow Lite converter) の使用例を説明します。
+このページでは、TensorFlow 2.0 の Python API による [TensorFlow Lite コンバータ](index.md) の使用例を説明します。
 
 [TOC]
 
@@ -16,7 +16,7 @@ TensorFlow 2.0 において、TensorFlow モデルを TensorFlow Lite に変換�
 *   `TFLiteConverter.from_concrete_functions()`: 
     [具象関数](concrete_function.md) を変換します。
 
-このドキュメントでは API の [使用例](＃examples) 、 [1.X と 2.0 の間のAPIの変更点の詳細なリスト](#differences) 、 異なるバージョンのTensorFlow で実行する [方法](#versioning) を含みます。
+このドキュメントでは API の [使用例](＃examples) 、 [1.X と 2.0 の間の API の変更点の詳細なリスト](#differences) 、 異なるバージョンの TensorFlow で実行する [方法](#versioning) を含みます。
 
 ## 例 <a name="examples"></a>
 
@@ -46,7 +46,7 @@ tflite_model = converter.convert()
 
 ### Keras モデルを変換する <a name="keras"></a>
 
-以下の例は[`tf.keras` model](https://www.tensorflow.org/alpha/guide/keras/overview)を TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています.
+以下の例は [`tf.keras` モデル](https://www.tensorflow.org/alpha/guide/keras/overview) を TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています.
 
 
 ```python
@@ -68,7 +68,7 @@ tflite_model = converter.convert()
 
 ### 具象関数を変換する <a name="concrete_function"></a>
 
-以下の例は TensorFlowの [具象関数](concrete_function.md) を TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています。
+以下の例は TensorFlow の[具象関数](concrete_function.md)を TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています。
 
 
 ```python
@@ -140,9 +140,9 @@ for tf_result, tflite_result in zip(tf_results, tflite_results):
 以降の章では、Python API の 1.X から 2.0 への変更点についてまとめていますが、
 もしなにか懸念が生じた場合は GitHub の [issue](https://github.com/tensorflow/tensorflow/issues) を出してください。
 
-### `TFLiteConverter`　のサポートしているフォーマット
+### `TFLiteConverter` のサポートしているフォーマット
 
-2.0の `TFLiteConverter` は 1.X と 2.0 の両方で生成されたSavedModelとKerasモデルファイルをサポートしていますが、1.X で生成された frozen `GraphDefs`はサポートしていません。
+2.0の `TFLiteConverter` は 1.X と 2.0 で生成された SavedModel と Keras モデルファイルをサポートしますが、1.X で生成された frozen `GraphDefs` はサポートしません。
 frozen `GraphDefs` を TensorFlow Lite に変換したい場合は `tf.compat.v1.TFLiteConverter` を使う必要があります。
 
 
@@ -161,7 +161,7 @@ frozen `GraphDefs` を TensorFlow Lite に変換したい場合は `tf.compat.v1
 *   `get_input_arrays()`
 
 quantization-aware training をサポートしていた計算グラフの書き換え関数は、TensorFlow 2.0によるモデルをサポートしません。
-また、TensorFlow Liteの quantization API は、Keras API を通じて quantization-aware training をサポートする方向で作り直されて合理化されている最中です。 新しい quantization API がローンチされるまでは、これらの属性は 2.0 API から削除されます。 書き換え関数によってモデルを変換したい場合は `tf.compat.v1.TFLiteConverter` を使ってください。
+また、TensorFlow Lite の quantization API は、Keras API を通じて quantization-aware training をサポートする方向で作り直しと合理化を勧めている最中です。 新しい quantization API がローンチされるまでは、これらの属性は 2.0 API から削除されます。 書き換え関数によってモデルを変換したい場合は `tf.compat.v1.TFLiteConverter` を使ってください。
 
 ### `TFLiteConverter` の属性に対する変更点
 
@@ -200,7 +200,7 @@ quantization-aware training をサポートしていた計算グラフの書き�
 #### `lite.OpHint`
 
 `OpHint` API は、2.0 API との互換性がないため、現在 2.0 では利用できません。
-この API は LSTM ベースのモデルの変換を可能にするものですが、2.0 におけるLSTMのサポートは検証中のため、関連する `lite.experimental` API はすべて削除されています。
+この API は LSTM ベースのモデルの変換を可能にするものですが、2.0 における LSTM のサポートは検証中のため、関連する `lite.experimental` API はすべて削除されています。
 
 ## TensorFlow のインストール <a name="versioning"></a>
 
@@ -224,4 +224,4 @@ tf.enable_v2_behavior()
 
 ### ソースコードからのビルド <a name="latest_package"></a>
 
-TensorFlow Lite コンバータ Python API の最新バージョンを実行するには、 [pip](https://www.tensorflow.org/install/pip)（推奨）または [Docker]（https://www.tensorflow.org/install/docker）を使用してナイトリービルドをインストールするか、[ソースからpipパッケージをビルド]（https://www.tensorflow.org/install/source）してください。
+TensorFlow Lite コンバータ Python API の最新バージョンを実行するには、 [pip](https://www.tensorflow.org/install/pip) (推奨) または [Docker](https://www.tensorflow.org/install/docker) を使用してナイトリービルドをインストールするか、[ソースから pip パッケージをビルド](https://www.tensorflow.org/install/source) してください。
