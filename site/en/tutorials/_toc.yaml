@@ -52,12 +52,7 @@ toc:
 - title: Generative models
   style: accordion
   section:
-  - title: Translation with attention
-    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb
-    status: external
-  - title: Image captioning
-    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/generative_examples/image_captioning_with_attention.ipynb
-    status: external
+
   - title: DCGAN
     path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/generative_examples/dcgan.ipynb
     status: external
@@ -87,6 +82,12 @@ toc:
   section:
   - title: Text generation with an RNN
     path: /tutorials/sequences/text_generation
+  - title: Translation with attention
+    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb
+    status: external
+  - title: Image captioning
+    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/generative_examples/image_captioning_with_attention.ipynb
+    status: external
   - title: Recurrent neural network
     path: /tutorials/sequences/recurrent
   - title: Drawing classification
