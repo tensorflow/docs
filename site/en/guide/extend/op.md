@@ -1439,6 +1439,12 @@ compact in representing input and output shape specifications in tests.  For
 now, see the surrounding comments in those tests to get a sense of the shape
 string specification).
 
+## Build a pip package for your custom op
+
+To build a `pip` package for your op, see the
+[tensorflow/custom-op](https://github.com/tensorflow/custom-op) example. This
+guide shows how to build custom ops from the TensorFlow pip package instead
+of building TensorFlow from source.
 
 [core-array_ops]:https://www.tensorflow.org/code/tensorflow/core/ops/array_ops.cc
 [python-user_ops]:https://www.tensorflow.org/code/tensorflow/python/user_ops/user_ops.py
