@@ -453,7 +453,8 @@ def _parse_function_details(docstring):
   """
 
   detail_keywords = '|'.join([
-      'Args', 'Arguments', 'Fields', 'Returns', 'Yields', 'Raises', 'Attributes'
+      'Args', 'Call arguments', 'Arguments', 'Fields', 'Returns', 'Yields',
+      'Raises', 'Attributes'
   ])
   tag_re = re.compile('(?<=\n)(' + detail_keywords + '):\n', re.MULTILINE)
   parts = tag_re.split(docstring)

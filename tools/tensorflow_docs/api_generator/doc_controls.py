@@ -267,6 +267,15 @@ def should_skip(obj):
 
   return hasattr(obj, _DO_NOT_DOC) or hasattr(obj, _DO_NOT_DOC_INHERITABLE)
 
+def _unwrap_func(obj):
+  # Unwrap fget if the object is a property or static method or classmethod.
+  if isinstance(obj, property):
+    return obj.fget
+
+  if isinstance(obj, (classmethod, staticmethod)):
+    return obj.__func__
+
+  return obj
 
 def should_skip_class_attr(cls, name):
   """Returns true if docs should be skipped for this class attribute.
@@ -289,8 +298,7 @@ def should_skip_class_attr(cls, name):
     raise
 
   # Unwrap fget if the object is a property
-  if isinstance(obj, property):
-    obj = obj.fget
+  obj = _unwrap_func(obj)
 
   # Skip if the object is decorated with `do_not_generate_docs` or
   # `do_not_doc_inheritable`
@@ -299,8 +307,8 @@ def should_skip_class_attr(cls, name):
 
   # Use __dict__ lookup to get the version defined in *this* class.
   obj = cls.__dict__.get(name, None)
-  if isinstance(obj, property):
-    obj = obj.fget
+  obj = _unwrap_func(obj)
+
   if obj is not None:
     # If not none, the object is defined in *this* class.
     # Do not skip if decorated with `for_subclass_implementers`.
@@ -318,8 +326,7 @@ def should_skip_class_attr(cls, name):
     if obj is None:
       continue
 
-    if isinstance(obj, property):
-      obj = obj.fget
+    obj = _unwrap_func(obj)
 
     # Skip if the parent's definition is decorated with `do_not_doc_inheritable`
     # or `for_subclass_implementers`

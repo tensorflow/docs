@@ -155,8 +155,8 @@ class DocGeneratorVisitor(object):
                                                                    parent))
 
     for i, (name, child) in enumerate(list(children)):
-      # Don't document __metaclass__
-      if name in ['__metaclass__']:
+      # Don't document these names
+      if name in ['__metaclass__', '__setattr__', '__delattr__']:
         del children[i]
         continue
 
