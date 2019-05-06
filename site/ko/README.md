@@ -26,8 +26,8 @@ To volunteer to write or review community translations, contact the
 번역 문서는 'ㅂ니다'체를 따르며 존칭이나 반말은 쓰지 않습니다.
 가능한한 기존 문서의 스타일을 따라야 합니다. 
 
-작업을 시작할 때 깃허브의 [드래프트 PR](https://help.github.com/en/articles/about-pull-requests#draft-pull-requests)
-기능을 사용하여 작업 중임을 알려 주세요.
+작업을 시작하려면 [텐서플로 한글 문서 기여자](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)
+메일링 리스트에 작업 중임을 알려 주세요.
 다른 사람이 작업 중인 파일이 아니라면 en 폴더 안의 파일을 ko 폴더 아래 같은 위치에 복사하여 시작합니다.
 site/ko/ 는 텐서플로 1.x 버전을 위한 파일입니다.
 site/ko/alpha/ 는 텐서플로 2.x 버전을 위한 파일입니다.
@@ -47,14 +47,17 @@ site/ko/alpha/ 는 텐서플로 2.x 버전을 위한 파일입니다.
 
 # For new contributors
 
-Thanks for joining translation.
-You should read existing [KO documents](https://github.com/tensorflow/docs/tree/master/site/ko)
-before starting translation.
-You should use 'ㅂ니다' style, and not use the honorific or rude words.
-You should follow the style of existing documents, as possible as you can.
+Thanks for joining the translation effort.
+Please read the existing
+[KO documents](https://github.com/tensorflow/docs/tree/master/site/ko)
+before starting your translation.
+You should use 'ㅂ니다' style and not use the honorific or rude words.
+Follow the style of existing documents, as possible as you can.
 
-Notify the work using GitHub's [Draft PR](https://help.github.com/en/articles/about-pull-requests#draft-pull-requests),
-when you start translating.
+After your translation is complete, notify the
+[Korean TensorFlow Documentation Contributors](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)
+mailing list to coordinate a review.
+
 Copy a file in `en` folder to same location under `ko` folder if anybody doesn't work on the file,
 and get it start.
 `site/ko/` are for TensorFlow 1.x.
