@@ -40,7 +40,8 @@ and can be (approximately) previewed using any
 <a href="http://tmpvar.com/markdown.html" class="external">Markdown previewer</a>.
 
 For reference documentation quality and how to get involved with doc sprints and
-the community, see [TensorFlow 2.0 API Docs](https://docs.google.com/document/d/1e20k9CuaZ_-hp25-sSd8E8qldxKPKQR-SkwojYr_r-U/preview).
+the community, see the
+[TensorFlow 2.0 API Docs advice](https://docs.google.com/document/d/1e20k9CuaZ_-hp25-sSd8E8qldxKPKQR-SkwojYr_r-U/preview).
 
 ### Versions and branches
 
