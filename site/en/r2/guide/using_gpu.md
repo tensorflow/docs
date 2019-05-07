@@ -98,6 +98,9 @@ the first statement of your program:
 tf.config.gpu.set_per_process_memory_growth()
 ```
 
+Another way to enable this option is to set the environmental variable
+`TF_FORCE_GPU_ALLOW_GROWTH` to `true`. This configuration is platform specific.
+
 The second method is `tf.gpu.set_per_process_memory_fraction()`, which
 determines the fraction of the overall amount of memory that each visible GPU
 should be allocated. For example, you can tell TensorFlow to only allocate 40%
