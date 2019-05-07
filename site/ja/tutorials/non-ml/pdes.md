@@ -1,5 +1,13 @@
 # 偏微分方程式
 
+Note: これらのドキュメントは私たちTensorFlowコミュニティが翻訳したものです。コミュニティによる
+翻訳は**ベストエフォート**であるため、この翻訳が正確であることや[英語の公式ドキュメント](https://www.tensorflow.org/?hl=en)の
+最新の状態を反映したものであることを保証することはできません。
+この翻訳の品質を向上させるためのご意見をお持ちの方は、GitHubリポジトリ[tensorflow/docs](https://github.com/tensorflow/docs)にプルリクエストをお送りください。
+\
+コミュニティによる翻訳やレビューに参加していただける方は、
+[docs-ja@tensorflow.org メーリングリスト](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ja)にご連絡ください。
+
 TensorFlowは機械学習だけのものではありません。ここでは[偏微分方程式](
 https://en.wikipedia.org/wiki/Partial_differential_equation)の振る舞いを
 シミュレートするためにTensorFlowを使った(ややありきたりな)例を示します。
@@ -133,6 +141,6 @@ for i in range(1000):
   DisplayArray(U.eval(), rng=[-0.1, 0.1])
 ```
 
-![jpeg](../../images/pde_output_2.jpg)
+![jpeg](https://www.tensorflow.org/images/pde_output_2.jpg)
 
 見てください! さざ波です!
