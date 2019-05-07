@@ -104,10 +104,8 @@ config.gpu_options.allow_growth = True
 session = tf.Session(config=config, ...)
 ```
 
-To enable this option by default, you can also instead just set the [environment 
-variable](https://en.wikipedia.org/wiki/Environment_variable) 
-`TF_FORCE_GPU_ALLOW_GROWTH` to `true`. Note, that this is a platform specific 
-setup and is done outside of the Python environment.
+To enable this option by default, set the environmental variable
+`TF_FORCE_GPU_ALLOW_GROWTH` to `true`. This configuration is platform specific.
 
 The second method is the `per_process_gpu_memory_fraction` option, which
 determines the fraction of the overall amount of memory that each visible GPU
