@@ -25,6 +25,8 @@ import itertools
 import json
 import os
 import re
+import textwrap
+
 from absl import logging
 
 import astor
@@ -405,7 +407,7 @@ class _FunctionDetail(
     parts.append(self.header)
     for key, value in self.items:
       parts.append('  ' + key + ': ')
-      parts.append(value)
+      parts.append(textwrap.indent(value, '  '))
 
     return ''.join(parts)
 
@@ -452,11 +454,7 @@ def _parse_function_details(docstring):
     function_details is a (possibly empty) list of `_FunctionDetail` objects.
   """
 
-  detail_keywords = '|'.join([
-      'Args', 'Call arguments', 'Arguments', 'Fields', 'Returns', 'Yields',
-      'Raises', 'Attributes'
-  ])
-  tag_re = re.compile('(?<=\n)(' + detail_keywords + '):\n', re.MULTILINE)
+  tag_re = re.compile(r'(?<=\n)([A-Z][\s\w]{0,20}):\n', re.MULTILINE)
   parts = tag_re.split(docstring)
 
   # The first part is the main docstring
@@ -466,9 +464,10 @@ def _parse_function_details(docstring):
   pairs = list(_gen_pairs(parts[1:]))
 
   function_details = []
-  item_re = re.compile(r'^   ? ?(\*?\*?\w[\w.]*?\s*):\s', re.MULTILINE)
+  item_re = re.compile(r'^(\*?\*?\w[\w.]*?\s*):\s', re.MULTILINE)
 
   for keyword, content in pairs:
+    content = textwrap.dedent(content)
     content = item_re.split(content)
     header = content[0]
     items = list(_gen_pairs(content[1:]))

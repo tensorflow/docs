@@ -794,11 +794,6 @@ class TestParseFunctionDetails(absltest.TestCase):
 
     relu_doc_lines = RELU_DOC.split('\n')
     self.assertEqual(docstring, relu_doc_lines[0] + '\n\n')
-    self.assertEqual(returns.header, relu_doc_lines[-2] + '\n')
-
-    self.assertEqual(
-        RELU_DOC,
-        docstring + ''.join(str(detail) for detail in function_details))
 
 
 class TestGenerateSignature(absltest.TestCase):
