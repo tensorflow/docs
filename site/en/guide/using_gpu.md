@@ -104,7 +104,7 @@ config.gpu_options.allow_growth = True
 session = tf.Session(config=config, ...)
 ```
 
-To enable this option by default, set the environmental variable
+Another way to enable this option is to set the environmental variable
 `TF_FORCE_GPU_ALLOW_GROWTH` to `true`. This configuration is platform specific.
 
 The second method is the `per_process_gpu_memory_fraction` option, which
