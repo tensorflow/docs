@@ -574,7 +574,7 @@ You can see all optimizations in [RewriterConfig](https://github.com/tensorflow/
 Below optimizations are typical optimizations performed in TensorFlow.
 
 * **Constant Folding** evaluates the operations whose input tensors are all constant.
-* **Memory Optimizer** analyzes the TensorFlow graph to inspect the peak memory usage at each operations. To reduce a peak memory usage, Memory Optimizer inserts CPU-GPU memory copy operations for swapping GPU memory to CPU, or rewrites TensorFlow graph in order to the recomputation.
+* **Memory Optimizer** analyzes the TensorFlow graph to inspect the peak memory usage at each operations. To reduce a peak memory usage, Memory Optimizer inserts CPU-GPU memory copy operations for swapping GPU memory to CPU, or rewrites TensorFlow graph for the recomputation.
 * **Layout Optimizer** inserts Transpose operation to change data-format in order to execute data-format depended operation more efficiently on GPU.
 * **Arithmentic Optimizer** is an optimization to rewrite the TensorFlow graph using mathematical equivalence relation.
 
@@ -588,25 +588,26 @@ Below simple code shows the example to enable/disable a specific optimization.
 * Enable Debug Stripper
 
 **Debug Stripper** which is disabled by default, strips the operations used for the debug purpose (Assert, CheckNumerics, Print).
-To enable Debug Stripper, you need to write codes as follows.
+To enable Debug Stripper, you need to write code as follows.
 
-Only you need to do is changing `RewriteOptions::debug_stripper` enabled.
+The only thing you need to do is enable `ConfigProto.graph_options.rewrite_options.debug_stripper`.
 
 ```python
 import tensorflow as tf
 from tensorflow.core.protobuf import config_pb2
 from tensorflow.core.protobuf import rewriter_config_pb2
 
-# enable Debug Stripper
+# enable "Debug Stripper"
 cfg = config_pb2.ConfigProto()
 cfg.graph_options.rewrite_options.debug_stripper = rewriter_config_pb2.RewriterConfig.ON
 
 # build the computation graph
-train_op = ...
+a = tf.constant(1.2)
+computation_graph = tf.Assert(tf.less_equal(a, 2), [a])
 
-# execute the computation graph with Debug Stripper ON
+# execute the computation graph with "Debug Stripper" enabled
 with tf.Session(config=cfg) as sess:
-  sess.run(train_op)
+  sess.run(computation_graph)
 ```
 
 * Disable Constant Folding
@@ -615,7 +616,122 @@ with tf.Session(config=cfg) as sess:
 To disable Constant Folding, you need to write code as follows.
 
 **Constant Folding** is performed more than two times on the graph optimization process in TensorFlow.
-You need to change not only `RewriteOptions::constant_folding`, but also `OptimizerOptions::opt_level`.
+You need to change both `ConfigProto.graph_options.rewrite_options.constant_folding` and `ConfigProto.graph_options.optimizer_options.opt_level`.
+
+```python
+import tensorflow as tf
+from tensorflow.core.protobuf import config_pb2
+from tensorflow.core.protobuf import rewriter_config_pb2
+
+# disable "Constant Folding"
+cfg = config_pb2.ConfigProto()
+cfg.graph_options.rewrite_options.constant_folding = rewriter_config_pb2.RewriterConfig.OFF
+cfg.graph_options.optimizer_options.opt_level = config_pb2.OptimizerOptions.L0
+
+# build the computation graph
+a = tf.constant(1.2)
+b = tf.constant(3.5)
+c = a * b
+computation_graph = a + c
+
+# execute the computation graph with "Constant Folding" disabled
+with tf.Session(config=cfg) as sess:
+  sess.run(computation_graph)
+```
+
+
+### Inspect the Optimized Graph
+
+The optimized graphs can be inspectable by passing [RunOptions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/config.proto) (`output_partion_graphs` must be enabled) to the keyword argument `options` of `tf.Session.run`.
+Let us look at the case of "Constant Folding" optimization.
+"Constant Folding" is enabled by default, so you will see the effects of the constant propagations without any procedures.
+
+```python
+import tensorflow as tf
+from tensorflow.core.protobuf import config_pb2
+from tensorflow.core.protobuf import rewriter_config_pb2
+
+# "Constant Folding" is enabled by default, so you don't need to set ConfigProto
+# explicitly
+
+# enable to output optimized graph
+run_opts = tf.RunOptions()
+run_opts.output_partition_graphs = True
+run_md = tf.RunMetadata()
+
+# build the computation graph
+a = tf.constant(1.2)
+b = tf.constant(3.5)
+c = a * b
+computation_graph = a + c
+
+# execute the computation graph with "Constant Folding" enabled
+with tf.Session() as sess:
+  sess.run(computation_graph, run_metadata=run_md, options=run_opts)
+
+  # output optimized graph
+  print(run_md.partition_graphs)
+```
+
+The optimized graph is saved to the field `partition_graphs` of [RunMetadata](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/config.proto) as protocol buffers data format ([GraphDef](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/graph.proto)).
+Executing the above code, the optimized graph is output to the terminal.
+You will notice that only one `Const` operation is in the optimized graph.
+This means that "Constant Folding" evaluated the operation whose input tensors are all constant.
+
+> Note: If TensorFlow runs on the multiple devices environment, the optimized graph will be partitioned by the devices.
+> Note: The optimized graph will output the TensorFlow internal operation (e.g. `_Retval`) as well.
+
+
+```
+[node {
+  name: "add"
+  op: "Const"
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        tensor_content: "\316\314\254@"
+      }
+    }
+  }
+}
+node {
+  name: "_retval_add_0_0"
+  op: "_Retval"
+  input: "add"
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "index"
+    value {
+      i: 0
+    }
+  }
+}
+library {
+}
+versions {
+  producer: 27
+}
+]
+```
+
+To make sure the effectiveness of "Constant Folding", we will show the optimized graph with "Constant Folding" off.
 
 ```python
 import tensorflow as tf
@@ -627,10 +743,123 @@ cfg = config_pb2.ConfigProto()
 cfg.graph_options.rewrite_options.constant_folding = rewriter_config_pb2.RewriterConfig.OFF
 cfg.graph_options.optimizer_options.opt_level = config_pb2.OptimizerOptions.L0
 
+# enable to output optimized graph
+run_opts = tf.RunOptions()
+run_opts.output_partition_graphs = True
+run_md = tf.RunMetadata()
+
 # build the computation graph
-train_op = ...
+a = tf.constant(1.2)
+b = tf.constant(3.5)
+c = a * b
+computation_graph = a + c
 
 # execute the computation graph with Debug Stripper ON
 with tf.Session(config=cfg) as sess:
-  sess.run(train_op)
+  sess.run(computation_graph, run_metadata=run_md, options=run_opts)
+
+# output optimized graph
+print(run_md.partition_graphs)
 ```
+
+The optimized graph has two `Const` operations, one `Add` operation and one `Mul` operation.
+This indicates that "Constant Folding" is not applied to the graph.
+
+```
+[node {
+  name: "Const"
+  op: "Const"
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 1.20000004768
+      }
+    }
+  }
+}
+node {
+  name: "Const_1"
+  op: "Const"
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 3.5
+      }
+    }
+  }
+}
+node {
+  name: "mul"
+  op: "Mul"
+  input: "Const"
+  input: "Const_1"
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "add"
+  op: "Add"
+  input: "Const"
+  input: "mul"
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "_retval_add_0_0"
+  op: "_Retval"
+  input: "add"
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "index"
+    value {
+      i: 0
+    }
+  }
+}
+library {
+}
+versions {
+  producer: 27
+}
+]
+```
+
+
