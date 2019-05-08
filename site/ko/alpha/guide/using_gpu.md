@@ -1,40 +1,32 @@
-# Using GPUs
+# GPU 사용하기
 
-## Supported devices
+## 지원하는 장치들
 
-TensorFlow supports running computations on a variety of types of devices,
-including `CPU` and `GPU`. They are represented with `strings`, for example:
+텐서플로는 `CPU`와 `GPU`를 포함한 다양한 타입의 장치에서 계산을 지원합니다. 그것들은 `strings`로 표현됩니다, 이를테면:
 
-*   `"/cpu:0"`: The CPU of your machine.
-*   `"/device:GPU:0"`: The first GPU of your machine that is visible to
-TensorFlow
-*   `"/device:GPU:1"`: The second GPU of your machine that is visible to
-TensorFlow, etc.
+*   `"/cpu:0"`: 자신의 CPU
+*   `"/device:GPU:0"`: 텐서플로에서 볼 수 있는 첫 번째 GPU
+*   `"/device:GPU:1"`: 텐서플로 등에서 볼 수 있는 두 번째 GPU
 
-If a TensorFlow operation has both CPU and GPU implementations, by default the
-GPU devices will be given priority when the operation is assigned to a device.
-For example, `matmul` has both CPU and GPU kernels. On a system with devices
-`cpu:0` and `gpu:0`, `gpu:0` will be selected to run `matmul` unless you
+텐서플로 연산이 CPU와 GPU 구현을 다 포함하고 있으면 연산이 장치에 할당될 때 기본값으로 GPU 장치가 우선적으로 할당됩니다. 예를들어 `matmul`은 CPU와 GPU 커널 모두 있습니다. `cpu:0`와 `gpu:0`, `gpu:1`이 있는 시스템에서는 명시적으로 장치를 지정하지 않는다면 `matmul`을 실행하기 위해 `gpu:0`가 선택됩니다.
 explicitly request running it on another device.
 
 
-## Logging device placement
+## 장치 할당 로깅
 
-To find out which devices your operations and tensors are assigned to, put
-`tf.debugging.set_log_device_placement(True)` as the first statement of your
-program.
+연산과 텐서가 어던 장치에 할당되었는지 확인하려면 `tf.debugging.set_log_device_placement(True)`를 프로그램의 첫 번째 문장(statement)으로 하세요.
 
 ```python
 tf.debugging.set_log_device_placement(True)
 
-# Creates some tensors
+# 텐서 생성
 a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
 b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
 c = tf.matmul(a, b)
 print(c)
 ```
 
-You should see the following output:
+다음과 같은 출력이 나올 것입니다:
 
 ```
 Executing op MatMul in device /job:localhost/replica:0/task:0/device:CPU:0
@@ -43,17 +35,14 @@ tf.Tensor(
  [49. 64.]], shape=(2, 2), dtype=float32)
 ```
 
-## Manual device placement
+## 수동 장치 할당
 
-If you would like a particular operation to run on a device of your choice
-instead of what's automatically selected for you, you can use `with tf.device`
-to create a device context, and all the operations within that context will
-run on the same designated device.
+장치를 자동으로 선택하지 않고 특정 연산을 실행할 장치를 직접 선택하고 싶다면, `with tf.device`로 장치 컨텍스트를 생성할 수 있고 해당 컨텍스트에서의 모든 연산은 지정된 장치에서 수행됩니다.
 
 ```python
 tf.debugging.set_log_device_placement(True)
 
-# Place tensors on the CPU
+# 텐서를 CPU에 할당
 with tf.device('/cpu:0'):
   a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
   b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
@@ -61,10 +50,7 @@ c = tf.matmul(a, b)
 print(c)
 ```
 
-You will see that now `a` and `b` are assigned to `cpu:0`. Since a device was
-not explicitly specified for the `MatMul` operation, the TensorFlow runtime will
-choose one based on the operation and available devices (`cpu:0` in this
-example) and automatically copy tensors between devices if required.
+`a`와 `b`가 `cpu:0`에 할당되었습니다. `MatMul`연산은 명시적으로 장치가 할당되어 있지 않기 때문에 텐서플로 런타임(runtime)은 연산과 가용한 장치들(이 예제에서는 `cpu:0`)에 기초해서 하나를 고를 것이고 필요하다면 장치간 텐서를 자동적으로 복사할 것입니다.
 
 ```
 Executing op MatMul in device /job:localhost/replica:0/task:0/device:CPU:0
@@ -73,53 +59,35 @@ tf.Tensor(
  [49. 64.]], shape=(2, 2), dtype=float32)
 ```
 
-## Allowing GPU memory growth
+## GPU 메모리 증가를 허용하기
 
-By default, TensorFlow maps nearly all of the GPU memory of all GPUs (subject to
-[`CUDA_VISIBLE_DEVICES`](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#env-vars))
-visible to the process. This is done to more efficiently use the relatively
-precious GPU memory resources on the devices by reducing [memory
-fragmentation](https://en.wikipedia.org/wiki/Fragmentation_\(computing\)).
+기본적으로 텐서플로는 모든 GPU의 거의 모든 GPU 메모리를 프로세스가 볼 수 있도록 매핑합니다([`CUDA_VISIBLE_DEVICES`](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#env-vars)를 가정합니다). 이는 [메모리 단편화](https://en.wikipedia.org/wiki/Fragmentation_\(computing\))를 줄여서 상대적으로 귀한 GPU 메모리 리소스를 장치에서 보다 효율적으로 사용하기 위해 수행됩니다.
 
-In some cases it is desirable for the process to only allocate a subset of the
-available memory, or to only grow the memory usage as is needed by the process.
-TensorFlow provides two methods to control this.
+어떤 경우에는 프로세스가 가용한 메모리의 일부에만 할당되도록 하거나 프로세스가 요구하는 양만큼 메모리 사용이 증가할 수 있도록 하는 것이 필요합니다. 텐서플로에서는 이걸 조정하기 위한 두 가지 방법이 있습니다.
 
-The first option is to turn on memory growth by calling
-`tf.config.gpu.set_per_process_memory_growth()` method, which attempts to
-allocate only as much GPU memory in needed for the runtime allocations: it
-starts out allocating very little memory, and as the program gets run and more
-GPU memory is needed, we extend the GPU memory region allocated to the
-TensorFlow process. Note that we do not release memory, since that can lead to
-even worse memory fragmentation. To turn process memory growth on, put this as
-the first statement of your program:
+첫 번째는 `tf.config.gpu.set_per_process_memory_growth()`를 호출하여 메모리 증가를 허용하는 것입니다. 이 메서드는 런타임에서 할당하는데 필요한 양만큼의 GPU 메모리를 할당합니다: 처음에는 메모리를 조금만 할당하고, 프로그램이 실행되어 더 많은 GPU 메모리가 필요로 할때, 텐서플로 프로세스에 할당된 GPU 메모리 영역을 확장합니다. 메모리를 해제하는 것은 메모리 단편화를 악화시키므로 메모리 해제는 하지않음에 주의하세요. 프로세스 메모리 증가를 허용하기 위해서 다음의 선언을 프로그램의 첫 번째 선언으로 하세요:
 
 ```python
 tf.config.gpu.set_per_process_memory_growth()
 ```
 
-The second method is `tf.gpu.set_per_process_memory_fraction()`, which
-determines the fraction of the overall amount of memory that each visible GPU
-should be allocated. For example, you can tell TensorFlow to only allocate 40%
-of the total memory of each GPU by:
+두 번째 방법은 `tf.gpu.set_per_process_memory_fraction()`인데 보여지는 GPU가 할당해야 하는 메모리의 총량의 파편을 결정합니다. 예를 들어, 다음과 같이 입력하여 텐서플로가 각 GPU 메모리의 40%만 할당하도록 할 수 있습니다:
 
 ```python
 tf.config.gpu.set_per_process_memory_fraction(0.4)
 ```
 
-This is useful if you want to truly bound the amount of GPU memory available to
-the TensorFlow process.
+이는 텐서플로 프로세스에 가용한 GPU 메모리량을 제한하는데 유용합니다.
 
-## Using a single GPU on a multi-GPU system
+## 멀티 GPU 시스템에서 하나의 GPU 사용하기
 
-If you have more than one GPU in your system, the GPU with the lowest ID will be
-selected by default. If you would like to run on a different GPU, you will need
-to specify the preference explicitly:
+시스템에 한 개 이상의 GPU가 있다면, 기본값으로 낮은 ID의 GPU가 선택됩니다. 
+다른 GPU에서 실행하고 싶다면, 명시적으로 표시해야 합니다:
 
 ```python
 tf.debugging.set_log_device_placement(True)
 
-# Specify a device
+# 장치를 명시
 with tf.device('/device:GPU:2'):
   a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
   b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
@@ -128,22 +96,19 @@ with tf.device('/device:GPU:2'):
 print(c)
 ```
 
-If the device you have specified does not exist, you will get
-`RuntimeError`:
+명시한 장치가 없으면 `RuntimeError`가 나옵니다:
 
 ```
 RuntimeError: Error copying tensor to device: /job:localhost/replica:0/task:0/device:GPU:2. /job:localhost/replica:0/task:0/device:GPU:2 unknown device.
 ```
 
-If you would like TensorFlow to automatically choose an existing and supported
-device to run the operations in case the specified one doesn't exist, you can
-call `tf.config.set_soft_device_placement(True)`.
+명시된 장치가 없을 때 텐서플로가 자동으로 현재 지원하는 장치를 선택하게 하고 싶다면 `tf.config.set_soft_device_placement(True)`를 호출하세요.
 
 ```python
 tf.config.set_soft_device_placement(True)
 tf.debugging.set_log_device_placement(True)
 
-# Creates some tensors
+# 텐서들 생성
 with tf.device('/device:GPU:2'):
   a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
   b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
@@ -152,12 +117,12 @@ with tf.device('/device:GPU:2'):
 print(c)
 ```
 
-## Using multiple GPUs
+## 멀티 GPU 사용하기
 
-#### With `tf.distribute.Strategy`
+#### `tf.distribute.Strategy`를 사용
 
-The best practice for using multiple GPUs is to use `tf.distribute.Strategy`.
-Here is a simple example:
+멀티 GPU를 사용하는 가장 좋은 방법은 `tf.distribute.Strategy`를 사용하는 것입니다. 
+간단한 예제를 살펴봅시다:
 
 ```python
 strategy = tf.distribute.MirroredStrategy()
@@ -170,24 +135,20 @@ with strategy.scope():
                 optimizer=tf.train.GradientDescentOptimizer(learning_rate=0.2))
 ```
 
-This program will run a copy of your model on each GPU, splitting the input data
-between them, also known as "[data parallelism](https://en.wikipedia.org/wiki/Data_parallelism)".
+이 프로그램은 각 GPU에 모델을 복사하고 입력 데이터를 각 GPU에 나누어서 실행할 것입니다. 이는 "[데이터 병렬처리](https://en.wikipedia.org/wiki/Data_parallelism)"라고도 합니다.
 
-For more information about distribution strategies, check out the guide
-[here](./distribute_strategy.ipynb).
+병렬화 전략에 대한 더 많은 정보는 [가이드](./distribute_strategy.ipynb)를 참조하세요.
 
 
-#### Without `tf.distribute.Strategy`
+#### `tf.distribute.Strategy` 사용하지 않기
 
-`tf.distribute.Strategy` works under the hood by replicating computation across
-devices. You can manually implement replication by constructing your model on
-each GPU. For example:
+`tf.distribute.Strategy`는 여러 장치에 걸쳐 계산을 복제함으로써 동작합니다. 모델을 각 GPU에 구성하여 수동으로 복제를 구현할 수 있습니다. 예를 들면:
 
 
 ``` python
 tf.debugging.set_log_device_placement(True)
 
-# Replicate your computation on multiple GPUs
+# 다수의 GPU에 계산을 복제
 c = []
 for d in ['/device:GPU:2', '/device:GPU:3']:
   with tf.device(d):
@@ -200,7 +161,7 @@ with tf.device('/cpu:0'):
 print(sum)
 ```
 
-You will see the following output.
+다음과 같은 출력이 나옵니다.
 
 ```
 Executing op MatMul in device /job:localhost/replica:0/task:0/device:GPU:0
