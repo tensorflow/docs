@@ -16,7 +16,7 @@ toc:
   style: divider
 
 - title: "ML basics"
-  style: accordion
+  style: accordion 
   section:
   - title: "Overview"
     path: /alpha/tutorials/keras/
