@@ -109,7 +109,7 @@ for x, y in main_dataset:
     prediction = path1(x)
     loss = loss_fn_head1(prediction, y)
   # trunk와 head1 가중치를 동시에 최적화합니다.
-  gradients = tape.gradients(loss, path1.trainable_variables)
+  gradients = tape.gradient(loss, path1.trainable_variables)
   optimizer.apply_gradients(zip(gradients, path1.trainable_variables))
 
 # trunk를 재사용하여 head2를 세부 튜닝합니다.
@@ -118,7 +118,7 @@ for x, y in small_dataset:
     prediction = path2(x)
     loss = loss_fn_head2(prediction, y)
   # trunk 가중치는 제외하고 head2 가중치만 최적화합니다.
-  gradients = tape.gradients(loss, head2.trainable_variables)
+  gradients = tape.gradient(loss, head2.trainable_variables)
   optimizer.apply_gradients(zip(gradients, head2.trainable_variables))
 
 # trunk 연산만 재사용을 위해 저장할 수 있습니다.
@@ -136,7 +136,7 @@ def train(model, dataset, optimizer):
     with tf.GradientTape() as tape:
       prediction = model(x)
       loss = loss_fn(prediction, y)
-    gradients = tape.gradients(loss, model.trainable_variables)
+    gradients = tape.gradient(loss, model.trainable_variables)
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 ```
 
