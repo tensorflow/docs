@@ -4,7 +4,15 @@
 <img style="width:50%" src="https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/compiler/xla/g3doc/images/xlalogo.png">
 </div>
 
-> Note: XLAは現在開発中であるため、特定の状況でメモリ使用量の増大や性能の悪化を引き起こす場合があります。
+Note: XLAは現在開発中であるため、特定の状況でメモリ使用量の増大や性能の悪化を引き起こす場合があります。
+
+Note: これらのドキュメントは私たちTensorFlowコミュニティが翻訳したものです。コミュニティによる
+翻訳は**ベストエフォート**であるため、この翻訳が正確であることや[英語の公式ドキュメント](https://www.tensorflow.org/?hl=en)の
+最新の状態を反映したものであることを保証することはできません。
+この翻訳の品質を向上させるためのご意見をお持ちの方は、GitHubリポジトリ[tensorflow/docs](https://github.com/tensorflow/docs)にプルリクエストをお送りください。
+\
+コミュニティによる翻訳やレビューに参加していただける方は、
+[docs-ja@tensorflow.org メーリングリスト](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ja)にご連絡ください。
 
 XLA(Accelerated Linear Algebra)は線形代数の演算に特化したコンパイラで、XLAを使うことでTensorFlowの演算を最適化し、メモリ使用量、性能、サーバやモバイル環境での移植性の面での改善が期待できます。現在のところ、ほとんどのユーザにとってXLAを使うことによる大きな恩恵は得られないかもしれませんが、[just-in-time (JIT) コンパイル機能](https://www.tensorflow.org/xla/jit) や [ahead-of-time (AOT) コンパイル機能](https://www.tensorflow.org/xla/tfcompile) を通して、実験的にXLAを使っていただくのは歓迎です。ただし、新たなハードウエアアクセラレータの開発者については、XLAを試してみることをおすすめします。
 
