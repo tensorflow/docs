@@ -1,5 +1,13 @@
 # 機械学習資料
 
+Note: これらのドキュメントは私たちTensorFlowコミュニティが翻訳したものです。コミュニティによる
+翻訳は**ベストエフォート**であるため、この翻訳が正確であることや[英語の公式ドキュメント](https://www.tensorflow.org/?hl=en)の
+最新の状態を反映したものであることを保証することはできません。
+この翻訳の品質を向上させるためのご意見をお持ちの方は、GitHubリポジトリ[tensorflow/docs](https://github.com/tensorflow/docs)にプルリクエストをお送りください。
+\
+コミュニティによる翻訳やレビューに参加していただける方は、
+[docs-ja@tensorflow.org メーリングリスト](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ja)にご連絡ください。
+
 TensorFlow.jsで機械学習を行うには、特に機械学習やニューラルネットワーク、JavaScript、そしてNode.JSまたはブラウザベース開発などのさまざまなドメインの知識が必要です。あなたのバックグラウンドによっては、それらの領域のいくつかに馴染みがにないということもあるでしょう。ウェブ上にはすばらしい学習資料が数多くあります。このページではニューラルネットワークを使用した機械学習の知識獲得の第一歩となる資料をいくつか紹介します。
 
 
@@ -40,4 +48,3 @@ TensorFlow.jsで機械学習を行うには、特に機械学習やニューラ�
 - [Essence of Calculus](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr) by 3blue1brown
 - [Linear Algebra](https://www.khanacademy.org/math/linear-algebra) by Khan Academy
 - [Calculus](https://www.khanacademy.org/math/calculus-home) by Khan Academy
-
