@@ -54,10 +54,6 @@ toc:
 - title: "Estimators"
   style: accordion
   section:
-  - title: "Boosted trees"
-    path: /alpha/tutorials/estimators/boosted_trees
-  - title: "Boosted trees (model understanding)"
-    path: /alpha/tutorials/estimators/boosted_trees_model_understanding
   - title: "Linear models"
     path: /alpha/tutorials/estimators/linear
 
