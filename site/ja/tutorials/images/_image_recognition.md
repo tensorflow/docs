@@ -6,8 +6,8 @@
 に非常に優れているので、簡単に見えるだけです。
 
 ここ数年、機械学習の分野は、これらの難しい問題に取り組む上で、途轍もない進歩を遂げました。  
-特に、私たちはDeep
-[CNN (Convolutional neural network: 畳み込みニューラルネットワーク) ](https://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
+特に、私たちは Deep
+[CNN（Convolutional neural network: 畳み込みニューラルネットワーク）](https://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
 と呼ばれる種類のモデルが、  
 難しい視覚認識のタスクにおいて悪くない性能を達成することができることを発見しました。  
 いくつかの領域では人間の能力に匹敵する、または超えるほどです。
@@ -15,9 +15,9 @@
 研究者たちは彼らの研究を、コンピュータビジョンにおける学術的なベンチマークである  
 [ImageNet] に対して、検証することによって、コンピュータビジョンにおける着実な進歩を  
 証明してきました。
-[QuocNet], [AlexNet], [Inception (GoogLeNet)], [BN-Inception-v2] のように、  
+[QuocNet] 、[AlexNet] 、[Inception (GoogLeNet)] 、[BN-Inception-v2] のように、  
 次々とモデルは改善され続け、その度に新しい最先端の結果を達成してきています。  
-Google内部および外部の研究者たちは、これらの全てのモデルについて説明した論文を発表して  
+Google 内部および外部の研究者たちは、これらの全てのモデルについて説明した論文を発表して  
 きました。しかしながらその結果を再現することは未だ難しいままです。  
 私たちは今、私たちの最新のモデルである [Inception-v3] で画像認識を実行するコードをリリース  
 することで、次のステップに進んでいってます。
@@ -28,10 +28,10 @@ Google内部および外部の研究者たちは、これらの全てのモデ�
 [BN-Inception-v2]: https://arxiv.org/abs/1502.03167
 [Inception-v3]: https://arxiv.org/abs/1512.00567
 
-Inception-v3 は2012年のデータを使った [ImageNet] Large Scale Visual Recognition Challenge (ILSVRC)å のために学習させました。  
-これは、「Zebra (シマウマ)」、「Dalmatian (ダルメシアン)」、そして「Dishwasher (食器洗い機)」  
+Inception-v3 は2012年のデータを使った [ImageNet] Large Scale Visual Recognition Challenge（ILSVRC）のために学習させました。  
+これは、「 Zebra（シマウマ）」、「 Dalmatian（ダルメシアン）」、そして「 Dishwasher （食器洗い機）」  
 のような[1000クラス]に画像全体を分類する、コンピュータビジョンの基本的なタスクです。  
-例えば、これはいくつかのイメージを[AlexNet]が分類した結果です。å
+例えば、これはいくつかのイメージを [AlexNet] が分類した結果です。：
 
 <div style="width:50%; margin:auto; margin-bottom:10px; margin-top:20px;">
 <img style="width:100%" src="https://www.tensorflow.org/images/AlexClassification.png">
@@ -39,17 +39,18 @@ Inception-v3 は2012年のデータを使った [ImageNet] Large Scale Visual Re
 
 モデルの比較をするために、私たちは「トップ5エラー率」と呼ばれる上位5つの推測の1つで、  
 モデルが正しい答えの予測にどれくらいの頻度で失敗するか調べます。  
-[AlexNet]は2012の検証データセットで15.3%のトップ5エラー率の設定で達成しました。  
-[Inception (GoogLeNet)] は6.67%を達成し、[BN-Inception-v2] は4.9%を達成し、  
-[Inception-v3]では3.46%に達しました。
+[AlexNet] は2012の検証データセットで 15.3% のトップ5エラー率の設定で達成しました。  
+[Inception (GoogLeNet)] は 6.67% を達成し、[BN-Inception-v2] は 4.9% を達成し、  
+[Inception-v3] では 3.46% に達しました。
 
-> 人間ではImageNet Challengeでどのくらいの成績を出せるでしょうか？ 自身のパフォーマンス測定しようとしたAndrej Karpathyによるブログ記事があります。彼は5.1%のトップ5エラー率に達しました。
+> 人間では ImageNet Challenge でどのくらいの成績を出せるでしょうか？ 自身のパフォーマンス測定しようとした Andrej Karpathy  
+によるブログ記事があります。彼は 5.1% のトップ5エラー率に達しました。
 
 [ImageNet]: http://image-net.org/
 [1000クラス]: http://image-net.org/challenges/LSVRC/2014/browse-synsets
 [blog post]: https://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/
 
-このチュートリアルでは、[Inception-v3]の使い方を教えます。PythonまたはC++での画像を[1000クラス]に分類する方法を学びます。
+このチュートリアルでは、[Inception-v3] の使い方を教えます。Python または C++ での画像を[1000クラス]に分類する方法を学びます。
 他のヴィジョンタスクで再利用されるかもしれないこのモデルから、よりハイレベルな機能の抜き出し方についても説明します。
 
 私たちはコミュニティがこのモデルで何をするのかをとても楽しみにしています。
@@ -57,10 +58,10 @@ Inception-v3 は2012年のデータを使った [ImageNet] Large Scale Visual Re
 
 ## Python APIの使用
 
-`classify_image.py` は、プログラムを初めて実行した際に、`tensorflow.org`から  
-学習済みモデルをダウンロードしてきます。ハードディスクには200MBの空き容量が必要になります。
+`classify_image.py` は、プログラムを初めて実行した際に、`tensorflow.org` から  
+学習済みモデルをダウンロードしてきます。ハードディスクには 200MB の空き容量が必要になります。
 
-GitHubの[TensorFlow models repo](https://github.com/tensorflow/models)をクローンすることから始めます。以下のコマンドを実行してください。
+GitHub の [TensorFlow models repo](https://github.com/tensorflow/models) をクローンすることから始めます。以下のコマンドを実行してください。：
 
     cd models/tutorials/image/imagenet
     python classify_image.py
@@ -72,7 +73,7 @@ GitHubの[TensorFlow models repo](https://github.com/tensorflow/models)をクロ
   <img style="width:100%" src="https://www.tensorflow.org/images/cropped_panda.jpg">
 </div>
 
-もし、モデルが正常に実行されれば、スクリプトは次のような出力を生成します。
+もし、モデルが正常に実行されれば、スクリプトは次のような出力を生成します。：
 
     giant panda, panda, panda bear, coon bear, Ailuropoda melanoleuca (score = 0.88493)
     indri, indris, Indri indri, Indri brevicaudatus (score = 0.00878)
@@ -80,41 +81,36 @@ GitHubの[TensorFlow models repo](https://github.com/tensorflow/models)をクロ
     custard apple (score = 0.00149)
     earthstar (score = 0.00127)
 
-もし、他のJPEG画像を渡したければ、引数`--image_file`を編集することで可能です。
+もし、他のJPEG画像を渡したければ、引数 `--image_file` を編集することで可能です。
 
-> もし、別のディレクトリにモデルデータをダウンロードする場合は、`--model_dir`を使用するディレクトリに指定する必要があります。
+> もし、別のディレクトリにモデルデータをダウンロードする場合は、`--model_dir` を使用するディレクトリに指定する必要があります。
 
 ## C++ APIの使用
 
-
-You can run the same [Inception-v3] model in C++ for use in production
-environments. You can download the archive containing the GraphDef that defines
-the model like this (running from the root directory of the TensorFlow
-repository):
+production 環境で使用するために、同じ [Inception-v3] モデルを C++ で実行することもできます。  
+このようなモデルを定義する GraphDef を含んだアーカイブをダウンロードすることができます。（ TensorFlow のリポジトリのルートディレクトリから実行しています）：
 
 ```bash
 curl -L "https://storage.googleapis.com/download.tensorflow.org/models/inception_v3_2016_08_28_frozen.pb.tar.gz" |
   tar -C tensorflow/examples/label_image/data -xz
 ```
 
-Next, we need to compile the C++ binary that includes the code to load and run the graph.
-If you've followed
-[the instructions to download the source installation of TensorFlow](../../install/source.md)
-for your platform, you should be able to build the example by
-running this command from your shell terminal:
+次に、グラフをロードして実行するためのコードを含めた C++バイナリをコンパイルする必要があります。
+もし、あなたのプラットフォームの[ TensorFlow のソースをダウンロードするインストール方法の説明書](../../install/source.md)に従った場合は、  
+シェルターミナルからこのコマンドを実行することで、例をビルドできるはずです。：
 
 ```bash
 bazel build tensorflow/examples/label_image/...
 ```
 
-That should create a binary executable that you can then run like this:
+これで実行可能なバイナリが作られ、これを実行することができます。：
 
 ```bash
 bazel-bin/tensorflow/examples/label_image/label_image
 ```
 
-This uses the default example image that ships with the framework, and should
-output something similar to this:
+これはフレームワークに同梱されているデフォルトのサンプル画像を使用します。  
+そして、これに似たものを出力します
 
 ```
 I tensorflow/examples/label_image/main.cc:206] military uniform (653): 0.834306
@@ -123,26 +119,29 @@ I tensorflow/examples/label_image/main.cc:206] academic gown (401): 0.0103579
 I tensorflow/examples/label_image/main.cc:206] pickelhaube (716): 0.00800814
 I tensorflow/examples/label_image/main.cc:206] bulletproof vest (466): 0.00535088
 ```
-In this case, we're using the default image of
-[Admiral Grace Hopper](https://en.wikipedia.org/wiki/Grace_Hopper), and you can
-see the network correctly identifies she's wearing a military uniform, with a high
-score of 0.8.
+
+このケースでは、デフォルトの[グレイス・ホッパー（Grace Hopper）准将](https://en.wikipedia.org/wiki/Grace_Hopper)の画像を使います。  
+そして、ネットワークが0.8の高いスコアで彼女が軍服を着ていることを正しく識別してことを正しく識別していることを確認できます。
 
 
 <div style="width:45%; margin:auto; margin-bottom:10px; margin-top:20px;">
   <img style="width:100%" src="https://www.tensorflow.org/images/grace_hopper.jpg">
 </div>
 
-Next, try it out on your own images by supplying the --image= argument, e.g.
+続いて、次のようにあなたの持っている画像を `--image=` 引数で与えて、これを試してみましょう。
 
 ```bash
 bazel-bin/tensorflow/examples/label_image/label_image --image=my_image.png
 ```
 
-If you look inside the [`tensorflow/examples/label_image/main.cc`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/label_image/main.cc)
-file, you can find out
-how it works. We hope this code will help you integrate TensorFlow into
-your own applications, so we will walk step by step through the main functions:
+もし、[`tensorflow/examples/label_image/main.cc`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/label_image/main.cc) ファイルの中身を見たならば、  
+それがどのように動いているか知ることができます。このコードがあなた自身アプリケーションにTensorFlowを組み込む助けになれば幸いです。  
+主要な機能を通して、段階的に進んでいきましょう。:
+
+
+コマンドラインフラグでどこからファイルを読み込むと、入力画像のプロパティを制御できます。  
+モデルは 299x299 のRGB画像を取得することを期待します。これらは `input_width` と `input_height` フラグで制御できます。  
+
 
 The command line flags control where the files are loaded from, and properties of the input images.
 The model expects to get square 299x299 RGB images, so those are the `input_width`
