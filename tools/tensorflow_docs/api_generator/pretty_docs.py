@@ -76,8 +76,7 @@ def _build_function_page(page_info):
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
-  parts.append('\n'.join(page_info.doc.docstring.split('\n')[1:]))
-  parts.append(_build_function_details(page_info.doc.function_details))
+  parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   return ''.join(parts)
@@ -121,8 +120,7 @@ def _build_class_page(page_info):
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
-  parts.append('\n'.join(page_info.doc.docstring.split('\n')[1:]))
-  parts.append(_build_function_details(page_info.doc.function_details))
+  parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
@@ -149,8 +147,8 @@ def _build_class_page(page_info):
       h3 = '<h3 id="{short_name}"><code>{short_name}</code></h3>\n\n'
       parts.append(h3.format(short_name=prop_info.short_name))
 
-      parts.append(prop_info.doc.docstring)
-      parts.append(_build_function_details(prop_info.doc.function_details))
+      parts.append(prop_info.doc.brief)
+      parts.extend(str(item) for item in prop_info.doc.docstring_parts)
       parts.append(_build_compatibility(prop_info.doc.compatibility))
 
       parts.append('\n\n')
@@ -198,8 +196,8 @@ def _build_method_section(method_info, heading_level=3):
   if method_info.signature is not None:
     parts.append(_build_signature(method_info, use_full_name=False))
 
-  parts.append(method_info.doc.docstring)
-  parts.append(_build_function_details(method_info.doc.function_details))
+  parts.append(method_info.doc.brief)
+  parts.extend(str(item) for item in method_info.doc.docstring_parts)
   parts.append(_build_compatibility(method_info.doc.compatibility))
   parts.append('\n\n')
   return ''.join(parts)
@@ -225,7 +223,7 @@ def _build_module_page(page_info):
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
   # All lines in the docstring, expect the brief introduction.
-  parts.append('\n'.join(page_info.doc.docstring.split('\n')[1:]))
+  parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
@@ -322,17 +320,3 @@ def _build_compatibility(compatibility):
     parts.append('\n\n#### %s Compatibility\n%s\n' % (key.title(), value))
 
   return ''.join(parts)
-
-
-def _build_function_details(function_details):
-  """Return the function details section as an md string."""
-  parts = []
-  for detail in function_details:
-    sub = []
-    sub.append('#### ' + detail.keyword + ':\n\n')
-    sub.append(textwrap.dedent(detail.header))
-    for key, value in detail.items:
-      sub.append('* <b>`%s`</b>: %s' % (key, value))
-    parts.append(''.join(sub))
-
-  return '\n'.join(parts)

@@ -47,7 +47,7 @@ def is_free_function(py_object, full_name, index):
     index: The {full_name:py_object} dictionary for the public API.
 
   Returns:
-    True if the obeject is a stand-alone function, and not part of a class
+    True if the object is a stand-alone function, and not part of a class
     definition.
   """
   if not tf_inspect.isfunction(py_object):
@@ -378,108 +378,162 @@ def _handle_compatibility(doc):
   return match_compatibility.subn(r'', doc)[0], compatibility_notes
 
 
-def _gen_pairs(items):
+def _pairs(items):
   """Given an list of items [a,b,a,b...], generate pairs [(a,b),(a,b)...].
 
   Args:
     items: A list of items (length must be even)
 
-  Yields:
-    The original items, in pairs
+  Returns:
+    A list of pairs.
   """
   assert len(items) % 2 == 0
-  return zip(items[::2], items[1::2])
+  return list(zip(items[::2], items[1::2]))
 
 
-class _FunctionDetail(
-    collections.namedtuple('_FunctionDetail', ['keyword', 'header', 'items'])):
-  """A simple class to contain function details.
+class TitleBlock(object):
+  """A class to parse title blocks (like `Args:`) and convert them to markdown.
 
-  Composed of a "keyword", a possibly empty "header" string, and a possibly
-  empty
-  list of key-value pair "items".
+  This handles the "Args/Returns/Raises" blocks and anything similar.
+
+  These are used to extract metadata (argument descriptions, etc), and upgrade
+  This `TitleBlock` to markdown.
+
+  These blocks are delimited by indentation. There must be a blank line before
+  the first `TitleBlock` in a series.
+
+  The expected format is:
+
+  ```
+  Arguments:
+    Freeform text
+    arg1: value1
+    arg2: value1
+  ```
+
+  These are represented as:
+
+  ```
+  TitleBlock(
+    title = "Arguments",
+    text = "Freeform text",
+    items=[('arg1', 'value1'), ('arg2', 'value2')])
+  ```
+
+  The "text" and "items" fields may be empty. When both are empty the generated
+  markdown only serves to upgrade the title to a <h4>.
+
+  Attributes:
+    title: The title line, without the colon.
+    text: Freeform text. Anything between the `title`, and the `items`.
+    items: A list of (name, value) string pairs. All items must have the same
+      indentation.
   """
-  __slots__ = []
+
+  def __init__(self, title, text, items):
+    self.title = title
+    self.text = text
+    self.items = items
 
   def __str__(self):
-    """Return the original string that represents the function detail."""
-    parts = [self.keyword + ':\n']
-    parts.append(self.header)
-    for key, value in self.items:
-      parts.append('  ' + key + ': ')
-      parts.append(textwrap.indent(value, '  '))
+    """Returns a markdown compatible version of the TitleBlock."""
+    sub = []
+    sub.append('\n\n#### ' + self.title + ':')
+    sub.append(textwrap.dedent(self.text))
+    sub.append('\n')
+    for name, description in self.items:
+      sub.append('* <b>`{}`</b>: {}'.format(name, description))
+    return ''.join(sub)
 
-    return ''.join(parts)
+  # This regex matches an entire title-block.
+  BLOCK_RE = re.compile(
+      r"""
+      (?:^|^\n|\n\n)                  # After a blank line (non-capturing):
+        (?P<title>[A-Z][\s\w]{0,20})  # Find a sentence case title, followed by
+          \s*:\s*?(?=\n)              # whitespace, a colon and a new line.
+      (?P<content>.*?)                # Then take everything until
+        (?=\n\S|$)                    # look ahead finds a non-indented line
+                                      # (a new-line followed by non-whitespace)
+    """, re.VERBOSE | re.DOTALL)
 
+  # This
+  ITEM_RE = re.compile(
+      r"""
+      ^(\*?\*?          # Capture optional *s to allow *args, **kwargs.
+          \w[\w.]*?     # Capture a word character followed by word characters
+                        # or "."s.
+      )\s*:\s           # Allow any whitespace around the colon.""",
+      re.MULTILINE | re.VERBOSE)
 
-def _parse_function_details(docstring):
-  r"""Given a docstring, split off the header and parse the function details.
+  @classmethod
+  def split_string(cls, docstring):
+    r"""Given a docstring split it into a list of `str` or `TitleBlock` chunks.
 
-  For example the docstring of tf.nn.relu:
+    For example the docstring of `tf.nn.relu`:
 
-  '''Computes rectified linear: `max(features, 0)`.
+    '''
+    Computes `max(features, 0)`.
 
-  Args:
-    features: A `Tensor`. Must be one of the following types: `float32`,
-      `float64`, `int32`, `int64`, `uint8`, `int16`, `int8`, `uint16`,
-      `half`.
-    name: A name for the operation (optional).
+    Args:
+      features: A `Tensor`. Must be one of the following types: `float32`,
+        `float64`, `int32`, `int64`, `uint8`, `int16`, `int8`, `uint16`, `half`.
+      name: A name for the operation (optional).
 
-  Returns:
-    A `Tensor`. Has the same type as `features`.
-  '''
+    More freeform markdown text.
+    '''
 
-  This is parsed, and returned as:
+    This is parsed, and returned as:
 
-  ```
-  ('Computes rectified linear: `max(features, 0)`.\n\n', [
-      _FunctionDetail(
-          keyword='Args',
-          header='',
+    ```
+    [
+        "Computes rectified linear: `max(features, 0)`.",
+        TitleBlock(
+          title='Args',
+          text='',
           items=[
-              ('features', ' A `Tensor`. Must be ...'),
-              ('name', ' A name for the operation (optional).\n\n')]),
-      _FunctionDetail(
-          keyword='Returns',
-          header='  A `Tensor`. Has the same type as `features`.',
-          items=[])
-  ])
-  ```
+            ('features', ' A `Tensor`. Must be...'),
+            ('name', ' A name for the operation (optional).\n\n')]
+        ),
+        "More freeform markdown text."
+    ]
+    ```
+    Args:
+      docstring: The docstring to parse
 
-  Args:
-    docstring: The docstring to parse
+    Returns:
+      The docstring split into chunks. Each chunk produces valid markdown when
+      `str` is called on it (each chunk is a python `str`, or a `TitleBlock`).
+    """
+    parts = []
+    while docstring:
+      split = re.split(cls.BLOCK_RE, docstring, maxsplit=1)
+      # The first chunk in split is all text before the TitleBlock.
+      before = split.pop(0)
+      parts.append(before)
 
-  Returns:
-    A (header, function_details) pair, where header is a string and
-    function_details is a (possibly empty) list of `_FunctionDetail` objects.
-  """
+      # If `split` is empty, there were no other matches, and we're done.
+      if not split:
+        break
 
-  tag_re = re.compile(r'(?<=\n)([A-Z][\s\w]{0,20}):\n', re.MULTILINE)
-  parts = tag_re.split(docstring)
+      # If there was a match,  split contains three items. The two capturing
+      # groups in the RE, and the remainder.
+      title, content, docstring = split
 
-  # The first part is the main docstring
-  docstring = parts[0]
+      # Now `content` contains the text and the name-value item pairs.
+      # separate these two parts.
+      content = textwrap.dedent(content)
+      split = cls.ITEM_RE.split(content)
+      text = split.pop(0)
+      items = _pairs(split)
 
-  # Everything else alternates keyword-content
-  pairs = list(_gen_pairs(parts[1:]))
+      title_block = cls(title, text, items)
+      parts.append(title_block)
 
-  function_details = []
-  item_re = re.compile(r'^(\*?\*?\w[\w.]*?\s*):\s', re.MULTILINE)
-
-  for keyword, content in pairs:
-    content = textwrap.dedent(content)
-    content = item_re.split(content)
-    header = content[0]
-    items = list(_gen_pairs(content[1:]))
-
-    function_details.append(_FunctionDetail(keyword, header, items))
-
-  return docstring, function_details
+    return parts
 
 
-_DocstringInfo = collections.namedtuple('_DocstringInfo', [
-    'brief', 'docstring', 'function_details', 'compatibility'
-])
+_DocstringInfo = collections.namedtuple(
+    '_DocstringInfo', ['brief', 'docstring_parts', 'compatibility'])
 
 
 def _parse_md_docstring(py_object, relative_path_to_root, reference_resolver):
@@ -518,13 +572,19 @@ def _parse_md_docstring(py_object, relative_path_to_root, reference_resolver):
       line for line in raw_docstring.split('\n') if not atat_re.match(line))
 
   docstring, compatibility = _handle_compatibility(raw_docstring)
-  docstring, function_details = _parse_function_details(docstring)
 
   if 'Generated by: tensorflow/tools/api/generator' in docstring:
     docstring = ''
 
-  return _DocstringInfo(
-      docstring.split('\n')[0], docstring, function_details, compatibility)
+  # Remove the first-line "brief" docstring.
+  lines = docstring.split('\n')
+  brief = lines.pop(0)
+
+  docstring = '\n'.join(lines)
+
+  docstring_parts = TitleBlock.split_string(docstring)
+
+  return _DocstringInfo(brief, docstring_parts, compatibility)
 
 
 def _remove_first_line_indent(string):
@@ -914,9 +974,9 @@ class _ClassPageInfo(object):
       obj: The property object itself
       doc: The property's parsed docstring, a `_DocstringInfo`.
     """
-    # Hide useless namedtuple docs-trings
-    if re.match('Alias for field number [0-9]+', doc.docstring):
-      doc = doc._replace(docstring='', brief='')
+    # Hide useless namedtuple docs-trings.
+    if re.match('Alias for field number [0-9]+', doc.brief):
+      doc = doc._replace(docstring_parts=[], brief='')
     property_info = _PropertyInfo(short_name, full_name, obj, doc)
     self._properties.append(property_info)
 
@@ -1183,7 +1243,7 @@ class _ModulePageInfo(object):
   def get_metadata_html(self):
     meta_data = _Metadata(self.full_name)
 
-    # Objects with their own pages are not added to the matadata list for the
+    # Objects with their own pages are not added to the metadata list for the
     # module, the module only has a link to the object page. No docs.
     for item in self.other_members:
       meta_data.append(item)
