@@ -11,7 +11,7 @@ landing_page:
     - heading: TensorFlow 2.0 Alpha
       description: >
         <p>
-          TensorFlow 2.0 focuses on simplicity and ease of use, with updates
+          Hello TensorFlow 2.0 focuses on simplicity and ease of use, with updates
           like eager execution, intuitive higher-level APIs, and flexible model
           building on any platform. Start with the
           <a href="/alpha/tutorials/quickstart/beginner">beginner notebook</a> tutorial and
