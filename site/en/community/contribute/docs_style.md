@@ -35,7 +35,7 @@ guards will cause line breaks, so within text use $$ $$ instead.
 Put <code>`backticks`</code> around these things when they're used in text:
 
 *   Argument names: <code>`input`</code>, <code>`x`</code>,
-    <code>`tensor`</code>)
+    <code>`tensor`</code>
 *   Returned tensor names: <code>`output`</code>, <code>`idx`</code>,
     <code>`out`</code>
 *   Data types: <code>`int32`</code>, <code>`float`</code>, <code>`uint8`</code>
@@ -51,14 +51,11 @@ Put <code>`backticks`</code> around these things when they're used in text:
 
 Use three backticks before and after code block. In the opening backtick line,
 specify the language.
-
 <pre><code>
 ```python
 # some python code here
 ```
 </code></pre>
-
-
 
 ### Links in Markdown
 
@@ -140,7 +137,7 @@ Use `# ⇒` instead of a single equal sign when you want to show what an op
 returns.
 
 ```python
-# 'input' is a tensor of shape [2, 3, 5]
+# 'input' is a tensor of shape [2, 3, 5] 
 (tf.expand_dims(input, 0))  # ⇒ [1, 2, 3, 5]
 ```
 
