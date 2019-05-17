@@ -16,19 +16,21 @@ toc:
   contents:
   - title: "Contribute to TensorFlow"
     path: /community/contribute
-  - title: "Code"
-    path: /community/contribute/code
-  - title: "Documentation"
-    path: /community/contribute/documentation
-  - title: "Community"
-    path: /community/contribute/community
 
-  - heading: "Contributor resources"
-  - title: "Code style guide"
+  - heading: "Code"
+  - title: "Contribute to code"
+    path: /community/contribute/code
+  - title: "Code style"
     path: /community/contribute/code_style
-  - title: "Documentation style guide"
+
+  - heading: "Documentation"
+  - title: "Contribute to documentation"
+    path: /community/contribute/docs
+  - title: "Documentation style"
     path: /community/contribute/docs_style
 
-  - heading: "Community resources"
+  - heading: "Community"
+  - title: "Contribute to the community"
+    path: /community/contribute/community
   - title: "RFC process"
     path: /community/contribute/rfc_process

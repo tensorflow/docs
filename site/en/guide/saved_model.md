@@ -215,7 +215,7 @@ simple_save(session,
 ```
 
 This configures the `SavedModel` so it can be loaded by
-[TensorFlow serving](/serving/serving_basic) and supports the
+[TensorFlow serving](https://www.tensorflow.org/tfx/tutorials/serving/rest_simple) and supports the
 [Predict API](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto).
 To access the classify, regress, or multi-inference APIs, use the manual
 `SavedModel` builder APIs or an `tf.estimator.Estimator`.
@@ -346,7 +346,7 @@ LoadSavedModel(session_options, run_options, export_dir, {kSavedModelTagTrain},
 ### Load and serve a SavedModel in TensorFlow serving
 
 You can easily load and serve a SavedModel with the TensorFlow Serving Model
-Server binary. See [instructions](https://www.tensorflow.org/serving/setup#installing_using_apt-get)
+Server binary. See [instructions](https://www.tensorflow.org/tfx/serving/setup)
 on how to install the server, or build it if you wish.
 
 Once you have the Model Server, run it with:

@@ -7,12 +7,18 @@
   </head>
   <body>
 
+<h3>TensorFlow 2.0 Alpha is available</h3>
+<ul>
+  <li><code>tensorflow==2.0.0-alpha0</code> —Preview <a href="/alpha">TF 2.0 Alpha</a> build for CPU-only <em>(unstable)</em></li>
+  <li><code>tensorflow-gpu==2.0.0-alpha0</code> —Preview <a href="/alpha">TF 2.0 Alpha</a> build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
+</ul>
+
 <h3>Available packages</h3>
 <ul>
-  <li><code>tensorflow</code> —Current release for CPU-only <em>(recommended for beginners)</em></li>
-  <li><code>tensorflow-gpu</code> —Current release with <a href="./gpu">GPU support</a> <em>(Ubuntu and Windows)</em></li>
-  <li><code>tf-nightly</code> —Nightly build for CPU-only <em>(unstable)</em></li>
-  <li><code>tf-nightly-gpu</code> —Nightly build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
+  <li><code>tensorflow</code> —Latest stable release for CPU-only <em>(Ubuntu and Windows)</em></li>
+  <li><code>tensorflow-gpu</code> —Latest stable release with <a href="./gpu">GPU support</a> <em>(Ubuntu and Windows)</em></li>
+  <li><code>tf-nightly</code> —Preview nightly build for CPU-only <em>(unstable)</em></li>
+  <li><code>tf-nightly-gpu</code> —Preview nightly build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
 </ul>
 
 <h3>System requirements</h3>
@@ -48,7 +54,7 @@
 <code class="devsite-terminal">virtualenv --version</code>
 </pre>
 {% dynamic else %}<!-- python3 -->
-<aside class="note">Requires Python 3.4, 3.5, or 3.6</aside>
+<aside class="note">Requires Python &gt; 3.4</aside>
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">python3 --version</code>
@@ -218,7 +224,7 @@
   <h3>Windows</h3>
   <p>
   Create a new virtual environment by choosing a Python interpreter and making a
-  <code>./venv</code> directory to hold it:
+  <code>.\venv</code> directory to hold it:
 </p>
 {% dynamic if request.query_string.lang == "python2" %}
 <aside class="warning">TensorFlow is not supported on Windows with Python 2.7</aside>
@@ -259,7 +265,7 @@
 {% dynamic if request.query_string.lang == "python2" %}
 <pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=2.7</pre>
 {% dynamic else %}
-<pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=3.6  # select python version</pre>
+<pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=3.7  # select python version</pre>
 {% dynamic endif %}
 <p>Activate the virtual environment:</p>
 <pre class="devsite-terminal devsite-click-to-copy">source activate <var>venv</var></pre>
@@ -282,10 +288,12 @@
 </p>
 
 <ul>
-  <li><code>tensorflow</code> —Current release for CPU-only <em>(recommended for beginners)</em></li>
-  <li><code>tensorflow-gpu</code> —Current release with <a href="./gpu">GPU support</a> <em>(Ubuntu and Windows)</em></li>
-  <li><code>tf-nightly</code> —Nightly build for CPU-only <em>(unstable)</em></li>
-  <li><code>tf-nightly-gpu</code> —Nightly build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
+  <li><code>tensorflow</code> —Latest stable release for CPU-only <em>(recommended for beginners)</em></li>
+  <li><code>tensorflow-gpu</code> —Latest stable release with <a href="./gpu">GPU support</a> <em>(Ubuntu and Windows)</em></li>
+  <li><code>tf-nightly</code> —Preview nightly build for CPU-only <em>(unstable)</em></li>
+  <li><code>tf-nightly-gpu</code> —Preview nightly build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
+  <li><code>tensorflow==2.0.0-alpha0</code> —Preview TF 2.0 Alpha build for CPU-only <em>(unstable)</em></li>
+  <li><code>tensorflow-gpu==2.0.0-alpha0</code> —Preview TF 2.0 Alpha build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
 </ul>
 
 <aside class="note">
@@ -330,63 +338,71 @@
   <tr class="alt"><td colspan="2">Linux</td></tr>
   <tr>
     <td>Python 2.7 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.12.0-cp27-none-linux_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.13.1-cp27-none-linux_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 2.7 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.12.0-cp27-none-linux_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.13.1-cp27-none-linux_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.4 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.12.0-cp34-cp34m-linux_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.13.1-cp34-cp34m-linux_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.4 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.12.0-cp34-cp34m-linux_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.13.1-cp34-cp34m-linux_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.5 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.12.0-cp35-cp35m-linux_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.13.1-cp35-cp35m-linux_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.5 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.12.0-cp35-cp35m-linux_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.13.1-cp35-cp35m-linux_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.6 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.12.0-cp36-cp36m-linux_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.6 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.12.0-cp36-cp36m-linux_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.13.1-cp36-cp36m-linux_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.7 CPU-only</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.13.1-cp37-cp37m-linux_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.7 GPU&nbsp;support</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.13.1-cp37-cp37m-linux_x86_64.whl</td>
   </tr>
 
   <tr class="alt"><td colspan="2">macOS (CPU-only)</td></tr>
   <tr>
     <td>Python 2.7</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.12.0-py2-none-any.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.13.1-py2-none-any.whl</td>
   </tr>
   <tr>
-    <td>Python 3.4, 3.5, 3.6</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.12.0-py3-none-any.whl</td>
+    <td>Python &gt; 3.4</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.13.1-py3-none-any.whl</td>
   </tr>
 
   <tr class="alt"><td colspan="2">Windows</td></tr>
   <tr>
     <td>Python 3.5 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.12.0-cp35-cp35m-win_amd64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.13.1-cp35-cp35m-win_amd64.whl</td>
   </tr>
   <tr>
     <td>Python 3.5 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-1.12.0-cp35-cp35m-win_amd64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-1.13.1-cp35-cp35m-win_amd64.whl</td>
   </tr>
   <tr>
     <td>Python 3.6 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.12.0-cp36-cp36m-win_amd64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.13.1-cp36-cp36m-win_amd64.whl</td>
   </tr>
   <tr>
     <td>Python 3.6 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-1.12.0-cp36-cp36m-win_amd64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-1.13.1-cp36-cp36m-win_amd64.whl</td>
   </tr>
 </table>
 

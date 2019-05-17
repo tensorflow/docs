@@ -18,7 +18,7 @@ To convert your code from TensorFlow 1.x to TensorFlow 2.x, follow these instruc
 
 ### Run the script from the pip package
 
-First, `pip install` the `tf-nightly-2.0-preview` or `tf-nightly-gpu-2.0-preview` package.
+First, `pip install` the `tensorflow==2.0.0-alpha0` or `tensorflow-gpu==2.0.0-alpha0` package.
 
 Note: `tf_upgrade_v2` is installed automatically for TensorFlow 1.13 and later (including the nightly TF 2.0 builds).
 
@@ -61,6 +61,11 @@ All of this information is included in the `report.txt` file that will be export
 
 - Do not update parts of your code manually before running this script. In particular, functions that have had reordered arguments like `tf.argmax` or `tf.batch_to_space` cause the script to incorrectly add keyword arguments that mismap your existing code.
 
+- The script assumes that `tensorflow` is imported using `import tensorflow as tf`.
+
 - This script does not reorder arguments. Instead, the script adds keyword arguments to functions that have their arguments reordered.
+
+- Check out [tf2up.ml](http://tf2up.ml) for a convenient tool to upgrade Jupyter
+  notebooks and Python files in a GitHub repository.
 
 To report upgrade script bugs or make feature requests, please file an issue on [GitHub](https://github.com/tensorflow/tensorflow/issues). And if you’re testing TensorFlow 2.0, we want to hear about it! Join the [TF 2.0 Testing community](https://groups.google.com/a/tensorflow.org/forum/#!forum/testing) and send questions and discussion to [testing@tensorflow.org](mailto:testing@tensorflow.org).

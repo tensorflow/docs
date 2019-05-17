@@ -13,7 +13,7 @@ Many
 [RFCs](https://github.com/tensorflow/community/pulls?utf8=%E2%9C%93&q=is%3Apr)
 have explained the changes that have gone into making TensorFlow 2.0. This
 guide presents a vision for what development in TensorFlow 2.0 should look like.
-It's assumeed you have some familiarity with TensorFlow 1.x.
+It's assumed you have some familiarity with TensorFlow 1.x.
 
 ## A brief summary of major changes
 
@@ -102,9 +102,6 @@ sequence models, reinforcement learning, custom training loops, and more.
 
 ## Recommendations for idiomatic TensorFlow 2.0
 
-For complete examples, see
-[MNIST (basic example)](../tutorials/beginner/tf2_overview.ipynb)
-
 ### Refactor your code into smaller functions
 
 A common usage pattern in TensorFlow 1.X was the "kitchen sink" strategy, where
@@ -172,8 +169,8 @@ for x, y in main_dataset:
     prediction = path1(x)
     loss = loss_fn_head1(prediction, y)
   # Simultaneously optimize trunk and head1 weights.
-  gradients = tape.gradients(loss, path1.trainable_variables)
-  optimizer.apply_gradients(gradients, path1.trainable_variables)
+  gradients = tape.gradient(loss, path1.trainable_variables)
+  optimizer.apply_gradients(zip(gradients, path1.trainable_variables))
 
 # Fine-tune second head, reusing the trunk
 for x, y in small_dataset:
@@ -181,8 +178,8 @@ for x, y in small_dataset:
     prediction = path2(x)
     loss = loss_fn_head2(prediction, y)
   # Only optimize head2 weights, not trunk weights
-  gradients = tape.gradients(loss, head2.trainable_variables)
-  optimizer.apply_gradients(gradients, head2.trainable_variables)
+  gradients = tape.gradient(loss, head2.trainable_variables)
+  optimizer.apply_gradients(zip(gradients, head2.trainable_variables))
 
 # You can publish just the trunk computation for other people to reuse.
 tf.saved_model.save(trunk, output_path)
@@ -206,8 +203,8 @@ def train(model, dataset, optimizer):
     with tf.GradientTape() as tape:
       prediction = model(x)
       loss = loss_fn(prediction, y)
-    gradients = tape.gradients(loss, model.trainable_variables)
-    optimizer.apply_gradients(gradients, model.trainable_variables)
+    gradients = tape.gradient(loss, model.trainable_variables)
+    optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 ```
 
 If you use the Keras `.fit()` API, you won't have to worry about dataset
@@ -251,22 +248,16 @@ For a more detailed overview of AutoGraph's features, see
 
 ### Use tf.metrics to aggregate data and tf.summary to log it
 
-A complete set of `tf.summary` symbols are coming soon. You can access the
-2.0 version of `tf.summary` with:
-
-```python
-from tensorflow.python.ops import summary_ops_v2
-```
-
-To log summaries, use `tf.summary.(scalar|histogram|...)`. In isolation, this
-doesn't actually do anything; the summaries need to be redirected to an
-appropriate file writer by using a context manager. (This allows you to avoid
-hardcoding summary output to a particular file writer.)
+To log summaries, use `tf.summary.(scalar|histogram|...)` and redirect it to a
+writer using a context manager. (If you omit the context manager, nothing will
+happen.) Unlike TF 1.x, the summaries are emitted directly to the writer; there
+is no separate "merge" op and no separate `add_summary()` call, which means that
+the `step` value must be provided at the callsite.
 
 ```python
 summary_writer = tf.summary.create_file_writer('/tmp/summaries')
 with summary_writer.as_default():
-  summary_ops_v2.scalar('loss', 0.1, step=42)
+  tf.summary.scalar('loss', 0.1, step=42)
 ```
 
 To aggregate data before logging them as summaries, use `tf.metrics`. Metrics
@@ -280,12 +271,12 @@ def train(model, optimizer, dataset, log_freq=10):
     loss = train_step(model, optimizer, images, labels)
     avg_loss.update_state(loss)
     if tf.equal(optimizer.iterations % log_freq, 0):
-      summary_ops_v2.scalar('loss', avg_loss.result(), step=optimizer.iterations)
+      tf.summary.scalar('loss', avg_loss.result(), step=optimizer.iterations)
       avg_loss.reset_states()
 
 def test(model, test_x, test_y, step_num):
   loss = loss_fn(model(test_x), test_y)
-  summary_ops_v2.scalar('loss', step=step_num)
+  tf.summary.scalar('loss', loss, step=step_num)
 
 train_summary_writer = tf.summary.create_file_writer('/tmp/summaries/train')
 test_summary_writer = tf.summary.create_file_writer('/tmp/summaries/test')
@@ -297,5 +288,10 @@ with test_summary_writer.as_default():
   test(model, test_x, test_y, optimizer.iterations)
 ```
 
-By then pointing TensorBoard at the summary directory (`tensorboard --logdir
-/tmp/summaries`), you can then visualize the generated summaries.
+Visualize the generated summaries by pointing TensorBoard at the summary log
+directory:
+
+
+```
+tensorboard --logdir /tmp/summaries
+```

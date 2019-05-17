@@ -24,7 +24,7 @@ Whether you want to contribute code, make improvements to the TensorFlow API doc
 
 - [Write code](code.md).
 - [Improve documentation](documentation.md).
-- Answer questions on StackOverflow.
+- Answer questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow).
 - Participate in the discussion on the TensorFlow forums.
 - Contribute [example notebooks](http://www.github.com/tensorflow/examples).
 - Investigate bugs and issues on GitHub.
@@ -35,32 +35,15 @@ Whether you want to contribute code, make improvements to the TensorFlow API doc
 - Talk about TensorFlow on social media.
 - ... even just starring the repos you like on GitHub!
 
-We're excited to have you here, and thank you for your interest in contributing to the project! This is an exciting time to be working on scientific computation and machine learning, and it's only just beginning.
-
-
-## The TensorFlow ecosystem
-
-TensorFlow is an open source software library for high performance numerical computation. Its flexible architecture allows for easy deployment of algorithms and code across a variety of platforms (CPUs, GPUs, TPUs)—from desktops, to clusters of servers, to mobile and edge devices. 
+We're excited to have you here, and thank you for your interest in contributing
+to the project! This is an exciting time to be working on scientific computation
+and machine learning, and it's only just beginning.
 
 TensorFlow was originally developed by researchers and engineers from the Google Brain team within [Google's AI organization](https://ai.google/). Google open sourced TensorFlow in the hope of sharing technology with the external community and encouraging collaboration between researchers and industry. Since then, TensorFlow has grown into a thriving ecosystem of products, on a wide range of platforms. But our goal is still to make machine learning accessible to anyone, anywhere.
 
-### TensorFlow projects
-
-Below is a brief list of products that the TensorFlow team is working on right now:
-
-*   [TensorFlow Core](https://github.com/tensorflow/tensorflow)
-*   [Swift for TensorFlow](https://github.com/tensorflow/swift)
-*   [Model Garden](https://github.com/tensorflow/models)
-*   [TensorBoard](https://github.com/tensorflow/tensorboard)
-*   [TensorFlow.js](https://github.com/tensorflow/tfjs-core)
-*   [TensorFlow Serving](https://github.com/tensorflow/serving)
-*   [TensorFlow Documentation](https://github.com/tensorflow/docs)
-
-To see what else we're working on at any time, see the [TensorFlow organization on GitHub](https://github.com/tensorflow).
-
 ### Related community projects
 
-An important part of the TensorFlow ecoystem is the network of related (but unaffiliated) projects. Each of these projects has its own sponsors, contributors, and community. 
+An important part of the TensorFlow ecosystem is the network of related (but unaffiliated) projects. Each of these projects has its own sponsors, contributors, and community. 
 
 *   [OpenSeq2Seq](https://github.com/NVIDIA/OpenSeq2Seq) — distributed and mixed-precision training of sequence-to-sequence models, created by the folks at NVIDIA.
 *   [TensorBoardX](https://tensorboardx.readthedocs.io/en/latest/tensorboard.html)

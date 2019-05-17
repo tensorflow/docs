@@ -25,28 +25,49 @@ following:
 *   MathJax renders properly on http://tensorflow.org.
 *   MathJax does not render properly on GitHub.
 
-When writing MathJax, you can use $$ and \\( and \\) to surround your math. $$
-guards will cause line breaks, so within text use $$ $$ instead.
+When writing math expressions in MathJax use `$$` to surround blocks.
+
+```markdown
+Here is a block of math:
+
+$$
+2 \times 2 = 4
+$$
+
+```
+
+For inline expressions, use `$$` in Markdown files and `$` in Python notebooks.
+
+```markdown
+<!-- .md files -->
+Here is some inline math: $$ 2 \times 2 = 4 $$
+
+<!-- .ipynb files -->
+Here is some inline math: $ 2 \times 2 = 4 $
+```
+
+Note: If you actually need to use a dollar sign in text or MathJax expressions,
+escape it with a leading slash: `\$`
 
 ### Write about code
 
 #### Inline mentions of code
 
-Put <code>&#96;backticks&#96;</code> around these things when they're used in
-text:
+Put <code>&#96;backticks&#96;</code> around the following things when used in text:
 
-*   Argument names: <code>`input`</code>, <code>`x`</code>,
-    <code>`tensor`</code>
-*   Returned tensor names: <code>`output`</code>, <code>`idx`</code>,
-    <code>`out`</code>
-*   Data types: <code>`int32`</code>, <code>`float`</code>, <code>`uint8`</code>
-*   Other op names reference in text: <code>`list_diff()`</code>,
-    <code>`shuffle()`</code>
-*   Class names: <code>`Tensor`</code>, <code>`Strategy`</code>
-*   File name: <code>`image_ops.py`</code>,
-    <code>`/path-to-your-data/xml/example-name`</code>
-*   Math expressions or conditions: <code>`-1-input.dims() &lt;= dim &lt;=
-    input.dims()`</code>
+*   Argument names: <code>&#96;input&#96;</code>, <code>&#96;x&#96;</code>,
+    <code>&#96;tensor&#96;</code>
+*   Returned tensor names: <code>&#96;output&#96;</code>,
+    <code>&#96;idx&#96;</code>, <code>&#96;out&#96;</code>
+*   Data types: <code>&#96;int32&#96;</code>, <code>&#96;float&#96;</code>,
+    <code>&#96;uint8&#96;</code>
+*   Other op names reference in text: <code>&#96;list_diff()&#96;</code>,
+    <code>&#96;shuffle()&#96;</code>
+*   Class names: <code>&#96;tf.Tensor&#96;</code>, <code>&#96;Strategy&#96;</code>
+*   File name: <code>&#96;image_ops.py&#96;</code>,
+    <code>&#96;/path-to-your-data/xml/example-name&#96;</code>
+*   Math expressions or conditions: <code>&#96;-1-input.dims() &lt;= dim &lt;=
+    input.dims()&#96;</code>
 
 #### Code blocks
 

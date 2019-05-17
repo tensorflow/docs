@@ -35,7 +35,6 @@ landing_page:
       - label: Read the Keras guide
         path: /guide/keras
         classname:
-          tfo-button-primary
           button
           button-primary
       code_block: |
@@ -95,7 +94,6 @@ landing_page:
       - label: Read the eager execution guide
         path: /guide/eager
         classname:
-          tfo-button-primary
           button
           button-primary
 
@@ -118,7 +116,6 @@ landing_page:
       - label: Read the Estimators guide
         path: /guide/estimators
         classname:
-          tfo-button-primary
           button
           button-primary
 
@@ -148,7 +145,7 @@ landing_page:
       heading: Mobile developers
       path: /lite/
       description: >
-        TensorFlow Lite is lightweight solution for mobile and embedded devices.
+        TensorFlow Lite is a lightweight solution for mobile and embedded devices.
 
   - heading: Videos and updates
     description: >

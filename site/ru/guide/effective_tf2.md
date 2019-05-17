@@ -1,5 +1,16 @@
 # Как использовать TensorFlow 2.0?
 
+Note: Вся информация в этом разделе переведена с помощью русскоговорящего
+Tensorflow сообщества на общественных началах. Поскольку этот перевод не
+является официальным, мы не гарантируем что он на 100% аккуратен и соответствует
+[официальной документации на английском языке](https://www.tensorflow.org/?hl=en).
+Если у вас есть предложение как исправить этот перевод, мы будем очень рады
+увидеть pull request в [tensorflow/docs](https://github.com/tensorflow/docs)
+репозиторий GitHub. Если вы хотите помочь сделать документацию по Tensorflow
+лучше (сделать сам перевод или проверить перевод подготовленный кем-то другим),
+напишите нам на
+[docs-ru@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ru).
+
 В TensorFlow 2.0 были сделаны несколько изменений, которые позволят всем пользователям TensorFlow 
 работать более продуктивно. В TensorFlow 2.0 были удалены
 [ненужные API](https://github.com/tensorflow/community/blob/master/rfcs/20180827-api-names.md),
@@ -103,9 +114,6 @@ AutoGraph поддерживает вложенные функции в поря
 подкреплением, собственные циклы обучения и многие другие.
 
 ## Рекомендации и идиомы TensorFlow 2.0
-
-Смотри все примеры использования
-[MNIST (стандартный пример)](../tutorials/beginner/tf2_overview.ipynb)
 
 ### Рефакторинг кода на малые функции
 
@@ -253,13 +261,6 @@ class DynamicRNN(tf.keras.Model):
 
 ### Используйте tf.metrics для сбора данных и tf.summary для логов
 
-Скоро будет доступен полный набор операций `tf.summary`. Вы можете получить
-доступ к `tf.summary` 2.0 при помощи:
-
-```python
-from tensorflow.python.ops import summary_ops_v2
-```
-
 Для записи логов, используйте `tf.summary.(scalar|histogram|...)`. Если использовать
 данные методы отдельно, то они не будут ничего делать; результаты должны быть
 перенаправлены к соответствующему file writer, при помощи контекстного менеджера
@@ -268,7 +269,7 @@ from tensorflow.python.ops import summary_ops_v2
 ```python
 summary_writer = tf.summary.create_file_writer('/tmp/summaries')
 with summary_writer.as_default():
-  summary_ops_v2.scalar('loss', 0.1, step=42)
+  tf.summary.scalar('loss', 0.1, step=42)
 ```
 
 Чтобы собрать данные перед записью в лог, используйте `tf.metrics`. Метрики
@@ -283,12 +284,12 @@ def train(model, optimizer, dataset, log_freq=10):
     loss = train_step(model, optimizer, images, labels)
     avg_loss.update_state(loss)
     if tf.equal(optimizer.iterations % log_freq, 0):
-      summary_ops_v2.scalar('loss', avg_loss.result(), step=optimizer.iterations)
+      tf.summary.scalar('loss', avg_loss.result(), step=optimizer.iterations)
       avg_loss.reset_states()
 
 def test(model, test_x, test_y, step_num):
   loss = loss_fn(model(test_x), test_y)
-  summary_ops_v2.scalar('loss', step=step_num)
+  tf.summary.scalar('loss', loss, step=step_num)
 
 train_summary_writer = tf.summary.create_file_writer('/tmp/summaries/train')
 test_summary_writer = tf.summary.create_file_writer('/tmp/summaries/test')

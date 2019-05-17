@@ -229,22 +229,51 @@ def extract(py_modules,
             base_dir,
             private_map,
             do_not_descend_map,
-            visitor_cls=doc_generator_visitor.DocGeneratorVisitor):
-  """Extract docs from tf namespace and write them to disk."""
-  # Traverse the first module.
+            visitor_cls=doc_generator_visitor.DocGeneratorVisitor,
+            callbacks=None):
+  """Walks the module contents, returns an index of all visited objects.
+
+  The return value is an instance of `self._visitor_cls`, usually:
+  `doc_generator_visitor.DocGeneratorVisitor`
+
+  Args:
+    py_modules: A list containing a single (short_name, module_object) pair.
+      like `[('tf',tf)]`.
+    base_dir: The package root directory. Nothing defined outside of this
+      directory is documented.
+    private_map: A {'path':["name"]} dictionary listing particular object
+      locations that should be ignored in the doc generator.
+    do_not_descend_map: A {'path':["name"]} dictionary listing particular
+      object locations where the children should not be listed.
+    visitor_cls: A class, typically a subclass of
+      `doc_generator_visitor.DocGeneratorVisitor` that acumulates the indexes
+      of obejcts to document.
+    callbacks: Additional callbacks passed to `traverse`. Executed between the
+      `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
+      primary use case for these is to filter the listy of children (see:
+      `public_api.local_definitions_filter`)
+
+  Returns:
+    The accumulator (`DocGeneratorVisitor`)
+  """
+  if callbacks is None:
+    callbacks = []
+
   if len(py_modules) != 1:
     raise ValueError("only pass one [('name',module)] pair in py_modules")
   short_name, py_module = py_modules[0]
-  visitor = visitor_cls()
-  api_visitor = public_api.PublicAPIVisitor(
-      visitor=visitor,
+
+  api_filter = public_api.PublicAPIFilter(
       base_dir=base_dir,
       do_not_descend_map=do_not_descend_map,
       private_map=private_map)
 
-  traverse.traverse(py_module, api_visitor, short_name)
+  accumulator = visitor_cls()
+  visitors = [api_filter] + callbacks + [accumulator]
 
-  return visitor
+  traverse.traverse(py_module, visitors, short_name)
+
+  return accumulator
 
 
 class _GetMarkdownTitle(py_guide_parser.PyGuideParser):
@@ -330,14 +359,15 @@ class DocGenerator(object):
   def __init__(self,
                root_title,
                py_modules,
-               base_dir,
-               code_url_prefix,
-               search_hints=False,
+               base_dir=None,
+               code_url_prefix=(),
+               search_hints=True,
                site_path='',
                private_map=None,
                do_not_descend_map=None,
                visitor_cls=doc_generator_visitor.DocGeneratorVisitor,
-               api_cache=True):
+               api_cache=True,
+               callbacks=None):
     """Creates a doc-generator.
 
     Args:
@@ -351,7 +381,7 @@ class DocGenerator(object):
         `defined_in` path for each file. The defined in link for
         `{base_dir}/path/to/file` is set to `{code_url_prefix}/path/to/file`.
       search_hints: Bool. Include metadata search hints at the top of each file.
-      site_path:
+      site_path: Path prefix in the "_toc.yaml"
       private_map: A {"module.path.to.object": ["names"]} dictionary. Specific
         aliases that should not be shown in the resulting docs.
       do_not_descend_map: A {"module.path.to.object": ["names"]} dictionary.
@@ -360,12 +390,18 @@ class DocGenerator(object):
         `doc_generator_visitor.DocGeneratorVisitor`.
       api_cache: Bool. Generate an api_cache file. This is used to easily add
         api links for backticked symbols (like `tf.add`) in other docs.
+      callbacks: Additional callbacks passed to `traverse`. Executed between the
+        `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
+        primary use case for these is to filter the listy of children (see:
+        `public_api.local_definitions_filter`)
     """
     self._root_title = root_title
     self._py_modules = py_modules
     self._short_name = py_modules[0][0]
     self._py_module = py_modules[0][1]
 
+    if base_dir is None:
+      base_dir = os.path.dirname(self._py_module.__file__)
     if isinstance(base_dir, str):
       base_dir = (base_dir,)
     self._base_dir = tuple(base_dir)
@@ -374,7 +410,13 @@ class DocGenerator(object):
     if isinstance(code_url_prefix, str):
       code_url_prefix = (code_url_prefix,)
     self._code_url_prefix = tuple(code_url_prefix)
-    assert self._code_url_prefix, '`code_url_prefix` cannot be empty'
+    if not self._code_url_prefix:
+      raise ValueError('`code_url_prefix` cannot be empty')
+
+    if len(self._code_url_prefix) != len(base_dir):
+      raise ValueError('The `base_dir` list should have the same number of '
+                       'elements as the `code_url_prefix` list (they get '
+                       'zipped together).')
 
     self._search_hints = search_hints
     self._site_path = site_path
@@ -382,6 +424,9 @@ class DocGenerator(object):
     self._do_not_descend_map = do_not_descend_map or {}
     self._visitor_cls = visitor_cls
     self.api_cache = api_cache
+    if callbacks is None:
+      callbacks = []
+    self._callbacks = callbacks
 
   def make_reference_resolver(self, visitor):
     return parser.ReferenceResolver.from_visitor(
@@ -399,9 +444,20 @@ class DocGenerator(object):
         code_url_prefix=self._code_url_prefix)
 
   def run_extraction(self):
-    return extract(self._py_modules, self._base_dir,
-                   self._private_map, self._do_not_descend_map,
-                   self._visitor_cls)
+    """Walks the module contents, returns an index of all visited objects.
+
+    The return value is an instance of `self._visitor_cls`, usually:
+    `doc_generator_visitor.DocGeneratorVisitor`
+
+    Returns:
+    """
+    return extract(
+        py_modules=self._py_modules,
+        base_dir=self._base_dir,
+        private_map=self._private_map,
+        do_not_descend_map=self._do_not_descend_map,
+        visitor_cls=self._visitor_cls,
+        callbacks=self._callbacks)
 
   def build(self, output_dir):
     """Build all the docs.

@@ -9,7 +9,7 @@
 репозиторий GitHub. Если вы хотите помочь сделать документацию по Tensorflow
 лучше (сделать сам перевод или проверить перевод подготовленный кем-то другим),
 напишите нам на
-[docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
+[docs-ru@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ru).
 
 # Community translations
 
@@ -22,6 +22,23 @@ to the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository.
 To volunteer to write or review community translations, contact the
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
+# Как добавить свой перевод?
+
+1. Ознакомьтесь с [уже имеющейся документацией на русском языке](https://github.com/tensorflow/docs/tree/master/site/ru)
+2. Внесите правки в уже готовый перевод или [выберите еще не переведенный в папке site/en/](https://github.com/tensorflow/docs/tree/master/site/en)
+3. Переводите на русский язык блоки основные текста документации, а также поясняющие комментарии в коде
+
+Обратите внимание: документы, которые начинаются с символа нижнего подчеркивания (например, `_style_transfer.ipynb`) все еще находятся в процессе работы и пока не импортируются на [tensorflow.org](https://www.tensorflow.org/)
+
+Смотрите хороший пример переведенного нами [урока по TensorFlow Keras API здесь](https://github.com/tensorflow/docs/blob/master/site/ru/tutorials/keras/basic_classification.ipynb).
+
+# Советы
+
+1. Не стесняйтесь добавлять не полностью переведенные документации: таким образом другие участники смогут увидеть ваш Pull Request и помочь если требуется
+2. Вы также можете [создать черновик (Draft)](https://help.github.com/en/articles/about-pull-requests#draft-pull-requests) для будущего Pull Request. Таким образом вы сможете добавлять изменения, не уведомляя владельца репозитария: это удобно для работы над крупными текстами
+3. Используйте комментарии TODO или IMPROVE в тексте и коде в тех местах, где можно объяснить код или операцию более понятным языком, но вы пока не знаете как (это позволит другим переводчикам помочь вам с толкованием)
+4. Проверьте основные моменты [Google Developer Documentation Style Guide](https://developers.google.com/style/highlights): это поможет вам с переводом и проверкой технической документации и уроков
+
 # Russian translation guide
 
 Some technical words in English do not have a natural translation. Do *not*
@@ -31,3 +48,4 @@ translate the following words:
 *   estimator
 *   eager execution
 *   dense
+*   dropout

@@ -59,6 +59,8 @@ def _build_function_page(page_info):
   """Given a FunctionPageInfo object Return the page as an md string."""
   parts = ['# %s\n\n' % page_info.full_name]
 
+  parts.append(page_info.doc.brief + '\n\n')
+
   if len(page_info.aliases) > 1:
     parts.append('### Aliases:\n\n')
     parts.extend('* `%s`\n' % name for name in page_info.aliases)
@@ -71,8 +73,10 @@ def _build_function_page(page_info):
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
 
-  parts.append(page_info.doc.docstring)
-  parts.append(_build_function_details(page_info.doc.function_details))
+  # This will be replaced by the "Used in: <notebooks>" whenever it is run.
+  parts.append('<!-- Placeholder for "Used in" -->\n')
+
+  parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   return ''.join(parts)
@@ -83,6 +87,9 @@ def _build_class_page(page_info):
   parts = ['# {page_info.full_name}\n\n'.format(page_info=page_info)]
 
   parts.append('## Class `%s`\n\n' % page_info.full_name.split('.')[-1])
+
+  parts.append(page_info.doc.brief + '\n\n')
+
   if page_info.bases:
     parts.append('Inherits From: ')
 
@@ -110,8 +117,10 @@ def _build_class_page(page_info):
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
 
-  parts.append(page_info.doc.docstring)
-  parts.append(_build_function_details(page_info.doc.function_details))
+  # This will be replaced by the "Used in: <notebooks>" whenever it is run.
+  parts.append('<!-- Placeholder for "Used in" -->\n')
+
+  parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
@@ -138,8 +147,8 @@ def _build_class_page(page_info):
       h3 = '<h3 id="{short_name}"><code>{short_name}</code></h3>\n\n'
       parts.append(h3.format(short_name=prop_info.short_name))
 
-      parts.append(prop_info.doc.docstring)
-      parts.append(_build_function_details(prop_info.doc.function_details))
+      parts.append(prop_info.doc.brief)
+      parts.extend(str(item) for item in prop_info.doc.docstring_parts)
       parts.append(_build_compatibility(prop_info.doc.compatibility))
 
       parts.append('\n\n')
@@ -187,8 +196,8 @@ def _build_method_section(method_info, heading_level=3):
   if method_info.signature is not None:
     parts.append(_build_signature(method_info, use_full_name=False))
 
-  parts.append(method_info.doc.docstring)
-  parts.append(_build_function_details(method_info.doc.function_details))
+  parts.append(method_info.doc.brief)
+  parts.extend(str(item) for item in method_info.doc.docstring_parts)
   parts.append(_build_compatibility(method_info.doc.compatibility))
   parts.append('\n\n')
   return ''.join(parts)
@@ -197,6 +206,9 @@ def _build_method_section(method_info, heading_level=3):
 def _build_module_page(page_info):
   """Given a ClassPageInfo object Return the page as an md string."""
   parts = ['# Module: {full_name}\n\n'.format(full_name=page_info.full_name)]
+
+  # First line of the docstring i.e. a brief introduction about the symbol.
+  parts.append(page_info.doc.brief + '\n\n')
 
   if len(page_info.aliases) > 1:
     parts.append('### Aliases:\n\n')
@@ -207,7 +219,11 @@ def _build_module_page(page_info):
     parts.append('\n\n')
     parts.append(str(page_info.defined_in))
 
-  parts.append(page_info.doc.docstring)
+  # This will be replaced by the "Used in: <notebooks>" whenever it is run.
+  parts.append('<!-- Placeholder for "Used in" -->\n')
+
+  # All lines in the docstring, expect the brief introduction.
+  parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
@@ -304,17 +320,3 @@ def _build_compatibility(compatibility):
     parts.append('\n\n#### %s Compatibility\n%s\n' % (key.title(), value))
 
   return ''.join(parts)
-
-
-def _build_function_details(function_details):
-  """Return the function details section as an md string."""
-  parts = []
-  for detail in function_details:
-    sub = []
-    sub.append('#### ' + detail.keyword + ':\n\n')
-    sub.append(textwrap.dedent(detail.header))
-    for key, value in detail.items:
-      sub.append('* <b>`%s`</b>: %s' % (key, value))
-    parts.append(''.join(sub))
-
-  return '\n'.join(parts)
