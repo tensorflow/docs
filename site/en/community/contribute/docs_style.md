@@ -53,18 +53,18 @@ escape it with a leading slash: `\$`
 
 #### Inline mentions of code
 
-Put <code>&#96;backticks&#96;</code> around these things when they're used in
+Put <code>&#96;backticks&#96;</code> around the following symbols when used in
 text:
 
 *   Argument names: <code>&#96;input&#96;</code>, <code>&#96;x&#96;</code>,
-    <code>&#96;tensor&#96;</code>)
+    <code>&#96;tensor&#96;</code>
 *   Returned tensor names: <code>&#96;output&#96;</code>,
     <code>&#96;idx&#96;</code>, <code>&#96;out&#96;</code>
 *   Data types: <code>&#96;int32&#96;</code>, <code>&#96;float&#96;</code>,
     <code>&#96;uint8&#96;</code>
 *   Other op names reference in text: <code>&#96;list_diff()&#96;</code>,
     <code>&#96;shuffle()&#96;</code>
-*   Class names: <code>&#96;Tensor&#96;</code>, <code>&#96;Strategy&#96;</code>
+*   Class names: <code>&#96;tf.Tensor&#96;</code>, <code>&#96;Strategy&#96;</code>
 *   File name: <code>&#96;image_ops.py&#96;</code>,
     <code>&#96;/path-to-your-data/xml/example-name&#96;</code>
 *   Math expressions or conditions: <code>&#96;-1-input.dims() &lt;= dim &lt;=
@@ -72,16 +72,13 @@ text:
 
 #### Code blocks
 
-Use three backticks before and after code block. In the opening backtick line,
-specify the language.
-
+Use three backticks to open and close a code block. Optionally, specify the programming
+language after the first backtick group, for example:
 <pre><code>
 ```python
 # some python code here
 ```
 </code></pre>
-
-
 
 ### Links in Markdown
 
@@ -163,7 +160,7 @@ Use `# ⇒` instead of a single equal sign when you want to show what an op
 returns.
 
 ```python
-# 'input' is a tensor of shape [2, 3, 5]
+# 'input' is a tensor of shape [2, 3, 5] 
 (tf.expand_dims(input, 0))  # ⇒ [1, 2, 3, 5]
 ```
 
