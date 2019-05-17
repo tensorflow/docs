@@ -71,8 +71,8 @@ Put <code>&#96;backticks&#96;</code> around the following things when used in te
 
 #### Code blocks
 
-Use three <code>`backticks`</code> before and after code block. In the opening <code>`backticks`</code> line,
-specify the language.
+Use three backticks to open and close a code block. Optionally, specify the programming
+language after the first backtick group, for example:
 <pre><code>
 ```python
 # some python code here
