@@ -16,7 +16,7 @@ toc:
   style: divider
 
 - title: "ML basics"
-  style: accordion 
+  style: accordion
   section:
   - title: "Overview"
     path: /alpha/tutorials/keras/
@@ -108,6 +108,8 @@ toc:
 - title: "Loading data"
   style: accordion
   section:
+  - title: "Load CSV data"
+    path: /alpha/tutorials/load_data/csv
   - title: "Build an image input pipeline"
     path: /alpha/tutorials/load_data/images
   - title: "Load text with tf.data"
