@@ -53,7 +53,8 @@ escape it with a leading slash: `\$`
 
 #### Inline mentions of code
 
-Put <code>&#96;backticks&#96;</code> around the following things when used in text:
+Put <code>&#96;backticks&#96;</code> around the following symbols when used in
+text:
 
 *   Argument names: <code>&#96;input&#96;</code>, <code>&#96;x&#96;</code>,
     <code>&#96;tensor&#96;</code>
