@@ -32,7 +32,8 @@ guards will cause line breaks, so within text use $$ $$ instead.
 
 #### Inline mentions of code
 
-Put <code>`backticks`</code> around these things when they're used in text:
+Put <code>&#96;backticks&#96;</code> around these things when they're used in
+text:
 
 *   Argument names: <code>`input`</code>, <code>`x`</code>,
     <code>`tensor`</code>
@@ -49,7 +50,7 @@ Put <code>`backticks`</code> around these things when they're used in text:
 
 #### Code blocks
 
-Use three backticks before and after code block. In the opening backtick line,
+Use three <code>`backticks`</code> before and after code block. In the opening <code>`backticks`</code> line,
 specify the language.
 <pre><code>
 ```python
