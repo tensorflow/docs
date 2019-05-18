@@ -60,6 +60,14 @@ toc:
     path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/generative_examples/cvae.ipynb
     status: external
 
+- title: Distributed training
+  style: accordion
+  section:
+  - title: Keras
+    path: /tutorials/distribute/keras
+  - title: Training Loops
+    path: /tutorials/distribute/training_loops
+
 - title: Images
   style: accordion
   section:
