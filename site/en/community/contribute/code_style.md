@@ -32,8 +32,8 @@ $ pylint --rcfile=/tmp/pylintrc myfile.py
 We currently support Python 3.4, 3.5, 3.6, and 2.7.
 
 A full list of official and community-supported builds can be found in the
-README file in
-[tensorflow/tensorflow](https://github.com/tensorflow/tensorflow), and detailed
+[README.md](https://github.com/tensorflow/tensorflow/blob/master/README.md) file in
+`tensorflow/tensorflow repository`, and detailed
 installation instructions can be found
 [here](https://www.tensorflow.org/install/pip#1-install-the-python-development-environment-on-your-system).
 
@@ -97,7 +97,7 @@ $ diff <my_cc_file> /tmp/my_cc_file.cc
     dimensions: sequence-length, or image-size.
 *   When possible, use a Tensor's overloaded operators rather than TensorFlow
     functions. For example, we prefer `**`, `+`, `/`, `*`, `-`, `and/or` over
-    `tf.pow`, `tf.add`, `tf.div`, `tf.mul`, `tf.subtract`, and `tf.logical_*` —
+    `tf.pow`, `tf.add`, `tf.divide`, `tf.multiply`, `tf.subtract`, and `tf.logical_*` —
     unless a specific name for the operation is desired.
 
 
