@@ -1,4 +1,4 @@
-# Learn and use machine learning
+# Learn and Use Machine Learning
 
 This notebook collection is inspired by the book
 *[Deep Learning with Python](https://books.google.com/books?id=Yo3CAQAACAAJ)*.
