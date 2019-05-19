@@ -87,7 +87,7 @@ outputs = f(input)
 
 With the power to freely intersperse Python and TensorFlow code, users can take advantage of Python's expressiveness. But portable
 TensorFlow executes in contexts without a Python interpreter, such as mobile, C++, and
-JS. To help users avoid having to rewrite their code when adding `@tf.function`,
+JavaScript. To help users avoid having to rewrite their code when adding `@tf.function`,
 [AutoGraph](autograph.ipynb) converts a subset of
 Python constructs into their TensorFlow equivalents:
 
