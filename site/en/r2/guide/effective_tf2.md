@@ -1,4 +1,4 @@
-# Effective TensorFlow 2.0
+# Effective development in TensorFlow 2.0
 
 There are multiple changes in TensorFlow 2.0 to make TensorFlow users more
 productive. TensorFlow 2.0 removes
@@ -85,11 +85,10 @@ outputs = session.run(f(placeholder), feed_dict={placeholder: input})
 outputs = f(input)
 ```
 
-With the power to freely intersperse Python and TensorFlow code, we expect that
-users will take full advantage of Python's expressiveness. But portable
-TensorFlow executes in contexts without a Python interpreter - mobile, C++, and
+With the power to freely intersperse Python and TensorFlow code, users can take advantage of Python's expressiveness. But portable
+TensorFlow executes in contexts without a Python interpreter, such as mobile, C++, and
 JS. To help users avoid having to rewrite their code when adding `@tf.function`,
-[AutoGraph](autograph.ipynb) will convert a subset of
+[AutoGraph](autograph.ipynb) converts a subset of
 Python constructs into their TensorFlow equivalents:
 
 *   `for`/`while` -> `tf.while_loop` (`break` and `continue` are supported)
@@ -107,16 +106,16 @@ sequence models, reinforcement learning, custom training loops, and more.
 A common usage pattern in TensorFlow 1.X was the "kitchen sink" strategy, where
 the union of all possible computations was preemptively laid out, and then
 selected tensors were evaluated via `session.run()`. In TensorFlow 2.0, users
-should refactor their code into smaller functions which are called as needed. In
+should refactor their code into smaller functions that are called as needed. In
 general, it's not necessary to decorate each of these smaller functions with
 `tf.function`; only use `tf.function` to decorate high-level computations - for
-example, one step of training, or the forward pass of your model.
+example, one step of training or the forward pass of your model.
 
 ### Use Keras layers and models to manage variables
 
 Keras models and layers offer the convenient `variables` and
 `trainable_variables` properties, which recursively gather up all dependent
-variables. This makes it very easy to manage variables locally to where they are
+variables. This makes it easy to manage variables locally to where they are
 being used.
 
 Contrast:
@@ -246,11 +245,11 @@ class DynamicRNN(tf.keras.Model):
 For a more detailed overview of AutoGraph's features, see
 [the guide](./autograph.ipynb).
 
-### Use tf.metrics to aggregate data and tf.summary to log it
+### tf.metrics aggregates data and tf.summary logs them
 
 To log summaries, use `tf.summary.(scalar|histogram|...)` and redirect it to a
-writer using a context manager. (If you omit the context manager, nothing will
-happen.) Unlike TF 1.x, the summaries are emitted directly to the writer; there
+writer using a context manager. (If you omit the context manager, nothing
+happens.) Unlike TF 1.x, the summaries are emitted directly to the writer; there
 is no separate "merge" op and no separate `add_summary()` call, which means that
 the `step` value must be provided at the callsite.
 
@@ -261,7 +260,7 @@ with summary_writer.as_default():
 ```
 
 To aggregate data before logging them as summaries, use `tf.metrics`. Metrics
-are stateful; they accumulate values and return a cumulative result when you
+are stateful: They accumulate values and return a cumulative result when you
 call `.result()`. Clear accumulated values with `.reset_states()`.
 
 ```python
