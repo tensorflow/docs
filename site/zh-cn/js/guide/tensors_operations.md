@@ -2,7 +2,7 @@
 
 TebsorFlow.js是一个在JavaScript中使用张量定义和运行计算的框架。其中张量代表了向量，矩阵或者更高维的矢量。
 
-# 张量
+# 张量(Tensors)
 
 `tf.Tensor`是TensorFlow.js中的最重要的数据单元，它是一个形状为一维或多维数组组成的数值的集合。`tf.Tensor`和多维数组其实非常的相似。
 
@@ -17,12 +17,11 @@ TebsorFlow.js是一个在JavaScript中使用张量定义和运行计算的框架
 我们可以用`tf.tensor()`方法将一个数组(array)创建为一个`tf.Tensor`：
 
 ```js
-// Create a rank-2 tensor (matrix) matrix tensor from a multidimensional array.
+// 从一个多维数组创建一个rank-2的张量矩阵
 const a = tf.tensor([[1, 2], [3, 4]]);
 console.log('shape:', a.shape);
 a.print();
-
-// Or you can create a tensor from a flat array and specify a shape.
+// 或者你可以用一个flat数组和特定的形状创建一个张量
 const shape = [2, 2];
 const b = tf.tensor([1, 2, 3, 4], shape);
 console.log('shape:', b.shape);
@@ -61,9 +60,9 @@ b.print();
 
 ```js
  const a = tf.tensor([[1, 2], [3, 4]]);
- // Returns the multi dimensional array of values.
+ //返回多维数组的值
  a.array().then(array => console.log(array));
- // Returns the flattened data that backs the tensor.
+ // 返回支持张量的展平数据。
  a.data().then(data => console.log(data));
 ```
 
@@ -71,9 +70,9 @@ b.print();
 
 ```js
 const a = tf.tensor([[1, 2], [3, 4]]);
-// Returns the multi dimensional array of values.
+ //返回多维数组的值
 console.log(a.arraySync());
-// Returns the flattened data that backs the tensor.
+// 返回支持张量的展平数据。
 console.log(a.dataSync());
 ```
 
@@ -85,7 +84,7 @@ console.log(a.dataSync());
 
 ```js
 const x = tf.tensor([1, 2, 3, 4]);
-const y = x.square();  // equivalent to tf.square(x)
+const y = x.square();  // 相当于 tf.square(x)
 y.print();
 ```
 
@@ -94,7 +93,7 @@ y.print();
 ```js
 const a = tf.tensor([1, 2, 3, 4]);
 const b = tf.tensor([10, 20, 30, 40]);
-const y = a.add(b);  // equivalent to tf.add(a, b)
+const y = a.add(b);  // 相当于 tf.add(a, b)
 y.print();
 ```
 
@@ -112,7 +111,7 @@ y.print();
 
 ```js
 const a = tf.tensor([[1, 2], [3, 4]]);
-a.dispose(); // Equivalant to tf.dispose(a)
+a.dispose(); // 相当于 tf.dispose(a)
 ```
 
 在一个应用程序中，将多个操作链接在一起是非常常见的。保存对所有中间变量的引用以释放它们所占用的空间会降低代码的可读性。为了解决这个问题，TensorFlow.js提供了`tf.tidy()`方法。这个方法可以清楚所有在执行函数后没有返回的`tf.Tensor`,这和执行函数时清楚一些局部变量的方法有些类似:
