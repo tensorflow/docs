@@ -119,13 +119,7 @@ AUTO_REFERENCE_RE = re.compile(r'`([a-zA-Z0-9_.]+?)`')
 
 
 class ReferenceResolver(object):
-  """Class for replacing `tf.symbol` references with Markdown links.
-
-  Attributes:
-    current_doc_full_name: A string (or None) indicating the name of the
-      document currently being processed, so errors can reference the broken
-      doc.
-  """
+  """Class for replacing `tf.symbol` references with Markdown links."""
 
   def __init__(self, duplicate_of, is_fragment, py_module_names):
     """Initializes a Reference Resolver.
@@ -170,6 +164,8 @@ class ReferenceResolver(object):
   def from_json_file(cls, filepath):
     with open(filepath) as f:
       json_dict = json.load(f)
+
+    json_dict.pop('current_doc_full_name', None)
 
     return cls(**json_dict)
 

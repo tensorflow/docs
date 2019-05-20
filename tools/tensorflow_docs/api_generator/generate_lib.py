@@ -85,8 +85,6 @@ def write_docs(output_dir,
 
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
   for full_name, py_object in six.iteritems(parser_config.index):
-    parser_config.reference_resolver.current_doc_full_name = full_name
-
     if full_name in parser_config.duplicate_of:
       continue
 
@@ -332,9 +330,6 @@ def replace_refs(src_dir,
       if base_name in EXCLUDED:
         continue
       full_in_path = os.path.join(dirpath, base_name)
-
-      # Set the `current_doc_full_name` so bad files can be reported on errors.
-      reference_resolver.current_doc_full_name = full_in_path
 
       suffix = os.path.relpath(path=full_in_path, start=src_dir)
       full_out_path = os.path.join(output_dir, suffix)
