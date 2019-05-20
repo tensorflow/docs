@@ -23,7 +23,7 @@ toc:
   - title: "Classify images"
     path: /alpha/tutorials/keras/basic_classification
   - title: "Classify text"
-    path: /alpha/tutorials/keras/basic_text_classification
+    path: /alpha/tutorials/keras/basic_text_classification_with_tfhub
   - title: "Classify structured data"
     path: /alpha/tutorials/keras/feature_columns
   - title: "Regression"
@@ -48,6 +48,8 @@ toc:
   section:
   - title: "Intro to word embeddings"
     path: /alpha/tutorials/text/word_embeddings
+  - title: "Classify preprocessed text"
+    path: /alpha/tutorials/keras/basic_text_classification
   - title: "Classify text with a RNN"
     path: /alpha/tutorials/text/text_classification_rnn
 
