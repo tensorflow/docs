@@ -171,12 +171,15 @@ class DocGeneratorVisitor(object):
 
     This function is meant to be used as the `key` to the `sorted` function.
 
-    This sorting in order:
-      Prefers names refering to the defining class, over a subclass.
-      Prefers names that are not in "contrib".
-      prefers submodules to the root namespace.
-      Prefers short names `tf.thing` over `tf.a.b.c.thing`
-      Sorts lexicographically on name parts.
+    This returns a score tuple composed of the following scores:
+      defining_class: Prefers method names pointing into the defining class,
+        over a subclass (`ParentClass.method` over `Subclass.method`, if it
+        referrs to the same method implementation).
+      experimental: Prefers names that are not in "contrib" or "experimental".
+      keras: Prefers keras names to non-keras names.
+      module_length: Prefers submodules (tf.sub.thing) over the root namespace
+        (tf.thing) over deeply nested paths (tf.a.b.c.thing)
+      name: Fallback, sorts lexicographically on the full_name.
 
     Args:
       name: the full name to score, for example `tf.estimator.Estimator`
@@ -188,7 +191,7 @@ class DocGeneratorVisitor(object):
     parts = name.split('.')
     short_name = parts[-1]
     if len(parts) == 1:
-      return (-99, -99, -99, short_name)
+      return (-99, -99, -99, -99, short_name)
 
     container = self._index['.'.join(parts[:-1])]
 
@@ -198,9 +201,13 @@ class DocGeneratorVisitor(object):
         # prefer the defining class
         defining_class_score = -1
 
-    contrib_score = -1
-    if 'contrib' in parts:
-      contrib_score = 1
+    experimental_score = -1
+    if 'contrib' in parts or any('experimental' in part for part in parts):
+      experimental_score = 1
+
+    keras_score = 1
+    if 'keras' in parts:
+      keras_score = -1
 
     while parts:
       container = self._index['.'.join(parts)]
@@ -217,7 +224,8 @@ class DocGeneratorVisitor(object):
       # shorter is better
       module_length_score = module_length
 
-    return (defining_class_score, contrib_score, module_length_score, name)
+    return (defining_class_score, experimental_score, keras_score,
+            module_length_score, name)
 
   def _maybe_find_duplicates(self):
     """Compute data structures containing information about duplicates.
