@@ -9,6 +9,7 @@ TensorFlow CPU 包，可以按如下方式导入：
 import * as tf from '@tensorflow/tfjs-node'
 ```
 
+
 当从这个包导入 TensorFlow.js 时，您导入的模块将由 TensorFlow C 二进制文件加速并在 CPU 上运行。CPU 上的 TensorFlow 使用硬件加速来加速内部的线性代数运算。
 
 此软件包适用于支持 TensorFlow 的 Linux，Windows 和 Mac 平台。
@@ -59,7 +60,7 @@ Node.js Bindings 为 TensorFlow.js 提供了一个同步地执行操作的后端
 
 ### tf.browser
 
-在普通的 TensorFlow.js 包中，`tf.browser.*` 命名空间中的符号将在 Node.js 中不可用，因为它们使用特定浏览器的 API。
+在普通的 TensorFlow.js 包中，`tf.browser.*`  命名空间中的符号将在 Node.js 中不可用，因为它们使用特定浏览器的 API。
 
 目前，有如下 API：
 
