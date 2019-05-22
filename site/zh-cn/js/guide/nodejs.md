@@ -60,7 +60,7 @@ Node.js Bindings 为 TensorFlow.js 提供了一个同步地执行操作的后端
 
 ### tf.browser
 
-在普通的 TensorFlow.js 包中，`tf.browser.*`  命名空间中的符号将在 Node.js 中不可用，因为它们使用特定浏览器的 API。
+在普通的 TensorFlow.js 包中，`tf.browser.*` 命名空间中的符号将在 Node.js 中不可用，因为它们使用特定浏览器的 API。
 
 目前，有如下 API：
 
@@ -69,7 +69,7 @@ Node.js Bindings 为 TensorFlow.js 提供了一个同步地执行操作的后端
 
 ### tf.node
 
-有两个 Node.js 包还提供了一个名称为 `tf.node`的命名空间，其中包含了特定 Node 的 API。
+有两个 Node.js 包还提供了一个名称为 `tf.node` 的命名空间，其中包含了特定 Node 的 API。
 
 TensorBoard 是一个特定 Node.js API 的重要例子。
 
