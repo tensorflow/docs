@@ -68,7 +68,7 @@ Node.js Bindings 为实现同步操作的 TensorFlow.js 提供后端。这意味
 
 ### tf.node
 
-有两个 Node.js 包还提供一个名称空间为 `tf.node`，其中包含特定 Node 的 API。
+有两个 Node.js 包还提供了一个名称为 `tf.node`的命名空间，其中包含了特定 Node 的 API。
 
 TensorBoard 是一个特定 Node.js API 的重要例子。
 
