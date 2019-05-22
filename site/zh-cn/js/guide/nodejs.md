@@ -9,7 +9,7 @@ TensorFlow CPU 包，可以按如下方式导入：
 import * as tf from '@tensorflow/tfjs-node'
 ```
 
-当从这个包导入 TensorFlow.js 时，你导入的模块将由 TensorFlow C 二进制文件加速并在 CPU 上运行。CPU 上的 TensorFlow 使用硬件加速来促进内在的线性代数计算。
+当从这个包导入 TensorFlow.js 时，你导入的模块将由 TensorFlow C 二进制文件加速并在 CPU 上运行。CPU 上的 TensorFlow 使用硬件加速来加速内部的线性代数运算。
 
 此软件包适用于支持 TensorFlow 的 Linux，Windows 和 Mac 平台。
 
