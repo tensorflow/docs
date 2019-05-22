@@ -15,14 +15,16 @@ TensorFlow.js有两种工作平台：浏览器和Node.js。不同平台有很多
 TensorFlow.js支持多个不同的Backend，用来实现存储和数学操作。任何时候都只有一个backend生效。大部分时间，TensorFlow.js会根据当前环境自动选择使用最佳的backend。即使这样，你仍然需要知道，如何得知当前正在使用的是哪个backend，以及如何在不同backend之间切换。
 
 下面命令用来获取当前正使用的backend
-
+```js
 console.log(tf.getBackend());
+```
 
 下面命令用来手动切换backend
-
+```js
 tf.setBackend(‘cpu’);
-
 console.log(tf.getBackend());
+```
+
 #### [](https://github.com/tensorflow/tfjs-website/blob/master/docs/guide/platform_environment.md#webgl-backend)WebGL backend
 
 WebGL backend，简称“webgl”，是在浏览器平台上最强大的一个backend。它比CPU backend要快100倍。部分原因是，Tensor是作为WebGL纹理保存的，数学运算操作实现在WebGL shader里面。
@@ -36,18 +38,23 @@ WebGL backend，简称“webgl”，是在浏览器平台上最强大的一个ba
 强调一下，在使用WebGL backend时，需要显式管理内存。因为存储Tensor的WebGL纹理，不会被浏览器的垃圾收集机制自动清理。
 
 调用dispose()清理tf.Tensor占用的内存
+
+```js
 const a = tf.tensor([[1,2], [3,4]]);
 a.dispose();
+```
 
 在应用中，经常需要把多个操作组合起来。维持一个对所有中间变量的引用，然后清理其占用的内存，这种方法使代码可读性变差。TensorFlow.js提供tf.tidy()方法清理函数返回时不再需要的tf.Tensor，这就好像函数执行后，本地变量都会被清理一样。
 
+```js
 const a = tf.tensor([[1, 2], [3, 4]]);
 const y = tf.tidy(() => {
   const result = a.square().log().neg();
   return result;
 });
+```
 
-注意：其他非WebGL环境（如Node.js TensorFlow backend或CPU backend）有自动垃圾回收机制，在这些环境下使用dispose()或tidy()没有副作用。实际上，主动调用通常会比垃圾回收的清理带来更好的性能。
+>注意：其他非WebGL环境（如Node.js TensorFlow backend或CPU backend）有自动垃圾回收机制，在这些环境下使用dispose()或tidy()没有副作用。实际上，主动调用通常会比垃圾回收的清理带来更好的性能。
 
 ##### [](https://github.com/tensorflow/tfjs-website/blob/master/docs/guide/platform_environment.md#precision)精度
 
@@ -59,6 +66,7 @@ TensorFlow.js还会把tf.Tensor数据存储为WebGL纹理。当一个tf.Tensor�
 
 如果希望加快第一次预测的性能，我们推荐对模型进行预热，即传递一个有同样shape的输入Tensor。
 例如:
+```js
 const model = await tf.loadLayersModel(modelUrl);
 // Warmup the model before using real data.
 const warmupResult = model.predict(tf.zeros(inputShape));
@@ -67,6 +75,7 @@ warmupResult.dispose();
 
 // The second predict() will be much faster
 const result = model.predict(userData);
+```
 
 #### [](https://github.com/tensorflow/tfjs-website/blob/master/docs/guide/platform_environment.md#nodejs-tensorflow-backend)Node.js TensorFlow backend
 
