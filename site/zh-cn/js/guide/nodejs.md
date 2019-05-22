@@ -72,7 +72,7 @@ Node.js Bindings 为实现同步操作的 TensorFlow.js 提供后端。这意味
 
 TensorBoard 是一个特定 Node.js API 的重要例子。
 
-对于 Node.js 中的 TensorBoard  的示例，下面展示概要：
+这是一个将训练的总结(summaries)导出至Node.js的TensorBoard中的案例
 
 ```js
 const model = tf.sequential();
