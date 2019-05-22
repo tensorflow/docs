@@ -25,7 +25,7 @@ TensorFlow GPU 包，可以按如下方式导入：
 import * as tf from '@tensorflow/tfjs-node-gpu'
 ```
 
-与 CPU 包一样，你导入的模块将由 TensorFlow C 二进制文件加速，但是它将使用 CUDA 在 GPU 上运行张量运算，因此只运行在 Linux 平台。该绑定比其他可选绑定可以快至少一个数量级。
+与 CPU 包一样，你导入的模块将由 TensorFlow C 二进制文件加速，但是它将使用 CUDA 在 GPU 上运行张量运算，因此只能运行在 Linux 平台。该绑定比其他可选绑定可以快至少一个数量级。
 
 > 注意：此软件包目前仅适用于 CUDA。在选择本方案之前，您需要在带有 NVIDIA 显卡的的机器上安装 CUDA。
 
