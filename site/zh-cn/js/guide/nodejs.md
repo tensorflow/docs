@@ -48,7 +48,7 @@ import * as tf from '@tensorflow/tfjs'
 
 ## 生产环境考虑因素
 
-Node.js Bindings 为实现同步操作的 TensorFlow.js 提供后端。这意味着当你调用一个操作时，例如 `tf.matMul(a, b)`，它将阻止主线程直到这个操作完成。
+Node.js Bindings 为 TensorFlow.js 提供了一个同步地执行操作的后端。这意味着当您调用一个操作时，例如 `tf.matMul(a, b)`，它将阻塞主线程直到这个操作完成。
 
 因此，当前这种 Bindings 非常适合脚本和离线任务。如果你要在实际应用程序（如：Web 服务器）中使用Node.js Bindings，则应设置一个工作队列或设置一些工作线程，以便你的 TensorFlow.js 代码不会阻止主线程。
 
