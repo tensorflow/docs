@@ -434,7 +434,7 @@ class TitleBlock(object):
   def __str__(self):
     """Returns a markdown compatible version of the TitleBlock."""
     sub = []
-    sub.append('\n\n#### ' + self.title + ':')
+    sub.append('\n\n#### ' + self.title + ':\n')
     sub.append(textwrap.dedent(self.text))
     sub.append('\n')
     for name, description in self.items:

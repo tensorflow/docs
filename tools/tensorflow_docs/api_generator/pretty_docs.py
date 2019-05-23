@@ -147,7 +147,7 @@ def _build_class_page(page_info):
       h3 = '<h3 id="{short_name}"><code>{short_name}</code></h3>\n\n'
       parts.append(h3.format(short_name=prop_info.short_name))
 
-      parts.append(prop_info.doc.brief)
+      parts.append(prop_info.doc.brief + '\n')
       parts.extend(str(item) for item in prop_info.doc.docstring_parts)
       parts.append(_build_compatibility(prop_info.doc.compatibility))
 
@@ -196,7 +196,7 @@ def _build_method_section(method_info, heading_level=3):
   if method_info.signature is not None:
     parts.append(_build_signature(method_info, use_full_name=False))
 
-  parts.append(method_info.doc.brief)
+  parts.append(method_info.doc.brief + '\n')
   parts.extend(str(item) for item in method_info.doc.docstring_parts)
   parts.append(_build_compatibility(method_info.doc.compatibility))
   parts.append('\n\n')
