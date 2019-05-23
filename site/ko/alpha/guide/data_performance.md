@@ -1,61 +1,38 @@
 # tf.data Performance
 
-## Overview
+## 개요
 
-GPUs and TPUs can radically reduce the time required to execute a single
-training step. Achieving peak performance requires an efficient input pipeline
-that delivers data for the next step before the current step has finished. The
-`tf.data` API helps to build flexible and efficient input pipelines. This
-document explains the `tf.data` API's features and best practices for building
-highly performant TensorFlow input pipelines across a variety of models and
-accelerators.
+GPU와 TPU는 하나의 학습 단계를 실행하는데 필요한 시간을 급격하게 줄일 수 있습니다. 최대 성능을 위해서는 현재 단계가 종료되기 전에 다음 단계의 데이터를 운반하는 효율적인 입력 파이프라인이 필요합니다.`tf.data` API는 유연하고 효율적인 입력 파이프라인을 만드는데 도움이 됩니다. 이 문서는 `tf.data` API의 특성과 다양한 모델과 가속기를 걸친 고성능의 텐서플로 입력 파이프라인을 만드는 방법을 설명합니다.
 
 
-This guide does the following:
+이 가이드는 다음의 내용을 포함합니다:
 
-*   Illustrates that TensorFlow input pipelines are essentially an
-    [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) process.
-*   Describes recommended practices for designing performant TensorFlow input
-    pipelines.
-*   Discusses the performance implications of the order in which you apply
-    transformations.
+*   텐서플로 입력 파이프라인이 필수적으로 [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) 프로세스라는 것을 설명합니다.
+*   고성능 텐서플로 입력 파이프라인을 설계하기 위해 권장하는 방법을 설명합니다.
+*   변환을 적용한 순서의 성능 영향에 대해 설명합니다.
 
-## Input Pipeline Structure
+## 입력 파이프라인 구조
 
-A typical TensorFlow training input pipeline can be framed as an ETL process:
+전형적인 텐서플로 훈련 입력 파이프라인은 ETL 프로세스로 구성될 수 있습니다:
 
-1.  **Extract**: Read data from memory (NumPy) or persistent storage -- either
-    local (HDD or SSD) or remote (e.g. [GCS](https://cloud.google.com/storage/)
-    or
-    [HDFS](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system)).
-2.  **Transform**: Use CPU to parse and perform preprocessing operations on the
-    data such as shuffling, batching, and domain specific transformations such
-    as image decompression and augmentation, text vectorization, or video
-    temporal sampling.
-3.  **Load**: Load the transformed data onto the accelerator device(s) (e.g.
-    GPU(s) or TPU(s)) that execute the machine learning model.
+1.  **추출**: 메모리(NumPy)나 로컬(HDD 또는 SSD) 이나 원격(이를테면 [GCS](https://cloud.google.com/storage/)또는 [HDFS](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system)) 영구 스토리지로부터 데이터를 읽어들입니다.
+2.  **변환**: 분석하기 위해 CPU를 사용하고 셔플링(shuffling), 배칭(batching), 그리고 이미지 압축 해제와 확대(augmentation), 텍스트 벡터화 또는 비디오 시간 샘플링과 같은 특정 도메인의 변환과 같은 데이터에 대한 전처리를 수행합니다.
+3.  **적재**: 변환된 데이터를 가속장치(들)에 적재합니다. (예를들면, 기계학습 모델을 실행하는 GPU나 TPU)
 
-This pattern effectively utilizes the CPU, while reserving the accelerator for
-the heavy lifting of training your model. In addition, viewing input pipelines
-as an ETL process provides a framework that facilitates the application of
-performance optimizations.
+이 패턴은 CPU를 효과적으로 사용하면서 모델 훈련을 많이 수행하도록 가속기를 예비합니다. 게다가 입력 파이프라인을 ETL 프로세스로 보는 것은 성능 최적화를 쉽게 적용할 수 있는 프레임워크를 제공합니다.
 
-The example below represents a naive implementation of an input pipeline that
-reads TFRecord files containing labeled images and converts them to batches of
-image-label pairs suitable for training. The input pipeline is represented as a
-`tf.data.Dataset` which can passed to high-level TensorFlow API such as
-`tf.keras`.
+아래 예제는 레이블된 이미지가 포함된 TFRecord 파일들을 읽고 이를 학습에 적합한 이미지-레이블 쌍의 배치(batch)로 변환하는 입력 파이프라인의 간단한 구현을 보여줍니다. 입력 파이프라인은 `tf.data.Dataset`로 표현되고 `tf.keras`와 같은 고수준의 텐서플로 API에 전달될 수 있습니다.
 
 ```
 def parse_fn(example):
-  "Parse TFExample records and perform simple data augmentation."
+  "TFExample 레코드를 분석하고 간단한 데이터 확대를 수행합니다."
   example_fmt = {
     "image": tf.FixedLengthFeature((), tf.string, ""),
     "label": tf.FixedLengthFeature((), tf.int64, -1)
   }
   parsed = tf.parse_single_example(example, example_fmt)
   image = tf.io.image.decode_image(parsed["image"])
-  image = _augment_helper(image)  # augments image using slice, reshape, resize_bilinear
+  image = _augment_helper(image)  # slice, reshape, resize_bilinear를 이용하여 이미지를 확대합니다
   return image, parsed["label"]
 
 def make_dataset():
@@ -66,100 +43,59 @@ def make_dataset():
   return dataset
 ```
 
-The next section builds on this input pipeline, illustrating best practices for
-designing performant TensorFlow input pipelines.
+다음 섹션은 이 입력 파이프라인을 기반으로 하고 고성능의 텐서플로 입력 파이프라인을 설계하기 위한 최상의 사례를 포함하고 있습니다.
 
-## Optimizing Performance
+## 성능 최적화
 
-As new computing devices (such as GPUs and TPUs) make it possible to train
-neural networks at an increasingly fast rate, the CPU processing is prone to
-becoming the bottleneck. The `tf.data` API provides users with building blocks
-to design input pipelines that effectively utilize the CPU, optimizing each step
-of the ETL process.
+GPU나TPU같은 새로운 컴퓨팅 장치들이 인공신경망을 빠른 속도로 훈련시키는 것이 가능해져서 CPU에 의한 처리는 병목현상이 일어나기 쉽습니다. `tf.data` API는 사용자에게 CPU를 효율적으로 활용하고 ETL 프로세스의 각 단계를 최적화하는 입력 파이프라인 설계의 구성요소를 제공합니다.
 
-### Pipelining
+### 파이프라이닝
 
-To perform a training step, you must first extract and transform the training
-data and then feed it to a model running on an accelerator. However, in a naive
-synchronous implementation, while the CPU is preparing the data, the accelerator
-is sitting idle. Conversely, while the accelerator is training the model, the
-CPU is sitting idle. The training step time is thus the sum of both CPU
-pre-processing time and the accelerator training time.
+훈련 단계를 수행하기 위해서 우선 훈련 데이터를 추출하고 변형해야 합니다. 그 뒤에 가속기에서 실행되는 모델에 넣습니다. 그러나, 단순 동기식 구현에서는 CPU가 데이터를 준비하는 동안 가속기가 유휴상태로 있습니다. 반대로, 가속기기가 모델을 훈련할 때 CPU는 유휴상태입니다. 훈련 스텝 타임은 그러므로 CPU에서의 전처리 시간과 가속기의 훈련 시간의 총합이 됩니다.
 
-**Pipelining** overlaps the preprocessing and model execution of a training
-step. While the accelerator is performing training step `N`, the CPU is
-preparing the data for step `N+1`. Doing so reduces the step time to the maximum
-(as opposed to the sum) of the training and the time it takes to extract and
-transform the data.
+**파이프라이닝**은 전처리와 훈련 스텝의 모델 실행을 오버랩합니다. 가속기가 `N` 훈련 스텝을 수행하는 동안 CPU는 `N+1` 스텝의 데이터를 준비합니다. 이렇게 하면 스텝 시간과 데이터를 추출하고 변형하는 시간을 최대한 단축시킬 수 있습니다.
 
-Without pipelining, the CPU and the GPU/TPU sit idle much of the time:
+파이프라이닝이 없다면 CPU와 GPU/TPU는 많은 시간 동안 유휴상태입니다:
 
 ![without pipelining](https://www.tensorflow.org/images/datasets_without_pipelining.png)
 
-With pipelining, idle time diminishes significantly:
+파이프라이닝이 있다면 유휴 시간은 아주 많이 줄어듭니다:
 
 ![with pipelining](https://www.tensorflow.org/images/datasets_with_pipelining.png)
 
-The `tf.data` API provides a software pipelining mechanism through the
-`tf.data.Dataset.prefetch` transformation, which can be used to decouple the
-time when data is produced from the time when data is consumed. In particular,
-the transformation uses a background thread and an internal buffer to prefetch
-elements from the input dataset ahead of the time they are requested. The number
-of elements to prefetch should be equal to (or possibly greater than) the number
-of batches consumed by a single training step. You could either manually tune
-this value, or set it to `tf.data.experimental.AUTOTUNE` which will prompt the
-tf.data runtime to tune the value dynamically at runtime.
+`tf.data` API는 소프트웨어 파이프라이닝 방법을 `tf.data.Dataset.prefetch` 변환을 통해 제공합니다. 이것은 데이터가 소비된 시간으로부터 데이터가 생성되는 시간을 분리하는데 사용될 수 있습니다. 특히, 변환은 백그라운드 스레드와 내부 버퍼를 사용하여 요청된 시간 전에 입력 데이터 세트에서 요소를 프리페치(prefetch)합니다. 프리페치할 요소의 수는 하나의 훈련 스텝에서 소비한 배치의 수와 같거나 커야 합니다. 이 값을 수동으로 조정하거나 `tf.data.experimental.AUTOTUNE`으로 설정하면 tf.data 런타임이 런타임에 동적으로 값을 조정하도록 프롬프트합니다.
 
-To apply this change to our running example, insert:
+이 변화를 예제에 적용하려면, 다음을 넣으세요:
 
 ```
 dataset = dataset.prefetch(buffer_size=tf.data.experimental.AUTOTUNE)
 ```
 
-as the last transformation of your input pipeline.
+입력 파이프라인의 마지막 변형으로서 말입니다.
 
-Note that the prefetch transformation provides benefits any time there is an
-opportunity to overlap the work of a "producer" with the work of a "consumer."
+프리페치 변환은 "생산자"의 작업을 "소비자"의 작업과 오버랩이 가능할 때마다 이점을 제공합니다.
 
-### Parallelize Data Transformation
+### 데이터 변환 병렬화
 
-When preparing a batch, input elements may need to be pre-processed. To this
-end, the `tf.data` API offers the `tf.data.Dataset.map` transformation, which
-applies a user-defined function (for example, `parse_fn` from the running
-example) to each element of the input dataset. Because input elements are
-independent of one another, the pre-processing can be parallelized across
-multiple CPU cores. To make this possible, the `map` transformation provides the
-`num_parallel_calls` argument to specify the level of parallelism. For example,
-the following diagram illustrates the effect of setting `num_parallel_calls=2`
-to the `map` transformation:
+배치를 준비할 때, 입력 요소들은 전처리가 필요할 수 있습니다. 이것 때문에 `tf.data` API가 `tf.data.Dataset.map` 변환을 제공하고, 그것은 사용자 정의 함수(예를 들어, 예제의 `parse_fn`)를 입력 데이터셋의 각 요소에 적용합니다. 입력 요소가 서로 독립적이기 때문에 전처리는 여러 개의 CPU 코어에서 병렬로 실행될 수 있습니다. 이를 가능하게 하기위해 `map` 변환은 병렬화 정도를 설정하는 `num_parallel_calls` 매개변수를 제공합니다. 예를 들어, 다음의 그림은 `map` 변환에서 `num_parallel_calls=2`로 설정하였을 때의 영향을 보여줍니다.
 
 ![parallel map](https://www.tensorflow.org/images/datasets_parallel_map.png)
 
-Choosing the best value for the `num_parallel_calls` argument depends on your
-hardware, characteristics of your training data (such as its size and shape),
-the cost of your map function, and what other processing is happening on the CPU
-at the same time; a simple heuristic is to use the number of available CPU
-cores. For instance, if the machine executing the example above had 4 cores, it
-would have been more efficient to set `num_parallel_calls=4`. On the other hand,
-setting `num_parallel_calls` to a value much greater than the number of
-available CPUs can lead to inefficient scheduling, resulting in a slowdown.
-Similar to the `prefetch` transformation, the `map` transformation supports
-`tf.data.experimental.AUTOTUNE` which will delegate the decision about what
-level of parallelism to use to the tf.data runtime.
+가장 좋은 `num_parallel_calls` 값은 하드웨어, 훈련 데이터(사이즈와 모양), 맵 함수의 비용, 그리고 CPU에서 동시에 어떤 처리가 수행되는지에 따라 다릅니다; 단순한 방법으로 가용한 CPU 코어의 숫자로 설정할 수 있습니다. 예를 들어, 위의 예제를 4개의 코어를 가진 컴퓨터에서 실행시킨다면 `num_parallel_calls=4`로 설정하는 것이 더 효율적이었을 것입니다. 반면에, `num_parallel_calls`를 가용한 CPU 코어 숫자보다 훨씬 더 많이 설정한다면 비효율적인 스케줄링으로 느려질 것입니다. `prefetch` 변환과 비슷하게 `map` 변환은 tf.data 런타임에 가용되는 병렬화 수준을 결정하는 `tf.data.experimental.AUTOTUNE`을 제공합니다.
 
-To apply this change to our running example, replace:
+이 변화를 예제에 적용하려면, 다음의 코드를:
 
 ```
 dataset = dataset.map(map_func=parse_fn)
 ```
 
-with:
+다음처럼 변경하세요:
 
 ```
 dataset = dataset.map(map_func=parse_fn, num_parallel_calls=tf.data.experimental.AUTOTUNE)
 ```
 
-### Parallelize Data Extraction
+### 데이터 추출 병렬화
 
 In a real-world setting, the input data may be stored remotely (for example, GCS
 or HDFS), either because the input data would not fit locally or because the
