@@ -1,4 +1,4 @@
-# Arastirma ve denemeler
+# Arastirma ve denemeler 
 
 Eager uygulamasi daha gelismis islemler icin zorunlu ve her calistirmada yeniden
 tanimlanabilir bir arayuz saglar. Otomatik ayrimlasma sayesinde kendinize ozel 
