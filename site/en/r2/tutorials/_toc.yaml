@@ -60,6 +60,8 @@ toc:
     path: /alpha/tutorials/estimators/premade_estimators
   - title: "Linear models"
     path: /alpha/tutorials/estimators/linear
+  - title: "Boosted Trees with Model Understanding"
+    path: /alpha/tutorials/estimators/boosted_trees_model_understanding
 
 - heading: "Advanced tutorials"
   style: divider
