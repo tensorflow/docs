@@ -72,7 +72,7 @@ b.print();
 const a = tf.tensor([[1, 2], [3, 4]]);
  //返回多维数组的值
 console.log(a.arraySync());
-// 返回支持张量的展平数据。
+// 返回张量所包含的所有值的一维数组
 console.log(a.dataSync());
 ```
 
