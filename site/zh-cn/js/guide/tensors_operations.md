@@ -105,7 +105,7 @@ y.print();
 
 ## 内存
 
-当使用WebGL后端时, `tf.Tensor`的内存必须以显式管理。这是因为WebGL不足以让`tf.Tensor`超出其内存释放的范围。
+当使用WebGL后端时, `tf.Tensor`的内存必须以显式管理。这是因为WebGL不足以让`tf.Tensor`超出生命周期后内存被自动释放。
 
 您可以使用`dispose() `方法或是`tf.dispose()`方法用以释放`tf.Tensor`所占用的内存:
 
