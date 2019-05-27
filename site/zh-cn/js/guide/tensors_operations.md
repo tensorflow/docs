@@ -1,6 +1,6 @@
 # 张量(Tensors) 和 操作(operations)
 
-TebsorFlow.js是一个在JavaScript中使用张量定义和运行计算的框架。其中张量代表了向量，矩阵或者更高维的矢量。
+TebsorFlow.js是一个在JavaScript中使用张量来定义并运行计算的框架。张量是向量和矩阵向更高维度的推广。
 
 # 张量(Tensors)
 
