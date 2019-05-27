@@ -21,7 +21,7 @@ TebsorFlow.js是一个在JavaScript中使用张量来定义并运行计算的框
 const a = tf.tensor([[1, 2], [3, 4]]);
 console.log('shape:', a.shape);
 a.print();
-// 或者您可以用一个flat数组和特定的形状创建一个张量
+// 或者您可以用一个一维数组并指定特定的形状来创建一个张量
 const shape = [2, 2];
 const b = tf.tensor([1, 2, 3, 4], shape);
 console.log('shape:', b.shape);
