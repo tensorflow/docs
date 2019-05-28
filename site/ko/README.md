@@ -7,6 +7,8 @@
 [docs-ko@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)로
 메일을 보내주시기 바랍니다.
 
+노트: [site/en/r2](https://github.com/tensorflow/docs/tree/master/site/en/r2) 디렉토리에 있는 [텐서플로 2.0 알파](https://www.tensorflow.org/alpha) 문서를 번역하는데 촛점을 맞춰 주세요. 2.0 릴리스를 준비하기 위해 TF 1.x 커뮤니티 문서는 더 이상 업데이트되지 않습니다. 이 [공지](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ)를 참고하세요.
+
 # Community translations
 
 Our TensorFlow community has translated these documents. Because community
