@@ -35,6 +35,8 @@ from tensorflow_docs.api_generator import py_guide_parser
 from tensorflow_docs.api_generator import tf_inspect
 from tensorflow_docs.api_generator import traverse
 
+import yaml
+
 
 def write_docs(output_dir,
                parser_config,
@@ -151,19 +153,18 @@ def write_docs(output_dir,
                                dup.replace('.', '/'))
       to_path = os.path.join(site_path, 'api_docs/python',
                              full_name.replace('.', '/'))
-      redirects.append((
-          os.path.join('/', from_path),
-          os.path.join('/', to_path)))
+      redirects.append({
+          'from': os.path.join('/', from_path),
+          'to': os.path.join('/', to_path)
+      })
 
   if redirects:
-    redirects = sorted(redirects)
-    template = ('- from: {}\n'
-                '  to: {}\n')
-    redirects = [template.format(f, t) for f, t in redirects]
+    redirects = {
+        'redirects': sorted(redirects, key=lambda redirect:redirect["from"])}
+
     api_redirects_path = os.path.join(output_dir, '_redirects.yaml')
     with open(api_redirects_path, 'w') as redirect_file:
-      redirect_file.write('redirects:\n')
-      redirect_file.write(''.join(redirects))
+      yaml.dump(redirects, redirect_file, default_flow_style=False)
 
   if yaml_toc:
     # Generate table of contents
