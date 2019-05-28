@@ -1060,14 +1060,6 @@ class _ClassPageInfo(object):
     self._set_bases(relative_path, parser_config)
 
     for short_name in parser_config.tree[self.full_name]:
-      # Remove builtin members that we never want to document.
-      if short_name in [
-          '__class__', '__base__', '__weakref__', '__doc__', '__module__',
-          '__dict__', '__abstractmethods__', '__slots__', '__getnewargs__',
-          '__str__', '__repr__', '__hash__', '__reduce__'
-      ]:
-        continue
-
       child_name = '.'.join([self.full_name, short_name])
       child = parser_config.py_name_to_object(child_name)
 

@@ -120,6 +120,17 @@ class PublicAPIFilter(object):
     self._do_not_descend_map = do_not_descend_map or {}
     self._private_map = private_map or {}
 
+  ALLOWED_DUNDERS = frozenset([
+      '__abs__', '__add__', '__and__', '__bool__', '__call__', '__concat__',
+      '__div__', '__enter__', '__eq__', '__exit__', '__floordiv__', '__ge__',
+      '__getitem__', '__gt__', '__init__', '__invert__', '__iter__', '__le__',
+      '__len__', '__lt__', '__matmul__', '__mod__', '__mul__', '__ne__',
+      '__neg__', '__pos__', '__nonzero__', '__or__', '__pow__', '__radd__',
+      '__rand__', '__rdiv__', '__rfloordiv__', '__rmatmul__', '__rmod__',
+      '__rmul__', '__ror__', '__rpow__', '__rsub__', '__rtruediv__', '__rxor__',
+      '__sub__', '__truediv__', '__xor__'
+  ])
+
   def _is_private(self, path, name, obj):
     """Return whether a name is private."""
     # Skip objects blocked by doc_controls.
@@ -142,7 +153,7 @@ class PublicAPIFilter(object):
     if name.startswith('_') and not is_dunder:
       return True
 
-    if name in ['__base__', '__class__']:
+    if is_dunder and name not in self.ALLOWED_DUNDERS:
       return True
 
     return False

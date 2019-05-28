@@ -154,11 +154,7 @@ class DocGeneratorVisitor(object):
       raise RuntimeError('Unexpected type in visitor -- %s: %r' % (parent_name,
                                                                    parent))
 
-    for i, (name, child) in enumerate(list(children)):
-      # Don't document these names
-      if name in ['__metaclass__', '__setattr__', '__delattr__']:
-        del children[i]
-        continue
+    for (name, child) in children:
 
       full_name = '.'.join([parent_name, name]) if parent_name else name
       self._index[full_name] = child
