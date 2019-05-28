@@ -97,48 +97,28 @@ dataset = dataset.map(map_func=parse_fn, num_parallel_calls=tf.data.experimental
 
 ### 데이터 추출 병렬화
 
-In a real-world setting, the input data may be stored remotely (for example, GCS
-or HDFS), either because the input data would not fit locally or because the
-training is distributed and it would not make sense to replicate the input data
-on every machine. A dataset pipeline that works well when reading data locally
-might become bottlenecked on I/O when reading data remotely because of the
-following differences between local and remote storage:
+실제 환경에서는 입력 데이터가 로컬에 맞지 않거나 학습이 분산되어 있고 입력 데이터를 모든 컴퓨터에 복제하는 것은 적절하지 않기 때문에 입력 데이터를 원격으로(이를테면, GCS나 HDFS) 저장할 수 있습니다. 데이터를 로컬에서 읽는 데이터셋 파이프라인은 다음과 같은 로컬과 원격 저장소의 차이때문에 원격으로 데이터를 읽을 때 입출력에 병목이 발생할 수 있습니다:
 
-*   **Time-to-first-byte:** Reading the first byte of a file from remote storage
-    can take orders of magnitude longer than from local storage.
-*   **Read throughput:** While remote storage typically offers large aggregate
-    bandwidth, reading a single file might only be able to utilize a small
-    fraction of this bandwidth.
+*   **첫 번째 바이트(Time-to-first-byte):** 원격 저장소에서 파일의 첫 번째 바이트를 읽는 것은 로컬 저장소에서 읽어 들이는 것보다 훨씬 오래 걸립니다.
+*   **읽기 처리량(Read throughput):** 원격 저장소는 보통 큰 총 대역폭을 가지지만 하나의 파일을 읽을 때 이 대역폭의 일부만 활용할 수 있습니다. 
 
-In addition, once the raw bytes are read into memory, it may also be necessary
-to deserialize and/or decrypt the data (e.g.
-[protobuf](https://developers.google.com/protocol-buffers/)), which requires
-additional computation. This overhead is present irrespective of whether the
-data is stored locally or remotely, but can be worse in the remote case if data
-is not prefetched effectively.
+게다가 바이트들이 메모리로 읽혀지면 데이터를 역직렬화 그리고/또는 해독할 필요가 있을 수 있습니다(예를 들면, [protobuf](https://developers.google.com/protocol-buffers/)). 이 작업은 추가적인 계산이 필요합니다. 이 오버헤드는 데이터가 로컬 또는 원격으로 저장되는지와는 관계없이 존재하지만 데이터가 효과적으로 프리페치되지 않으면 원격의 경우에 나빠질 수 있습니다. 
 
-To mitigate the impact of the various data extraction overheads, the
-`tf.data.Dataset.interleave` transformation can be used to parallelize the data
-extraction step, interleaving the contents of other datasets (such as data file
-readers). The number of datasets to overlap can be specified by the
-`cycle_length` argument, while the level of parallelism can be specified by the
-`num_parallel_calls` argument. Similar to the `prefetch` and `map`
-transformations, the `interleave` transformation supports
-`tf.data.experimental.AUTOTUNE` which will delegate the decision about what
-level of parallelism to use to the tf.data runtime.
+다양한 데이터 추출 오버헤드의 영향을 줄이기 위해 `tf.data.Dataset.interleave` 변환은 (데이터 파일 판독기와 같은)다른 데이터셋의 내용을 인터리빙(interleaving)하여 데이터 추출 단계를 병렬화하는데 사용할 수 있습니다. 중첩할 데이터셋은 `cycle_length` 매개변수에 의해 지정될 수 있는 반면, 병렬처리 수준은 `num_parallel_calls` 매개변수에 의해 지정될 수 있습니다. `prefetch`와 `map` 변환과 비슷하게 `interleave` 변환은 `tf.data.experimental.AUTOTUNE`을 지원합니다. 이것은 어떤 수준의 병렬처리가 tf.data 런타임에 사용되는지에 대해 결정합니다.
 
+다음의 그림은 `interleave` 변환에 `cycle_length=2` 그리고 `num_parallel_calls=2`로 설정했을 때의 영향을 보여줍니다:
 The following diagram illustrates the effect of supplying `cycle_length=2` and
 `num_parallel_calls=2` to the `interleave` transformation:
 
 ![parallel io](https://www.tensorflow.org/images/datasets_parallel_io.png)
 
-To apply this change to our running example, replace:
+이 변화를 예제에 적용하려면 다음의 코드를:
 
 ```
 dataset = tf.data.TFRecordDataset("/path/to/dataset/train-*.tfrecord")
 ```
 
-with:
+다음처럼 변경하세요:
 
 ```
 files = tf.data.Dataset.list_files("/path/to/dataset/train-*.tfrecord")
@@ -147,85 +127,36 @@ dataset = files.interleave(
     num_parallel_calls=tf.data.experimental.AUTOTUNE)
 ```
 
-## Performance Considerations
+## 성능 고려사항
 
-The `tf.data` API is designed around composable transformations to provide its
-users with flexibility. Although many of these transformations are commutative,
-the ordering of certain transformations has performance implications.
+`tf.data` API는 사용자들에게 유연성을 제공할 수 있도록 구성할 수 있는 변환을 중심으로 설계되었습니다. 이러한 변환들의 다수가 교환적이지만, 특정 변환의 순서는 성능에 영향을 줍니다.
 
-### Map and Batch
+### 맵과 배치
 
-Invoking the user-defined function passed into the `map` transformation has
-overhead related to scheduling and executing the user-defined function.
-Normally, this overhead is small compared to the amount of computation performed
-by the function. However, if `map` does little work, this overhead can dominate
-the total cost. In such cases, we recommend vectorizing the user-defined
-function (that is, have it operate over a batch of inputs at once) and apply the
-`batch` transformation _before_ the `map` transformation.
+`map`변환에 전달된 사용자 정의 함수를 호출하는 것은 사용자 정의 함수의 스케줄링과 실행과 관련된 오버헤드가 있습니다. 보통의 경우 이 오버헤드는 함수에 의해 수행되는 계산량보다 작습니다. 그러나 `map`이 거의 작동하지 않는다면 이 오버헤드가 총 비용에서 가장 클 수 있습니다. 이러한 경우에 사용자 정의 함수를 벡터화(즉, 한번에 입력 배치를 통해 작동하도록)하고 `batch` 변환을 `map` 변환 _이전에_ 적용하는 것이 좋습니다.
 
-### Map and Cache
+### 맵과 캐시
 
-The `tf.data.Dataset.cache` transformation can cache a dataset, either in memory
-or on local storage. If the user-defined function passed into the `map`
-transformation is expensive, apply the cache transformation after the `map`
-transformation as long as the resulting dataset can still fit into memory or
-local storage. If the user-defined function increases the space required to
-store the dataset beyond the cache capacity, consider pre-processing your data
-before your training job to reduce resource usage.
+`tf.data.Dataset.cache` 변환은 데이터셋을 메모리 또는 로컬 저장소에 캐시할 수 있습니다. 만약 `map`변환에 전달된 사용자 정의 함수가 비싸다면 결과로 나온 데이터셋이 메모리나 로컬 저장소에 들어갈 수 있는 한은 `map`변환 후에 캐시 변환을 적용하세요. 사용자 정의 함수가 캐시 용량을 초과해서 데이터셋을 저장하는데 필요한 공간을 늘리면 훈련 작업 전에 데이터를 전처리하여 리소스 사용을 줄이는 것이 좋습니다.
 
-### Map and Interleave / Prefetch / Shuffle
+### 맵과 인터리브(Interleave) / 프리페치 / 셔플(Shuffle)
 
-A number of transformations, including `interleave`, `prefetch`, and `shuffle`,
-maintain an internal buffer of elements. If the user-defined function passed
-into the `map` transformation changes the size of the elements, then the
-ordering of the map transformation and the transformations that buffer elements
-affects the memory usage. In general, we recommend choosing the order that
-results in lower memory footprint, unless different ordering is desirable for
-performance (for example, to enable fusing of the map and batch
-transformations).
+`interleave`, `prefetch`, `shuffle`을 포함한 많은 변환은 요소들의 내부 버퍼를 유지합니다. 사용자 정의 함수가 `map` 변환에 전달된 경우 요소의 크기가 변경되고 맵 변환의 순서와 버퍼 요소가 메모리 사용에 영향을 줍니다. 일반적으로 순서를 다르게 하는 것이 성능에 도움되지 않는 경우(예를 들어, 맵과 배치의 융합(fusing)을 가능하게 하는 경우)가 아니라면 메모리 사용량이 낮아지는 순서를 선택하는 것이 좋습니다.
 
-### Repeat and Shuffle
+### 반복과 셔플
 
-The `tf.data.Dataset.repeat` transformation repeats the input data a finite (or
-infinite) number of times; each repetition of the data is typically referred to
-as an _epoch_. The `tf.data.Dataset.shuffle` transformation randomizes the order
-of the dataset's examples.
+`tf.data.Dataset.repeat` 변환은 입력 데이터를 유한하게(또는 무한하게) 반복합니다; 데이터의 각 반복은 보통 _에포크(epoch)_라고 합니다. `tf.data.Dataset.shuffle` 변환은 데이터셋의 예제의 순서를 랜덤화합니다.
 
-If the `repeat` transformation is applied before the `shuffle` transformation,
-then the epoch boundaries are blurred. That is, certain elements can be repeated
-before other elements appear even once. On the other hand, if the `shuffle`
-transformation is applied before the repeat transformation, then performance
-might slow down at the beginning of each epoch related to initialization of the
-internal state of the `shuffle` transformation. In other words, the former
-(`repeat` before `shuffle`) provides better performance, while the latter
-(`shuffle` before `repeat`) provides stronger ordering guarantees.
+`shuffle` 변환 전에 `repeat` 변환이 적용되면 에포크의 경계가 흐려집니다. 즉, 특정 요소는 다른 요소가 한번 나타나기 전에 반복될 수 있습니다. 반면에, `shuffle` 변환이 `repeat` 변환 전에 적용되면 `shuffle` 변환의 내부 상태 초기화와 관련되어 각 에포크 시작 부분에서 성능이 저하될 수 있습니다. 다시 말해서, 전자(`shuffle` 전에 `repeat`)는 성능이 더 좋고 후자(`repeat` 전에 `shuffle`)은 순서를 더 강하게 보장합니다.
 
-## Summary of Best Practices
+## 가장 좋은 예제 요약
 
-Here is a summary of the best practices for designing performant TensorFlow
-input pipelines:
+다음은 성능이 좋은 텐서플로 입력 파이프라인을 설계하기 위한 가장 좋은 예제를 요약한 것입니다:
 
-*   Use the `prefetch` transformation to overlap the work of a producer and
-    consumer. In particular, we recommend adding `prefetch` to the end of your
-    input pipeline to overlap the transformations performed on the CPU with the
-    training done on the accelerator. Either manually tuning the buffer size, or
-    using `tf.data.experimental.AUTOTUNE` to delegate the decision to the
-    tf.data runtime.
-*   Parallelize the `map` transformation by setting the `num_parallel_calls`
-    argument. Either manually tuning the level of parallelism, or using
-    `tf.data.experimental.AUTOTUNE` to delegate the decision to the tf.data
-    runtime.
-*   If you are working with data stored remotely and / or requiring
-    deserialization, we recommend using the `interleave` transformation to
-    parallelize the reading (and deserialization) of data from different files.
-*   Vectorize cheap user-defined functions passed in to the `map` transformation
-    to amortize the overhead associated with scheduling and executing the
-    function.
-*   If your data can fit into memory, use the `cache` transformation to cache it
-    in memory during the first epoch, so that subsequent epochs can avoid the
-    overhead associated with reading, parsing, and transforming it.
-*   If your pre-processing increases the size of your data, we recommend
-    applying the `interleave`, `prefetch`, and `shuffle` first (if possible) to
-    reduce memory usage.
-*   We recommend applying the `shuffle` transformation _before_ the `repeat`
-    transformation.
+*   `prefetch` 변환을 사용하여 프로듀서와 컨슈머의 작업을 오버랩하세요. 특히 입력 파이프라인의 끝 부분에 `prefetch`를 추가하여 CPU에서 수행된 변환과 가속기에서 수행된 훈련을 오버랩하는 것이 좋습니다. 버퍼 크기를 수동으로 조정하거나 `tf.data.experimental.AUTOTUNE`을 사용하여 결정을 tf.data 런타임에 맡기세요.
+*   `num_parallel_calls` 매개변수를 설정하여 `map` 변환을 병렬 처리하세요. 병렬 처리 수준을 수동으로 조정하거나 `tf.data.experimental.AUTOTUNE`을 사용하여 tf.data 런타임에 결정을 맡기세요.
+*   원격으로 저장된 데이터를 작업하거나 역직렬화(deserialization)가 필요하다면 서로 다른 파일로부터의 데이터 읽기(그리고 역직렬화)를 병렬화하기 위해 `interleave` 변환을 사용하는 것이 좋습니다.
+*   `map` 변환에 전달된 저렴한 사용자 정의 함수를 벡터화하여 함수의 스케줄링 및 실행관 관련된 오버헤드를 상환합니다.
+*   데이터가 메모리에 저장될 수 있는 경우, `cache` 변환을 사용하여 첫 번째 에포크동안 데이터를 메모리에 캐시하세요, 그렇게 하면 뒤따르는 에포크들은 읽기, 파싱, 그리고 변환에 관련한 오버헤드를 피할 수 있습니다.
+*   전처리해서 데이터 사이즈가 증가한다면 `interleave`, `prefetch`, 그리고 `shuffle`을 (가능하다면)먼저 적용하여 메모리 사용을 줄이는 것이 좋습니다.
+*   `repeat` 변환 _이전에_ `shuffle` 변환을 적용하는 것이 좋습니다.
