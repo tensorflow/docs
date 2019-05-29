@@ -18,9 +18,130 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import collections
+
 import six
 
 from tensorflow_docs.api_generator import tf_inspect
+
+
+def _maybe_singleton(py_object):
+  """Returns `True` if `py_object` might be a singleton value .
+
+  Many immutable values in python act like singletons: small ints, some strings,
+  Bools, None, the empty tuple.
+
+  We can't rely on looking these up by their `id()` to find their name or
+  duplicates.
+
+  This function checks if the object is one of those maybe singleton values.
+
+  Args:
+    py_object: the object to check.
+
+  Returns:
+    A bool, True if the object might be a singleton.
+  """
+  # isinstance accepts nested tuples of types.
+  is_immutable_type = isinstance(
+      py_object, (six.integer_types, six.string_types, six.binary_type,
+                  six.text_type, float, complex, bool, type(None)))
+
+  # Check if the object is the empty tuple.
+  return is_immutable_type or py_object is ()  # pylint: disable=literal-comparison
+
+
+class ApiTreeNode(object):
+  """Represents a single API end-point.
+
+  Attributes:
+    path: A tuple of strings containing the path to the object from the root
+      like `('tf', 'losses', 'hinge')`
+    obj: The python object.
+    children: A dictionary from short name to `ApiTreeNode`, including the
+      children nodes.
+    parent: The parent node.
+    short_name: The last path component
+    full_name: All path components joined with "."
+  """
+
+  def __init__(self, path, obj, parent):
+    self.path = path
+    self.obj = obj
+    self.children = {}
+    self.parent = parent
+
+  @property
+  def short_name(self):
+    return self.path[-1]
+
+  @property
+  def full_name(self):
+    return '.'.join(self.path)
+
+
+class ApiTree(object):
+  """Represents all api end-points as a tree.
+
+  Items must be inserted in order, from root to leaf.
+
+  Attributes:
+    index: A dict, mapping from path tuples to `ApiTreeNode`.
+    aliases: A dict, mapping from object ids to a list of all `ApiTreeNode` that
+      refer to the object.
+    root: The root `ApiTreeNode`
+  """
+
+  def __init__(self):
+    root = ApiTreeNode((), None, None)
+    self.index = {(): root}
+    self.aliases = collections.defaultdict(list)
+    self.root = root
+
+  def __contains__(self, path):
+    """Returns `True` if path exists in the tree.
+
+    Args:
+      path: A tuple of strings, the api path to the object.
+
+    Returns:
+      True if `path` exists in the tree.
+    """
+    return path in self.index
+
+  def __getitem__(self, path):
+    """Fetch an item from the tree.
+
+    Args:
+      path: A tuple of strings, the api path to the object.
+
+    Returns:
+      An `ApiTreeNode`.
+
+    Raises:
+      KeyError: If no node can be found at that path.
+    """
+    return self.index[path]
+
+  def __setitem__(self, path, obj):
+    """Add an object to the tree.
+
+    Args:
+      path: A tuple of strings.
+      obj: The python object.
+    """
+    parent_path = path[:-1]
+    parent = self.index[parent_path]
+
+    node = ApiTreeNode(path=path, obj=obj, parent=parent)
+
+    self.index[path] = node
+    if not _maybe_singleton(obj):
+      # We cannot use the duplicate mechanism for some constants, since e.g.,
+      # id(c1) == id(c2) with c1=1, c2=1. This isn't problematic since constants
+      # have no usable docstring and won't be documented automatically.
+      self.aliases[id(obj)].append(node)
+    parent.children[node.short_name] = node
 
 
 class DocGeneratorVisitor(object):
@@ -54,6 +175,8 @@ class DocGeneratorVisitor(object):
     self._reverse_index = None
     self._duplicates = None
     self._duplicate_of = None
+
+    self._api_tree = ApiTree()
 
   @property
   def index(self):
@@ -149,12 +272,15 @@ class DocGeneratorVisitor(object):
     parent_name = '.'.join(parent_path)
     self._index[parent_name] = parent
     self._tree[parent_name] = []
+    if parent_path not in self._api_tree:
+      self._api_tree[parent_path] = parent
 
     if not (tf_inspect.ismodule(parent) or tf_inspect.isclass(parent)):
       raise RuntimeError('Unexpected type in visitor -- %s: %r' % (parent_name,
                                                                    parent))
 
     for (name, child) in children:
+      self._api_tree[parent_path + (name,)] = child
 
       full_name = '.'.join([parent_name, name]) if parent_name else name
       self._index[full_name] = child
@@ -246,46 +372,45 @@ class DocGeneratorVisitor(object):
     # objects in _index are in memory at the same time so this is safe.
     reverse_index = {}
 
-    # Make a preliminary duplicates map. For all sets of duplicate names, it
-    # maps the first name found to a list of all duplicate names.
-    raw_duplicates = {}
-    for full_name, py_object in six.iteritems(self._index):
-      # We cannot use the duplicate mechanism for some constants, since e.g.,
-      # id(c1) == id(c2) with c1=1, c2=1. This is unproblematic since constants
-      # have no usable docstring and won't be documented automatically.
-      if (py_object is not None and
-          not isinstance(py_object, six.integer_types + six.string_types +
-                         (six.binary_type, six.text_type, float, complex, bool))
-          and py_object is not ()):  # pylint: disable=literal-comparison
-        object_id = id(py_object)
-        if object_id in reverse_index:
-          master_name = reverse_index[object_id]
-          if master_name in raw_duplicates:
-            raw_duplicates[master_name].append(full_name)
-          else:
-            raw_duplicates[master_name] = [master_name, full_name]
-        else:
-          reverse_index[object_id] = full_name
     # Decide on master names, rewire duplicates and make a duplicate_of map
     # mapping all non-master duplicates to the master name. The master symbol
     # does not have an entry in this map.
     duplicate_of = {}
+
     # Duplicates maps the main symbols to the set of all duplicates of that
     # symbol (incl. itself).
     duplicates = {}
-    for names in raw_duplicates.values():
+
+    for path, node in six.iteritems(self._api_tree.index):
+      if not path:
+        continue
+      full_name = node.full_name
+      py_object = node.obj
+      object_id = id(py_object)
+      if full_name in duplicates:
+        continue
+
+      aliases = self._api_tree.aliases[object_id]
+      if not aliases:
+        aliases = [node]
+
+      names = [alias.full_name for alias in aliases]
+
       names = sorted(names)
       # Choose the master name with a lexical sort on the tuples returned by
       # by _score_name.
       master_name = min(names, key=self._score_name)
 
-      duplicates[master_name] = names
+      if names:
+        duplicates[master_name] = list(names)
+
+      names.remove(master_name)
       for name in names:
-        if name != master_name:
-          duplicate_of[name] = master_name
+        duplicate_of[name] = master_name
 
       # Set the reverse index to the canonical name.
-      reverse_index[id(self._index[master_name])] = master_name
+      if not _maybe_singleton(py_object):
+        reverse_index[object_id] = master_name
 
     self._duplicate_of = duplicate_of
     self._duplicates = duplicates
