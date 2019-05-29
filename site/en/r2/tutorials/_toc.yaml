@@ -129,5 +129,5 @@ toc:
     path: /alpha/tutorials/distribute/keras
   - title: "Distributed training with custom training loops"
     path: /alpha/tutorials/distribute/training_loops
-  - title: "Multi worker training"
-    path: /alpha/tutorials/distribute/multi_worker
+  - title: "Multi worker training with Estimator"
+    path: /alpha/tutorials/distribute/multi_worker_with_estimator
