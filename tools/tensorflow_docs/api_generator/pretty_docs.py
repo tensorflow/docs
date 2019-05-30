@@ -29,6 +29,8 @@ from __future__ import print_function
 
 import textwrap
 
+from tensorflow_docs.api_generator import doc_generator_visitor
+
 
 def build_md_page(page_info):
   """Given a PageInfo object, return markdown for the page.
@@ -165,13 +167,33 @@ def _build_class_page(page_info):
   if page_info.other_members:
     parts.append('## Class Members\n\n')
 
-    # TODO(markdaoust): Document the value of the members,
-    #                   at least for basic types.
+    parts.append(_other_members(page_info.other_members))
 
-    h3 = '<h3 id="{short_name}"><code>{short_name}</code></h3>\n\n'
-    others_member_headings = (h3.format(short_name=info.short_name)
-                              for info in sorted(page_info.other_members))
-    parts.extend(others_member_headings)
+  return ''.join(parts)
+
+
+def _other_members(other_members):
+  """Returns "other_members" rendered to markdown.
+
+  `other_members` is used for anything that is not a class, function, module,
+  or method.
+
+  Args:
+    other_members: a list of (name, object) pairs.
+
+  Returns:
+    A markdown string
+  """
+  parts = []
+  list_item = '* `{short_name}` <a id="{short_name}"></a>\n'
+  list_item_with_value = ('* `{short_name} = {obj!r}` '
+                          '<a id="{short_name}"></a>\n')
+  for other_member in other_members:
+    if doc_generator_visitor.maybe_singleton(other_member.obj):
+      part = list_item_with_value.format(**other_member._asdict())
+    else:
+      part = list_item.format(**other_member._asdict())
+    parts.append(part)
 
   return ''.join(parts)
 
@@ -269,9 +291,7 @@ def _build_module_page(page_info):
     #                   at least for basic types.
     parts.append('## Other Members\n\n')
 
-    h3 = '<h3 id="{short_name}"><code>{short_name}</code></h3>\n\n'
-    for item in page_info.other_members:
-      parts.append(h3.format(**item._asdict()))
+    parts.append(_other_members(page_info.other_members))
 
   return ''.join(parts)
 
