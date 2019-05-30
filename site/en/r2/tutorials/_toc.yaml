@@ -113,6 +113,8 @@ toc:
   section:
   - title: "Load CSV data"
     path: /alpha/tutorials/load_data/csv
+  - title: "Load numpy data"
+    path: /alpha/tutorials/load_data/numpy
   - title: "Build an image input pipeline"
     path: /alpha/tutorials/load_data/images
   - title: "Load text with tf.data"
