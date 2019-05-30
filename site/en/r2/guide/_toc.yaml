@@ -2,7 +2,7 @@ toc:
 - heading: "Guide"
   style: divider
 
-- title: "Eager execution"
+- title: "Eager essentials"
   path: /alpha/guide/eager
 - title: "Variables"
   path: /alpha/guide/variables
@@ -30,6 +30,8 @@ toc:
   path: /alpha/guide/using_gpu
 
 - heading: "Data Loading"
+- title: "Importing Data"
+  path: /alpha/guide/data
 - title: "Performance"
   path: /alpha/guide/data_performance
 

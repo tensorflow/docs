@@ -366,7 +366,8 @@ class ParserTest(absltest.TestCase):
 
     # Make sure the module's file is contained as the definition location.
     self.assertEqual(
-        os.path.relpath(test_module.__file__, '/'), page_info.defined_in.path)
+        os.path.relpath(test_module.__file__.rstrip('c'), '/'),
+        page_info.defined_in.path)
 
   def test_docs_for_function(self):
     index = {
@@ -498,11 +499,18 @@ class ParserTest(absltest.TestCase):
     doc_info = parser._parse_md_docstring(test_function_with_fancy_docstring,
                                           '../..', reference_resolver)
 
-    self.assertNotIn('@', doc_info.docstring)
-    self.assertNotIn('compatibility', doc_info.docstring)
-    self.assertNotIn('Raises:', doc_info.docstring)
+    freeform_docstring = '\n'.join(
+        part for part in doc_info.docstring_parts if isinstance(part, str))
+    self.assertNotIn('@', freeform_docstring)
+    self.assertNotIn('compatibility', freeform_docstring)
+    self.assertNotIn('Raises:', freeform_docstring)
 
-    self.assertLen(doc_info.function_details, 3)
+    title_blocks = [
+        part for part in doc_info.docstring_parts if not isinstance(part, str)
+    ]
+
+    self.assertLen(title_blocks, 3)
+
     self.assertCountEqual(doc_info.compatibility.keys(), {'numpy', 'theano'})
 
     self.assertEqual(doc_info.compatibility['numpy'],
@@ -683,6 +691,7 @@ class TestReferenceResolver(absltest.TestCase):
   _BASE_DIR = tempfile.mkdtemp()
 
   def setUp(self):
+    super(TestReferenceResolver, self).setUp()
     self.workdir = os.path.join(self._BASE_DIR, self.id())
     os.makedirs(self.workdir)
 
@@ -764,41 +773,58 @@ class TestReferenceResolver(absltest.TestCase):
 
 RELU_DOC = """Computes rectified linear: `max(features, 0)`
 
+RELU is an activation
+
 Args:
   features: A `Tensor`. Must be one of the following types: `float32`,
     `float64`, `int32`, `int64`, `uint8`, `int16`, `int8`, `uint16`,
     `half`.
   name: A name for the operation (optional)
+    Note: this is a note, not another parameter.
+
+Examples:
+
+  ```
+  a+b=c
+  ```
 
 Returns:
-  A `Tensor`. Has the same type as `features`
+  Some tensors, with the same type as the input.
+  first: is the something
+  second: is the something else
 """
 
 
-class TestParseFunctionDetails(absltest.TestCase):
+class TestParseDocstring(absltest.TestCase):
 
-  def test_parse_function_details(self):
-    docstring, function_details = parser._parse_function_details(RELU_DOC)
+  def test_split_title_blocks(self):
+    docstring_parts = parser.TitleBlock.split_string(RELU_DOC)
 
-    self.assertLen(function_details, 2)
-    args = function_details[0]
-    self.assertEqual(args.keyword, 'Args')
-    self.assertEmpty(args.header, 0)
+    print(docstring_parts)
+
+    self.assertLen(docstring_parts, 7)
+
+    args = docstring_parts[1]
+    self.assertEqual(args.title, 'Args')
+    self.assertEqual(args.text, '\n')
     self.assertLen(args.items, 2)
     self.assertEqual(args.items[0][0], 'features')
-    self.assertEqual(args.items[1][0], 'name')
-    self.assertEqual(args.items[1][1],
-                     'A name for the operation (optional)\n\n')
-    returns = function_details[1]
-    self.assertEqual(returns.keyword, 'Returns')
-
-    relu_doc_lines = RELU_DOC.split('\n')
-    self.assertEqual(docstring, relu_doc_lines[0] + '\n\n')
-    self.assertEqual(returns.header, relu_doc_lines[-2] + '\n')
-
     self.assertEqual(
-        RELU_DOC,
-        docstring + ''.join(str(detail) for detail in function_details))
+        args.items[0][1],
+        'A `Tensor`. Must be one of the following types: `float32`,\n'
+        '  `float64`, `int32`, `int64`, `uint8`, `int16`, `int8`, `uint16`,\n'
+        '  `half`.\n')
+    self.assertEqual(args.items[1][0], 'name')
+    self.assertEqual(
+        args.items[1][1], 'A name for the operation (optional)\n'
+        '  Note: this is a note, not another parameter.\n')
+
+    returns = [item for item in docstring_parts if not isinstance(item, str)
+              ][-1]
+    self.assertEqual(returns.title, 'Returns')
+    self.assertEqual(returns.text,
+                     '\nSome tensors, with the same type as the input.\n')
+    self.assertLen(returns.items, 2)
 
 
 class TestGenerateSignature(absltest.TestCase):

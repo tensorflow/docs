@@ -20,7 +20,6 @@ $ wget -O /tmp/pylintrc https://raw.githubusercontent.com/tensorflow/tensorflow/
 
 ```
 
-
 To check a file with `pylint`:
 
 ```bash
@@ -29,13 +28,12 @@ $ pylint --rcfile=/tmp/pylintrc myfile.py
 
 ### Supported Python versions
 
-We currently support Python 3.4, 3.5, 3.6, and 2.7.
+TensorFlow supports Python 2.7 and Python >= 3.4. See the
+[installation guide](https://www.tensorflow.org/install) for details.
 
-A full list of official and community-supported builds can be found in the
-README file in
-[tensorflow/tensorflow](https://github.com/tensorflow/tensorflow), and detailed
-installation instructions can be found
-[here](https://www.tensorflow.org/install/pip#1-install-the-python-development-environment-on-your-system).
+See the TensorFlow
+[continuous build status](https://github.com/tensorflow/tensorflow/blob/master/README.md#continuous-build-status)
+for official and community supported builds.
 
 #### Legacy Python compatibility
 
@@ -97,7 +95,7 @@ $ diff <my_cc_file> /tmp/my_cc_file.cc
     dimensions: sequence-length, or image-size.
 *   When possible, use a Tensor's overloaded operators rather than TensorFlow
     functions. For example, we prefer `**`, `+`, `/`, `*`, `-`, `and/or` over
-    `tf.pow`, `tf.add`, `tf.div`, `tf.mul`, `tf.subtract`, and `tf.logical_*` —
+    `tf.pow`, `tf.add`, `tf.divide`, `tf.multiply`, `tf.subtract`, and `tf.logical_*` —
     unless a specific name for the operation is desired.
 
 
@@ -113,7 +111,8 @@ creates a part of the graph and returns output tensors.
     convert non-tensor inputs into tensors if they are using C++ operations.
     Note that the arguments are still described as a `Tensor` object of a
     specific dtype in the documentation.
-*   Each Python operation should have a `name_scope` like below. Pass as arguments `name`, a default name of the op, and a list of the input tensors.
+*   Each Python operation should have a `name_scope`. As seen below, pass the name
+    of the op as a string.
 *   Operations should contain an extensive Python comment with Args and Returns
     declarations that explain both the type and meaning of each value. Possible
     shapes, dtypes, or ranks should be specified in the description. See

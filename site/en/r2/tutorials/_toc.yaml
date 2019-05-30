@@ -23,7 +23,7 @@ toc:
   - title: "Classify images"
     path: /alpha/tutorials/keras/basic_classification
   - title: "Classify text"
-    path: /alpha/tutorials/keras/basic_text_classification
+    path: /alpha/tutorials/keras/basic_text_classification_with_tfhub
   - title: "Classify structured data"
     path: /alpha/tutorials/keras/feature_columns
   - title: "Regression"
@@ -48,19 +48,18 @@ toc:
   section:
   - title: "Intro to word embeddings"
     path: /alpha/tutorials/text/word_embeddings
+  - title: "Classify preprocessed text"
+    path: /alpha/tutorials/keras/basic_text_classification
   - title: "Classify text with a RNN"
     path: /alpha/tutorials/text/text_classification_rnn
 
 - title: "Estimators"
   style: accordion
   section:
-  - title: "Boosted trees"
-    path: /alpha/tutorials/estimators/boosted_trees
-  - title: "Boosted trees (model understanding)"
-    path: /alpha/tutorials/estimators/boosted_trees_model_understanding
+  - title: "Premade Estimators"
+    path: /alpha/tutorials/estimators/premade_estimators
   - title: "Linear models"
     path: /alpha/tutorials/estimators/linear
-
 - heading: "Advanced tutorials"
   style: divider
 
@@ -112,6 +111,8 @@ toc:
 - title: "Loading data"
   style: accordion
   section:
+  - title: "Load CSV data"
+    path: /alpha/tutorials/load_data/csv
   - title: "Build an image input pipeline"
     path: /alpha/tutorials/load_data/images
   - title: "Load text with tf.data"
@@ -128,5 +129,5 @@ toc:
     path: /alpha/tutorials/distribute/keras
   - title: "Distributed training with custom training loops"
     path: /alpha/tutorials/distribute/training_loops
-  - title: "Multi worker training"
-    path: /alpha/tutorials/distribute/multi_worker
+  - title: "Multi worker training with Estimator"
+    path: /alpha/tutorials/distribute/multi_worker_with_estimator

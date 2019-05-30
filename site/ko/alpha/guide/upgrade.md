@@ -6,7 +6,7 @@ Note: 이 문서는 텐서플로 커뮤니티에서 번역했습니다. 커뮤�
 내용과 일치하지 않을 수 있습니다. 이 번역에 개선할 부분이 있다면
 [tensorflow/docs](https://github.com/tensorflow/docs) 깃헙 저장소로 풀 리퀘스트를 보내주시기
 바랍니다. 문서 번역이나 리뷰에 참여하려면
-[docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)로
+[docs-ko@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)로
 메일을 보내주시기 바랍니다.
 
 텐서플로 2.0은 매개변수 재배치, 심볼(symbol) 이름 변경, 파라미터 기본값 변경과 같은 많은 API 변화가 있습니다. 이러한

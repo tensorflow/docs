@@ -19,25 +19,31 @@ see [how to get help](/community/#get_help).
 
 These projects inside the TensorFlow GitHub organization have lists dedicated to their communities:
 
-* [hub](https://groups.google.com/a/tensorflow.org/d/forum/hub) -
-  Discussion and collaboration around [TensorFlow Hub](https://github.com/tensorflow/hub).
-* [magenta-discuss](https://groups.google.com/a/tensorflow.org/d/forum/magenta-discuss) -
-  General discussion about [Magenta](https://magenta.tensorflow.org/)
-  development and directions.
-* [swift](https://groups.google.com/a/tensorflow.org/d/forum/swift) -
-  Community and collaboration around Swift for TensorFlow.
-* [tensor2tensor](https://groups.google.com/d/forum/tensor2tensor) - Discussion
-  and peer support for Tensor2Tensor.
-* [tfjs-announce](https://groups.google.com/a/tensorflow.org/d/forum/tfjs-announce) -
-  Announcements of new TensorFlow.js releases.
-* [tfjs](https://groups.google.com/a/tensorflow.org/d/forum/tfjs) - Discussion
-  and peer support for TensorFlow.js.
-* [tflite](https://groups.google.com/a/tensorflow.org/d/forum/tflite) - Discussion and
-  peer support for TensorFlow Lite.
-* [tfprobability](https://groups.google.com/a/tensorflow.org/d/forum/tfprobability) - Discussion and
-  peer support for TensorFlow Probability.
-* [tpu-users](https://groups.google.com/a/tensorflow.org/d/forum/tpu-users) - Community discussion
-  and support for TPU users.
+*   [hub](https://groups.google.com/a/tensorflow.org/d/forum/hub) - Discussion
+    and collaboration around
+    [TensorFlow Hub](https://github.com/tensorflow/hub).
+*   [magenta-discuss](https://groups.google.com/a/tensorflow.org/d/forum/magenta-discuss) -
+    General discussion about [Magenta](https://magenta.tensorflow.org/)
+    development and directions.
+*   [mlir](https://groups.google.com/a/tensorflow.org/d/forum/mlir) - Community
+    and collaboration around MLIR, Multi-Level Intermediate Representation.
+*   [swift](https://groups.google.com/a/tensorflow.org/d/forum/swift) -
+    Community and collaboration around Swift for TensorFlow.
+*   [tensor2tensor](https://groups.google.com/d/forum/tensor2tensor) -
+    Discussion and peer support for Tensor2Tensor.
+*   [tfjs-announce](https://groups.google.com/a/tensorflow.org/d/forum/tfjs-announce) -
+    Announcements of new TensorFlow.js releases.
+*   [tfjs](https://groups.google.com/a/tensorflow.org/d/forum/tfjs) - Discussion
+    and peer support for TensorFlow.js.
+*   [tflite](https://groups.google.com/a/tensorflow.org/d/forum/tflite) -
+    Discussion and peer support for TensorFlow Lite.
+*   [tfprobability](https://groups.google.com/a/tensorflow.org/d/forum/tfprobability) -
+    Discussion and peer support for TensorFlow Probability.
+*   [tpu-users](https://groups.google.com/a/tensorflow.org/d/forum/tpu-users) -
+    Community discussion and support for TPU users.
+*   [xla-dev](https://groups.google.com/forum/#!forum/xla-dev) - Discussion for
+    developers contributing to the [XLA](https://www.tensorflow.org/xla)
+    compiler.
 
 ## Special Interest Groups
 

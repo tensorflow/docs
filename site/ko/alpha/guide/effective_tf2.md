@@ -1,6 +1,13 @@
 # 이펙티브 텐서플로 2.0
 
-Note: 이 문서는 텐서플로 커뮤니티에서 번역했습니다. 커뮤니티 번역 활동의 특성상 정확한 번역과 최신 내용을 반영하기 위해 노력함에도 불구하고 [공식 영문 문서](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/effective_tf2.md)의 내용과 일치하지 않을 수 있습니다. 이 번역에 개선할 부분이 있다면 [tensorflow/docs](https://github.com/tensorflow/docs) 깃헙 저장소로 풀 리퀘스트를 보내주시기 바랍니다. 문서 번역이나 리뷰에 참여하려면 [docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)로 메일을 보내주시기 바랍니다.
+Note: 이 문서는 텐서플로 커뮤니티에서 번역했습니다. 커뮤니티 번역 활동의 특성상 정확한 번역과 최신 내용을 반영하기 위해 노력함에도
+불구하고
+[공식 영문 문서](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/effective_tf2.md)의
+내용과 일치하지 않을 수 있습니다. 이 번역에 개선할 부분이 있다면
+[tensorflow/docs](https://github.com/tensorflow/docs) 깃헙 저장소로 풀 리퀘스트를 보내주시기
+바랍니다. 문서 번역이나 리뷰에 참여하려면
+[docs-ko@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)로
+메일을 보내주시기 바랍니다.
 
 텐서플로 2.0은 사용자의 생산성을 향상시키기 위해서 많은 것을 바꾸었습니다. [불필요한 API](https://github.com/tensorflow/community/blob/master/rfcs/20180827-api-names.md)를 제거하고 API의 일관성을 높였으며([Unified RNNs](https://github.com/tensorflow/community/blob/master/rfcs/20180920-unify-rnn-interface.md),
 [Unified Optimizers](https://github.com/tensorflow/community/blob/master/rfcs/20181016-optimizer-unification.md)) 파이썬 런타임(runtime)과 [즉시 실행](https://www.tensorflow.org/guide/eager)(eager execution)을 통합하였습니다.
@@ -102,7 +109,7 @@ for x, y in main_dataset:
     prediction = path1(x)
     loss = loss_fn_head1(prediction, y)
   # trunk와 head1 가중치를 동시에 최적화합니다.
-  gradients = tape.gradients(loss, path1.trainable_variables)
+  gradients = tape.gradient(loss, path1.trainable_variables)
   optimizer.apply_gradients(zip(gradients, path1.trainable_variables))
 
 # trunk를 재사용하여 head2를 세부 튜닝합니다.
@@ -111,7 +118,7 @@ for x, y in small_dataset:
     prediction = path2(x)
     loss = loss_fn_head2(prediction, y)
   # trunk 가중치는 제외하고 head2 가중치만 최적화합니다.
-  gradients = tape.gradients(loss, head2.trainable_variables)
+  gradients = tape.gradient(loss, head2.trainable_variables)
   optimizer.apply_gradients(zip(gradients, head2.trainable_variables))
 
 # trunk 연산만 재사용을 위해 저장할 수 있습니다.
@@ -129,7 +136,7 @@ def train(model, dataset, optimizer):
     with tf.GradientTape() as tape:
       prediction = model(x)
       loss = loss_fn(prediction, y)
-    gradients = tape.gradients(loss, model.trainable_variables)
+    gradients = tape.gradient(loss, model.trainable_variables)
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 ```
 

@@ -24,24 +24,26 @@ and to identify and fix issues. Below are some of the key enhancements:
     about the programming model better with TensorFlow practice and should make
     TensorFlow easier to learn and apply.
 *   Keras tightly integrated with the TensorFlow ecosystem, and has support for
-    Eager execution, tf.data API, tf.distribute.MirroredStrategy for multi-GPU
-    training, TensorBoard visualization, and TF Lite and TF.js conversion.
+    Eager execution, `tf.data` API, `tf.distribute.MirroredStrategy` for
+    multi-GPU training, TensorBoard visualization, and TF Lite and TF.js
+    conversion.
 *   Starter list of TF-Hub models loadable in TF 2.0.
 *   Autograph making it easier to write models with custom control flow ops and
-    getting graph performance with tf.function.
+    getting graph performance with `tf.function`.
 *   Flexible API choices that let users build models quickly using high level
     building blocks, or take full control by writing custom models and custom
     training loops using lower level constructs.
-*   Support for TPUs using the TPUStrategy with tf.estimator.
-*   Support for multi worker synchronous training using tf.distribute.Strategy
-    with tf.estimator.
+*   Support for TPUs using the TPUStrategy with `tf.estimator`.
+*   Support for multi worker synchronous training using `tf.distribute.Strategy`
+    with `tf.estimator`.
 *   New end-to-end ML framework for building ML pipelines with TFX.
 *   Simplified and cleaned-up API by removing deprecated APIs, reducing
     redundancies, renaming symbols to more intuitive names, simplifying how
     variables are treated.
-*   Removal of tf.contrib - These features have been either moved to TensorFlow
-    Core, or to tensorflow/addons, or are no longer part of the TensorFlow build
-    but are developed and maintained by their respective owners.
+*   Removal of `tf.contrib` - These features have been either moved to
+    TensorFlow Core, or to tensorflow/addons, or are no longer part of the
+    TensorFlow build but are developed and maintained by their respective
+    owners.
 *   Updated and revised documentation, examples, and website, including
     migration docs and TF 1.x to 2.0 converter guide.
 *   New releases of TensorFlow.js and Swift for TensorFlow packages.

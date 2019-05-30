@@ -59,8 +59,8 @@ def _traverse_internal(root, visitors, stack, path):
   children = filtered_children
 
   # Apply all callbacks, allowing each to filter the children
-  for callback in visitors:
-    children = callback(path, root, list(children))
+  for visitor in visitors:
+    children = visitor(path, root, list(children))
 
   for name, child in children:
     # Break cycles
