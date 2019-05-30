@@ -133,3 +133,5 @@ toc:
     path: /alpha/tutorials/distribute/training_loops
   - title: "Multi worker training with Estimator"
     path: /alpha/tutorials/distribute/multi_worker_with_estimator
+  - title: "Multi worker training with Keras"
+    path: /alpha/tutorials/distribute/multi_worker_with_keras
