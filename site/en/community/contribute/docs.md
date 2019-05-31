@@ -359,5 +359,10 @@ updates the language notebook if they are different. This tool is particularly
 useful with an interactive git workflow to selectively add hunks of the file to
 the commit using: `git add --patch site/lang/notebook.ipynb`
 
-### TensorFlow 2.0 Global Docs Sprint
-Attend one of the [*TensorFlow 2.0 Global Docs Sprint*](https://www.google.com/maps/d/viewer?mid=1FmxIWZBXi4cvSy6gJUW9WRPfvVRbievf) events near you or join remotely by following along this [blog post](https://medium.com/tensorflow/https-medium-com-margaretmz-tf-docs-sprint-cheatsheet-7cb1dfd3e8b5?linkId=68384164). These events are great for you to get started to contributing to TensorFlow documentation.
+## Docs sprint
+
+Attend one of the
+[TensorFlow 2.0 Global Docs Sprint](https://www.google.com/maps/d/viewer?mid=1FmxIWZBXi4cvSy6gJUW9WRPfvVRbievf)
+events near you, or join remotely. Follow along with this
+[blog post](https://medium.com/tensorflow/https-medium-com-margaretmz-tf-docs-sprint-cheatsheet-7cb1dfd3e8b5?linkId=68384164).
+These events are a great way to get started contributing to the TensorFlow documentation.
