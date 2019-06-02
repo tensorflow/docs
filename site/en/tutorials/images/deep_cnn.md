@@ -39,7 +39,7 @@ designing larger and more sophisticated models in TensorFlow:
 `tf.nn.max_pool`
 ([wiki](https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer))
 and `tf.nn.local_response_normalization`
-(Chapter 3.3 in
+(section 3.3 in
 [AlexNet paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)).
 * [Visualization](../../guide/summaries_and_tensorboard.md)
 of network activities during training, including input images,
@@ -125,12 +125,12 @@ The images are processed as follows:
 *  They are `tf.image.per_image_standardization`
    to make the model insensitive to dynamic range.
 
-For training, we additionally apply a series of random distortions to
+For training, we additionally apply a series of random enhancements and distortions to
 artificially increase the data set size:
 
 * `tf.image.random_flip_left_right` the image from left to right.
-* Randomly distort the `tf.image.random_brightness`.
-* Randomly distort the `tf.image.random_contrast`.
+* Randomly enhance the image`tf.image.random_brightness`.
+* Randomly enhance the image`tf.image.random_contrast`.
 
 Please see the [Images](../../api_guides/python/image.md) page for the list of
 available distortions. We also attach an
