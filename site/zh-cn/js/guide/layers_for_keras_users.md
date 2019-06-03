@@ -152,7 +152,7 @@ const flatten = tf.layers.flatten();
 console.log(flatten.apply(myInput).shape);
 ```
 
-## Layer.apply() 支持对具体 Tensor（张量）的命令式（Eager）评估
+## Layer.apply() 支持对具体 Tensor（张量）的命令式（Eager）执行
 
 目前，在 Keras 中，`__call__`方法只能对（Python）TensorFlow 的 `tf.Tensor` 对象进行操作（假设 TensorFlow 是后端），这些对象是符号化的并且不包含实际的数值。这就是上一节中的示例中所显示的内容。但是，在 TensorFlow.js 中，Layer 的  `apply()` 方法可以在符号和命令模式下运行。如果用 SymbolicTensor 调用 `apply()`（类似于 tf.Tensor）调用，则返回值将为 SymbolicTensor。这通常发生在模型构建期间。但是如果用实际的具体 Tensor（张量）值调用  `apply()`，将返回一个具体的 Tensor（张量）。例如：
 
