@@ -66,7 +66,7 @@ Model 类的一些方法（例如，[`Model.compile()`](https://keras.io/models/
 
 ## Model.fit()是异步的
 
-`Model.fit()` 是用户在Tensorflow.js中执行模型训练的主要方法。这个方法往往是长时间运行的（持续数秒或数分钟）。因此，我们利用了javascript语言的“异步”特性。所以在浏览器中运行时，这样使用此函数就不会阻塞主UI线程。这和JavaScript中其他可能长期运行的函数类似，例如`async`[获取](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)。需要注意`async`是一个在python中不存在的构造。当[`fit()`](https://keras.io/models/model/#model-class-api)方法在keras中返回一个历史对象, 在JavaScript中`fit()`方法的对应项返回一个历史的[应答](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)这个应答可以[等待](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)，也可以与then（）方法一起使用。
+`Model.fit()` 是用户在Tensorflow.js中执行模型训练的主要方法。这个方法往往是长时间运行的（持续数秒或数分钟）。因此，我们利用了JavaScript语言的“异步”特性。所以在浏览器中运行时，这样使用此函数就不会阻塞主UI线程。这和JavaScript中其他可能长期运行的函数类似，例如`async`[获取](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)。需要注意`async`是一个在python中不存在的构造。当[`fit()`](https://keras.io/models/model/#model-class-api)方法在keras中返回一个历史对象, 在JavaScript中`fit()`方法的对应项返回一个包含训练历史的[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)这个应答可以[await(等待)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)，也可以与then()方法一起使用。
 
 
 ## TensorFlow.js 中没有 NumPy
