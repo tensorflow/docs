@@ -125,12 +125,12 @@ The images are processed as follows:
 *  They are `tf.image.per_image_standardization`
    to make the model insensitive to dynamic range.
 
-For training, we additionally apply a series of random enhancements and distortions to
+For training, we additionally apply a series of random distortions to
 artificially increase the data set size:
 
 * `tf.image.random_flip_left_right` the image from left to right.
-* Randomly enhance the image`tf.image.random_brightness`.
-* Randomly enhance the image`tf.image.random_contrast`.
+* Randomly distort the image with `tf.image.random_brightness`.
+* Randomly distort the image with `tf.image.random_contrast`.
 
 Please see the [Images](../../api_guides/python/image.md) page for the list of
 available distortions. We also attach an
