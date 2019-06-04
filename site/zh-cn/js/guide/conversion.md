@@ -13,9 +13,9 @@ TensorFlow.js 转换器可以转换以下几种格式的模型:
 
 **Keras model**: Keras 模型通常保存为 HDF5 文件。有关保存 Keras 模型的更多信息，请访问 [此处](https://keras.io/getting-started/faq/#savingloading-whole-models-architecture-weights-optimizer-state)。
 
-**TensorFlow Hub module**: 这些是打包后在 TensorFlow Hub 中进行分发的模型, TensorFlow Hub 是一个共享和发现模型的平台。模型库见 [此处](tfhub.dev)。
+**TensorFlow Hub module**: 这些是打包后在 TensorFlow Hub 中进行分发的模型，TensorFlow Hub 是一个共享和发现模型的平台。模型库见 [此处](tfhub.dev)。
 
-取决于尝试转换的模型的格式，您需要将不同的参数传递给转换器。比如, 假设您保存了一个名为 `model.h5` 的 Keras 模型到 `tmp/` 目录。为了使用 TensorFlow.js 转换器转换模型, 您可以运行以下命令: 
+取决于尝试转换的模型的格式，您需要将不同的参数传递给转换器。比如，假设您保存了一个名为 `model.h5` 的 Keras 模型到 `tmp/` 目录。为了使用 TensorFlow.js 转换器转换模型，您可以运行以下命令: 
 
     $ tensorflowjs_converter --input_format=keras /tmp/model.h5 /tmp/tfjs_model
 
@@ -28,7 +28,7 @@ TensorFlow.js 转换器可以转换以下几种格式的模型:
 
 ### 最佳做法
 
-虽然在转换过程中我们尽力优化您的模型, 但通常确保您的模型顺利运行的最佳方式是在考虑资源受限的环境下构建。这意味着避免过于复杂的建构和尽可能减少参数（权重）的数目。
+虽然在转换过程中我们尽力优化您的模型，但通常确保您的模型顺利运行的最佳方式是在考虑资源受限的环境下构建。这意味着避免过于复杂的建构和尽可能减少参数（权重）的数目。
 
 ## 运行您的模型
 
@@ -49,7 +49,7 @@ const model = await tf.loadLayersModel(‘path/to/model.json’);
 
 `tf.loadGraphModel` API 返回 `tf.FrozenModel`，这意味着各项参数是固定的并且您不能使用新数据对模型进行微调。`tf.loadLayersModel` API 返回可训练的 tf.Model。有关训练 tf.Model 的相关信息，请参阅[训练模型指南](train_models.md)。
 
-在转换之后, 我们建议您进行几次推断并且对模型的速度进行基准测试。基于这个目的，我们有一个独立的基准测试页面: https://github.com/tensorflow/tfjs-core/blob/master/integration_tests/benchmarks/benchmark.html。 您可能注意到我们丢弃了初始预热运行中的测量值 - 这是因为（通常情况）下，由于创建纹理和编译着色器的资源消耗，您的模型的第一次的推断将比后续推断慢几倍。
+在转换之后，我们建议您进行几次推断并且对模型的速度进行基准测试。基于这个目的，我们有一个独立的基准测试页面: https://github.com/tensorflow/tfjs-core/blob/master/integration_tests/benchmarks/benchmark.html。 您可能注意到我们丢弃了初始预热运行中的测量值 - 这是因为（通常情况）下，由于创建纹理和编译着色器的资源消耗，您的模型的第一次的推断将比后续推断慢几倍。
 
 
 
