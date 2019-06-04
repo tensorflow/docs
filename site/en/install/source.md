@@ -223,6 +223,10 @@ bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
 
+Building TensorFlow from source can use all CPUs by default. If you want to limit
+your CPU usage, use: `--jobs [number of CPUs]`.
+
+
 The [official TensorFlow packages](./pip.md) are built with GCC 4 and use the
 older ABI. For GCC 5 and later, make your build compatible with the older ABI
 using: `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`. ABI compatibility ensures that
