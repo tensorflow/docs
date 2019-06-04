@@ -21,7 +21,124 @@ from __future__ import print_function
 import inspect
 import sys
 
+from google.protobuf.message import Message as ProtoMessage
+
 __all__ = ['traverse']
+
+
+def _filter_module_all(path, root, children):
+  """Filters module children based on the "__all__" arrtibute.
+
+  Args:
+    path: API to this symbol
+    root: The object
+    children: A list of (name, object) pairs.
+
+  Returns:
+    `children` filtered to respect __all__
+  """
+  del path
+  if not (inspect.ismodule(root) and hasattr(root, '__all__')):
+    return children
+  module_all = set(root.__all__)
+  children = [(name, value) for (name, value) in children if name in module_all]
+
+  return children
+
+
+def _add_proto_fields(path, root, children):
+  """Add properties to Proto classes, so they can be documented.
+
+  Warning: This inserts the Properties into the class so the rest of the system
+  is unaffected. This patching is acceptable because there is never a reason to
+  run other tensorflow code in the same process as the doc generator.
+
+  Args:
+    path: API to this symbol
+    root: The object
+    children: A list of (name, object) pairs.
+
+  Returns:
+    `children` with proto fields added as properties.
+  """
+  del path
+  if not inspect.isclass(root) or not issubclass(root, ProtoMessage):
+    return children
+
+  fields = root.DESCRIPTOR.fields
+  if not fields:
+    return children
+
+  field = fields[0]
+  # Make the dictionaries mapping from int types and labels to type and
+  # label names.
+  types = {
+      getattr(field, name): name
+      for name in dir(field)
+      if name.startswith('TYPE')
+  }
+
+  labels = {
+      getattr(field, name): name
+      for name in dir(field)
+      if name.startswith('LABEL')
+  }
+
+  field_properties = {}
+
+  for field in fields:
+    name = field.name
+    doc_parts = []
+
+    label = labels[field.label].lower().replace('label_', '')
+    if label != 'optional':
+      doc_parts.append(label)
+
+    type_name = types[field.type]
+    if type_name == 'TYPE_MESSAGE':
+      type_name = field.message_type.name
+    elif type_name == 'TYPE_ENUM':
+      type_name = field.enum_type.name
+    else:
+      type_name = type_name.lower().replace('type_', '')
+
+    doc_parts.append(type_name)
+    doc_parts.append(name)
+    doc = '`{}`'.format(' '.join(doc_parts))
+    prop = property(fget=lambda x: x, doc=doc)
+    field_properties[name] = prop
+
+  for name, prop in field_properties.items():
+    setattr(root, name, prop)
+
+  children = dict(children)
+  children.update(field_properties)
+  children = sorted(children.items(), key=lambda item: item[0])
+
+  return children
+
+
+def _filter_builtin_modules(path, root, children):
+  """Filters module children to remove builtin modules.
+
+  Args:
+    path: API to this symbol
+    root: The object
+    children: A list of (name, object) pairs.
+
+  Returns:
+    `children` with all builtin modules removed.
+  """
+  del path
+  del root
+  # filter out 'builtin' modules
+  filtered_children = []
+  for name, child in children:
+    # Do not descend into built-in modules
+    if inspect.ismodule(child) and child.__name__ in sys.builtin_module_names:
+      continue
+    filtered_children.append((name, child))
+  return filtered_children
 
 
 def _traverse_internal(root, visitors, stack, path):
@@ -33,29 +150,19 @@ def _traverse_internal(root, visitors, stack, path):
     return
 
   try:
-    if inspect.ismodule(root) and hasattr(root, '__all__'):
-      children = [(name, getattr(root, name))
-                  for name in root.__all__
-                  if hasattr(root, name)]
-    else:
-      children = inspect.getmembers(root)
+    children = inspect.getmembers(root)
   except ImportError:
     # On some Python installations, some modules do not support enumerating
     # members (six in particular), leading to import errors.
     children = []
 
-  # filter out 'builtin' modules
+  # Break cycles.
   filtered_children = []
   for name, child in children:
-    # Do not descend into built-in modules
-    if inspect.ismodule(child) and child.__name__ in sys.builtin_module_names:
-      continue
-
     if any(child is item for item in new_stack):  # `in`, but using `is`
       continue
 
     filtered_children.append((name, child))
-
   children = filtered_children
 
   # Apply all callbacks, allowing each to filter the children
@@ -103,4 +210,9 @@ def traverse(root, visitors, root_name):
       arguments, and returns a list of accepted children.
     root_name: The short-name of the root module.
   """
-  _traverse_internal(root, visitors, [], (root_name,))
+  base_visitors = [
+      _filter_module_all,
+      _add_proto_fields,
+      _filter_builtin_modules
+  ]
+  _traverse_internal(root, base_visitors+visitors, [], (root_name,))

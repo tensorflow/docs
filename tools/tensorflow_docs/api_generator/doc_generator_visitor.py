@@ -25,7 +25,7 @@ import six
 from tensorflow_docs.api_generator import tf_inspect
 
 
-def _maybe_singleton(py_object):
+def maybe_singleton(py_object):
   """Returns `True` if `py_object` might be a singleton value .
 
   Many immutable values in python act like singletons: small ints, some strings,
@@ -136,7 +136,7 @@ class ApiTree(object):
     node = ApiTreeNode(path=path, obj=obj, parent=parent)
 
     self.index[path] = node
-    if not _maybe_singleton(obj):
+    if not maybe_singleton(obj):
       # We cannot use the duplicate mechanism for some constants, since e.g.,
       # id(c1) == id(c2) with c1=1, c2=1. This isn't problematic since constants
       # have no usable docstring and won't be documented automatically.
@@ -409,7 +409,7 @@ class DocGeneratorVisitor(object):
         duplicate_of[name] = master_name
 
       # Set the reverse index to the canonical name.
-      if not _maybe_singleton(py_object):
+      if not maybe_singleton(py_object):
         reverse_index[object_id] = master_name
 
     self._duplicate_of = duplicate_of
