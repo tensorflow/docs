@@ -14,7 +14,7 @@
 Our TensorFlow community has translated these documents. Because community
 translations are *best-effort*, there is no guarantee that this is an accurate
 and up-to-date reflection of the
-[official English documentation](https://www.tensorflow.org/?hl=en). 
+[official English documentation](https://www.tensorflow.org/?hl=en) and [Tensorflow Docs-Ko Translation](http://bit.ly/tf-docs-translation-status). 
 If you have suggestions to improve this translation, please send a pull request 
 to the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository. 
 To volunteer to write or review community translations, contact the
@@ -36,7 +36,7 @@ directory. TF 1.x community docs will no longer be updated as we prepare for the
 가능한한 기존 문서의 스타일을 따라야 합니다. 
 
 작업을 시작하려면 [텐서플로 한글 문서 기여자](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)
-메일링 리스트에 작업 중임을 알려 주세요.
+메일링 리스트와 [Tensorflow Docs-Ko Translation](http://bit.ly/tf-docs-translation-status) 구글 스프레드 시트에 작업 중임을 알려 주세요.
 다른 사람이 작업 중인 파일이 아니라면 en 폴더 안의 파일을 ko 폴더 아래 같은 위치에 복사하여 시작합니다.
 site/ko/ 는 텐서플로 1.x 버전을 위한 파일입니다.
 site/ko/alpha/ 는 텐서플로 2.x 버전을 위한 파일입니다.
