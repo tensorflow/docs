@@ -1,6 +1,6 @@
 # 模型转换
 
-TensorFlow.js 配备了各种预训练模型，这些模型可以在浏览器中使用，[模型仓库](https://github.com/tensorflow/tfjs-models) 中有相关介绍。但是，您可能已经在其他地方找到或创建了一个 TensorFlow 模型，并希望在 web 应用程序中使用该模型。为此, TensorFlow.js 提供了一个 [模型转换器](https://github.com/tensorflow/tfjs-converter) 。TensorFlow.js 转换器有两个组件:
+TensorFlow.js 配备了各种预训练模型，这些模型可以在浏览器中使用，[模型仓库](https://github.com/tensorflow/tfjs-models) 中有相关介绍。但是，您可能已经在其他地方找到或创建了一个 TensorFlow 模型，并希望在 web 应用程序中使用该模型。为此，TensorFlow.js 提供了一个 [模型转换器](https://github.com/tensorflow/tfjs-converter) 。TensorFlow.js 转换器有两个组件:
 
 1. 一个命令行程序，用于转换 Keras 和 TensorFlow 模型以在 TensorFlow.js 中使用。
 2. 一个 API ，用于在浏览器中使用 TensorFlow.js 加载和执行模型。
