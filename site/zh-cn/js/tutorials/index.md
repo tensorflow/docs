@@ -22,7 +22,7 @@ TensorFlow.js 与 Tensors (张量)、Layers (图层)、Optimizers (优化器) �
 
 <a class="button button-white" href="/js/tutorials/setup">Get Setup</a>
 
-### 将预训练模型转换为 TensorFlow.js
+### 将预训练模型转换到 TensorFlow.js
 
 学习如何将预训练模型从 python 转换为 TensorFlow.js
 
