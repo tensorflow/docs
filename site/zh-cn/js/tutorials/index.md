@@ -31,7 +31,7 @@ TensorFlow.js 与 Tensors (张量)、Layers (图层)、Optimizers (优化器) �
 
 ## 从现有 TensorFlow.js 代码中学习
 
-tfjs-examples 提供了使用 TensorFlow.js 实现各种 ML 任务的小代码示例。
+tfjs-examples 提供了使用 TensorFlow.js 实现各种 ML 任务的简短代码示例。
 
 <a class="button button-white" href="https://github.com/tensorflow/tfjs-examples">See it on GitHub</a>
 
