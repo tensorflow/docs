@@ -33,7 +33,6 @@ TensorFlow.js 转换器可以转换以下几种格式的模型:
 ## 运行您的模型
 
 成功转换模型之后，您将得到一组权重文件和一个模型拓扑文件。TensorFlow.js 提供模型加载 APIs ，您可以使用这些接口获取模型并且在浏览器中运行推断。
-	
 
 以下是加载转换后的 TensorFlow SavedModel 或 TensorFlow Hub 模块的 API :
 
@@ -50,6 +49,3 @@ const model = await tf.loadLayersModel(‘path/to/model.json’);
 `tf.loadGraphModel` API 返回 `tf.FrozenModel`，这意味着各项参数是固定的并且您不能使用新数据对模型进行微调。`tf.loadLayersModel` API 返回可训练的 tf.Model。有关训练 tf.Model 的相关信息，请参阅[训练模型指南](train_models.md)。
 
 在转换之后，我们建议您进行几次推断并且对模型的速度进行基准测试。基于这个目的，我们有一个独立的基准测试页面: https://github.com/tensorflow/tfjs-core/blob/master/integration_tests/benchmarks/benchmark.html。 您可能注意到我们丢弃了初始预热运行中的测量值 - 这是因为（通常情况）下，由于创建纹理和编译着色器的资源消耗，您的模型的第一次的推断将比后续推断慢几倍。
-
-
-
