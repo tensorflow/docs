@@ -1,6 +1,6 @@
 # Roadmap
 
-*Last updated: Mar 4, 2019*
+*Last updated: Jun 4, 2019*
 
 TensorFlow is a fast-moving, community supported project. This roadmap provides
 guidance about priorities and focus areas of the TensorFlow team and lists the
@@ -9,13 +9,13 @@ are driven by community use cases, and we welcome further
 [contributions](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md)
 to TensorFlow.
 
-## TensorFlow 2.0 Alpha is available
+## TensorFlow 2.0 Beta is available
 
 [As announced previously](https://groups.google.com/a/tensorflow.org/forum/#!topic/discuss/bgug1G6a89A),
 we have been working on TensorFlow 2.0, which is a significant milestone and a
 major new release, with a focus on ease of use and simplification.
 
-The 2.0 Alpha release is available now. Users can use this today and get started
+The 2.0 Beta release is available now. Users can use this today and get started
 with all that TensorFlow 2.0 has to offer. This is an early version meant to
 share with users what the TensorFlow 2.0 API will be like, to gather feedback,
 and to identify and fix issues. Below are some of the key enhancements:
@@ -53,7 +53,7 @@ and to identify and fix issues. Below are some of the key enhancements:
 ## Roadmap
 
 After the TensorFlow 2.0 release, we will identify and fix issues, and test the
-TensorFlow 2.0 Alpha with internal and external partners. The official 2.0
+TensorFlow 2.0 Beta with internal and external partners. The official 2.0
 release target is Q2 2019. This is a list of features on the short term roadmap
 and beyond:
 
