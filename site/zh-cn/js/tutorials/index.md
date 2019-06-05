@@ -35,7 +35,7 @@ tfjs-examples 提供了使用 TensorFlow.js 实现各种 ML 任务的简短代�
 
 <a class="button button-white" href="https://github.com/tensorflow/tfjs-examples">See it on GitHub</a>
 
-## 可视化您的 TensorFlow.js 模型的行为
+## 可视化您的 TensorFlow.js 模型的状态
 
 tfjs-vis 是一个用于在浏览器内实现可视化的小型库，用于TensorFlow.js。
 
