@@ -16,7 +16,7 @@ ml5.js 库构建在 TensorFlow.js 之上，通过简洁的、可利用的 API，
 
 ## 安装 TensorFlow.js
 
-TensorFlow.js 与类似张量、层、优化器和损失函数等概念兼容（或希望与它们兼容）？为 JavaScript 中的神经网络编程提供了灵活的构建块。
+TensorFlow.js 与 Tensors (张量)、Layers (图层)、Optimizers (优化器) 和损失函数等概念兼容（或希望与它们兼容）吗？TensorFlow.js 为 JavaScript 中神经网络编程提供了灵活的构建块。
 
 请参阅如何在浏览器或 Node.js 中启动和运行 TensorFlow.js 代码。
 
