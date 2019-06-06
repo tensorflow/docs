@@ -9,14 +9,14 @@ landing_page:
       devsite-landing-row-large-headings
       devsite-landing-row-100
     items:
-    - heading: "TensorFlow 2.0 Alpha is available"
+    - heading: "TensorFlow 2.0 Beta is available"
       description: >
         <p>
-          Install the preview release of <a href="/alpha">TensorFlow 2.0 Alpha</a>.
+          Install the preview release of <a href="/beta">TensorFlow 2.0 Beta</a>.
           See the <a href="./gpu">GPU guide</a> for CUDA®-enabled cards.
         </p>
         <pre class="prettyprint lang-bsh">
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-beta0</code>
         </pre>
 
   - classname:
@@ -61,8 +61,8 @@ landing_page:
         <code class="devsite-terminal">pip install tensorflow</code><br/>
         # Preview nightly build for CPU-only (unstable)
         <code class="devsite-terminal">pip install tf-nightly</code><br/>
-        # Install TensorFlow 2.0 Alpha
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
+        # Install TensorFlow 2.0 Beta
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-beta0</code>
 
   - classname:
       devsite-landing-row-100
