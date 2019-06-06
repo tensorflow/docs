@@ -77,7 +77,7 @@ docker run -it --rm tensorflow/tensorflow \
 
 成功: TensorFlowがインストールできました。[チュートリアル](../tutorials)を読んで始めましょう。
 
-もう少しTensorFlowのDockerレシピをデモをしましょう。
+もう少しTensorFlowのDockerの使い方を見てみましょう。
 TensorFlowで設定されたコンテナ内で `bash`シェルセッションを開始します:
 
 <pre class="devsite-terminal devsite-click-to-copy">
