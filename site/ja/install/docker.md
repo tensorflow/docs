@@ -1,54 +1,52 @@
 # Docker
 
-[Docker](https://docs.docker.com/install/){:.external} uses *containers* to
-create virtual environments that isolate a TensorFlow installation from the rest
-of the system. TensorFlow programs are run *within* this virtual environment that
-can share resources with its host machine (access directories, use the GPU,
-connect to the Internet, etc.). The
-[TensorFlow Docker images](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
-are tested for each release.
+[Docker](https://docs.docker.com/install/){:.external}は、*container*を使用して、
+TensorFlowのインストールをシステムの他の部分から分離された仮想環境を作成します。
+TensorFlowのプログラムは、この*仮想環境内*で実行され、ホストマシンとリソースを共有できます。
+（ディレクトリーへのアクセス、GPUの使用、インターネットへの接続など）
+[TensorFlowのDockerイメージ](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
+は各リリースでテストされています。
 
-Docker is the easiest way to enable TensorFlow [GPU support](./gpu.md) on Linux since only the
-[NVIDIA® GPU driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
-is required on the *host* machine (the *NVIDIA® CUDA® Toolkit* does not need to
-be installed).
-
-
-## TensorFlow Docker requirements
-
-1. [Install Docker](https://docs.docker.com/install/){:.external} on
-   your local *host* machine.
-2. For GPU support on Linux, [install nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}.
-
-Note: To run the `docker` command without `sudo`, create the `docker` group and
-add your user. For details, see the
-[post-installation steps for Linux](https://docs.docker.com/install/linux/linux-postinstall/){:.external}.
+Dockerは、LinuxでTensorFlowの[GPUサポート](./gpu.md)を有効にする最も簡単な方法です。
+*ホスト*マシンに必要なのは
+[NVIDIA® GPドライバー](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}だけです。
+(*NVIDIA® CUDA® Toolk*をインストールする必要はありません)
 
 
-## Download a TensorFlow Docker image
+## TensorFlow Dockerの必要条件
 
-The official TensorFlow Docker images are located in the 
+1. [Dockerのインストール](https://docs.docker.com/install/){:.external}をローカル*ホスト*マシンで実行してください
+2. LinuxでGPUサポートするには、[nvidia-dockerのインストール](https://github.com/NVIDIA/nvidia-docker){:.external}を実行してください
+
+注: `sudo`なしで`docker`コマンドを実行するには、`docker`グループを作成してあなたのユーザーを追加してください。
+詳しくは
+[Linux用のインストール後の手順](https://docs.docker.com/install/linux/linux-postinstall/){:.external}を参照してください。
+
+
+## TensorFlowのDockerイメージをダウンロードする
+
+公式のTensorFlowのDockerイメージは、
 [tensorflow/tensorflow](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
-Docker Hub repository. Image releases [are tagged](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}
-using the following format:
+Docker Hubリポジトリにあります。
+イメージリリースは、次の形式で[タグ付け](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}されています:
 
-| Tag         | Description                                                                                       |
+| タグ        | 説明                                                                                              |
 | ---         | ---                                                                                               |
-| `latest`    | The latest release of TensorFlow CPU binary image. Default.                                       |
-| `nightly`   | Nightly builds of the TensorFlow image. (unstable)                                                |
-| *`version`* | Specify the *version* of the TensorFlow binary image, for example: *1.13.1*                       |
-| `devel`     | Nightly builds of a TensorFlow `master` development environment. Includes TensorFlow source code. |
+| `latest`    | 最新リリースのTensorFlowのCPUバイナリイメージ。デフォルト。                                       |
+| `nightly`   | TensorFlowのnightlyビルドのイメージ。(不安定)                                                     |
+| *`version`* | TensorFlowのバイナリイメージの*version*を指定する。例: *1.13.1*                                   |
+| `devel`     | TensorFlowのnightlyビルドの`master`開発環境。TensorFlowのソースコードを含む。                     |
 
-Each base *tag* has variants that add or change functionality:
+各ベーズ*tag*は、機能を追加または変更する亜種があります:
 
-| Tag Variants      | Description                                                                       |
+| タグ亜種          | 説明                                                                              |
 | ---               | ---                                                                               |
-| *`tag`*`-gpu`     | The specified *tag* release with GPU support. ([See below](#gpu_support))         |
-| *`tag`*`-py3`     | The specified *tag* release with Python 3 support.                                |
-| *`tag`*`-jupyter` | The specified *tag* release with Jupyter (includes TensorFlow tutorial notebooks) |
+| *`tag`*`-gpu`     | GPUサポートの指定された*tag*リリース。 ([以下参照](#gpu_support))                 |
+| *`tag`*`-py3`     | Python3サポートの指定された*tag*リリース。                                        |
+| *`tag`*`-jupyter` | Jupyter付きの指定された*tag*リリース (TensorFlowのチュートリアルnotebooks含む)    |
 
-You can use multiple variants at once. For example, the following downloads
-TensorFlow release images to your machine:
+一度に複数の亜種を使用できます。例えば、
+以下はTensorFlowリリースイメージをご使用のマシンにダウンロードします:
 
 <pre class="devsite-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal">docker pull tensorflow/tensorflow                     # latest stable release</code>
@@ -57,101 +55,102 @@ TensorFlow release images to your machine:
 </pre>
 
 
-## Start a TensorFlow Docker container
+## TensorFlowのDockerコンテナを起動する
 
-To start a TensorFlow-configured container, use the following command form:
+TensorFlowの設定コンテナを起動するには、次のコマンド形式を使用します:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run [-it] [--rm] [-p <em>hostPort</em>:<em>containerPort</em>] tensorflow/tensorflow[:<em>tag</em>] [<em>command</em>]
 </pre>
 
-For details, see the [docker run reference](https://docs.docker.com/engine/reference/run/){:.external}.
+詳細については、[docker run reference](https://docs.docker.com/engine/reference/run/){:.external}を参照してください。
 
-### Examples using CPU-only images
+### CPUのみのイメージを使った例
 
-Let's verify the TensorFlow installation using the `latest` tagged image. Docker
-downloads a new TensorFlow image the first time it is run:
+`latest`タグ付きイメージを使ってTensorFlowのインストールを確認しましょう。
+Dockerは、初めて実行する際に新しいTensorFlowのイメージをダウンロードします:
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run -it --rm tensorflow/tensorflow \
    python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
 </pre>
 
-Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
+成功: TensorFlowがインストールできました。[チュートリアル](../tutorials)を読んで始めましょう。
 
-Let's demonstrate some more TensorFlow Docker recipes. Start a `bash` shell
-session within a TensorFlow-configured container:
+もう少しTensorFlowのDockerレシピをデモをしましょう。
+TensorFlowで設定されたコンテナ内で `bash`シェルセッションを開始します:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run -it tensorflow/tensorflow bash
 </pre>
 
-Within the container, you can start a `python` session and import TensorFlow.
+コンテナ内で、`python`セッションを開始してTensorFlowをインポートすることができます。
 
-To run a TensorFlow program developed on the *host* machine within a container,
-mount the host directory and change the container's working directory
+コンテナ内の*ホスト*マシン上で開発されたTensorFlowプログラムを実行するには、
+ホストディレクトリをマウントしてコンテナの作業ディレクトリを変更します。
 (`-v hostDir:containerDir -w workDir`):
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./script.py
 </pre>
 
-Permission issues can arise when files created within a container are exposed to
-the host. It's usually best to edit files on the host system.
+コンテナ内で作成されたファイルがホストに公開されると、アクセス権限の問題が発生する可能性があります。
+通常はホストシステム上のファイルを編集するのがベストです。
 
-Start a [Jupyter Notebook](https://jupyter.org/){:.external} server using
-TensorFlow's nightly build with Python 3 support:
+Python3サポート付きのTensorFlowのnightlyビルドを使用した
+[Jupyter Notebook](https://jupyter.org/){:.external}サーバーを起動してください:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run -it -p 8888:8888 tensorflow/tensorflow:nightly-py3-jupyter
 </pre>
 
-Follow the instructions and open the URL in your host web browser:
+手順に従い、ご使用のホストのWebブラウザ内で以下のURLを開きます:
 `http://127.0.0.1:8888/?token=...`
 
 
-## GPU support
+## GPUサポート
 
-Docker is the easiest way to run TensorFlow on a GPU since the *host* machine
-only requires the [NVIDIA® driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
-(the *NVIDIA® CUDA® Toolkit* is not required).
+Dockerは、GPUでTensorFlowを実行する最も簡単な方法です。
+*ホスト*マシンに必要なのは
+[NVIDIA® GPUドライバー](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}だけです。
+(*NVIDIA® CUDA® Toolk*をインストールする必要はありません)
 
-Install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} to
-launch a Docker container with NVIDIA® GPU support. `nvidia-docker` is only
-available for Linux, see their
-[platform support FAQ](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#platform-support){:.external}
-for details.
+NVIDIA® GPUをサポートするDockerコンテナを起動するには、
+[nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}をインストールしてください。
+`nvidia-docker`はLinuxでのみ利用可能です。詳細は、
+[プラットフォームサポートFAQ](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#platform-support){:.external}
+を参照してください。
 
-Check if a GPU is available:
+GPUが利用可能か確認します:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 lspci | grep -i nvidia
 </pre>
 
-Verify your `nvidia-docker` installation:
+`nvidia-docker`がインストールされたことを確認してください:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 </pre>
 
-Note: `nvidia-docker` v1 uses the `nvidia-docker` alias, where v2 uses `docker --runtime=nvidia`.
+注: `nvidia-docker` v1は`nvidia-docker`エイリアスを使います。v2は `docker --runtime=nvidia`を使用します。
 
-### Examples using GPU-enabled images
+### GPUが有効なイメージを使った例
 
-Download and run a GPU-enabled TensorFlow image (may take a few minutes):
+GPU対応のTensorFlowのイメージをダウンロードして実行します（数分かかる場合があります）。
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run --runtime=nvidia -it --rm tensorflow/tensorflow:latest-gpu \
    python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
 </pre>
 
-It can take a while to set up the GPU-enabled image. If repeatably running
-GPU-based scripts, you can use `docker exec` to reuse a container.
+GPU対応のイメージの設定にはしばらく時間がかかる場合があります。
+GPUベースのスクリプトを繰り返し実行する場合は、`docker exec`を使ってコンテナを再利用できます。
 
-Use the latest TensorFlow GPU image to start a `bash` shell session in the container:
+コンテナ内で`bash`シェルセッションを開始するために、最新のTensorFlowのGPUイメージを使用してください:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run --runtime=nvidia -it tensorflow/tensorflow:latest-gpu bash
 </pre>
 
-Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
+成功: TensorFlowがインストールできました。[チュートリアル](../tutorials)を読んで始めましょう。
