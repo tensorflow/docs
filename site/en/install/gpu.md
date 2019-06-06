@@ -21,13 +21,13 @@ GPU support, choose a stable or development package:
 <code class="devsite-terminal">pip install tf-nightly-gpu  # preview</code>
 </pre>
 
-### TensorFlow 2.0 Alpha
+### TensorFlow 2.0 Beta
 
-[TensorFlow 2.0 Alpha](../alpha) is available for testing with GPU support. To
-install:
+[TensorFlow 2.0 Beta](https://www.tensorflow.org/beta) is available for testing
+with GPU support. To install:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-alpha0</code>
+<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-beta0</code>
 </pre>
 
 ## Hardware requirements
