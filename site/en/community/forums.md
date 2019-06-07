@@ -1,10 +1,11 @@
 # Forums
 
 As a community, we do much of our collaboration on public mailing lists. Please
-note that if you're looking for help using TensorFlow, [Stack
-Overflow](https://stackoverflow.com/questions/tagged/tensorflow) and [GitHub
-issues](https://github.com/tensorflow/tensorflow/issues) are the best initial
-places to look. For more information, see [how to get help](/community/#get_help).
+note that if you're looking for help using TensorFlow,
+[Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow) and
+[GitHub issues](https://github.com/tensorflow/tensorflow/issues) are the best
+initial places to look. For more information, see
+[how to get help](/community/#get_help).
 
 ## General TensorFlow lists
 
@@ -42,10 +43,10 @@ These projects inside the TensorFlow GitHub organization have lists dedicated to
 
 ## Special Interest Groups
 
-TensorFlow's [Special Interest
-Groups](https://github.com/tensorflow/community/tree/master/sigs) (SIGs) support
-community collaboration on particular project focuses. Members of these groups
-work together to build and support TensorFlow related projects. While their
+TensorFlow's
+[Special Interest Groups](https://github.com/tensorflow/community/tree/master/sigs) (SIGs)
+support community collaboration on particular project focuses. Members of these
+groups work together to build and support TensorFlow related projects. While their
 archives are public, different SIGs have their own membership policies.
 
 * [addons](https://groups.google.com/a/tensorflow.org/d/forum/addons) -
@@ -71,4 +72,3 @@ archives are public, different SIGs have their own membership policies.
   SIG Swift, developing Swift for TensorFlow.
 * [tensorboard](https://groups.google.com/a/tensorflow.org/d/forum/sig-tensorboard) -
   Supporting SIG TensorBoard, for plugin development and other contribution.
-
