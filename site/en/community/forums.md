@@ -1,11 +1,10 @@
 # Forums
 
-As a community, we do much of our collaboration on public mailing lists.
-Please note that if you're looking for help using TensorFlow,
-[Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow)
-and [GitHub issues](https://github.com/tensorflow/tensorflow/issues)
-are the best initial places to look. For more information,
-see [how to get help](/community/#get_help).
+As a community, we do much of our collaboration on public mailing lists. Please
+note that if you're looking for help using TensorFlow, [Stack
+Overflow](https://stackoverflow.com/questions/tagged/tensorflow) and [GitHub
+issues](https://github.com/tensorflow/tensorflow/issues) are the best initial
+places to look. For more information, see [how to get help](/community/#get_help).
 
 ## General TensorFlow lists
 
@@ -25,10 +24,6 @@ These projects inside the TensorFlow GitHub organization have lists dedicated to
 *   [magenta-discuss](https://groups.google.com/a/tensorflow.org/d/forum/magenta-discuss) -
     General discussion about [Magenta](https://magenta.tensorflow.org/)
     development and directions.
-*   [mlir](https://groups.google.com/a/tensorflow.org/d/forum/mlir) - Community
-    and collaboration around MLIR, Multi-Level Intermediate Representation.
-*   [swift](https://groups.google.com/a/tensorflow.org/d/forum/swift) -
-    Community and collaboration around Swift for TensorFlow.
 *   [tensor2tensor](https://groups.google.com/d/forum/tensor2tensor) -
     Discussion and peer support for Tensor2Tensor.
 *   [tfjs-announce](https://groups.google.com/a/tensorflow.org/d/forum/tfjs-announce) -
@@ -48,19 +43,30 @@ These projects inside the TensorFlow GitHub organization have lists dedicated to
 ## Special Interest Groups
 
 TensorFlow's [Special Interest
-Groups](/community/contributing#special_interest_groups) (SIGs) support
+Groups](https://github.com/tensorflow/community/tree/master/sigs) (SIGs) support
 community collaboration on particular project focuses. Members of these groups
 work together to build and support TensorFlow related projects. While their
 archives are public, different SIGs have their own membership policies.
 
-* [addons](https://groups.google.com/a/tensorflow.org/d/forum/addons) - Supporting SIG Addons, for extensions to TensorFlow that confirm to the stable API.
-* [build](https://groups.google.com/a/tensorflow.org/d/forum/build) -
-  Supporting SIG Build, for build, distribution and packaging of TensorFlow.
-* [io](https://groups.google.com/a/tensorflow.org/d/forum/io) -
-  Supporting SIG IO, for file systems and formats not available in core TensorFlow.
+* [addons](https://groups.google.com/a/tensorflow.org/d/forum/addons) -
+  Supporting SIG Addons, for extensions to TensorFlow that confirm to the stable
+  API.
+* [build](https://groups.google.com/a/tensorflow.org/d/forum/build) - Supporting
+  SIG Build, for build, distribution and packaging of TensorFlow.
+* [io](https://groups.google.com/a/tensorflow.org/d/forum/io) - Supporting SIG
+  IO, for file systems and formats not available in core TensorFlow.
+* [keras](https://groups.google.com/forum/#!forum/keras-users) - Keras users
+  mailing list, for design reviews and discussions relating to SIG Keras.
+* [micro](https://groups.google.com/a/tensorflow.org/d/forum/networking) -
+  Supporting SIG Micro, focusing on low power TF Lite deployment.
+* [mlir](https://groups.google.com/a/tensorflow.org/d/forum/mlir) - Supporting
+  SIG MLIR, collaboration around MLIR, Multi-Level Intermediate Representation.
+* [swift](https://groups.google.com/a/tensorflow.org/d/forum/swift) - Supporting
+  SIG Swift, developing Swift for TensorFlow.
 * [networking](https://groups.google.com/a/tensorflow.org/d/forum/networking) -
   Supporting SIG Networking, for adding network protocols other than gRPC.
-* [sig-tensorboard](https://groups.google.com/a/tensorflow.org/d/forum/sig-tensorboard) -
+* [tensorboard](https://groups.google.com/a/tensorflow.org/d/forum/sig-tensorboard) -
   Supporting SIG TensorBoard, for plugin development and other contribution.
 * [rust](https://groups.google.com/a/tensorflow.org/d/forum/rust) -
   Supporting SIG Rust, for the Rust language bindings.
+
