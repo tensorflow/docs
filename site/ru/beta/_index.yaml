@@ -66,7 +66,7 @@ landing_page:
         path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
     - heading: "Сделай вклад в TensorFlow: SIGs, RFCs, Testing, Docs"
       description: >
-      TensorFlow всегда формировался сообществом, и мы гордимся большим вкладом в течение нескольких лет нашими новыми сообществами и процессами.
+        TensorFlow всегда формировался сообществом, и мы гордимся большим вкладом в течение нескольких лет нашими новыми сообществами и процессами.
 
       path: https://medium.com/tensorflow/contributing-to-tensorflow-sigs-rfcs-testing-and-docs-1c0f8240166c
       buttons:
