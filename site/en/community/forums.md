@@ -55,18 +55,20 @@ archives are public, different SIGs have their own membership policies.
   SIG Build, for build, distribution and packaging of TensorFlow.
 * [io](https://groups.google.com/a/tensorflow.org/d/forum/io) - Supporting SIG
   IO, for file systems and formats not available in core TensorFlow.
+* [jvm](https://groups.google.com/a/tensorflow.org/d/forum/jvm) -
+  Supporting SIG JVM, building Java and JVM support for TensorFlow.
 * [keras](https://groups.google.com/forum/#!forum/keras-users) - Keras users
   mailing list, for design reviews and discussions relating to SIG Keras.
 * [micro](https://groups.google.com/a/tensorflow.org/d/forum/networking) -
   Supporting SIG Micro, focusing on low power TF Lite deployment.
 * [mlir](https://groups.google.com/a/tensorflow.org/d/forum/mlir) - Supporting
   SIG MLIR, collaboration around MLIR, Multi-Level Intermediate Representation.
-* [swift](https://groups.google.com/a/tensorflow.org/d/forum/swift) - Supporting
-  SIG Swift, developing Swift for TensorFlow.
 * [networking](https://groups.google.com/a/tensorflow.org/d/forum/networking) -
   Supporting SIG Networking, for adding network protocols other than gRPC.
-* [tensorboard](https://groups.google.com/a/tensorflow.org/d/forum/sig-tensorboard) -
-  Supporting SIG TensorBoard, for plugin development and other contribution.
 * [rust](https://groups.google.com/a/tensorflow.org/d/forum/rust) -
   Supporting SIG Rust, for the Rust language bindings.
+* [swift](https://groups.google.com/a/tensorflow.org/d/forum/swift) - Supporting
+  SIG Swift, developing Swift for TensorFlow.
+* [tensorboard](https://groups.google.com/a/tensorflow.org/d/forum/sig-tensorboard) -
+  Supporting SIG TensorBoard, for plugin development and other contribution.
 
