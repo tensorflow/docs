@@ -98,8 +98,8 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-0 \
-    libcudnn7=7.6.0.64-1+cuda10.1  \
-    libcudnn7-dev=7.6.0.64-1+cuda10.1
+    libcudnn7=7.6.0.64-1+cuda10.0  \
+    libcudnn7-dev=7.6.0.64-1+cuda10.0
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
