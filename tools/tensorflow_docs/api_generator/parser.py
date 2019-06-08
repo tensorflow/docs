@@ -115,7 +115,7 @@ def _get_raw_docstring(py_object):
   else:
     return ''
 
-AUTO_REFERENCE_RE = re.compile(r'`([a-zA-Z0-9_.]+?)`')
+AUTO_REFERENCE_RE = re.compile(r'^(?!#.*$).*`([a-zA-Z0-9_.]+?)`')
 
 
 class ReferenceResolver(object):
