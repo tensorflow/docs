@@ -22,7 +22,7 @@ landing_page:
         <code class="devsite-terminal">pip install tensorflow==2.0.0-beta0</code>
         </pre>
         <p>
-          Смотрите <a href="/install/gpu">руководство GPU</a> для CUDA®-enabled карт. The
+          Смотрите <a href="/install/gpu">руководство GPU</a> для CUDA®-enabled карт.
           <a href="https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md" class="external">FAQ сообщества тестирования TensorFlow 2.0</a>
           содержит дополнительные детали о совместимости и миграции.
         </p>
@@ -38,7 +38,7 @@ landing_page:
         <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/r2/tutorials/quickstart/beginner.ipynb">пример “Hello World”</a>,
         затем прочитайте руководства и учебники чтобы узнать больше.</p>
         <h3>Для экпертов</h3>
-        The Subclassing API представляет define-by-run интерфейс для продвинутых исследований.
+        Subclassing API представляет define-by-run интерфейс для продвинутых исследований.
         Создайте класс для своей модели, затем напишите forward pass
         императивно. С легкостью программируйте кастомные слои, функции активации и циклы обучения.<br>
         Запустите этот
