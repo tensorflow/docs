@@ -195,7 +195,7 @@ class ReferenceResolver(object):
   def replace_references(self, string, relative_path_to_root):
     """Replace `tf.symbol` references with links to symbol's documentation page.
 
-    This functions finds all occurrences of "`tf.symbol`" in `string`
+    This function finds all occurrences of "`tf.symbol`" in `string`
     and replaces them with markdown links to the documentation page
     for "symbol".
 
