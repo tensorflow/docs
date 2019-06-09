@@ -26,7 +26,6 @@ landing_page:
           <a href="https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md" class="external">FAQ сообщества тестирования TensorFlow 2.0</a>
           содержит дополнительные детали о совместимости и миграции.
         </p>
-      youtube_id: lEljKc9ZtU8?rel=0&show_info=0
 
   - classname: devsite-landing-row-100
     items:
@@ -44,6 +43,7 @@ landing_page:
         Запустите этот
         <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/r2/tutorials/quickstart/advanced.ipynb">пример “Hello, World”</a>,
         затем прочитайте руководства и учебники чтобы узнать больше.
+      youtube_id: lEljKc9ZtU8?rel=0&show_info=0
 
   - classname: devsite-landing-row-cards
     items:
