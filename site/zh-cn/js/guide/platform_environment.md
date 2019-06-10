@@ -32,7 +32,7 @@ WebGL backend，简称“webgl”，是在浏览器平台上最强大的一个ba
 下面是在使用这个backend时需要了解的一些知识。
 
 ##### [](https://github.com/tensorflow/tfjs-website/blob/master/docs/guide/platform_environment.md#avoid-blocking-the-ui-thread)避免阻塞UI线程
-当调用一个操作，如tf.matMul(a,b)时，返回值tf.Tensor会同步返回，然而这时矩阵乘法运算还不一定完成。这意味着返回值tf.Tensor只是一个指向运算的句柄。当调用x.data()或x.array()时，只有当运算完成时才能取到实际值。因此在运算过程中，为避免阻塞UI线程，需要使用异步版本的x.data()和x.array()，而不是同步版本的x.dataSync()和x.arraySync()。
+当调用一个操作，如tf.matMul(a,b)时，返回值tf.Tensor会同步返回，然而这时矩阵乘法运算还不一定完成。这意味着返回值tf.Tensor只是一个指向运算的句柄。当调用`x.data()`或`x.array()`时，只有当运算完成时才能取到实际值。因此在运算过程中，为避免阻塞UI线程，需要使用异步版本的`x.data()`和`x.array()`，而不是同步版本的`x.dataSync()`和`x.arraySync()`。
 ##### [](https://github.com/tensorflow/tfjs-website/blob/master/docs/guide/platform_environment.md#memory-management)内存管理
 
 强调一下，在使用WebGL backend时，需要显式管理内存。因为存储Tensor的WebGL纹理，不会被浏览器的垃圾收集机制自动清理。
