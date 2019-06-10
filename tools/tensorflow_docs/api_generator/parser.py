@@ -223,9 +223,8 @@ class ReferenceResolver(object):
 
     for line in string.splitlines():
       if not line.startswith('#'):
-        line_to_replace = line
-        line = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, line)
-        string = string.replace(line_to_replace, line)
+        changed_line = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, line)
+        string = string.replace(line, changed_line)
 
     return string
 
