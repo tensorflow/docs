@@ -115,7 +115,7 @@ def _get_raw_docstring(py_object):
   else:
     return ''
 
-AUTO_REFERENCE_RE = re.compile(r'(^(?!#.*$).*)`([a-zA-Z0-9_.]+?)`', re.MULTILINE)
+AUTO_REFERENCE_RE = re.compile(r'`([a-zA-Z0-9_.]+?)`')
 
 
 class ReferenceResolver(object):
@@ -221,7 +221,11 @@ class ReferenceResolver(object):
       except TFDocsError:
         return match.group(0)
 
-    string = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, string)
+    for line in string.splitlines():
+      if not line.startswith('#'):
+        line_to_replace = line
+        line = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, line)
+        string = string.replace(line_to_replace, line)
 
     return string
 
@@ -307,12 +311,12 @@ class ReferenceResolver(object):
 
   def _one_ref(self, match, relative_path_to_root):
     """Return a link for a single "`tf.symbol`" reference."""
-    string = match.group(2)
+    string = match.group(1)
     link_text = string
 
     if string.startswith('tensorflow::'):
       # C++ symbol
-      return match.group(1) + self._cc_link(string, link_text, relative_path_to_root)
+      return self._cc_link(string, link_text, relative_path_to_root)
 
     is_python = False
     for py_module_name in self._py_module_names:
@@ -321,7 +325,7 @@ class ReferenceResolver(object):
         break
 
     if is_python:  # Python symbol
-      return match.group(1) + self.python_link(
+      return self.python_link(
           link_text, string, relative_path_to_root, code_ref=True)
 
     # Error!
