@@ -79,7 +79,7 @@ const result = model.predict(userData);
 
 #### [](https://github.com/tensorflow/tfjs-website/blob/master/docs/guide/platform_environment.md#nodejs-tensorflow-backend)Node.js TensorFlow backend
 
-在Node.js TensorFlow backend中，TensorFlow的C语言API被用来加速操作。它会尽可能使用机器的硬件加速模块，如CUDA。
+在Node.js TensorFlow backend中，所谓“node”,即TensorFlow的C语言API被用来加速操作。它会尽可能使用机器的硬件加速模块，如CUDA。
 
 在这个backend中，和WebGL backend一样，函数会同步返回tf.Tensor。然而，与WebGL backend不同的是，当你获得这个tensor返回值时，运算已经完成。这意味着tf.matMul(a,b)调用会阻塞UI线程。
 
