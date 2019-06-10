@@ -68,7 +68,7 @@ TensorFlow.js还会把tf.Tensor数据存储为WebGL纹理。当一个tf.Tensor�
 例如:
 ```js
 const model = await tf.loadLayersModel(modelUrl);
-// Warmup the model before using real data.
+// 使用真实数据来预热模型
 const warmupResult = model.predict(tf.zeros(inputShape));
 warmupResult.dataSync();
 warmupResult.dispose();
