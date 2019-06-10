@@ -123,6 +123,8 @@ toc:
     path: /beta/tutorials/load_data/tf_records
   - title: "Unicode strings"
     path: /beta/tutorials/text/unicode
+  - title: "TF Text"
+    path: /beta/tutorials/tensorflow_text/intro
 
 - title: "Distributed training"
   style: accordion
