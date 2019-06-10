@@ -73,7 +73,7 @@ const warmupResult = model.predict(tf.zeros(inputShape));
 warmupResult.dataSync();
 warmupResult.dispose();
 
-// The second predict() will be much faster
+// 第二次执行 predict() 的时候将会更加快速
 const result = model.predict(userData);
 ```
 
