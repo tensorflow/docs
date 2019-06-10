@@ -12,7 +12,7 @@ TensorFlow.js有两种工作平台：浏览器和Node.js。不同平台有很多
 
 ### [](https://github.com/tensorflow/tfjs-website/blob/master/docs/guide/platform_environment.md#backends)Backends
 
-TensorFlow.js支持多个不同的Backend，用来实现存储和数学操作。任何时候都只有一个backend生效。大部分时间，TensorFlow.js会根据当前环境自动选择使用最佳的backend。即使这样，你仍然需要知道，如何得知当前正在使用的是哪个backend，以及如何在不同backend之间切换。
+TensorFlow.js支持多个不同的backend，用来实现张量的存储和数学操作。任何时候都只有一个backend生效。大部分时间，TensorFlow.js会根据当前环境自动选择使用最佳的backend。即使这样，你仍然需要知道，如何得知当前正在使用的是哪个backend，以及如何在不同backend之间切换。
 
 下面命令用来获取当前正使用的backend
 ```js
