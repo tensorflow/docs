@@ -647,6 +647,9 @@ def _generate_signature(func, reverse_index):
     except SyntaxError:
       # You may get a SyntaxError using pytype in python 2.
       ast_defaults = [None] * len(argspec.defaults)
+    except IndexError:
+      # Some python3 signatures fail in tf_inspect.getsource with IndexError
+      ast_defaults = [None] * len(argspec.defaults)
 
     for arg, default, ast_default in zip(
         argspec.args[first_arg_with_default:], argspec.defaults, ast_defaults):
