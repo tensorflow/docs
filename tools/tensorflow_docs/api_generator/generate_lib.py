@@ -160,7 +160,8 @@ def write_docs(output_dir,
 
   if redirects:
     redirects = {
-        'redirects': sorted(redirects, key=lambda redirect:redirect["from"])}
+        'redirects': sorted(redirects, key=lambda redirect: redirect['from'])
+    }
 
     api_redirects_path = os.path.join(output_dir, '_redirects.yaml')
     with open(api_redirects_path, 'w') as redirect_file:

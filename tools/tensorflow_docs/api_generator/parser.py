@@ -195,7 +195,7 @@ class ReferenceResolver(object):
   def replace_references(self, string, relative_path_to_root):
     """Replace `tf.symbol` references with links to symbol's documentation page.
 
-    This functions finds all occurrences of "`tf.symbol`" in `string`
+    This function finds all occurrences of "`tf.symbol`" in `string`
     and replaces them with markdown links to the documentation page
     for "symbol".
 
@@ -221,9 +221,13 @@ class ReferenceResolver(object):
       except TFDocsError:
         return match.group(0)
 
-    string = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, string)
+    fixed_lines = []
+    for line in string.splitlines():
+      if not line.strip().startswith('#'):
+        line = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, line)
+      fixed_lines.append(line)
 
-    return string
+    return '\n'.join(fixed_lines)
 
   def python_link(self, link_text, ref_full_name, relative_path_to_root,
                   code_ref=True):
