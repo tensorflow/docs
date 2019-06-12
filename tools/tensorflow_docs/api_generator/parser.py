@@ -593,6 +593,7 @@ def _remove_first_line_indent(string):
 
 
 PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
+OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+) object at 0x[\da-f]+>')
 
 
 def _generate_signature(func, reverse_index):
@@ -688,6 +689,10 @@ def _generate_signature(func, reverse_index):
               default_text = lookup_text
       else:
         default_text = repr(default)
+        # argspec.defaults can contain object memory addresses, i.e.
+        # containers.MutableMapping.pop. Strip these out to avoid
+        # unnecessary doc churn between invocations.
+        default_text = OBJECT_MEMORY_ADDRESS_RE.sub(r'<\g<type>>', default_text)
 
       args_list.append('%s=%s' % (arg, default_text))
 

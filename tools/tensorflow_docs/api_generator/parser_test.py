@@ -22,8 +22,10 @@ import collections
 import functools
 import os
 import tempfile
+import unittest
 
 from absl.testing import absltest
+import six
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
@@ -758,6 +760,43 @@ class ParserTest(absltest.TestCase):
 
     self.assertIn(ConcreteMutableMapping.get,
                   [m.obj for m in page_info.methods])
+
+  @unittest.skipIf(six.PY2, "Haven't found a repro for this under PY2.")
+  def test_strips_default_arg_memory_address(self):
+    """Validates that parser strips memory addresses out out default argspecs.
+
+     argspec.defaults can contain object memory addresses, which can change
+     between invocations. It's desirable to strip these out to reduce churn.
+
+     See: `help(collections.MutableMapping.pop)`
+    """
+    index = {
+        'ConcreteMutableMapping': ConcreteMutableMapping,
+        'ConcreteMutableMapping.pop': ConcreteMutableMapping.pop
+    }
+    visitor = DummyVisitor(index=index, duplicate_of={})
+    reference_resolver = parser.ReferenceResolver.from_visitor(
+        visitor=visitor, py_module_names=['tf'])
+
+    tree = {'ConcreteMutableMapping': ['pop']}
+    parser_config = parser.ParserConfig(
+        reference_resolver=reference_resolver,
+        duplicates={},
+        duplicate_of={},
+        tree=tree,
+        index=index,
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    page_info = parser.docs_for_object(
+        full_name='ConcreteMutableMapping',
+        py_object=ConcreteMutableMapping,
+        parser_config=parser_config)
+
+    pop_default_arg = page_info.methods[0].signature[1]
+    self.assertNotIn('object at 0x', pop_default_arg)
+    self.assertIn('<object>', pop_default_arg)
 
 
 class TestReferenceResolver(absltest.TestCase):
