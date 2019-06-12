@@ -193,6 +193,7 @@ There are some preconfigured build configs available that can be added to the
 
 * `--config=mkl` —Support for the [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
 * `--config=monolithic` —Configuration for a mostly static, monolithic build.
+* `--config=v2` —Build TensorFlow 2.x instead of 1.x.
 
 Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
 run on older CPUs.
