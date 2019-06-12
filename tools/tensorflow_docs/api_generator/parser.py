@@ -223,7 +223,7 @@ class ReferenceResolver(object):
 
     fixed_lines = []
     for line in string.splitlines():
-      if not line.strip().startswith('#'):
+      if not line.strip().startswith('# '):
         line = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, line)
       fixed_lines.append(line)
 
