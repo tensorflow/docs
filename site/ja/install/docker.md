@@ -1,13 +1,13 @@
 # Docker
 
 [Docker](https://docs.docker.com/install/){:.external}は、*container*を使用して、
-TensorFlowのインストールをシステムの他の部分から分離された仮想環境を作成します。
+TensorFlowのインストールをシステムのほかの部分から分離された仮想環境を作成します。
 TensorFlowのプログラムは、この*仮想環境内*で実行され、ホストマシンとリソースを共有できます。
-（ディレクトリーへのアクセス、GPUの使用、インターネットへの接続など）
+（ディレクトリへのアクセス、GPUの使用、インターネットへの接続など）
 [TensorFlowのDockerイメージ](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
 は各リリースでテストされています。
 
-Dockerは、LinuxでTensorFlowの[GPUサポート](./gpu.md)を有効にする最も簡単な方法です。
+Dockerは、LinuxでTensorFlowの[GPUサポート](./gpu.md)を有効にするもっとも簡単な方法です。
 *ホスト*マシンに必要なのは
 [NVIDIA® GPドライバー](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}だけです。
 (*NVIDIA® CUDA® Toolk*をインストールする必要はありません)
@@ -45,7 +45,7 @@ Docker Hubリポジトリにあります。
 | *`tag`*`-py3`     | Python3サポートの指定された*tag*リリース。                                        |
 | *`tag`*`-jupyter` | Jupyter付きの指定された*tag*リリース (TensorFlowのチュートリアルnotebooks含む)    |
 
-一度に複数の亜種を使用できます。例えば、
+一度に複数の亜種を使用できます。たとえば、
 以下はTensorFlowリリースイメージをご使用のマシンにダウンロードします:
 
 <pre class="devsite-click-to-copy prettyprint lang-bsh">
@@ -68,7 +68,7 @@ docker run [-it] [--rm] [-p <em>hostPort</em>:<em>containerPort</em>] tensorflow
 ### CPUのみのイメージを使った例
 
 `latest`タグ付きイメージを使ってTensorFlowのインストールを確認しましょう。
-Dockerは、初めて実行する際に新しいTensorFlowのイメージをダウンロードします:
+Dockerは、はじめて実行する際に新しいTensorFlowのイメージをダウンロードします:
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run -it --rm tensorflow/tensorflow \
@@ -110,7 +110,7 @@ docker run -it -p 8888:8888 tensorflow/tensorflow:nightly-py3-jupyter
 
 ## GPUサポート
 
-Dockerは、GPUでTensorFlowを実行する最も簡単な方法です。
+Dockerは、GPUでTensorFlowを実行するもっとも簡単な方法です。
 *ホスト*マシンに必要なのは
 [NVIDIA® GPUドライバー](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}だけです。
 (*NVIDIA® CUDA® Toolk*をインストールする必要はありません)
