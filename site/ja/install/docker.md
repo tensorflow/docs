@@ -1,7 +1,7 @@
 # Docker
 
-[Docker](https://docs.docker.com/install/){:.external}は、*container*を使用して、
-TensorFlowのインストールをシステムのほかの部分から分離された仮想環境を作成します。
+[Docker](https://docs.docker.com/install/){:.external}は、*コンテナ*を使用して、
+TensorFlowのインストールをシステムのほかの部分から分離した仮想環境を作成します。
 TensorFlowのプログラムは、この*仮想環境内*で実行され、ホストマシンとリソースを共有できます。
 （ディレクトリへのアクセス、GPUの使用、インターネットへの接続など）
 [TensorFlowのDockerイメージ](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
@@ -37,7 +37,7 @@ Docker Hubリポジトリにあります。
 | *`version`* | TensorFlowのバイナリイメージの*version*を指定する。例: *1.13.1*                                   |
 | `devel`     | TensorFlowのnightlyビルドの`master`開発環境。TensorFlowのソースコードを含む。                     |
 
-各ベーズ*tag*は、機能を追加または変更する亜種があります:
+各ベース*タグ*は、機能を追加または変更する亜種があります:
 
 | タグ亜種          | 説明                                                                              |
 | ---               | ---                                                                               |
@@ -95,7 +95,7 @@ docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./script.p
 </pre>
 
 コンテナ内で作成されたファイルがホストに公開されると、アクセス権限の問題が発生する可能性があります。
-通常はホストシステム上のファイルを編集するのがベストです。
+通常はホストシステム上でファイルを編集するのがベストです。
 
 Python3サポート付きのTensorFlowのnightlyビルドを使用した
 [Jupyter Notebook](https://jupyter.org/){:.external}サーバーを起動してください:
