@@ -195,7 +195,7 @@ class ReferenceResolver(object):
   def replace_references(self, string, relative_path_to_root):
     """Replace `tf.symbol` references with links to symbol's documentation page.
 
-    This functions finds all occurrences of "`tf.symbol`" in `string`
+    This function finds all occurrences of "`tf.symbol`" in `string`
     and replaces them with markdown links to the documentation page
     for "symbol".
 
@@ -221,9 +221,13 @@ class ReferenceResolver(object):
       except TFDocsError:
         return match.group(0)
 
-    string = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, string)
+    fixed_lines = []
+    for line in string.splitlines():
+      if not line.strip().startswith('# '):
+        line = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, line)
+      fixed_lines.append(line)
 
-    return string
+    return '\n'.join(fixed_lines)
 
   def python_link(self, link_text, ref_full_name, relative_path_to_root,
                   code_ref=True):
@@ -589,6 +593,7 @@ def _remove_first_line_indent(string):
 
 
 PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
+OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+) object at 0x[\da-f]+>')
 
 
 def _generate_signature(func, reverse_index):
@@ -643,6 +648,9 @@ def _generate_signature(func, reverse_index):
     except SyntaxError:
       # You may get a SyntaxError using pytype in python 2.
       ast_defaults = [None] * len(argspec.defaults)
+    except IndexError:
+      # Some python3 signatures fail in tf_inspect.getsource with IndexError
+      ast_defaults = [None] * len(argspec.defaults)
 
     for arg, default, ast_default in zip(
         argspec.args[first_arg_with_default:], argspec.defaults, ast_defaults):
@@ -681,6 +689,10 @@ def _generate_signature(func, reverse_index):
               default_text = lookup_text
       else:
         default_text = repr(default)
+        # argspec.defaults can contain object memory addresses, i.e.
+        # containers.MutableMapping.pop. Strip these out to avoid
+        # unnecessary doc churn between invocations.
+        default_text = OBJECT_MEMORY_ADDRESS_RE.sub(r'<\g<type>>', default_text)
 
       args_list.append('%s=%s' % (arg, default_text))
 

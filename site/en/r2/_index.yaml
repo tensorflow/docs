@@ -19,14 +19,13 @@ landing_page:
           Install the TensorFlow 2.0 Beta preview package:
         </p>
         <pre class="prettyprint lang-bsh">
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-beta0</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-beta1</code>
         </pre>
         <p>
           See the <a href="/install/gpu">GPU guide</a> for CUDA®-enabled cards. The
           <a href="https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md" class="external">TensorFlow 2.0 community testing FAQ</a>
           contains additional compatibility and migration details.
         </p>
-      youtube_id: lEljKc9ZtU8?rel=0&show_info=0
 
   - classname: devsite-landing-row-100
     items:
@@ -44,6 +43,7 @@ landing_page:
         Run this
         <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/r2/tutorials/quickstart/advanced.ipynb">“Hello, World” example</a>,
         then read the guides and and tutorials to learn more.
+      youtube_id: lEljKc9ZtU8?rel=0&show_info=0
 
   - classname: devsite-landing-row-cards
     items:

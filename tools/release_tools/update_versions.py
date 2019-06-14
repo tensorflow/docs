@@ -24,8 +24,8 @@ except ImportError:
 
 EXTS = [".ipynb",".md",".yaml",".html"]
 EXPAND_TABLES = [
-    "site/en/install/source_windows.md",
-    "site/en/install/source.md",]
+    "source_windows.md",
+    "source.md",]
 
 class Version(object):
   def __init__(self, in_string):
@@ -51,9 +51,9 @@ if __name__=="__main__":
   args = parser.parse_args()
 
   for ext in EXTS:
-    for file_path in pathlib.Path("site/en").glob("**/*"+ext):
+    for file_path in pathlib.Path(".").rglob("*"+ext):
       content = file_path.read_text()
-      if str(file_path) in EXPAND_TABLES:
+      if file_path.name in EXPAND_TABLES:
         content = re.sub("(<tr>.*?){}(.*?</tr>)".format(re.escape(args.old_version.short())),
                          r"\g<1>{}\g<2>\n\g<0>".format(args.new_version.short()), content)
         file_path.write_text(content)
