@@ -1,6 +1,13 @@
 # 케라스(Keras)
 
-`tf.keras`는 TensorFlow의 딥 러닝 모델 설계와 훈련을 위한 고수준(high-level) API입니다. 이는 빠른 프로토타이핑, 최첨단 기술의 연구 및 생산에 사용되며, 세 가지 주요 이점이 있습니다:
+Note: 이 문서들은 텐서플로 커뮤니티에서 번역했습니다. 커뮤니티 번역 활동의 특성상 정확한 번역과 최신 내용을 반영하기 위해 노력함에도 불구하고
+[공식 영문 문서](https://www.tensorflow.org/?hl=en)의 내용과 일치하지 않을 수 있습니다. 이 번역에 개선할 부분이
+있다면 [tensorflow/docs](https://github.com/tensorflow/docs) 깃헙 저장소로 풀 리퀘스트를 보내주시기
+바랍니다. 문서 번역이나 리뷰에 참여하려면
+[docs-ko@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)로
+메일을 보내주시기 바랍니다.
+
+`tf.keras`는 TensorFlow의 딥러닝 모델 설계와 훈련을 위한 고수준(high-level) API입니다. 이는 빠른 프로토타이핑, 최첨단 기술의 연구 및 생산에 사용되며, 세 가지 주요 이점이 있습니다:
 
 -   *사용자 친화적*<br> Keras는 일반 사용 사례에 최적화된 간단하고 일관적인 인터페이스를 제공합니다. 이는 사용자 오류에 대해 명확하고 실용적인 피드백을 제공합니다.
 -   *모듈식 및 구성가능*<br> Keras 모델은 거의 무제한으로 구성 가능한 설계 블록과 함께 연결함으로써 생성됩니다.
