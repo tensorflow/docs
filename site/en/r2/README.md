@@ -1,3 +1,8 @@
-# TensorFlow 2.0 updates
+# TensorFlow 2.0 Beta
 
-Read the announcement: [TensorFlow 2.0 is coming](https://groups.google.com/a/tensorflow.org/d/msg/announce/qXfsxr2sF-0/jHQ77dr3DAAJ)
+TensorFlow 2.0 focuses on simplicity and ease of use, with updates like
+eager execution, intuitive higher-level APIs, and flexible model building
+on any platform.
+
+Read the TF 2 Beta guide and tutorials to get started:
+https://www.tensorflow.org/beta

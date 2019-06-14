@@ -21,13 +21,13 @@ GPU support, choose a stable or development package:
 <code class="devsite-terminal">pip install tf-nightly-gpu  # preview</code>
 </pre>
 
-### TensorFlow 2.0 Alpha
+### TensorFlow 2.0 Beta
 
-[TensorFlow 2.0 Alpha](../alpha) is available for testing with GPU support. To
-install:
+[TensorFlow 2.0 Beta](https://www.tensorflow.org/beta) is available for testing
+with GPU support. To install:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-alpha0</code>
+<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-beta0</code>
 </pre>
 
 ## Hardware requirements
@@ -43,7 +43,8 @@ The following GPU-enabled devices are supported:
 The following NVIDIA® software must be installed on your system:
 
 * [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external} —CUDA 10.0 requires 410.x or higher.
-* [CUDA® Toolkit](https://developer.nvidia.com/cuda-zone){:.external} —TensorFlow supports CUDA 10.0 (TensorFlow >= 1.13.0)
+* [CUDA® Toolkit](https://developer.nvidia.com/cuda-toolkit-archive){:.external}
+  —TensorFlow supports CUDA 10.0 (TensorFlow >= 1.13.0)
 * [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA Toolkit.
 * [cuDNN SDK](https://developer.nvidia.com/cudnn){:.external} (>= 7.4.1)
 * *(Optional)* [TensorRT 5.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
@@ -124,7 +125,7 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
 <code class="devsite-terminal">sudo apt-get update</code>
 
-# Install NVIDIA Driver
+# Install NVIDIA driver
 # Issue with driver install requires creating /usr/lib/nvidia
 <code class="devsite-terminal">sudo mkdir /usr/lib/nvidia</code>
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-410</code>
@@ -156,6 +157,12 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
 <code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
 <code class="devsite-terminal">sudo apt update</code>
+
+# Install the NVIDIA driver
+# Issue with driver install requires creating /usr/lib/nvidia
+<code class="devsite-terminal">sudo mkdir /usr/lib/nvidia</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-410</code>
+# Reboot. Check that GPUs are visible using the command: nvidia-smi
 
 # Install CUDA and tools. Include optional NCCL 2.x
 <code class="devsite-terminal">sudo apt install cuda9.0 cuda-cublas-9-0 cuda-cufft-9-0 cuda-curand-9-0 \

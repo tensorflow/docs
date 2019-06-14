@@ -29,6 +29,8 @@ from __future__ import print_function
 
 import textwrap
 
+from tensorflow_docs.api_generator import doc_generator_visitor
+
 
 def build_md_page(page_info):
   """Given a PageInfo object, return markdown for the page.
@@ -76,8 +78,7 @@ def _build_function_page(page_info):
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
-  parts.append('\n'.join(page_info.doc.docstring.split('\n')[1:]))
-  parts.append(_build_function_details(page_info.doc.function_details))
+  parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   return ''.join(parts)
@@ -121,8 +122,7 @@ def _build_class_page(page_info):
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
-  parts.append('\n'.join(page_info.doc.docstring.split('\n')[1:]))
-  parts.append(_build_function_details(page_info.doc.function_details))
+  parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
@@ -149,8 +149,8 @@ def _build_class_page(page_info):
       h3 = '<h3 id="{short_name}"><code>{short_name}</code></h3>\n\n'
       parts.append(h3.format(short_name=prop_info.short_name))
 
-      parts.append(prop_info.doc.docstring)
-      parts.append(_build_function_details(prop_info.doc.function_details))
+      parts.append(prop_info.doc.brief + '\n')
+      parts.extend(str(item) for item in prop_info.doc.docstring_parts)
       parts.append(_build_compatibility(prop_info.doc.compatibility))
 
       parts.append('\n\n')
@@ -167,13 +167,33 @@ def _build_class_page(page_info):
   if page_info.other_members:
     parts.append('## Class Members\n\n')
 
-    # TODO(markdaoust): Document the value of the members,
-    #                   at least for basic types.
+    parts.append(_other_members(page_info.other_members))
 
-    h3 = '<h3 id="{short_name}"><code>{short_name}</code></h3>\n\n'
-    others_member_headings = (h3.format(short_name=info.short_name)
-                              for info in sorted(page_info.other_members))
-    parts.extend(others_member_headings)
+  return ''.join(parts)
+
+
+def _other_members(other_members):
+  """Returns "other_members" rendered to markdown.
+
+  `other_members` is used for anything that is not a class, function, module,
+  or method.
+
+  Args:
+    other_members: a list of (name, object) pairs.
+
+  Returns:
+    A markdown string
+  """
+  parts = []
+  list_item = '* `{short_name}` <a id="{short_name}"></a>\n'
+  list_item_with_value = ('* `{short_name} = {obj!r}` '
+                          '<a id="{short_name}"></a>\n')
+  for other_member in other_members:
+    if doc_generator_visitor.maybe_singleton(other_member.obj):
+      part = list_item_with_value.format(**other_member._asdict())
+    else:
+      part = list_item.format(**other_member._asdict())
+    parts.append(part)
 
   return ''.join(parts)
 
@@ -198,8 +218,8 @@ def _build_method_section(method_info, heading_level=3):
   if method_info.signature is not None:
     parts.append(_build_signature(method_info, use_full_name=False))
 
-  parts.append(method_info.doc.docstring)
-  parts.append(_build_function_details(method_info.doc.function_details))
+  parts.append(method_info.doc.brief + '\n')
+  parts.extend(str(item) for item in method_info.doc.docstring_parts)
   parts.append(_build_compatibility(method_info.doc.compatibility))
   parts.append('\n\n')
   return ''.join(parts)
@@ -225,7 +245,7 @@ def _build_module_page(page_info):
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
   # All lines in the docstring, expect the brief introduction.
-  parts.append('\n'.join(page_info.doc.docstring.split('\n')[1:]))
+  parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
@@ -271,9 +291,7 @@ def _build_module_page(page_info):
     #                   at least for basic types.
     parts.append('## Other Members\n\n')
 
-    h3 = '<h3 id="{short_name}"><code>{short_name}</code></h3>\n\n'
-    for item in page_info.other_members:
-      parts.append(h3.format(**item._asdict()))
+    parts.append(_other_members(page_info.other_members))
 
   return ''.join(parts)
 
@@ -322,17 +340,3 @@ def _build_compatibility(compatibility):
     parts.append('\n\n#### %s Compatibility\n%s\n' % (key.title(), value))
 
   return ''.join(parts)
-
-
-def _build_function_details(function_details):
-  """Return the function details section as an md string."""
-  parts = []
-  for detail in function_details:
-    sub = []
-    sub.append('#### ' + detail.keyword + ':\n\n')
-    sub.append(textwrap.dedent(detail.header))
-    for key, value in detail.items:
-      sub.append('* <b>`%s`</b>: %s' % (key, value))
-    parts.append(''.join(sub))
-
-  return '\n'.join(parts)

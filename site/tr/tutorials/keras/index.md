@@ -1,5 +1,14 @@
 # Makine öğrenmesini anlayalım ve kullanalım
 
+Note: Bu dökümanlar TensorFlow gönüllü kullanıcıları tarafından çevirilmiştir.
+Topluluk tarafından sağlananan çeviriler gönüllülerin ellerinden geldiğince
+güncellendiği için [Resmi İngilizce dökümanlar](https://www.tensorflow.org/?hl=en)
+ile bire bir aynı olmasını garantileyemeyiz. Eğer bu tercümeleri iyileştirmek
+için önerileriniz var ise lütfen [tensorflow/docs](https://github.com/tensorflow/docs)
+havuzuna pull request gönderin. Gönüllü olarak çevirilere katkıda bulunmak için
+[docs-tr@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-tr)
+listesi ile iletişime geçebilirsiniz.
+
 Aşağıda linkleri verilmiş olan Juypter Notebook'ları,
 *[Deep Learning with Python](https://books.google.com/books?id=Yo3CAQAACAAJ)*
 kitabından esinlenerek hazırlanmıştır. Bu yardımcı eğitim dökümanları,

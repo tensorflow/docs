@@ -2,43 +2,45 @@ toc:
 - heading: "Guide"
   style: divider
 
-- title: "Eager execution"
-  path: /alpha/guide/eager
+- title: "Eager essentials"
+  path: /beta/guide/eager
 - title: "Variables"
-  path: /alpha/guide/variables
+  path: /beta/guide/variables
 - title: "AutoGraph"
-  path: /alpha/guide/autograph
+  path: /beta/guide/autograph
 
 - heading: "Keras"
 - title: "Keras overview"
-  path: /alpha/guide/keras/overview
+  path: /beta/guide/keras/overview
 - title: "Keras functional API"
-  path: /alpha/guide/keras/functional
+  path: /beta/guide/keras/functional
 - title: "Train and evaluate"
-  path: /alpha/guide/keras/training_and_evaluation
+  path: /beta/guide/keras/training_and_evaluation
 - title: "Write layers and models from scratch"
-  path: /alpha/guide/keras/custom_layers_and_models
+  path: /beta/guide/keras/custom_layers_and_models
 - title: "Save and serialize models"
-  path: /alpha/guide/keras/saving_and_serializing
+  path: /beta/guide/keras/saving_and_serializing
 - title: "Write custom callbacks"
-  path: /alpha/guide/keras/custom_callback
+  path: /beta/guide/keras/custom_callback
 
 - heading: "Accelerators"
 - title: "Distribution strategy"
-  path: /alpha/guide/distribute_strategy
+  path: /beta/guide/distribute_strategy
 - title: "Using GPU"
-  path: /alpha/guide/using_gpu
+  path: /beta/guide/using_gpu
 
 - heading: "Data Loading"
+- title: "Importing Data"
+  path: /beta/guide/data
 - title: "Performance"
-  path: /alpha/guide/data_performance
+  path: /beta/guide/data_performance
 
 - heading: "Serialization"
 - title: "Checkpoints"
-  path: /alpha/guide/checkpoints
+  path: /beta/guide/checkpoints
 - title: "Saved models"
-  path: /alpha/guide/saved_model
+  path: /beta/guide/saved_model
 
 - heading: "Misc"
 - title: "Version Compatibility"
-  path: /alpha/guide/version_compat
+  path: /beta/guide/version_compat

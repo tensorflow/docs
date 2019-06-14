@@ -108,7 +108,7 @@ if FLAGS.use_tpu:
     my_zone = subprocess.check_output([
         'gcloud','config','get-value','compute/zone'])
     cluster_resolver = tf.contrib.cluster_resolver.TPUClusterResolver(
-            tpu_names=[FLAGS.tpu_name],
+            tpu=[FLAGS.tpu_name],
             zone=my_zone,
             project=my_project)
     master = tpu_cluster_resolver.get_master()
