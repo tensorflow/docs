@@ -27,7 +27,7 @@ GPU support, choose a stable or development package:
 with GPU support. To install:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-beta0</code>
+<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-beta1</code>
 </pre>
 
 ## Hardware requirements
@@ -98,15 +98,13 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-0 \
-    libcudnn7=7.4.1.5-1+cuda10.0  \
-    libcudnn7-dev=7.4.1.5-1+cuda10.0
+    libcudnn7=7.6.0.64-1+cuda10.0  \
+    libcudnn7-dev=7.6.0.64-1+cuda10.0
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
-<code class="devsite-terminal">sudo apt-get update && \
-        sudo apt-get install nvinfer-runtime-trt-repo-ubuntu1804-5.0.2-ga-cuda10.0 \
-        && sudo apt-get update \
-        && sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.0.2-1+cuda10.0
+<code class="devsite-terminal">sudo apt-get update && \        
+        && sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.1.5-1+cuda10.0
 </code>
 </pre>
 
