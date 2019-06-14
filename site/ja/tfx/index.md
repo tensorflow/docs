@@ -22,36 +22,32 @@ Note: オプションのコンポーネントである [TensorFlow Serving](http
 [TensorFlow Lite](https://www.tensorflow.org/lite) のインストールについては、
 これらのドキュメントを確認してください。
 
-Note: このコマンドは [Apache Beam](beam.md) を Direct runner とインストールします。
-[Flink](https://flink.apache.org/)のようなストリームランナーを個別にインストールする必要が生じるかもしれません。
+Note: このコマンドは [Apache Beam](beam.md) を Direct runner と同時にインストールします。
+別途、[Flink](https://flink.apache.org/)のようなストリーミングランナーをインストールする必要があります。
 
-## Core Concepts
+## コアコンポーネント
 
-### TFX Pipelines
+### TFX パイプライン
 
-A TFX pipeline defines a data flow through several components, with the goal of
-implementing a specific ML task (e.g., building and deploying a regression model
-for specific data). Pipeline components are built upon TFX libraries.
-The result of a pipeline is a TFX deployment target and/or service of an
-inference request.
+TFXパイプラインはいくつかのコンポーネントを用いて、特定の機械学習タスク (例えば、
+特定のデータを用いた回帰モデルの構築とデプロイ) を最終的に実行するためのデータフローを定義します。
+パイプラインのコンポーネントはTFXのライブラリを用いて構築されます。
+パイプラインの最終結果は、推論を要求する TFX デプロイメントターゲットかサービス、またはその両方です。
 
-## TFX Pipeline Components
+## TFX パイプライン コンポーネント
 
-A TFX pipeline is a sequence of components that implement an [ML
-pipeline](https://en.wikipedia.org/wiki/Pipeline_(computing)) which is
-specifically designed for scalable, high-performance machine learning tasks.
-That includes modeling, training, serving inference, and managing deployments to
-online, native mobile, and JavaScript targets.
+TFXパイプラインは一連のコンポーネントを連結したもので、[機械学習パイプライン](https://ja.wikipedia.org/wiki/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3%E5%87%A6%E7%90%86)を実装するもので、
+スケーラブルでハイパフォーマンスな機械学習タスクのために設計されています。
+これにはモデリング、訓練、推論のサービング、そしてオンライン、ネイティブモバイルアプリ、JavaScript へのデプロイの管理が含まれています。
 
-A TFX pipeline typically includes the following components:
+TFX パイプラインには典型的には次のコンポーネントが含まれます :
 
-* [**ExampleGen**](examplegen.md) is the initial input component of a pipeline
-that ingests and optionally splits the input dataset.
+* [**ExampleGen**](examplegen.md) はパイプラインの先頭に来るコンポーネントで、
+データセットの取り込みと、必要な場合には分割を行います。
 
-* [**StatisticsGen**](statsgen.md) calculates statistics for the dataset.
+* [**StatisticsGen**](statsgen.md) はデータセットの統計量を計算します。
 
-* [**SchemaGen**](schemagen.md) examines the statistics and creates a data
-schema.
+* [**SchemaGen**](schemagen.md) 統計量を確認し、データのスキーマを生成します。
 
 * [**ExampleValidator**](exampleval.md) looks for anomalies and missing values
 in the dataset.
