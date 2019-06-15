@@ -18,7 +18,7 @@ TensorFlow GraphDef模型（一般是通过Python API创建的）可以保存成
  pip install tensorflowjs
 ```
 
-将TensorFlow模型引入到TensorFlow.js需要两个步骤。首先，将您的模型转换为TensorFlow.js可用的web格式，然后载入TensorFlow.js中。
+将TensorFlow模型引入到TensorFlow.js需要两个步骤。首先，将您的模型转换为TensorFlow.js可用的web格式，然后载入到TensorFlow.js中。
 
 ## 第一步：将TensorFlow模型转换至TensorFlow.js可用的 web 格式模型
 
@@ -61,10 +61,10 @@ tensorflowjs_converter \
 
 | 选项 | 描述
 |---|---|
-|`--input_format`     | 要转换的模型的格式。SavedModel 用 tf_saved_model, frozen model 用 tf_frozen_model, session bundle 用 tf_session_bundle, TensorFlow Hub module 用 tf_hub，Keras HDF5 用 keras。 |
+|`--input_format`     | 要转换的模型的格式。SavedModel 为 tf_saved_model, frozen model 为 tf_frozen_model, session bundle 为 tf_session_bundle, TensorFlow Hub module 为 tf_hub，Keras HDF5 为 keras。 |
 |`--output_node_names`| 输出节点的名字，每个名字用逗号分离。|
-|`--saved_model_tags` | 只对SavedModel转换生效。输入需要加载的MetaGraphDef相对应的tag，多个tag请用逗号分隔。默认为 `serve`。|
-|`--signature_name`   | 只对TensorFlow Hub module生效。对应要加载的签名。默认为`default`。请参考 https://www.tensorflow.org/hub/common_signatures/.|
+|`--saved_model_tags` | 只对SavedModel转换用的选项：输入需要加载的MetaGraphDef相对应的tag，多个tag请用逗号分隔。默认为 `serve`。|
+|`--signature_name`   | 只对TensorFlow Hub module转换用的选项：对应要加载的签名，默认为`default`。请参考 https://www.tensorflow.org/hub/common_signatures/.|
 
 用以下命令查看帮助信息：
 
@@ -79,7 +79,7 @@ tensorflowjs_converter --help
 * `model.json` （数据流图和权重清单）
 * `group1-shard\*of\*` （二进制权重文件）
 
-这里举例一个Mobilenet v2模型的转换输出：
+这里举例Mobilenet v2模型转换后输出的文件：
 
 ```html
   output_directory/model.json
@@ -92,7 +92,7 @@ tensorflowjs_converter --help
 
 1. 安装tfjs-convert npm包：
 
-`yarn add @tensorflow/tfjs` or `npm install @tensorflow/tfjs`
+`yarn add @tensorflow/tfjs` 或 `npm install @tensorflow/tfjs`
 
 2. 创建 [FrozenModel class](https://github.com/tensorflow/tfjs-converter/blob/master/src/executor/frozen_model.ts) 并开始推算：
 
