@@ -1,6 +1,8 @@
 # Contribute to the TensorFlow code
 
-Whether you are adding a loss function, improving test coverage, or writing an RFC for a major design change, this portion of the contributor guide will help you get started. Thank you for work and interest in improving the TensorFlow API.
+Whether you are adding a loss function, improving test coverage, or writing an
+RFC for a major design change, this portion of the contributor guide will help
+you get started. Thank you for work and interest in improving TensorFlow.
 
 ## Before you get started
 
@@ -84,13 +86,14 @@ Code contributions—bug fixes, new development, test improvement—all follow a
 5.  Commit your changes.
 
     `$ git add -a`
+
     `$ git commit -m "commit message here"`
 
 6.  Push your changes to your GitHub repo.
 
     `$ git push origin branch-name`
 
-7.  Open a *Pull Request* (PR). Go to the original project repo on GitHub. There will be a message about your recently pushed branch, asking if you would like to open a pull request. Follow the prompts, *compare accross repositories*, and submit the PR. This will send an email to the committers. You may want to consider sending an email to the mailing list for more visibility. (For more detals, see the [GitHub guide on PRs](https://help.github.com/articles/creating-a-pull-request-from-a-fork). 
+7.  Open a *Pull Request* (PR). Go to the original project repo on GitHub. There will be a message about your recently pushed branch, asking if you would like to open a pull request. Follow the prompts, *compare across repositories*, and submit the PR. This will send an email to the committers. You may want to consider sending an email to the mailing list for more visibility. (For more details, see the [GitHub guide on PRs](https://help.github.com/articles/creating-a-pull-request-from-a-fork). 
 
 8.  Maintainers and other contributors will *review your PR*. Please participate in the conversation, and try to *make any requested changes*. Once the PR is approved, the code will be merged.
 

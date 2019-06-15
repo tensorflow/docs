@@ -1,5 +1,16 @@
 # Estimators
 
+Note: Вся информация в этом разделе переведена с помощью русскоговорящего
+Tensorflow сообщества на общественных началах. Поскольку этот перевод не
+является официальным, мы не гарантируем что он на 100% аккуратен и соответствует
+[официальной документации на английском языке](https://www.tensorflow.org/?hl=en).
+Если у вас есть предложение как исправить этот перевод, мы будем очень рады
+увидеть pull request в [tensorflow/docs](https://github.com/tensorflow/docs)
+репозиторий GitHub. Если вы хотите помочь сделать документацию по Tensorflow
+лучше (сделать сам перевод или проверить перевод подготовленный кем-то другим),
+напишите нам на
+[docs-ru@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ru).
+
 В этом документе мы познакомимся `tf.estimator`, высокоуровневым API TensorFlow,
 который значительно упрощает процесс создания моделей машинного обучения.
 Estimators включает в себя следующие операции:
@@ -23,7 +34,7 @@ Estimators включает в себя следующие операции:
 ## Преимущества Estimators
 
 Estimators обеспечивают следующие преимущества:
-	
+
 *   Можно запускать модели на основе Estimators локально или на распределенном
     сервере без изменений структуры модели. Более того, ты можешь запускать модели
     на CPU, GPU и TPU без внесения изменений в код
@@ -35,7 +46,7 @@ Estimators обеспечивают следующие преимущества:
 *   Estimators строят граф
 *   Estimators обеспечивают простой распределенный цикл обучения, который контролирует
     как и когда:
-    
+
     *   строить граф
     *   инициализировать переменные
     *   загружать данные
@@ -64,25 +75,27 @@ Estimators обеспечивают следующие преимущества:
 
 Программа TensorFlow на основе готовых Estimators обычно состоит из следующих
 четырех шагов:
-	
+
 1.  **Написание одной или более функций для загрузки датасета**. Например,
-    создадим функцию для импорта тренировочного сета и вторую функцию для 
-	импорта проверочного сета данных. Каждая функция для загрузки датасета
-	должна возвращать два объекта:
+    создадим функцию для импорта тренировочного сета и вторую функцию для
+    импорта проверочного сета данных. Каждая функция для загрузки датасета
+    должна возвращать два объекта:
 
     *   словарь, в котором ключи являются именами параметров, а значения
-	являются тензорами (или *SparseTensors*), содержащие соответствующие
-	данные параметров
+        являются тензорами (или *SparseTensors*), содержащие соответствующие
+        данные параметров
     *   тензор, содержащий одну или более меток
 
     Например, в коде ниже показан пример основного скелета для функции ввода
     данных:
 
+```python
         def input_fn(dataset):
            ...  # манипулирует датасетом, извлекая словарь параметров и метки
            return feature_dict, label
+```
 
-    (Смотри подробнее в статье [Загрузка данных и датасетов](../guide/datasets.md))
+Смотри подробнее в статье [Загрузка данных и датасетов](../guide/datasets.md)
 
 2.  **Определение колонок параметров.** Каждая колонка `tf.feature_column`
     определяет имя параметра, его тип и любую предварительную обработку
@@ -92,27 +105,32 @@ Estimators обеспечивают следующие преимущества:
     просто идентифицировать имя и тип параметра. Третья колонка параметров указывает
     на лямбду-выражение, которое будут вызываться для оценки необработанных
     данных:
-							
-	# Определим три числовых колонки параметров.
-        population = tf.feature_column.numeric_column('population')
-        crime_rate = tf.feature_column.numeric_column('crime_rate')
-        median_education = tf.feature_column.numeric_column('median_education',
-                            normalizer_fn=lambda x: x - global_education_mean)
-	
+
+```python
+# Определим три числовых колонки параметров.
+population = tf.feature_column.numeric_column('population')
+crime_rate = tf.feature_column.numeric_column('crime_rate')
+median_education = tf.feature_column.numeric_column('median_education',
+                       normalizer_fn=lambda x: x - global_education_mean)
+```
+
 3.  **Укажем подходящий готовый Estimator.**  Например так мы укажем
     готовый Estimator для решения модели `линейного классификатора`:
-			
-		# Указываем estimator, передаем колонки параметров.
-        estimator = tf.estimator.LinearClassifier(
-            feature_columns=[population, crime_rate, median_education],
-            )
+
+```python
+# Указываем estimator, передаем колонки параметров.
+estimator = tf.estimator.LinearClassifier(
+    feature_columns=[population, crime_rate, median_education],
+)
+```
 
 4.  **Вызов метода обучения, оценки или предсказания**
     Например, все Estimators имеют метод `train` для начала обучения модели:
 
-        # `input_fn` - функция, созданная в самом первом шаге
-        estimator.train(input_fn=my_training_set, steps=2000)
-
+```python
+# `input_fn` - функция, созданная в самом первом шаге
+estimator.train(input_fn=my_training_set, steps=2000)
+```
 
 ### Преимущества использования готовых Estimators
 
@@ -154,7 +172,6 @@ Estimator, кто-то уже написал функцию модели для 
     собственного Estimator.
 
 
-
 ## Создание Estimators из моделей Keras 
 
 Ты можешь конвертировать уже имеющиеся у тебя модели Keras в Estimators. Это позволит
@@ -169,7 +186,7 @@ keras_inception_v3 = tf.keras.applications.inception_v3.InceptionV3(weights=None
 keras_inception_v3.compile(optimizer=tf.keras.optimizers.SGD(lr=0.0001, momentum=0.9),
                           loss='categorical_crossentropy',
                           metric='accuracy')
-			  
+
 # Создаем Estimator из скомпилированной модели Keras. Обрати внимание, что изначальное
 # состояние модели Keras сохраняется при создании Estimator.
 est_inception_v3 = tf.keras.estimator.model_to_estimator(keras_model=keras_inception_v3)
@@ -186,7 +203,7 @@ train_input_fn = tf.estimator.inputs.numpy_input_fn(
     y=train_labels,
     num_epochs=1,
     shuffle=False)
-    
+
 # Для обучения вызываем функцию `train` полученного нами Estimator:
 est_inception_v3.train(input_fn=train_input_fn, steps=2000)
 ```

@@ -2,14 +2,14 @@ toc:
 - heading: "Guide"
   style: divider
 
-- title: "Eager execution"
+- title: "Eager essentials"
   path: /alpha/guide/eager
 - title: "Variables"
   path: /alpha/guide/variables
 - title: "AutoGraph"
   path: /alpha/guide/autograph
 
-- heading: "TensorFlow Keras 2.0"
+- heading: "Keras"
 - title: "Keras overview"
   path: /alpha/guide/keras/overview
 - title: "Keras functional API"
@@ -20,6 +20,8 @@ toc:
   path: /alpha/guide/keras/custom_layers_and_models
 - title: "Save and serialize models"
   path: /alpha/guide/keras/saving_and_serializing
+- title: "Write custom callbacks"
+  path: /alpha/guide/keras/custom_callback
 
 - heading: "Accelerators"
 - title: "Distribution strategy"
@@ -28,6 +30,8 @@ toc:
   path: /alpha/guide/using_gpu
 
 - heading: "Data Loading"
+- title: "Importing Data"
+  path: /alpha/guide/data
 - title: "Performance"
   path: /alpha/guide/data_performance
 

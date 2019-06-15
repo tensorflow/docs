@@ -7,7 +7,7 @@ those tools. It explains:
    * What a linear model is.
    * Why you might want to use a linear model.
    * How Estimators make it easy to build linear models in TensorFlow.
-   * How you can use Estimators to combine linear models with.
+   * How you can use Estimators to combine linear models with
      deep learning to get the advantages of both.
 
 Read this overview to decide whether the Estimator's linear model tools  might
@@ -62,7 +62,7 @@ effective large-scale linear models.
 ### Feature columns and transformations
 
 Much of the work of designing a linear model consists of transforming raw data
-into suitable input features. Tensorflow uses the `FeatureColumn` abstraction to
+into suitable input features. TensorFlow uses the `FeatureColumn` abstraction to
 enable these transformations.
 
 A `FeatureColumn` represents a single feature in your data. A `FeatureColumn`
@@ -146,7 +146,7 @@ age = tf.feature_column.numeric_column("age")
 ```
 
 Although, as a single real number, a continuous feature can often be input
-directly into the model, Tensorflow offers useful transformations for this sort
+directly into the model, TensorFlow offers useful transformations for this sort
 of column as well.
 
 ##### Bucketization
@@ -185,7 +185,7 @@ initiate training and testing, as described in the next section.
 
 ### Linear estimators
 
-Tensorflow estimator classes provide a unified training and evaluation harness
+TensorFlow estimator classes provide a unified training and evaluation harness
 for regression and classification models. They take care of the details of the
 training and evaluation loops and allow the user to focus on model inputs and
 architecture.
@@ -195,7 +195,7 @@ To build a linear estimator, you can use either the
 `tf.estimator.LinearRegressor` estimator, for classification and
 regression respectively.
 
-As with all tensorflow estimators, to run the estimator you just:
+As with all TensorFlow estimators, to run the estimator you just:
 
    1. Instantiate the estimator class. For the two linear estimator classes,
    you pass a list of `FeatureColumn`s to the constructor.

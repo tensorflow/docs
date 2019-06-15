@@ -16,7 +16,7 @@ landing_page:
           See the <a href="./gpu">GPU guide</a> for CUDA®-enabled cards.
         </p>
         <pre class="prettyprint lang-bsh">
-        <code class="devsite-terminal">pip install tf-nightly-2.0-preview</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
         </pre>
 
   - classname:
@@ -40,7 +40,9 @@ landing_page:
           </td></tr>
         </table>
 
-  - classname: devsite-landing-row-large-headings
+  - classname: >
+      devsite-landing-row-large-headings
+      devsite-landing-row-50
     items:
     - heading: Download a package
       description: >
@@ -51,9 +53,8 @@ landing_page:
       buttons:
       - label: Read the pip install guide
         path: /install/pip
-        classname: button button-primary tfo-button-primary
+        classname: button button-primary
 
-    - classname: tfo-landing-row-item-code-block
       code_block: |
         <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
         # Current stable release for CPU-only
@@ -61,7 +62,7 @@ landing_page:
         # Preview nightly build for CPU-only (unstable)
         <code class="devsite-terminal">pip install tf-nightly</code><br/>
         # Install TensorFlow 2.0 Alpha
-        <code class="devsite-terminal">pip install tf-nightly-2.0-preview</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
 
   - classname:
       devsite-landing-row-100
@@ -83,7 +84,7 @@ landing_page:
       buttons:
       - label: Read the Docker install guide
         path: /install/docker
-        classname: button button-primary tfo-button-primary
+        classname: button button-primary
 
   - classname:
       devsite-landing-row-large-headings
@@ -114,4 +115,4 @@ landing_page:
       heading: Mobile developers
       path: /lite/
       description: >
-        TensorFlow Lite is lightweight solution for mobile and embedded devices.
+        TensorFlow Lite is a lightweight solution for mobile and embedded devices.
