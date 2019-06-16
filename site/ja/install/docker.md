@@ -49,9 +49,9 @@ Docker Hubリポジトリにあります。
 以下はTensorFlowリリースイメージをご使用のマシンにダウンロードします:
 
 <pre class="devsite-click-to-copy prettyprint lang-bsh">
-<code class="devsite-terminal">docker pull tensorflow/tensorflow                     # latest stable release</code>
-<code class="devsite-terminal">docker pull tensorflow/tensorflow:devel-gpu           # nightly dev release w/ GPU support</code>
-<code class="devsite-terminal">docker pull tensorflow/tensorflow:latest-gpu-jupyter  # latest release w/ GPU support and Jupyter</code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow                     # 最新の安定版リリース</code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow:devel-gpu           # GPUサポート付きのnightly開発リリース</code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow:latest-gpu-jupyter  # GPUサポートとJupyter付きの最新版リリース</code>
 </pre>
 
 
