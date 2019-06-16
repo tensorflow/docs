@@ -6,7 +6,7 @@ TFXはTensorFlow上で動作する、Googleのプロダクションスケール�
 これは機械学習システムを定義、起動、監視するために必要な設定フレームワークと共有ライブラリを提供し、
 それらを機械学習システムに統合できるようにします。
 
-## Installation
+## インストール
 
 [![Python](https://img.shields.io/pypi/pyversions/tfx.svg?style=plastic)](
 https://github.com/tensorflow/tfx)
