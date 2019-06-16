@@ -24,7 +24,7 @@ tensorflowjs_converter --input_format keras \
 
 ## 另一种方式: 使用 Python API 直接导出为 TF.js 图层(Layer)格式
 
-如果你有一个Python的Keras模型，你可以用以下方法直接输出一个Tensoflow.js层格式:
+如果您有一个Python的Keras模型，您可以用以下方法直接输出一个Tensoflow.js图层(Layers)格式:
 
 
 ```py
