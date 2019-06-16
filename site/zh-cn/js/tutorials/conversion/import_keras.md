@@ -6,7 +6,7 @@ Keras模型（通常通过Python API创建）可能被保存成[多种格式之�
 
 ## 要求
 
-转换过程要求Python的编程环境，你可能需要独立的使用[pipenv](https://github.com/pypa/pipenv)或是[virtualenv](https://virtualenv.pypa.io)。并使用 `pip install tensorflowjs`安装转换器
+转换过程要求Python的编程环境，您可能需要独立的使用[pipenv](https://github.com/pypa/pipenv)或是[virtualenv](https://virtualenv.pypa.io)。并使用 `pip install tensorflowjs`安装转换器
 
 将Keras模型导入Tensorflow.js需要两步过程。首先，将已有Keras模型转换成TF.js层(Layer)格式，然后将其加载进Tensorflow.js。
 
