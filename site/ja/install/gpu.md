@@ -52,13 +52,13 @@ GPUサポートのテスト用に[TensorFlow 2.0 Beta](https://www.tensorflow.or
 
 ## Linuxセットアップ
 
-以下の`apt`の手順は、必要なNVIDIAソフトウェアをUbuntuにインストールする最も簡単な方法です。
+以下の`apt`の手順は、必要なNVIDIAソフトウェアをUbuntuにインストールするもっとも簡単な方法です。
 しかし、[ソースからTensorFlowをビルド](./source.md)する場合は、
-上記のソフトウェア要件一覧を手動でインストールし、ベースとして
-`-devel` [TensorFlowのDockerイメージ](./docker.md)の使用を検討してください。
+上記のソフトウェア要件一覧を手動でインストールしてください。
+ベースとしては`-devel` [TensorFlowのDockerイメージ](./docker.md)の使用を検討してください。
 
 CUDA® Toolki付属の[CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external}をインストールしてください。
-インストールしたディレクトリーを
+インストールしたディレクトリを
 環境変数`$LD_LIBRARY_PATH`に追加してください:
 
 <pre class="devsite-click-to-copy">
@@ -71,7 +71,7 @@ CUDA Compute Capability 3.0を搭載したGPU、またはさまざまなバー�
 ### aptでCUDAをインストールする
 
 このセクションでは、Ubuntu 16.04および18.04にCUDA 10（TensorFlow >= 13.0）およびCUDA 9をインストールする方法を説明します。
-これらの手順は、他のDebianベースのディストリビューションでも動作するでしょう。
+これらの手順は、ほかのDebianベースのディストリビューションでも動作するでしょう。
 
 注意: [Secure Boot](https://wiki.ubuntu.com/UEFI/SecureBoot){:.external}
 はNVIDIAドライバーのインストールを複雑にし、これらの手順で想定する範囲を超えています。
@@ -183,10 +183,10 @@ CUDA Compute Capability 3.0を搭載したGPU、またはさまざまなバー�
 特に、TensorFlowは`cuDNN64_7.dll`ファイルがないとロードされません。
 別のバージョンを使用するには、[ソースからのWindows用のビルド](./source_windows.md)ガイドを参照してください。
 
-CUDA、CUPTI、およびcuDNNがインストールされたディレクトリーを`％PATH％`環境変数に追加します。
-例えば、CUDA Toolkitが`C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0`に、
-cuDNNが`C:\tools\cuda`にインストールされている場合、
-以下のように`％PATH％`を更新してください:
+CUDA、CUPTI、およびcuDNNがインストールされたディレクトリを`％PATH％`環境変数に追加します。
+たとえば、CUDA Toolkitが`C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0`に、
+cuDNNが`C:\tools\cuda`にインストールされているとします。
+その場合には、以下のように`％PATH％`を更新してください:
 
 <pre class="devsite-click-to-copy">
 <code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin;%PATH%</code>
