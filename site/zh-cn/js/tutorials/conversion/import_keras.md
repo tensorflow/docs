@@ -42,7 +42,7 @@ def train(...):
 
 ## Step 2: 将模型加载进Tensorflow.js
 
-使用一个web服务器为您在步骤1中生成的转换后的模型文件提供服务。注意，你可能需要将你的服务器配置为[允许跨源资源共享(CORS)](https://enable-cors.org/), 以允许在 JavaScript 中提取文件。
+使用一个web服务器为您在步骤1中生成的转换后的模型文件提供服务。注意，您可能需要将您的服务器配置为[允许跨源资源共享(CORS)](https://enable-cors.org/), 以允许在 JavaScript 中提取文件。
 
 然后通过提供model.json文件的URL将模型加载到TensorFlow.js中：
 
