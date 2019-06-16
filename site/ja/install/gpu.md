@@ -16,9 +16,9 @@ TensorFlowのGPUサポートには、さまざまなドライバーとライブ�
 GPUサポート付きTensorFlowパッケージを`pip`インストールするには、安定版または開発版パッケージを選択してください:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install tensorflow-gpu  # stable</code>
+<code class="devsite-terminal">pip install tensorflow-gpu  # 安定版</code>
 
-<code class="devsite-terminal">pip install tf-nightly-gpu  # preview</code>
+<code class="devsite-terminal">pip install tf-nightly-gpu  # プレビュー版</code>
 </pre>
 
 ### TensorFlow 2.0 Beta
