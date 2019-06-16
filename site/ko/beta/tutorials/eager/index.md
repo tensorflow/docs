@@ -16,4 +16,4 @@ Note: 이 문서는 텐서플로 커뮤니티에서 번역했습니다. 커뮤�
 3. [자동 미분](automatic_differentiation.ipynb)
 4. [사용자 정의 학습: 기초](custom_training.ipynb)
 5. [사용자 정의 학습: 자세히 둘러보기](custom_training_walkthrough.ipynb)
-6. [tf.function 과 오토그래프](tf_function.ipynb)
+6. [TF function 과 오토그래프](tf_function.ipynb)
