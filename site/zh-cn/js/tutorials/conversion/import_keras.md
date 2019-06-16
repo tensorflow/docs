@@ -70,6 +70,6 @@ const prediction = model.predict(example);
 注意，您使用`model.json`文件名引用整个模型。`loadModel(...)` 获取 `model.json`，并且通过额外的HTTP(S)请求以获取`model.json`权重清单中引用的分片权重文件。 此方法允许浏览器将这些文件全部缓存(可还能被缓存在互联网上其他缓存服务器中)。这是因为 `model.json`和权重分块都小于典型的缓存文件大小限制。因此这个模型可能在随后的场景中加载地更快。
 
 
-## 支持的特性
+## 已支持的特性
 
 目前Tensorflow.js 层只支持使用标准Keras结构的Keras模型。那些使用非支持的操作(ops)，层(layers)将无法被自动导入，因为它们依赖于无法可靠地转换为 JavaScript 的 Python 代码。这其中涵盖了客制化的层，Lambda层，客制化的损失函数以及客制化的评价标准。
