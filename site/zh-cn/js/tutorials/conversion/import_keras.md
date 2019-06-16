@@ -2,7 +2,7 @@
 
 Keras模型（通常通过Python API创建）可能被保存成[多种格式之一](https://keras.io/getting-started/faq/#how-can-i-save-a-keras-model). 整个模型格式可以被转换为Tensorflow.js的层(Layer)格式，这个格式可以被加载并直接用作Tensorflow.js的推断或是进一步的训练。
 
-Tensorflow.js 的层(Layer)格式目标是一个可以容纳`model.json`文件和一系列可共享的二进制权重文件的容器。
+转换后的TensorFlow.js图层(Layer)格式是一个包含model.json文件和一组二进制格式的分片权重文件的目录。 model.json文件包含模型拓扑结构（又名“架构(architecture)”或“图形(graph)”：它是对图层(Layer)及其连接方式的描述）和权重文件的清单。
 
 ## 要求
 
