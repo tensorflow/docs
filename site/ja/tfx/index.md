@@ -47,29 +47,28 @@ TFX パイプラインには典型的には次のコンポーネントが含ま�
 
 * [**StatisticsGen**](statsgen.md) はデータセットの統計量を計算します。
 
-* [**SchemaGen**](schemagen.md) 統計量を確認し、データのスキーマを生成します。
+* [**SchemaGen**](schemagen.md) は統計量を確認し、データのスキーマを生成します。
 
-* [**ExampleValidator**](exampleval.md) looks for anomalies and missing values
-in the dataset.
+* [**ExampleValidator**](exampleval.md) はデータセットに異常値や欠損値が含まれないかを検査します。
 
-* [**Transform**](transform.md) performs feature engineering on the dataset.
+* [**Transform**](transform.md) はデータセットに対して特徴量エンジニアリングを行います。
 
-* [**Trainer**](trainer.md) trains the model.
+* [**Trainer**](trainer.md) はモデルを学習させます。
 
-* [**Evaluator**](evaluator.md) performs deep analysis of the training results.
+* [**Evaluator**](evaluator.md) は学習させた結果について深く分析を行います。
 
-* [**ModelValidator**](modelval.md) helps you validate your exported models, ensuring that
-they are "good enough" to be pushed to production.
+* [**ModelValidator**](modelval.md) は出力されたモデルのバリデーションを手助けし、
+プロダクション環境に適用するのに「十分良さそう」であることを保証します。
 
-* [**Pusher**](pusher.md) deploys the model on a serving infrastructure.
+* [**Pusher**](pusher.md) はサービスを提供するインフラストラクチャにモデルをデプロイします。
 
-This diagram illustrates the flow of data between these components:
+次の図はこれらのコンポーネント間でのデータのやり取りをあらわしています。
 
 ![Component Flow](diag_all.svg)
 
-### Anatomy of a Component
+### コンポーネントの内部構造
 
-TFX components consist of three main pieces:
+TFXのコンポーネントは次の3つの主要な部分から成り立ちます。
 
 * Driver
 * Executor
@@ -91,65 +90,44 @@ TFX はライブラリとパイプラインのコンポーネントの両方を�
 
 ![Libraries and Components](libraries_components.svg)
 
-TFX provides several Python packages that are the libraries which are used to
-create pipeline components.  You'll use these libraries to create the components
-of your pipelines so that your code can focus on the unique aspects of your
-pipeline.
+TFX はパイプラインのコンポーネントを作成するために必要ないくつかのライブラリを Python パッケージとして提供します。これらのライブラリは、実装したいパイプラインに特有な側面に集中できるように、パイプラインのコンポーネントを作成するときに利用できます。
 
-TFX libraries include:
+TFX のライブラリは次のものを含んでいます:
 
-*   [**TensorFlow Data Validation (TFDV)**](tfdv.md) is a library for analyzing
-and validating machine learning data. It is designed to be highly scalable and
-to work well with TensorFlow and TFX.  TFDV includes:
+*   [**TensorFlow Data Validation (TFDV)**](tfdv.md) は機械学習で用いるデータの
+解析や検証のためのライブラリです。これは高いスケーラビリティを持ち、 TensorFlow 及び TFX とうまく連携できるように設計されています。 TFDV は次の内容を含みます:
 
-    * Scalable calculation of summary statistics of training and test data.
-    * Integration with a viewer for data distributions and statistics, as well
-    as faceted comparison of pairs of datasets (Facets).
-    * Automated data-schema generation to describe expectations about data like
-    required values, ranges, and vocabularies.
-    * A schema viewer to help you inspect the schema.
-    * Anomaly detection to identify anomalies, such as missing features, out-of-
-    range values, or wrong feature types, to name a few.
-    * An anomalies viewer so that you can see what features have anomalies and
-    learn more in order to correct them.
+    * 学習データとテストデータの要約統計量のスケーラブルな算出
+    * データの分布や統計量、データセットの組み合わせに対する多面的な比較を行うビューワーとの統合
+    * 必須になる値、値域、語彙などのデータに期待できる内容を説明する、データのスキーマを自動的に生成
+    * スキーマの検査を補助するためのスキーマビューワー
+    * 欠損値、値域を超えた値、誤った特徴量の型といった異常値を特定するための異常値検知
+    * どの特徴量で異常値が生じたのか確認し、それを修正するのに必要な知見を得るための異常値ビューワー
 
-*   [**TensorFlow Transform (TFT)**](tft.md) is a library for preprocessing data
-with TensorFlow. TensorFlow Transform is useful for data that requires a full-
-pass, such as:
+*   [**TensorFlow Transform (TFT)**](tft.md) は TensorFlow でデータの前処理を行うためのライブラリです。TensorFlow Transform はデータセット全体を通じた処理が必要な特徴量の算出に役立ちます。例えば次のような処理です:
 
-    * Normalize an input value by mean and standard deviation.
-    * Convert strings to integers by generating a vocabulary over all input
-    values.
-    * Convert floats to integers by assigning them to buckets based on the
-    observed data distribution.
+    * 平均と標準偏差を用いた入力値の正規化
+    * すべての入力値から語彙を生成し、文字列を整数に変換
+    * 観測されたデータの分布をもとにして区間を設定し、実数値 (float) を それぞれの区間を表す整数値に変換
 
-*   [**TensorFlow**](train.md) is used for training models with TFX.  It ingests
-training data and modeling code and creates a SavedModel result.  It also
-integrates a feature engineering pipeline created by TensorFlow Transform for
-preprocessing input data.
+*   [**TensorFlow**](train.md) はTFXのモデルを学習させるために利用されます。 これは学習データとモデルのコードを入力すると、 SaveModel を出力します。また、TFTで作成された特徴量エンジニアリングのパイプラインを用いて、入力値の前処理を行うこともできます。
 
-*   [**TensorFlow Model Analysis (TFMA)**](tfma.md) is a library for evaluating
-TensorFlow models. It is used along with TensorFlow to create an EvalSavedModel,
-which becomes the basis for its analysis.  It allows users to evaluate their
-models on large amounts of data in a distributed manner, using the same metrics
-defined in their trainer. These metrics can be computed over different slices of
-data and visualized in Jupyter notebooks.
+*   [**TensorFlow Model Analysis (TFMA)**](tfma.md) は TensorFlow のモデルを評価するためのライブラリです。これはTensorFlowと同時に利用することで EvalSavedModel を生成することもできます。これは TFMA の分析の基本になります。
+TFMA を用いることで、作成したモデルを大量のデータに対して分散処理を行い、学習時に定義したのと同じ指標で評価することができます。
+これらの指標をデータの異なるスライスに対して計算し、Jupyter notebook を用いて可視化できます。
 
-* [**TensorFlow Metadata (TFMD)**](https://github.com/tensorflow/metadata)
-provides standard representations
-for metadata that are useful when training machine learning models with
-TensorFlow. The metadata may be produced by hand or automatically during input
-data analysis, and may be consumed for data validation, exploration, and
-transformation. The metadata serialization formats include:
+* [**TensorFlow Metadata (TFMD)**](https://github.com/tensorflow/metadata) は機械学習モデルを TensorFlow で学習させるときに役立つメタデータについての標準的な表現形式を提供します。
+メタデータは手動で作成することも、入力データの解析を通じて自動的に生成されることもあるでしょう。
+また、データの検証、探索、変形に使われるかもしれません。
+メタデータの永続化形式は次ののものを含みます。
 
-    * A schema describing tabular data (e.g., tf.Examples).
-    * A collection of summary statistics over such datasets.
+    * 表敬式のデータに対するスキーマの記述 (例えば tf. Example)
+    * データセット全体に対する要約統計量の一式
 
-* [**ML Metadata (MLMD)**](mlmd.md)
-is a library for recording and retrieving metadata associated with ML developer
-and data scientist workflows.  Most often the metadata uses TFMD representations.
-MLMD manages persistence using [SQL-Lite](https://www.sqlite.org/index.html),
-[MySQL](https://www.mysql.com/), and other similar data stores.
+* [**ML Metadata (MLMD)**](mlmd.md) は機械学習デベロッパーとデータサイエンティストのワークフローに関係するメタデータを記録・検索するためのライブラリです。
+大概の場合、メタデータは TFMD の表現を利用します。
+MLMDは [SQL-Lite](https://www.sqlite.org/index.html) や [MySQL](https://www.mysql.com/)、その他の類似した永続的なデータストアの管理を行います。
+
 
 ### Supporting Technologies
 
