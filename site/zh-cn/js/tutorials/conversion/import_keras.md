@@ -22,7 +22,7 @@ tensorflowjs_converter --input_format keras \
                        path/to/tfjs_target_dir
 ```
 
-## 代替: 使用 Python API 直接导出到 TF.js 层格式
+## 另一种方式: 使用 Python API 直接导出为 TF.js 图层(Layer)格式
 
 如果你有一个Python的Keras模型，你可以用以下方法直接输出一个Tensoflow.js层格式:
 
