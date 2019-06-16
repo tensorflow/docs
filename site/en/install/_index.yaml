@@ -16,7 +16,7 @@ landing_page:
           See the <a href="./gpu">GPU guide</a> for CUDA®-enabled cards.
         </p>
         <pre class="prettyprint lang-bsh">
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-beta0</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-beta1</code>
         </pre>
 
   - classname:
@@ -62,7 +62,7 @@ landing_page:
         # Preview nightly build for CPU-only (unstable)
         <code class="devsite-terminal">pip install tf-nightly</code><br/>
         # Install TensorFlow 2.0 Beta
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-beta0</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-beta1</code>
 
   - classname:
       devsite-landing-row-100

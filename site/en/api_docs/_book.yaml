@@ -8,6 +8,7 @@ upper_tabs:
   lower_tabs:
     other:
     - name: Python
+      skip_translation: true
       contents:
       - title: Python {VERSION}
       - include: {VERSION_ROOT}/api_docs/python/_toc.yaml
@@ -20,12 +21,14 @@ upper_tabs:
         path: https://js.tensorflow.org/api/latest/
 
     - name: C++
+      skip_translation: true
       contents:
       - title: C++
         path: {VERSION_ROOT}/api_docs/cc/
       - include: {VERSION_ROOT}/api_docs/cc/_doxygen.yaml
 
     - name: Java
+      skip_translation: true
       contents:
       - title: Java
         path: {VERSION_ROOT}/api_docs/java/reference/org/tensorflow/package-summary.html
