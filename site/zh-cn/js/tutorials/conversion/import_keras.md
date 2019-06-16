@@ -55,7 +55,7 @@ import * as tf from '@tensorflow/tfjs';
 const model = await tf.loadLayersModel('https://foo.bar/tfjs_artifacts/model.json');
 ```
 
-现在模型已经做好了推理,评价或是重新训练了。如果是为了推理，模型可以立刻被用来做出预测:
+现在，该模型已准备好进行推理(inference)，评估(evaluation)或重新训练(re-training)。例如，模型完成加载后可以立即进行预测(predict)：
 
 
 ```js
