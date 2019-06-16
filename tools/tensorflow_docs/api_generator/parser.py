@@ -119,13 +119,7 @@ AUTO_REFERENCE_RE = re.compile(r'`([a-zA-Z0-9_.]+?)`')
 
 
 class ReferenceResolver(object):
-  """Class for replacing `tf.symbol` references with Markdown links.
-
-  Attributes:
-    current_doc_full_name: A string (or None) indicating the name of the
-      document currently being processed, so errors can reference the broken
-      doc.
-  """
+  """Class for replacing `tf.symbol` references with Markdown links."""
 
   def __init__(self, duplicate_of, is_fragment, py_module_names):
     """Initializes a Reference Resolver.
@@ -171,6 +165,8 @@ class ReferenceResolver(object):
     with open(filepath) as f:
       json_dict = json.load(f)
 
+    json_dict.pop('current_doc_full_name', None)
+
     return cls(**json_dict)
 
   def to_json_file(self, filepath):
@@ -199,7 +195,7 @@ class ReferenceResolver(object):
   def replace_references(self, string, relative_path_to_root):
     """Replace `tf.symbol` references with links to symbol's documentation page.
 
-    This functions finds all occurrences of "`tf.symbol`" in `string`
+    This function finds all occurrences of "`tf.symbol`" in `string`
     and replaces them with markdown links to the documentation page
     for "symbol".
 
@@ -225,9 +221,13 @@ class ReferenceResolver(object):
       except TFDocsError:
         return match.group(0)
 
-    string = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, string)
+    fixed_lines = []
+    for line in string.splitlines():
+      if not line.strip().startswith('# '):
+        line = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, line)
+      fixed_lines.append(line)
 
-    return string
+    return '\n'.join(fixed_lines)
 
   def python_link(self, link_text, ref_full_name, relative_path_to_root,
                   code_ref=True):
@@ -438,7 +438,7 @@ class TitleBlock(object):
   def __str__(self):
     """Returns a markdown compatible version of the TitleBlock."""
     sub = []
-    sub.append('\n\n#### ' + self.title + ':')
+    sub.append('\n\n#### ' + self.title + ':\n')
     sub.append(textwrap.dedent(self.text))
     sub.append('\n')
     for name, description in self.items:
@@ -593,6 +593,7 @@ def _remove_first_line_indent(string):
 
 
 PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
+OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+) object at 0x[\da-f]+>')
 
 
 def _generate_signature(func, reverse_index):
@@ -647,6 +648,9 @@ def _generate_signature(func, reverse_index):
     except SyntaxError:
       # You may get a SyntaxError using pytype in python 2.
       ast_defaults = [None] * len(argspec.defaults)
+    except IndexError:
+      # Some python3 signatures fail in tf_inspect.getsource with IndexError
+      ast_defaults = [None] * len(argspec.defaults)
 
     for arg, default, ast_default in zip(
         argspec.args[first_arg_with_default:], argspec.defaults, ast_defaults):
@@ -685,6 +689,10 @@ def _generate_signature(func, reverse_index):
               default_text = lookup_text
       else:
         default_text = repr(default)
+        # argspec.defaults can contain object memory addresses, i.e.
+        # containers.MutableMapping.pop. Strip these out to avoid
+        # unnecessary doc churn between invocations.
+        default_text = OBJECT_MEMORY_ADDRESS_RE.sub(r'<\g<type>>', default_text)
 
       args_list.append('%s=%s' % (arg, default_text))
 
@@ -1064,14 +1072,6 @@ class _ClassPageInfo(object):
     self._set_bases(relative_path, parser_config)
 
     for short_name in parser_config.tree[self.full_name]:
-      # Remove builtin members that we never want to document.
-      if short_name in [
-          '__class__', '__base__', '__weakref__', '__doc__', '__module__',
-          '__dict__', '__abstractmethods__', '__slots__', '__getnewargs__',
-          '__str__', '__repr__', '__hash__', '__reduce__'
-      ]:
-        continue
-
       child_name = '.'.join([self.full_name, short_name])
       child = parser_config.py_name_to_object(child_name)
 

@@ -32,7 +32,7 @@ But first, let's look at why we would want to learn word embeddings in the first
 place. Feel free to skip this section if you're an Embedding Pro and you'd just
 like to get your hands dirty with the details.
 
-## Motivation: Why Learn Word Embeddings?
+## Motivation: Why learn word embeddings?
 
 Image and audio processing systems work with rich, high-dimensional datasets
 encoded as vectors of the individual raw pixel-intensities for image data, or
@@ -90,7 +90,7 @@ pair as a new observation, and this tends to do better when we have larger
 datasets. We will focus on the skip-gram model in the rest of this tutorial.
 
 
-## Scaling up with Noise-Contrastive Training
+## Scaling up with noise-contrastive training
 
 Neural probabilistic language models are traditionally trained using the
 [maximum likelihood](https://en.wikipedia.org/wiki/Maximum_likelihood) (ML)
@@ -167,7 +167,7 @@ loss, for which TensorFlow has a handy helper function `tf.nn.nce_loss()`.
 
 Let's get an intuitive feel for how this would work in practice!
 
-## The Skip-gram Model
+## The skip-gram model
 
 As an example, let's consider the dataset
 
@@ -245,7 +245,7 @@ NLP prediction tasks, such as part-of-speech tagging or named entity recognition
 
 But for now, let's just use them to draw pretty pictures!
 
-## Building the Graph
+## Building the graph
 
 This is all about embeddings, so let's define our embedding matrix.
 This is just a big random matrix to start.  We'll initialize the values to be
@@ -313,7 +313,7 @@ gradient descent, and TensorFlow has handy helpers to make this easy as well.
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=1.0).minimize(loss)
 ```
 
-## Training the Model
+## Training the model
 
 Training the model is then as simple as using a `feed_dict` to push data into
 the placeholders and calling
@@ -329,7 +329,7 @@ for inputs, labels in generate_batch(...):
 See the full example code in
 [tensorflow/examples/tutorials/word2vec/word2vec_basic.py](https://www.tensorflow.org/code/tensorflow/examples/tutorials/word2vec/word2vec_basic.py).
 
-## Visualizing the Learned Embeddings
+## Visualizing the learned embeddings
 
 After training has finished we can visualize the learned embeddings using
 t-SNE.
@@ -343,7 +343,7 @@ other. For a more heavyweight implementation of word2vec that showcases more of
 the advanced features of TensorFlow, see the implementation in
 [models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/master/tutorials/embedding/word2vec.py).
 
-## Evaluating Embeddings: Analogical Reasoning
+## Evaluating embeddings: analogical reasoning
 
 Embeddings are useful for a wide variety of prediction tasks in NLP. Short of
 training a full-blown part-of-speech model or named-entity model, one simple way
@@ -365,7 +365,7 @@ very large dataset, carefully tuning the hyperparameters and making use of
 tricks like subsampling the data, which is out of the scope of this tutorial.
 
 
-## Optimizing the Implementation
+## Optimizing the implementation
 
 Our vanilla implementation showcases the flexibility of TensorFlow. For
 example, changing the training objective is as simple as swapping out the call

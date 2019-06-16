@@ -83,7 +83,7 @@ To generate the TensorFlow 2.0 reference docs, use the
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">git clone https://github.com/tensorflow/tensorflow tensorflow</code>
 <code class="devsite-terminal">cd tensorflow/tensorflow/tools/docs</code>
-<code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
+<code class="devsite-terminal">pip install tensorflow==2.0.0-beta1</code>
 <code class="devsite-terminal">python generate2.py --output_dir=/tmp/out</code>
 </pre>
 
@@ -358,3 +358,11 @@ English version. After stripping the comments, it compares the code blocks and
 updates the language notebook if they are different. This tool is particularly
 useful with an interactive git workflow to selectively add hunks of the file to
 the commit using: `git add --patch site/lang/notebook.ipynb`
+
+## Docs sprint
+
+Attend one of the
+[TensorFlow 2.0 Global Docs Sprint](https://www.google.com/maps/d/viewer?mid=1FmxIWZBXi4cvSy6gJUW9WRPfvVRbievf)
+events near you, or join remotely. Follow along with this
+[blog post](https://medium.com/tensorflow/https-medium-com-margaretmz-tf-docs-sprint-cheatsheet-7cb1dfd3e8b5?linkId=68384164).
+These events are a great way to get started contributing to the TensorFlow documentation.

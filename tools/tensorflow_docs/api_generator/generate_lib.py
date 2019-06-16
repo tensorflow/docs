@@ -35,6 +35,8 @@ from tensorflow_docs.api_generator import py_guide_parser
 from tensorflow_docs.api_generator import tf_inspect
 from tensorflow_docs.api_generator import traverse
 
+import yaml
+
 
 def write_docs(output_dir,
                parser_config,
@@ -85,8 +87,6 @@ def write_docs(output_dir,
 
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
   for full_name, py_object in six.iteritems(parser_config.index):
-    parser_config.reference_resolver.current_doc_full_name = full_name
-
     if full_name in parser_config.duplicate_of:
       continue
 
@@ -153,19 +153,19 @@ def write_docs(output_dir,
                                dup.replace('.', '/'))
       to_path = os.path.join(site_path, 'api_docs/python',
                              full_name.replace('.', '/'))
-      redirects.append((
-          os.path.join('/', from_path),
-          os.path.join('/', to_path)))
+      redirects.append({
+          'from': os.path.join('/', from_path),
+          'to': os.path.join('/', to_path)
+      })
 
   if redirects:
-    redirects = sorted(redirects)
-    template = ('- from: {}\n'
-                '  to: {}\n')
-    redirects = [template.format(f, t) for f, t in redirects]
+    redirects = {
+        'redirects': sorted(redirects, key=lambda redirect: redirect['from'])
+    }
+
     api_redirects_path = os.path.join(output_dir, '_redirects.yaml')
     with open(api_redirects_path, 'w') as redirect_file:
-      redirect_file.write('redirects:\n')
-      redirect_file.write(''.join(redirects))
+      yaml.dump(redirects, redirect_file, default_flow_style=False)
 
   if yaml_toc:
     # Generate table of contents
@@ -269,6 +269,10 @@ def extract(py_modules,
       private_map=private_map)
 
   accumulator = visitor_cls()
+
+  # The objects found during traversal, and their children are passed to each
+  # of these visitors in sequence. Each visitor returns the list of children
+  # to be passed to the next visitor.
   visitors = [api_filter] + callbacks + [accumulator]
 
   traverse.traverse(py_module, visitors, short_name)
@@ -332,9 +336,6 @@ def replace_refs(src_dir,
       if base_name in EXCLUDED:
         continue
       full_in_path = os.path.join(dirpath, base_name)
-
-      # Set the `current_doc_full_name` so bad files can be reported on errors.
-      reference_resolver.current_doc_full_name = full_in_path
 
       suffix = os.path.relpath(path=full_in_path, start=src_dir)
       full_out_path = os.path.join(output_dir, suffix)
