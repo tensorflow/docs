@@ -77,26 +77,17 @@ TFX components consist of three main pieces:
 
 <img src="images/component.svg" alt="Component Anatomy" style="width:40%" />
 
-#### Driver and Publisher
+#### Driver と Publisher
 
-The driver supplies metadata to the executor by querying the metadata store,
-while the publisher accepts the results of the executor and stores them in
-metadata. As a developer you will typically not need to interact with the
-driver and publisher directly, but messages logged by the driver and publisher
-may be useful during debugging.  See [Troubleshooting](#troubleshooting).
+Driver はメタデータストアに対してクエリを発行し、 Executor にメタデータを提供します。一方、Publisher は Executor の出力を受け取りメタデータとして保存します。典型的には、開発者は Driver や Publisher を直接扱う必要はありませんが、Driver や Publisher が提供するログメッセージはデバッグの役に立つでしょう。詳細は [トラブルシューティング](#troubleshooting) で改めて取り上げます。
 
 #### Executor
 
-The executor is where a component performs its processing.  As a developer you
-write code which runs in the executor, based on the requirements
-of the classes which implement the type of component that you're working with.
-For example, when you're working on a [Transform component](transform.md) you
-will need to develop a `preprocessing_fn`.
+Executor はコンポーネントが処理を行う箇所です。開発者はそれぞれのコンポーネントを実装しているクラスの仕様に従ったコードを記述することで、Executor の内部で実行される処理を記述できます。例えば [Transform コンポーネント](transform.md) を利用する場合、 `preprocessing_fn` を実装する必要が生じるでしょう。
 
-## TFX Libraries
+## TFX ライブラリ
 
-TFX includes both libraries and pipeline components.  This diagram illustrates
-the relationships between TFX libraries and pipeline components:
+TFX はライブラリとパイプラインのコンポーネントの両方を含んでいます。次の図はTFXの提供するライブラリとコンポーネントの関係を表しています。
 
 ![Libraries and Components](libraries_components.svg)
 
