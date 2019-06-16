@@ -67,7 +67,7 @@ const prediction = model.predict(example);
 
 很多[Tensorflow.js样例](https://github.com/tensorflow/tfjs-examples)采用这种方法，使用已在 Google 云存储上转换和托管的预训练模型。
 
-注意，你使用`model.json`文件名引用整个模型。`loadModel(...)` 获取 `model.json`，并且制造额外的HTTP(S)请求保持被共享的权重文件在`model.json` 的权重清单中被引用。这种方法允许所有这些文件由浏览器缓存 (也许还有互联网上的其他缓存服务器)。这是由于 `model.json`和权重的分块都小于典型的缓存文件大小限制。因此这个模型可能在随后的场景中加载的更快。
+注意，您使用`model.json`文件名引用整个模型。`loadModel(...)` 获取 `model.json`，并且通过额外的HTTP(S)请求以获取`model.json`权重清单中引用的分片权重文件。 此方法允许浏览器将这些文件全部缓存(可还能被缓存在互联网上其他缓存服务器中)。这是因为 `model.json`和权重分块都小于典型的缓存文件大小限制。因此这个模型可能在随后的场景中加载地更快。
 
 
 ## 支持的特性
