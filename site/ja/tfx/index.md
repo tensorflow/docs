@@ -129,29 +129,24 @@ TFMA を用いることで、作成したモデルを大量のデータに対し
 MLMDは [SQL-Lite](https://www.sqlite.org/index.html) や [MySQL](https://www.mysql.com/)、その他の類似した永続的なデータストアの管理を行います。
 
 
-### Supporting Technologies
+### TFXを支える技術
 
-#### Required
+#### 必須なもの
 
-*   [**Apache Beam**](beam.md) is an open source, unified model for defining
-both batch and streaming data-parallel processing pipelines. TFX uses Beam to
-implement data-parallel pipelines.  The pipeline is then executed by one of
-Beam's supported distributed processing back-ends, which include Apache
-Flink, Google Cloud Dataflow, and others.
+*   [**Apache Beam**](beam.md) はオープンソースで、バッチ処理とストリーミング処理の両方に対し統一的なデータ並列処理パイプラインのモデルとなるものです。
+TFX は Beam をデータ並列なパイプラインを実装するために利用しています。
+パイプラインは Beam がサポートする分散処理基盤をバックエンドに利用して動作します。
+サポートする分散処理基盤には Apache Flink, Google Cloud Dataflow などが含まれます。
 
-#### Optional
+#### オプション
 
-Orchestrators such as Apache Airflow and Kubeflow make configuring, operating,
-monitoring, and maintaining an ML pipeline easier.
+Apache Airflow, Kubeflow のようなオーケストレーターは機械学習パイプラインの設定、オペレーション、監視、メンテナンスをより簡易にします。
 
-*   [**Apache Airflow**](orchestra.md) is a platform to programmatically author,
-schedule and monitor workflows.  TFX uses Airflow to author workflows as
-directed acyclic graphs (DAGs) of tasks. The Airflow scheduler executes tasks on
-an array of workers while following the specified dependencies. Rich command
-line utilities make performing complex surgeries on DAGs a snap. The rich user
-interface makes it easy to visualize pipelines running in production, monitor
-progress, and troubleshoot issues when needed.  When workflows are defined as
-code, they become more maintainable, versionable, testable, and collaborative.
+*   [**Apache Airflow**](orchestra.md) はワークフローをプログラムで記述し、ワークフローのスケジューリング、監視を行うプラットフォームです。
+TFX は Airflow をワークフローをタスクの有向非巡回グラフ (directed acyclic graphs: DAGs) で書き表すために利用しています。 Airflow のスケジューラーは指定された依存関係にしたがってワーカーを順に実行します。
+豊富なコマンドラインユーティリティは DAG の複雑な "手術" を簡単に実行できるようにします。
+リッチなユーザーインターフェイスはパイプラインのプロダクション環境での実行状況の可視化、進行状況の監視、また問題が発生したときのトラブルシューティングを容易にします。
+ワークフローがコードで定義されている場合、保守やバージョン管理、テスト、コラボレーションがより良いものになるでしょう。
 
 * [**Kubeflow**](https://www.kubeflow.org/) is dedicated to making deployments
 of machine learning (ML) workflows on Kubernetes simple, portable and scalable.
