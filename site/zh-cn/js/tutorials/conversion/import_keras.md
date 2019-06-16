@@ -72,4 +72,4 @@ const prediction = model.predict(example);
 
 ## 已支持的特性
 
-目前Tensorflow.js 层只支持使用标准Keras结构的Keras模型。那些使用非支持的操作(ops)，层(layers)将无法被自动导入，因为它们依赖于无法可靠地转换为 JavaScript 的 Python 代码。这其中涵盖了客制化的层，Lambda层，客制化的损失函数以及客制化的评价标准。
+TensorFlow.js的图层(Layers)目前仅支持基于标准Keras结构的Keras模型。 使用不支持的操作(ops)或层(layers)的模型 - 例如 自定义图层，Lambda图层，自定义损失(loss)或自定义指标(metrics)无法自动导入，因为它们依赖于无法被可靠地转换为JavaScript的Python代码。
