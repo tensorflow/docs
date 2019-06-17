@@ -16,6 +16,10 @@ TensorFlow 2.0 において、TensorFlow モデルを TensorFlow Lite に変換�
 *   `TFLiteConverter.from_concrete_functions()`: 
     [具象関数](concrete_function.md) を変換します。
 
+Node: TensorFlow Lite 2.0 alpha には、 [`from_concrete_function`](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/lite/TFLiteConverter#from_concrete_function) だけを含むような、異なるバージョンの `TFLiteConverter` API があります。
+このドキュメントで記述されている API は、[`tf-nightly-2.0-preview`](#installing_the_tensorflow_20_nightly_) を PIP でインストールすることで使えるようになります。
+
+
 このドキュメントでは API の [使用例](＃examples) 、 [1.X と 2.0 の間の API の変更点の詳細なリスト](#differences) 、 異なるバージョンの TensorFlow で実行する [方法](#versioning) を含みます。
 
 ## 例 <a name="examples"></a>
@@ -125,6 +129,8 @@ input_data = np.array(np.random.random_sample(input_shape), dtype=np.float32)
 interpreter.set_tensor(input_details[0]['index'], input_data)
 
 interpreter.invoke()
+# `get_tensor()` はテンソルのコピーを返す
+# テンソルのポインタを取得したい場合は `tensor()` を使う 
 tflite_results = interpreter.get_tensor(output_details[0]['index'])
 
 # 元の TensorFlow モデルをランダムな入力データでテスト
