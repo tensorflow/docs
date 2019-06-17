@@ -18,7 +18,7 @@ eager execution で命令的に実行すると開発とデバッグがより対�
 *   **具象関数**  - 単一のシグネチャを持つグラフ.
 *   **多相関数**  -  いくつかの具象関数グラフを1つの関数内にカプセル化した Python の呼び出し可能オブジェクト.
 
-## メソドロジー
+## 方法論
 
 この章では、具象関数をエクスポートする方法を解説します。
 
@@ -61,7 +61,7 @@ root.const = tf.Variable(2.)
 root.pow = tf.function(lambda x : x ** root.const)
 ```
 
-###具象関数をエクスポートする
+### 具象関数をエクスポートする
 
 具象関数は、TensorFlow Lite モデルに変換したり、SavedModel にエクスポートしたりできるグラフを定義します。
 多相関数から具象関数をエクスポートするには、シグネチャを定義する必要があります。
@@ -126,7 +126,7 @@ def exported_function(x):
   root.mult = tf.matmul(root.const, root.var)
   return root.mult * x
 
-# tf.Moduleオブジェクトのいち部として関数を保存
+# tf.Moduleオブジェクトの一部として関数を保存
 root.func = exported_function
 
 # 具象関数を取得
@@ -163,7 +163,7 @@ concrete_func = model.signatures[
 
 方法が2つあります:
 
-1.  モデルを SavedModel として保存します。保存処理中にモデル関数が生成されるので、上述の要領でモデルをロードして具象関数を取得することができます。
+1.  モデルを SavedModel として保存します。保存処理中に具象関数が生成されるので、上述の要領でモデルをロードして具象関数を取得することができます。
 2.  下記のようにモデルを `tf.function` でラップします。
 
 

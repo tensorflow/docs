@@ -25,7 +25,7 @@ tflite_convert \
   --output_file=/tmp/mobilenet.tflite
 ```
 
-## 追加のインストラクション
+## 追加の説明
 
 ### ソースからビルドする
 

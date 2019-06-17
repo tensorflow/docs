@@ -96,7 +96,7 @@ tflite_model = converter.convert()
 
 以下の例は、訓練済みの `tf.keras` MobileNet モデルを TensorFlow Lite に変換して実行する方法を示しています。
 また、 元の TensorFlow モデルと TensorFlow Lite モデルの結果をランダムデータで比較しています。
-モデルをファイルからロードするために、 `model_content` の代わりに ` model_path` を使用しています。
+モデルをファイルからロードするために、 `model_content` の代わりに ` model_path` を使用します。
 
 
 ```python
