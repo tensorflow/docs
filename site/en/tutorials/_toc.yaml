@@ -71,8 +71,10 @@ toc:
 - title: Images
   style: accordion
   section:
-  - title: Image recognition
+  - title: Transfer learning with TFHub
     path: /tutorials/images/hub_with_keras
+  - title: Transfer learning with pretrained CNNs
+    path: /tutorials/images/transfer_learning
   - title: Pix2Pix
     path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/pix2pix/pix2pix_eager.ipynb
     status: external
