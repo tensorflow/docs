@@ -148,19 +148,17 @@ TFX は Airflow をワークフローをタスクの有向非巡回グラフ (di
 リッチなユーザーインターフェイスはパイプラインのプロダクション環境での実行状況の可視化、進行状況の監視、また問題が発生したときのトラブルシューティングを容易にします。
 ワークフローがコードで定義されている場合、保守やバージョン管理、テスト、コラボレーションがより良いものになるでしょう。
 
-* [**Kubeflow**](https://www.kubeflow.org/) is dedicated to making deployments
-of machine learning (ML) workflows on Kubernetes simple, portable and scalable.
-Kubeflow's goal is not to recreate other services, but to provide a
-straightforward way to deploy best-of-breed open-source systems for ML to
-diverse infrastructures.
+* [**Kubeflow**](https://www.kubeflow.org/) はシンプルでポータブルかつスケーラブルであり、
+ Kubernetes 上での機械学習ワークフローの作成に特化しています。
+Kubeflow の目的は他のサービスを再作成することなく、オープンソースのベスト・オブ・ブリードな
+機械学習システムを多様なインフラストラクチャ上で展開するための、単純な方法を提供することです。
 [Kubeflow Pipelines](https://www.kubeflow.org/docs/pipelines/pipelines-overview/)
-enable composition and execution of reproducible workflows on Kubeflow,
-integrated with experimentation and notebook based experiences.
-Kubeflow Pipelines services on Kubernetes include the hosted Metadata store,
-container based orchestration engine, notebook server, and UI to help users
-develop, run, and manage complex ML pipelines at scale.
-The Kubeflow Pipelines SDK allows for creation and sharing of components
-and composition of pipelines programmatically.
+は Kubeflow 上で再現性のあるワークフローを実験や Notebook ベースの経験と統合された形で
+構築・実行することを可能にします。
+Kubernetes 上に構築された Kubeflow Pipeline にはホスティングされたメタデータストア、
+コンテナベースのオーケストレーションエンジン、ノートブックサーバー、そしてユーザーが複雑なパイプラインを
+開発、実行、管理する助けとなる UI が含まれています。
+Kubeflow Pipeline SDK はコンポーネントの作成や共有、パイプラインの構築をプログラムで実行できるようにします。
 
 
 ### Orchestration and Portability
