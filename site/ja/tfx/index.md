@@ -160,16 +160,14 @@ Kubernetes 上に構築された Kubeflow Pipeline にはホスティングさ�
 開発、実行、管理する助けとなる UI が含まれています。
 Kubeflow Pipeline SDK はコンポーネントの作成や共有、パイプラインの構築をプログラムで実行できるようにします。
 
+### オーケストレーションとポータビリティ
 
-### Orchestration and Portability
+TFX はApache Airflow や Kubeflow といった複数の環境やオーケストレーションフレームワークの間で
+の移植性が高くなるように設計されています。また、ベアメタル環境や Google Cloud Platform (GCP)
+のような異なるコンピューティングプラットフォームの間でも移植可能です。
 
-TFX is designed to be highly portable to multiple environments and
-orchestration frameworks, including Apache Airflow and Kubeflow.  It is also
-portable to different computing platforms, including bare-metal and the
-Google Cloud Platform (GCP).
-
-Note: The current revision of this user guide primarily discusses deployment
-on a bare-metal system using Apache Airflow for orchestration.
+Note: 現在のバージョンのユーザーガイドではベアメタルシステムのうち、
+主に Apache Airflow をオーケストレーションに用いた場合について述べています。
 
 ### Model vs. SavedModel
 
