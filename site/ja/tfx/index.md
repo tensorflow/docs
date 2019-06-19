@@ -173,31 +173,26 @@ Note: 現在のバージョンのユーザーガイドではベアメタルシ�
 
 #### Model
 
-A model is the output of the training process. It is the serialized record of
-the weights that have been learned during the training process. These weights
-can be subsequently used to compute predictions for new input examples. For TFX
-and TensorFlow, 'model' refers to the checkpoints containing the weights learned
-up to that point.
+モデル (Model) は学習プロセスの成果物で、学習プロセスを通じて得られた重みがシリアライズされたレコードです。
+重みはその後、新たな入力に対する予測を計算するために利用されます。
+TFX と TensorFlow において、「モデル」はある時点で学習された重みを含むチェックポイントを指します。
 
-Note that 'model' might also refer to the definition of the TensorFlow
-computation graph (i.e. a Python file) that expresses how a prediction will be
-computed. The two senses may be used interchangeably based on context.
+「モデル」は予測がどのように行われるか書き表した TensorFlow のコンピュテーショングラフの定義
+(別の言い方をすると Python ファイル) を指す場合もあることに注意してください。
+この2つの意味のどちらを指すかは文脈に応じて変わります。
 
 #### SavedModel
 
-* **What is a [SavedModel](
-https://www.tensorflow.org/api_docs/python/tf/saved_model)**: a universal,
-language-neutral, hermetic, recoverable serialization of a TensorFlow model.
-* **Why is it important**: It enables higher-level systems to produce,
-transform, and consume TensorFlow models using a single abstraction.
+* **[SavedModel](https://www.tensorflow.org/api_docs/python/tf/saved_model)とは** 
+普遍的で、言語に依存しない、密閉された、元の状態に回復可能な TensorFlow モデルのシリアライゼーションです。
+* **なぜ重要なのか** : SavedModel は高水準なシステムで単一の抽象を利用して、
+TensorFlow のモデルを作成し、変形し、利用することを可能にするためです。
 
-SavedModel is the recommended serialization format for serving a TensorFlow
-model in production, or exporting a trained model for a native mobile or
-JavaScript application. For example, to turn a model into a REST service for
-making predictions, you can serialize the model as a SavedModel and serve it
-using TensorFlow Serving. See [Serving a TensorFlow
-Model](https://www.tensorflow.org/serving/tutorials/Serving_REST_simple) for
-more information.
+SavedModel は TensorFlow のモデルをプロダクション環境でサービス提供する、または訓練したモデルを
+ネイティブモバイルや JavaScript で利用するため場合に、推奨されるシリアライゼーション形式です。
+例えば、モデルから推論結果を提供する REST サービスを作成する場合、モデルを SavedModel に
+シリアライズし、 TensorFlow Servingでサービス提供することができます。詳細は [Serving a TensorFlow
+Model](https://www.tensorflow.org/serving/tutorials/Serving_REST_simple) をご確認ください。
 
 ### Schema
 
