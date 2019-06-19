@@ -12,6 +12,10 @@ TensorFlow has communities around the world. [Submit your community!](https://do
 * [TensorFlow Philippines Community](https://www.facebook.com/groups/TensorFlowPH/)
 * [TensorFlow and Deep Learning Singapore](https://www.meetup.com/TensorFlow-and-Deep-Learning-Singapore/)
 * [TensorFlow India](https://www.facebook.com/tensorflowindia)
+* [Tensorflow Community Sri Lanka](https://www.facebook.com/groups/150363118841298/)
+* [TensorFlow Việt Nam](https://www.facebook.com/gdgtensorflowvietnam)
+* [TF Nepal](https://www.facebook.com/groups/tfnepal/)
+* [TensorFlow Hong Kong](https://fb.me/tensorflowhk)
 
 
 ## Europe
@@ -22,11 +26,14 @@ TensorFlow has communities around the world. [Submit your community!](https://do
 * [TensorFlow x Rome Meetup](https://www.meetup.com/it-IT/TensorFlow-x-Rome-Meetup)
 * [TensorFlow London](https://www.meetup.com/TensorFlow-London/)
 * [TensorFlow Edinburgh](https://www.meetup.com/tensorflow-edinburgh/)
+* [London TensorFlow Meetup](https://www.meetup.com/ko-KR/London-TensorFlow-Meetup/)
+* [Kraków TensorFlow User Group](https://www.facebook.com/groups/370356090255755/)
 
 
 ## America
 
 * [TensorFlow Buenos Aires](https://www.meetup.com/TensorFlow-Buenos-Aires/)
+* [TensorFlow-Northwest](https://www.meetup.com/TensorFlow-Northwest/)
 
 
 ## Oceania
@@ -36,3 +43,10 @@ TensorFlow has communities around the world. [Submit your community!](https://do
 ## Africa
 
 * [TensorFlow Tunis Meetup](https://www.meetup.com/fr-FR/TensorFlow-Tunis-Meetup/)
+* [TensorFlow Bauchi](https://www.meetup.com/ko-KR/TensorFlow-Bauchi/)
+* [TensorFlow Ibadan](https://www.meetup.com/ko-KR/TensorFlow-Ibadan/)
+* [TensorFlow Abidjan](https://www.meetup.com/fr-FR/TensorFlow-Abidjan/)
+* [TensorFlow Harare](https://www.meetup.com/TensorFlow-Harare/)
+* [TensorFlow Cotonou](https://www.meetup.com/fr-FR/TensorFlow-Cotonou/)
+* [Tensorflow Abuja](https://www.meetup.com/ko-KR/Tensorflow-Abuja/events/)
+
