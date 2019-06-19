@@ -194,20 +194,18 @@ SavedModel は TensorFlow のモデルをプロダクション環境でサービ
 シリアライズし、 TensorFlow Servingでサービス提供することができます。詳細は [Serving a TensorFlow
 Model](https://www.tensorflow.org/serving/tutorials/Serving_REST_simple) をご確認ください。
 
-### Schema
+### スキーマ
 
-Some TFX components use a description of your input data called a *schema*. The
-schema is an instance of
-[schema.proto](
-https://github.com/tensorflow/metadata/tree/master/tensorflow_metadata/proto/v0).
-Schemas are a type of [protocol buffer](
-https://developers.google.com/protocol-buffers/), more generally known as a
-"protobuf".  The schema can specify data types for feature values,
-whether a feature has to be present in all examples, allowed value ranges, and
-other properties.  One of the benefits of using TensorFlow Data Validation
-(TFDV) is that it will automatically generate a schema by inferring types,
-categories, and ranges from the training data.
+TFXのコンポーネントのうちのいくつかは、*スキーマ* と呼ばれる入力データについての記述を扱います。
+スキーマは [schema.proto](
+https://github.com/tensorflow/metadata/tree/master/tensorflow_metadata/proto/v0) のインスタンスです。
+スキーマは [protocol buffer](
+https://developers.google.com/protocol-buffers/) 、より一般には "protobuf" として知られているものの一種です。
+スキーマは特徴量のデータ型、その特徴量が必ず含まれなければならないかどうか、入力値の許される範囲、などの事柄を指定できます。
+TensorFlow Data Validation (TFDV) を利用する利点の一つは、型やカテゴリ、入力値の範囲を推論し、
+自動的にスキーマを推測してくれることです。
 
+schema protobuf からの抜粋を次に示します。
 Here's an excerpt from a schema protobuf:
 
 ```proto
