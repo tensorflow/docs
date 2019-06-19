@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.train.slice_input_producer(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/input.py).
 
 See the guides: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline), [Reading data > Preloaded data](../../../../api_guides/python/reading_data#Preloaded_data)
 

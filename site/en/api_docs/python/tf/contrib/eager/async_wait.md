@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,6 +11,6 @@ tf.contrib.eager.async_wait()
 
 
 
-Defined in [`tensorflow/python/eager/context.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/eager/context.py).
+Defined in [`tensorflow/python/eager/context.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/eager/context.py).
 
 Waits for ops dispatched in ASYNC mode to finish.

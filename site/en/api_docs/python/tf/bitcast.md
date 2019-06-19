@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 

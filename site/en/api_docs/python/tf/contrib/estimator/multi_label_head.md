@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -16,13 +13,14 @@ tf.contrib.estimator.multi_label_head(
     label_vocabulary=None,
     loss_reduction=losses.Reduction.SUM_OVER_BATCH_SIZE,
     loss_fn=None,
+    classes_for_class_based_metrics=None,
     name=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/estimator/python/estimator/head.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/head.py).
 
 Creates a `_Head` for multi-label classification.
 
@@ -54,6 +52,33 @@ shape `[D0, D1, ... DN, 1]`. `loss_fn` must support indicator `labels` with
 shape `[D0, D1, ... DN, n_classes]`. Namely, the head applies
 `label_vocabulary` to the input labels before passing them to `loss_fn`.
 
+The head can be used with a canned estimator. Example:
+
+```python
+my_head = tf.contrib.estimator.multi_label_head(n_classes=3)
+my_estimator = tf.contrib.estimator.DNNEstimator(
+    head=my_head,
+    hidden_units=...,
+    feature_columns=...)
+```
+
+It can also be used with a custom `model_fn`. Example:
+
+```python
+def _my_model_fn(features, labels, mode):
+  my_head = tf.contrib.estimator.multi_label_head(n_classes=3)
+  logits = tf.keras.Model(...)(features)
+
+  return my_head.create_estimator_spec(
+      features=features,
+      mode=mode,
+      labels=labels,
+      optimizer=tf.AdagradOptimizer(learning_rate=0.1),
+      logits=logits)
+
+my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
+```
+
 #### Args:
 
 * <b>`n_classes`</b>: Number of classes, must be greater than 1 (for 1 class, use
@@ -76,6 +101,10 @@ shape `[D0, D1, ... DN, n_classes]`. Namely, the head applies
     reduce training loss over batch. Defaults to `SUM_OVER_BATCH_SIZE`, namely
     weighted sum of losses divided by batch size. See <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a>.
 * <b>`loss_fn`</b>: Optional loss function.
+* <b>`classes_for_class_based_metrics`</b>: List of integer class IDs or string class
+    names for which per-class metrics are evaluated. If integers, all must be
+    in the range `[0, n_classes - 1]`. If strings, all must be in
+    `label_vocabulary`.
 * <b>`name`</b>: name of the head. If provided, summary and metrics keys will be
     suffixed by `"/" + name`. Also used as `name_scope` when creating ops.
 
@@ -87,5 +116,5 @@ An instance of `_Head` for multi-label classification.
 
 #### Raises:
 
-* <b>`ValueError`</b>: if `n_classes`, `thresholds`, `loss_reduction` or `loss_fn` is
-  invalid.
+* <b>`ValueError`</b>: if `n_classes`, `thresholds`, `loss_reduction`, `loss_fn` or
+  `metric_class_ids` is invalid.

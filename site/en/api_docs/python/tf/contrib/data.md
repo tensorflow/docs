@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/data/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/data/__init__.py).
+Defined in [`tensorflow/contrib/data/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/data/__init__.py).
 
 Experimental API for building input pipelines.
 
@@ -20,12 +17,16 @@ be used in conjunction with the <a href="../../tf/data/Dataset"><code>tf.data.Da
 guarantees as <a href="../../tf/data"><code>tf.data</code></a>, but we will provide deprecation advice in advance of
 removing existing functionality.
 
-See the <a href="../../../../programmers_guide/datasets">Importing Data</a> Programmer's Guide for an overview.
+See <a href="../../../../guide/datasets">Importing Data</a> for an overview.
 
 
 
 
 ## Classes
+
+[`class CheckpointInputPipelineHook`](../../tf/contrib/data/CheckpointInputPipelineHook): Checkpoints input pipeline state every N steps or seconds.
+
+[`class CsvDataset`](../../tf/contrib/data/CsvDataset): A Dataset comprising lines from one or more CSV files.
 
 [`class SqlDataset`](../../tf/contrib/data/SqlDataset): A `Dataset` consisting of the results from a SQL query.
 
@@ -38,6 +39,8 @@ See the <a href="../../../../programmers_guide/datasets">Importing Data</a> Prog
 [`batch_and_drop_remainder(...)`](../../tf/contrib/data/batch_and_drop_remainder): A batching transformation that omits the final small batch (if present).
 
 [`bucket_by_sequence_length(...)`](../../tf/contrib/data/bucket_by_sequence_length): A transformation that buckets elements in a `Dataset` by length.
+
+[`choose_from_datasets(...)`](../../tf/contrib/data/choose_from_datasets): Creates a dataset that deterministically chooses elements from `datasets`.
 
 [`dense_to_sparse_batch(...)`](../../tf/contrib/data/dense_to_sparse_batch): A transformation that batches ragged elements into <a href="../../tf/SparseTensor"><code>tf.SparseTensor</code></a>s.
 
@@ -67,6 +70,8 @@ See the <a href="../../../../programmers_guide/datasets">Importing Data</a> Prog
 
 [`rejection_resample(...)`](../../tf/contrib/data/rejection_resample): A transformation that resamples a dataset to achieve a target distribution.
 
+[`sample_from_datasets(...)`](../../tf/contrib/data/sample_from_datasets): Samples elements at random from the datasets in `datasets`.
+
 [`scan(...)`](../../tf/contrib/data/scan): A transformation that scans a function across an input dataset.
 
 [`shuffle_and_repeat(...)`](../../tf/contrib/data/shuffle_and_repeat): Shuffles and repeats a Dataset returning a new permutation for each epoch.
@@ -75,7 +80,7 @@ See the <a href="../../../../programmers_guide/datasets">Importing Data</a> Prog
 
 [`sloppy_interleave(...)`](../../tf/contrib/data/sloppy_interleave): A non-deterministic version of the `Dataset.interleave()` transformation. (deprecated)
 
-[`unbatch(...)`](../../tf/contrib/data/unbatch): A Transformation which splits the elements of a dataset.
+[`unbatch(...)`](../../tf/contrib/data/unbatch): Splits elements of a dataset into multiple elements on the batch dimension.
 
 ## Other Members
 

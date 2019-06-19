@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`QueueBase`](../tf/QueueBase)
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/data_flow_ops.py).
 
 See the guides: [Inputs and Readers > Queues](../../../api_guides/python/io_ops#Queues), [Threading and Queues > Queue usage overview](../../../api_guides/python/threading_and_queues#Queue_usage_overview), [Threading and Queues](../../../api_guides/python/threading_and_queues)
 

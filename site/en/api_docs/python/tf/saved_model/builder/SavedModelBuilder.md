@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/saved_model/builder_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/saved_model/builder_impl.py).
+Defined in [`tensorflow/python/saved_model/builder_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/saved_model/builder_impl.py).
 
 Builds the `SavedModel` protocol buffer and saves variables and assets.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/saver.py).
 
 See the guides: [Exporting and Importing a MetaGraph > Exporting a Complete Model to MetaGraph](../../../../api_guides/python/meta_graph#Exporting_a_Complete_Model_to_MetaGraph), [Exporting and Importing a MetaGraph](../../../../api_guides/python/meta_graph), [Variables > Saving and Restoring Variables](../../../../api_guides/python/state_ops#Saving_and_Restoring_Variables)
 
 Saves and restores variables.
 
-See <a href="../../../../programmers_guide/variables">Variables</a>
+See <a href="../../../../guide/variables">Variables</a>
 for an overview of variables, saving and restoring.
 
 The `Saver` class adds ops to save and restore variables to and from

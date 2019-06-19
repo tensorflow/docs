@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.contrib.layers.variance_scaling_initializer(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/initializers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/layers/python/layers/initializers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/initializers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/initializers.py).
 
 See the guide: [Layers (contrib) > Initializers](../../../../../api_guides/python/contrib.layers#Initializers)
 

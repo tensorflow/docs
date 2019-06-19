@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -24,6 +21,6 @@ tf.contrib.remote_fused_graph.remote_fused_graph_execute(
 
 
 
-Defined in [`tensorflow/contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py).
+Defined in [`tensorflow/contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py).
 
 A wrapper for remote_fused_graph_execute.

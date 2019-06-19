@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::FractionalAvgPool Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -14,11 +14,11 @@
   <h2>Summary</h2>
   <p>Fractional average pooling is similar to Fractional max pooling in the pooling region generation step. The only difference is that after pooling regions are generated, a mean operation is performed instead of a max operation in each pooling region.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>value: 4-D with shape <code>[batch, height, width, channels]</code>.</li>
       <li>pooling_ratio: Pooling ratio for each dimension of <code>value</code>, currently only supports row and col dimension and should be >= 1.0. For example, a valid pooling ratio looks like [1.0, 1.44, 1.73, 1.0]. The first and last elements must be 1.0 because we don't allow pooling on batch and channels dimensions. 1.44 and 1.73 are pooling ratio on height and width dimensions respectively.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>):<ul>
       <li>pseudo_random: When set to True, generates the pooling sequence in a pseudorandom fashion, otherwise, in a random fashion. Check paper <a href="http://arxiv.org/abs/1412.6071">Benjamin Graham, Fractional Max-Pooling</a> for difference between pseudorandom and random.</li>
       <li>overlapping: When set to True, it means when pooling, the values at the boundary of adjacent pooling cells are used by both cells. For example:</li>
     </ul></p>
@@ -29,14 +29,14 @@
     <code>value 20 5 16 3 7</code>
   </p>
   <p>If the pooling sequence is [0, 2, 4], then 16, at index 2 will be used twice. The result would be [41/3, 26/3] for fractional avg pooling.<ul>
-      <li>deterministic: When set to True, a fixed pooling region will be used when iterating over a <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/fractional-avg-pool.html#classtensorflow_1_1ops_1_1_fractional_avg_pool">FractionalAvgPool</a> node in the computation graph. Mainly used in unit test to make <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/fractional-avg-pool.html#classtensorflow_1_1ops_1_1_fractional_avg_pool">FractionalAvgPool</a> deterministic.</li>
+      <li>deterministic: When set to True, a fixed pooling region will be used when iterating over a <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/fractional-avg-pool.html#classtensorflow_1_1ops_1_1_fractional_avg_pool">FractionalAvgPool</a> node in the computation graph. Mainly used in unit test to make <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/fractional-avg-pool.html#classtensorflow_1_1ops_1_1_fractional_avg_pool">FractionalAvgPool</a> deterministic.</li>
       <li>seed: If either seed or seed2 are set to be non-zero, the random number generator is seeded by the given seed. Otherwise, it is seeded by a random seed.</li>
       <li>seed2: An second seed to avoid seed collision.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output: output tensor after fractional avg pooling.</li>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> row_pooling_sequence: row pooling sequence, needed to calculate gradient.</li>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> col_pooling_sequence: column pooling sequence, needed to calculate gradient. </li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output: output tensor after fractional avg pooling.</li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> row_pooling_sequence: row pooling sequence, needed to calculate gradient.</li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> col_pooling_sequence: column pooling sequence, needed to calculate gradient. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -46,13 +46,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_fractional_avg_pool_1a83af6f6e93dbac2bf42ad6afc05d2a86">FractionalAvgPool</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const gtl::ArraySlice< float > & pooling_ratio)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_fractional_avg_pool_1a83af6f6e93dbac2bf42ad6afc05d2a86">FractionalAvgPool</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const gtl::ArraySlice< float > & pooling_ratio)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_fractional_avg_pool_1afe59c1134290e6cfe190960e53e836ed">FractionalAvgPool</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const gtl::ArraySlice< float > & pooling_ratio, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">FractionalAvgPool::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_fractional_avg_pool_1afe59c1134290e6cfe190960e53e836ed">FractionalAvgPool</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const gtl::ArraySlice< float > & pooling_ratio, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">FractionalAvgPool::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -69,7 +69,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -79,7 +79,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -89,7 +89,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -106,7 +106,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -116,7 +116,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -126,7 +126,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -136,7 +136,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -146,7 +146,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -159,35 +159,35 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs">tensorflow::<wbr/>ops::<wbr/>FractionalAvgPool::<wbr/>Attrs</a>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs">tensorflow::<wbr/>ops::<wbr/>FractionalAvgPool::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/fractional-avg-pool.html#classtensorflow_1_1ops_1_1_fractional_avg_pool">FractionalAvgPool</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/fractional-avg-pool.html#classtensorflow_1_1ops_1_1_fractional_avg_pool">FractionalAvgPool</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_fractional_avg_pool_1a253a9b7940b383f04c70aa5254f52995">
     <h3>col_pooling_sequence</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> col_pooling_sequence</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> col_pooling_sequence</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_avg_pool_1a72c1fe35152d17096cfcd5ca3d626e24">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_avg_pool_1aef40ec50b456803bb75a8474cdc29fcb">
     <h3>row_pooling_sequence</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> row_pooling_sequence</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> row_pooling_sequence</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_fractional_avg_pool_1a83af6f6e93dbac2bf42ad6afc05d2a86">
     <h3>FractionalAvgPool</h3>
     <pre class="prettyprint"> FractionalAvgPool(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
   const gtl::ArraySlice< float > & pooling_ratio
 )</pre>
     <div />
@@ -195,45 +195,45 @@
   <div id="classtensorflow_1_1ops_1_1_fractional_avg_pool_1afe59c1134290e6cfe190960e53e836ed">
     <h3>FractionalAvgPool</h3>
     <pre class="prettyprint"> FractionalAvgPool(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
   const gtl::ArraySlice< float > & pooling_ratio,
-  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">FractionalAvgPool::Attrs</a> & attrs
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">FractionalAvgPool::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_fractional_avg_pool_1a286c7e7d0ea4b667eb0fca780f6c8fd8">
     <h3>Deterministic</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> Deterministic(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> Deterministic(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_avg_pool_1a561400c14f7e0877122cf0faad67b785">
     <h3>Overlapping</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> Overlapping(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> Overlapping(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_avg_pool_1aaeb0a37c716692070fa056b6f164adab">
     <h3>PseudoRandom</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> PseudoRandom(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> PseudoRandom(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_avg_pool_1a691079eab5c004dc817e928c12380fe5">
     <h3>Seed</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> Seed(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> Seed(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_avg_pool_1aba6caf6e7f50e68e728b8ac9357b9353">
     <h3>Seed2</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> Seed2(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/fractional-avg-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_avg_pool_1_1_attrs">Attrs</a> Seed2(
   int64 x
 )</pre>
     <div />

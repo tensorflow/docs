@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ tf.contrib.model_pruning.get_pruning_hparams()
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/model_pruning/python/pruning.py).
+Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/model_pruning/python/pruning.py).
 
 Get a tf.HParams object with the default values for the hyperparameters.
 
@@ -53,6 +50,8 @@ Get a tf.HParams object with the default values for the hyperparameters.
   sparsity_function_exponent: float
     exponent = 1 is linearly varying sparsity between initial and final.
     exponent > 1 varies more slowly towards the end than the beginning
+  use_tpu: False
+    Indicates whether to use TPU
 
   We use the following sparsity function:
 

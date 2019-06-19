@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/basic_session_run_hooks.py).
+Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/basic_session_run_hooks.py).
 
 Interface for listeners that take action before or after checkpoint save.
 
@@ -40,6 +37,8 @@ class ExampleCheckpointSaverListener(CheckpointSaverListener):
 
   def after_save(self, session, global_step_value):
     print('Done writing checkpoint.')
+    if decided_to_stop_training():
+      return True
 
   def end(self, session, global_step_value):
     print('Done with the session.')
@@ -58,6 +57,11 @@ to act less frequently, e.g. based on global_step_value. In this case,
 implementors should implement the `end()` method to handle actions related to
 the last checkpoint save. But the listener should not act twice if
 `after_save()` already handled this last checkpoint save.
+
+A `CheckpointSaverListener` can request training to be stopped, by returning
+True in `after_save`. Please note that, in replicated distributed training
+setting, only `chief` should use this behavior. Otherwise each worker will do
+their own evaluation, which may be wasteful of resources.
 
 ## Methods
 

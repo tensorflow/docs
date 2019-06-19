@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,9 @@ page_type: reference
 
 
 
-Defined in generated file: `tensorflow/tools/api/generator/api/keras/constraints/__init__.py`.
+Defined in [`tensorflow/keras/constraints/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/constraints/__init__.py).
 
-
+Constraints: functions that impose constraints on weight values.
 
 ## Classes
 

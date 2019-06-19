@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::BiasAdd Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -14,15 +14,15 @@
   <h2>Summary</h2>
   <p>This is a special case of <code>tf.add</code> where <code>bias</code> is restricted to be 1-D. Broadcasting is supported, so <code>value</code> may have any number of dimensions.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>value: <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/any.html#classtensorflow_1_1ops_1_1_any">Any</a> number of dimensions.</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>value: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/any.html#classtensorflow_1_1ops_1_1_any">Any</a> number of dimensions.</li>
       <li>bias: 1-D with size the last dimension of <code>value</code>.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">Attrs</a></code>):<ul>
       <li>data_format: Specify the data format of the input and output data. With the default format "NHWC", the bias tensor will be added to the last dimension of the value tensor. Alternatively, the format could be "NCHW", the data storage order of: [batch, in_channels, in_height, in_width]. The tensor will be added to "in_channels", the third-to-the-last dimension.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Broadcasted sum of <code>value</code> and <code>bias</code>. </li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Broadcasted sum of <code>value</code> and <code>bias</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -32,13 +32,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_bias_add_1a557f3731192ba1a1281f5e93feda8b09">BiasAdd</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_bias_add_1a557f3731192ba1a1281f5e93feda8b09">BiasAdd</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_bias_add_1a59db6709f414edec0beb3a52ea21a4ba">BiasAdd</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">BiasAdd::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_bias_add_1a59db6709f414edec0beb3a52ea21a4ba">BiasAdd</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">BiasAdd::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -55,7 +55,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -109,7 +109,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -122,36 +122,36 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add/attrs">tensorflow::<wbr/>ops::<wbr/>BiasAdd::<wbr/>Attrs</a>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add/attrs">tensorflow::<wbr/>ops::<wbr/>BiasAdd::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/bias-add.html#classtensorflow_1_1ops_1_1_bias_add">BiasAdd</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/bias-add.html#classtensorflow_1_1ops_1_1_bias_add">BiasAdd</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_bias_add_1a8894dda0cc6b6456db95a303256ccf38">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_bias_add_1a557f3731192ba1a1281f5e93feda8b09">
     <h3>BiasAdd</h3>
     <pre class="prettyprint"> BiasAdd(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_bias_add_1a59db6709f414edec0beb3a52ea21a4ba">
     <h3>BiasAdd</h3>
     <pre class="prettyprint"> BiasAdd(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias,
-  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">BiasAdd::Attrs</a> & attrs
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bias,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">BiasAdd::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -173,7 +173,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_bias_add_1a48906c6a8a955f34d82526187493f433">
     <h3>DataFormat</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">Attrs</a> DataFormat(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add/attrs.html#structtensorflow_1_1ops_1_1_bias_add_1_1_attrs">Attrs</a> DataFormat(
   StringPiece x
 )</pre>
     <div />

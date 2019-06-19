@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/ar_model.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/timeseries/python/timeseries/ar_model.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/ar_model.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/timeseries/python/timeseries/ar_model.py).
 
 Auto-regressive model, both linear and non-linear.
 
 Features to the model include time and values of input_window_size timesteps,
-and times for output_window_size timesteps. These are passed through zero or
-more hidden layers, and then fed to a loss function (e.g. squared loss).
+and times for output_window_size timesteps. These are passed through a
+configurable prediction model, and then fed to a loss function (e.g. squared
+loss).
 
 Note that this class can also be used to regress against time only by setting
 the input_window_size to zero.
@@ -43,9 +41,10 @@ __init__(
     input_window_size,
     output_window_size,
     num_features,
+    prediction_model_factory=FlatPredictionModel,
     num_time_buckets=10,
     loss=NORMAL_LIKELIHOOD_LOSS,
-    hidden_layer_sizes=None
+    exogenous_feature_columns=None
 )
 ```
 
@@ -61,6 +60,22 @@ Constructs an auto-regressive model.
 * <b>`output_window_size`</b>: Number of future time steps to predict. Note that
     setting it to > 1 empirically seems to give a better fit.
 * <b>`num_features`</b>: number of input features per time step.
+* <b>`prediction_model_factory`</b>: A callable taking arguments `num_features`,
+    `input_window_size`, and `output_window_size` and returning a
+    <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a>. The `Model`'s `call()` takes two arguments: an input
+    window and an output window, and returns a dictionary of
+    predictions. See `FlatPredictionModel` for an example. Example usage:
+
+    ```python
+    model = ar_model.ARModel(
+      periodicities=2, num_features=3,
+      prediction_model_factory=functools.partial(
+          FlatPredictionModel,
+          hidden_layer_sizes=[10, 10]))
+    ```
+
+    The default model computes predictions as a linear function of flattened
+    input and output windows.
 * <b>`num_time_buckets`</b>: Number of buckets into which to divide (time %
     periodicity) for generating time based features.
 * <b>`loss`</b>: Loss function to use for training. Currently supported values are
@@ -69,7 +84,11 @@ Constructs an auto-regressive model.
     SQUARED_LOSS, the evaluation loss is reported based on un-scaled
     observations and predictions, while the training loss is computed on
     normalized data (if input statistics are available).
-* <b>`hidden_layer_sizes`</b>: list of sizes of hidden layers.
+* <b>`exogenous_feature_columns`</b>: A list of <a href="../../../tf/feature_column"><code>tf.feature_column</code></a>s (for example
+      <a href="../../../tf/feature_column/embedding_column"><code>tf.feature_column.embedding_column</code></a>) corresponding to exogenous
+      features which provide extra information to the model but are not part
+      of the series to be predicted. Passed to
+      <a href="../../../tf/feature_column/input_layer"><code>tf.feature_column.input_layer</code></a>.
 
 <h3 id="define_loss"><code>define_loss</code></h3>
 
@@ -178,13 +197,7 @@ get_start_state()
 initialize_graph(input_statistics=None)
 ```
 
-Define ops for the model, not depending on any previously defined ops.
 
-#### Args:
-
-* <b>`input_statistics`</b>: A math_utils.InputStatistics object containing input
-      statistics. If None, data-independent defaults are used, which may
-      result in longer or unstable training.
 
 <h3 id="loss_op"><code>loss_op</code></h3>
 
@@ -217,6 +230,7 @@ Computes predictions multiple steps into the future.
       segment of the time series before `TIMES`. This data is used
       to start of the autoregressive computation. This should have data for
       at least self.input_window_size timesteps.
+    And any exogenous features, with shapes prefixed by shape of `TIMES`.
 
 #### Returns:
 
@@ -229,7 +243,8 @@ num_features] and correspond to the values passed in `TIMES`.
 ``` python
 prediction_ops(
     times,
-    values
+    values,
+    exogenous_regressors
 )
 ```
 
@@ -243,6 +258,8 @@ Compute model predictions given input data.
       prediction times.
 * <b>`values`</b>: A [batch size, self.input_window_size, self.num_features] Tensor
       with input features.
+* <b>`exogenous_regressors`</b>: A [batch size, self.window_size,
+      self.exogenous_size] Tensor with exogenous features.
 
 #### Returns:
 

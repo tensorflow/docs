@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/dumping_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/debug/wrappers/dumping_wrapper.py).
+Defined in [`tensorflow/python/debug/wrappers/dumping_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/wrappers/dumping_wrapper.py).
 
 See the guide: [TensorFlow Debugger > Session wrapper class and `SessionRunHook` implementations](../../../api_guides/python/tfdbg#Session_wrapper_class_and_SessionRunHook_implementations)
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.contrib.integrate.odeint_fixed(
 
 
 
-Defined in [`tensorflow/contrib/integrate/python/ops/odes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/integrate/python/ops/odes.py).
+Defined in [`tensorflow/contrib/integrate/python/ops/odes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/integrate/python/ops/odes.py).
 
 ODE integration on a fixed grid (with no step size control).
 

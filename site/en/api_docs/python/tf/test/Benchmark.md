@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/platform/benchmark.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/platform/benchmark.py).
+Defined in [`tensorflow/python/platform/benchmark.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/platform/benchmark.py).
 
 Abstract class that provides helpers for TensorFlow benchmarks.
 
@@ -83,9 +80,10 @@ Run an op or tensor in the given session.  Report the results.
 * <b>`burn_iters`</b>: Number of burn-in iterations to run.
 * <b>`min_iters`</b>: Minimum number of iterations to use for timing.
 * <b>`store_trace`</b>: Boolean, whether to run an extra untimed iteration and
-    store the trace of iteration in the benchmark report.
+    store the trace of iteration in returned extras.
     The trace will be stored as a string in Google Chrome trace format
-    in the extras field "full_trace_chrome_format".
+    in the extras field "full_trace_chrome_format". Note that trace
+    will not be stored in test_log_pb2.TestResults proto.
 * <b>`store_memory_usage`</b>: Boolean, whether to run an extra untimed iteration,
     calculate memory usage, and store that in extras fields.
 * <b>`name`</b>: (optional) Override the BenchmarkEntry name with `name`.
@@ -99,7 +97,9 @@ Run an op or tensor in the given session.  Report the results.
 #### Returns:
 
 A `dict` containing the key-value pairs that were passed to
-`report_benchmark`.
+`report_benchmark`. If `store_trace` option is used, then
+`full_chrome_trace_format` will be included in return dictionary even
+though it is not passed to `report_benchmark` with `extras`.
 
 
 

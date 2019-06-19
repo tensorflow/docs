@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -24,11 +21,11 @@ tf.feature_column.shared_embedding_columns(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/feature_column/feature_column.py).
 
 List of dense columns that convert from sparse, categorical input.
 
-This is similar to `embedding_column`, except that that it produces a list of
+This is similar to `embedding_column`, except that it produces a list of
 embedding columns that share the same embedding weights.
 
 Use this when your inputs are sparse and of the same type (e.g. watched and

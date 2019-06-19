@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -24,7 +21,7 @@ tf.nn.dynamic_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/rnn.py).
+Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/rnn.py).
 
 See the guide: [Neural Network > Recurrent Neural Networks](../../../../api_guides/python/nn#Recurrent_Neural_Networks)
 
@@ -85,7 +82,7 @@ outputs, state = tf.nn.dynamic_rnn(cell=multi_rnn_cell,
     nested) tuple of Tensors each with dimensions `[batch_size, ...]`.
 * <b>`sequence_length`</b>: (optional) An int32/int64 vector sized `[batch_size]`.
     Used to copy-through state and zero-out outputs when past a batch
-    element's sequence length.  So it's more for correctness than performance.
+    element's sequence length.  So it's more for performance than correctness.
 * <b>`initial_state`</b>: (optional) An initial state for the RNN.
     If `cell.state_size` is an integer, this must be
     a `Tensor` of appropriate type and shape `[batch_size, cell.state_size]`.

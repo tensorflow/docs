@@ -2,32 +2,32 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::StringSplit Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>StringSplit</h1>
   <code>#include &lt;string_ops.h&gt;</code>
-  <p><a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> elements of <code>input</code> based on <code>delimiter</code> into a <code>SparseTensor</code>. </p>
+  <p><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> elements of <code>input</code> based on <code>delimiter</code> into a <code>SparseTensor</code>. </p>
   <h2>Summary</h2>
-  <p>Let N be the size of source (typically N will be the batch size). <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> each element of <code>input</code> based on <code>delimiter</code> and return a <code>SparseTensor</code> containing the splitted tokens. <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a> tokens are ignored.</p>
+  <p>Let N be the size of source (typically N will be the batch size). <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> each element of <code>input</code> based on <code>delimiter</code> and return a <code>SparseTensor</code> containing the splitted tokens. <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a> tokens are ignored.</p>
   <p><code>delimiter</code> can be empty, or a string of split characters. If <code>delimiter</code> is an empty string, each element of <code>input</code> is split into individual single-byte character strings, including splitting of UTF-8 multibyte sequences. Otherwise every character of <code>delimiter</code> is a potential split point.</p>
   <p>For example: N = 2, input[0] is 'hello world' and input[1] is 'a b c', then the output will be</p>
   <p>indices = [0, 0; 0, 1; 1, 0; 1, 1; 1, 2] shape = [2, 3] values = ['hello', 'world', 'a', 'b', 'c']</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>input: 1-D. Strings to split.</li>
       <li>delimiter: 0-D. Delimiter characters (bytes), or empty string.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/string-split/attrs.html#structtensorflow_1_1ops_1_1_string_split_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/string-split/attrs.html#structtensorflow_1_1ops_1_1_string_split_1_1_attrs">Attrs</a></code>):<ul>
       <li>skip_empty: A <code>bool</code>. If <code>True</code>, skip the empty strings from the result.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> indices: A dense matrix of int64 representing the indices of the sparse tensor.</li>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> values: A vector of strings corresponding to the splited values.</li>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> shape: a length-2 vector of int64 representing the shape of the sparse tensor, where the first value is N and the second value is the maximum number of tokens in a single input entry. </li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> indices: A dense matrix of int64 representing the indices of the sparse tensor.</li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> values: A vector of strings corresponding to the splited values.</li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> shape: a length-2 vector of int64 representing the shape of the sparse tensor, where the first value is N and the second value is the maximum number of tokens in a single input entry. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -37,13 +37,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_string_split_1ab3e43561fc94bb0cf1dc324ae780b058">StringSplit</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delimiter)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_split_1ab3e43561fc94bb0cf1dc324ae780b058">StringSplit</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delimiter)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_string_split_1aa084e3f7532182e407e239142972f206">StringSplit</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delimiter, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/string-split/attrs.html#structtensorflow_1_1ops_1_1_string_split_1_1_attrs">StringSplit::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_split_1aa084e3f7532182e407e239142972f206">StringSplit</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delimiter, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/string-split/attrs.html#structtensorflow_1_1ops_1_1_string_split_1_1_attrs">StringSplit::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -60,7 +60,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -70,7 +70,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -80,7 +80,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -97,7 +97,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/string-split/attrs.html#structtensorflow_1_1ops_1_1_string_split_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/string-split/attrs.html#structtensorflow_1_1ops_1_1_string_split_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -110,53 +110,53 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/string-split/attrs">tensorflow::<wbr/>ops::<wbr/>StringSplit::<wbr/>Attrs</a>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/string-split/attrs">tensorflow::<wbr/>ops::<wbr/>StringSplit::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/string-split.html#classtensorflow_1_1ops_1_1_string_split">StringSplit</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/string-split.html#classtensorflow_1_1ops_1_1_string_split">StringSplit</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_string_split_1ad78d9029594ea73a2d6f82864344d45d">
     <h3>indices</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> indices</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> indices</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_string_split_1a008b2049c8b2b2c39f057bd4162dc3c2">
     <h3>shape</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> shape</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> shape</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_string_split_1ae71dfe97b78a0999e771725948f9ab04">
     <h3>values</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> values</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> values</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_string_split_1ab3e43561fc94bb0cf1dc324ae780b058">
     <h3>StringSplit</h3>
     <pre class="prettyprint"> StringSplit(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delimiter
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delimiter
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_string_split_1aa084e3f7532182e407e239142972f206">
     <h3>StringSplit</h3>
     <pre class="prettyprint"> StringSplit(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delimiter,
-  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/string-split/attrs.html#structtensorflow_1_1ops_1_1_string_split_1_1_attrs">StringSplit::Attrs</a> & attrs
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> delimiter,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/string-split/attrs.html#structtensorflow_1_1ops_1_1_string_split_1_1_attrs">StringSplit::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_string_split_1af6097b372cd021e78a46d3f6076c6745">
     <h3>SkipEmpty</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/string-split/attrs.html#structtensorflow_1_1ops_1_1_string_split_1_1_attrs">Attrs</a> SkipEmpty(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/string-split/attrs.html#structtensorflow_1_1ops_1_1_string_split_1_1_attrs">Attrs</a> SkipEmpty(
   bool x
 )</pre>
     <div />

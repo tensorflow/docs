@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.contrib.distributions.fill_triangular(
 
 
 
-Defined in [`tensorflow/python/ops/distributions/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/distributions/util.py).
+Defined in [`tensorflow/python/ops/distributions/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/util.py).
 
 Creates a (batch of) triangular matrix from a vector of inputs.
 
@@ -28,8 +25,8 @@ create the matrix as upper or lower, rather than transpose.)
 Triangular matrix elements are filled in a clockwise spiral. See example,
 below.
 
-If `x.get_shape()` is `[b1, b2, ..., bK, d]` then the output shape is `[b1,
-b2, ..., bK, n, n]` where `n` is such that `d = n(n+1)/2`, i.e.,
+If `x.get_shape()` is `[b1, b2, ..., bB, d]` then the output shape is
+`[b1, b2, ..., bB, n, n]` where `n` is such that `d = n(n+1)/2`, i.e.,
 `n = int(np.sqrt(0.25 + 2. * m) - 0.5)`.
 
 Example:

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,13 +7,13 @@ page_type: reference
 
 
 
-Defined in generated file: `tensorflow/tools/api/generator/api/nn/__init__.py`.
+Defined in [`tensorflow/nn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/nn/__init__.py).
 
-
+Wrappers for primitive Neural Net (NN) Operations.
 
 ## Modules
 
-[`rnn_cell`](../tf/nn/rnn_cell) module
+[`rnn_cell`](../tf/nn/rnn_cell) module: Module for constructing RNN Cells.
 
 ## Functions
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.contrib.distributions.normal_conjugates_known_scale_posterior(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py).
 
 See the guide: [Statistical Distributions (contrib) > Normal likelihood with conjugate prior](../../../../../api_guides/python/contrib.distributions#Normal_likelihood_with_conjugate_prior)
 

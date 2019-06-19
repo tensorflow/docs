@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,9 @@ page_type: reference
 
 
 
-Defined in generated file: `tensorflow/tools/api/generator/api/keras/wrappers/scikit_learn/__init__.py`.
+Defined in [`tensorflow/keras/wrappers/scikit_learn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/wrappers/scikit_learn/__init__.py).
 
-
+Wrapper for using the Scikit-Learn API with Keras models.
 
 ## Classes
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,12 @@ page_type: reference
 
 
 
-Defined in generated file: `tensorflow/tools/api/generator/api/saved_model/builder/__init__.py`.
+Defined in [`tensorflow/saved_model/builder/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/saved_model/builder/__init__.py).
 
+SavedModel builder.
 
+Builds a SavedModel that can be saved to storage, is language neutral, and
+enables systems to produce, consume, or transform TensorFlow Models.
 
 ## Classes
 

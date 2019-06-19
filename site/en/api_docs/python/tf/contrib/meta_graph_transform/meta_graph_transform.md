@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,13 +7,10 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/meta_graph_transform/meta_graph_transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/meta_graph_transform/meta_graph_transform.py).
+Defined in [`tensorflow/contrib/meta_graph_transform/meta_graph_transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/meta_graph_transform/meta_graph_transform.py).
 
 Apply graph_transforms tool to MetaGraphDefs.
 
-## Modules
-
-[`compat`](../../../tf/contrib/meta_graph_transform/meta_graph_transform/compat) module: Functions for Python 2 vs. 3 compatibility.
 
 ## Functions
 

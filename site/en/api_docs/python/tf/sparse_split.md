@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,11 +18,15 @@ tf.sparse_split(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Manipulation](../../../api_guides/python/sparse_ops#Manipulation)
 
-Split a `SparseTensor` into `num_split` tensors along `axis`.
+Split a `SparseTensor` into `num_split` tensors along `axis`. (deprecated arguments)
+
+SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
+Instructions for updating:
+split_dim is deprecated, use axis instead
 
 If the `sp_input.dense_shape[axis]` is not an integer multiple of `num_split`
 each slice starting from 0:`shape[axis] % num_split` gets extra one

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,41 +11,17 @@ Inherits From: [`GradientDescentOptimizer`](../../../../tf/train/GradientDescent
 
 
 
-Defined in [`tensorflow/contrib/kfac/python/ops/optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/optimizer.py).
+Defined in [`tensorflow/contrib/kfac/python/ops/optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kfac/python/ops/optimizer.py).
 
 The KFAC Optimizer (https://arxiv.org/abs/1503.05671).
 
 ## Properties
-
-<h3 id="cov_update_op"><code>cov_update_op</code></h3>
-
-
-
-<h3 id="cov_update_ops"><code>cov_update_ops</code></h3>
-
-
-
-<h3 id="cov_update_thunks"><code>cov_update_thunks</code></h3>
-
-
 
 <h3 id="damping"><code>damping</code></h3>
 
 
 
 <h3 id="damping_adaptation_interval"><code>damping_adaptation_interval</code></h3>
-
-
-
-<h3 id="inv_update_op"><code>inv_update_op</code></h3>
-
-
-
-<h3 id="inv_update_ops"><code>inv_update_ops</code></h3>
-
-
-
-<h3 id="inv_update_thunks"><code>inv_update_thunks</code></h3>
 
 
 
@@ -95,7 +68,7 @@ Initializes the KFAC optimizer with the given settings.
       the local approximation with the Fisher information matrix, and to
       regularize the update direction by making it closer to the gradient.
       If damping is adapted during training then this value is used for
-      initializing damping varaible.
+      initializing damping variable.
       (Higher damping means the update looks more like a standard gradient
       update - see Tikhonov regularization.)
 * <b>`layer_collection`</b>: The layer collection object, which holds the fisher
@@ -252,26 +225,6 @@ See `get_slot()`.
 
 A list of strings.
 
-<h3 id="make_ops_and_vars"><code>make_ops_and_vars</code></h3>
-
-``` python
-make_ops_and_vars()
-```
-
-Make ops and vars with device placement `self._placement_strategy`.
-
-See `FisherEstimator.make_ops_and_vars` for details.
-
-#### Returns:
-
-* <b>`cov_update_ops`</b>: List of ops that compute the cov updates. Corresponds
-    one-to-one with the list of factors given by the "factors" property.
-* <b>`cov_update_op`</b>: cov_update_ops grouped into a single op.
-* <b>`inv_update_ops`</b>: List of ops that compute the inv updates. Corresponds
-    one-to-one with the list of factors given by the "factors" property.
-* <b>`cov_update_op`</b>: cov_update_ops grouped into a single op.
-* <b>`inv_update_op`</b>: inv_update_ops grouped into a single op.
-
 <h3 id="make_vars_and_create_op_thunks"><code>make_vars_and_create_op_thunks</code></h3>
 
 ``` python
@@ -332,7 +285,7 @@ of the training op returned by the minimize() method).
 * <b>`min_damping`</b>: `float`(Optional), Minimum value the damping parameter
     can take. Default value 1e-5.
 * <b>`damping_adaptation_decay`</b>: `float`(Optional), The `damping` parameter is
-    multipled by the `damping_adaptation_decay` every
+    multiplied by the `damping_adaptation_decay` every
     `damping_adaptation_interval` number of iterations. Default value 0.99.
 * <b>`damping_adaptation_interval`</b>: `int`(Optional), Number of steps in between
     updating the `damping` parameter. Default value 5.

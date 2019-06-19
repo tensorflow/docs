@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,83 +8,87 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/__init__.py).
+Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/__init__.py).
 
-
+Bring in all of the public TensorFlow interface into this module.
 
 ## Modules
 
-[`app`](./tf/app) module
+[`app`](./tf/app) module: Generic entry point script.
 
-[`bitwise`](./tf/bitwise) module
+[`bitwise`](./tf/bitwise) module: Operations for manipulating the binary representations of integers.
 
-[`compat`](./tf/compat) module
+[`compat`](./tf/compat) module: Functions for Python 2 vs. 3 compatibility.
 
 [`contrib`](./tf/contrib) module: contrib module containing volatile or experimental code.
 
-[`data`](./tf/data) module
+[`data`](./tf/data) module: <a href="./tf/data/Dataset"><code>tf.data.Dataset</code></a> API for input pipelines.
 
-[`distributions`](./tf/distributions) module
+[`distributions`](./tf/distributions) module: Core module for TensorFlow distribution objects and helpers.
 
-[`errors`](./tf/errors) module
+[`errors`](./tf/errors) module: Exception types for TensorFlow errors.
 
-[`estimator`](./tf/estimator) module
+[`estimator`](./tf/estimator) module: Public API for tf.estimator namespace.
 
-[`feature_column`](./tf/feature_column) module
+[`feature_column`](./tf/feature_column) module: Public API for tf.feature_column namespace.
 
 [`flags`](./tf/flags) module: Import router for absl.flags. See https://github.com/abseil/abseil-py.
 
-[`gfile`](./tf/gfile) module
+[`gfile`](./tf/gfile) module: Import router for file_io.
 
-[`graph_util`](./tf/graph_util) module
+[`graph_util`](./tf/graph_util) module: Helpers to manipulate a tensor graph in python.
 
-[`image`](./tf/image) module
+[`image`](./tf/image) module: Image processing and decoding ops.
 
-[`initializers`](./tf/initializers) module
+[`initializers`](./tf/initializers) module: Public API for tf.initializers namespace.
 
-[`keras`](./tf/keras) module
+[`keras`](./tf/keras) module: Implementation of the Keras API meant to be a high-level API for TensorFlow.
 
-[`layers`](./tf/layers) module
+[`layers`](./tf/layers) module: Public API for tf.layers namespace.
 
-[`linalg`](./tf/linalg) module
+[`linalg`](./tf/linalg) module: Operations for linear algebra.
 
-[`logging`](./tf/logging) module
+[`logging`](./tf/logging) module: Logging and Summary Operations.
 
-[`losses`](./tf/losses) module
+[`losses`](./tf/losses) module: Loss operations for use in neural networks.
 
-[`manip`](./tf/manip) module
+[`manip`](./tf/manip) module: Operators for manipulating tensors.
 
-[`math`](./tf/math) module
+[`math`](./tf/math) module: Basic arithmetic operators.
 
-[`metrics`](./tf/metrics) module
+[`metrics`](./tf/metrics) module: Evaluation-related metrics.
 
-[`nn`](./tf/nn) module
+[`nn`](./tf/nn) module: Wrappers for primitive Neural Net (NN) Operations.
 
-[`profiler`](./tf/profiler) module
+[`profiler`](./tf/profiler) module: Public API for tf.profiler namespace.
 
-[`python_io`](./tf/python_io) module
+[`python_io`](./tf/python_io) module: Python functions for directly manipulating TFRecord-formatted files.
 
 [`pywrap_tensorflow`](./tf/pywrap_tensorflow) module: A wrapper for TensorFlow SWIG-generated bindings.
 
-[`resource_loader`](./tf/resource_loader) module
+[`resource_loader`](./tf/resource_loader) module: Resource management library.
 
-[`saved_model`](./tf/saved_model) module
+[`saved_model`](./tf/saved_model) module: Public API for tf.saved_model namespace.
 
-[`sets`](./tf/sets) module
+[`sets`](./tf/sets) module: Tensorflow set operations.
 
-[`spectral`](./tf/spectral) module
+[`sparse`](./tf/sparse) module: Sparse Tensor Representation. See the <a href="../../api_guides/python/sparse_ops">Sparse Tensors</a> guide.
 
-[`summary`](./tf/summary) module
+[`spectral`](./tf/spectral) module: Spectral operators (e.g. DCT, FFT, RFFT).
 
-[`sysconfig`](./tf/sysconfig) module
+[`strings`](./tf/strings) module: Operations for working with string Tensors.
 
-[`test`](./tf/test) module
+[`summary`](./tf/summary) module: Public API for tf.summary namespace.
+
+[`sysconfig`](./tf/sysconfig) module: System configuration library.
+
+[`test`](./tf/test) module: Testing.
 
 [`tools`](./tf/tools) module
 
-[`train`](./tf/train) module
+[`train`](./tf/train) module: Support for training models.
 
-[`user_ops`](./tf/user_ops) module
+[`user_ops`](./tf/user_ops) module: Public API for tf.user_ops namespace.
 
 ## Classes
 
@@ -198,7 +200,7 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`class VarLenFeature`](./tf/VarLenFeature): Configuration for parsing a variable-length input feature.
 
-[`class Variable`](./tf/Variable): See the <a href="../../programmers_guide/variables">Variables How To</a> for a high level overview.
+[`class Variable`](./tf/Variable): See the <a href="../../guide/variables">Variables How To</a> for a high level overview.
 
 [`class VariableScope`](./tf/VariableScope): Variable scope object to carry defaults to provide to `get_variable`.
 
@@ -406,6 +408,8 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`decode_base64(...)`](./tf/decode_base64): Decode web-safe base64-encoded strings.
 
+[`decode_compressed(...)`](./tf/decode_compressed): Decompress strings.
+
 [`decode_csv(...)`](./tf/decode_csv): Convert CSV records to tensors. Each column maps to one tensor.
 
 [`decode_json_example(...)`](./tf/decode_json_example): Convert JSON-encoded Example records to binary protocol buffer strings.
@@ -454,7 +458,7 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`exp(...)`](./tf/exp): Computes exponential of x element-wise.  \\(y = e^x\\).
 
-[`expand_dims(...)`](./tf/expand_dims): Inserts a dimension of 1 into a tensor's shape.
+[`expand_dims(...)`](./tf/expand_dims): Inserts a dimension of 1 into a tensor's shape. (deprecated arguments)
 
 [`expm1(...)`](./tf/expm1): Computes exponential of x - 1 element-wise.
 
@@ -710,6 +714,8 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`pow(...)`](./tf/pow): Computes the power of one value to another.
 
+[`print(...)`](./tf/Print): Prints a list of tensors.
+
 [`py_func(...)`](./tf/py_func): Wraps a python function and uses it as a TensorFlow op.
 
 [`qr(...)`](./tf/qr): Computes the QR decompositions of one or more matrices.
@@ -802,7 +808,7 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`scatter_mul(...)`](./tf/scatter_mul): Multiplies sparse updates into a variable reference.
 
-[`scatter_nd(...)`](./tf/scatter_nd): Scatter `updates` into a new (initially zero) tensor according to `indices`.
+[`scatter_nd(...)`](./tf/scatter_nd): Scatter `updates` into a new tensor according to `indices`.
 
 [`scatter_nd_add(...)`](./tf/scatter_nd_add): Applies sparse addition between `updates` and individual values or slices
 
@@ -864,7 +870,7 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`sparse_add(...)`](./tf/sparse_add): Adds two tensors, at least one of each is a `SparseTensor`.
 
-[`sparse_concat(...)`](./tf/sparse_concat): Concatenates a list of `SparseTensor` along the specified dimension.
+[`sparse_concat(...)`](./tf/sparse_concat): Concatenates a list of `SparseTensor` along the specified dimension. (deprecated arguments)
 
 [`sparse_fill_empty_rows(...)`](./tf/sparse_fill_empty_rows): Fills empty rows in the input 2-D `SparseTensor` with a default value.
 
@@ -906,7 +912,7 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`sparse_softmax(...)`](./tf/sparse_softmax): Applies softmax to a batched N-D `SparseTensor`.
 
-[`sparse_split(...)`](./tf/sparse_split): Split a `SparseTensor` into `num_split` tensors along `axis`.
+[`sparse_split(...)`](./tf/sparse_split): Split a `SparseTensor` into `num_split` tensors along `axis`. (deprecated arguments)
 
 [`sparse_tensor_dense_matmul(...)`](./tf/sparse_tensor_dense_matmul): Multiply SparseTensor (of rank 2) "A" by dense matrix "B".
 
@@ -926,7 +932,7 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 
 [`squared_difference(...)`](./tf/squared_difference): Returns (x - y)(x - y) element-wise.
 
-[`squeeze(...)`](./tf/squeeze): Removes dimensions of size 1 from the shape of a tensor.
+[`squeeze(...)`](./tf/squeeze): Removes dimensions of size 1 from the shape of a tensor. (deprecated arguments)
 
 [`stack(...)`](./tf/stack): Stacks a list of rank-`R` tensors into one rank-`(R+1)` tensor.
 
@@ -937,6 +943,8 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 [`string_join(...)`](./tf/string_join): Joins the strings in the given list of string tensors into one tensor;
 
 [`string_split(...)`](./tf/string_split): Split elements of `source` based on `delimiter` into a `SparseTensor`.
+
+[`string_strip(...)`](./tf/string_strip): Strip leading and trailing whitespaces from the Tensor.
 
 [`string_to_hash_bucket(...)`](./tf/string_to_hash_bucket): Converts each string in the input Tensor to its hash mod by a number of buckets.
 
@@ -1055,6 +1063,8 @@ Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorfl
 `QUANTIZED_DTYPES`
 
 `VERSION`
+
+`__all__`
 
 `__compiler_version__`
 

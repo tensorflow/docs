@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,13 +14,14 @@ tf.scan(
     back_prop=True,
     swap_memory=False,
     infer_shape=True,
+    reverse=False,
     name=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/functional_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/functional_ops.py).
+Defined in [`tensorflow/python/ops/functional_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/functional_ops.py).
 
 See the guide: [Higher Order Functions > Higher Order Operators](../../../api_guides/python/functional_ops#Higher_Order_Operators)
 
@@ -38,6 +36,7 @@ at least one element, and its first element is used as the initializer.
 
 Suppose that `elems` is unpacked into `values`, a list of tensors. The shape
 of the result tensor is `[len(values)] + fn(initializer, values[0]).shape`.
+If reverse=True, it's fn(initializer, values[-1]).shape.
 
 This method also allows multi-arity `elems` and accumulator.  If `elems`
 is a (possibly nested) list or tuple of tensors, then each of these tensors
@@ -77,6 +76,8 @@ For example, if `elems` is `(t1, [t2, t3])` and `initializer` is
 * <b>`back_prop`</b>: (optional) True enables support for back propagation.
 * <b>`swap_memory`</b>: (optional) True enables GPU-CPU memory swapping.
 * <b>`infer_shape`</b>: (optional) False disables tests for consistent output shapes.
+* <b>`reverse`</b>: (optional) True scans the tensor last to first (instead of first
+    to last).
 * <b>`name`</b>: (optional) Name prefix for the returned tensors.
 
 
@@ -84,7 +85,8 @@ For example, if `elems` is `(t1, [t2, t3])` and `initializer` is
 
 A tensor or (possibly nested) sequence of tensors.  Each tensor packs the
 results of applying `fn` to tensors unpacked from `elems` along the first
-dimension, and the previous accumulator value(s), from first to last.
+dimension, and the previous accumulator value(s), from first to last (or
+last to first, if `reverse=True`).
 
 
 #### Raises:
@@ -99,6 +101,8 @@ Examples:
 >     elems = np.array([1, 2, 3, 4, 5, 6])
 >     sum = scan(lambda a, x: a + x, elems)
 >     # sum == [1, 3, 6, 10, 15, 21]
+>     sum = scan(lambda a, x: a + x, elems, reverse=True)
+>     # sum == [22, 21, 18, 15, 11, 6]
 
 >     elems = np.array([1, 2, 3, 4, 5, 6])
 >     initializer = np.array(0)

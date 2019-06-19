@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ScatterNdUpdate Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,10 +13,10 @@
   <p>Applies sparse <code>updates</code> to individual values or slices within a given. </p>
   <h2>Summary</h2>
   <p>variable according to <code>indices</code>.</p>
-  <p><code>ref</code> is a <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with rank <code>P</code> and <code>indices</code> is a <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q</code>.</p>
+  <p><code>ref</code> is a <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with rank <code>P</code> and <code>indices</code> is a <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q</code>.</p>
   <p><code>indices</code> must be integer tensor, containing indices into <code>ref</code>. It must be shape <code>[d_0, ..., d_{Q-2}, K]</code> where <code>0 < K <= P</code>.</p>
   <p>The innermost dimension of <code>indices</code> (with length <code>K</code>) corresponds to indices into elements (if <code>K = P</code>) or slices (if <code>K < P</code>) along the <code>K</code>th dimension of <code>ref</code>.</p>
-  <p><code>updates</code> is <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q-1+P-K</code> with shape:</p>
+  <p><code>updates</code> is <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q-1+P-K</code> with shape:</p>
   <p>
     <pre class="prettyprint">
 [d_0, ..., d_{Q-2}, ref.shape[K], ..., ref.shape[P-1]].
@@ -37,16 +37,16 @@
 </pre></p>
   <p>See <code>tf.scatter_nd</code> for more details about how to make updates to slices.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>ref: A mutable <a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Should be from a <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a> node.</li>
-      <li>indices: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must be one of the following types: int32, int64. A tensor of indices into ref.</li>
-      <li>updates: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must have the same type as ref. A tensor of updated values to add to ref.</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>ref: A mutable <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Should be from a <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a> node.</li>
+      <li>indices: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must be one of the following types: int32, int64. A tensor of indices into ref.</li>
+      <li>updates: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must have the same type as ref. A tensor of updated values to add to ref.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_update_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_update_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: An optional bool. Defaults to True. If True, the assignment will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as ref. Returned as a convenience for operations that want to use the updated values after the update is done. </li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as ref. Returned as a convenience for operations that want to use the updated values after the update is done. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -56,13 +56,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_update_1acb6b3b44045199decc158f661ed16c3f">ScatterNdUpdate</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_update_1acb6b3b44045199decc158f661ed16c3f">ScatterNdUpdate</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_update_1ae3aa0b51b9e1787da8db1bf0b0eff7a2">ScatterNdUpdate</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_update_1_1_attrs">ScatterNdUpdate::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_update_1ae3aa0b51b9e1787da8db1bf0b0eff7a2">ScatterNdUpdate</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_update_1_1_attrs">ScatterNdUpdate::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -79,7 +79,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -133,7 +133,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_update_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_update_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -146,38 +146,38 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs">tensorflow::<wbr/>ops::<wbr/>ScatterNdUpdate::<wbr/>Attrs</a>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs">tensorflow::<wbr/>ops::<wbr/>ScatterNdUpdate::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/scatter-nd-update.html#classtensorflow_1_1ops_1_1_scatter_nd_update">ScatterNdUpdate</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/scatter-nd-update.html#classtensorflow_1_1ops_1_1_scatter_nd_update">ScatterNdUpdate</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_nd_update_1a3207186292f8bca8cf869bc6a6aa2f82">
     <h3>output_ref</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_nd_update_1acb6b3b44045199decc158f661ed16c3f">
     <h3>ScatterNdUpdate</h3>
     <pre class="prettyprint"> ScatterNdUpdate(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_scatter_nd_update_1ae3aa0b51b9e1787da8db1bf0b0eff7a2">
     <h3>ScatterNdUpdate</h3>
     <pre class="prettyprint"> ScatterNdUpdate(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
-  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_update_1_1_attrs">ScatterNdUpdate::Attrs</a> & attrs
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_update_1_1_attrs">ScatterNdUpdate::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -199,7 +199,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_nd_update_1aecb251dcdebad69c21d53f5980d0dd80">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_update_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-nd-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_update_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />

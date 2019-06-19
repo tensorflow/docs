@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::DynamicStitch Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -31,7 +31,7 @@
   </p>
   <p>Each <code>data[i].shape</code> must start with the corresponding <code>indices[i].shape</code>, and the rest of <code>data[i].shape</code> must be constant w.r.t. <code>i</code>. That is, we must have <code>data[i].shape = indices[i].shape + constant</code>. In terms of this <code>constant</code>, the output shape is <pre class="prettyprint">merged.shape = [max(indices)] + constant
 </pre></p>
-  <p>Values are merged in order, so if an index appears in both <code>indices[m][i]</code> and <code>indices[n][j]</code> for <code>(m,i) < (n,j)</code> the slice <code>data[n][j]</code> will appear in the merged result. If you do not need this guarantee, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/parallel-dynamic-stitch.html#classtensorflow_1_1ops_1_1_parallel_dynamic_stitch">ParallelDynamicStitch</a> might perform better on some devices.</p>
+  <p>Values are merged in order, so if an index appears in both <code>indices[m][i]</code> and <code>indices[n][j]</code> for <code>(m,i) < (n,j)</code> the slice <code>data[n][j]</code> will appear in the merged result. If you do not need this guarantee, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/parallel-dynamic-stitch.html#classtensorflow_1_1ops_1_1_parallel_dynamic_stitch">ParallelDynamicStitch</a> might perform better on some devices.</p>
   <p>For example:</p>
   <p>
     <pre class="prettyprint">
@@ -64,14 +64,14 @@
   </p>
   <p>
     <figure id="@name">
-      <img src="/versions/r1.8/api_docs/cc/images/DynamicStitch.png" />
+      <img src="/versions/r1.9/api_docs/cc/images/DynamicStitch.png" />
     </figure>
   </p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The merged tensor. </li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The merged tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -81,7 +81,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_dynamic_stitch_1a40683e2fafd5461794d620ec3ab75b02">DynamicStitch</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> indices, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> data)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_dynamic_stitch_1a40683e2fafd5461794d620ec3ab75b02">DynamicStitch</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> data)</code>
         <br />
       </td>
     </tr>
@@ -98,7 +98,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -143,16 +143,16 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_dynamic_stitch_1ab680171a95778bb5700d266c6d81263a">
     <h3>merged</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> merged</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> merged</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_dynamic_stitch_1a40683e2fafd5461794d620ec3ab75b02">
     <h3>DynamicStitch</h3>
     <pre class="prettyprint"> DynamicStitch(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> indices,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> data
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> indices,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> data
 )</pre>
     <div />
   </div>

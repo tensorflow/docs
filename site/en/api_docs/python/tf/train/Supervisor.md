@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/supervisor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/supervisor.py).
+Defined in [`tensorflow/python/training/supervisor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/supervisor.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -313,7 +310,8 @@ __init__(
     checkpoint_basename='model.ckpt',
     session_manager=None,
     summary_writer=USE_DEFAULT,
-    init_fn=None
+    init_fn=None,
+    local_init_run_options=None
 )
 ```
 
@@ -390,6 +388,8 @@ Please switch to tf.train.MonitoredTrainingSession
 * <b>`init_fn`</b>: Optional callable used to initialize the model. Called
     after the optional `init_op` is called.  The callable must accept one
     argument, the session being initialized.
+* <b>`local_init_run_options`</b>: RunOptions to be passed as the SessionManager
+    local_init_run_options parameter.
 
 
 #### Returns:

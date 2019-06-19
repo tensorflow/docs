@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/tensor_shape.py).
+Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/tensor_shape.py).
 
 See the guide: [Building Graphs > Defining new operations](../../../api_guides/python/framework#Defining_new_operations)
 
@@ -141,6 +138,14 @@ __nonzero__()
 ```
 
 Returns True if this shape contains non-zero information.
+
+<h3 id="__reduce__"><code>__reduce__</code></h3>
+
+``` python
+__reduce__()
+```
+
+
 
 <h3 id="as_list"><code>as_list</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,12 +20,12 @@ Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
-Scatter `updates` into a new (initially zero) tensor according to `indices`.
+Scatter `updates` into a new tensor according to `indices`.
 
-Creates a new tensor by applying sparse `updates` to individual
-values or slices within a zero tensor of the given `shape` according to
-indices.  This operator is the inverse of the <a href="../tf/gather_nd"><code>tf.gather_nd</code></a> operator which
-extracts values or slices from a given tensor.
+Creates a new tensor by applying sparse `updates` to individual values or
+slices within a tensor (initially zero for numeric, empty for string) of
+the given `shape` according to indices.  This operator is the inverse of the
+<a href="../tf/gather_nd"><code>tf.gather_nd</code></a> operator which extracts values or slices from a given tensor.
 
 **WARNING**: The order in which updates are applied is nondeterministic, so the
 output will be nondeterministic if `indices` contains duplicates.

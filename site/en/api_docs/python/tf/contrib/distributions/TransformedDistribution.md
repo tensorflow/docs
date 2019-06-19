@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/transformed_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/distributions/transformed_distribution.py).
+Defined in [`tensorflow/python/ops/distributions/transformed_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/transformed_distribution.py).
 
 See the guide: [Statistical Distributions (contrib) > Transformed distributions](../../../../../api_guides/python/contrib.distributions#Transformed_distributions)
 
@@ -94,8 +91,7 @@ normal = ds.TransformedDistribution(
   distribution=ds.Normal(loc=0., scale=1.),
   bijector=ds.bijectors.Affine(
     shift=-1.,
-    scale_identity_multiplier=2.,
-    event_ndims=0),
+    scale_identity_multiplier=2.)
   name="NormalTransformedDistribution")
 ```
 

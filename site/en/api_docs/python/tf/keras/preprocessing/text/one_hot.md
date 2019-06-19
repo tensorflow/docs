@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.keras.preprocessing.text.one_hot(
 
 
 
-Defined in [`tensorflow/python/keras/_impl/keras/preprocessing/text.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/preprocessing/text.py).
+Defined in [`tensorflow/python/keras/preprocessing/text.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/preprocessing/text.py).
 
 One-hot encodes a text into a list of word indexes of size n.
 
@@ -30,12 +27,15 @@ hashing function; unicity of word to index mapping non-guaranteed.
 #### Arguments:
 
 * <b>`text`</b>: Input text (string).
-* <b>`n`</b>: Dimension of the hashing space.
-* <b>`filters`</b>: Sequence of characters to filter out.
-* <b>`lower`</b>: Whether to convert the input to lowercase.
-* <b>`split`</b>: Sentence split marker (string).
+* <b>`n`</b>: int, size of vocabulary.
+* <b>`filters`</b>: list (or concatenation) of characters to filter out, such as
+        punctuation. Default: '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n',
+        includes basic punctuation, tabs, and newlines.
+* <b>`lower`</b>: boolean, whether to set the text to lowercase.
+* <b>`split`</b>: string, separator for word splitting.
 
 
 #### Returns:
 
-A list of integer word indices (unicity non-guaranteed).
+List of integers in [1, n].
+Each integer encodes a word (unicity non-guaranteed).

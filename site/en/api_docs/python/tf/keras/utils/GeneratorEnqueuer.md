@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`SequenceEnqueuer`](../../../tf/keras/utils/SequenceEnqueuer)
 
 
 
-Defined in [`tensorflow/python/keras/_impl/keras/utils/data_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/utils/data_utils.py).
+Defined in [`tensorflow/python/keras/utils/data_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/utils/data_utils.py).
 
 Builds a queue out of a data generator.
 

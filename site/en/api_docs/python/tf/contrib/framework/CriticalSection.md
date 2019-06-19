@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/critical_section_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/framework/python/ops/critical_section_ops.py).
+Defined in [`tensorflow/contrib/framework/python/ops/critical_section_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/framework/python/ops/critical_section_ops.py).
 
 Critical section.
 
@@ -143,7 +140,7 @@ The tensors returned from `fn(*args, **kwargs)`.
     or lazy way that may cause a deadlock.
 * <b>`ValueError`</b>: If `exclusive_resource_access` is not provided (is `True`) and
     another `CriticalSection` has an execution requesting the same
-    resources as in `*args`, `**kwargs`, and any additionaly captured
+    resources as in `*args`, `**kwargs`, and any additionally captured
     inputs in `fn`.  Note, even if `exclusive_resource_access` is `True`,
     if another execution in another `CriticalSection` was created without
     `exclusive_resource_access=True`, a `ValueError` will be raised.

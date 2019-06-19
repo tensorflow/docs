@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.train.do_quantize_training_on_graphdef(
 
 
 
-Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/pywrap_tensorflow_internal.py).
+Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/pywrap_tensorflow_internal.py).
 
 A general quantization scheme is being developed in <a href="../../tf/contrib/quantize"><code>tf.contrib.quantize</code></a>.
 

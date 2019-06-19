@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.custom_gradient(f)
 
 
 
-Defined in [`tensorflow/python/ops/custom_gradient.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/custom_gradient.py).
+Defined in [`tensorflow/python/ops/custom_gradient.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/custom_gradient.py).
 
 Decorator to define a function with a custom gradient.
 
@@ -64,6 +61,9 @@ primitive TensorFlow operation. <a href="../tf/custom_gradient"><code>tf.custom_
 for fine grained control over the gradient computation of a sequence of
 operations.
 
+Note that if the decorated function uses `Variable`s, the enclosing variable
+scope must be using `ResourceVariable`s.
+
 #### Args:
 
 * <b>`f`</b>: function `f(x)` that returns a tuple `(y, grad_fn)` where:
@@ -71,11 +71,16 @@ operations.
      - `y` is a `Tensor` or sequence of `Tensor` outputs of applying
        TensorFlow
        operations in `f` to `x`.
-     - `grad_fn` is a function with the signature `g(grad_ys)` which returns
+     - `grad_fn` is a function with the signature `g(*grad_ys)` which returns
        a list of `Tensor`s - the derivatives of `Tensor`s in `y` with respect
        to the `Tensor`s in `x.  `grad_ys` is a `Tensor` or sequence of
        `Tensor`s the same size as `y` holding the initial value gradients for
-       each `Tensor` in `y`.
+       each `Tensor` in `y`. If `f` uses `Variable`s (that are not part of the
+       inputs), i.e. through `get_variable`, then `grad_fn` should have
+       signature `g(*grad_ys, variables=None)`, where `variables` is a list of
+       the `Variable`s, and return a 2-tuple `(grad_xs, grad_vars)`, where
+       `grad_xs` is the same as above, and `grad_vars` is a `list<Tensor>`
+       with the derivatives of `Tensor`s in `y` with respect to the variables.
 
 
 #### Returns:

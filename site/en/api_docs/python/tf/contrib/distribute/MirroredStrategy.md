@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`DistributionStrategy`](../../../tf/contrib/distribute/Distribut
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/mirrored_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distribute/python/mirrored_strategy.py).
+Defined in [`tensorflow/contrib/distribute/python/mirrored_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distribute/python/mirrored_strategy.py).
 
 Mirrors vars to distribute across multiple devices on a single machine.
 
@@ -137,7 +134,7 @@ Run `fn` once per tower.
 `fn` may call `tf.get_tower_context()` to access methods such as
 `tower_id()` and `merge_call()`.
 
-`merge_call()` is used to communicate betwen the towers and
+`merge_call()` is used to communicate between the towers and
 re-enter the cross-tower context. All towers pause their execution
 having encountered a `merge_call()` call. After that the
 `merge_fn`-function is executed. Its results are then unwrapped and
@@ -234,7 +231,7 @@ configure(session_config=None)
 <h3 id="distribute_dataset"><code>distribute_dataset</code></h3>
 
 ``` python
-distribute_dataset(dataset)
+distribute_dataset(dataset_fn)
 ```
 
 

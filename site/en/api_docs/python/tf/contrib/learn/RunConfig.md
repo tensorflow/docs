@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`RunConfig`](../../../tf/estimator/RunConfig)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
 
 See the guide: [Learn (contrib) > Graph actions](../../../../../api_guides/python/contrib.learn#Graph_actions)
 
@@ -28,6 +25,14 @@ interface.
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
 
+
+<h3 id="device_fn"><code>device_fn</code></h3>
+
+Returns the device_fn.
+
+If device_fn is not `None`, it overrides the default
+device function used in `Estimator`.
+Otherwise the default one is used.
 
 <h3 id="environment"><code>environment</code></h3>
 
@@ -262,7 +267,8 @@ Only the properties in the following list are allowed to be replaced:
   - `keep_checkpoint_max`,
   - `keep_checkpoint_every_n_hours`,
   - `log_step_count_steps`,
-  - `train_distribute`.
+  - `train_distribute`,
+  - `device_fn`.
 
 In addition, either `save_checkpoints_steps` or `save_checkpoints_secs`
 can be set (should not be both).

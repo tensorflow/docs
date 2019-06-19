@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py).
 
 Gathers gradients from all towers and reduces them in the last one.
 
@@ -26,7 +23,11 @@ Gathers gradients from all towers and reduces them in the last one.
 __init__(optimizer_or_optimizer_fn)
 ```
 
-Wrap an existing optimizer for gathering gradients across towers.
+Wrap an existing optimizer for gathering gradients across towers. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-05-31.
+Instructions for updating:
+Please use <a href="../../../tf/contrib/distribute/MirroredStrategy"><code>tf.contrib.distribute.MirroredStrategy</code></a> instead.
 
 Each invocation of model_fn has to call the same optimizers in the same
 order.

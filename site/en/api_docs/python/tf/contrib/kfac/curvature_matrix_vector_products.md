@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/kfac/python/ops/curvature_matrix_vector_products_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/curvature_matrix_vector_products_lib.py).
+Defined in [`tensorflow/contrib/kfac/python/ops/curvature_matrix_vector_products_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kfac/python/ops/curvature_matrix_vector_products_lib.py).
 
 Curvature matrix-vector multiplication.
 

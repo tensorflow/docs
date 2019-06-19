@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.contrib.gan.features.condition_tensor_from_onehot(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/features/python/conditioning_utils_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/gan/python/features/python/conditioning_utils_impl.py).
+Defined in [`tensorflow/contrib/gan/python/features/python/conditioning_utils_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/features/python/conditioning_utils_impl.py).
 
 Condition a tensor based on a one-hot tensor.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,7 +20,7 @@ tf.test.compute_gradient(
 
 
 
-Defined in [`tensorflow/python/ops/gradient_checker.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/gradient_checker.py).
+Defined in [`tensorflow/python/ops/gradient_checker.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/gradient_checker.py).
 
 See the guide: [Testing > Gradient checking](../../../../api_guides/python/test#Gradient_checking)
 
@@ -36,10 +33,10 @@ necessarily holomorphic, and may have gradients not expressible as complex
 numbers.  For example, if `x` is complex with shape `[m]` and `y` is complex
 with shape `[n]`, each Jacobian `J` will have shape `[m * 2, n * 2]` with
 
-    J[:m, :n] = d(Re y)/d(Re x)
-    J[:m, n:] = d(Im y)/d(Re x)
-    J[m:, :n] = d(Re y)/d(Im x)
-    J[m:, n:] = d(Im y)/d(Im x)
+    J[::2, ::2] = d(Re y)/d(Re x)
+    J[::2, 1::2] = d(Im y)/d(Re x)
+    J[1::2, ::2] = d(Re y)/d(Im x)
+    J[1::2, 1::2] = d(Im y)/d(Im x)
 
 #### Args:
 

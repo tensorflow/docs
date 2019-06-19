@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.import_graph_def
+
+### Aliases:
+
+* `tf.contrib.lite.import_graph_def`
+* `tf.import_graph_def`
 
 ``` python
 tf.import_graph_def(
@@ -21,7 +23,7 @@ tf.import_graph_def(
 
 
 
-Defined in [`tensorflow/python/framework/importer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/importer.py).
+Defined in [`tensorflow/python/framework/importer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/importer.py).
 
 See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
 
@@ -32,7 +34,7 @@ Instructions for updating:
 Please file an issue at https://github.com/tensorflow/tensorflow/issues if you depend on this feature.
 
 This function provides a way to import a serialized TensorFlow
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/framework/graph.proto)
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/graph.proto)
 protocol buffer, and extract individual objects in the `GraphDef` as
 <a href="../tf/Tensor"><code>tf.Tensor</code></a> and <a href="../tf/Operation"><code>tf.Operation</code></a> objects. Once extracted,
 these objects are placed into the current default `Graph`. See

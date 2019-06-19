@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/training/__init__.py).
+Defined in [`tensorflow/contrib/training/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/__init__.py).
 
 Training and input utilities.
 
@@ -55,6 +52,8 @@ See <a href="../../../../api_guides/python/contrib.training">Training (contrib)<
 
 [`create_train_op(...)`](../../tf/contrib/training/create_train_op): Creates an `Operation` that evaluates the gradients and returns the loss.
 
+[`enqueue_in_queue_dataset(...)`](../../tf/contrib/training/enqueue_in_queue_dataset): Enqueue components into queue from `PrependFromQueueAndPaddedBatchDataset`.
+
 [`evaluate_once(...)`](../../tf/contrib/training/evaluate_once): Evaluates the model at the given checkpoint path.
 
 [`evaluate_repeatedly(...)`](../../tf/contrib/training/evaluate_repeatedly): Repeatedly searches for a checkpoint in `checkpoint_dir` and evaluates it.
@@ -64,6 +63,8 @@ See <a href="../../../../api_guides/python/contrib.training">Training (contrib)<
 [`multiply_gradients(...)`](../../tf/contrib/training/multiply_gradients): Multiply specified gradients.
 
 [`parse_values(...)`](../../tf/contrib/training/parse_values): Parses hyperparameter values from a string into a python map.
+
+[`prepend_from_queue_and_padded_batch_dataset(...)`](../../tf/contrib/training/prepend_from_queue_and_padded_batch_dataset): A transformation that prepends a queue to a `Dataset` and batches results.
 
 [`rejection_sample(...)`](../../tf/contrib/training/rejection_sample): Stochastically creates batches by rejection sampling.
 

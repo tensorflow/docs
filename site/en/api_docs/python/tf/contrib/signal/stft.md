@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.contrib.signal.stft(
 
 
 
-Defined in [`tensorflow/contrib/signal/python/ops/spectral_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/signal/python/ops/spectral_ops.py).
+Defined in [`tensorflow/contrib/signal/python/ops/spectral_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/signal/python/ops/spectral_ops.py).
 
 See the guide: [Signal Processing (contrib) > Computing spectrograms](../../../../../api_guides/python/contrib.signal#Computing_spectrograms)
 

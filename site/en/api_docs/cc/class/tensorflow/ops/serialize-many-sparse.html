@@ -2,29 +2,29 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::SerializeManySparse Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>SerializeManySparse</h1>
   <code>#include &lt;sparse_ops.h&gt;</code>
-  <p>Serialize an <code>N</code>-minibatch <code>SparseTensor</code> into an <code>[N, 3]</code><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> object. </p>
+  <p>Serialize an <code>N</code>-minibatch <code>SparseTensor</code> into an <code>[N, 3]</code><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> object. </p>
   <h2>Summary</h2>
   <p>The <code>SparseTensor</code> must have rank <code>R</code> greater than 1, and the first dimension is treated as the minibatch dimension. Elements of the <code>SparseTensor</code> must be sorted in increasing order of this first dimension. The serialized <code>SparseTensor</code> objects going into each row of <code>serialized_sparse</code> will have rank <code>R-1</code>.</p>
   <p>The minibatch size <code>N</code> is extracted from <code>sparse_shape[0]</code>.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>sparse_indices: 2-D. The <code>indices</code> of the minibatch <code>SparseTensor</code>.</li>
       <li>sparse_values: 1-D. The <code>values</code> of the minibatch <code>SparseTensor</code>.</li>
       <li>sparse_shape: 1-D. The <code>shape</code> of the minibatch <code>SparseTensor</code>.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs.html#structtensorflow_1_1ops_1_1_serialize_many_sparse_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs.html#structtensorflow_1_1ops_1_1_serialize_many_sparse_1_1_attrs">Attrs</a></code>):<ul>
       <li>out_type: The <code>dtype</code> to use for serialization; the supported types are <code>string</code> (default) and <code>variant</code>.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The serialized_sparse tensor. </li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The serialized_sparse tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -34,13 +34,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_serialize_many_sparse_1a8b0ce35d9eb1b1fc37fbe016a56e1d62">SerializeManySparse</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_serialize_many_sparse_1a8b0ce35d9eb1b1fc37fbe016a56e1d62">SerializeManySparse</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_serialize_many_sparse_1a9433bfca55151b54355f6be6952584e5">SerializeManySparse</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs.html#structtensorflow_1_1ops_1_1_serialize_many_sparse_1_1_attrs">SerializeManySparse::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_serialize_many_sparse_1a9433bfca55151b54355f6be6952584e5">SerializeManySparse</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs.html#structtensorflow_1_1ops_1_1_serialize_many_sparse_1_1_attrs">SerializeManySparse::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -57,7 +57,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -111,7 +111,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs.html#structtensorflow_1_1ops_1_1_serialize_many_sparse_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs.html#structtensorflow_1_1ops_1_1_serialize_many_sparse_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -124,38 +124,38 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs">tensorflow::<wbr/>ops::<wbr/>SerializeManySparse::<wbr/>Attrs</a>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs">tensorflow::<wbr/>ops::<wbr/>SerializeManySparse::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/serialize-many-sparse.html#classtensorflow_1_1ops_1_1_serialize_many_sparse">SerializeManySparse</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/serialize-many-sparse.html#classtensorflow_1_1ops_1_1_serialize_many_sparse">SerializeManySparse</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_serialize_many_sparse_1ad8accf23c3264d678f050a59da40ea64">
     <h3>serialized_sparse</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> serialized_sparse</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> serialized_sparse</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_serialize_many_sparse_1a8b0ce35d9eb1b1fc37fbe016a56e1d62">
     <h3>SerializeManySparse</h3>
     <pre class="prettyprint"> SerializeManySparse(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_serialize_many_sparse_1a9433bfca55151b54355f6be6952584e5">
     <h3>SerializeManySparse</h3>
     <pre class="prettyprint"> SerializeManySparse(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape,
-  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs.html#structtensorflow_1_1ops_1_1_serialize_many_sparse_1_1_attrs">SerializeManySparse::Attrs</a> & attrs
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs.html#structtensorflow_1_1ops_1_1_serialize_many_sparse_1_1_attrs">SerializeManySparse::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -177,7 +177,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_serialize_many_sparse_1a05cc33d0e457bc120df0e1b365db8ffd">
     <h3>OutType</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs.html#structtensorflow_1_1ops_1_1_serialize_many_sparse_1_1_attrs">Attrs</a> OutType(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/serialize-many-sparse/attrs.html#structtensorflow_1_1ops_1_1_serialize_many_sparse_1_1_attrs">Attrs</a> OutType(
   DataType x
 )</pre>
     <div />

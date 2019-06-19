@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.reduce_sum(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Reduction](../../../api_guides/python/math_ops#Reduction)
 
@@ -36,7 +33,7 @@ Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
 entry in `axis`. If `keepdims` is true, the reduced dimensions
 are retained with length 1.
 
-If `axis` has no entries, all dimensions are reduced, and a
+If `axis` is None, all dimensions are reduced, and a
 tensor with a single element is returned.
 
 For example:
@@ -69,6 +66,6 @@ The reduced tensor, of the same dtype as the input_tensor.
 
 
 #### Numpy Compatibility
-Equivalent to np.sum appart the fact that numpy upcast uint8 and int32 to
+Equivalent to np.sum apart the fact that numpy upcast uint8 and int32 to
 int64 while tensorflow returns the same dtype as the input.
 

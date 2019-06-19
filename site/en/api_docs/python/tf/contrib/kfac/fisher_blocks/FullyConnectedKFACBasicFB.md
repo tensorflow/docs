@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`KroneckerProductFB`](../../../../tf/contrib/kfac/fisher_blocks/
 
 
 
-Defined in [`tensorflow/contrib/kfac/python/ops/fisher_blocks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/fisher_blocks.py).
+Defined in [`tensorflow/contrib/kfac/python/ops/fisher_blocks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kfac/python/ops/fisher_blocks.py).
 
 K-FAC FisherBlock for fully-connected (dense) layers.
 
@@ -99,6 +96,28 @@ Multiplies the vector by the (damped) block.
 
 The vector left-multiplied by the (damped) block.
 
+<h3 id="multiply_cholesky"><code>multiply_cholesky</code></h3>
+
+``` python
+multiply_cholesky(
+    vector,
+    transpose=False
+)
+```
+
+
+
+<h3 id="multiply_cholesky_inverse"><code>multiply_cholesky_inverse</code></h3>
+
+``` python
+multiply_cholesky_inverse(
+    vector,
+    transpose=False
+)
+```
+
+
+
 <h3 id="multiply_inverse"><code>multiply_inverse</code></h3>
 
 ``` python
@@ -134,6 +153,22 @@ register_additional_tower(
     inputs,
     outputs
 )
+```
+
+
+
+<h3 id="register_cholesky"><code>register_cholesky</code></h3>
+
+``` python
+register_cholesky()
+```
+
+
+
+<h3 id="register_cholesky_inverse"><code>register_cholesky_inverse</code></h3>
+
+``` python
+register_cholesky_inverse()
 ```
 
 

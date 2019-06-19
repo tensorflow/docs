@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.contrib.predictor.from_estimator(
 
 
 
-Defined in [`tensorflow/contrib/predictor/predictor_factories.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/predictor/predictor_factories.py).
+Defined in [`tensorflow/contrib/predictor/predictor_factories.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/predictor/predictor_factories.py).
 
 Constructs a `Predictor` from a `tf.python.estimator.Estimator`.
 

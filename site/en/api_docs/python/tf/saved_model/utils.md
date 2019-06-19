@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,11 @@ page_type: reference
 
 
 
-Defined in generated file: `tensorflow/tools/api/generator/api/saved_model/utils/__init__.py`.
+Defined in [`tensorflow/saved_model/utils/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/saved_model/utils/__init__.py).
 
+SavedModel utility functions.
 
+Utility functions to assist with setup and construction of the SavedModel proto.
 
 ## Functions
 

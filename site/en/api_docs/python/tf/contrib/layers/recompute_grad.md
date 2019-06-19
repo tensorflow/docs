@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,9 +14,22 @@ tf.contrib.layers.recompute_grad(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/rev_block_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
+Defined in [`tensorflow/contrib/layers/python/layers/rev_block_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
 
 Decorator that recomputes the function on the backwards pass.
+
+To use this function, you must use `ResourceVariable`s (i.e.
+`variable_scope(name, use_resource=True), which are the default in Eager mode
+and when running on TPU.
+
+Warning: Because the function will be called again on the backwards pass, the
+user should be careful to not use ops in their function that mutate state or
+have randomness (for example, batch normalization or dropout). If the function
+does have such operations, it is recommended that the function take the
+`is_recomputing` keyword argument which will be `False` on the forward pass
+and `True` on the backwards pass so that it can disable state changes when
+`is_recomputing=True` (for example, not updating the moving averages in batch
+normalization).
 
 #### Args:
 

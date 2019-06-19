@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/debug/__init__.py).
+Defined in [`tensorflow/python/debug/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/__init__.py).
 
 Public Python API of TensorFlow Debugger (tfdbg).
 

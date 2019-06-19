@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.quantize(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/array_ops.py).
 
 Quantize the 'input' tensor of type float to 'output' tensor of type 'T'.
 
@@ -38,6 +35,7 @@ In 'MIN_COMBINED' mode, each value of the tensor will undergo the following:
 out[i] = (in[i] - min_range) * range(T) / (max_range - min_range)
 if T == qint8, out[i] -= (range(T) + 1) / 2.0
 ```
+
 here `range(T) = numeric_limits<T>::max() - numeric_limits<T>::min()`
 
 *MIN_COMBINED Mode Example*

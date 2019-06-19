@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/__init__.py).
+Defined in [`tensorflow/contrib/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/__init__.py).
 
 contrib module containing volatile or experimental code.
 
@@ -20,13 +17,17 @@ contrib module containing volatile or experimental code.
 
 [`bayesflow`](../tf/contrib/bayesflow) module: Ops for representing Bayesian computation.
 
+[`checkpoint`](../tf/contrib/checkpoint) module: Tools for working with object-based checkpoints.
+
 [`cloud`](../tf/contrib/cloud) module: Module for cloud ops.
 
 [`cluster_resolver`](../tf/contrib/cluster_resolver) module: Standard imports for Cluster Resolvers.
 
-[`coder`](../tf/contrib/coder) module: Entropy code operations.
+[`coder`](../tf/contrib/coder) module: Data compression tools.
 
 [`compiler`](../tf/contrib/compiler) module: A module for controlling the Tensorflow/XLA JIT compiler.
+
+[`constrained_optimization`](../tf/contrib/constrained_optimization) module: A library for performing constrained optimization in TensorFlow.
 
 [`copy_graph`](../tf/contrib/copy_graph) module: Functions to copy elements between graphs.
 
@@ -98,6 +99,8 @@ contrib module containing volatile or experimental code.
 
 [`metrics`](../tf/contrib/metrics) module: Ops for evaluation metrics and summary statistics.
 
+[`mixed_precision`](../tf/contrib/mixed_precision) module: Library for mixed precision training.
+
 [`model_pruning`](../tf/contrib/model_pruning) module: Model pruning implementation in tensorflow.
 
 [`nccl`](../tf/contrib/nccl) module: Functions for using NVIDIA nccl collective ops.
@@ -120,7 +123,7 @@ contrib module containing volatile or experimental code.
 
 [`receptive_field`](../tf/contrib/receptive_field) module: Module that declares the functions in tf.contrib.receptive_field's API.
 
-[`recurrent`](../tf/contrib/recurrent) module
+[`recurrent`](../tf/contrib/recurrent) module: Recurrent computations library.
 
 [`reduce_slice_ops`](../tf/contrib/reduce_slice_ops) module: reduce by slice
 

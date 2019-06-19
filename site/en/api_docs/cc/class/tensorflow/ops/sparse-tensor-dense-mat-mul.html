@@ -2,31 +2,31 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::SparseTensorDenseMatMul Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>SparseTensorDenseMatMul</h1>
   <code>#include &lt;sparse_ops.h&gt;</code>
-  <p><a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/multiply.html#classtensorflow_1_1ops_1_1_multiply">Multiply</a> SparseTensor (of rank 2) "A" by dense matrix "B". </p>
+  <p><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/multiply.html#classtensorflow_1_1ops_1_1_multiply">Multiply</a> SparseTensor (of rank 2) "A" by dense matrix "B". </p>
   <h2>Summary</h2>
   <p>No validity checking is performed on the indices of A. However, the following input format is recommended for optimal behavior:</p>
-  <p>if adjoint_a == false: A should be sorted in lexicographically increasing order. Use <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/sparse-reorder.html#classtensorflow_1_1ops_1_1_sparse_reorder">SparseReorder</a> if you're not sure. if adjoint_a == true: A should be sorted in order of increasing dimension 1 (i.e., "column major" order instead of "row major" order).</p>
+  <p>if adjoint_a == false: A should be sorted in lexicographically increasing order. Use <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/sparse-reorder.html#classtensorflow_1_1ops_1_1_sparse_reorder">SparseReorder</a> if you're not sure. if adjoint_a == true: A should be sorted in order of increasing dimension 1 (i.e., "column major" order instead of "row major" order).</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>a_indices: 2-D. The <code>indices</code> of the <code>SparseTensor</code>, size <code>[nnz, 2]</code> Matrix.</li>
       <li>a_values: 1-D. The <code>values</code> of the <code>SparseTensor</code>, size <code>[nnz]</code> Vector.</li>
       <li>a_shape: 1-D. The <code>shape</code> of the <code>SparseTensor</code>, size <code>[2]</code> Vector.</li>
       <li>b: 2-D. A dense Matrix.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">Attrs</a></code>):<ul>
       <li>adjoint_a: Use the adjoint of A in the matrix multiply. If A is complex, this is transpose(conj(A)). Otherwise it's transpose(A).</li>
       <li>adjoint_b: Use the adjoint of B in the matrix multiply. If B is complex, this is transpose(conj(B)). Otherwise it's transpose(B).</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The product tensor. </li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The product tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -36,13 +36,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1adf1f689b8b8d0d72c059efbea5fb9cac">SparseTensorDenseMatMul</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1adf1f689b8b8d0d72c059efbea5fb9cac">SparseTensorDenseMatMul</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1a3643c83b6940a54319e70b0bc094f948">SparseTensorDenseMatMul</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">SparseTensorDenseMatMul::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1a3643c83b6940a54319e70b0bc094f948">SparseTensorDenseMatMul</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">SparseTensorDenseMatMul::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -59,7 +59,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -113,7 +113,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -123,7 +123,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -136,40 +136,40 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs">tensorflow::<wbr/>ops::<wbr/>SparseTensorDenseMatMul::<wbr/>Attrs</a>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs">tensorflow::<wbr/>ops::<wbr/>SparseTensorDenseMatMul::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/sparse-tensor-dense-mat-mul.html#classtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul">SparseTensorDenseMatMul</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/sparse-tensor-dense-mat-mul.html#classtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul">SparseTensorDenseMatMul</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1a8895f99af9af5585d8bd937b817bb0ae">
     <h3>product</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> product</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> product</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1adf1f689b8b8d0d72c059efbea5fb9cac">
     <h3>SparseTensorDenseMatMul</h3>
     <pre class="prettyprint"> SparseTensorDenseMatMul(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1a3643c83b6940a54319e70b0bc094f948">
     <h3>SparseTensorDenseMatMul</h3>
     <pre class="prettyprint"> SparseTensorDenseMatMul(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b,
-  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">SparseTensorDenseMatMul::Attrs</a> & attrs
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_indices,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_values,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a_shape,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">SparseTensorDenseMatMul::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -191,14 +191,14 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1a972ac5b3a5538d477e96e8d1d857ccca">
     <h3>AdjointA</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">Attrs</a> AdjointA(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">Attrs</a> AdjointA(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1ac3e772adcb84c991bdd702ba2f6f7b98">
     <h3>AdjointB</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">Attrs</a> AdjointB(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/sparse-tensor-dense-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_tensor_dense_mat_mul_1_1_attrs">Attrs</a> AdjointB(
   bool x
 )</pre>
     <div />

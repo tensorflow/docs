@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,18 @@ page_type: reference
 
 
 
-Defined in generated file: `tensorflow/tools/api/generator/api/keras/applications/inception_v3/__init__.py`.
+Defined in [`tensorflow/keras/applications/inception_v3/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/applications/inception_v3/__init__.py).
 
+Inception V3 model for Keras.
 
+Note that the input image format for this model is different than for
+the VGG16 and ResNet models (299x299 instead of 224x224),
+and that the input preprocessing function is also different (same as Xception).
+
+# Reference
+
+- [Rethinking the Inception Architecture for Computer
+Vision](http://arxiv.org/abs/1512.00567)
 
 ## Functions
 

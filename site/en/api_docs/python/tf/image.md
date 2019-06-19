@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,11 @@ page_type: reference
 
 
 
-Defined in generated file: `tensorflow/tools/api/generator/api/image/__init__.py`.
+Defined in [`tensorflow/image/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/image/__init__.py).
 
+Image processing and decoding ops.
 
+See the <a href="../../../api_guides/python/image">Images</a> guide.
 
 ## Classes
 
@@ -30,11 +29,11 @@ Defined in generated file: `tensorflow/tools/api/generator/api/image/__init__.py
 
 [`adjust_saturation(...)`](../tf/image/adjust_saturation): Adjust saturation of an RGB image.
 
-[`central_crop(...)`](../tf/image/central_crop): Crop the central region of the image.
+[`central_crop(...)`](../tf/image/central_crop): Crop the central region of the image(s).
 
 [`convert_image_dtype(...)`](../tf/image/convert_image_dtype): Convert `image` to `dtype`, scaling its values if needed.
 
-[`crop_and_resize(...)`](../tf/image/crop_and_resize): Extracts crops from the input image tensor and bilinearly resizes them (possibly
+[`crop_and_resize(...)`](../tf/image/crop_and_resize): Extracts crops from the input image tensor and resizes them.
 
 [`crop_to_bounding_box(...)`](../tf/image/crop_to_bounding_box): Crops an image to a specified bounding box.
 

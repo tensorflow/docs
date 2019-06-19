@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.contrib.losses.hinge_loss(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/losses/python/losses/loss_ops.py).
+Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
 See the guide: [Losses (contrib) > Loss operations for use in neural networks.](../../../../../api_guides/python/contrib.losses#Loss_operations_for_use_in_neural_networks_)
 
@@ -30,9 +27,12 @@ Use tf.losses.hinge_loss instead. Note that the order of the logits and labels a
 
 #### Args:
 
-* <b>`logits`</b>: The logits, a float tensor.
+* <b>`logits`</b>: The logits, a float tensor. Note that logits are assumed to be
+    unbounded and 0-centered. A value > 0 (resp. < 0) is considered a positive
+    (resp. negative) binary prediction.
 * <b>`labels`</b>: The ground truth output tensor. Its shape should match the shape of
-    logits. The values of the tensor are expected to be 0.0 or 1.0.
+    logits. The values of the tensor are expected to be 0.0 or 1.0. Internally
+    the {0,1} labels are converted to {-1,1} when calculating the hinge loss.
 * <b>`scope`</b>: The scope for the operations performed in computing the loss.
 
 

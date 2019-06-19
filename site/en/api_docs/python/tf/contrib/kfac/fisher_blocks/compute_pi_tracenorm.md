@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +15,7 @@ tf.contrib.kfac.fisher_blocks.compute_pi_tracenorm(
 
 
 
-Defined in [`tensorflow/contrib/kfac/python/ops/fisher_blocks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/fisher_blocks.py).
+Defined in [`tensorflow/contrib/kfac/python/ops/fisher_blocks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kfac/python/ops/fisher_blocks.py).
 
 Computes the scalar constant pi for Tikhonov regularization/damping.
 
@@ -26,8 +24,8 @@ See section 6.3 of https://arxiv.org/pdf/1503.05671.pdf for details.
 
 #### Args:
 
-* <b>`left_cov`</b>: The left Kronecker factor "covariance".
-* <b>`right_cov`</b>: The right Kronecker factor "covariance".
+* <b>`left_cov`</b>: A LinearOperator object. The left Kronecker factor "covariance".
+* <b>`right_cov`</b>: A LinearOperator object. The right Kronecker factor "covariance".
 
 
 #### Returns:

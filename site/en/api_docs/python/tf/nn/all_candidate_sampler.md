@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.nn.all_candidate_sampler(
 
 
 
-Defined in [`tensorflow/python/ops/candidate_sampling_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/candidate_sampling_ops.py).
+Defined in [`tensorflow/python/ops/candidate_sampling_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/candidate_sampling_ops.py).
 
 Generate the set of all classes.
 

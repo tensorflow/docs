@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.contrib.signal.linear_to_mel_weight_matrix(
 
 
 
-Defined in [`tensorflow/contrib/signal/python/ops/mel_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/signal/python/ops/mel_ops.py).
+Defined in [`tensorflow/contrib/signal/python/ops/mel_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/signal/python/ops/mel_ops.py).
 
 See the guide: [Signal Processing (contrib) > Computing log-mel spectrograms](../../../../../api_guides/python/contrib.signal#Computing_log_mel_spectrograms)
 
@@ -54,9 +51,9 @@ The matrix can be used with <a href="../../../tf/tensordot"><code>tf.tensordot</
 #### Args:
 
 * <b>`num_mel_bins`</b>: Python int. How many bands in the resulting mel spectrum.
-* <b>`num_spectrogram_bins`</b>: Python int. How many bins there are in the source
-    spectrogram data, which is understood to be `fft_size // 2 + 1`, i.e. the
-    spectrogram only contains the nonredundant FFT bins.
+* <b>`num_spectrogram_bins`</b>: An integer `Tensor`. How many bins there are in the
+    source spectrogram data, which is understood to be `fft_size // 2 + 1`,
+    i.e. the spectrogram only contains the nonredundant FFT bins.
 * <b>`sample_rate`</b>: Python float. Samples per second of the input signal used to
     create the spectrogram. We need this to figure out the actual frequencies
     for each spectrogram bin, which dictates how they are mapped into the mel

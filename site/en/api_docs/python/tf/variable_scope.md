@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/variable_scope.py).
+Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/variable_scope.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 
@@ -31,7 +28,7 @@ to it.
 
 Variable scope allows you to create new variables and to share already created
 ones while providing checks to not create or share by accident. For details,
-see the <a href="../../../programmers_guide/variables">Variable Scope How To</a>, here we present only a few basic
+see the <a href="../../../guide/variables">Variable Scope How To</a>, here we present only a few basic
 examples.
 
 Simple example of how to create a new variable:

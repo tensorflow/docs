@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.contrib.data.sliding_window_batch(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/sliding.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/data/python/ops/sliding.py).
+Defined in [`tensorflow/contrib/data/python/ops/sliding.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/data/python/ops/sliding.py).
 
 A sliding window with size of `window_size` and step of `stride`.
 

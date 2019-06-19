@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`SessionRunHook`](../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/basic_session_run_hooks.py).
+Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/basic_session_run_hooks.py).
 
 See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
 
@@ -32,8 +29,7 @@ __init__(
     saver=None,
     checkpoint_basename='model.ckpt',
     scaffold=None,
-    listeners=None,
-    steps_per_run=1
+    listeners=None
 )
 ```
 
@@ -50,9 +46,6 @@ Initializes a `CheckpointSaverHook`.
 * <b>`listeners`</b>: List of `CheckpointSaverListener` subclass instances.
     Used for callbacks that run immediately before or after this hook saves
     the checkpoint.
-* <b>`steps_per_run`</b>: `int`, number of steps that occur between each invocation
-    of the hook. Primarily used for TPU workloads which run multiple steps
-    in a while loop in a single Session.run.
 
 
 #### Raises:
@@ -69,20 +62,7 @@ after_create_session(
 )
 ```
 
-Called when new TensorFlow session is created.
 
-This is called to signal the hooks that a new session has been created. This
-has two essential differences with the situation in which `begin` is called:
-
-* When this is called, the graph is finalized and ops can no longer be added
-    to the graph.
-* This method will also be called as a result of recovering a wrapped
-    session, not only at the beginning of the overall session.
-
-#### Args:
-
-* <b>`session`</b>: A TensorFlow Session that has been created.
-* <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
 <h3 id="after_run"><code>after_run</code></h3>
 

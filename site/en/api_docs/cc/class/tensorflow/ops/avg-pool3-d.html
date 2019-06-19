@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::AvgPool3D Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,17 +13,17 @@
   <p>Performs 3D average pooling on the input. </p>
   <h2>Summary</h2>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>input: <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a><code>[batch, depth, rows, cols, channels]</code> tensor to pool over.</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a><code>[batch, depth, rows, cols, channels]</code> tensor to pool over.</li>
       <li>ksize: 1-D tensor of length 5. The size of the window for each dimension of the input tensor. Must have <code>ksize[0] = ksize[4] = 1</code>.</li>
       <li>strides: 1-D tensor of length 5. The stride of the sliding window for each dimension of <code>input</code>. Must have <code>strides[0] = strides[4] = 1</code>.</li>
       <li>padding: The type of padding algorithm to use.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_1_1_attrs">Attrs</a></code>):<ul>
       <li>data_format: The data format of the input and output data. With the default format "NDHWC", the data is stored in the order of: [batch, in_depth, in_height, in_width, in_channels]. Alternatively, the format could be "NCDHW", the data storage order is: [batch, in_channels, in_depth, in_height, in_width].</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The average pooled output tensor. </li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The average pooled output tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -33,13 +33,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_avg_pool3_d_1ad52fa7270df230a429102dff7f270dfb">AvgPool3D</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_avg_pool3_d_1ad52fa7270df230a429102dff7f270dfb">AvgPool3D</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_avg_pool3_d_1a25cc864885d8a535be290334b7668495">AvgPool3D</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_1_1_attrs">AvgPool3D::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_avg_pool3_d_1a25cc864885d8a535be290334b7668495">AvgPool3D</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_1_1_attrs">AvgPool3D::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -56,7 +56,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -110,7 +110,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -123,25 +123,25 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs">tensorflow::<wbr/>ops::<wbr/>AvgPool3D::<wbr/>Attrs</a>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs">tensorflow::<wbr/>ops::<wbr/>AvgPool3D::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/avg-pool3-d.html#classtensorflow_1_1ops_1_1_avg_pool3_d">AvgPool3D</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/avg-pool3-d.html#classtensorflow_1_1ops_1_1_avg_pool3_d">AvgPool3D</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_avg_pool3_d_1a6c96677783666eb38f1aa8f0e8022e06">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_avg_pool3_d_1ad52fa7270df230a429102dff7f270dfb">
     <h3>AvgPool3D</h3>
     <pre class="prettyprint"> AvgPool3D(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
   const gtl::ArraySlice< int > & ksize,
   const gtl::ArraySlice< int > & strides,
   StringPiece padding
@@ -151,12 +151,12 @@
   <div id="classtensorflow_1_1ops_1_1_avg_pool3_d_1a25cc864885d8a535be290334b7668495">
     <h3>AvgPool3D</h3>
     <pre class="prettyprint"> AvgPool3D(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
   const gtl::ArraySlice< int > & ksize,
   const gtl::ArraySlice< int > & strides,
   StringPiece padding,
-  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_1_1_attrs">AvgPool3D::Attrs</a> & attrs
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_1_1_attrs">AvgPool3D::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -178,7 +178,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_avg_pool3_d_1a9f02a15e10745fc4a9af9a7a15f32412">
     <h3>DataFormat</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_1_1_attrs">Attrs</a> DataFormat(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/avg-pool3-d/attrs.html#structtensorflow_1_1ops_1_1_avg_pool3_d_1_1_attrs">Attrs</a> DataFormat(
   StringPiece x
 )</pre>
     <div />

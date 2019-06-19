@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -26,7 +23,7 @@ tf.norm(
 
 
 
-Defined in [`tensorflow/python/ops/linalg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/linalg_ops.py).
+Defined in [`tensorflow/python/ops/linalg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/linalg_ops.py).
 
 See the guide: [Math > Matrix Math Functions](../../../api_guides/python/math_ops#Matrix_Math_Functions)
 
@@ -38,7 +35,7 @@ keep_dims is deprecated, use keepdims instead
 
 This function can compute several different vector norms (the 1-norm, the
 Euclidean or 2-norm, the inf-norm, and in general the p-norm for p > 0) and
-matrix norms (Frobenius, 1-norm, and inf-norm).
+matrix norms (Frobenius, 1-norm, 2-norm and inf-norm).
 
 #### Args:
 
@@ -50,7 +47,7 @@ matrix norms (Frobenius, 1-norm, and inf-norm).
     Some restrictions apply:
       a) The Frobenius norm `fro` is not defined for vectors,
       b) If axis is a 2-tuple (matrix norm), only 'euclidean', 'fro', `1`,
-         `np.inf` are supported.
+         `2`, `np.inf` are supported.
     See the description of `axis` on how to compute norms for a batch of
     vectors or matrices stored in a tensor.
 * <b>`axis`</b>: If `axis` is `None` (the default), the input is considered a vector

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,7 +20,7 @@ tf.estimator.inputs.pandas_input_fn(
 
 
 
-Defined in [`tensorflow/python/estimator/inputs/pandas_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/estimator/inputs/pandas_io.py).
+Defined in [`tensorflow/python/estimator/inputs/pandas_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/inputs/pandas_io.py).
 
 Returns input function that would feed Pandas DataFrame into the model.
 
@@ -54,4 +51,4 @@ Function, that has signature of ()->(dict of `features`, `target`)
 
 * <b>`ValueError`</b>: if `x` already contains a column with the same name as `y`, or
     if the indexes of `x` and `y` don't match.
-* <b>`TypeError`</b>: `shuffle` is not bool.
+* <b>`ValueError`</b>: if 'shuffle' is not provided or a bool.

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,21 @@ page_type: reference
 
 
 
-Defined in generated file: `tensorflow/tools/api/generator/api/keras/metrics/__init__.py`.
+Defined in [`tensorflow/keras/metrics/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/metrics/__init__.py).
 
-
+Built-in metrics.
 
 ## Functions
+
+[`KLD(...)`](../../tf/keras/losses/KLD)
+
+[`MAE(...)`](../../tf/keras/losses/MAE)
+
+[`MAPE(...)`](../../tf/keras/losses/MAPE)
+
+[`MSE(...)`](../../tf/keras/losses/MSE)
+
+[`MSLE(...)`](../../tf/keras/losses/MSLE)
 
 [`binary_accuracy(...)`](../../tf/keras/metrics/binary_accuracy)
 
@@ -24,7 +31,9 @@ Defined in generated file: `tensorflow/tools/api/generator/api/keras/metrics/__i
 
 [`categorical_crossentropy(...)`](../../tf/keras/losses/categorical_crossentropy)
 
-[`cosine_proximity(...)`](../../tf/keras/losses/cosine_proximity)
+[`cosine(...)`](../../tf/keras/losses/cosine)
+
+[`cosine_proximity(...)`](../../tf/keras/losses/cosine)
 
 [`deserialize(...)`](../../tf/keras/metrics/deserialize)
 
@@ -32,15 +41,25 @@ Defined in generated file: `tensorflow/tools/api/generator/api/keras/metrics/__i
 
 [`hinge(...)`](../../tf/keras/losses/hinge)
 
-[`kullback_leibler_divergence(...)`](../../tf/keras/losses/kullback_leibler_divergence)
+[`kld(...)`](../../tf/keras/losses/KLD)
 
-[`mean_absolute_error(...)`](../../tf/keras/losses/mean_absolute_error)
+[`kullback_leibler_divergence(...)`](../../tf/keras/losses/KLD)
 
-[`mean_absolute_percentage_error(...)`](../../tf/keras/losses/mean_absolute_percentage_error)
+[`mae(...)`](../../tf/keras/losses/MAE)
 
-[`mean_squared_error(...)`](../../tf/keras/losses/mean_squared_error)
+[`mape(...)`](../../tf/keras/losses/MAPE)
 
-[`mean_squared_logarithmic_error(...)`](../../tf/keras/losses/mean_squared_logarithmic_error)
+[`mean_absolute_error(...)`](../../tf/keras/losses/MAE)
+
+[`mean_absolute_percentage_error(...)`](../../tf/keras/losses/MAPE)
+
+[`mean_squared_error(...)`](../../tf/keras/losses/MSE)
+
+[`mean_squared_logarithmic_error(...)`](../../tf/keras/losses/MSLE)
+
+[`mse(...)`](../../tf/keras/losses/MSE)
+
+[`msle(...)`](../../tf/keras/losses/MSLE)
 
 [`poisson(...)`](../../tf/keras/losses/poisson)
 

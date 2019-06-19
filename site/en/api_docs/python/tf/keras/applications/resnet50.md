@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,16 @@ page_type: reference
 
 
 
-Defined in generated file: `tensorflow/tools/api/generator/api/keras/applications/resnet50/__init__.py`.
+Defined in [`tensorflow/keras/applications/resnet50/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/applications/resnet50/__init__.py).
 
+ResNet50 model for Keras.
 
+# Reference:
+
+- [Deep Residual Learning for Image
+Recognition](https://arxiv.org/abs/1512.03385)
+
+Adapted from code contributed by BigMoyan.
 
 ## Functions
 

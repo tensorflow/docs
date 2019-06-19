@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,9 +17,10 @@ tf.contrib.layers.sequence_to_images(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/layers.py).
 
 Convert a batch of sequences into a batch of images.
+
 #### Args:
 
 * <b>`inputs`</b>: (num_steps, num_batches, depth) sequence tensor
@@ -31,6 +29,7 @@ Convert a batch of sequences into a batch of images.
     Currently supports `'channels_first'` and `'channels_last'`.
 * <b>`outputs_collections`</b>: The collections to which the outputs are added.
 * <b>`scope`</b>: Optional scope for name_scope.
+
 
 #### Returns:
 

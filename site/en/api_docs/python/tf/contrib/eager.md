@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/eager/python/tfe.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/eager/python/tfe.py).
+Defined in [`tensorflow/contrib/eager/python/tfe.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/tfe.py).
 
 TensorFlow Eager execution prototype.
 
@@ -36,9 +33,9 @@ To use, at program startup, call `tfe.enable_eager_execution()`.
 
 ## Classes
 
-[`class Checkpoint`](../../tf/contrib/eager/Checkpoint): A utility class which groups `Checkpointable` objects.
+[`class Checkpoint`](../../tf/train/Checkpoint): Groups checkpointable objects, saving and restoring them.
 
-[`class Checkpointable`](../../tf/contrib/eager/Checkpointable): Manages dependencies on other objects.
+[`class Checkpointable`](../../tf/contrib/checkpoint/Checkpointable): Manages dependencies on other objects.
 
 [`class CheckpointableSaver`](../../tf/contrib/eager/CheckpointableSaver): Saves and restores a `Checkpointable` object and its dependencies.
 
@@ -68,7 +65,7 @@ To use, at program startup, call `tfe.enable_eager_execution()`.
 
 [`custom_gradient(...)`](../../tf/custom_gradient): Decorator to define a function with a custom gradient.
 
-[`defun(...)`](../../tf/contrib/eager/defun): Decorator to compile func into graph_mode.
+[`defun(...)`](../../tf/contrib/eager/defun): Compiles a Python function into a callable TensorFlow graph.
 
 [`enable_eager_execution(...)`](../../tf/enable_eager_execution): Enables eager execution for the lifetime of this program.
 
@@ -98,17 +95,17 @@ To use, at program startup, call `tfe.enable_eager_execution()`.
 
 [`num_gpus(...)`](../../tf/contrib/eager/num_gpus): Get the number of available GPU devices.
 
-[`py_func(...)`](../../tf/contrib/eager/py_func): Wraps a python function into a TensorFlow op.
+[`py_func(...)`](../../tf/contrib/eager/py_func): Wraps a python function into a TensorFlow op that executes it eagerly.
 
-[`restore_network_checkpoint(...)`](../../tf/contrib/eager/restore_network_checkpoint): Restore the Network from a checkpoint.
+[`restore_network_checkpoint(...)`](../../tf/contrib/eager/restore_network_checkpoint): Restore the Network from a checkpoint. (deprecated)
 
 [`restore_variables_on_create(...)`](../../tf/contrib/eager/restore_variables_on_create): ContextManager that restores variables on creation.
 
 [`run(...)`](../../tf/contrib/eager/run): Runs the program with an optional main function and argv list.
 
-[`run_test_in_graph_and_eager_modes(...)`](../../tf/contrib/eager/run_test_in_graph_and_eager_modes): Runs the test in both graph and eager modes.
+[`run_test_in_graph_and_eager_modes(...)`](../../tf/contrib/eager/run_test_in_graph_and_eager_modes): Execute the decorated test with and without enabling eager execution.
 
-[`save_network_checkpoint(...)`](../../tf/contrib/eager/save_network_checkpoint): Save variables from the Network to a checkpoint.
+[`save_network_checkpoint(...)`](../../tf/contrib/eager/save_network_checkpoint): Save variables from the Network to a checkpoint. (deprecated)
 
 [`set_execution_mode(...)`](../../tf/contrib/eager/set_execution_mode): Sets execution mode for the current thread.
 

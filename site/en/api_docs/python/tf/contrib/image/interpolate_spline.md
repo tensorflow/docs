@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +19,7 @@ tf.contrib.image.interpolate_spline(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/interpolate_spline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/image/python/ops/interpolate_spline.py).
+Defined in [`tensorflow/contrib/image/python/ops/interpolate_spline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/image/python/ops/interpolate_spline.py).
 
 Interpolate signal using polyharmonic interpolation.
 

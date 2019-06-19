@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/estimator/training.py).
+Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/training.py).
 
 Configuration for the "eval" part for the `train_and_evaluate` call.
 
@@ -78,7 +75,7 @@ Creates a validated `EvalSpec` instance.
 #### Args:
 
 * <b>`input_fn`</b>: A function that constructs the input data for evaluation.
-    See <a href="../../../../get_started/premade_estimators#create_input_functions">Premade Estimators</a> for more
+    See <a href="../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
     information. The function should construct and return one of
     the following:
       * A 'tf.data.Dataset' object: Outputs of `Dataset` object must be a
@@ -86,7 +83,7 @@ Creates a validated `EvalSpec` instance.
       * A tuple (features, labels): Where features is a `Tensor` or a
         dictionary of string feature name to `Tensor` and labels is a
         `Tensor` or a dictionary of string label name to `Tensor`.
-        
+
 * <b>`steps`</b>: Int. Positive number of steps for which to evaluate model. If
     `None`, evaluates until `input_fn` raises an end-of-input exception.
     See `Estimator.evaluate` for details.

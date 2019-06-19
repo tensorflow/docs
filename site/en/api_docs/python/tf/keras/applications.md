@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,29 +7,29 @@ page_type: reference
 
 
 
-Defined in generated file: `tensorflow/tools/api/generator/api/keras/applications/__init__.py`.
+Defined in [`tensorflow/keras/applications/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/applications/__init__.py).
 
-
+Keras Applications are canned architectures with pre-trained weights.
 
 ## Modules
 
-[`densenet`](../../tf/keras/applications/densenet) module
+[`densenet`](../../tf/keras/applications/densenet) module: DenseNet models for Keras.
 
-[`inception_resnet_v2`](../../tf/keras/applications/inception_resnet_v2) module
+[`inception_resnet_v2`](../../tf/keras/applications/inception_resnet_v2) module: Inception-ResNet V2 model for Keras.
 
-[`inception_v3`](../../tf/keras/applications/inception_v3) module
+[`inception_v3`](../../tf/keras/applications/inception_v3) module: Inception V3 model for Keras.
 
-[`mobilenet`](../../tf/keras/applications/mobilenet) module
+[`mobilenet`](../../tf/keras/applications/mobilenet) module: MobileNet v1 models for Keras.
 
-[`nasnet`](../../tf/keras/applications/nasnet) module
+[`nasnet`](../../tf/keras/applications/nasnet) module: NASNet-A models for Keras.
 
-[`resnet50`](../../tf/keras/applications/resnet50) module
+[`resnet50`](../../tf/keras/applications/resnet50) module: ResNet50 model for Keras.
 
-[`vgg16`](../../tf/keras/applications/vgg16) module
+[`vgg16`](../../tf/keras/applications/vgg16) module: VGG16 model for Keras.
 
-[`vgg19`](../../tf/keras/applications/vgg19) module
+[`vgg19`](../../tf/keras/applications/vgg19) module: VGG19 model for Keras.
 
-[`xception`](../../tf/keras/applications/xception) module
+[`xception`](../../tf/keras/applications/xception) module: Xception V1 model for Keras.
 
 ## Functions
 

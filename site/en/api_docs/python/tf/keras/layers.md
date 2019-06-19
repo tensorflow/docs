@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,9 @@ page_type: reference
 
 
 
-Defined in generated file: `tensorflow/tools/api/generator/api/keras/layers/__init__.py`.
+Defined in [`tensorflow/keras/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/layers/__init__.py).
 
-
+Keras layers API.
 
 ## Classes
 
@@ -72,6 +69,10 @@ Defined in generated file: `tensorflow/tools/api/generator/api/keras/layers/__in
 
 [`class Cropping3D`](../../tf/keras/layers/Cropping3D): Cropping layer for 3D data (e.g.
 
+[`class CuDNNGRU`](../../tf/keras/layers/CuDNNGRU): Fast GRU implementation backed by cuDNN.
+
+[`class CuDNNLSTM`](../../tf/keras/layers/CuDNNLSTM): Fast LSTM implementation backed by cuDNN.
+
 [`class Dense`](../../tf/keras/layers/Dense): Just your regular densely-connected NN layer.
 
 [`class DepthwiseConv2D`](../../tf/keras/layers/DepthwiseConv2D): Depthwise separable 2D convolution.
@@ -128,7 +129,7 @@ Defined in generated file: `tensorflow/tools/api/generator/api/keras/layers/__in
 
 [`class Lambda`](../../tf/keras/layers/Lambda): Wraps arbitrary expression as a `Layer` object.
 
-[`class Layer`](../../tf/keras/layers/Layer): Abstract base layer class.
+[`class Layer`](../../tf/keras/layers/Layer): Base layer class.
 
 [`class LeakyReLU`](../../tf/keras/layers/LeakyReLU): Leaky version of a Rectified Linear Unit.
 

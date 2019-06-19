@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -29,7 +26,7 @@ tf.contrib.model_pruning.masked_fully_connected(
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/model_pruning/python/layers/layers.py).
+Defined in [`tensorflow/contrib/model_pruning/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/model_pruning/python/layers/layers.py).
 
 Adds a sparse fully connected layer. The weight matrix is masked.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,14 @@ Inherits From: [`Step`](../../../tf/contrib/distribute/Step)
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/step_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distribute/python/step_fn.py).
+Defined in [`tensorflow/contrib/distribute/python/step_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distribute/python/step_fn.py).
 
 Step with a standard implementation of input handling.
 
 #### Args:
 
-* <b>`input_dataset`</b>: a tf.data Dataset that provides input.
+* <b>`dataset_fn`</b>: a function that returns a tf.data Dataset that produces the
+    input for the model.
 
 ## Properties
 
@@ -36,7 +34,7 @@ Step with a standard implementation of input handling.
 
 ``` python
 __init__(
-    input_dataset,
+    dataset_fn,
     distribution
 )
 ```

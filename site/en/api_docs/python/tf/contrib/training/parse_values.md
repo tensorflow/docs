@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.contrib.training.parse_values(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/training/python/training/hparam.py).
+Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/python/training/hparam.py).
 
 Parses hyperparameter values from a string into a python map.
 
@@ -30,6 +27,13 @@ is raised (e.g. 'a=1,a=2', 'a[1]=1,a[1]=2').
 
 If a hyperparameter name in both an index assignment and scalar assignment,
 a ValueError is raised.  (e.g. 'a=[1,2,3],a[0] = 1').
+
+The hyperparameter name may contain '.' symbols, which will result in an
+attribute name that is only accessible through the getattr and setattr
+functions.  (And must be first explicit added through add_hparam.)
+
+WARNING: Use of '.' in your variable names is allowed, but is not well
+supported and not recommended.
 
 The `value` in `name=value` must follows the syntax according to the
 type of the parameter:

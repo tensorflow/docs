@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.contrib.data.bucket_by_sequence_length(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/grouping.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/data/python/ops/grouping.py).
+Defined in [`tensorflow/contrib/data/python/ops/grouping.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/data/python/ops/grouping.py).
 
 A transformation that buckets elements in a `Dataset` by length.
 
@@ -34,7 +31,7 @@ fraction of padding in a batch which increases training step efficiency.
 
 #### Args:
 
-* <b>`element_length_func`</b>: function from element in `Dataset` to <a href="../../../tf/int64"><code>tf.int64</code></a>,
+* <b>`element_length_func`</b>: function from element in `Dataset` to <a href="../../../tf/int32"><code>tf.int32</code></a>,
     determines the length of the element, which will determine the bucket it
     goes into.
 * <b>`bucket_boundaries`</b>: `list<int>`, upper length boundaries of the buckets.

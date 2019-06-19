@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,11 @@ page_type: reference
 
 ## Class `Flatten`
 
-Inherits From: [`Layer`](../../tf/layers/Layer)
+Inherits From: [`Flatten`](../../tf/keras/layers/Flatten), [`Layer`](../../tf/layers/Layer)
 
 
 
-Defined in [`tensorflow/python/layers/core.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/layers/core.py).
+Defined in [`tensorflow/python/layers/core.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/layers/core.py).
 
 Flattens an input tensor while preserving the batch axis (axis 0).
 
@@ -70,6 +67,24 @@ Input tensor or list of input tensors.
 
 * <b>`RuntimeError`</b>: If called in Eager mode.
 * <b>`AttributeError`</b>: If no inbound nodes are found.
+
+<h3 id="input_mask"><code>input_mask</code></h3>
+
+Retrieves the input mask tensor(s) of a layer.
+
+Only applicable if the layer has exactly one inbound node,
+i.e. if it is connected to one incoming layer.
+
+#### Returns:
+
+Input mask tensor (potentially None) or list of input
+mask tensors.
+
+
+#### Raises:
+
+* <b>`AttributeError`</b>: if the layer is connected to
+    more than one incoming layers.
 
 <h3 id="input_shape"><code>input_shape</code></h3>
 
@@ -136,6 +151,24 @@ Output tensor or list of output tensors.
     layers.
 * <b>`RuntimeError`</b>: if called in Eager mode.
 
+<h3 id="output_mask"><code>output_mask</code></h3>
+
+Retrieves the output mask tensor(s) of a layer.
+
+Only applicable if the layer has exactly one inbound node,
+i.e. if it is connected to one incoming layer.
+
+#### Returns:
+
+Output mask tensor (potentially None) or list of output
+mask tensors.
+
+
+#### Raises:
+
+* <b>`AttributeError`</b>: if the layer is connected to
+    more than one incoming layers.
+
 <h3 id="output_shape"><code>output_shape</code></h3>
 
 Retrieves the output shape(s) of a layer.
@@ -193,7 +226,10 @@ A list of variables.
 <h3 id="__init__"><code>__init__</code></h3>
 
 ``` python
-__init__(**kwargs)
+__init__(
+    data_format=None,
+    **kwargs
+)
 ```
 
 
@@ -253,37 +289,7 @@ add_loss(
 )
 ```
 
-Add loss tensor(s), potentially dependent on layer inputs.
 
-Some losses (for instance, activity regularization losses) may be dependent
-on the inputs passed when calling a layer. Hence, when reusing the same
-layer on different inputs `a` and `b`, some entries in `layer.losses` may
-be dependent on `a` and some on `b`. This method automatically keeps track
-of dependencies.
-
-The `get_losses_for` method allows to retrieve the losses relevant to a
-specific set of inputs.
-
-Note that `add_loss` is not supported when executing eagerly. Instead,
-variable regularizers may be added through `add_variable`. Activity
-regularization is not supported directly (but such losses may be returned
-from `Layer.call()`).
-
-#### Arguments:
-
-* <b>`losses`</b>: Loss tensor, or list/tuple of tensors.
-* <b>`inputs`</b>: If anything other than None is passed, it signals the losses
-    are conditional on some of the layer's inputs,
-    and thus they should only be run where these inputs are available.
-    This is the case for activity regularization losses, for instance.
-    If `None` is passed, the losses are assumed
-    to be unconditional, and will apply across all dataflows of the layer
-    (e.g. weight regularization losses).
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If called in Eager mode.
 
 <h3 id="add_update"><code>add_update</code></h3>
 
@@ -306,7 +312,9 @@ of dependencies.
 The `get_updates_for` method allows to retrieve the updates relevant to a
 specific set of inputs.
 
-This call is ignored in Eager mode.
+This call is ignored when eager execution is enabled (in that case, variable
+updates are run on the fly and thus do not need to be tracked for later
+execution).
 
 #### Arguments:
 
@@ -324,6 +332,17 @@ This call is ignored in Eager mode.
 
 ``` python
 add_variable(
+    *args,
+    **kwargs
+)
+```
+
+Alias for `add_weight`.
+
+<h3 id="add_weight"><code>add_weight</code></h3>
+
+``` python
+add_weight(
     name,
     shape,
     dtype=None,
@@ -331,6 +350,7 @@ add_variable(
     regularizer=None,
     trainable=True,
     constraint=None,
+    use_resource=None,
     partitioner=None
 )
 ```
@@ -351,6 +371,7 @@ Adds a new variable to the layer, or gets an existing one; returns it.
     then this parameter is ignored and any added variables are also
     marked as non-trainable.
 * <b>`constraint`</b>: constraint instance (callable).
+* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
 * <b>`partitioner`</b>: (optional) partitioner instance (callable).  If
     provided, when the requested variable is created it will be split
     into multiple partitions according to `partitioner`.  In this case,
@@ -401,7 +422,7 @@ Output tensor(s).
 <h3 id="build"><code>build</code></h3>
 
 ``` python
-build(_)
+build(input_shape)
 ```
 
 Creates the variables of the layer.
@@ -413,6 +434,28 @@ call(inputs)
 ```
 
 
+
+<h3 id="compute_mask"><code>compute_mask</code></h3>
+
+``` python
+compute_mask(
+    inputs,
+    mask=None
+)
+```
+
+Computes an output mask tensor.
+
+#### Arguments:
+
+* <b>`inputs`</b>: Tensor or list of tensors.
+* <b>`mask`</b>: Tensor or list of tensors.
+
+
+#### Returns:
+
+None or a tensor (or list of tensors,
+    one per output tensor of the layer).
 
 <h3 id="compute_output_shape"><code>compute_output_shape</code></h3>
 
@@ -440,6 +483,40 @@ An integer count.
 * <b>`ValueError`</b>: if the layer isn't yet built
       (in which case its weights aren't yet defined).
 
+<h3 id="from_config"><code>from_config</code></h3>
+
+``` python
+from_config(
+    cls,
+    config
+)
+```
+
+Creates a layer from its config.
+
+This method is the reverse of `get_config`,
+capable of instantiating the same layer from the config
+dictionary. It does not handle layer connectivity
+(handled by Network), nor weights (handled by `set_weights`).
+
+#### Arguments:
+
+* <b>`config`</b>: A Python dictionary, typically the
+        output of get_config.
+
+
+#### Returns:
+
+A layer instance.
+
+<h3 id="get_config"><code>get_config</code></h3>
+
+``` python
+get_config()
+```
+
+
+
 <h3 id="get_input_at"><code>get_input_at</code></h3>
 
 ``` python
@@ -464,6 +541,27 @@ A tensor (or list of tensors if the layer has multiple inputs).
 #### Raises:
 
 * <b>`RuntimeError`</b>: If called in Eager mode.
+
+<h3 id="get_input_mask_at"><code>get_input_mask_at</code></h3>
+
+``` python
+get_input_mask_at(node_index)
+```
+
+Retrieves the input mask tensor(s) of a layer at a given node.
+
+#### Arguments:
+
+* <b>`node_index`</b>: Integer, index of the node
+        from which to retrieve the attribute.
+        E.g. `node_index=0` will correspond to the
+        first time the layer was called.
+
+
+#### Returns:
+
+A mask tensor
+(or list of tensors if the layer has multiple inputs).
 
 <h3 id="get_input_shape_at"><code>get_input_shape_at</code></h3>
 
@@ -538,6 +636,27 @@ A tensor (or list of tensors if the layer has multiple outputs).
 
 * <b>`RuntimeError`</b>: If called in Eager mode.
 
+<h3 id="get_output_mask_at"><code>get_output_mask_at</code></h3>
+
+``` python
+get_output_mask_at(node_index)
+```
+
+Retrieves the output mask tensor(s) of a layer at a given node.
+
+#### Arguments:
+
+* <b>`node_index`</b>: Integer, index of the node
+        from which to retrieve the attribute.
+        E.g. `node_index=0` will correspond to the
+        first time the layer was called.
+
+
+#### Returns:
+
+A mask tensor
+(or list of tensors if the layer has multiple outputs).
+
 <h3 id="get_output_shape_at"><code>get_output_shape_at</code></h3>
 
 ``` python
@@ -585,6 +704,40 @@ List of update ops of the layer that depend on `inputs`.
 #### Raises:
 
 * <b>`RuntimeError`</b>: If called in Eager mode.
+
+<h3 id="get_weights"><code>get_weights</code></h3>
+
+``` python
+get_weights()
+```
+
+Returns the current weights of the layer.
+
+#### Returns:
+
+Weights values as a list of numpy arrays.
+
+<h3 id="set_weights"><code>set_weights</code></h3>
+
+``` python
+set_weights(weights)
+```
+
+Sets the weights of the layer, from Numpy arrays.
+
+#### Arguments:
+
+* <b>`weights`</b>: a list of Numpy arrays. The number
+        of arrays and their shape must match
+        number of the dimensions of the weights
+        of the layer (i.e. it should match the
+        output of `get_weights`).
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If the provided weights list does not match the
+        layer's specifications.
 
 
 

@@ -2,15 +2,15 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::TensorArrayConcat Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>TensorArrayConcat</h1>
   <code>#include &lt;data_flow_ops.h&gt;</code>
-  <p><a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/concat.html#classtensorflow_1_1ops_1_1_concat">Concat</a> the elements from the <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> into value <code>value</code>. </p>
+  <p><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/concat.html#classtensorflow_1_1ops_1_1_concat">Concat</a> the elements from the <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> into value <code>value</code>. </p>
   <h2>Summary</h2>
   <p>Takes <code>T</code> elements of shapes</p>
   <p>
@@ -18,30 +18,30 @@
   (n0 x d0 x d1 x ...), (n1 x d0 x d1 x ...), ..., (n(T-1) x d0 x d1 x ...)
   </pre>
   </p>
-  <p>and concatenates them into a <a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of shape:</p>
+  <p>and concatenates them into a <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of shape:</p>
   <p>```(n0 + n1 + ... + n(T-1) x d0 x d1 x ...)<pre class="prettyprint" /></p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> elements must have the same shape (excepting the first dimension).</pre>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> elements must have the same shape (excepting the first dimension).</pre>
   </p>
   <p>
     <pre class="prettyprint">Arguments:
-* scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
-* handle: The handle to a <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.
+* scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+* handle: The handle to a <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.
 * flow_in: A float scalar that enforces proper chaining of operations.
 * dtype: The type of the elem that is returned.</pre>
   </p>
   <p>
-    <pre class="prettyprint">Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">Attrs</a></code>):
+    <pre class="prettyprint">Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">Attrs</a></code>):
 * element_shape_except0: The expected shape of an element, if known,
 excluding the first dimension. Used to validate the shapes of
-<a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> elements. If this shape is not fully specified, concatenating
+<a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> elements. If this shape is not fully specified, concatenating
 zero-size TensorArrays is an error.</pre>
   </p>
   <p>
     <pre class="prettyprint">Returns:
-* <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> value: <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> of the elements in the <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>, concatenated along the first
+* <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> value: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> of the elements in the <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>, concatenated along the first
 axis.
-* <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> lengths: A vector of the row sizes of the original T elements in the
+* <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> lengths: A vector of the row sizes of the original T elements in the
 value output.  In the example above, this would be the values:
 <code>(n1, n2, ..., n(T-1))</code>.  
 </pre>
@@ -54,13 +54,13 @@ value output.  In the example above, this would be the values:
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_concat_1aab54b53cc7e1c5f65154a9ab7a3a2b6f">TensorArrayConcat</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in, DataType dtype)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_concat_1aab54b53cc7e1c5f65154a9ab7a3a2b6f">TensorArrayConcat</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in, DataType dtype)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_concat_1adce330002ce711626c4b067bca8eb40e">TensorArrayConcat</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in, DataType dtype, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">TensorArrayConcat::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_concat_1adce330002ce711626c4b067bca8eb40e">TensorArrayConcat</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in, DataType dtype, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">TensorArrayConcat::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -77,7 +77,7 @@ value output.  In the example above, this would be the values:
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -87,7 +87,7 @@ value output.  In the example above, this would be the values:
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -104,7 +104,7 @@ value output.  In the example above, this would be the values:
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -117,31 +117,31 @@ value output.  In the example above, this would be the values:
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs">tensorflow::<wbr/>ops::<wbr/>TensorArrayConcat::<wbr/>Attrs</a>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs">tensorflow::<wbr/>ops::<wbr/>TensorArrayConcat::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-array-concat.html#classtensorflow_1_1ops_1_1_tensor_array_concat">TensorArrayConcat</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array-concat.html#classtensorflow_1_1ops_1_1_tensor_array_concat">TensorArrayConcat</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_tensor_array_concat_1af3dca4f4a395a0bb0702e092086e7b03">
     <h3>lengths</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> lengths</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> lengths</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_tensor_array_concat_1a636fe92f677b9f2e9d667fa338837b4e">
     <h3>value</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> value</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> value</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_tensor_array_concat_1aab54b53cc7e1c5f65154a9ab7a3a2b6f">
     <h3>TensorArrayConcat</h3>
     <pre class="prettyprint"> TensorArrayConcat(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in,
   DataType dtype
 )</pre>
     <div />
@@ -149,18 +149,18 @@ value output.  In the example above, this would be the values:
   <div id="classtensorflow_1_1ops_1_1_tensor_array_concat_1adce330002ce711626c4b067bca8eb40e">
     <h3>TensorArrayConcat</h3>
     <pre class="prettyprint"> TensorArrayConcat(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in,
   DataType dtype,
-  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">TensorArrayConcat::Attrs</a> & attrs
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">TensorArrayConcat::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_tensor_array_concat_1a2e0ae98efaf62f30ca8b83f5f42baa76">
     <h3>ElementShapeExcept0</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">Attrs</a> ElementShapeExcept0(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">Attrs</a> ElementShapeExcept0(
   PartialTensorShape x
 )</pre>
     <div />

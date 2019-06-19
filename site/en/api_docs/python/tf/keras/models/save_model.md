@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.keras.models.save_model(
 
 
 
-Defined in [`tensorflow/python/keras/_impl/keras/engine/saving.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/engine/saving.py).
+Defined in [`tensorflow/python/keras/engine/saving.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/engine/saving.py).
 
 Saves a model to a HDF5 file.
 
@@ -35,7 +32,9 @@ used for model definition or training.
 #### Arguments:
 
 * <b>`model`</b>: Keras model instance to be saved.
-* <b>`filepath`</b>: String, path where to save the model.
+* <b>`filepath`</b>: One of the following:
+        - String, path where to save the model
+        - `h5py.File` object where to save the model
 * <b>`overwrite`</b>: Whether we should overwrite any existing
         model at the target location, or instead
         ask the user with a manual prompt.

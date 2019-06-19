@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +12,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/factorization_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/factorization/python/ops/factorization_ops.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/factorization_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/factorization/python/ops/factorization_ops.py).
 
 A model for Weighted Alternating Least Squares matrix factorization.
 
@@ -75,7 +73,7 @@ A typical usage example (pseudocode):
     # the prep_gramian_op for row(column) can be run.
     worker_init_op = model.worker_init
 
-    # To be run once per integration sweep before the row(column) update
+    # To be run once per iteration sweep before the row(column) update
     # initialize ops can be run. Note that in the distributed training
     # situations, this should only be run by the chief trainer. All other
     # trainers need to block until this is done.
@@ -233,7 +231,8 @@ __init__(
     row_weights=1,
     col_weights=1,
     use_factors_weights_cache=True,
-    use_gramian_cache=True
+    use_gramian_cache=True,
+    use_scoped_vars=False
 )
 ```
 
@@ -279,6 +278,8 @@ Creates model for WALS matrix factorization.
     weights cache to take effect.
 * <b>`use_gramian_cache`</b>: When True, the Gramians will be cached on the workers
     before the updates start. Defaults to True.
+* <b>`use_scoped_vars`</b>: When True, the factor and weight vars will also be nested
+    in a tf.name_scope.
 
 <h3 id="project_col_factors"><code>project_col_factors</code></h3>
 

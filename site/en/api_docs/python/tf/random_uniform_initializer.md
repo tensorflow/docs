@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -16,11 +13,13 @@ Inherits From: [`Initializer`](../tf/keras/initializers/Initializer)
 
 * Class `tf.initializers.random_uniform`
 * Class `tf.keras.initializers.RandomUniform`
+* Class `tf.keras.initializers.random_uniform`
+* Class `tf.keras.initializers.uniform`
 * Class `tf.random_uniform_initializer`
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/init_ops.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 

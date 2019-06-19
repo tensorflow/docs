@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,15 +11,12 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/batch_reshape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distributions/python/ops/batch_reshape.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/batch_reshape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/batch_reshape.py).
 
 The Batch-Reshaping distribution.
 
 This "meta-distribution" reshapes the batch dimensions of another
 distribution.
-
-Note: Unlike <a href="../../../tf/reshape"><code>tf.reshape</code></a>, the `BatchReshape` distribution does not support
-`-1` for flattening.
 
 #### Examples
 
@@ -31,7 +25,7 @@ tfd = tf.contrib.distributions
 
 dtype = np.float32
 dims = 2
-new_batch_shape = [1, 2, 3]
+new_batch_shape = [1, 2, -1]
 old_batch_shape = [6]
 
 scale = np.ones(old_batch_shape + [dims], dtype)
@@ -147,8 +141,9 @@ Construct BatchReshape distribution.
 
 * <b>`distribution`</b>: The base distribution instance to reshape. Typically an
     instance of `Distribution`.
-* <b>`batch_shape`</b>: Positive `int`-like vector-shaped `Tensor` representing the
-    new shape of the batch dimensions.
+* <b>`batch_shape`</b>: Positive `int`-like vector-shaped `Tensor` representing
+    the new shape of the batch dimensions. Up to one dimension may contain
+    `-1`, meaning the remainder of the batch size.
 * <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
     parameters are checked for validity despite possibly degrading runtime
     performance. When `False` invalid inputs may silently render incorrect

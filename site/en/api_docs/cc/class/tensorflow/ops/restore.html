@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::Restore Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,19 +13,19 @@
   <p>Restores a tensor from checkpoint files. </p>
   <h2>Summary</h2>
   <p>Reads a tensor stored in one or several files. If there are several files (for instance because a tensor was saved as slices), <code>file_pattern</code> may contain wildcard symbols (<code>*</code> and <code>?</code>) in the filename portion only, not in the directory portion.</p>
-  <p>If a <code>file_pattern</code> matches several files, <code>preferred_shard</code> can be used to hint in which file the requested tensor is likely to be found. This op will first open the file at index <code>preferred_shard</code> in the list of matching files and try to restore tensors from that file. Only if some tensors or tensor slices are not found in that first file, then the Op opens all the files. Setting <code>preferred_shard</code> to match the value passed as the <code>shard</code> input of a matching <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/save.html#classtensorflow_1_1ops_1_1_save">Save</a></code> Op may speed up <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/restore.html#classtensorflow_1_1ops_1_1_restore">Restore</a>. This attribute only affects performance, not correctness. The default value -1 means files are processed in order.</p>
-  <p>See also <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/restore-slice.html#classtensorflow_1_1ops_1_1_restore_slice">RestoreSlice</a></code>.</p>
+  <p>If a <code>file_pattern</code> matches several files, <code>preferred_shard</code> can be used to hint in which file the requested tensor is likely to be found. This op will first open the file at index <code>preferred_shard</code> in the list of matching files and try to restore tensors from that file. Only if some tensors or tensor slices are not found in that first file, then the Op opens all the files. Setting <code>preferred_shard</code> to match the value passed as the <code>shard</code> input of a matching <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/save.html#classtensorflow_1_1ops_1_1_save">Save</a></code> Op may speed up <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/restore.html#classtensorflow_1_1ops_1_1_restore">Restore</a>. This attribute only affects performance, not correctness. The default value -1 means files are processed in order.</p>
+  <p>See also <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/restore-slice.html#classtensorflow_1_1ops_1_1_restore_slice">RestoreSlice</a></code>.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>file_pattern: Must have a single element. The pattern of the files from which we read the tensor.</li>
       <li>tensor_name: Must have a single element. The name of the tensor to be restored.</li>
       <li>dt: The type of the tensor to be restored.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/restore/attrs.html#structtensorflow_1_1ops_1_1_restore_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/restore/attrs.html#structtensorflow_1_1ops_1_1_restore_1_1_attrs">Attrs</a></code>):<ul>
       <li>preferred_shard: Index of file to open first if multiple files match <code>file_pattern</code>.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The restored tensor. </li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The restored tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -35,13 +35,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_restore_1a06392cfeb62e5bbcd5a12c8c24f4a454">Restore</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name, DataType dt)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_restore_1a06392cfeb62e5bbcd5a12c8c24f4a454">Restore</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name, DataType dt)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_restore_1a6bc04bd5b6925c42d2ab9fac0d053774">Restore</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name, DataType dt, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/restore/attrs.html#structtensorflow_1_1ops_1_1_restore_1_1_attrs">Restore::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_restore_1a6bc04bd5b6925c42d2ab9fac0d053774">Restore</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name, DataType dt, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/restore/attrs.html#structtensorflow_1_1ops_1_1_restore_1_1_attrs">Restore::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -58,7 +58,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -112,7 +112,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/restore/attrs.html#structtensorflow_1_1ops_1_1_restore_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/restore/attrs.html#structtensorflow_1_1ops_1_1_restore_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -125,26 +125,26 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/restore/attrs">tensorflow::<wbr/>ops::<wbr/>Restore::<wbr/>Attrs</a>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/restore/attrs">tensorflow::<wbr/>ops::<wbr/>Restore::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/restore.html#classtensorflow_1_1ops_1_1_restore">Restore</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/restore.html#classtensorflow_1_1ops_1_1_restore">Restore</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_restore_1a7d6ad76f209f846683849ffcf4e5b2f9">
     <h3>tensor</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> tensor</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> tensor</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_restore_1a06392cfeb62e5bbcd5a12c8c24f4a454">
     <h3>Restore</h3>
     <pre class="prettyprint"> Restore(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name,
   DataType dt
 )</pre>
     <div />
@@ -152,11 +152,11 @@
   <div id="classtensorflow_1_1ops_1_1_restore_1a6bc04bd5b6925c42d2ab9fac0d053774">
     <h3>Restore</h3>
     <pre class="prettyprint"> Restore(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name,
   DataType dt,
-  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/restore/attrs.html#structtensorflow_1_1ops_1_1_restore_1_1_attrs">Restore::Attrs</a> & attrs
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/restore/attrs.html#structtensorflow_1_1ops_1_1_restore_1_1_attrs">Restore::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -178,7 +178,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_restore_1afca86c5066310bcef8e07db991a9df2f">
     <h3>PreferredShard</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/restore/attrs.html#structtensorflow_1_1ops_1_1_restore_1_1_attrs">Attrs</a> PreferredShard(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/restore/attrs.html#structtensorflow_1_1ops_1_1_restore_1_1_attrs">Attrs</a> PreferredShard(
   int64 x
 )</pre>
     <div />

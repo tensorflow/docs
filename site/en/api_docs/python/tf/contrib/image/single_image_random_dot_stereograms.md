@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -28,14 +25,14 @@ tf.contrib.image.single_image_random_dot_stereograms(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py).
+Defined in [`tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py).
 
 Output a RandomDotStereogram Tensor for export via encode_PNG/JPG OP.
 
 Given the 2-D tensor 'depth_values' with encoded Z values, this operation
 will encode 3-D data into a 2-D image.  The output of this Op is suitable
 for the encode_PNG/JPG ops.  Be careful with image compression as this may
-corrupt the encode 3-D data witin the image.
+corrupt the encode 3-D data within the image.
 
 Based upon [this
 paper](http://www.learningace.com/doc/4331582/b6ab058d1e206d68ab60e4e1ead2fe6e/sirds-paper).

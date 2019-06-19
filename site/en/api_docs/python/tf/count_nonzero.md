@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.count_nonzero(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Reduction](../../../api_guides/python/math_ops#Reduction)
 
@@ -55,9 +52,20 @@ tf.count_nonzero(x, 1, keepdims=True)  # [[1], [2]]
 tf.count_nonzero(x, [0, 1])  # 3
 ```
 
+**NOTE** Strings are compared against zero-length empty string `""`. Any
+string with a size greater than zero is already considered as nonzero.
+
+For example:
+
+```python
+x = tf.constant(["", "a", "  ", "b", ""])
+tf.count_nonzero(x) # 3, with "a", "  ", and "b" as nonzero strings.
+```
+
 #### Args:
 
-* <b>`input_tensor`</b>: The tensor to reduce. Should be of numeric type, or `bool`.
+* <b>`input_tensor`</b>: The tensor to reduce. Should be of numeric type, `bool`,
+    or `string`.
 * <b>`axis`</b>: The dimensions to reduce. If `None` (the default),
     reduces all dimensions. Must be in the range
     `[-rank(input_tensor), rank(input_tensor))`.

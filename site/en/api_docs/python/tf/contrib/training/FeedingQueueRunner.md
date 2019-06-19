@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`QueueRunner`](../../../tf/train/QueueRunner)
 
 
 
-Defined in [`tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py).
+Defined in [`tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py).
 
 A queue runner that allows the feeding of values such as numpy arrays.
 

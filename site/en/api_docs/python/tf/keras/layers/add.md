@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.keras.layers.add(
 
 
 
-Defined in [`tensorflow/python/keras/_impl/keras/layers/merge.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/layers/merge.py).
+Defined in [`tensorflow/python/keras/layers/merge.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/layers/merge.py).
 
 Functional interface to the `Add` layer.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.contrib.receptive_field.get_compute_order(
 
 
 
-Defined in [`tensorflow/contrib/receptive_field/python/util/graph_compute_order.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/receptive_field/python/util/graph_compute_order.py).
+Defined in [`tensorflow/contrib/receptive_field/python/util/graph_compute_order.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/receptive_field/python/util/graph_compute_order.py).
 
 Computes order of computation for a given CNN graph.
 

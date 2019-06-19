@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.nn.sparse_softmax_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Classification](../../../../api_guides/python/nn#Classification)
 
@@ -35,14 +32,17 @@ exclusive.  That is, soft classes are not allowed, and the `labels` vector
 must provide a single specific index for the true class for each row of
 `logits` (each minibatch entry).  For soft softmax classification with
 a probability distribution for each entry, see
-`softmax_cross_entropy_with_logits`.
+`softmax_cross_entropy_with_logits_v2`.
 
 **WARNING:** This op expects unscaled logits, since it performs a `softmax`
 on `logits` internally for efficiency.  Do not call this op with the
 output of `softmax`, as it will produce incorrect results.
 
-A common use case is to have logits of shape `[batch_size, num_classes]` and
-labels of shape `[batch_size]`. But higher dimensions are supported.
+A common use case is to have logits and labels of shape
+`[batch_size, num_classes]`, but higher dimensions are supported, in which
+case the `dim`-th dimension is assumed to be of size `num_classes`.
+`logits` and `labels` must have the same dtype (either `float16`, `float32`,
+or `float64`).
 
 **Note that to avoid confusion, it is required to pass only named arguments to
 this function.**

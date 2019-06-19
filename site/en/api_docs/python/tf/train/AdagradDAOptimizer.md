@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/python/training/adagrad_da.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/adagrad_da.py).
+Defined in [`tensorflow/python/training/adagrad_da.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/adagrad_da.py).
 
 See the guide: [Training > Optimizers](../../../../api_guides/python/train#Optimizers)
 

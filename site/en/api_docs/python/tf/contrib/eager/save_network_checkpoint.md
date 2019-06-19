@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,9 +16,13 @@ tf.contrib.eager.save_network_checkpoint(
 
 
 
-Defined in [`tensorflow/contrib/eager/python/network.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/eager/python/network.py).
+Defined in [`tensorflow/contrib/eager/python/network.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/network.py).
 
-Save variables from the Network to a checkpoint.
+Save variables from the Network to a checkpoint. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please inherit from tf.keras.Model instead of tfe.Network, and use tf.keras.Model.save_weights.
 
 #### Args:
 

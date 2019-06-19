@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.contrib.estimator.multi_class_head(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/estimator/python/estimator/head.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/head.py).
 
 Creates a `_Head` for multi class classification.
 
@@ -47,6 +44,33 @@ Also supports custom `loss_fn`. `loss_fn` takes `(labels, logits)` or
 shape `[D0, D1, ... DN, 1]`. `loss_fn` must support integer `labels` with
 shape `[D0, D1, ... DN, 1]`. Namely, the head applies `label_vocabulary` to
 the input labels before passing them to `loss_fn`.
+
+The head can be used with a canned estimator. Example:
+
+```python
+my_head = tf.contrib.estimator.multi_class_head(n_classes=3)
+my_estimator = tf.contrib.estimator.DNNEstimator(
+    head=my_head,
+    hidden_units=...,
+    feature_columns=...)
+```
+
+It can also be used with a custom `model_fn`. Example:
+
+```python
+def _my_model_fn(features, labels, mode):
+  my_head = tf.contrib.estimator.multi_class_head(n_classes=3)
+  logits = tf.keras.Model(...)(features)
+
+  return my_head.create_estimator_spec(
+      features=features,
+      mode=mode,
+      labels=labels,
+      optimizer=tf.AdagradOptimizer(learning_rate=0.1),
+      logits=logits)
+
+my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
+```
 
 #### Args:
 

@@ -1,17 +1,9 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.compat.as_text
-
-### Aliases:
-
-* `tf.compat.as_text`
-* `tf.contrib.meta_graph_transform.meta_graph_transform.compat.as_text`
 
 ``` python
 tf.compat.as_text(
@@ -22,7 +14,7 @@ tf.compat.as_text(
 
 
 
-Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/util/compat.py).
+Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/util/compat.py).
 
 Returns the given argument as a unicode string.
 

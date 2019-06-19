@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,14 @@ tf.image.non_max_suppression(
     scores,
     max_output_size,
     iou_threshold=0.5,
+    score_threshold=float('-inf'),
     name=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Working with Bounding Boxes](../../../../api_guides/python/image#Working_with_Bounding_Boxes)
 
@@ -52,6 +50,8 @@ using the `tf.gather operation`.  For example:
     of boxes to be selected by non max suppression.
 * <b>`iou_threshold`</b>: A float representing the threshold for deciding whether boxes
     overlap too much with respect to IOU.
+* <b>`score_threshold`</b>: A float representing the threshold for deciding when to
+    remove boxes based on score.
 * <b>`name`</b>: A name for the operation (optional).
 
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Dataset`](../../tf/data/Dataset)
 
 
 
-Defined in [`tensorflow/python/data/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/data/ops/readers.py).
+Defined in [`tensorflow/python/data/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/data/ops/readers.py).
 
 See the guide: [Dataset Input Pipeline > Reader classes](../../../../api_guides/python/input_dataset#Reader_classes)
 
@@ -234,7 +231,8 @@ Maps `map_func` across this dataset and flattens the result.
 from_generator(
     generator,
     output_types,
-    output_shapes=None
+    output_shapes=None,
+    args=None
 )
 ```
 
@@ -281,13 +279,17 @@ cache any external state in `generator` before calling
 
 #### Args:
 
-* <b>`generator`</b>: A callable object that takes no arguments and returns an
-    object that supports the `iter()` protocol.
+* <b>`generator`</b>: A callable object that returns an object that supports the
+    `iter()` protocol. If `args` is not specified, `generator` must take
+    no arguments; otherwise it must take as many arguments as there are
+    values in `args`.
 * <b>`output_types`</b>: A nested structure of <a href="../../tf/DType"><code>tf.DType</code></a> objects corresponding to
     each component of an element yielded by `generator`.
 * <b>`output_shapes`</b>: (Optional.) A nested structure of <a href="../../tf/TensorShape"><code>tf.TensorShape</code></a>
     objects corresponding to each component of an element yielded by
     `generator`.
+* <b>`args`</b>: (Optional.) A tuple of <a href="../../tf/Tensor"><code>tf.Tensor</code></a> objects that will be evaluated
+    and passed to `generator` as NumPy-array arguments.
 
 
 #### Returns:
@@ -323,6 +325,13 @@ from_tensor_slices(tensors)
 
 Creates a `Dataset` whose elements are slices of the given tensors.
 
+Note that if `tensors` contains a NumPy array, and eager execution is not
+enabled, the values will be embedded in the graph as one or more
+<a href="../../tf/constant"><code>tf.constant</code></a> operations. For large datasets (> 1 GB), this can waste
+memory and run into byte limits of graph serialization.  If tensors contains
+one or more large NumPy arrays, consider the alternative described in
+<a href="../../../../guide/datasets#consuming_numpy_arrays">this guide</a>.
+
 #### Args:
 
 * <b>`tensors`</b>: A nested structure of tensors, each having the same size in the
@@ -340,6 +349,13 @@ from_tensors(tensors)
 ```
 
 Creates a `Dataset` with a single element, comprising the given tensors.
+
+Note that if `tensors` contains a NumPy array, and eager execution is not
+enabled, the values will be embedded in the graph as one or more
+<a href="../../tf/constant"><code>tf.constant</code></a> operations. For large datasets (> 1 GB), this can waste
+memory and run into byte limits of graph serialization.  If tensors contains
+one or more large NumPy arrays, consider the alternative described in
+<a href="../../../../guide/datasets#consuming_numpy_arrays">this guide</a>.
 
 #### Args:
 
@@ -434,11 +450,16 @@ that state is accessed is undefined.
 ``` python
 list_files(
     file_pattern,
-    shuffle=None
+    shuffle=None,
+    seed=None
 )
 ```
 
 A dataset of all files matching a pattern.
+
+NOTE: The default behavior of this method is to return filenames in
+a non-deterministic random shuffled order. Pass a `seed` or `shuffle=False`
+to get results in a deterministic order.
 
 Example:
   If we had the following files on our filesystem:
@@ -450,15 +471,15 @@ Example:
     - /path/to/dir/b.py
     - /path/to/dir/c.py
 
-NOTE: The order of the file names returned can be non-deterministic even
-when `shuffle` is `False`.
-
 #### Args:
 
 * <b>`file_pattern`</b>: A string or scalar string <a href="../../tf/Tensor"><code>tf.Tensor</code></a>, representing
     the filename pattern that will be matched.
 * <b>`shuffle`</b>: (Optional.) If `True`, the file names will be shuffled randomly.
     Defaults to `True`.
+* <b>`seed`</b>: (Optional.) A <a href="../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
+    random seed that will be used to create the distribution. See
+    <a href="../../tf/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
 
 
 #### Returns:
@@ -714,7 +735,6 @@ d = Dataset.list_files(FLAGS.pattern)
 d = d.shard(FLAGS.num_workers, FLAGS.worker_index)
 d = d.repeat(FLAGS.num_epochs)
 d = d.shuffle(FLAGS.shuffle_buffer_size)
-d = d.repeat()
 d = d.interleave(tf.data.TFRecordDataset,
                  cycle_length=FLAGS.num_readers, block_length=1)
 d = d.map(parser_fn, num_parallel_calls=FLAGS.num_map_threads)

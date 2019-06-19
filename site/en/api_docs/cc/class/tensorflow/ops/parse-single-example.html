@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ParseSingleExample Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,14 +13,14 @@
   <p>Transforms a tf.Example proto (as a string) into typed tensors. </p>
   <h2>Summary</h2>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>serialized: A vector containing a batch of binary serialized Example protos.</li>
-      <li>dense_defaults: A list of Tensors (some may be empty), whose length matches the length of <code>dense_keys</code>. dense_defaults[j] provides default values when the example's feature_map lacks dense_key[j]. If an empty <a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> is provided for dense_defaults[j], then the Feature dense_keys[j] is required. The input type is inferred from dense_defaults[j], even when it's empty. If dense_defaults[j] is not empty, and dense_shapes[j] is fully defined, then the shape of dense_defaults[j] must match that of dense_shapes[j]. If dense_shapes[j] has an undefined major dimension (variable strides dense feature), dense_defaults[j] must contain a single element: the padding element.</li>
+      <li>dense_defaults: A list of Tensors (some may be empty), whose length matches the length of <code>dense_keys</code>. dense_defaults[j] provides default values when the example's feature_map lacks dense_key[j]. If an empty <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> is provided for dense_defaults[j], then the Feature dense_keys[j] is required. The input type is inferred from dense_defaults[j], even when it's empty. If dense_defaults[j] is not empty, and dense_shapes[j] is fully defined, then the shape of dense_defaults[j] must match that of dense_shapes[j]. If dense_shapes[j] has an undefined major dimension (variable strides dense feature), dense_defaults[j] must contain a single element: the padding element.</li>
       <li>num_sparse: The number of sparse features to be parsed from the example. This must match the lengths of <code>sparse_keys</code> and <code>sparse_types</code>.</li>
       <li>sparse_keys: A list of <code>num_sparse</code> strings. The keys expected in the Examples' features associated with sparse values.</li>
       <li>dense_keys: The keys expected in the Examples' features associated with dense values.</li>
-      <li>sparse_types: A list of <code>num_sparse</code> types; the data types of data in each Feature given in sparse_keys. Currently the <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/parse-single-example.html#classtensorflow_1_1ops_1_1_parse_single_example">ParseSingleExample</a> op supports DT_FLOAT (FloatList), DT_INT64 (Int64List), and DT_STRING (BytesList).</li>
-      <li>dense_shapes: The shapes of data in each Feature given in dense_keys. The length of this list must match the length of <code>dense_keys</code>. The number of elements in the Feature corresponding to dense_key[j] must always equal dense_shapes[j].NumEntries(). If dense_shapes[j] == (D0, D1, ..., DN) then the shape of output <a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> dense_values[j] will be (D0, D1, ..., DN): In the case dense_shapes[j] = (-1, D1, ..., DN), the shape of the output <a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> dense_values[j] will be (M, D1, .., DN), where M is the number of blocks of elements of length D1 * .... * DN, in the input.</li>
+      <li>sparse_types: A list of <code>num_sparse</code> types; the data types of data in each Feature given in sparse_keys. Currently the <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/parse-single-example.html#classtensorflow_1_1ops_1_1_parse_single_example">ParseSingleExample</a> op supports DT_FLOAT (FloatList), DT_INT64 (Int64List), and DT_STRING (BytesList).</li>
+      <li>dense_shapes: The shapes of data in each Feature given in dense_keys. The length of this list must match the length of <code>dense_keys</code>. The number of elements in the Feature corresponding to dense_key[j] must always equal dense_shapes[j].NumEntries(). If dense_shapes[j] == (D0, D1, ..., DN) then the shape of output <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> dense_values[j] will be (D0, D1, ..., DN): In the case dense_shapes[j] = (-1, D1, ..., DN), the shape of the output <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> dense_values[j] will be (M, D1, .., DN), where M is the number of blocks of elements of length D1 * .... * DN, in the input.</li>
     </ul></p>
   <p>Returns:<ul>
       <li><code>OutputList</code> sparse_indices</li>
@@ -36,7 +36,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_parse_single_example_1a1ae193409b639d7d46779ef2fe25aaa8">ParseSingleExample</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> dense_defaults, int64 num_sparse, const gtl::ArraySlice< string > & sparse_keys, const gtl::ArraySlice< string > & dense_keys, const DataTypeSlice & sparse_types, const gtl::ArraySlice< PartialTensorShape > & dense_shapes)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_single_example_1a1ae193409b639d7d46779ef2fe25aaa8">ParseSingleExample</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> dense_defaults, int64 num_sparse, const gtl::ArraySlice< string > & sparse_keys, const gtl::ArraySlice< string > & dense_keys, const DataTypeSlice & sparse_types, const gtl::ArraySlice< PartialTensorShape > & dense_shapes)</code>
         <br />
       </td>
     </tr>
@@ -53,7 +53,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
         </div>
       </td>
     </tr>
@@ -63,7 +63,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
         </div>
       </td>
     </tr>
@@ -73,7 +73,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
         </div>
       </td>
     </tr>
@@ -83,7 +83,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
         </div>
       </td>
     </tr>
@@ -91,31 +91,31 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_parse_single_example_1a47aea5050a1c195f45e106a7e5dd8d6c">
     <h3>dense_values</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> dense_values</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> dense_values</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_parse_single_example_1aff26528d71218f864c4bbe158da75497">
     <h3>sparse_indices</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> sparse_indices</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> sparse_indices</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_parse_single_example_1a43c18746bd9c93c475b6f796e90cf197">
     <h3>sparse_shapes</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> sparse_shapes</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> sparse_shapes</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_parse_single_example_1a0dbd7fd1ac19943db8a06f1004a43731">
     <h3>sparse_values</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> sparse_values</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> sparse_values</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_parse_single_example_1a1ae193409b639d7d46779ef2fe25aaa8">
     <h3>ParseSingleExample</h3>
     <pre class="prettyprint"> ParseSingleExample(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> dense_defaults,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> dense_defaults,
   int64 num_sparse,
   const gtl::ArraySlice< string > & sparse_keys,
   const gtl::ArraySlice< string > & dense_keys,

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Network`](../../../tf/contrib/eager/Network)
 
 
 
-Defined in [`tensorflow/contrib/eager/python/network.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/eager/python/network.py).
+Defined in [`tensorflow/contrib/eager/python/network.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/network.py).
 
 Represents a linear sequence of Layers or functions.
 
@@ -68,6 +65,24 @@ Input tensor or list of input tensors.
 
 * <b>`RuntimeError`</b>: If called in Eager mode.
 * <b>`AttributeError`</b>: If no inbound nodes are found.
+
+<h3 id="input_mask"><code>input_mask</code></h3>
+
+Retrieves the input mask tensor(s) of a layer.
+
+Only applicable if the layer has exactly one inbound node,
+i.e. if it is connected to one incoming layer.
+
+#### Returns:
+
+Input mask tensor (potentially None) or list of input
+mask tensors.
+
+
+#### Raises:
+
+* <b>`AttributeError`</b>: if the layer is connected to
+    more than one incoming layers.
 
 <h3 id="input_shape"><code>input_shape</code></h3>
 
@@ -137,6 +152,24 @@ Output tensor or list of output tensors.
 * <b>`AttributeError`</b>: if the layer is connected to more than one incoming
     layers.
 * <b>`RuntimeError`</b>: if called in Eager mode.
+
+<h3 id="output_mask"><code>output_mask</code></h3>
+
+Retrieves the output mask tensor(s) of a layer.
+
+Only applicable if the layer has exactly one inbound node,
+i.e. if it is connected to one incoming layer.
+
+#### Returns:
+
+Output mask tensor (potentially None) or list of output
+mask tensors.
+
+
+#### Raises:
+
+* <b>`AttributeError`</b>: if the layer is connected to
+    more than one incoming layers.
 
 <h3 id="output_shape"><code>output_shape</code></h3>
 
@@ -289,7 +322,9 @@ of dependencies.
 The `get_updates_for` method allows to retrieve the updates relevant to a
 specific set of inputs.
 
-This call is ignored in Eager mode.
+This call is ignored when eager execution is enabled (in that case, variable
+updates are run on the fly and thus do not need to be tracked for later
+execution).
 
 #### Arguments:
 
@@ -319,6 +354,61 @@ add_variable(
 
 
 
+<h3 id="add_weight"><code>add_weight</code></h3>
+
+``` python
+add_weight(
+    name,
+    shape,
+    dtype=None,
+    initializer=None,
+    regularizer=None,
+    trainable=True,
+    constraint=None,
+    use_resource=None,
+    partitioner=None
+)
+```
+
+Adds a new variable to the layer, or gets an existing one; returns it.
+
+#### Arguments:
+
+* <b>`name`</b>: variable name.
+* <b>`shape`</b>: variable shape.
+* <b>`dtype`</b>: The type of the variable. Defaults to `self.dtype` or `float32`.
+* <b>`initializer`</b>: initializer instance (callable).
+* <b>`regularizer`</b>: regularizer instance (callable).
+* <b>`trainable`</b>: whether the variable should be part of the layer's
+    "trainable_variables" (e.g. variables, biases)
+    or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
+    Note, if the current variable scope is marked as non-trainable
+    then this parameter is ignored and any added variables are also
+    marked as non-trainable.
+* <b>`constraint`</b>: constraint instance (callable).
+* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
+* <b>`partitioner`</b>: (optional) partitioner instance (callable).  If
+    provided, when the requested variable is created it will be split
+    into multiple partitions according to `partitioner`.  In this case,
+    an instance of `PartitionedVariable` is returned.  Available
+    partitioners include <a href="../../../tf/fixed_size_partitioner"><code>tf.fixed_size_partitioner</code></a> and
+    <a href="../../../tf/variable_axis_size_partitioner"><code>tf.variable_axis_size_partitioner</code></a>.  For more details, see the
+    documentation of <a href="../../../tf/get_variable"><code>tf.get_variable</code></a> and the  "Variable Partitioners
+    and Sharding" section of the API guide.
+
+
+#### Returns:
+
+The created variable.  Usually either a `Variable` or `ResourceVariable`
+instance.  If `partitioner` is not `None`, a `PartitionedVariable`
+instance is returned.
+
+
+#### Raises:
+
+* <b>`RuntimeError`</b>: If called with partioned variable regularization and
+    eager execution is enabled.
+
 <h3 id="apply"><code>apply</code></h3>
 
 ``` python
@@ -347,7 +437,7 @@ Output tensor(s).
 <h3 id="build"><code>build</code></h3>
 
 ``` python
-build(_)
+build(input_shape)
 ```
 
 Creates the variables of the layer.
@@ -363,31 +453,50 @@ call(
 
 Call each Layer in the order they were added.
 
+<h3 id="compute_mask"><code>compute_mask</code></h3>
+
+``` python
+compute_mask(
+    inputs,
+    mask=None
+)
+```
+
+Computes an output mask tensor.
+
+#### Arguments:
+
+* <b>`inputs`</b>: Tensor or list of tensors.
+* <b>`mask`</b>: Tensor or list of tensors.
+
+
+#### Returns:
+
+None or a tensor (or list of tensors,
+    one per output tensor of the layer).
+
 <h3 id="compute_output_shape"><code>compute_output_shape</code></h3>
 
 ``` python
 compute_output_shape(input_shape)
 ```
 
-Computes the output shape of the layer given the input shape.
+Computes the output shape of the layer.
 
-#### Args:
+Assumes that the layer will be built
+to match that input shape provided.
 
-* <b>`input_shape`</b>: A (possibly nested tuple of) `TensorShape`.  It need not
-    be fully defined (e.g. the batch size may be unknown).
+#### Arguments:
+
+* <b>`input_shape`</b>: Shape tuple (tuple of integers)
+        or list of shape tuples (one per output tensor of the layer).
+        Shape tuples can include None for free dimensions,
+        instead of an integer.
 
 
 #### Returns:
 
-A (possibly nested tuple of) `TensorShape`.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: if `input_shape` is not a (possibly nested tuple of)
-    `TensorShape`.
-* <b>`ValueError`</b>: if `input_shape` is incomplete or is incompatible with the
-    the layer.
+An input shape tuple.
 
 <h3 id="count_params"><code>count_params</code></h3>
 
@@ -406,6 +515,53 @@ An integer count.
 
 * <b>`ValueError`</b>: if the layer isn't yet built
       (in which case its weights aren't yet defined).
+
+<h3 id="from_config"><code>from_config</code></h3>
+
+``` python
+from_config(
+    cls,
+    config
+)
+```
+
+Creates a layer from its config.
+
+This method is the reverse of `get_config`,
+capable of instantiating the same layer from the config
+dictionary. It does not handle layer connectivity
+(handled by Network), nor weights (handled by `set_weights`).
+
+#### Arguments:
+
+* <b>`config`</b>: A Python dictionary, typically the
+        output of get_config.
+
+
+#### Returns:
+
+A layer instance.
+
+<h3 id="get_config"><code>get_config</code></h3>
+
+``` python
+get_config()
+```
+
+Returns the config of the layer.
+
+A layer config is a Python dictionary (serializable)
+containing the configuration of a layer.
+The same layer can be reinstantiated later
+(without its trained weights) from this configuration.
+
+The config of a layer does not include connectivity
+information, nor the layer class name. These are handled
+by `Network` (one layer of abstraction above).
+
+#### Returns:
+
+Python dictionary.
 
 <h3 id="get_input_at"><code>get_input_at</code></h3>
 
@@ -431,6 +587,27 @@ A tensor (or list of tensors if the layer has multiple inputs).
 #### Raises:
 
 * <b>`RuntimeError`</b>: If called in Eager mode.
+
+<h3 id="get_input_mask_at"><code>get_input_mask_at</code></h3>
+
+``` python
+get_input_mask_at(node_index)
+```
+
+Retrieves the input mask tensor(s) of a layer at a given node.
+
+#### Arguments:
+
+* <b>`node_index`</b>: Integer, index of the node
+        from which to retrieve the attribute.
+        E.g. `node_index=0` will correspond to the
+        first time the layer was called.
+
+
+#### Returns:
+
+A mask tensor
+(or list of tensors if the layer has multiple inputs).
 
 <h3 id="get_input_shape_at"><code>get_input_shape_at</code></h3>
 
@@ -537,6 +714,27 @@ A tensor (or list of tensors if the layer has multiple outputs).
 
 * <b>`RuntimeError`</b>: If called in Eager mode.
 
+<h3 id="get_output_mask_at"><code>get_output_mask_at</code></h3>
+
+``` python
+get_output_mask_at(node_index)
+```
+
+Retrieves the output mask tensor(s) of a layer at a given node.
+
+#### Arguments:
+
+* <b>`node_index`</b>: Integer, index of the node
+        from which to retrieve the attribute.
+        E.g. `node_index=0` will correspond to the
+        first time the layer was called.
+
+
+#### Returns:
+
+A mask tensor
+(or list of tensors if the layer has multiple outputs).
+
 <h3 id="get_output_shape_at"><code>get_output_shape_at</code></h3>
 
 ``` python
@@ -584,6 +782,40 @@ List of update ops of the layer that depend on `inputs`.
 #### Raises:
 
 * <b>`RuntimeError`</b>: If called in Eager mode.
+
+<h3 id="get_weights"><code>get_weights</code></h3>
+
+``` python
+get_weights()
+```
+
+Returns the current weights of the layer.
+
+#### Returns:
+
+Weights values as a list of numpy arrays.
+
+<h3 id="set_weights"><code>set_weights</code></h3>
+
+``` python
+set_weights(weights)
+```
+
+Sets the weights of the layer, from Numpy arrays.
+
+#### Arguments:
+
+* <b>`weights`</b>: a list of Numpy arrays. The number
+        of arrays and their shape must match
+        number of the dimensions of the weights
+        of the layer (i.e. it should match the
+        output of `get_weights`).
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If the provided weights list does not match the
+        layer's specifications.
 
 <h3 id="track_layer"><code>track_layer</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/framework/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/framework/__init__.py).
+Defined in [`tensorflow/contrib/framework/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/framework/__init__.py).
 
 Framework utilities.
 
@@ -43,6 +40,12 @@ See the <a href="../../../../api_guides/python/contrib.framework">Framework (con
 
 [`class convolutional_delta_orthogonal`](../../tf/contrib/framework/convolutional_delta_orthogonal): Initializer that generates a delta orthogonal kernel for ConvNets.
 
+[`class convolutional_orthogonal_1d`](../../tf/contrib/framework/convolutional_orthogonal_1d): Initializer that generates a 1D orthogonal kernel for ConvNets.
+
+[`class convolutional_orthogonal_2d`](../../tf/contrib/framework/convolutional_orthogonal_2d): Initializer that generates a 2D orthogonal kernel for ConvNets.
+
+[`class convolutional_orthogonal_3d`](../../tf/contrib/framework/convolutional_orthogonal_3d): Initializer that generates a 3D orthogonal kernel for ConvNets.
+
 ## Functions
 
 [`add_arg_scope(...)`](../../tf/contrib/framework/add_arg_scope): Decorates a function with args so it can be used within an arg_scope.
@@ -72,6 +75,8 @@ See the <a href="../../../../api_guides/python/contrib.framework">Framework (con
 [`assign_from_values(...)`](../../tf/contrib/framework/assign_from_values): Creates an assignment operation from a given mapping.
 
 [`assign_from_values_fn(...)`](../../tf/contrib/framework/assign_from_values_fn): Returns a function that assigns specific variables from the given values.
+
+[`broadcast_to(...)`](../../tf/contrib/framework/broadcast_to): Broadcast an array for a compatible shape.
 
 [`convert_to_tensor_or_sparse_tensor(...)`](../../tf/convert_to_tensor_or_sparse_tensor): Converts value to a `SparseTensor` or `Tensor`.
 

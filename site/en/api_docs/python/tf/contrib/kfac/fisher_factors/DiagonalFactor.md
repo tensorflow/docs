@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`FisherFactor`](../../../../tf/contrib/kfac/fisher_factors/Fishe
 
 
 
-Defined in [`tensorflow/contrib/kfac/python/ops/fisher_factors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/fisher_factors.py).
+Defined in [`tensorflow/contrib/kfac/python/ops/fisher_factors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kfac/python/ops/fisher_factors.py).
 
 A base class for FisherFactors that use diagonal approximations.
 
@@ -39,6 +36,22 @@ __init__()
 
 
 
+<h3 id="get_cholesky"><code>get_cholesky</code></h3>
+
+``` python
+get_cholesky(damping_func)
+```
+
+
+
+<h3 id="get_cholesky_inverse"><code>get_cholesky_inverse</code></h3>
+
+``` python
+get_cholesky_inverse(damping_func)
+```
+
+
+
 <h3 id="get_cov"><code>get_cov</code></h3>
 
 ``` python
@@ -47,19 +60,24 @@ get_cov()
 
 
 
-<h3 id="get_cov_var"><code>get_cov_var</code></h3>
+<h3 id="get_cov_as_linear_operator"><code>get_cov_as_linear_operator</code></h3>
 
 ``` python
-get_cov_var()
+get_cov_as_linear_operator()
 ```
 
-Get variable backing this FisherFactor.
 
-May or may not be the same as self.get_cov()
 
-#### Returns:
+<h3 id="get_matpower"><code>get_matpower</code></h3>
 
-Variable of shape self._cov_shape.
+``` python
+get_matpower(
+    exp,
+    damping_func
+)
+```
+
+
 
 <h3 id="instantiate_cov_variables"><code>instantiate_cov_variables</code></h3>
 
@@ -73,18 +91,6 @@ Makes the internal cov variable(s).
 
 ``` python
 instantiate_inv_variables()
-```
-
-
-
-<h3 id="left_multiply_matpower"><code>left_multiply_matpower</code></h3>
-
-``` python
-left_multiply_matpower(
-    x,
-    exp,
-    damping_func
-)
 ```
 
 
@@ -113,22 +119,26 @@ make_inverse_update_ops()
 
 
 
-<h3 id="register_matpower"><code>register_matpower</code></h3>
+<h3 id="register_cholesky"><code>register_cholesky</code></h3>
 
 ``` python
-register_matpower(
-    exp,
-    damping_func
-)
+register_cholesky(damping_func)
 ```
 
 
 
-<h3 id="right_multiply_matpower"><code>right_multiply_matpower</code></h3>
+<h3 id="register_cholesky_inverse"><code>register_cholesky_inverse</code></h3>
 
 ``` python
-right_multiply_matpower(
-    x,
+register_cholesky_inverse(damping_func)
+```
+
+
+
+<h3 id="register_matpower"><code>register_matpower</code></h3>
+
+``` python
+register_matpower(
     exp,
     damping_func
 )

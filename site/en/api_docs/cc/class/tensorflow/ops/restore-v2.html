@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::RestoreV2 Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -19,10 +19,10 @@
   <p>By default, restores the named tensors in full. If the caller wishes to restore specific slices of stored tensors, "shape_and_slices" should be non-empty strings and correspondingly well-formed.</p>
   <p>Callers must ensure all the named tensors are indeed stored in the checkpoint.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>prefix: Must have a single element. The prefix of a V2 checkpoint.</li>
       <li>tensor_names: shape {N}. The names of the tensors to be restored.</li>
-      <li>shape_and_slices: shape {N}. The slice specs of the tensors to be restored. <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a> strings indicate that they are non-partitioned tensors.</li>
+      <li>shape_and_slices: shape {N}. The slice specs of the tensors to be restored. <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a> strings indicate that they are non-partitioned tensors.</li>
       <li>dtypes: shape {N}. The list of expected dtype for the tensors. Must match those stored in the checkpoint.</li>
     </ul></p>
   <p>Returns:<ul>
@@ -36,7 +36,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_restore_v2_1a57bca4a84e5b10e9920fdeeac3a05f5e">RestoreV2</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> prefix, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slices, const DataTypeSlice & dtypes)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_restore_v2_1a57bca4a84e5b10e9920fdeeac3a05f5e">RestoreV2</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> prefix, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slices, const DataTypeSlice & dtypes)</code>
         <br />
       </td>
     </tr>
@@ -53,7 +53,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
         </div>
       </td>
     </tr>
@@ -70,7 +70,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -78,24 +78,24 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_restore_v2_1acec293134264696f9ac7e0f1d900d542">
     <h3>tensors</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> tensors</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> tensors</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_restore_v2_1a57bca4a84e5b10e9920fdeeac3a05f5e">
     <h3>RestoreV2</h3>
     <pre class="prettyprint"> RestoreV2(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> prefix,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slices,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> prefix,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slices,
   const DataTypeSlice & dtypes
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_restore_v2_1a6bd9fcb0de236ef33532417834b3ed0d">
     <h3>operator[]</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](
   size_t index
 ) const </pre>
     <div />

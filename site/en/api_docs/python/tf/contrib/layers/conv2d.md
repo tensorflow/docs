@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -11,9 +8,7 @@ page_type: reference
 ### Aliases:
 
 * `tf.contrib.layers.conv2d`
-* `tf.contrib.layers.conv3d`
 * `tf.contrib.layers.convolution2d`
-* `tf.contrib.layers.convolution3d`
 
 ``` python
 tf.contrib.layers.conv2d(
@@ -41,7 +36,7 @@ tf.contrib.layers.conv2d(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/layers.py).
 
 See the guide: [Layers (contrib) > Higher level ops for building neural network layers](../../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers)
 
@@ -106,6 +101,10 @@ if a value > 1 for any dimension of `rate` is specified.  In this case
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
     `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
 * <b>`scope`</b>: Optional scope for `variable_scope`.
+* <b>`conv_dims`</b>: Optional convolution dimensionality, when set it would use the
+    corresponding convolution (e.g. 2 for Conv 2D, 3 for Conv 3D, ..). When
+    leaved to None it would select the convolution dimensionality based on
+    the input rank (i.e. Conv ND, with N = input_rank - 2).
 
 
 #### Returns:

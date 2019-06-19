@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,9 +15,13 @@ tf.contrib.estimator.replicate_model_fn(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py).
 
-Replicate `Estimator.model_fn` over GPUs.
+Replicate `Estimator.model_fn` over GPUs. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-05-31.
+Instructions for updating:
+Please use <a href="../../../tf/contrib/distribute/MirroredStrategy"><code>tf.contrib.distribute.MirroredStrategy</code></a> instead.
 
 The given `model_fn` specifies a single forward pass of a model.  To replicate
 such a model over GPUs, each GPU gets its own instance of the forward pass

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/eager/backprop.py).
+Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/eager/backprop.py).
 
 Record operations for automatic differentiation.
 
@@ -35,23 +32,23 @@ For example, consider the function `y = x * x`. The gradient at `x = 3.0` can
 be computed as:
 
 ```python
-x = tf.constant(3.)
-with tfe.GradientTape() as g:
+x = tf.constant(3.0)
+with tf.GradientTape() as g:
   g.watch(x)
   y = x * x
-grad = g.gradient(y, [x])[0] # Will compute to 6.0
+dy_dx = g.gradient(y, x) # Will compute to 6.0
 ```
 
 GradientTapes can be nested to compute higher-order derivatives. For example,
 
 ```python
 x = tf.constant(3.0)
-with tfe.GradientTape() as g:
-  with tfe.GradientTape() as gg:
+with tf.GradientTape() as g:
+  with tf.GradientTape() as gg:
     gg.watch(x)
     y = x * x
-  dy_dx = gg.gradient(y, [x])[0]     # Will compute to 6.0
-d2y_dx2 = g.gradient(dy_dx, [x])[0]  # Will compute to 2.0
+  dy_dx = gg.gradient(y, x)     # Will compute to 6.0
+d2y_dx2 = g.gradient(dy_dx, x)  # Will compute to 2.0
 ```
 
 By default, the resources held by a GradientTape are released as soon as
@@ -62,13 +59,16 @@ is garbage collected. For example:
 
 ```python
 x = tf.constant(3.0)
-with tfe.GradientTape(persistent=True) as g:
+with tf.GradientTape(persistent=True) as g:
   g.watch(x)
   y = x * x
   z = y * y
-dy_dx = g.gradient(z, [x])[0]  # 6.0
-dz_dx = g.gradient(y, [x])[0]  # 108.0 (4*x^3 at x = 3)
+dz_dx = g.gradient(z, x)  # 108.0 (4*x^3 at x = 3)
+dy_dx = g.gradient(y, x)  # 6.0
 del g  # Drop the reference to the tape
+```
+
+Note that only tensors with real or complex dtypes are differentiable.
 
 ## Methods
 
@@ -92,7 +92,7 @@ Creates a new GradientTape.
 __enter__()
 ```
 
-
+Enters a context inside which operations are recorded on this tape.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
@@ -104,7 +104,7 @@ __exit__(
 )
 ```
 
-
+Exits the recording context, no further operations are traced.
 
 <h3 id="gradient"><code>gradient</code></h3>
 
@@ -120,7 +120,7 @@ Computes the gradient using operations recorded in context of this tape.
 
 #### Args:
 
-* <b>`target`</b>: Tensor to be differentiated.
+* <b>`target`</b>: Tensor (or list of tensors) to be differentiated.
 * <b>`sources`</b>: a list or nested structure of Tensors or Variables. `target`
     will be differentiated against elements in `sources`.
 * <b>`output_gradients`</b>: a list of gradients, one for each element of
@@ -138,6 +138,73 @@ the structure of `sources`.
 
 * <b>`RuntimeError`</b>: if called inside the context of the tape, or if called more
    than once on a non-persistent tape.
+
+<h3 id="reset"><code>reset</code></h3>
+
+``` python
+reset()
+```
+
+Clears all information stored in this tape.
+
+Equivalent to exiting and reentering the tape context manager with a new
+tape. For example, the two following code blocks are equivalent:
+
+```
+with tf.GradientTape() as t:
+  loss = loss_fn()
+with tf.GradientTape() as t:
+  loss += other_loss_fn()
+t.gradient(loss, ...)  # Only differentiates other_loss_fn, not loss_fn
+
+
+# The following is equivalent to the above
+with tf.GradientTape() as t:
+  loss = loss_fn()
+  t.reset()
+  loss += other_loss_fn()
+t.gradient(loss, ...)  # Only differentiates other_loss_fn, not loss_fn
+```
+
+This is useful if you don't want to exit the context manager for the tape,
+or can't because the desired reset point is inside a control flow construct:
+
+```
+with tf.GradientTape() as t:
+  loss = ...
+  if loss > k:
+    t.reset()
+```
+
+<h3 id="stop_recording"><code>stop_recording</code></h3>
+
+``` python
+stop_recording()
+```
+
+Temporarily stops recording operations on this tape.
+
+Operations executed while this context manager is active will not be
+recorded on the tape. This is useful for reducing the memory used by tracing
+all computations.
+
+For example:
+
+```
+  with tf.GradientTape(persistent=True) as t:
+    loss = compute_loss(model)
+    with t.stop_recording():
+      # The gradient computation below is not traced, saving memory.
+      grads = t.gradient(loss, model.variables)
+```
+
+#### Yields:
+
+None
+
+#### Raises:
+
+* <b>`RuntimeError`</b>: if the tape is not currently recording.
 
 <h3 id="watch"><code>watch</code></h3>
 
@@ -157,7 +224,7 @@ Ensures that `tensor` is being traced by this tape.
 watched_variables()
 ```
 
-
+Returns variables watched by this tape in order of construction.
 
 
 

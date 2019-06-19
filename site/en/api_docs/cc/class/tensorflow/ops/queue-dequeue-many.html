@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::QueueDequeueMany Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,16 +13,16 @@
   <p>Dequeues <code>n</code> tuples of one or more tensors from the given queue. </p>
   <h2>Summary</h2>
   <p>If the queue is closed and there are fewer than <code>n</code> elements, then an OutOfRange error is returned.</p>
-  <p>This operation concatenates queue-element component tensors along the 0th dimension to make a single component tensor. <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> of the components in the dequeued tuple will have size <code>n</code> in the 0th dimension.</p>
+  <p>This operation concatenates queue-element component tensors along the 0th dimension to make a single component tensor. <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> of the components in the dequeued tuple will have size <code>n</code> in the 0th dimension.</p>
   <p>This operation has <code>k</code> outputs, where <code>k</code> is the number of components in the tuples stored in the given queue, and output <code>i</code> is the ith component of the dequeued tuple.</p>
   <p>N.B. If the queue is empty, this operation will block until <code>n</code> elements have been dequeued (or 'timeout_ms' elapses, if specified).</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>handle: The handle to a queue.</li>
       <li>n: The number of tuples to dequeue.</li>
       <li>component_types: The type of each component in a tuple.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_many_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_many_1_1_attrs">Attrs</a></code>):<ul>
       <li>timeout_ms: If the queue has fewer than n elements, this operation will block for up to timeout_ms milliseconds. Note: This option is not supported yet.</li>
     </ul></p>
   <p>Returns:<ul>
@@ -36,13 +36,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_queue_dequeue_many_1af0787d738d8e5c2f19921973db8e2481">QueueDequeueMany</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n, const DataTypeSlice & component_types)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_dequeue_many_1af0787d738d8e5c2f19921973db8e2481">QueueDequeueMany</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n, const DataTypeSlice & component_types)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_queue_dequeue_many_1a8d1c93762d52332bf32cf0affcf42447">QueueDequeueMany</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n, const DataTypeSlice & component_types, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_many_1_1_attrs">QueueDequeueMany::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_dequeue_many_1a8d1c93762d52332bf32cf0affcf42447">QueueDequeueMany</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n, const DataTypeSlice & component_types, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_many_1_1_attrs">QueueDequeueMany::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -59,7 +59,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
         </div>
       </td>
     </tr>
@@ -76,7 +76,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -93,7 +93,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_many_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_many_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -106,26 +106,26 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs">tensorflow::<wbr/>ops::<wbr/>QueueDequeueMany::<wbr/>Attrs</a>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs">tensorflow::<wbr/>ops::<wbr/>QueueDequeueMany::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/queue-dequeue-many.html#classtensorflow_1_1ops_1_1_queue_dequeue_many">QueueDequeueMany</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/queue-dequeue-many.html#classtensorflow_1_1ops_1_1_queue_dequeue_many">QueueDequeueMany</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_queue_dequeue_many_1ad008417bd88a61cc3561b12b2655e192">
     <h3>components</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> components</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> components</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_queue_dequeue_many_1af0787d738d8e5c2f19921973db8e2481">
     <h3>QueueDequeueMany</h3>
     <pre class="prettyprint"> QueueDequeueMany(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n,
   const DataTypeSlice & component_types
 )</pre>
     <div />
@@ -133,17 +133,17 @@
   <div id="classtensorflow_1_1ops_1_1_queue_dequeue_many_1a8d1c93762d52332bf32cf0affcf42447">
     <h3>QueueDequeueMany</h3>
     <pre class="prettyprint"> QueueDequeueMany(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n,
   const DataTypeSlice & component_types,
-  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_many_1_1_attrs">QueueDequeueMany::Attrs</a> & attrs
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_many_1_1_attrs">QueueDequeueMany::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_queue_dequeue_many_1a3b9da4a9019f580bd27704d37043f875">
     <h3>operator[]</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](
   size_t index
 ) const </pre>
     <div />
@@ -151,7 +151,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_queue_dequeue_many_1ada0815fe9735c5da0a6192a13c574ee2">
     <h3>TimeoutMs</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_many_1_1_attrs">Attrs</a> TimeoutMs(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-dequeue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_many_1_1_attrs">Attrs</a> TimeoutMs(
   int64 x
 )</pre>
     <div />

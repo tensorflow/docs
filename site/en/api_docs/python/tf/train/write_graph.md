@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.train.write_graph(
 
 
 
-Defined in [`tensorflow/python/framework/graph_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/graph_io.py).
+Defined in [`tensorflow/python/framework/graph_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/graph_io.py).
 
 See the guide: [Training > Training Utilities](../../../../api_guides/python/train#Training_Utilities)
 

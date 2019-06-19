@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,7 +20,7 @@ tf.gradients(
 
 
 
-Defined in [`tensorflow/python/ops/gradients_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/gradients_impl.py).
+Defined in [`tensorflow/python/ops/gradients_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/gradients_impl.py).
 
 See the guide: [Training > Gradient Computation](../../../api_guides/python/train#Gradient_Computation)
 
@@ -73,6 +70,9 @@ already been constructed, as compared to <a href="../tf/stop_gradient"><code>tf.
 during graph construction.  When the two approaches are combined,
 backpropagation stops at both <a href="../tf/stop_gradient"><code>tf.stop_gradient</code></a> nodes and nodes in
 `stop_gradients`, whichever is encountered first.
+
+All integer tensors are considered constant with respect to all `xs`, as if
+they were included in `stop_gradients`.
 
 #### Args:
 

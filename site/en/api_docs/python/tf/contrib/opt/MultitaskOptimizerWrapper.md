@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
+Defined in [`tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
 
 Optimizer wrapper making all-zero gradients harmless.
 

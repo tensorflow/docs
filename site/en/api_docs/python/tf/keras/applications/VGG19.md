@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -26,7 +23,7 @@ tf.keras.applications.VGG19(
 
 
 
-Defined in [`tensorflow/python/keras/_impl/keras/applications/vgg19.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/applications/vgg19.py).
+Defined in [`tensorflow/python/keras/applications/vgg19.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/applications/vgg19.py).
 
 Instantiates the VGG19 architecture.
 

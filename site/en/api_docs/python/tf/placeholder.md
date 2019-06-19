@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.placeholder(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/array_ops.py).
 
 See the guides: [Inputs and Readers > Placeholders](../../../api_guides/python/io_ops#Placeholders), [Reading data > Feeding](../../../api_guides/python/reading_data#Feeding)
 
@@ -41,7 +38,7 @@ with tf.Session() as sess:
   print(sess.run(y, feed_dict={x: rand_array}))  # Will succeed.
 ```
 
-@compatibility{eager} Placeholders are not compatible with eager execution.
+
 
 #### Args:
 
@@ -60,3 +57,7 @@ evaluated directly.
 #### Raises:
 
 * <b>`RuntimeError`</b>: if eager execution is enabled
+
+#### Eager Compatibility
+Placeholders are not compatible with eager execution.
+

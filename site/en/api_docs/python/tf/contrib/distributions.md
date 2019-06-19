@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distributions/__init__.py).
+Defined in [`tensorflow/contrib/distributions/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/__init__.py).
 
 Classes representing statistical distributions and ops for working with them.
 
@@ -157,6 +154,8 @@ See the <a href="../../../../api_guides/python/contrib.distributions">Statistica
 [`estimator_head_distribution_regression(...)`](../../tf/contrib/distributions/estimator_head_distribution_regression): Creates a `Head` for regression under a generic distribution.
 
 [`fill_triangular(...)`](../../tf/contrib/distributions/fill_triangular): Creates a (batch of) triangular matrix from a vector of inputs.
+
+[`fill_triangular_inverse(...)`](../../tf/contrib/distributions/fill_triangular_inverse): Creates a vector from a (batch of) triangular matrix.
 
 [`kl_divergence(...)`](../../tf/distributions/kl_divergence): Get the KL-divergence KL(distribution_a || distribution_b).
 

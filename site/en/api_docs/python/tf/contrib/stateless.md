@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/stateless/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/stateless/__init__.py).
+Defined in [`tensorflow/contrib/stateless/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/stateless/__init__.py).
 
 Stateless random ops which take seed as a tensor input.
 
@@ -24,6 +21,8 @@ version of the code.
 
 
 ## Functions
+
+[`stateless_multinomial(...)`](../../tf/contrib/stateless/stateless_multinomial): TODO: add doc.
 
 [`stateless_random_normal(...)`](../../tf/contrib/stateless/stateless_random_normal): TODO: add doc.
 

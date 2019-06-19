@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`ClusterResolver`](../../../tf/contrib/cluster_resolver/ClusterR
 
 
 
-Defined in [`tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py).
+Defined in [`tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py).
 
 Cluster Resolver for Google Cloud TPUs.
 
@@ -36,7 +33,8 @@ __init__(
     coordinator_name=None,
     coordinator_address=None,
     credentials='default',
-    service=None
+    service=None,
+    discovery_url=None
 )
 ```
 
@@ -70,6 +68,11 @@ for the IP addresses and ports of each Cloud TPU listed.
 * <b>`service`</b>: The GCE API object returned by the googleapiclient.discovery
     function. If you specify a custom service object, then the credentials
     parameter will be ignored.
+* <b>`discovery_url`</b>: A URL template that points to the location of
+    the discovery service. It should have two parameters {api} and
+    {apiVersion} that when filled in produce an absolute URL to the
+    discovery document for that service. The environment variable
+    'TPU_API_DISCOVERY_URL' will override this.
 
 
 #### Raises:

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,14 +7,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/image/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/image/__init__.py).
+Defined in [`tensorflow/contrib/image/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/image/__init__.py).
 
 Ops for image manipulation.
 
 ### API
 
 This module provides functions for image manipulation; currently, chrominance
-transformas (including changing saturation and hue) in YIQ space and
+transforms (including changing saturation and hue) in YIQ space and
 projective transforms (including rotation) are supported.
 
 ## Image Transformation `Ops`
@@ -42,7 +39,11 @@ projective transforms (including rotation) are supported.
 
 [`dense_image_warp(...)`](../../tf/contrib/image/dense_image_warp): Image warping using per-pixel flow vectors.
 
+[`flat_transforms_to_matrices(...)`](../../tf/contrib/image/flat_transforms_to_matrices): Converts <a href="../../tf/contrib/image"><code>tf.contrib.image</code></a> projective transforms to affine matrices.
+
 [`interpolate_spline(...)`](../../tf/contrib/image/interpolate_spline): Interpolate signal using polyharmonic interpolation.
+
+[`matrices_to_flat_transforms(...)`](../../tf/contrib/image/matrices_to_flat_transforms): Converts affine matrices to <a href="../../tf/contrib/image"><code>tf.contrib.image</code></a> projective transforms.
 
 [`rotate(...)`](../../tf/contrib/image/rotate): Rotate image(s) counterclockwise by the passed angle(s) in radians.
 

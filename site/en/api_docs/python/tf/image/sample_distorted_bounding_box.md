@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -25,7 +22,7 @@ tf.image.sample_distorted_bounding_box(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Working with Bounding Boxes](../../../../api_guides/python/image#Working_with_Bounding_Boxes)
 
@@ -100,7 +97,7 @@ false and no bounding boxes are supplied, an error is raised.
     width / height within this range.
 * <b>`area_range`</b>: An optional list of `floats`. Defaults to `[0.05, 1]`.
     The cropped area of the image must contain a fraction of the
-    supplied image within in this range.
+    supplied image within this range.
 * <b>`max_attempts`</b>: An optional `int`. Defaults to `100`.
     Number of attempts at generating a cropped region of the image
     of the specified constraints. After `max_attempts` failures, return the

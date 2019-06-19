@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.contrib.distributions.estimator_head_distribution_regression(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distributions/python/ops/estimator.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/estimator.py).
 
 Creates a `Head` for regression under a generic distribution.
 

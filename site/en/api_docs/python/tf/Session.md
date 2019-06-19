@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/client/session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/client/session.py).
+Defined in [`tensorflow/python/client/session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/client/session.py).
 
 See the guides: [Running Graphs > Session management](../../../api_guides/python/client#Session_management), [Running Graphs](../../../api_guides/python/client)
 
@@ -57,7 +54,7 @@ with tf.Session() as sess:
 ```
 
 The
-[`ConfigProto`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/protobuf/config.proto)
+[`ConfigProto`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/protobuf/config.proto)
 protocol buffer exposes various configuration options for a
 session. For example, to create a session that uses soft constraints
 for device placement, and log the resulting placement decisions,
@@ -121,7 +118,7 @@ the session constructor.
     for more examples.
 * <b>`graph`</b>: (Optional.) The `Graph` to be launched (described above).
 * <b>`config`</b>: (Optional.) A
-    [`ConfigProto`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/protobuf/config.proto)
+    [`ConfigProto`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/protobuf/config.proto)
     protocol buffer with configuration options for the session.
 
 <h3 id="__enter__"><code>__enter__</code></h3>

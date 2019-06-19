@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.contrib.signal.hamming_window(
 
 
 
-Defined in [`tensorflow/contrib/signal/python/ops/window_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/signal/python/ops/window_ops.py).
+Defined in [`tensorflow/contrib/signal/python/ops/window_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/signal/python/ops/window_ops.py).
 
 See the guide: [Signal Processing (contrib) > Reconstructing framed sequences and applying a tapering window](../../../../../api_guides/python/contrib.signal#Reconstructing_framed_sequences_and_applying_a_tapering_window)
 
@@ -45,4 +42,4 @@ A `Tensor` of shape `[window_length]` of type `dtype`.
 
 * <b>`ValueError`</b>: If `dtype` is not a floating point type.
 
-[hamming]: https://en.wikipedia.org/wiki/Window_function#Hamming_window
+[hamming]: https://en.wikipedia.org/wiki/Window_function#Hann_and_Hamming_windows

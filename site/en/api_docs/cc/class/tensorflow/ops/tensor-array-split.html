@@ -2,15 +2,15 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::TensorArraySplit Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>TensorArraySplit</h1>
   <code>#include &lt;data_flow_ops.h&gt;</code>
-  <p><a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> the data from the input value into <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> elements. </p>
+  <p><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> the data from the input value into <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> elements. </p>
   <h2>Summary</h2>
   <p>Assuming that <code>lengths</code> takes on values</p>
   <p>(n0, n1, ..., n(T-1))<pre class="prettyprint" /></p>
@@ -18,22 +18,22 @@
     <pre class="prettyprint">and that `value` has shape</pre>
   </p>
   <p><pre class="prettyprint" />(n0 + n1 + ... + n(T-1) x d0 x d1 x ...)```,</p>
-  <p>this splits values into a <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> with T tensors.</p>
-  <p><a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> index t will be the subtensor of values with starting position</p>
+  <p>this splits values into a <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> with T tensors.</p>
+  <p><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> index t will be the subtensor of values with starting position</p>
   <p>```(n0 + n1 + ... + n(t-1), 0, 0, ...)<pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">and having size</pre>
   </p>
   <p><pre class="prettyprint" />nt x d0 x d1 x ...```</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>handle: The handle to a <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.</li>
-      <li>value: The concatenated tensor to write to the <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.</li>
-      <li>lengths: The vector of lengths, how to split the rows of value into the <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to a <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.</li>
+      <li>value: The concatenated tensor to write to the <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.</li>
+      <li>lengths: The vector of lengths, how to split the rows of value into the <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.</li>
       <li>flow_in: A float scalar that enforces proper chaining of operations.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A float scalar that enforces proper chaining of operations. </li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A float scalar that enforces proper chaining of operations. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -43,7 +43,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_split_1ae33a80f5f64f1d0ce47cb9ba380ee6bb">TensorArraySplit</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lengths, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_split_1ae33a80f5f64f1d0ce47cb9ba380ee6bb">TensorArraySplit</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lengths, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in)</code>
         <br />
       </td>
     </tr>
@@ -60,7 +60,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -105,18 +105,18 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_tensor_array_split_1a6a6beee076f43e4045b8327c9a8f0be9">
     <h3>flow_out</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> flow_out</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> flow_out</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_tensor_array_split_1ae33a80f5f64f1d0ce47cb9ba380ee6bb">
     <h3>TensorArraySplit</h3>
     <pre class="prettyprint"> TensorArraySplit(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lengths,
-  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lengths,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in
 )</pre>
     <div />
   </div>

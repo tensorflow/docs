@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/estimator/python/head_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/gan/python/estimator/python/head_impl.py).
+Defined in [`tensorflow/contrib/gan/python/estimator/python/head_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/estimator/python/head_impl.py).
 
 `Head` for a GAN.
 
@@ -47,6 +44,7 @@ __init__(
     discriminator_optimizer,
     use_loss_summaries=True,
     get_hooks_fn=None,
+    get_eval_metric_ops_fn=None,
     name=None
 )
 ```
@@ -64,8 +62,11 @@ __init__(
     discriminator updates.
 * <b>`use_loss_summaries`</b>: If `True`, add loss summaries. If `False`, does not.
     If `None`, uses defaults.
-* <b>`get_hooks_fn`</b>: A function that takes a GANTrainOps tuple and returns a list
-    of hooks. Defaults to `train.get_sequential_train_hooks()`
+* <b>`get_hooks_fn`</b>: A function that takes a `GANTrainOps` tuple and returns a
+    list of hooks. Defaults to `train.get_sequential_train_hooks()`
+* <b>`get_eval_metric_ops_fn`</b>: A function that takes a `GANModel`, and returns a
+    dict of metric results keyed by name. The output of this function is
+    passed into <a href="../../../../tf/estimator/EstimatorSpec"><code>tf.estimator.EstimatorSpec</code></a> during evaluation.
 * <b>`name`</b>: name of the head. If provided, summary and metrics keys will be
     suffixed by `"/" + name`.
 

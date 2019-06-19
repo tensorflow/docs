@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::Barrier Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.9/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,19 +13,19 @@
   <p>Defines a barrier that persists across different graph executions. </p>
   <h2>Summary</h2>
   <p>A barrier represents a key-value map, where each key is a string, and each value is a tuple of tensors.</p>
-  <p>At runtime, the barrier contains 'complete' and 'incomplete' elements. A complete element has defined tensors for all components of its value tuple, and may be accessed using <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/barrier-take-many.html#classtensorflow_1_1ops_1_1_barrier_take_many">BarrierTakeMany</a>. An incomplete element has some undefined components in its value tuple, and may be updated using <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/barrier-insert-many.html#classtensorflow_1_1ops_1_1_barrier_insert_many">BarrierInsertMany</a>.</p>
+  <p>At runtime, the barrier contains 'complete' and 'incomplete' elements. A complete element has defined tensors for all components of its value tuple, and may be accessed using <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/barrier-take-many.html#classtensorflow_1_1ops_1_1_barrier_take_many">BarrierTakeMany</a>. An incomplete element has some undefined components in its value tuple, and may be updated using <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/barrier-insert-many.html#classtensorflow_1_1ops_1_1_barrier_insert_many">BarrierInsertMany</a>.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>component_types: The type of each component in a value.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a></code>):<ul>
       <li>shapes: The shape of each component in a value. Each shape must be 1 in the first dimension. The length of this attr must be the same as the length of component_types.</li>
       <li>capacity: The capacity of the barrier. The default capacity is MAX_INT32, which is the largest capacity of the underlying queue.</li>
       <li>container: If non-empty, this barrier is placed in the given container. Otherwise, a default container is used.</li>
       <li>shared_name: If non-empty, this barrier will be shared under the given name across multiple sessions.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The handle to the barrier. </li>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The handle to the barrier. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -35,13 +35,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_barrier_1ae400cc957e34014ea577177c9ee259a7">Barrier</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & component_types)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_1ae400cc957e34014ea577177c9ee259a7">Barrier</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & component_types)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_barrier_1a16852c2beb26f3659acdabc69c948e91">Barrier</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & component_types, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Barrier::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_1a16852c2beb26f3659acdabc69c948e91">Barrier</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & component_types, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Barrier::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -58,7 +58,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -112,7 +112,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -122,7 +122,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -132,7 +132,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -142,7 +142,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -155,24 +155,24 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs">tensorflow::<wbr/>ops::<wbr/>Barrier::<wbr/>Attrs</a>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs">tensorflow::<wbr/>ops::<wbr/>Barrier::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/barrier.html#classtensorflow_1_1ops_1_1_barrier">Barrier</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/barrier.html#classtensorflow_1_1ops_1_1_barrier">Barrier</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_barrier_1a999e0c86fdd1442995bd4dcd49f55f75">
     <h3>handle</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> handle</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> handle</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_barrier_1ae400cc957e34014ea577177c9ee259a7">
     <h3>Barrier</h3>
     <pre class="prettyprint"> Barrier(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
   const DataTypeSlice & component_types
 )</pre>
     <div />
@@ -180,9 +180,9 @@
   <div id="classtensorflow_1_1ops_1_1_barrier_1a16852c2beb26f3659acdabc69c948e91">
     <h3>Barrier</h3>
     <pre class="prettyprint"> Barrier(
-  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
   const DataTypeSlice & component_types,
-  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Barrier::Attrs</a> & attrs
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Barrier::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -204,28 +204,28 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_barrier_1a393954a81f232e756e680fc9e091595d">
     <h3>Capacity</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a> Capacity(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a> Capacity(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_barrier_1af53271d59cca63c440ef591e790c1a0a">
     <h3>Container</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a> Container(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a> Container(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_barrier_1a6f503841ebe322db85d2826f56de4fb8">
     <h3>Shapes</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a> Shapes(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a> Shapes(
   const gtl::ArraySlice< PartialTensorShape > & x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_barrier_1a704c1a8c990c6afe3854ddc6cf9d3d6e">
     <h3>SharedName</h3>
-    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a> SharedName(
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/barrier/attrs.html#structtensorflow_1_1ops_1_1_barrier_1_1_attrs">Attrs</a> SharedName(
   StringPiece x
 )</pre>
     <div />

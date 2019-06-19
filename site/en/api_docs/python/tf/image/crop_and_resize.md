@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -26,19 +23,23 @@ Defined in generated file: `tensorflow/python/ops/gen_image_ops.py`.
 
 See the guide: [Images > Cropping](../../../../api_guides/python/image#Cropping)
 
-Extracts crops from the input image tensor and bilinearly resizes them (possibly
+Extracts crops from the input image tensor and resizes them.
 
-with aspect ratio change) to a common output size specified by `crop_size`. This
-is more general than the `crop_to_bounding_box` op which extracts a fixed size
-slice from the input image and does not allow resizing or aspect ratio change.
+Extracts crops from the input image tensor and resizes them using bilinear
+sampling or nearest neighbor sampling (possibly with aspect ratio change) to a
+common output size specified by `crop_size`. This is more general than the
+`crop_to_bounding_box` op which extracts a fixed size slice from the input image
+and does not allow resizing or aspect ratio change.
 
 Returns a tensor with `crops` from the input `image` at positions defined at the
 bounding box locations in `boxes`. The cropped boxes are all resized (with
-bilinear interpolation) to a fixed `size = [crop_height, crop_width]`. The
-result is a 4-D tensor `[num_boxes, crop_height, crop_width, depth]`. The
-resizing is corner aligned. In particular, if `boxes = [[0, 0, 1, 1]]`, the
-method will give identical results to using `tf.image.resize_bilinear()`
-with `align_corners=True`.
+bilinear or nearest neighbor interpolation) to a fixed
+`size = [crop_height, crop_width]`. The result is a 4-D tensor
+`[num_boxes, crop_height, crop_width, depth]`. The resizing is corner aligned.
+In particular, if `boxes = [[0, 0, 1, 1]]`, the method will give identical
+results to using `tf.image.resize_bilinear()` or
+`tf.image.resize_nearest_neighbor()`(depends on the `method` argument) with
+`align_corners=True`.
 
 #### Args:
 
@@ -64,9 +65,10 @@ with `align_corners=True`.
     cropped image patches are resized to this size. The aspect ratio of the image
     content is not preserved. Both `crop_height` and `crop_width` need to be
     positive.
-* <b>`method`</b>: An optional `string` from: `"bilinear"`. Defaults to `"bilinear"`.
-    A string specifying the interpolation method. Only 'bilinear' is
-    supported for now.
+* <b>`method`</b>: An optional `string` from: `"bilinear", "nearest"`. Defaults to `"bilinear"`.
+    A string specifying the sampling method for resizing. It can be either
+    `"bilinear"` or `"nearest"` and default to `"bilinear"`. Currently two sampling
+    methods are supported: Bilinear and Nearest Neighbor.
 * <b>`extrapolation_value`</b>: An optional `float`. Defaults to `0`.
     Value used for extrapolation, when applicable.
 * <b>`name`</b>: A name for the operation (optional).

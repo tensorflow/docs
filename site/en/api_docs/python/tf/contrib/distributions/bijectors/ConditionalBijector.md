@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,11 @@ page_type: reference
 
 ## Class `ConditionalBijector`
 
-Inherits From: [`Bijector`](../../../../tf/distributions/bijectors/Bijector)
+Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijector)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py).
 
 Conditional Bijector is a Bijector that allows intrinsic conditioning.
 
@@ -24,19 +21,24 @@ Conditional Bijector is a Bijector that allows intrinsic conditioning.
 
 dtype of `Tensor`s transformable by this distribution.
 
-<h3 id="event_ndims"><code>event_ndims</code></h3>
+<h3 id="forward_min_event_ndims"><code>forward_min_event_ndims</code></h3>
 
-Returns then number of event dimensions this bijector operates on.
+Returns the minimal number of dimensions bijector.forward operates on.
 
 <h3 id="graph_parents"><code>graph_parents</code></h3>
 
 Returns this `Bijector`'s graph_parents as a Python list.
 
+<h3 id="inverse_min_event_ndims"><code>inverse_min_event_ndims</code></h3>
+
+Returns the minimal number of dimensions bijector.inverse operates on.
+
 <h3 id="is_constant_jacobian"><code>is_constant_jacobian</code></h3>
 
-Returns true iff the Jacobian is not a function of x.
+Returns true iff the Jacobian matrix is not a function of x.
 
-Note: Jacobian is either constant for both forward and inverse or neither.
+Note: Jacobian matrix is either constant for both forward and inverse or
+neither.
 
 #### Returns:
 
@@ -58,11 +60,12 @@ Returns True if Tensor arguments will be validated.
 
 ``` python
 __init__(
-    event_ndims=None,
     graph_parents=None,
     is_constant_jacobian=False,
     validate_args=False,
     dtype=None,
+    forward_min_event_ndims=None,
+    inverse_min_event_ndims=None,
     name=None
 )
 ```
@@ -74,31 +77,38 @@ A `Bijector` transforms random variables into new random variables.
 Examples:
 
 ```python
-# Create the Y = g(X) = X transform which operates on vector events.
-identity = Identity(event_ndims=1)
+# Create the Y = g(X) = X transform.
+identity = Identity()
 
-# Create the Y = g(X) = exp(X) transform which operates on matrices.
-exp = Exp(event_ndims=2)
+# Create the Y = g(X) = exp(X) transform.
+exp = Exp()
 ```
 
 See `Bijector` subclass docstring for more details and specific examples.
 
 #### Args:
 
-* <b>`event_ndims`</b>: number of dimensions associated with event coordinates.
 * <b>`graph_parents`</b>: Python list of graph prerequisites of this `Bijector`.
-* <b>`is_constant_jacobian`</b>: Python `bool` indicating that the Jacobian is not a
-    function of the input.
+* <b>`is_constant_jacobian`</b>: Python `bool` indicating that the Jacobian matrix is
+    not a function of the input.
 * <b>`validate_args`</b>: Python `bool`, default `False`. Whether to validate input
     with asserts. If `validate_args` is `False`, and the inputs are invalid,
     correct behavior is not guaranteed.
 * <b>`dtype`</b>: `tf.dtype` supported by this `Bijector`. `None` means dtype is not
     enforced.
+* <b>`forward_min_event_ndims`</b>: Python `integer` indicating the minimum number of
+    dimensions `forward` operates on.
+* <b>`inverse_min_event_ndims`</b>: Python `integer` indicating the minimum number of
+    dimensions `inverse` operates on. Will be set to
+    `forward_min_event_ndims` by default, if no value is provided.
 * <b>`name`</b>: The name to give Ops created by the initializer.
 
 
 #### Raises:
 
+* <b>`ValueError`</b>:  If neither `forward_min_event_ndims` and
+    `inverse_min_event_ndims` are specified, or if either of them is
+    negative.
 * <b>`ValueError`</b>:  If a member of `graph_parents` is not a `Tensor`.
 
 <h3 id="forward"><code>forward</code></h3>

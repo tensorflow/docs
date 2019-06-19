@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`PowerTransform`](../../../../tf/contrib/distributions/bijectors
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/exp.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distributions/python/ops/bijectors/exp.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/exp.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/exp.py).
 
 See the guide: [Random variable transformations (contrib) > Bijectors](../../../../../../api_guides/python/contrib.distributions.bijectors#Bijectors)
 
@@ -24,8 +21,8 @@ Example Use:
 
 ```python
 # Create the Y=g(X)=exp(X) transform which works only on Tensors with 1
-# batch ndim and 2 event ndims (i.e., vector of matrices).
-exp = Exp(event_ndims=2)
+# batch ndim 2.
+exp = Exp()
 x = [[[1., 2],
        [3, 4]],
       [[5, 6],
@@ -43,19 +40,24 @@ over the event space.
 
 dtype of `Tensor`s transformable by this distribution.
 
-<h3 id="event_ndims"><code>event_ndims</code></h3>
+<h3 id="forward_min_event_ndims"><code>forward_min_event_ndims</code></h3>
 
-Returns then number of event dimensions this bijector operates on.
+Returns the minimal number of dimensions bijector.forward operates on.
 
 <h3 id="graph_parents"><code>graph_parents</code></h3>
 
 Returns this `Bijector`'s graph_parents as a Python list.
 
+<h3 id="inverse_min_event_ndims"><code>inverse_min_event_ndims</code></h3>
+
+Returns the minimal number of dimensions bijector.inverse operates on.
+
 <h3 id="is_constant_jacobian"><code>is_constant_jacobian</code></h3>
 
-Returns true iff the Jacobian is not a function of x.
+Returns true iff the Jacobian matrix is not a function of x.
 
-Note: Jacobian is either constant for both forward and inverse or neither.
+Note: Jacobian matrix is either constant for both forward and inverse or
+neither.
 
 #### Returns:
 
@@ -81,7 +83,6 @@ Returns True if Tensor arguments will be validated.
 
 ``` python
 __init__(
-    event_ndims=0,
     validate_args=False,
     name='exp'
 )
@@ -91,8 +92,6 @@ Instantiates the `Exp` bijector.
 
 #### Args:
 
-* <b>`event_ndims`</b>: Scalar `int32` `Tensor` indicating the number of dimensions
-    associated with a particular draw from the distribution.
 * <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
     checked for correctness.
 * <b>`name`</b>: Python `str` name given to ops managed by this object.
@@ -174,6 +173,7 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
 ``` python
 forward_log_det_jacobian(
     x,
+    event_ndims,
     name='forward_log_det_jacobian'
 )
 ```
@@ -182,7 +182,12 @@ Returns both the forward_log_det_jacobian.
 
 #### Args:
 
-* <b>`x`</b>: `Tensor`. The input to the "forward" Jacobian evaluation.
+* <b>`x`</b>: `Tensor`. The input to the "forward" Jacobian determinant evaluation.
+* <b>`event_ndims`</b>: Number of dimensions in the probabilistic events being
+    transformed. Must be greater than or equal to
+    `self.forward_min_event_ndims`. The result is summed over the final
+    dimensions to produce a scalar Jacobian determinant for each event,
+    i.e. it has shape `x.shape.ndims - event_ndims` dimensions.
 * <b>`name`</b>: The name to give this op.
 
 
@@ -279,6 +284,7 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
 ``` python
 inverse_log_det_jacobian(
     y,
+    event_ndims,
     name='inverse_log_det_jacobian'
 )
 ```
@@ -292,7 +298,12 @@ evaluated at `g^{-1}(y)`.
 
 #### Args:
 
-* <b>`y`</b>: `Tensor`. The input to the "inverse" Jacobian evaluation.
+* <b>`y`</b>: `Tensor`. The input to the "inverse" Jacobian determinant evaluation.
+* <b>`event_ndims`</b>: Number of dimensions in the probabilistic events being
+    transformed. Must be greater than or equal to
+    `self.inverse_min_event_ndims`. The result is summed over the final
+    dimensions to produce a scalar Jacobian determinant for each event,
+    i.e. it has shape `y.shape.ndims - event_ndims` dimensions.
 * <b>`name`</b>: The name to give this op.
 
 

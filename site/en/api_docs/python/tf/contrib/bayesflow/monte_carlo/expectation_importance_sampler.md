@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,19 +20,17 @@ tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
 
 See the guide: [BayesFlow Monte Carlo (contrib) > Ops](../../../../../../api_guides/python/contrib.bayesflow.monte_carlo#Ops)
 
-Monte Carlo estimate of `\\(E_p[f(Z)] = E_q[f(Z) p(Z) / q(Z)]\\)`.
+Monte Carlo estimate of \\(E_p[f(Z)] = E_q[f(Z) p(Z) / q(Z)]\\).
 
-With `\\(p(z) := exp^{log_p(z)}\\)`, this `Op` returns
+With \\(p(z) := exp^{log_p(z)}\\), this `Op` returns
 
-```
 \\(n^{-1} sum_{i=1}^n [ f(z_i) p(z_i) / q(z_i) ],  z_i ~ q,\\)
 \\(\approx E_q[ f(Z) p(Z) / q(Z) ]\\)
 \\(=       E_p[f(Z)]\\)
-```
 
 This integral is done in log-space with max-subtraction to better handle the
 often extreme values that `f(z) p(z) / q(z)` can take on.

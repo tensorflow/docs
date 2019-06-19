@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -33,10 +30,11 @@ dimensions of `input`.
 
 #### Args:
 
-* <b>`input`</b>: A `Tensor` of type `complex64`. A complex64 tensor.
+* <b>`input`</b>: A `Tensor`. Must be one of the following types: `complex64`, `complex128`.
+    A complex64 tensor.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-A `Tensor` of type `complex64`.
+A `Tensor`. Has the same type as `input`.

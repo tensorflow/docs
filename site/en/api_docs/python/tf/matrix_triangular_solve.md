@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style>{% include "site-assets/css/style.css" %}</style>
-
+<style> table img { max-width: 100%; } </style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -69,5 +66,5 @@ If `adjoint` is `False` then the strictly then the  innermost matrices in
 A `Tensor`. Has the same type as `matrix`.
 
 #### Numpy Compatibility
-Equivalent to np.linalg.triangular_solve
+Equivalent to scipy.linalg.solve_triangular
 
