@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -24,7 +24,7 @@ tf.contrib.distributions.bijectors.masked_autoregressive_default_template(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
 
 Build the Masked Autoregressive Density Estimator (Germain et al., 2015).
 

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -26,7 +26,7 @@ tf.keras.applications.VGG16(
 
 
 
-Defined in [`tensorflow/python/keras/applications/vgg16.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/applications/vgg16.py).
+Defined in [`tensorflow/python/keras/_impl/keras/applications/vgg16.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/applications/vgg16.py).
 
 Instantiates the VGG16 architecture.
 

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,14 +14,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/export_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/export_strategy.py).
+Defined in [`tensorflow/contrib/learn/python/learn/export_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/learn/python/learn/export_strategy.py).
 
 See the guide: [Learn (contrib) > Distributed training utilities](../../../../../api_guides/python/contrib.learn#Distributed_training_utilities)
 
 A class representing a type of model export.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Typically constructed by a utility function specific to the exporter, such as

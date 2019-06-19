@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/kfac/python/ops/fisher_factors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kfac/python/ops/fisher_factors.py).
+Defined in [`tensorflow/contrib/kfac/python/ops/fisher_factors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/fisher_factors.py).
 
 Base class for objects modeling factors of approximate Fisher blocks.
 
@@ -49,48 +49,32 @@ __init__()
 
 
 
-<h3 id="get_cholesky"><code>get_cholesky</code></h3>
-
-``` python
-get_cholesky(damping_func)
-```
-
-
-
-<h3 id="get_cholesky_inverse"><code>get_cholesky_inverse</code></h3>
-
-``` python
-get_cholesky_inverse(damping_func)
-```
-
-
-
 <h3 id="get_cov"><code>get_cov</code></h3>
 
 ``` python
 get_cov()
 ```
 
+Get full covariance matrix.
 
+#### Returns:
 
-<h3 id="get_cov_as_linear_operator"><code>get_cov_as_linear_operator</code></h3>
+Tensor of shape [n, n]. Represents all parameter-parameter correlations
+captured by this FisherFactor.
 
-``` python
-get_cov_as_linear_operator()
-```
-
-
-
-<h3 id="get_matpower"><code>get_matpower</code></h3>
+<h3 id="get_cov_var"><code>get_cov_var</code></h3>
 
 ``` python
-get_matpower(
-    exp,
-    damping_func
-)
+get_cov_var()
 ```
 
+Get variable backing this FisherFactor.
 
+May or may not be the same as self.get_cov()
+
+#### Returns:
+
+Variable of shape self._cov_shape.
 
 <h3 id="instantiate_cov_variables"><code>instantiate_cov_variables</code></h3>
 
@@ -107,6 +91,38 @@ instantiate_inv_variables()
 ```
 
 Makes the internal "inverse" variable(s).
+
+<h3 id="left_multiply_matpower"><code>left_multiply_matpower</code></h3>
+
+``` python
+left_multiply_matpower(
+    x,
+    exp,
+    damping_func
+)
+```
+
+Left multiplies 'x' by matrix power of this factor (w/ damping applied).
+
+This calculation is essentially:
+  (C + damping * I)**exp * x
+where * is matrix-multiplication, ** is matrix power, I is the identity
+matrix, and C is the matrix represented by this factor.
+
+x can represent either a matrix or a vector.  For some factors, 'x' might
+represent a vector but actually be stored as a 2D matrix for convenience.
+
+#### Args:
+
+* <b>`x`</b>: Tensor. Represents a single vector. Shape depends on implementation.
+* <b>`exp`</b>: float.  The matrix exponent to use.
+* <b>`damping_func`</b>: A function that computes a 0-D Tensor or a float which will
+    be the damping value used.  i.e. damping = damping_func().
+
+
+#### Returns:
+
+Tensor of same shape as 'x' representing the result of the multiplication.
 
 <h3 id="make_covariance_update_op"><code>make_covariance_update_op</code></h3>
 
@@ -132,32 +148,36 @@ make_inverse_update_ops()
 
 Create and return update ops corresponding to registered computations.
 
-<h3 id="register_cholesky"><code>register_cholesky</code></h3>
+<h3 id="right_multiply_matpower"><code>right_multiply_matpower</code></h3>
 
 ``` python
-register_cholesky(damping_func)
-```
-
-
-
-<h3 id="register_cholesky_inverse"><code>register_cholesky_inverse</code></h3>
-
-``` python
-register_cholesky_inverse(damping_func)
-```
-
-
-
-<h3 id="register_matpower"><code>register_matpower</code></h3>
-
-``` python
-register_matpower(
+right_multiply_matpower(
+    x,
     exp,
     damping_func
 )
 ```
 
+Right multiplies 'x' by matrix power of this factor (w/ damping applied).
 
+This calculation is essentially:
+  x * (C + damping * I)**exp
+where * is matrix-multiplication, ** is matrix power, I is the identity
+matrix, and C is the matrix represented by this factor.
+
+Unlike left_multiply_matpower, x will always be a matrix.
+
+#### Args:
+
+* <b>`x`</b>: Tensor. Represents a single vector. Shape depends on implementation.
+* <b>`exp`</b>: float.  The matrix exponent to use.
+* <b>`damping_func`</b>: A function that computes a 0-D Tensor or a float which will
+    be the damping value used.  i.e. damping = damping_func().
+
+
+#### Returns:
+
+Tensor of same shape as 'x' representing the result of the multiplication.
 
 
 

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
 
 
-Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/callbacks.py).
+Defined in [`tensorflow/python/keras/_impl/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/callbacks.py).
 
 Callback for creating simple, custom callbacks on-the-fly.
 

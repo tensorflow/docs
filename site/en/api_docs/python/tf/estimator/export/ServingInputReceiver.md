@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,29 +14,23 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/export/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/export/export.py).
+Defined in [`tensorflow/python/estimator/export/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/estimator/export/export.py).
 
 A return type for a serving_input_receiver_fn.
 
 The expected return values are:
   features: A `Tensor`, `SparseTensor`, or dict of string to `Tensor` or
-    `SparseTensor`, specifying the features to be passed to the model. Note:
-    if `features` passed is not a dict, it will be wrapped in a dict with a
-    single entry, using 'feature' as the key.  Consequently, the model must
-    accept a feature dict of the form {'feature': tensor}.  You may use
-    `TensorServingInputReceiver` if you want the tensor to be passed as is.
-  receiver_tensors: A `Tensor`, `SparseTensor`, or dict of string to `Tensor`
-    or `SparseTensor`, specifying input nodes where this receiver expects to
-    be fed by default.  Typically, this is a single placeholder expecting
-    serialized `tf.Example` protos.
+    `SparseTensor`, specifying the features to be passed to the model.
+  receiver_tensors: a `Tensor`, or a dict of string to `Tensor`, specifying
+    input nodes where this receiver expects to be fed by default.  Typically,
+    this is a single placeholder expecting serialized `tf.Example` protos.
   receiver_tensors_alternatives: a dict of string to additional
-    groups of receiver tensors, each of which may be a `Tensor`,
-    `SparseTensor`, or dict of string to `Tensor` or`SparseTensor`.
-    These named receiver tensor alternatives generate additional serving
-    signatures, which may be used to feed inputs at different points within
-    the input receiver subgraph.  A typical usage is to allow feeding raw
-    feature `Tensor`s *downstream* of the tf.parse_example() op.
-    Defaults to None.
+    groups of receiver tensors, each of which may be a `Tensor` or a dict of
+    string to `Tensor`.  These named receiver tensor alternatives generate
+    additional serving signatures, which may be used to feed inputs at
+    different points within the input receiver subgraph.  A typical usage is
+    to allow feeding raw feature `Tensor`s *downstream* of the
+    tf.parse_example() op.  Defaults to None.
 
 ## Properties
 

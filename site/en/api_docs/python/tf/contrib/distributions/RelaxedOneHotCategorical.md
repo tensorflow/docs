@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`TransformedDistribution`](../../../tf/contrib/distributions/Tra
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py).
 
 RelaxedOneHotCategorical distribution with temperature and logits.
 

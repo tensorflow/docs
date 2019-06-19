@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -23,7 +23,7 @@ tf.keras.backend.rnn(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/backend.py).
+Defined in [`tensorflow/python/keras/_impl/keras/backend.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/backend.py).
 
 Iterates over the time dimension of a tensor.
 
@@ -54,7 +54,7 @@ Iterates over the time dimension of a tensor.
 * <b>`constants`</b>: a list of constant values passed at each step.
 * <b>`unroll`</b>: whether to unroll the RNN or to use a symbolic loop
         (`while_loop` or `scan` depending on backend).
-* <b>`input_length`</b>: If specified, assume time dimension is of this length.
+* <b>`input_length`</b>: Unused; exists for API compatibility.
 
 
 #### Returns:

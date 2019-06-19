@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
 
 Ops and objects returned from a `model_fn` and passed to `TPUEstimator`.
 

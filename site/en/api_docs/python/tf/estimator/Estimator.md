@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/estimator.py).
+Defined in [`tensorflow/python/estimator/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/estimator/estimator.py).
 
 See the guide: [Regression Examples](../../../../api_guides/python/regression_examples)
 
@@ -46,6 +46,13 @@ developer.
 None of `Estimator`'s methods can be overridden in subclasses (its
 constructor enforces this). Subclasses should use `model_fn` to configure
 the base class, and may add methods implementing specialized functionality.
+
+
+
+#### Eager Compatibility
+Estimators are not compatible with eager execution.
+
+
 
 ## Properties
 
@@ -88,7 +95,7 @@ __init__(
 
 Constructs an `Estimator` instance.
 
-See <a href="../../../../guide/estimators">Estimators</a> for more information. To warm-start an `Estimator`:
+See <a href="../../../../programmers_guide/estimators">Estimators</a> for more information. To warm-start an `Estimator`:
 
 ```python
 estimator = tf.estimator.DNNClassifier(
@@ -137,39 +144,20 @@ For more details on warm-start configuration, see
 * <b>`config`</b>: Configuration object.
 * <b>`params`</b>: `dict` of hyper parameters that will be passed into `model_fn`.
           Keys are names of parameters, values are basic python types.
-* <b>`warm_start_from`</b>: Optional string filepath to a checkpoint or SavedModel to
-                   warm-start from, or a <a href="../../tf/estimator/WarmStartSettings"><code>tf.estimator.WarmStartSettings</code></a>
-                   object to fully configure warm-starting.  If the string
-                   filepath is provided instead of a `WarmStartSettings`,
-                   then all variables are warm-started, and it is assumed
-                   that vocabularies and Tensor names are unchanged.
+* <b>`warm_start_from`</b>: Optional string filepath to a checkpoint to warm-start
+                   from, or a <a href="../../tf/estimator/WarmStartSettings"><code>tf.estimator.WarmStartSettings</code></a> object to
+                   fully configure warm-starting.  If the string filepath is
+                   provided instead of a `WarmStartSettings`, then all
+                   variables are warm-started, and it is assumed that
+                   vocabularies and Tensor names are unchanged.
 
 
 #### Raises:
 
+* <b>`RuntimeError`</b>: If eager execution is enabled.
 * <b>`ValueError`</b>: parameters of `model_fn` don't match `params`.
 * <b>`ValueError`</b>: if this is called via a subclass and if that class overrides
     a member of `Estimator`.
-
-<h3 id="eval_dir"><code>eval_dir</code></h3>
-
-``` python
-eval_dir(name=None)
-```
-
-Shows directory name where evaluation metrics are dumped.
-
-#### Args:
-
-* <b>`name`</b>: Name of the evaluation if user needs to run multiple evaluations on
-    different data sets, such as on training data vs test data. Metrics for
-    different evaluations are saved in separate folders, and appear
-    separately in tensorboard.
-
-
-#### Returns:
-
-A string which is the path of directory contains evaluation metrics.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
@@ -194,7 +182,7 @@ Evaluates until:
 #### Args:
 
 * <b>`input_fn`</b>: A function that constructs the input data for evaluation.
-    See <a href="../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
+    See <a href="../../../../get_started/premade_estimators#create_input_functions">Premade Estimators</a> for more
     information. The function should construct and return one of
     the following:
 
@@ -211,9 +199,7 @@ Evaluates until:
 * <b>`hooks`</b>: List of `SessionRunHook` subclass instances. Used for callbacks
     inside the evaluation call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to evaluate. If `None`, the
-    latest checkpoint in `model_dir` is used.  If there are no checkpoints
-    in `model_dir`, evaluation is run with newly initialized `Variables`
-    instead of restored from checkpoint.
+    latest checkpoint in `model_dir` is used.
 * <b>`name`</b>: Name of the evaluation if user needs to run multiple evaluations on
     different data sets, such as on training data vs test data. Metrics for
     different evaluations are saved in separate folders, and appear
@@ -249,7 +235,7 @@ export_savedmodel(
 Exports inference graph as a SavedModel into given dir.
 
 For a detailed guide, see
-<a href="../../../../guide/saved_model#using_savedmodel_with_estimators">Using SavedModel with Estimators</a>.
+<a href="../../../../programmers_guide/saved_model#using_savedmodel_with_estimators">Using SavedModel with Estimators</a>.
 
 This method builds a new graph by first calling the
 serving_input_receiver_fn to obtain feature `Tensor`s, and then calling
@@ -373,7 +359,7 @@ Yields predictions for given features.
 * <b>`input_fn`</b>: A function that constructs the features. Prediction continues
     until `input_fn` raises an end-of-input exception (`OutOfRangeError` or
     `StopIteration`).
-    See <a href="../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
+    See <a href="../../../../get_started/premade_estimators#create_input_functions">Premade Estimators</a> for more
     information. The function should construct and return one of
     the following:
 
@@ -391,9 +377,7 @@ Yields predictions for given features.
 * <b>`hooks`</b>: List of `SessionRunHook` subclass instances. Used for callbacks
     inside the prediction call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to predict. If `None`, the
-    latest checkpoint in `model_dir` is used.  If there are no checkpoints
-    in `model_dir`, prediction is run with newly initialized `Variables`
-    instead of restored from checkpoint.
+    latest checkpoint in `model_dir` is used.
 * <b>`yield_single_examples`</b>: If False, yield the whole batch as returned by the
     `model_fn` instead of decomposing the batch into individual elements.
     This is useful if `model_fn` returns some tensors whose first dimension
@@ -431,7 +415,7 @@ Trains a model given training data input_fn.
 #### Args:
 
 * <b>`input_fn`</b>: A function that provides input data for training as minibatches.
-    See <a href="../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
+    See <a href="../../../../get_started/premade_estimators#create_input_functions">Premade Estimators</a> for more
     information. The function should construct and return one of
     the following:
 

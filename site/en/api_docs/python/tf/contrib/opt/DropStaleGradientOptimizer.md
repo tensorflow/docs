@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py).
 
 Wrapper optimizer that checks and drops stale gradient.
 

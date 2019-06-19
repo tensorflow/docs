@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -24,7 +24,7 @@ tf.keras.datasets.imdb.load_data(
 
 
 
-Defined in [`tensorflow/python/keras/datasets/imdb.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/datasets/imdb.py).
+Defined in [`tensorflow/python/keras/_impl/keras/datasets/imdb.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/datasets/imdb.py).
 
 Loads the IMDB dataset.
 

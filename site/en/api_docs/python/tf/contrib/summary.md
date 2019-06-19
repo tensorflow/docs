@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/summary/summary.py).
+Defined in [`tensorflow/contrib/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/summary/summary.py).
 
 TensorFlow Summary API v2.
 
@@ -21,7 +21,6 @@ from <a href="../../tf/summary/merge_all"><code>tf.summary.merge_all</code></a> 
 
 To use with eager execution enabled, write your code as follows:
 
-```python
 global_step = tf.train.get_or_create_global_step()
 summary_writer = tf.contrib.summary.create_file_writer(
     train_dir, flush_millis=10000)
@@ -31,11 +30,9 @@ with summary_writer.as_default(), tf.contrib.summary.always_record_summaries():
   tf.contrib.summary.scalar("loss", my_loss)
   # In this case every call to tf.contrib.summary.scalar will generate a record
   # ...
-```
 
 To use it with graph execution, write your code as follows:
 
-```python
 global_step = tf.train.get_or_create_global_step()
 summary_writer = tf.contrib.summary.create_file_writer(
     train_dir, flush_millis=10000)
@@ -56,7 +53,6 @@ with tf.Session(...) as sess:
   while not_done_training:
     sess.run([train_op, tf.contrib.summary.all_summary_ops()])
     # ...
-```
 
 ## Classes
 
@@ -72,7 +68,7 @@ with tf.Session(...) as sess:
 
 [`create_db_writer(...)`](../../tf/contrib/summary/create_db_writer): Creates a summary database writer in the current context.
 
-[`create_file_writer(...)`](../../tf/contrib/summary/create_file_writer): Creates a summary file writer in the current context under the given name.
+[`create_file_writer(...)`](../../tf/contrib/summary/create_file_writer): Creates a summary file writer in the current context.
 
 [`create_summary_file_writer(...)`](../../tf/contrib/summary/create_summary_file_writer): Please use <a href="../../tf/contrib/summary/create_file_writer"><code>tf.contrib.summary.create_file_writer</code></a>.
 

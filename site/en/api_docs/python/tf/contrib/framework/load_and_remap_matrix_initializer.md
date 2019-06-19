@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -28,7 +28,7 @@ tf.contrib.framework.load_and_remap_matrix_initializer(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/checkpoint_ops.py).
+Defined in [`tensorflow/python/training/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/checkpoint_ops.py).
 
 Returns a var initializer for loading and remapping a 2-D (matrix) tensor.
 

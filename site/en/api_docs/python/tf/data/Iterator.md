@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/data/ops/iterator_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/data/ops/iterator_ops.py).
+Defined in [`tensorflow/python/data/ops/iterator_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/data/ops/iterator_ops.py).
 
 See the guide: [Dataset Input Pipeline > Iterating over datasets](../../../../api_guides/python/input_dataset#Iterating_over_datasets)
 
@@ -97,7 +97,8 @@ instead use `Dataset.make_initializable_iterator()` or
 * <b>`output_shapes`</b>: A nested structure of <a href="../../tf/TensorShape"><code>tf.TensorShape</code></a> objects
     corresponding to each component of an element of this dataset.
 * <b>`output_classes`</b>: A nested structure of Python `type` object corresponding
-    to each component of an element of this iterator.
+    to each
+    component of an element of this iterator.
 
 <h3 id="from_string_handle"><code>from_string_handle</code></h3>
 

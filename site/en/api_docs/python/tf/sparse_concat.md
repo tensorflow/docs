@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,15 +20,11 @@ tf.sparse_concat(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Manipulation](../../../api_guides/python/sparse_ops#Manipulation)
 
-Concatenates a list of `SparseTensor` along the specified dimension. (deprecated arguments)
-
-SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
-Instructions for updating:
-concat_dim is deprecated, use axis instead
+Concatenates a list of `SparseTensor` along the specified dimension.
 
 Concatenation is with respect to the dense versions of each sparse input.
 It is assumed that each inputs is a `SparseTensor` whose elements are ordered

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -28,7 +28,7 @@ tf.get_local_variable(
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/variable_scope.py).
+Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/variable_scope.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 
@@ -39,7 +39,7 @@ added to the `LOCAL_VARIABLES` collection and `trainable` is set to
 `False`.
 This function prefixes the name with the current variable scope
 and performs reuse checks. See the
-<a href="../../../guide/variables">Variable Scope How To</a>
+<a href="../../../programmers_guide/variables">Variable Scope How To</a>
 for an extensive description of how reusing works. Here is a basic example:
 
 ```python
@@ -74,9 +74,7 @@ Some useful partitioners are available.  See, e.g.,
 * <b>`name`</b>: The name of the new or existing variable.
 * <b>`shape`</b>: Shape of the new or existing variable.
 * <b>`dtype`</b>: Type of the new or existing variable (defaults to `DT_FLOAT`).
-* <b>`initializer`</b>: Initializer for the variable if one is created. Can either be
-    an initializer object or a Tensor. If it's a Tensor, its shape must be known
-    unless validate_shape is False.
+* <b>`initializer`</b>: Initializer for the variable if one is created.
 * <b>`regularizer`</b>: A (Tensor -> Tensor or None) function; the result of
     applying it on a newly created variable will be added to the collection
     <a href="../tf/GraphKeys#REGULARIZATION_LOSSES"><code>tf.GraphKeys.REGULARIZATION_LOSSES</code></a> and can be used for regularization.
@@ -92,8 +90,7 @@ Some useful partitioners are available.  See, e.g.,
     partitions for each axis (currently only one axis can be partitioned).
 * <b>`validate_shape`</b>: If False, allows the variable to be initialized with a
       value of unknown shape. If True, the default, the shape of initial_value
-      must be known. For this to be used the initializer must be a Tensor and
-      not an initializer object.
+      must be known.
 * <b>`use_resource`</b>: If False, creates a regular Variable. If true, creates an
     experimental ResourceVariable instead with well-defined semantics.
     Defaults to False (will later change to True). When eager execution is

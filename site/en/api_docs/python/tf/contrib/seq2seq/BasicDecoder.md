@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Decoder`](../../../tf/contrib/seq2seq/Decoder)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/basic_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/basic_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
 
 See the guide: [Seq2seq Library (contrib) > Dynamic Decoding](../../../../../api_guides/python/contrib.seq2seq#Dynamic_Decoding)
 

@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::QuantizedReshape Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -30,7 +30,7 @@
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * values: Must be of same shape and type.</pre>
   </p>
   <p>
@@ -60,7 +60,7 @@ class Stack {
     <pre class="prettyprint">    int64 axis_ = 0;
   };
   Stack(const ::tensorflow::Scope& scope, ::tensorflow::InputList values);
-  Stack(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, const
+  Stack(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, const
       Stack::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -72,7 +72,7 @@ class Stack {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -108,21 +108,21 @@ class Stack {
   <p>pad(t, paddings) ==> [[0, 0, 0, 0, 0, 0] [0, 0, 1, 1, 0, 0] [0, 0, 2, 2, 0, 0] [0, 0, 0, 0, 0, 0]] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
     * `Output`: The output tensor. */
 class Pad {
  public:
-  Pad(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-    <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings);
+  Pad(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+    <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -162,21 +162,21 @@ class Pad {
   <p>pad(t, paddings) ==> [[0, 0, 0, 0, 0, 0] [0, 0, 1, 1, 0, 0] [0, 0, 2, 2, 0, 0] [0, 0, 0, 0, 0, 0]] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
     * `Output`: The output tensor. */
 class PadV2 {
  public:
-  PadV2(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-      <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> constant_values);
+  PadV2(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+      <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> constant_values);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -208,8 +208,8 @@ class PadV2 {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
-    * values: Tensors to be concatenated. <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> must have size 1 in the first dimension
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * values: Tensors to be concatenated. <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> must have size 1 in the first dimension
     and same shape.
     * shape: the final shape of the result; should be equal to the shapes of any input
     but with the number of input values in the first dimension.</pre>
@@ -219,14 +219,14 @@ class PadV2 {
     * `Output`: The concatenated tensor. */
 class ParallelConcat {
  public:
-  ParallelConcat(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a>
+  ParallelConcat(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a>
                values, PartialTensorShape shape);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -239,7 +239,7 @@ class ParallelConcat {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * dtype: The type of elements in the tensor.</pre>
   </p>
   <p>
@@ -269,7 +269,7 @@ class Placeholder {
     <pre class="prettyprint">    PartialTensorShape shape_ = ::tensorflow::PartialTensorShape() /* unknown */;
   };
   Placeholder(const ::tensorflow::Scope& scope, DataType dtype);
-  Placeholder(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, DataType dtype, const
+  Placeholder(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, DataType dtype, const
             Placeholder::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -281,7 +281,7 @@ class Placeholder {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -289,7 +289,7 @@ class Placeholder {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * input: The default value to produce when `output` is not fed.
     * shape: The (possibly partial) shape of the tensor.</pre>
   </p>
@@ -298,14 +298,14 @@ class Placeholder {
     * `Output`: A placeholder tensor that defaults to `input` if it is not fed. */
 class PlaceholderWithDefault {
  public:
-  PlaceholderWithDefault(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+  PlaceholderWithDefault(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
                        input, PartialTensorShape shape);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -323,7 +323,7 @@ class PlaceholderWithDefault {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * input: any tensor.</pre>
   </p>
   <p>
@@ -353,7 +353,7 @@ class PreventGradient {
     <pre class="prettyprint">    StringPiece message_ = "";
   };
   PreventGradient(const ::tensorflow::Scope& scope, ::tensorflow::Input input);
-  PreventGradient(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  PreventGradient(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
                 const PreventGradient::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -365,7 +365,7 @@ class PreventGradient {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -379,77 +379,79 @@ class PreventGradient {
        likely matmul.</pre>
   </p>
   <p>
-    <pre class="prettyprint">    There are different ways to quantize. This version uses only scaling, so 0.0
-    maps to 0.</pre>
+    <pre class="prettyprint">    There are different ways to quantize. This version does not use the full range
+    of the output type, choosing to elide the lowest possible value for symmetry
+    (e.g., output range is -127 to 127, not -128 to 127 for signed 8 bit
+    quantization), so that 0.0 maps to 0.</pre>
   </p>
   <p>
-    <pre class="prettyprint">    From the specified 'num_bits' in the quantized output type, it determines
-    minimum and maximum representable quantized values.</pre>
+    <pre class="prettyprint">    To perform this op, we first find the range of values in our tensor. The range
+    we use is always centered on 0, so we find m such that</pre>
   </p>
   <p>
-    <pre class="prettyprint">    e.g.</pre>
+    <pre class="prettyprint">    1. m = max(abs(input_min), abs(input_max)) if range_given is true,
+    2. m = max(abs(min_elem(input)), abs(max_elem(input))) otherwise.</pre>
   </p>
   <p>
-    <pre class="prettyprint">    *   [-128, 127] for signed, num_bits = 8, or
-    *   [0, 255] for unsigned, num_bits = 8.</pre>
+    <pre class="prettyprint">    Our input tensor range is then [-m, m].</pre>
   </p>
   <p>
-    <pre class="prettyprint">    If range_given == False, the initial input_min, input_max will be determined
-    automatically as the minimum and maximum values in the input tensor, otherwise
-    the specified values of input_min, input_max are used.</pre>
+    <pre class="prettyprint">    Next, we choose our fixed-point quantization buckets, [min_fixed, max_fixed].
+    If signed_input is true, this is</pre>
   </p>
   <p>
-    <pre class="prettyprint">    Note: If the input_min, input_max are specified, they do not need to equal the
-    actual minimum and maximum values in the tensor. e.g. in some cases it may be
-    beneficial to specify these values such that the low probability extremes of the
-    input distribution are clipped.</pre>
+    <pre class="prettyprint">      [min_fixed, max_fixed ] =
+          [-(1 << (num_bits - 1) - 1), (1 << (num_bits - 1)) - 1].</pre>
   </p>
   <p>
-    <pre class="prettyprint">    This op determines the maximum scale_factor that would map the initial
-    [input_min, input_max] range to a range that lies within the representable
-    quantized range.</pre>
+    <pre class="prettyprint">    Otherwise, if signed_input is false, the fixed-point range is</pre>
   </p>
   <p>
-    <pre class="prettyprint">    It determines the scale from one of input_min and input_max, then updates the
-    other one to maximize the respresentable range.</pre>
+    <pre class="prettyprint">      [min_fixed, max_fixed] = [0, (1 << num_bits) - 1].</pre>
   </p>
   <p>
-    <pre class="prettyprint">    e.g.</pre>
+    <pre class="prettyprint">    From this we compute our scaling factor, s:</pre>
   </p>
   <p>
-    <pre class="prettyprint">    *   if the output is signed, num_bits = 8, [input_min, input_max] = [-10.0,
-        5.0]: it would use a scale_factor of -128 / -10.0 = 12.8 In this case, it
-        would update input_max to be 127 / 12.8 = 9.921875
-    *   if the output is signed, num_bits = 8, [input_min, input_max] = [-10.0,
-        10.0]: it would use a scale_factor of 127 / 10.0 = 12.7 In this case, it
-        would update input_min to be 128.0 / 12.7 = -10.07874
-    *   if the output is unsigned, input_min is forced to be 0, and only the
-        specifide input_max is used.</pre>
+    <pre class="prettyprint">      s = (max_fixed - min_fixed) / (2 * m).</pre>
   </p>
   <p>
-    <pre class="prettyprint">    After determining the scale_factor and updating the input tange, it applies the
-    following to each value in the 'input' tensor.</pre>
+    <pre class="prettyprint">    Now we can quantize and dequantize the elements of our tensor.  An element e
+    is transformed into e':</pre>
   </p>
   <p>
-    <pre class="prettyprint">    output = round(clamp(value, input_min, input_max) * scale_factor) / scale_factor.</pre>
+    <pre class="prettyprint">      e' = (e * s).round_to_nearest() / s.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Note that we have a different number of buckets in the signed vs. unsigned
+    cases.  For example, if num_bits == 8, we get 254 buckets in the signed case
+    vs. 255 in the unsigned case.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example, suppose num_bits = 8 and m = 1.  Then</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">      [min_fixed, max_fixed] = [-127, 127], and
+      s = (127 + 127) / 2 = 127.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Given the vector {-1, -0.5, 0, 0.3}, this is quantized to
+    {-127, -63, 0, 38}, and dequantized to {-1, -63.0/127, 0, 38.0/127}.</pre>
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
-    * input: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to quantize and then dequantize.
-    * input_min: If `range_given == True`, this specifies the minimum input value that needs to
-    be represented, otherwise it is determined from the min value of the `input`
-    tensor.
-    * input_max: If `range_given == True`, this specifies the maximum input value that needs to
-    be represented, otherwise it is determined from the max value of the `input`
-    tensor.</pre>
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * input: <a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to quantize and then dequantize.
+    * input_min: If range_given, this is the min of the range, otherwise this input
+    will be ignored.
+    * input_max: If range_given, this is the max of the range, otherwise this input
+    will be ignored.</pre>
   </p>
   <p>
     <pre class="prettyprint">    Optional attributes (see `Attrs`):
-    * signed_input: Whether the quantization is signed or unsigned. (actually this parameter should
-    have been called <b>`signed_output`</b>)
+    * signed_input: If the quantization is signed or unsigned.
     * num_bits: The bitwidth of the quantization.
-    * range_given: Whether the range is given or should be determined from the `input` tensor.</pre>
+    * range_given: If the range is given or should be computed from the tensor.</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
@@ -458,8 +460,7 @@ class QuantizeAndDequantizeV2 {
  public:
   /// Optional attribute setters for QuantizeAndDequantizeV2
   struct Attrs {
-    /** Whether the quantization is signed or unsigned. (actually this parameter should
-        have been called <b>`signed_output`</b>)</pre>
+    /** If the quantization is signed or unsigned.</pre>
   </p>
   <p>
     <pre class="prettyprint">        Defaults to true */
@@ -481,7 +482,7 @@ class QuantizeAndDequantizeV2 {
     }</pre>
   </p>
   <p>
-    <pre class="prettyprint">    /** Whether the range is given or should be determined from the `input` tensor.</pre>
+    <pre class="prettyprint">    /** If the range is given or should be computed from the tensor.</pre>
   </p>
   <p>
     <pre class="prettyprint">        Defaults to false */
@@ -496,12 +497,12 @@ class QuantizeAndDequantizeV2 {
     int64 num_bits_ = 8;
     bool range_given_ = false;
   };
-  QuantizeAndDequantizeV2(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                        input, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
-                        <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max);
-  QuantizeAndDequantizeV2(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                        input, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
-                        <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max, const
+  QuantizeAndDequantizeV2(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                        input, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
+                        <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max);
+  QuantizeAndDequantizeV2(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                        input, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
+                        <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max, const
                         QuantizeAndDequantizeV2::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -519,7 +520,7 @@ class QuantizeAndDequantizeV2 {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -531,7 +532,7 @@ class QuantizeAndDequantizeV2 {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
@@ -559,13 +560,13 @@ class QuantizeAndDequantizeV3 {
     <pre class="prettyprint">    bool signed_input_ = true;
     bool range_given_ = true;
   };
-  QuantizeAndDequantizeV3(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                        input, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
-                        <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+  QuantizeAndDequantizeV3(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                        input, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
+                        <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
                         num_bits);
-  QuantizeAndDequantizeV3(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                        input, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
-                        <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+  QuantizeAndDequantizeV3(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                        input, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
+                        <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
                         num_bits, const QuantizeAndDequantizeV3::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -580,7 +581,7 @@ class QuantizeAndDequantizeV3 {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -596,10 +597,8 @@ class QuantizeAndDequantizeV3 {
   <p>
     <pre class="prettyprint">    In 'MIN_COMBINED' mode, each value of the tensor will undergo the following:</pre>
   </p>
-  <p><pre class="prettyprint" /> out[i] = (in[i] - min_range) * range(T) / (max_range - min_range) if T == qint8, out[i] -= (range(T) + 1) / 2.0 <pre class="prettyprint" /></p>
-  <p>
-    <pre class="prettyprint">    here `range(T) = numeric_limits<T>::max() - numeric_limits<T>::min()`</pre>
-  </p>
+  <p><pre class="prettyprint" /> out[i] = (in[i] - min_range) * range(T) / (max_range - min_range) if T == qint8, out[i] -= (range(T) + 1) / 2.0 <pre class="prettyprint">
+    here `range(T) = numeric_limits<T>::max() - numeric_limits<T>::min()`</pre></p>
   <p>
     <pre class="prettyprint">    *MIN_COMBINED Mode Example*</pre>
   </p>
@@ -637,31 +636,21 @@ class QuantizeAndDequantizeV3 {
     -127 to 127, not -128 to 127 for signed 8 bit quantization), so that 0.0 maps to
     0.</pre>
   </p>
-  <p>
-    <pre class="prettyprint">    We first find the range of values in our tensor. The
-    range we use is always centered on 0, so we find m such that</pre>
-  </p>
-  <p><pre class="prettyprint" />c++ m = max(abs(input_min), abs(input_max)) <pre class="prettyprint" /></p>
+  <p><pre class="prettyprint">    We first find the range of values in our tensor. The
+    range we use is always centered on 0, so we find m such that
+    </pre>c++ m = max(abs(input_min), abs(input_max)) <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Our input tensor range is then `[-m, m]`.</pre>
   </p>
-  <p>
-    <pre class="prettyprint">    Next, we choose our fixed-point quantization buckets, `[min_fixed, max_fixed]`.
-    If T is signed, this is</pre>
-  </p>
-  <p><pre class="prettyprint" /> num_bits = sizeof(T) * 8 [min_fixed, max_fixed] = [-(1 << (num_bits - 1) - 1), (1 << (num_bits - 1)) - 1] <pre class="prettyprint" /></p>
-  <p>
-    <pre class="prettyprint">    Otherwise, if T is unsigned, the fixed-point range is</pre>
-  </p>
-  <p><pre class="prettyprint" /> [min_fixed, max_fixed] = [0, (1 << num_bits) - 1] <pre class="prettyprint" /></p>
-  <p>
-    <pre class="prettyprint">    From this we compute our scaling factor, s:</pre>
-  </p>
-  <p><pre class="prettyprint" />c++ s = (max_fixed - min_fixed) / (2 * m) <pre class="prettyprint" /></p>
-  <p>
-    <pre class="prettyprint">    Now we can quantize the elements of our tensor:</pre>
-  </p>
-  <p><pre class="prettyprint" />c++ result = round(input * s) <pre class="prettyprint" /></p>
+  <p><pre class="prettyprint">    Next, we choose our fixed-point quantization buckets, `[min_fixed, max_fixed]`.
+    If T is signed, this is
+    </pre> num_bits = sizeof(T) * 8 [min_fixed, max_fixed] = [-(1 << (num_bits - 1) - 1), (1 << (num_bits - 1)) - 1] <pre class="prettyprint" /></p>
+  <p><pre class="prettyprint">    Otherwise, if T is unsigned, the fixed-point range is
+    </pre> [min_fixed, max_fixed] = [0, (1 << num_bits) - 1] <pre class="prettyprint" /></p>
+  <p><pre class="prettyprint">    From this we compute our scaling factor, s:
+    </pre>c++ s = (max_fixed - min_fixed) / (2 * m) <pre class="prettyprint" /></p>
+  <p><pre class="prettyprint">    Now we can quantize the elements of our tensor:
+    </pre>c++ result = round(input * s) <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    One thing to watch out for is that the operator may choose to adjust the
     requested minimum and maximum values slightly during the quantization process,
@@ -674,7 +663,7 @@ class QuantizeAndDequantizeV3 {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * min_range: The minimum scalar value possibly produced for the input.
     * max_range: The maximum scalar value possibly produced for the input.</pre>
   </p>
@@ -706,11 +695,11 @@ class QuantizeV2 {
     <pre class="prettyprint">    StringPiece mode_ = "MIN_COMBINED";
     StringPiece round_mode_ = "HALF_AWAY_FROM_ZERO";
   };
-  QuantizeV2(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-           <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range,
+  QuantizeV2(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+           <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range,
            DataType T);
-  QuantizeV2(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-           <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range,
+  QuantizeV2(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+           <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range,
            DataType T, const QuantizeV2::Attrs& attrs);</pre>
   </p>
   <p>
@@ -722,9 +711,9 @@ class QuantizeV2 {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
-  <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min;
-  <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+  <a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min;
+  <a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max;
 };</pre>
   </p>
   <p>
@@ -732,7 +721,7 @@ class QuantizeV2 {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * concat_dim: 0-D.  The dimension along which to concatenate.  Must be in the
     range [0, rank(values)).
     * values: The `N` Tensors to concatenate. Their ranks and types must match,
@@ -749,15 +738,15 @@ class QuantizeV2 {
     * `Output` output_max: The float value that the maximum quantized output value represents. */
 class QuantizedConcat {
  public:
-  QuantizedConcat(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                concat_dim, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
-                <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> input_mins, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a>
+  QuantizedConcat(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                concat_dim, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
+                <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> input_mins, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a>
                 input_maxes);</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
-  <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min;
-  <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+  <a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min;
+  <a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max;
 };</pre>
   </p>
   <p>
@@ -765,8 +754,8 @@ class QuantizedConcat {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
-    * x: A 4D input <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * x: A 4D input <a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.
     * x_min: The value represented by the lowest quantized input.
     * x_max: The value represented by the highest quantized input.</pre>
   </p>
@@ -775,14 +764,14 @@ class QuantizedConcat {
     * output_range_given: If True, `given_y_min` and `given_y_min`
     and `given_y_max` are used as the output range. Otherwise,
     the implementation computes the output range.
-    * given_y_min: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in `y_min` if `output_range_given` is True.
-    * given_y_max: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in `y_max` if `output_range_given` is True.
+    * given_y_min: <a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in `y_min` if `output_range_given` is True.
+    * given_y_max: <a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in `y_max` if `output_range_given` is True.
     * variance_epsilon: A small float number to avoid dividing by 0.
-    * min_separation: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/minimum.html#classtensorflow_1_1ops_1_1_minimum">Minimum</a> value of `y_max - y_min`</pre>
+    * min_separation: <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/minimum.html#classtensorflow_1_1ops_1_1_minimum">Minimum</a> value of `y_max - y_min`</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
-    * `Output` y: A 4D <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.
+    * `Output` y: A 4D <a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.
     * `Output` y_min: The value represented by the lowest quantized output.
     * `Output` y_max: The value represented by the highest quantized output. */
 class QuantizedInstanceNorm {
@@ -802,7 +791,7 @@ class QuantizedInstanceNorm {
     }</pre>
   </p>
   <p>
-    <pre class="prettyprint">    /** <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in `y_min` if `output_range_given` is True.</pre>
+    <pre class="prettyprint">    /** <a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in `y_min` if `output_range_given` is True.</pre>
   </p>
   <p>
     <pre class="prettyprint">        Defaults to 0 */
@@ -813,7 +802,7 @@ class QuantizedInstanceNorm {
     }</pre>
   </p>
   <p>
-    <pre class="prettyprint">    /** <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in `y_max` if `output_range_given` is True.</pre>
+    <pre class="prettyprint">    /** <a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> in `y_max` if `output_range_given` is True.</pre>
   </p>
   <p>
     <pre class="prettyprint">        Defaults to 0 */
@@ -835,7 +824,7 @@ class QuantizedInstanceNorm {
     }</pre>
   </p>
   <p>
-    <pre class="prettyprint">    /** <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/minimum.html#classtensorflow_1_1ops_1_1_minimum">Minimum</a> value of `y_max - y_min`</pre>
+    <pre class="prettyprint">    /** <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/minimum.html#classtensorflow_1_1ops_1_1_minimum">Minimum</a> value of `y_max - y_min`</pre>
   </p>
   <p>
     <pre class="prettyprint">        Defaults to 0.001 */
@@ -852,10 +841,10 @@ class QuantizedInstanceNorm {
     float variance_epsilon_ = 1e-05f;
     float min_separation_ = 0.001f;
   };
-  QuantizedInstanceNorm(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
-                      <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x_min, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x_max);
-  QuantizedInstanceNorm(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
-                      <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x_min, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x_max,
+  QuantizedInstanceNorm(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+                      <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x_min, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x_max);
+  QuantizedInstanceNorm(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+                      <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x_min, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x_max,
                       const QuantizedInstanceNorm::Attrs& attrs);</pre>
   </p>
   <p>
@@ -876,27 +865,27 @@ class QuantizedInstanceNorm {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
-  <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y_min;
-  <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y_max;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
+  <a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y_min;
+  <a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y_max;
 };</pre>
   </p>
   <p>
-    <pre class="prettyprint">/** Reshapes a quantized tensor as per the <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/reshape.html#classtensorflow_1_1ops_1_1_reshape">Reshape</a> op.</pre>
+    <pre class="prettyprint">/** Reshapes a quantized tensor as per the <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/reshape.html#classtensorflow_1_1ops_1_1_reshape">Reshape</a> op.</pre>
   </p>
   <p>
     <pre class="prettyprint" />
   </p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>shape: Defines the shape of the output tensor.</li>
       <li>input_min: The minimum value of the input.</li>
       <li>input_max: The maximum value of the input.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output</li>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_min: This value is copied from input_min.</li>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_max: This value is copied from input_max. </li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output</li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_min: This value is copied from input_min.</li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_max: This value is copied from input_max. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -906,7 +895,7 @@ class QuantizedInstanceNorm {
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_quantized_reshape_1a1586a9fd66e72c76f752e7641f6a191f">QuantizedReshape</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_quantized_reshape_1a1586a9fd66e72c76f752e7641f6a191f">QuantizedReshape</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max)</code>
         <br />
       </td>
     </tr>
@@ -923,7 +912,7 @@ class QuantizedInstanceNorm {
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -933,7 +922,7 @@ class QuantizedInstanceNorm {
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -943,7 +932,7 @@ class QuantizedInstanceNorm {
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -951,28 +940,28 @@ class QuantizedInstanceNorm {
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_quantized_reshape_1a83f4f02b01effc15393ce0cd24cfee85">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_quantized_reshape_1ac5caddbc5b5bc5a524ff95ff71db1842">
     <h3>output_max</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_quantized_reshape_1aa5ba6ab97eb0e9e29852f08f1c63e136">
     <h3>output_min</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_quantized_reshape_1a1586a9fd66e72c76f752e7641f6a191f">
     <h3>QuantizedReshape</h3>
     <pre class="prettyprint"> QuantizedReshape(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max
 )</pre>
     <div />
   </div>

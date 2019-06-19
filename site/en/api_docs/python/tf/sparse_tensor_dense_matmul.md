@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,7 +20,7 @@ tf.sparse_tensor_dense_matmul(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/sparse_ops.py).
 
 See the guide: [Sparse Tensors > Math Operations](../../../api_guides/python/sparse_ops#Math_Operations)
 

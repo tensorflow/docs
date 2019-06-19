@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -16,12 +16,11 @@ Inherits From: [`Initializer`](../tf/keras/initializers/Initializer)
 
 * Class `tf.initializers.orthogonal`
 * Class `tf.keras.initializers.Orthogonal`
-* Class `tf.keras.initializers.orthogonal`
 * Class `tf.orthogonal_initializer`
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/init_ops.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 
@@ -29,9 +28,9 @@ Initializer that generates an orthogonal matrix.
 
 If the shape of the tensor to initialize is two-dimensional, it is initialized
 with an orthogonal matrix obtained from the QR decomposition of a matrix of
-random numbers drawn from a normal distribution.
-If the matrix has fewer rows than columns then the output will have orthogonal
-rows. Otherwise, the output will have orthogonal columns.
+uniform random numbers. If the matrix has fewer rows than columns then the
+output will have orthogonal rows. Otherwise, the output will have orthogonal
+columns.
 
 If the shape of the tensor to initialize is more than two-dimensional,
 a matrix of shape `(shape[0] * ... * shape[n - 2], shape[n - 1])`
@@ -41,10 +40,10 @@ The matrix is subsequently reshaped to give a tensor of the desired shape.
 #### Args:
 
 * <b>`gain`</b>: multiplicative factor to apply to the orthogonal matrix
+* <b>`dtype`</b>: The type of the output.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
     <a href="../tf/set_random_seed"><code>tf.set_random_seed</code></a>
     for behavior.
-* <b>`dtype`</b>: The data type.
 
 ## Methods
 

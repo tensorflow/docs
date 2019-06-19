@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`SessionRunHook`](../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/wrappers/hooks.py).
+Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/debug/wrappers/hooks.py).
 
 A hook that streams debugger-related events to any grpc_debug_server.
 
@@ -25,8 +25,8 @@ This enables debugging features in Tensorboard such as health pills.
 When the arguments of debug_utils.watch_graph changes, strongly consider
 changing arguments here too so that features are available to tflearn users.
 
-Can be used as a hook for <a href="../tf/train/MonitoredSession"><code>tf.train.MonitoredSession</code></a>s and
-<a href="../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a>s.
+Can be used as a monitor/hook for <a href="../tf/train/MonitoredSession"><code>tf.train.MonitoredSession</code></a>s and
+<a href="../tf/contrib/learn"><code>tf.contrib.learn</code></a>'s `Estimator`s and `Experiment`s.
 
 ## Methods
 

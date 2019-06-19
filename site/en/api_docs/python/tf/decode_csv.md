@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -15,14 +15,13 @@ tf.decode_csv(
     field_delim=',',
     use_quote_delim=True,
     name=None,
-    na_value='',
-    select_cols=None
+    na_value=''
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/parsing_ops.py).
+Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/parsing_ops.py).
 
 See the guides: [Inputs and Readers > Converting](../../../api_guides/python/io_ops#Converting), [Reading data > `QueueRunner`](../../../api_guides/python/reading_data#_QueueRunner_), [Strings > Conversion](../../../api_guides/python/string_ops#Conversion)
 
@@ -49,16 +48,9 @@ Note that we allow leading and trailing spaces with int or float field.
     Bullet 5).
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`na_value`</b>: Additional string to recognize as NA/NaN.
-* <b>`select_cols`</b>: Optional sorted list of column indices to select. If specified,
-    only this subset of columns will be parsed and returned.
 
 
 #### Returns:
 
 A list of `Tensor` objects. Has the same type as `record_defaults`.
 Each tensor will have the same shape as records.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: If any of the arguments is malformed.

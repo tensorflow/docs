@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Sequence`](../../../../tf/keras/utils/Sequence)
 
 
 
-Defined in [`tensorflow/python/keras/preprocessing/sequence.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/preprocessing/sequence.py).
+Defined in [`tensorflow/python/keras/_impl/keras/preprocessing/sequence.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/preprocessing/sequence.py).
 
 Utility class for generating batches of temporal data.
 

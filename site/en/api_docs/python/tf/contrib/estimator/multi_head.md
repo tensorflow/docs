@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -17,7 +17,7 @@ tf.contrib.estimator.multi_head(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/multi_head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/multi_head.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/multi_head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/estimator/python/estimator/multi_head.py).
 
 Creates a `_Head` for multi-objective learning.
 

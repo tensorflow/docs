@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 
 
-Defined in [`tensorflow/python/keras/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/layers/convolutional.py).
+Defined in [`tensorflow/python/keras/_impl/keras/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/layers/convolutional.py).
 
 Cropping layer for 2D input (e.g. picture).
 
@@ -77,6 +77,10 @@ Examples:
 Optional regularizer function for the output of this layer.
 
 <h3 id="dtype"><code>dtype</code></h3>
+
+
+
+<h3 id="graph"><code>graph</code></h3>
 
 
 
@@ -226,6 +230,10 @@ Output shape, as an integer shape tuple
 * <b>`AttributeError`</b>: if the layer has no defined output shape.
 * <b>`RuntimeError`</b>: if called in Eager mode.
 
+<h3 id="scope_name"><code>scope_name</code></h3>
+
+
+
 <h3 id="trainable_variables"><code>trainable_variables</code></h3>
 
 
@@ -280,34 +288,45 @@ __call__(
 )
 ```
 
-Wraps `call`, applying pre- and post-processing steps.
+Wrapper around self.call(), for handling internal references.
+
+If a Keras tensor is passed:
+    - We call self._add_inbound_node().
+    - If necessary, we `build` the layer to match
+        the shape of the input(s).
+    - We update the _keras_history of the output tensor(s)
+        with the current layer.
+        This is done as part of _add_inbound_node().
 
 #### Arguments:
 
-* <b>`inputs`</b>: input tensor(s).
-* <b>`*args`</b>: additional positional arguments to be passed to `self.call`.
-* <b>`**kwargs`</b>: additional keyword arguments to be passed to `self.call`.
+* <b>`inputs`</b>: Can be a tensor or list/tuple of tensors.
+* <b>`*args`</b>: Additional positional arguments to be passed to `call()`. Only
+      allowed in subclassed Models with custom call() signatures. In other
+      cases, `Layer` inputs must be passed using the `inputs` argument and
+      non-inputs must be keyword arguments.
+* <b>`**kwargs`</b>: Additional keyword arguments to be passed to `call()`.
 
 
 #### Returns:
 
-  Output tensor(s).
-
-Note:
-  - The following optional keyword arguments are reserved for specific uses:
-    * `training`: Boolean scalar tensor of Python boolean indicating
-      whether the `call` is meant for training or inference.
-    * `mask`: Boolean input mask.
-  - If the layer's `call` method takes a `mask` argument (as some Keras
-    layers do), its default value will be set to the mask generated
-    for `inputs` by the previous layer (if `input` did come from
-    a layer that generated a corresponding mask, i.e. if it came from
-    a Keras layer with masking support.
+Output of the layer's `call` method.
 
 
 #### Raises:
 
-* <b>`ValueError`</b>: if the layer's `call` method returns None (an invalid value).
+* <b>`ValueError`</b>: in case the layer is missing shape information
+        for its `build` call.
+* <b>`TypeError`</b>: If positional arguments are passed and this `Layer` is not a
+        subclassed `Model`.
+
+<h3 id="__deepcopy__"><code>__deepcopy__</code></h3>
+
+``` python
+__deepcopy__(memo)
+```
+
+
 
 <h3 id="add_loss"><code>add_loss</code></h3>
 
@@ -371,9 +390,7 @@ of dependencies.
 The `get_updates_for` method allows to retrieve the updates relevant to a
 specific set of inputs.
 
-This call is ignored when eager execution is enabled (in that case, variable
-updates are run on the fly and thus do not need to be tracked for later
-execution).
+This call is ignored in Eager mode.
 
 #### Arguments:
 
@@ -391,17 +408,6 @@ execution).
 
 ``` python
 add_variable(
-    *args,
-    **kwargs
-)
-```
-
-Alias for `add_weight`.
-
-<h3 id="add_weight"><code>add_weight</code></h3>
-
-``` python
-add_weight(
     name,
     shape,
     dtype=None,
@@ -409,9 +415,7 @@ add_weight(
     regularizer=None,
     trainable=True,
     constraint=None,
-    partitioner=None,
-    use_resource=None,
-    getter=None
+    partitioner=None
 )
 ```
 
@@ -431,9 +435,14 @@ Adds a new variable to the layer, or gets an existing one; returns it.
     then this parameter is ignored and any added variables are also
     marked as non-trainable.
 * <b>`constraint`</b>: constraint instance (callable).
-* <b>`partitioner`</b>: Partitioner to be passed to the `Checkpointable` API.
-* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
-* <b>`getter`</b>: Variable getter argument to be passed to the `Checkpointable` API.
+* <b>`partitioner`</b>: (optional) partitioner instance (callable).  If
+    provided, when the requested variable is created it will be split
+    into multiple partitions according to `partitioner`.  In this case,
+    an instance of `PartitionedVariable` is returned.  Available
+    partitioners include <a href="../../../tf/fixed_size_partitioner"><code>tf.fixed_size_partitioner</code></a> and
+    <a href="../../../tf/variable_axis_size_partitioner"><code>tf.variable_axis_size_partitioner</code></a>.  For more details, see the
+    documentation of <a href="../../../tf/get_variable"><code>tf.get_variable</code></a> and the  "Variable Partitioners
+    and Sharding" section of the API guide.
 
 
 #### Returns:
@@ -447,7 +456,39 @@ instance is returned.
 
 * <b>`RuntimeError`</b>: If called with partioned variable regularization and
     eager execution is enabled.
-* <b>`ValueError`</b>: When giving unsupported dtype and no initializer.
+
+<h3 id="add_weight"><code>add_weight</code></h3>
+
+``` python
+add_weight(
+    name,
+    shape,
+    dtype=None,
+    initializer=None,
+    regularizer=None,
+    trainable=True,
+    constraint=None
+)
+```
+
+Adds a weight variable to the layer.
+
+#### Arguments:
+
+* <b>`name`</b>: String, the name for the weight variable.
+* <b>`shape`</b>: The shape tuple of the weight.
+* <b>`dtype`</b>: The dtype of the weight.
+* <b>`initializer`</b>: An Initializer instance (callable).
+* <b>`regularizer`</b>: An optional Regularizer instance.
+* <b>`trainable`</b>: A boolean, whether the weight should
+        be trained via backprop or not (assuming
+        that the layer itself is also trainable).
+* <b>`constraint`</b>: An optional Constraint instance.
+
+
+#### Returns:
+
+The created weight variable.
 
 <h3 id="apply"><code>apply</code></h3>
 
@@ -477,7 +518,7 @@ Output tensor(s).
 <h3 id="build"><code>build</code></h3>
 
 ``` python
-build(input_shape)
+build(_)
 ```
 
 Creates the variables of the layer.

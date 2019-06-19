@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -18,14 +18,14 @@ tf.summary.merge(
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/summary/summary.py).
+Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/summary/summary.py).
 
 See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
 
 Merges summaries.
 
 This op creates a
-[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/summary.proto)
+[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/framework/summary.proto)
 protocol buffer that contains the union of all the values in the input
 summaries.
 

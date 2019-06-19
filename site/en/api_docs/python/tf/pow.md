@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -18,7 +18,7 @@ tf.pow(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Basic Math Functions](../../../api_guides/python/math_ops#Basic_Math_Functions)
 
@@ -35,10 +35,10 @@ tf.pow(x, y)  # [[256, 65536], [9, 27]]
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
-* <b>`y`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
+* <b>`x`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
+* <b>`y`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

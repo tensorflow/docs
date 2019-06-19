@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,12 +14,10 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/protobuf/config.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/protobuf/config.proto).
+Defined in [`tensorflow/core/protobuf/config.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/protobuf/config.proto).
 
 
 
 ## Child Classes
 [`class DeviceCountEntry`](../tf/ConfigProto/DeviceCountEntry)
-
-[`class Experimental`](../tf/ConfigProto/Experimental)
 

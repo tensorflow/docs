@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -27,7 +27,7 @@ tf.train.export_meta_graph(
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/saver.py).
 
 See the guides: [Exporting and Importing a MetaGraph](../../../../api_guides/python/meta_graph), [Variables > Exporting and Importing Meta Graphs](../../../../api_guides/python/state_ops#Exporting_and_Importing_Meta_Graphs)
 

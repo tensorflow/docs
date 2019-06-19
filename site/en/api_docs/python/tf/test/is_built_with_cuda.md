@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ tf.test.is_built_with_cuda()
 
 
 
-Defined in [`tensorflow/python/platform/test.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/platform/test.py).
+Defined in [`tensorflow/python/platform/test.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/platform/test.py).
 
 See the guide: [Testing > Utilities](../../../../api_guides/python/test#Utilities)
 

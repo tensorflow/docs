@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -22,7 +22,7 @@ tf.train.cosine_decay_restarts(
 
 
 
-Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/learning_rate_decay.py).
+Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/learning_rate_decay.py).
 
 Applies cosine decay with restarts to the learning rate.
 

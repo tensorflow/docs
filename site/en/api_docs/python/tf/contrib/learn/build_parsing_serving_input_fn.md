@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -17,7 +17,7 @@ tf.contrib.learn.build_parsing_serving_input_fn(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
+Defined in [`tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
 
 See the guide: [Learn (contrib) > Input processing](../../../../../api_guides/python/contrib.learn#Input_processing)
 

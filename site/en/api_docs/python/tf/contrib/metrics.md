@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/metrics/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/metrics/__init__.py).
+Defined in [`tensorflow/contrib/metrics/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/metrics/__init__.py).
 
 Ops for evaluation metrics and summary statistics.
 
@@ -34,8 +34,6 @@ See the <a href="../../../../api_guides/python/contrib.metrics">Metrics (contrib
 [`confusion_matrix(...)`](../../tf/contrib/metrics/confusion_matrix): Deprecated. Use tf.confusion_matrix instead.
 
 [`count(...)`](../../tf/contrib/metrics/count): Computes the number of examples, or sum of `weights`.
-
-[`precision_at_recall(...)`](../../tf/contrib/metrics/precision_at_recall): Computes the precision at a given recall.
 
 [`precision_recall_at_equal_thresholds(...)`](../../tf/contrib/metrics/precision_recall_at_equal_thresholds): A helper method for creating metrics related to precision-recall curves.
 
@@ -89,7 +87,7 @@ See the <a href="../../../../api_guides/python/contrib.metrics">Metrics (contrib
 
 [`streaming_mean_relative_error(...)`](../../tf/contrib/metrics/streaming_mean_relative_error): Computes the mean relative error by normalizing with the given values.
 
-[`streaming_mean_squared_error(...)`](../../tf/contrib/metrics/streaming_mean_squared_error): Computes the mean squared error between the labels and predictions. (deprecated)
+[`streaming_mean_squared_error(...)`](../../tf/contrib/metrics/streaming_mean_squared_error): Computes the mean squared error between the labels and predictions.
 
 [`streaming_mean_tensor(...)`](../../tf/contrib/metrics/streaming_mean_tensor): Computes the element-wise (weighted) mean of the given tensors. (deprecated)
 
@@ -107,7 +105,7 @@ See the <a href="../../../../api_guides/python/contrib.metrics">Metrics (contrib
 
 [`streaming_recall_at_thresholds(...)`](../../tf/contrib/metrics/streaming_recall_at_thresholds): Computes various recall values for different `thresholds` on `predictions`. (deprecated)
 
-[`streaming_root_mean_squared_error(...)`](../../tf/contrib/metrics/streaming_root_mean_squared_error): Computes the root mean squared error between the labels and predictions. (deprecated)
+[`streaming_root_mean_squared_error(...)`](../../tf/contrib/metrics/streaming_root_mean_squared_error): Computes the root mean squared error between the labels and predictions.
 
 [`streaming_sensitivity_at_specificity(...)`](../../tf/contrib/metrics/streaming_sensitivity_at_specificity): Computes the sensitivity at a given specificity.
 

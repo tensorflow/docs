@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -29,7 +29,7 @@ tf.contrib.layers.optimize_loss(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/optimizers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/layers/python/layers/optimizers.py).
 
 See the guide: [Layers (contrib) > Optimization](../../../../../api_guides/python/contrib.layers#Optimization)
 

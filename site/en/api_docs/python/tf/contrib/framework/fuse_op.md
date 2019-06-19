@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -22,7 +22,7 @@ tf.contrib.framework.fuse_op(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/graph_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/framework/python/framework/graph_util.py).
+Defined in [`tensorflow/contrib/framework/python/framework/graph_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/framework/python/framework/graph_util.py).
 
 Fuse subgraph between input_nodes and output_nodes into a single custom op.
 

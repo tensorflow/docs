@@ -1,12 +1,17 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.compat.path_to_str
+
+### Aliases:
+
+* `tf.compat.path_to_str`
+* `tf.contrib.meta_graph_transform.meta_graph_transform.compat.path_to_str`
 
 ``` python
 tf.compat.path_to_str(path)
@@ -14,7 +19,7 @@ tf.compat.path_to_str(path)
 
 
 
-Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/util/compat.py).
+Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/util/compat.py).
 
 Returns the file system path representation of a `PathLike` object, else as it is.
 

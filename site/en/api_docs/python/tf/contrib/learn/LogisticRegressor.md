@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,14 +20,14 @@ tf.contrib.learn.LogisticRegressor(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
 Builds a logistic regression Estimator for binary classification.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 This method provides a basic Estimator with some additional metrics for custom

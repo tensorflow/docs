@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,11 +14,11 @@ Inherits From: [`Variable`](../../../tf/Variable)
 
 
 
-Defined in [`tensorflow/python/ops/resource_variable_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/resource_variable_ops.py).
+Defined in [`tensorflow/python/ops/resource_variable_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/resource_variable_ops.py).
 
 Variable based on resource handles.
 
-See the <a href="../../../../../guide/variables">Variables How To</a> for a high level overview.
+See the <a href="../../../../../programmers_guide/variables">Variables How To</a> for a high level overview.
 
 A `ResourceVariable` allows you to maintain state across subsequent calls to
 session.run.
@@ -119,10 +119,6 @@ The op for this variable.
 
 The shape of this variable.
 
-<h3 id="trainable"><code>trainable</code></h3>
-
-
-
 
 
 ## Methods
@@ -222,8 +218,8 @@ tf.abs(x)  # [5.25594902, 6.60492229]
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` or `SparseTensor` of type `float16`, `float32`, `float64`,
-    `int32`, `int64`, `complex64` or `complex128`.
+* <b>`x`</b>: A `Tensor` or `SparseTensor` of type `float32`, `float64`, `int32`,
+    `int64`, `complex64` or `complex128`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -837,10 +833,10 @@ tf.pow(x, y)  # [[256, 65536], [9, 27]]
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
-* <b>`y`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
+* <b>`x`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
+* <b>`y`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -1158,10 +1154,10 @@ tf.pow(x, y)  # [[256, 65536], [9, 27]]
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
-* <b>`y`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
+* <b>`x`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
+* <b>`y`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

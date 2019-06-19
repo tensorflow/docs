@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`RunConfig`](../../../tf/estimator/RunConfig)
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu_config.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/tpu/python/tpu/tpu_config.py).
 
 RunConfig with TPU support.
 
@@ -27,14 +27,6 @@ RunConfig with TPU support.
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
 
-
-<h3 id="device_fn"><code>device_fn</code></h3>
-
-Returns the device_fn.
-
-If device_fn is not `None`, it overrides the default
-device function used in `Estimator`.
-Otherwise the default one is used.
 
 <h3 id="evaluation_master"><code>evaluation_master</code></h3>
 

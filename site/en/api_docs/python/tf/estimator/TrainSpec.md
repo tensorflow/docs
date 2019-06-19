@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/training.py).
+Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/estimator/training.py).
 
 Configuration for the "train" part for the `train_and_evaluate` call.
 
@@ -56,7 +56,7 @@ Creates a validated `TrainSpec` instance.
 #### Args:
 
 * <b>`input_fn`</b>: A function that provides input data for training as minibatches.
-    See <a href="../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
+    See <a href="../../../../get_started/premade_estimators#create_input_functions">Premade Estimators</a> for more
     information. The function should construct and return one of
     the following:
       * A 'tf.data.Dataset' object: Outputs of `Dataset` object must be a
@@ -64,7 +64,7 @@ Creates a validated `TrainSpec` instance.
       * A tuple (features, labels): Where features is a `Tensor` or a
         dictionary of string feature name to `Tensor` and labels is a
         `Tensor` or a dictionary of string label name to `Tensor`.
-
+        
 * <b>`max_steps`</b>: Int. Positive number of total steps for which to train model.
     If `None`, train forever. The training `input_fn` is not expected to
     generate `OutOfRangeError` or `StopIteration` exceptions. See the

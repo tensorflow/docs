@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -39,7 +39,7 @@ tf.layers.batch_normalization(
 
 
 
-Defined in [`tensorflow/python/layers/normalization.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/layers/normalization.py).
+Defined in [`tensorflow/python/layers/normalization.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/layers/normalization.py).
 
 See the guide: [Reading data > Multiple input pipelines](../../../../api_guides/python/reading_data#Multiple_input_pipelines)
 

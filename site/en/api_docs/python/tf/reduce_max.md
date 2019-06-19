@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -21,7 +21,7 @@ tf.reduce_max(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Reduction](../../../api_guides/python/math_ops#Reduction)
 
@@ -36,12 +36,12 @@ Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
 entry in `axis`. If `keepdims` is true, the reduced dimensions
 are retained with length 1.
 
-If `axis` is None, all dimensions are reduced, and a
+If `axis` has no entries, all dimensions are reduced, and a
 tensor with a single element is returned.
 
 #### Args:
 
-* <b>`input_tensor`</b>: The tensor to reduce. Should have real numeric type.
+* <b>`input_tensor`</b>: The tensor to reduce. Should have numeric type.
 * <b>`axis`</b>: The dimensions to reduce. If `None` (the default),
     reduces all dimensions. Must be in the range
     `[-rank(input_tensor), rank(input_tensor))`.

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/pywrap_tensorflow.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/pywrap_tensorflow.py).
+Defined in [`tensorflow/python/pywrap_tensorflow.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/pywrap_tensorflow.py).
 
 A wrapper for TensorFlow SWIG-generated bindings.
 

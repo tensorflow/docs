@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,14 +10,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/applications/vgg19/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/applications/vgg19/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/keras/applications/vgg19/__init__.py`.
 
-VGG19 model for Keras.
 
-# Reference
-
-- [Very Deep Convolutional Networks for Large-Scale Image
-Recognition](https://arxiv.org/abs/1409.1556)
 
 ## Functions
 

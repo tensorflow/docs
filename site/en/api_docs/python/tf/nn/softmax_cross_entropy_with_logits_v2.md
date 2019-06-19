@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,7 +20,7 @@ tf.nn.softmax_cross_entropy_with_logits_v2(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Classification](../../../../api_guides/python/nn#Classification)
 
@@ -43,11 +43,8 @@ one class is true at a time), see `sparse_softmax_cross_entropy_with_logits`.
 on `logits` internally for efficiency.  Do not call this op with the
 output of `softmax`, as it will produce incorrect results.
 
-A common use case is to have logits and labels of shape
-`[batch_size, num_classes]`, but higher dimensions are supported, with
-the `dim` argument specifying the class dimension.
-
-`logits` and `labels` must have the same dtype (either `float16`, `float32`,
+`logits` and `labels` must have the same shape, e.g.
+`[batch_size, num_classes]` and the same dtype (either `float16`, `float32`,
 or `float64`).
 
 Backpropagation will happen into both `logits` and `labels`.  To disallow
@@ -60,10 +57,7 @@ this function.**
 #### Args:
 
 * <b>`_sentinel`</b>: Used to prevent positional parameters. Internal, do not use.
-* <b>`labels`</b>: Each vector along the class dimension should hold a valid
-    probability distribution e.g. for the case in which labels are of shape
-    `[batch_size, num_classes]`, each row of `labels[i]` must be a valid
-    probability distribution.
+* <b>`labels`</b>: Each row `labels[i]` must be a valid probability distribution.
 * <b>`logits`</b>: Unscaled log probabilities.
 * <b>`dim`</b>: The class dimension. Defaulted to -1 which is the last dimension.
 * <b>`name`</b>: A name for the operation (optional).
@@ -71,5 +65,5 @@ this function.**
 
 #### Returns:
 
-A `Tensor` of the same shape as `labels` and of the same type as `logits`
-with the softmax cross entropy loss.
+A 1-D `Tensor` of length `batch_size` of the same type as `logits` with the
+softmax cross entropy loss.

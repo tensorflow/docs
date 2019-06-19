@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::QueueEnqueueMany Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -12,19 +12,19 @@
   <code>#include &lt;data_flow_ops.h&gt;</code>
   <p>Enqueues zero or more tuples of one or more tensors in the given queue. </p>
   <h2>Summary</h2>
-  <p>This operation slices each component tensor along the 0th dimension to make multiple queue elements. <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> of the tuple components must have the same size in the 0th dimension.</p>
+  <p>This operation slices each component tensor along the 0th dimension to make multiple queue elements. <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> of the tuple components must have the same size in the 0th dimension.</p>
   <p>The components input has k elements, which correspond to the components of tuples stored in the given queue.</p>
   <p>N.B. If the queue is full, this operation will block until the given elements have been enqueued (or 'timeout_ms' elapses, if specified).</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>handle: The handle to a queue.</li>
       <li>components: One or more tensors from which the enqueued tensors should be taken.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_many_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_many_1_1_attrs">Attrs</a></code>):<ul>
       <li>timeout_ms: If the queue is too full, this operation will block for up to timeout_ms milliseconds. Note: This option is not supported yet.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li>the created <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+      <li>the created <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -34,13 +34,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_queue_enqueue_many_1a5ecdf3e3a6258d96aead53f0a7dd978d">QueueEnqueueMany</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_enqueue_many_1a5ecdf3e3a6258d96aead53f0a7dd978d">QueueEnqueueMany</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_queue_enqueue_many_1afefa06b2fa7cccfdcadef27efed52358">QueueEnqueueMany</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_many_1_1_attrs">QueueEnqueueMany::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_enqueue_many_1afefa06b2fa7cccfdcadef27efed52358">QueueEnqueueMany</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_many_1_1_attrs">QueueEnqueueMany::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -57,7 +57,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -91,7 +91,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_many_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_many_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -104,36 +104,36 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs">tensorflow::<wbr/>ops::<wbr/>QueueEnqueueMany::<wbr/>Attrs</a>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs">tensorflow::<wbr/>ops::<wbr/>QueueEnqueueMany::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/queue-enqueue-many.html#classtensorflow_1_1ops_1_1_queue_enqueue_many">QueueEnqueueMany</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/queue-enqueue-many.html#classtensorflow_1_1ops_1_1_queue_enqueue_many">QueueEnqueueMany</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_queue_enqueue_many_1a446ef8eb2cfb77152f2bdb7478c31824">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_queue_enqueue_many_1a5ecdf3e3a6258d96aead53f0a7dd978d">
     <h3>QueueEnqueueMany</h3>
     <pre class="prettyprint"> QueueEnqueueMany(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_queue_enqueue_many_1afefa06b2fa7cccfdcadef27efed52358">
     <h3>QueueEnqueueMany</h3>
     <pre class="prettyprint"> QueueEnqueueMany(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_many_1_1_attrs">QueueEnqueueMany::Attrs</a> & attrs
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components,
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_many_1_1_attrs">QueueEnqueueMany::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -145,7 +145,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_queue_enqueue_many_1ae1ceaf22a97e82b627c27817a388c723">
     <h3>TimeoutMs</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_many_1_1_attrs">Attrs</a> TimeoutMs(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/queue-enqueue-many/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_many_1_1_attrs">Attrs</a> TimeoutMs(
   int64 x
 )</pre>
     <div />

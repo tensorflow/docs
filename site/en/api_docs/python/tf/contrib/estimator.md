@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,25 +10,17 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/__init__.py).
+Defined in [`tensorflow/contrib/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/estimator/__init__.py).
 
 Experimental utilities re:tf.estimator.*.
 
 ## Classes
 
-[`class BaselineEstimator`](../../tf/contrib/estimator/BaselineEstimator): An estimator that can establish a simple baseline.
-
 [`class DNNEstimator`](../../tf/contrib/estimator/DNNEstimator): An estimator for TensorFlow DNN models with user-specified head.
 
 [`class DNNLinearCombinedEstimator`](../../tf/contrib/estimator/DNNLinearCombinedEstimator): An estimator for TensorFlow Linear and DNN joined models with custom head.
 
-[`class InMemoryEvaluatorHook`](../../tf/contrib/estimator/InMemoryEvaluatorHook): Hook to run evaluation in training without a checkpoint.
-
 [`class LinearEstimator`](../../tf/contrib/estimator/LinearEstimator): An estimator for TensorFlow linear models with user-specified head.
-
-[`class RNNClassifier`](../../tf/contrib/estimator/RNNClassifier): A classifier for TensorFlow RNN models.
-
-[`class RNNEstimator`](../../tf/contrib/estimator/RNNEstimator): An Estimator for TensorFlow RNN models with user-specified head.
 
 [`class TowerOptimizer`](../../tf/contrib/estimator/TowerOptimizer): Gathers gradients from all towers and reduces them in the last one.
 
@@ -48,15 +40,9 @@ Experimental utilities re:tf.estimator.*.
 
 [`dnn_logit_fn_builder(...)`](../../tf/contrib/estimator/dnn_logit_fn_builder): Function builder for a dnn logit_fn.
 
-[`export_all_saved_models(...)`](../../tf/contrib/estimator/export_all_saved_models): Exports requested train/eval/predict graphs as separate SavedModels.
-
-[`export_saved_model_for_mode(...)`](../../tf/contrib/estimator/export_saved_model_for_mode): Exports a single train/eval/predict graph as a SavedModel.
-
 [`forward_features(...)`](../../tf/contrib/estimator/forward_features): Forward features to predictions dictionary.
 
 [`linear_logit_fn_builder(...)`](../../tf/contrib/estimator/linear_logit_fn_builder): Function builder for a linear logit_fn.
-
-[`logistic_regression_head(...)`](../../tf/contrib/estimator/logistic_regression_head): Creates a `_Head` for logistic regression.
 
 [`multi_class_head(...)`](../../tf/contrib/estimator/multi_class_head): Creates a `_Head` for multi class classification.
 
@@ -68,5 +54,5 @@ Experimental utilities re:tf.estimator.*.
 
 [`regression_head(...)`](../../tf/contrib/estimator/regression_head): Creates a `_Head` for regression using the `mean_squared_error` loss.
 
-[`replicate_model_fn(...)`](../../tf/contrib/estimator/replicate_model_fn): Replicate `Estimator.model_fn` over GPUs. (deprecated)
+[`replicate_model_fn(...)`](../../tf/contrib/estimator/replicate_model_fn): Replicate `Estimator.model_fn` over GPUs.
 

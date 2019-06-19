@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,13 +10,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/applications/inception_resnet_v2/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/applications/inception_resnet_v2/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/keras/applications/inception_resnet_v2/__init__.py`.
 
-Inception-ResNet V2 model for Keras.
 
-# Reference
-- [Inception-v4, Inception-ResNet and the Impact of
-   Residual Connections on Learning](https://arxiv.org/abs/1602.07261)
 
 ## Functions
 

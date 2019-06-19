@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,9 +14,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py).
+Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py).
 
 Stochastic dual coordinate ascent solver for linear models.
+
+This class currently only supports a single machine (multi-threaded)
+implementation. We expect the weights and duals to fit in a single machine.
 
 Loss functions supported:
 

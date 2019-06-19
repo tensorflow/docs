@@ -1,17 +1,12 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.graph_util.convert_variables_to_constants
-
-### Aliases:
-
-* `tf.contrib.lite.tf_graph_util.convert_variables_to_constants`
-* `tf.graph_util.convert_variables_to_constants`
 
 ``` python
 tf.graph_util.convert_variables_to_constants(
@@ -25,7 +20,7 @@ tf.graph_util.convert_variables_to_constants(
 
 
 
-Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/graph_util_impl.py).
+Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/graph_util_impl.py).
 
 Replaces all the variables in a graph with constants of the same values.
 

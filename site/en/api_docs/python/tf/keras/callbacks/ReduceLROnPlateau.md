@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
 
 
-Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/callbacks.py).
+Defined in [`tensorflow/python/keras/_impl/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/callbacks.py).
 
 Reduce learning rate when a metric has stopped improving.
 
@@ -46,7 +46,7 @@ model.fit(X_train, Y_train, callbacks=[reduce_lr])
         monitored has stopped increasing; in `auto`
         mode, the direction is automatically inferred
         from the name of the monitored quantity.
-* <b>`min_delta`</b>: threshold for measuring the new optimum,
+* <b>`epsilon`</b>: threshold for measuring the new optimum,
         to only focus on significant changes.
 * <b>`cooldown`</b>: number of epochs to wait before resuming
         normal operation after lr has been reduced.
@@ -63,10 +63,9 @@ __init__(
     patience=10,
     verbose=0,
     mode='auto',
-    min_delta=0.0001,
+    epsilon=0.0001,
     cooldown=0,
-    min_lr=0,
-    **kwargs
+    min_lr=0
 )
 ```
 

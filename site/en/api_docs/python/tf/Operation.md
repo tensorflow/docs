@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures)
 
@@ -81,7 +81,7 @@ Returns the `NodeDef` representation of this operation.
 #### Returns:
 
 A
-[`NodeDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/node_def.proto)
+[`NodeDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/framework/node_def.proto)
 protocol buffer.
 
 <h3 id="op_def"><code>op_def</code></h3>
@@ -91,7 +91,7 @@ Returns the `OpDef` proto that represents the type of this op.
 #### Returns:
 
 An
-[`OpDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/op_def.proto)
+[`OpDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/framework/op_def.proto)
 protocol buffer.
 
 <h3 id="outputs"><code>outputs</code></h3>

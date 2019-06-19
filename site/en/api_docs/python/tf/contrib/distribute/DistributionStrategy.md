@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/distribute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/distribute.py).
+Defined in [`tensorflow/python/training/distribute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/distribute.py).
 
 A list of devices with a state & compute distribution policy.
 
@@ -34,14 +34,14 @@ First let's introduce a few high-level concepts:
   on different slices of the input data. This is in contrast to
   _model parallelism_ where we divide up a single copy of a model
   across multiple devices.
-  Note: we only support data parallelism for now, but
+  Note: for now we only support data parallelism at this time, but
   hope to add support for model parallelism in the future.
 * A _tower_ is one copy of the model, running on one slice of the
   input data.
-* _Synchronous_, or more commonly _sync_, training is where the
+* _Synchronous_, or more commonly _sync_, training is when the
   updates from each tower are aggregated together before updating
   the model variables. This is in contrast to _asynchronous_, or
-  _async_ training, where each tower updates the model variables
+  _async_ training where each tower updates the model variables
   independently.
 * Furthermore you might run your computation on multiple devices
   on one machine (or "host"), or on multiple machines/hosts.
@@ -63,11 +63,11 @@ To distribute an algorithm, we might use some of these ingredients:
 * Reductions and Allreduce: A _reduction_ is some method of
   aggregating multiple values into one value, like "sum" or
   "mean". If doing sync training, we will perform a reduction on the
-  gradients to a parameter from all towers before applying the
+  gradients to a parameter from each tower before applying the
   update. Allreduce is an algorithm for performing a reduction on
   values from multiple devices and making the result available on
   all of those devices.
-* In the future we will have support for TensorFlow's partitioned
+* In the future we will have support for TensorFlows' partitioned
   variables, where a single variable is split across multiple
   devices.
 
@@ -81,8 +81,7 @@ We have then a few approaches we want to support:
   `DistributionStrategy`. This can be as simple as:
 
 >     with my_distribution.scope():
->       iterator = my_distribution.distribute_dataset(
->           dataset).make_one_shot_iterator()
+>       iterator = my_distribution.distribute_dataset(dataset)
 >       tower_train_ops = my_distribution.call_for_each_tower(
 >           tower_fn, iterator.get_next())
 >       train_op = tf.group(my_distribution.unwrap(tower_train_ops))
@@ -94,13 +93,8 @@ We have then a few approaches we want to support:
   `tower_fn` can use the `get_tower_context()` API to get enhanced
   behavior in this case.
 
-  You can also create an initializable iterator instead of a one-shot
-  iterator. In that case, you will need to ensure that you initialize the
-  iterator before calling get_next.
-
->     iterator = my_distribution.distribute_dataset(
->         dataset).make_initializable_iterator())
->     session.run(iterator.initializer)
+  Note that in the future we will add support for initializable
+  Dataset iterators, at which point this example code will change.
 
 * If you want to write a distributed algorithm, you may use any of
   the `DistributionStrategy` APIs inside a
@@ -181,8 +175,8 @@ cross-tower context:
   a variable (which by definition will have locality V(`v`), though
   will match another locality if inside a `colocate_vars_with`
   scope).
-* `d.distribute_dataset(dataset).make_one_shot_iterator()`: in cross-tower
-  context, produces an iterator with locality T
+* `d.distribute_dataset(dataset)`: in cross-tower context, produces an
+  iterator with locality T
 * `d.broadcast(t)`: in cross-tower context, produces a value with locality M
 * `d.broadcast(t, v)`: in cross-tower context, produces a value with
   locality V(`v`)
@@ -205,7 +199,7 @@ cross-tower context:
 
 The standard pattern for updating variables is to:
 
-1. Wrap your input dataset in `d.distribute_dataset()` and create an iterator.
+1. Wrap your input dataset in `d.distribute_dataset()`.
 2. Define each tower `d.call_for_each_tower()` up to the point of
    getting a list of gradient, variable pairs.
 3. Call `d.reduce("sum", t, v)` or `d.batch_reduce()` to sum the
@@ -280,14 +274,6 @@ Returns the list of devices used to run `call_for_each_tower()` calls.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__()
-```
-
-
-
 <h3 id="batch_reduce"><code>batch_reduce</code></h3>
 
 ``` python
@@ -349,7 +335,7 @@ Run `fn` once per tower.
 `fn` may call `tf.get_tower_context()` to access methods such as
 `tower_id()` and `merge_call()`.
 
-`merge_call()` is used to communicate between the towers and
+`merge_call()` is used to communicate betwen the towers and
 re-enter the cross-tower context. All towers pause their execution
 having encountered a `merge_call()` call. After that the
 `merge_fn`-function is executed. Its results are then unwrapped and
@@ -446,32 +432,28 @@ Find the best configuration given a tensorflow session config.
 <h3 id="distribute_dataset"><code>distribute_dataset</code></h3>
 
 ``` python
-distribute_dataset(dataset_fn)
+distribute_dataset(dataset)
 ```
 
-Return a `dataset` split across all towers.
+Return an iterator into `dataset` split across all towers.
 
-Suitable for providing input to for `call_for_each_tower()` by creating an
-iterator:
+Suitable for providing input to for `call_for_each_tower()`, as in:
 
 ```
-def dataset_fn():
-  return tf.data.Dataset.from_tensors([[1.]]).repeat()
 with distribution_strategy.scope():
-  distributed_dataset = distribution_strategy.distribute_dataset(dataset_fn)
-  iterator = distributed_dataset.make_one_shot_iterator()
+  iterator = distribution_strategy.distribute_dataset(dataset)
   tower_results = distribution_strategy.call_for_each_tower(
       tower_fn, iterator.get_next())
 ```
 
 #### Args:
 
-* <b>`dataset_fn`</b>: A function that returns a <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>.
+* <b>`dataset`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>.
 
 
 #### Returns:
 
-A `PerDeviceDataset` that will produce data for each tower.
+A Dataset iterator that will produce separate splits for each tower.
 
 <h3 id="fetch"><code>fetch</code></h3>
 

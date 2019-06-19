@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -19,15 +19,11 @@ tf.squeeze(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Shapes and Shaping](../../../api_guides/python/array_ops#Shapes_and_Shaping)
 
-Removes dimensions of size 1 from the shape of a tensor. (deprecated arguments)
-
-SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
-Instructions for updating:
-Use the `axis` argument instead
+Removes dimensions of size 1 from the shape of a tensor.
 
 Given a tensor `input`, this operation returns a tensor of the same type with
 all dimensions of size 1 removed. If you don't want to remove all size 1

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -19,7 +19,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/engine/base_layer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/engine/base_layer.py).
+Defined in [`tensorflow/python/layers/base.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/layers/base.py).
 
 Specifies the ndim, dtype and shape of every input to a layer.
 

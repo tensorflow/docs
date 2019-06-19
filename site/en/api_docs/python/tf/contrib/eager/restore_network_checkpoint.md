@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -18,13 +18,9 @@ tf.contrib.eager.restore_network_checkpoint(
 
 
 
-Defined in [`tensorflow/contrib/eager/python/network.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/network.py).
+Defined in [`tensorflow/contrib/eager/python/network.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/eager/python/network.py).
 
-Restore the Network from a checkpoint. (deprecated)
-
-THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Please inherit from tf.keras.Model instead of tfe.Network, and use tf.keras.Model.load_weights.
+Restore the Network from a checkpoint.
 
 If variables have already been created (typically when some or all of the
 `Network` is built), they are assigned values from the checkpoint immediately,

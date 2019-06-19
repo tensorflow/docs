@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/wals.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/factorization/python/ops/wals.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/wals.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/factorization/python/ops/wals.py).
 
 An Estimator for Weighted Matrix Factorization, using the WALS method.
 

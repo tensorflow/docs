@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -19,7 +19,7 @@ tf.contrib.gan.features.tensor_pool(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py).
+Defined in [`tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py).
 
 Queue storing input values and returning random previously stored ones.
 

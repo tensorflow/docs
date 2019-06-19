@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Exponential`](../../../tf/distributions/Exponential)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/exponential.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/exponential.py).
+Defined in [`tensorflow/python/ops/distributions/exponential.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/distributions/exponential.py).
 
 Exponential with softplus transform on `rate`.
 

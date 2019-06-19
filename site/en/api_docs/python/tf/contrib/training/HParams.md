@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/python/training/hparam.py).
+Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/training/python/training/hparam.py).
 
 Class to hold a set of hyperparameters as name-value pairs.
 
@@ -40,7 +40,7 @@ hparams.num_hidden_units ==> 100
 
 Hyperparameters have type, which is inferred from the type of their value
 passed at construction type.   The currently supported types are: integer,
-float, boolean, string, and list of integer, float, boolean, or string.
+float, string, and list of integer, float, or string.
 
 You can override hyperparameter values by calling the
 [`parse()`](#HParams.parse) method, passing a string of comma separated
@@ -163,18 +163,6 @@ Adds {name, value} pair to hyperparameters.
 #### Raises:
 
 * <b>`ValueError`</b>: if one of the arguments is invalid.
-
-<h3 id="del_hparam"><code>del_hparam</code></h3>
-
-``` python
-del_hparam(name)
-```
-
-Removes the hyperparameter with key 'name'.
-
-#### Args:
-
-* <b>`name`</b>: Name of the hyperparameter.
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 

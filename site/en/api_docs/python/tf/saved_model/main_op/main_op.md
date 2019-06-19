@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ tf.saved_model.main_op.main_op()
 
 
 
-Defined in [`tensorflow/python/saved_model/main_op_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/saved_model/main_op_impl.py).
+Defined in [`tensorflow/python/saved_model/main_op_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/saved_model/main_op_impl.py).
 
 Returns a main op to init variables and tables.
 

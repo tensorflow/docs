@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`DistributionStrategy`](../../../tf/contrib/distribute/Distribut
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/one_device_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distribute/python/one_device_strategy.py).
+Defined in [`tensorflow/contrib/distribute/python/one_device_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distribute/python/one_device_strategy.py).
 
 A distribution strategy for running on a single device.
 
@@ -64,10 +64,7 @@ An index object, or the integer 0 if there is only a single tower.
 <h3 id="__init__"><code>__init__</code></h3>
 
 ``` python
-__init__(
-    device,
-    prefetch_on_device=None
-)
+__init__(device)
 ```
 
 
@@ -133,7 +130,7 @@ Run `fn` once per tower.
 `fn` may call `tf.get_tower_context()` to access methods such as
 `tower_id()` and `merge_call()`.
 
-`merge_call()` is used to communicate between the towers and
+`merge_call()` is used to communicate betwen the towers and
 re-enter the cross-tower context. All towers pause their execution
 having encountered a `merge_call()` call. After that the
 `merge_fn`-function is executed. Its results are then unwrapped and
@@ -230,7 +227,7 @@ Find the best configuration given a tensorflow session config.
 <h3 id="distribute_dataset"><code>distribute_dataset</code></h3>
 
 ``` python
-distribute_dataset(dataset_fn)
+distribute_dataset(dataset)
 ```
 
 

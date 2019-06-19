@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,7 +20,7 @@ tf.contrib.receptive_field.compute_receptive_field_from_graph_def(
 
 
 
-Defined in [`tensorflow/contrib/receptive_field/python/util/receptive_field.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/receptive_field/python/util/receptive_field.py).
+Defined in [`tensorflow/contrib/receptive_field/python/util/receptive_field.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/receptive_field/python/util/receptive_field.py).
 
 Computes receptive field (RF) parameters from a Graph or GraphDef object.
 

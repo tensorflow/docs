@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,7 +20,7 @@ tf.saved_model.simple_save(
 
 
 
-Defined in [`tensorflow/python/saved_model/simple_save.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/saved_model/simple_save.py).
+Defined in [`tensorflow/python/saved_model/simple_save.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/saved_model/simple_save.py).
 
 Convenience function to build a SavedModel suitable for serving.
 

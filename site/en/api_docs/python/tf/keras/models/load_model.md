@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -18,15 +18,13 @@ tf.keras.models.load_model(
 
 
 
-Defined in [`tensorflow/python/keras/engine/saving.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/engine/saving.py).
+Defined in [`tensorflow/python/keras/_impl/keras/engine/saving.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/engine/saving.py).
 
 Loads a model saved via `save_model`.
 
 #### Arguments:
 
-* <b>`filepath`</b>: One of the following:
-        - String, path to the saved model
-        - `h5py.File` object from which to load the model
+* <b>`filepath`</b>: String, path to the saved model.
 * <b>`custom_objects`</b>: Optional dictionary mapping names
         (strings) to custom classes or functions to be
         considered during deserialization.

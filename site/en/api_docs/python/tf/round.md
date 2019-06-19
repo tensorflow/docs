@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -17,7 +17,7 @@ tf.round(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Basic Math Functions](../../../api_guides/python/math_ops#Basic_Math_Functions)
 
@@ -34,7 +34,7 @@ tf.round(x)  # [ 1.0, 2.0, 2.0, 2.0, -4.0 ]
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, or `int64`.
+* <b>`x`</b>: A `Tensor` of type `float32` or `float64`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

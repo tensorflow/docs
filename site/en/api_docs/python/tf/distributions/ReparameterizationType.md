@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -19,7 +19,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/distributions/distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/distribution.py).
+Defined in [`tensorflow/python/ops/distributions/distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/distributions/distribution.py).
 
 See the guide: [Statistical Distributions (contrib) > Base classes](../../../../api_guides/python/contrib.distributions#Base_classes)
 

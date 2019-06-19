@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -18,17 +18,5 @@ tf.keras.preprocessing.image.random_channel_shift(
 
 
 
-Defined in [`tensorflow/python/keras/preprocessing/image.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/preprocessing/image.py).
+Defined in [`tensorflow/python/keras/_impl/keras/preprocessing/image.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/preprocessing/image.py).
 
-Perform a random channel shift.
-
-#### Arguments:
-
-* <b>`x`</b>: Input tensor. Must be 3D.
-* <b>`intensity`</b>: Transformation intensity.
-* <b>`channel_axis`</b>: Index of axis for channels in the input tensor.
-
-
-#### Returns:
-
-Numpy image tensor.

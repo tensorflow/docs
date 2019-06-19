@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/preprocessing/text.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/preprocessing/text.py).
+Defined in [`tensorflow/python/keras/_impl/keras/preprocessing/text.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/preprocessing/text.py).
 
 Text tokenization utility class.
 
@@ -32,7 +32,7 @@ for each token could be binary, based on word count, based on tf-idf...
         filtered from the texts. The default is all punctuation, plus
         tabs and line breaks, minus the `'` character.
 * <b>`lower`</b>: boolean. Whether to convert the texts to lowercase.
-* <b>`split`</b>: string, separator for word splitting.
+* <b>`split`</b>: character or string to use for token splitting.
 * <b>`char_level`</b>: if True, every character will be treated as a token.
 * <b>`oov_token`</b>: if given, it will be added to word_index and used to
         replace out-of-vocabulary words during text_to_sequence calls

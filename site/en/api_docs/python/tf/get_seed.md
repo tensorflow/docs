@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ tf.get_seed(op_seed)
 
 
 
-Defined in [`tensorflow/python/framework/random_seed.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/random_seed.py).
+Defined in [`tensorflow/python/framework/random_seed.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/random_seed.py).
 
 See the guide: [Building Graphs > Defining new operations](../../../api_guides/python/framework#Defining_new_operations)
 

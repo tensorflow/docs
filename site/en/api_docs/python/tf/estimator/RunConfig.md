@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/run_config.py).
+Defined in [`tensorflow/python/estimator/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/estimator/run_config.py).
 
 This class specifies the configurations for an `Estimator` run.
 
@@ -23,14 +23,6 @@ This class specifies the configurations for an `Estimator` run.
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
 
-
-<h3 id="device_fn"><code>device_fn</code></h3>
-
-Returns the device_fn.
-
-If device_fn is not `None`, it overrides the default
-device function used in `Estimator`.
-Otherwise the default one is used.
 
 <h3 id="evaluation_master"><code>evaluation_master</code></h3>
 
@@ -162,8 +154,7 @@ __init__(
     keep_checkpoint_max=5,
     keep_checkpoint_every_n_hours=10000,
     log_step_count_steps=100,
-    train_distribute=None,
-    device_fn=None
+    train_distribute=None
 )
 ```
 
@@ -180,7 +171,7 @@ JSON object with attributes: `cluster` and `task`.
 a list of task addresses.
 
 `task` has two attributes: `type` and `index`, where `type` can be any of
-the task types in `cluster`. When `TF_CONFIG` contains said information,
+the task types in `cluster`. ` When `TF_CONFIG` contains said information,
 the following properties are set on this class:
 
 * `cluster_spec` is parsed from `TF_CONFIG['cluster']`. Defaults to {}. If
@@ -298,10 +289,6 @@ find the checkpoint due to race condition.
     <a href="../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a>. If specified,
     then Estimator will distribute the user's model during training,
     according to the policy specified by that strategy.
-* <b>`device_fn`</b>: A callable invoked for every `Operation` that takes the
-    `Operation` and returns the device string. If `None`, defaults to
-    the device function returned by <a href="../../tf/train/replica_device_setter"><code>tf.train.replica_device_setter</code></a>
-    with round-robin strategy.
 
 
 #### Raises:
@@ -328,8 +315,7 @@ Only the properties in the following list are allowed to be replaced:
   - `keep_checkpoint_max`,
   - `keep_checkpoint_every_n_hours`,
   - `log_step_count_steps`,
-  - `train_distribute`,
-  - `device_fn`.
+  - `train_distribute`.
 
 In addition, either `save_checkpoints_steps` or `save_checkpoints_secs`
 can be set (should not be both).

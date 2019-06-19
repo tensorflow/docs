@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -18,7 +18,7 @@ tf.estimator.train_and_evaluate(
 
 
 
-Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/training.py).
+Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/estimator/training.py).
 
 Train and evaluate the `estimator`.
 
@@ -90,8 +90,7 @@ workers is set to the same directory, i.e., a shared file system all workers
 can read and write). The only extra work to do is setting the environment
 variable `TF_CONFIG` properly for each worker correspondingly.
 
-Also see
-[Distributed TensorFlow](https://www.tensorflow.org/deploy/distributed).
+Also see: https://www.tensorflow.org/deploy/distributed
 
 Setting environment variable depends on the platform. For example, on Linux,
 it can be done as follows (`$` is the shell prompt):
@@ -186,13 +185,6 @@ TF_CONFIG='{
 * <b>`train_spec`</b>: A `TrainSpec` instance to specify the training specification.
 * <b>`eval_spec`</b>: A `EvalSpec` instance to specify the evaluation and export
     specification.
-
-
-#### Returns:
-
-A tuple of the result of the `evaluate` call to the `Estimator` and the
-export results using the specified `ExportStrategy`.
-Currently, the return value is undefined for distributed training mode.
 
 
 #### Raises:

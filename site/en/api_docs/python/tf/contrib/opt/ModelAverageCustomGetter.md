@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/model_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/model_average_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/model_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/opt/python/training/model_average_optimizer.py).
 
 Custom_getter class is used to do.
 
@@ -50,7 +50,7 @@ with tf.device(
 __init__(worker_device)
 ```
 
-Create a new `ModelAverageCustomGetter`.
+Create a new `ElasticAverageCustomGetter`.
 
 #### Args:
 

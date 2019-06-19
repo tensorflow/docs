@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,11 +10,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/data/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/data/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/data/__init__.py`.
 
-<a href="../tf/data/Dataset"><code>tf.data.Dataset</code></a> API for input pipelines.
 
-See <a href="../../../guide/datasets">Importing Data</a> for an overview.
 
 ## Classes
 

@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::TensorSummary Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -12,18 +12,18 @@
   <code>#include &lt;logging_ops.h&gt;</code>
   <p>Outputs a <code>Summary</code> protocol buffer with a tensor. </p>
   <h2>Summary</h2>
-  <p>This op is being phased out in favor of <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-summary-v2.html#classtensorflow_1_1ops_1_1_tensor_summary_v2">TensorSummaryV2</a>, which lets callers pass a tag as well as a serialized SummaryMetadata proto string that contains plugin-specific data. We will keep this op to maintain backwards compatibility.</p>
+  <p>This op is being phased out in favor of <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-summary-v2.html#classtensorflow_1_1ops_1_1_tensor_summary_v2">TensorSummaryV2</a>, which lets callers pass a tag as well as a serialized SummaryMetadata proto string that contains plugin-specific data. We will keep this op to maintain backwards compatibility.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>tensor: A tensor to serialize.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a></code>):<ul>
       <li>description: A json-encoded SummaryDescription proto.</li>
       <li>labels: An unused list of strings.</li>
       <li>display_name: An unused string.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The summary tensor. </li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The summary tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -33,13 +33,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_tensor_summary_1afdb9550f4293d4ab3a2983f6edf07fbb">TensorSummary</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_summary_1afdb9550f4293d4ab3a2983f6edf07fbb">TensorSummary</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_tensor_summary_1ae4c43797136633dd569416f852e1bb81">TensorSummary</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">TensorSummary::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_summary_1ae4c43797136633dd569416f852e1bb81">TensorSummary</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">TensorSummary::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -56,7 +56,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -110,7 +110,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -120,7 +120,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -130,7 +130,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -143,34 +143,34 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs">tensorflow::<wbr/>ops::<wbr/>TensorSummary::<wbr/>Attrs</a>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs">tensorflow::<wbr/>ops::<wbr/>TensorSummary::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/tensor-summary.html#classtensorflow_1_1ops_1_1_tensor_summary">TensorSummary</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/tensor-summary.html#classtensorflow_1_1ops_1_1_tensor_summary">TensorSummary</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_tensor_summary_1a6b64d90ed0bed7a174d12d2057cae3d1">
     <h3>summary</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> summary</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> summary</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_tensor_summary_1afdb9550f4293d4ab3a2983f6edf07fbb">
     <h3>TensorSummary</h3>
     <pre class="prettyprint"> TensorSummary(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_tensor_summary_1ae4c43797136633dd569416f852e1bb81">
     <h3>TensorSummary</h3>
     <pre class="prettyprint"> TensorSummary(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">TensorSummary::Attrs</a> & attrs
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">TensorSummary::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -192,21 +192,21 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_tensor_summary_1af0c6bfcdd270a13450e0bed1490e9f3b">
     <h3>Description</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a> Description(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a> Description(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_tensor_summary_1ae0eff10fbf8400e9be9c2a2cce9d9581">
     <h3>DisplayName</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a> DisplayName(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a> DisplayName(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_tensor_summary_1a48fba5c13d9055ab017b3204a40b4661">
     <h3>Labels</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a> Labels(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/tensor-summary/attrs.html#structtensorflow_1_1ops_1_1_tensor_summary_1_1_attrs">Attrs</a> Labels(
   const gtl::ArraySlice< string > & x
 )</pre>
     <div />

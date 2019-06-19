@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`FisherBlock`](../../../../tf/contrib/kfac/fisher_blocks/FisherB
 
 
 
-Defined in [`tensorflow/contrib/kfac/python/ops/fisher_blocks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kfac/python/ops/fisher_blocks.py).
+Defined in [`tensorflow/contrib/kfac/python/ops/fisher_blocks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/fisher_blocks.py).
 
 FisherBlock using a full matrix estimate (no approximations).
 
@@ -87,28 +87,6 @@ Multiplies the vector by the (damped) block.
 
 The vector left-multiplied by the (damped) block.
 
-<h3 id="multiply_cholesky"><code>multiply_cholesky</code></h3>
-
-``` python
-multiply_cholesky(
-    vector,
-    transpose=False
-)
-```
-
-
-
-<h3 id="multiply_cholesky_inverse"><code>multiply_cholesky_inverse</code></h3>
-
-``` python
-multiply_cholesky_inverse(
-    vector,
-    transpose=False
-)
-```
-
-
-
 <h3 id="multiply_inverse"><code>multiply_inverse</code></h3>
 
 ``` python
@@ -148,22 +126,6 @@ Register an additional tower.
 #### Args:
 
 * <b>`batch_size`</b>: The batch size, used in the covariance estimator.
-
-<h3 id="register_cholesky"><code>register_cholesky</code></h3>
-
-``` python
-register_cholesky()
-```
-
-
-
-<h3 id="register_cholesky_inverse"><code>register_cholesky_inverse</code></h3>
-
-``` python
-register_cholesky_inverse()
-```
-
-
 
 <h3 id="register_inverse"><code>register_inverse</code></h3>
 

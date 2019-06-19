@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,12 +10,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/saved_model/main_op/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/saved_model/main_op/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/saved_model/main_op/__init__.py`.
 
-SavedModel main op.
 
-Builds a main op that defines the sequence of ops to be run as part of the
-SavedModel load/restore operations.
 
 ## Functions
 

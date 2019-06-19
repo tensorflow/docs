@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ tf.keras.datasets.reuters.get_word_index(path='reuters_word_index.json')
 
 
 
-Defined in [`tensorflow/python/keras/datasets/reuters.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/datasets/reuters.py).
+Defined in [`tensorflow/python/keras/_impl/keras/datasets/reuters.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/datasets/reuters.py).
 
 Retrieves the dictionary mapping word indices back to words.
 

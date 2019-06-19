@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,11 +10,11 @@ page_type: reference
 
 ## Class `Gumbel`
 
-Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijector)
+Inherits From: [`Bijector`](../../../../tf/distributions/bijectors/Bijector)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/gumbel.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/gumbel.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/gumbel.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distributions/python/ops/bijectors/gumbel.py).
 
 Compute `Y = g(X) = exp(-exp(-(X - loc) / scale))`.
 
@@ -35,24 +35,19 @@ pdf(y; loc, scale) = exp(
 
 dtype of `Tensor`s transformable by this distribution.
 
-<h3 id="forward_min_event_ndims"><code>forward_min_event_ndims</code></h3>
+<h3 id="event_ndims"><code>event_ndims</code></h3>
 
-Returns the minimal number of dimensions bijector.forward operates on.
+Returns then number of event dimensions this bijector operates on.
 
 <h3 id="graph_parents"><code>graph_parents</code></h3>
 
 Returns this `Bijector`'s graph_parents as a Python list.
 
-<h3 id="inverse_min_event_ndims"><code>inverse_min_event_ndims</code></h3>
-
-Returns the minimal number of dimensions bijector.inverse operates on.
-
 <h3 id="is_constant_jacobian"><code>is_constant_jacobian</code></h3>
 
-Returns true iff the Jacobian matrix is not a function of x.
+Returns true iff the Jacobian is not a function of x.
 
-Note: Jacobian matrix is either constant for both forward and inverse or
-neither.
+Note: Jacobian is either constant for both forward and inverse or neither.
 
 #### Returns:
 
@@ -84,6 +79,7 @@ Returns True if Tensor arguments will be validated.
 __init__(
     loc=0.0,
     scale=1.0,
+    event_ndims=0,
     validate_args=False,
     name='gumbel'
 )
@@ -99,6 +95,8 @@ Instantiates the `Gumbel` bijector.
 * <b>`scale`</b>: Positive Float-like `Tensor` that is the same dtype and is
     broadcastable with `loc`.
     This is `scale` in `Y = g(X) = exp(-exp(-(X - loc) / scale))`.
+* <b>`event_ndims`</b>: Python scalar indicating the number of dimensions associated
+    with a particular draw from the distribution.
 * <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
     checked for correctness.
 * <b>`name`</b>: Python `str` name given to ops managed by this object.
@@ -180,7 +178,6 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
 ``` python
 forward_log_det_jacobian(
     x,
-    event_ndims,
     name='forward_log_det_jacobian'
 )
 ```
@@ -189,12 +186,7 @@ Returns both the forward_log_det_jacobian.
 
 #### Args:
 
-* <b>`x`</b>: `Tensor`. The input to the "forward" Jacobian determinant evaluation.
-* <b>`event_ndims`</b>: Number of dimensions in the probabilistic events being
-    transformed. Must be greater than or equal to
-    `self.forward_min_event_ndims`. The result is summed over the final
-    dimensions to produce a scalar Jacobian determinant for each event,
-    i.e. it has shape `x.shape.ndims - event_ndims` dimensions.
+* <b>`x`</b>: `Tensor`. The input to the "forward" Jacobian evaluation.
 * <b>`name`</b>: The name to give this op.
 
 
@@ -291,7 +283,6 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
 ``` python
 inverse_log_det_jacobian(
     y,
-    event_ndims,
     name='inverse_log_det_jacobian'
 )
 ```
@@ -305,12 +296,7 @@ evaluated at `g^{-1}(y)`.
 
 #### Args:
 
-* <b>`y`</b>: `Tensor`. The input to the "inverse" Jacobian determinant evaluation.
-* <b>`event_ndims`</b>: Number of dimensions in the probabilistic events being
-    transformed. Must be greater than or equal to
-    `self.inverse_min_event_ndims`. The result is summed over the final
-    dimensions to produce a scalar Jacobian determinant for each event,
-    i.e. it has shape `y.shape.ndims - event_ndims` dimensions.
+* <b>`y`</b>: `Tensor`. The input to the "inverse" Jacobian evaluation.
 * <b>`name`</b>: The name to give this op.
 
 

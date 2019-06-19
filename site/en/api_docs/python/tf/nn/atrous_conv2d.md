@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,7 +20,7 @@ tf.nn.atrous_conv2d(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
@@ -141,7 +141,7 @@ inputs are identical.
 #### Returns:
 
 A `Tensor` with the same type as `value`.
-Output shape with `'VALID'` padding is:
+Output shape with `'VALID`` padding is:
 
     [batch, height - 2 * (filter_width - 1),
      width - 2 * (filter_height - 1), out_channels].

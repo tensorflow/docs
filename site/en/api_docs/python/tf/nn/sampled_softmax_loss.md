@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -27,7 +27,7 @@ tf.nn.sampled_softmax_loss(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Candidate Sampling](../../../../api_guides/python/nn#Candidate_Sampling)
 
@@ -57,7 +57,7 @@ elif mode == "eval":
   logits = tf.matmul(inputs, tf.transpose(weights))
   logits = tf.nn.bias_add(logits, biases)
   labels_one_hot = tf.one_hot(labels, n_classes)
-  loss = tf.nn.softmax_cross_entropy_with_logits_v2(
+  loss = tf.nn.softmax_cross_entropy_with_logits(
       labels=labels_one_hot,
       logits=logits)
 ```
@@ -75,7 +75,7 @@ Also see Section 3 of [Jean et al., 2014](http://arxiv.org/abs/1412.2007)
 * <b>`biases`</b>: A `Tensor` of shape `[num_classes]`.  The class biases.
 * <b>`labels`</b>: A `Tensor` of type `int64` and shape `[batch_size,
       num_true]`. The target classes.  Note that this format differs from
-      the `labels` argument of `nn.softmax_cross_entropy_with_logits_v2`.
+      the `labels` argument of `nn.softmax_cross_entropy_with_logits`.
 * <b>`inputs`</b>: A `Tensor` of shape `[batch_size, dim]`.  The forward
       activations of the input network.
 * <b>`num_sampled`</b>: An `int`.  The number of classes to randomly sample per batch.

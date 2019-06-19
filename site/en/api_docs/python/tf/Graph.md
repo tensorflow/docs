@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures)
 
@@ -81,7 +81,7 @@ True if this graph has been finalized.
 The GraphDef version information of this graph.
 
 For details on the meaning of each version, see
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/graph.proto).
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/framework/graph.proto).
 
 #### Returns:
 
@@ -194,9 +194,6 @@ with tf.Graph().as_default() as g:
   assert c.graph is g
 ```
 
-If eager execution is enabled ops created under this context manager will be
-added to the graph instead of executed eagerly.
-
 #### Returns:
 
 A context manager for using this graph as the default graph.
@@ -230,7 +227,7 @@ This method is thread-safe.
 #### Returns:
 
 A
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/graph.proto)
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/framework/graph.proto)
 protocol buffer.
 
 
@@ -574,7 +571,7 @@ string, a device function, or None:
 
 For information about the valid syntax of device name strings, see
 the documentation in
-[`DeviceNameUtils`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/util/device_name_utils.h).
+[`DeviceNameUtils`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/util/device_name_utils.h).
 
 For example:
 

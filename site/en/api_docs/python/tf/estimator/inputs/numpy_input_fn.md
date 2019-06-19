@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -22,7 +22,7 @@ tf.estimator.inputs.numpy_input_fn(
 
 
 
-Defined in [`tensorflow/python/estimator/inputs/numpy_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/inputs/numpy_io.py).
+Defined in [`tensorflow/python/estimator/inputs/numpy_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/estimator/inputs/numpy_io.py).
 
 Returns input function that would feed dict of numpy arrays into the model.
 
@@ -70,5 +70,4 @@ Function, that has signature of ()->(dict of `features`, `targets`)
     values in `x` have same shape).
 * <b>`ValueError`</b>: if duplicate keys are in both `x` and `y` when `y` is a dict.
 * <b>`ValueError`</b>: if x or y is an empty dict.
-* <b>`TypeError`</b>: `x` is not a dict or array.
-* <b>`ValueError`</b>: if 'shuffle' is not provided or a bool.
+* <b>`TypeError`</b>: `x` is not a dict or array, or if `shuffle` is not bool.

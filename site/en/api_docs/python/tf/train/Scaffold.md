@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/monitored_session.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -143,24 +143,6 @@ Create a scaffold.
     variables.
 * <b>`copy_from_scaffold`</b>: Optional scaffold object to copy fields from. Its
     fields will be overwritten by the provided fields in this function.
-
-<h3 id="default_local_init_op"><code>default_local_init_op</code></h3>
-
-``` python
-@staticmethod
-default_local_init_op()
-```
-
-Returns an op that groups the default local init ops.
-
-This op is used during session initialization when a Scaffold is
-initialized without specifying the local_init_op arg. It includes
-<a href="../../tf/local_variables_initializer"><code>tf.local_variables_initializer</code></a>, <a href="../../tf/tables_initializer"><code>tf.tables_initializer</code></a>, and also
-initializes local session resources.
-
-#### Returns:
-
-The default Scaffold local init op.
 
 <h3 id="finalize"><code>finalize</code></h3>
 

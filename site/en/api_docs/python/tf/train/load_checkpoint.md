@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ tf.train.load_checkpoint(ckpt_dir_or_file)
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/checkpoint_utils.py).
+Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/checkpoint_utils.py).
 
 Returns `CheckpointReader` for checkpoint found in `ckpt_dir_or_file`.
 

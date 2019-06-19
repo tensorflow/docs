@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -19,7 +19,7 @@ Inherits From: [`Model`](../../tf/keras/Model)
 
 
 
-Defined in [`tensorflow/python/keras/engine/sequential.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/engine/sequential.py).
+Defined in [`tensorflow/python/keras/_impl/keras/engine/sequential.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/engine/sequential.py).
 
 Linear stack of layers.
 
@@ -85,6 +85,10 @@ model.weights  # returns list of length 4
 Optional regularizer function for the output of this layer.
 
 <h3 id="dtype"><code>dtype</code></h3>
+
+
+
+<h3 id="graph"><code>graph</code></h3>
 
 
 
@@ -248,6 +252,10 @@ Output shape, as an integer shape tuple
 * <b>`AttributeError`</b>: if the layer has no defined output shape.
 * <b>`RuntimeError`</b>: if called in Eager mode.
 
+<h3 id="scope_name"><code>scope_name</code></h3>
+
+
+
 <h3 id="state_updates"><code>state_updates</code></h3>
 
 Returns the `updates` from all layers that are stateful.
@@ -366,34 +374,45 @@ __call__(
 )
 ```
 
-Wraps `call`, applying pre- and post-processing steps.
+Wrapper around self.call(), for handling internal references.
+
+If a Keras tensor is passed:
+    - We call self._add_inbound_node().
+    - If necessary, we `build` the layer to match
+        the shape of the input(s).
+    - We update the _keras_history of the output tensor(s)
+        with the current layer.
+        This is done as part of _add_inbound_node().
 
 #### Arguments:
 
-* <b>`inputs`</b>: input tensor(s).
-* <b>`*args`</b>: additional positional arguments to be passed to `self.call`.
-* <b>`**kwargs`</b>: additional keyword arguments to be passed to `self.call`.
+* <b>`inputs`</b>: Can be a tensor or list/tuple of tensors.
+* <b>`*args`</b>: Additional positional arguments to be passed to `call()`. Only
+      allowed in subclassed Models with custom call() signatures. In other
+      cases, `Layer` inputs must be passed using the `inputs` argument and
+      non-inputs must be keyword arguments.
+* <b>`**kwargs`</b>: Additional keyword arguments to be passed to `call()`.
 
 
 #### Returns:
 
-  Output tensor(s).
-
-Note:
-  - The following optional keyword arguments are reserved for specific uses:
-    * `training`: Boolean scalar tensor of Python boolean indicating
-      whether the `call` is meant for training or inference.
-    * `mask`: Boolean input mask.
-  - If the layer's `call` method takes a `mask` argument (as some Keras
-    layers do), its default value will be set to the mask generated
-    for `inputs` by the previous layer (if `input` did come from
-    a layer that generated a corresponding mask, i.e. if it came from
-    a Keras layer with masking support.
+Output of the layer's `call` method.
 
 
 #### Raises:
 
-* <b>`ValueError`</b>: if the layer's `call` method returns None (an invalid value).
+* <b>`ValueError`</b>: in case the layer is missing shape information
+        for its `build` call.
+* <b>`TypeError`</b>: If positional arguments are passed and this `Layer` is not a
+        subclassed `Model`.
+
+<h3 id="__deepcopy__"><code>__deepcopy__</code></h3>
+
+``` python
+__deepcopy__(memo)
+```
+
+
 
 <h3 id="__setattr__"><code>__setattr__</code></h3>
 
@@ -460,9 +479,7 @@ of dependencies.
 The `get_updates_for` method allows to retrieve the updates relevant to a
 specific set of inputs.
 
-This call is ignored when eager execution is enabled (in that case, variable
-updates are run on the fly and thus do not need to be tracked for later
-execution).
+This call is ignored in Eager mode.
 
 #### Arguments:
 
@@ -502,46 +519,28 @@ add_weight(
     initializer=None,
     regularizer=None,
     trainable=True,
-    constraint=None,
-    partitioner=None,
-    use_resource=None,
-    getter=None
+    constraint=None
 )
 ```
 
-Adds a new variable to the layer, or gets an existing one; returns it.
+Adds a weight variable to the layer.
 
 #### Arguments:
 
-* <b>`name`</b>: variable name.
-* <b>`shape`</b>: variable shape.
-* <b>`dtype`</b>: The type of the variable. Defaults to `self.dtype` or `float32`.
-* <b>`initializer`</b>: initializer instance (callable).
-* <b>`regularizer`</b>: regularizer instance (callable).
-* <b>`trainable`</b>: whether the variable should be part of the layer's
-    "trainable_variables" (e.g. variables, biases)
-    or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
-    Note, if the current variable scope is marked as non-trainable
-    then this parameter is ignored and any added variables are also
-    marked as non-trainable.
-* <b>`constraint`</b>: constraint instance (callable).
-* <b>`partitioner`</b>: Partitioner to be passed to the `Checkpointable` API.
-* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
-* <b>`getter`</b>: Variable getter argument to be passed to the `Checkpointable` API.
+* <b>`name`</b>: String, the name for the weight variable.
+* <b>`shape`</b>: The shape tuple of the weight.
+* <b>`dtype`</b>: The dtype of the weight.
+* <b>`initializer`</b>: An Initializer instance (callable).
+* <b>`regularizer`</b>: An optional Regularizer instance.
+* <b>`trainable`</b>: A boolean, whether the weight should
+        be trained via backprop or not (assuming
+        that the layer itself is also trainable).
+* <b>`constraint`</b>: An optional Constraint instance.
 
 
 #### Returns:
 
-The created variable.  Usually either a `Variable` or `ResourceVariable`
-instance.  If `partitioner` is not `None`, a `PartitionedVariable`
-instance is returned.
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If called with partioned variable regularization and
-    eager execution is enabled.
-* <b>`ValueError`</b>: When giving unsupported dtype and no initializer.
+The created weight variable.
 
 <h3 id="apply"><code>apply</code></h3>
 
@@ -728,26 +727,22 @@ Computation is done in batches.
 
 #### Arguments:
 
-* <b>`x`</b>: Input data. It could be:
-      - A Numpy array (or array-like), or a list of arrays
-        (in case the model has multiple inputs).
-      - A TensorFlow tensor, or a list of tensors
-        (in case the model has multiple inputs).
-      - A dict mapping input names to the corresponding array/tensors,
-        if the model has named inputs.
-      - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator.
-* <b>`y`</b>: Target data. Like the input data `x`,
-      it could be either Numpy array(s) or TensorFlow tensor(s).
-      It should be consistent with `x` (you cannot have Numpy inputs and
-      tensor targets, or inversely).
-      If `x` is a dataset or a dataset iterator, `y` should not be specified
-      (since targets will be obtained from the iterator/dataset).
+* <b>`x`</b>: Numpy array of test data (if the model has a single input),
+        or list of Numpy arrays (if the model has multiple inputs).
+        If input layers in the model are named, you can also pass a
+        dictionary mapping input names to Numpy arrays.
+        `x` can be `None` (default) if feeding from
+        TensorFlow data tensors.
+* <b>`y`</b>: Numpy array of target (label) data
+        (if the model has a single output),
+        or list of Numpy arrays (if the model has multiple outputs).
+        If output layers in the model are named, you can also pass a
+        dictionary mapping output names to Numpy arrays.
+        `y` can be `None` (default) if feeding from
+        TensorFlow data tensors.
 * <b>`batch_size`</b>: Integer or `None`.
-        Number of samples per gradient update.
+        Number of samples per evaluation step.
         If unspecified, `batch_size` will default to 32.
-        Do not specify the `batch_size` is your data is in the
-        form of symbolic tensors, datasets, or dataset iterators
-        (since they generate batches).
 * <b>`verbose`</b>: 0 or 1. Verbosity mode.
         0 = silent, 1 = progress bar.
 * <b>`sample_weight`</b>: Optional Numpy array of weights for
@@ -760,8 +755,7 @@ Computation is done in batches.
         `(samples, sequence_length)`,
         to apply a different weight to every timestep of every sample.
         In this case you should make sure to specify
-        `sample_weight_mode="temporal"` in `compile()`. This argument is not
-        supported when `x` is a dataset or a dataset iterator.
+        `sample_weight_mode="temporal"` in `compile()`.
 * <b>`steps`</b>: Integer or `None`.
         Total number of steps (batches of samples)
         before declaring the evaluation round finished.
@@ -788,8 +782,7 @@ evaluate_generator(
     steps=None,
     max_queue_size=10,
     workers=1,
-    use_multiprocessing=False,
-    verbose=0
+    use_multiprocessing=False
 )
 ```
 
@@ -820,7 +813,6 @@ as accepted by `test_on_batch`.
         Note that because this implementation relies on multiprocessing,
         you should not pass non-picklable arguments to the generator
         as they can't be passed easily to children processes.
-* <b>`verbose`</b>: Verbosity mode, 0 or 1.
 
 
 #### Returns:
@@ -838,7 +830,8 @@ the display labels for the scalar outputs.
 
 #### Raises:
 
-* <b>`ValueError`</b>: In case the generator yields data in an invalid format.
+* <b>`ValueError`</b>: In case the generator yields
+        data in an invalid format.
 
 <h3 id="fit"><code>fit</code></h3>
 
@@ -866,26 +859,22 @@ Trains the model for a fixed number of epochs (iterations on a dataset).
 
 #### Arguments:
 
-* <b>`x`</b>: Input data. It could be:
-      - A Numpy array (or array-like), or a list of arrays
-        (in case the model has multiple inputs).
-      - A TensorFlow tensor, or a list of tensors
-        (in case the model has multiple inputs).
-      - A dict mapping input names to the corresponding array/tensors,
-        if the model has named inputs.
-      - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator.
-* <b>`y`</b>: Target data. Like the input data `x`,
-      it could be either Numpy array(s) or TensorFlow tensor(s).
-      It should be consistent with `x` (you cannot have Numpy inputs and
-      tensor targets, or inversely). If `x` is a dataset or dataset
-      iterator, `y` should not be specified
-      (since targets will be obtained from the iterator).
+* <b>`x`</b>: Numpy array of training data (if the model has a single input),
+        or list of Numpy arrays (if the model has multiple inputs).
+        If input layers in the model are named, you can also pass a
+        dictionary mapping input names to Numpy arrays.
+        `x` can be `None` (default) if feeding from
+        TensorFlow data tensors.
+* <b>`y`</b>: Numpy array of target (label) data
+        (if the model has a single output),
+        or list of Numpy arrays (if the model has multiple outputs).
+        If output layers in the model are named, you can also pass a
+        dictionary mapping output names to Numpy arrays.
+        `y` can be `None` (default) if feeding from
+        TensorFlow data tensors.
 * <b>`batch_size`</b>: Integer or `None`.
         Number of samples per gradient update.
         If unspecified, `batch_size` will default to 32.
-        Do not specify the `batch_size` if your data is in the
-        form of symbolic tensors, datasets, or dataset iterators
-        (since they generate batches).
 * <b>`epochs`</b>: Integer. Number of epochs to train the model.
         An epoch is an iteration over the entire `x` and `y`
         data provided.
@@ -906,16 +895,12 @@ Trains the model for a fixed number of epochs (iterations on a dataset).
         the loss and any model metrics
         on this data at the end of each epoch.
         The validation data is selected from the last samples
-        in the `x` and `y` data provided, before shuffling. This argument is
-        not supported when `x` is a dataset or a dataset iterator.
-* <b>`validation_data`</b>: Data on which to evaluate
+        in the `x` and `y` data provided, before shuffling.
+* <b>`validation_data`</b>: tuple `(x_val, y_val)` or tuple
+        `(x_val, y_val, val_sample_weights)` on which to evaluate
         the loss and any model metrics at the end of each epoch.
         The model will not be trained on this data.
         `validation_data` will override `validation_split`.
-        `validation_data` could be:
-          - tuple `(x_val, y_val)` of Numpy arrays or tensors
-          - tuple `(x_val, y_val, val_sample_weights)` of Numpy arrays
-          - dataset or a dataset iterator
 * <b>`shuffle`</b>: Boolean (whether to shuffle the training data
         before each epoch) or str (for 'batch').
         'batch' is a special option for dealing with the
@@ -937,8 +922,7 @@ Trains the model for a fixed number of epochs (iterations on a dataset).
         `(samples, sequence_length)`,
         to apply a different weight to every timestep of every sample.
         In this case you should make sure to specify
-        `sample_weight_mode="temporal"` in `compile()`. This argument is not
-        supported when `x` is a dataset or a dataset iterator.
+        `sample_weight_mode="temporal"` in `compile()`.
 * <b>`initial_epoch`</b>: Integer.
         Epoch at which to start training
         (useful for resuming a previous training run).
@@ -1083,7 +1067,8 @@ Example:
 
 #### Raises:
 
-* <b>`ValueError`</b>: In case the generator yields data in an invalid format.
+* <b>`ValueError`</b>: In case the generator yields
+        data in an invalid format.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
@@ -1344,50 +1329,30 @@ load_weights(
 )
 ```
 
-Loads all layer weights, either from a TensorFlow or an HDF5 weight file.
+Loads all layer weights from a HDF5 save file.
 
-If `by_name` is False weights are loaded based on the network's
-topology. This means the architecture should be the same as when the weights
-were saved.  Note that layers that don't have weights are not taken into
-account in the topological ordering, so adding or removing layers is fine as
-long as they don't have weights.
+If `by_name` is False (default) weights are loaded
+based on the network's topology, meaning the architecture
+should be the same as when the weights were saved.
+Note that layers that don't have weights are not taken
+into account in the topological ordering, so adding or
+removing layers is fine as long as they don't have weights.
 
-If `by_name` is True, weights are loaded into layers only if they share the
-same name. This is useful for fine-tuning or transfer-learning models where
+If `by_name` is True, weights are loaded into layers
+only if they share the same name. This is useful
+for fine-tuning or transfer-learning models where
 some of the layers have changed.
-
-Only topological loading (`by_name=False`) is supported when loading weights
-from the TensorFlow format. Note that topological loading differs slightly
-between TensorFlow and HDF5 formats for user-defined classes inheriting from
-<a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>: HDF5 loads based on a flattened list of weights, while the
-TensorFlow format loads based on the object-local names of attributes to
-which layers are assigned in the `Model`'s constructor.
 
 #### Arguments:
 
-* <b>`filepath`</b>: String, path to the weights file to load. For weight files in
-        TensorFlow format, this is the file prefix (the same as was passed
-        to `save_weights`).
-* <b>`by_name`</b>: Boolean, whether to load weights by name or by topological
-        order. Only topological loading is supported for weight files in
-        TensorFlow format.
-
-
-#### Returns:
-
-When loading a weight file in TensorFlow format, returns the same status
-object as <a href="../../tf/train/Checkpoint#restore"><code>tf.train.Checkpoint.restore</code></a>. When graph building, restore
-ops are run automatically as soon as the network is built (on first call
-for user-defined classes inheriting from `Model`, immediately if it is
-already built).
-
-When loading weights in HDF5 format, returns `None`.
+* <b>`filepath`</b>: String, path to the weights file to load.
+* <b>`by_name`</b>: Boolean, whether to load weights by name
+        or by topological order.
 
 
 #### Raises:
 
-* <b>`ImportError`</b>: If h5py is not available and the weight file is in HDF5
-        format.
+* <b>`ImportError`</b>: If h5py is not available.
 
 <h3 id="pop"><code>pop</code></h3>
 
@@ -1418,18 +1383,9 @@ Computation is done in batches.
 
 #### Arguments:
 
-x: Input samples. It could be:
- - A Numpy array (or array-like), or a list of arrays
-   (in case the model has multiple inputs).
- - A TensorFlow tensor, or a list of tensors
-   (in case the model has multiple inputs).
- - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator.
-* <b>`batch_size`</b>: Integer or `None`.
-        Number of samples per gradient update.
-        If unspecified, `batch_size` will default to 32.
-        Do not specify the `batch_size` is your data is in the
-        form of symbolic tensors, dataset, or dataset iterators
-        (since they generate batches).
+* <b>`x`</b>: The input data, as a Numpy array
+        (or list of Numpy arrays if the model has multiple outputs).
+* <b>`batch_size`</b>: Integer. If unspecified, it will default to 32.
 * <b>`verbose`</b>: Verbosity mode, 0 or 1.
 * <b>`steps`</b>: Total number of steps (batches of samples)
         before declaring the prediction round finished.
@@ -1523,7 +1479,8 @@ Numpy array(s) of predictions.
 
 #### Raises:
 
-* <b>`ValueError`</b>: In case the generator yields data in an invalid format.
+* <b>`ValueError`</b>: In case the generator yields
+        data in an invalid format.
 
 <h3 id="predict_on_batch"><code>predict_on_batch</code></h3>
 
@@ -1535,23 +1492,12 @@ Returns predictions for a single batch of samples.
 
 #### Arguments:
 
-* <b>`x`</b>: Input data. It could be:
-      - A Numpy array (or array-like), or a list of arrays
-        (in case the model has multiple inputs).
-      - A TensorFlow tensor, or a list of tensors
-        (in case the model has multiple inputs).
-      - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator.
+* <b>`x`</b>: Input samples, as a Numpy array.
 
 
 #### Returns:
 
 Numpy array(s) of predictions.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: In case of mismatch between given number of inputs and
-      expectations of the model.
 
 <h3 id="predict_proba"><code>predict_proba</code></h3>
 
@@ -1638,54 +1584,32 @@ model = load_model('my_model.h5')
 ``` python
 save_weights(
     filepath,
-    overwrite=True,
-    save_format=None
+    overwrite=True
 )
 ```
 
-Saves all layer weights.
+Dumps all layer weights to a HDF5 file.
 
-Either saves in HDF5 or in TensorFlow format based on the `save_format`
-argument.
-
-When saving in HDF5 format, the weight file has:
-  - `layer_names` (attribute), a list of strings
-      (ordered names of model layers).
-  - For every layer, a `group` named `layer.name`
-      - For every such layer group, a group attribute `weight_names`,
-          a list of strings
-          (ordered names of weights tensor of the layer).
-      - For every weight in the layer, a dataset
-          storing the weight value, named after the weight tensor.
-
-When saving in TensorFlow format, all objects referenced by the network are
-saved in the same format as <a href="../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a>, including any `Layer`
-instances or `Optimizer` instances assigned to object attributes. For
-networks constructed from inputs and outputs using `tf.keras.Model(inputs,
-outputs)`, `Layer` instances used by the network are tracked/saved
-automatically. For user-defined classes which inherit from <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>,
-`Layer` instances must be assigned to object attributes, typically in the
-constructor. See the documentation of <a href="../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a> and
-<a href="../../tf/keras/Model"><code>tf.keras.Model</code></a> for details.
+The weight file has:
+    - `layer_names` (attribute), a list of strings
+        (ordered names of model layers).
+    - For every layer, a `group` named `layer.name`
+        - For every such layer group, a group attribute `weight_names`,
+            a list of strings
+            (ordered names of weights tensor of the layer).
+        - For every weight in the layer, a dataset
+            storing the weight value, named after the weight tensor.
 
 #### Arguments:
 
-* <b>`filepath`</b>: String, path to the file to save the weights to. When saving
-        in TensorFlow format, this is the prefix used for checkpoint files
-        (multiple files are generated). Note that the '.h5' suffix causes
-        weights to be saved in HDF5 format.
+* <b>`filepath`</b>: String, path to the file to save the weights to.
 * <b>`overwrite`</b>: Whether to silently overwrite any existing file at the
         target location, or provide the user with a manual prompt.
-* <b>`save_format`</b>: Either 'tf' or 'h5'. A `filepath` ending in '.h5' or
-        '.keras' will default to HDF5 if `save_format` is `None`. Otherwise
-        `None` defaults to 'tf'.
 
 
 #### Raises:
 
-* <b>`ImportError`</b>: If h5py is not available when attempting to save in HDF5
-        format.
-* <b>`ValueError`</b>: For invalid/unknown format arguments.
+* <b>`ImportError`</b>: If h5py is not available.
 
 <h3 id="set_weights"><code>set_weights</code></h3>
 
@@ -1725,17 +1649,12 @@ Prints a string summary of the network.
         You can set it to a custom function
         in order to capture the string summary.
 
-
-#### Raises:
-
-* <b>`ValueError`</b>: if `summary()` is called before the model is built.
-
 <h3 id="test_on_batch"><code>test_on_batch</code></h3>
 
 ``` python
 test_on_batch(
     x,
-    y=None,
+    y,
     sample_weight=None
 )
 ```
@@ -1744,28 +1663,23 @@ Test the model on a single batch of samples.
 
 #### Arguments:
 
-* <b>`x`</b>: Input data. It could be:
-      - A Numpy array (or array-like), or a list of arrays
-        (in case the model has multiple inputs).
-      - A TensorFlow tensor, or a list of tensors
-        (in case the model has multiple inputs).
-      - A dict mapping input names to the corresponding array/tensors,
-        if the model has named inputs.
-      - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator.
-* <b>`y`</b>: Target data. Like the input data `x`,
-      it could be either Numpy array(s) or TensorFlow tensor(s).
-      It should be consistent with `x` (you cannot have Numpy inputs and
-      tensor targets, or inversely). If `x` is a dataset or a
-      dataset iterator, `y` should not be specified
-      (since targets will be obtained from the iterator).
+* <b>`x`</b>: Numpy array of test data,
+        or list of Numpy arrays if the model has multiple inputs.
+        If all inputs in the model are named,
+        you can also pass a dictionary
+        mapping input names to Numpy arrays.
+* <b>`y`</b>: Numpy array of target data,
+        or list of Numpy arrays if the model has multiple outputs.
+        If all outputs in the model are named,
+        you can also pass a dictionary
+        mapping output names to Numpy arrays.
 * <b>`sample_weight`</b>: Optional array of the same length as x, containing
         weights to apply to the model's loss for each sample.
         In the case of temporal data, you can pass a 2D array
         with shape (samples, sequence_length),
         to apply a different weight to every timestep of every sample.
         In this case you should make sure to specify
-        sample_weight_mode="temporal" in compile(). This argument is not
-        supported when `x` is a dataset or a dataset iterator.
+        sample_weight_mode="temporal" in compile().
 
 
 #### Returns:
@@ -1836,7 +1750,7 @@ A YAML string.
 ``` python
 train_on_batch(
     x,
-    y=None,
+    y,
     sample_weight=None,
     class_weight=None
 )
@@ -1846,28 +1760,23 @@ Runs a single gradient update on a single batch of data.
 
 #### Arguments:
 
-* <b>`x`</b>: Input data. It could be:
-      - A Numpy array (or array-like), or a list of arrays
-        (in case the model has multiple inputs).
-      - A TensorFlow tensor, or a list of tensors
-        (in case the model has multiple inputs).
-      - A dict mapping input names to the corresponding array/tensors,
-        if the model has named inputs.
-      - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator.
-* <b>`y`</b>: Target data. Like the input data `x`,
-      it could be either Numpy array(s) or TensorFlow tensor(s).
-      It should be consistent with `x` (you cannot have Numpy inputs and
-      tensor targets, or inversely). If `x` is a dataset or a
-      dataset iterator, `y` should not be specified
-      (since targets will be obtained from the iterator).
+* <b>`x`</b>: Numpy array of training data,
+        or list of Numpy arrays if the model has multiple inputs.
+        If all inputs in the model are named,
+        you can also pass a dictionary
+        mapping input names to Numpy arrays.
+* <b>`y`</b>: Numpy array of target data,
+        or list of Numpy arrays if the model has multiple outputs.
+        If all outputs in the model are named,
+        you can also pass a dictionary
+        mapping output names to Numpy arrays.
 * <b>`sample_weight`</b>: Optional array of the same length as x, containing
         weights to apply to the model's loss for each sample.
         In the case of temporal data, you can pass a 2D array
         with shape (samples, sequence_length),
         to apply a different weight to every timestep of every sample.
         In this case you should make sure to specify
-        sample_weight_mode="temporal" in compile(). This argument is not
-        supported when `x` is a dataset or a dataset iterator.
+        sample_weight_mode="temporal" in compile().
 * <b>`class_weight`</b>: Optional dictionary mapping
         class indices (integers) to
         a weight (float) to apply to the model's loss for the samples

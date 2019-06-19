@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,7 +20,7 @@ tf.constant(
 
 
 
-Defined in [`tensorflow/python/framework/constant_op.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/constant_op.py).
+Defined in [`tensorflow/python/framework/constant_op.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/constant_op.py).
 
 See the guide: [Constants, Sequences, and Random Values > Constant Value Tensors](../../../api_guides/python/constant_op#Constant_Value_Tensors)
 

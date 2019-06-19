@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -17,7 +17,7 @@ tf.python_io.tf_record_iterator(
 
 
 
-Defined in [`tensorflow/python/lib/io/tf_record.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/lib/io/tf_record.py).
+Defined in [`tensorflow/python/lib/io/tf_record.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/lib/io/tf_record.py).
 
 See the guide: [Data IO (Python functions)](../../../../api_guides/python/python_io)
 

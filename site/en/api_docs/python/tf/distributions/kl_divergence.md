@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -24,7 +24,7 @@ tf.distributions.kl_divergence(
 
 
 
-Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/kullback_leibler.py).
+Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/distributions/kullback_leibler.py).
 
 See the guide: [Statistical Distributions (contrib) > Kullback-Leibler Divergence](../../../../api_guides/python/contrib.distributions#Kullback_Leibler_Divergence)
 

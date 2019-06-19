@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -23,7 +23,7 @@ tf.contrib.data.read_batch_features(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/data/python/ops/readers.py).
+Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/data/python/ops/readers.py).
 
 See the guide: [Dataset Input Pipeline > Extra functions from `tf.contrib.data`](../../../../../api_guides/python/input_dataset#Extra_functions_from_tf_contrib_data_)
 
@@ -77,8 +77,8 @@ And the expected output is:
 
 * <b>`file_pattern`</b>: List of files or patterns of file paths containing
     `Example` records. See <a href="../../../tf/gfile/Glob"><code>tf.gfile.Glob</code></a> for pattern rules.
-* <b>`batch_size`</b>: An int representing the number of records to combine
-    in a single batch.
+* <b>`batch_size`</b>: An int representing the number of consecutive elements of this
+    dataset to combine in a single batch.
 * <b>`features`</b>: A `dict` mapping feature keys to `FixedLenFeature` or
     `VarLenFeature` values. See <a href="../../../tf/parse_example"><code>tf.parse_example</code></a>.
 * <b>`reader`</b>: A function or class that can be

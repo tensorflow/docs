@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`InitializableLookupTableBase`](../../../tf/contrib/lookup/Initi
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/lookup_ops.py).
 
 A generic hash table implementation.
 
@@ -89,24 +89,6 @@ the table will be immutable.
 #### Returns:
 
 A `HashTable` object.
-
-<h3 id="export"><code>export</code></h3>
-
-``` python
-export(name=None)
-```
-
-Returns tensors of all keys and values in the table.
-
-#### Args:
-
-* <b>`name`</b>: A name for the operation (optional).
-
-
-#### Returns:
-
-A pair of tensors with the first tensor containing all keys and the
-  second tensors containing all values in the table.
 
 <h3 id="lookup"><code>lookup</code></h3>
 

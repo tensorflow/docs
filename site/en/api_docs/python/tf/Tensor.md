@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures)
 
@@ -176,8 +176,8 @@ tf.abs(x)  # [5.25594902, 6.60492229]
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` or `SparseTensor` of type `float16`, `float32`, `float64`,
-    `int32`, `int64`, `complex64` or `complex128`.
+* <b>`x`</b>: A `Tensor` or `SparseTensor` of type `float32`, `float64`, `int32`,
+    `int64`, `complex64` or `complex128`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -772,10 +772,10 @@ tf.pow(x, y)  # [[256, 65536], [9, 27]]
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
-* <b>`y`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
+* <b>`x`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
+* <b>`y`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -1093,10 +1093,10 @@ tf.pow(x, y)  # [[256, 65536], [9, 27]]
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
-* <b>`y`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
+* <b>`x`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
+* <b>`y`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

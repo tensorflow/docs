@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -21,18 +21,15 @@ tf.losses.hinge_loss(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/losses/losses_impl.py).
 
 Adds a hinge loss to the training procedure.
 
 #### Args:
 
 * <b>`labels`</b>: The ground truth output tensor. Its shape should match the shape of
-    logits. The values of the tensor are expected to be 0.0 or 1.0. Internally
-    the {0,1} labels are converted to {-1,1} when calculating the hinge loss.
-* <b>`logits`</b>: The logits, a float tensor. Note that logits are assumed to be
-    unbounded and 0-centered. A value > 0 (resp. < 0) is considered a positive
-    (resp. negative) binary prediction.
+    logits. The values of the tensor are expected to be 0.0 or 1.0.
+* <b>`logits`</b>: The logits, a float tensor.
 * <b>`weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
     `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
     be either `1`, or the same as the corresponding `losses` dimension).

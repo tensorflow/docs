@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,7 +20,7 @@ tf.contrib.estimator.poisson_regression_head(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/head.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/estimator/python/estimator/head.py).
 
 Creates a `_Head` for poisson regression using <a href="../../../tf/nn/log_poisson_loss"><code>tf.nn.log_poisson_loss</code></a>.
 
@@ -41,33 +41,6 @@ If `weight_column` is specified, weights must be of shape
 
 This is implemented as a generalized linear model, see
 https://en.wikipedia.org/wiki/Generalized_linear_model.
-
-The head can be used with a canned estimator. Example:
-
-```python
-my_head = tf.contrib.estimator.poisson_regression_head()
-my_estimator = tf.contrib.estimator.DNNEstimator(
-    head=my_head,
-    hidden_units=...,
-    feature_columns=...)
-```
-
-It can also be used with a custom `model_fn`. Example:
-
-```python
-def _my_model_fn(features, labels, mode):
-  my_head = tf.contrib.estimator.poisson_regression_head()
-  logits = tf.keras.Model(...)(features)
-
-  return my_head.create_estimator_spec(
-      features=features,
-      mode=mode,
-      labels=labels,
-      optimizer=tf.AdagradOptimizer(learning_rate=0.1),
-      logits=logits)
-
-my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
-```
 
 #### Args:
 

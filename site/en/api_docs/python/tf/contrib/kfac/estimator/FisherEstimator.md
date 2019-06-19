@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/kfac/python/ops/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kfac/python/ops/estimator.py).
+Defined in [`tensorflow/contrib/kfac/python/ops/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/estimator.py).
 
 Fisher estimator class supporting various approximations of the Fisher.
 
@@ -61,9 +61,7 @@ __init__(
     exps=(-1,),
     estimation_mode='gradients',
     colocate_gradients_with_ops=True,
-    name='FisherEstimator',
-    compute_cholesky=False,
-    compute_cholesky_inverse=False
+    name='FisherEstimator'
 )
 ```
 
@@ -110,12 +108,6 @@ Create a FisherEstimator object.
 * <b>`name`</b>: A string. A name given to this estimator, which is added to the
       variable scope when constructing variables and ops.
       (Default: "FisherEstimator")
-* <b>`compute_cholesky`</b>: Bool. Whether or not the FisherEstimator will be
-      able to multiply vectors by the Cholesky factor.
-      (Default: False)
-* <b>`compute_cholesky_inverse`</b>: Bool. Whether or not the FisherEstimator
-      will be able to multiply vectors by the Cholesky factor inverse.
-      (Default: False)
 
 #### Raises:
 
@@ -164,6 +156,49 @@ made_vars()
 ```
 
 
+
+<h3 id="make_ops_and_vars"><code>make_ops_and_vars</code></h3>
+
+``` python
+make_ops_and_vars(scope=None)
+```
+
+Make ops and vars with a specific placement strategy.
+
+For each factor, all of that factor's cov variables and their associated
+update ops will be placed on a particular device.  For example in case of
+round robin placement a new device is chosen for each factor by cycling
+through list of devices in the cov_devices argument. If cov_devices is None
+then no explicit device placement occurs.
+
+An analogous strategy is followed for inverse update ops, with the list of
+devices being given by the inv_devices argument.
+
+Inverse variables on the other hand are not placed on any specific device
+(they will just use the current the device placement context, whatever
+that happens to be).  The idea is that the inverse variable belong where
+they will be accessed most often, which is the device that actually applies
+the preconditioner to the gradient. The user will be responsible for setting
+the device context for this.
+
+#### Args:
+
+* <b>`scope`</b>: A string or None.  If None it will be set to the name of this
+    estimator (given by the name property). All variables will be created,
+    and all ops will execute, inside of a variable scope of the given
+    name. (Default: None)
+
+
+#### Returns:
+
+* <b>`cov_update_ops`</b>: List of ops that compute the cov updates. Corresponds
+    one-to-one with the list of factors given by the "factors" property.
+* <b>`cov_update_op`</b>: cov_update_ops grouped into a single op.
+* <b>`inv_update_ops`</b>: List of ops that compute the inv updates. Corresponds
+    one-to-one with the list of factors given by the "factors" property.
+* <b>`inv_update_op`</b>: inv_update_ops grouped into a single op.
+* <b>`cov_update_thunks`</b>: Thunks that make the ops in cov_update_ops.
+* <b>`inv_update_thunks`</b>: Thunks that make the ops in inv_update_ops.
 
 <h3 id="make_vars_and_create_op_thunks"><code>make_vars_and_create_op_thunks</code></h3>
 
@@ -214,61 +249,6 @@ Multiplies the vectors by the corresponding (damped) blocks.
 #### Args:
 
 * <b>`vecs_and_vars`</b>: List of (vector, variable) pairs.
-
-
-#### Returns:
-
-A list of (transformed vector, var) pairs in the same order as
-vecs_and_vars.
-
-<h3 id="multiply_cholesky"><code>multiply_cholesky</code></h3>
-
-``` python
-multiply_cholesky(
-    vecs_and_vars,
-    transpose=False
-)
-```
-
-Multiplies the vecs by the corresponding Cholesky factors.
-
-#### Args:
-
-* <b>`vecs_and_vars`</b>: List of (vector, variable) pairs.
-* <b>`transpose`</b>: Bool. If true the Cholesky factors are transposed before
-    multiplying the vecs. (Default: False)
-
-
-#### Returns:
-
-A list of (transformed vector, var) pairs in the same order as
-vecs_and_vars.
-
-<h3 id="multiply_cholesky_inverse"><code>multiply_cholesky_inverse</code></h3>
-
-``` python
-multiply_cholesky_inverse(
-    vecs_and_vars,
-    transpose=False
-)
-```
-
-Mults the vecs by the inverses of the corresponding Cholesky factors.
-
-  Note: if you are using Cholesky inverse multiplication to sample from
-  a matrix-variate Gaussian you will want to multiply by the transpose.
-  Let L be the Cholesky factor of F and observe that
-
-    L^-T * L^-1 = (L * L^T)^-1 = F^-1 .
-
-  Thus we want to multiply by L^-T in order to sample from Gaussian with
-  covariance F^-1.
-
-#### Args:
-
-* <b>`vecs_and_vars`</b>: List of (vector, variable) pairs.
-* <b>`transpose`</b>: Bool. If true the Cholesky factor inverses are transposed
-    before multiplying the vecs. (Default: False)
 
 
 #### Returns:

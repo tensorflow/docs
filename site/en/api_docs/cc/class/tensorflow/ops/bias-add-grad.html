@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::BiasAddGrad Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -14,14 +14,14 @@
   <h2>Summary</h2>
   <p>It accumulates all the values from out_backprop into the feature dimension. For NHWC data format, the feature dimension is the last. For NCHW data format, the feature dimension is the third-to-last.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>out_backprop: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/any.html#classtensorflow_1_1ops_1_1_any">Any</a> number of dimensions.</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>out_backprop: <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/any.html#classtensorflow_1_1ops_1_1_any">Any</a> number of dimensions.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs.html#structtensorflow_1_1ops_1_1_bias_add_grad_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs.html#structtensorflow_1_1ops_1_1_bias_add_grad_1_1_attrs">Attrs</a></code>):<ul>
       <li>data_format: Specify the data format of the input and output data. With the default format "NHWC", the bias tensor will be added to the last dimension of the value tensor. Alternatively, the format could be "NCHW", the data storage order of: [batch, in_channels, in_height, in_width]. The tensor will be added to "in_channels", the third-to-the-last dimension.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 1-D with size the feature dimension of <code>out_backprop</code>. </li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 1-D with size the feature dimension of <code>out_backprop</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -31,13 +31,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_bias_add_grad_1a0b471227bda69729c6aef3eedee7ce76">BiasAddGrad</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_bias_add_grad_1a0b471227bda69729c6aef3eedee7ce76">BiasAddGrad</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_bias_add_grad_1a7ed7a556f0defe36d84e76b4e1d82520">BiasAddGrad</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs.html#structtensorflow_1_1ops_1_1_bias_add_grad_1_1_attrs">BiasAddGrad::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_bias_add_grad_1a7ed7a556f0defe36d84e76b4e1d82520">BiasAddGrad</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs.html#structtensorflow_1_1ops_1_1_bias_add_grad_1_1_attrs">BiasAddGrad::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -54,7 +54,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -108,7 +108,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs.html#structtensorflow_1_1ops_1_1_bias_add_grad_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs.html#structtensorflow_1_1ops_1_1_bias_add_grad_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -121,34 +121,34 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs">tensorflow::<wbr/>ops::<wbr/>BiasAddGrad::<wbr/>Attrs</a>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs">tensorflow::<wbr/>ops::<wbr/>BiasAddGrad::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/bias-add-grad.html#classtensorflow_1_1ops_1_1_bias_add_grad">BiasAddGrad</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/bias-add-grad.html#classtensorflow_1_1ops_1_1_bias_add_grad">BiasAddGrad</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_bias_add_grad_1ad08acfbdc2d0884b697b7a5bbc697ae8">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_bias_add_grad_1a0b471227bda69729c6aef3eedee7ce76">
     <h3>BiasAddGrad</h3>
     <pre class="prettyprint"> BiasAddGrad(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_bias_add_grad_1a7ed7a556f0defe36d84e76b4e1d82520">
     <h3>BiasAddGrad</h3>
     <pre class="prettyprint"> BiasAddGrad(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs.html#structtensorflow_1_1ops_1_1_bias_add_grad_1_1_attrs">BiasAddGrad::Attrs</a> & attrs
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs.html#structtensorflow_1_1ops_1_1_bias_add_grad_1_1_attrs">BiasAddGrad::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -170,7 +170,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_bias_add_grad_1a2d3136a07563909023605499a1fd4600">
     <h3>DataFormat</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs.html#structtensorflow_1_1ops_1_1_bias_add_grad_1_1_attrs">Attrs</a> DataFormat(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/bias-add-grad/attrs.html#structtensorflow_1_1ops_1_1_bias_add_grad_1_1_attrs">Attrs</a> DataFormat(
   StringPiece x
 )</pre>
     <div />

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -17,7 +17,7 @@ tf.contrib.eager.gradients_function(
 
 
 
-Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/eager/backprop.py).
+Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/eager/backprop.py).
 
 Returns a function which differentiates f with respect to params.
 
@@ -59,8 +59,6 @@ ygrad_fn = tfe.gradients_function(f, params=[1])
 (y_grad,) = ygrad_fn(x, y)
 assert y_grad.numpy() == (2 ** 3) - 2 * 2 * 3
 ```
-
-Note that only tensors with real or complex dtypes are differentiable.
 
 #### Args:
 

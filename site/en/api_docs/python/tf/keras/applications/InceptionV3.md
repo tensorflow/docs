@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -26,7 +26,7 @@ tf.keras.applications.InceptionV3(
 
 
 
-Defined in [`tensorflow/python/keras/applications/inception_v3.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/applications/inception_v3.py).
+Defined in [`tensorflow/python/keras/_impl/keras/applications/inception_v3.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/applications/inception_v3.py).
 
 Instantiates the Inception v3 architecture.
 

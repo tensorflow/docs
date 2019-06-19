@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ tf.contrib.eager.seterr(inf_or_nan=None)
 
 
 
-Defined in [`tensorflow/python/eager/execution_callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/eager/execution_callbacks.py).
+Defined in [`tensorflow/python/eager/execution_callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/eager/execution_callbacks.py).
 
 Set how abnormal conditions are handled by the default eager context.
 

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Initializer`](../../../tf/keras/initializers/Initializer)
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/init_ops.py).
 
 Initializer that generates a delta orthogonal kernel for ConvNets.
 
@@ -24,12 +24,13 @@ tensor form an orthogonal matrix. Other pixels are set to be zero.
 
 #### Args:
 
-* <b>`gain`</b>: Multiplicative factor to apply to the orthogonal matrix. Default is 1.
+* <b>`gain`</b>: multiplicative factor to apply to the orthogonal matrix. Default is 1.
     The 2-norm of an input is multiplied by a factor of 'sqrt(gain)' after
     applying this convolution.
+* <b>`dtype`</b>: The type of the output.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../../../tf/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
-* <b>`dtype`</b>: The data type.
+    <a href="../../../tf/set_random_seed"><code>tf.set_random_seed</code></a>
+    for behavior.
 
 ## Methods
 

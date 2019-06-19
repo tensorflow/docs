@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,23 +20,19 @@ tf.keras.estimator.model_to_estimator(
 
 
 
-Defined in [`tensorflow/python/estimator/keras.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/keras.py).
+Defined in [`tensorflow/python/keras/_impl/keras/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/estimator.py).
 
 Constructs an `Estimator` instance from given keras model.
 
 For usage example, please see
-<a href="../../../../../guide/estimators">creating_estimators_from_keras_models</a>.
+<a href="../../../../../programmers_guide/estimators">creating_estimators_from_keras_models</a>.
 
 #### Args:
 
-* <b>`keras_model`</b>: A compiled Keras model object. This argument is mutually
-    exclusive with `keras_model_path`.
-* <b>`keras_model_path`</b>: Path to a compiled Keras model saved on disk, in HDF5
-    format, which can be generated with the `save()` method of a Keras model.
-    This argument is mutually exclusive with `keras_model`.
+* <b>`keras_model`</b>: Keras model in memory.
+* <b>`keras_model_path`</b>: Directory to a keras model on disk.
 * <b>`custom_objects`</b>: Dictionary for custom objects.
-* <b>`model_dir`</b>: Directory to save Estimator model parameters, graph, summary
-    files for TensorBoard, etc.
+* <b>`model_dir`</b>: Directory to save Estimator model parameters, graph and etc.
 * <b>`config`</b>: Configuration object.
 
 

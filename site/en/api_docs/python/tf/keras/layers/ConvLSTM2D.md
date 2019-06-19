@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/layers/convolutional_recurrent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/layers/convolutional_recurrent.py).
+Defined in [`tensorflow/python/keras/_impl/keras/layers/convolutional_recurrent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/layers/convolutional_recurrent.py).
 
 Convolutional LSTM.
 
@@ -91,10 +91,10 @@ and recurrent transformations are both convolutional.
 Input shape:
   - if data_format='channels_first'
       5D tensor with shape:
-      `(samples, time, channels, rows, cols)`
+      `(samples,time, channels, rows, cols)`
   - if data_format='channels_last'
       5D tensor with shape:
-      `(samples, time, rows, cols, channels)`
+      `(samples,time, rows, cols, channels)`
 
 Output shape:
   - if `return_sequences`
@@ -164,6 +164,10 @@ Optional regularizer function for the output of this layer.
 
 
 <h3 id="filters"><code>filters</code></h3>
+
+
+
+<h3 id="graph"><code>graph</code></h3>
 
 
 
@@ -345,6 +349,10 @@ Output shape, as an integer shape tuple
 
 
 
+<h3 id="scope_name"><code>scope_name</code></h3>
+
+
+
 <h3 id="states"><code>states</code></h3>
 
 
@@ -441,6 +449,14 @@ __call__(
 
 
 
+<h3 id="__deepcopy__"><code>__deepcopy__</code></h3>
+
+``` python
+__deepcopy__(memo)
+```
+
+
+
 <h3 id="add_loss"><code>add_loss</code></h3>
 
 ``` python
@@ -503,9 +519,7 @@ of dependencies.
 The `get_updates_for` method allows to retrieve the updates relevant to a
 specific set of inputs.
 
-This call is ignored when eager execution is enabled (in that case, variable
-updates are run on the fly and thus do not need to be tracked for later
-execution).
+This call is ignored in Eager mode.
 
 #### Arguments:
 
@@ -523,17 +537,6 @@ execution).
 
 ``` python
 add_variable(
-    *args,
-    **kwargs
-)
-```
-
-Alias for `add_weight`.
-
-<h3 id="add_weight"><code>add_weight</code></h3>
-
-``` python
-add_weight(
     name,
     shape,
     dtype=None,
@@ -541,9 +544,7 @@ add_weight(
     regularizer=None,
     trainable=True,
     constraint=None,
-    partitioner=None,
-    use_resource=None,
-    getter=None
+    partitioner=None
 )
 ```
 
@@ -563,9 +564,14 @@ Adds a new variable to the layer, or gets an existing one; returns it.
     then this parameter is ignored and any added variables are also
     marked as non-trainable.
 * <b>`constraint`</b>: constraint instance (callable).
-* <b>`partitioner`</b>: Partitioner to be passed to the `Checkpointable` API.
-* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
-* <b>`getter`</b>: Variable getter argument to be passed to the `Checkpointable` API.
+* <b>`partitioner`</b>: (optional) partitioner instance (callable).  If
+    provided, when the requested variable is created it will be split
+    into multiple partitions according to `partitioner`.  In this case,
+    an instance of `PartitionedVariable` is returned.  Available
+    partitioners include <a href="../../../tf/fixed_size_partitioner"><code>tf.fixed_size_partitioner</code></a> and
+    <a href="../../../tf/variable_axis_size_partitioner"><code>tf.variable_axis_size_partitioner</code></a>.  For more details, see the
+    documentation of <a href="../../../tf/get_variable"><code>tf.get_variable</code></a> and the  "Variable Partitioners
+    and Sharding" section of the API guide.
 
 
 #### Returns:
@@ -579,7 +585,39 @@ instance is returned.
 
 * <b>`RuntimeError`</b>: If called with partioned variable regularization and
     eager execution is enabled.
-* <b>`ValueError`</b>: When giving unsupported dtype and no initializer.
+
+<h3 id="add_weight"><code>add_weight</code></h3>
+
+``` python
+add_weight(
+    name,
+    shape,
+    dtype=None,
+    initializer=None,
+    regularizer=None,
+    trainable=True,
+    constraint=None
+)
+```
+
+Adds a weight variable to the layer.
+
+#### Arguments:
+
+* <b>`name`</b>: String, the name for the weight variable.
+* <b>`shape`</b>: The shape tuple of the weight.
+* <b>`dtype`</b>: The dtype of the weight.
+* <b>`initializer`</b>: An Initializer instance (callable).
+* <b>`regularizer`</b>: An optional Regularizer instance.
+* <b>`trainable`</b>: A boolean, whether the weight should
+        be trained via backprop or not (assuming
+        that the layer itself is also trainable).
+* <b>`constraint`</b>: An optional Constraint instance.
+
+
+#### Returns:
+
+The created weight variable.
 
 <h3 id="apply"><code>apply</code></h3>
 

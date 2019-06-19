@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/kfac/python/ops/layer_collection.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kfac/python/ops/layer_collection.py).
+Defined in [`tensorflow/contrib/kfac/python/ops/layer_collection.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/layer_collection.py).
 
 An OrderedDict where keys are Tensors or tuples of Tensors.
 
@@ -81,14 +81,6 @@ __ne__(other)
 ```
 
 od.__ne__(y) <==> od!=y
-
-<h3 id="__reduce__"><code>__reduce__</code></h3>
-
-``` python
-__reduce__()
-```
-
-Return state information for pickling
 
 <h3 id="__reversed__"><code>__reversed__</code></h3>
 

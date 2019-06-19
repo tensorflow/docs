@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,7 +10,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/kfac/python/ops/fisher_factors_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kfac/python/ops/fisher_factors_lib.py).
+Defined in [`tensorflow/contrib/kfac/python/ops/fisher_factors_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/fisher_factors_lib.py).
 
 FisherFactor definitions.
 
@@ -33,6 +33,8 @@ FisherFactor definitions.
 [`class FullyConnectedDiagonalFactor`](../../../tf/contrib/kfac/fisher_factors/FullyConnectedDiagonalFactor): FisherFactor for a diagonal approx of a fully-connected layer's Fisher.
 
 [`class FullyConnectedKroneckerFactor`](../../../tf/contrib/kfac/fisher_factors/FullyConnectedKroneckerFactor): Kronecker factor for the input or output side of a fully-connected layer.
+
+[`class InverseProvidingFactor`](../../../tf/contrib/kfac/fisher_factors/InverseProvidingFactor): Base class for FisherFactors that maintain inverses explicitly.
 
 [`class NaiveDiagonalFactor`](../../../tf/contrib/kfac/fisher_factors/NaiveDiagonalFactor): FisherFactor for a diagonal approximation of any type of param's Fisher.
 

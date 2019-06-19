@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::ApplyAddSign Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -14,7 +14,7 @@
   <h2>Summary</h2>
   <p>m_t <- beta1 * m_{t-1} + (1 - beta1) * g update <- (alpha + sign_decay * sign(g) *sign(m)) * g variable <- variable - lr_t * update</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>var: Should be from a Variable().</li>
       <li>m: Should be from a Variable().</li>
       <li>lr: Scaling factor. Must be a scalar.</li>
@@ -23,11 +23,11 @@
       <li>beta: Must be a scalar.</li>
       <li>grad: The gradient.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs.html#structtensorflow_1_1ops_1_1_apply_add_sign_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs.html#structtensorflow_1_1ops_1_1_apply_add_sign_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: If <code>True</code>, updating of the var and m tensors is protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -37,13 +37,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_apply_add_sign_1af9f940a5ce219f006dd5784273581462">ApplyAddSign</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sign_decay, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_add_sign_1af9f940a5ce219f006dd5784273581462">ApplyAddSign</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sign_decay, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_apply_add_sign_1a8ced306386cbe8552a1acb0c7c9f7640">ApplyAddSign</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sign_decay, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs.html#structtensorflow_1_1ops_1_1_apply_add_sign_1_1_attrs">ApplyAddSign::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_add_sign_1a8ced306386cbe8552a1acb0c7c9f7640">ApplyAddSign</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sign_decay, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs.html#structtensorflow_1_1ops_1_1_apply_add_sign_1_1_attrs">ApplyAddSign::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -60,7 +60,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -114,7 +114,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs.html#structtensorflow_1_1ops_1_1_apply_add_sign_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs.html#structtensorflow_1_1ops_1_1_apply_add_sign_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -127,46 +127,46 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs">tensorflow::<wbr/>ops::<wbr/>ApplyAddSign::<wbr/>Attrs</a>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs">tensorflow::<wbr/>ops::<wbr/>ApplyAddSign::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/apply-add-sign.html#classtensorflow_1_1ops_1_1_apply_add_sign">ApplyAddSign</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/apply-add-sign.html#classtensorflow_1_1ops_1_1_apply_add_sign">ApplyAddSign</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_add_sign_1a7880929b8fb7c7581f00030a85654100">
     <h3>out</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_add_sign_1af9f940a5ce219f006dd5784273581462">
     <h3>ApplyAddSign</h3>
     <pre class="prettyprint"> ApplyAddSign(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sign_decay,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sign_decay,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_apply_add_sign_1a8ced306386cbe8552a1acb0c7c9f7640">
     <h3>ApplyAddSign</h3>
     <pre class="prettyprint"> ApplyAddSign(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sign_decay,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs.html#structtensorflow_1_1ops_1_1_apply_add_sign_1_1_attrs">ApplyAddSign::Attrs</a> & attrs
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> m,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sign_decay,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> beta,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs.html#structtensorflow_1_1ops_1_1_apply_add_sign_1_1_attrs">ApplyAddSign::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -188,7 +188,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_add_sign_1aca5db7b5467a9f8cfed7c32dd6bd9c53">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs.html#structtensorflow_1_1ops_1_1_apply_add_sign_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/apply-add-sign/attrs.html#structtensorflow_1_1ops_1_1_apply_add_sign_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />

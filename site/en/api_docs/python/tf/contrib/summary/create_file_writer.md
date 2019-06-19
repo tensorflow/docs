@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,9 +20,9 @@ tf.contrib.summary.create_file_writer(
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/summary_ops_v2.py).
+Defined in [`tensorflow/contrib/summary/summary_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/summary/summary_ops.py).
 
-Creates a summary file writer in the current context under the given name.
+Creates a summary file writer in the current context.
 
 #### Args:
 
@@ -31,13 +31,11 @@ Creates a summary file writer in the current context under the given name.
    a mock object which acts like a summary writer but does nothing,
    useful to use as a context manager.
 * <b>`max_queue`</b>: the largest number of summaries to keep in a queue; will
-   flush once the queue gets bigger than this. Defaults to 10.
-* <b>`flush_millis`</b>: the largest interval between flushes. Defaults to 120,000.
-* <b>`filename_suffix`</b>: optional suffix for the event file name. Defaults to `.v2`.
+   flush once the queue gets bigger than this.
+* <b>`flush_millis`</b>: the largest interval between flushes.
+* <b>`filename_suffix`</b>: optional suffix for the event file name.
 * <b>`name`</b>: Shared name for this SummaryWriter resource stored to default
-    Graph. Defaults to the provided logdir prefixed with `logdir:`. Note: if a
-    summary writer resource with this shared name already exists, the returned
-    SummaryWriter wraps that resource and the other arguments have no effect.
+    Graph.
 
 
 #### Returns:

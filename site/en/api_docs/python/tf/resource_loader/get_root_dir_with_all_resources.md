@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ tf.resource_loader.get_root_dir_with_all_resources()
 
 
 
-Defined in [`tensorflow/python/platform/resource_loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/platform/resource_loader.py).
+Defined in [`tensorflow/python/platform/resource_loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/platform/resource_loader.py).
 
 Get a root directory containing all the data attributes in the build rule.
 

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -22,15 +22,17 @@ tf.contrib.bayesflow.monte_carlo.expectation(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
 
 See the guide: [BayesFlow Monte Carlo (contrib) > Ops](../../../../../../api_guides/python/contrib.bayesflow.monte_carlo#Ops)
 
-Computes the Monte-Carlo approximation of \(E_p[f(X)]\).
+Computes the Monte-Carlo approximation of `\(E_p[f(X)]\)`.
 
 This function computes the Monte-Carlo approximation of an expectation, i.e.,
 
+```none
 \(E_p[f(X)] pprox= m^{-1} sum_i^m f(x_j),  x_j\  ~iid\ p(X)\)
+```
 
 where:
 
@@ -44,8 +46,8 @@ When p is "reparameterized", i.e., a diffeomorphic transformation of a
 parameterless distribution (e.g.,
 `Normal(Y; m, s) <=> Y = sX + m, X ~ Normal(0,1)`), we can swap gradient and
 expectation, i.e.,
-grad[ Avg{ \(s_i : i=1...n\) } ] = Avg{ grad[\(s_i\)] : i=1...n } where
-S_n = Avg{\(s_i\)}` and `\(s_i = f(x_i), x_i ~ p\).
+`grad[ Avg{ \(s_i : i=1...n\) } ] = Avg{ grad[\(s_i\)] : i=1...n }` where
+`S_n = Avg{\(s_i\)}` and `\(s_i = f(x_i), x_i ~ p\)`.
 
 However, if p is not reparameterized, TensorFlow's gradient will be incorrect
 since the chain-rule stops at samples of non-reparameterized distributions.
@@ -125,7 +127,7 @@ approx_kl_p_q = bf.monte_carlo_csiszar_f_divergence(
 
 * <b>`f`</b>: Python callable which can return `f(samples)`.
 * <b>`samples`</b>: `Tensor` of samples used to form the Monte-Carlo approximation of
-    \(E_p[f(X)]\).  A batch of samples should be indexed by `axis`
+    `\(E_p[f(X)]\)`.  A batch of samples should be indexed by `axis`
     dimensions.
 * <b>`log_prob`</b>: Python callable which can return `log_prob(samples)`. Must
     correspond to the natural-logarithm of the pdf/pmf of each sample. Only
@@ -148,7 +150,7 @@ approx_kl_p_q = bf.monte_carlo_csiszar_f_divergence(
 #### Returns:
 
 * <b>`approx_expectation`</b>: `Tensor` corresponding to the Monte-Carlo approximation
-    of \(E_p[f(X)]\).
+    of `\(E_p[f(X)]\)`.
 
 
 #### Raises:

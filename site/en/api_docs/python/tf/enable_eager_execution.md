@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -23,7 +23,7 @@ tf.enable_eager_execution(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/ops.py).
 
 Enables eager execution for the lifetime of this program.
 
@@ -55,30 +55,36 @@ both with and without eager execution).
     in which operations are executed. Note that <a href="../tf/ConfigProto"><code>tf.ConfigProto</code></a> is also
     used to configure graph execution (via <a href="../tf/Session"><code>tf.Session</code></a>) and many options
     within <a href="../tf/ConfigProto"><code>tf.ConfigProto</code></a> are not implemented (or are irrelevant) when
-    eager execution is enabled.
+   eager execution is enabled.
 * <b>`device_policy`</b>: (Optional.) Policy controlling how operations requiring
-    inputs on a specific device (e.g., a GPU 0) handle inputs on a different
-    device  (e.g. GPU 1 or CPU). When set to None, an appropriate value will be
-    picked automatically. The value picked may change between TensorFlow
-    releases.
-    Valid values:
+   inputs on a specific device (e.g., a GPU 0) handle inputs on a different
+   device  (e.g. GPU 1 or CPU). When set to None, an appropriate value will be
+   picked automatically. The value picked may change between TensorFlow
+   releases.
+   Valid values:
+
     - tf.contrib.eager.DEVICE_PLACEMENT_EXPLICIT: raises an error if the
       placement is not correct.
+
     - tf.contrib.eager.DEVICE_PLACEMENT_WARN: copies the tensors which are not
       on the right device but logs a warning.
+
     - tf.contrib.eager.DEVICE_PLACEMENT_SILENT: silently copies the tensors.
       Note that this may hide performance problems as there is no notification
       provided when operations are blocked on the tensor being copied between
       devices.
+
     - tf.contrib.eager.DEVICE_PLACEMENT_SILENT_FOR_INT32: silently copies
       int32 tensors, raising errors on the other ones.
 * <b>`execution_mode`</b>: (Optional.) Policy controlling how operations dispatched are
     actually executed. When set to None, an appropriate value will be picked
     automatically. The value picked may change between TensorFlow releases.
     Valid values:
-    - tf.contrib.eager.SYNC: executes each operation synchronously.
-    - tf.contrib.eager.ASYNC: executes each operation asynchronously. These
-      operations may return "non-ready" handles.
+
+      - tf.contrib.eager.SYNC: executes each operation synchronously.
+
+      - tf.contrib.eager.ASYNC: executes each operation asynchronously. These
+        operations may return "non-ready" handles.
 
 
 #### Raises:

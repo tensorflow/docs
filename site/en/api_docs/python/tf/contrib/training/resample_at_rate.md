@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,7 +20,7 @@ tf.contrib.training.resample_at_rate(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/resample.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/python/training/resample.py).
+Defined in [`tensorflow/contrib/training/python/training/resample.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/training/python/training/resample.py).
 
 See the guide: [Training (contrib) > Online data resampling](../../../../../api_guides/python/contrib.training#Online_data_resampling)
 
@@ -36,7 +36,7 @@ the number of invocations.
 #### Args:
 
 * <b>`inputs`</b>: A list of tensors, each of which has a shape of `[batch_size, ...]`
-* <b>`rates`</b>: A tensor of shape `[batch_size]` containing the resampling rates
+* <b>`rates`</b>: A tensor of shape `[batch_size]` contiaining the resampling rates
      for each input.
 * <b>`scope`</b>: Scope for the op.
 * <b>`seed`</b>: Random seed to use.

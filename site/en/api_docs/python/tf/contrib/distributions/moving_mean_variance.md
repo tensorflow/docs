@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -19,7 +19,7 @@ tf.contrib.distributions.moving_mean_variance(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/moving_stats.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/moving_stats.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/moving_stats.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distributions/python/ops/moving_stats.py).
 
 Compute exponentially weighted moving {mean,variance} of a streaming value.
 

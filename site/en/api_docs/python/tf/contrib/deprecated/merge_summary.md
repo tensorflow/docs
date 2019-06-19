@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -18,7 +18,7 @@ tf.contrib.deprecated.merge_summary(
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/logging_ops.py).
+Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/logging_ops.py).
 
 Merges summaries. (deprecated)
 
@@ -30,7 +30,7 @@ This op is deprecated. Please switch to tf.summary.merge, which has identical
 behavior.
 
 This op creates a
-[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/summary.proto)
+[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/framework/summary.proto)
 protocol buffer that contains the union of all the values in the input
 summaries.
 

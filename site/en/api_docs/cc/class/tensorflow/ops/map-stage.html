@@ -3,27 +3,27 @@
 <head>
   <title>tensorflow::ops::MapStage Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>MapStage</h1>
   <code>#include &lt;data_flow_ops.h&gt;</code>
-  <p><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/stage.html#classtensorflow_1_1ops_1_1_stage">Stage</a> (key, values) in the underlying container which behaves like a hashtable. </p>
+  <p><a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/stage.html#classtensorflow_1_1ops_1_1_stage">Stage</a> (key, values) in the underlying container which behaves like a hashtable. </p>
   <h2>Summary</h2>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>key: int64</li>
       <li>values: a list of tensors dtypes A list of data types that inserted values should adhere to.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a></code>):<ul>
-      <li>capacity: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/maximum.html#classtensorflow_1_1ops_1_1_maximum">Maximum</a> number of elements in the Staging Area. If > 0, inserts on the container will block when the capacity is reached.</li>
+  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a></code>):<ul>
+      <li>capacity: <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/maximum.html#classtensorflow_1_1ops_1_1_maximum">Maximum</a> number of elements in the Staging Area. If > 0, inserts on the container will block when the capacity is reached.</li>
       <li>container: If non-empty, this queue is placed in the given container. Otherwise, a default container is used.</li>
-      <li>shared_name: It is necessary to match this name to the matching <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/unstage.html#classtensorflow_1_1ops_1_1_unstage">Unstage</a> Op.</li>
+      <li>shared_name: It is necessary to match this name to the matching <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/unstage.html#classtensorflow_1_1ops_1_1_unstage">Unstage</a> Op.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li>the created <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+      <li>the created <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -33,13 +33,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_map_stage_1a96efde41d66d5902db410cc77b352ad3">MapStage</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, const DataTypeSlice & dtypes)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_stage_1a96efde41d66d5902db410cc77b352ad3">MapStage</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, const DataTypeSlice & dtypes)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_map_stage_1a41b5cfe02a707042d3c3c881eda36739">MapStage</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, const DataTypeSlice & dtypes, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">MapStage::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_stage_1a41b5cfe02a707042d3c3c881eda36739">MapStage</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, const DataTypeSlice & dtypes, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">MapStage::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -56,7 +56,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -90,7 +90,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -100,7 +100,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -110,7 +110,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -120,7 +120,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -133,27 +133,27 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs">tensorflow::<wbr/>ops::<wbr/>MapStage::<wbr/>Attrs</a>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs">tensorflow::<wbr/>ops::<wbr/>MapStage::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/map-stage.html#classtensorflow_1_1ops_1_1_map_stage">MapStage</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/map-stage.html#classtensorflow_1_1ops_1_1_map_stage">MapStage</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_map_stage_1ac38d712101aa6817d18caba2579b3895">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_map_stage_1a96efde41d66d5902db410cc77b352ad3">
     <h3>MapStage</h3>
     <pre class="prettyprint"> MapStage(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
   const DataTypeSlice & dtypes
 )</pre>
     <div />
@@ -161,12 +161,12 @@
   <div id="classtensorflow_1_1ops_1_1_map_stage_1a41b5cfe02a707042d3c3c881eda36739">
     <h3>MapStage</h3>
     <pre class="prettyprint"> MapStage(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
   const DataTypeSlice & dtypes,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">MapStage::Attrs</a> & attrs
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">MapStage::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -178,28 +178,28 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_map_stage_1a0070decd553e9628b3eb3289a5f093ef">
     <h3>Capacity</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a> Capacity(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a> Capacity(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_map_stage_1a2eb61fff7f17f8691d32bcce4849b123">
     <h3>Container</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a> Container(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a> Container(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_map_stage_1add9bf6cbb8002f22906c0a4b0014fc10">
     <h3>MemoryLimit</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a> MemoryLimit(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a> MemoryLimit(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_map_stage_1a64188fec364335793fa9c2ddbc6ce7fa">
     <h3>SharedName</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a> SharedName(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/map-stage/attrs.html#structtensorflow_1_1ops_1_1_map_stage_1_1_attrs">Attrs</a> SharedName(
   StringPiece x
 )</pre>
     <div />

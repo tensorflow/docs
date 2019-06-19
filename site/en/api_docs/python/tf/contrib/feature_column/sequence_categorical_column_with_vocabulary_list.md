@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -20,7 +20,7 @@ tf.contrib.feature_column.sequence_categorical_column_with_vocabulary_list(
 
 
 
-Defined in [`tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py).
+Defined in [`tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py).
 
 A sequence of categorical terms where ids use an in-memory list.
 

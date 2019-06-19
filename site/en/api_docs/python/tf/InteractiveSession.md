@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/client/session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/client/session.py).
+Defined in [`tensorflow/python/client/session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/client/session.py).
 
 See the guide: [Running Graphs > Session management](../../../api_guides/python/client#Session_management)
 

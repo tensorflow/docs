@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,9 +10,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/backend/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/backend/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/keras/backend/__init__.py`.
 
-Keras backend API.
+
 
 ## Classes
 
@@ -118,7 +118,7 @@ Keras backend API.
 
 [`get_value(...)`](../../tf/keras/backend/get_value): Returns the value of a variable.
 
-[`gradients(...)`](../../tf/keras/backend/gradients): Returns the gradients of `loss` w.r.t. `variables`.
+[`gradients(...)`](../../tf/keras/backend/gradients): Returns the gradients of `variables` w.r.t. `loss`.
 
 [`greater(...)`](../../tf/keras/backend/greater): Element-wise truth value of (x > y).
 
@@ -206,7 +206,7 @@ Keras backend API.
 
 [`repeat_elements(...)`](../../tf/keras/backend/repeat_elements): Repeats the elements of a tensor along an axis, like `np.repeat`.
 
-[`reset_uids(...)`](../../tf/keras/backend/reset_uids): Resets graph identifiers.
+[`reset_uids(...)`](../../tf/keras/backend/reset_uids)
 
 [`reshape(...)`](../../tf/keras/backend/reshape): Reshapes a tensor to the specified shape.
 

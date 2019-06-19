@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/summary/writer/writer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/summary/writer/writer.py).
+Defined in [`tensorflow/python/summary/writer/writer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/summary/writer/writer.py).
 
 See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
 
@@ -25,11 +25,6 @@ given directory and add summaries and events to it. The class updates the
 file contents asynchronously. This allows a training program to call methods
 to add data to the file directly from the training loop, without slowing down
 training.
-
-When constructed with a <a href="../../tf/Session"><code>tf.Session</code></a> parameter, a `FileWriter` instead forms
-a compatibility layer over new graph-based summaries (<a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a>)
-to facilitate the use of new summary writing with pre-existing code that
-expects a `FileWriter` instance.
 
 ## Methods
 
@@ -42,14 +37,13 @@ __init__(
     max_queue=10,
     flush_secs=120,
     graph_def=None,
-    filename_suffix=None,
-    session=None
+    filename_suffix=None
 )
 ```
 
-Creates a `FileWriter`, optionally shared within the given session.
+Creates a `FileWriter` and an event file.
 
-Typically, constructing a file writer creates a new event file in `logdir`.
+On construction the summary writer creates a new event file in `logdir`.
 This event file will contain `Event` protocol buffers constructed when you
 call one of the following functions: `add_summary()`, `add_session_log()`,
 `add_event()`, or `add_graph()`.
@@ -69,16 +63,13 @@ sess = tf.Session()
 writer = tf.summary.FileWriter(<some-directory>, sess.graph)
 ```
 
-The `session` argument to the constructor makes the returned `FileWriter` a
-a compatibility layer over new graph-based summaries (<a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a>).
-Crucially, this means the underlying writer resource and events file will
-be shared with any other `FileWriter` using the same `session` and `logdir`,
-and with any <a href="../../tf/contrib/summary/SummaryWriter"><code>tf.contrib.summary.SummaryWriter</code></a> in this session using the
-the same shared resource name (which by default scoped to the logdir). If
-no such resource exists, one will be created using the remaining arguments
-to this constructor, but if one already exists those arguments are ignored.
-In either case, ops will be added to `session.graph` to control the
-underlying file writer resource. See <a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a> for more details.
+The other arguments to the constructor control the asynchronous writes to
+the event file:
+
+*  `flush_secs`: How often, in seconds, to flush the added summaries
+   and events to disk.
+*  `max_queue`: Maximum number of summaries or events pending to be
+   written to disk before one of the 'add' calls block.
 
 #### Args:
 
@@ -90,7 +81,6 @@ underlying file writer resource. See <a href="../../tf/contrib/summary"><code>tf
 * <b>`graph_def`</b>: DEPRECATED: Use the `graph` argument instead.
 * <b>`filename_suffix`</b>: A string. Every event file's name is suffixed with
     `suffix`.
-* <b>`session`</b>: A <a href="../../tf/Session"><code>tf.Session</code></a> object. See details above.
 
 
 #### Raises:

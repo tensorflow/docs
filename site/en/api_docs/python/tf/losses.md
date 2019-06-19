@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,11 +10,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/losses/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/losses/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/losses/__init__.py`.
 
-Loss operations for use in neural networks.
 
-Note: All the losses are added to the `GraphKeys.LOSSES` collection by default.
 
 ## Classes
 
@@ -50,7 +48,7 @@ Note: All the losses are added to the `GraphKeys.LOSSES` collection by default.
 
 [`sigmoid_cross_entropy(...)`](../tf/losses/sigmoid_cross_entropy): Creates a cross-entropy loss using tf.nn.sigmoid_cross_entropy_with_logits.
 
-[`softmax_cross_entropy(...)`](../tf/losses/softmax_cross_entropy): Creates a cross-entropy loss using tf.nn.softmax_cross_entropy_with_logits_v2.
+[`softmax_cross_entropy(...)`](../tf/losses/softmax_cross_entropy): Creates a cross-entropy loss using tf.nn.softmax_cross_entropy_with_logits.
 
 [`sparse_softmax_cross_entropy(...)`](../tf/losses/sparse_softmax_cross_entropy): Cross-entropy loss using <a href="../tf/nn/sparse_softmax_cross_entropy_with_logits"><code>tf.nn.sparse_softmax_cross_entropy_with_logits</code></a>.
 

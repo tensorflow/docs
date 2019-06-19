@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -19,7 +19,7 @@ tf.contrib.nn.scaled_softplus(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/scaled_softplus.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/nn/python/ops/scaled_softplus.py).
+Defined in [`tensorflow/contrib/nn/python/ops/scaled_softplus.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/nn/python/ops/scaled_softplus.py).
 
 Returns `y = alpha * ln(1 + exp(x / alpha))` or `min(y, clip)`.
 

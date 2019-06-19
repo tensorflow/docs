@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,11 +14,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/variables.py).
+Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/variables.py).
 
 See the guide: [Variables > Variables](../../../api_guides/python/state_ops#Variables)
 
-See the <a href="../../../guide/variables">Variables How To</a> for a high level overview.
+See the <a href="../../../programmers_guide/variables">Variables How To</a> for a high level overview.
 
 A variable maintains state in the graph across calls to `run()`. You add a
 variable to the graph by constructing an instance of the class `Variable`.
@@ -103,30 +103,6 @@ easier, the variable constructor supports a `trainable=<bool>` parameter. If
 various `Optimizer` classes use this collection as the default list of
 variables to optimize.
 
-WARNING: tf.Variable objects have a non-intuitive memory model. A Variable is
-represented internally as a mutable Tensor which can non-deterministically
-alias other Tensors in a graph. The set of operations which consume a Variable
-and can lead to aliasing is undetermined and can change across TensorFlow
-versions. Avoid writing code which relies on the value of a Variable either
-changing or not changing as other operations happen. For example, using
-Variable objects or simple functions thereof as predicates in a <a href="../tf/cond"><code>tf.cond</code></a> is
-dangerous and error-prone:
-
-```
-v = tf.Variable(True)
-tf.cond(v, lambda: v.assign(False), my_false_fn)  # Note: this is broken.
-```
-
-Here replacing tf.Variable with tf.contrib.eager.Variable will fix any
-nondeterminism issues.
-
-To use the replacement for variables which does
-not have these issues:
-
-* Replace <a href="../tf/Variable"><code>tf.Variable</code></a> with <a href="../tf/contrib/eager/Variable"><code>tf.contrib.eager.Variable</code></a>;
-* Call `tf.get_variable_scope().set_use_resource(True)` inside a
-  <a href="../tf/variable_scope"><code>tf.variable_scope</code></a> before the `tf.get_variable()` call.
-
 
 
 #### Eager Compatibility
@@ -196,10 +172,6 @@ The `TensorShape` of this variable.
 #### Returns:
 
 A `TensorShape`.
-
-<h3 id="trainable"><code>trainable</code></h3>
-
-
 
 
 
@@ -318,8 +290,8 @@ tf.abs(x)  # [5.25594902, 6.60492229]
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` or `SparseTensor` of type `float16`, `float32`, `float64`,
-    `int32`, `int64`, `complex64` or `complex128`.
+* <b>`x`</b>: A `Tensor` or `SparseTensor` of type `float32`, `float64`, `int32`,
+    `int64`, `complex64` or `complex128`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -909,10 +881,10 @@ tf.pow(x, y)  # [[256, 65536], [9, 27]]
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
-* <b>`y`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
+* <b>`x`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
+* <b>`y`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -1230,10 +1202,10 @@ tf.pow(x, y)  # [[256, 65536], [9, 27]]
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
-* <b>`y`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, `int64`,
-   `complex64`, or `complex128`.
+* <b>`x`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
+* <b>`y`</b>: A `Tensor` of type `float32`, `float64`, `int32`, `int64`, `complex64`,
+   or `complex128`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

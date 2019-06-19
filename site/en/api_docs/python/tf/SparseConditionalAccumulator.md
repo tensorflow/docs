@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`ConditionalAccumulatorBase`](../tf/ConditionalAccumulatorBase)
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Inputs and Readers > Conditional Accumulators](../../../api_guides/python/io_ops#Conditional_Accumulators)
 

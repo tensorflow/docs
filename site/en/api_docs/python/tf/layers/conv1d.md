@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -34,7 +34,7 @@ tf.layers.conv1d(
 
 
 
-Defined in [`tensorflow/python/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/layers/convolutional.py).
+Defined in [`tensorflow/python/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/layers/convolutional.py).
 
 Functional interface for 1D convolution layer (e.g. temporal convolution).
 

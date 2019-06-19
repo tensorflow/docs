@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::LogUniformCandidateSampler Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -16,21 +16,21 @@
   <p>For each batch, this op picks a single set of sampled candidate labels.</p>
   <p>The advantages of sampling candidates per-batch are simplicity and the possibility of efficient dense matrix multiplication. The disadvantage is that the sampled candidates must be chosen independently of the context and of the true labels.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>true_classes: A batch_size * num_true matrix, in which each row contains the IDs of the num_true target_classes in the corresponding original label.</li>
       <li>num_true: Number of true labels per context.</li>
       <li>num_sampled: Number of candidates to randomly sample.</li>
       <li>unique: If unique is true, we sample with rejection, so that all sampled candidates in a batch are unique. This requires some approximation to estimate the post-rejection sampling probabilities.</li>
       <li>range_max: The sampler will sample integers from the interval [0, range_max).</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">Attrs</a></code>):<ul>
       <li>seed: If either seed or seed2 are set to be non-zero, the random number generator is seeded by the given seed. Otherwise, it is seeded by a random seed.</li>
       <li>seed2: An second seed to avoid seed collision.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sampled_candidates: A vector of length num_sampled, in which each element is the ID of a sampled candidate.</li>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> true_expected_count: A batch_size * num_true matrix, representing the number of times each candidate is expected to occur in a batch of sampled candidates. If unique=true, then this is a probability.</li>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sampled_expected_count: A vector of length num_sampled, for each sampled candidate representing the number of times the candidate is expected to occur in a batch of sampled candidates. If unique=true, then this is a probability. </li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sampled_candidates: A vector of length num_sampled, in which each element is the ID of a sampled candidate.</li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> true_expected_count: A batch_size * num_true matrix, representing the number of times each candidate is expected to occur in a batch of sampled candidates. If unique=true, then this is a probability.</li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sampled_expected_count: A vector of length num_sampled, for each sampled candidate representing the number of times the candidate is expected to occur in a batch of sampled candidates. If unique=true, then this is a probability. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -40,13 +40,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1a53decbe73badf37e773a6e751809f64e">LogUniformCandidateSampler</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes, int64 num_true, int64 num_sampled, bool unique, int64 range_max)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1a53decbe73badf37e773a6e751809f64e">LogUniformCandidateSampler</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes, int64 num_true, int64 num_sampled, bool unique, int64 range_max)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1a5c61a7307f78f73a2e8dce57c971daa2">LogUniformCandidateSampler</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes, int64 num_true, int64 num_sampled, bool unique, int64 range_max, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">LogUniformCandidateSampler::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1a5c61a7307f78f73a2e8dce57c971daa2">LogUniformCandidateSampler</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes, int64 num_true, int64 num_sampled, bool unique, int64 range_max, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">LogUniformCandidateSampler::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -63,7 +63,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -73,7 +73,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -83,7 +83,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -100,7 +100,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -110,7 +110,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -123,35 +123,35 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs">tensorflow::<wbr/>ops::<wbr/>LogUniformCandidateSampler::<wbr/>Attrs</a>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs">tensorflow::<wbr/>ops::<wbr/>LogUniformCandidateSampler::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/log-uniform-candidate-sampler.html#classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler">LogUniformCandidateSampler</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/log-uniform-candidate-sampler.html#classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler">LogUniformCandidateSampler</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1a274f630ba32adfbc046a9b365ee0a2c2">
     <h3>sampled_candidates</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sampled_candidates</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sampled_candidates</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1acb096bb548c1449d866d0707cc1fc8fd">
     <h3>sampled_expected_count</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sampled_expected_count</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sampled_expected_count</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1a026cc7983c694439724e84f86e776572">
     <h3>true_expected_count</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> true_expected_count</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> true_expected_count</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1a53decbe73badf37e773a6e751809f64e">
     <h3>LogUniformCandidateSampler</h3>
     <pre class="prettyprint"> LogUniformCandidateSampler(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes,
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes,
   int64 num_true,
   int64 num_sampled,
   bool unique,
@@ -162,27 +162,27 @@
   <div id="classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1a5c61a7307f78f73a2e8dce57c971daa2">
     <h3>LogUniformCandidateSampler</h3>
     <pre class="prettyprint"> LogUniformCandidateSampler(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes,
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> true_classes,
   int64 num_true,
   int64 num_sampled,
   bool unique,
   int64 range_max,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">LogUniformCandidateSampler::Attrs</a> & attrs
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">LogUniformCandidateSampler::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1adff11ef65461633e2c9d8a1232a6f1a3">
     <h3>Seed</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">Attrs</a> Seed(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">Attrs</a> Seed(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1a55dcb7900bb164943bf67092b172fbb6">
     <h3>Seed2</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">Attrs</a> Seed2(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/log-uniform-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_log_uniform_candidate_sampler_1_1_attrs">Attrs</a> Seed2(
   int64 x
 )</pre>
     <div />

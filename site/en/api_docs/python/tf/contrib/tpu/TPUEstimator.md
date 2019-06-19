@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Estimator`](../../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
 
 Estimator with TPU support.
 
@@ -38,9 +38,7 @@ Evaluation
 ==========
 
 `model_fn` should return `TPUEstimatorSpec`, which expects the `eval_metrics`
-for TPU evaluation. However, if eval_on_tpu is False, `model_fn` must return
-`EstimatorSpec` and the evaluation will execute on CPU or GPU; in this case
-the following discussion on TPU evaluation does not apply.
+for TPU evaluation.
 
 `TPUEstimatorSpec.eval_metrics` is a tuple of `metric_fn` and `tensors`, where
 `tensors` could be a list of `Tensor`s or dict of names to `Tensor`s. (See
@@ -175,44 +173,8 @@ for item in tpu_est.predict(input_fn=input_fn):
 Exporting
 =========
 
-`export_savedmodel` exports 2 metagraphs, one with `tag_constants.SERVING`,
-and another with `tag_constants.SERVING` and `tag_constants.TPU`.
-At serving time, these tags are used to select metagraph to load.
-
-Before running the graph on TPU, TPU system needs to be initialized. If
-TensorFlow Serving model-server is used, this is done automatically. If
-not, please call `session.run(tpu.initialize_system())`.
-
-`tpu.outside_compilation` can be used to wrap TPU incompatible ops in
-`model_fn`.
-
-Example:
-----------------
-
-```
-def model_fn(features, labels, mode, config, params):
-  ...
-  logits = ...
-  export_outputs = {
-    'logits': export_output_lib.PredictOutput(
-      {'logits': logits})
-  }
-
-  def host_call(logits):
-    class_ids = math_ops.argmax(logits)
-    classes = string_ops.as_string(class_ids)
-    export_outputs['classes'] =
-      export_output_lib.ClassificationOutput(classes=classes)
-
-  tpu.outside_compilation(host_call, [logits])
-
-  ...
-```
-
-Current limitations:
---------------------
-
-1. Outside compilation does not work yet (b/79991729).
+Exporting `SavedModel` support on TPU is not yet implemented. So,
+`export_savedmodel` is executed on CPU, even if `use_tpu` is true.
 
 ## Properties
 
@@ -253,10 +215,7 @@ __init__(
     train_batch_size=None,
     eval_batch_size=None,
     predict_batch_size=None,
-    batch_axis=None,
-    eval_on_tpu=True,
-    export_to_tpu=True,
-    warm_start_from=None
+    batch_axis=None
 )
 ```
 
@@ -278,8 +237,7 @@ Constructs an `TPUEstimator` instance.
     basic python types. There are reserved keys for `TPUEstimator`,
     including 'batch_size'.
 * <b>`use_tpu`</b>: A bool indicating whether TPU support is enabled. Currently,
-    - TPU training and evaluation respect this bit, but eval_on_tpu can
-      override execution of eval. See below.
+    - TPU training and evaluation respect this bit.
     - Predict still happens on CPU.
 * <b>`train_batch_size`</b>: An int representing the global training batch size.
     TPUEstimator transforms this global batch size to a per-shard batch
@@ -300,41 +258,11 @@ Constructs an `TPUEstimator` instance.
     and per_host_input_for_training is True, batches will be sharded based
     on the major dimension. If tpu_config.per_host_input_for_training is
     False or `PER_HOST_V2`, batch_axis is ignored.
-* <b>`eval_on_tpu`</b>: If False, evaluation runs on CPU or GPU. In this case, the
-    model_fn must return `EstimatorSpec` when called with `mode` as `EVAL`.
-* <b>`export_to_tpu`</b>: If True, `export_savedmodel()` exports a metagraph for
-    serving on TPU besides the one on CPU.
-* <b>`warm_start_from`</b>: Optional string filepath to a checkpoint or SavedModel to
-                   warm-start from, or a <a href="../../../tf/estimator/WarmStartSettings"><code>tf.estimator.WarmStartSettings</code></a>
-                   object to fully configure warm-starting.  If the string
-                   filepath is provided instead of a `WarmStartSettings`,
-                   then all variables are warm-started, and it is assumed
-                   that vocabularies and Tensor names are unchanged.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: `params` has reserved keys already.
-
-<h3 id="eval_dir"><code>eval_dir</code></h3>
-
-``` python
-eval_dir(name=None)
-```
-
-Shows directory name where evaluation metrics are dumped.
-
-#### Args:
-
-* <b>`name`</b>: Name of the evaluation if user needs to run multiple evaluations on
-    different data sets, such as on training data vs test data. Metrics for
-    different evaluations are saved in separate folders, and appear
-    separately in tensorboard.
-
-
-#### Returns:
-
-A string which is the path of directory contains evaluation metrics.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
@@ -359,7 +287,7 @@ Evaluates until:
 #### Args:
 
 * <b>`input_fn`</b>: A function that constructs the input data for evaluation.
-    See <a href="../../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
+    See <a href="../../../../../get_started/premade_estimators#create_input_functions">Premade Estimators</a> for more
     information. The function should construct and return one of
     the following:
 
@@ -376,9 +304,7 @@ Evaluates until:
 * <b>`hooks`</b>: List of `SessionRunHook` subclass instances. Used for callbacks
     inside the evaluation call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to evaluate. If `None`, the
-    latest checkpoint in `model_dir` is used.  If there are no checkpoints
-    in `model_dir`, evaluation is run with newly initialized `Variables`
-    instead of restored from checkpoint.
+    latest checkpoint in `model_dir` is used.
 * <b>`name`</b>: Name of the evaluation if user needs to run multiple evaluations on
     different data sets, such as on training data vs test data. Metrics for
     different evaluations are saved in separate folders, and appear
@@ -414,7 +340,7 @@ export_savedmodel(
 Exports inference graph as a SavedModel into given dir.
 
 For a detailed guide, see
-<a href="../../../../../guide/saved_model#using_savedmodel_with_estimators">Using SavedModel with Estimators</a>.
+<a href="../../../../../programmers_guide/saved_model#using_savedmodel_with_estimators">Using SavedModel with Estimators</a>.
 
 This method builds a new graph by first calling the
 serving_input_receiver_fn to obtain feature `Tensor`s, and then calling
@@ -538,7 +464,7 @@ Yields predictions for given features.
 * <b>`input_fn`</b>: A function that constructs the features. Prediction continues
     until `input_fn` raises an end-of-input exception (`OutOfRangeError` or
     `StopIteration`).
-    See <a href="../../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
+    See <a href="../../../../../get_started/premade_estimators#create_input_functions">Premade Estimators</a> for more
     information. The function should construct and return one of
     the following:
 
@@ -556,9 +482,7 @@ Yields predictions for given features.
 * <b>`hooks`</b>: List of `SessionRunHook` subclass instances. Used for callbacks
     inside the prediction call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to predict. If `None`, the
-    latest checkpoint in `model_dir` is used.  If there are no checkpoints
-    in `model_dir`, prediction is run with newly initialized `Variables`
-    instead of restored from checkpoint.
+    latest checkpoint in `model_dir` is used.
 * <b>`yield_single_examples`</b>: If False, yield the whole batch as returned by the
     `model_fn` instead of decomposing the batch into individual elements.
     This is useful if `model_fn` returns some tensors whose first dimension
@@ -596,7 +520,7 @@ Trains a model given training data input_fn.
 #### Args:
 
 * <b>`input_fn`</b>: A function that provides input data for training as minibatches.
-    See <a href="../../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
+    See <a href="../../../../../get_started/premade_estimators#create_input_functions">Premade Estimators</a> for more
     information. The function should construct and return one of
     the following:
 

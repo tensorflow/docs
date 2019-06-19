@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,23 +10,21 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/estimator/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/estimator/__init__.py`.
 
-Public API for tf.estimator namespace.
+
 
 ## Modules
 
-[`export`](../tf/estimator/export) module: Public API for tf.estimator.export namespace.
+[`export`](../tf/estimator/export) module
 
-[`inputs`](../tf/estimator/inputs) module: Public API for tf.estimator.inputs namespace.
+[`inputs`](../tf/estimator/inputs) module
 
 ## Classes
 
 [`class BaselineClassifier`](../tf/estimator/BaselineClassifier): A classifier that can establish a simple baseline.
 
 [`class BaselineRegressor`](../tf/estimator/BaselineRegressor): A regressor that can establish a simple baseline.
-
-[`class BestExporter`](../tf/estimator/BestExporter): This class exports the serving graph and checkpoints of the best models.
 
 [`class BoostedTreesClassifier`](../tf/estimator/BoostedTreesClassifier): A Classifier for Tensorflow Boosted Trees models.
 

@@ -1,17 +1,12 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.graph_util.extract_sub_graph
-
-### Aliases:
-
-* `tf.contrib.lite.tf_graph_util.extract_sub_graph`
-* `tf.graph_util.extract_sub_graph`
 
 ``` python
 tf.graph_util.extract_sub_graph(
@@ -22,7 +17,7 @@ tf.graph_util.extract_sub_graph(
 
 
 
-Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/graph_util_impl.py).
+Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/graph_util_impl.py).
 
 Extract the subgraph that can reach any of the nodes in 'dest_nodes'.
 

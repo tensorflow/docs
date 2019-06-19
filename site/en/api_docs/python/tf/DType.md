@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/dtypes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/dtypes.py).
+Defined in [`tensorflow/python/framework/dtypes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/dtypes.py).
 
 See the guide: [Building Graphs > Tensor types](../../../api_guides/python/framework#Tensor_types)
 
@@ -189,14 +189,6 @@ __ne__(other)
 ```
 
 Returns True iff self != other.
-
-<h3 id="__reduce__"><code>__reduce__</code></h3>
-
-``` python
-__reduce__()
-```
-
-
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 

@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::StridedSlice Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -39,7 +39,7 @@ shrink_axis_mask = 1<<0
   <p>
     <ol>
       <li>The first argument in the example slice is turned into <code>begin = 1</code> and <code>end = begin + 1 = 2</code>. To disambiguate from the original spec <code>2:4</code> we also set the appropriate bit in <code>shrink_axis_mask</code>.</li>
-      <li><code>2:4</code> is contributes 2, 4, 1 to begin, end, and stride. <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> masks have zero bits contributed.</li>
+      <li><code>2:4</code> is contributes 2, 4, 1 to begin, end, and stride. <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> masks have zero bits contributed.</li>
       <li>None is a synonym for <code>tf.newaxis</code>. This means insert a dimension of size 1 dimension in the final shape. Dummy values are contributed to begin, end and stride, while the new_axis_mask bit is set.</li>
       <li><code>...</code> grab the full ranges from as many dimensions as needed to fully specify a slice for every dimension of the input shape.</li>
       <li><code>:-3:-1</code> shows the use of negative indices. A negative index <code>i</code> associated with a dimension that has shape <code>s</code> is converted to a positive index <code>s + i</code>. So <code>-1</code> becomes <code>s-1</code> (i.e. the last element). This conversion is done internally so begin, end and strides receive x, -3, and -1. The appropriate begin_mask bit is set to indicate the start range is the full range (ignoring the x).</li>
@@ -48,12 +48,12 @@ shrink_axis_mask = 1<<0
   </p>
   <p><i>Requirements</i>: <code>0 != strides[i] for i in [0, m)</code><code>ellipsis_mask must be a power of two (only one ellipsis)</code></p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>begin: <code>begin[k]</code> specifies the offset into the <code>k</code>th range specification. The exact dimension this corresponds to will be determined by context. Out-of-bounds values will be silently clamped. If the <code>k</code>th bit of <code>begin_mask</code> then <code>begin[k]</code> is ignored and the full range of the appropriate dimension is used instead. Negative values causes indexing to start from the highest element e.g. If <code>foo==[1,2,3]</code> then <code>foo[-1]==3</code>.</li>
       <li>end: <code>end[i]</code> is like <code>begin</code> with the exception that <code>end_mask</code> is used to determine full ranges.</li>
       <li>strides: <code>strides[i]</code> specifies the increment in the <code>i</code>th specification after extracting a given element. Negative indices will reverse the original order. Out or range values are clamped to <code>[0,dim[i]) if slice[i]>0</code> or <code>[-1,dim[i]-1] if slice[i] < 0</code></li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>):<ul>
       <li>begin_mask: a bitmask where a bit i being 1 means to ignore the begin value and instead use the largest interval possible. At runtime begin[i] will be replaced with <code>[0, n-1) if</code>stride[i] > 0<code>or </code>[-1, n-1]<code>if</code>stride[i] < 0<code /></li>
       <li><code>end_mask: analogous to</code>begin_mask<code /></li>
       <li><code>ellipsis_mask: a bitmask where bit</code>i<code>being 1 means the</code>i`th position is actually an ellipsis. One bit at most can be 1. If <code>ellipsis_mask == 0</code>, then an implicit ellipsis mask of <code>1 << (m+1)</code> is provided. This means that <code>foo[3:5] == foo[3:5, ...]</code>. An ellipsis implicitly creates as many range specifications as necessary to fully specify the sliced range for every dimension. For example for a 4-dimensional tensor <code>foo</code> the slice <code>foo[2, ..., 5:8]</code> implies <code>foo[2, :, :, 5:8]</code>.</li>
@@ -61,7 +61,7 @@ shrink_axis_mask = 1<<0
       <li>shrink_axis_mask: a bitmask where bit <code>i</code> implies that the <code>i</code>th specification should shrink the dimensionality. begin and end must imply a slice of size 1 in the dimension. For example in python one might do <code>foo[:, 3, :]</code> which would result in <code>shrink_axis_mask</code> being 2.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -71,13 +71,13 @@ shrink_axis_mask = 1<<0
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_strided_slice_1a1db5161c3bd116fe17838f329a5ea20c">StridedSlice</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_strided_slice_1a1db5161c3bd116fe17838f329a5ea20c">StridedSlice</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_strided_slice_1ad444752a9e6d8ebeaff2fe15531b4472">StridedSlice</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">StridedSlice::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_strided_slice_1ad444752a9e6d8ebeaff2fe15531b4472">StridedSlice</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">StridedSlice::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -94,7 +94,7 @@ shrink_axis_mask = 1<<0
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -148,7 +148,7 @@ shrink_axis_mask = 1<<0
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -158,7 +158,7 @@ shrink_axis_mask = 1<<0
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -168,7 +168,7 @@ shrink_axis_mask = 1<<0
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -178,7 +178,7 @@ shrink_axis_mask = 1<<0
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -188,7 +188,7 @@ shrink_axis_mask = 1<<0
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -201,40 +201,40 @@ shrink_axis_mask = 1<<0
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs">tensorflow::<wbr/>ops::<wbr/>StridedSlice::<wbr/>Attrs</a>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs">tensorflow::<wbr/>ops::<wbr/>StridedSlice::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/strided-slice.html#classtensorflow_1_1ops_1_1_strided_slice">StridedSlice</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/strided-slice.html#classtensorflow_1_1ops_1_1_strided_slice">StridedSlice</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_1a70c2d6b70322d7d5f8b50b8d5cd02c5a">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_1a1db5161c3bd116fe17838f329a5ea20c">
     <h3>StridedSlice</h3>
     <pre class="prettyprint"> StridedSlice(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_1ad444752a9e6d8ebeaff2fe15531b4472">
     <h3>StridedSlice</h3>
     <pre class="prettyprint"> StridedSlice(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">StridedSlice::Attrs</a> & attrs
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides,
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">StridedSlice::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -256,35 +256,35 @@ shrink_axis_mask = 1<<0
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_1aefd40b6df4774d097340a7fac347456c">
     <h3>BeginMask</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> BeginMask(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> BeginMask(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_1ab94d3db58e27d863bec7f40d417e93a0">
     <h3>EllipsisMask</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> EllipsisMask(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> EllipsisMask(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_1ab44c565042e32034b2f14229c06c77f9">
     <h3>EndMask</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> EndMask(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> EndMask(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_1aa40ffa8097851973105444e3cb3b7d41">
     <h3>NewAxisMask</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> NewAxisMask(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> NewAxisMask(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_1a3b20e66d98bea8466d87b681b81ef316">
     <h3>ShrinkAxisMask</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> ShrinkAxisMask(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/strided-slice/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_1_1_attrs">Attrs</a> ShrinkAxisMask(
   int64 x
 )</pre>
     <div />

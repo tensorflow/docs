@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -19,7 +19,7 @@ Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linear_operator_lower_triangular.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/linalg/linear_operator_lower_triangular.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator_lower_triangular.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/linalg/linear_operator_lower_triangular.py).
 
 See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
 

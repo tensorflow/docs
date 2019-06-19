@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`AdamOptimizer`](../../../tf/train/AdamOptimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/lazy_adam_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/lazy_adam_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/lazy_adam_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/opt/python/training/lazy_adam_optimizer.py).
 
 Variant of the Adam optimizer that handles sparse updates more efficiently.
 
@@ -47,19 +47,23 @@ Construct a new Adam optimizer.
 
 Initialization:
 
-<div> $$m_0 := 0 (Initialize initial 1st moment vector)$$ </div>
-<div> $$v_0 := 0 (Initialize initial 2nd moment vector)$$ </div>
-<div> $$t := 0 (Initialize timestep)$$ </div>
+```
+m_0 <- 0 (Initialize initial 1st moment vector)
+v_0 <- 0 (Initialize initial 2nd moment vector)
+t <- 0 (Initialize timestep)
+```
 
 The update rule for `variable` with gradient `g` uses an optimization
 described at the end of section2 of the paper:
 
-<div> $$t := t + 1$$ </div>
-<div> $$lr_t :=   ext{learning_rate} * \sqrt{(1 - beta_2^t) / (1 - beta_1^t)}$$ </div>
+```
+t <- t + 1
+lr_t <- learning_rate * sqrt(1 - beta2^t) / (1 - beta1^t)
 
-<div> $$m_t := beta_1 * m_{t-1} + (1 - beta_1) * g$$ </div>
-<div> $$v_t := beta_2 * v_{t-1} + (1 - beta_2) * g * g$$ </div>
-<div> $$variable := variable - lr_t * m_t / (\sqrt{v_t} + \epsilon)$$ </div>
+m_t <- beta1 * m_{t-1} + (1 - beta1) * g
+v_t <- beta2 * v_{t-1} + (1 - beta2) * g * g
+variable <- variable - lr_t * m_t / (sqrt(v_t) + epsilon)
+```
 
 The default value of 1e-8 for epsilon might not be a good default in
 general. For example, when training an Inception network on ImageNet a

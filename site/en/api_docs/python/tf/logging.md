@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,9 +10,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/logging/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/logging/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/logging/__init__.py`.
 
-Logging and Summary Operations.
+
 
 ## Functions
 

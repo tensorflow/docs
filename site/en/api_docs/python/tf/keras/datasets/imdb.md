@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,9 +10,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/datasets/imdb/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/datasets/imdb/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/keras/datasets/imdb/__init__.py`.
 
-IMDB sentiment classification dataset.
+
 
 ## Functions
 

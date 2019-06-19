@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/session_manager.py).
+Defined in [`tensorflow/python/training/session_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/session_manager.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -69,8 +69,7 @@ __init__(
     ready_op=None,
     ready_for_local_init_op=None,
     graph=None,
-    recovery_wait_secs=30,
-    local_init_run_options=None
+    recovery_wait_secs=30
 )
 ```
 
@@ -106,8 +105,6 @@ be initialized or restored.  Defaults to 30 seconds.
      to run local_init_op.
 * <b>`graph`</b>: The `Graph` that the model will use.
 * <b>`recovery_wait_secs`</b>: Seconds between checks for the model to be ready.
-* <b>`local_init_run_options`</b>: RunOptions to be passed to session.run when
-    executing the local_init_op.
 
 
 #### Raises:
@@ -181,6 +178,10 @@ A `Session` object that can be used to drive the model.
 #### Raises:
 
 * <b>`RuntimeError`</b>: If the model cannot be initialized or recovered.
+
+
+#### Raises:
+
 * <b>`ValueError`</b>: If both checkpoint_dir and checkpoint_filename_with_path are
     set.
 

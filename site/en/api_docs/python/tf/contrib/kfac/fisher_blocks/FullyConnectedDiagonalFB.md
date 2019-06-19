@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,11 +10,11 @@ page_type: reference
 
 ## Class `FullyConnectedDiagonalFB`
 
+Inherits From: [`FisherBlock`](../../../../tf/contrib/kfac/fisher_blocks/FisherBlock)
 
 
 
-
-Defined in [`tensorflow/contrib/kfac/python/ops/fisher_blocks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kfac/python/ops/fisher_blocks.py).
+Defined in [`tensorflow/contrib/kfac/python/ops/fisher_blocks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/kfac/python/ops/fisher_blocks.py).
 
 FisherBlock for fully-connected (dense) layers using a diagonal approx.
 
@@ -65,14 +65,6 @@ Creates a FullyConnectedDiagonalFB block.
 * <b>`has_bias`</b>: Whether the component Kronecker factors have an additive bias.
       (Default: False)
 
-<h3 id="full_fisher_block"><code>full_fisher_block</code></h3>
-
-``` python
-full_fisher_block()
-```
-
-
-
 <h3 id="instantiate_factors"><code>instantiate_factors</code></h3>
 
 ``` python
@@ -101,28 +93,6 @@ Multiplies the vector by the (damped) block.
 
 The vector left-multiplied by the (damped) block.
 
-<h3 id="multiply_cholesky"><code>multiply_cholesky</code></h3>
-
-``` python
-multiply_cholesky(
-    vector,
-    transpose=False
-)
-```
-
-
-
-<h3 id="multiply_cholesky_inverse"><code>multiply_cholesky_inverse</code></h3>
-
-``` python
-multiply_cholesky_inverse(
-    vector,
-    transpose=False
-)
-```
-
-
-
 <h3 id="multiply_inverse"><code>multiply_inverse</code></h3>
 
 ``` python
@@ -149,7 +119,21 @@ multiply_matpower(
 )
 ```
 
+Multiplies the vector by the (damped) matrix-power of the block.
 
+#### Args:
+
+* <b>`vector`</b>: Tensor or 2-tuple of Tensors. if self._has_bias, Tensor of shape
+    [input_size, output_size] corresponding to layer's weights. If not, a
+    2-tuple of the former and a Tensor of shape [output_size] corresponding
+    to the layer's bias.
+* <b>`exp`</b>: A scalar representing the power to raise the block before multiplying
+       it by the vector.
+
+
+#### Returns:
+
+The vector left-multiplied by the (damped) matrix-power of the block.
 
 <h3 id="register_additional_tower"><code>register_additional_tower</code></h3>
 
@@ -158,22 +142,6 @@ register_additional_tower(
     inputs,
     outputs
 )
-```
-
-
-
-<h3 id="register_cholesky"><code>register_cholesky</code></h3>
-
-``` python
-register_cholesky()
-```
-
-
-
-<h3 id="register_cholesky_inverse"><code>register_cholesky_inverse</code></h3>
-
-``` python
-register_cholesky_inverse()
 ```
 
 

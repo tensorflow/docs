@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Staging (contrib)](../../../../../api_guides/python/contrib.staging)
 
@@ -107,6 +107,11 @@ placed according to the device scope when `get` is called.
 
 * <b>`dtypes`</b>:  A list of types.  The length of dtypes must equal the number
     of tensors in each element.
+* <b>`capacity`</b>: (Optional.) Maximum number of elements.
+    An integer. If zero, the Staging Area is unbounded
+* <b>`memory_limit`</b>: (Optional.) Maximum number of bytes of all tensors
+    in the Staging Area.
+    An integer. If zero, the Staging Area is unbounded
 * <b>`shapes`</b>: (Optional.) Constraints on the shapes of tensors in an element.
     A list of shape tuples or None. This list is the same length
     as dtypes.  If the shape of any tensors in the element are constrained,
@@ -117,11 +122,6 @@ placed according to the device scope when `get` is called.
 * <b>`shared_name`</b>: (Optional.) A name to be used for the shared object. By
     passing the same name to two different python objects they will share
     the underlying staging area. Must be a string.
-* <b>`capacity`</b>: (Optional.) Maximum number of elements.
-    An integer. If zero, the Staging Area is unbounded
-* <b>`memory_limit`</b>: (Optional.) Maximum number of bytes of all tensors
-    in the Staging Area.
-    An integer. If zero, the Staging Area is unbounded
 
 
 #### Raises:

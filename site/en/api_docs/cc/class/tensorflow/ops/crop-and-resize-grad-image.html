@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::CropAndResizeGradImage Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,17 +13,17 @@
   <p>Computes the gradient of the crop_and_resize op wrt the input image tensor. </p>
   <h2>Summary</h2>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>grads: A 4-D tensor of shape <code>[num_boxes, crop_height, crop_width, depth]</code>.</li>
       <li>boxes: A 2-D tensor of shape <code>[num_boxes, 4]</code>. The <code>i</code>-th row of the tensor specifies the coordinates of a box in the <code>box_ind[i]</code> image and is specified in normalized coordinates <code>[y1, x1, y2, x2]</code>. A normalized coordinate value of <code>y</code> is mapped to the image coordinate at <code>y * (image_height - 1)</code>, so as the <code>[0, 1]</code> interval of normalized image height is mapped to `[0, image_height - 1] in image height coordinates. We do allow y1 > y2, in which case the sampled crop is an up-down flipped version of the original image. The width dimension is treated similarly. Normalized coordinates outside the <code>[0, 1]</code> range are allowed, in which case we use <code>extrapolation_value</code> to extrapolate the input image values.</li>
       <li>box_ind: A 1-D tensor of shape <code>[num_boxes]</code> with int32 values in <code>[0, batch)</code>. The value of <code>box_ind[i]</code> specifies the image that the <code>i</code>-th box refers to.</li>
       <li>image_size: A 1-D tensor with value <code>[batch, image_height, image_width, depth]</code> containing the original image size. Both <code>image_height</code> and <code>image_width</code> need to be positive.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1_1_attrs">Attrs</a></code>):<ul>
       <li>method: A string specifying the interpolation method. Only 'bilinear' is supported for now.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A 4-D tensor of shape <code>[batch, image_height, image_width, depth]</code>. </li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A 4-D tensor of shape <code>[batch, image_height, image_width, depth]</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -33,13 +33,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1a542871b76c83a2a8ae095c5ade81ab0e">CropAndResizeGradImage</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grads, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> box_ind, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size, DataType T)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1a542871b76c83a2a8ae095c5ade81ab0e">CropAndResizeGradImage</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grads, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> box_ind, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size, DataType T)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1a5314c519439a0018be03ae0599c320d3">CropAndResizeGradImage</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grads, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> box_ind, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size, DataType T, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1_1_attrs">CropAndResizeGradImage::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1a5314c519439a0018be03ae0599c320d3">CropAndResizeGradImage</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grads, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> box_ind, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size, DataType T, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1_1_attrs">CropAndResizeGradImage::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -56,7 +56,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -110,7 +110,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -123,28 +123,28 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs">tensorflow::<wbr/>ops::<wbr/>CropAndResizeGradImage::<wbr/>Attrs</a>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs">tensorflow::<wbr/>ops::<wbr/>CropAndResizeGradImage::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/crop-and-resize-grad-image.html#classtensorflow_1_1ops_1_1_crop_and_resize_grad_image">CropAndResizeGradImage</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/crop-and-resize-grad-image.html#classtensorflow_1_1ops_1_1_crop_and_resize_grad_image">CropAndResizeGradImage</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1adc227b21eb0d9d4ca672f34f67b7943d">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1a542871b76c83a2a8ae095c5ade81ab0e">
     <h3>CropAndResizeGradImage</h3>
     <pre class="prettyprint"> CropAndResizeGradImage(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grads,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> box_ind,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size,
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grads,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> box_ind,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size,
   DataType T
 )</pre>
     <div />
@@ -152,13 +152,13 @@
   <div id="classtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1a5314c519439a0018be03ae0599c320d3">
     <h3>CropAndResizeGradImage</h3>
     <pre class="prettyprint"> CropAndResizeGradImage(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grads,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> box_ind,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size,
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grads,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> box_ind,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image_size,
   DataType T,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1_1_attrs">CropAndResizeGradImage::Attrs</a> & attrs
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1_1_attrs">CropAndResizeGradImage::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -180,7 +180,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1a10a7af8fef715e541d4c1c1472871fa5">
     <h3>Method</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1_1_attrs">Attrs</a> Method(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/crop-and-resize-grad-image/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_grad_image_1_1_attrs">Attrs</a> Method(
   StringPiece x
 )</pre>
     <div />

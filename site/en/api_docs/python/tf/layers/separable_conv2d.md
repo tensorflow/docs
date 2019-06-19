@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -38,7 +38,7 @@ tf.layers.separable_conv2d(
 
 
 
-Defined in [`tensorflow/python/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/layers/convolutional.py).
+Defined in [`tensorflow/python/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/layers/convolutional.py).
 
 Functional interface for the depthwise separable 2D convolution layer.
 

@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::Conv2DBackpropInput Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,19 +13,19 @@
   <p>Computes the gradients of convolution with respect to the input. </p>
   <h2>Summary</h2>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>input_sizes: An integer vector representing the shape of <code>input</code>, where <code>input</code> is a 4-D <code>[batch, height, width, channels]</code> tensor.</li>
       <li>filter: 4-D with shape <code>[filter_height, filter_width, in_channels, out_channels]</code>.</li>
       <li>out_backprop: 4-D with shape <code>[batch, out_height, out_width, out_channels]</code>. Gradients w.r.t. the output of the convolution.</li>
       <li>strides: The stride of the sliding window for each dimension of the input of the convolution. Must be in the same order as the dimension specified with format.</li>
       <li>padding: The type of padding algorithm to use.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>):<ul>
       <li>data_format: Specify the data format of the input and output data. With the default format "NHWC", the data is stored in the order of: [batch, in_height, in_width, in_channels]. Alternatively, the format could be "NCHW", the data storage order of: [batch, in_channels, in_height, in_width].</li>
       <li>dilations: 1-D tensor of length 4. The dilation factor for each dimension of <code>input</code>. If set to k > 1, there will be k-1 skipped cells between each filter element on that dimension. The dimension order is determined by the value of <code>data_format</code>, see above for details. Dilations in the batch and depth dimensions must be 1.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with shape <code>[batch, in_height, in_width, in_channels]</code>. Gradient w.r.t. the input of the convolution. </li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with shape <code>[batch, in_height, in_width, in_channels]</code>. Gradient w.r.t. the input of the convolution. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -35,13 +35,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_conv2_d_backprop_input_1aa5357992b64dbb43b51d35c084d442d8">Conv2DBackpropInput</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_sizes, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv2_d_backprop_input_1aa5357992b64dbb43b51d35c084d442d8">Conv2DBackpropInput</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_sizes, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_conv2_d_backprop_input_1a01da97aaaf681a4f6f45d3bda57f0f82">Conv2DBackpropInput</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_sizes, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Conv2DBackpropInput::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv2_d_backprop_input_1a01da97aaaf681a4f6f45d3bda57f0f82">Conv2DBackpropInput</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_sizes, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Conv2DBackpropInput::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -58,7 +58,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -112,7 +112,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -122,7 +122,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -132,7 +132,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -145,27 +145,27 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs">tensorflow::<wbr/>ops::<wbr/>Conv2DBackpropInput::<wbr/>Attrs</a>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs">tensorflow::<wbr/>ops::<wbr/>Conv2DBackpropInput::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/conv2-d-backprop-input.html#classtensorflow_1_1ops_1_1_conv2_d_backprop_input">Conv2DBackpropInput</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/conv2-d-backprop-input.html#classtensorflow_1_1ops_1_1_conv2_d_backprop_input">Conv2DBackpropInput</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_conv2_d_backprop_input_1a53bf3bf2eb2af62764981f62c794fbe2">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_conv2_d_backprop_input_1aa5357992b64dbb43b51d35c084d442d8">
     <h3>Conv2DBackpropInput</h3>
     <pre class="prettyprint"> Conv2DBackpropInput(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_sizes,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_sizes,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
   const gtl::ArraySlice< int > & strides,
   StringPiece padding
 )</pre>
@@ -174,13 +174,13 @@
   <div id="classtensorflow_1_1ops_1_1_conv2_d_backprop_input_1a01da97aaaf681a4f6f45d3bda57f0f82">
     <h3>Conv2DBackpropInput</h3>
     <pre class="prettyprint"> Conv2DBackpropInput(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_sizes,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_sizes,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
   const gtl::ArraySlice< int > & strides,
   StringPiece padding,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Conv2DBackpropInput::Attrs</a> & attrs
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Conv2DBackpropInput::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -202,21 +202,21 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_conv2_d_backprop_input_1ac762988224740afda86e2a852ef11774">
     <h3>DataFormat</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a> DataFormat(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a> DataFormat(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_conv2_d_backprop_input_1a01b3b905a6bba3d7c7e61238d45109e4">
     <h3>Dilations</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a> Dilations(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a> Dilations(
   const gtl::ArraySlice< int > & x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_conv2_d_backprop_input_1a6df425d872077ec66d9eb2e2b42f767b">
     <h3>UseCudnnOnGpu</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a> UseCudnnOnGpu(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a> UseCudnnOnGpu(
   bool x
 )</pre>
     <div />

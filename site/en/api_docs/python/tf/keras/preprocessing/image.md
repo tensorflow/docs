@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,18 +10,15 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/preprocessing/image/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/preprocessing/image/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/keras/preprocessing/image/__init__.py`.
 
-Fairly basic set of tools for real-time data augmentation on image data.
 
-Can easily be extended to include new transformations,
-new preprocessing methods, etc...
 
 ## Classes
 
 [`class DirectoryIterator`](../../../tf/keras/preprocessing/image/DirectoryIterator): Iterator capable of reading images from a directory on disk.
 
-[`class ImageDataGenerator`](../../../tf/keras/preprocessing/image/ImageDataGenerator): Generates batches of tensor image data with real-time data augmentation.
+[`class ImageDataGenerator`](../../../tf/keras/preprocessing/image/ImageDataGenerator): Generate minibatches of image data with real-time data augmentation.
 
 [`class Iterator`](../../../tf/keras/preprocessing/image/Iterator): Base class for image data iterators.
 
@@ -41,7 +38,7 @@ new preprocessing methods, etc...
 
 [`random_brightness(...)`](../../../tf/keras/preprocessing/image/random_brightness): Performs a random adjustment of brightness of a Numpy image tensor.
 
-[`random_channel_shift(...)`](../../../tf/keras/preprocessing/image/random_channel_shift): Perform a random channel shift.
+[`random_channel_shift(...)`](../../../tf/keras/preprocessing/image/random_channel_shift)
 
 [`random_rotation(...)`](../../../tf/keras/preprocessing/image/random_rotation): Performs a random rotation of a Numpy image tensor.
 

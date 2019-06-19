@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`MultivariateNormalTriL`](../../../tf/contrib/distributions/Mult
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py).
 
 The multivariate normal distribution on `R^k`.
 
@@ -29,7 +29,7 @@ by a matrix more akin to the standard deviation.
 The probability density function (pdf) is, with `@` as matrix multiplication,
 
 ```none
-pdf(x; loc, covariance_matrix) = exp(-0.5 y) / Z,
+pdf(x; loc, covariance_matrix) = exp(-0.5 ||y||**2) / Z,
 y = (x - loc)^T @ inv(covariance_matrix) @ (x - loc)
 Z = (2 pi)**(0.5 k) |det(covariance_matrix)|**(0.5).
 ```
@@ -38,7 +38,8 @@ where:
 
 * `loc` is a vector in `R^k`,
 * `covariance_matrix` is an `R^{k x k}` symmetric positive definite matrix,
-* `Z` denotes the normalization constant.
+* `Z` denotes the normalization constant, and,
+* `||y||**2` denotes the squared Euclidean norm of `y`.
 
 Additional leading dimensions (if any) in `loc` and `covariance_matrix` allow
 for batch dimensions.

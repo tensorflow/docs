@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -24,7 +24,7 @@ tf.keras.applications.resnet50.preprocess_input(
 
 
 
-Defined in [`tensorflow/python/keras/applications/imagenet_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/applications/imagenet_utils.py).
+Defined in [`tensorflow/python/keras/_impl/keras/applications/imagenet_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/applications/imagenet_utils.py).
 
 Preprocesses a tensor or Numpy array encoding a batch of images.
 

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -11,8 +11,10 @@ page_type: reference
 ``` python
 tf.contrib.eager.run_test_in_graph_and_eager_modes(
     __unused__=None,
+    graph=None,
     config=None,
-    use_gpu=True,
+    use_gpu=False,
+    force_gpu=False,
     reset_test=True,
     assert_no_eager_garbage=False
 )
@@ -20,58 +22,30 @@ tf.contrib.eager.run_test_in_graph_and_eager_modes(
 
 
 
-Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/test_util.py).
+Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/test_util.py).
 
-Execute the decorated test with and without enabling eager execution.
-
-This function returns a decorator intended to be applied to test methods in
-a <a href="../../../tf/test/TestCase"><code>tf.test.TestCase</code></a> class. Doing so will cause the contents of the test
-method to be executed twice - once normally, and once with eager execution
-enabled. This allows unittests to confirm the equivalence between eager
-and graph execution (see <a href="../../../tf/enable_eager_execution"><code>tf.enable_eager_execution</code></a>).
-
-For example, consider the following unittest:
-
-```python
-class MyTests(tf.test.TestCase):
-
-  @run_in_graph_and_eager_modes()
-  def test_foo(self):
-    x = tf.constant([1, 2])
-    y = tf.constant([3, 4])
-    z = tf.add(x, y)
-    self.assertAllEqual([4, 6], self.evaluate(z))
-
-if __name__ == "__main__":
-  tf.test.main()
-```
-
-This test validates that `tf.add()` has the same behavior when computed with
-eager execution enabled as it does when constructing a TensorFlow graph and
-executing the `z` tensor in a session.
-
+Runs the test in both graph and eager modes.
 
 #### Args:
 
-* <b>`__unused__`</b>: Prevents silently skipping tests.
+* <b>`__unused__`</b>: Prevents sliently skipping tests.
+* <b>`graph`</b>: Optional graph to use during the returned session.
 * <b>`config`</b>: An optional config_pb2.ConfigProto to use to configure the
-    session when executing graphs.
-* <b>`use_gpu`</b>: If True, attempt to run as many operations as possible on GPU.
-* <b>`reset_test`</b>: If True, tearDown and SetUp the test case between the two
-    executions of the test (once with and once without eager execution).
+    session.
+* <b>`use_gpu`</b>: If True, attempt to run as many ops as possible on GPU.
+* <b>`force_gpu`</b>: If True, pin all ops to `/device:GPU:0`.
+* <b>`reset_test`</b>: If True, tearDown and SetUp the test case again.
 * <b>`assert_no_eager_garbage`</b>: If True, sets DEBUG_SAVEALL on the garbage
     collector and asserts that no extra garbage has been created when running
-    the test with eager execution enabled. This will fail if there are
-    reference cycles (e.g. a = []; a.append(a)). Off by default because some
-    tests may create garbage for legitimate reasons (e.g. they define a class
-    which inherits from `object`), and because DEBUG_SAVEALL is sticky in some
-    Python interpreters (meaning that tests which rely on objects being
-    collected elsewhere in the unit test file will not work). Additionally,
-    checks that nothing still has a reference to Tensors that the test
-    allocated.
+    the test in eager mode. This will fail if there are reference cycles
+    (e.g. a = []; a.append(a)). Off by default because some tests may create
+    garbage for legitimate reasons (e.g. they define a class which inherits
+    from `object`), and because DEBUG_SAVEALL is sticky in some Python
+    interpreters (meaning that tests which rely on objects being collected
+    elsewhere in the unit test file will not work). Additionally, checks that
+    nothing still has a reference to Tensors that the test allocated.
 
 #### Returns:
 
-Returns a decorator that will run the decorated test method twice:
-once by constructing and executing a graph in a session and once with
-eager execution enabled.
+Returns a decorator that will run the decorated test function
+    using both a graph and using eager execution.

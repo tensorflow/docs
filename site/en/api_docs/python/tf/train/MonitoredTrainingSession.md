@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -29,7 +29,7 @@ tf.train.MonitoredTrainingSession(
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/monitored_session.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 

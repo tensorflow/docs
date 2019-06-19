@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -12,6 +12,8 @@ page_type: reference
 
 * `tf.compat.as_bytes`
 * `tf.compat.as_str`
+* `tf.contrib.meta_graph_transform.meta_graph_transform.compat.as_bytes`
+* `tf.contrib.meta_graph_transform.meta_graph_transform.compat.as_str`
 
 ``` python
 tf.compat.as_bytes(
@@ -22,7 +24,7 @@ tf.compat.as_bytes(
 
 
 
-Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/util/compat.py).
+Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/util/compat.py).
 
 Converts either bytes or unicode to `bytes`, using utf-8 encoding for text.
 

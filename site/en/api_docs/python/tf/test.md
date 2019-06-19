@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,14 +10,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/test/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/test/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/test/__init__.py`.
 
-Testing.
 
-See the <a href="../../../api_guides/python/test">Testing</a> guide.
-
-Note: `tf.test.mock` is an alias to the python `mock` or `unittest.mock`
-depending on the python version.
 
 ## Classes
 

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -19,7 +19,7 @@ tf.saved_model.loader.load(
 
 
 
-Defined in [`tensorflow/python/saved_model/loader_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/saved_model/loader_impl.py).
+Defined in [`tensorflow/python/saved_model/loader_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/saved_model/loader_impl.py).
 
 Loads the model from a SavedModel as specified by tags.
 

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -12,14 +12,13 @@ page_type: reference
 tf.contrib.layers.embedding_lookup_unique(
     params,
     ids,
-    partition_strategy='mod',
     name=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/embedding_ops.py).
+Defined in [`tensorflow/contrib/layers/python/layers/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/layers/python/layers/embedding_ops.py).
 
 Version of embedding_lookup that avoids duplicate lookups.
 
@@ -33,9 +32,6 @@ which allows to not reshape input/output to fit gather.
     `PartitionedVariable`. Shape `[index, d1, d2, ...]`.
 * <b>`ids`</b>: A one-dimensional `Tensor` with type `int32` or `int64` containing
     the ids to be looked up in `params`. Shape `[ids1, ids2, ...]`.
-* <b>`partition_strategy`</b>: A string specifying the partitioning strategy, relevant
-    if `len(params) > 1`. Currently `"div"` and `"mod"` are supported. Default
-    is `"mod"`.
 * <b>`name`</b>: A name for this operation (optional).
 
 

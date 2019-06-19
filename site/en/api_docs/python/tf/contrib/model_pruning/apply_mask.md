@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -17,14 +17,14 @@ tf.contrib.model_pruning.apply_mask(
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/model_pruning/python/pruning.py).
+Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/model_pruning/python/pruning.py).
 
 Apply mask to a given weight tensor.
 
 #### Args:
 
 * <b>`x`</b>: Input weight tensor
-* <b>`scope`</b>: The current variable scope. Defaults to "".
+* <b>`scope`</b>: The current variable scope. Defaults to ""
 
 #### Returns:
 

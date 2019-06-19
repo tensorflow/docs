@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/moving_averages.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/moving_averages.py).
+Defined in [`tensorflow/python/training/moving_averages.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/training/moving_averages.py).
 
 See the guide: [Training > Moving Averages](../../../../api_guides/python/train#Moving_Averages)
 
@@ -95,14 +95,6 @@ saver = tf.train.Saver({shadow_var0_name: var0, shadow_var1_name: var1})
 saver.restore(...checkpoint filename...)
 # var0 and var1 now hold the moving average values
 ```
-
-## Properties
-
-<h3 id="name"><code>name</code></h3>
-
-The name of this ExponentialMovingAverage object.
-
-
 
 ## Methods
 

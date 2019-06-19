@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -21,15 +21,11 @@ tf.contrib.metrics.streaming_root_mean_squared_error(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 See the guide: [Metrics (contrib) > Metric `Ops`](../../../../../api_guides/python/contrib.metrics#Metric_Ops_)
 
-Computes the root mean squared error between the labels and predictions. (deprecated)
-
-THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Please switch to tf.metrics.root_mean_squared_error. Note that the order of the labels and predictions arguments has been switched.
+Computes the root mean squared error between the labels and predictions.
 
 The `streaming_root_mean_squared_error` function creates two local variables,
 `total` and `count` that are used to compute the root mean squared error.

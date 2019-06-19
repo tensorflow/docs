@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/test_util.py).
+Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/test_util.py).
 
 See the guide: [Testing > Unit tests](../../../../api_guides/python/test#Unit_tests)
 
@@ -111,7 +111,7 @@ assertAllClose(
 )
 ```
 
-Asserts that two structures of numpy arrays or Tensors, have near values.
+Asserts that two structures of numpy arrays, have near values.
 
 `a` and `b` can be arbitrarily nested structures. A layer of a nested
 structure can be a `dict`, `namedtuple`, `tuple` or `list`.
@@ -119,11 +119,9 @@ structure can be a `dict`, `namedtuple`, `tuple` or `list`.
 #### Args:
 
 * <b>`a`</b>: The expected numpy `ndarray`, or anything that can be converted into a
-     numpy `ndarray` (including Tensor), or any arbitrarily nested of
-     structure of these.
+      numpy `ndarray`, or any arbitrarily nested of structure of these.
 * <b>`b`</b>: The actual numpy `ndarray`, or anything that can be converted into a
-     numpy `ndarray` (including Tensor), or any arbitrarily nested of
-     structure of these.
+      numpy `ndarray`, or any arbitrarily nested of structure of these.
 * <b>`rtol`</b>: relative tolerance.
 * <b>`atol`</b>: absolute tolerance.
 * <b>`msg`</b>: Optional message to report on failure.
@@ -183,137 +181,13 @@ assertAllEqual(
 )
 ```
 
-Asserts that two numpy arrays or Tensors have the same values.
+Asserts that two numpy arrays have the same values.
 
 #### Args:
 
 * <b>`a`</b>: the expected numpy ndarray or anything can be converted to one.
 * <b>`b`</b>: the actual numpy ndarray or anything can be converted to one.
 * <b>`msg`</b>: Optional message to report on failure.
-
-<h3 id="assertAllGreater"><code>assertAllGreater</code></h3>
-
-``` python
-assertAllGreater(
-    a,
-    comparison_target
-)
-```
-
-Assert element values are all greater than a target value.
-
-#### Args:
-
-* <b>`a`</b>: The numpy `ndarray`, or anything that can be converted into a
-     numpy `ndarray` (including Tensor).
-* <b>`comparison_target`</b>: The target value of comparison.
-
-<h3 id="assertAllGreaterEqual"><code>assertAllGreaterEqual</code></h3>
-
-``` python
-assertAllGreaterEqual(
-    a,
-    comparison_target
-)
-```
-
-Assert element values are all greater than a target value.
-
-#### Args:
-
-* <b>`a`</b>: The numpy `ndarray`, or anything that can be converted into a
-     numpy `ndarray` (including Tensor).
-* <b>`comparison_target`</b>: The target value of comparison.
-
-<h3 id="assertAllInRange"><code>assertAllInRange</code></h3>
-
-``` python
-assertAllInRange(
-    target,
-    lower_bound,
-    upper_bound,
-    open_lower_bound=False,
-    open_upper_bound=False
-)
-```
-
-Assert that elements in a Tensor are all in a given range.
-
-#### Args:
-
-* <b>`target`</b>: The numpy `ndarray`, or anything that can be converted into a
-     numpy `ndarray` (including Tensor).
-* <b>`lower_bound`</b>: lower bound of the range
-* <b>`upper_bound`</b>: upper bound of the range
-* <b>`open_lower_bound`</b>: (`bool`) whether the lower bound is open (i.e., > rather
-    than the default >=)
-* <b>`open_upper_bound`</b>: (`bool`) whether the upper bound is open (i.e., < rather
-    than the default <=)
-
-
-#### Raises:
-
-* <b>`AssertionError`</b>:     if the value tensor does not have an ordered numeric type (float* or
-      int*), or
-    if there are nan values, or
-    if any of the elements do not fall in the specified range.
-
-<h3 id="assertAllInSet"><code>assertAllInSet</code></h3>
-
-``` python
-assertAllInSet(
-    target,
-    expected_set
-)
-```
-
-Assert that elements of a Tensor are all in a given closed set.
-
-#### Args:
-
-* <b>`target`</b>: The numpy `ndarray`, or anything that can be converted into a
-     numpy `ndarray` (including Tensor).
-* <b>`expected_set`</b>: (`list`, `tuple` or `set`) The closed set that the elements
-    of the value of `target` are expected to fall into.
-
-
-#### Raises:
-
-* <b>`AssertionError`</b>:     if any of the elements do not fall into `expected_set`.
-
-<h3 id="assertAllLess"><code>assertAllLess</code></h3>
-
-``` python
-assertAllLess(
-    a,
-    comparison_target
-)
-```
-
-Assert element values are all greater than a target value.
-
-#### Args:
-
-* <b>`a`</b>: The numpy `ndarray`, or anything that can be converted into a
-     numpy `ndarray` (including Tensor).
-* <b>`comparison_target`</b>: The target value of comparison.
-
-<h3 id="assertAllLessEqual"><code>assertAllLessEqual</code></h3>
-
-``` python
-assertAllLessEqual(
-    a,
-    comparison_target
-)
-```
-
-Assert element values are all greater than a target value.
-
-#### Args:
-
-* <b>`a`</b>: The numpy `ndarray`, or anything that can be converted into a
-     numpy `ndarray` (including Tensor).
-* <b>`comparison_target`</b>: The target value of comparison.
 
 <h3 id="assertAlmostEqual"><code>assertAlmostEqual</code></h3>
 
@@ -383,23 +257,6 @@ Checks that for all elements of farray1 and farray2
 * <b>`farray2`</b>: a list of float values.
 * <b>`err`</b>: a float value.
 * <b>`msg`</b>: Optional message to report on failure.
-
-<h3 id="assertDTypeEqual"><code>assertDTypeEqual</code></h3>
-
-``` python
-assertDTypeEqual(
-    target,
-    expected_dtype
-)
-```
-
-Assert ndarray data type is equal to expected.
-
-#### Args:
-
-* <b>`target`</b>: The numpy `ndarray`, or anything that can be converted into a
-     numpy `ndarray` (including Tensor).
-* <b>`expected_dtype`</b>: Expected data type.
 
 <h3 id="assertDeviceEqual"><code>assertDeviceEqual</code></h3>
 
@@ -694,30 +551,6 @@ if not.
 * <b>`f2`</b>: A float value.
 * <b>`err`</b>: A float value.
 * <b>`msg`</b>: An optional string message to append to the failure message.
-
-<h3 id="assertNotAllClose"><code>assertNotAllClose</code></h3>
-
-``` python
-assertNotAllClose(
-    a,
-    b,
-    **kwargs
-)
-```
-
-Assert that two numpy arrays, or or Tensors, do not have near values.
-
-#### Args:
-
-* <b>`a`</b>: the first value to compare.
-* <b>`b`</b>: the second value to compare.
-* <b>`**kwargs`</b>: additional keyword arguments to be passed to the underlying
-    `assertAllClose` call.
-
-
-#### Raises:
-
-* <b>`AssertionError`</b>: If `a` and `b` are unexpectedly close at all elements.
 
 <h3 id="assertNotAlmostEqual"><code>assertNotAlmostEqual</code></h3>
 

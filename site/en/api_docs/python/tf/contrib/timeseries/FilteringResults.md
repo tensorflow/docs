@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/feature_keys.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/timeseries/python/timeseries/feature_keys.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/feature_keys.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/timeseries/python/timeseries/feature_keys.py).
 
 Keys returned from evaluation/filtering.
 

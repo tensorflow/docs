@@ -3,16 +3,16 @@
 <head>
   <title>tensorflow::ops::ScatterNd Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>ScatterNd</h1>
   <code>#include &lt;array_ops.h&gt;</code>
-  <p>Scatter <code>updates</code> into a new tensor according to <code>indices</code>. </p>
+  <p>Scatter <code>updates</code> into a new (initially zero) tensor according to <code>indices</code>. </p>
   <h2>Summary</h2>
-  <p>Creates a new tensor by applying sparse <code>updates</code> to individual values or slices within a tensor (initially zero for numeric, empty for string) of the given <code>shape</code> according to indices. This operator is the inverse of the <code>tf.gather_nd</code> operator which extracts values or slices from a given tensor.</p>
+  <p>Creates a new tensor by applying sparse <code>updates</code> to individual values or slices within a zero tensor of the given <code>shape</code> according to indices. This operator is the inverse of the <code>tf.gather_nd</code> operator which extracts values or slices from a given tensor.</p>
   <p><b>WARNING</b>: The order in which updates are applied is nondeterministic, so the output will be nondeterministic if <code>indices</code> contains duplicates.</p>
   <p><code>indices</code> is an integer tensor containing indices into a new tensor of shape <code>shape</code>. The last dimension of <code>indices</code> can be at most the rank of <code>shape</code>: <pre class="prettyprint">indices.shape[-1] <= shape.rank
 </pre></p>
@@ -21,7 +21,7 @@
   <p>The simplest form of scatter is to insert individual elements in a tensor by index. For example, say we want to insert 4 scattered elements in a rank-1 tensor with 8 elements.</p>
   <p>
     <figure id="@name">
-      <img src="/versions/r1.9/api_docs/cc/images/ScatterNd1.png" />
+      <img src="/versions/r1.8/api_docs/cc/images/ScatterNd1.png" />
     </figure>
   </p>
   <p>In Python, this scatter operation would look like this:</p>
@@ -40,7 +40,7 @@
   <p>We can also, insert entire slices of a higher rank tensor all at once. For example, if we wanted to insert two slices in the first dimension of a rank-3 tensor with two matrices of new values.</p>
   <p>
     <figure id="@name">
-      <img src="/versions/r1.9/api_docs/cc/images/ScatterNd2.png" />
+      <img src="/versions/r1.8/api_docs/cc/images/ScatterNd2.png" />
     </figure>
   </p>
   <p>In Python, this scatter operation would look like this:</p>
@@ -64,13 +64,13 @@
 </pre></p>
   <p>Note that on CPU, if an out of bound index is found, an error is returned. On GPU, if an out of bound index is found, the index is ignored.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>indices: Index tensor.</li>
       <li>updates: Updates to scatter into output.</li>
       <li>shape: 1-D. The shape of the resulting tensor.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A new tensor with the given shape and updates applied according to the indices. </li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A new tensor with the given shape and updates applied according to the indices. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -80,7 +80,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_1a1f8ce3ac92edd199843d92255523b422">ScatterNd</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_1a1f8ce3ac92edd199843d92255523b422">ScatterNd</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape)</code>
         <br />
       </td>
     </tr>
@@ -97,7 +97,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -142,17 +142,17 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_nd_1ab8964eebcc5a0b6479ebfe3363313799">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_nd_1a1f8ce3ac92edd199843d92255523b422">
     <h3>ScatterNd</h3>
     <pre class="prettyprint"> ScatterNd(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape
 )</pre>
     <div />
   </div>

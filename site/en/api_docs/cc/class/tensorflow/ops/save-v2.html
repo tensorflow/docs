@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::SaveV2 Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -14,14 +14,14 @@
   <h2>Summary</h2>
   <p>By default, saves the named tensors in full. If the caller wishes to save specific slices of full tensors, "shape_and_slices" should be non-empty strings and correspondingly well-formed.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>prefix: Must have a single element. The prefix of the V2 checkpoint to which we write the tensors.</li>
       <li>tensor_names: shape {N}. The names of the tensors to be saved.</li>
-      <li>shape_and_slices: shape {N}. The slice specs of the tensors to be saved. <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a> strings indicate that they are non-partitioned tensors.</li>
+      <li>shape_and_slices: shape {N}. The slice specs of the tensors to be saved. <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a> strings indicate that they are non-partitioned tensors.</li>
       <li>tensors: <code>N</code> tensors to save.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li>the created <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+      <li>the created <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -31,7 +31,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_save_v2_1a1ffd5c412f4b1620ffbe3c2a4a8b5f56">SaveV2</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> prefix, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> tensors)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_save_v2_1a1ffd5c412f4b1620ffbe3c2a4a8b5f56">SaveV2</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> prefix, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slices, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> tensors)</code>
         <br />
       </td>
     </tr>
@@ -48,7 +48,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -73,18 +73,18 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_save_v2_1aef163a3bab67f5acd5fade77d3998b72">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_save_v2_1a1ffd5c412f4b1620ffbe3c2a4a8b5f56">
     <h3>SaveV2</h3>
     <pre class="prettyprint"> SaveV2(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> prefix,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slices,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> tensors
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> prefix,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slices,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> tensors
 )</pre>
     <div />
   </div>

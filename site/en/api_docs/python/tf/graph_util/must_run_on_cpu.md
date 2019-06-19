@@ -1,17 +1,12 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.graph_util.must_run_on_cpu
-
-### Aliases:
-
-* `tf.contrib.lite.tf_graph_util.must_run_on_cpu`
-* `tf.graph_util.must_run_on_cpu`
 
 ``` python
 tf.graph_util.must_run_on_cpu(
@@ -22,7 +17,7 @@ tf.graph_util.must_run_on_cpu(
 
 
 
-Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/graph_util_impl.py).
+Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/framework/graph_util_impl.py).
 
 Returns True if the given node_def must run on CPU, otherwise False.
 

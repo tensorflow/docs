@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -18,7 +18,7 @@ tf.contrib.data.Counter(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/counter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/data/python/ops/counter.py).
+Defined in [`tensorflow/contrib/data/python/ops/counter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/data/python/ops/counter.py).
 
 Creates a `Dataset` that counts from `start` in steps of size `step`.
 

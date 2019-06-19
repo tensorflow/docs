@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -21,7 +21,7 @@ tf.contrib.estimator.dnn_logit_fn_builder(
 
 
 
-Defined in [`tensorflow/python/estimator/canned/dnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/canned/dnn.py).
+Defined in [`tensorflow/python/estimator/canned/dnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/estimator/canned/dnn.py).
 
 Function builder for a dnn logit_fn.
 

@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::TakeManySparseFromTensorsMap Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -26,7 +26,7 @@
   </p>
   <p>dense[sparse_indices[i][0], ..., sparse_indices[i][d-1]] = sparse_values[i] <pre class="prettyprint" /></p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> other values in `dense` are set to `default_value`.  If `sparse_values` is a
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> other values in `dense` are set to `default_value`.  If `sparse_values` is a
     scalar, all sparse indices are set to this single value.</pre>
   </p>
   <p>
@@ -36,10 +36,10 @@
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * sparse_indices: 0-D, 1-D, or 2-D.  `sparse_indices[i]` contains the complete
     index where `sparse_values[i]` will be placed.
-    * output_shape: 1-D.  <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of the dense output tensor.
+    * output_shape: 1-D.  <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of the dense output tensor.
     * sparse_values: 1-D.  Values corresponding to each row of `sparse_indices`,
     or a scalar value to be used for all sparse indices.
     * default_value: Scalar value to set for indices not specified in
@@ -56,14 +56,14 @@
 class SparseToDense {
  public:
   /// Optional attribute setters for SparseToDense
-  struct <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> {
+  struct <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> {
     /** If true, indices are checked to make sure they are sorted in
         lexicographic order and that there are no repeats.</pre>
   </p>
   <p>
     <pre class="prettyprint">        Defaults to true */
-    TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> ValidateIndices(bool x) {
-      <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> ret = *this;
+    TF_MUST_USE_RESULT <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> ValidateIndices(bool x) {
+      <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> ret = *this;
       ret.validate_indices_ = x;
       return ret;
     }</pre>
@@ -71,25 +71,25 @@ class SparseToDense {
   <p>
     <pre class="prettyprint">    bool validate_indices_ = true;
   };
-  SparseToDense(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-              sparse_indices, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> output_shape,
-              <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+  SparseToDense(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+              sparse_indices, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> output_shape,
+              <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
               default_value);
-  SparseToDense(const <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-              sparse_indices, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> output_shape,
-              <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, <a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+  SparseToDense(const <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+              sparse_indices, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> output_shape,
+              <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, <a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
               default_value, const SparseToDense::Attrs& attrs);
   operator ::tensorflow::Output() const { return dense; }
   operator ::tensorflow::Input() const { return dense; }
   ::tensorflow::Node* node() const { return dense.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint">  static <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> ValidateIndices(bool x) {
+    <pre class="prettyprint">  static <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> ValidateIndices(bool x) {
     return Attrs().ValidateIndices(x);
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> dense;
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> dense;
 };</pre>
   </p>
   <p>
@@ -129,18 +129,18 @@ class SparseToDense {
   </p>
   <p><pre class="prettyprint" /> index = [0 0] [0 10] [0 20] [1 2] [1 10] values = [1, 2, 3, 4, 5] shape = [2 50] ```</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>sparse_handles: 1-D, The <code>N</code> serialized <code>SparseTensor</code> objects. <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a>: <code>[N]</code>.</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>sparse_handles: 1-D, The <code>N</code> serialized <code>SparseTensor</code> objects. <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a>: <code>[N]</code>.</li>
       <li>dtype: The <code>dtype</code> of the <code>SparseTensor</code> objects stored in the <code>SparseTensorsMap</code>.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a></code>):<ul>
       <li>container: The container name for the <code>SparseTensorsMap</code> read by this op.</li>
-      <li>shared_name: The shared name for the <code>SparseTensorsMap</code> read by this op. It should not be blank; rather the <code>shared_name</code> or unique <a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> name of the Op that created the original <code>SparseTensorsMap</code> should be used.</li>
+      <li>shared_name: The shared name for the <code>SparseTensorsMap</code> read by this op. It should not be blank; rather the <code>shared_name</code> or unique <a href="/versions/r1.8/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> name of the Op that created the original <code>SparseTensorsMap</code> should be used.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sparse_indices: 2-D. The <code>indices</code> of the minibatch <code>SparseTensor</code>.</li>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sparse_values: 1-D. The <code>values</code> of the minibatch <code>SparseTensor</code>.</li>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sparse_shape: 1-D. The <code>shape</code> of the minibatch <code>SparseTensor</code>. </li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sparse_indices: 2-D. The <code>indices</code> of the minibatch <code>SparseTensor</code>.</li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sparse_values: 1-D. The <code>values</code> of the minibatch <code>SparseTensor</code>.</li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> sparse_shape: 1-D. The <code>shape</code> of the minibatch <code>SparseTensor</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -150,13 +150,13 @@ class SparseToDense {
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1a83e35de64de0efe9f8dde569c0f07c19">TakeManySparseFromTensorsMap</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_handles, DataType dtype)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1a83e35de64de0efe9f8dde569c0f07c19">TakeManySparseFromTensorsMap</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_handles, DataType dtype)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1a41a02ee43f2ac5b803bfaf422e93996c">TakeManySparseFromTensorsMap</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_handles, DataType dtype, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">TakeManySparseFromTensorsMap::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1a41a02ee43f2ac5b803bfaf422e93996c">TakeManySparseFromTensorsMap</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_handles, DataType dtype, const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">TakeManySparseFromTensorsMap::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -173,7 +173,7 @@ class SparseToDense {
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -183,7 +183,7 @@ class SparseToDense {
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -193,7 +193,7 @@ class SparseToDense {
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -210,7 +210,7 @@ class SparseToDense {
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -220,7 +220,7 @@ class SparseToDense {
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -233,35 +233,35 @@ class SparseToDense {
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs">tensorflow::<wbr/>ops::<wbr/>TakeManySparseFromTensorsMap::<wbr/>Attrs</a>
+        <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs">tensorflow::<wbr/>ops::<wbr/>TakeManySparseFromTensorsMap::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/take-many-sparse-from-tensors-map.html#classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map">TakeManySparseFromTensorsMap</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/take-many-sparse-from-tensors-map.html#classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map">TakeManySparseFromTensorsMap</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1a2bf4dc72b65cf3aba1bb9d9da37e0d75">
     <h3>sparse_indices</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sparse_indices</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sparse_indices</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1a2bc04b48df2df2f26a1d9457b99e824d">
     <h3>sparse_shape</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sparse_shape</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sparse_shape</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1a13b416e0f903165522e36315dab400c4">
     <h3>sparse_values</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sparse_values</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sparse_values</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1a83e35de64de0efe9f8dde569c0f07c19">
     <h3>TakeManySparseFromTensorsMap</h3>
     <pre class="prettyprint"> TakeManySparseFromTensorsMap(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_handles,
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_handles,
   DataType dtype
 )</pre>
     <div />
@@ -269,24 +269,24 @@ class SparseToDense {
   <div id="classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1a41a02ee43f2ac5b803bfaf422e93996c">
     <h3>TakeManySparseFromTensorsMap</h3>
     <pre class="prettyprint"> TakeManySparseFromTensorsMap(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_handles,
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_handles,
   DataType dtype,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">TakeManySparseFromTensorsMap::Attrs</a> & attrs
+  const <a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">TakeManySparseFromTensorsMap::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1adba16ce7b05be3dc85601cd7cce43cb2">
     <h3>Container</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> Container(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> Container(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1a3b66a348014e00a092326b498128eb35">
     <h3>SharedName</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> SharedName(
+    <pre class="prettyprint"><a href="/versions/r1.8/api_docs/cc/struct/tensorflow/ops/take-many-sparse-from-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map_1_1_attrs">Attrs</a> SharedName(
   StringPiece x
 )</pre>
     <div />

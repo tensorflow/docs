@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,15 +10,15 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/preprocessing/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/preprocessing/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/keras/preprocessing/__init__.py`.
 
-Keras data preprocessing utils.
+
 
 ## Modules
 
-[`image`](../../tf/keras/preprocessing/image) module: Fairly basic set of tools for real-time data augmentation on image data.
+[`image`](../../tf/keras/preprocessing/image) module
 
-[`sequence`](../../tf/keras/preprocessing/sequence) module: Utilities for preprocessing sequence data.
+[`sequence`](../../tf/keras/preprocessing/sequence) module
 
-[`text`](../../tf/keras/preprocessing/text) module: Utilities for text input preprocessing.
+[`text`](../../tf/keras/preprocessing/text) module
 

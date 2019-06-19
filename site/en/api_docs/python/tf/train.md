@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,15 +10,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/train/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/train/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/train/__init__.py`.
 
-Support for training models.
 
-See the <a href="../../../api_guides/python/train">Training</a> guide.
 
 ## Modules
 
-[`queue_runner`](../tf/train/queue_runner) module: Create threads to run multiple enqueue ops.
+[`queue_runner`](../tf/train/queue_runner) module
 
 ## Classes
 
@@ -31,8 +29,6 @@ See the <a href="../../../api_guides/python/train">Training</a> guide.
 [`class AdamOptimizer`](../tf/train/AdamOptimizer): Optimizer that implements the Adam algorithm.
 
 [`class BytesList`](../tf/train/BytesList)
-
-[`class Checkpoint`](../tf/train/Checkpoint): Groups checkpointable objects, saving and restoring them.
 
 [`class CheckpointSaverHook`](../tf/train/CheckpointSaverHook): Saves checkpoints every N steps or seconds.
 

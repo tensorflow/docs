@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -21,7 +21,7 @@ tf.contrib.estimator.regression_head(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/head.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/estimator/python/estimator/head.py).
 
 Creates a `_Head` for regression using the `mean_squared_error` loss.
 
@@ -45,38 +45,10 @@ Supports custom `loss_fn`. `loss_fn` takes `(labels, logits)` or
 shape `[D0, D1, ... DN, label_dimension]`.
 
 Also supports custom `inverse_link_fn`, also known as 'mean function'.
-`inverse_link_fn` is only used in `PREDICT` mode. It takes `logits` as
-argument and returns predicted values. This function is the inverse of the
-link function defined in
+`inverse_link_fn` takes `logits` as argument and returns predicted values.
+This function is the inverse of the link function defined in
 https://en.wikipedia.org/wiki/Generalized_linear_model#Link_function
 Namely, for poisson regression, set `inverse_link_fn=tf.exp`.
-
-The head can be used with a canned estimator. Example:
-
-```python
-my_head = tf.contrib.estimator.regression_head()
-my_estimator = tf.contrib.estimator.DNNEstimator(
-    head=my_head,
-    hidden_units=...,
-    feature_columns=...)
-```
-
-It can also be used with a custom `model_fn`. Example:
-
-```python
-def _my_model_fn(features, labels, mode):
-  my_head = tf.contrib.estimator.regression_head()
-  logits = tf.keras.Model(...)(features)
-
-  return my_head.create_estimator_spec(
-      features=features,
-      mode=mode,
-      labels=labels,
-      optimizer=tf.AdagradOptimizer(learning_rate=0.1),
-      logits=logits)
-
-my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
-```
 
 #### Args:
 

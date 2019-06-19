@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,48 +10,45 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/keras/__init__.py`.
 
-Implementation of the Keras API meant to be a high-level API for TensorFlow.
 
-Detailed documentation and user guides are available at
-[keras.io](https://keras.io).
 
 ## Modules
 
-[`activations`](../tf/keras/activations) module: Built-in activation functions.
+[`activations`](../tf/keras/activations) module
 
-[`applications`](../tf/keras/applications) module: Keras Applications are canned architectures with pre-trained weights.
+[`applications`](../tf/keras/applications) module
 
-[`backend`](../tf/keras/backend) module: Keras backend API.
+[`backend`](../tf/keras/backend) module
 
-[`callbacks`](../tf/keras/callbacks) module: Callbacks: utilities called at certain points during model training.
+[`callbacks`](../tf/keras/callbacks) module
 
-[`constraints`](../tf/keras/constraints) module: Constraints: functions that impose constraints on weight values.
+[`constraints`](../tf/keras/constraints) module
 
-[`datasets`](../tf/keras/datasets) module: Keras built-in datasets.
+[`datasets`](../tf/keras/datasets) module
 
-[`estimator`](../tf/keras/estimator) module: Home of estimator related functions.
+[`estimator`](../tf/keras/estimator) module
 
-[`initializers`](../tf/keras/initializers) module: Keras initializer classes (soon to be replaced with core TF initializers).
+[`initializers`](../tf/keras/initializers) module
 
-[`layers`](../tf/keras/layers) module: Keras layers API.
+[`layers`](../tf/keras/layers) module
 
-[`losses`](../tf/keras/losses) module: Built-in loss functions.
+[`losses`](../tf/keras/losses) module
 
-[`metrics`](../tf/keras/metrics) module: Built-in metrics.
+[`metrics`](../tf/keras/metrics) module
 
-[`models`](../tf/keras/models) module: Code for model cloning, plus model-related API entries.
+[`models`](../tf/keras/models) module
 
-[`optimizers`](../tf/keras/optimizers) module: Built-in optimizer classes.
+[`optimizers`](../tf/keras/optimizers) module
 
-[`preprocessing`](../tf/keras/preprocessing) module: Keras data preprocessing utils.
+[`preprocessing`](../tf/keras/preprocessing) module
 
-[`regularizers`](../tf/keras/regularizers) module: Built-in regularizers.
+[`regularizers`](../tf/keras/regularizers) module
 
-[`utils`](../tf/keras/utils) module: Keras utilities.
+[`utils`](../tf/keras/utils) module
 
-[`wrappers`](../tf/keras/wrappers) module: Wrappers for Keras models, providing compatibility with other frameworks.
+[`wrappers`](../tf/keras/wrappers) module
 
 ## Classes
 
@@ -62,8 +59,4 @@ Detailed documentation and user guides are available at
 ## Functions
 
 [`Input(...)`](../tf/keras/Input): `Input()` is used to instantiate a Keras tensor.
-
-## Other Members
-
-`__version__`
 

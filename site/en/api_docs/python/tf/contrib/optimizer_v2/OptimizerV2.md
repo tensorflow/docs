@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/optimizer_v2/optimizer_v2.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/optimizer_v2/optimizer_v2.py).
+Defined in [`tensorflow/contrib/optimizer_v2/optimizer_v2.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/optimizer_v2/optimizer_v2.py).
 
 Updated base class for optimizers.
 
@@ -116,7 +116,7 @@ callables. If they are callable, the callable will be called during
 
 ### State
 
-Internal methods are passed a `state` argument with the correct
+Internal methods apre passed a `state` argument with the correct
 values to use for the slot and non-slot variables, and the hyper
 parameters.
 

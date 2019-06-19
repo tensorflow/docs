@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`StandardInputStep`](../../../tf/contrib/distribute/StandardInpu
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/step_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distribute/python/step_fn.py).
+Defined in [`tensorflow/contrib/distribute/python/step_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/distribute/python/step_fn.py).
 
 A step function that implements a training step for a feed forward network.
 
@@ -32,8 +32,7 @@ step(distribution)
 
 #### Args:
 
-* <b>`dataset_fn`</b>: a function that returns a tf.data Dataset that produces the
-    input for the model.
+* <b>`input_dataset`</b>: a tf.data Dataset that provides input.
 * <b>`loss_fn`</b>: a function that returns loss.
 * <b>`optimizer`</b>: an optimizer that implements an update rule.
 * <b>`distribution`</b>: a `DistributionStrategy` object.
@@ -52,7 +51,7 @@ step(distribution)
 
 ``` python
 __init__(
-    dataset_fn,
+    input_dataset,
     loss_fn,
     optimizer,
     distribution

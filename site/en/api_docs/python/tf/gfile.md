@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,9 +10,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/gfile/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/gfile/__init__.py).
+Defined in generated file: `tensorflow/tools/api/generator/api/gfile/__init__.py`.
 
-Import router for file_io.
+
 
 ## Classes
 

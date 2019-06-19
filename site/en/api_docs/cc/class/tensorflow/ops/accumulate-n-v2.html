@@ -3,7 +3,7 @@
 <head>
   <title>tensorflow::ops::AccumulateNV2 Class Reference</title>
   <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="book_path" value="/versions/r1.8/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -14,14 +14,14 @@
   <h2>Summary</h2>
   <p><code>tf.accumulate_n_v2</code> performs the same operation as <code>tf.add_n</code>, but does not wait for all of its inputs to be ready before beginning to sum. This can save memory if inputs are ready at different times, since minimum temporary storage is proportional to the output size rather than the inputs size.</p>
   <p>Unlike the original <code>accumulate_n</code>, <code>accumulate_n_v2</code> is differentiable.</p>
-  <p>Returns a <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of same shape and type as the elements of <code>inputs</code>.</p>
+  <p>Returns a <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of same shape and type as the elements of <code>inputs</code>.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>inputs: A list of <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> objects, each with same shape and type.</li>
-      <li>shape: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of elements of <code>inputs</code>.</li>
+      <li>scope: A <a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>inputs: A list of <code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> objects, each with same shape and type.</li>
+      <li>shape: <a href="/versions/r1.8/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of elements of <code>inputs</code>.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The sum tensor. </li>
+      <li><code><a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The sum tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -31,7 +31,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_accumulate_n_v2_1aa0b3bc0d86d99eb42148d4c9d7423caf">AccumulateNV2</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> inputs, PartialTensorShape shape)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_accumulate_n_v2_1aa0b3bc0d86d99eb42148d4c9d7423caf">AccumulateNV2</a>(const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> inputs, PartialTensorShape shape)</code>
         <br />
       </td>
     </tr>
@@ -48,7 +48,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -93,15 +93,15 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_accumulate_n_v2_1acdb8321212157356c76d4ab16bbf887a">
     <h3>sum</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sum</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sum</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_accumulate_n_v2_1aa0b3bc0d86d99eb42148d4c9d7423caf">
     <h3>AccumulateNV2</h3>
     <pre class="prettyprint"> AccumulateNV2(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> inputs,
+  const ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.8/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> inputs,
   PartialTensorShape shape
 )</pre>
     <div />

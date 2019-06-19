@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -25,7 +25,7 @@ tf.keras.utils.get_file(
 
 
 
-Defined in [`tensorflow/python/keras/utils/data_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/utils/data_utils.py).
+Defined in [`tensorflow/python/keras/_impl/keras/utils/data_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/keras/_impl/keras/utils/data_utils.py).
 
 Downloads a file from a URL if it not already in the cache.
 

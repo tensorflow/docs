@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -10,21 +10,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/compat/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/compat/__init__.py).
-
-Functions for Python 2 vs. 3 compatibility.
-
-## Conversion routines
-In addition to the functions below, `as_str` converts an object to a `str`.
+Defined in generated file: `tensorflow/tools/api/generator/api/compat/__init__.py`.
 
 
-## Types
-The compatibility module also provides the following types:
-
-* `bytes_or_text_types`
-* `complex_types`
-* `integral_types`
-* `real_types`
 
 ## Functions
 

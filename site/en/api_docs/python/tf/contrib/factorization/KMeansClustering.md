@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -14,7 +14,7 @@ Inherits From: [`Estimator`](../../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/kmeans.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/factorization/python/ops/kmeans.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/kmeans.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/contrib/factorization/python/ops/kmeans.py).
 
 An Estimator for K-Means clustering.
 
@@ -161,11 +161,11 @@ that:
           than `num_clusters`, a TensorFlow runtime error occurs.
 * <b>`distance_metric`</b>: The distance metric used for clustering. One of:
     * `KMeansClustering.SQUARED_EUCLIDEAN_DISTANCE`: Euclidean distance
-         between vectors `u` and `v` is defined as \(||u - v||_2\)
+         between vectors `u` and `v` is defined as `\(||u - v||_2\)`
          which is the square root of the sum of the absolute squares of
          the elements' difference.
     * `KMeansClustering.COSINE_DISTANCE`: Cosine distance between vectors
-         `u` and `v` is defined as \(1 - (u . v) / (||u||_2 ||v||_2)\).
+         `u` and `v` is defined as `\(1 - (u . v) / (||u||_2 ||v||_2)\)`.
 * <b>`random_seed`</b>: Python integer. Seed for PRNG used to initialize centers.
 * <b>`use_mini_batch`</b>: A boolean specifying whether to use the mini-batch k-means
     algorithm. See explanation above.
@@ -201,26 +201,6 @@ cluster_centers()
 
 Returns the cluster centers.
 
-<h3 id="eval_dir"><code>eval_dir</code></h3>
-
-``` python
-eval_dir(name=None)
-```
-
-Shows directory name where evaluation metrics are dumped.
-
-#### Args:
-
-* <b>`name`</b>: Name of the evaluation if user needs to run multiple evaluations on
-    different data sets, such as on training data vs test data. Metrics for
-    different evaluations are saved in separate folders, and appear
-    separately in tensorboard.
-
-
-#### Returns:
-
-A string which is the path of directory contains evaluation metrics.
-
 <h3 id="evaluate"><code>evaluate</code></h3>
 
 ``` python
@@ -244,7 +224,7 @@ Evaluates until:
 #### Args:
 
 * <b>`input_fn`</b>: A function that constructs the input data for evaluation.
-    See <a href="../../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
+    See <a href="../../../../../get_started/premade_estimators#create_input_functions">Premade Estimators</a> for more
     information. The function should construct and return one of
     the following:
 
@@ -261,9 +241,7 @@ Evaluates until:
 * <b>`hooks`</b>: List of `SessionRunHook` subclass instances. Used for callbacks
     inside the evaluation call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to evaluate. If `None`, the
-    latest checkpoint in `model_dir` is used.  If there are no checkpoints
-    in `model_dir`, evaluation is run with newly initialized `Variables`
-    instead of restored from checkpoint.
+    latest checkpoint in `model_dir` is used.
 * <b>`name`</b>: Name of the evaluation if user needs to run multiple evaluations on
     different data sets, such as on training data vs test data. Metrics for
     different evaluations are saved in separate folders, and appear
@@ -299,7 +277,7 @@ export_savedmodel(
 Exports inference graph as a SavedModel into given dir.
 
 For a detailed guide, see
-<a href="../../../../../guide/saved_model#using_savedmodel_with_estimators">Using SavedModel with Estimators</a>.
+<a href="../../../../../programmers_guide/saved_model#using_savedmodel_with_estimators">Using SavedModel with Estimators</a>.
 
 This method builds a new graph by first calling the
 serving_input_receiver_fn to obtain feature `Tensor`s, and then calling
@@ -423,7 +401,7 @@ Yields predictions for given features.
 * <b>`input_fn`</b>: A function that constructs the features. Prediction continues
     until `input_fn` raises an end-of-input exception (`OutOfRangeError` or
     `StopIteration`).
-    See <a href="../../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
+    See <a href="../../../../../get_started/premade_estimators#create_input_functions">Premade Estimators</a> for more
     information. The function should construct and return one of
     the following:
 
@@ -441,9 +419,7 @@ Yields predictions for given features.
 * <b>`hooks`</b>: List of `SessionRunHook` subclass instances. Used for callbacks
     inside the prediction call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to predict. If `None`, the
-    latest checkpoint in `model_dir` is used.  If there are no checkpoints
-    in `model_dir`, prediction is run with newly initialized `Variables`
-    instead of restored from checkpoint.
+    latest checkpoint in `model_dir` is used.
 * <b>`yield_single_examples`</b>: If False, yield the whole batch as returned by the
     `model_fn` instead of decomposing the batch into individual elements.
     This is useful if `model_fn` returns some tensors whose first dimension
@@ -520,7 +496,7 @@ Trains a model given training data input_fn.
 #### Args:
 
 * <b>`input_fn`</b>: A function that provides input data for training as minibatches.
-    See <a href="../../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
+    See <a href="../../../../../get_started/premade_estimators#create_input_functions">Premade Estimators</a> for more
     information. The function should construct and return one of
     the following:
 

@@ -1,7 +1,7 @@
 
 
 page_type: reference
-<style> table img { max-width: 100%; } </style>
+<style>{% include "site-assets/css/style.css" %}</style>
 
 
 <!-- DO NOT EDIT! Automatically generated file. -->
@@ -22,7 +22,7 @@ tf.nn.embedding_lookup_sparse(
 
 
 
-Defined in [`tensorflow/python/ops/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/embedding_ops.py).
+Defined in [`tensorflow/python/ops/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/python/ops/embedding_ops.py).
 
 See the guide: [Neural Network > Embeddings](../../../../api_guides/python/nn#Embeddings)
 
@@ -42,11 +42,11 @@ is the sum of the size of params along dimension 0.
     representing sharded embedding tensors.  Alternatively, a
     `PartitionedVariable`, created by partitioning along dimension 0. Each
     element must be appropriately sized for the given `partition_strategy`.
-* <b>`sp_ids`</b>: N x M `SparseTensor` of int64 ids where N is typically batch size
-    and M is arbitrary.
-* <b>`sp_weights`</b>: either a `SparseTensor` of float / double weights, or `None` to
-    indicate all weights should be taken to be 1. If specified, `sp_weights`
-    must have exactly the same shape and indices as `sp_ids`.
+* <b>`sp_ids`</b>: N x M SparseTensor of int64 ids (typically from FeatureValueToId),
+    where N is typically batch size and M is arbitrary.
+* <b>`sp_weights`</b>: either a SparseTensor of float / double weights, or None to
+    indicate all weights should be taken to be 1. If specified, sp_weights
+    must have exactly the same shape and indices as sp_ids.
 * <b>`partition_strategy`</b>: A string specifying the partitioning strategy, relevant
     if `len(params) > 1`. Currently `"div"` and `"mod"` are supported. Default
     is `"mod"`. See <a href="../../tf/nn/embedding_lookup"><code>tf.nn.embedding_lookup</code></a> for more details.
@@ -64,38 +64,38 @@ is the sum of the size of params along dimension 0.
 #### Returns:
 
 A dense tensor representing the combined embeddings for the
-sparse ids. For each row in the dense tensor represented by `sp_ids`, the op
+sparse ids. For each row in the dense tensor represented by sp_ids, the op
 looks up the embeddings for all ids in that row, multiplies them by the
 corresponding weight, and combines these embeddings as specified.
 
 In other words, if
 
-  `shape(combined params) = [p0, p1, ..., pm]`
+  shape(combined params) = [p0, p1, ..., pm]
 
 and
 
-  `shape(sp_ids) = shape(sp_weights) = [d0, d1, ..., dn]`
+  shape(sp_ids) = shape(sp_weights) = [d0, d1, ..., dn]
 
 then
 
-  `shape(output) = [d0, d1, ..., dn-1, p1, ..., pm]`.
+  shape(output) = [d0, d1, ..., dn-1, p1, ..., pm].
 
 For instance, if params is a 10x20 matrix, and sp_ids / sp_weights are
 
->     [0, 0]: id 1, weight 2.0
->     [0, 1]: id 3, weight 0.5
->     [1, 0]: id 0, weight 1.0
->     [2, 3]: id 1, weight 3.0
+  [0, 0]: id 1, weight 2.0
+  [0, 1]: id 3, weight 0.5
+  [1, 0]: id 0, weight 1.0
+  [2, 3]: id 1, weight 3.0
 
 with `combiner`="mean", then the output will be a 3x20 matrix where
 
->     output[0, :] = (params[1, :] * 2.0 + params[3, :] * 0.5) / (2.0 + 0.5)
->     output[1, :] = (params[0, :] * 1.0) / 1.0
->     output[2, :] = (params[1, :] * 3.0) / 3.0
+  output[0, :] = (params[1, :] * 2.0 + params[3, :] * 0.5) / (2.0 + 0.5)
+  output[1, :] = (params[0, :] * 1.0) / 1.0
+  output[2, :] = (params[1, :] * 3.0) / 3.0
 
 
 #### Raises:
 
-* <b>`TypeError`</b>: If `sp_ids` is not a `SparseTensor`, or if `sp_weights` is
-    neither `None` nor `SparseTensor`.
-* <b>`ValueError`</b>: If `combiner` is not one of {"mean", "sqrtn", "sum"}.
+* <b>`TypeError`</b>: If sp_ids is not a SparseTensor, or if sp_weights is neither
+    None nor SparseTensor.
+* <b>`ValueError`</b>: If combiner is not one of {"mean", "sqrtn", "sum"}.
