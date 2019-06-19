@@ -237,17 +237,16 @@ feature {
 ...
 ```
 
-The following components use the schema:
+スキーマを利用しているコンポーネントは次のとおりです :
 
 *   TensorFlow Data Validation
 *   TensorFlow Transform
 
-In a typical TFX pipeline TensorFlow Data Validation generates a schema, which
-is consumed by the other components.
+典型的な TFX のパイプラインでは TensorFlow Data Validation がスキーマを生成し、
+他のコンポーネントがそれを利用します。
 
-Note: The auto-generated schema is best-effort and only tries to infer basic
-properties of the data. It is expected that developers review and modify it as
-needed.
+Note: 自動生成されたスキーマは「ベストエフォート」のものであり、単にデータの基本的な特徴の推測を試みるものです。
+生成されたスキーマについては、開発者が確認し、必要な場合は修正を加えることが期待されています。
 
 ## Developing with TFX
 
