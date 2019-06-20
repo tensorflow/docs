@@ -329,11 +329,11 @@ The most straightforward fix is to use
 as follows:
 
 ```
->>> params = {'batch_size':32}
->>> ds = tf.data.Dataset.from_tensors([0, 1, 2])
->>> ds = ds.repeat().apply(
-...     tf.contrib.data.batch_and_drop_remainder(params['batch_size']))
->>> ds
+params = {'batch_size':32}
+ds = tf.data.Dataset.from_tensors([0, 1, 2])
+ds = ds.repeat().apply(
+    tf.contrib.data.batch_and_drop_remainder(params['batch_size']))
+ds
 
  <DatasetV1Adapter shapes: (32, 3), types: tf.int32>
 ```
