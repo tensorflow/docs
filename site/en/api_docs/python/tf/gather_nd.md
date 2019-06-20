@@ -1,12 +1,15 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.gather_nd
+
+### Aliases:
+
+* `tf.gather_nd`
+* `tf.manip.gather_nd`
 
 ``` python
 tf.gather_nd(
@@ -28,7 +31,7 @@ Gather slices from `params` into a Tensor with shape specified by `indices`.
 (K-1)-dimensional tensor of indices into `params`, where each element defines a
 slice of `params`:
 
-    output[i_0, ..., i_{K-2}] = params[indices[i0, ..., i_{K-2}]]
+    output[\\(i_0, ..., i_{K-2}\\)] = params[indices[\\(i_0, ..., i_{K-2}\\)]]
 
 Whereas in <a href="../tf/gather"><code>tf.gather</code></a> `indices` defines slices into the first
 dimension of `params`, in <a href="../tf/gather_nd"><code>tf.gather_nd</code></a>, `indices` defines slices into the

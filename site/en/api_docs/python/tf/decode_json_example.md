@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.decode_json_example
+
+### Aliases:
+
+* `tf.decode_json_example`
+* `tf.io.decode_json_example`
 
 ``` python
 tf.decode_json_example(

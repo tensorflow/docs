@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,10 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/__init__.py).
+Defined in [`tensorflow/contrib/tpu/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/tpu/__init__.py).
 
 Ops related to Tensor Processing Units.
+
 
 
 
@@ -48,6 +46,8 @@ Ops related to Tensor Processing Units.
 ## Functions
 
 [`batch_parallel(...)`](../../tf/contrib/tpu/batch_parallel): Shards `computation` along the batch dimension for parallel execution.
+
+[`bfloat16_scope(...)`](../../tf/contrib/tpu/bfloat16_scope): Scope class for bfloat16 variables so that the model uses custom getter.
 
 [`core(...)`](../../tf/contrib/tpu/core): Returns the device name for a core in a replicated TPU computation.
 

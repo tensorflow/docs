@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,15 +11,13 @@ tf.contrib.batching.batch_function(
     max_batch_size,
     batch_timeout_micros,
     allowed_batch_sizes=None,
-    grad_timeout_micros=(60 * 1000 * 1000),
-    unbatch_timeout_micros=(60 * 1000 * 1000),
     max_enqueued_batches=10
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/batching/python/ops/batch_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/batching/python/ops/batch_ops.py).
+Defined in [`tensorflow/contrib/batching/python/ops/batch_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/batching/python/ops/batch_ops.py).
 
 Batches the computation done by the decorated function.
 
@@ -58,10 +53,6 @@ must be a Tensor or a list/tuple of Tensors.
    does nothing. Otherwise, supplies a list of batch sizes, causing the op
    to pad batches up to one of those sizes. The entries must increase
    monotonically, and the final entry must equal max_batch_size.
-* <b>`grad_timeout_micros`</b>: The timeout to use for the gradient. See the
-   documentation of the unbatch op for more details. Defaults to 60s.
-* <b>`unbatch_timeout_micros`</b>: The timeout to use for unbatching. See the
-   documentation of the unbatch op for more details. Defaults to 60s.
 * <b>`max_enqueued_batches`</b>: The maximum depth of the batch queue. Defaults to 10.
 
 

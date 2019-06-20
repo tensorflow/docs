@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Estimator`](../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/python/estimator/canned/dnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/canned/dnn.py).
+Defined in [`tensorflow/python/estimator/canned/dnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/estimator/canned/dnn.py).
 
 See the guide: [Regression Examples](../../../../api_guides/python/regression_examples)
 
@@ -44,6 +41,17 @@ estimator = DNNRegressor(
       learning_rate=0.1,
       l1_regularization_strength=0.001
     ))
+
+# Or estimator using an optimizer with a learning rate decay.
+estimator = DNNRegressor(
+    feature_columns=[categorical_feature_a_emb, categorical_feature_b_emb],
+    hidden_units=[1024, 512, 256],
+    optimizer=lambda: tf.AdamOptimizer(
+        learning_rate=tf.exponential_decay(
+            learning_rate=0.1,
+            global_step=tf.get_global_step(),
+            decay_steps=10000,
+            decay_rate=0.96))
 
 # Or estimator with warm-starting from a previous checkpoint.
 estimator = DNNRegressor(
@@ -83,7 +91,10 @@ Loss is calculated by using mean squared error.
 
 
 #### Eager Compatibility
-Estimators are not compatible with eager execution.
+Estimators can be used while eager execution is enabled. Note that `input_fn`
+and all hooks are executed inside a graph context, so they have to be written
+to be compatible with graph mode. Note that `input_fn` code using <a href="../../tf/data"><code>tf.data</code></a>
+generally works in both graph and eager modes.
 
 
 
@@ -129,7 +140,8 @@ __init__(
     input_layer_partitioner=None,
     config=None,
     warm_start_from=None,
-    loss_reduction=losses.Reduction.SUM
+    loss_reduction=losses.Reduction.SUM,
+    batch_norm=False
 )
 ```
 
@@ -156,8 +168,9 @@ Initializes a `DNNRegressor` instance.
     used as a key to fetch weight tensor from the `features`. If it is a
     `_NumericColumn`, raw tensor is fetched by key `weight_column.key`,
     then weight_column.normalizer_fn is applied on it to get weight tensor.
-* <b>`optimizer`</b>: An instance of `tf.Optimizer` used to train the model. Defaults
-    to Adagrad optimizer.
+* <b>`optimizer`</b>: An instance of `tf.Optimizer` used to train the model. Can also
+    be a string (one of 'Adagrad', 'Adam', 'Ftrl', 'RMSProp', 'SGD'), or
+    callable. Defaults to Adagrad optimizer.
 * <b>`activation_fn`</b>: Activation function applied to each layer. If `None`, will
     use <a href="../../tf/nn/relu"><code>tf.nn.relu</code></a>.
 * <b>`dropout`</b>: When not `None`, the probability we will drop out a given
@@ -172,6 +185,7 @@ Initializes a `DNNRegressor` instance.
     names are unchanged.
 * <b>`loss_reduction`</b>: One of <a href="../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Describes how
     to reduce training loss over batch. Defaults to `SUM`.
+* <b>`batch_norm`</b>: Whether to use batch normalization after each hidden layer.
 
 <h3 id="eval_dir"><code>eval_dir</code></h3>
 

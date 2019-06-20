@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.add
+
+### Aliases:
+
+* `tf.add`
+* `tf.math.add`
 
 ``` python
 tf.add(
@@ -24,7 +26,7 @@ See the guide: [Math > Arithmetic Operators](../../../api_guides/python/math_ops
 
 Returns x + y element-wise.
 
-*NOTE*: `Add` supports broadcasting. `AddN` does not. More about broadcasting
+*NOTE*: `math.add` supports broadcasting. `AddN` does not. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:

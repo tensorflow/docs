@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.regex_replace
+
+### Aliases:
+
+* `tf.regex_replace`
+* `tf.strings.regex_replace`
 
 ``` python
 tf.regex_replace(

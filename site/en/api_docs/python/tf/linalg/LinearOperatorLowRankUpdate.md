@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linear_operator_low_rank_update.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/linalg/linear_operator_low_rank_update.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator_low_rank_update.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/linalg/linear_operator_low_rank_update.py).
 
 See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
 
@@ -265,8 +262,7 @@ this can be done using a Cholesky factorization.  The user should set the
 
 #### Args:
 
-* <b>`base_operator`</b>:  Shape `[B1,...,Bb, M, N]` real `float16`, `float32` or
-    `float64` `LinearOperator`.  This is `L` above.
+* <b>`base_operator`</b>:  Shape `[B1,...,Bb, M, N]`.
 * <b>`u`</b>:  Shape `[B1,...,Bb, M, K]` `Tensor` of same `dtype` as `base_operator`.
     This is `U` above.
 * <b>`diag_update`</b>:  Optional shape `[B1,...,Bb, K]` `Tensor` with same `dtype`

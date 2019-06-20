@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.fake_quant_with_min_max_vars_per_channel
+
+### Aliases:
+
+* `tf.fake_quant_with_min_max_vars_per_channel`
+* `tf.quantization.fake_quant_with_min_max_vars_per_channel`
 
 ``` python
 tf.fake_quant_with_min_max_vars_per_channel(

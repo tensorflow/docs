@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.logical_or
+
+### Aliases:
+
+* `tf.logical_or`
+* `tf.math.logical_or`
 
 ``` python
 tf.logical_or(
@@ -24,7 +26,7 @@ See the guide: [Control Flow > Logical Operators](../../../api_guides/python/con
 
 Returns the truth value of x OR y element-wise.
 
-*NOTE*: `LogicalOr` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_or` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:

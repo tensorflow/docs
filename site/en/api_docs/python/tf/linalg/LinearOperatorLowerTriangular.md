@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linear_operator_lower_triangular.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/linalg/linear_operator_lower_triangular.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator_lower_triangular.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/linalg/linear_operator_lower_triangular.py).
 
 See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
 
@@ -210,8 +207,7 @@ Initialize a `LinearOperatorLowerTriangular`.
 
 * <b>`tril`</b>:  Shape `[B1,...,Bb, N, N]` with `b >= 0`, `N >= 0`.
     The lower triangular part of `tril` defines this operator.  The strictly
-    upper triangle is ignored.  Allowed dtypes: `float16`, `float32`,
-    `float64`.
+    upper triangle is ignored.
 * <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
     This operator is non-singular if and only if its diagonal elements are
     all non-zero.
@@ -230,7 +226,6 @@ Initialize a `LinearOperatorLowerTriangular`.
 
 #### Raises:
 
-* <b>`TypeError`</b>:  If `diag.dtype` is not an allowed type.
 * <b>`ValueError`</b>:  If `is_square` is `False`.
 
 <h3 id="add_to_tensor"><code>add_to_tensor</code></h3>

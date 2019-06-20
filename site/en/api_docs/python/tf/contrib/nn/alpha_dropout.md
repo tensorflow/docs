@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.contrib.nn.alpha_dropout(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/alpha_dropout.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/nn/python/ops/alpha_dropout.py).
+Defined in [`tensorflow/contrib/nn/python/ops/alpha_dropout.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/nn/python/ops/alpha_dropout.py).
 
 Computes alpha dropout.
 

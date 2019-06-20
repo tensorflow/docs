@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/__init__.py).
+Defined in [`tensorflow/keras/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/keras/__init__.py).
 
 Implementation of the Keras API meant to be a high-level API for TensorFlow.
 
@@ -31,7 +28,7 @@ Detailed documentation and user guides are available at
 
 [`datasets`](../tf/keras/datasets) module: Keras built-in datasets.
 
-[`estimator`](../tf/keras/estimator) module: Home of estimator related functions.
+[`estimator`](../tf/keras/estimator) module: Keras estimator API.
 
 [`initializers`](../tf/keras/initializers) module: Keras initializer classes (soon to be replaced with core TF initializers).
 

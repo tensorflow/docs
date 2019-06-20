@@ -2,23 +2,23 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::StridedSliceGrad Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.10/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>StridedSliceGrad</h1>
   <code>#include &lt;array_ops.h&gt;</code>
-  <p>Returns the gradient of <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/strided-slice.html#classtensorflow_1_1ops_1_1_strided_slice">StridedSlice</a></code>. </p>
+  <p>Returns the gradient of <code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/strided-slice.html#classtensorflow_1_1ops_1_1_strided_slice">StridedSlice</a></code>. </p>
   <h2>Summary</h2>
-  <p>Since <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/strided-slice.html#classtensorflow_1_1ops_1_1_strided_slice">StridedSlice</a></code> cuts out pieces of its <code>input</code> which is size <code>shape</code>, its gradient will have the same shape (which is passed here as <code>shape</code>). The gradient will be zero in any element that the slice does not select.</p>
-  <p>Arguments are the same as <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/strided-slice-grad.html#classtensorflow_1_1ops_1_1_strided_slice_grad">StridedSliceGrad</a> with the exception that <code>dy</code> is the input gradient to be propagated and <code>shape</code> is the shape of <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/strided-slice.html#classtensorflow_1_1ops_1_1_strided_slice">StridedSlice</a></code>'s <code>input</code>.</p>
+  <p>Since <code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/strided-slice.html#classtensorflow_1_1ops_1_1_strided_slice">StridedSlice</a></code> cuts out pieces of its <code>input</code> which is size <code>shape</code>, its gradient will have the same shape (which is passed here as <code>shape</code>). The gradient will be zero in any element that the slice does not select.</p>
+  <p>Arguments are the same as <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/strided-slice-grad.html#classtensorflow_1_1ops_1_1_strided_slice_grad">StridedSliceGrad</a> with the exception that <code>dy</code> is the input gradient to be propagated and <code>shape</code> is the shape of <code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/strided-slice.html#classtensorflow_1_1ops_1_1_strided_slice">StridedSlice</a></code>'s <code>input</code>.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+      <li><code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -28,13 +28,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_strided_slice_grad_1ab69e05a4ce797eb51c02c97a1ebcf323">StridedSliceGrad</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_strided_slice_grad_1ab69e05a4ce797eb51c02c97a1ebcf323">StridedSliceGrad</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_strided_slice_grad_1aed0f5e60c077d08b54faeb80cd1ffe0d">StridedSliceGrad</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">StridedSliceGrad::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_strided_slice_grad_1aed0f5e60c077d08b54faeb80cd1ffe0d">StridedSliceGrad</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy, const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">StridedSliceGrad::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -51,7 +51,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -105,7 +105,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -115,7 +115,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -125,7 +125,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -135,7 +135,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -145,7 +145,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -158,42 +158,42 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs">tensorflow::<wbr/>ops::<wbr/>StridedSliceGrad::<wbr/>Attrs</a>
+        <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs">tensorflow::<wbr/>ops::<wbr/>StridedSliceGrad::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/strided-slice-grad.html#classtensorflow_1_1ops_1_1_strided_slice_grad">StridedSliceGrad</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/strided-slice-grad.html#classtensorflow_1_1ops_1_1_strided_slice_grad">StridedSliceGrad</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_grad_1a6fb30a5fc4228d73ead47fafece015fb">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_grad_1ab69e05a4ce797eb51c02c97a1ebcf323">
     <h3>StridedSliceGrad</h3>
     <pre class="prettyprint"> StridedSliceGrad(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_grad_1aed0f5e60c077d08b54faeb80cd1ffe0d">
     <h3>StridedSliceGrad</h3>
     <pre class="prettyprint"> StridedSliceGrad(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">StridedSliceGrad::Attrs</a> & attrs
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy,
+  const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">StridedSliceGrad::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -215,35 +215,35 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_grad_1ae9ffa9a9fd9894465bbd75d4263d0a17">
     <h3>BeginMask</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a> BeginMask(
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a> BeginMask(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_grad_1a943f0ad80160609627b45f01fe9f14ec">
     <h3>EllipsisMask</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a> EllipsisMask(
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a> EllipsisMask(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_grad_1a1ab5ab48d2d729d1931d5e22afcee77b">
     <h3>EndMask</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a> EndMask(
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a> EndMask(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_grad_1a428eb1afbd616e6739dfe3123ebb8913">
     <h3>NewAxisMask</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a> NewAxisMask(
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a> NewAxisMask(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_strided_slice_grad_1af1274a1d420c51e217a83749f8de9eab">
     <h3>ShrinkAxisMask</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a> ShrinkAxisMask(
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/strided-slice-grad/attrs.html#structtensorflow_1_1ops_1_1_strided_slice_grad_1_1_attrs">Attrs</a> ShrinkAxisMask(
   int64 x
 )</pre>
     <div />

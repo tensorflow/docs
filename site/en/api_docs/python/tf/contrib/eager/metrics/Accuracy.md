@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,13 @@ Inherits From: [`Mean`](../../../../tf/contrib/eager/metrics/Mean)
 
 
 
-Defined in [`tensorflow/contrib/eager/python/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/metrics_impl.py).
+Defined in [`tensorflow/contrib/eager/python/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/eager/python/metrics_impl.py).
 
 Calculates how often `predictions` matches `labels`.
+#### Attributes:
+
+* <b>`name`</b>: name of the accuracy object
+* <b>`dtype`</b>: data type of the tensor
 
 ## Properties
 
@@ -41,7 +42,7 @@ __init__(
 )
 ```
 
-
+Inits Accuracy class with name and dtype.
 
 <h3 id="__call__"><code>__call__</code></h3>
 

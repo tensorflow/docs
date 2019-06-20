@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ Inherits From: [`Estimator`](../../../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/gan/python/estimator/python/gan_estimator_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/estimator/python/gan_estimator_impl.py).
+Defined in [`tensorflow/contrib/gan/python/estimator/python/gan_estimator_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/gan/python/estimator/python/gan_estimator_impl.py).
 
 An estimator for Generative Adversarial Networks (GANs).
 
@@ -151,6 +148,13 @@ Initializes a GANEstimator instance.
 * <b>`use_loss_summaries`</b>: If `True`, add loss summaries. If `False`, does not.
     If `None`, uses defaults.
 * <b>`config`</b>: `RunConfig` object to configure the runtime settings.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If loss functions aren't callable.
+* <b>`ValueError`</b>: If `use_loss_summaries` isn't boolean or `None`.
+* <b>`ValueError`</b>: If `get_hooks_fn` isn't callable or `None`.
 
 <h3 id="eval_dir"><code>eval_dir</code></h3>
 

@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +19,7 @@ Defined in generated file: `tensorflow/python/ops/gen_linalg_ops.py`.
 
 Computes the matrix exponential of one or more square matrices:
 
-exp(A) = \sum_{n=0}^\infty A^n/n!
+\\(exp(A) = \sum_{n=0}^\infty A^n/n!\\)
 
 The exponential is computed using a combination of the scaling and squaring
 method and the Pade approximation. Details can be founds in:

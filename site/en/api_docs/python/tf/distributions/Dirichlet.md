@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,9 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/dirichlet.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/dirichlet.py).
-
-See the guide: [Statistical Distributions (contrib) > Multivariate distributions](../../../../api_guides/python/contrib.distributions#Multivariate_distributions)
+Defined in [`tensorflow/python/ops/distributions/dirichlet.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/distributions/dirichlet.py).
 
 Dirichlet distribution.
 
@@ -67,13 +62,24 @@ representing a mean total count.
 Distribution parameters are automatically broadcast in all functions; see
 examples for details.
 
+Warning: Some components of the samples can be zero due to finite precision.
+This happens more often when some of the concentrations are very small.
+Make sure to round the samples to `np.finfo(dtype).tiny` before computing the
+density.
+
+Samples of this distribution are reparameterized (pathwise differentiable).
+The derivatives are computed using the approach described in the paper
+
+[Michael Figurnov, Shakir Mohamed, Andriy Mnih.
+Implicit Reparameterization Gradients, 2018](https://arxiv.org/abs/1805.08498)
+
 #### Examples
 
 ```python
 # Create a single trivariate Dirichlet, with the 3rd class being three times
 # more frequent than the first. I.e., batch_shape=[], event_shape=[3].
 alpha = [1., 2, 3]
-dist = Dirichlet(alpha)
+dist = tf.distributions.Dirichlet(alpha)
 
 dist.sample([4, 5])  # shape: [4, 5, 3]
 
@@ -95,7 +101,7 @@ dist.prob(x)  # shape: [5, 7]
 # Create batch_shape=[2], event_shape=[3]:
 alpha = [[1., 2, 3],
          [4, 5, 6]]   # shape: [2, 3]
-dist = Dirichlet(alpha)
+dist = tf.distributions.Dirichlet(alpha)
 
 dist.sample([4, 5])  # shape: [4, 5, 2, 3]
 
@@ -104,6 +110,17 @@ x = [.2, .3, .5]
 #                         [.2, .3, .5]],
 # thus matching batch_shape [2, 3].
 dist.prob(x)         # shape: [2]
+```
+
+Compute the gradients of samples w.r.t. the parameters:
+
+```python
+alpha = tf.constant([1.0, 2.0, 3.0])
+dist = tf.distributions.Dirichlet(alpha)
+samples = dist.sample(5)  # Shape [5, 3]
+loss = tf.reduce_mean(tf.square(samples))  # Arbitrary loss function
+# Unbiased stochastic gradients of the loss function
+grads = tf.gradients(loss, alpha)
 ```
 
 ## Properties

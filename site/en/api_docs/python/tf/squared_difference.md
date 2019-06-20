@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.squared_difference
+
+### Aliases:
+
+* `tf.math.squared_difference`
+* `tf.squared_difference`
 
 ``` python
 tf.squared_difference(
@@ -24,7 +26,7 @@ See the guide: [Math > Basic Math Functions](../../../api_guides/python/math_ops
 
 Returns (x - y)(x - y) element-wise.
 
-*NOTE*: `SquaredDifference` supports broadcasting. More about broadcasting
+*NOTE*: `math.squared_difference` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:

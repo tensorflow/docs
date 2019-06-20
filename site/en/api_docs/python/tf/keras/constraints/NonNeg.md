@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ Inherits From: [`Constraint`](../../../tf/keras/constraints/Constraint)
 
 
 
-Defined in [`tensorflow/python/keras/constraints.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/constraints.py).
+Defined in [`tensorflow/python/keras/constraints.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/keras/constraints.py).
 
 Constrains the weights to be non-negative.
   

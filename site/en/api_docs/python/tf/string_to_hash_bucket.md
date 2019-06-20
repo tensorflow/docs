@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.string_to_hash_bucket
+
+### Aliases:
+
+* `tf.string_to_hash_bucket`
+* `tf.strings.to_hash_bucket`
 
 ``` python
 tf.string_to_hash_bucket(

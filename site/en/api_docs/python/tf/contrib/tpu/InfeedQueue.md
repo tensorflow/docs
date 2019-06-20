@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_feed.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu_feed.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_feed.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/tpu/python/tpu/tpu_feed.py).
 
 A helper object to build a device infeed queue.
 
@@ -157,7 +154,8 @@ into XLA, suitable for use within a replicated block.
 ``` python
 generate_enqueue_ops(
     sharded_inputs,
-    tpu_ordinal_function=None
+    tpu_ordinal_function=None,
+    placement_function=None
 )
 ```
 
@@ -183,6 +181,9 @@ will be raised.
     shard index as input and returns the ordinal of the TPU device
     the shard's infeed should be placed on. tpu_ordinal_function must be
     set if the inputs are placed on CPU devices.
+* <b>`placement_function`</b>: if not None, a function that takes the shard index as
+    input and returns the host device where the enqueue op should be placed
+    on.
 
 
 #### Returns:

@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.extract_image_patches
+
+### Aliases:
+
+* `tf.extract_image_patches`
+* `tf.image.extract_image_patches`
 
 ``` python
 tf.extract_image_patches(

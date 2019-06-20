@@ -1,12 +1,15 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.unsorted_segment_max
+
+### Aliases:
+
+* `tf.math.unsorted_segment_max`
+* `tf.unsorted_segment_max`
 
 ``` python
 tf.unsorted_segment_max(

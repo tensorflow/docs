@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.logical_and
+
+### Aliases:
+
+* `tf.logical_and`
+* `tf.math.logical_and`
 
 ``` python
 tf.logical_and(
@@ -24,7 +26,7 @@ See the guide: [Control Flow > Logical Operators](../../../api_guides/python/con
 
 Returns the truth value of x AND y element-wise.
 
-*NOTE*: `LogicalAnd` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_and` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,5 +14,21 @@ tf.keras.activations.elu(
 
 
 
-Defined in [`tensorflow/python/keras/activations.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/activations.py).
+Defined in [`tensorflow/python/keras/activations.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/keras/activations.py).
 
+Exponential linear unit.
+
+#### Arguments:
+
+* <b>`x`</b>: Input tensor.
+* <b>`alpha`</b>: A scalar, slope of negative section.
+
+
+#### Returns:
+
+    The exponential linear activation: `x` if `x > 0` and
+      `alpha * (exp(x)-1)` if `x < 0`.
+
+Reference:
+    - [Fast and Accurate Deep Network Learning by Exponential
+      Linear Units (ELUs)](https://arxiv.org/abs/1511.07289)

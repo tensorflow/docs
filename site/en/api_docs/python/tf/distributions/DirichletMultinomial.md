@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,9 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/dirichlet_multinomial.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/dirichlet_multinomial.py).
-
-See the guide: [Statistical Distributions (contrib) > Multivariate distributions](../../../../api_guides/python/contrib.distributions#Multivariate_distributions)
+Defined in [`tensorflow/python/ops/distributions/dirichlet_multinomial.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/distributions/dirichlet_multinomial.py).
 
 Dirichlet-Multinomial compound distribution.
 

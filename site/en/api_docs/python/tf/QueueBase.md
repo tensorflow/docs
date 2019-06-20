@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Inputs and Readers > Queues](../../../api_guides/python/io_ops#Queues)
 
@@ -34,14 +31,6 @@ See <a href="../tf/FIFOQueue"><code>tf.FIFOQueue</code></a> and
 <a href="../tf/RandomShuffleQueue"><code>tf.RandomShuffleQueue</code></a> for concrete
 implementations of this class, and instructions on how to create
 them.
-
-
-
-#### Eager Compatibility
-Queues are not compatible with eager execution. Instead, please
-use <a href="../tf/data"><code>tf.data</code></a> to get data into your model.
-
-
 
 ## Properties
 
@@ -103,7 +92,6 @@ shape and name to use for the corresponding queue component in `dtypes`.
 #### Raises:
 
 * <b>`ValueError`</b>: If one of the arguments is invalid.
-* <b>`RuntimeError`</b>: If eager execution is enabled.
 
 <h3 id="close"><code>close</code></h3>
 

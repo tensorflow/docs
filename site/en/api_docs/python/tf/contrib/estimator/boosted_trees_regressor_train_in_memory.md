@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,13 +20,14 @@ tf.contrib.estimator.boosted_trees_regressor_train_in_memory(
     tree_complexity=0.0,
     min_node_weight=0.0,
     config=None,
-    train_hooks=None
+    train_hooks=None,
+    center_bias=False
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/boosted_trees.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/boosted_trees.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/boosted_trees.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/estimator/python/estimator/boosted_trees.py).
 
 Trains a boosted tree regressor with in memory dataset.
 
@@ -97,6 +95,12 @@ metrics = regressor.evaluate(input_fn=input_fn_eval, steps=10)
       (batch_size * n_batches_per_layer).
 * <b>`config`</b>: `RunConfig` object to configure the runtime settings.
 * <b>`train_hooks`</b>: a list of Hook instances to be passed to estimator.train().
+* <b>`center_bias`</b>: Whether bias centering needs to occur. Bias centering refers
+      to the first node in the very first tree returning the prediction that
+      is aligned with the original labels distribution. For example, for
+      regression problems, the first node will return the mean of the labels.
+      For binary classification problems, it will return a logit for a prior
+      probability of label 1.
 
 
 #### Returns:

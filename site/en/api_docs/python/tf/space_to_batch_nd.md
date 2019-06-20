@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.space_to_batch_nd
+
+### Aliases:
+
+* `tf.manip.space_to_batch_nd`
+* `tf.space_to_batch_nd`
 
 ``` python
 tf.space_to_batch_nd(

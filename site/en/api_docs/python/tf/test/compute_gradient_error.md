@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,7 +20,7 @@ tf.test.compute_gradient_error(
 
 
 
-Defined in [`tensorflow/python/ops/gradient_checker.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/gradient_checker.py).
+Defined in [`tensorflow/python/ops/gradient_checker.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/gradient_checker.py).
 
 See the guide: [Testing > Gradient checking](../../../../api_guides/python/test#Gradient_checking)
 

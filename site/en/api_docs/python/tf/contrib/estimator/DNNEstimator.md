@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Estimator`](../../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/dnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/dnn.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/dnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/estimator/python/estimator/dnn.py).
 
 An estimator for TensorFlow DNN models with user-specified head.
 
@@ -44,6 +41,25 @@ estimator = DNNEstimator(
       learning_rate=0.1,
       l1_regularization_strength=0.001
     ))
+
+# Or estimator using an optimizer with a learning rate decay.
+estimator = DNNEstimator(
+    head=tf.contrib.estimator.multi_label_head(n_classes=3),
+    feature_columns=[sparse_feature_a_emb, sparse_feature_b_emb],
+    hidden_units=[1024, 512, 256],
+    optimizer=lambda: tf.AdamOptimizer(
+        learning_rate=tf.exponential_decay(
+            learning_rate=0.1,
+            global_step=tf.get_global_step(),
+            decay_steps=10000,
+            decay_rate=0.96))
+
+# Or estimator with warm-starting from a previous checkpoint.
+estimator = DNNEstimator(
+    head=tf.contrib.estimator.multi_label_head(n_classes=3),
+    feature_columns=[sparse_feature_a_emb, sparse_feature_b_emb],
+    hidden_units=[1024, 512, 256],
+    warm_start_from="/path/to/checkpoint/dir")
 
 # Input builders
 def input_fn_train: # returns x, y
@@ -113,7 +129,9 @@ __init__(
     activation_fn=tf.nn.relu,
     dropout=None,
     input_layer_partitioner=None,
-    config=None
+    config=None,
+    warm_start_from=None,
+    batch_norm=False
 )
 ```
 
@@ -132,8 +150,9 @@ Initializes a `DNNEstimator` instance.
 * <b>`model_dir`</b>: Directory to save model parameters, graph and etc. This can
     also be used to load checkpoints from the directory into a estimator to
     continue training a previously saved model.
-* <b>`optimizer`</b>: An instance of `tf.Optimizer` used to train the model. Defaults
-    to Adagrad optimizer.
+* <b>`optimizer`</b>: An instance of `tf.Optimizer` used to train the model. Can also
+    be a string (one of 'Adagrad', 'Adam', 'Ftrl', 'RMSProp', 'SGD'), or
+    callable. Defaults to Adagrad optimizer.
 * <b>`activation_fn`</b>: Activation function applied to each layer. If `None`, will
     use <a href="../../../tf/nn/relu"><code>tf.nn.relu</code></a>.
 * <b>`dropout`</b>: When not `None`, the probability we will drop out a given
@@ -141,6 +160,12 @@ Initializes a `DNNEstimator` instance.
 * <b>`input_layer_partitioner`</b>: Optional. Partitioner for input layer. Defaults
     to `min_max_variable_partitioner` with `min_slice_size` 64 << 20.
 * <b>`config`</b>: `RunConfig` object to configure the runtime settings.
+* <b>`warm_start_from`</b>: A string filepath to a checkpoint to warm-start from, or
+    a `WarmStartSettings` object to fully configure warm-starting.  If the
+    string filepath is provided instead of a `WarmStartSettings`, then all
+    weights are warm-started, and it is assumed that vocabularies and Tensor
+    names are unchanged.
+* <b>`batch_norm`</b>: Whether to use batch normalization after each hidden layer.
 
 <h3 id="eval_dir"><code>eval_dir</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.contrib.lite.freeze_saved_model(
 
 
 
-Defined in [`tensorflow/contrib/lite/python/convert_saved_model.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/lite/python/convert_saved_model.py).
+Defined in [`tensorflow/contrib/lite/python/convert_saved_model.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/lite/python/convert_saved_model.py).
 
 Converts a SavedModel to a frozen graph.
 
@@ -51,5 +48,6 @@ Converts a SavedModel to a frozen graph.
 
 * <b>`ValueError`</b>:     SavedModel doesn't contain a MetaGraphDef identified by tag_set.
     signature_key is not in the MetaGraphDef.
+    assets/ directory is in the MetaGraphDef.
     input_shapes does not match the length of input_arrays.
     input_arrays or output_arrays are not valid.

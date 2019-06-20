@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/quantized_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/quantized_distribution.py).
-
-See the guide: [Statistical Distributions (contrib) > Transformed distributions](../../../../../api_guides/python/contrib.distributions#Transformed_distributions)
+Defined in [`tensorflow/contrib/distributions/python/ops/quantized_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distributions/python/ops/quantized_distribution.py).
 
 Distribution representing the quantization `Y = ceiling(X)`.
 
@@ -208,7 +203,11 @@ __init__(
 )
 ```
 
-Construct a Quantized Distribution representing `Y = ceiling(X)`.
+Construct a Quantized Distribution representing `Y = ceiling(X)`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
 
 Some properties are inherited from the distribution defining `X`. Example:
 `allow_nan_stats` is determined for this `QuantizedDistribution` by reading

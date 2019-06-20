@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Estimator`](../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/python/estimator/canned/baseline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/canned/baseline.py).
+Defined in [`tensorflow/python/estimator/canned/baseline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/estimator/canned/baseline.py).
 
 A classifier that can establish a simple baseline.
 
@@ -55,6 +52,16 @@ Input of `train` and `evaluate` should have following features,
 
 * if `weight_column` is not `None`, a feature with
    `key=weight_column` whose value is a `Tensor`.
+
+
+
+#### Eager Compatibility
+Estimators can be used while eager execution is enabled. Note that `input_fn`
+and all hooks are executed inside a graph context, so they have to be written
+to be compatible with graph mode. Note that `input_fn` code using <a href="../../tf/data"><code>tf.data</code></a>
+generally works in both graph and eager modes.
+
+
 
 ## Properties
 

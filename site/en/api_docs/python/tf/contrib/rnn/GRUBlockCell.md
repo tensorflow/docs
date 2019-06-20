@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`LayerRNNCell`](../../../tf/contrib/rnn/LayerRNNCell)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/gru_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/rnn/python/ops/gru_ops.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/gru_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/rnn/python/ops/gru_ops.py).
 
 See the guide: [RNN and Cells (contrib) > Core RNN Cell wrappers (RNNCells that wrap other RNNCells)](../../../../../api_guides/python/contrib.rnn#Core_RNN_Cell_wrappers_RNNCells_that_wrap_other_RNNCells_)
 
@@ -399,9 +396,11 @@ add_weight(
     dtype=None,
     initializer=None,
     regularizer=None,
-    trainable=True,
+    trainable=None,
     constraint=None,
     use_resource=None,
+    synchronization=tf.VariableSynchronization.AUTO,
+    aggregation=tf.VariableAggregation.NONE,
     partitioner=None
 )
 ```
@@ -420,9 +419,19 @@ Adds a new variable to the layer, or gets an existing one; returns it.
     or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
     Note, if the current variable scope is marked as non-trainable
     then this parameter is ignored and any added variables are also
-    marked as non-trainable.
+    marked as non-trainable. `trainable` defaults to `True` unless
+    `synchronization` is set to `ON_READ`.
 * <b>`constraint`</b>: constraint instance (callable).
 * <b>`use_resource`</b>: Whether to use `ResourceVariable`.
+* <b>`synchronization`</b>: Indicates when a distributed a variable will be
+    aggregated. Accepted values are constants defined in the class
+    <a href="../../../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to
+    `AUTO` and the current `DistributionStrategy` chooses
+    when to synchronize. If `synchronization` is set to `ON_READ`,
+    `trainable` must not be set to `True`.
+* <b>`aggregation`</b>: Indicates how a distributed variable will be aggregated.
+    Accepted values are constants defined in the class
+    <a href="../../../tf/VariableAggregation"><code>tf.VariableAggregation</code></a>.
 * <b>`partitioner`</b>: (optional) partitioner instance (callable).  If
     provided, when the requested variable is created it will be split
     into multiple partitions according to `partitioner`.  In this case,
@@ -444,6 +453,8 @@ instance is returned.
 
 * <b>`RuntimeError`</b>: If called with partioned variable regularization and
     eager execution is enabled.
+* <b>`ValueError`</b>: When trainable has been set to True with synchronization
+    set as `ON_READ`.
 
 <h3 id="apply"><code>apply</code></h3>
 

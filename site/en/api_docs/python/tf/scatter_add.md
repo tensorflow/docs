@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.scatter_add(
 
 
 
-Defined in [`tensorflow/python/ops/state_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/state_ops.py).
+Defined in [`tensorflow/python/ops/state_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/state_ops.py).
 
 See the guide: [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
 
@@ -57,7 +54,7 @@ Requires `updates.shape = indices.shape + ref.shape[1:]`.
     A tensor of indices into the first dimension of `ref`.
 * <b>`updates`</b>: A `Tensor`. Must have the same type as `ref`.
     A tensor of updated values to store in `ref`.
-* <b>`use_locking`</b>: An optional `bool`. Defaults to `True`.
+* <b>`use_locking`</b>: An optional `bool`. Defaults to `False`.
     If True, the assignment will be protected by a lock;
     otherwise the behavior is undefined, but may exhibit less contention.
 * <b>`name`</b>: A name for the operation (optional).

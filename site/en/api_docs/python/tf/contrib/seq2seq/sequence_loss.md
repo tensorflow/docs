@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.contrib.seq2seq.sequence_loss(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/loss.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/loss.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/loss.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/seq2seq/python/ops/loss.py).
 
 Weighted cross-entropy loss for a sequence of logits.
 

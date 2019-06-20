@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu_config.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/tpu/python/tpu/tpu_config.py).
 
 TPU related configuration required by `TPUEstimator`.
 
@@ -29,22 +26,22 @@ TPU related configuration required by `TPUEstimator`.
     case, this number equals the total number of TPU cores. For
     model-parallelism, the total number of TPU cores equals
     product(computation_shape) * num_shards.
-* <b>`computation_shape`</b>: Defaults to `None`, which disables model parallelism. A
-    list of size 3 which describes the shape of a model replica's block of
-    cores. This is required by model-parallelism which enables partitioning
-    the model to multiple cores. For example, [2, 2, 1] means the model is
-    partitioned across 4 cores which span two cores in both x and y
-    coordinates.  Please refer to <a href="../../../tf/contrib/tpu/Topology"><code>tf.contrib.tpu.Topology</code></a> for the
-    geometry of a TPU mesh.
+* <b>`num_cores_per_replica`</b>: Defaults to `None`, which disables model parallelism.
+    An integer which describes the number of TPU cores per model replica. This
+    is required by model-parallelism which enables partitioning
+    the model to multiple cores. Currently num_cores_per_replica must be
+    1, 2, 4, or 8.
 * <b>`per_host_input_for_training`</b>: If `True`, `PER_HOST_V1`, or `PER_HOST_V2`,
-    `input_fn` is invoked per-host rather than per-core. With per-host input
-    pipeline configuration, `input_fn` is invoked once on each host. With the
-    per-core input pipeline configuration, it is invoked once for each core.
+    `input_fn` is invoked once on each host. With the per-core input pipeline
+    configuration, it is invoked once for each core.
     With a global batch size `train_batch_size` in `TPUEstimator` constructor,
     the batch size for each shard is `train_batch_size` // #hosts in the
     `True` or `PER_HOST_V1` mode. In `PER_HOST_V2` mode, it is
-    `train_batch_size` // #cores. With the per-core input pipeline
-    configuration, the shard batch size is also `train_batch_size` // #cores.
+    `train_batch_size` // #cores. In `BROADCAST` mode, `input_fn` is only
+    invoked once on host 0 and the tensors are broadcasted to all other
+    replicas. The batch size equals to train_batch_size`. With the per-core
+    input pipeline configuration, the shard batch size is also
+    `train_batch_size` // #cores.
 * <b>`Note`</b>: per_host_input_for_training==PER_SHARD_V1 only supports mode.TRAIN.
 * <b>`tpu_job_name`</b>: The name of the TPU job. Typically, this name is auto-inferred
     within TPUEstimator, however when using ClusterSpec propagation in more
@@ -58,10 +55,6 @@ TPU related configuration required by `TPUEstimator`.
 
 ## Properties
 
-<h3 id="computation_shape"><code>computation_shape</code></h3>
-
-Alias for field number 2
-
 <h3 id="initial_infeed_sleep_secs"><code>initial_infeed_sleep_secs</code></h3>
 
 Alias for field number 5
@@ -69,6 +62,10 @@ Alias for field number 5
 <h3 id="iterations_per_loop"><code>iterations_per_loop</code></h3>
 
 Alias for field number 0
+
+<h3 id="num_cores_per_replica"><code>num_cores_per_replica</code></h3>
+
+Alias for field number 2
 
 <h3 id="num_shards"><code>num_shards</code></h3>
 
@@ -94,7 +91,7 @@ __new__(
     cls,
     iterations_per_loop=2,
     num_shards=None,
-    computation_shape=None,
+    num_cores_per_replica=None,
     per_host_input_for_training=True,
     tpu_job_name=None,
     initial_infeed_sleep_secs=None

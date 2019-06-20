@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/nn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/nn/__init__.py).
+Defined in [`tensorflow/nn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/nn/__init__.py).
 
 Wrappers for primitive Neural Net (NN) Operations.
 
@@ -146,6 +143,8 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`relu_layer(...)`](../tf/nn/relu_layer): Computes Relu(x * weight + biases).
 
+[`safe_embedding_lookup_sparse(...)`](../tf/nn/safe_embedding_lookup_sparse): Lookup embedding results, accounting for invalid IDs and empty features.
+
 [`sampled_softmax_loss(...)`](../tf/nn/sampled_softmax_loss): Computes and returns the sampled softmax training loss.
 
 [`selu(...)`](../tf/nn/selu): Computes scaled exponential linear: `scale * alpha * (exp(features) - 1)`
@@ -162,9 +161,9 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`softmax_cross_entropy_with_logits_v2(...)`](../tf/nn/softmax_cross_entropy_with_logits_v2): Computes softmax cross entropy between `logits` and `labels`.
 
-[`softplus(...)`](../tf/nn/softplus): Computes softplus: `log(exp(features) + 1)`.
+[`softplus(...)`](../tf/math/softplus): Computes softplus: `log(exp(features) + 1)`.
 
-[`softsign(...)`](../tf/nn/softsign): Computes softsign: `features / (abs(features) + 1)`.
+[`softsign(...)`](../tf/math/softsign): Computes softsign: `features / (abs(features) + 1)`.
 
 [`sparse_softmax_cross_entropy_with_logits(...)`](../tf/nn/sparse_softmax_cross_entropy_with_logits): Computes sparse softmax cross entropy between `logits` and `labels`.
 

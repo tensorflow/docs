@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 ## Class `Checkpointable`
 
-
+Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/CheckpointableBase)
 
 ### Aliases:
 
@@ -19,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/base.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/checkpointable/base.py).
+Defined in [`tensorflow/python/training/checkpointable/tracking.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/training/checkpointable/tracking.py).
 
 Manages dependencies on other objects.
 

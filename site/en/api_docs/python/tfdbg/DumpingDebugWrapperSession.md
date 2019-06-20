@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/dumping_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/wrappers/dumping_wrapper.py).
+Defined in [`tensorflow/python/debug/wrappers/dumping_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/debug/wrappers/dumping_wrapper.py).
 
 See the guide: [TensorFlow Debugger > Session wrapper class and `SessionRunHook` implementations](../../../api_guides/python/tfdbg#Session_wrapper_class_and_SessionRunHook_implementations)
 
@@ -261,7 +258,8 @@ run(
     options=None,
     run_metadata=None,
     callable_runner=None,
-    callable_runner_args=None
+    callable_runner_args=None,
+    callable_options=None
 )
 ```
 
@@ -275,7 +273,12 @@ Wrapper around Session.run() that inserts tensor watch options.
 * <b>`run_metadata`</b>: Same as the `run_metadata` arg to regular `Session.run()`.
 * <b>`callable_runner`</b>: A `callable` returned by `Session.make_callable()`.
     If not `None`, `fetches` and `feed_dict` must both be `None`.
-* <b>`callable_runner_args`</b>: An optional list of arguments to `callable_runner`.
+    Mutually exclusive with `callable_options`.
+* <b>`callable_runner_args`</b>: An optional list of arguments to `callable_runner`
+    or for `callable_options`.
+* <b>`callable_options`</b>: An instance of `config_pb2.CallableOptions`, to be
+    used with `Session._make_callable_from_options()`. Mutually exclusive
+    with `callable_runner`.
 
 
 #### Returns:

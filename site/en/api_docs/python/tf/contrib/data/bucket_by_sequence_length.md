@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.contrib.data.bucket_by_sequence_length(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/grouping.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/data/python/ops/grouping.py).
+Defined in [`tensorflow/contrib/data/python/ops/grouping.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/data/python/ops/grouping.py).
 
 A transformation that buckets elements in a `Dataset` by length.
 
@@ -48,9 +45,9 @@ fraction of padding in a batch which increases training step efficiency.
     <a href="../../../tf/data/Dataset#padded_batch"><code>tf.data.Dataset.padded_batch</code></a>. Defaults to padding with 0.
 * <b>`pad_to_bucket_boundary`</b>: bool, if `False`, will pad dimensions with unknown
     size to maximum length in batch. If `True`, will pad dimensions with
-    unknown size to bucket boundary, and caller must ensure that the source
-    `Dataset` does not contain any elements with length longer than
-    `max(bucket_boundaries)`.
+    unknown size to bucket boundary minus 1 (i.e., the maximum length in each
+    bucket), and caller must ensure that the source `Dataset` does not contain
+    any elements with length longer than `max(bucket_boundaries)`.
 
 
 #### Returns:

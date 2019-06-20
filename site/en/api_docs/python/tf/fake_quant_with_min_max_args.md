@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.fake_quant_with_min_max_args
+
+### Aliases:
+
+* `tf.fake_quant_with_min_max_args`
+* `tf.quantization.fake_quant_with_min_max_args`
 
 ``` python
 tf.fake_quant_with_min_max_args(

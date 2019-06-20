@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,15 +7,15 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/estimator/__init__.py).
+Defined in [`tensorflow/python/estimator/api/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/estimator/api/estimator/__init__.py).
 
-Public API for tf.estimator namespace.
+Estimator: High level tools for working with models.
 
 ## Modules
 
-[`export`](../tf/estimator/export) module: Public API for tf.estimator.export namespace.
+[`export`](../tf/estimator/export) module: Utility methods for exporting Estimator.
 
-[`inputs`](../tf/estimator/inputs) module: Public API for tf.estimator.inputs namespace.
+[`inputs`](../tf/estimator/inputs) module: Utility methods to create simple input_fns.
 
 ## Classes
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/__init__.py).
+Defined in [`tensorflow/contrib/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/layers/__init__.py).
 
 Ops for building neural network layers, regularizers, summaries, etc.
 
@@ -63,6 +60,10 @@ See the <a href="../../../../api_guides/python/contrib.layers">Layers (contrib)<
 [`conv3d(...)`](../../tf/contrib/layers/conv3d): Adds an N-D convolution followed by an optional batch_norm layer.
 
 [`conv3d_transpose(...)`](../../tf/contrib/layers/conv3d_transpose): Adds a convolution3d_transpose with an optional batch normalization layer.
+
+[`convolution(...)`](../../tf/contrib/layers/convolution): Adds an N-D convolution followed by an optional batch_norm layer.
+
+[`convolution1d(...)`](../../tf/contrib/layers/convolution1d): Adds an N-D convolution followed by an optional batch_norm layer.
 
 [`convolution2d(...)`](../../tf/contrib/layers/conv2d): Adds an N-D convolution followed by an optional batch_norm layer.
 

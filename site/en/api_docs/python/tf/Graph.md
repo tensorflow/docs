@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures)
 
@@ -81,7 +78,7 @@ True if this graph has been finalized.
 The GraphDef version information of this graph.
 
 For details on the meaning of each version, see
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/graph.proto).
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/core/framework/graph.proto).
 
 #### Returns:
 
@@ -230,7 +227,7 @@ This method is thread-safe.
 #### Returns:
 
 A
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/graph.proto)
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/core/framework/graph.proto)
 protocol buffer.
 
 
@@ -509,7 +506,11 @@ create_op(
 )
 ```
 
-Creates an `Operation` in this graph.
+Creates an `Operation` in this graph. (deprecated arguments)
+
+SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
+Instructions for updating:
+Shapes are always computed; don't use the compute_shapes as it has no effect.
 
 This is a low-level interface for creating an `Operation`. Most
 programs will not call this method directly, and instead use the
@@ -535,8 +536,8 @@ the default graph.
     proto).
 * <b>`op_def`</b>: (Optional.) The `OpDef` proto that describes the `op_type` that
     the operation will have.
-* <b>`compute_shapes`</b>: (Optional.) If True, shape inference will be performed
-    to compute the shapes of the outputs.
+* <b>`compute_shapes`</b>: (Optional.) Deprecated. Has no effect (shapes are always
+    computed).
 * <b>`compute_device`</b>: (Optional.) If True, device functions will be executed
     to compute the device property of the Operation.
 
@@ -574,7 +575,7 @@ string, a device function, or None:
 
 For information about the valid syntax of device name strings, see
 the documentation in
-[`DeviceNameUtils`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/util/device_name_utils.h).
+[`DeviceNameUtils`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/core/util/device_name_utils.h).
 
 For example:
 

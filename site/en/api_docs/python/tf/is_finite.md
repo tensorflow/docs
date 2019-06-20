@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.is_finite
+
+### Aliases:
+
+* `tf.debugging.is_finite`
+* `tf.is_finite`
 
 ``` python
 tf.is_finite(

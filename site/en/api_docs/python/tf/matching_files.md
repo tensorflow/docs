@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.matching_files
+
+### Aliases:
+
+* `tf.io.matching_files`
+* `tf.matching_files`
 
 ``` python
 tf.matching_files(

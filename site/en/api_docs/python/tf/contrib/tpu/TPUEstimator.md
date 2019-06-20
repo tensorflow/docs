@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Estimator`](../../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
 
 Estimator with TPU support.
 
@@ -204,15 +201,10 @@ def model_fn(features, labels, mode, config, params):
     export_outputs['classes'] =
       export_output_lib.ClassificationOutput(classes=classes)
 
-  tpu.outside_compilation(host_call, [logits])
+  tpu.outside_compilation(host_call, logits)
 
   ...
 ```
-
-Current limitations:
---------------------
-
-1. Outside compilation does not work yet (b/79991729).
 
 ## Properties
 
@@ -266,7 +258,8 @@ Constructs an `TPUEstimator` instance.
 
 * <b>`model_fn`</b>: Model function as required by `Estimator`. For training, the
     returned `EstimatorSpec` cannot have hooks as it is not supported in
-    `TPUEstimator`.
+    `TPUEstimator`. Instead, the user can pass the training hooks as
+    an argument to `TPUEstimator.train()`.
 * <b>`model_dir`</b>: Directory to save model parameters, graph and etc. This can
     also be used to load checkpoints from the directory into a estimator to
     continue training a previously saved model. If `None`, the model_dir in

@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.logical_not
+
+### Aliases:
+
+* `tf.logical_not`
+* `tf.math.logical_not`
 
 ``` python
 tf.logical_not(

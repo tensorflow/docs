@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +8,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/__init__.py).
+Defined in [`tensorflow/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/__init__.py).
 
 Bring in all of the public TensorFlow interface into this module.
 
@@ -26,11 +24,15 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`data`](./tf/data) module: <a href="./tf/data/Dataset"><code>tf.data.Dataset</code></a> API for input pipelines.
 
+[`debugging`](./tf/debugging) module: Public API for tf.debugging namespace.
+
 [`distributions`](./tf/distributions) module: Core module for TensorFlow distribution objects and helpers.
+
+[`dtypes`](./tf/dtypes) module: Public API for tf.dtypes namespace.
 
 [`errors`](./tf/errors) module: Exception types for TensorFlow errors.
 
-[`estimator`](./tf/estimator) module: Public API for tf.estimator namespace.
+[`estimator`](./tf/estimator) module: Estimator: High level tools for working with models.
 
 [`feature_column`](./tf/feature_column) module: Public API for tf.feature_column namespace.
 
@@ -43,6 +45,8 @@ Bring in all of the public TensorFlow interface into this module.
 [`image`](./tf/image) module: Image processing and decoding ops.
 
 [`initializers`](./tf/initializers) module: Public API for tf.initializers namespace.
+
+[`io`](./tf/io) module: Public API for tf.io namespace.
 
 [`keras`](./tf/keras) module: Implementation of the Keras API meant to be a high-level API for TensorFlow.
 
@@ -67,6 +71,8 @@ Bring in all of the public TensorFlow interface into this module.
 [`python_io`](./tf/python_io) module: Python functions for directly manipulating TFRecord-formatted files.
 
 [`pywrap_tensorflow`](./tf/pywrap_tensorflow) module: A wrapper for TensorFlow SWIG-generated bindings.
+
+[`quantization`](./tf/quantization) module: Public API for tf.quantization namespace.
 
 [`resource_loader`](./tf/resource_loader) module: Resource management library.
 
@@ -204,7 +210,11 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`class Variable`](./tf/Variable): See the <a href="../../guide/variables">Variables How To</a> for a high level overview.
 
+[`class VariableAggregation`](./tf/VariableAggregation): Indicates how a distributed variable will be aggregated.
+
 [`class VariableScope`](./tf/VariableScope): Variable scope object to carry defaults to provide to `get_variable`.
+
+[`class VariableSynchronization`](./tf/VariableSynchronization): Indicates when a distributed variable will be synced.
 
 [`class WholeFileReader`](./tf/WholeFileReader): A Reader that outputs the entire contents of a file as a value.
 
@@ -345,6 +355,8 @@ Bring in all of the public TensorFlow interface into this module.
 [`broadcast_dynamic_shape(...)`](./tf/broadcast_dynamic_shape): Returns the broadcasted dynamic shape between `shape_x` and `shape_y`.
 
 [`broadcast_static_shape(...)`](./tf/broadcast_static_shape): Returns the broadcasted static shape between `shape_x` and `shape_y`.
+
+[`broadcast_to(...)`](./tf/broadcast_to): Broadcast an array for a compatible shape.
 
 [`case(...)`](./tf/case): Create a case operation.
 
@@ -716,8 +728,6 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`pow(...)`](./tf/pow): Computes the power of one value to another.
 
-[`print(...)`](./tf/Print): Prints a list of tensors.
-
 [`py_func(...)`](./tf/py_func): Wraps a python function and uses it as a TensorFlow op.
 
 [`qr(...)`](./tf/qr): Computes the QR decompositions of one or more matrices.
@@ -786,7 +796,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`reverse_sequence(...)`](./tf/reverse_sequence): Reverses variable length slices.
 
-[`reverse_v2(...)`](./tf/reverse_v2): Reverses specific dimensions of a tensor.
+[`reverse_v2(...)`](./tf/reverse): Reverses specific dimensions of a tensor.
 
 [`rint(...)`](./tf/rint): Returns element-wise integer closest to x.
 
@@ -812,7 +822,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`scatter_nd(...)`](./tf/scatter_nd): Scatter `updates` into a new tensor according to `indices`.
 
-[`scatter_nd_add(...)`](./tf/scatter_nd_add): Applies sparse addition between `updates` and individual values or slices
+[`scatter_nd_add(...)`](./tf/scatter_nd_add): Applies sparse addition to individual values or slices in a Variable.
 
 [`scatter_nd_sub(...)`](./tf/scatter_nd_sub): Applies sparse subtraction between `updates` and individual values or slices
 

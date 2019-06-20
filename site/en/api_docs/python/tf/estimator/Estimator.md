@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/estimator.py).
+Defined in [`tensorflow/python/estimator/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/estimator/estimator.py).
 
 See the guide: [Regression Examples](../../../../api_guides/python/regression_examples)
 
@@ -46,6 +43,15 @@ developer.
 None of `Estimator`'s methods can be overridden in subclasses (its
 constructor enforces this). Subclasses should use `model_fn` to configure
 the base class, and may add methods implementing specialized functionality.
+
+@compatbility(eager)
+Calling methods of `Estimator` will work while eager execution is enabled.
+However, the `model_fn` and `input_fn` is not executed eagerly, `Estimator`
+will switch to graph model before calling all user-provided functions (incl.
+hooks), so their code has to be compatible with graph mode execution. Note
+that `input_fn` code using <a href="../../tf/data"><code>tf.data</code></a> generally works in both graph and eager
+modes.
+@end_compatibility
 
 ## Properties
 

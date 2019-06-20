@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/__init__.py).
+Defined in [`tensorflow/contrib/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/estimator/__init__.py).
 
 Experimental utilities re:tf.estimator.*.
 
@@ -58,6 +55,8 @@ Experimental utilities re:tf.estimator.*.
 
 [`logistic_regression_head(...)`](../../tf/contrib/estimator/logistic_regression_head): Creates a `_Head` for logistic regression.
 
+[`make_early_stopping_hook(...)`](../../tf/contrib/estimator/make_early_stopping_hook): Creates early-stopping hook.
+
 [`multi_class_head(...)`](../../tf/contrib/estimator/multi_class_head): Creates a `_Head` for multi class classification.
 
 [`multi_head(...)`](../../tf/contrib/estimator/multi_head): Creates a `_Head` for multi-objective learning.
@@ -66,7 +65,17 @@ Experimental utilities re:tf.estimator.*.
 
 [`poisson_regression_head(...)`](../../tf/contrib/estimator/poisson_regression_head): Creates a `_Head` for poisson regression using <a href="../../tf/nn/log_poisson_loss"><code>tf.nn.log_poisson_loss</code></a>.
 
+[`read_eval_metrics(...)`](../../tf/contrib/estimator/read_eval_metrics): Helper to read eval metrics from eval summary files.
+
 [`regression_head(...)`](../../tf/contrib/estimator/regression_head): Creates a `_Head` for regression using the `mean_squared_error` loss.
 
 [`replicate_model_fn(...)`](../../tf/contrib/estimator/replicate_model_fn): Replicate `Estimator.model_fn` over GPUs. (deprecated)
+
+[`stop_if_higher_hook(...)`](../../tf/contrib/estimator/stop_if_higher_hook): Creates hook to stop if the given metric is higher than the threshold.
+
+[`stop_if_lower_hook(...)`](../../tf/contrib/estimator/stop_if_lower_hook): Creates hook to stop if the given metric is lower than the threshold.
+
+[`stop_if_no_decrease_hook(...)`](../../tf/contrib/estimator/stop_if_no_decrease_hook): Creates hook to stop if metric does not decrease within given max steps.
+
+[`stop_if_no_increase_hook(...)`](../../tf/contrib/estimator/stop_if_no_increase_hook): Creates hook to stop if metric does not increase within given max steps.
 

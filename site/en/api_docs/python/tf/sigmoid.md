@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.sigmoid(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Neural Network > Activation Functions](../../../api_guides/python/nn#Activation_Functions)
 
@@ -43,6 +40,6 @@ A Tensor with the same type as `x`.
 
 
 
-#### Numpy Compatibility
-Equivalent to np.scipy.special.expit
+#### Scipy Compatibility
+Equivalent to scipy.special.expit
 

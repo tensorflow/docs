@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.losses.compute_weighted_loss(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/losses/losses_impl.py).
 
 Computes the weighted loss.
 
@@ -53,3 +50,8 @@ Note:
   on some model parameters but you do not want this to affect the loss
   gradient, you need to apply <a href="../../tf/stop_gradient"><code>tf.stop_gradient</code></a> to `weights` before
   passing them to `compute_weighted_loss`.
+
+@compatbility(eager)
+The `loss_collection` argument is ignored when executing eagerly. Consider
+holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
+@end_compatibility

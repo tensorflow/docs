@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +20,7 @@ Defined in generated file: `tensorflow/python/ops/gen_linalg_ops.py`.
 Computes the matrix logarithm of one or more square matrices:
 
 
-log(exp(A)) = A
+\\(log(exp(A)) = A\\)
 
 This op is only defined for complex matrices. If A is positive-definite and
 real, then casting to a complex matrix, taking the logarithm and casting back

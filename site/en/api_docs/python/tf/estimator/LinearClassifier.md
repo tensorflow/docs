@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Estimator`](../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/python/estimator/canned/linear.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/canned/linear.py).
+Defined in [`tensorflow/python/estimator/canned/linear.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/estimator/canned/linear.py).
 
 Linear classifier model.
 
@@ -42,6 +39,17 @@ estimator = LinearClassifier(
       learning_rate=0.1,
       l1_regularization_strength=0.001
     ))
+
+# Or estimator using an optimizer with a learning rate decay.
+estimator = LinearClassifier(
+    feature_columns=[categorical_column_a,
+                     categorical_feature_a_x_categorical_feature_b],
+    optimizer=lambda: tf.train.FtrlOptimizer(
+        learning_rate=tf.exponential_decay(
+            learning_rate=0.1,
+            global_step=tf.get_global_step(),
+            decay_steps=10000,
+            decay_rate=0.96))
 
 # Or estimator with warm-starting from a previous checkpoint.
 estimator = LinearClassifier(
@@ -79,7 +87,10 @@ Loss is calculated by using softmax cross entropy.
 
 
 #### Eager Compatibility
-Estimators are not compatible with eager execution.
+Estimators can be used while eager execution is enabled. Note that `input_fn`
+and all hooks are executed inside a graph context, so they have to be written
+to be compatible with graph mode. Note that `input_fn` code using <a href="../../tf/data"><code>tf.data</code></a>
+generally works in both graph and eager modes.
 
 
 
@@ -123,7 +134,8 @@ __init__(
     config=None,
     partitioner=None,
     warm_start_from=None,
-    loss_reduction=losses.Reduction.SUM
+    loss_reduction=losses.Reduction.SUM,
+    sparse_combiner='sum'
 )
 ```
 
@@ -155,8 +167,9 @@ Construct a `LinearClassifier` estimator object.
     encoded as integer values in {0, 1,..., n_classes-1} for `n_classes`>2 .
     Also there will be errors if vocabulary is not provided and labels are
     string.
-* <b>`optimizer`</b>: An instance of `tf.Optimizer` used to train the model. Defaults
-    to FTRL optimizer.
+* <b>`optimizer`</b>: An instance of `tf.Optimizer` used to train the model. Can also
+    be a string (one of 'Adagrad', 'Adam', 'Ftrl', 'RMSProp', 'SGD'), or
+    callable. Defaults to FTRL optimizer.
 * <b>`config`</b>: `RunConfig` object to configure the runtime settings.
 * <b>`partitioner`</b>: Optional. Partitioner for input layer.
 * <b>`warm_start_from`</b>: A string filepath to a checkpoint to warm-start from, or
@@ -166,6 +179,11 @@ Construct a `LinearClassifier` estimator object.
     and Tensor names are unchanged.
 * <b>`loss_reduction`</b>: One of <a href="../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Describes how
     to reduce training loss over batch. Defaults to `SUM`.
+* <b>`sparse_combiner`</b>: A string specifying how to reduce if a categorical column
+    is multivalent.  One of "mean", "sqrtn", and "sum" -- these are
+    effectively different ways to do example-level normalization, which can
+    be useful for bag-of-words features. for more details, see
+    <a href="../../tf/feature_column/linear_model">linear_model</a>.
 
 
 #### Returns:
