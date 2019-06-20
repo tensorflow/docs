@@ -1,3 +1,7 @@
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 # API Documentation
 
 TensorFlow has APIs available in several languages both for constructing and
@@ -29,4 +33,4 @@ For example, see the bindings for:
 
 We also provide the C++ API reference for TensorFlow Serving:
 
-* [TensorFlow Serving](/api_docs/serving)
+* [TensorFlow Serving](/tfx/serving/api_docs/cc/)
