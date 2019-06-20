@@ -35,6 +35,11 @@ site
 Pull request のタイトルは "JA: ..." とすることを推奨しています。
 レビュアーが "JA" で検索することもあるので、見落としを防ぐためご協力お願いします。
 
+## Pull Request Size
+
+1 ファイル 1 pull request 程度の大きさに分けて pull request を作成することを推奨しています。
+これはレビュアーの負担を軽減して迅速にマージを行うためなので、ご協力お願いします。
+
 ## Proofreading Tool
 
 一部レビューの自動化や多人数の翻訳による表記ゆれ対策として[校正ツール](https://github.com/tfug/proofreading)を使用しています。
