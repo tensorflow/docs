@@ -237,7 +237,7 @@ feature {
 ...
 ```
 
-スキーマを利用しているコンポーネントは次のとおりです :
+スキーマを利用しているコンポーネントを次に示します :
 
 *   TensorFlow Data Validation
 *   TensorFlow Transform
@@ -248,8 +248,9 @@ feature {
 Note: 自動生成されたスキーマは「ベストエフォート」のものであり、単にデータの基本的な特徴の推測を試みるものです。
 生成されたスキーマについては、開発者が確認し、必要な場合は修正を加えることが期待されています。
 
-## Developing with TFX
+## TFX を使った開発
 
+TFX は機械学習プロジェクトにおけるすべてのフェーズにおいて、
 TFX provides a powerful platform for every phase of a machine learning project,
 from research, experimentation, and development on your local machine, through
 deployment. In order to avoid code duplication and eliminate the potential for
