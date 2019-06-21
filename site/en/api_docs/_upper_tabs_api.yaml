@@ -1,7 +1,7 @@
 # Upper tab dropdown menu used across site.
 toc:
 - name: API
-  path: /api_docs/python/tf
+  path: /api
   skip_translation: true
   menu:
   - include: /api_docs/_menu_toc.yaml
