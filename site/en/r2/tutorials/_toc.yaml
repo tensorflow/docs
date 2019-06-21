@@ -117,6 +117,8 @@ toc:
     path: /beta/tutorials/load_data/csv
   - title: "Numpy"
     path: /beta/tutorials/load_data/numpy
+  - title: "Pandas"
+    path: /alpha/tutorials/load_data/pandas
   - title: "Images"
     path: /beta/tutorials/load_data/images
   - title: "Text"
