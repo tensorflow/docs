@@ -40,31 +40,31 @@ TensorFlow Probability チームによりメンテナンスされていて、Ten
 
 *   *Edward2*
     ([`tfp.edward2`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/edward2)):
-    プログラムとして柔軟な確率的モデルを定義するための確率的プログラミング言語です。
+    プログラムとして柔軟な確率的モデルを定義するための確率的プログラミング言語
 *   *Probabilistic layers*
     ([`tfp.layers`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/layers)):
-    TensorFlow 層を拡張して、それらが表現する関数の不確実性を出力できるニューラルネットワーク層です。
+    TensorFlow 層を拡張して、それらが表現する関数の不確実性を出力できるニューラルネットワーク層
 *   *Trainable distributions*
     ([`tfp.trainable_distributions`](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/python/trainable_distributions)):
-    確率分布を出力するニューラルネットワークを構築することを簡単にする、一つの Tensor によるパラメータをもつ確率分布です。
+    確率分布を出力するニューラルネットワークを構築することを簡単にする、一つの Tensor によるパラメータをもつ確率分布
 
 ### Layer 3: 確率的推論
 
 *   *Markov chain Monte Carlo*
     ([`tfp.mcmc`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/mcmc)):
-    サンプリングによる積分近似のためのアルゴリズム。
+    サンプリングによる積分近似のためのアルゴリズム
     [ハミルトンモンテカルロ法](https://en.wikipedia.org/wiki/Hamiltonian_Monte_Carlo),
     ランダムウォークハミルトンヘイスティング法、カスタム遷移カーネルを構築することができる機能を含みます。
 *   *Variational Inference*
     ([`tfp.vi`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/vi)):
-    最適化による積分近似のためのアルゴリズム。
+    最適化による積分近似のためのアルゴリズム
 *   *Optimizers*
     ([`tfp.optimizer`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/optimizer)):
-    TensorFlow Optimizers を拡張した、確率的最適化手法。
+    TensorFlow Optimizers を拡張した、確率的最適化手法
     [Stochastic Gradient Langevin Dynamics](http://www.icml-2011.org/papers/398_icmlpaper.pdf) を含みます。
 *   *Monte Carlo*
     ([`tfp.monte_carlo`](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/python/monte_carlo)):
-    モンテカルロ法を用いたツール群。
+    モンテカルロ法を用いたツール群
 
 TensorFlow Probability は開発中であるため、インタフェースは変更される可能性があります。
 
@@ -74,13 +74,13 @@ TensorFlow Probability は開発中であるため、インタフェースは変
 に加えて、いくつかのスクリプト例が利用できます:
 
 * [Variational Autoencoders](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/vae.py)
-  —latent code と変分推論による表現学習.
+  —latent code と変分推論による表現学習
 * [Vector-Quantized Autoencoder](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/vq_vae.py)
-  —ベクトル量子化による離散表現学習。
+  —ベクトル量子化による離散表現学習
 * [ベイズニューラルネットワーク](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/bayesian_neural_network.py)
-  —ウェイトの不確実性を出力するニューラルネットワーク。
+  —ウェイトの不確実性を出力するニューラルネットワーク
 * [ベイズロジスティック回帰](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/logistic_regression.py)
-  —二値分類のためのベイズ推論。
+  —二値分類のためのベイズ推論
 
 ## issue の報告
 
