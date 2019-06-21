@@ -1,15 +1,6 @@
-# Contribution Guideline
+# Contribution guideline
 
-## Communities
-
-* Slack
-  * Slack の #doc_translation チャンネルで議論をしています
-  * [TensorFlow User Group の公式ページ](https://tfug.jp/)から参加可能です
-* Google Groups
-  * [docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)
-  * [docs-ja@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ja)
-
-## Directory Structure
+## Directory structure
 
 ドキュメントのディレクトリ構成は次のようになっています:
 
@@ -30,24 +21,24 @@ site
 `site/en` 以下にあるけれど `site/ja` 以下に無いものは、まだ翻訳が済んでいないドキュメントです。
 それらを翻訳して `site/en` 以下と同じ構成で `site/ja` 以下に配置して pull request を送ってください。
 
-## Pull Request Title
+## Pull request title
 
 Pull request のタイトルは "JA: ..." とすることを推奨しています。
 レビュアーが "JA" で検索することもあるので、見落としを防ぐためご協力お願いします。
 
-## Pull Request Size
+## Pull request size
 
 1 ファイル 1 pull request 程度の大きさに分けて pull request を作成することを推奨しています。
 これはレビュアーの負担を軽減して迅速にマージを行うためなので、ご協力お願いします。
 
-## Proofreading Tool
+## Proofreading tool
 
 一部レビューの自動化や多人数の翻訳による表記ゆれ対策として[校正ツール](https://github.com/tfug/proofreading)を使用しています。
 レビュー時にレビュアー側でも確認を行うので必須ではありませんが、予めチェックを行っておくと pull request の修正が少なく済みます。
 
 また、校正ツールへの pull request も歓迎します。
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 ### ソースコードのコメントは翻訳した方が良いですか?
 
