@@ -56,7 +56,7 @@ toc:
 - title: "Estimators"
   style: accordion
   section:
-  - title: "Premade Estimators"
+  - title: "Premade estimators"
     path: /beta/tutorials/estimators/premade_estimators
   - title: "Linear models"
     path: /beta/tutorials/estimators/linear
@@ -104,6 +104,8 @@ toc:
     path: /beta/tutorials/generative/dcgan
   - title: "Pix2Pix"
     path: /beta/tutorials/generative/pix2pix
+  - title: "CycleGAN"
+    path: /beta/tutorials/generative/cyclegan
   - heading: Auto Encoders
   - title: "VAE"
     path: /beta/tutorials/generative/cvae
