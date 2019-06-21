@@ -32,7 +32,7 @@ TensorFlow Probability チームによりメンテナンスされていて、Ten
   [`tf.distributions`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/python/ops/distributions)):
   バッチや [ブロードキャスティング](https://docs.scipy.org/doc/numpy-1.14.0/user/basics.broadcasting.html)セマンティクスによる確率分布の巨大な集合や関連する統計量
 * *Bijectors* ([`tfp.bijectors`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/bijectors)):
-  ランダム変数の可逆で組み立て可能な変換. Bijectors は変換された分布の豊富なクラスを提供します。それは、古典的な
+  ランダム変数の可逆で組み立て可能な変換。 Bijectors は変換された分布の豊富なクラスを提供します。それは、古典的な
   [対数正規分布](https://en.wikipedia.org/wiki/Log-normal_distribution)から
   [masked autoregressive flows](https://arxiv.org/abs/1705.07057)のような洗練された深層学習モデルにまで及びます。
 
