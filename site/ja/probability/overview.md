@@ -22,7 +22,7 @@ TensorFlow Probability を始めるためには、[インストールガイド](
 
 ### Layer 0: TensorFlow
 
-*Numerical operations*—特に, `LinearOperator`
+*数値処理*—特に, `LinearOperator`
 クラスが可能にする、効率的な演算のための特定の構造(直行、低ランク)を開発できるようにする行列フリーな実装。 
 TensorFlow Probability チームによりメンテナンスされていて、TensorFlow コアの [`tf.linalg`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/python/ops/linalg) の一部です。
 
@@ -74,12 +74,12 @@ TensorFlow Probability は開発中であるため、インタフェースは変
 に加えて、いくつかのスクリプト例が利用できます:
 
 * [Variational Autoencoders](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/vae.py)
-  —Representation learning with a latent code and variational inference.
+  —latent code と変分推論による表現学習.
 * [Vector-Quantized Autoencoder](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/vq_vae.py)
   —ベクトル量子化による離散表現学習。
-* [Bayesian Neural Networks](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/bayesian_neural_network.py)
+* [ベイズニューラルネットワーク](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/bayesian_neural_network.py)
   —ウェイトの不確実性を出力するニューラルネットワーク。
-* [Bayesian Logistic Regression](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/logistic_regression.py)
+* [ベイズロジスティック回帰](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/logistic_regression.py)
   —二値分類のためのベイズ推論。
 
 ## issue の報告
