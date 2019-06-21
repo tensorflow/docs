@@ -53,14 +53,14 @@ TensorFlow Probability チームによりメンテナンスされていて、Ten
 *   *Markov chain Monte Carlo*
     ([`tfp.mcmc`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/mcmc)):
     サンプリングによる積分近似のためのアルゴリズム
-    [ハミルトンモンテカルロ法](https://en.wikipedia.org/wiki/Hamiltonian_Monte_Carlo),
+    [ハミルトンモンテカルロ法](https://en.wikipedia.org/wiki/Hamiltonian_Monte_Carlo)、
     ランダムウォークハミルトンヘイスティング法、カスタム遷移カーネルを構築することができる機能を含みます。
 *   *Variational Inference*
     ([`tfp.vi`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/vi)):
     最適化による積分近似のためのアルゴリズム
 *   *Optimizers*
     ([`tfp.optimizer`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/optimizer)):
-    TensorFlow Optimizers を拡張した、確率的最適化手法
+    TensorFlow Optimizers を拡張した、確率的最適化モジュール。
     [Stochastic Gradient Langevin Dynamics](http://www.icml-2011.org/papers/398_icmlpaper.pdf) を含みます。
 *   *Monte Carlo*
     ([`tfp.monte_carlo`](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/python/monte_carlo)):
