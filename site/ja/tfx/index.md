@@ -262,20 +262,13 @@ Note: 自動生成されたスキーマは「ベストエフォート」のも�
 
 ## TFX を使った開発
 
-TFX は機械学習プロジェクトにおけるすべてのフェーズにおいて、
-TFX provides a powerful platform for every phase of a machine learning project,
-from research, experimentation, and development on your local machine, through
-deployment. In order to avoid code duplication and eliminate the potential for
-[training/serving skew](#training-serving-skew-detection) it is strongly
-recommended to implement your TFX pipeline for both model training and
-deployment of trained models, and use [Transform](transform.md) components which
-leverage the [TensorFlow Transform](tft.md) library for both training and
-inference. By doing so you will use the same preprocessing and analysis code
-consistently, and avoid differences between data used for training and data fed
-to your trained models in production, as well as benefitting from writing that
-code once.
-
-### Data Exploration, Visualization, and Cleaning
+TFX は機械学習のプロジェクトやリサーチ、実験、ローカルのマシン上での開発、デプロイを行うまでのすべてのフェーズにおいて、強力なプラットフォームを提供します。
+コードの重複を避け、[トレーニング/サービング skew](#training-serving-skew-detection) の可能性を排除するために、
+学習時と学習済みモデルのデプロイ時の両方でTFXのパイプラインを実装し、[TensorFlow Transform](tft.md) ライブラリを
+を活用するために [Transform](transform.md) コンポーネントを学習時と推論時の両方で利用することを強く推奨します。
+このようにすることで、前処理や解析を行う同一のコードを一貫して利用することができ、
+学習に利用するデータとプロダクション環境で学習済みモデルに与えられるデータの間で差異が生じることを避けられます。
+また、コードの記述も一度で済みます。
 
 ![Data Exploration, Visualization, and Cleaning](wrangling.svg)
 
