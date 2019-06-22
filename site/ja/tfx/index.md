@@ -218,8 +218,7 @@ https://developers.google.com/protocol-buffers/) 、より一般には "protobuf
 TensorFlow Data Validation (TFDV) を利用する利点の一つは、型やカテゴリ、入力値の範囲を推論し、
 自動的にスキーマを推測してくれることです。
 
-schema protobuf からの抜粋を次に示します。
-Here's an excerpt from a schema protobuf:
+schema protobuf からの抜粋を次に示します。:
 
 ```proto
 ...
