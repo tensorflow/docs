@@ -53,9 +53,9 @@ TFX パイプラインには典型的には次のコンポーネントが含ま�
 
 * [**Transform**](transform.md) はデータセットに対して特徴量エンジニアリングを行います。
 
-* [**Trainer**](trainer.md) はモデルを学習させます。
+* [**Trainer**](trainer.md) はモデルを訓練します。
 
-* [**Evaluator**](evaluator.md) は学習させた結果について深く分析を行います。
+* [**Evaluator**](evaluator.md) は訓練させた結果について深く分析を行います。
 
 * [**ModelValidator**](modelval.md) は出力されたモデルのバリデーションを手助けし、
 プロダクション環境に適用するのに「十分良さそう」であることを保証します。
