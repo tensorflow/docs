@@ -270,54 +270,31 @@ TFX は機械学習のプロジェクトやリサーチ、実験、ローカル�
 学習に利用するデータとプロダクション環境で学習済みモデルに与えられるデータの間で差異が生じることを避けられます。
 また、コードの記述も一度で済みます。
 
+### データ探索、可視化、クリーニング
+
 ![Data Exploration, Visualization, and Cleaning](wrangling.svg)
 
-TFX pipelines typically begin with an [ExampleGen](examplegen.md) component, which
-accepts input data and formats it as tf.Examples.  Often this is done after the
-data has been split into training and evaluation datasets so that there are
-actually two copies of ExampleGen components, one each for training and evaluation.
-This is typically followed by a
-[StatisticsGen](statsgen.md) component and a [SchemaGen](schemagen.md) component,
-which will examine your data and infer a data
-schema and statistics.  The schema and statistics will be consumed by an
-[ExampleValidator](exampleval.md) component, which will look for anomalies, missing
-values, and incorrect data types in your data.  All of these components leverage the
-capabilities of the [TensorFlow Data Validation](tfdv.md) library.
+TFX パイプラインは典型的には [ExampleGen](examplegen.md) コンポーネントから始まります。
+ExampleGen コンポーネントは入力されたデータを受け付け、 tf.Examples の形式に整形します。
+これはデータセットが学習用と評価用に分割されたあとで実行されることもよくあるため、学習用と評価用に、
+2つの ExampleGen コンポーネントのコピーが存在する場合もあります。
+また、一般的には次に [StatisticsGen](statsgen.md) コンポーネントと [SchemaGen](schemagen.md)
+コンポーネントが続きます。
+これらのコンポーネントはデータを確認し、データのスキーマと統計量を推定します。
+スキーマと統計量は [ExampleValidator](exampleval.md) コンポーネントに入力されます。
+このコンポーネントはデータの中に異常値や欠損値、誤ったデータ型が存在しないか検査します。
+これらのコンポーネントは [TensorFlow Data Validation](tfdv.md) の能力を活用しています。
 
-[TensorFlow Data Validation (TFDV)](tfdv.md) is a valuable tool when doing
-initial exploration, visualization, and cleaning of your dataset.  TFDV examines
-your data and infers the data types, categories, and ranges, and then
-automatically helps identify anomalies and missing values.  It also provides
-visualization tools that can help you examine and understand your dataset.
-After your pipeline completes you can read metadata from [MLMD](mlmd.md) and use
-the visualization tools of TFDV in a Jupyter notebook to analyze your data.
+[TensorFlow Data Validation (TFDV)](tfdv.md) はデータセットの探索、可視化、クリーニングを
+行う際に役に立つツールです。
+TFDV はデータを確認してデータの型、カテゴリ、値域を推定し、その後、自動的に異常値や欠損値を特定するのを手助けします。
+パイプラインのコンポーネントの処理が完了したあと、 [MLMD](mlmd.md) からメタデータを読み込み、
+データを分析するために TFDV の可視化ツールを Jupyter ノートブック上で利用できます。
+最初にモデルがデプロイされたあとに、TFDV をデプロイされたモデルへの推論リクエストに含まれる
+新たなデータを監視し、異常値やドリフトの検出を行うために利用できます。
+これは時系列データでトレンドや季節性があり、時間の経過にしたがって変化するものに対してはとくに有効で、
+データの問題やモデルを新しいデータで再学習させる必要があるときに、通知を行う手助けになります。
 
-Following your initial model training and deployment, TFDV can be used to
-monitor new data from inference requests to your deployed models, and look for
-anomalies and/or drift.  This is especially useful for time series data that
-changes over time as a result of trend or seasonality, and can help inform when
-there are data problems or when models need to be retrained on new data.
-
-### Data Visualization
-
-After you have completed your first run of your data through the section of your
-pipeline that uses TFDV (typically StatisticsGen, SchemaGen, and
-ExampleValidator) you
-can visualize the results in a Jupyter style notebook.  For additional runs
-you can
-compare these results as you make adjustments, until your data is optimal
-for your
-model and application.
-
-You will first query
-[**ML Metadata (MLMD)**](mlmd.md) to locate the results of these executions
-of these components, and then use the visualization support API in TFDV to
-create
-the visualizations in your notebook.  This includes [tfdv.load_statistics()](
-`tfdv.load_statistics`)
-and [tfdv.visualize_statistics()](`tfdv.visualize_statistics`)
-Using this visualization you can better understand the characteristics of your
-dataset, and if necessary modify as required.
 
 ### Developing and Training Models
 
