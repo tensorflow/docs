@@ -305,37 +305,25 @@ TFDV はデータを確認してデータの型、カテゴリ、値域を推定
 これには [tfdv.load_statistics()](`tfdv.load_statistics`) や [tfdv.visualize_statistics()](`tfdv.visualize_statistics`) が含まれます。
 これらの可視化を利用することで、データセットの特徴についてより良い理解を得ることや、もし必要なら要求に従って修正することもできます。
 
-### Developing and Training Models
+### モデルの開発と学習
 
 ![Feature Engineering](feature_eng.svg)
 
-A typical TFX pipeline will include a [Transform](transform.md) component, which
-will perform feature engineering by leveraging the capabilities of the
-[TensorFlow Transform (TFT)](tft.md) library.  A Transform component consumes
-the schema created by a SchemaGen component, and applies [data transformations](
-//tfx/transform/api_docs/python/tft) to
-create, combine, and transform the features that will be used to train your
-model. Cleanup of missing values and conversion of types should also be done in
-the Transform component if there is ever a possibility that these will also be
-present in data sent for inference requests.  [There are some important
-considerations](train.md) when designing TensorFlow code for training in TFX.
+典型的な TFX パイプラインは [Transform](transform.md) コンポーネントを含みます。
+これは [TensorFlow Transform (TFT)](tft.md) ライブラリを活用して特徴量エンジニアリングを行います。
+Transform コンポーネントは SchemaGen コンポーネントの作成したスキーマを入力とし、[data transformations](https://www.tensorflow.org/tfx/transform/api_docs/python/tft) を適用してモデルの学習に利用する特徴量の作成、組み合わせ、変換を行います。
+欠損値の除去や型の変換についても、それらが推論時のリクエストにも含まれる可能性のある場合、 Transform コンポーネントで実行すべきです。
+TensorFlow のコードを TFX で学習させるよう設計するときには[いくつか重要な検討事項があります。](train.md)
 
 ![Modeling and Training](train.svg)
 
-The result of a Transform component is a SavedModel which will be imported and
-used in your modeling code in TensorFlow, during a [Trainer](trainer.md)
-component.  This
-SavedModel includes all of the data engineering transformations that were
-created in the Transform component, so that the identical transforms are
-performed
-using the exact same code during both training and inference.  Using the
-modeling code, including the SavedModel from the Transform component, you can
-consume your training and evaluation data and train your model.
+Transform コンポーネントは SavedModel を生成します。
+これは [Trainer](trainer.md) コンポーネントの中で TensorFlow にインポートされ、モデルを記述するコードで利用されます。
+この SavedModel には Transform コンポーネントの作成した、データエンジニアリングで行う変換がすべて含まれています。
+このため、学習時と推論時でまったく同じコードを用いた同一の変換がなされます。
+Transform コンポーネントで生成された SavedModel を含む、モデルを記述するコードを利用することで、学習用と評価用、両方のデータを利用し、モデルの訓練ができるようになります。
 
-During the last section of your modeling code you should save your model as both
-a SavedModel and an EvalSavedModel.  Saving as an EvalSavedModel will require
-you to import and apply [TensorFlow Model Analysis (TFMA)](tfma.md) library in
-your Trainer component.
+モデルを記述するコードの最後のセクションで、モデルを SavedModel と SavedEvalModel の両方の形式で保存すべきです。 EvalSavelModel を保存するためにはTrainer コンポーネントで [TensorFlow Model Analysis (TFMA)](tfma.md) ライブラリをインポートして適用することが要求されます。
 
 ```python
 import tensorflow_model_analysis as tfma
