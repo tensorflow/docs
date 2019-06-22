@@ -295,6 +295,15 @@ TFDV はデータを確認してデータの型、カテゴリ、値域を推定
 これは時系列データでトレンドや季節性があり、時間の経過にしたがって変化するものに対してはとくに有効で、
 データの問題やモデルを新しいデータで再学習させる必要があるときに、通知を行う手助けになります。
 
+### データの可視化
+
+パイプラインのうち、TFDV を利用するコンポーネント (典型的には StatisticsGen, SchemaGen, ExampleValidator) を一度データが通過したあと、その結果を Jupyter notebookで可視化できます。
+何度も実行して結果を比較し、データがモデルやアプリケーションに最適化されるまで調整を行うこともできます。
+
+これらのコンポーネントの処理の出力結果を [**ML Metadata (MLMD)**](mlmd.md) に保存するために
+クエリを発行したあと、 notebook で可視化を行うために TFDV の可視化をサポートする API を利用できます。
+これには [tfdv.load_statistics()](`tfdv.load_statistics`) や [tfdv.visualize_statistics()](`tfdv.visualize_statistics`) が含まれます。
+これらの可視化を利用することで、データセットの特徴についてより良い理解を得ることや、もし必要なら要求に従って修正することもできます。
 
 ### Developing and Training Models
 
