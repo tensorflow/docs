@@ -335,28 +335,19 @@ tfma.export.export_eval_savedmodel(
         eval_input_receiver_fn=receiver_fn)
 ```
 
-### Analyzing and Understanding Model Performance
+### モデルの振る舞いの分析と理解
 
 ![Model Analysis](analysis.svg)
 
-Following initial model development and training it's important to analyze and
-really understand you model's performance.  A typical TFX pipeline will include
-an [Evaluator](evaluator.md) component, which leverages the capabilities of the
-[TensorFlow Model Analysis (TFMA)](tfma.md) library, which provides a power
-toolset for this phase of development.  An Evaluator component consumes the
-EvalSavedModel that you exported above, and allows you to specify a list of
-`SliceSpecs` that you can use when visualizing and analyzing your model's
-performance. Each SliceSpec defines a slice of your training data that you want
-to examine, such as particular categories for categorical features, or
-particular ranges for numerical features.
+モデルの開発を始め学習させる場合、モデルの振る舞いについて分析し、真に理解することは極めて重要です。
+典型的な TFX パイプラインは [Evaluator](evaluator.md) コンポーネントを含みます。
+このコンポーネントは開発のこのフェーズにおける強力なツールセットを提供する [TensorFlow Model Analysis (TFMA)](tfma.md) ライブラリの能力を活用します。
+Evaluator コンポーネントは保存した EvalSavedModel を入力として受け付けます。また、モデルの振る舞いを可視化し分析する際に利用する `SliceSpecs` のリストを指定できます。
+それぞれの SliceSpec は学習データ中の、カテゴリカルな特徴量における特定のカテゴリ、数値的な特徴量における特定の値域といった、確認したい学習データの切り口を定義します。
 
-For example, this would be important for trying to understand your model's
-performance for different segments of your customers, which could be segmented
-by annual purchases, geographical data, age group, or gender.  This can be
-especially important for datasets with long tails, where the performance of a
-dominant group may mask unacceptable performance for important, yet smaller
-groups.  For example, your model may perform well for average employees but fail
-miserably for executive staff, and it might be important to you to know that.
+例えば、年間購入金額や地域データ、年齢層、性別といった異なるセグメントの顧客に対するモデルの振る舞いを理解しようと試みることは重要になりえるでしょう。
+特にデータセットがロングテールな分布をしていて、多数派であるグループに対する振る舞いが、小さいけれど重要なグループに対する容認できない振る舞いを覆い隠してしまう場合に、これは特に重要になりえます。
+例えば、モデルが平均的な従業員に対してはうまく機能するものの、企業の幹部に対しては本当にひどい過ちを犯すような場合、それを知っておくことは重要になるかもしれません。
 
 ### Model Analysis and Visualization
 
