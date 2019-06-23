@@ -1,7 +1,7 @@
-# Transfer learning image classifier
+# 图像分类迁移学习
 
-In this tutorial, you will learn how to build a custom image classifier that you will train on the fly in the browser using TensorFlow.js.
+本指南中，你将学会在浏览器中使用TensorFlow.js，创建一个图像分类，并对它进行训练。
 
-You will use transfer learning to make create a highly accurate model with minimal training data. You will be using a pre-trained model for image classification called MobileNet. You will train a model on top of this one to customize the image classes it recognizes.
+你将通过迁移学习，用最小的训练数据创建一个高精度的模型。你将为MobileNet（一种图像分类）使用一个预先训练的模型。你将训练该模型，更好地定制它产生的图像分类。
 
-This tutorial is presented as a codelab. [Follow this link to open the codelab](https://codelabs.developers.google.com/codelabs/tensorflowjs-teachablemachine-codelab/index.html)
+本指南通过一个 codelab 展示。 [点击这个链接打开codelab](https://codelabs.developers.google.com/codelabs/tensorflowjs-teachablemachine-codelab/index.html)
