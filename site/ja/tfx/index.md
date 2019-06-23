@@ -345,23 +345,14 @@ Evaluator コンポーネントは保存した EvalSavedModel を入力として
 特にデータセットがロングテールな分布をしていて、多数派であるグループに対する振る舞いが、小さいけれど重要なグループに対する容認できない振る舞いを覆い隠してしまう場合に、これは特に重要になりえます。
 例えば、モデルが平均的な従業員に対してはうまく機能するものの、企業の幹部に対しては本当にひどい過ちを犯すような場合、それを知っておくことは重要になるかもしれません。
 
-### Model Analysis and Visualization
+### モデルの分析と可視化
 
-After you have completed your first run of your data through training your
-model and running the [Evaluator](evaluator.md) component (which leverages
-[TFMA](tfma.md)) on the training results, you can visualize the results in a
-Jupyter style notebook. For additional runs you can compare these results as
-you make adjustments, until your results are optimal for your model and
-application.
+モデルの学習を終え、学習結果を [Evaluator](evaluator.md) コンポーネント (これは [TFMA](tfma.md) を活用しています) に入力して処理が完了したあと、結果を Jupyter スタイルのノートブックで可視化できます。 
+2回目以降であれば、これまでの結果を比較して、結果がモデルとアプリケーションにとって最適化されるまで何度も調整できます。
 
-You will first query
-[**ML Metadata (MLMD)**](mlmd.md) to locate the results of these
-executions
-of these components, and then use the visualization support API in TFMA to create
-the visualizations in your notebook. This includes [tfma.load_eval_results()](https://www.tensorflow.org/tfx/model_analysis/api_docs/python/tfma/load_eval_results)
-and [tfma.view.render_slicing_metrics()](`tfma/view/render_slicing_metrics`)
-Using this visualization you can better understand the characteristics of your
-model, and if necessary modify as required.
+これらのコンポーネント群の実行結果を保存するために、まず [**ML Metadata (MLMD)**](mlmd.md) にクエリを発行し、それから TFMA の可視化用 API を利用すると、ノートブック上で可視化ができます。
+可視化用 API には [tfma.load_eval_results()](https://www.tensorflow.org/tfx/model_analysis/api_docs/python/tfma/load_eval_results)や [tfma.view.render_slicing_metrics()](`tfma/view/render_slicing_metrics`) が含まれます。
+可視化を行うことでモデルの特徴についてより良い理解を得ることができ、もし必要ならば、修正することもできるようになるでしょう。
 
 ## Deployment Targets
 
