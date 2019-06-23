@@ -1,13 +1,13 @@
-# What is transfer learning?
+# 什么是迁移学习
 
-Sophisticated deep learning models have millions of parameters (weights) and training them from scratch often requires large amounts of data of computing resources. Transfer learning is a technique that shortcuts much of this by taking a piece of a model that has already been trained on a related task and reusing it in a new model.
+复杂的深度学习模型拥有上百万的参数（weights），从头训练模型需要大量计算资源。迁移学习这种技术，把已经在相关领域被训练过的模型的一部分，重新用到新模型中，从而减少了对大量计算资源的需要。
 
-For example, the next tutorial in this section will show you how to build your own image recognizer that takes advantage of a model that was already trained to recognize 1000s of different kinds of objects within images. You can adapt the existing knowledge in the pre-trained model to detect your own image classes using much less training data than the original model required.
+例如，本节的下一个指南中，会展示如何利用一个能识别 1000 种不同物体的已经训练好的模型，构建一个适合你的图像识别。当使用这种预训练模型来识别你的图像时，会比重新构建一个模型要少用很多训练数据。
 
-This is useful for rapidly developing new models as well as customizing models in resource contstrained environments like browsers and mobile devices.
+在快速开发新模型时这点很有用，尤其是在浏览器和移动设备这类受限环境下。
 
-Most often when doing transfer learning, we don't adjust the weights of the original model. Instead we remove the final layer and train a new (often fairly shallow) model on top of the output of the truncated model. This is the technique you will see demonstrated in the tutorials in this section.
+在迁移学习时，我们通常不调整原始模型的参数。我们删除最后一层，在剩下部分的最上层训练一个新（相当轻量）模型。这就是你将在指南中看到的技术。
 
 
-- [Build a transfer-learning based image classifier](image_classification)
-- [Build a transfer-learning based audio recognizer](audio_recognizer)
+- [构建一个基于图像分类的迁移学习](图像分类)
+- [构建一个基于语音识别的迁移学习](语音识别)
