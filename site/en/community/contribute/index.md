@@ -54,7 +54,7 @@ An important part of the TensorFlow ecosystem is the network of related (but una
 *   [TensorFlowOnSpark](https://github.com/yahoo/TensorFlowOnSpark) — distributed TensorFlow with Apache Spark.
 *   [Horovod](https://github.com/uber/horovod) — distributed training framework for Keras, TensorFlow, and PyTorch.
 *   [R Interface to TensorFlow](https://tensorflow.rstudio.com/) — Keras and Estimator APIs in R
-*   [TensorFlow-Slim](https://github.com/tensorflow/models/tree/master/inception/inception/slim) — high-level library for defining models.
+*   [TensorFlow-Slim](https://github.com/tensorflow/models/tree/master/research/slim) — high-level library for defining models.
 *   [tensorpack](https://github.com/ppwwyyxx/tensorpack) — toolbox focused on training speed for large datasets.
 *   [tf-encrypted](https://github.com/mortendahl/tf-encrypted) — machine learning on encrypted data.
 *   [TensorLayer](https://tensorlayer.readthedocs.io/en/stable/) — deep learning and reinforcement learning library.
