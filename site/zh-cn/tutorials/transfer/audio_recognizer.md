@@ -1,7 +1,7 @@
-# Transfer learning audio recognizer
+#语音识别迁移学习
 
-In this tutorial, you will learn how to build a custom audio classifier that you will train in the browser using TensorFlow.js. You will use it to control a slider in the browser by making sounds.
+本指南中，你将学会在浏览器中使用TensorFlow.js，创建一个语音识别。通过它，你能用语音控制浏览器的滑块。
 
-You will use transfer learning to make a model that classifies short sounds with relatively little training data. You will be using a pre-trained model for [speech command recognition](https://github.com/tensorflow/tfjs-models/tree/master/speech-commands). You will train a new model on top of this model to recognize your own custom sound classes.
+你将通过迁移学习，用相对小的训练数据创建一个能对短语音分类的模型。你将使用一个预训练么模型[speech command recognition](https://github.com/tensorflow/tfjs-models/tree/master/speech-commands). 你将在其基础上训练一个新模型，用它识别你的语音类别。
 
-This tutorial is presented as a codelab. [Follow this link to open the codelab](https://codelabs.developers.google.com/codelabs/tensorflowjs-audio-codelab/index.html)
+本指南通过一个 codelab 展示。 [按照这个link打开codelab](https://codelabs.developers.google.com/codelabs/tensorflowjs-audio-codelab/index.html)
