@@ -27,14 +27,14 @@ GPUサポートのテスト用に[TensorFlow 2.0 Beta](https://www.tensorflow.or
 インストールするには:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-beta0</code>
+<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-beta1</code>
 </pre>
 
 ## ハードウェア要件
 
 以下のGPU対応デバイスがサポートされています:
 
-* NVIDIA® GPU card with CUDA® Compute Capability 3.以降
+* NVIDIA® GPU card with CUDA® Compute Capability 3.5以降
   [CUDA対応のGPUカード](https://developer.nvidia.com/cuda-gpus){:.external}を参照してください。
 
 
@@ -42,7 +42,7 @@ GPUサポートのテスト用に[TensorFlow 2.0 Beta](https://www.tensorflow.or
 
 以下のNVIDIA®ソフトウェアがお使いのシステムにインストールされている必要があります:
 
-* [NVIDIA® GPドライバー](https://www.nvidia.com/drivers){:.external} —CUDA 10は 410.x 以降を必要とします
+* [NVIDIA® GPUドライバー](https://www.nvidia.com/drivers){:.external} —CUDA 10は 410.x 以降を必要とします
 * [CUDA® Toolkit](https://developer.nvidia.com/cuda-toolkit-archive){:.external} —TensorFlowはCUDA 10.0をサポートしています (TensorFlow >= 1.13.0)
 * [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external}にはCUDA Toolkitが付属しています
 * [cuDNN SDK](https://developer.nvidia.com/cudnn){:.external} (>= 7.4.1)
