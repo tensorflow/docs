@@ -77,7 +77,7 @@ TensorFlow Probability は開発中であるため、インタフェースは変
   —latent code と変分推論による表現学習
 * [Vector-Quantized Autoencoder](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/vq_vae.py)
   —ベクトル量子化による離散表現学習
-* [ベイズニューラルネットワーク](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/bayesian_neural_network.py)
+* [ベイジアンニューラルネットワーク](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/bayesian_neural_network.py)
   —重みの不確実性を出力するニューラルネットワーク
 * [ベイズロジスティック回帰](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/logistic_regression.py)
   —二値分類のためのベイズ推論
