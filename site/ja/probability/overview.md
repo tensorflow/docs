@@ -11,7 +11,7 @@
 
 TensorFlow Probability は TensorFlow における確率的推論と統計的分析のためのライブラリです。
 TensorFlow エコシステムの一部として、TensorFlow Probability は確率的手法とさまざまな手法や機能との統合を提供します。
-たとえば、深層ネットワーク、自動微分を用いた勾配に基づく推論、GPUによるハードウェア高速化や分散計算による大きなデータセットやモデルに対するスケーラビリティなどです。
+たとえば、深層ネットワークを用いた確率的な手法、自動微分を用いた勾配に基づく推論、GPUによるハードウェア高速化や分散計算による大きなデータセットやモデルに対するスケーラビリティなどです。
 
 TensorFlow Probability を始めるためには、[インストールガイド](./install) や
 [Python notebook チュートリアル](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/)を参照してください。
