@@ -106,9 +106,12 @@ toc:
     path: /beta/tutorials/generative/pix2pix
   - title: "CycleGAN"
     path: /beta/tutorials/generative/cyclegan
-  - heading: Auto Encoders
+  - heading: Autoencoders
   - title: "VAE"
     path: /beta/tutorials/generative/cvae
+  - heading: Adversarial Attack
+  - title: "Fast gradient sign method"
+    path: /beta/tutorials/generative/adversarial_fgsm
 
 - title: "Load and preprocess data"
   style: accordion
