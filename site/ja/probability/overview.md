@@ -46,7 +46,7 @@ TensorFlow Probability チームによりメンテナンスされていて、Ten
     TensorFlow の layers を拡張して、それらが表現する関数の不確実性を出力できるニューラルネットワーク層
 *   *Trainable distributions*
     ([`tfp.trainable_distributions`](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/python/trainable_distributions)):
-    確率分布を出力するニューラルネットワークを構築することを簡単にする、一つの Tensor によるパラメータをもつ確率分布
+    確率分布を出力するニューラルネットワークを構築することを簡単にする、1つの Tensor によるパラメータをもつ確率分布
 
 ### Layer 3: 確率的推論
 
