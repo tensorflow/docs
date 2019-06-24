@@ -43,7 +43,7 @@ TensorFlow Probability チームによりメンテナンスされていて、Ten
     プログラムとして柔軟な確率的モデルを定義するための確率的プログラミング言語
 *   *Probabilistic layers*
     ([`tfp.layers`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/layers)):
-    TensorFlow 層を拡張して、それらが表現する関数の不確実性を出力できるニューラルネットワーク層
+    TensorFlow の layers を拡張して、それらが表現する関数の不確実性を出力できるニューラルネットワーク層
 *   *Trainable distributions*
     ([`tfp.trainable_distributions`](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/python/trainable_distributions)):
     確率分布を出力するニューラルネットワークを構築することを簡単にする、一つの Tensor によるパラメータをもつ確率分布
