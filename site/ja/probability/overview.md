@@ -11,7 +11,7 @@
 
 TensorFlow Probability は TensorFlow における確率的推論と統計的分析のためのライブラリです。
 TensorFlow エコシステムの一部として、TensorFlow Probability は確率的手法とさまざまな手法や機能との統合を提供します。
-たとえば、深層ネットワークを用いた確率的な手法、自動微分を用いた勾配に基づく推論、GPUによるハードウェア高速化や分散計算による大きなデータセットやモデルに対するスケーラビリティなどです。
+たとえば、深層ネットワークを用いた確率的な手法、自動微分を用いた勾配に基づく推論、GPU のようなハードウェア高速化や分散処理による大きなデータセットやモデルに対するスケーラビリティなどです。
 
 TensorFlow Probability を始めるためには、[インストールガイド](./install) や
 [Python notebook チュートリアル](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/)を参照してください。
@@ -22,8 +22,8 @@ TensorFlow Probability を始めるためには、[インストールガイド](
 
 ### Layer 0: TensorFlow
 
-*数値処理*—特に, `LinearOperator`
-クラスが可能にする、効率的な演算のための特定の構造(直行、低ランク)を開発できるようにする行列フリーな実装。 
+*数値処理*—特に、`LinearOperator`
+クラスが可能にする、効率的な演算のための特定の構造 (直行、低ランク) を開発できるようにする行列フリーな実装。 
 TensorFlow Probability チームによりメンテナンスされていて、TensorFlow コアの [`tf.linalg`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/python/ops/linalg) の一部です。
 
 ### Layer 1: 確率的なブロックの構築
