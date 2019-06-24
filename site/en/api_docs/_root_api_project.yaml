@@ -8,6 +8,4 @@ hide_from_products_list: true
 content_license: cc3-apache2
 buganizer_id: 162698
 include: /_project_included.yaml
-search_suggest_blacklist:
-- versions/{VERSION}/...
 
