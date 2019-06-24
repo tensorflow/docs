@@ -54,7 +54,7 @@ TensorFlow Probability チームによりメンテナンスされていて、Ten
     ([`tfp.mcmc`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/mcmc)):
     サンプリングによる積分近似のためのアルゴリズム
     [ハミルトンモンテカルロ法](https://en.wikipedia.org/wiki/Hamiltonian_Monte_Carlo)、
-    ランダムウォークハミルトンヘイスティング法、カスタム遷移カーネルを構築することができる機能を含みます。
+    ランダムウォークメトロポリス・ヘイスティング法、カスタム遷移カーネルを構築することができる機能を含みます。
 *   *Variational Inference*
     ([`tfp.vi`](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/python/vi)):
     最適化による積分近似のためのアルゴリズム
@@ -78,7 +78,7 @@ TensorFlow Probability は開発中であるため、インタフェースは変
 * [Vector-Quantized Autoencoder](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/vq_vae.py)
   —ベクトル量子化による離散表現学習
 * [ベイズニューラルネットワーク](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/bayesian_neural_network.py)
-  —ウェイトの不確実性を出力するニューラルネットワーク
+  —重みの不確実性を出力するニューラルネットワーク
 * [ベイズロジスティック回帰](https://github.com/tensorflow/probability/tree/master/tensorflow_probability/examples/logistic_regression.py)
   —二値分類のためのベイズ推論
 
