@@ -90,7 +90,7 @@ CUDA Compute Capability 3.0を搭載したGPU、またはさまざまなバー�
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # NVIDIAドライバーをインストールする
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-410</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-418</code>
 # 再起動。コマンドを使用してGPUが表示されていることを確認します: nvidia-smi
 
 # 開発ライブラリと実行時ライブラリをインストールする(~4GB)
