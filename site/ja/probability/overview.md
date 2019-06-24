@@ -23,7 +23,7 @@ TensorFlow Probability を始めるためには、[インストールガイド](
 ### Layer 0: TensorFlow
 
 *数値処理*—特に、`LinearOperator`
-クラスが可能にする、効率的な演算のための特定の構造 (直行、低ランク) を開発できるようにする行列フリーな実装。 
+クラスが可能にする、効率的な演算のための特定の構造 (対角、低ランク) を開発できるようにする行列フリーな実装。 
 TensorFlow Probability チームによりメンテナンスされていて、TensorFlow コアの [`tf.linalg`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/python/ops/linalg) の一部です。
 
 ### Layer 1: 確率的なブロックの構築
