@@ -56,7 +56,7 @@ toc:
 - title: "Estimators"
   style: accordion
   section:
-  - title: "Premade Estimators"
+  - title: "Premade estimators"
     path: /beta/tutorials/estimators/premade_estimators
   - title: "Linear models"
     path: /beta/tutorials/estimators/linear
@@ -104,9 +104,14 @@ toc:
     path: /beta/tutorials/generative/dcgan
   - title: "Pix2Pix"
     path: /beta/tutorials/generative/pix2pix
-  - heading: Auto Encoders
+  - title: "CycleGAN"
+    path: /beta/tutorials/generative/cyclegan
+  - heading: Autoencoders
   - title: "VAE"
     path: /beta/tutorials/generative/cvae
+  - heading: Adversarial Attack
+  - title: "Fast gradient sign method"
+    path: /beta/tutorials/generative/adversarial_fgsm
 
 - title: "Load and preprocess data"
   style: accordion
@@ -115,6 +120,8 @@ toc:
     path: /beta/tutorials/load_data/csv
   - title: "Numpy"
     path: /beta/tutorials/load_data/numpy
+  - title: "Pandas"
+    path: /alpha/tutorials/load_data/pandas
   - title: "Images"
     path: /beta/tutorials/load_data/images
   - title: "Text"

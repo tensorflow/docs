@@ -221,6 +221,10 @@ bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_
 
 #### Bazel build options
 
+See the Bazel [command-line reference](https://docs.bazel.build/versions/master/command-line-reference.html)
+for
+[build options](https://docs.bazel.build/versions/master/command-line-reference.html#build-options).
+
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
 

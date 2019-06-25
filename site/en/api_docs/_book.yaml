@@ -1,8 +1,8 @@
 upper_tabs:
 - include: /_upper_tabs_left.yaml
 
-- name: API {VERSION}
-  path: /api_docs/python/tf
+- name: API
+  path: /api
   menu:
   - include: /api_docs/_menu_toc.yaml
   lower_tabs:

@@ -49,8 +49,7 @@ To create a standard `Estimator` you call the constructor, and pass it a
 `model_fn`, for example:
 
 ```
-my_estimator = tf.estimator.Estimator(
-  model_fn=my_model_fn)
+my_estimator = tf.estimator.Estimator(model_fn=my_model_fn)
 ```
 
 The changes required to use a `tf.contrib.tpu.TPUEstimator` on your local
@@ -61,7 +60,7 @@ You should set the `use_tpu` argument to `False`, and pass a
 ``` python
 my_tpu_estimator = tf.contrib.tpu.TPUEstimator(
     model_fn=my_model_fn,
-    config=tf.contrib.tpu.RunConfig()
+    config=tf.contrib.tpu.RunConfig(),
     use_tpu=False)
 ```
 
@@ -71,7 +70,7 @@ by setting the command line flags as follows:
 
 
 ```
-$> python mnist_tpu.py --use_tpu=false --master=''
+$> python mnist_tpu.py --use_tpu=False --master=''
 ```
 
 Note: This `use_tpu=False` argument is useful for trying out the `TPUEstimator`
@@ -173,7 +172,7 @@ my_tpu_estimator = tf.contrib.tpu.TPUEstimator(
 ## Model Function
 
 This section details the changes you must make to the model function
-(`model_fn()`) to make it `TPUEstimator` compatible.
+(`model_fn()`) to make it compatible with `TPUEstimator` .
 
 ### Static shapes
 
@@ -300,12 +299,12 @@ In the example below the shape
 inference algorithm fails, but it is correctly using `set_shape`:
 
 ```
->>> x = tf.zeros(tf.constant([1,2,3])+1)
->>> x.shape
+x = tf.zeros(tf.constant([1,2,3])+1)
+x.shape
 
 TensorShape([Dimension(None), Dimension(None), Dimension(None)])
 
->>> x.set_shape([2,3,4])
+x.set_shape([2,3,4])
 ```
 
 In many cases the batch size is the only unknown dimension.
@@ -317,26 +316,26 @@ length or finiteness, the standard `tf.data.Dataset.batch` method
 cannot determine if all batches will have a fixed size batch on its own:
 
 ```
->>> params = {'batch_size':32}
->>> ds = tf.data.Dataset.from_tensors([0, 1, 2])
->>> ds = ds.repeat().batch(params['batch-size'])
->>> ds
+params = {'batch_size':32}
+ds = tf.data.Dataset.from_tensors([0, 1, 2])
+ds = ds.repeat().batch(params['batch_size'])
+ds
 
 <BatchDataset shapes: (?, 3), types: tf.int32>
 ```
 
-The most straightforward fix is to
-`tf.data.Dataset.apply` `tf.contrib.data.batch_and_drop_remainder`
+The most straightforward fix is to use
+`tf.data.Dataset.apply` and `tf.contrib.data.batch_and_drop_remainder`
 as follows:
 
 ```
->>> params = {'batch_size':32}
->>> ds = tf.data.Dataset.from_tensors([0, 1, 2])
->>> ds = ds.repeat().apply(
-...     tf.contrib.data.batch_and_drop_remainder(params['batch-size']))
->>> ds
+params = {'batch_size':32}
+ds = tf.data.Dataset.from_tensors([0, 1, 2])
+ds = ds.repeat().apply(
+    tf.contrib.data.batch_and_drop_remainder(params['batch_size']))
+ds
 
- <_RestructuredDataset shapes: (32, 3), types: tf.int32>
+ <DatasetV1Adapter shapes: (32, 3), types: tf.int32>
 ```
 
 The one downside to this approach is that, as the name implies, this batching

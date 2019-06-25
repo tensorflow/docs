@@ -183,6 +183,10 @@ https://github.com/tensorflow/tensorflow/issues/22390
 --define=no_tensorflow_py_deps=true
 </pre>
 
+See the Bazel [command-line reference](https://docs.bazel.build/versions/master/command-line-reference.html)
+for
+[build options](https://docs.bazel.build/versions/master/command-line-reference.html#build-options).
+
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
 
