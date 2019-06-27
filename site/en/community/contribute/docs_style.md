@@ -3,51 +3,17 @@
 ## Best practices
 
 *   Focus on user intent and audience.
-*   Use every-day words, and keep sentences short.
+*   Use every-day words and keep sentences short.
 *   Use consistent sentence construction, wording, and capitalization.
-*   Make your article easy to scan.
-*   Show empathy.
+*   Use headings and lists to make your docs easier to scan.
+*   Demonstrate empathy.
 
-We aspire to follow these principles when we write technical content for
-TensorFlow docs. We might not always get there, but we keep trying.
 
 ## Markdown syntax
 
 With a few exceptions, TensorFlow uses the standard Markdown rules. This section
 explains the primary differences between standard Markdown rules and the
 Markdown rules that TensorFlow documentation uses.
-
-### Math in Markdown
-
-You may use MathJax within TensorFlow when editing Markdown files, but note the
-following:
-
-*   MathJax renders properly on http://tensorflow.org.
-*   MathJax does not render properly on GitHub.
-
-When writing math expressions in MathJax use `$$` to surround blocks.
-
-```markdown
-Here is a block of math:
-
-$$
-2 \times 2 = 4
-$$
-
-```
-
-For inline expressions, use `$$` in Markdown files and `$` in Python notebooks.
-
-```markdown
-<!-- .md files -->
-Here is some inline math: $$ 2 \times 2 = 4 $$
-
-<!-- .ipynb files -->
-Here is some inline math: $ 2 \times 2 = 4 $
-```
-
-Note: If you actually need to use a dollar sign in text or MathJax expressions,
-escape it with a leading slash: `\$`
 
 ### Write about code
 
@@ -75,19 +41,19 @@ text:
 Use three backticks to open and close a code block. Optionally, specify the programming
 language after the first backtick group, for example:
 <pre><code>
-```python
-# some python code here
-```
+&#96;&#96;&#96;python
+&#35; some python code here
+&#96;&#96;&#96;
 </code></pre>
 
 ### Links in Markdown
 
 #### Links between files in this repository
 
-For links between files in this repository, use relative links: `[Eager
-Basics](../tutorials/eager/eager_basics)` produces
-[Eager Basics](https://www.tensorflow.org/tutorials/eager/eager_basics). These
-links will work on both GitHub and http://tensorflow.org.
+For links between files in this repository, use relative links:
+`[Eager basics](../tutorials/eager/eager_basics)` produces
+[Eager basics](https://www.tensorflow.org/tutorials/eager/eager_basics). These
+links will work on both GitHub and [tensorflow.org](https://www.tensorflow.org).
 
 #### Links to API documentation
 
@@ -95,7 +61,7 @@ API links are converted when the site is published.
 
 To link to the Python API, enclose the full symbol path in backticks:
 
-*   `tf.data.Dataset` to produce
+*   <code>&#96;tf.data.Dataset&#96;</code> to produce
     [tf.data.Dataset](https://www.tensorflow.org/api_docs/python/tf/data/Dataset)
 
 For the C++ API, use the namespace path:
@@ -105,56 +71,86 @@ For the C++ API, use the namespace path:
 
 #### External links
 
-For external links, including files on http://tensorflow.org that are not in the
-`tensorflow/docs` repository, just use regular Markdown links with the full URI.
+For external links, including files on <var>https://www.tensorflow.org</var>
+that are not in the `tensorflow/docs` repository, use standard Markdown links
+with the full URI.
 
 To link to source code, use a link starting with
-https://www.github.com/tensorflow/tensorflow/blob/master/, followed by the file
-name starting at the GitHub root.
+<var>https://www.github.com/tensorflow/tensorflow/blob/master/</var>, followed
+by the file name starting at the GitHub root.
 
-This URI naming scheme ensures that http://tensorflow.org can forward the link
-to the branch of the code corresponding to the version of the documentation
-you're viewing.
+This URI naming scheme ensures that <var>https://www.tensorflow.org</var> can
+forward the link to the branch of the code corresponding to the version of the
+documentation you're viewing.
 
 Do not include URI query parameters in the link.
+
+### Math in Markdown
+
+You may use MathJax within TensorFlow when editing Markdown files, but note the
+following:
+
+*   MathJax renders properly on [tensorflow.org](https://www.tensorflow.org).
+*   MathJax does not render properly on GitHub.
+*   This notation can be off-putting to unfamiliar developers.
+
+Use <code>&#36;&#36;</code> around a block of MathJax:
+
+<pre><code>$$
+E=\frac{1}{2n}\sum_x\lVert (y(x)-y'(x)) \rVert^2
+$$</code></pre>
+
+$$
+E=\frac{1}{2n}\sum_x\lVert (y(x)-y'(x)) \rVert^2
+$$
+
+Wrap inline MathJax expressions with <code>&#92;&#92;( ... &#92;&#92;)</code>:
+
+<pre><code>
+This is an example of an inline MathJax expression: &#92;&#92;( 2 \times 2 = 4 &#92;&#92;)
+</code></pre>
+
+This is an example of an inline MathJax expression: \\( 2 \times 2 = 4 \\)
+
+Note: If you need to use a dollar sign in text or MathJax expressions, escape it
+with a leading slash: `\$`. Dollar signs within code blocks (such as Bash
+variable names) do not need to be escaped.
+
 
 ## Prose style
 
 If you are going to write or edit substantial portions of the narrative
 documentation, please read the
-[Google style guide](https://developers.google.com/style).
+[Google Developer Documentation Style Guide](https://developers.google.com/style/highlights).
 
 ### Principles of good style
 
-*   **Check the spelling and grammar in your contributions.** Most editors
+*   *Check the spelling and grammar in your contributions.* Most editors
     include a spell checker or have an available spell-checking plugin. You can
     also paste your text into a Google Doc or other document software for a more
     robust spelling and grammar check.
-
-*   **Use a casual and friendly voice.** Write TensorFlow documentation like a
-    conversation — as if you're talking to another person one-on-one. Use a
+*   *Use a casual and friendly voice.* Write TensorFlow documentation like a
+    conversation—as if you're talking to another person one-on-one. Use a
     supportive tone in the article.
 
-    **Note:** Being less formal does not mean being less technical. Simplify
-    your prose, not the technical content.
+Note: Being less formal does not mean being less technical. Simplify your prose,
+not the technical content.
 
-*   **Avoid disclaimers, opinions, and value judgements.** Words like "easily",
+*   *Avoid disclaimers, opinions, and value judgements.* Words like "easily",
     "just", and "simple" are loaded with assumptions. Something might seem easy
     to you, but be difficult for another person. Try to avoid these whenever
     possible.
-
-*   **Use simple, to the point sentences without complicated jargon.** Compound
+*   *Use simple, to the point sentences without complicated jargon.* Compound
     sentences, chains of clauses, and location-specific idioms can make text
     hard to understand and translate. If a sentence can be split in two, it
     probably should. Avoid semicolons. Use bullet lists when appropriate.
-
-*   **Provide context.** Don't use abbreviations without explaining them. Don't
+*   *Provide context.* Don't use abbreviations without explaining them. Don't
     mention non-TensorFlow projects without linking to them. Explain why the
     code is written the way it is.
 
-### Usage guide
+## Usage guide
 
-#### Ops
+### Ops
 
 Use `# ⇒` instead of a single equal sign when you want to show what an op
 returns.
@@ -164,7 +160,7 @@ returns.
 (tf.expand_dims(input, 0))  # ⇒ [1, 2, 3, 5]
 ```
 
-#### Tensors
+### Tensors
 
 When you're talking about a tensor in general, don't capitalize the word
 *tensor*. When you're talking about the specific object that's provided to or
@@ -175,20 +171,10 @@ Don't use the word *Tensors* (plural) to describe multiple `Tensor` objects
 unless you really are talking about a `Tensors` object. Instead, say "a list (or
 collection) of `Tensor` objects".
 
-Use the term *dimensions* to refer to the shape of a tensor. If you need to be
-specific about the size, use these conventions:
-
-*   Refer to a scalar as a *0-D tensor*.
-*   Refer to a vector as a *1-D tensor*.
-*   Refer to a matrix as a *2-D tensor*.
-*   Refer to a tensor with 3 or more dimensions as a 3-D tensor or n-D tensor.
-    Use the word *rank* only if it's unambiguous in that context. Never use the
-    word *order* to describe the size of a tensor.
-
 Use the word *shape* to detail the dimensions of a tensor, and show the shape in
 square brackets with backticks. For example:
 
-```markdown
-If `input` is a 3-D tensor with shape `[3, 4, 3]`,
-this operation returns a 3-D tensor with shape `[6, 8, 6]`.
-```
+<pre><code>
+If `input` is a three-dimensional tensor with shape `[3, 4, 3]`, this operation
+returns a three-dimensional tensor with shape `[6, 8, 6]`.
+</code></pre>

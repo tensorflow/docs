@@ -322,7 +322,7 @@ labels = [0, 37, 29, 1, ...]
 
 dataset = tf.data.Dataset.from_tensor_slices((filenames, labels))
 dataset = dataset.map(
-    lambda filename, label: tuple(tf.py_func(
+    lambda filename, label: tuple(tf.py_function(
         _read_py_function, [filename, label], [tf.uint8, label.dtype])))
 dataset = dataset.map(_resize_function)
 ```

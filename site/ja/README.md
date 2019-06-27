@@ -4,9 +4,18 @@
 翻訳は**ベストエフォート**であるため、この翻訳が正確であることや[英語の公式ドキュメント](https://www.tensorflow.org/?hl=en)の
 最新の状態を反映したものであることを保証することはできません。
 この翻訳の品質を向上させるためのご意見をお持ちの方は、GitHubリポジトリ[tensorflow/docs](https://github.com/tensorflow/docs)にプルリクエストをお送りください。
-\
-コミュニティによる翻訳やレビューに参加していただける方は、
-[docs-ja@tensorflow.org メーリングリスト](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ja)にご連絡ください。
+
+翻訳やレビューに参加して頂ける方は以下のコミュニティにご連絡ください:
+
+* Slack
+  * Slack の #docs_translation チャンネルで議論をしています
+  * [TensorFlow User Group の公式ページ](https://tfug.jp/)から参加可能です
+* Google Groups
+  * [docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)
+  * [docs-ja@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ja)
+* [Gitter](https://gitter.im/tensorflow/docs)
+
+また、翻訳を行う際には [CONTRIBUTING.md](CONTRIBUTING.md) をお読みください。
 
 # Community translations
 

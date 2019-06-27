@@ -25,6 +25,7 @@ import tempfile
 import unittest
 
 from absl.testing import absltest
+from absl.testing import parameterized
 import six
 
 from tensorflow_docs.api_generator import doc_controls
@@ -937,6 +938,39 @@ class TestParseDocstring(absltest.TestCase):
     self.assertEqual(returns.text,
                      '\nSome tensors, with the same type as the input.\n')
     self.assertLen(returns.items, 2)
+
+
+class TestPartialSymbolAutoRef(parameterized.TestCase):
+  REF_TEMPLATE = '<a href="{link}"><code>{text}</code></a>'
+
+  @parameterized.named_parameters(
+      ('ref_1', 'keras.Model.fit', '../tf/keras/Model.md#fit'),
+      ('ref_2', 'layers.Conv2D', '../tf/keras/layers/Conv2D.md'),
+      ('ref_3', 'Model.fit(x, y, epochs=5)', '../tf/keras/Model.md#fit'),
+      ('ref_4', 'tf.matmul', '../tf/linalg/matmul.md'),
+      ('ref_5', 'tf.concat', '../tf/concat.md'))
+  def test_partial_symbol_references(self, string, link):
+    duplicate_of = {
+        'tf.matmul': 'tf.linalg.matmul',
+    }
+
+    is_fragment = {
+        'tf.keras.Model.fit': True,
+        'tf.concat': False,
+        'tf.keras.layers.Conv2D': False,
+        'tf.linalg.matmul': False
+    }
+
+    py_module_names = ['tf']
+
+    resolver = parser.ReferenceResolver(duplicate_of, is_fragment,
+                                        py_module_names)
+
+    ref_string = resolver.replace_references(string.join('``'), '..')
+
+    expected = self.REF_TEMPLATE.format(link=link, text=string)
+
+    self.assertEqual(expected, ref_string)
 
 
 class TestGenerateSignature(absltest.TestCase):

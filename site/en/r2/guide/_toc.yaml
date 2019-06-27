@@ -29,8 +29,8 @@ toc:
 - title: "Using GPU"
   path: /beta/guide/using_gpu
 
-- heading: "Data Loading"
-- title: "Importing Data"
+- heading: "Data input pipelines"
+- title: "tf.data Overview"
   path: /beta/guide/data
 - title: "Performance"
   path: /beta/guide/data_performance
@@ -42,5 +42,5 @@ toc:
   path: /beta/guide/saved_model
 
 - heading: "Misc"
-- title: "Version Compatibility"
+- title: "Version compatibility"
   path: /beta/guide/version_compat
