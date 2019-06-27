@@ -34,7 +34,7 @@ Docker Hubリポジトリにあります。
 | ---         | ---                                                                                               |
 | `latest`    | 最新リリースのTensorFlowのCPUバイナリイメージ。デフォルト。                                       |
 | `nightly`   | TensorFlowのnightlyビルドのイメージ。(不安定)                                                     |
-| *`version`* | TensorFlowのバイナリイメージの*version*を指定する。例: *1.13.1*                                   |
+| *`version`* | TensorFlowのバイナリイメージの*version*を指定する。例: *1.14.0*                                   |
 | `devel`     | TensorFlowのnightlyビルドの`master`開発環境。TensorFlowのソースコードを含む。                     |
 
 各ベース*タグ*は、機能を追加または変更する亜種があります:
