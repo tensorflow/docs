@@ -280,7 +280,7 @@ batched into a fixed size.
 # Reads an image from a file, decodes it into a dense tensor, and resizes it
 # to a fixed shape.
 def _parse_function(filename, label):
-  image_string = tf.read_file(filename)
+  image_string = tf.io.read_file(filename)
   image_decoded = tf.image.decode_jpeg(image_string)
   image_resized = tf.image.resize_images(image_decoded, [28, 28])
   return image_resized, label
@@ -306,7 +306,7 @@ invoke, the `tf.py_function()` operation in a `Dataset.map()` transformation.
 import cv2
 
 # Use a custom OpenCV function to read the image, instead of the standard
-# TensorFlow `tf.read_file()` operation.
+# TensorFlow `tf.io.read_file()` operation.
 def _read_py_function(filename, label):
   image_decoded = cv2.imread(filename.decode(), cv2.IMREAD_GRAYSCALE)
   return image_decoded, label
