@@ -36,7 +36,7 @@ toc:
 - title: "Images"
   style: accordion
   section:
-  - title: "Convolutional Neural Networks"
+  - title: "Convolutional neural networks"
     path: /beta/tutorials/images/intro_to_cnns
   - title: "Transfer learning with TFHub"
     path: /beta/tutorials/images/hub_with_keras
@@ -56,7 +56,7 @@ toc:
 - title: "Estimators"
   style: accordion
   section:
-  - title: "Premade Estimators"
+  - title: "Premade estimators"
     path: /beta/tutorials/estimators/premade_estimators
   - title: "Linear models"
     path: /beta/tutorials/estimators/linear
@@ -86,43 +86,48 @@ toc:
   section:
   - title: "Generate text with an RNN"
     path: /beta/tutorials/text/text_generation
-  - title: "Neural Machine Translation with Attention"
+  - title: "Translation with attention"
     path: /beta/tutorials/text/nmt_with_attention
   - title: "Image captioning"
     path: /beta/tutorials/text/image_captioning
   - title: "Transformer model for language understanding"
     path: /beta/tutorials/text/transformer
 
-- title: "Image Generation"
+- title: "Image generation"
   style: accordion
   section:
-  - heading: Image Optimization
-  - title: "Style Transfer"
+  - title: "Style transfer"
     path: /beta/tutorials/generative/style_transfer
-  - heading: GANs
   - title: "DCGAN"
     path: /beta/tutorials/generative/dcgan
   - title: "Pix2Pix"
     path: /beta/tutorials/generative/pix2pix
-  - heading: Auto Encoders
-  - title: "VAE"
+  - title: "CycleGAN"
+    path: /beta/tutorials/generative/cyclegan
+  - title: "Variational autoencoder"
     path: /beta/tutorials/generative/cvae
+  - title: "Adversarial FGSM"
+    path: /beta/tutorials/generative/adversarial_fgsm
 
-- title: "Loading data"
+- title: "Load and preprocess data"
   style: accordion
   section:
-  - title: "Load CSV data"
+  - title: "CSV"
     path: /beta/tutorials/load_data/csv
-  - title: "Load numpy data"
+  - title: "Numpy"
     path: /beta/tutorials/load_data/numpy
-  - title: "Build an image input pipeline"
+  - title: "Pandas"
+    path: /alpha/tutorials/load_data/pandas
+  - title: "Images"
     path: /beta/tutorials/load_data/images
-  - title: "Load text with tf.data"
+  - title: "Text"
     path: /beta/tutorials/load_data/text
-  - title: "Use TFRecords and tf.Example"
+  - title: "TFRecords"
     path: /beta/tutorials/load_data/tf_records
-  - title: "Unicode strings"
+  - title: "Unicode"
     path: /beta/tutorials/text/unicode
+  - title: "TF.Text"
+    path: /beta/tutorials/tensorflow_text/intro
 
 - title: "Distributed training"
   style: accordion

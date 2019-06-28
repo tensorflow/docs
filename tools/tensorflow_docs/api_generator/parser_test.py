@@ -22,8 +22,11 @@ import collections
 import functools
 import os
 import tempfile
+import unittest
 
 from absl.testing import absltest
+from absl.testing import parameterized
+import six
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
@@ -84,6 +87,28 @@ class DummyVisitor(object):
   def __init__(self, index, duplicate_of):
     self.index = index
     self.duplicate_of = duplicate_of
+
+
+class ConcreteMutableMapping(collections.MutableMapping):
+  """MutableMapping subclass to repro tf_inspect.getsource() IndexError."""
+
+  def __init__(self):
+    self._map = {}
+
+  def __getitem__(self, key):
+    return self._map[key]
+
+  def __setitem__(self, key, value):
+    self._map[key] = value
+
+  def __delitem__(self, key):
+    del self._map[key]
+
+  def __iter__(self):
+    return self._map.__iter__()
+
+  def __len__(self):
+    return len(self._map)
 
 
 class ParserTest(absltest.TestCase):
@@ -686,6 +711,94 @@ class ParserTest(absltest.TestCase):
     partial = functools.partial(test_function_for_partial2, a=1, b=2, c=3)
     self.assertEqual(expected, tf_inspect.getfullargspec(partial))
 
+  def test_getsource_indexerror_resilience(self):
+    """Validates that parser gracefully handles IndexErrors.
+
+    tf_inspect.getsource() can raise an IndexError in some cases. It's unclear
+    why this happens, but it consistently repros on the `get` method of
+    collections.MutableMapping subclasses.
+    """
+
+    # This isn't the full set of APIs from MutableMapping, but sufficient for
+    # testing.
+    index = {
+        'ConcreteMutableMapping':
+            ConcreteMutableMapping,
+        'ConcreteMutableMapping.__init__':
+            ConcreteMutableMapping.__init__,
+        'ConcreteMutableMapping.__getitem__':
+            ConcreteMutableMapping.__getitem__,
+        'ConcreteMutableMapping.__setitem__':
+            ConcreteMutableMapping.__setitem__,
+        'ConcreteMutableMapping.values':
+            ConcreteMutableMapping.values,
+        'ConcreteMutableMapping.get':
+            ConcreteMutableMapping.get
+    }
+    visitor = DummyVisitor(index=index, duplicate_of={})
+    reference_resolver = parser.ReferenceResolver.from_visitor(
+        visitor=visitor, py_module_names=['tf'])
+
+    tree = {
+        'ConcreteMutableMapping': [
+            '__init__', '__getitem__', '__setitem__', 'values', 'get'
+        ]
+    }
+    parser_config = parser.ParserConfig(
+        reference_resolver=reference_resolver,
+        duplicates={},
+        duplicate_of={},
+        tree=tree,
+        index=index,
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    page_info = parser.docs_for_object(
+        full_name='ConcreteMutableMapping',
+        py_object=ConcreteMutableMapping,
+        parser_config=parser_config)
+
+    self.assertIn(ConcreteMutableMapping.get,
+                  [m.obj for m in page_info.methods])
+
+  @unittest.skipIf(six.PY2, "Haven't found a repro for this under PY2.")
+  def test_strips_default_arg_memory_address(self):
+    """Validates that parser strips memory addresses out out default argspecs.
+
+     argspec.defaults can contain object memory addresses, which can change
+     between invocations. It's desirable to strip these out to reduce churn.
+
+     See: `help(collections.MutableMapping.pop)`
+    """
+    index = {
+        'ConcreteMutableMapping': ConcreteMutableMapping,
+        'ConcreteMutableMapping.pop': ConcreteMutableMapping.pop
+    }
+    visitor = DummyVisitor(index=index, duplicate_of={})
+    reference_resolver = parser.ReferenceResolver.from_visitor(
+        visitor=visitor, py_module_names=['tf'])
+
+    tree = {'ConcreteMutableMapping': ['pop']}
+    parser_config = parser.ParserConfig(
+        reference_resolver=reference_resolver,
+        duplicates={},
+        duplicate_of={},
+        tree=tree,
+        index=index,
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    page_info = parser.docs_for_object(
+        full_name='ConcreteMutableMapping',
+        py_object=ConcreteMutableMapping,
+        parser_config=parser_config)
+
+    pop_default_arg = page_info.methods[0].signature[1]
+    self.assertNotIn('object at 0x', pop_default_arg)
+    self.assertIn('<object>', pop_default_arg)
+
 
 class TestReferenceResolver(absltest.TestCase):
   _BASE_DIR = tempfile.mkdtemp()
@@ -825,6 +938,39 @@ class TestParseDocstring(absltest.TestCase):
     self.assertEqual(returns.text,
                      '\nSome tensors, with the same type as the input.\n')
     self.assertLen(returns.items, 2)
+
+
+class TestPartialSymbolAutoRef(parameterized.TestCase):
+  REF_TEMPLATE = '<a href="{link}"><code>{text}</code></a>'
+
+  @parameterized.named_parameters(
+      ('ref_1', 'keras.Model.fit', '../tf/keras/Model.md#fit'),
+      ('ref_2', 'layers.Conv2D', '../tf/keras/layers/Conv2D.md'),
+      ('ref_3', 'Model.fit(x, y, epochs=5)', '../tf/keras/Model.md#fit'),
+      ('ref_4', 'tf.matmul', '../tf/linalg/matmul.md'),
+      ('ref_5', 'tf.concat', '../tf/concat.md'))
+  def test_partial_symbol_references(self, string, link):
+    duplicate_of = {
+        'tf.matmul': 'tf.linalg.matmul',
+    }
+
+    is_fragment = {
+        'tf.keras.Model.fit': True,
+        'tf.concat': False,
+        'tf.keras.layers.Conv2D': False,
+        'tf.linalg.matmul': False
+    }
+
+    py_module_names = ['tf']
+
+    resolver = parser.ReferenceResolver(duplicate_of, is_fragment,
+                                        py_module_names)
+
+    ref_string = resolver.replace_references(string.join('``'), '..')
+
+    expected = self.REF_TEMPLATE.format(link=link, text=string)
+
+    self.assertEqual(expected, ref_string)
 
 
 class TestGenerateSignature(absltest.TestCase):

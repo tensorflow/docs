@@ -160,7 +160,8 @@ def write_docs(output_dir,
 
   if redirects:
     redirects = {
-        'redirects': sorted(redirects, key=lambda redirect:redirect["from"])}
+        'redirects': sorted(redirects, key=lambda redirect: redirect['from'])
+    }
 
     api_redirects_path = os.path.join(output_dir, '_redirects.yaml')
     with open(api_redirects_path, 'w') as redirect_file:
@@ -272,7 +273,7 @@ def extract(py_modules,
   # The objects found during traversal, and their children are passed to each
   # of these visitors in sequence. Each visitor returns the list of children
   # to be passed to the next visitor.
-  visitors = [api_filter] + callbacks + [accumulator]
+  visitors = [api_filter, public_api.ignore_typing] + callbacks + [accumulator]
 
   traverse.traverse(py_module, visitors, short_name)
 

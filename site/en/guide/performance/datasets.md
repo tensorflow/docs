@@ -164,7 +164,7 @@ dataset = dataset.map(map_func=parse_fn, num_parallel_calls=FLAGS.num_parallel_c
 
 Furthermore, if your batch size is in the hundreds or thousands, your pipeline
 will likely additionally benefit from parallelizing the batch creation. To this
-end, the `tf.data` API provides the `tf.contrib.data.map_and_batch`
+end, the `tf.data` API provides the `tf.data.experimental.map_and_batch`
 transformation, which effectively "fuses" the map and batch transformations.
 
 To apply this change to our running example, change:
@@ -205,7 +205,7 @@ is stored locally or remotely, but can be worse in the remote case if data is
 not prefetched effectively.
 
 To mitigate the impact of the various data extraction overheads, the `tf.data`
-API offers the `tf.contrib.data.parallel_interleave` transformation. Use this
+API offers the `tf.data.experimental.parallel_interleave` transformation. Use this
 transformation to parallelize the execution of and interleave the contents of
 other datasets (such as data file readers). The
 number of datasets to overlap can be specified by the `cycle_length` argument.
@@ -232,7 +232,7 @@ dataset = files.apply(tf.contrib.data.parallel_interleave(
 The throughput of remote storage systems can vary over time due to load or
 network events. To account for this variance, the `parallel_interleave`
 transformation can optionally use prefetching. (See
-`tf.contrib.data.parallel_interleave` for details).
+`tf.data.experimental.parallel_interleave` for details).
 
 By default, the `parallel_interleave` transformation provides a deterministic
 ordering of elements to aid reproducibility. As an alternative to prefetching
@@ -296,7 +296,7 @@ internal state of the `shuffle` transformation. In other words, the former
 (`shuffle` before `repeat`) provides stronger ordering guarantees.
 
 When possible, we recommend using the fused
-`tf.contrib.data.shuffle_and_repeat` transformation, which combines the best of
+`tf.data.experimental.shuffle_and_repeat` transformation, which combines the best of
 both worlds (good performance and strong ordering guarantees). Otherwise, we
 recommend shuffling before repeating.
 

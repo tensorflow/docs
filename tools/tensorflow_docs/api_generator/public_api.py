@@ -20,7 +20,36 @@ from __future__ import print_function
 
 import inspect
 
+
 from tensorflow_docs.api_generator import doc_controls
+
+try:
+  import typing  # pylint: disable=g-import-not-at-top
+  _TYPING = {id(value) for value in typing.__dict__.values()}
+  del typing
+except ImportError:
+  _TYPING = {}
+
+
+def ignore_typing(path, parent, children):
+  """Removes all children that are members of the typing module.
+
+  Arguments:
+    path: A tuple or name parts forming the attribute-lookup path to this
+      object. For `tf.keras.layers.Dense` path is:
+        ("tf","keras","layers","Dense")
+    parent: The parent object.
+    children: A list of (name, value) pairs. The attributes of the patent.
+
+  Returns:
+    A filtered list of children `(name, value)` pairs.
+  """
+  del path
+  del parent
+  children = [
+      (name, value) for (name, value) in children if id(value) not in _TYPING
+  ]
+  return children
 
 
 def local_definitions_filter(path, parent, children):
