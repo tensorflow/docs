@@ -282,7 +282,7 @@ batched into a fixed size.
 def _parse_function(filename, label):
   image_string = tf.io.read_file(filename)
   image_decoded = tf.image.decode_jpeg(image_string)
-  image_resized = tf.image.resize_images(image_decoded, [28, 28])
+  image_resized = tf.image.resize(image_decoded, [28, 28])
   return image_resized, label
 
 # A vector of filenames.
@@ -314,7 +314,7 @@ def _read_py_function(filename, label):
 # Use standard TensorFlow operations to resize the image to a fixed shape.
 def _resize_function(image_decoded, label):
   image_decoded.set_shape([None, None, None])
-  image_resized = tf.image.resize_images(image_decoded, [28, 28])
+  image_resized = tf.image.resize(image_decoded, [28, 28])
   return image_resized, label
 
 filenames = ["/var/data/image1.jpg", "/var/data/image2.jpg", ...]
