@@ -140,7 +140,7 @@ const model = await tf.loadLayersModel('localstorage://my-model-1');
 下面我们将介绍可用的不同方案。
 
 
-### Local Storage (Browser only)
+### 本地存储 (仅限浏览器)
 
 **Scheme:** `localstorage://`
 
