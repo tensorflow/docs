@@ -28,7 +28,7 @@ const saveResult = await model.save('localstorage://my-model-1');
 
 一些需要注意的地方:
 
-- `save`  方法采用以 scheme 字符串开头的类 URL 字符串参数（下文简称 scheme）。 在本例中我们使用 localstorage:// scheme 将模型保存到本地存储。
+- `save`  方法采用以 scheme 字符串开头的类 URL 字符串参数（下文简称 scheme）。它描述了我们想保存模型的地址的类型。 在本例中我们使用 localstorage:// scheme 将模型保存到本地存储。
 - `scheme`后是`path`。 在上面的例子中，'path' 是 'my-model-1'
 - `save` 方法是异步的。
 - `model.save` 的返回值是一个 JSON 对象，它包含一些可能有用的信息，例如模型的拓扑结构和权重的大小。
