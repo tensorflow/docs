@@ -68,7 +68,7 @@ await model.save('downloads://my-model');
  1. 一个名为 `[my-model].json` 的 JSON 文件，它在 modeloTopology 字段中包含模型的拓扑，在 weightsManifest 字段中包含权重清单。
  2. 一个二进制文件，其中包含名为 `[my-model].weights.bin` 的权重值。
 
-你可以更换`[my-model]`的名称以获得一个不同的文件名。
+你可以更换`[my-model]`的名称以获得一个不同的名称的文件。
 
 由于`.json`使用相对路径指向 `.bin`。所以两个文件需要被安放在同一个文件夹中。
 
