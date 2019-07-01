@@ -2,7 +2,7 @@
 
 TensorFlow.js提供了保存和加载使用[`Layers`](https://js.tensorflow.org/api/0.14.2/#Models)API创建或从现有TensorFlow模型转换的模型的功能。这些可能是您自己训练过的模型，也可能是别人训练过的模型。使用Layers API的一个主要好处是使用它创建的模型是可序列化的，这就是我们将在本教程中探讨的内容。
 
-本教程将会介绍如何在 TensorFlow.js 中保存和加载模型。我们同样可以导入Tensorflow Python模型。
+本教程将会介绍如何在 TensorFlow.js 中保存和加载模型(可通过JSON文件识别)。我们同样可以导入Tensorflow Python模型。
 
 以下两个教程介绍了加载这些模型：
 
