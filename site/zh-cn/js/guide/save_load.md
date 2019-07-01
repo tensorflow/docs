@@ -151,7 +151,7 @@ const model = await tf.loadLayersModel('localstorage://my-model');
 这将从浏览器的[本地存储](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 加载一个名为`my-model`模型。
 
-### IndexedDB (Browser only)
+### IndexedDB (仅限浏览器)
 
 **Scheme:** `indexeddb://`
 
