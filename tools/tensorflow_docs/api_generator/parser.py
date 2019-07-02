@@ -115,6 +115,41 @@ def _get_raw_docstring(py_object):
   else:
     return ''
 
+
+class IgnoreLineInBlock(object):
+  """Ignores the lines in a block.
+
+  Attributes:
+    block_start: Contains the start string of a block to ignore.
+    block_end: Contains the end string of a block to ignore.
+  """
+
+  def __init__(self, block_start, block_end):
+    self._block_start = block_start
+    self._block_end = block_end
+    self._in_block = False
+
+    self._start_end_regex = re.escape(self._block_start) + r'.*' + re.escape(
+        self._block_end)
+
+  def __call__(self, line):
+    # If start and end block are on the same line, return True.
+    if re.match(self._start_end_regex, line):
+      return True
+
+    if not self._in_block:
+      if self._block_start in line:
+        self._in_block = True
+
+    elif self._block_end in line:
+      self._in_block = False
+      # True is being returned here because the last line in the block should
+      # also be ignored.
+      return True
+
+    return self._in_block
+
+
 AUTO_REFERENCE_RE = re.compile(r'`([\w\(\[\)\]\{\}.,=\s]+?)`')
 
 
@@ -178,7 +213,7 @@ class ReferenceResolver(object):
     par_dict = {"keras.layers.Conv2D": "tf.keras.layers.Conv2D",
                 "layers.Conv2D": "tf.keras.layers.Conv2D"}
 
-    There should atleast be one '.' in the partial symbol generated so as to
+    There should at least be one '.' in the partial symbol generated so as to
     avoid guessing for the true symbol.
 
     Args:
@@ -263,8 +298,15 @@ class ReferenceResolver(object):
         return match.group(0)
 
     fixed_lines = []
+
+    filters = [
+        IgnoreLineInBlock('<pre class="tfo-notebook-code-cell-output">',
+                          '{% endhtmlescape %}</pre>'),
+        IgnoreLineInBlock('```', '```')
+    ]
+
     for line in string.splitlines():
-      if not line.strip().startswith('# '):
+      if not any(filter_block(line) for filter_block in filters):
         line = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, line)
       fixed_lines.append(line)
 
