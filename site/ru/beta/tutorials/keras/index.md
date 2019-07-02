@@ -1,7 +1,7 @@
 # Изучение и использование машинного обучения
 
 Эта коллекция notebook-ов вдохновлена книгой
-* [Deep Learning with Python] (https://books.google.com/books?id=Yo3CAQAACAAJ) *.
+[Deep Learning with Python] (https://books.google.com/books?id=Yo3CAQAACAAJ).
 Эти руководства используют `tf.keras`, высокоуровневый Python API TensorFlow для создания
 и обучения модели глубокого обучения. Чтобы узнать больше об использовании Keras с
 TensorFlow, см. [Руководство TensorFlow Keras] (../../guide/keras.ipynb).
