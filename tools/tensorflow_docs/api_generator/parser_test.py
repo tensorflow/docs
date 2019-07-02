@@ -22,6 +22,7 @@ import collections
 import functools
 import os
 import tempfile
+import textwrap
 import unittest
 
 from absl.testing import absltest
@@ -913,8 +914,6 @@ class TestParseDocstring(absltest.TestCase):
   def test_split_title_blocks(self):
     docstring_parts = parser.TitleBlock.split_string(RELU_DOC)
 
-    print(docstring_parts)
-
     self.assertLen(docstring_parts, 7)
 
     args = docstring_parts[1]
@@ -971,6 +970,79 @@ class TestPartialSymbolAutoRef(parameterized.TestCase):
     expected = self.REF_TEMPLATE.format(link=link, text=string)
 
     self.assertEqual(expected, ref_string)
+
+
+class TestIgnoreLineInBlock(parameterized.TestCase):
+
+  @parameterized.named_parameters(
+      ('ignore_backticks',
+       ['```'],
+       ['```'],
+       '```\nFiller\n```\n```Same line```\n```python\nDowner\n```'),
+
+      ('ignore_code_cell_output',
+       ['<pre>{% html %}'],
+       ['{% endhtml %}</pre>'],
+       '<pre>{% html %}\nOutput\nmultiline{% endhtml %}</pre>'),
+
+      ('ignore_backticks_and_cell_output',
+       ['<pre>{% html %}', '```'],
+       ['{% endhtml %}</pre>', '```'],
+       ('```\nFiller\n```\n```Same line```\n<pre>{% html %}\nOutput\nmultiline'
+        '{% endhtml %}</pre>\n```python\nDowner\n```'))
+      )
+  def test_ignore_lines(self, block_start, block_end, expected_ignored_lines):
+
+    text = textwrap.dedent('''\
+    ```
+    Filler
+    ```
+
+    ```Same line```
+
+    <pre>{% html %}
+    Output
+    multiline{% endhtml %}</pre>
+
+    ```python
+    Downer
+    ```
+    ''')
+
+    filters = [parser.IgnoreLineInBlock(start, end)
+               for start, end in zip(block_start, block_end)]
+
+    ignored_lines = []
+    for line in text.splitlines():
+      if any(filter_block(line) for filter_block in filters):
+        ignored_lines.append(line)
+
+    self.assertEqual('\n'.join(ignored_lines), expected_ignored_lines)
+
+  def test_clean_text(self):
+    text = textwrap.dedent('''\
+    ```
+    Ignore lines here.
+    ```
+    Useful information.
+    Don't ignore.
+    ```python
+    Ignore here too.
+    ```
+    Stuff.
+    ```Not useful.```
+    ''')
+
+    filters = [parser.IgnoreLineInBlock('```', '```')]
+
+    clean_text = []
+    for line in text.splitlines():
+      if not any(filter_block(line) for filter_block in filters):
+        clean_text.append(line)
+
+    expected_clean_text = 'Useful information.\nDon\'t ignore.\nStuff.'
+
+    self.assertEqual('\n'.join(clean_text), expected_clean_text)
 
 
 class TestGenerateSignature(absltest.TestCase):
