@@ -187,7 +187,7 @@ dataset = dataset.flat_map(
     lambda filename: (
         tf.data.TextLineDataset(filename)
         .skip(1)
-        .filter(lambda line: tf.not_equal(tf.substr(line, 0, 1), "#"))))
+        .filter(lambda line: tf.not_equal(tf.strings.substr(line, 0, 1), "#"))))
 ```
 
 ### Consuming CSV data
