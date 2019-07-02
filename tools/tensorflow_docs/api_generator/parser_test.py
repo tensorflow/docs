@@ -22,9 +22,11 @@ import collections
 import functools
 import os
 import tempfile
+import textwrap
 import unittest
 
 from absl.testing import absltest
+from absl.testing import parameterized
 import six
 
 from tensorflow_docs.api_generator import doc_controls
@@ -912,8 +914,6 @@ class TestParseDocstring(absltest.TestCase):
   def test_split_title_blocks(self):
     docstring_parts = parser.TitleBlock.split_string(RELU_DOC)
 
-    print(docstring_parts)
-
     self.assertLen(docstring_parts, 7)
 
     args = docstring_parts[1]
@@ -937,6 +937,112 @@ class TestParseDocstring(absltest.TestCase):
     self.assertEqual(returns.text,
                      '\nSome tensors, with the same type as the input.\n')
     self.assertLen(returns.items, 2)
+
+
+class TestPartialSymbolAutoRef(parameterized.TestCase):
+  REF_TEMPLATE = '<a href="{link}"><code>{text}</code></a>'
+
+  @parameterized.named_parameters(
+      ('ref_1', 'keras.Model.fit', '../tf/keras/Model.md#fit'),
+      ('ref_2', 'layers.Conv2D', '../tf/keras/layers/Conv2D.md'),
+      ('ref_3', 'Model.fit(x, y, epochs=5)', '../tf/keras/Model.md#fit'),
+      ('ref_4', 'tf.matmul', '../tf/linalg/matmul.md'),
+      ('ref_5', 'tf.concat', '../tf/concat.md'))
+  def test_partial_symbol_references(self, string, link):
+    duplicate_of = {
+        'tf.matmul': 'tf.linalg.matmul',
+    }
+
+    is_fragment = {
+        'tf.keras.Model.fit': True,
+        'tf.concat': False,
+        'tf.keras.layers.Conv2D': False,
+        'tf.linalg.matmul': False
+    }
+
+    py_module_names = ['tf']
+
+    resolver = parser.ReferenceResolver(duplicate_of, is_fragment,
+                                        py_module_names)
+
+    ref_string = resolver.replace_references(string.join('``'), '..')
+
+    expected = self.REF_TEMPLATE.format(link=link, text=string)
+
+    self.assertEqual(expected, ref_string)
+
+
+class TestIgnoreLineInBlock(parameterized.TestCase):
+
+  @parameterized.named_parameters(
+      ('ignore_backticks',
+       ['```'],
+       ['```'],
+       '```\nFiller\n```\n```Same line```\n```python\nDowner\n```'),
+
+      ('ignore_code_cell_output',
+       ['<pre>{% html %}'],
+       ['{% endhtml %}</pre>'],
+       '<pre>{% html %}\nOutput\nmultiline{% endhtml %}</pre>'),
+
+      ('ignore_backticks_and_cell_output',
+       ['<pre>{% html %}', '```'],
+       ['{% endhtml %}</pre>', '```'],
+       ('```\nFiller\n```\n```Same line```\n<pre>{% html %}\nOutput\nmultiline'
+        '{% endhtml %}</pre>\n```python\nDowner\n```'))
+      )
+  def test_ignore_lines(self, block_start, block_end, expected_ignored_lines):
+
+    text = textwrap.dedent('''\
+    ```
+    Filler
+    ```
+
+    ```Same line```
+
+    <pre>{% html %}
+    Output
+    multiline{% endhtml %}</pre>
+
+    ```python
+    Downer
+    ```
+    ''')
+
+    filters = [parser.IgnoreLineInBlock(start, end)
+               for start, end in zip(block_start, block_end)]
+
+    ignored_lines = []
+    for line in text.splitlines():
+      if any(filter_block(line) for filter_block in filters):
+        ignored_lines.append(line)
+
+    self.assertEqual('\n'.join(ignored_lines), expected_ignored_lines)
+
+  def test_clean_text(self):
+    text = textwrap.dedent('''\
+    ```
+    Ignore lines here.
+    ```
+    Useful information.
+    Don't ignore.
+    ```python
+    Ignore here too.
+    ```
+    Stuff.
+    ```Not useful.```
+    ''')
+
+    filters = [parser.IgnoreLineInBlock('```', '```')]
+
+    clean_text = []
+    for line in text.splitlines():
+      if not any(filter_block(line) for filter_block in filters):
+        clean_text.append(line)
+
+    expected_clean_text = 'Useful information.\nDon\'t ignore.\nStuff.'
+
+    self.assertEqual('\n'.join(clean_text), expected_clean_text)
 
 
 class TestGenerateSignature(absltest.TestCase):

@@ -41,6 +41,10 @@ toc:
 - title: "Saved models"
   path: /beta/guide/saved_model
 
+- heading: Low Level APIs
+- title: "Ragged tensors"
+  path : /beta/guide/ragged_tensors
+
 - heading: "Misc"
 - title: "Version compatibility"
   path: /beta/guide/version_compat

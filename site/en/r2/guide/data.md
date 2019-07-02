@@ -42,8 +42,8 @@ elements using a for loop:
 
 ```python
 dataset = tf.data.Dataset.range(10)
-for i, elem in enumerate(dataset):
-  print(elem)  # prints 0, 1, ..., 9
+for elem in dataset:
+  print(elem.numpy())  # prints 0, 1, ..., 9
 ```
 
 or by explicitly creating a Python iterator using `iter` and consuming its
@@ -57,9 +57,9 @@ print(next(it))  # prints 1
 ```
 
 Alternatively, dataset elements can be consumed using the `reduce`
-transformation, which reduces all elements to produc a single result. The
-following example illustrates how the `reduce` transformation to compute the sum
-of a dataset of integers.
+transformation, which reduces all elements to produce a single result. The
+following example illustrates how to use the `reduce` transformation to compute
+the sum of a dataset of integers.
 
 ```python
 dataset = tf.data.Dataset.from_tensor_slices([8, 3, 0, 8, 2, 1])
@@ -280,9 +280,9 @@ batched into a fixed size.
 # Reads an image from a file, decodes it into a dense tensor, and resizes it
 # to a fixed shape.
 def _parse_function(filename, label):
-  image_string = tf.read_file(filename)
+  image_string = tf.io.read_file(filename)
   image_decoded = tf.image.decode_jpeg(image_string)
-  image_resized = tf.image.resize_images(image_decoded, [28, 28])
+  image_resized = tf.image.resize(image_decoded, [28, 28])
   return image_resized, label
 
 # A vector of filenames.
@@ -306,7 +306,7 @@ invoke, the `tf.py_function()` operation in a `Dataset.map()` transformation.
 import cv2
 
 # Use a custom OpenCV function to read the image, instead of the standard
-# TensorFlow `tf.read_file()` operation.
+# TensorFlow `tf.io.read_file()` operation.
 def _read_py_function(filename, label):
   image_decoded = cv2.imread(filename.decode(), cv2.IMREAD_GRAYSCALE)
   return image_decoded, label
@@ -314,7 +314,7 @@ def _read_py_function(filename, label):
 # Use standard TensorFlow operations to resize the image to a fixed shape.
 def _resize_function(image_decoded, label):
   image_decoded.set_shape([None, None, None])
-  image_resized = tf.image.resize_images(image_decoded, [28, 28])
+  image_resized = tf.image.resize(image_decoded, [28, 28])
   return image_resized, label
 
 filenames = ["/var/data/image1.jpg", "/var/data/image2.jpg", ...]
