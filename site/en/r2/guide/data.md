@@ -42,8 +42,8 @@ elements using a for loop:
 
 ```python
 dataset = tf.data.Dataset.range(10)
-for i, elem in enumerate(dataset):
-  print(elem)  # prints 0, 1, ..., 9
+for elem in dataset:
+  print(elem.numpy())  # prints 0, 1, ..., 9
 ```
 
 or by explicitly creating a Python iterator using `iter` and consuming its
@@ -57,9 +57,9 @@ print(next(it))  # prints 1
 ```
 
 Alternatively, dataset elements can be consumed using the `reduce`
-transformation, which reduces all elements to produc a single result. The
-following example illustrates how the `reduce` transformation to compute the sum
-of a dataset of integers.
+transformation, which reduces all elements to produce a single result. The
+following example illustrates how to use the `reduce` transformation to compute
+the sum of a dataset of integers.
 
 ```python
 dataset = tf.data.Dataset.from_tensor_slices([8, 3, 0, 8, 2, 1])
