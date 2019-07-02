@@ -522,8 +522,11 @@ class ParserTest(absltest.TestCase):
     reference_resolver = parser.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
-    doc_info = parser._parse_md_docstring(test_function_with_fancy_docstring,
-                                          '../..', reference_resolver)
+    doc_info = parser._parse_md_docstring(
+        test_function_with_fancy_docstring,
+        relative_path_to_root='../..',
+        full_name=None,
+        reference_resolver=reference_resolver)
 
     freeform_docstring = '\n'.join(
         part for part in doc_info.docstring_parts if isinstance(part, str))

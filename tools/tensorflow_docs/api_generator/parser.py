@@ -201,8 +201,6 @@ class ReferenceResolver(object):
     with open(filepath) as f:
       json_dict = json.load(f)
 
-    json_dict.pop('current_doc_full_name', None)
-
     return cls(**json_dict)
 
   def _partial_symbols(self, symbol):
@@ -267,7 +265,7 @@ class ReferenceResolver(object):
     with open(filepath, 'w') as f:
       json.dump(json_dict, f, indent=2, sort_keys=True)
 
-  def replace_references(self, string, relative_path_to_root):
+  def replace_references(self, string, relative_path_to_root, full_name=None):
     """Replace `tf.symbol` references with links to symbol's documentation page.
 
     This function finds all occurrences of "`tf.symbol`" in `string`
@@ -286,16 +284,15 @@ class ReferenceResolver(object):
       string: A string in which "`tf.symbol`" references should be replaced.
       relative_path_to_root: The relative path from the containing document to
         the root of the API documentation that is being linked to.
+      full_name: (optional) The full name of current object, so replacements
+        can depend on context.
 
     Returns:
       `string`, with "`tf.symbol`" references replaced by Markdown links.
     """
 
-    def sloppy_one_ref(match):
-      try:
-        return self._one_ref(match, relative_path_to_root)
-      except TFDocsError:
-        return match.group(0)
+    def one_ref(match):
+      return self._one_ref(match, relative_path_to_root, full_name)
 
     fixed_lines = []
 
@@ -307,7 +304,7 @@ class ReferenceResolver(object):
 
     for line in string.splitlines():
       if not any(filter_block(line) for filter_block in filters):
-        line = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, line)
+        line = re.sub(AUTO_REFERENCE_RE, one_ref, line)
       fixed_lines.append(line)
 
     return '\n'.join(fixed_lines)
@@ -392,7 +389,7 @@ class ReferenceResolver(object):
     ref_path = documentation_path(master_name, self._is_fragment[master_name])
     return os.path.join(relative_path_to_root, ref_path)
 
-  def _one_ref(self, match, relative_path_to_root):
+  def _one_ref(self, match, relative_path_to_root, full_name=None):
     """Return a link for a single "`tf.symbol`" reference."""
     string = match.group(1)
 
@@ -400,25 +397,29 @@ class ReferenceResolver(object):
 
     string = re.sub(r'(.*)[\(\[].*', r'\1', string)
 
-    string = self._partial_symbols_dict.get(string, string)
+    if full_name is None or ('tf.compat.v' not in full_name and
+                             'tf.contrib' not in full_name):
+      string = self._partial_symbols_dict.get(string, string)
 
-    if string.startswith('tensorflow::'):
-      # C++ symbol
-      return self._cc_link(string, link_text, relative_path_to_root)
+    try:
 
-    is_python = False
-    for py_module_name in self._py_module_names:
-      if string == py_module_name or string.startswith(py_module_name + '.'):
-        is_python = True
-        break
+      if string.startswith('tensorflow::'):
+        # C++ symbol
+        return self._cc_link(string, link_text, relative_path_to_root)
 
-    if is_python:  # Python symbol
-      return self.python_link(
-          link_text, string, relative_path_to_root, code_ref=True)
+      is_python = False
+      for py_module_name in self._py_module_names:
+        if string == py_module_name or string.startswith(py_module_name + '.'):
+          is_python = True
+          break
 
-    # Error!
-    raise TFDocsError('Did not understand "%s"' % match.group(0),
-                      'BROKEN_LINK')
+      if is_python:  # Python symbol
+        return self.python_link(
+            link_text, string, relative_path_to_root, code_ref=True)
+    except TFDocsError:
+      pass
+
+    return match.group(0)
 
   def _cc_link(self, string, link_text, relative_path_to_root):
     """Generate a link for a `tensorflow::...` reference."""
@@ -493,7 +494,7 @@ class TitleBlock(object):
   The expected format is:
 
   ```
-  Arguments:
+  Title:
     Freeform text
     arg1: value1
     arg2: value1
@@ -624,7 +625,8 @@ _DocstringInfo = collections.namedtuple(
     '_DocstringInfo', ['brief', 'docstring_parts', 'compatibility'])
 
 
-def _parse_md_docstring(py_object, relative_path_to_root, reference_resolver):
+def _parse_md_docstring(py_object, relative_path_to_root, full_name,
+                        reference_resolver):
   """Parse the object's docstring and return a `_DocstringInfo`.
 
   This function clears @@'s from the docstring, and replaces `` references
@@ -644,6 +646,8 @@ def _parse_md_docstring(py_object, relative_path_to_root, reference_resolver):
     relative_path_to_root: The relative path from the location of the current
       document to the root of the Python API documentation. This is used to
       compute links for "`tf.symbol`" references.
+    full_name: (optional) The api path to the current object, so replacements
+        can depend on context.
     reference_resolver: An instance of ReferenceResolver.
 
   Returns:
@@ -652,8 +656,9 @@ def _parse_md_docstring(py_object, relative_path_to_root, reference_resolver):
   # TODO(wicke): If this is a partial, use the .func docstring and add a note.
   raw_docstring = _get_raw_docstring(py_object)
 
-  raw_docstring = reference_resolver.replace_references(
-      raw_docstring, relative_path_to_root)
+  raw_docstring = reference_resolver.replace_references(raw_docstring,
+                                                        relative_path_to_root,
+                                                        full_name)
 
   atat_re = re.compile(r' *@@[a-zA-Z_.0-9]+ *$')
   raw_docstring = '\n'.join(
@@ -928,6 +933,7 @@ class _ClassPageInfo(object):
       classes.
     other_members: A list of `_OtherMemberInfo` objects documenting any other
       object's defined inside the class object (mostly enum style fields).
+    namedtuplefields: a list of the namedtuple fields in the class.
   """
 
   def __init__(self, full_name):
@@ -1036,7 +1042,7 @@ class _ClassPageInfo(object):
       base_full_name = parser_config.reverse_index.get(id(base), None)
       if base_full_name is None:
         continue
-      base_doc = _parse_md_docstring(base, relative_path,
+      base_doc = _parse_md_docstring(base, relative_path, self.full_name,
                                      parser_config.reference_resolver)
       base_url = parser_config.reference_resolver.reference_to_url(
           base_full_name, relative_path)
@@ -1177,7 +1183,7 @@ class _ClassPageInfo(object):
       if doc_controls.should_skip_class_attr(py_class, short_name):
         continue
 
-      child_doc = _parse_md_docstring(child, relative_path,
+      child_doc = _parse_md_docstring(child, relative_path, self.full_name,
                                       parser_config.reference_resolver)
 
       if isinstance(child, property):
@@ -1362,7 +1368,7 @@ class _ModulePageInfo(object):
       member_full_name = self.full_name + '.' + name if self.full_name else name
       member = parser_config.py_name_to_object(member_full_name)
 
-      member_doc = _parse_md_docstring(member, relative_path,
+      member_doc = _parse_md_docstring(member, relative_path, self.full_name,
                                        parser_config.reference_resolver)
 
       url = parser_config.reference_resolver.reference_to_url(
@@ -1473,8 +1479,9 @@ def docs_for_object(full_name, py_object, parser_config):
   relative_path = os.path.relpath(
       path='.', start=os.path.dirname(documentation_path(full_name)) or '.')
 
-  page_info.set_doc(_parse_md_docstring(
-      py_object, relative_path, parser_config.reference_resolver))
+  page_info.set_doc(
+      _parse_md_docstring(py_object, relative_path, full_name,
+                          parser_config.reference_resolver))
 
   page_info.set_aliases(duplicate_names)
 
