@@ -129,7 +129,7 @@ class IgnoreLineInBlock(object):
     self._block_end = block_end
     self._in_block = False
 
-    self._start_end_regex = re.escape(self._block_start) + r'.*' + re.escape(
+    self._start_end_regex = re.escape(self._block_start) + r'.*?' + re.escape(
         self._block_end)
 
   def __call__(self, line):
