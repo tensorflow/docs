@@ -207,9 +207,9 @@ class ReferenceResolver(object):
     """Finds the partial symbols given the true symbol.
 
     For example, symbol: `tf.keras.layers.Conv2D`, then the partial dictionary
-    returned will be
-    par_dict = {"keras.layers.Conv2D": "tf.keras.layers.Conv2D",
-                "layers.Conv2D": "tf.keras.layers.Conv2D"}
+    returned will be:
+
+    partials = ["tf.keras.layers.Conv2D","keras.layers.Conv2D","layers.Conv2D"]
 
     There should at least be one '.' in the partial symbol generated so as to
     avoid guessing for the true symbol.
@@ -218,13 +218,15 @@ class ReferenceResolver(object):
       symbol: String, representing the true symbol.
 
     Returns:
-      A dictionary mapping {partial_symbol: real_symbol}
+      A list of partial symbol names
     """
 
     split_symbol = symbol.split('.')
-    par_dict = {'.'.join(split_symbol[i:]): symbol
-                for i in range(1, len(split_symbol) - 1)}
-    return par_dict
+    partials = [
+        '.'.join(split_symbol[i:])
+        for i in range(1, len(split_symbol) - 1)
+    ]
+    return partials
 
   def _create_partial_symbols_dict(self):
     """Creates a partial symbols dictionary for all the symbols in TensorFlow.
@@ -232,13 +234,28 @@ class ReferenceResolver(object):
     Returns:
       A dictionary mapping {partial_symbol: real_symbol}
     """
+    partial_symbols_dict = collections.defaultdict(list)
 
-    all_partial_names_dict = {}
-    for name in self._all_names:
-      partial_dict = self._partial_symbols(name)
-      all_partial_names_dict.update(partial_dict)
+    for name in sorted(self._all_names):
+      if 'tf.compat.v' in name or 'tf.contrib' in name:
+        continue
+      partials = self._partial_symbols(name)
+      for partial in partials:
+        partial_symbols_dict[partial].append(name)
 
-    return all_partial_names_dict
+    new_partial_dict = {}
+    for partial, full_names in partial_symbols_dict.items():
+      if not full_names:
+        continue
+
+      full_names = [
+          self._duplicate_of.get(full_name, full_name)
+          for full_name in full_names
+      ]
+
+      new_partial_dict[partial] = full_names[0]
+
+    return new_partial_dict
 
   def to_json_file(self, filepath):
     """Converts the RefenceResolver to json and writes it to the specified file.

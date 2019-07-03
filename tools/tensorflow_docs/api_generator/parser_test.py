@@ -946,31 +946,42 @@ class TestPartialSymbolAutoRef(parameterized.TestCase):
   REF_TEMPLATE = '<a href="{link}"><code>{text}</code></a>'
 
   @parameterized.named_parameters(
-      ('ref_1', 'keras.Model.fit', '../tf/keras/Model.md#fit'),
-      ('ref_2', 'layers.Conv2D', '../tf/keras/layers/Conv2D.md'),
-      ('ref_3', 'Model.fit(x, y, epochs=5)', '../tf/keras/Model.md#fit'),
-      ('ref_4', 'tf.matmul', '../tf/linalg/matmul.md'),
-      ('ref_5', 'tf.concat', '../tf/concat.md'))
+      ('basic1', 'keras.Model.fit', '../tf/keras/Model.md#fit'),
+      ('duplicate_object', 'layers.Conv2D', '../tf/keras/layers/Conv2D.md'),
+      ('parens', 'Model.fit(x, y, epochs=5)', '../tf/keras/Model.md#fit'),
+      ('duplicate_name', 'tf.matmul', '../tf/linalg/matmul.md'),
+      ('full_name', 'tf.concat', '../tf/concat.md'),
+      ('normal_and_compat', 'linalg.matmul', '../tf/linalg/matmul.md'),
+      ('compat_only', 'math.deprecated', None),
+      ('contrib_only', 'y.z', None),
+  )
   def test_partial_symbol_references(self, string, link):
     duplicate_of = {
         'tf.matmul': 'tf.linalg.matmul',
+        'tf.layers.Conv2d': 'tf.keras.layers.Conv2D',
     }
 
     is_fragment = {
         'tf.keras.Model.fit': True,
         'tf.concat': False,
         'tf.keras.layers.Conv2D': False,
-        'tf.linalg.matmul': False
+        'tf.linalg.matmul': False,
+        'tf.compat.v1.math.deprecated': False,
+        'tf.compat.v1.linalg.matmul': False,
+        'tf.contrib.y.z': False,
     }
 
     py_module_names = ['tf']
 
     resolver = parser.ReferenceResolver(duplicate_of, is_fragment,
                                         py_module_names)
+    input_string = string.join('``')
+    ref_string = resolver.replace_references(input_string, '..')
 
-    ref_string = resolver.replace_references(string.join('``'), '..')
-
-    expected = self.REF_TEMPLATE.format(link=link, text=string)
+    if link is None:
+      expected = input_string
+    else:
+      expected = self.REF_TEMPLATE.format(link=link, text=string)
 
     self.assertEqual(expected, ref_string)
 
