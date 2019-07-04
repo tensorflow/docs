@@ -3,7 +3,7 @@
 ### 安装工具链
 此功能已在64位的 ubuntu 16.04.3 和 Tensorflow devel docker image [tensorflow/tensorflow:nightly-devel](https://hub.docker.com/r/tensorflow/tensorflow/tags/) 上测试。
 要使用 TensorFlow Lite 交叉编译功能，应先安装工具链和相关的库。
-```
+```bash
 sudo apt-get update
 sudo apt-get install crossbuild-essential-armhf
 ```
