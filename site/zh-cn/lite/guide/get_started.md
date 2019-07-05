@@ -48,7 +48,7 @@ TensorFlow Lite的设计旨在在各种设备上高效执行模型。这种高�
 
 转换模型减小了模型文件大小，并引入了不影响准确性(accuracy)的优化措施(optimizations)。开发人员可以在进行一些取舍的情况下，选择进一步减小模型文件大小，并提高执行速度。您可以使用TensorFlow Lite转换器(converter)选择要执行的优化措施。
 
-因为TensorFlow Lite支持部分TensorFlow运算符(operations)，所以并非所有模型都能转换。参看[Ops兼容性](#ops-compatibility)获得更多信息。
+因为TensorFlow Lite支持部分TensorFlow运算符(operations)，所以并非所有模型都能转换。参看[Ops兼容性](#Ops兼容性)获得更多信息。
 
 ### TensorFlow Lite转换器
 
@@ -98,11 +98,11 @@ TensorFlow Lite当前支持[一部分(limited subset)](ops_compatibility.md)Tens
 
 <a id="3_use_the_tensorflow_lite_model_for_inference_in_a_mobile_app"></a>
 
-*推理(Inference)*是通过模型(model)运行数据(data)以获得预测(predictions)的过程。这个过程需要模型(model)，解释器(interpreter)，和输入数据(input data)。
+*推理(Inference)* 是通过模型(model)运行数据(data)以获得预测(predictions)的过程。这个过程需要模型(model)，解释器(interpreter)，和输入数据(input data)。
 
 ### TensorFlow Lite 解释器
 
-[TensorFlow Lite 解释器(interpreter)](inference.md)是一个库(library)，它接受模型文件(model file)，执行它在输入数据(input data)上定义的运算符(operations)，并提供对输出(output)的访问。
+[TensorFlow Lite 解释器(interpreter)](inference.md)是一个库(library)，它接受模型文件(model file)，执行模型文件在输入数据(input data)上定义的运算符(operations)，并提供对输出(output)的访问。
 
 该解释器(interpreter)适用于多个平台，提供了一个简单的API，用于从Java, Swift, Objective-C, C++和Python运行TensorFlow Lite模型。
 
@@ -118,7 +118,7 @@ try (Interpreter interpreter = new Interpreter(tensorflow_lite_model_file)) {
 
 一些设备为机器学习运算符提供硬件加速(hardware acceleration)。例如，大多数移动电话有GPUs，GPU可以比CPU执行更快的浮点矩阵运算(floating point matrix operations)。
 
-能有显著(substantial)的速度提升(speed-up)效果。例如，当使用GPU加速时，MobileNet v1图像分类模型在Pixel 3手机上的运行速度提高了5.5倍。
+速度提升(speed-up)能有显著(substantial)效果。例如，当使用GPU加速时，MobileNet v1图像分类模型在Pixel 3手机上的运行速度提高了5.5倍。
 
 TensorFlow Lite解释器可以配置[委托(Delegates)](../performance/delegates.md)以在不同设备上使用硬件加速。[GPU委托(GPU Delegates)](../performance/gpu.md)允许解释器在设备的GPU上运行适当的运算符。
 
