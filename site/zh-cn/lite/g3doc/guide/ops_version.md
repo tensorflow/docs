@@ -76,7 +76,8 @@ typedef struct {
 } TfLiteConvParams;
 ```
 请同时更改内核实现以从 C 结构中读取新添加的参数。具体细节省略。
-## 更改 FlatBuffer 阅读代码
+### 更改 FlatBuffer 代码以获取新参数
+
 读取 FlatBuffer 和生成 C 结构的逻辑是 lite/model.cc。
 更新该文件以处理新参数，如下所示：
 ```
