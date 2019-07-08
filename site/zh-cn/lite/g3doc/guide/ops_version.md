@@ -14,7 +14,8 @@ TensorFlow Lite 操作(operator)的版本
 * 将添加2个新的整数参数：'dilation_width_factor' 和 'dilation_height_factor'。  
 * 不支持膨胀的旧卷积核相当于将扩张因子膨胀系数设置为1。
 
-## 更改 FlatBuffer 架构
+### 更改 FlatBuffer 架构(Schema)
+
 要将新参数添加到操作(operator)中，请更改`lite/schema/schema.fbs`中的选项表 。
 
 例如，卷积选项表如下所示：
