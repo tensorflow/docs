@@ -118,8 +118,9 @@ AddBuiltin(BuiltinOperator_CONV_2D, Register_CONV_2D(), 1, 2);
 ### 改变 TOCO TFLite 的导出
 
 最后一步是让 TOCO 填充执行操作所需的最低版本。在这个例子中，它意味着：
-> 当膨胀系数均为1时，填充版本 = 1。                                                                       
-> 否则填充版本 = 2。
+* 当膨胀系数均为1时，填充 版本=1。
+* 除此之外，填充 版本=2。
+
 为此，您需要在`lite/toco/tflite/operator.cc`中重写定义操作(operator)的类(class)中的`GetVersion`函数。
 
 lite/toco/tflite/operator.cc。
