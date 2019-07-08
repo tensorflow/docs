@@ -28,7 +28,9 @@ table Conv2DOptions {
   fused_activation_function:ActivationFunctionType;
 }
 ```
-添加新参数时：
+
+在添加新参数时：
+
 > 添加注释，指明哪个版本支持这些参数。                                                                     
 > 新版本的 Tensorflow Lite 获取新添加的参数的默认值时，它应该与旧版本完全相同。
 添加新参数后，参数表如下所示：
