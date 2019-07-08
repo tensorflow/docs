@@ -199,12 +199,3 @@ open("converted_model.tflite","wb").write(tflite_quant_model)
 *	如果您是移动开发人员，请访问[Android快速入门](android.md)或[iOS快速入门](ios.md)。
 *	探索我们的[预训练模型](../models)。
 *	尝试我们的[示例应用](https://www.tensorflow.org/lite/examples)。
-
-
-
-
-
-
-
-
-
