@@ -48,7 +48,9 @@ table Conv2DOptions {
   dilation_height_factor:int = 1;
 }
 ```
-## 更改 C 结构和内核实现
+
+### 更改C中的结构体和内核实现
+
 在 TensorFlow Lite 中，内核实现与 FlatBuffer 定义分离。内核从 lite/builtin_op_data.h 中定义的 C 结构文件中读取参数 。
 原始卷积参数如下：
 ```
