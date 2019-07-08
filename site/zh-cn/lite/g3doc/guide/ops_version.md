@@ -18,7 +18,8 @@ TensorFlow Lite 操作(operator)的版本
 
 要将新参数添加到操作(operator)中，请更改`lite/schema/schema.fbs`中的选项表 。
 
-例如，卷积选项表如下所示：
+例如，卷积的选项表如下所示：
+
 ```
 table Conv2DOptions {
   padding:Padding;
