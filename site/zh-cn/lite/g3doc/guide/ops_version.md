@@ -4,7 +4,7 @@ TensorFlow Lite 操作(operator)的版本
 
 * 向后兼容性：新版本的 TensorFlow Lite 实现方式可以处理旧的模型文件。
 > 前向兼容性：只要没有使用新功能，旧版本的 TensorFlow Lite 可以处理由新版 TOCO 生成的新版本的模型文件。                                            
-> 前向兼容性检测：如果旧的 TensorFlow Lite 读取包含不支持的新版本的模型，则应报告错误。
+* 前向兼容性检测：如果旧的 TensorFlow Lite 实现读取包含不支持的新版本的模型，则应报告错误。
 
 ##示例：将膨胀(Dilation)添加到卷积操作中
 本文档的其余部分通过展示如何在卷积操作中添加膨胀系数来解释 TFLite 中操作(operator)的版本。
