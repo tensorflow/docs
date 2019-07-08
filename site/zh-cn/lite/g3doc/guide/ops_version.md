@@ -62,7 +62,8 @@ typedef struct {
 与 FlatBuffer 架构一样，添加注释，指明从哪个版本开始支持这些参数。结果如下：
 ```
 typedef struct {
-  // Parameters supported by version 1: TfLitePadding padding; int
+  // 版本1支持的参数：
+  TfLitePadding padding;
   int stride_width;
   int stride_height;
   TfLiteFusedActivation activation;
