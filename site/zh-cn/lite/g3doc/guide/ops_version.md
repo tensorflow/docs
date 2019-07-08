@@ -124,7 +124,7 @@ AddBuiltin(BuiltinOperator_CONV_2D, Register_CONV_2D(), 1, 2);
 为此，您需要在`lite/toco/tflite/operator.cc`中重写定义操作(operator)的类(class)中的`GetVersion`函数。
 
 lite/toco/tflite/operator.cc。
-对于只有一个版本的操作，该 GetVersion 函数定义为：
+对于只有一个版本的操作，它的 `GetVersion` 函数被定义为：
 ```
 int GetVersion(const Operator& op) const override { return 1; }
 ```
