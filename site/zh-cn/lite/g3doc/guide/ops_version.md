@@ -125,7 +125,9 @@ int GetVersion(const Operator& op) const override {
   return 1;
 }
 ```
-## 委托实施
+
+### 委托实现
+
 TensorFlow Lite 提供了一个委托 API，可以将操作委派给硬件后端。在 Delegate 的 Prepare 函数中，检查该版本是否支持委派代码中的每个节点。
 ```
 const int kMinVersion = 1;
