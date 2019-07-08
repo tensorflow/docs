@@ -136,7 +136,7 @@ TfLiteRegistration;
 context->GetNodeAndRegistration(context, node_index, &node, &registration);
 
 if (registration->version > kMinVersion) {
-  // Reject the node if the version isn't supported.
+  // 如果不支持该版本，则拒绝该节点。
 }
 ```
 即使委派仅支持在版本 1 操作，这也是必需的，这使委派可以在获得更高版本操作时检测到不兼容性。
