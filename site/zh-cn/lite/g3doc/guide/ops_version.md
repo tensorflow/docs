@@ -112,7 +112,9 @@ lite/toco/tflite/operator.cc。
 ```
 int GetVersion(const Operator& op) const override { return 1; }
 ```
-支持多个版本时，请检查参数并确定 op 的版本，如以下示例所示：
+
+当支持多个版本时，请检查参数并确定op的版本，如以下示例所示：
+
 ```
 int GetVersion(const Operator& op) const override {
   const auto& conv_op = static_cast<const ConvOperator&>(op);
