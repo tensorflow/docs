@@ -20,6 +20,8 @@ toc:
   path: /beta/guide/keras/custom_layers_and_models
 - title: "Save and serialize models"
   path: /beta/guide/keras/saving_and_serializing
+- title: "Recurrent neural network API"
+  path: /beta/guide/keras/rnn
 - title: "Write custom callbacks"
   path: /beta/guide/keras/custom_callback
 
