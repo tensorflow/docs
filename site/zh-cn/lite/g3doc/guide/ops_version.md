@@ -38,7 +38,7 @@ table Conv2DOptions {
 
 ```
 table Conv2DOptions {
-  // Parameters supported by version 1:
+  // 版本1支持的参数：
   padding:Padding;
   stride_w:int;
   stride_h:int;
