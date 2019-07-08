@@ -63,7 +63,7 @@ typedef struct {
 ```
 typedef struct {
   // Parameters supported by version 1: TfLitePadding padding; int
-  stride_width;
+  int stride_width;
   int stride_height;
   TfLiteFusedActivation activation;
 
