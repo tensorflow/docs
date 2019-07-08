@@ -44,7 +44,7 @@ table Conv2DOptions {
   stride_h:int;
   fused_activation_function:ActivationFunctionType;
 
-  // Parameters supported by version 2:
+  // 版本2支持的参数：
   dilation_width_factor:int = 1;
   dilation_height_factor:int = 1;
 }
@@ -52,8 +52,10 @@ table Conv2DOptions {
 
 ### 更改C中的结构体和内核实现
 
-在 TensorFlow Lite 中，内核实现与 FlatBuffer 定义分离。内核从 lite/builtin_op_data.h 中定义的 C 结构文件中读取参数 。
+在TensorFlow Lite中，内核实现与FlatBuffer定义是分离发。 内核从`lite/builtin_op_data.h`中定义的C的结构体中读取参数。
+
 原始卷积参数如下：
+
 ```
 typedef struct {
   TfLitePadding padding;
@@ -62,7 +64,9 @@ typedef struct {
   TfLiteFusedActivation activation;
 } TfLiteConvParams;
 ```
-与 FlatBuffer 架构一样，添加注释，指明从哪个版本开始支持这些参数。结果如下：
+
+与FlatBuffer架构(Schema)一样，通过添加注释，指明从哪个版本开始支持哪些参数。结果如下：
+
 ```
 typedef struct {
   // 版本1支持的参数：
@@ -71,16 +75,20 @@ typedef struct {
   int stride_height;
   TfLiteFusedActivation activation;
 
-  // Parameters supported by version 2:
+  // 版本2支持的参数：
   int dilation_width_factor;
   int dilation_height_factor;
 } TfLiteConvParams;
 ```
-请同时更改内核实现以从 C 结构中读取新添加的参数。具体细节省略。
+
+另外，请更改内核实现从C结构体中读取新添加的参数。 细节在此不再赘述。
+
 ### 更改 FlatBuffer 代码以获取新参数
 
-读取 FlatBuffer 和生成 C 结构的逻辑是 lite/model.cc。
+负责读取 FlatBuffer 并生成 C 结构体的逻辑是由 `lite/model.cc` 实现的。
+
 更新该文件以处理新参数，如下所示：
+
 ```
 case BuiltinOperator_CONV_2D: {
   TfLiteConvParams* params = MallocPOD<TfLiteConvParams>();
@@ -97,33 +105,39 @@ case BuiltinOperator_CONV_2D: {
   break;
 }
 ```
-这里不需要检查操作版本。当新版本的阅读代码读取缺少膨胀系数的旧模型文件时，它将使用 1 作为默认值，并且新内核将与旧内核一致地工作。
-## 改变内核注册
-MutableOpResolver（定义于 lite/op_resolver.h）提供了一些注册 op 内核的函数。默认情况下，最小和最大版本号为1：
+
+这里不需要检查操作版本。 当新实现读取缺少扩张因子的旧模型文件时，它将使用1作为默认值，并且新内核将与旧内核一致地工作。
+
+### 更改内核注册
+MutableOpResolver（在`lite/op_resolver.h`中定义）提供了一些注册操作(operator)内核的函数。默认情况下，最小和最大版本都为1：
 ```
 void AddBuiltin(tflite::BuiltinOperator op, TfLiteRegistration* registration,
                 int min_version = 1, int max_version = 1);
 void AddCustom(const char* name, TfLiteRegistration* registration,
                int min_version = 1, int max_version = 1);
 ```
-内置操作已注册于 lite/kernels/register.cc 。在这个例子中，我们要实现一个新的 op 内核，可以处理 Conv2D 的版本 1 和 2，所以我们需要改变这一行：
+
+内置的操作在 `lite/kernels/register.cc` 中注册。 在这个例子中，我们实现了一个新的操作内核，它可以处理 `Conv2D` 的版本1和版本2，所以我们需要将下面这行：
+
 ```
 AddBuiltin(BuiltinOperator_CONV_2D, Register_CONV_2D());
 ```
-至：
+
+修改为：
+
 ```
 AddBuiltin(BuiltinOperator_CONV_2D, Register_CONV_2D(), 1, 2);
 ```
 
 ### 改变 TOCO TFLite 的导出
 
-最后一步是让 TOCO 填充执行操作所需的最低版本。在这个例子中，它意味着：
+最后一步是让 TOCO 填充(populate)执行操作(operator)所需的最低版本。在这个例子中，它意味着：
+
 * 当膨胀系数均为1时，填充 版本=1。
 * 除此之外，填充 版本=2。
 
 为此，您需要在`lite/toco/tflite/operator.cc`中重写定义操作(operator)的类(class)中的`GetVersion`函数。
 
-lite/toco/tflite/operator.cc。
 对于只有一个版本的操作，它的 `GetVersion` 函数被定义为：
 ```
 int GetVersion(const Operator& op) const override { return 1; }
