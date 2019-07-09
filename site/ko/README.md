@@ -13,6 +13,13 @@
 [공지](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ)를
 참고하세요.
 
+노트: [Swift for TensorFlow](https://www.tensorflow.org/swift)(S4TF)를 위한 번역
+홈 디렉토리는
+[site/ko/swift](https://github.com/tensorflow/docs/tree/master/site/ko/swift)
+입니다. 영문 파일의 위치는 tensorflow/swift 레파지토리의
+[docs/site](https://github.com/tensorflow/swift/tree/master/docs/site)
+디렉토리입니다. S4TF 노트북은 꼭 출력 결과가 포함되어야 합니다.
+
 # Community translations
 
 Our TensorFlow community has translated these documents. Because community
@@ -30,6 +37,14 @@ Note: Please focus translation efforts on
 directory. TF 1.x community docs will no longer be updated as we prepare for the
 2.0 release. See
 [the announcement](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).
+
+Note: The
+[site/ko/swift](https://github.com/tensorflow/docs/tree/master/site/ko/swift)
+directory is the home for
+[Swift for TensorFlow](https://www.tensorflow.org/swift)(S4TF) translations.
+Original files are in the
+[docs/site](https://github.com/tensorflow/swift/tree/master/docs/site) directory
+of the tensorflow/swift repository. S4TF notebooks must have the outputs saved.
 
 # 처음 참여하는 사람들에게
 
