@@ -50,7 +50,7 @@ upper_tabs:
       - title: Community Supported
         section:
         - title: "C#"
-          path: https://github.com/migueldeicaza/TensorFlowSharp
+          path: htps://github.com/migueldeicaza/TensorFlowSharp
         - title: "Julia"
           path: https://github.com/malmaud/TensorFlow.jl
           status: external
@@ -64,7 +64,7 @@ upper_tabs:
           path: https://github.com/eaplatanios/tensorflow_scala
           status: external
 
-      - heading: Resources
+      - heading: Ecosystem
       - title: Hub
         path: /hub/api_docs/python/hub
       - title: Probability
@@ -74,5 +74,4 @@ upper_tabs:
       - title: TFX
         path: /tfx/api_docs/
 
-- include: /resources/_upper_tabs_resources.yaml
-- include: /_upper_tabs_right.yaml
+- include: /ecosystem/_upper_tabs_ecosystem.yaml
