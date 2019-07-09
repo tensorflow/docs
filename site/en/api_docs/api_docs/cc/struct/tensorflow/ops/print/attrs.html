@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Print::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Print::<wbr/>Attrs</h1>
+  <code>#include &lt;logging_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/print.html#classtensorflow_1_1ops_1_1_print">Print</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_print_1_1_attrs_1af8f25a20580117a952bad2c9a57d85ac">first_n_</a> = -1</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_print_1_1_attrs_1ad56f4fff8a98e993f8d7a4be46c29ece">message_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_print_1_1_attrs_1a265944d8a91cd87abe8dcbddafe2e397">summarize_</a> = 3</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_print_1_1_attrs_1ad50937bb415b3f37ec896083ff06233d">FirstN</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/print/attrs.html#structtensorflow_1_1ops_1_1_print_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Only log <code>first_n</code> number of times. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_print_1_1_attrs_1aa3075f81bbcad5e3730d0270c1f1f050">Message</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/print/attrs.html#structtensorflow_1_1ops_1_1_print_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A string, prefix of the error message. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_print_1_1_attrs_1afa5fb4638ead2a216f5dbd69dd88f5f2">Summarize</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/print/attrs.html#structtensorflow_1_1ops_1_1_print_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Only print this many entries of each tensor. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_print_1_1_attrs_1af8f25a20580117a952bad2c9a57d85ac">
+    <h3>first_n_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::Print::Attrs::first_n_ = -1</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_print_1_1_attrs_1ad56f4fff8a98e993f8d7a4be46c29ece">
+    <h3>message_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::Print::Attrs::message_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_print_1_1_attrs_1a265944d8a91cd87abe8dcbddafe2e397">
+    <h3>summarize_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::Print::Attrs::summarize_ = 3</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_print_1_1_attrs_1ad50937bb415b3f37ec896083ff06233d">
+    <h3>FirstN</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/print/attrs.html#structtensorflow_1_1ops_1_1_print_1_1_attrs">Attrs</a> tensorflow::ops::Print::Attrs::FirstN(
+  int64 x
+)</pre>
+    <div>
+      <p>Only log <code>first_n</code> number of times. </p>
+      <p>-1 disables logging.</p>
+      <p>Defaults to -1 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_print_1_1_attrs_1aa3075f81bbcad5e3730d0270c1f1f050">
+    <h3>Message</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/print/attrs.html#structtensorflow_1_1ops_1_1_print_1_1_attrs">Attrs</a> tensorflow::ops::Print::Attrs::Message(
+  StringPiece x
+)</pre>
+    <div>
+      <p>A string, prefix of the error message. </p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_print_1_1_attrs_1afa5fb4638ead2a216f5dbd69dd88f5f2">
+    <h3>Summarize</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/print/attrs.html#structtensorflow_1_1ops_1_1_print_1_1_attrs">Attrs</a> tensorflow::ops::Print::Attrs::Summarize(
+  int64 x
+)</pre>
+    <div>
+      <p>Only print this many entries of each tensor. </p>
+      <p>Defaults to 3 </p>
+    </div>
+  </div>
+</body>
+</html>

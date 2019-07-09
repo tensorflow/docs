@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::RandomShuffleQueue::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>RandomShuffleQueue::<wbr/>Attrs</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/random-shuffle-queue.html#classtensorflow_1_1ops_1_1_random_shuffle_queue">RandomShuffleQueue</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1afb83eefeee0f76422950f84b2f3fce2a">capacity_</a> = -1</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a39b2ecd316bb0a80de0bcd7d1b979afc">container_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a0a23832b159b21ef89a692feb7b53129">min_after_dequeue_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a1dc3db9c6e75d898bc6783d451815636">seed2_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a037b739063be2c8e48a6ec3286476628">seed_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1ab9ff55cf53eab01c47c6f16f65e489af">shapes_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< PartialTensorShape ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a0a6b829ef3cd365ff950779845813201">shared_name_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a371ea09e4f32789435cf0e4a540f4b49">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The upper bound on the number of elements in this queue. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a1c87319288cf7fa7454cc31538e352f4">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this queue is placed in the given container. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a541d34de9c459848ba76c56ab1ab6906">MinAfterDequeue</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Dequeue will block unless there would be this many elements after the dequeue or the queue is closed. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1ac74e47deedec2bea93ff284e5665c1c2">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If either seed or seed2 is set to be non-zero, the random number generator is seeded by the given seed. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1ad7f04429306636bee9ab53dcf93c790f">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A second seed to avoid seed collision. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1ad059f023ca75b51a287e3c3213b0fff3">Shapes</a>(const gtl::ArraySlice< PartialTensorShape > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The shape of each component in a value. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a09a84a8491819f32042af4814345c095">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this queue will be shared under the given name across multiple sessions. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1afb83eefeee0f76422950f84b2f3fce2a">
+    <h3>capacity_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::RandomShuffleQueue::Attrs::capacity_ = -1</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a39b2ecd316bb0a80de0bcd7d1b979afc">
+    <h3>container_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::RandomShuffleQueue::Attrs::container_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a0a23832b159b21ef89a692feb7b53129">
+    <h3>min_after_dequeue_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::RandomShuffleQueue::Attrs::min_after_dequeue_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a1dc3db9c6e75d898bc6783d451815636">
+    <h3>seed2_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::RandomShuffleQueue::Attrs::seed2_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a037b739063be2c8e48a6ec3286476628">
+    <h3>seed_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::RandomShuffleQueue::Attrs::seed_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1ab9ff55cf53eab01c47c6f16f65e489af">
+    <h3>shapes_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< PartialTensorShape > tensorflow::ops::RandomShuffleQueue::Attrs::shapes_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a0a6b829ef3cd365ff950779845813201">
+    <h3>shared_name_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::RandomShuffleQueue::Attrs::shared_name_ = ""</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a371ea09e4f32789435cf0e4a540f4b49">
+    <h3>Capacity</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> tensorflow::ops::RandomShuffleQueue::Attrs::Capacity(
+  int64 x
+)</pre>
+    <div>
+      <p>The upper bound on the number of elements in this queue. </p>
+      <p>Negative numbers mean no limit.</p>
+      <p>Defaults to -1 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a1c87319288cf7fa7454cc31538e352f4">
+    <h3>Container</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> tensorflow::ops::RandomShuffleQueue::Attrs::Container(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this queue is placed in the given container. </p>
+      <p>Otherwise, a default container is used.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a541d34de9c459848ba76c56ab1ab6906">
+    <h3>MinAfterDequeue</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> tensorflow::ops::RandomShuffleQueue::Attrs::MinAfterDequeue(
+  int64 x
+)</pre>
+    <div>
+      <p>Dequeue will block unless there would be this many elements after the dequeue or the queue is closed. </p>
+      <p>This ensures a minimum level of mixing of elements.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1ac74e47deedec2bea93ff284e5665c1c2">
+    <h3>Seed</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> tensorflow::ops::RandomShuffleQueue::Attrs::Seed(
+  int64 x
+)</pre>
+    <div>
+      <p>If either seed or seed2 is set to be non-zero, the random number generator is seeded by the given seed. </p>
+      <p>Otherwise, a random seed is used.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1ad7f04429306636bee9ab53dcf93c790f">
+    <h3>Seed2</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> tensorflow::ops::RandomShuffleQueue::Attrs::Seed2(
+  int64 x
+)</pre>
+    <div>
+      <p>A second seed to avoid seed collision. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1ad059f023ca75b51a287e3c3213b0fff3">
+    <h3>Shapes</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> tensorflow::ops::RandomShuffleQueue::Attrs::Shapes(
+  const gtl::ArraySlice< PartialTensorShape > & x
+)</pre>
+    <div>
+      <p>The shape of each component in a value. </p>
+      <p>The length of this attr must be either 0 or the same as the length of component_types. If the length of this attr is 0, the shapes of queue elements are not constrained, and only one element may be dequeued at a time.</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs_1a09a84a8491819f32042af4814345c095">
+    <h3>SharedName</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> tensorflow::ops::RandomShuffleQueue::Attrs::SharedName(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this queue will be shared under the given name across multiple sessions. </p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::RandomUniformInt Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>RandomUniformInt</h1>
+  <code>#include &lt;random_ops.h&gt;</code>
+  <p>Outputs random integers from a uniform distribution. </p>
+  <h2>Summary</h2>
+  <p>The generated values are uniform integers in the range <code>[minval, maxval)</code>. The lower bound <code>minval</code> is included in the range, while the upper bound <code>maxval</code> is excluded.</p>
+  <p>The random integers are slightly biased unless <code>maxval - minval</code> is an exact power of two. The bias is small for values of <code>maxval - minval</code> significantly smaller than the range of the output (either <code>2^32</code> or <code>2^64</code>).</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>shape: The shape of the output tensor.</li>
+      <li>minval: 0-D. Inclusive lower bound on the generated integers.</li>
+      <li>maxval: 0-D. Exclusive upper bound on the generated integers.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-uniform-int/attrs.html#structtensorflow_1_1ops_1_1_random_uniform_int_1_1_attrs">Attrs</a></code>):<ul>
+      <li>seed: If either <code>seed</code> or <code>seed2</code> are set to be non-zero, the random number generator is seeded by the given seed. Otherwise, it is seeded by a random seed.</li>
+      <li>seed2: A second seed to avoid seed collision.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A tensor of the specified shape filled with uniform random integers. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_random_uniform_int_1a7b0f0233dbf65c942cf3918e6d82450f">RandomUniformInt</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minval, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxval)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_random_uniform_int_1ae9a8b67a0592c64aeadb9c28b8c94d11">RandomUniformInt</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minval, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxval, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-uniform-int/attrs.html#structtensorflow_1_1ops_1_1_random_uniform_int_1_1_attrs">RandomUniformInt::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_uniform_int_1ac0cdf1a4f133d9b49df247840a40ff7f">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_uniform_int_1a49b64e7338480155d405c8857052dba8">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_uniform_int_1ab20d5478b1e7f66bec1208d955bc485f">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_uniform_int_1a3a4c37bc4f79b459f17c8d6d01e4024c">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_uniform_int_1a62449aa6617d6d92891fbd702315d3d6">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-uniform-int/attrs.html#structtensorflow_1_1ops_1_1_random_uniform_int_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_uniform_int_1a88e15830d1509a59f35301ecfe8aee1c">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-uniform-int/attrs.html#structtensorflow_1_1ops_1_1_random_uniform_int_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-uniform-int/attrs">tensorflow::<wbr/>ops::<wbr/>RandomUniformInt::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/random-uniform-int.html#classtensorflow_1_1ops_1_1_random_uniform_int">RandomUniformInt</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_random_uniform_int_1ac0cdf1a4f133d9b49df247840a40ff7f">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_random_uniform_int_1a7b0f0233dbf65c942cf3918e6d82450f">
+    <h3>RandomUniformInt</h3>
+    <pre class="prettyprint"> RandomUniformInt(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minval,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxval
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_uniform_int_1ae9a8b67a0592c64aeadb9c28b8c94d11">
+    <h3>RandomUniformInt</h3>
+    <pre class="prettyprint"> RandomUniformInt(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minval,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxval,
+  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-uniform-int/attrs.html#structtensorflow_1_1ops_1_1_random_uniform_int_1_1_attrs">RandomUniformInt::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_uniform_int_1a49b64e7338480155d405c8857052dba8">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_uniform_int_1ab20d5478b1e7f66bec1208d955bc485f">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_uniform_int_1a3a4c37bc4f79b459f17c8d6d01e4024c">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_random_uniform_int_1a62449aa6617d6d92891fbd702315d3d6">
+    <h3>Seed</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-uniform-int/attrs.html#structtensorflow_1_1ops_1_1_random_uniform_int_1_1_attrs">Attrs</a> Seed(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_uniform_int_1a88e15830d1509a59f35301ecfe8aee1c">
+    <h3>Seed2</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/random-uniform-int/attrs.html#structtensorflow_1_1ops_1_1_random_uniform_int_1_1_attrs">Attrs</a> Seed2(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

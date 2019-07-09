@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::BarrierInsertMany Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>BarrierInsertMany</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>For each key, assigns the respective value to the specified component. </p>
+  <h2>Summary</h2>
+  <p>If a key is not found in the barrier, this operation will create a new incomplete element. If a key is found in the barrier, and the element already has a value at component_index, this operation will fail with INVALID_ARGUMENT, and leave the barrier in an undefined state.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to a barrier.</li>
+      <li>keys: A one-dimensional tensor of keys, with length n.</li>
+      <li>values: An any-dimensional tensor of values, which are associated with the respective keys. The 0th dimension must have length n.</li>
+      <li>component_index: The component of the barrier elements that is being assigned.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li>the created <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_insert_many_1a8ee6cfc13fdf57f11e86b4d6692898b8">BarrierInsertMany</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> keys, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values, int64 component_index)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_insert_many_1aa3425272e66a4448615caa6b258f4a66">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_insert_many_1ad8ad6d9598344b4090c7d2af0ace852d">operator::tensorflow::Operation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_barrier_insert_many_1aa3425272e66a4448615caa6b258f4a66">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_barrier_insert_many_1a8ee6cfc13fdf57f11e86b4d6692898b8">
+    <h3>BarrierInsertMany</h3>
+    <pre class="prettyprint"> BarrierInsertMany(
+  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> keys,
+  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values,
+  int64 component_index
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_barrier_insert_many_1ad8ad6d9598344b4090c7d2af0ace852d">
+    <h3>operator::tensorflow::Operation</h3>
+    <pre class="prettyprint"> operator::tensorflow::Operation() const </pre>
+    <div />
+  </div>
+</body>
+</html>
