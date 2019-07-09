@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::InTopK Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>InTopK</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Says whether the targets are in the top <code>K</code> predictions. </p>
+  <h2>Summary</h2>
+  <p>This outputs a <code>batch_size</code> bool array, an entry <code>out[i]</code> is <code>true</code> if the prediction for the target class is among the top <code>k</code> predictions among all predictions for example <code>i</code>. Note that the behavior of <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/in-top-k.html#classtensorflow_1_1ops_1_1_in_top_k">InTopK</a></code> differs from the <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/top-k.html#classtensorflow_1_1ops_1_1_top_k">TopK</a></code> op in its handling of ties; if multiple classes have the same prediction value and straddle the top-<code>k</code> boundary, all of those classes are considered to be in the top <code>k</code>.</p>
+  <p>More formally, let</p>
+  <p>\(predictions_i\) be the predictions for all classes for example <code>i</code>, \(targets_i\) be the target class for example <code>i</code>, \(out_i\) be the output for example <code>i</code>,</p>
+  <p>$$out_i = predictions_{i, targets_i}  TopKIncludingTies(predictions_i)$$</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>predictions: A <code>batch_size</code> x <code>classes</code> tensor.</li>
+      <li>targets: A <code>batch_size</code> vector of class ids.</li>
+      <li>k: Number of top elements to look at for computing precision.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Computed Precision at <code>k</code> as a <code>bool <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_in_top_k_1a377574cc533f3b91fea7345442e1998f">InTopK</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> predictions, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> targets, int64 k)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_in_top_k_1a43116d147476cd8f69ce01d5c3c9f915">precision</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_in_top_k_1a135e20737a15b73e8336cea65b60ad87">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_in_top_k_1a0b88d86f83d7e064c8c3189793a3400b">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_in_top_k_1a63713331ec8812a5470f740a7fd9f5df">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_in_top_k_1a43116d147476cd8f69ce01d5c3c9f915">
+    <h3>precision</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> precision</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_in_top_k_1a377574cc533f3b91fea7345442e1998f">
+    <h3>InTopK</h3>
+    <pre class="prettyprint"> InTopK(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> predictions,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> targets,
+  int64 k
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_in_top_k_1a135e20737a15b73e8336cea65b60ad87">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_in_top_k_1a0b88d86f83d7e064c8c3189793a3400b">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_in_top_k_1a63713331ec8812a5470f740a7fd9f5df">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

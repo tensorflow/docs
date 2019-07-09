@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DepthToSpace Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DepthToSpace</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/depth-to-space.html#classtensorflow_1_1ops_1_1_depth_to_space">DepthToSpace</a> for tensors of type T. </p>
+  <h2>Summary</h2>
+  <p>Rearranges data from depth into blocks of spatial data. This is the reverse transformation of <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/space-to-depth.html#classtensorflow_1_1ops_1_1_space_to_depth">SpaceToDepth</a>. More specifically, this op outputs a copy of the input tensor where values from the <code>depth</code> dimension are moved in spatial blocks to the <code>height</code> and <code>width</code> dimensions. The attr <code>block_size</code> indicates the input block size and how the data is moved.</p>
+  <p>
+    <ul>
+      <li>Chunks of data of size <code>block_size * block_size</code> from depth are rearranged into non-overlapping blocks of size <code>block_size x block_size</code></li>
+      <li>The width the output tensor is <code>input_depth * block_size</code>, whereas the height is <code>input_height * block_size</code>.</li>
+      <li>The Y, X coordinates within each block of the output image are determined by the high order component of the input channel index.</li>
+      <li>The depth of the input tensor must be divisible by <code>block_size * block_size</code>.</li>
+    </ul>
+  </p>
+  <p>The <code>data_format</code> attr specifies the layout of the input and output tensors with the following options: "NHWC": <code>[ batch, height, width, channels ]</code> "NCHW": <code>[ batch, channels, height, width ]</code> "NCHW_VECT_C": <code>qint8 [ batch, channels / 4, height, width, 4 ]</code></p>
+  <p>It is useful to consider the operation as transforming a 6-D <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. e.g. for data_format = NHWC, Each element in the input tensor can be specified via 6 coordinates, ordered by decreasing memory layout significance as: n,iY,iX,bY,bX,oC (where n=batch index, iX, iY means X or Y coordinates within the input image, bX, bY means coordinates within the output block, oC means output channels). The output would be the input transposed to the following layout: n,iY,bY,iX,bX,oC</p>
+  <p>This operation is useful for resizing the activations between convolutions (but keeping all data), e.g. instead of pooling. It is also useful for training purely convolutional models.</p>
+  <p>For example, given an input of shape <code>[1, 1, 1, 4]</code>, data_format = "NHWC" and block_size = 2:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1, 2, 3, 4]]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+  </p>
+  <p>This operation will output a tensor of shape <code>[1, 2, 2, 1]</code>:</p>
+  <p>
+    <pre class="prettyprint">
+   [[[[1], [2]],
+     [[3], [4]]]]
+</pre>
+  </p>
+  <p>Here, the input has a batch of 1 and each batch element has shape <code>[1, 1, 4]</code>, the corresponding output will have 2x2 elements and will have a depth of 1 channel (1 = <code>4 / (block_size * block_size)</code>). The output element shape is <code>[2, 2, 1]</code>.</p>
+  <p>For an input tensor with larger depth, here of shape <code>[1, 1, 1, 12]</code>, e.g.</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]]]]
+</pre>
+  </p>
+  <p>This operation, for block size of 2, will return the following tensor of shape <code>[1, 2, 2, 3]</code></p>
+  <p>
+    <pre class="prettyprint">
+   [[[[1, 2, 3], [4, 5, 6]],
+     [[7, 8, 9], [10, 11, 12]]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+  </p>
+  <p>Similarly, for the following input of shape <code>[1 2 2 4]</code>, and a block size of 2:</p>
+  <p>
+    <pre class="prettyprint">
+x =  [[[[1, 2, 3, 4],
+       [5, 6, 7, 8]],
+      [[9, 10, 11, 12],
+       [13, 14, 15, 16]]]]
+</pre>
+  </p>
+  <p>the operator will return the following tensor of shape <code>[1 4 4 1]</code>:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[ [1],   [2],  [5],  [6]],
+      [ [3],   [4],  [7],  [8]],
+      [ [9],  [10], [13],  [14]],
+      [ [11], [12], [15],  [16]]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>block_size: The size of the spatial block, same as in Space2Depth.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_depth_to_space_1a2c9e364eeb7f160468ea1d96f6cfb8e6">DepthToSpace</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64 block_size)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_depth_to_space_1a8f6fcb6f032b7cf643f973e6ac13c27c">DepthToSpace</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64 block_size, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/depth-to-space/attrs.html#structtensorflow_1_1ops_1_1_depth_to_space_1_1_attrs">DepthToSpace::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_depth_to_space_1af26b151763bb3a313233613cc17a77f0">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_depth_to_space_1a41b9c51a62fa577cdd60303f1e4121ab">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_depth_to_space_1a0ef22b3a73050121df809b37a5bcf10c">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_depth_to_space_1a20278953425786797aa70c161f3c746b">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_depth_to_space_1abc5ed947752840207dff9d8be78c49a3">DataFormat</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/depth-to-space/attrs.html#structtensorflow_1_1ops_1_1_depth_to_space_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/depth-to-space/attrs">tensorflow::<wbr/>ops::<wbr/>DepthToSpace::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/depth-to-space.html#classtensorflow_1_1ops_1_1_depth_to_space">DepthToSpace</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_depth_to_space_1af26b151763bb3a313233613cc17a77f0">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_depth_to_space_1a2c9e364eeb7f160468ea1d96f6cfb8e6">
+    <h3>DepthToSpace</h3>
+    <pre class="prettyprint"> DepthToSpace(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  int64 block_size
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_depth_to_space_1a8f6fcb6f032b7cf643f973e6ac13c27c">
+    <h3>DepthToSpace</h3>
+    <pre class="prettyprint"> DepthToSpace(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  int64 block_size,
+  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/depth-to-space/attrs.html#structtensorflow_1_1ops_1_1_depth_to_space_1_1_attrs">DepthToSpace::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_depth_to_space_1a41b9c51a62fa577cdd60303f1e4121ab">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_depth_to_space_1a0ef22b3a73050121df809b37a5bcf10c">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_depth_to_space_1a20278953425786797aa70c161f3c746b">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_depth_to_space_1abc5ed947752840207dff9d8be78c49a3">
+    <h3>DataFormat</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/depth-to-space/attrs.html#structtensorflow_1_1ops_1_1_depth_to_space_1_1_attrs">Attrs</a> DataFormat(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

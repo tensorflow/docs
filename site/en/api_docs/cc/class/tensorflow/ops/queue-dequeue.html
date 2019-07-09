@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::QueueDequeue Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>QueueDequeue</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Dequeues a tuple of one or more tensors from the given queue. </p>
+  <h2>Summary</h2>
+  <p>This operation has k outputs, where k is the number of components in the tuples stored in the given queue, and output i is the ith component of the dequeued tuple.</p>
+  <p>N.B. If the queue is empty, this operation will block until an element has been dequeued (or 'timeout_ms' elapses, if specified).</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to a queue.</li>
+      <li>component_types: The type of each component in a tuple.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/queue-dequeue/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_1_1_attrs">Attrs</a></code>):<ul>
+      <li>timeout_ms: If the queue is empty, this operation will block for up to timeout_ms milliseconds. Note: This option is not supported yet.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code>OutputList</code>: One or more tensors that were dequeued as a tuple. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_dequeue_1a62ecaf858cb38bae134e075e91560201">QueueDequeue</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, const DataTypeSlice & component_types)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_dequeue_1a7e6e32c8f0de0748262a87379f34d80f">QueueDequeue</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, const DataTypeSlice & component_types, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/queue-dequeue/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_1_1_attrs">QueueDequeue::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_dequeue_1add6442c38a956524521d2dc78b0392bd">components</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_dequeue_1adab23cc206d2a2d84d80cb9cbaaab043">operator[]</a>(size_t index) const </code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_dequeue_1a369b19de112a05e7793c51bd74ae6e43">TimeoutMs</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/queue-dequeue/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/queue-dequeue/attrs">tensorflow::<wbr/>ops::<wbr/>QueueDequeue::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/queue-dequeue.html#classtensorflow_1_1ops_1_1_queue_dequeue">QueueDequeue</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_queue_dequeue_1add6442c38a956524521d2dc78b0392bd">
+    <h3>components</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> components</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_queue_dequeue_1a62ecaf858cb38bae134e075e91560201">
+    <h3>QueueDequeue</h3>
+    <pre class="prettyprint"> QueueDequeue(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  const DataTypeSlice & component_types
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_queue_dequeue_1a7e6e32c8f0de0748262a87379f34d80f">
+    <h3>QueueDequeue</h3>
+    <pre class="prettyprint"> QueueDequeue(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  const DataTypeSlice & component_types,
+  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/queue-dequeue/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_1_1_attrs">QueueDequeue::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_queue_dequeue_1adab23cc206d2a2d84d80cb9cbaaab043">
+    <h3>operator[]</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](
+  size_t index
+) const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_queue_dequeue_1a369b19de112a05e7793c51bd74ae6e43">
+    <h3>TimeoutMs</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/queue-dequeue/attrs.html#structtensorflow_1_1ops_1_1_queue_dequeue_1_1_attrs">Attrs</a> TimeoutMs(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

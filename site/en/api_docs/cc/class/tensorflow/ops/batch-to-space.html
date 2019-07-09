@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::BatchToSpace Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>BatchToSpace</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/batch-to-space.html#classtensorflow_1_1ops_1_1_batch_to_space">BatchToSpace</a> for 4-D tensors of type T. </p>
+  <h2>Summary</h2>
+  <p>This is a legacy version of the more general <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/batch-to-space-n-d.html#classtensorflow_1_1ops_1_1_batch_to_space_n_d">BatchToSpaceND</a>.</p>
+  <p>Rearranges (permutes) data from batch into blocks of spatial data, followed by cropping. This is the reverse transformation of <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/space-to-batch.html#classtensorflow_1_1ops_1_1_space_to_batch">SpaceToBatch</a>. More specifically, this op outputs a copy of the input tensor where values from the <code>batch</code> dimension are moved in spatial blocks to the <code>height</code> and <code>width</code> dimensions, followed by cropping along the <code>height</code> and <code>width</code> dimensions.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: 4-D tensor with shape <code>[batch*block_size*block_size, height_pad/block_size, width_pad/block_size, depth]</code>. Note that the batch size of the input tensor must be divisible by <code>block_size * block_size</code>.</li>
+      <li>crops: 2-D tensor of non-negative integers with shape <code>[2, 2]</code>. It specifies how many elements to crop from the intermediate result across the spatial dimensions as follows: <pre class="prettyprint">crops = [[crop_top, crop_bottom], [crop_left, crop_right]]
+</pre></li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with shape <code>[batch, height, width, depth]</code>, where: <pre class="prettyprint">height = height_pad - crop_top - crop_bottom
+width = width_pad - crop_left - crop_right
+</pre></li>
+    </ul></p>
+  <p>The attr <code>block_size</code> must be greater than one. It indicates the block size.</p>
+  <p>Some examples:</p>
+  <p>(1) For the following input of shape <code>[4, 1, 1, 1]</code> and block_size of 2:</p>
+  <p>
+    <pre class="prettyprint">
+[[[[1]]], [[[2]]], [[[3]]], [[[4]]]]
+</pre>
+  </p>
+  <p>The output tensor has shape <code>[1, 2, 2, 1]</code> and value:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1], [2]], [[3], [4]]]]
+</pre>
+  </p>
+  <p>(2) For the following input of shape <code>[4, 1, 1, 3]</code> and block_size of 2:</p>
+  <p>
+    <pre class="prettyprint">
+[[[1, 2, 3]], [[4, 5, 6]], [[7, 8, 9]], [[10, 11, 12]]]
+</pre>
+  </p>
+  <p>The output tensor has shape <code>[1, 2, 2, 3]</code> and value:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1, 2, 3], [4, 5, 6]],
+      [[7, 8, 9], [10, 11, 12]]]]
+</pre>
+  </p>
+  <p>(3) For the following input of shape <code>[4, 2, 2, 1]</code> and block_size of 2:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1], [3]], [[9], [11]]],
+     [[[2], [4]], [[10], [12]]],
+     [[[5], [7]], [[13], [15]]],
+     [[[6], [8]], [[14], [16]]]]
+</pre>
+  </p>
+  <p>The output tensor has shape <code>[1, 4, 4, 1]</code> and value:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[1],   [2],  [3],  [4]],
+     [[5],   [6],  [7],  [8]],
+     [[9],  [10], [11],  [12]],
+     [[13], [14], [15],  [16]]]
+</pre>
+  </p>
+  <p>(4) For the following input of shape <code>[8, 1, 2, 1]</code> and block_size of 2:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1], [3]]], [[[9], [11]]], [[[2], [4]]], [[[10], [12]]],
+     [[[5], [7]]], [[[13], [15]]], [[[6], [8]]], [[[14], [16]]]]
+</pre>
+  </p>
+  <p>The output tensor has shape <code>[2, 2, 4, 1]</code> and value:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1], [3]], [[5], [7]]],
+     [[[2], [4]], [[10], [12]]],
+     [[[5], [7]], [[13], [15]]],
+     [[[6], [8]], [[14], [16]]]]
+</pre>
+  </p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_to_space_1a813bf5c031d4af21a394ba903c8dd8e7">BatchToSpace</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> crops, int64 block_size)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_to_space_1aacc62122ef498fc3a9ee89afdbcc6b74">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_to_space_1a54c1c787b320c2f52099bc7bc02a85ed">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_to_space_1a23f9170b61d8e17feb37f1615a383de2">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_to_space_1a6e84c3b9b55d05ad30e6bcf376278c1d">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_batch_to_space_1aacc62122ef498fc3a9ee89afdbcc6b74">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_batch_to_space_1a813bf5c031d4af21a394ba903c8dd8e7">
+    <h3>BatchToSpace</h3>
+    <pre class="prettyprint"> BatchToSpace(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> crops,
+  int64 block_size
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_batch_to_space_1a54c1c787b320c2f52099bc7bc02a85ed">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_batch_to_space_1a23f9170b61d8e17feb37f1615a383de2">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_batch_to_space_1a6e84c3b9b55d05ad30e6bcf376278c1d">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

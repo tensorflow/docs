@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SpaceToBatchND Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SpaceToBatchND</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p><a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/space-to-batch.html#classtensorflow_1_1ops_1_1_space_to_batch">SpaceToBatch</a> for N-D tensors of type T. </p>
+  <h2>Summary</h2>
+  <p>This operation divides "spatial" dimensions <code>[1, ..., M]</code> of the input into a grid of blocks of shape <code>block_shape</code>, and interleaves these blocks with the "batch" dimension (0) such that in the output, the spatial dimensions <code>[1, ..., M]</code> correspond to the position within the grid, and the batch dimension combines both the position within a spatial block and the original batch position. Prior to division into blocks, the spatial dimensions of the input are optionally zero padded according to <code>paddings</code>. See below for a precise description.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: N-D with shape <code>input_shape = [batch] + spatial_shape + remaining_shape</code>, where spatial_shape has <code>M</code> dimensions.</li>
+      <li>block_shape: 1-D with shape <code>[M]</code>, all values must be >= 1.</li>
+      <li>paddings: 2-D with shape <code>[M, 2]</code>, all values must be >= 0. <code>paddings[i] = [pad_start, pad_end]</code> specifies the padding for input dimension <code>i + 1</code>, which corresponds to spatial dimension <code>i</code>. It is required that <code>block_shape[i]</code> divides <code>input_shape[i + 1] + pad_start + pad_end</code>.</li>
+    </ul></p>
+  <p>This operation is equivalent to the following steps:</p>
+  <p>
+    <ol>
+      <li>Zero-pad the start and end of dimensions <code>[1, ..., M]</code> of the input according to <code>paddings</code> to produce <code>padded</code> of shape <code>padded_shape</code>.</li>
+      <li><a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/reshape.html#classtensorflow_1_1ops_1_1_reshape">Reshape</a><code>padded</code> to <code>reshaped_padded</code> of shape:[batch] + [padded_shape[1] / block_shape[0], block_shape[0], ..., padded_shape[M] / block_shape[M-1], block_shape[M-1]] + remaining_shape</li>
+      <li>Permute dimensions of <code>reshaped_padded</code> to produce <code>permuted_reshaped_padded</code> of shape:block_shape + [batch] + [padded_shape[1] / block_shape[0], ..., padded_shape[M] / block_shape[M-1]] + remaining_shape</li>
+      <li><a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/reshape.html#classtensorflow_1_1ops_1_1_reshape">Reshape</a><code>permuted_reshaped_padded</code> to flatten <code>block_shape</code> into the batch dimension, producing an output tensor of shape:[batch * prod(block_shape)] + [padded_shape[1] / block_shape[0], ..., padded_shape[M] / block_shape[M-1]] + remaining_shape</li>
+    </ol>
+  </p>
+  <p>Some examples:</p>
+  <p>(1) For the following input of shape <code>[1, 2, 2, 1]</code>, <code>block_shape = [2, 2]</code>, and <code>paddings = [[0, 0], [0, 0]]</code>:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1], [2]], [[3], [4]]]]
+</pre>
+  </p>
+  <p>The output tensor has shape <code>[4, 1, 1, 1]</code> and value:</p>
+  <p>
+    <pre class="prettyprint">
+[[[[1]]], [[[2]]], [[[3]]], [[[4]]]]
+</pre>
+  </p>
+  <p>(2) For the following input of shape <code>[1, 2, 2, 3]</code>, <code>block_shape = [2, 2]</code>, and <code>paddings = [[0, 0], [0, 0]]</code>:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1, 2, 3], [4, 5, 6]],
+      [[7, 8, 9], [10, 11, 12]]]]
+</pre>
+  </p>
+  <p>The output tensor has shape <code>[4, 1, 1, 3]</code> and value:</p>
+  <p>
+    <pre class="prettyprint">
+[[[1, 2, 3]], [[4, 5, 6]], [[7, 8, 9]], [[10, 11, 12]]]
+</pre>
+  </p>
+  <p>(3) For the following input of shape <code>[1, 4, 4, 1]</code>, <code>block_shape = [2, 2]</code>, and <code>paddings = [[0, 0], [0, 0]]</code>:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1],   [2],  [3],  [4]],
+      [[5],   [6],  [7],  [8]],
+      [[9],  [10], [11],  [12]],
+      [[13], [14], [15],  [16]]]]
+</pre>
+  </p>
+  <p>The output tensor has shape <code>[4, 2, 2, 1]</code> and value:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1], [3]], [[9], [11]]],
+     [[[2], [4]], [[10], [12]]],
+     [[[5], [7]], [[13], [15]]],
+     [[[6], [8]], [[14], [16]]]]
+</pre>
+  </p>
+  <p>(4) For the following input of shape <code>[2, 2, 4, 1]</code>, block_shape = <code>[2, 2]</code>, and paddings = <code>[[0, 0], [2, 0]]</code>:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[1],   [2],  [3],  [4]],
+      [[5],   [6],  [7],  [8]]],
+     [[[9],  [10], [11],  [12]],
+      [[13], [14], [15],  [16]]]]
+</pre>
+  </p>
+  <p>The output tensor has shape <code>[8, 1, 3, 1]</code> and value:</p>
+  <p>
+    <pre class="prettyprint">
+x = [[[[0], [1], [3]]], [[[0], [9], [11]]],
+     [[[0], [2], [4]]], [[[0], [10], [12]]],
+     [[[0], [5], [7]]], [[[0], [13], [15]]],
+     [[[0], [6], [8]]], [[[0], [14], [16]]]]
+</pre>
+  </p>
+  <p>Among others, this operation is useful for reducing atrous convolution into regular convolution.</p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_space_to_batch_n_d_1afe80dbf9403d5452f4faf4ec0adc2523">SpaceToBatchND</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> block_shape, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_space_to_batch_n_d_1a0870fa4ab3b1a57d827db7886c00277e">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_space_to_batch_n_d_1a0da267413c667f0687adf04738dd196b">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_space_to_batch_n_d_1a7fa1e82c57b0b859b260f1bec7a895db">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_space_to_batch_n_d_1addab33ebe3a565640223ae14b4c0b1e8">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_space_to_batch_n_d_1a0870fa4ab3b1a57d827db7886c00277e">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_space_to_batch_n_d_1afe80dbf9403d5452f4faf4ec0adc2523">
+    <h3>SpaceToBatchND</h3>
+    <pre class="prettyprint"> SpaceToBatchND(
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> block_shape,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_space_to_batch_n_d_1a0da267413c667f0687adf04738dd196b">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_space_to_batch_n_d_1a7fa1e82c57b0b859b260f1bec7a895db">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_space_to_batch_n_d_1addab33ebe3a565640223ae14b4c0b1e8">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

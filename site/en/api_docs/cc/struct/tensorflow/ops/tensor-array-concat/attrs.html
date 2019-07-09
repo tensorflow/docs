@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::TensorArrayConcat::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>TensorArrayConcat::<wbr/>Attrs</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/tensor-array-concat.html#classtensorflow_1_1ops_1_1_tensor_array_concat">TensorArrayConcat</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs_1a83886275dd85074d8df00d1577a7e265">element_shape_except0_</a> = ::tensorflow::PartialTensorShape()</code>
+      </td>
+      <td>
+        <div>
+          <code>PartialTensorShape</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs_1a96d3d8037460da28207e2429a528c337">ElementShapeExcept0</a>(PartialTensorShape x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The expected shape of an element, if known, excluding the first dimension. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs_1a83886275dd85074d8df00d1577a7e265">
+    <h3>element_shape_except0_</h3>
+    <pre class="prettyprint">PartialTensorShape tensorflow::ops::TensorArrayConcat::Attrs::element_shape_except0_ = ::tensorflow::PartialTensorShape()</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs_1a96d3d8037460da28207e2429a528c337">
+    <h3>ElementShapeExcept0</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/tensor-array-concat/attrs.html#structtensorflow_1_1ops_1_1_tensor_array_concat_1_1_attrs">Attrs</a> tensorflow::ops::TensorArrayConcat::Attrs::ElementShapeExcept0(
+  PartialTensorShape x
+)</pre>
+    <div>
+      <p>The expected shape of an element, if known, excluding the first dimension. </p>
+      <p>Used to validate the shapes of <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> elements. If this shape is not fully specified, concatenating zero-size TensorArrays is an error.</p>
+      <p>Defaults to <unknown> </p>
+    </div>
+  </div>
+</body>
+</html>

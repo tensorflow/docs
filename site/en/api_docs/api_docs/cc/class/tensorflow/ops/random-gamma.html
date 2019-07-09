@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::RandomGamma Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>RandomGamma</h1>
+  <code>#include &lt;random_ops.h&gt;</code>
+  <p>Outputs random values from the Gamma distribution(s) described by alpha. </p>
+  <h2>Summary</h2>
+  <p>This op uses the algorithm by Marsaglia et al. to acquire samples via transformation-rejection from pairs of uniform and normal random variables. See <a href="http://dl.acm.org/citation.cfm?id=358414">http://dl.acm.org/citation.cfm?id=358414</a></p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>shape: 1-D integer tensor. <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/shape.html#classtensorflow_1_1ops_1_1_shape">Shape</a> of independent samples to draw from each distribution described by the shape parameters given in alpha.</li>
+      <li>alpha: A tensor in which each scalar is a "shape" parameter describing the associated gamma distribution.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/random-gamma/attrs.html#structtensorflow_1_1ops_1_1_random_gamma_1_1_attrs">Attrs</a></code>):<ul>
+      <li>seed: If either <code>seed</code> or <code>seed2</code> are set to be non-zero, the random number generator is seeded by the given seed. Otherwise, it is seeded by a random seed.</li>
+      <li>seed2: A second seed to avoid seed collision.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A tensor with shape <code>shape + shape(alpha)</code>. Each slice <code>[:, ..., :, i0, i1, ...iN]</code> contains the samples drawn for <code>alpha[i0, i1, ...iN]</code>. The dtype of the output matches the dtype of alpha. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_random_gamma_1a54b3819de158eaa8e1f4dd2e09c38350">RandomGamma</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_random_gamma_1afb5a4dcc9f3b7849c9ccf8e49233c658">RandomGamma</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha, const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/random-gamma/attrs.html#structtensorflow_1_1ops_1_1_random_gamma_1_1_attrs">RandomGamma::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_gamma_1ae108904c41339fe8cced748589ef2622">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_gamma_1a0a8429580ed9eda5d1b850c9fc9cd7c6">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_gamma_1ad5e60091b7438c54f6d2457fccba06ed">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_gamma_1a20b55a813e49ae84f48cd79c87285409">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_gamma_1a62800c601cb18e766b0f41f18f86f335">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/random-gamma/attrs.html#structtensorflow_1_1ops_1_1_random_gamma_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_gamma_1a42984b9ff3911c8867903be5bcd97ac7">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/random-gamma/attrs.html#structtensorflow_1_1ops_1_1_random_gamma_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/random-gamma/attrs">tensorflow::<wbr/>ops::<wbr/>RandomGamma::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/random-gamma.html#classtensorflow_1_1ops_1_1_random_gamma">RandomGamma</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_random_gamma_1ae108904c41339fe8cced748589ef2622">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_random_gamma_1a54b3819de158eaa8e1f4dd2e09c38350">
+    <h3>RandomGamma</h3>
+    <pre class="prettyprint"> RandomGamma(
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_gamma_1afb5a4dcc9f3b7849c9ccf8e49233c658">
+    <h3>RandomGamma</h3>
+    <pre class="prettyprint"> RandomGamma(
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha,
+  const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/random-gamma/attrs.html#structtensorflow_1_1ops_1_1_random_gamma_1_1_attrs">RandomGamma::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_gamma_1a0a8429580ed9eda5d1b850c9fc9cd7c6">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_gamma_1ad5e60091b7438c54f6d2457fccba06ed">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_gamma_1a20b55a813e49ae84f48cd79c87285409">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_random_gamma_1a62800c601cb18e766b0f41f18f86f335">
+    <h3>Seed</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/random-gamma/attrs.html#structtensorflow_1_1ops_1_1_random_gamma_1_1_attrs">Attrs</a> Seed(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_gamma_1a42984b9ff3911c8867903be5bcd97ac7">
+    <h3>Seed2</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/random-gamma/attrs.html#structtensorflow_1_1ops_1_1_random_gamma_1_1_attrs">Attrs</a> Seed2(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

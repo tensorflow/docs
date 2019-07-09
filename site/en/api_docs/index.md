@@ -1,3 +1,7 @@
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 # API Documentation
 
 TensorFlow has APIs available in several languages both for constructing and
@@ -13,7 +17,7 @@ covered by the [API stability promises](../programmers_guide/version_semantics).
 * [C++](cc)
 * [Java](java/reference/org/tensorflow/package-summary)
 * [Go](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go)
-* [Swift (Early Release)](../swift)
+* [Swift (Early Release)](swift)
 
 
 We encourage the community to develop and maintain support for other languages
@@ -29,4 +33,4 @@ For example, see the bindings for:
 
 We also provide the C++ API reference for TensorFlow Serving:
 
-* [TensorFlow Serving](/api_docs/serving)
+* [TensorFlow Serving](/tfx/serving/api_docs/cc/)

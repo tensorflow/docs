@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::AllCandidateSampler::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>AllCandidateSampler::<wbr/>Attrs</h1>
+  <code>#include &lt;candidate_sampling_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/all-candidate-sampler.html#classtensorflow_1_1ops_1_1_all_candidate_sampler">AllCandidateSampler</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs_1a106cce50bdfd551481bf8201c25b79e0">seed2_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs_1ae932ae96fe5974bab81fe2fd736e1f5d">seed_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs_1a5d1d847987b55a7f774d7ab6622371c8">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If either seed or seed2 are set to be non-zero, the random number generator is seeded by the given seed. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs_1a13f740f05760bf2cf33ba9b00f163546">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>An second seed to avoid seed collision. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs_1a106cce50bdfd551481bf8201c25b79e0">
+    <h3>seed2_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::AllCandidateSampler::Attrs::seed2_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs_1ae932ae96fe5974bab81fe2fd736e1f5d">
+    <h3>seed_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::AllCandidateSampler::Attrs::seed_ = 0</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs_1a5d1d847987b55a7f774d7ab6622371c8">
+    <h3>Seed</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs">Attrs</a> tensorflow::ops::AllCandidateSampler::Attrs::Seed(
+  int64 x
+)</pre>
+    <div>
+      <p>If either seed or seed2 are set to be non-zero, the random number generator is seeded by the given seed. </p>
+      <p>Otherwise, it is seeded by a random seed.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs_1a13f740f05760bf2cf33ba9b00f163546">
+    <h3>Seed2</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/all-candidate-sampler/attrs.html#structtensorflow_1_1ops_1_1_all_candidate_sampler_1_1_attrs">Attrs</a> tensorflow::ops::AllCandidateSampler::Attrs::Seed2(
+  int64 x
+)</pre>
+    <div>
+      <p>An second seed to avoid seed collision. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+</body>
+</html>

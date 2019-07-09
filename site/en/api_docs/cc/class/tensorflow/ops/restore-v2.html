@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::RestoreV2 Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>RestoreV2</h1>
+  <code>#include &lt;io_ops.h&gt;</code>
+  <p>Restores tensors from a V2 checkpoint. </p>
+  <h2>Summary</h2>
+  <p>For backward compatibility with the V1 format, this Op currently allows restoring from a V1 checkpoint as well:<ul>
+      <li>This Op first attempts to find the V2 index file pointed to by "prefix", and if found proceed to read it as a V2 checkpoint;</li>
+      <li>Otherwise the V1 read path is invoked. Relying on this behavior is not recommended, as the ability to fall back to read V1 might be deprecated and eventually removed.</li>
+    </ul></p>
+  <p>By default, restores the named tensors in full. If the caller wishes to restore specific slices of stored tensors, "shape_and_slices" should be non-empty strings and correspondingly well-formed.</p>
+  <p>Callers must ensure all the named tensors are indeed stored in the checkpoint.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>prefix: Must have a single element. The prefix of a V2 checkpoint.</li>
+      <li>tensor_names: shape {N}. The names of the tensors to be restored.</li>
+      <li>shape_and_slices: shape {N}. The slice specs of the tensors to be restored. <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a> strings indicate that they are non-partitioned tensors.</li>
+      <li>dtypes: shape {N}. The list of expected dtype for the tensors. Must match those stored in the checkpoint.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code>OutputList</code>: shape {N}. The restored tensors, whose shapes are read from the checkpoint directly. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_restore_v2_1a57bca4a84e5b10e9920fdeeac3a05f5e">RestoreV2</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> prefix, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slices, const DataTypeSlice & dtypes)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_restore_v2_1acec293134264696f9ac7e0f1d900d542">tensors</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_restore_v2_1a6bd9fcb0de236ef33532417834b3ed0d">operator[]</a>(size_t index) const </code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_restore_v2_1acec293134264696f9ac7e0f1d900d542">
+    <h3>tensors</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> tensors</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_restore_v2_1a57bca4a84e5b10e9920fdeeac3a05f5e">
+    <h3>RestoreV2</h3>
+    <pre class="prettyprint"> RestoreV2(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> prefix,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_names,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slices,
+  const DataTypeSlice & dtypes
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_restore_v2_1a6bd9fcb0de236ef33532417834b3ed0d">
+    <h3>operator[]</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](
+  size_t index
+) const </pre>
+    <div />
+  </div>
+</body>
+</html>

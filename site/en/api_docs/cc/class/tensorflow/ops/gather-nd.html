@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::GatherNd Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>GatherNd</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/gather.html#classtensorflow_1_1ops_1_1_gather">Gather</a> slices from <code>params</code> into a <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> with shape specified by <code>indices</code>. </p>
+  <h2>Summary</h2>
+  <p><code>indices</code> is an K-dimensional integer tensor, best thought of as a (K-1)-dimensional tensor of indices into <code>params</code>, where each element defines a slice of <code>params</code>: <pre class="prettyprint">output[\\(i_0, ..., i_{K-2}\\)] = params[indices[\\(i_0, ..., i_{K-2}\\)]]
+</pre></p>
+  <p>Whereas in <code>tf.gather</code><code>indices</code> defines slices into the first dimension of <code>params</code>, in <code>tf.gather_nd</code>, <code>indices</code> defines slices into the first <code>N</code> dimensions of <code>params</code>, where <code>N = indices.shape[-1]</code>.</p>
+  <p>The last dimension of <code>indices</code> can be at most the rank of <code>params</code>: <pre class="prettyprint">indices.shape[-1] <= params.rank
+</pre></p>
+  <p>The last dimension of <code>indices</code> corresponds to elements (if <code>indices.shape[-1] == params.rank</code>) or slices (if <code>indices.shape[-1] < params.rank</code>) along dimension <code>indices.shape[-1]</code> of <code>params</code>. The output tensor has shape <pre class="prettyprint">indices.shape[:-1] + params.shape[indices.shape[-1]:]
+</pre></p>
+  <p>Note that on CPU, if an out of bound index is found, an error is returned. On GPU, if an out of bound index is found, a 0 is stored in the corresponding output value.</p>
+  <p>Some examples below.</p>
+  <p>Simple indexing into a matrix:</p>
+  <p>
+    <pre class="prettyprint">
+    indices = [[0, 0], [1, 1]]
+    params = [['a', 'b'], ['c', 'd']]
+    output = ['a', 'd']
+</pre>
+  </p>
+  <p><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/slice.html#classtensorflow_1_1ops_1_1_slice">Slice</a> indexing into a matrix:</p>
+  <p>
+    <pre class="prettyprint">
+    indices = [[1], [0]]
+    params = [['a', 'b'], ['c', 'd']]
+    output = [['c', 'd'], ['a', 'b']]
+</pre>
+  </p>
+  <p>Indexing into a 3-tensor:</p>
+  <p>
+    <pre class="prettyprint">
+    indices = [[1]]
+    params = [[['a0', 'b0'], ['c0', 'd0']],
+              [['a1', 'b1'], ['c1', 'd1']]]
+    output = [[['a1', 'b1'], ['c1', 'd1']]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    indices = [[0, 1], [1, 0]]
+    params = [[['a0', 'b0'], ['c0', 'd0']],
+              [['a1', 'b1'], ['c1', 'd1']]]
+    output = [['c0', 'd0'], ['a1', 'b1']]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    indices = [[0, 0, 1], [1, 0, 1]]
+    params = [[['a0', 'b0'], ['c0', 'd0']],
+              [['a1', 'b1'], ['c1', 'd1']]]
+    output = ['b0', 'b1']
+</pre>
+  </p>
+  <p>Batched indexing into a matrix:</p>
+  <p>
+    <pre class="prettyprint">
+    indices = [[[0, 0]], [[0, 1]]]
+    params = [['a', 'b'], ['c', 'd']]
+    output = [['a'], ['b']]
+</pre>
+  </p>
+  <p>Batched slice indexing into a matrix:</p>
+  <p>
+    <pre class="prettyprint">
+    indices = [[[1]], [[0]]]
+    params = [['a', 'b'], ['c', 'd']]
+    output = [[['c', 'd']], [['a', 'b']]]
+</pre>
+  </p>
+  <p>Batched indexing into a 3-tensor:</p>
+  <p>
+    <pre class="prettyprint">
+    indices = [[[1]], [[0]]]
+    params = [[['a0', 'b0'], ['c0', 'd0']],
+              [['a1', 'b1'], ['c1', 'd1']]]
+    output = [[[['a1', 'b1'], ['c1', 'd1']]],
+              [[['a0', 'b0'], ['c0', 'd0']]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    indices = [[[0, 1], [1, 0]], [[0, 0], [1, 1]]]
+    params = [[['a0', 'b0'], ['c0', 'd0']],
+              [['a1', 'b1'], ['c1', 'd1']]]
+    output = [[['c0', 'd0'], ['a1', 'b1']],
+              [['a0', 'b0'], ['c1', 'd1']]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    indices = [[[0, 0, 1], [1, 0, 1]], [[0, 1, 1], [1, 1, 0]]]
+    params = [[['a0', 'b0'], ['c0', 'd0']],
+              [['a1', 'b1'], ['c1', 'd1']]]
+    output = [['b0', 'b1'], ['d0', 'c1']]
+</pre>
+  </p>
+  <p>See also <code>tf.gather</code> and <code>tf.batch_gather</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>params: The tensor from which to gather values.</li>
+      <li>indices: Index tensor.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Values from <code>params</code> gathered from indices given by <code>indices</code>, with shape <code>indices.shape[:-1] + params.shape[indices.shape[-1]:]</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_nd_1a83ac49d5f8899faa1cf24f7eea2c01ac">GatherNd</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> params, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_nd_1a3e99a0c52482bb14c94c1bbf9b507e95">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_nd_1ab32d5802ad22d9fa803952390ca3fce8">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_nd_1ab8601c2824b77c2f890a973ccd8f7212">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_nd_1a7741e14bd7240a514268290545b62223">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_gather_nd_1a3e99a0c52482bb14c94c1bbf9b507e95">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_gather_nd_1a83ac49d5f8899faa1cf24f7eea2c01ac">
+    <h3>GatherNd</h3>
+    <pre class="prettyprint"> GatherNd(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> params,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_nd_1ab32d5802ad22d9fa803952390ca3fce8">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_nd_1ab8601c2824b77c2f890a973ccd8f7212">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_nd_1a7741e14bd7240a514268290545b62223">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

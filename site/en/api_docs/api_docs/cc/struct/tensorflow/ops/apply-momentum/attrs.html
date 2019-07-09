@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ApplyMomentum::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ApplyMomentum::<wbr/>Attrs</h1>
+  <code>#include &lt;training_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/apply-momentum.html#classtensorflow_1_1ops_1_1_apply_momentum">ApplyMomentum</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs_1ac7a1ef7431664860ed9091ad79682048">use_locking_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs_1aa220959fe76edba4aee5ab6f50805015">use_nesterov_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs_1aee05b419c9af98c90acb3eaf340b229f">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If <code>True</code>, updating of the var and accum tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs_1a55fbe297526f05a5ecbcad115457d913">UseNesterov</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If <code>True</code>, the tensor passed to compute grad will be var - lr * momentum * accum, so in the end, the var you get is actually var - lr * momentum * accum. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs_1ac7a1ef7431664860ed9091ad79682048">
+    <h3>use_locking_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::ApplyMomentum::Attrs::use_locking_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs_1aa220959fe76edba4aee5ab6f50805015">
+    <h3>use_nesterov_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::ApplyMomentum::Attrs::use_nesterov_ = false</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs_1aee05b419c9af98c90acb3eaf340b229f">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a> tensorflow::ops::ApplyMomentum::Attrs::UseLocking(
+  bool x
+)</pre>
+    <div>
+      <p>If <code>True</code>, updating of the var and accum tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs_1a55fbe297526f05a5ecbcad115457d913">
+    <h3>UseNesterov</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_apply_momentum_1_1_attrs">Attrs</a> tensorflow::ops::ApplyMomentum::Attrs::UseNesterov(
+  bool x
+)</pre>
+    <div>
+      <p>If <code>True</code>, the tensor passed to compute grad will be var - lr * momentum * accum, so in the end, the var you get is actually var - lr * momentum * accum. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+</body>
+</html>

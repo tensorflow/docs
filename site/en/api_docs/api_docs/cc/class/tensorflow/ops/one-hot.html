@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::OneHot Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>OneHot</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Returns a one-hot tensor. </p>
+  <h2>Summary</h2>
+  <p>The locations represented by indices in <code>indices</code> take value <code>on_value</code>, while all other locations take value <code>off_value</code>.</p>
+  <p>If the input <code>indices</code> is rank <code>N</code>, the output will have rank <code>N+1</code>, The new axis is created at dimension <code>axis</code> (default: the new axis is appended at the end).</p>
+  <p>If <code>indices</code> is a scalar the output shape will be a vector of length <code>depth</code>.</p>
+  <p>If <code>indices</code> is a vector of length <code>features</code>, the output shape will be: <pre class="prettyprint">
+  features x depth if axis == -1
+  depth x features if axis == 0
+</pre></p>
+  <p>If <code>indices</code> is a matrix (batch) with shape <code>[batch, features]</code>, the output shape will be: <pre class="prettyprint">
+  batch x features x depth if axis == -1
+  batch x depth x features if axis == 1
+  depth x batch x features if axis == 0
+</pre></p>
+  <p>
+    <h1>Examples </h1>
+  </p>
+  <p>Suppose that</p>
+  <p>
+    <pre class="prettyprint">
+  indices = [0, 2, -1, 1]
+  depth = 3
+  on_value = 5.0
+  off_value = 0.0
+  axis = -1
+</pre>
+  </p>
+  <p>Then output is <code>[4 x 3]</code>: <pre class="prettyprint">```output =
+  [5.0 0.0 0.0]  // one_hot(0)
+  [0.0 0.0 5.0]  // one_hot(2)
+  [0.0 0.0 0.0]  // one_hot(-1)
+  [0.0 5.0 0.0]  // one_hot(1)
+<pre>
+</pre></p>
+  <p>Suppose that</p>
+  <p>indices = [0, 2, -1, 1] depth = 3 on_value = 0.0 off_value = 3.0 axis = 0 <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">Then output is `[3 x 4]`:</pre>
+  </p>
+  <p><pre class="prettyprint" />output = [0.0 3.0 3.0 3.0] [3.0 3.0 3.0 0.0] [3.0 3.0 3.0 3.0] [3.0 0.0 3.0 3.0] // ^ one_hot(0) // ^ one_hot(2) // ^ one_hot(-1) // ^ one_hot(1) <pre class="prettyprint">
+Suppose that</pre></p>
+  <p><pre class="prettyprint" /> indices = [[0, 2], [1, -1]] depth = 3 on_value = 1.0 off_value = 0.0 axis = -1 <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">Then output is `[2 x 2 x 3]`:</pre>
+  </p>
+  <p><pre class="prettyprint" />output = [ [1.0, 0.0, 0.0] // one_hot(0) [0.0, 0.0, 1.0] // one_hot(2) ][ [0.0, 1.0, 0.0] // one_hot(1) [0.0, 0.0, 0.0] // one_hot(-1) ]<pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">Arguments:
+* scope: A <a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+* indices: A tensor of indices.
+* depth: A scalar defining the depth of the one hot dimension.
+* on_value: A scalar defining the value to fill in output when <code>indices[j] = i</code>.
+* off_value: A scalar defining the value to fill in output when <code>indices[j] != i</code>.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">Optional attributes (see <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/one-hot/attrs.html#structtensorflow_1_1ops_1_1_one_hot_1_1_attrs">Attrs</a></code>):
+* axis: The axis to fill (default: -1, a new inner-most axis).</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">Returns:
+* <code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The one-hot tensor.  
+</pre>
+  </p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_one_hot_1a854f72c62e64f05c6b259c56ea5734bf">OneHot</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> depth, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> on_value, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> off_value)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_one_hot_1a606bee0fc38c4a1041cb1cd0be5920ca">OneHot</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> depth, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> on_value, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> off_value, const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/one-hot/attrs.html#structtensorflow_1_1ops_1_1_one_hot_1_1_attrs">OneHot::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_one_hot_1a120b99aec6bb831f0cec75b08bb8ab99">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_one_hot_1a79ee3b14e2833cd20e87ac9ed19c8852">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_one_hot_1afd6cf127f64b799170e3bbdb63bbf3a8">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_one_hot_1aeb4ae438117dbe3d0e9a0ff8af670b54">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_one_hot_1a11c56717df9255c7d78ae73a2a9349f6">Axis</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/one-hot/attrs.html#structtensorflow_1_1ops_1_1_one_hot_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/one-hot/attrs">tensorflow::<wbr/>ops::<wbr/>OneHot::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/one-hot.html#classtensorflow_1_1ops_1_1_one_hot">OneHot</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_one_hot_1a120b99aec6bb831f0cec75b08bb8ab99">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_one_hot_1a854f72c62e64f05c6b259c56ea5734bf">
+    <h3>OneHot</h3>
+    <pre class="prettyprint"> OneHot(
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> depth,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> on_value,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> off_value
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_one_hot_1a606bee0fc38c4a1041cb1cd0be5920ca">
+    <h3>OneHot</h3>
+    <pre class="prettyprint"> OneHot(
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> depth,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> on_value,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> off_value,
+  const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/one-hot/attrs.html#structtensorflow_1_1ops_1_1_one_hot_1_1_attrs">OneHot::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_one_hot_1a79ee3b14e2833cd20e87ac9ed19c8852">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_one_hot_1afd6cf127f64b799170e3bbdb63bbf3a8">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_one_hot_1aeb4ae438117dbe3d0e9a0ff8af670b54">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_one_hot_1a11c56717df9255c7d78ae73a2a9349f6">
+    <h3>Axis</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/one-hot/attrs.html#structtensorflow_1_1ops_1_1_one_hot_1_1_attrs">Attrs</a> Axis(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
