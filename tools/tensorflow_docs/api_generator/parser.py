@@ -848,7 +848,13 @@ _PropertyInfo = collections.namedtuple(
     '_PropertyInfo', ['short_name', 'full_name', 'obj', 'doc'])
 
 _MethodInfo = collections.namedtuple('_MethodInfo', [
-    'short_name', 'full_name', 'obj', 'doc', 'signature', 'decorators'
+    'short_name',
+    'full_name',
+    'obj',
+    'doc',
+    'signature',
+    'decorators',
+    'defined_in',
 ])
 
 
@@ -1106,7 +1112,8 @@ class _ClassPageInfo(object):
     """Returns a list of `_MethodInfo` describing the class' methods."""
     return self._methods
 
-  def _add_method(self, short_name, full_name, obj, doc, signature, decorators):
+  def _add_method(self, short_name, full_name, obj, doc, signature, decorators,
+                  defined_in):
     """Adds a `_MethodInfo` entry to the `methods` list.
 
     Args:
@@ -1117,11 +1124,10 @@ class _ClassPageInfo(object):
       signature: The method's parsed signature (see: `_generate_signature`)
       decorators: A list of strings describing the decorators that should be
         mentioned on the object's docs page.
+      defined_in: A `_FileLocation` object pointing to the object source.
     """
-
     method_info = _MethodInfo(short_name, full_name, obj, doc, signature,
-                              decorators)
-
+                              decorators, defined_in)
     self._methods.append(method_info)
 
   @property
@@ -1197,7 +1203,6 @@ class _ClassPageInfo(object):
       if (defining_class and
           defining_class.__name__ in ['CMessage', 'Message', 'MessageMeta']):
         continue
-      # TODO(markdaoust): Add a note in child docs showing the defining class.
 
       if doc_controls.should_skip_class_attr(py_class, short_name):
         continue
@@ -1256,8 +1261,9 @@ class _ClassPageInfo(object):
         except KeyError:
           pass
 
+        defined_in = _get_defined_in(child, parser_config)
         self._add_method(short_name, child_name, child, child_doc,
-                         child_signature, child_decorators)
+                         child_signature, child_decorators, defined_in)
       else:
         # Exclude members defined by protobuf that are useless
         if issubclass(py_class, ProtoMessage):
@@ -1509,49 +1515,28 @@ def docs_for_object(full_name, py_object, parser_config):
   return page_info
 
 
-class _PythonFile(object):
-  """This class indicates that the object is defined in a regular python file.
+class _FileLocation(object):
+  """This class indicates that the object is defined in a regular file.
 
   This can be used for the `defined_in` slot of the `PageInfo` objects.
   """
+  GITHUB_LINE_NUMBER_TEMPLATE = '#L{start_line:d}-L{end_line:d}'
 
-  def __init__(self, path, code_url_prefix):
-    self.path = path
-    self.code_url_prefix = code_url_prefix
+  def __init__(self, rel_path, url=None, start_line=None, end_line=None):
+    self.rel_path = rel_path
+    self.url = url
+    self.start_line = start_line
+    self.end_line = end_line
 
-  def __str__(self):
-    return 'Defined in [`{path}`]({url}).\n\n'.format(
-        path=self.path, url=os.path.join(self.code_url_prefix, self.path))
+    github_master_re = 'github.com.*?(blob|tree)/master'
+    suffix = ''
+    # Only attach a line number for github URLs that are not using "master"
+    if self.start_line and not re.search(github_master_re, self.url):
+      if 'github.com' in self.url:
+        suffix = self.GITHUB_LINE_NUMBER_TEMPLATE.format(
+            start_line=self.start_line, end_line=self.end_line)
 
-
-class _ProtoFile(object):
-  """This class indicates that the object is defined in a .proto file.
-
-  This can be used for the `defined_in` slot of the `PageInfo` objects.
-  """
-
-  def __init__(self, path, code_url_prefix):
-    self.path = path
-    self.code_url_prefix = code_url_prefix
-
-  def __str__(self):
-    return 'Defined in [`{path}`]({url}).\n\n'.format(
-        path=self.path, url=os.path.join(self.code_url_prefix, self.path))
-
-
-class _GeneratedFile(object):
-  """This class indicates that the object is defined in a generated python file.
-
-  Generated files should not be linked to directly.
-
-  This can be used for the `defined_in` slot of the `PageInfo` objects.
-  """
-
-  def __init__(self, path):
-    self.path = path
-
-  def __str__(self):
-    return 'Defined in generated file: `{}`.\n\n'.format(self.path)
+        self.url = self.url + suffix
 
 
 def _get_defined_in(py_object, parser_config):
@@ -1562,7 +1547,7 @@ def _get_defined_in(py_object, parser_config):
     parser_config: A ParserConfig object.
 
   Returns:
-    Either a `_PythonFile`, `_ProtoFile`, or a `_GeneratedFile`
+    A `_FileLocation`
   """
   # Every page gets a note about where this object is defined
   base_dirs_and_prefixes = zip(parser_config.base_dir,
@@ -1584,6 +1569,21 @@ def _get_defined_in(py_object, parser_config):
       code_url_prefix = temp_prefix
       break
 
+  try:
+    lines, start_line = tf_inspect.getsourcelines(py_object)
+    end_line = start_line + len(lines) - 1
+  except IOError:
+    # The source is not available.
+    start_line = None
+    end_line = None
+  except TypeError:
+    # This is a builtin, with no python-source.
+    start_line = None
+    end_line = None
+  except IndexError:
+    start_line = None
+    end_line = None
+
   # No link if the file was not found in a `base_dir`, or the prefix is None.
   if code_url_prefix is None:
     return None
@@ -1601,14 +1601,21 @@ def _get_defined_in(py_object, parser_config):
     return None
 
   if re.match(r'.*/gen_[^/]*\.py$', rel_path):
-    return _GeneratedFile(rel_path)
+    return _FileLocation(rel_path)
   if 'genfiles' in rel_path:
-    return _GeneratedFile(rel_path)
+    return _FileLocation(rel_path)
   elif re.match(r'.*_pb2\.py$', rel_path):
     # The _pb2.py files all appear right next to their defining .proto file.
-    return _ProtoFile(rel_path[:-7] + '.proto', code_url_prefix)  # pylint: disable=undefined-loop-variable
+
+    rel_path = rel_path[:-7] + '.proto'
+    return _FileLocation(
+        rel_path=rel_path, url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
   else:
-    return _PythonFile(rel_path, code_url_prefix)  # pylint: disable=undefined-loop-variable
+    return _FileLocation(
+        rel_path=rel_path,
+        url=os.path.join(code_url_prefix, rel_path),
+        start_line=start_line,
+        end_line=end_line)  # pylint: disable=undefined-loop-variable
 
 
 # TODO(markdaoust): This should just parse, pretty_docs should generate the md.

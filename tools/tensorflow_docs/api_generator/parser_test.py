@@ -198,7 +198,8 @@ class ParserTest(absltest.TestCase):
     self.assertIs(TestClass.ChildClass, page_info.classes[0].obj)
 
     # Make sure this file is contained as the definition location.
-    self.assertEqual(os.path.relpath(__file__, '/'), page_info.defined_in.path)
+    self.assertEqual(
+        os.path.relpath(__file__, '/'), page_info.defined_in.rel_path)
 
   def test_namedtuple_field_order(self):
     namedtupleclass = collections.namedtuple('namedtupleclass',
@@ -393,7 +394,7 @@ class ParserTest(absltest.TestCase):
     # Make sure the module's file is contained as the definition location.
     self.assertEqual(
         os.path.relpath(test_module.__file__.rstrip('c'), '/'),
-        page_info.defined_in.path)
+        page_info.defined_in.rel_path)
 
   def test_docs_for_function(self):
     index = {
@@ -432,7 +433,8 @@ class ParserTest(absltest.TestCase):
                      page_info.signature)
 
     # Make sure this file is contained as the definition location.
-    self.assertEqual(os.path.relpath(__file__, '/'), page_info.defined_in.path)
+    self.assertEqual(
+        os.path.relpath(__file__, '/'), page_info.defined_in.rel_path)
 
   def test_docs_for_function_with_kwargs(self):
     index = {
