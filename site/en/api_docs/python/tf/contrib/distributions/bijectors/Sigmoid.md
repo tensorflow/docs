@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,26 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/sigmoid.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/sigmoid.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/sigmoid.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/sigmoid.py).
 
 Bijector which computes `Y = g(X) = 1 / (1 + exp(-X))`.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    validate_args=False,
+    name='sigmoid'
+)
+```
+
+DEPRECATED FUNCTION
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+
 
 ## Properties
 
@@ -58,17 +72,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    validate_args=False,
-    name='sigmoid'
-)
-```
-
-
 
 <h3 id="forward"><code>forward</code></h3>
 

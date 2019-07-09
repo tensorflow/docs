@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.add_to_collection(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Graph collections](../../../api_guides/python/framework#Graph_collections)
 
@@ -35,5 +32,6 @@ for more details.
 
 
 #### Eager Compatibility
-Collections are not supported when eager execution is enabled.
+Collections are only supported in eager when variables are created inside an
+EagerVariableStore (e.g. as part of a layer or template).
 

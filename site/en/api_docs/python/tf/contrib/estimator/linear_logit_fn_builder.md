@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -11,13 +8,14 @@ page_type: reference
 ``` python
 tf.contrib.estimator.linear_logit_fn_builder(
     units,
-    feature_columns
+    feature_columns,
+    sparse_combiner='sum'
 )
 ```
 
 
 
-Defined in [`tensorflow/python/estimator/canned/linear.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/canned/linear.py).
+Defined in [`tensorflow/python/estimator/canned/linear.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/canned/linear.py).
 
 Function builder for a linear logit_fn.
 
@@ -26,6 +24,8 @@ Function builder for a linear logit_fn.
 * <b>`units`</b>: An int indicating the dimension of the logit layer.
 * <b>`feature_columns`</b>: An iterable containing all the feature columns used by
     the model.
+* <b>`sparse_combiner`</b>: A string specifying how to reduce if a categorical column
+    is multivalent.  One of "mean", "sqrtn", and "sum".
 
 
 #### Returns:

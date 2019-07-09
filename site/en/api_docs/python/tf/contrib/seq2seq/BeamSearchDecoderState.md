@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,23 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+
+
+
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    cell_state,
+    log_probs,
+    finished,
+    lengths
+)
+```
+
+Create new instance of BeamSearchDecoderState(cell_state, log_probs, finished, lengths)
 
 
 
@@ -35,24 +48,6 @@ Alias for field number 3
 <h3 id="log_probs"><code>log_probs</code></h3>
 
 Alias for field number 1
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-__new__(
-    _cls,
-    cell_state,
-    log_probs,
-    finished,
-    lengths
-)
-```
-
-Create new instance of BeamSearchDecoderState(cell_state, log_probs, finished, lengths)
 
 
 

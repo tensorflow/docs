@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,15 +11,13 @@ Inherits From: [`SessionCreator`](../../tf/train/SessionCreator)
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/monitored_session.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
 Creates a tf.Session for a worker.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -42,6 +37,10 @@ Initializes a worker session creator.
 * <b>`master`</b>: `String` representation of the TensorFlow master to use.
 * <b>`config`</b>: `ConfigProto` proto used to configure the session.
 * <b>`max_wait_secs`</b>: Maximum time to wait for the session to become available.
+
+
+
+## Methods
 
 <h3 id="create_session"><code>create_session</code></h3>
 

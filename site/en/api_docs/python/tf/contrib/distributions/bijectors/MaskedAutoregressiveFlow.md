@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
 
 Affine MaskedAutoregressiveFlow bijector for vector-valued events.
 
@@ -158,6 +155,49 @@ maf_no_scale_hidden2 = tfd.TransformedDistribution(
      Autoregressive Flow for Density Estimation. In _Neural Information
      Processing Systems_, 2017. https://arxiv.org/abs/1705.07057
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    shift_and_log_scale_fn,
+    is_constant_jacobian=False,
+    validate_args=False,
+    unroll_loop=False,
+    name=None
+)
+```
+
+Creates the MaskedAutoregressiveFlow bijector. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`shift_and_log_scale_fn`</b>: Python `callable` which computes `shift` and
+    `log_scale` from both the forward domain (`x`) and the inverse domain
+    (`y`). Calculation must respect the "autoregressive property" (see class
+    docstring). Suggested default
+    `masked_autoregressive_default_template(hidden_layers=...)`.
+    Typically the function contains `tf.Variables` and is wrapped using
+    <a href="../../../../tf/make_template"><code>tf.make_template</code></a>. Returning `None` for either (both) `shift`,
+    `log_scale` is equivalent to (but more efficient than) returning zero.
+* <b>`is_constant_jacobian`</b>: Python `bool`. Default: `False`. When `True` the
+    implementation assumes `log_scale` does not depend on the forward domain
+    (`x`) or inverse domain (`y`) values. (No validation is made;
+    `is_constant_jacobian=False` is always safe but possibly computationally
+    inefficient.)
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
+    checked for correctness.
+* <b>`unroll_loop`</b>: Python `bool` indicating whether the <a href="../../../../tf/while_loop"><code>tf.while_loop</code></a> in
+    `_forward` should be replaced with a static for loop. Requires that
+    the final dimension of `x` be known at graph construction time. Defaults
+    to `False`.
+* <b>`name`</b>: Python `str`, name given to ops managed by this object.
+
+
+
 ## Properties
 
 <h3 id="dtype"><code>dtype</code></h3>
@@ -198,43 +238,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    shift_and_log_scale_fn,
-    is_constant_jacobian=False,
-    validate_args=False,
-    unroll_loop=False,
-    name=None
-)
-```
-
-Creates the MaskedAutoregressiveFlow bijector.
-
-#### Args:
-
-* <b>`shift_and_log_scale_fn`</b>: Python `callable` which computes `shift` and
-    `log_scale` from both the forward domain (`x`) and the inverse domain
-    (`y`). Calculation must respect the "autoregressive property" (see class
-    docstring). Suggested default
-    `masked_autoregressive_default_template(hidden_layers=...)`.
-    Typically the function contains `tf.Variables` and is wrapped using
-    <a href="../../../../tf/make_template"><code>tf.make_template</code></a>. Returning `None` for either (both) `shift`,
-    `log_scale` is equivalent to (but more efficient than) returning zero.
-* <b>`is_constant_jacobian`</b>: Python `bool`. Default: `False`. When `True` the
-    implementation assumes `log_scale` does not depend on the forward domain
-    (`x`) or inverse domain (`y`) values. (No validation is made;
-    `is_constant_jacobian=False` is always safe but possibly computationally
-    inefficient.)
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
-* <b>`unroll_loop`</b>: Python `bool` indicating whether the <a href="../../../../tf/while_loop"><code>tf.while_loop</code></a> in
-    `_forward` should be replaced with a static for loop. Requires that
-    the final dimension of `x` be known at graph construction time. Defaults
-    to `False`.
-* <b>`name`</b>: Python `str`, name given to ops managed by this object.
 
 <h3 id="forward"><code>forward</code></h3>
 

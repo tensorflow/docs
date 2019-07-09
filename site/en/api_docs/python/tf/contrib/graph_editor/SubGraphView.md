@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/subgraph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/graph_editor/subgraph.py).
+Defined in [`tensorflow/contrib/graph_editor/subgraph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/graph_editor/subgraph.py).
 
 See the guide: [Graph Editor (contrib) > Module: subgraph](../../../../../api_guides/python/contrib.graph_editor#Module_subgraph)
 
@@ -119,6 +116,34 @@ change. For instance, calling the function swap_inputs(svg0, svg1) will modify
 svg0 and svg1 in place to reflect the fact that their inputs have now being
 swapped.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    inside_ops=(),
+    passthrough_ts=()
+)
+```
+
+Create a subgraph containing the given ops and the "passthrough" tensors.
+
+#### Args:
+
+* <b>`inside_ops`</b>: an object convertible to a list of <a href="../../../tf/Operation"><code>tf.Operation</code></a>. This list
+    defines all the operations in the subgraph.
+* <b>`passthrough_ts`</b>: an object convertible to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>. This list
+    define all the "passthrough" tensors. A passthrough tensor is a tensor
+    which goes directly from the input of the subgraph to it output, without
+    any intermediate operations. All the non passthrough tensors are
+    silently ignored.
+
+#### Raises:
+
+* <b>`TypeError`</b>: if inside_ops cannot be converted to a list of <a href="../../../tf/Operation"><code>tf.Operation</code></a>
+    or if `passthrough_ts` cannot be converted to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
+
+
+
 ## Properties
 
 <h3 id="connected_inputs"><code>connected_inputs</code></h3>
@@ -152,32 +177,6 @@ The passthrough tensors, going straight from input to output.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    inside_ops=(),
-    passthrough_ts=()
-)
-```
-
-Create a subgraph containing the given ops and the "passthrough" tensors.
-
-#### Args:
-
-* <b>`inside_ops`</b>: an object convertible to a list of <a href="../../../tf/Operation"><code>tf.Operation</code></a>. This list
-    defines all the operations in the subgraph.
-* <b>`passthrough_ts`</b>: an object convertible to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>. This list
-    define all the "passthrough" tensors. A passthrough tensor is a tensor
-    which goes directly from the input of the subgraph to it output, without
-    any intermediate operations. All the non passthrough tensors are
-    silently ignored.
-
-#### Raises:
-
-* <b>`TypeError`</b>: if inside_ops cannot be converted to a list of <a href="../../../tf/Operation"><code>tf.Operation</code></a>
-    or if `passthrough_ts` cannot be converted to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 

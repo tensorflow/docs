@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -11,13 +8,14 @@ page_type: reference
 ``` python
 tf.summary.merge_all(
     key=tf.GraphKeys.SUMMARIES,
-    scope=None
+    scope=None,
+    name=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/summary/summary.py).
+Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/summary/summary.py).
 
 See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
 
@@ -41,7 +39,9 @@ buffer resulting from the merging.
 
 * <b>`RuntimeError`</b>: If called with eager execution enabled.
 
-@compatibility(eager)
+
+
+#### Eager Compatibility
 Not compatible with eager execution. To write TensorBoard
 summaries under eager execution, use <a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a> instead.
-@end_compatbility
+

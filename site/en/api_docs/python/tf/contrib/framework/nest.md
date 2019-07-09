@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/util/nest.py).
 
 ## Functions for working with arbitrarily nested sequences of elements.
 
@@ -46,6 +43,8 @@ Example structures: `((3, 4), 5, (6, 7, (9, 10), 8))`, `(np.array(0),
 [`map_structure(...)`](../../../tf/contrib/framework/nest/map_structure): Applies `func` to each entry in `structure` and returns a new structure.
 
 [`map_structure_up_to(...)`](../../../tf/contrib/framework/nest/map_structure_up_to): Applies a function or op to a number of partially flattened inputs.
+
+[`map_structure_with_paths(...)`](../../../tf/contrib/framework/nest/map_structure_with_paths): Applies `func` to each entry in `structure` and returns a new structure.
 
 [`pack_sequence_as(...)`](../../../tf/contrib/framework/nest/pack_sequence_as): Returns a given flattened sequence packed into a given structure.
 

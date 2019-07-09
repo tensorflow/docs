@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,25 @@ Inherits From: [`Gamma`](../../../tf/distributions/Gamma)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/gamma.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/gamma.py).
+Defined in [`tensorflow/python/ops/distributions/gamma.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/gamma.py).
 
 `Gamma` with softplus of `concentration` and `rate`.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    concentration,
+    rate,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='GammaWithSoftplusConcentrationRate'
+)
+```
+
+
+
+
 
 ## Properties
 
@@ -98,20 +111,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    concentration,
-    rate,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='GammaWithSoftplusConcentrationRate'
-)
-```
-
-
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

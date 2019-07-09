@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Decoder`](../../../tf/contrib/seq2seq/Decoder)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
 
 BeamSearch sampling decoder.
 
@@ -22,7 +19,7 @@ BeamSearch sampling decoder.
 `AttentionWrapper`, then you must ensure that:
 
 - The encoder output has been tiled to `beam_width` via
-  <a href="../../../tf/contrib/seq2seq/tile_batch"><code>tf.contrib.seq2seq.tile_batch</code></a> (NOT <a href="../../../tf/tile"><code>tf.tile</code></a>).
+  <a href="../../../tf/contrib/seq2seq/tile_batch"><code>tf.contrib.seq2seq.tile_batch</code></a> (NOT <a href="../../../tf/manip/tile"><code>tf.tile</code></a>).
 - The `batch_size` argument passed to the `zero_state` method of this
   wrapper is equal to `true_batch_size * beam_width`.
 - The initial state created with `zero_state` above contains a
@@ -34,7 +31,7 @@ An example:
 ```
 tiled_encoder_outputs = tf.contrib.seq2seq.tile_batch(
     encoder_outputs, multiplier=beam_width)
-tiled_encoder_final_state = tf.conrib.seq2seq.tile_batch(
+tiled_encoder_final_state = tf.contrib.seq2seq.tile_batch(
     encoder_final_state, multiplier=beam_width)
 tiled_sequence_length = tf.contrib.seq2seq.tile_batch(
     sequence_length, multiplier=beam_width)
@@ -49,38 +46,7 @@ decoder_initial_state = decoder_initial_state.clone(
     cell_state=tiled_encoder_final_state)
 ```
 
-## Properties
-
-<h3 id="batch_size"><code>batch_size</code></h3>
-
-
-
-<h3 id="output_dtype"><code>output_dtype</code></h3>
-
-
-
-<h3 id="output_size"><code>output_size</code></h3>
-
-
-
-<h3 id="tracks_own_finished"><code>tracks_own_finished</code></h3>
-
-The BeamSearchDecoder shuffles its beams and their finished state.
-
-For this reason, it conflicts with the `dynamic_decode` function's
-tracking of finished states.  Setting this property to true avoids
-early stopping of decoding due to mismanagement of the finished state
-in `dynamic_decode`.
-
-#### Returns:
-
-`True`.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -125,6 +91,39 @@ Initialize the BeamSearchDecoder.
     or `output_layer` is not an instance of <a href="../../../tf/layers/Layer"><code>tf.layers.Layer</code></a>.
 * <b>`ValueError`</b>: If `start_tokens` is not a vector or
     `end_token` is not a scalar.
+
+
+
+## Properties
+
+<h3 id="batch_size"><code>batch_size</code></h3>
+
+
+
+<h3 id="output_dtype"><code>output_dtype</code></h3>
+
+
+
+<h3 id="output_size"><code>output_size</code></h3>
+
+
+
+<h3 id="tracks_own_finished"><code>tracks_own_finished</code></h3>
+
+The BeamSearchDecoder shuffles its beams and their finished state.
+
+For this reason, it conflicts with the `dynamic_decode` function's
+tracking of finished states.  Setting this property to true avoids
+early stopping of decoding due to mismanagement of the finished state
+in `dynamic_decode`.
+
+#### Returns:
+
+`True`.
+
+
+
+## Methods
 
 <h3 id="finalize"><code>finalize</code></h3>
 

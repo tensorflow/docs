@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/rnn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/rnn/__init__.py).
+Defined in [`tensorflow/contrib/rnn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/__init__.py).
 
 RNN Cells and additional RNN operations.
 
-See <a href="../../../../api_guides/python/contrib.rnn">RNN and Cells (contrib)</a> guide.
+See [Contrib RNN](https://tensorflow.org/api_guides/python/contrib.rnn) guide.
 
 <!--From core-->
 
@@ -32,9 +29,9 @@ See <a href="../../../../api_guides/python/contrib.rnn">RNN and Cells (contrib)<
 
 [`class AttentionCellWrapper`](../../tf/contrib/rnn/AttentionCellWrapper): Basic attention cell wrapper.
 
-[`class BasicLSTMCell`](../../tf/contrib/rnn/BasicLSTMCell): Basic LSTM recurrent network cell.
+[`class BasicLSTMCell`](../../tf/nn/rnn_cell/BasicLSTMCell): DEPRECATED: Please use <a href="../../tf/nn/rnn_cell/LSTMCell"><code>tf.nn.rnn_cell.LSTMCell</code></a> instead.
 
-[`class BasicRNNCell`](../../tf/contrib/rnn/BasicRNNCell): The most basic RNN cell.
+[`class BasicRNNCell`](../../tf/nn/rnn_cell/BasicRNNCell): The most basic RNN cell.
 
 [`class BidirectionalGridLSTMCell`](../../tf/contrib/rnn/BidirectionalGridLSTMCell): Bidirectional GridLstm cell.
 
@@ -50,9 +47,9 @@ See <a href="../../../../api_guides/python/contrib.rnn">RNN and Cells (contrib)<
 
 [`class CoupledInputForgetGateLSTMCell`](../../tf/contrib/rnn/CoupledInputForgetGateLSTMCell): Long short-term memory unit (LSTM) recurrent network cell.
 
-[`class DeviceWrapper`](../../tf/contrib/rnn/DeviceWrapper): Operator that ensures an RNNCell runs on a particular device.
+[`class DeviceWrapper`](../../tf/nn/rnn_cell/DeviceWrapper): Operator that ensures an RNNCell runs on a particular device.
 
-[`class DropoutWrapper`](../../tf/contrib/rnn/DropoutWrapper): Operator adding dropout to inputs and outputs of the given cell.
+[`class DropoutWrapper`](../../tf/nn/rnn_cell/DropoutWrapper): Operator adding dropout to inputs and outputs of the given cell.
 
 [`class EmbeddingWrapper`](../../tf/contrib/rnn/EmbeddingWrapper): Operator adding input embedding to the given cell.
 
@@ -66,11 +63,17 @@ See <a href="../../../../api_guides/python/contrib.rnn">RNN and Cells (contrib)<
 
 [`class GRUBlockCellV2`](../../tf/contrib/rnn/GRUBlockCellV2): Temporary GRUBlockCell impl with a different variable naming scheme.
 
-[`class GRUCell`](../../tf/contrib/rnn/GRUCell): Gated Recurrent Unit cell (cf. http://arxiv.org/abs/1406.1078).
+[`class GRUCell`](../../tf/nn/rnn_cell/GRUCell): Gated Recurrent Unit cell (cf. http://arxiv.org/abs/1406.1078).
 
 [`class GridLSTMCell`](../../tf/contrib/rnn/GridLSTMCell): Grid Long short-term memory unit (LSTM) recurrent network cell.
 
 [`class HighwayWrapper`](../../tf/contrib/rnn/HighwayWrapper): RNNCell wrapper that adds highway connection on cell input and output.
+
+[`class IndRNNCell`](../../tf/contrib/rnn/IndRNNCell): Independently Recurrent Neural Network (IndRNN) cell
+
+[`class IndyGRUCell`](../../tf/contrib/rnn/IndyGRUCell): Independently Gated Recurrent Unit cell.
+
+[`class IndyLSTMCell`](../../tf/contrib/rnn/IndyLSTMCell): Basic IndyLSTM recurrent network cell.
 
 [`class InputProjectionWrapper`](../../tf/contrib/rnn/InputProjectionWrapper): Operator adding an input projection to the given cell.
 
@@ -82,15 +85,15 @@ See <a href="../../../../api_guides/python/contrib.rnn">RNN and Cells (contrib)<
 
 [`class LSTMBlockWrapper`](../../tf/contrib/rnn/LSTMBlockWrapper): This is a helper class that provides housekeeping for LSTM cells.
 
-[`class LSTMCell`](../../tf/contrib/rnn/LSTMCell): Long short-term memory unit (LSTM) recurrent network cell.
+[`class LSTMCell`](../../tf/nn/rnn_cell/LSTMCell): Long short-term memory unit (LSTM) recurrent network cell.
 
-[`class LSTMStateTuple`](../../tf/contrib/rnn/LSTMStateTuple): Tuple used by LSTM Cells for `state_size`, `zero_state`, and output state.
+[`class LSTMStateTuple`](../../tf/nn/rnn_cell/LSTMStateTuple): Tuple used by LSTM Cells for `state_size`, `zero_state`, and output state.
 
 [`class LayerNormBasicLSTMCell`](../../tf/contrib/rnn/LayerNormBasicLSTMCell): LSTM unit with layer normalization and recurrent dropout.
 
 [`class LayerRNNCell`](../../tf/contrib/rnn/LayerRNNCell): Subclass of RNNCells that act like proper `tf.Layer` objects.
 
-[`class MultiRNNCell`](../../tf/contrib/rnn/MultiRNNCell): RNN cell composed sequentially of multiple simple cells.
+[`class MultiRNNCell`](../../tf/nn/rnn_cell/MultiRNNCell): RNN cell composed sequentially of multiple simple cells.
 
 [`class NASCell`](../../tf/contrib/rnn/NASCell): Neural Architecture Search (NAS) recurrent network cell.
 
@@ -98,9 +101,11 @@ See <a href="../../../../api_guides/python/contrib.rnn">RNN and Cells (contrib)<
 
 [`class PhasedLSTMCell`](../../tf/contrib/rnn/PhasedLSTMCell): Phased LSTM recurrent network cell.
 
-[`class RNNCell`](../../tf/contrib/rnn/RNNCell): Abstract object representing an RNN cell.
+[`class RNNCell`](../../tf/nn/rnn_cell/RNNCell): Abstract object representing an RNN cell.
 
-[`class ResidualWrapper`](../../tf/contrib/rnn/ResidualWrapper): RNNCell wrapper that ensures cell inputs are added to the outputs.
+[`class ResidualWrapper`](../../tf/nn/rnn_cell/ResidualWrapper): RNNCell wrapper that ensures cell inputs are added to the outputs.
+
+[`class SRUCell`](../../tf/contrib/rnn/SRUCell): SRU, Simple Recurrent Unit.
 
 [`class TimeFreqLSTMCell`](../../tf/contrib/rnn/TimeFreqLSTMCell): Time-Frequency Long short-term memory unit (LSTM) recurrent network cell.
 

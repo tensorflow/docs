@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.nn.depthwise_conv2d(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
@@ -56,7 +53,7 @@ to 1.
 * <b>`strides`</b>: 1-D of size 4.  The stride of the sliding window for each
     dimension of `input`.
 * <b>`padding`</b>: A string, either `'VALID'` or `'SAME'`. The padding algorithm.
-    See the <a href="../../tf/nn/convolution">comment here</a>
+    See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
 * <b>`rate`</b>: 1-D of size 2. The dilation rate in which we sample input values
     across the `height` and `width` dimensions in atrous convolution. If it is
     greater than 1, then all values of strides must be 1.

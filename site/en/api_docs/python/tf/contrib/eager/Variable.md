@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,15 +8,16 @@ page_type: reference
 
 ## Class `Variable`
 
-Inherits From: [`Variable`](../../../tf/Variable)
 
 
 
-Defined in [`tensorflow/python/ops/resource_variable_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/resource_variable_ops.py).
+
+Defined in [`tensorflow/python/ops/resource_variable_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/resource_variable_ops.py).
 
 Variable based on resource handles.
 
-See the <a href="../../../../../guide/variables">Variables How To</a> for a high level overview.
+See the [Variables How To](https://tensorflow.org/guide/variables)
+for a high level overview.
 
 A `ResourceVariable` allows you to maintain state across subsequent calls to
 session.run.
@@ -29,15 +28,16 @@ type and shape of the variable. After construction, the type and shape of
 the variable are fixed. The value can be changed using one of the assign
 methods.
 
-Just like any `Tensor`, variables created with `ResourceVariable()` can be
-used as inputs for other Ops in the graph. Additionally, all the operators
-overloaded for the `Tensor` class are carried over to variables, so you can
-also add nodes to the graph by just doing arithmetic on variables.
+Just like any `Tensor`, variables created with
+`tf.Variable(use_resource=True)` can be used as inputs for other Ops in the
+graph. Additionally, all the operators overloaded for the `Tensor` class are
+carried over to variables, so you can also add nodes to the graph by just
+doing arithmetic on variables.
 
-Unlike tf.Variable, a tf.ResourceVariable has well-defined semantics. Each
+Unlike ref-based variable, a ResourceVariable has well-defined semantics. Each
 usage of a ResourceVariable in a TensorFlow graph adds a read_value operation
-to the graph. The Tensors returned by a read_value operation are guaranteed
-to see all modifications to the value of the variable which happen in any
+to the graph. The Tensors returned by a read_value operation are guaranteed to
+see all modifications to the value of the variable which happen in any
 operation on which the read_value depends on (either directly, indirectly, or
 via a control dependency) and guaranteed to not see any modification to the
 value of the variable from operations that depend on the read_value operation.
@@ -51,7 +51,7 @@ by edges in the graph. Consider the following example, in which two writes
 can cause tf.Variable and tf.ResourceVariable to behave differently:
 
 ```python
-a = tf.ResourceVariable(1.0)
+a = tf.Variable(1.0, use_resource=True)
 a.initializer.run()
 
 assign = a.assign(2.0)
@@ -65,69 +65,7 @@ with tf.control_dependencies([other_assign]):
   tf.Print(b, [b]).eval()
 ```
 
-## Child Classes
-[`class SaveSliceInfo`](../../../tf/Variable/SaveSliceInfo)
-
-## Properties
-
-<h3 id="constraint"><code>constraint</code></h3>
-
-Returns the constraint function associated with this variable.
-
-#### Returns:
-
-The constraint function that was passed to the variable constructor.
-Can be `None` if no constraint was passed.
-
-<h3 id="create"><code>create</code></h3>
-
-The op responsible for initializing this variable.
-
-<h3 id="device"><code>device</code></h3>
-
-The device this variable is on.
-
-<h3 id="dtype"><code>dtype</code></h3>
-
-The dtype of this variable.
-
-<h3 id="graph"><code>graph</code></h3>
-
-The `Graph` of this variable.
-
-<h3 id="handle"><code>handle</code></h3>
-
-The handle by which this variable can be accessed.
-
-<h3 id="initial_value"><code>initial_value</code></h3>
-
-Returns the Tensor used as the initial value for the variable.
-
-<h3 id="initializer"><code>initializer</code></h3>
-
-The op responsible for initializing this variable.
-
-<h3 id="name"><code>name</code></h3>
-
-The name of the handle for this variable.
-
-<h3 id="op"><code>op</code></h3>
-
-The op for this variable.
-
-<h3 id="shape"><code>shape</code></h3>
-
-The shape of this variable.
-
-<h3 id="trainable"><code>trainable</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -199,6 +137,70 @@ collections.
 
 
 
+
+
+## Child Classes
+[`class SaveSliceInfo`](../../../tf/Variable/SaveSliceInfo)
+
+## Properties
+
+<h3 id="constraint"><code>constraint</code></h3>
+
+Returns the constraint function associated with this variable.
+
+#### Returns:
+
+The constraint function that was passed to the variable constructor.
+Can be `None` if no constraint was passed.
+
+<h3 id="create"><code>create</code></h3>
+
+The op responsible for initializing this variable.
+
+<h3 id="device"><code>device</code></h3>
+
+The device this variable is on.
+
+<h3 id="dtype"><code>dtype</code></h3>
+
+The dtype of this variable.
+
+<h3 id="graph"><code>graph</code></h3>
+
+The `Graph` of this variable.
+
+<h3 id="handle"><code>handle</code></h3>
+
+The handle by which this variable can be accessed.
+
+<h3 id="initial_value"><code>initial_value</code></h3>
+
+Returns the Tensor used as the initial value for the variable.
+
+<h3 id="initializer"><code>initializer</code></h3>
+
+The op responsible for initializing this variable.
+
+<h3 id="name"><code>name</code></h3>
+
+The name of the handle for this variable.
+
+<h3 id="op"><code>op</code></h3>
+
+The op for this variable.
+
+<h3 id="shape"><code>shape</code></h3>
+
+The shape of this variable.
+
+<h3 id="trainable"><code>trainable</code></h3>
+
+
+
+
+
+## Methods
+
 <h3 id="__abs__"><code>__abs__</code></h3>
 
 ``` python
@@ -245,7 +247,7 @@ __add__(
 
 Returns x + y element-wise.
 
-*NOTE*: `Add` supports broadcasting. `AddN` does not. More about broadcasting
+*NOTE*: `math.add` supports broadcasting. `AddN` does not. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -270,7 +272,7 @@ __and__(
 
 Returns the truth value of x AND y element-wise.
 
-*NOTE*: `LogicalAnd` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_and` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -288,6 +290,14 @@ A `Tensor` of type `bool`.
 
 ``` python
 __bool__()
+```
+
+
+
+<h3 id="__deepcopy__"><code>__deepcopy__</code></h3>
+
+``` python
+__deepcopy__(memo)
 ```
 
 
@@ -363,7 +373,7 @@ __ge__(
 
 Returns the truth value of (x >= y) element-wise.
 
-*NOTE*: `GreaterEqual` supports broadcasting. More about broadcasting
+*NOTE*: `math.greater_equal` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -441,7 +451,7 @@ __gt__(
 
 Returns the truth value of (x > y) element-wise.
 
-*NOTE*: `Greater` supports broadcasting. More about broadcasting
+*NOTE*: `math.greater` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -567,7 +577,7 @@ __le__(
 
 Returns the truth value of (x <= y) element-wise.
 
-*NOTE*: `LessEqual` supports broadcasting. More about broadcasting
+*NOTE*: `math.less_equal` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -592,7 +602,7 @@ __lt__(
 
 Returns the truth value of (x < y) element-wise.
 
-*NOTE*: `Less` supports broadcasting. More about broadcasting
+*NOTE*: `math.less` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -801,7 +811,7 @@ __or__(
 
 Returns the truth value of x OR y element-wise.
 
-*NOTE*: `LogicalOr` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_or` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -859,7 +869,7 @@ __radd__(
 
 Returns x + y element-wise.
 
-*NOTE*: `Add` supports broadcasting. `AddN` does not. More about broadcasting
+*NOTE*: `math.add` supports broadcasting. `AddN` does not. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -884,7 +894,7 @@ __rand__(
 
 Returns the truth value of x AND y element-wise.
 
-*NOTE*: `LogicalAnd` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_and` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -1122,7 +1132,7 @@ __ror__(
 
 Returns the truth value of x OR y element-wise.
 
-*NOTE*: `LogicalOr` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_or` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -1431,6 +1441,25 @@ w = tf.Variable(v.initialized_value() * 2.0)
 A `Tensor` holding the value of this variable after its initializer
 has run.
 
+<h3 id="is_initialized"><code>is_initialized</code></h3>
+
+``` python
+is_initialized(name=None)
+```
+
+Checks whether a resource variable has been initialized.
+
+Outputs boolean scalar indicating whether the tensor has been initialized.
+
+#### Args:
+
+* <b>`name`</b>: A name for the operation (optional).
+
+
+#### Returns:
+
+A `Tensor` of type `bool`.
+
 <h3 id="load"><code>load</code></h3>
 
 ``` python
@@ -1498,24 +1527,270 @@ read the value only after some condition is true.
 
 the read operation.
 
+<h3 id="scatter_add"><code>scatter_add</code></h3>
+
+``` python
+scatter_add(
+    sparse_delta,
+    use_locking=False,
+    name=None
+)
+```
+
+Adds `IndexedSlices` from this variable.
+
+#### Args:
+
+* <b>`sparse_delta`</b>: `IndexedSlices` to be added to this variable.
+* <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered subtraction has completed.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_nd_add"><code>scatter_nd_add</code></h3>
+
+``` python
+scatter_nd_add(
+    indices,
+    updates,
+    name=None
+)
+```
+
+Applies sparse addition to individual values or slices in a Variable.
+
+`ref` is a `Tensor` with rank `P` and `indices` is a `Tensor` of rank `Q`.
+
+`indices` must be integer tensor, containing indices into `ref`.
+It must be shape `[d_0, ..., d_{Q-2}, K]` where `0 < K <= P`.
+
+The innermost dimension of `indices` (with length `K`) corresponds to
+indices into elements (if `K = P`) or slices (if `K < P`) along the `K`th
+dimension of `ref`.
+
+`updates` is `Tensor` of rank `Q-1+P-K` with shape:
+
+```
+[d_0, ..., d_{Q-2}, ref.shape[K], ..., ref.shape[P-1]].
+```
+
+For example, say we want to add 4 scattered elements to a rank-1 tensor to
+8 elements. In Python, that update would look like this:
+
+```python
+    ref = tf.Variable([1, 2, 3, 4, 5, 6, 7, 8])
+    indices = tf.constant([[4], [3], [1] ,[7]])
+    updates = tf.constant([9, 10, 11, 12])
+    add = ref.scatter_nd_add(indices, updates)
+    with tf.Session() as sess:
+      print sess.run(add)
+```
+
+The resulting update to ref would look like this:
+
+    [1, 13, 3, 14, 14, 6, 7, 20]
+
+See <a href="../../../tf/manip/scatter_nd"><code>tf.scatter_nd</code></a> for more details about how to make updates to
+slices.
+
+#### Args:
+
+* <b>`indices`</b>: The indices to be used in the operation.
+* <b>`updates`</b>: The values to be used in the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered subtraction has completed.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_nd_sub"><code>scatter_nd_sub</code></h3>
+
+``` python
+scatter_nd_sub(
+    indices,
+    updates,
+    name=None
+)
+```
+
+Applies sparse subtraction to individual values or slices in a Variable.
+
+`ref` is a `Tensor` with rank `P` and `indices` is a `Tensor` of rank `Q`.
+
+`indices` must be integer tensor, containing indices into `ref`.
+It must be shape `[d_0, ..., d_{Q-2}, K]` where `0 < K <= P`.
+
+The innermost dimension of `indices` (with length `K`) corresponds to
+indices into elements (if `K = P`) or slices (if `K < P`) along the `K`th
+dimension of `ref`.
+
+`updates` is `Tensor` of rank `Q-1+P-K` with shape:
+
+```
+[d_0, ..., d_{Q-2}, ref.shape[K], ..., ref.shape[P-1]].
+```
+
+For example, say we want to add 4 scattered elements to a rank-1 tensor to
+8 elements. In Python, that update would look like this:
+
+```python
+    ref = tf.Variable([1, 2, 3, 4, 5, 6, 7, 8])
+    indices = tf.constant([[4], [3], [1] ,[7]])
+    updates = tf.constant([9, 10, 11, 12])
+    op = ref.scatter_nd_sub(indices, updates)
+    with tf.Session() as sess:
+      print sess.run(op)
+```
+
+The resulting update to ref would look like this:
+
+    [1, -9, 3, -6, -6, 6, 7, -4]
+
+See <a href="../../../tf/manip/scatter_nd"><code>tf.scatter_nd</code></a> for more details about how to make updates to
+slices.
+
+#### Args:
+
+* <b>`indices`</b>: The indices to be used in the operation.
+* <b>`updates`</b>: The values to be used in the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered subtraction has completed.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_nd_update"><code>scatter_nd_update</code></h3>
+
+``` python
+scatter_nd_update(
+    indices,
+    updates,
+    name=None
+)
+```
+
+Applies sparse assignment to individual values or slices in a Variable.
+
+`ref` is a `Tensor` with rank `P` and `indices` is a `Tensor` of rank `Q`.
+
+`indices` must be integer tensor, containing indices into `ref`.
+It must be shape `[d_0, ..., d_{Q-2}, K]` where `0 < K <= P`.
+
+The innermost dimension of `indices` (with length `K`) corresponds to
+indices into elements (if `K = P`) or slices (if `K < P`) along the `K`th
+dimension of `ref`.
+
+`updates` is `Tensor` of rank `Q-1+P-K` with shape:
+
+```
+[d_0, ..., d_{Q-2}, ref.shape[K], ..., ref.shape[P-1]].
+```
+
+For example, say we want to add 4 scattered elements to a rank-1 tensor to
+8 elements. In Python, that update would look like this:
+
+```python
+    ref = tf.Variable([1, 2, 3, 4, 5, 6, 7, 8])
+    indices = tf.constant([[4], [3], [1] ,[7]])
+    updates = tf.constant([9, 10, 11, 12])
+    op = ref.scatter_nd_update(indices, updates)
+    with tf.Session() as sess:
+      print sess.run(op)
+```
+
+The resulting update to ref would look like this:
+
+    [1, 11, 3, 10, 9, 6, 7, 12]
+
+See <a href="../../../tf/manip/scatter_nd"><code>tf.scatter_nd</code></a> for more details about how to make updates to
+slices.
+
+#### Args:
+
+* <b>`indices`</b>: The indices to be used in the operation.
+* <b>`updates`</b>: The values to be used in the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered subtraction has completed.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
 <h3 id="scatter_sub"><code>scatter_sub</code></h3>
 
 ``` python
 scatter_sub(
     sparse_delta,
-    use_locking=False
+    use_locking=False,
+    name=None
 )
 ```
 
 Subtracts `IndexedSlices` from this variable.
 
-This is essentially a shortcut for `scatter_sub(self, sparse_delta.indices,
-sparse_delta.values)`.
-
 #### Args:
 
 * <b>`sparse_delta`</b>: `IndexedSlices` to be subtracted from this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered subtraction has completed.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_update"><code>scatter_update</code></h3>
+
+``` python
+scatter_update(
+    sparse_delta,
+    use_locking=False,
+    name=None
+)
+```
+
+Assigns `IndexedSlices` to this variable.
+
+#### Args:
+
+* <b>`sparse_delta`</b>: `IndexedSlices` to be assigned to this variable.
+* <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: the name of the operation.
 
 
 #### Returns:

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/kernel_methods/python/kernel_estimators.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kernel_methods/python/kernel_estimators.py).
+Defined in [`tensorflow/contrib/kernel_methods/python/kernel_estimators.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/kernel_methods/python/kernel_estimators.py).
 
 Linear classifier using kernel methods as feature preprocessing.
 
@@ -84,30 +81,7 @@ will be a `KeyError`:
   - if `column` is a `RealValuedColumn`, a feature with `key=column.name`
     whose `value` is a `Tensor`.
 
-## Properties
-
-<h3 id="config"><code>config</code></h3>
-
-
-
-<h3 id="model_dir"><code>model_dir</code></h3>
-
-
-
-<h3 id="model_fn"><code>model_fn</code></h3>
-
-Returns the model_fn which is bound to self.params.
-
-#### Returns:
-
-The model_fn with the following signature:
-  `def model_fn(features, labels, mode, metrics)`
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -160,6 +134,31 @@ A `KernelLinearClassifier` estimator.
 * <b>`ValueError`</b>: if n_classes < 2.
 * <b>`ValueError`</b>: if neither feature_columns nor kernel_mappers are provided.
 * <b>`ValueError`</b>: if mappers provided as kernel_mappers values are invalid.
+
+
+
+## Properties
+
+<h3 id="config"><code>config</code></h3>
+
+
+
+<h3 id="model_dir"><code>model_dir</code></h3>
+
+
+
+<h3 id="model_fn"><code>model_fn</code></h3>
+
+Returns the model_fn which is bound to self.params.
+
+#### Returns:
+
+The model_fn with the following signature:
+  `def model_fn(features, labels, mode, metrics)`
+
+
+
+## Methods
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 

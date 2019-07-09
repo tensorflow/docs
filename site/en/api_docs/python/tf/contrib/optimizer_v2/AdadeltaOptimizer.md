@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,16 +11,14 @@ Inherits From: [`OptimizerV2`](../../../tf/contrib/optimizer_v2/OptimizerV2)
 
 
 
-Defined in [`tensorflow/contrib/optimizer_v2/adadelta.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/optimizer_v2/adadelta.py).
+Defined in [`tensorflow/contrib/optimizer_v2/adadelta.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/optimizer_v2/adadelta.py).
 
 Optimizer that implements the Adadelta algorithm.
 
 See [M. D. Zeiler](http://arxiv.org/abs/1212.5701)
 ([pdf](http://arxiv.org/pdf/1212.5701v1.pdf))
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -52,6 +47,10 @@ Tensor or a Python value.
 * <b>`use_locking`</b>: If `True` use locks for update operations.
 * <b>`name`</b>: Optional name prefix for the operations created when applying
     gradients.  Defaults to "Adadelta".
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

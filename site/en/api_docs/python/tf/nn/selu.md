@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -24,6 +21,10 @@ See the guide: [Neural Network > Activation Functions](../../../../api_guides/py
 Computes scaled exponential linear: `scale * alpha * (exp(features) - 1)`
 
 if < 0, `scale * features` otherwise.
+
+To be used together with
+`initializer = tf.variance_scaling_initializer(factor=1.0, mode='FAN_IN')`.
+For correct dropout, use <a href="../../tf/contrib/nn/alpha_dropout"><code>tf.contrib.nn.alpha_dropout</code></a>.
 
 See [Self-Normalizing Neural Networks](https://arxiv.org/abs/1706.02515)
 

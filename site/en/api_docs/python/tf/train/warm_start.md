@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.train.warm_start(
 
 
 
-Defined in [`tensorflow/python/training/warm_starting_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/warm_starting_util.py).
+Defined in [`tensorflow/python/training/warm_starting_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/warm_starting_util.py).
 
 Warm-starts a model using the given settings.
 

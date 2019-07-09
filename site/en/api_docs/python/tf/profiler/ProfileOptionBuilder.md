@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/profiler/option_builder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/profiler/option_builder.py).
+Defined in [`tensorflow/python/profiler/option_builder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/profiler/option_builder.py).
 
 Option Builder for Profiling API.
 
@@ -47,9 +44,7 @@ _ = tf.profiler.profile(tf.get_default_graph(),
                         options=opts)
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(options=None)
@@ -60,6 +55,10 @@ Constructor.
 #### Args:
 
 * <b>`options`</b>: Optional initial option dict to start with.
+
+
+
+## Methods
 
 <h3 id="account_displayed_op_only"><code>account_displayed_op_only</code></h3>
 

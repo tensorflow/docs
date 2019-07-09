@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.contrib.layers.recompute_grad(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/rev_block_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
+Defined in [`tensorflow/contrib/layers/python/layers/rev_block_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
 
 Decorator that recomputes the function on the backwards pass.
 
@@ -37,7 +34,8 @@ normalization).
 #### Args:
 
 * <b>`fn`</b>: a function that takes Tensors (all as positional arguments) and returns
-    a tuple of Tensors.
+    a tuple of Tensors. Note that `fn` should not close over any other
+    Tensors or Variables.
 * <b>`use_data_dep`</b>: `bool`, if `True` will use a dummy data dependency to force
     the recompute to happen. If `False` will use a control dependency. By
     default will be `True` if in an XLA context and `False` otherwise. XLA
@@ -53,3 +51,8 @@ normalization).
 A wrapped fn that is identical to fn when called, but its activations will
 be discarded and recomputed on the backwards pass (i.e. on a call to
 tf.gradients).
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `fn` closes over any Tensors or Variables.

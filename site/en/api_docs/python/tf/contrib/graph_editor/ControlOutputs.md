@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,23 +11,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/graph_editor/util.py).
+Defined in [`tensorflow/contrib/graph_editor/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/graph_editor/util.py).
 
 See the guide: [Graph Editor (contrib) > Module: util](../../../../../api_guides/python/contrib.graph_editor#Module_util)
 
 The control outputs topology.
 
-## Properties
-
-<h3 id="graph"><code>graph</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(graph)
@@ -51,6 +38,18 @@ A dictionary where a key is a <a href="../../../tf/Operation"><code>tf.Operation
 #### Raises:
 
 * <b>`TypeError`</b>: graph is not a <a href="../../../tf/Graph"><code>tf.Graph</code></a>.
+
+
+
+## Properties
+
+<h3 id="graph"><code>graph</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="get"><code>get</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/critical_section_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/framework/python/ops/critical_section_ops.py).
+Defined in [`tensorflow/contrib/framework/python/ops/critical_section_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/critical_section_ops.py).
 
 Critical section.
 
@@ -83,17 +80,7 @@ sess.run(v.initializer)
 sess.run(bad_sum)  # May return 0.0
 ```
 
-## Properties
-
-<h3 id="name"><code>name</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -105,6 +92,18 @@ __init__(
 ```
 
 Creates a critical section.
+
+
+
+## Properties
+
+<h3 id="name"><code>name</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="execute"><code>execute</code></h3>
 

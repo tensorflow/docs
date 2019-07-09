@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.random_poisson(
 
 
 
-Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/random_ops.py).
+Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/random_ops.py).
 
 Draws `shape` samples from each of the given Poisson distribution(s).
 
@@ -28,13 +25,15 @@ Draws `shape` samples from each of the given Poisson distribution(s).
 
 Example:
 
-  samples = tf.random_poisson([0.5, 1.5], [10])
-  # samples has shape [10, 2], where each slice [:, 0] and [:, 1] represents
-  # the samples drawn from each distribution
+```python
+samples = tf.random_poisson([0.5, 1.5], [10])
+# samples has shape [10, 2], where each slice [:, 0] and [:, 1] represents
+# the samples drawn from each distribution
 
-  samples = tf.random_poisson([12.2, 3.3], [7, 5])
-  # samples has shape [7, 5, 2], where each slice [:, :, 0] and [:, :, 1]
-  # represents the 7x5 samples drawn from each of the two distributions
+samples = tf.random_poisson([12.2, 3.3], [7, 5])
+# samples has shape [7, 5, 2], where each slice [:, :, 0] and [:, :, 1]
+# represents the 7x5 samples drawn from each of the two distributions
+```
 
 #### Args:
 
@@ -54,5 +53,5 @@ Example:
 
 #### Returns:
 
-* <b>`samples`</b>: a `Tensor` of shape `tf.concat(shape, tf.shape(lam))` with
-    values of type `dtype`.
+* <b>`samples`</b>: a `Tensor` of shape `tf.concat([shape, tf.shape(lam)], axis=0)`
+    with values of type `dtype`.

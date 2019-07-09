@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,12 +11,18 @@ tf.feature_column.indicator_column(categorical_column)
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/feature_column/feature_column.py).
 
 Represents multi-hot representation of given categorical column.
 
-Used to wrap any `categorical_column_*` (e.g., to feed to DNN). Use
-`embedding_column` if the inputs are sparse.
+- For DNN model, `indicator_column` can be used to wrap any
+  `categorical_column_*` (e.g., to feed to DNN). Consider to Use
+  `embedding_column` if the number of buckets/unique(values) are large.
+
+- For Wide (aka linear) model, `indicator_column` is the internal
+  representation for categorical column when passing categorical column
+  directly (as any element in feature_columns) to `linear_model`. See
+  `linear_model` for details.
 
 ```python
 name = indicator_column(categorical_column_with_vocabulary_list(

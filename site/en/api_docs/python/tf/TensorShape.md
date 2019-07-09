@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/tensor_shape.py).
+Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/tensor_shape.py).
 
 See the guide: [Building Graphs > Defining new operations](../../../api_guides/python/framework#Defining_new_operations)
 
@@ -32,25 +29,12 @@ A `TensorShape` represents a possibly-partial shape specification for a
 
 If a tensor is produced by an operation of type `"Foo"`, its shape
 may be inferred if there is a registered shape function for
-`"Foo"`. See <a href="../../../extend/adding_an_op#shape-functions-in-c"><code>Shape functions in C++</code></a>
+`"Foo"`. See [Shape
+functions](https://tensorflow.org/extend/adding_an_op#shape_functions_in_c)
 for details of shape functions and how to register them. Alternatively,
 the shape may be set explicitly using <a href="../tf/Tensor#set_shape"><code>tf.Tensor.set_shape</code></a>.
 
-## Properties
-
-<h3 id="dims"><code>dims</code></h3>
-
-Returns a list of Dimensions, or None if the shape is unspecified.
-
-<h3 id="ndims"><code>ndims</code></h3>
-
-Returns the rank of this shape, or None if it is unspecified.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(dims)
@@ -67,6 +51,22 @@ Creates a new TensorShape with the given dimensions.
 #### Raises:
 
 * <b>`TypeError`</b>: If dims cannot be converted to a list of dimensions.
+
+
+
+## Properties
+
+<h3 id="dims"><code>dims</code></h3>
+
+Returns a list of Dimensions, or None if the shape is unspecified.
+
+<h3 id="ndims"><code>ndims</code></h3>
+
+Returns the rank of this shape, or None if it is unspecified.
+
+
+
+## Methods
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
@@ -141,14 +141,6 @@ __nonzero__()
 ```
 
 Returns True if this shape contains non-zero information.
-
-<h3 id="__reduce__"><code>__reduce__</code></h3>
-
-``` python
-__reduce__()
-```
-
-
 
 <h3 id="as_list"><code>as_list</code></h3>
 

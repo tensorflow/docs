@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,23 @@ Inherits From: [`Metric`](../../../../tf/contrib/eager/metrics/Metric)
 
 
 
-Defined in [`tensorflow/contrib/eager/python/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/metrics_impl.py).
+Defined in [`tensorflow/contrib/eager/python/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/metrics_impl.py).
 
 Computes the (weighted) mean of the given values.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    name=None,
+    dtype=tf.double,
+    use_global_variables=False
+)
+```
+
+
+
+
 
 ## Properties
 
@@ -31,18 +42,6 @@ Computes the (weighted) mean of the given values.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    name=None,
-    dtype=tf.double,
-    use_global_variables=False
-)
-```
-
-
 
 <h3 id="__call__"><code>__call__</code></h3>
 
@@ -151,10 +150,23 @@ initial values as a side effect and this function returns None.
 <h3 id="result"><code>result</code></h3>
 
 ``` python
-result()
+result(write_summary=True)
 ```
 
+Returns the result of the Metric.
 
+#### Args:
+
+* <b>`write_summary`</b>: bool indicating whether to feed the result to the summary
+    before returning.
+
+#### Returns:
+
+aggregated metric as float.
+
+#### Raises:
+
+* <b>`ValueError`</b>: if the optional argument is not bool
 
 <h3 id="value"><code>value</code></h3>
 

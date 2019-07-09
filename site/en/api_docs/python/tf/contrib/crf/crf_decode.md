@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.contrib.crf.crf_decode(
 
 
 
-Defined in [`tensorflow/contrib/crf/python/ops/crf.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/crf/python/ops/crf.py).
+Defined in [`tensorflow/contrib/crf/python/ops/crf.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/crf/python/ops/crf.py).
 
 Decode the highest scoring sequence of tags in TensorFlow.
 

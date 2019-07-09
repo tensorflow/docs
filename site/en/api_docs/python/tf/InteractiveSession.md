@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/client/session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/client/session.py).
+Defined in [`tensorflow/python/client/session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/client/session.py).
 
 See the guide: [Running Graphs > Session management](../../../api_guides/python/client#Session_management)
 
@@ -55,30 +52,7 @@ with tf.Session():
   print(c.eval())
 ```
 
-## Properties
-
-<h3 id="graph"><code>graph</code></h3>
-
-The graph that was launched in this session.
-
-<h3 id="graph_def"><code>graph_def</code></h3>
-
-A serializable version of the underlying TensorFlow graph.
-
-#### Returns:
-
-A graph_pb2.GraphDef proto containing nodes for all of the Operations in
-the underlying TensorFlow graph.
-
-<h3 id="sess_str"><code>sess_str</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -104,6 +78,31 @@ the session constructor.
     Defaults to using an in-process engine.
 * <b>`graph`</b>: (Optional.) The `Graph` to be launched (described above).
 * <b>`config`</b>: (Optional) `ConfigProto` proto used to configure the session.
+
+
+
+## Properties
+
+<h3 id="graph"><code>graph</code></h3>
+
+The graph that was launched in this session.
+
+<h3 id="graph_def"><code>graph_def</code></h3>
+
+A serializable version of the underlying TensorFlow graph.
+
+#### Returns:
+
+A graph_pb2.GraphDef proto containing nodes for all of the Operations in
+the underlying TensorFlow graph.
+
+<h3 id="sess_str"><code>sess_str</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="as_default"><code>as_default</code></h3>
 

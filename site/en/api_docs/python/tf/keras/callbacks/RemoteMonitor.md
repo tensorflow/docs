@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
 
 
-Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/callbacks.py).
+Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/callbacks.py).
 
 Callback used to stream events to a server.
 
@@ -36,9 +33,7 @@ application/json. Otherwise the serialized JSON will be sent within a form.
 * <b>`send_as_json`</b>: Boolean; whether the request should be
         sent as application/json.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -51,6 +46,10 @@ __init__(
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="on_batch_begin"><code>on_batch_begin</code></h3>
 

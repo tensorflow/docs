@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -12,13 +9,14 @@ page_type: reference
 tf.keras.backend.sparse_categorical_crossentropy(
     target,
     output,
-    from_logits=False
+    from_logits=False,
+    axis=-1
 )
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/backend.py).
+Defined in [`tensorflow/python/keras/backend.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/backend.py).
 
 Categorical crossentropy with integer targets.
 
@@ -30,8 +28,16 @@ Categorical crossentropy with integer targets.
         case `output` is expected to be the logits).
 * <b>`from_logits`</b>: Boolean, whether `output` is the
         result of a softmax, or is a tensor of logits.
+* <b>`axis`</b>: Int specifying the channels axis. `axis=-1` corresponds to data
+        format `channels_last', and `axis=1` corresponds to data format
+        `channels_first`.
 
 
 #### Returns:
 
 Output tensor.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `axis` is neither -1 nor one of the axes of `output`.

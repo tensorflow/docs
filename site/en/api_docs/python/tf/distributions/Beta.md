@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,9 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/beta.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/beta.py).
-
-See the guide: [Statistical Distributions (contrib) > Univariate (scalar) distributions](../../../../api_guides/python/contrib.distributions#Univariate_scalar_distributions)
+Defined in [`tensorflow/python/ops/distributions/beta.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/beta.py).
 
 Beta distribution.
 
@@ -59,13 +54,24 @@ representing a mean `total_count = concentration1 + concentration0`.
 Distribution parameters are automatically broadcast in all functions; see
 examples for details.
 
+Warning: The samples can be zero due to finite precision.
+This happens more often when some of the concentrations are very small.
+Make sure to round the samples to `np.finfo(dtype).tiny` before computing the
+density.
+
+Samples of this distribution are reparameterized (pathwise differentiable).
+The derivatives are computed using the approach described in the paper
+
+[Michael Figurnov, Shakir Mohamed, Andriy Mnih.
+Implicit Reparameterization Gradients, 2018](https://arxiv.org/abs/1805.08498)
+
 #### Examples
 
 ```python
 # Create a batch of three Beta distributions.
 alpha = [1, 2, 3]
 beta = [1, 2, 3]
-dist = Beta(alpha, beta)
+dist = tf.distributions.Beta(alpha, beta)
 
 dist.sample([4, 5])  # Shape [4, 5, 3]
 
@@ -81,7 +87,7 @@ dist.prob(x)         # Shape [2, 3]
 # Create batch_shape=[2, 3] via parameter broadcast:
 alpha = [[1.], [2]]      # Shape [2, 1]
 beta = [3., 4, 5]        # Shape [3]
-dist = Beta(alpha, beta)
+dist = tf.distributions.Beta(alpha, beta)
 
 # alpha broadcast as: [[1., 1, 1,],
 #                      [2, 2, 2]]
@@ -96,6 +102,53 @@ x = [.2, .3, .5]
 # thus matching batch_shape [2, 3].
 dist.prob(x)         # Shape [2, 3]
 ```
+
+Compute the gradients of samples w.r.t. the parameters:
+
+```python
+alpha = tf.constant(1.0)
+beta = tf.constant(2.0)
+dist = tf.distributions.Beta(alpha, beta)
+samples = dist.sample(5)  # Shape [5]
+loss = tf.reduce_mean(tf.square(samples))  # Arbitrary loss function
+# Unbiased stochastic gradients of the loss function
+grads = tf.gradients(loss, [alpha, beta])
+```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    concentration1=None,
+    concentration0=None,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='Beta'
+)
+```
+
+Initialize a batch of Beta distributions.
+
+#### Args:
+
+* <b>`concentration1`</b>: Positive floating-point `Tensor` indicating mean
+    number of successes; aka "alpha". Implies `self.dtype` and
+    `self.batch_shape`, i.e.,
+    `concentration1.shape = [N1, N2, ..., Nm] = self.batch_shape`.
+* <b>`concentration0`</b>: Positive floating-point `Tensor` indicating mean
+    number of failures; aka "beta". Otherwise has same semantics as
+    `concentration1`.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
+    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
+    result is undefined. When `False`, an exception is raised if one or
+    more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
 
 ## Properties
 
@@ -181,39 +234,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    concentration1=None,
-    concentration0=None,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='Beta'
-)
-```
-
-Initialize a batch of Beta distributions.
-
-#### Args:
-
-* <b>`concentration1`</b>: Positive floating-point `Tensor` indicating mean
-    number of successes; aka "alpha". Implies `self.dtype` and
-    `self.batch_shape`, i.e.,
-    `concentration1.shape = [N1, N2, ..., Nm] = self.batch_shape`.
-* <b>`concentration0`</b>: Positive floating-point `Tensor` indicating mean
-    number of failures; aka "beta". Otherwise has same semantics as
-    `concentration1`.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
-    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
-    result is undefined. When `False`, an exception is raised if one or
-    more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

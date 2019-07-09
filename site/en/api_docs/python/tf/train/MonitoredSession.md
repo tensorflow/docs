@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/monitored_session.py).
 
 See the guides: [Threading and Queues > Queue usage overview](../../../../api_guides/python/threading_and_queues#Queue_usage_overview), [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -94,6 +91,20 @@ Note: This is not a <a href="../../tf/Session"><code>tf.Session</code></a>. For 
 
 A MonitoredSession object.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    session_creator=None,
+    hooks=None,
+    stop_grace_period_secs=120
+)
+```
+
+
+
+
+
 ## Child Classes
 [`class StepContext`](../../tf/train/MonitoredSession/StepContext)
 
@@ -106,18 +117,6 @@ The graph that was launched in this session.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    session_creator=None,
-    hooks=None,
-    stop_grace_period_secs=120
-)
-```
-
-
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 

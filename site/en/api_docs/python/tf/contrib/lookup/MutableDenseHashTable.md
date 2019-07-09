@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,11 @@ page_type: reference
 
 ## Class `MutableDenseHashTable`
 
-Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
+Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface), [`CheckpointableBase`](../../../tf/contrib/checkpoint/CheckpointableBase)
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/lookup/lookup_ops.py).
 
 A generic mutable hash table implementation using tensors as backing store.
 
@@ -39,29 +36,7 @@ out = table.lookup(query_keys)
 print(out.eval())
 ```
 
-## Properties
-
-<h3 id="init"><code>init</code></h3>
-
-The table initialization op.
-
-<h3 id="key_dtype"><code>key_dtype</code></h3>
-
-The table key dtype.
-
-<h3 id="name"><code>name</code></h3>
-
-The name of the table.
-
-<h3 id="value_dtype"><code>value_dtype</code></h3>
-
-The table value dtype.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -105,6 +80,30 @@ A `MutableHashTable` object.
 #### Raises:
 
 * <b>`ValueError`</b>: If checkpoint is True and no name was specified.
+
+
+
+## Properties
+
+<h3 id="init"><code>init</code></h3>
+
+The table initialization op.
+
+<h3 id="key_dtype"><code>key_dtype</code></h3>
+
+The table key dtype.
+
+<h3 id="name"><code>name</code></h3>
+
+The name of the table.
+
+<h3 id="value_dtype"><code>value_dtype</code></h3>
+
+The table value dtype.
+
+
+
+## Methods
 
 <h3 id="export"><code>export</code></h3>
 

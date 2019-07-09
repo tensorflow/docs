@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,14 +11,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/eager/python/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/saver.py).
+Defined in [`tensorflow/contrib/eager/python/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/saver.py).
 
 A tf.train.Saver adapter for use when eager execution is enabled.
   
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(var_list)
@@ -35,13 +30,17 @@ A  tf.train.Saver adapter for use when eager execution is enabled.
 #### Args:
 
 * <b>`var_list`</b>: The list of variables that will be saved and restored. Either a
-    list of `tfe.Variable` objects, or a dictionary mapping names to
-    `tfe.Variable` objects.
+    list of <a href="../../../tf/Variable"><code>tf.Variable</code></a> objects, or a dictionary mapping names to
+    <a href="../../../tf/Variable"><code>tf.Variable</code></a> objects.
 
 
 #### Raises:
 
 * <b>`RuntimeError`</b>: if invoked when eager execution has not been enabled.
+
+
+
+## Methods
 
 <h3 id="restore"><code>restore</code></h3>
 

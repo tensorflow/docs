@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
 
 String to Id table wrapper that assigns out-of-vocabulary keys to buckets.
 
@@ -55,6 +52,39 @@ print(out.eval())
 The hash function used for generating out-of-vocabulary buckets ID is handled
 by `hasher_spec`.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    table,
+    num_oov_buckets,
+    hasher_spec=tf.contrib.lookup.FastHashSpec,
+    name=None,
+    key_dtype=None
+)
+```
+
+Construct a `IdTableWithHashBuckets` object.
+
+#### Args:
+
+* <b>`table`</b>: Table that maps <a href="../../../tf/string"><code>tf.string</code></a> or <a href="../../../tf/int64"><code>tf.int64</code></a> keys to <a href="../../../tf/int64"><code>tf.int64</code></a> ids.
+* <b>`num_oov_buckets`</b>: Number of buckets to use for out-of-vocabulary keys.
+* <b>`hasher_spec`</b>: A `HasherSpec` to specify the hash function to use for
+    assignation of out-of-vocabulary buckets  (optional).
+* <b>`name`</b>: A name for the operation (optional).
+* <b>`key_dtype`</b>: Data type of keys passed to `lookup`. Defaults to
+    `table.key_dtype` if `table` is specified, otherwise <a href="../../../tf/string"><code>tf.string</code></a>.
+    Must be string or integer, and must be castable to `table.key_dtype`.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: when `table` in None and `num_oov_buckets` is not positive.
+* <b>`TypeError`</b>: when `hasher_spec` is invalid.
+
+
+
 ## Properties
 
 <h3 id="init"><code>init</code></h3>
@@ -92,37 +122,6 @@ The table value dtype.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    table,
-    num_oov_buckets,
-    hasher_spec=tf.contrib.lookup.FastHashSpec,
-    name=None,
-    key_dtype=None
-)
-```
-
-Construct a `IdTableWithHashBuckets` object.
-
-#### Args:
-
-* <b>`table`</b>: Table that maps <a href="../../../tf/string"><code>tf.string</code></a> or <a href="../../../tf/int64"><code>tf.int64</code></a> keys to <a href="../../../tf/int64"><code>tf.int64</code></a> ids.
-* <b>`num_oov_buckets`</b>: Number of buckets to use for out-of-vocabulary keys.
-* <b>`hasher_spec`</b>: A `HasherSpec` to specify the hash function to use for
-    assignation of out-of-vocabulary buckets  (optional).
-* <b>`name`</b>: A name for the operation (optional).
-* <b>`key_dtype`</b>: Data type of keys passed to `lookup`. Defaults to
-    `table.key_dtype` if `table` is specified, otherwise <a href="../../../tf/string"><code>tf.string</code></a>.
-    Must be string or integer, and must be castable to `table.key_dtype`.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: when `table` in None and `num_oov_buckets` is not positive.
-* <b>`TypeError`</b>: when `hasher_spec` is invalid.
 
 <h3 id="lookup"><code>lookup</code></h3>
 

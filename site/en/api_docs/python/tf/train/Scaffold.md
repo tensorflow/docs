@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/monitored_session.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -64,45 +61,7 @@ You can also pass the following additional pieces to the constructor:
   initializations.  The callable will be called as
   `init_fn(scaffold, session)`.
 
-## Properties
-
-<h3 id="init_feed_dict"><code>init_feed_dict</code></h3>
-
-
-
-<h3 id="init_fn"><code>init_fn</code></h3>
-
-
-
-<h3 id="init_op"><code>init_op</code></h3>
-
-
-
-<h3 id="local_init_op"><code>local_init_op</code></h3>
-
-
-
-<h3 id="ready_for_local_init_op"><code>ready_for_local_init_op</code></h3>
-
-
-
-<h3 id="ready_op"><code>ready_op</code></h3>
-
-
-
-<h3 id="saver"><code>saver</code></h3>
-
-
-
-<h3 id="summary_op"><code>summary_op</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -144,6 +103,46 @@ Create a scaffold.
 * <b>`copy_from_scaffold`</b>: Optional scaffold object to copy fields from. Its
     fields will be overwritten by the provided fields in this function.
 
+
+
+## Properties
+
+<h3 id="init_feed_dict"><code>init_feed_dict</code></h3>
+
+
+
+<h3 id="init_fn"><code>init_fn</code></h3>
+
+
+
+<h3 id="init_op"><code>init_op</code></h3>
+
+
+
+<h3 id="local_init_op"><code>local_init_op</code></h3>
+
+
+
+<h3 id="ready_for_local_init_op"><code>ready_for_local_init_op</code></h3>
+
+
+
+<h3 id="ready_op"><code>ready_op</code></h3>
+
+
+
+<h3 id="saver"><code>saver</code></h3>
+
+
+
+<h3 id="summary_op"><code>summary_op</code></h3>
+
+
+
+
+
+## Methods
+
 <h3 id="default_local_init_op"><code>default_local_init_op</code></h3>
 
 ``` python
@@ -155,7 +154,7 @@ Returns an op that groups the default local init ops.
 
 This op is used during session initialization when a Scaffold is
 initialized without specifying the local_init_op arg. It includes
-<a href="../../tf/local_variables_initializer"><code>tf.local_variables_initializer</code></a>, <a href="../../tf/tables_initializer"><code>tf.tables_initializer</code></a>, and also
+<a href="../../tf/initializers/local_variables"><code>tf.local_variables_initializer</code></a>, <a href="../../tf/tables_initializer"><code>tf.tables_initializer</code></a>, and also
 initializes local session resources.
 
 #### Returns:

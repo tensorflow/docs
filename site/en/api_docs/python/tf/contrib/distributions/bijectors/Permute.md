@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/permute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/permute.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/permute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/permute.py).
 
 Permutes the rightmost dimension of a `Tensor`.
 
@@ -50,6 +47,40 @@ Permute(permutation=init_once(
     np.random.permutation(event_size).astype("int32"),
     name="permutation"))
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    permutation,
+    validate_args=False,
+    name=None
+)
+```
+
+Creates the `Permute` bijector. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`permutation`</b>: An `int`-like vector-shaped `Tensor` representing the
+    permutation to apply to the rightmost dimension of the transformed
+    `Tensor`.
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
+    checked for correctness.
+* <b>`name`</b>: Python `str`, name given to ops managed by this object.
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: if `not permutation.dtype.is_integer`.
+* <b>`ValueError`</b>: if `permutation` does not contain exactly one of each of
+    `{0, 1, ..., d}`.
+
+
 
 ## Properties
 
@@ -95,34 +126,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    permutation,
-    validate_args=False,
-    name=None
-)
-```
-
-Creates the `Permute` bijector.
-
-#### Args:
-
-* <b>`permutation`</b>: An `int`-like vector-shaped `Tensor` representing the
-    permutation to apply to the rightmost dimension of the transformed
-    `Tensor`.
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
-* <b>`name`</b>: Python `str`, name given to ops managed by this object.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: if `not permutation.dtype.is_integer`.
-* <b>`ValueError`</b>: if `permutation` does not contain exactly one of each of
-    `{0, 1, ..., d}`.
 
 <h3 id="forward"><code>forward</code></h3>
 

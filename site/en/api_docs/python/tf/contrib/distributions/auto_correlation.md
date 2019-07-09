@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.contrib.distributions.auto_correlation(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/sample_stats.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/sample_stats.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/sample_stats.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/sample_stats.py).
 
 Auto correlation along one axis.
 

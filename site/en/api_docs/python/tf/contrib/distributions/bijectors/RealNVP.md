@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py).
 
 RealNVP "affine coupling layer" for vector-valued events.
 
@@ -106,6 +103,53 @@ For more examples, see [Jang (2018)][3].
      Autoregressive Flow for Density Estimation. In _Neural Information
      Processing Systems_, 2017. https://arxiv.org/abs/1705.07057
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    num_masked,
+    shift_and_log_scale_fn,
+    is_constant_jacobian=False,
+    validate_args=False,
+    name=None
+)
+```
+
+Creates the Real NVP or NICE bijector. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`num_masked`</b>: Python `int` indicating that the first `d` units of the event
+    should be masked. Must be in the closed interval `[1, D-1]`, where `D`
+    is the event size of the base distribution.
+* <b>`shift_and_log_scale_fn`</b>: Python `callable` which computes `shift` and
+    `log_scale` from both the forward domain (`x`) and the inverse domain
+    (`y`). Calculation must respect the "autoregressive property" (see class
+    docstring). Suggested default
+    `masked_autoregressive_default_template(hidden_layers=...)`.
+    Typically the function contains `tf.Variables` and is wrapped using
+    <a href="../../../../tf/make_template"><code>tf.make_template</code></a>. Returning `None` for either (both) `shift`,
+    `log_scale` is equivalent to (but more efficient than) returning zero.
+* <b>`is_constant_jacobian`</b>: Python `bool`. Default: `False`. When `True` the
+    implementation assumes `log_scale` does not depend on the forward domain
+    (`x`) or inverse domain (`y`) values. (No validation is made;
+    `is_constant_jacobian=False` is always safe but possibly computationally
+    inefficient.)
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
+    checked for correctness.
+* <b>`name`</b>: Python `str`, name given to ops managed by this object.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If num_masked < 1.
+
+
+
 ## Properties
 
 <h3 id="dtype"><code>dtype</code></h3>
@@ -146,47 +190,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    num_masked,
-    shift_and_log_scale_fn,
-    is_constant_jacobian=False,
-    validate_args=False,
-    name=None
-)
-```
-
-Creates the Real NVP or NICE bijector.
-
-#### Args:
-
-* <b>`num_masked`</b>: Python `int` indicating that the first `d` units of the event
-    should be masked. Must be in the closed interval `[1, D-1]`, where `D`
-    is the event size of the base distribution.
-* <b>`shift_and_log_scale_fn`</b>: Python `callable` which computes `shift` and
-    `log_scale` from both the forward domain (`x`) and the inverse domain
-    (`y`). Calculation must respect the "autoregressive property" (see class
-    docstring). Suggested default
-    `masked_autoregressive_default_template(hidden_layers=...)`.
-    Typically the function contains `tf.Variables` and is wrapped using
-    <a href="../../../../tf/make_template"><code>tf.make_template</code></a>. Returning `None` for either (both) `shift`,
-    `log_scale` is equivalent to (but more efficient than) returning zero.
-* <b>`is_constant_jacobian`</b>: Python `bool`. Default: `False`. When `True` the
-    implementation assumes `log_scale` does not depend on the forward domain
-    (`x`) or inverse domain (`y`) values. (No validation is made;
-    `is_constant_jacobian=False` is always safe but possibly computationally
-    inefficient.)
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
-* <b>`name`</b>: Python `str`, name given to ops managed by this object.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: If num_masked < 1.
 
 <h3 id="forward"><code>forward</code></h3>
 

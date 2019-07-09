@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -39,7 +36,7 @@ tf.contrib.model_pruning.masked_conv2d(
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/model_pruning/python/layers/layers.py).
+Defined in [`tensorflow/contrib/model_pruning/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/model_pruning/python/layers/layers.py).
 
 Adds an 2D convolution followed by an optional batch_norm layer.
 The layer creates a mask variable on top of the weight variable. The input to
@@ -69,7 +66,7 @@ if a value > 1 for any dimension of `rate` is specified.  In this case
     with "NC".
 * <b>`num_outputs`</b>: Integer, the number of output filters.
 * <b>`kernel_size`</b>: A sequence of N positive integers specifying the spatial
-    dimensions of of the filters.  Can be a single integer to specify the same
+    dimensions of the filters.  Can be a single integer to specify the same
     value for all spatial dimensions.
 * <b>`stride`</b>: A sequence of N positive integers specifying the stride at which to
     compute output.  Can be a single integer to specify the same value for all

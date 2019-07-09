@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ScatterMul Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -31,16 +31,16 @@
   <p>Duplicate entries are handled correctly: if multiple <code>indices</code> reference the same location, their contributions multiply.</p>
   <p>Requires <code>updates.shape = indices.shape + ref.shape[1:]</code> or <code>updates.shape = []</code>.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>ref: Should be from a <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a></code> node.</li>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>ref: Should be from a <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a></code> node.</li>
       <li>indices: A tensor of indices into the first dimension of <code>ref</code>.</li>
       <li>updates: A tensor of updated values to multiply to <code>ref</code>.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs.html#structtensorflow_1_1ops_1_1_scatter_mul_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs.html#structtensorflow_1_1ops_1_1_scatter_mul_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: If True, the operation will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: = Same as <code>ref</code>. Returned as a convenience for operations that want to use the updated values after the update is done. </li>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: = Same as <code>ref</code>. Returned as a convenience for operations that want to use the updated values after the update is done. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -50,13 +50,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_scatter_mul_1a7db6b5ac554e784855d78d429e7574e3">ScatterMul</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_mul_1a7db6b5ac554e784855d78d429e7574e3">ScatterMul</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_scatter_mul_1a59f4787f45824ffa7053c4184caea38f">ScatterMul</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs.html#structtensorflow_1_1ops_1_1_scatter_mul_1_1_attrs">ScatterMul::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_mul_1a59f4787f45824ffa7053c4184caea38f">ScatterMul</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs.html#structtensorflow_1_1ops_1_1_scatter_mul_1_1_attrs">ScatterMul::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -73,7 +73,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -127,7 +127,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs.html#structtensorflow_1_1ops_1_1_scatter_mul_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs.html#structtensorflow_1_1ops_1_1_scatter_mul_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -140,38 +140,38 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs">tensorflow::<wbr/>ops::<wbr/>ScatterMul::<wbr/>Attrs</a>
+        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs">tensorflow::<wbr/>ops::<wbr/>ScatterMul::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/scatter-mul.html#classtensorflow_1_1ops_1_1_scatter_mul">ScatterMul</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/scatter-mul.html#classtensorflow_1_1ops_1_1_scatter_mul">ScatterMul</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_mul_1a6c4d285e1c8631ca2fad4529c134bd60">
     <h3>output_ref</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_mul_1a7db6b5ac554e784855d78d429e7574e3">
     <h3>ScatterMul</h3>
     <pre class="prettyprint"> ScatterMul(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_scatter_mul_1a59f4787f45824ffa7053c4184caea38f">
     <h3>ScatterMul</h3>
     <pre class="prettyprint"> ScatterMul(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs.html#structtensorflow_1_1ops_1_1_scatter_mul_1_1_attrs">ScatterMul::Attrs</a> & attrs
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
+  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs.html#structtensorflow_1_1ops_1_1_scatter_mul_1_1_attrs">ScatterMul::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -193,7 +193,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_mul_1aaacc375e6d81db93be7d7823990b3b9b">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs.html#structtensorflow_1_1ops_1_1_scatter_mul_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-mul/attrs.html#structtensorflow_1_1ops_1_1_scatter_mul_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />

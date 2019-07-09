@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tfdbg.add_debug_tensor_watch(
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/lib/debug_utils.py).
+Defined in [`tensorflow/python/debug/lib/debug_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/lib/debug_utils.py).
 
 See the guide: [TensorFlow Debugger > Functions for adding debug watches](../../../api_guides/python/tfdbg#Functions_for_adding_debug_watches)
 

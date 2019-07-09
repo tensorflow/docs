@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/ar_model.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/timeseries/python/timeseries/ar_model.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/ar_model.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/timeseries/python/timeseries/ar_model.py).
 
 Auto-regressive model, both linear and non-linear.
 
@@ -26,17 +23,7 @@ loss).
 Note that this class can also be used to regress against time only by setting
 the input_window_size to zero.
 
-## Properties
-
-<h3 id="exogenous_feature_columns"><code>exogenous_feature_columns</code></h3>
-
-`tf.feature_colum`s for features which are not predicted.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -65,7 +52,7 @@ Constructs an auto-regressive model.
 * <b>`num_features`</b>: number of input features per time step.
 * <b>`prediction_model_factory`</b>: A callable taking arguments `num_features`,
     `input_window_size`, and `output_window_size` and returning a
-    <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a>. The `Model`'s `call()` takes two arguments: an input
+    <a href="../../../tf/keras/models/Model"><code>tf.keras.Model</code></a>. The `Model`'s `call()` takes two arguments: an input
     window and an output window, and returns a dictionary of
     predictions. See `FlatPredictionModel` for an example. Example usage:
 
@@ -92,6 +79,18 @@ Constructs an auto-regressive model.
       features which provide extra information to the model but are not part
       of the series to be predicted. Passed to
       <a href="../../../tf/feature_column/input_layer"><code>tf.feature_column.input_layer</code></a>.
+
+
+
+## Properties
+
+<h3 id="exogenous_feature_columns"><code>exogenous_feature_columns</code></h3>
+
+`tf.feature_colum`s for features which are not predicted.
+
+
+
+## Methods
 
 <h3 id="define_loss"><code>define_loss</code></h3>
 

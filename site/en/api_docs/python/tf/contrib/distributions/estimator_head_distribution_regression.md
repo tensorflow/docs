@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,9 +19,13 @@ tf.contrib.distributions.estimator_head_distribution_regression(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/estimator.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/estimator.py).
 
-Creates a `Head` for regression under a generic distribution.
+Creates a `Head` for regression under a generic distribution. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
 
 #### Args:
 

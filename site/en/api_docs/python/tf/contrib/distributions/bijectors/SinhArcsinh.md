@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/sinh_arcsinh.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/sinh_arcsinh.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/sinh_arcsinh.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/sinh_arcsinh.py).
 
 Compute `Y = g(X) = Sinh( (Arcsinh(X) + skewness) * tailweight )`.
 
@@ -46,6 +43,35 @@ This Bijector allows a similar transformation of any distribution supported on
 To see the argument about the tails, note that for `|X| >> 1` and
 `|X| >> (|skewness| * tailweight)**tailweight`, we have
 `Y approx 0.5 X**tailweight e**(sign(X) skewness * tailweight)`.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    skewness=None,
+    tailweight=None,
+    validate_args=False,
+    name='SinhArcsinh'
+)
+```
+
+Instantiates the `SinhArcsinh` bijector. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`skewness`</b>:  Skewness parameter.  Float-type `Tensor`.  Default is `0`
+    of type `float32`.
+* <b>`tailweight`</b>:  Tailweight parameter.  Positive `Tensor` of same `dtype` as
+    `skewness` and broadcastable `shape`.  Default is `1` of type `float32`.
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
+    checked for correctness.
+* <b>`name`</b>: Python `str` name given to ops managed by this object.
+
+
 
 ## Properties
 
@@ -95,29 +121,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    skewness=None,
-    tailweight=None,
-    validate_args=False,
-    name='SinhArcsinh'
-)
-```
-
-Instantiates the `SinhArcsinh` bijector.
-
-#### Args:
-
-* <b>`skewness`</b>:  Skewness parameter.  Float-type `Tensor`.  Default is `0`
-    of type `float32`.
-* <b>`tailweight`</b>:  Tailweight parameter.  Positive `Tensor` of same `dtype` as
-    `skewness` and broadcastable `shape`.  Default is `1` of type `float32`.
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
-* <b>`name`</b>: Python `str` name given to ops managed by this object.
 
 <h3 id="forward"><code>forward</code></h3>
 

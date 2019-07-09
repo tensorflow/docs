@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/inverse_gamma.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/inverse_gamma.py).
-
-See the guide: [Statistical Distributions (contrib) > Univariate (scalar) distributions](../../../../../api_guides/python/contrib.distributions#Univariate_scalar_distributions)
+Defined in [`tensorflow/contrib/distributions/python/ops/inverse_gamma.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/inverse_gamma.py).
 
 InverseGamma distribution.
 
@@ -69,6 +64,51 @@ tfd = tf.contrib.distributions
 dist = tfd.InverseGamma(concentration=3.0, rate=2.0)
 dist2 = tfd.InverseGamma(concentration=[3.0, 4.0], rate=[2.0, 3.0])
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    concentration,
+    rate,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='InverseGamma'
+)
+```
+
+Construct InverseGamma with `concentration` and `rate` parameters. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+The parameters `concentration` and `rate` must be shaped in a way that
+supports broadcasting (e.g. `concentration + rate` is a valid operation).
+
+#### Args:
+
+* <b>`concentration`</b>: Floating point tensor, the concentration params of the
+    distribution(s). Must contain only positive values.
+* <b>`rate`</b>: Floating point tensor, the inverse scale params of the
+    distribution(s). Must contain only positive values.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
+    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
+    result is undefined. When `False`, an exception is raised if one or
+    more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: if `concentration` and `rate` are different dtypes.
+
+
 
 ## Properties
 
@@ -150,45 +190,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    concentration,
-    rate,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='InverseGamma'
-)
-```
-
-Construct InverseGamma with `concentration` and `rate` parameters.
-
-The parameters `concentration` and `rate` must be shaped in a way that
-supports broadcasting (e.g. `concentration + rate` is a valid operation).
-
-#### Args:
-
-* <b>`concentration`</b>: Floating point tensor, the concentration params of the
-    distribution(s). Must contain only positive values.
-* <b>`rate`</b>: Floating point tensor, the inverse scale params of the
-    distribution(s). Must contain only positive values.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
-    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
-    result is undefined. When `False`, an exception is raised if one or
-    more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
-
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: if `concentration` and `rate` are different dtypes.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/parsing_ops.py).
+Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/parsing_ops.py).
 
 See the guide: [Inputs and Readers > Converting](../../../api_guides/python/io_ops#Converting)
 
@@ -43,6 +40,23 @@ the parse functions will fail on any examples missing this feature.
     `SequenceExample`. Defaults to "" for dtype string and 0 otherwise
     (optional).
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    shape,
+    dtype,
+    allow_missing=False,
+    default_value=None
+)
+```
+
+
+
+
+
 ## Properties
 
 <h3 id="allow_missing"><code>allow_missing</code></h3>
@@ -60,25 +74,6 @@ Alias for field number 1
 <h3 id="shape"><code>shape</code></h3>
 
 Alias for field number 0
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-@staticmethod
-__new__(
-    cls,
-    shape,
-    dtype,
-    allow_missing=False,
-    default_value=None
-)
-```
-
-
 
 
 

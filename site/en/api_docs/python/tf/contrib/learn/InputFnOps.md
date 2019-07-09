@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
+Defined in [`tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
 
 A return type for an input_fn (deprecated).
 
@@ -35,6 +32,21 @@ The expected return values are:
     Typically, this is used by a serving input_fn, which expects to be fed
     serialized `tf.Example` protos.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    features,
+    labels,
+    default_inputs
+)
+```
+
+Create new instance of InputFnOps(features, labels, default_inputs)
+
+
+
 ## Properties
 
 <h3 id="default_inputs"><code>default_inputs</code></h3>
@@ -48,23 +60,6 @@ Alias for field number 0
 <h3 id="labels"><code>labels</code></h3>
 
 Alias for field number 1
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-__new__(
-    _cls,
-    features,
-    labels,
-    default_inputs
-)
-```
-
-Create new instance of InputFnOps(features, labels, default_inputs)
 
 
 

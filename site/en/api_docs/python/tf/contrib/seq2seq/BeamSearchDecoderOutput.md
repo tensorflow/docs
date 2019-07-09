@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,22 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+
+
+
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    scores,
+    predicted_ids,
+    parent_ids
+)
+```
+
+Create new instance of BeamSearchDecoderOutput(scores, predicted_ids, parent_ids)
 
 
 
@@ -31,23 +43,6 @@ Alias for field number 1
 <h3 id="scores"><code>scores</code></h3>
 
 Alias for field number 0
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-__new__(
-    _cls,
-    scores,
-    predicted_ids,
-    parent_ids
-)
-```
-
-Create new instance of BeamSearchDecoderOutput(scores, predicted_ids, parent_ids)
 
 
 

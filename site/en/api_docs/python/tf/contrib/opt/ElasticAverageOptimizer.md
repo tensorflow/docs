@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/elastic_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/elastic_average_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/elastic_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/elastic_average_optimizer.py).
 
 Wrapper optimizer that implements the Elastic Average SGD algorithm.
 This is an async optimizer. During the training, Each worker will update
@@ -25,9 +22,7 @@ the current global center variables and then computed the elastic difference
 between global center variables and local variables. The elastic difference
 then be used to update both local variables and global variables.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -38,6 +33,7 @@ __init__(
     moving_rate=None,
     rho=None,
     use_locking=True,
+    synchronous=False,
     name='ElasticAverageOptimizer'
 )
 ```
@@ -53,11 +49,22 @@ Construct a new gradient descent optimizer.
 * <b>`communication_period`</b>: An int point value to controls the frequency
     of the communication between every worker and the ps.
 * <b>`moving_rate`</b>: A floating point value to control the elastic difference.
-* <b>`rho`</b>: the amount of exploration we allow ine the model. The default
+* <b>`rho`</b>: the amount of exploration we allow in the model. The default
     value is moving_rate/learning_rate
+    rho=0.0 is suggested in async mode.
 * <b>`use_locking`</b>: If True use locks for update operations.
+* <b>`synchronous`</b>: Add_sync_queues_and_barrier or not.
+          True: all workers will wait for each other before start training
+          False: worker can start training when its initilization is done,
+                 no need to wait for everyone is ready.
+                 in case one worker is restarted, it can join and continue
+                 training without being blocked.
 * <b>`name`</b>: Optional name prefix for the operations created when applying
     gradients. Defaults to "ElasticAverageOptimizer".
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
@@ -276,6 +283,39 @@ variables created during the execution of the `loss` function.
 `grad_loss` are ignored when eager execution is enabled.
 
 
+
+<h3 id="swapping_saver"><code>swapping_saver</code></h3>
+
+``` python
+swapping_saver(
+    var_list=None,
+    name='swapping_saver',
+    **kwargs
+)
+```
+
+Create a saver copy global_center_variable to trainable variables
+Please call this function after all your variables created with
+ElasticAverageCustomGetter. For evaluations or inference, use this saver
+during training.  It will save the global_center_variable of the trained
+parameters under the original parameter names.
+#### Args:
+
+* <b>`var_list`</b>: List of variables to save, as per `Saver()`.
+            If set to None, save all the trainable_variables that have
+            been created before this call.
+* <b>`name`</b>: The name of the saver.
+* <b>`**kwargs`</b>: Keyword arguments of `Saver()`.
+
+#### Returns:
+
+A <a href="../../../tf/train/Saver"><code>tf.train.Saver</code></a> object.
+
+#### Raises:
+
+* <b>`RuntimeError`</b>: global_center_variable is empty, please make sure
+                this is called after model created and
+                ElasticAverageCustomGetter is used when declaring you model
 
 <h3 id="variables"><code>variables</code></h3>
 

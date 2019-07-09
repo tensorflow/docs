@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/elastic_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/elastic_average_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/elastic_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/elastic_average_optimizer.py).
 
 Custom_getter class is used to do:
 1. Change trainable variables to local collection and place them at worker
@@ -32,20 +29,34 @@ ea_custom_getter = ElasticAverageCustomGetter(worker_device)
 with tf.device(
   tf.train.replica_device_setter(
     worker_device=worker_device,
-    ps_device="/job:ps/cpu:0",
+    ps_device="/job:ps",
     cluster=cluster)),
   tf.variable_scope('',custom_getter=ea_custom_getter):
-  hid_w = tf.get_variable(
-    initializer=tf.truncated_normal(
-        [IMAGE_PIXELS * IMAGE_PIXELS, FLAGS.hidden_units],
-        stddev=1.0 / IMAGE_PIXELS),
-    name="hid_w")
-  hid_b = tf.get_variable(initializer=tf.zeros([FLAGS.hidden_units]),
-                          name="hid_b")
+  ...
+  create your model here
+  ...
+  with tf.device(worker_device):
+    opt = tf.train.MomentumOptimizer(...)
+    optimizer = ElasticAverageOptimizer(
+          opt,
+          num_worker=2,
+          moving_rate=0.01, # or use default value
+          communication_period=20,
+          ea_custom_getter=ea_custom_getter)
+    ...
+    train_op = optimizer.apply_gradients(
+      grads_vars,
+      global_step=global_step)
+  ...
+  hooks = [optimizer.make_session_run_hook(is_chief, task_index)]
+  ...
+  with tf.train.MonitoredTrainingSession(master=server.target,
+                                         is_chief=is_chief,
+                                         checkpoint_dir=("...),
+                                         save_checkpoint_secs=600,
+                                         hooks=hooks) as mon_sess:
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(worker_device)
@@ -56,6 +67,10 @@ Create a new `ElasticAverageCustomGetter`.
 #### Args:
 
 * <b>`worker_device`</b>: String.  Name of the `worker` job.
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

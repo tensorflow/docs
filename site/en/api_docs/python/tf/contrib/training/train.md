@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,13 +17,14 @@ tf.contrib.training.train(
     save_checkpoint_secs=600,
     save_summaries_steps=100,
     config=None,
-    max_wait_secs=7200
+    max_wait_secs=7200,
+    run_metadata=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/python/training/training.py).
+Defined in [`tensorflow/contrib/training/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/training.py).
 
 Runs the training loop.
 
@@ -55,6 +53,7 @@ Runs the training loop.
     become available. This should be kept relatively short to help detect
     incorrect code, but sometimes may need to be increased if the chief takes
     a while to start up.
+* <b>`run_metadata`</b>: A [`RunMetadata`] protocol buffer.
 
 
 #### Returns:

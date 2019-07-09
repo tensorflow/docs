@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`TransformedDistribution`](../../../tf/contrib/distributions/Tra
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/relaxed_bernoulli.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/relaxed_bernoulli.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/relaxed_bernoulli.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/relaxed_bernoulli.py).
 
 RelaxedBernoulli distribution with temperature and logits parameters.
 
@@ -38,9 +35,9 @@ the RelaxedBernoulli can suffer from underflow issues. In many case loss
 functions such as these are invariant under invertible transformations of
 the random variables. The KL divergence, found in the variational autoencoder
 loss, is an example. Because RelaxedBernoullis are sampled by a Logistic
-random variable followed by a <a href="../../../tf/sigmoid"><code>tf.sigmoid</code></a> op, one solution is to treat
-the Logistic as the random variable and <a href="../../../tf/sigmoid"><code>tf.sigmoid</code></a> as downstream. The
-KL divergences of two Logistics, which are always followed by a <a href="../../../tf/sigmoid"><code>tf.sigmoid</code></a>
+random variable followed by a <a href="../../../tf/nn/sigmoid"><code>tf.sigmoid</code></a> op, one solution is to treat
+the Logistic as the random variable and <a href="../../../tf/nn/sigmoid"><code>tf.sigmoid</code></a> as downstream. The
+KL divergences of two Logistics, which are always followed by a <a href="../../../tf/nn/sigmoid"><code>tf.sigmoid</code></a>
 op, is equivalent to evaluating KL divergences of RelaxedBernoulli samples.
 See Maddison et al., 2016 for more details where this distribution is called
 the BinConcrete.
@@ -114,6 +111,55 @@ A Continuous Relaxation of Discrete Random Variables. 2016.
 
 Eric Jang, Shixiang Gu, and Ben Poole. Categorical Reparameterization with
 Gumbel-Softmax. 2016.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    temperature,
+    logits=None,
+    probs=None,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='RelaxedBernoulli'
+)
+```
+
+Construct RelaxedBernoulli distributions. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`temperature`</b>: An 0-D `Tensor`, representing the temperature
+    of a set of RelaxedBernoulli distributions. The temperature should be
+    positive.
+* <b>`logits`</b>: An N-D `Tensor` representing the log-odds
+    of a positive event. Each entry in the `Tensor` parametrizes
+    an independent RelaxedBernoulli distribution where the probability of an
+    event is sigmoid(logits). Only one of `logits` or `probs` should be
+    passed in.
+* <b>`probs`</b>: An N-D `Tensor` representing the probability of a positive event.
+    Each entry in the `Tensor` parameterizes an independent Bernoulli
+    distribution. Only one of `logits` or `probs` should be passed in.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
+    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
+    result is undefined. When `False`, an exception is raised if one or
+    more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If both `probs` and `logits` are passed, or if neither.
+
+
 
 ## Properties
 
@@ -207,49 +253,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    temperature,
-    logits=None,
-    probs=None,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='RelaxedBernoulli'
-)
-```
-
-Construct RelaxedBernoulli distributions.
-
-#### Args:
-
-* <b>`temperature`</b>: An 0-D `Tensor`, representing the temperature
-    of a set of RelaxedBernoulli distributions. The temperature should be
-    positive.
-* <b>`logits`</b>: An N-D `Tensor` representing the log-odds
-    of a positive event. Each entry in the `Tensor` parametrizes
-    an independent RelaxedBernoulli distribution where the probability of an
-    event is sigmoid(logits). Only one of `logits` or `probs` should be
-    passed in.
-* <b>`probs`</b>: An N-D `Tensor` representing the probability of a positive event.
-    Each entry in the `Tensor` parameterizes an independent Bernoulli
-    distribution. Only one of `logits` or `probs` should be passed in.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
-    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
-    result is undefined. When `False`, an exception is raised if one or
-    more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: If both `probs` and `logits` are passed, or if neither.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/affine_scalar.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/affine_scalar.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/affine_scalar.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/affine_scalar.py).
 
 Compute `Y = g(X; shift, scale) = scale * X + shift`.
 
@@ -32,6 +29,46 @@ b = AffineScalar(
   shift=[1., 2, 3],
   scale=2.)
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    shift=None,
+    scale=None,
+    validate_args=False,
+    name='affine_scalar'
+)
+```
+
+Instantiates the `AffineScalar` bijector. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+This `Bijector` is initialized with `shift` `Tensor` and `scale` arguments,
+giving the forward operation:
+
+```none
+Y = g(X) = scale * X + shift
+```
+
+if `scale` is not specified, then the bijector has the semantics of
+`scale = 1.`. Similarly, if `shift` is not specified, then the bijector
+has the semantics of `shift = 0.`.
+
+#### Args:
+
+* <b>`shift`</b>: Floating-point `Tensor`. If this is set to `None`, no shift is
+    applied.
+* <b>`scale`</b>: Floating-point `Tensor`. If this is set to `None`, no scale is
+    applied.
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
+    checked for correctness.
+* <b>`name`</b>: Python `str` name given to ops managed by this object.
+
+
 
 ## Properties
 
@@ -81,40 +118,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    shift=None,
-    scale=None,
-    validate_args=False,
-    name='affine_scalar'
-)
-```
-
-Instantiates the `AffineScalar` bijector.
-
-This `Bijector` is initialized with `shift` `Tensor` and `scale` arguments,
-giving the forward operation:
-
-```none
-Y = g(X) = scale * X + shift
-```
-
-if `scale` is not specified, then the bijector has the semantics of
-`scale = 1.`. Similarly, if `shift` is not specified, then the bijector
-has the semantics of `shift = 0.`.
-
-#### Args:
-
-* <b>`shift`</b>: Floating-point `Tensor`. If this is set to `None`, no shift is
-    applied.
-* <b>`scale`</b>: Floating-point `Tensor`. If this is set to `None`, no scale is
-    applied.
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
-* <b>`name`</b>: Python `str` name given to ops managed by this object.
 
 <h3 id="forward"><code>forward</code></h3>
 

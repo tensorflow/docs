@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,59 +11,17 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/estimators/model_fn.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/model_fn.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
 Ops returned from a model_fn.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
-## Properties
-
-<h3 id="eval_metric_ops"><code>eval_metric_ops</code></h3>
-
-Alias for field number 3
-
-<h3 id="loss"><code>loss</code></h3>
-
-Alias for field number 1
-
-<h3 id="mode"><code>mode</code></h3>
-
-Alias for field number 8
-
-<h3 id="output_alternatives"><code>output_alternatives</code></h3>
-
-Alias for field number 4
-
-<h3 id="predictions"><code>predictions</code></h3>
-
-Alias for field number 0
-
-<h3 id="scaffold"><code>scaffold</code></h3>
-
-Alias for field number 7
-
-<h3 id="train_op"><code>train_op</code></h3>
-
-Alias for field number 2
-
-<h3 id="training_chief_hooks"><code>training_chief_hooks</code></h3>
-
-Alias for field number 5
-
-<h3 id="training_hooks"><code>training_hooks</code></h3>
-
-Alias for field number 6
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
+<h2 id="__new__"><code>__new__</code></h2>
 
 ``` python
 @staticmethod
@@ -139,6 +94,50 @@ A validated `ModelFnOps` object.
 #### Raises:
 
 * <b>`ValueError`</b>: If validation fails.
+
+
+
+## Properties
+
+<h3 id="eval_metric_ops"><code>eval_metric_ops</code></h3>
+
+Alias for field number 3
+
+<h3 id="loss"><code>loss</code></h3>
+
+Alias for field number 1
+
+<h3 id="mode"><code>mode</code></h3>
+
+Alias for field number 8
+
+<h3 id="output_alternatives"><code>output_alternatives</code></h3>
+
+Alias for field number 4
+
+<h3 id="predictions"><code>predictions</code></h3>
+
+Alias for field number 0
+
+<h3 id="scaffold"><code>scaffold</code></h3>
+
+Alias for field number 7
+
+<h3 id="train_op"><code>train_op</code></h3>
+
+Alias for field number 2
+
+<h3 id="training_chief_hooks"><code>training_chief_hooks</code></h3>
+
+Alias for field number 5
+
+<h3 id="training_hooks"><code>training_hooks</code></h3>
+
+Alias for field number 6
+
+
+
+## Methods
 
 <h3 id="estimator_spec"><code>estimator_spec</code></h3>
 

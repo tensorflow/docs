@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/moving_averages.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/moving_averages.py).
+Defined in [`tensorflow/python/training/moving_averages.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/moving_averages.py).
 
 See the guide: [Training > Moving Averages](../../../../api_guides/python/train#Moving_Averages)
 
@@ -96,17 +93,7 @@ saver.restore(...checkpoint filename...)
 # var0 and var1 now hold the moving average values
 ```
 
-## Properties
-
-<h3 id="name"><code>name</code></h3>
-
-The name of this ExponentialMovingAverage object.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -139,6 +126,18 @@ move faster.  If passed, the actual decay rate used is:
 * <b>`name`</b>: String. Optional prefix name to use for the name of ops added in
     `apply()`.
 
+
+
+## Properties
+
+<h3 id="name"><code>name</code></h3>
+
+The name of this ExponentialMovingAverage object.
+
+
+
+## Methods
+
 <h3 id="apply"><code>apply</code></h3>
 
 ``` python
@@ -158,10 +157,12 @@ shadow variables are created with `trainable=False` and added to the
 `GraphKeys.ALL_VARIABLES` collection.  They will be returned by calls to
 `tf.global_variables()`.
 
-Returns an op that updates all shadow variables as described above.
+Returns an op that updates all shadow variables from the current value of
+their associated variables.
 
-Note that `apply()` can be called multiple times with different lists of
-variables.
+Note that `apply()` can be called multiple times. When eager execution is
+enabled each call to apply will update the variables once, so this needs to
+be called in a loop.
 
 #### Args:
 

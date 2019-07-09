@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -33,6 +30,16 @@ For example:
 fill([2, 3], 9) ==> [[9, 9, 9]
                      [9, 9, 9]]
 ```
+
+<a href="../tf/fill"><code>tf.fill</code></a> differs from <a href="../tf/constant"><code>tf.constant</code></a> in a few ways:
+
+*   <a href="../tf/fill"><code>tf.fill</code></a> only supports scalar contents, whereas <a href="../tf/constant"><code>tf.constant</code></a> supports
+    Tensor values.
+*   <a href="../tf/fill"><code>tf.fill</code></a> creates an Op in the computation graph that constructs the actual
+    Tensor value at runtime. This is in contrast to <a href="../tf/constant"><code>tf.constant</code></a> which embeds
+    the entire Tensor into the graph with a `Const` node.
+*   Because <a href="../tf/fill"><code>tf.fill</code></a> evaluates at graph runtime, it supports dynamic shapes
+    based on other runtime Tensors, unlike <a href="../tf/constant"><code>tf.constant</code></a>.
 
 #### Args:
 

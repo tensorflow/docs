@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/losses/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/losses/__init__.py).
+Defined in [`tensorflow/contrib/gan/python/losses/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/losses/__init__.py).
 
 TFGAN losses and penalties.
 
@@ -43,6 +40,12 @@ Losses can be used with individual arguments or with GANModel tuples.
 [`modified_generator_loss(...)`](../../../tf/contrib/gan/losses/modified_generator_loss)
 
 [`mutual_information_penalty(...)`](../../../tf/contrib/gan/losses/mutual_information_penalty)
+
+[`stargan_discriminator_loss_wrapper(...)`](../../../tf/contrib/gan/losses/stargan_discriminator_loss_wrapper): Convert a discriminator loss function to take a StarGANModel.
+
+[`stargan_generator_loss_wrapper(...)`](../../../tf/contrib/gan/losses/stargan_generator_loss_wrapper): Convert a generator loss function to take a StarGANModel.
+
+[`stargan_gradient_penalty_wrapper(...)`](../../../tf/contrib/gan/losses/stargan_gradient_penalty_wrapper): Convert a gradient penalty function to take a StarGANModel.
 
 [`wasserstein_discriminator_loss(...)`](../../../tf/contrib/gan/losses/wasserstein_discriminator_loss)
 

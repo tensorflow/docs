@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,12 +17,13 @@ tf.unsorted_segment_mean(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/math_ops.py).
 
 Computes the mean along segments of a tensor.
 
-Read <a href="../../../api_guides/python/math_ops#segmentation">the section on segmentation</a> for an explanation
-of segments.
+Read [the section on
+segmentation](https://tensorflow.org/api_guides/python/math_ops#segmentation)
+for an explanation of segments.
 
 This operator is similar to the unsorted segment sum operator found
 [here](../../../api_docs/python/math_ops#UnsortedSegmentSum).

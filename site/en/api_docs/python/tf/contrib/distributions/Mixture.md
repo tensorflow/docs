@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +12,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/mixture.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/mixture.py).
-
-See the guide: [Statistical Distributions (contrib) > Mixture Models](../../../../../api_guides/python/contrib.distributions#Mixture_Models)
+Defined in [`tensorflow/contrib/distributions/python/ops/mixture.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/mixture.py).
 
 Mixture distribution.
 
@@ -46,6 +42,71 @@ import matplotlib.pyplot as plt
 x = tf.linspace(-2., 3., int(1e4)).eval()
 plt.plot(x, bimix_gauss.prob(x).eval());
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    cat,
+    components,
+    validate_args=False,
+    allow_nan_stats=True,
+    use_static_graph=False,
+    name='Mixture'
+)
+```
+
+Initialize a Mixture distribution. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+A `Mixture` is defined by a `Categorical` (`cat`, representing the
+mixture probabilities) and a list of `Distribution` objects
+all having matching dtype, batch shape, event shape, and continuity
+properties (the components).
+
+The `num_classes` of `cat` must be possible to infer at graph construction
+time and match `len(components)`.
+
+#### Args:
+
+* <b>`cat`</b>: A `Categorical` distribution instance, representing the probabilities
+      of `distributions`.
+* <b>`components`</b>: A list or tuple of `Distribution` instances.
+    Each instance must have the same type, be defined on the same domain,
+    and have matching `event_shape` and `batch_shape`.
+* <b>`validate_args`</b>: Python `bool`, default `False`. If `True`, raise a runtime
+    error if batch or event ranks are inconsistent between cat and any of
+    the distributions. This is only checked if the ranks cannot be
+    determined statically at graph construction time.
+* <b>`allow_nan_stats`</b>: Boolean, default `True`. If `False`, raise an
+   exception if a statistic (e.g. mean/mode/etc...) is undefined for any
+    batch member. If `True`, batch members with valid parameters leading to
+    undefined statistics will return NaN for this statistic.
+* <b>`use_static_graph`</b>: Calls to `sample` will not rely on dynamic tensor
+    indexing, allowing for some static graph compilation optimizations, but
+    at the expense of sampling all underlying distributions in the mixture.
+    (Possibly useful when running on TPUs).
+    Default value: `False` (i.e., use dynamic indexing).
+* <b>`name`</b>: A name for this distribution (optional).
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: If cat is not a `Categorical`, or `components` is not
+    a list or tuple, or the elements of `components` are not
+    instances of `Distribution`, or do not have matching `dtype`.
+* <b>`ValueError`</b>: If `components` is an empty list or tuple, or its
+    elements do not have a statically known event rank.
+    If `cat.num_classes` cannot be inferred at graph creation time,
+    or the constant value of `cat.num_classes` is not equal to
+    `len(components)`, or all `components` and `cat` do not have
+    matching static batch shapes, or all components do not
+    have matching static event shapes.
+
+
 
 ## Properties
 
@@ -131,65 +192,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    cat,
-    components,
-    validate_args=False,
-    allow_nan_stats=True,
-    use_static_graph=False,
-    name='Mixture'
-)
-```
-
-Initialize a Mixture distribution.
-
-A `Mixture` is defined by a `Categorical` (`cat`, representing the
-mixture probabilities) and a list of `Distribution` objects
-all having matching dtype, batch shape, event shape, and continuity
-properties (the components).
-
-The `num_classes` of `cat` must be possible to infer at graph construction
-time and match `len(components)`.
-
-#### Args:
-
-* <b>`cat`</b>: A `Categorical` distribution instance, representing the probabilities
-      of `distributions`.
-* <b>`components`</b>: A list or tuple of `Distribution` instances.
-    Each instance must have the same type, be defined on the same domain,
-    and have matching `event_shape` and `batch_shape`.
-* <b>`validate_args`</b>: Python `bool`, default `False`. If `True`, raise a runtime
-    error if batch or event ranks are inconsistent between cat and any of
-    the distributions. This is only checked if the ranks cannot be
-    determined statically at graph construction time.
-* <b>`allow_nan_stats`</b>: Boolean, default `True`. If `False`, raise an
-   exception if a statistic (e.g. mean/mode/etc...) is undefined for any
-    batch member. If `True`, batch members with valid parameters leading to
-    undefined statistics will return NaN for this statistic.
-* <b>`use_static_graph`</b>: Calls to `sample` will not rely on dynamic tensor
-    indexing, allowing for some static graph compilation optimizations, but
-    at the expense of sampling all underlying distributions in the mixture.
-    (Possibly useful when running on TPUs).
-    Default value: `False` (i.e., use dynamic indexing).
-* <b>`name`</b>: A name for this distribution (optional).
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: If cat is not a `Categorical`, or `components` is not
-    a list or tuple, or the elements of `components` are not
-    instances of `Distribution`, or do not have matching `dtype`.
-* <b>`ValueError`</b>: If `components` is an empty list or tuple, or its
-    elements do not have a statically known event rank.
-    If `cat.num_classes` cannot be inferred at graph creation time,
-    or the constant value of `cat.num_classes` is not equal to
-    `len(components)`, or all `components` and `cat` do not have
-    matching static batch shapes, or all components do not
-    have matching static event shapes.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

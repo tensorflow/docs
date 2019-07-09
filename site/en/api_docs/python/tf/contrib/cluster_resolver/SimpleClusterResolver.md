@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,11 @@ Inherits From: [`ClusterResolver`](../../../tf/contrib/cluster_resolver/ClusterR
 
 
 
-Defined in [`tensorflow/contrib/cluster_resolver/python/training/cluster_resolver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/cluster_resolver/python/training/cluster_resolver.py).
+Defined in [`tensorflow/contrib/cluster_resolver/python/training/cluster_resolver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cluster_resolver/python/training/cluster_resolver.py).
 
 Simple implementation of ClusterResolver that accepts a ClusterSpec.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -30,6 +25,10 @@ __init__(
 ```
 
 Creates a SimpleClusterResolver from a ClusterSpec.
+
+
+
+## Methods
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 

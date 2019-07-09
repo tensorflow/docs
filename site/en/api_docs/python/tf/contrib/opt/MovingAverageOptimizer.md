@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/moving_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/moving_average_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/moving_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/moving_average_optimizer.py).
 
 Optimizer that computes a moving average of the variables.
 
@@ -49,9 +46,7 @@ saver = opt.swapping_saver()
 Note that for evaluation, the normal saver should be used instead of
 swapping_saver().
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -77,6 +72,10 @@ Construct a new MovingAverageOptimizer.
                      benign data races.
                      If True, will update the moving average after gradient
                      updates.
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

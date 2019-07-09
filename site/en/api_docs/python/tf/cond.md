@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.cond(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/control_flow_ops.py).
 
 See the guide: [Control Flow > Control Flow Operations](../../../api_guides/python/control_flow_ops#Control_Flow_Operations)
 
@@ -35,20 +32,22 @@ fn1/fn2 are deprecated in favor of the true_fn/false_fn arguments.
 `true_fn` and `false_fn` both return lists of output tensors. `true_fn` and
 `false_fn` must have the same non-zero number and type of outputs.
 
-Note that the conditional execution applies only to the operations defined in
-`true_fn` and `false_fn`. Consider the following simple program:
+**WARNING**: Any Tensors or Operations created outside of `true_fn` and
+`false_fn` will be executed regardless of which branch is selected at runtime.
+
+Although this behavior is consistent with the dataflow model of TensorFlow,
+it has frequently surprised users who expected a lazier semantics.
+Consider the following simple program:
 
 ```python
 z = tf.multiply(a, b)
 result = tf.cond(x < y, lambda: tf.add(x, z), lambda: tf.square(y))
 ```
 
-If `x < y`, the <a href="../tf/add"><code>tf.add</code></a> operation will be executed and <a href="../tf/square"><code>tf.square</code></a>
+If `x < y`, the <a href="../tf/math/add"><code>tf.add</code></a> operation will be executed and <a href="../tf/square"><code>tf.square</code></a>
 operation will not be executed. Since `z` is needed for at least one
 branch of the `cond`, the <a href="../tf/multiply"><code>tf.multiply</code></a> operation is always executed,
 unconditionally.
-Although this behavior is consistent with the dataflow model of TensorFlow,
-it has occasionally surprised some users who expected a lazier semantics.
 
 Note that `cond` calls `true_fn` and `false_fn` *exactly once* (inside the
 call to `cond`, and not at all during `Session.run()`). `cond`

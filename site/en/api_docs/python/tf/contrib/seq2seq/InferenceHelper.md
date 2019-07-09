@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,29 +11,11 @@ Inherits From: [`Helper`](../../../tf/contrib/seq2seq/Helper)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/helper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/helper.py).
 
 A helper to use during inference with a custom sampling function.
 
-## Properties
-
-<h3 id="batch_size"><code>batch_size</code></h3>
-
-
-
-<h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
-
-
-
-<h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -63,6 +42,26 @@ Initializer.
 * <b>`next_inputs_fn`</b>: (Optional) A callable that takes `sample_ids` and returns
     the next batch of inputs. If not provided, `sample_ids` is used as the
     next batch of inputs.
+
+
+
+## Properties
+
+<h3 id="batch_size"><code>batch_size</code></h3>
+
+
+
+<h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
+
+
+
+<h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="initialize"><code>initialize</code></h3>
 

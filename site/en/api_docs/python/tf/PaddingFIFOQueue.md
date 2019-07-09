@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`QueueBase`](../tf/QueueBase)
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Inputs and Readers > Queues](../../../api_guides/python/io_ops#Queues)
 
@@ -26,41 +23,7 @@ supporting `dequeue_many`.  See the constructor for more details.
 See <a href="../tf/QueueBase"><code>tf.QueueBase</code></a> for a description of the methods on
 this class.
 
-
-
-#### Eager Compatibility
-Queues are not compatible with eager execution. Instead, please
-use <a href="../tf/data"><code>tf.data</code></a> to get data into your model.
-
-
-
-## Properties
-
-<h3 id="dtypes"><code>dtypes</code></h3>
-
-The list of dtypes for each component of a queue element.
-
-<h3 id="name"><code>name</code></h3>
-
-The name of the underlying queue.
-
-<h3 id="names"><code>names</code></h3>
-
-The list of names for each component of a queue element.
-
-<h3 id="queue_ref"><code>queue_ref</code></h3>
-
-The underlying queue reference.
-
-<h3 id="shapes"><code>shapes</code></h3>
-
-The list of shapes for each component of a queue element.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -113,6 +76,34 @@ shape of all elements in the given batch.
 * <b>`ValueError`</b>: If shapes is not a list of shapes, or the lengths of dtypes
     and shapes do not match, or if names is specified and the lengths of
     dtypes and names do not match.
+
+
+
+## Properties
+
+<h3 id="dtypes"><code>dtypes</code></h3>
+
+The list of dtypes for each component of a queue element.
+
+<h3 id="name"><code>name</code></h3>
+
+The name of the underlying queue.
+
+<h3 id="names"><code>names</code></h3>
+
+The list of names for each component of a queue element.
+
+<h3 id="queue_ref"><code>queue_ref</code></h3>
+
+The underlying queue reference.
+
+<h3 id="shapes"><code>shapes</code></h3>
+
+The list of shapes for each component of a queue element.
+
+
+
+## Methods
 
 <h3 id="close"><code>close</code></h3>
 

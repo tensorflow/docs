@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,14 +17,15 @@ tf.sparse_segment_sum(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Math > Segmentation](../../../api_guides/python/math_ops#Segmentation)
 
 Computes the sum along sparse segments of a tensor.
 
-Read <a href="../../../api_guides/python/math_ops#Segmentation">the section on segmentation</a> for an explanation
-of segments.
+Read [the section on
+segmentation](https://tensorflow.org/api_guides/python/math_ops#Segmentation)
+for an explanation of segments.
 
 Like `SegmentSum`, but `segment_ids` can have rank less than `data`'s first
 dimension, selecting a subset of dimension 0, specified by `indices`.

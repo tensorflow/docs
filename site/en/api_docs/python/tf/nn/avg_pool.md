@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.nn.avg_pool(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Pooling](../../../../api_guides/python/nn#Pooling)
 
@@ -39,7 +36,7 @@ window in `value`.
 * <b>`strides`</b>: A list or tuple of 4 ints. The stride of the sliding window for
     each dimension of the input tensor.
 * <b>`padding`</b>: A string, either `'VALID'` or `'SAME'`. The padding algorithm.
-    See the <a href="../../tf/nn/convolution">comment here</a>
+    See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
 * <b>`data_format`</b>: A string. 'NHWC' and 'NCHW' are supported.
 * <b>`name`</b>: Optional name for the operation.
 

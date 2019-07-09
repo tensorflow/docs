@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`GridLSTMCell`](../../../tf/contrib/rnn/GridLSTMCell)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
 
 Bidirectional GridLstm cell.
 
@@ -22,6 +19,68 @@ The bidirection connection is only used in the frequency direction, which
 hence doesn't affect the time direction's real-time processing that is
 required for online recognition systems.
 The current implementation uses different weights for the two directions.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    num_units,
+    use_peepholes=False,
+    share_time_frequency_weights=False,
+    cell_clip=None,
+    initializer=None,
+    num_unit_shards=1,
+    forget_bias=1.0,
+    feature_size=None,
+    frequency_skip=None,
+    num_frequency_blocks=None,
+    start_freqindex_list=None,
+    end_freqindex_list=None,
+    couple_input_forget_gates=False,
+    backward_slice_offset=0,
+    reuse=None
+)
+```
+
+Initialize the parameters for an LSTM cell.
+
+#### Args:
+
+* <b>`num_units`</b>: int, The number of units in the LSTM cell
+* <b>`use_peepholes`</b>: (optional) bool, default False. Set True to enable
+    diagonal/peephole connections.
+* <b>`share_time_frequency_weights`</b>: (optional) bool, default False. Set True to
+    enable shared cell weights between time and frequency LSTMs.
+* <b>`cell_clip`</b>: (optional) A float value, default None, if provided the cell
+    state is clipped by this value prior to the cell output activation.
+* <b>`initializer`</b>: (optional) The initializer to use for the weight and
+    projection matrices, default None.
+* <b>`num_unit_shards`</b>: (optional) int, default 1, How to split the weight
+    matrix. If > 1, the weight matrix is stored across num_unit_shards.
+* <b>`forget_bias`</b>: (optional) float, default 1.0, The initial bias of the
+    forget gates, used to reduce the scale of forgetting at the beginning
+    of the training.
+* <b>`feature_size`</b>: (optional) int, default None, The size of the input feature
+    the LSTM spans over.
+* <b>`frequency_skip`</b>: (optional) int, default None, The amount the LSTM filter
+    is shifted by in frequency.
+* <b>`num_frequency_blocks`</b>: [required] A list of frequency blocks needed to
+    cover the whole input feature splitting defined by start_freqindex_list
+    and end_freqindex_list.
+* <b>`start_freqindex_list`</b>: [optional], list of ints, default None,  The
+    starting frequency index for each frequency block.
+* <b>`end_freqindex_list`</b>: [optional], list of ints, default None. The ending
+    frequency index for each frequency block.
+* <b>`couple_input_forget_gates`</b>: (optional) bool, default False, Whether to
+    couple the input and forget gates, i.e. f_gate = 1.0 - i_gate, to reduce
+    model parameters and computation cost.
+* <b>`backward_slice_offset`</b>: (optional) int32, default 0, the starting offset to
+    slice the feature for backward processing.
+* <b>`reuse`</b>: (optional) Python boolean describing whether to reuse variables
+    in an existing scope.  If not `True`, and the existing scope already has
+    the given variables, an error is raised.
+
+
 
 ## Properties
 
@@ -36,10 +95,6 @@ Optional regularizer function for the output of this layer.
 <h3 id="graph"><code>graph</code></h3>
 
 
-
-<h3 id="inbound_nodes"><code>inbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="input"><code>input</code></h3>
 
@@ -124,10 +179,6 @@ A list of tensors.
 <h3 id="non_trainable_weights"><code>non_trainable_weights</code></h3>
 
 
-
-<h3 id="outbound_nodes"><code>outbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="output"><code>output</code></h3>
 
@@ -231,66 +282,6 @@ A list of variables.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    num_units,
-    use_peepholes=False,
-    share_time_frequency_weights=False,
-    cell_clip=None,
-    initializer=None,
-    num_unit_shards=1,
-    forget_bias=1.0,
-    feature_size=None,
-    frequency_skip=None,
-    num_frequency_blocks=None,
-    start_freqindex_list=None,
-    end_freqindex_list=None,
-    couple_input_forget_gates=False,
-    backward_slice_offset=0,
-    reuse=None
-)
-```
-
-Initialize the parameters for an LSTM cell.
-
-#### Args:
-
-* <b>`num_units`</b>: int, The number of units in the LSTM cell
-* <b>`use_peepholes`</b>: (optional) bool, default False. Set True to enable
-    diagonal/peephole connections.
-* <b>`share_time_frequency_weights`</b>: (optional) bool, default False. Set True to
-    enable shared cell weights between time and frequency LSTMs.
-* <b>`cell_clip`</b>: (optional) A float value, default None, if provided the cell
-    state is clipped by this value prior to the cell output activation.
-* <b>`initializer`</b>: (optional) The initializer to use for the weight and
-    projection matrices, default None.
-* <b>`num_unit_shards`</b>: (optional) int, default 1, How to split the weight
-    matrix. If > 1, the weight matrix is stored across num_unit_shards.
-* <b>`forget_bias`</b>: (optional) float, default 1.0, The initial bias of the
-    forget gates, used to reduce the scale of forgetting at the beginning
-    of the training.
-* <b>`feature_size`</b>: (optional) int, default None, The size of the input feature
-    the LSTM spans over.
-* <b>`frequency_skip`</b>: (optional) int, default None, The amount the LSTM filter
-    is shifted by in frequency.
-* <b>`num_frequency_blocks`</b>: [required] A list of frequency blocks needed to
-    cover the whole input feature splitting defined by start_freqindex_list
-    and end_freqindex_list.
-* <b>`start_freqindex_list`</b>: [optional], list of ints, default None,  The
-    starting frequency index for each frequency block.
-* <b>`end_freqindex_list`</b>: [optional], list of ints, default None. The ending
-    frequency index for each frequency block.
-* <b>`couple_input_forget_gates`</b>: (optional) bool, default False, Whether to
-    couple the input and forget gates, i.e. f_gate = 1.0 - i_gate, to reduce
-    model parameters and computation cost.
-* <b>`backward_slice_offset`</b>: (optional) int32, default 0, the starting offset to
-    slice the feature for backward processing.
-* <b>`reuse`</b>: (optional) Python boolean describing whether to reuse variables
-    in an existing scope.  If not `True`, and the existing scope already has
-    the given variables, an error is raised.
-
 <h3 id="__call__"><code>__call__</code></h3>
 
 ``` python
@@ -329,120 +320,6 @@ __deepcopy__(memo)
 
 
 
-<h3 id="add_loss"><code>add_loss</code></h3>
-
-``` python
-add_loss(
-    losses,
-    inputs=None
-)
-```
-
-
-
-<h3 id="add_update"><code>add_update</code></h3>
-
-``` python
-add_update(
-    updates,
-    inputs=None
-)
-```
-
-Add update op(s), potentially dependent on layer inputs.
-
-Weight updates (for instance, the updates of the moving mean and variance
-in a BatchNormalization layer) may be dependent on the inputs passed
-when calling a layer. Hence, when reusing the same layer on
-different inputs `a` and `b`, some entries in `layer.updates` may be
-dependent on `a` and some on `b`. This method automatically keeps track
-of dependencies.
-
-The `get_updates_for` method allows to retrieve the updates relevant to a
-specific set of inputs.
-
-This call is ignored when eager execution is enabled (in that case, variable
-updates are run on the fly and thus do not need to be tracked for later
-execution).
-
-#### Arguments:
-
-* <b>`updates`</b>: Update op, or list/tuple of update ops.
-* <b>`inputs`</b>: If anything other than None is passed, it signals the updates
-    are conditional on some of the layer's inputs,
-    and thus they should only be run where these inputs are available.
-    This is the case for BatchNormalization updates, for instance.
-    If None, the updates will be taken into account unconditionally,
-    and you are responsible for making sure that any dependency they might
-    have is available at runtime.
-    A step counter might fall into this category.
-
-<h3 id="add_variable"><code>add_variable</code></h3>
-
-``` python
-add_variable(
-    *args,
-    **kwargs
-)
-```
-
-Alias for `add_weight`.
-
-<h3 id="add_weight"><code>add_weight</code></h3>
-
-``` python
-add_weight(
-    name,
-    shape,
-    dtype=None,
-    initializer=None,
-    regularizer=None,
-    trainable=True,
-    constraint=None,
-    use_resource=None,
-    partitioner=None
-)
-```
-
-Adds a new variable to the layer, or gets an existing one; returns it.
-
-#### Arguments:
-
-* <b>`name`</b>: variable name.
-* <b>`shape`</b>: variable shape.
-* <b>`dtype`</b>: The type of the variable. Defaults to `self.dtype` or `float32`.
-* <b>`initializer`</b>: initializer instance (callable).
-* <b>`regularizer`</b>: regularizer instance (callable).
-* <b>`trainable`</b>: whether the variable should be part of the layer's
-    "trainable_variables" (e.g. variables, biases)
-    or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
-    Note, if the current variable scope is marked as non-trainable
-    then this parameter is ignored and any added variables are also
-    marked as non-trainable.
-* <b>`constraint`</b>: constraint instance (callable).
-* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
-* <b>`partitioner`</b>: (optional) partitioner instance (callable).  If
-    provided, when the requested variable is created it will be split
-    into multiple partitions according to `partitioner`.  In this case,
-    an instance of `PartitionedVariable` is returned.  Available
-    partitioners include <a href="../../../tf/fixed_size_partitioner"><code>tf.fixed_size_partitioner</code></a> and
-    <a href="../../../tf/variable_axis_size_partitioner"><code>tf.variable_axis_size_partitioner</code></a>.  For more details, see the
-    documentation of <a href="../../../tf/get_variable"><code>tf.get_variable</code></a> and the  "Variable Partitioners
-    and Sharding" section of the API guide.
-
-
-#### Returns:
-
-The created variable.  Usually either a `Variable` or `ResourceVariable`
-instance.  If `partitioner` is not `None`, a `PartitionedVariable`
-instance is returned.
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If called with partioned variable regularization and
-    eager execution is enabled.
-
 <h3 id="apply"><code>apply</code></h3>
 
 ``` python
@@ -475,37 +352,6 @@ build(_)
 ```
 
 
-
-<h3 id="call"><code>call</code></h3>
-
-``` python
-call(
-    inputs,
-    state
-)
-```
-
-Run one step of LSTM.
-
-#### Args:
-
-* <b>`inputs`</b>: input Tensor, 2D, [batch, num_units].
-* <b>`state`</b>: tuple of Tensors, 2D, [batch, state_size].
-
-
-#### Returns:
-
-A tuple containing:
-- A 2D, [batch, output_dim], Tensor representing the output of the LSTM
-  after reading "inputs" when previous state was "state".
-  Here output_dim is num_units.
-- A 2D, [batch, state_size], Tensor representing the new state of LSTM
-  after reading "inputs" when previous state was "state".
-
-#### Raises:
-
-* <b>`ValueError`</b>: if an input_size was specified and the provided inputs have
-    a different dimension.
 
 <h3 id="compute_mask"><code>compute_mask</code></h3>
 
@@ -616,6 +462,18 @@ by `Network` (one layer of abstraction above).
 #### Returns:
 
 Python dictionary.
+
+<h3 id="get_initial_state"><code>get_initial_state</code></h3>
+
+``` python
+get_initial_state(
+    inputs=None,
+    batch_size=None,
+    dtype=None
+)
+```
+
+
 
 <h3 id="get_input_at"><code>get_input_at</code></h3>
 

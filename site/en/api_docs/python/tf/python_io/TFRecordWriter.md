@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/lib/io/tf_record.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/lib/io/tf_record.py).
+Defined in [`tensorflow/python/lib/io/tf_record.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/lib/io/tf_record.py).
 
 See the guides: [Data IO (Python functions)](../../../../api_guides/python/python_io), [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_)
 
@@ -23,9 +20,7 @@ A class to write records to a TFRecords file.
 This class implements `__enter__` and `__exit__`, and can be used
 in `with` blocks like a normal file.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -45,6 +40,10 @@ Opens file `path` and creates a `TFRecordWriter` writing to it.
 #### Raises:
 
 * <b>`IOError`</b>: If `path` cannot be opened for writing.
+
+
+
+## Methods
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 

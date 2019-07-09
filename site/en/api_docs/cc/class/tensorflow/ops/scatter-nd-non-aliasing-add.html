@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ScatterNdNonAliasingAdd Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,15 +13,11 @@
   <p>Applies sparse addition to <code>input</code> using individual values or slices. </p>
   <h2>Summary</h2>
   <p>from <code>updates</code> according to indices <code>indices</code>. The updates are non-aliasing: <code>input</code> is only modified in-place if no other operations will use it. Otherwise, a copy of <code>input</code> is made. This operation has a gradient with respect to both <code>input</code> and <code>updates</code>.</p>
-  <p><code>input</code> is a <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with rank <code>P</code> and <code>indices</code> is a <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q</code>.</p>
-  <p><code>indices</code> must be integer tensor, containing indices into <code>input</code>. It must be shape <code>[d_0, ..., d_{Q-2}, K]</code> where <code>0 < K <= P</code>.</p>
+  <p><code>input</code> is a <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with rank <code>P</code> and <code>indices</code> is a <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q</code>.</p>
+  <p><code>indices</code> must be integer tensor, containing indices into <code>input</code>. It must be shape \([d_0, ..., d_{Q-2}, K]\) where <code>0 < K <= P</code>.</p>
   <p>The innermost dimension of <code>indices</code> (with length <code>K</code>) corresponds to indices into elements (if <code>K = P</code>) or <code>(P-K)</code>-dimensional slices (if <code>K < P</code>) along the <code>K</code>th dimension of <code>input</code>.</p>
-  <p><code>updates</code> is <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q-1+P-K</code> with shape:</p>
-  <p>
-    <pre class="prettyprint">
-[d_0, ..., d_{Q-2}, input.shape[K], ..., input.shape[P-1]].
-</pre>
-  </p>
+  <p><code>updates</code> is <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q-1+P-K</code> with shape:</p>
+  <p>$$[d_0, ..., d_{Q-2}, input.shape[K], ..., input.shape[P-1]].$$</p>
   <p>For example, say we want to add 4 scattered elements to a rank-1 tensor to 8 elements. In Python, that addition would look like this: <pre class="prettyprint">input = tf.constant([1, 2, 3, 4, 5, 6, 7, 8])
 indices = tf.constant([[4], [3], [1], [7]])
 updates = tf.constant([9, 10, 11, 12])
@@ -33,13 +29,13 @@ with tf.Session() as sess:
 </pre></p>
   <p>See <code>tf.scatter_nd</code> for more details about how to make updates to slices.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>input: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.</li>
-      <li>indices: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must be one of the following types: <code>int32</code>, <code>int64</code>. A tensor of indices into <code>input</code>.</li>
-      <li>updates: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must have the same type as ref. A tensor of updated values to add to <code>input</code>.</li>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.</li>
+      <li>indices: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must be one of the following types: <code>int32</code>, <code>int64</code>. A tensor of indices into <code>input</code>.</li>
+      <li>updates: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must have the same type as ref. A tensor of updated values to add to <code>input</code>.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with the same shape as <code>input</code>, containing values of <code>input</code> updated with <code>updates</code>. </li>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with the same shape as <code>input</code>, containing values of <code>input</code> updated with <code>updates</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -49,7 +45,7 @@ with tf.Session() as sess:
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_non_aliasing_add_1a57cc850c2a18f67326496896cc838fe6">ScatterNdNonAliasingAdd</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_non_aliasing_add_1a57cc850c2a18f67326496896cc838fe6">ScatterNdNonAliasingAdd</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
         <br />
       </td>
     </tr>
@@ -66,7 +62,7 @@ with tf.Session() as sess:
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -111,17 +107,17 @@ with tf.Session() as sess:
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_nd_non_aliasing_add_1ac0e95025b577dd9aa2b363abf1edb5ef">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_nd_non_aliasing_add_1a57cc850c2a18f67326496896cc838fe6">
     <h3>ScatterNdNonAliasingAdd</h3>
     <pre class="prettyprint"> ScatterNdNonAliasingAdd(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
 )</pre>
     <div />
   </div>

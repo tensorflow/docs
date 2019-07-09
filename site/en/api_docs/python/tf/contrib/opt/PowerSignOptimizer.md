@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,16 +11,14 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/powersign.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/powersign.py).
+Defined in [`tensorflow/contrib/opt/python/training/powersign.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/powersign.py).
 
 Optimizer that implements the PowerSign update.
 
 See [Bello et al., ICML2017],
 [Neural Optimizer Search with RL](https://arxiv.org/abs/1709.07417).
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -59,7 +54,7 @@ Example usage for PowerSign-cd (PowerSign with cosine sign decay)
 
 ```
 decay_steps = 1000
-linear_decay_fn = sign_decays.get_linear_decay_fn(decay_steps)
+linear_decay_fn = sign_decays.get_cosine_decay_fn(decay_steps)
 opt = PowerSignOptimizer(learning_rate=0.1, sign_decay_fn=linear_decay_fn)
 ```
 
@@ -73,6 +68,10 @@ opt = PowerSignOptimizer(learning_rate=0.1, sign_decay_fn=linear_decay_fn)
 * <b>`use_locking`</b>: If True, use locks for update operations.
 * <b>`name`</b>: Optional name for the operations created iwhen applying gradients.
     Defaults to "PowerSignOptimizer".
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

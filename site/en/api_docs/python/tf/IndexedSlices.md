@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
 
 See the guide: [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
 
@@ -43,6 +40,20 @@ gradients for operations that have sparse gradients
 Contrast this representation with
 <a href="../tf/SparseTensor"><code>tf.SparseTensor</code></a>,
 which uses multi-dimensional indices and scalar values.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    values,
+    indices,
+    dense_shape=None
+)
+```
+
+Creates an `IndexedSlices`.
+
+
 
 ## Properties
 
@@ -81,18 +92,6 @@ A `Tensor` containing the values of the slices.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    values,
-    indices,
-    dense_shape=None
-)
-```
-
-Creates an `IndexedSlices`.
 
 <h3 id="__neg__"><code>__neg__</code></h3>
 

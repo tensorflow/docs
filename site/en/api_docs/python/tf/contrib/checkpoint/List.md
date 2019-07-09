@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,17 +11,17 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/data_structures.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/checkpointable/data_structures.py).
+Defined in [`tensorflow/python/training/checkpointable/data_structures.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpointable/data_structures.py).
 
 An append-only sequence type which is checkpointable.
 
 Maintains checkpoint dependencies on its contents (which must also be
 checkpointable), and forwards any `Layer` metadata such as updates and losses.
 
-Note that `List` is purely a container. It lets a <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a> or
+Note that `List` is purely a container. It lets a <a href="../../../tf/keras/models/Model"><code>tf.keras.Model</code></a> or
 other checkpointable object know about its contents, but does not call any
 `Layer` instances which are added to it. To indicate a sequence of `Layer`
-instances which should be called sequentially, use <a href="../../../tf/keras/Sequential"><code>tf.keras.Sequential</code></a>.
+instances which should be called sequentially, use <a href="../../../tf/keras/models/Sequential"><code>tf.keras.Sequential</code></a>.
 
 Example usage:
 
@@ -49,6 +46,19 @@ This kind of wrapping is necessary because `Checkpointable` objects do not
 a regular list (`self.layer_list = [layers.Dense(3)]`) does not create a
 checkpoint dependency and does not add the `Layer` instance's weights to its
 parent `Model`.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    *args,
+    **kwargs
+)
+```
+
+Construct a new sequence. Arguments are passed to `list()`.
+
+
 
 ## Properties
 
@@ -91,17 +101,6 @@ Aggregate updates from any `Layer` instances.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    *args,
-    **kwargs
-)
-```
-
-Construct a new sequence. Arguments are passed to `list()`.
 
 <h3 id="__add__"><code>__add__</code></h3>
 
@@ -155,6 +154,14 @@ __iter__()
 
 ``` python
 __len__()
+```
+
+
+
+<h3 id="__radd__"><code>__radd__</code></h3>
+
+``` python
+__radd__(other)
 ```
 
 

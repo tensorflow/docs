@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,16 +11,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/monitor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distribute/python/monitor.py).
+Defined in [`tensorflow/contrib/distribute/python/monitor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distribute/python/monitor.py).
 
 Executes training steps, recovers and checkpoints.
 
 Note that this class is particularly preliminary, experimental, and
 expected to change.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -44,6 +39,10 @@ Initialize the Monitor with components for executing training steps.
 
 * <b>`ValueError`</b>: if `session` was provided for eager mode or not provided for
     graph mode.
+
+
+
+## Methods
 
 <h3 id="run_steps"><code>run_steps</code></h3>
 

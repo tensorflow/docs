@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,16 +11,14 @@ Inherits From: [`OptimizerV2`](../../../tf/contrib/optimizer_v2/OptimizerV2)
 
 
 
-Defined in [`tensorflow/contrib/optimizer_v2/rmsprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/optimizer_v2/rmsprop.py).
+Defined in [`tensorflow/contrib/optimizer_v2/rmsprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/optimizer_v2/rmsprop.py).
 
 Optimizer that implements the RMSProp algorithm.
 
 See the
 [paper](http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf).
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -62,7 +57,8 @@ Tensor or a Python value.
 * <b>`decay`</b>: A float hyperparameter. Discounting factor for the history/coming
     gradient.
 * <b>`momentum`</b>: A float hyperparameter.
-* <b>`epsilon`</b>: A float hyperparameter. Small value to avoid zero denominator.
+* <b>`epsilon`</b>: A float hyperparameter. Small value to initialize the average
+    square gradient variable and avoid zero denominator.
 * <b>`use_locking`</b>: If True use locks for update operation.
 * <b>`centered`</b>: If True, gradients are normalized by the estimated variance of
     the gradient; if False, by the uncentered second moment. Setting this to
@@ -70,6 +66,10 @@ Tensor or a Python value.
     computation and memory. Defaults to False.
 * <b>`name`</b>: Optional name prefix for the operations created when applying
     gradients. Defaults to "RMSProp".
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

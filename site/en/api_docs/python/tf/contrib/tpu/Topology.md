@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,37 +11,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/topology.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/topology.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/topology.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/topology.py).
 
 Describes a set of TPU devices.
 
 Represents both the shape of the physical mesh, and the mapping between
 TensorFlow TPU devices to physical mesh coordinates.
 
-## Properties
-
-<h3 id="device_coordinates"><code>device_coordinates</code></h3>
-
-Describes the mapping from TPU devices to topology coordinates.
-
-#### Returns:
-
-A rank 3 int32 array with shape `[tasks, devices, axis]`.
-`tasks` is the number of tasks in the TPU cluster, `devices` is the number
-of TPU devices per task, and `axis` is the number of axes in the TPU
-cluster topology. Each entry gives the `axis`-th coordinate in the
-topology of a task/device pair. TPU topologies are 3-dimensional, with
-dimensions `(x, y, core number)`.
-
-<h3 id="mesh_shape"><code>mesh_shape</code></h3>
-
-A rank 1 int32 array describing the shape of the TPU topology.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -79,6 +53,31 @@ the other arguments are ignored. Otherwise, the topology is computed from
     of 3 positive integers.
 * <b>`ValueError`</b>: If `serialized` is `None` and `device_coordinates` is not a
     rank 3 numpy int32 array that describes a valid coordinate mapping.
+
+
+
+## Properties
+
+<h3 id="device_coordinates"><code>device_coordinates</code></h3>
+
+Describes the mapping from TPU devices to topology coordinates.
+
+#### Returns:
+
+A rank 3 int32 array with shape `[tasks, devices, axis]`.
+`tasks` is the number of tasks in the TPU cluster, `devices` is the number
+of TPU devices per task, and `axis` is the number of axes in the TPU
+cluster topology. Each entry gives the `axis`-th coordinate in the
+topology of a task/device pair. TPU topologies are 3-dimensional, with
+dimensions `(x, y, core number)`.
+
+<h3 id="mesh_shape"><code>mesh_shape</code></h3>
+
+A rank 1 int32 array describing the shape of the TPU topology.
+
+
+
+## Methods
 
 <h3 id="serialized"><code>serialized</code></h3>
 

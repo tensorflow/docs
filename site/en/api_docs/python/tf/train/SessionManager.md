@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/session_manager.py).
+Defined in [`tensorflow/python/training/session_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/session_manager.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -59,9 +56,7 @@ with tf.Graph().as_default():
 
 `wait_for_session()` waits for a model to be initialized by other processes.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -114,6 +109,10 @@ be initialized or restored.  Defaults to 30 seconds.
 
 * <b>`ValueError`</b>: If ready_for_local_init_op is not None but local_init_op is
     None
+
+
+
+## Methods
 
 <h3 id="prepare_session"><code>prepare_session</code></h3>
 

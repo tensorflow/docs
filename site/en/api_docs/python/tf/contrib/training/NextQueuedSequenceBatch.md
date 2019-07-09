@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
+Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
 
 See the guide: [Training (contrib) > Splitting sequence inputs into minibatches with state saving](../../../../../api_guides/python/contrib.training#Splitting_sequence_inputs_into_minibatches_with_state_saving)
 
@@ -22,6 +19,16 @@ NextQueuedSequenceBatch stores deferred SequenceQueueingStateSaver data.
 
 This class is instantiated by `SequenceQueueingStateSaver` and is accessible
 via its `next_batch` property.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(state_saver)
+```
+
+
+
+
 
 ## Properties
 
@@ -176,14 +183,6 @@ An integer vector of length `batch_size`, the total lengths.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(state_saver)
-```
-
-
 
 <h3 id="save_state"><code>save_state</code></h3>
 

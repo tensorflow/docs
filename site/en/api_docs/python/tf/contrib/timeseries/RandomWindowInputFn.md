@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 Wraps a `TimeSeriesReader` to create random batches of windows.
 
@@ -30,9 +27,7 @@ evaluation (but be sure to run several epochs for sequential models such as
 training). For qualitative evaluation or when preparing for predictions, use
 `WholeDatasetInputFn`.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -88,6 +83,10 @@ Configure the RandomWindowInputFn.
 * <b>`shuffle_seed`</b>: A seed for window shuffling. The default value of None
     provides random behavior. With `shuffle_seed` set and
     `num_threads=1`, provides deterministic behavior.
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,12 +20,12 @@ tf.contrib.estimator.export_saved_model_for_mode(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/export.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/export.py).
 
 Exports a single train/eval/predict graph as a SavedModel.
 
-For a detailed guide, see
-<a href="../../../../../guide/saved_model#using_savedmodel_with_estimators">Using SavedModel with Estimators</a>.
+For a detailed guide, see [Using SavedModel with Estimators](
+https://tensorflow.org/guide/saved_model#using_savedmodel_with_estimators).
 
 Sample usage:
 

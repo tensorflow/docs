@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +19,7 @@ tf.contrib.kernel_methods.sparse_multiclass_hinge_loss(
 
 
 
-Defined in [`tensorflow/contrib/kernel_methods/python/losses.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kernel_methods/python/losses.py).
+Defined in [`tensorflow/contrib/kernel_methods/python/losses.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/kernel_methods/python/losses.py).
 
 Adds Ops for computing the multiclass hinge loss.
 

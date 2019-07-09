@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py).
+Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py).
 
 Represents a sparse feature column.
 
@@ -55,6 +52,34 @@ is represented by `SparseFeatureColumn` as:
 ```
 
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    example_indices,
+    feature_indices,
+    feature_values
+)
+```
+
+Creates a `SparseFeatureColumn` representation.
+
+#### Args:
+
+* <b>`example_indices`</b>: A 1-D int64 tensor of shape `[N]`. Also, accepts
+  python lists, or numpy arrays.
+* <b>`feature_indices`</b>: A 1-D int64 tensor of shape `[N]`. Also, accepts
+  python lists, or numpy arrays.
+* <b>`feature_values`</b>: An optional 1-D tensor float tensor of shape `[N]`. Also,
+  accepts python lists, or numpy arrays.
+
+
+#### Returns:
+
+A `SparseFeatureColumn`
+
+
+
 ## Properties
 
 <h3 id="example_indices"><code>example_indices</code></h3>
@@ -80,36 +105,6 @@ The feature values represented as a dense tensor.
 #### Returns:
 
 May return None, or a 1-D Tensor of float32 with shape `[N]`.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    example_indices,
-    feature_indices,
-    feature_values
-)
-```
-
-Creates a `SparseFeatureColumn` representation.
-
-#### Args:
-
-* <b>`example_indices`</b>: A 1-D int64 tensor of shape `[N]`. Also, accepts
-  python lists, or numpy arrays.
-* <b>`feature_indices`</b>: A 1-D int64 tensor of shape `[N]`. Also, accepts
-  python lists, or numpy arrays.
-* <b>`feature_values`</b>: An optional 1-D tensor float tensor of shape `[N]`. Also,
-  accepts python lists, or numpy arrays.
-
-
-#### Returns:
-
-A `SparseFeatureColumn`
 
 
 

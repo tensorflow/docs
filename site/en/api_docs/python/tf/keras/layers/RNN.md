@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,28 +11,48 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 
 
-Defined in [`tensorflow/python/keras/layers/recurrent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/layers/recurrent.py).
+Defined in [`tensorflow/python/keras/layers/recurrent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/layers/recurrent.py).
 
 Base class for recurrent layers.
 
 #### Arguments:
 
-* <b>`cell`</b>: A RNN cell instance. A RNN cell is a class that has:
+* <b>`cell`</b>: A RNN cell instance or a list of RNN cell instances.
+        A RNN cell is a class that has:
         - a `call(input_at_t, states_at_t)` method, returning
             `(output_at_t, states_at_t_plus_1)`. The call method of the
             cell can also take the optional argument `constants`, see
             section "Note on passing external constants" below.
         - a `state_size` attribute. This can be a single integer
-            (single state) in which case it is
-            the size of the recurrent state
-            (which should be the same as the size of the cell output).
-            This can also be a list/tuple of integers
-            (one size per state). In this case, the first entry
-            (`state_size[0]`) should be the same as
-            the size of the cell output.
-        It is also possible for `cell` to be a list of RNN cell instances,
-        in which cases the cells get stacked on after the other in the RNN,
-        implementing an efficient stacked RNN.
+            (single state) in which case it is the size of the recurrent
+            state. This can also be a list/tuple of integers (one size per
+            state).
+            The `state_size` can also be TensorShape or tuple/list of
+            TensorShape, to represent high dimension state.
+        - a `output_size` attribute. This can be a single integer or a
+            TensorShape, which represent the shape of the output. For backward
+            compatible reason, if this attribute is not available for the
+            cell, the value will be inferred by the first element of the
+            `state_size`.
+        - a `get_initial_state(inputs=None, batch_size=None, dtype=None)`
+            method that creates a tensor meant to be fed to `call()` as the
+            initial state, if user didn't specify any initial state via other
+            means. The returned initial state should be in shape of
+            [batch, cell.state_size]. Cell might choose to create zero filled
+            tensor, or with other values based on the cell implementations.
+            `inputs` is the input tensor to the RNN layer, which should
+            contain the batch size as its shape[0], and also dtype. Note that
+            the shape[0] might be None during the graph construction. Either
+            the `inputs` or the pair of `batch` and `dtype `are provided.
+            `batch` is a scalar tensor that represent the batch size
+            of the input. `dtype` is `tf.dtype` that represent the dtype of
+            the input.
+            For backward compatible reason, if this method is not implemented
+            by the cell, RNN layer will create a zero filled tensors with the
+            size of [batch, cell.state_size].
+        In the case that `cell` is a list of RNN cell instances, the cells
+        will be stacked on after the other in the RNN, implementing an
+        efficient stacked RNN.
 * <b>`return_sequences`</b>: Boolean. Whether to return the last output
         in the output sequence, or the full sequence.
 * <b>`return_state`</b>: Boolean. Whether to return the last state
@@ -52,9 +69,8 @@ Base class for recurrent layers.
         Unrolling can speed-up a RNN,
         although it tends to be more memory-intensive.
         Unrolling is only suitable for short sequences.
-* <b>`input_dim`</b>: dimensionality of the input (integer).
-        This argument (or alternatively,
-        the keyword argument `input_shape`)
+* <b>`input_dim`</b>: dimensionality of the input (integer or tuple of integers).
+        This argument (or alternatively, the keyword argument `input_shape`)
         is required when using this layer as the first layer in a model.
 * <b>`input_length`</b>: Length of input sequences, to be specified
         when it is constant.
@@ -67,15 +83,18 @@ Base class for recurrent layers.
         (e.g. via the `input_shape` argument)
 
 Input shape:
-    3D tensor with shape `(batch_size, timesteps, input_dim)`.
+    N-D tensor with shape `(batch_size, timesteps, ...)`.
 
 Output shape:
     - if `return_state`: a list of tensors. The first tensor is
         the output. The remaining tensors are the last states,
-        each with shape `(batch_size, units)`.
-    - if `return_sequences`: 3D tensor with shape
-        `(batch_size, timesteps, units)`.
-    - else, 2D tensor with shape `(batch_size, units)`.
+        each with shape `(batch_size, state_size)`, where `state_size` could
+        be a high dimension tensor shape.
+    - if `return_sequences`: N-D tensor with shape
+        `(batch_size, timesteps, output_size)`, where `output_size` could
+        be a high dimension tensor shape.
+    - else, N-D tensor with shape `(batch_size, output_size)`, where
+        `output_size` could be a high dimension tensor shape.
 
 # Masking
     This layer supports masking for input data with a variable number
@@ -166,6 +185,24 @@ Examples:
     y = layer(x)
 ```
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    cell,
+    return_sequences=False,
+    return_state=False,
+    go_backwards=False,
+    stateful=False,
+    unroll=False,
+    **kwargs
+)
+```
+
+
+
+
+
 ## Properties
 
 <h3 id="activity_regularizer"><code>activity_regularizer</code></h3>
@@ -175,10 +212,6 @@ Optional regularizer function for the output of this layer.
 <h3 id="dtype"><code>dtype</code></h3>
 
 
-
-<h3 id="inbound_nodes"><code>inbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="input"><code>input</code></h3>
 
@@ -255,10 +288,6 @@ Input shape, as an integer shape tuple
 <h3 id="non_trainable_weights"><code>non_trainable_weights</code></h3>
 
 
-
-<h3 id="outbound_nodes"><code>outbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="output"><code>output</code></h3>
 
@@ -350,22 +379,6 @@ A list of variables.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    cell,
-    return_sequences=False,
-    return_state=False,
-    go_backwards=False,
-    stateful=False,
-    unroll=False,
-    **kwargs
-)
-```
-
-
-
 <h3 id="__call__"><code>__call__</code></h3>
 
 ``` python
@@ -378,146 +391,6 @@ __call__(
 ```
 
 
-
-<h3 id="add_loss"><code>add_loss</code></h3>
-
-``` python
-add_loss(
-    losses,
-    inputs=None
-)
-```
-
-Add loss tensor(s), potentially dependent on layer inputs.
-
-Some losses (for instance, activity regularization losses) may be dependent
-on the inputs passed when calling a layer. Hence, when reusing the same
-layer on different inputs `a` and `b`, some entries in `layer.losses` may
-be dependent on `a` and some on `b`. This method automatically keeps track
-of dependencies.
-
-The `get_losses_for` method allows to retrieve the losses relevant to a
-specific set of inputs.
-
-Note that `add_loss` is not supported when executing eagerly. Instead,
-variable regularizers may be added through `add_variable`. Activity
-regularization is not supported directly (but such losses may be returned
-from `Layer.call()`).
-
-#### Arguments:
-
-* <b>`losses`</b>: Loss tensor, or list/tuple of tensors.
-* <b>`inputs`</b>: If anything other than None is passed, it signals the losses
-    are conditional on some of the layer's inputs,
-    and thus they should only be run where these inputs are available.
-    This is the case for activity regularization losses, for instance.
-    If `None` is passed, the losses are assumed
-    to be unconditional, and will apply across all dataflows of the layer
-    (e.g. weight regularization losses).
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If called in Eager mode.
-
-<h3 id="add_update"><code>add_update</code></h3>
-
-``` python
-add_update(
-    updates,
-    inputs=None
-)
-```
-
-Add update op(s), potentially dependent on layer inputs.
-
-Weight updates (for instance, the updates of the moving mean and variance
-in a BatchNormalization layer) may be dependent on the inputs passed
-when calling a layer. Hence, when reusing the same layer on
-different inputs `a` and `b`, some entries in `layer.updates` may be
-dependent on `a` and some on `b`. This method automatically keeps track
-of dependencies.
-
-The `get_updates_for` method allows to retrieve the updates relevant to a
-specific set of inputs.
-
-This call is ignored when eager execution is enabled (in that case, variable
-updates are run on the fly and thus do not need to be tracked for later
-execution).
-
-#### Arguments:
-
-* <b>`updates`</b>: Update op, or list/tuple of update ops.
-* <b>`inputs`</b>: If anything other than None is passed, it signals the updates
-    are conditional on some of the layer's inputs,
-    and thus they should only be run where these inputs are available.
-    This is the case for BatchNormalization updates, for instance.
-    If None, the updates will be taken into account unconditionally,
-    and you are responsible for making sure that any dependency they might
-    have is available at runtime.
-    A step counter might fall into this category.
-
-<h3 id="add_variable"><code>add_variable</code></h3>
-
-``` python
-add_variable(
-    *args,
-    **kwargs
-)
-```
-
-Alias for `add_weight`.
-
-<h3 id="add_weight"><code>add_weight</code></h3>
-
-``` python
-add_weight(
-    name,
-    shape,
-    dtype=None,
-    initializer=None,
-    regularizer=None,
-    trainable=True,
-    constraint=None,
-    partitioner=None,
-    use_resource=None,
-    getter=None
-)
-```
-
-Adds a new variable to the layer, or gets an existing one; returns it.
-
-#### Arguments:
-
-* <b>`name`</b>: variable name.
-* <b>`shape`</b>: variable shape.
-* <b>`dtype`</b>: The type of the variable. Defaults to `self.dtype` or `float32`.
-* <b>`initializer`</b>: initializer instance (callable).
-* <b>`regularizer`</b>: regularizer instance (callable).
-* <b>`trainable`</b>: whether the variable should be part of the layer's
-    "trainable_variables" (e.g. variables, biases)
-    or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
-    Note, if the current variable scope is marked as non-trainable
-    then this parameter is ignored and any added variables are also
-    marked as non-trainable.
-* <b>`constraint`</b>: constraint instance (callable).
-* <b>`partitioner`</b>: Partitioner to be passed to the `Checkpointable` API.
-* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
-* <b>`getter`</b>: Variable getter argument to be passed to the `Checkpointable` API.
-
-
-#### Returns:
-
-The created variable.  Usually either a `Variable` or `ResourceVariable`
-instance.  If `partitioner` is not `None`, a `PartitionedVariable`
-instance is returned.
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If called with partioned variable regularization and
-    eager execution is enabled.
-* <b>`ValueError`</b>: When giving unsupported dtype and no initializer.
 
 <h3 id="apply"><code>apply</code></h3>
 
@@ -550,20 +423,6 @@ Output tensor(s).
 build(
     instance,
     input_shape
-)
-```
-
-
-
-<h3 id="call"><code>call</code></h3>
-
-``` python
-call(
-    inputs,
-    mask=None,
-    training=None,
-    initial_state=None,
-    constants=None
 )
 ```
 

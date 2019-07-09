@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,14 +11,14 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/linear.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/estimators/linear.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/linear.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/linear.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
 Linear regressor model.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Train a linear regression model to predict label value given observation of
@@ -62,30 +59,7 @@ Input of `fit` and `evaluate` should have following features,
   - if isinstance(column, `RealValuedColumn`):
       key=column.name, value=a `Tensor`
 
-## Properties
-
-<h3 id="config"><code>config</code></h3>
-
-
-
-<h3 id="model_dir"><code>model_dir</code></h3>
-
-
-
-<h3 id="model_fn"><code>model_fn</code></h3>
-
-Returns the model_fn which is bound to self.params.
-
-#### Returns:
-
-The model_fn with the following signature:
-  `def model_fn(features, labels, mode, metrics)`
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -139,6 +113,31 @@ Construct a `LinearRegressor` estimator object.
 #### Returns:
 
 A `LinearRegressor` estimator.
+
+
+
+## Properties
+
+<h3 id="config"><code>config</code></h3>
+
+
+
+<h3 id="model_dir"><code>model_dir</code></h3>
+
+
+
+<h3 id="model_fn"><code>model_fn</code></h3>
+
+Returns the model_fn which is bound to self.params.
+
+#### Returns:
+
+The model_fn with the following signature:
+  `def model_fn(features, labels, mode, metrics)`
+
+
+
+## Methods
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 

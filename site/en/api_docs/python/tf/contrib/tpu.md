@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,10 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/__init__.py).
+Defined in [`tensorflow/contrib/tpu/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/__init__.py).
 
 Ops related to Tensor Processing Units.
+
 
 
 
@@ -39,6 +37,8 @@ Ops related to Tensor Processing Units.
 
 [`class TPUConfig`](../../tf/contrib/tpu/TPUConfig): TPU related configuration required by `TPUEstimator`.
 
+[`class TPUDistributionStrategy`](../../tf/contrib/tpu/TPUDistributionStrategy): The strategy to run Keras model on TPU.
+
 [`class TPUEstimator`](../../tf/contrib/tpu/TPUEstimator): Estimator with TPU support.
 
 [`class TPUEstimatorSpec`](../../tf/contrib/tpu/TPUEstimatorSpec): Ops and objects returned from a `model_fn` and passed to `TPUEstimator`.
@@ -49,17 +49,31 @@ Ops related to Tensor Processing Units.
 
 [`batch_parallel(...)`](../../tf/contrib/tpu/batch_parallel): Shards `computation` along the batch dimension for parallel execution.
 
+[`bfloat16_scope(...)`](../../tf/contrib/tpu/bfloat16_scope): Scope class for bfloat16 variables so that the model uses custom getter.
+
 [`core(...)`](../../tf/contrib/tpu/core): Returns the device name for a core in a replicated TPU computation.
 
-[`cross_replica_sum(...)`](../../tf/contrib/tpu/cross_replica_sum): An Op to sum inputs across replicated TPU instances. Each
+[`cross_replica_sum(...)`](../../tf/contrib/tpu/cross_replica_sum): Sum the input tensor accorss replicas according to group_assignment.
 
 [`device_assignment(...)`](../../tf/contrib/tpu/device_assignment): Computes a device_assignment of a computation across a TPU topology.
+
+[`export_estimator_savedmodel(...)`](../../tf/contrib/tpu/export_estimator_savedmodel): Export `Estimator` trained model for TPU inference.
 
 [`infeed_dequeue(...)`](../../tf/contrib/tpu/infeed_dequeue): A placeholder op for a value that will be fed into the computation.
 
 [`infeed_dequeue_tuple(...)`](../../tf/contrib/tpu/infeed_dequeue_tuple): A placeholder op for values fed into the TPU simultaneously as a tuple.
 
+[`infeed_enqueue(...)`](../../tf/contrib/tpu/infeed_enqueue): An op which feeds a single Tensor value into the computation.
+
+[`infeed_enqueue_tuple(...)`](../../tf/contrib/tpu/infeed_enqueue_tuple): An op which feeds multiple Tensor values into the computation as an XLA tuple.
+
 [`initialize_system(...)`](../../tf/contrib/tpu/initialize_system): Initializes a distributed TPU system for use with TensorFlow.
+
+[`keras_to_tpu_model(...)`](../../tf/contrib/tpu/keras_to_tpu_model): Copy `model` along with weights to the TPU.  Returns a TPU model. (experimental)
+
+[`outfeed_dequeue(...)`](../../tf/contrib/tpu/outfeed_dequeue): Retrieves a single tensor from the computation outfeed.  This operation will
+
+[`outfeed_dequeue_tuple(...)`](../../tf/contrib/tpu/outfeed_dequeue_tuple): Retrieve multiple values that will be emitted by the computation as an XLA
 
 [`outfeed_enqueue(...)`](../../tf/contrib/tpu/outfeed_enqueue): An op which emits a single Tensor value from an XLA computation.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/python/training/momentum.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/momentum.py).
+Defined in [`tensorflow/python/training/momentum.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/momentum.py).
 
 See the guide: [Training > Optimizers](../../../../api_guides/python/train#Optimizers)
 
@@ -33,9 +30,7 @@ the gradient is an `IndexedSlices`, typically because of <a href="../../tf/gathe
 embedding) only updates variable slices and corresponding `accumulation` terms
 when that part of the variable was used in the forward pass.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -66,12 +61,16 @@ Construct a new Momentum optimizer.
 
 
 #### Eager Compatibility
-When eager execution is enabled, learning_rate and momentum can each be a
-callable that takes no arguments and returns the actual value to use. This
+When eager execution is enabled, `learning_rate` and `momentum` can each be
+a callable that takes no arguments and returns the actual value to use. This
 can be useful for changing these values across different invocations of
 optimizer functions.
 
 
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

@@ -1,20 +1,21 @@
 upper_tabs:
 - include: /_upper_tabs_left.yaml
 
-- name: API {VERSION}
-  path: /api_docs/python/tf
+- name: API
+  path: /api
   menu:
-  - include: /versions/_menu_toc.yaml
+  - include: /api_docs/_menu_toc.yaml
   lower_tabs:
     other:
     - name: Python
+      skip_translation: true
       contents:
-      - title: Python {VERSION}
-      - include: {VERSION_ROOT}/api_docs/python/_toc.yaml
+      - title: Python r1.11
+      - include: /versions/r1.11/api_docs/python/_toc.yaml
       - title: All Symbols
-        path: {VERSION_ROOT}/api_docs/python/
+        path: /versions/r1.11/api_docs/python/
       - title: Guides
-      - include: {VERSION_ROOT}/api_guides/python/_toc.yaml
+      - include: /versions/r1.11/api_guides/python/_toc.yaml
 
     - name: JavaScript
       contents:
@@ -22,38 +23,31 @@ upper_tabs:
         path: https://js.tensorflow.org/api/latest/
 
     - name: C++
+      skip_translation: true
       contents:
       - title: C++
-        path: {VERSION_ROOT}/api_docs/cc/
-      - include: {VERSION_ROOT}/api_docs/cc/_doxygen.yaml
+        path: /versions/r1.11/api_docs/cc/
+      - include: /versions/r1.11/api_docs/cc/_doxygen.yaml
       - title: Guides
         path: /api_guides/cc/guide
     - name: Java
+      skip_translation: true
       contents:
       - title: Java
-        path: {VERSION_ROOT}/api_docs/java/reference/org/tensorflow/package-summary.html
-      - include: {VERSION_ROOT}/api_docs/java/reference/_toc.yaml
-      
+        path: /versions/r1.11/api_docs/java/reference/org/tensorflow/package-summary.html
+      - include: /versions/r1.11/api_docs/java/reference/_toc.yaml
+
     - name: Serving
       contents:
       - title: Serving
-        path: /api_docs/serving/
-      - include: /api_docs/serving/_doxygen.yaml
+        path: /tfx/serving/api_docs/cc/
+      - include: /tfx/serving/api_docs/cc/_doxygen.yaml
 
-    - name: Swift
-      contents:
-      - title: Swift
-        path: /api_docs/swift/
-        status: experimental
-      - title: View on Github
-        path: https://github.com/tensorflow/swift
-        status: external
-      - include: /api_docs/swift/_toc.yaml
-      
     - name: More…
       contents:
       - title: Overview
-        path: {VERSION_ROOT}/api_docs/
-      - include: {VERSION_ROOT}/api_docs/_more_toc.yaml
+        path: /versions/r1.11/api_docs/
+      - include: /versions/r1.11/api_docs/_more_toc.yaml
 
-- include: /ecosystem/_upper_tabs_ecosystem.yaml
+- include: /resources/_upper_tabs_resources.yaml
+- include: /_upper_tabs_right.yaml

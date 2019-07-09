@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/queue_runner_impl.py).
+Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/queue_runner_impl.py).
 
 See the guides: [Exporting and Importing a MetaGraph > What's in a MetaGraph](../../../../api_guides/python/meta_graph#What_s_in_a_MetaGraph), [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_), [Threading and Queues > Manual Thread Management](../../../../api_guides/python/threading_and_queues#Manual_Thread_Management), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
 
@@ -43,6 +40,62 @@ The `QueueRunner`, combined with the `Coordinator`, helps handle these issues.
 #### Eager Compatibility
 QueueRunners are not compatible with eager execution. Instead, please
 use <a href="../../tf/data"><code>tf.data</code></a> to get data into your model.
+
+
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    queue=None,
+    enqueue_ops=None,
+    close_op=None,
+    cancel_op=None,
+    queue_closed_exception_types=None,
+    queue_runner_def=None,
+    import_scope=None
+)
+```
+
+Create a QueueRunner. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+To construct input pipelines, use the <a href="../../tf/data"><code>tf.data</code></a> module.
+
+On construction the `QueueRunner` adds an op to close the queue.  That op
+will be run if the enqueue ops raise exceptions.
+
+When you later call the `create_threads()` method, the `QueueRunner` will
+create one thread for each op in `enqueue_ops`.  Each thread will run its
+enqueue op in parallel with the other threads.  The enqueue ops do not have
+to all be the same op, but it is expected that they all enqueue tensors in
+`queue`.
+
+#### Args:
+
+* <b>`queue`</b>: A `Queue`.
+* <b>`enqueue_ops`</b>: List of enqueue ops to run in threads later.
+* <b>`close_op`</b>: Op to close the queue. Pending enqueue ops are preserved.
+* <b>`cancel_op`</b>: Op to close the queue and cancel pending enqueue ops.
+* <b>`queue_closed_exception_types`</b>: Optional tuple of Exception types that
+    indicate that the queue has been closed when raised during an enqueue
+    operation.  Defaults to `(tf.errors.OutOfRangeError,)`.  Another common
+    case includes `(tf.errors.OutOfRangeError, tf.errors.CancelledError)`,
+    when some of the enqueue ops may dequeue from other Queues.
+* <b>`queue_runner_def`</b>: Optional `QueueRunnerDef` protocol buffer. If specified,
+    recreates the QueueRunner from its contents. `queue_runner_def` and the
+    other arguments are mutually exclusive.
+* <b>`import_scope`</b>: Optional `string`. Name scope to add. Only used when
+    initializing from protocol buffer.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If both `queue_runner_def` and `queue` are both specified.
+* <b>`ValueError`</b>: If `queue` or `enqueue_ops` are not provided when not
+    restoring from `queue_runner_def`.
+* <b>`RuntimeError`</b>: If eager execution is enabled.
 
 
 
@@ -93,56 +146,6 @@ The string name of the underlying Queue.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    queue=None,
-    enqueue_ops=None,
-    close_op=None,
-    cancel_op=None,
-    queue_closed_exception_types=None,
-    queue_runner_def=None,
-    import_scope=None
-)
-```
-
-Create a QueueRunner.
-
-On construction the `QueueRunner` adds an op to close the queue.  That op
-will be run if the enqueue ops raise exceptions.
-
-When you later call the `create_threads()` method, the `QueueRunner` will
-create one thread for each op in `enqueue_ops`.  Each thread will run its
-enqueue op in parallel with the other threads.  The enqueue ops do not have
-to all be the same op, but it is expected that they all enqueue tensors in
-`queue`.
-
-#### Args:
-
-* <b>`queue`</b>: A `Queue`.
-* <b>`enqueue_ops`</b>: List of enqueue ops to run in threads later.
-* <b>`close_op`</b>: Op to close the queue. Pending enqueue ops are preserved.
-* <b>`cancel_op`</b>: Op to close the queue and cancel pending enqueue ops.
-* <b>`queue_closed_exception_types`</b>: Optional tuple of Exception types that
-    indicate that the queue has been closed when raised during an enqueue
-    operation.  Defaults to `(tf.errors.OutOfRangeError,)`.  Another common
-    case includes `(tf.errors.OutOfRangeError, tf.errors.CancelledError)`,
-    when some of the enqueue ops may dequeue from other Queues.
-* <b>`queue_runner_def`</b>: Optional `QueueRunnerDef` protocol buffer. If specified,
-    recreates the QueueRunner from its contents. `queue_runner_def` and the
-    other arguments are mutually exclusive.
-* <b>`import_scope`</b>: Optional `string`. Name scope to add. Only used when
-    initializing from protocol buffer.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: If both `queue_runner_def` and `queue` are both specified.
-* <b>`ValueError`</b>: If `queue` or `enqueue_ops` are not provided when not
-    restoring from `queue_runner_def`.
-* <b>`RuntimeError`</b>: If eager execution is enabled.
 
 <h3 id="create_threads"><code>create_threads</code></h3>
 

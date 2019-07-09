@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/python/training/device_setter.py).
+Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/device_setter.py).
 
 Returns a random PS task for op placement.
 
@@ -27,9 +24,7 @@ lead to contention issues.
 This strategy uses a hash function on the name of each op for deterministic
 placement.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -39,6 +34,10 @@ __init__(
 ```
 
 Creates a new `RandomStrategy`.
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

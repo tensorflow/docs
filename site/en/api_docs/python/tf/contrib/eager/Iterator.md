@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,44 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/eager/python/datasets.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/datasets.py).
+Defined in [`tensorflow/contrib/eager/python/datasets.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/datasets.py).
 
 An iterator producing tf.Tensor objects from a tf.data.Dataset.
 
 NOTE: Unlike the iterator created by the
 <a href="../../../tf/data/Dataset#make_one_shot_iterator"><code>tf.data.Dataset.make_one_shot_iterator</code></a> method, this class enables
 additional experimental functionality, such as prefetching to the GPU.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(dataset)
+```
+
+Creates a new iterator over the given dataset.
+
+For example:
+
+```python
+dataset = tf.data.Dataset.range(4)
+for x in Iterator(dataset):
+  print(x)
+```
+
+Tensors produced will be placed on the device on which this iterator object
+was created.
+
+#### Args:
+
+* <b>`dataset`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object.
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: If `dataset` is an unsupported type.
+* <b>`RuntimeError`</b>: When invoked without eager execution enabled.
+
+
 
 ## Properties
 
@@ -56,35 +84,6 @@ of an element of this dataset.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(dataset)
-```
-
-Creates a new iterator over the given dataset.
-
-For example:
-
-```python
-dataset = tf.data.Dataset.range(4)
-for x in Iterator(dataset):
-  print(x)
-```
-
-Tensors produced will be placed on the device on which this iterator object
-was created.
-
-#### Args:
-
-* <b>`dataset`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: If `dataset` is an unsupported type.
-* <b>`RuntimeError`</b>: When invoked without eager execution enabled.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 

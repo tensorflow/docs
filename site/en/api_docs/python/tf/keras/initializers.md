@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,51 +7,51 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/initializers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/initializers/__init__.py).
+Defined in [`tensorflow/keras/initializers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/initializers/__init__.py).
 
-Keras initializer classes (soon to be replaced with core TF initializers).
+Keras initializer serialization / deserialization.
 
 ## Classes
 
-[`class Constant`](../../tf/constant_initializer): Initializer that generates tensors with constant values.
+[`class Constant`](../../tf/keras/initializers/Constant): Initializer that generates tensors with constant values.
 
-[`class Identity`](../../tf/initializers/identity): Initializer that generates the identity matrix.
+[`class Identity`](../../tf/keras/initializers/Identity): Initializer that generates the identity matrix.
 
 [`class Initializer`](../../tf/keras/initializers/Initializer): Initializer base class: all initializers inherit from this class.
 
-[`class Ones`](../../tf/ones_initializer): Initializer that generates tensors initialized to 1.
+[`class Ones`](../../tf/keras/initializers/Ones): Initializer that generates tensors initialized to 1.
 
-[`class Orthogonal`](../../tf/orthogonal_initializer): Initializer that generates an orthogonal matrix.
+[`class Orthogonal`](../../tf/keras/initializers/Orthogonal): Initializer that generates an orthogonal matrix.
 
-[`class RandomNormal`](../../tf/random_normal_initializer): Initializer that generates tensors with a normal distribution.
+[`class RandomNormal`](../../tf/keras/initializers/RandomNormal): Initializer that generates tensors with a normal distribution.
 
-[`class RandomUniform`](../../tf/random_uniform_initializer): Initializer that generates tensors with a uniform distribution.
+[`class RandomUniform`](../../tf/keras/initializers/RandomUniform): Initializer that generates tensors with a uniform distribution.
 
-[`class TruncatedNormal`](../../tf/truncated_normal_initializer): Initializer that generates a truncated normal distribution.
+[`class TruncatedNormal`](../../tf/keras/initializers/TruncatedNormal): Initializer that generates a truncated normal distribution.
 
-[`class VarianceScaling`](../../tf/variance_scaling_initializer): Initializer capable of adapting its scale to the shape of weights tensors.
+[`class VarianceScaling`](../../tf/keras/initializers/VarianceScaling): Initializer capable of adapting its scale to the shape of weights tensors.
 
-[`class Zeros`](../../tf/zeros_initializer): Initializer that generates tensors initialized to 0.
+[`class Zeros`](../../tf/keras/initializers/Zeros): Initializer that generates tensors initialized to 0.
 
-[`class constant`](../../tf/constant_initializer): Initializer that generates tensors with constant values.
+[`class constant`](../../tf/keras/initializers/Constant): Initializer that generates tensors with constant values.
 
-[`class identity`](../../tf/initializers/identity): Initializer that generates the identity matrix.
+[`class identity`](../../tf/keras/initializers/Identity): Initializer that generates the identity matrix.
 
-[`class normal`](../../tf/random_normal_initializer): Initializer that generates tensors with a normal distribution.
+[`class normal`](../../tf/keras/initializers/RandomNormal): Initializer that generates tensors with a normal distribution.
 
-[`class ones`](../../tf/ones_initializer): Initializer that generates tensors initialized to 1.
+[`class ones`](../../tf/keras/initializers/Ones): Initializer that generates tensors initialized to 1.
 
-[`class orthogonal`](../../tf/orthogonal_initializer): Initializer that generates an orthogonal matrix.
+[`class orthogonal`](../../tf/keras/initializers/Orthogonal): Initializer that generates an orthogonal matrix.
 
-[`class random_normal`](../../tf/random_normal_initializer): Initializer that generates tensors with a normal distribution.
+[`class random_normal`](../../tf/keras/initializers/RandomNormal): Initializer that generates tensors with a normal distribution.
 
-[`class random_uniform`](../../tf/random_uniform_initializer): Initializer that generates tensors with a uniform distribution.
+[`class random_uniform`](../../tf/keras/initializers/RandomUniform): Initializer that generates tensors with a uniform distribution.
 
-[`class truncated_normal`](../../tf/truncated_normal_initializer): Initializer that generates a truncated normal distribution.
+[`class truncated_normal`](../../tf/keras/initializers/TruncatedNormal): Initializer that generates a truncated normal distribution.
 
-[`class uniform`](../../tf/random_uniform_initializer): Initializer that generates tensors with a uniform distribution.
+[`class uniform`](../../tf/keras/initializers/RandomUniform): Initializer that generates tensors with a uniform distribution.
 
-[`class zeros`](../../tf/zeros_initializer): Initializer that generates tensors initialized to 0.
+[`class zeros`](../../tf/keras/initializers/Zeros): Initializer that generates tensors initialized to 0.
 
 ## Functions
 
@@ -62,9 +59,9 @@ Keras initializer classes (soon to be replaced with core TF initializers).
 
 [`get(...)`](../../tf/keras/initializers/get)
 
-[`glorot_normal(...)`](../../tf/keras/initializers/glorot_normal): Glorot normal initializer, also called Xavier normal initializer.
+[`glorot_normal(...)`](../../tf/glorot_normal_initializer): The Glorot normal initializer, also called Xavier normal initializer.
 
-[`glorot_uniform(...)`](../../tf/keras/initializers/glorot_uniform): Glorot uniform initializer, also called Xavier uniform initializer.
+[`glorot_uniform(...)`](../../tf/glorot_uniform_initializer): The Glorot uniform initializer, also called Xavier uniform initializer.
 
 [`he_normal(...)`](../../tf/keras/initializers/he_normal): He normal initializer.
 

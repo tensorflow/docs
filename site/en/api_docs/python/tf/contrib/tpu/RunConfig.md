@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,40 @@ Inherits From: [`RunConfig`](../../../tf/estimator/RunConfig)
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu_config.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu_config.py).
 
 RunConfig with TPU support.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    tpu_config=None,
+    evaluation_master=None,
+    master=None,
+    cluster=None,
+    **kwargs
+)
+```
+
+Constructs a RunConfig.
+
+#### Args:
+
+* <b>`tpu_config`</b>: the TPUConfig that specifies TPU-specific configuration.
+* <b>`evaluation_master`</b>: a string. The address of the master to use for eval.
+    Defaults to master if not set.
+* <b>`master`</b>: a string. The address of the master to use for training.
+* <b>`cluster`</b>: a ClusterResolver
+* <b>`**kwargs`</b>: keyword config parameters.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if cluster is not None and the provided session_config has a
+    cluster_def already.
+
+
 
 ## Properties
 
@@ -35,6 +63,11 @@ Returns the device_fn.
 If device_fn is not `None`, it overrides the default
 device function used in `Estimator`.
 Otherwise the default one is used.
+
+<h3 id="eval_distribute"><code>eval_distribute</code></h3>
+
+Optional <a href="../../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for evaluation.
+    
 
 <h3 id="evaluation_master"><code>evaluation_master</code></h3>
 
@@ -112,6 +145,10 @@ An integer id.
 
 
 
+<h3 id="protocol"><code>protocol</code></h3>
+
+Returns the optional protocol value.
+
 <h3 id="save_checkpoints_secs"><code>save_checkpoints_secs</code></h3>
 
 
@@ -150,41 +187,12 @@ Returns the platform defined (in TF_CONFIG) service dict.
 
 <h3 id="train_distribute"><code>train_distribute</code></h3>
 
-Returns the optional <a href="../../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> object.
+Optional <a href="../../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for training.
     
 
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    tpu_config=None,
-    evaluation_master=None,
-    master=None,
-    cluster=None,
-    **kwargs
-)
-```
-
-Constructs a RunConfig.
-
-#### Args:
-
-* <b>`tpu_config`</b>: the TPUConfig that specifies TPU-specific configuration.
-* <b>`evaluation_master`</b>: a string. The address of the master to use for eval.
-    Defaults to master if not set.
-* <b>`master`</b>: a string. The address of the master to use for training.
-* <b>`cluster`</b>: a ClusterResolver
-* <b>`**kwargs`</b>: keyword config parameters.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: if cluster is not None and the provided session_config has a
-    cluster_def already.
 
 <h3 id="replace"><code>replace</code></h3>
 

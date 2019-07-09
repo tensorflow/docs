@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ tf.keras.datasets.mnist.load_data(path='mnist.npz')
 
 
 
-Defined in [`tensorflow/python/keras/datasets/mnist.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/datasets/mnist.py).
+Defined in [`tensorflow/python/keras/datasets/mnist.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/datasets/mnist.py).
 
 Loads the MNIST dataset.
 
@@ -26,4 +23,11 @@ Loads the MNIST dataset.
 
 #### Returns:
 
-Tuple of Numpy arrays: `(x_train, y_train), (x_test, y_test)`.
+    Tuple of Numpy arrays: `(x_train, y_train), (x_test, y_test)`.
+
+License:
+    Yann LeCun and Corinna Cortes hold the copyright of MNIST dataset,
+    which is a derivative work from original NIST datasets.
+    MNIST dataset is made available under the terms of the
+    [Creative Commons Attribution-Share Alike 3.0 license.](
+    https://creativecommons.org/licenses/by-sa/3.0/)

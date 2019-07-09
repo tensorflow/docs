@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.contrib.gan.losses.wargs.cycle_consistency_loss(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/losses/python/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/losses/python/losses_impl.py).
+Defined in [`tensorflow/contrib/gan/python/losses/python/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/losses/python/losses_impl.py).
 
 Defines the cycle consistency loss.
 
@@ -38,6 +35,11 @@ reconstructed data, namely
 * loss_y2y = |data_y - F(G(data_y))| (L1-norm)
 * loss = (loss_x2x + loss_y2y) / 2
 where `loss` is the final result.
+
+For the L1-norm, we follow the original implementation:
+https://github.com/junyanz/CycleGAN/blob/master/models/cycle_gan_model.lua
+we use L1-norm of pixel-wise error normalized by data size such that
+`cycle_loss_weight` can be specified independent of image size.
 
 See https://arxiv.org/abs/1703.10593 for more details.
 

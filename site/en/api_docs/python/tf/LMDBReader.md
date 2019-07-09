@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`ReaderBase`](../tf/ReaderBase)
 
 
 
-Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/io_ops.py).
+Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/io_ops.py).
 
 A Reader that outputs the records from a LMDB file.
 
@@ -25,6 +22,24 @@ See ReaderBase for supported methods.
 #### Eager Compatibility
 Readers are not compatible with eager execution. Instead, please
 use <a href="../tf/data"><code>tf.data</code></a> to get data into your model.
+
+
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    name=None,
+    options=None
+)
+```
+
+Create a LMDBReader.
+
+#### Args:
+
+* <b>`name`</b>: A name for the operation (optional).
+* <b>`options`</b>: A LMDBRecordOptions object (optional).
 
 
 
@@ -41,22 +56,6 @@ Whether the Reader implementation can serialize its state.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    name=None,
-    options=None
-)
-```
-
-Create a LMDBReader.
-
-#### Args:
-
-* <b>`name`</b>: A name for the operation (optional).
-* <b>`options`</b>: A LMDBRecordOptions object (optional).
 
 <h3 id="num_records_produced"><code>num_records_produced</code></h3>
 

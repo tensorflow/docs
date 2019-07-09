@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/lib/debug_data.py).
+Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/lib/debug_data.py).
 
 See the guide: [TensorFlow Debugger > Classes for debug-dump data and directories](../../../api_guides/python/tfdbg#Classes_for_debug_dump_data_and_directories)
 
@@ -27,6 +24,40 @@ Contains metadata about the dumped tensor, including `timestamp`,
 This type does not hold the generally space-expensive tensor value (numpy
 array). Instead, it points to the file from which the tensor value can be
 loaded (with the `get_tensor` method) if needed.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    dump_root,
+    debug_dump_rel_path
+)
+```
+
+`DebugTensorDatum` constructor.
+
+#### Args:
+
+* <b>`dump_root`</b>: (`str`) Debug dump root directory. This path should not include
+    the path component that represents the device name (see also below).
+* <b>`debug_dump_rel_path`</b>: (`str`) Path to a debug dump file, relative to the
+    `dump_root`. The first item of this relative path is assumed to be
+    a path representing the name of the device that the Tensor belongs to.
+    See `device_path_to_device_name` for more details on the device path.
+    For example, suppose the debug dump root
+    directory is `/tmp/tfdbg_1` and the dump file is at
+    `/tmp/tfdbg_1/<device_path>/>ns_1/node_a_0_DebugIdentity_123456789`,
+    then the value of the debug_dump_rel_path should be
+    `<device_path>/ns_1/node_a_0_DebugIdenity_1234456789`.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If the base file name of the dump file does not conform to
+    the dump file naming pattern:
+    `node_name`_`output_slot`_`debug_op`_`timestamp`
+
+
 
 ## Properties
 
@@ -116,38 +147,6 @@ Watch key identities a debug watch on a tensor.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    dump_root,
-    debug_dump_rel_path
-)
-```
-
-`DebugTensorDatum` constructor.
-
-#### Args:
-
-* <b>`dump_root`</b>: (`str`) Debug dump root directory. This path should not include
-    the path component that represents the device name (see also below).
-* <b>`debug_dump_rel_path`</b>: (`str`) Path to a debug dump file, relative to the
-    `dump_root`. The first item of this relative path is assumed to be
-    a path representing the name of the device that the Tensor belongs to.
-    See `device_path_to_device_name` for more details on the device path.
-    For example, suppose the debug dump root
-    directory is `/tmp/tfdbg_1` and the dump file is at
-    `/tmp/tfdbg_1/<device_path>/>ns_1/node_a_0_DebugIdentity_123456789`,
-    then the value of the debug_dump_rel_path should be
-    `<device_path>/ns_1/node_a_0_DebugIdenity_1234456789`.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: If the base file name of the dump file does not conform to
-    the dump file naming pattern:
-    `node_name`_`output_slot`_`debug_op`_`timestamp`
 
 <h3 id="get_tensor"><code>get_tensor</code></h3>
 

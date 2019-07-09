@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,13 +18,15 @@ tf.contrib.framework.model_variable(
     device=None,
     partitioner=None,
     custom_getter=None,
-    use_resource=None
+    use_resource=None,
+    synchronization=tf.VariableSynchronization.AUTO,
+    aggregation=tf.VariableAggregation.NONE
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/variables.py).
 
 See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
 
@@ -58,6 +57,15 @@ Gets an existing model variable with these parameters or creates a new one.
 * <b>`custom_getter`</b>: Callable that allows overwriting the internal
     get_variable method and has to have the same signature.
 * <b>`use_resource`</b>: If `True` use a ResourceVariable instead of a Variable.
+* <b>`synchronization`</b>: Indicates when a distributed a variable will be
+    aggregated. Accepted values are constants defined in the class
+    <a href="../../../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to
+    `AUTO` and the current `DistributionStrategy` chooses
+    when to synchronize. If `synchronization` is set to `ON_READ`,
+    `trainable` must not be set to `True`.
+* <b>`aggregation`</b>: Indicates how a distributed variable will be aggregated.
+    Accepted values are constants defined in the class
+    <a href="../../../tf/VariableAggregation"><code>tf.VariableAggregation</code></a>.
 
 
 #### Returns:

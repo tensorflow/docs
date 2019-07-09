@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/namedtuples.py).
+Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/namedtuples.py).
 
 A GANModel contains all the pieces needed for GAN training.
 
@@ -38,6 +35,29 @@ apart from the generated samples.
 * <b>`discriminator_variables`</b>: A list of all discriminator variables.
 * <b>`discriminator_scope`</b>: Variable scope all discriminator variables live in.
 * <b>`discriminator_fn`</b>: The discriminator function.
+
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    generator_inputs,
+    generated_data,
+    generator_variables,
+    generator_scope,
+    generator_fn,
+    real_data,
+    discriminator_real_outputs,
+    discriminator_gen_outputs,
+    discriminator_variables,
+    discriminator_scope,
+    discriminator_fn
+)
+```
+
+Create new instance of GANModel(generator_inputs, generated_data, generator_variables, generator_scope, generator_fn, real_data, discriminator_real_outputs, discriminator_gen_outputs, discriminator_variables, discriminator_scope, discriminator_fn)
+
+
 
 ## Properties
 
@@ -84,31 +104,6 @@ Alias for field number 2
 <h3 id="real_data"><code>real_data</code></h3>
 
 Alias for field number 5
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-__new__(
-    _cls,
-    generator_inputs,
-    generated_data,
-    generator_variables,
-    generator_scope,
-    generator_fn,
-    real_data,
-    discriminator_real_outputs,
-    discriminator_gen_outputs,
-    discriminator_variables,
-    discriminator_scope,
-    discriminator_fn
-)
-```
-
-Create new instance of GANModel(generator_inputs, generated_data, generator_variables, generator_scope, generator_fn, real_data, discriminator_real_outputs, discriminator_gen_outputs, discriminator_variables, discriminator_scope, discriminator_fn)
 
 
 

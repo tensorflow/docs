@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,14 +15,14 @@ tf.cast(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Tensor Transformations > Casting](../../../api_guides/python/array_ops#Casting)
 
 Casts a tensor to a new type.
 
 The operation casts `x` (in case of `Tensor`) or `x.values`
-(in case of `SparseTensor`) to `dtype`.
+(in case of `SparseTensor` or `IndexedSlices`) to `dtype`.
 
 For example:
 
@@ -35,26 +32,28 @@ tf.cast(x, tf.int32)  # [1, 2], dtype=tf.int32
 ```
 
 The operation supports data types (for `x` and `dtype`) of
-`uint8`, `int8`, `uint16`, `int16`, `int32`, `int64`, `float16`, `float32`,
-`float64`, `complex64`, `complex128`, `bfloat16`. In case of casting from
-complex types (`complex64`, `complex128`) to real types, only the real part
-of `x` is returned. In case of casting from real types to complex types
-(`complex64`, `complex128`), the imaginary part of the returned value is set
-to `0`. The handling of complex types here matches the behavior of numpy.
+`uint8`, `uint16`, `uint32`, `uint64`, `int8`, `int16`, `int32`, `int64`,
+`float16`, `float32`, `float64`, `complex64`, `complex128`, `bfloat16`.
+In case of casting from complex types (`complex64`, `complex128`) to real
+types, only the real part of `x` is returned. In case of casting from real
+types to complex types (`complex64`, `complex128`), the imaginary part of the
+returned value is set to `0`. The handling of complex types here matches the
+behavior of numpy.
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` or `SparseTensor` of numeric type. It could be
-    `uint8`, `int8`, `uint16`, `int16`, `int32`, `int64`,
-    `float16`, `float32`, `float64`, `complex64`, `complex128`, `bfloat16`.
-* <b>`dtype`</b>: The destination type. The list of supported dtypes is the same
-    as `x`.
+* <b>`x`</b>: A `Tensor` or `SparseTensor` or `IndexedSlices` of numeric type. It could
+    be `uint8`, `uint16`, `uint32`, `uint64`, `int8`, `int16`, `int32`,
+    `int64`, `float16`, `float32`, `float64`, `complex64`, `complex128`,
+    `bfloat16`.
+* <b>`dtype`</b>: The destination type. The list of supported dtypes is the same as
+    `x`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-A `Tensor` or `SparseTensor` with same shape as `x` and
+A `Tensor` or `SparseTensor` or `IndexedSlices` with same shape as `x` and
   same type as `dtype`.
 
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,11 +11,35 @@ Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
 
 Initializable lookup table interface.
 
 An initializable lookup tables persist across different steps.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    table_ref,
+    default_value,
+    initializer
+)
+```
+
+Construct a table object from a table reference.
+
+If requires a table initializer object (subclass of `TableInitializerBase`).
+It provides the table key and value types, as well as the op to initialize
+the table. The caller is responsible to execute the initialization op.
+
+#### Args:
+
+* <b>`table_ref`</b>: The table reference, i.e. the output of the lookup table ops.
+* <b>`default_value`</b>: The value to use if a key is missing in the table.
+* <b>`initializer`</b>: The table initializer to use.
+
+
 
 ## Properties
 
@@ -49,28 +70,6 @@ The table value dtype.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    table_ref,
-    default_value,
-    initializer
-)
-```
-
-Construct a table object from a table reference.
-
-If requires a table initializer object (subclass of `TableInitializerBase`).
-It provides the table key and value types, as well as the op to initialize
-the table. The caller is responsible to execute the initialization op.
-
-#### Args:
-
-* <b>`table_ref`</b>: The table reference, i.e. the output of the lookup table ops.
-* <b>`default_value`</b>: The value to use if a key is missing in the table.
-* <b>`initializer`</b>: The table initializer to use.
 
 <h3 id="lookup"><code>lookup</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/server_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/server_lib.py).
+Defined in [`tensorflow/python/training/server_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/server_lib.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -26,6 +23,53 @@ can participate in distributed training. A server belongs to a
 cluster (specified by a <a href="../../tf/train/ClusterSpec"><code>tf.train.ClusterSpec</code></a>), and
 corresponds to a particular task in a named job. The server can
 communicate with any other server in the same cluster.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    server_or_cluster_def,
+    job_name=None,
+    task_index=None,
+    protocol=None,
+    config=None,
+    start=True
+)
+```
+
+Creates a new server with the given definition.
+
+The `job_name`, `task_index`, and `protocol` arguments are optional, and
+override any information provided in `server_or_cluster_def`.
+
+#### Args:
+
+* <b>`server_or_cluster_def`</b>: A <a href="../../tf/train/ServerDef"><code>tf.train.ServerDef</code></a> or
+    <a href="../../tf/train/ClusterDef"><code>tf.train.ClusterDef</code></a> protocol buffer, or a
+    <a href="../../tf/train/ClusterSpec"><code>tf.train.ClusterSpec</code></a> object, describing the server to be
+    created and/or the cluster of which it is a member.
+* <b>`job_name`</b>: (Optional.) Specifies the name of the job of which the server
+    is a member. Defaults to the value in `server_or_cluster_def`, if
+    specified.
+* <b>`task_index`</b>: (Optional.) Specifies the task index of the server in its
+    job. Defaults to the value in `server_or_cluster_def`, if specified.
+    Otherwise defaults to 0 if the server's job has only one task.
+* <b>`protocol`</b>: (Optional.) Specifies the protocol to be used by the server.
+    Acceptable values include `"grpc", "grpc+verbs"`. Defaults to the
+    value in `server_or_cluster_def`, if specified. Otherwise defaults to
+    `"grpc"`.
+* <b>`config`</b>: (Options.) A <a href="../../tf/ConfigProto"><code>tf.ConfigProto</code></a> that specifies default
+    configuration options for all sessions that run on this server.
+* <b>`start`</b>: (Optional.) Boolean, indicating whether to start the server
+    after creating it. Defaults to `True`.
+
+
+#### Raises:
+
+* <b>`tf.errors.OpError`</b>: Or one of its subclasses if an error occurs while
+    creating the TensorFlow server.
+
+
 
 ## Properties
 
@@ -59,50 +103,6 @@ A string containing a session target for this server.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    server_or_cluster_def,
-    job_name=None,
-    task_index=None,
-    protocol=None,
-    config=None,
-    start=True
-)
-```
-
-Creates a new server with the given definition.
-
-The `job_name`, `task_index`, and `protocol` arguments are optional, and
-override any information provided in `server_or_cluster_def`.
-
-#### Args:
-
-* <b>`server_or_cluster_def`</b>: A <a href="../../tf/train/ServerDef"><code>tf.train.ServerDef</code></a> or
-    <a href="../../tf/train/ClusterDef"><code>tf.train.ClusterDef</code></a> protocol buffer, or a
-    <a href="../../tf/train/ClusterSpec"><code>tf.train.ClusterSpec</code></a> object, describing the server to be
-    created and/or the cluster of which it is a member.
-* <b>`job_name`</b>: (Optional.) Specifies the name of the job of which the server
-    is a member. Defaults to the value in `server_or_cluster_def`, if
-    specified.
-* <b>`task_index`</b>: (Optional.) Specifies the task index of the server in its
-    job. Defaults to the value in `server_or_cluster_def`, if specified.
-    Otherwise defaults to 0 if the server's job has only one task.
-* <b>`protocol`</b>: (Optional.) Specifies the protocol to be used by the server.
-    Acceptable values include `"grpc"`. Defaults to the value in
-    `server_or_cluster_def`, if specified. Otherwise defaults to `"grpc"`.
-* <b>`config`</b>: (Options.) A <a href="../../tf/ConfigProto"><code>tf.ConfigProto</code></a> that specifies default
-    configuration options for all sessions that run on this server.
-* <b>`start`</b>: (Optional.) Boolean, indicating whether to start the server
-    after creating it. Defaults to `True`.
-
-
-#### Raises:
-
-* <b>`tf.errors.OpError`</b>: Or one of its subclasses if an error occurs while
-    creating the TensorFlow server.
 
 <h3 id="create_local_server"><code>create_local_server</code></h3>
 

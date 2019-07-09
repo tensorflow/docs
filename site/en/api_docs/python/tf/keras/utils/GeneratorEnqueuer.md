@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`SequenceEnqueuer`](../../../tf/keras/utils/SequenceEnqueuer)
 
 
 
-Defined in [`tensorflow/python/keras/utils/data_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/utils/data_utils.py).
+Defined in [`tensorflow/python/keras/utils/data_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/data_utils.py).
 
 Builds a queue out of a data generator.
 
@@ -31,9 +28,7 @@ Used in `fit_generator`, `evaluate_generator`, `predict_generator`.
 * <b>`random_seed`</b>: Initial seed for workers,
         will be incremented by one for each worker.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -45,6 +40,10 @@ __init__(
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="get"><code>get</code></h3>
 

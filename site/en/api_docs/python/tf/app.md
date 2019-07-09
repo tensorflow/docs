@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,13 +7,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/app/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/app/__init__.py).
+Defined in [`tensorflow/app/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/app/__init__.py).
 
 Generic entry point script.
 
 ## Modules
 
-[`flags`](../tf/flags) module: Import router for absl.flags. See https://github.com/abseil/abseil-py.
+[`flags`](../tf/app/flags) module: Import router for absl.flags. See https://github.com/abseil/abseil-py.
 
 ## Functions
 

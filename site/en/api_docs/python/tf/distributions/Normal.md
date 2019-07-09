@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,9 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/normal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/normal.py).
-
-See the guide: [Statistical Distributions (contrib) > Univariate (scalar) distributions](../../../../api_guides/python/contrib.distributions#Univariate_scalar_distributions)
+Defined in [`tensorflow/python/ops/distributions/normal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/normal.py).
 
 The Normal distribution with location `loc` and `scale` parameters.
 
@@ -80,6 +75,45 @@ dist = tf.distributions.Normal(loc=1., scale=[11, 22.])
 # returning a length 2 tensor.
 dist.prob(3.0)
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    loc,
+    scale,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='Normal'
+)
+```
+
+Construct Normal distributions with mean and stddev `loc` and `scale`.
+
+The parameters `loc` and `scale` must be shaped in a way that supports
+broadcasting (e.g. `loc + scale` is a valid operation).
+
+#### Args:
+
+* <b>`loc`</b>: Floating point tensor; the means of the distribution(s).
+* <b>`scale`</b>: Floating point tensor; the stddevs of the distribution(s).
+    Must contain only positive values.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`,
+    statistics (e.g., mean, mode, variance) use the value "`NaN`" to
+    indicate the result is undefined. When `False`, an exception is raised
+    if one or more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: if `loc` and `scale` have different `dtype`.
+
+
 
 ## Properties
 
@@ -161,43 +195,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    loc,
-    scale,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='Normal'
-)
-```
-
-Construct Normal distributions with mean and stddev `loc` and `scale`.
-
-The parameters `loc` and `scale` must be shaped in a way that supports
-broadcasting (e.g. `loc + scale` is a valid operation).
-
-#### Args:
-
-* <b>`loc`</b>: Floating point tensor; the means of the distribution(s).
-* <b>`scale`</b>: Floating point tensor; the stddevs of the distribution(s).
-    Must contain only positive values.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`,
-    statistics (e.g., mean, mode, variance) use the value "`NaN`" to
-    indicate the result is undefined. When `False`, an exception is raised
-    if one or more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: if `loc` and `scale` have different `dtype`.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

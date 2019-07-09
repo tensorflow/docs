@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`SessionRunHook`](../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/basic_session_run_hooks.py).
+Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/basic_session_run_hooks.py).
 
 See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
 
@@ -25,9 +22,7 @@ is used to gradually start workers in distributed settings. One example usage
 would be setting `wait_until_step=int(K*log(task_id+1))` assuming that
 task_id=0 is the chief.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(wait_until_step)
@@ -38,6 +33,10 @@ Initializes a `GlobalStepWaiterHook`.
 #### Args:
 
 * <b>`wait_until_step`</b>: an `int` shows until which global step should we wait.
+
+
+
+## Methods
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 

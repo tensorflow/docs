@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`MultivariateNormalTriL`](../../../tf/contrib/distributions/Mult
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py).
 
 The multivariate normal distribution on `R^k`.
 
@@ -93,6 +90,64 @@ x = [[-0.9, 0, 0.1],
 mvn.prob(x).eval()    # shape: [2]
 
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    loc=None,
+    covariance_matrix=None,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='MultivariateNormalFullCovariance'
+)
+```
+
+Construct Multivariate Normal distribution on `R^k`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+The `batch_shape` is the broadcast shape between `loc` and
+`covariance_matrix` arguments.
+
+The `event_shape` is given by last dimension of the matrix implied by
+`covariance_matrix`. The last dimension of `loc` (if provided) must
+broadcast with this.
+
+A non-batch `covariance_matrix` matrix is a `k x k` symmetric positive
+definite matrix.  In other words it is (real) symmetric with all eigenvalues
+strictly positive.
+
+Additional leading dimensions (if any) will index batches.
+
+#### Args:
+
+* <b>`loc`</b>: Floating-point `Tensor`. If this is set to `None`, `loc` is
+    implicitly `0`. When specified, may have shape `[B1, ..., Bb, k]` where
+    `b >= 0` and `k` is the event size.
+* <b>`covariance_matrix`</b>: Floating-point, symmetric positive definite `Tensor` of
+    same `dtype` as `loc`.  The strict upper triangle of `covariance_matrix`
+    is ignored, so if `covariance_matrix` is not symmetric no error will be
+    raised (unless `validate_args is True`).  `covariance_matrix` has shape
+    `[B1, ..., Bb, k, k]` where `b >= 0` and `k` is the event size.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`,
+    statistics (e.g., mean, mode, variance) use the value "`NaN`" to
+    indicate the result is undefined. When `False`, an exception is raised
+    if one or more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if neither `loc` nor `covariance_matrix` are specified.
+
+
 
 ## Properties
 
@@ -182,58 +237,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    loc=None,
-    covariance_matrix=None,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='MultivariateNormalFullCovariance'
-)
-```
-
-Construct Multivariate Normal distribution on `R^k`.
-
-The `batch_shape` is the broadcast shape between `loc` and
-`covariance_matrix` arguments.
-
-The `event_shape` is given by last dimension of the matrix implied by
-`covariance_matrix`. The last dimension of `loc` (if provided) must
-broadcast with this.
-
-A non-batch `covariance_matrix` matrix is a `k x k` symmetric positive
-definite matrix.  In other words it is (real) symmetric with all eigenvalues
-strictly positive.
-
-Additional leading dimensions (if any) will index batches.
-
-#### Args:
-
-* <b>`loc`</b>: Floating-point `Tensor`. If this is set to `None`, `loc` is
-    implicitly `0`. When specified, may have shape `[B1, ..., Bb, k]` where
-    `b >= 0` and `k` is the event size.
-* <b>`covariance_matrix`</b>: Floating-point, symmetric positive definite `Tensor` of
-    same `dtype` as `loc`.  The strict upper triangle of `covariance_matrix`
-    is ignored, so if `covariance_matrix` is not symmetric no error will be
-    raised (unless `validate_args is True`).  `covariance_matrix` has shape
-    `[B1, ..., Bb, k, k]` where `b >= 0` and `k` is the event size.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`,
-    statistics (e.g., mean, mode, variance) use the value "`NaN`" to
-    indicate the result is undefined. When `False`, an exception is raised
-    if one or more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: if neither `loc` nor `covariance_matrix` are specified.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

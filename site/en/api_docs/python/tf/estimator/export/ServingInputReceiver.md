@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/export/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/export/export.py).
+Defined in [`tensorflow/python/estimator/export/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/export/export.py).
 
 A return type for a serving_input_receiver_fn.
 
@@ -38,6 +35,22 @@ The expected return values are:
     feature `Tensor`s *downstream* of the tf.parse_example() op.
     Defaults to None.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    features,
+    receiver_tensors,
+    receiver_tensors_alternatives=None
+)
+```
+
+
+
+
+
 ## Properties
 
 <h3 id="features"><code>features</code></h3>
@@ -51,24 +64,6 @@ Alias for field number 1
 <h3 id="receiver_tensors_alternatives"><code>receiver_tensors_alternatives</code></h3>
 
 Alias for field number 2
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-@staticmethod
-__new__(
-    cls,
-    features,
-    receiver_tensors,
-    receiver_tensors_alternatives=None
-)
-```
-
-
 
 
 

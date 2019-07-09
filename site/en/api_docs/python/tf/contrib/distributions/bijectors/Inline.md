@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/inline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/inline.py).
-
-See the guide: [Random variable transformations (contrib) > Bijectors](../../../../../../api_guides/python/contrib.distributions.bijectors#Bijectors)
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/inline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/inline.py).
 
 Bijector constructed from custom callables.
 
@@ -32,6 +27,60 @@ exp = Inline(
 ```
 
 The above example is equivalent to the `Bijector` `Exp()`.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    forward_fn=None,
+    inverse_fn=None,
+    inverse_log_det_jacobian_fn=None,
+    forward_log_det_jacobian_fn=None,
+    forward_event_shape_fn=None,
+    forward_event_shape_tensor_fn=None,
+    inverse_event_shape_fn=None,
+    inverse_event_shape_tensor_fn=None,
+    is_constant_jacobian=False,
+    validate_args=False,
+    forward_min_event_ndims=None,
+    inverse_min_event_ndims=None,
+    name='inline'
+)
+```
+
+Creates a `Bijector` from callables. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`forward_fn`</b>: Python callable implementing the forward transformation.
+* <b>`inverse_fn`</b>: Python callable implementing the inverse transformation.
+* <b>`inverse_log_det_jacobian_fn`</b>: Python callable implementing the
+    log o det o jacobian of the inverse transformation.
+* <b>`forward_log_det_jacobian_fn`</b>: Python callable implementing the
+    log o det o jacobian of the forward transformation.
+* <b>`forward_event_shape_fn`</b>: Python callable implementing non-identical
+    static event shape changes. Default: shape is assumed unchanged.
+* <b>`forward_event_shape_tensor_fn`</b>: Python callable implementing non-identical
+    event shape changes. Default: shape is assumed unchanged.
+* <b>`inverse_event_shape_fn`</b>: Python callable implementing non-identical
+    static event shape changes. Default: shape is assumed unchanged.
+* <b>`inverse_event_shape_tensor_fn`</b>: Python callable implementing non-identical
+    event shape changes. Default: shape is assumed unchanged.
+* <b>`is_constant_jacobian`</b>: Python `bool` indicating that the Jacobian is
+    constant for all input arguments.
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
+    checked for correctness.
+* <b>`forward_min_event_ndims`</b>: Python `int` indicating the minimal
+    dimensionality this bijector acts on.
+* <b>`inverse_min_event_ndims`</b>: Python `int` indicating the minimal
+    dimensionality this bijector acts on.
+* <b>`name`</b>: Python `str`, name given to ops managed by this object.
+
+
 
 ## Properties
 
@@ -73,54 +122,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    forward_fn=None,
-    inverse_fn=None,
-    inverse_log_det_jacobian_fn=None,
-    forward_log_det_jacobian_fn=None,
-    forward_event_shape_fn=None,
-    forward_event_shape_tensor_fn=None,
-    inverse_event_shape_fn=None,
-    inverse_event_shape_tensor_fn=None,
-    is_constant_jacobian=False,
-    validate_args=False,
-    forward_min_event_ndims=None,
-    inverse_min_event_ndims=None,
-    name='inline'
-)
-```
-
-Creates a `Bijector` from callables.
-
-#### Args:
-
-* <b>`forward_fn`</b>: Python callable implementing the forward transformation.
-* <b>`inverse_fn`</b>: Python callable implementing the inverse transformation.
-* <b>`inverse_log_det_jacobian_fn`</b>: Python callable implementing the
-    log o det o jacobian of the inverse transformation.
-* <b>`forward_log_det_jacobian_fn`</b>: Python callable implementing the
-    log o det o jacobian of the forward transformation.
-* <b>`forward_event_shape_fn`</b>: Python callable implementing non-identical
-    static event shape changes. Default: shape is assumed unchanged.
-* <b>`forward_event_shape_tensor_fn`</b>: Python callable implementing non-identical
-    event shape changes. Default: shape is assumed unchanged.
-* <b>`inverse_event_shape_fn`</b>: Python callable implementing non-identical
-    static event shape changes. Default: shape is assumed unchanged.
-* <b>`inverse_event_shape_tensor_fn`</b>: Python callable implementing non-identical
-    event shape changes. Default: shape is assumed unchanged.
-* <b>`is_constant_jacobian`</b>: Python `bool` indicating that the Jacobian is
-    constant for all input arguments.
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
-* <b>`forward_min_event_ndims`</b>: Python `int` indicating the minimal
-    dimensionality this bijector acts on.
-* <b>`inverse_min_event_ndims`</b>: Python `int` indicating the minimal
-    dimensionality this bijector acts on.
-* <b>`name`</b>: Python `str`, name given to ops managed by this object.
 
 <h3 id="forward"><code>forward</code></h3>
 

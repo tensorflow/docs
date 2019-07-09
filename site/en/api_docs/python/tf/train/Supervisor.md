@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/supervisor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/supervisor.py).
+Defined in [`tensorflow/python/training/supervisor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/supervisor.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -174,124 +171,7 @@ initialization needs, see how to specify a `local_init_op` when creating the
 supervisor.  You can also use the `SessionManager` directly to create a
 session and check if it could be initialized automatically.
 
-## Properties
-
-<h3 id="coord"><code>coord</code></h3>
-
-Return the Coordinator used by the Supervisor.
-
-The Coordinator can be useful if you want to run multiple threads
-during your training.
-
-#### Returns:
-
-A Coordinator object.
-
-<h3 id="global_step"><code>global_step</code></h3>
-
-Return the global_step Tensor used by the supervisor.
-
-#### Returns:
-
-An integer Tensor for the global_step.
-
-<h3 id="init_feed_dict"><code>init_feed_dict</code></h3>
-
-Return the feed dictionary used when evaluating the `init_op`.
-
-#### Returns:
-
-A feed dictionary or `None`.
-
-<h3 id="init_op"><code>init_op</code></h3>
-
-Return the Init Op used by the supervisor.
-
-#### Returns:
-
-An Op or `None`.
-
-<h3 id="is_chief"><code>is_chief</code></h3>
-
-Return True if this is a chief supervisor.
-
-#### Returns:
-
-A bool.
-
-<h3 id="ready_for_local_init_op"><code>ready_for_local_init_op</code></h3>
-
-
-
-<h3 id="ready_op"><code>ready_op</code></h3>
-
-Return the Ready Op used by the supervisor.
-
-#### Returns:
-
-An Op or `None`.
-
-<h3 id="save_model_secs"><code>save_model_secs</code></h3>
-
-Return the delay between checkpoints.
-
-#### Returns:
-
-A timestamp.
-
-<h3 id="save_path"><code>save_path</code></h3>
-
-Return the save path used by the supervisor.
-
-#### Returns:
-
-A string.
-
-<h3 id="save_summaries_secs"><code>save_summaries_secs</code></h3>
-
-Return the delay between summary computations.
-
-#### Returns:
-
-A timestamp.
-
-<h3 id="saver"><code>saver</code></h3>
-
-Return the Saver used by the supervisor.
-
-#### Returns:
-
-A Saver object.
-
-<h3 id="session_manager"><code>session_manager</code></h3>
-
-Return the SessionManager used by the Supervisor.
-
-#### Returns:
-
-A SessionManager object.
-
-<h3 id="summary_op"><code>summary_op</code></h3>
-
-Return the Summary Tensor used by the chief supervisor.
-
-#### Returns:
-
-A string Tensor for the summary or `None`.
-
-<h3 id="summary_writer"><code>summary_writer</code></h3>
-
-Return the SummaryWriter used by the chief supervisor.
-
-#### Returns:
-
-A SummaryWriter.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -410,6 +290,125 @@ A `Supervisor`.
 `Supervisor`s are not supported when eager execution is enabled.
 
 
+
+
+
+## Properties
+
+<h3 id="coord"><code>coord</code></h3>
+
+Return the Coordinator used by the Supervisor.
+
+The Coordinator can be useful if you want to run multiple threads
+during your training.
+
+#### Returns:
+
+A Coordinator object.
+
+<h3 id="global_step"><code>global_step</code></h3>
+
+Return the global_step Tensor used by the supervisor.
+
+#### Returns:
+
+An integer Tensor for the global_step.
+
+<h3 id="init_feed_dict"><code>init_feed_dict</code></h3>
+
+Return the feed dictionary used when evaluating the `init_op`.
+
+#### Returns:
+
+A feed dictionary or `None`.
+
+<h3 id="init_op"><code>init_op</code></h3>
+
+Return the Init Op used by the supervisor.
+
+#### Returns:
+
+An Op or `None`.
+
+<h3 id="is_chief"><code>is_chief</code></h3>
+
+Return True if this is a chief supervisor.
+
+#### Returns:
+
+A bool.
+
+<h3 id="ready_for_local_init_op"><code>ready_for_local_init_op</code></h3>
+
+
+
+<h3 id="ready_op"><code>ready_op</code></h3>
+
+Return the Ready Op used by the supervisor.
+
+#### Returns:
+
+An Op or `None`.
+
+<h3 id="save_model_secs"><code>save_model_secs</code></h3>
+
+Return the delay between checkpoints.
+
+#### Returns:
+
+A timestamp.
+
+<h3 id="save_path"><code>save_path</code></h3>
+
+Return the save path used by the supervisor.
+
+#### Returns:
+
+A string.
+
+<h3 id="save_summaries_secs"><code>save_summaries_secs</code></h3>
+
+Return the delay between summary computations.
+
+#### Returns:
+
+A timestamp.
+
+<h3 id="saver"><code>saver</code></h3>
+
+Return the Saver used by the supervisor.
+
+#### Returns:
+
+A Saver object.
+
+<h3 id="session_manager"><code>session_manager</code></h3>
+
+Return the SessionManager used by the Supervisor.
+
+#### Returns:
+
+A SessionManager object.
+
+<h3 id="summary_op"><code>summary_op</code></h3>
+
+Return the Summary Tensor used by the chief supervisor.
+
+#### Returns:
+
+A string Tensor for the summary or `None`.
+
+<h3 id="summary_writer"><code>summary_writer</code></h3>
+
+Return the SummaryWriter used by the chief supervisor.
+
+#### Returns:
+
+A SummaryWriter.
+
+
+
+## Methods
 
 <h3 id="Loop"><code>Loop</code></h3>
 

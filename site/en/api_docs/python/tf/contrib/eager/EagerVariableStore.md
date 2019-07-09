@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/variable_scope.py).
+Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/variable_scope.py).
 
 Wrapper allowing functional layers to be used with eager execution.
 
@@ -34,15 +31,17 @@ eager-friendly. For example, to create a dense layer, use:
   print(container.variables)  # Should print the variables used in the layer.
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(store=None)
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="as_default"><code>as_default</code></h3>
 

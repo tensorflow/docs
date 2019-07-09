@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/poisson.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/poisson.py).
-
-See the guide: [Statistical Distributions (contrib) > Univariate (scalar) distributions](../../../../../api_guides/python/contrib.distributions#Univariate_scalar_distributions)
+Defined in [`tensorflow/contrib/distributions/python/ops/poisson.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/poisson.py).
 
 Poisson distribution.
 
@@ -32,6 +27,49 @@ Z = exp(lambda).
 ```
 
 where `rate = lambda` and `Z` is the normalizing constant.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    rate=None,
+    log_rate=None,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='Poisson'
+)
+```
+
+Initialize a batch of Poisson distributions. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`rate`</b>: Floating point tensor, the rate parameter. `rate` must be positive.
+    Must specify exactly one of `rate` and `log_rate`.
+* <b>`log_rate`</b>: Floating point tensor, the log of the rate parameter.
+    Must specify exactly one of `rate` and `log_rate`.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
+    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
+    result is undefined. When `False`, an exception is raised if one or
+    more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if none or both of `rate`, `log_rate` are specified.
+* <b>`TypeError`</b>: if `rate` is not a float-type.
+* <b>`TypeError`</b>: if `log_rate` is not a float-type.
+
+
 
 ## Properties
 
@@ -113,43 +151,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    rate=None,
-    log_rate=None,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='Poisson'
-)
-```
-
-Initialize a batch of Poisson distributions.
-
-#### Args:
-
-* <b>`rate`</b>: Floating point tensor, the rate parameter. `rate` must be positive.
-    Must specify exactly one of `rate` and `log_rate`.
-* <b>`log_rate`</b>: Floating point tensor, the log of the rate parameter.
-    Must specify exactly one of `rate` and `log_rate`.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
-    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
-    result is undefined. When `False`, an exception is raised if one or
-    more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: if none or both of `rate`, `log_rate` are specified.
-* <b>`TypeError`</b>: if `rate` is not a float-type.
-* <b>`TypeError`</b>: if `log_rate` is not a float-type.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

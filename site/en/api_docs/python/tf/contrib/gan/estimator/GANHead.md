@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,25 +16,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/estimator/python/head_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/estimator/python/head_impl.py).
+Defined in [`tensorflow/contrib/gan/python/estimator/python/head_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/estimator/python/head_impl.py).
 
 `Head` for a GAN.
 
-## Properties
-
-<h3 id="logits_dimension"><code>logits_dimension</code></h3>
-
-
-
-<h3 id="name"><code>name</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -52,7 +35,11 @@ __init__(
 )
 ```
 
-`Head` for GAN training.
+`Head` for GAN training. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please use tf.contrib.gan.GANEstimator without explicitly making a GANHead.
 
 #### Args:
 
@@ -72,6 +59,22 @@ __init__(
     passed into <a href="../../../../tf/estimator/EstimatorSpec"><code>tf.estimator.EstimatorSpec</code></a> during evaluation.
 * <b>`name`</b>: name of the head. If provided, summary and metrics keys will be
     suffixed by `"/" + name`.
+
+
+
+## Properties
+
+<h3 id="logits_dimension"><code>logits_dimension</code></h3>
+
+
+
+<h3 id="name"><code>name</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="create_estimator_spec"><code>create_estimator_spec</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,25 +11,27 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/test_util.py).
+Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/test_util.py).
 
 See the guide: [Testing > Unit tests](../../../../api_guides/python/test#Unit_tests)
 
 Base class for tests that need to test TensorFlow.
   
 
-## Child Classes
-[`class failureException`](../../tf/test/TestCase/failureException)
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(methodName='runTest')
 ```
 
 
+
+
+
+## Child Classes
+[`class failureException`](../../tf/test/TestCase/failureException)
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 
@@ -1094,6 +1093,56 @@ assert_(
 
 Check that the expression is true.
 
+<h3 id="cached_session"><code>cached_session</code></h3>
+
+``` python
+cached_session(
+    *args,
+    **kwds
+)
+```
+
+Returns a TensorFlow Session for use in executing tests.
+
+This method behaves differently than self.session(): for performance reasons
+`cached_session` will by default reuse the same session within the same
+test. The session returned by this function will only be closed at the end
+of the test (in the TearDown function).
+
+Use the `use_gpu` and `force_gpu` options to control where ops are run. If
+`force_gpu` is True, all ops are pinned to `/device:GPU:0`. Otherwise, if
+`use_gpu` is True, TensorFlow tries to run as many ops on the GPU as
+possible. If both `force_gpu and `use_gpu` are False, all ops are pinned to
+the CPU.
+
+Example:
+
+```python
+class MyOperatorTest(test_util.TensorFlowTestCase):
+  def testMyOperator(self):
+    with self.cached_session(use_gpu=True) as sess:
+      valid_input = [1.0, 2.0, 3.0, 4.0, 5.0]
+      result = MyOperator(valid_input).eval()
+      self.assertEqual(result, [1.0, 2.0, 3.0, 5.0, 8.0]
+      invalid_input = [-1.0, 2.0, 7.0]
+      with self.assertRaisesOpError("negative input not supported"):
+        MyOperator(invalid_input).eval()
+```
+
+#### Args:
+
+* <b>`graph`</b>: Optional graph to use during the returned session.
+* <b>`config`</b>: An optional config_pb2.ConfigProto to use to configure the
+    session.
+* <b>`use_gpu`</b>: If True, attempt to run as many ops as possible on GPU.
+* <b>`force_gpu`</b>: If True, pin all ops to `/device:GPU:0`.
+
+
+#### Yields:
+
+A Session object that should be used as a context manager to surround
+the graph building and execution code in a test case.
+
 <h3 id="checkedThread"><code>checkedThread</code></h3>
 
 ``` python
@@ -1293,6 +1342,53 @@ run(result=None)
 
 
 
+<h3 id="session"><code>session</code></h3>
+
+``` python
+session(
+    *args,
+    **kwds
+)
+```
+
+Returns a TensorFlow Session for use in executing tests.
+
+Note that this will set this session and the graph as global defaults.
+
+Use the `use_gpu` and `force_gpu` options to control where ops are run. If
+`force_gpu` is True, all ops are pinned to `/device:GPU:0`. Otherwise, if
+`use_gpu` is True, TensorFlow tries to run as many ops on the GPU as
+possible. If both `force_gpu and `use_gpu` are False, all ops are pinned to
+the CPU.
+
+Example:
+
+```python
+class MyOperatorTest(test_util.TensorFlowTestCase):
+  def testMyOperator(self):
+    with self.session(use_gpu=True):
+      valid_input = [1.0, 2.0, 3.0, 4.0, 5.0]
+      result = MyOperator(valid_input).eval()
+      self.assertEqual(result, [1.0, 2.0, 3.0, 5.0, 8.0]
+      invalid_input = [-1.0, 2.0, 7.0]
+      with self.assertRaisesOpError("negative input not supported"):
+        MyOperator(invalid_input).eval()
+```
+
+#### Args:
+
+* <b>`graph`</b>: Optional graph to use during the returned session.
+* <b>`config`</b>: An optional config_pb2.ConfigProto to use to configure the
+    session.
+* <b>`use_gpu`</b>: If True, attempt to run as many ops as possible on GPU.
+* <b>`force_gpu`</b>: If True, pin all ops to `/device:GPU:0`.
+
+
+#### Yields:
+
+A Session object that should be used as a context manager to surround
+the graph building and execution code in a test case.
+
 <h3 id="setUp"><code>setUp</code></h3>
 
 ``` python
@@ -1354,50 +1450,7 @@ test_session(
 )
 ```
 
-Returns a TensorFlow Session for use in executing tests.
-
-This method should be used for all functional tests.
-
-This method behaves different than session.Session: for performance reasons
-`test_session` will by default (if `graph` is None) reuse the same session
-across tests. This means you may want to either call the function
-`reset_default_graph()` before tests, or if creating an explicit new graph,
-pass it here (simply setting it with `as_default()` won't do it), which will
-trigger the creation of a new session.
-
-Use the `use_gpu` and `force_gpu` options to control where ops are run. If
-`force_gpu` is True, all ops are pinned to `/device:GPU:0`. Otherwise, if
-`use_gpu` is True, TensorFlow tries to run as many ops on the GPU as
-possible. If both `force_gpu and `use_gpu` are False, all ops are pinned to
-the CPU.
-
-Example:
-
-```python
-class MyOperatorTest(test_util.TensorFlowTestCase):
-  def testMyOperator(self):
-    with self.test_session(use_gpu=True):
-      valid_input = [1.0, 2.0, 3.0, 4.0, 5.0]
-      result = MyOperator(valid_input).eval()
-      self.assertEqual(result, [1.0, 2.0, 3.0, 5.0, 8.0]
-      invalid_input = [-1.0, 2.0, 7.0]
-      with self.assertRaisesOpError("negative input not supported"):
-        MyOperator(invalid_input).eval()
-```
-
-#### Args:
-
-* <b>`graph`</b>: Optional graph to use during the returned session.
-* <b>`config`</b>: An optional config_pb2.ConfigProto to use to configure the
-    session.
-* <b>`use_gpu`</b>: If True, attempt to run as many ops as possible on GPU.
-* <b>`force_gpu`</b>: If True, pin all ops to `/device:GPU:0`.
-
-
-#### Returns:
-
-A Session object that should be used as a context manager to surround
-the graph building and execution code in a test case.
+Use cached_session instead.
 
 
 

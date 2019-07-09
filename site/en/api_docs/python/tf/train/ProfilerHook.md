@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`SessionRunHook`](../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/basic_session_run_hooks.py).
+Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/basic_session_run_hooks.py).
 
 Captures CPU/GPU profiling information every N steps or seconds.
 
@@ -24,9 +21,7 @@ Trace format.
 For more information see:
 https://github.com/catapult-project/catapult/blob/master/tracing/README.md
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -56,6 +51,10 @@ Trace format.
       producers and consumers of tensors.
 * <b>`show_memory`</b>: `bool`, if True, add object snapshot events to the trace
       showing the sizes and lifetimes of tensors.
+
+
+
+## Methods
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 

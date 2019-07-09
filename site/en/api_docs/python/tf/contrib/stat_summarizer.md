@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/stat_summarizer/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/stat_summarizer/__init__.py).
+Defined in [`tensorflow/contrib/stat_summarizer/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/stat_summarizer/__init__.py).
 
 Exposes the Python wrapper for StatSummarizer utility class.
 
@@ -21,9 +18,9 @@ technical reasons, but it should be accessed via tf.contrib.stat_summarizer.
 
 [`class StatSummarizer`](../../tf/contrib/stat_summarizer/StatSummarizer)
 
-## Functions
+## Other Members
 
-[`DeleteStatSummarizer(...)`](../../tf/contrib/stat_summarizer/DeleteStatSummarizer)
+`DeleteStatSummarizer`
 
-[`NewStatSummarizer(...)`](../../tf/contrib/stat_summarizer/NewStatSummarizer)
+`NewStatSummarizer`
 

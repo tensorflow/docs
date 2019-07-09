@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/variable_clipping_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/variable_clipping_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/variable_clipping_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/variable_clipping_optimizer.py).
 
 Wrapper optimizer that clips the norm of specified variables after update.
 
@@ -31,9 +28,7 @@ embedding lookup, at the expense of more expensive training and fewer
 guarantees about the norms.
 
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -61,6 +56,10 @@ Construct a new clip-norm optimizer.
     ops with the corresponding variable.
 * <b>`name`</b>: Optional name prefix for the operations created when applying
     gradients.  Defaults to "VariableClipping".
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/platform/googletest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/platform/googletest.py).
+Defined in [`tensorflow/python/platform/googletest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/platform/googletest.py).
 
 Support class for stubbing methods out for unit testing.
 
@@ -31,15 +28,17 @@ The above changes os.path.exists into a lambda that returns 1.  Once
 the ... part of the code finishes, the CleanUp() looks up the old
 value of os.path.exists and restores it.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__()
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="CleanUp"><code>CleanUp</code></h3>
 

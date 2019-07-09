@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/drop_stale_gradient_optimizer.py).
 
 Wrapper optimizer that checks and drops stale gradient.
 
@@ -23,9 +20,7 @@ gradients and compares it with the global step at the time of applying the
 gradients. If the difference is larger than a threshold, it will drop all
 the computed gradients.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -46,6 +41,10 @@ Constructs a new DropStaleGradientOptimizer.
 * <b>`use_locking`</b>: If `True` use locks for clip update operations.
 * <b>`name`</b>: Optional name prefix for the operations created when applying
         gradients. Defaults to "DropStaleGradient".
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/signal/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/signal/__init__.py).
+Defined in [`tensorflow/contrib/signal/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/signal/__init__.py).
 
 Signal processing operations.
 
-See the <a href="../../../../api_guides/python/contrib.signal">Signal Processing (contrib)</a> guide.
+See the
+[Contrib Signal](https://tensorflow.org/api_guides/python/contrib.signal)
+guide.
 
 
 [hamming]: https://en.wikipedia.org/wiki/Window_function#Hamming_window

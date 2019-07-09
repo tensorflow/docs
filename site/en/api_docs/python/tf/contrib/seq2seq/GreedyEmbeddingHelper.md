@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Helper`](../../../tf/contrib/seq2seq/Helper)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/helper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/helper.py).
 
 See the guide: [Seq2seq Library (contrib) > Dynamic Decoding](../../../../../api_guides/python/contrib.seq2seq#Dynamic_Decoding)
 
@@ -23,25 +20,7 @@ A helper for use during inference.
 Uses the argmax of the output (treated as logits) and passes the
 result through an embedding layer to get the next input.
 
-## Properties
-
-<h3 id="batch_size"><code>batch_size</code></h3>
-
-
-
-<h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
-
-
-
-<h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -66,6 +45,26 @@ Initializer.
 
 * <b>`ValueError`</b>: if `start_tokens` is not a 1D tensor or `end_token` is not a
     scalar.
+
+
+
+## Properties
+
+<h3 id="batch_size"><code>batch_size</code></h3>
+
+
+
+<h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
+
+
+
+<h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="initialize"><code>initialize</code></h3>
 

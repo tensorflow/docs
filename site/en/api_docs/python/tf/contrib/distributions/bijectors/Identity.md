@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/python/ops/distributions/identity_bijector.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/identity_bijector.py).
-
-See the guide: [Random variable transformations (contrib) > Bijectors](../../../../../../api_guides/python/contrib.distributions.bijectors#Bijectors)
+Defined in [`tensorflow/python/ops/distributions/identity_bijector.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/identity_bijector.py).
 
 Compute Y = g(X) = X.
 
@@ -30,6 +25,19 @@ x = [[1., 2],
      [3, 4]]
 x == identity.forward(x) == identity.inverse(x)
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    validate_args=False,
+    name='identity'
+)
+```
+
+
+
+
 
 ## Properties
 
@@ -71,17 +79,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    validate_args=False,
-    name='identity'
-)
-```
-
-
 
 <h3 id="forward"><code>forward</code></h3>
 

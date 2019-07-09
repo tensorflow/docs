@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/profiler/model_analyzer.py).
+Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/profiler/model_analyzer.py).
 
 TensorFlow multi-step profiler.
 
@@ -54,9 +51,7 @@ Typical use case:
   profiler.advise()
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -73,6 +68,10 @@ Constructor.
       default graph.
 * <b>`op_log`</b>: optional. tensorflow::tfprof::OpLogProto proto. Used to define
       extra op types.
+
+
+
+## Methods
 
 <h3 id="add_step"><code>add_step</code></h3>
 

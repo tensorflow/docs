@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
+Defined in [`tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
 
 Optimizer wrapper making all-zero gradients harmless.
 
@@ -56,9 +53,7 @@ train_op = multitask_momentum_optimizer.apply_gradients(
   gradvars_clipped, global_step=batch)
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(opt)
@@ -69,6 +64,10 @@ Constructor.
 #### Args:
 
 * <b>`opt`</b>: an instance of a class that implements tf.train.Optimizer.
+
+
+
+## Methods
 
 <h3 id="__getattr__"><code>__getattr__</code></h3>
 

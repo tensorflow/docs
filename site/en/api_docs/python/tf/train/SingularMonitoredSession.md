@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/monitored_session.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -69,20 +66,7 @@ Exit: At the `close()`, the hooked session does following things in order:
 * suppresses `OutOfRange` error which indicates that all inputs have been
   processed if the `SingularMonitoredSession` is used as a context.
 
-## Child Classes
-[`class StepContext`](../../tf/train/MonitoredSession/StepContext)
-
-## Properties
-
-<h3 id="graph"><code>graph</code></h3>
-
-The graph that was launched in this session.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -111,6 +95,21 @@ Creates a SingularMonitoredSession.
     `close()` has been called.
 * <b>`checkpoint_filename_with_path`</b>: A string. Optional path to a checkpoint
     file from which to restore variables.
+
+
+
+## Child Classes
+[`class StepContext`](../../tf/train/MonitoredSession/StepContext)
+
+## Properties
+
+<h3 id="graph"><code>graph</code></h3>
+
+The graph that was launched in this session.
+
+
+
+## Methods
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`OptimizerV2`](../../../tf/contrib/optimizer_v2/OptimizerV2)
 
 
 
-Defined in [`tensorflow/contrib/optimizer_v2/momentum.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/optimizer_v2/momentum.py).
+Defined in [`tensorflow/contrib/optimizer_v2/momentum.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/optimizer_v2/momentum.py).
 
 Optimizer that implements the Momentum algorithm.
 
@@ -31,9 +28,7 @@ the gradient is an `IndexedSlices`, typically because of <a href="../../../tf/ga
 embedding) only updates variable slices and corresponding `accumulation` terms
 when that part of the variable was used in the forward pass.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -75,6 +70,10 @@ can be useful for changing these values across different invocations of
 optimizer functions.
 
 
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

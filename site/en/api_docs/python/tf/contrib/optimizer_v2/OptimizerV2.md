@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/optimizer_v2/optimizer_v2.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/optimizer_v2/optimizer_v2.py).
+Defined in [`tensorflow/contrib/optimizer_v2/optimizer_v2.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/optimizer_v2/optimizer_v2.py).
 
 Updated base class for optimizers.
 
@@ -120,9 +117,7 @@ Internal methods are passed a `state` argument with the correct
 values to use for the slot and non-slot variables, and the hyper
 parameters.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -152,6 +147,10 @@ facility instead.
 * <b>`ValueError`</b>: If name is malformed.
 * <b>`RuntimeError`</b>: If _create_slots has been overridden instead of
       _create_vars.
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

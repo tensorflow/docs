@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.scatter_nd_update(
 
 
 
-Defined in [`tensorflow/python/ops/state_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/state_ops.py).
+Defined in [`tensorflow/python/ops/state_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/state_ops.py).
 
 See the guide: [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
 
@@ -57,14 +54,13 @@ The resulting update to ref would look like this:
 
     [1, 11, 3, 10, 9, 6, 7, 12]
 
-See <a href="../tf/scatter_nd"><code>tf.scatter_nd</code></a> for more details about how to make updates to
+See <a href="../tf/manip/scatter_nd"><code>tf.scatter_nd</code></a> for more details about how to make updates to
 slices.
 
 #### Args:
 
 * <b>`ref`</b>: A Variable.
 * <b>`indices`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    A Tensor. Must be one of the following types: int32, int64.
     A tensor of indices into ref.
 * <b>`updates`</b>: A `Tensor`. Must have the same type as `ref`.
     A Tensor. Must have the same type as ref. A tensor of updated

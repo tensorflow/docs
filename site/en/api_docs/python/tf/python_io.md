@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python_io/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python_io/__init__.py).
+Defined in [`tensorflow/python_io/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python_io/__init__.py).
 
 Python functions for directly manipulating TFRecord-formatted files.
 
-See the <a href="../../../api_guides/python/python_io">Data IO (Python functions)</a> guide.
+See the [Python IO](https://tensorflow.org/api_guides/python/python_io) guide.
 
 ## Classes
 

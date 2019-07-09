@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/model_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/model_average_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/model_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/model_average_optimizer.py).
 
 Wrapper optimizer that implements the Model Average algorithm.
 
@@ -25,9 +22,7 @@ interval_steps divides the local step, the local variables from all the
 workers will be averaged and assigned to global center variables. Then the
 local variables will be assigned by global center variables.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -53,6 +48,10 @@ Construct a new model average optimizer.
     average of local variables
 * <b>`use_locking`</b>: If True use locks for update operations
 * <b>`name`</b>: string. Optional name of the returned operation
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

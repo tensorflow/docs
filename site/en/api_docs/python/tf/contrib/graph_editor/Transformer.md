@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/graph_editor/transform.py).
+Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/graph_editor/transform.py).
 
 See the guide: [Graph Editor (contrib) > Module: transform](../../../../../api_guides/python/contrib.graph_editor#Module_transform)
 
@@ -24,9 +21,7 @@ By default, the constructor create a transform which copy a subgraph and
 replaces inputs with placeholders. This behavior can be modified by changing
 the handlers.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__()
@@ -51,6 +46,10 @@ transform_external_hidden_input_handler: handle the transform of the
 transform_original_op_handler: handle the transform of original_op. This
   handler defaults to transforming original_op only if they are in the
   subgraph, otherwise they are ignored.
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

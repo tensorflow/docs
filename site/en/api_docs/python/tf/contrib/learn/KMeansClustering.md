@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,40 +11,17 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/kmeans.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/estimators/kmeans.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/kmeans.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/kmeans.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
 An Estimator for K-Means clustering.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
-## Properties
-
-<h3 id="config"><code>config</code></h3>
-
-
-
-<h3 id="model_dir"><code>model_dir</code></h3>
-
-
-
-<h3 id="model_fn"><code>model_fn</code></h3>
-
-Returns the model_fn which is bound to self.params.
-
-#### Returns:
-
-The model_fn with the following signature:
-  `def model_fn(features, labels, mode, metrics)`
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -93,6 +67,31 @@ Please use tf.contrib.factorization.KMeansClustering instead of tf.contrib.learn
     iterations.  Stops learning if the loss changes less than this amount.
     Note that this may not work correctly if use_mini_batch=True.
 * <b>`config`</b>: See Estimator
+
+
+
+## Properties
+
+<h3 id="config"><code>config</code></h3>
+
+
+
+<h3 id="model_dir"><code>model_dir</code></h3>
+
+
+
+<h3 id="model_fn"><code>model_fn</code></h3>
+
+Returns the model_fn which is bound to self.params.
+
+#### Returns:
+
+The model_fn with the following signature:
+  `def model_fn(features, labels, mode, metrics)`
+
+
+
+## Methods
 
 <h3 id="clusters"><code>clusters</code></h3>
 

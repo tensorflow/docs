@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/hooks.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/hooks.py).
 
 Hook to run evaluation in training without a checkpoint.
 
@@ -43,9 +40,7 @@ Current limitations of this approach are:
 * It doesn't support custom saver logic (such as ExponentialMovingAverage
   support)
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -65,8 +60,9 @@ Initializes a `InMemoryEvaluatorHook`.
 * <b>`estimator`</b>: A <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> instance to call evaluate.
 * <b>`input_fn`</b>:  Equivalent to the `input_fn` arg to `estimator.evaluate`. A
     function that constructs the input data for evaluation.
-    See <a href="../../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
-    information. The function should construct and return one of
+    See [Createing input functions](
+    https://tensorflow.org/guide/premade_estimators#create_input_functions)
+    for more information. The function should construct and return one of
     the following:
 
       * A 'tf.data.Dataset' object: Outputs of `Dataset` object must be a
@@ -95,6 +91,10 @@ Initializes a `InMemoryEvaluatorHook`.
 
 * <b>`ValueError`</b>: if `every_n_iter` is non-positive or it's not a single machine
     training
+
+
+
+## Methods
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 

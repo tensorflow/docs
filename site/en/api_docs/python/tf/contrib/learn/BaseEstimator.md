@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,18 +11,43 @@ Inherits From: [`Evaluable`](../../../tf/contrib/learn/Evaluable), [`Trainable`]
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
 Abstract BaseEstimator class to train and evaluate TensorFlow models.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Users should not instantiate or subclass this class. Instead, use an
 `Estimator`.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    model_dir=None,
+    config=None
+)
+```
+
+Initializes a BaseEstimator instance. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please replace uses of any Estimator from tf.contrib.learn with an Estimator from tf.estimator.*
+
+#### Args:
+
+* <b>`model_dir`</b>: Directory to save model parameters, graph and etc. This can
+    also be used to load checkpoints from the directory into a estimator to
+    continue training a previously saved model. If `None`, the model_dir in
+    `config` will be used if set. If both are set, they must be same.
+* <b>`config`</b>: A RunConfig instance.
+
+
 
 ## Properties
 
@@ -49,29 +71,6 @@ The model_fn with the following signature:
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    model_dir=None,
-    config=None
-)
-```
-
-Initializes a BaseEstimator instance. (deprecated)
-
-THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Please replace uses of any Estimator from tf.contrib.learn with an Estimator from tf.estimator.*
-
-#### Args:
-
-* <b>`model_dir`</b>: Directory to save model parameters, graph and etc. This can
-    also be used to load checkpoints from the directory into a estimator to
-    continue training a previously saved model. If `None`, the model_dir in
-    `config` will be used if set. If both are set, they must be same.
-* <b>`config`</b>: A RunConfig instance.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/coordinator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/coordinator.py).
+Defined in [`tensorflow/python/training/coordinator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/coordinator.py).
 
 See the guide: [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
 
@@ -32,6 +29,36 @@ coordinator and the thread terminates.  The coordinator will then request all
 the other threads it coordinates to stop.
 
 You typically pass looper threads to the supervisor `Join()` method.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    coord,
+    timer_interval_secs,
+    target=None,
+    args=None,
+    kwargs=None
+)
+```
+
+Create a LooperThread.
+
+#### Args:
+
+* <b>`coord`</b>: A Coordinator.
+* <b>`timer_interval_secs`</b>: Time boundaries at which to call Run(), or None
+    if it should be called back to back.
+* <b>`target`</b>: Optional callable object that will be executed in the thread.
+* <b>`args`</b>: Optional arguments to pass to `target` when calling it.
+* <b>`kwargs`</b>: Optional keyword arguments to pass to `target` when calling it.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If one of the arguments is invalid.
+
+
 
 ## Properties
 
@@ -65,34 +92,6 @@ initial name is set by the constructor.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    coord,
-    timer_interval_secs,
-    target=None,
-    args=None,
-    kwargs=None
-)
-```
-
-Create a LooperThread.
-
-#### Args:
-
-* <b>`coord`</b>: A Coordinator.
-* <b>`timer_interval_secs`</b>: Time boundaries at which to call Run(), or None
-    if it should be called back to back.
-* <b>`target`</b>: Optional callable object that will be executed in the thread.
-* <b>`args`</b>: Optional arguments to pass to `target` when calling it.
-* <b>`kwargs`</b>: Optional keyword arguments to pass to `target` when calling it.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: If one of the arguments is invalid.
 
 <h3 id="getName"><code>getName</code></h3>
 

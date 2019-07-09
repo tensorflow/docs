@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,14 +11,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/export_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/export_strategy.py).
+Defined in [`tensorflow/contrib/learn/python/learn/export_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/export_strategy.py).
 
 See the guide: [Learn (contrib) > Distributed training utilities](../../../../../api_guides/python/contrib.learn#Distributed_training_utilities)
 
 A class representing a type of model export.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Typically constructed by a utility function specific to the exporter, such as
@@ -50,6 +47,26 @@ Typically constructed by a utility function specific to the exporter, such as
       the `GraphDef` will be stripped on write. This is recommended for better
       forward compatibility of the resulting `SavedModel`.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    name,
+    export_fn,
+    strip_default_attrs=None
+)
+```
+
+DEPRECATED FUNCTION
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please switch to tf.estimator.train_and_evaluate, and use tf.estimator.Exporter.
+
+
+
 ## Properties
 
 <h3 id="export_fn"><code>export_fn</code></h3>
@@ -67,24 +84,6 @@ Alias for field number 2
 
 
 ## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-@staticmethod
-__new__(
-    cls,
-    name,
-    export_fn,
-    strip_default_attrs=None
-)
-```
-
-DEPRECATED FUNCTION
-
-THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Please switch to tf.estimator.train_and_evaluate, and use tf.estimator.Exporter.
 
 <h3 id="export"><code>export</code></h3>
 

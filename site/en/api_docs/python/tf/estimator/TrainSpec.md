@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,32 +11,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/training.py).
+Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/training.py).
 
 Configuration for the "train" part for the `train_and_evaluate` call.
 
 `TrainSpec` determines the input data for the training, as well as the
 duration. Optional hooks run at various stages of training.
 
-## Properties
-
-<h3 id="hooks"><code>hooks</code></h3>
-
-Alias for field number 2
-
-<h3 id="input_fn"><code>input_fn</code></h3>
-
-Alias for field number 0
-
-<h3 id="max_steps"><code>max_steps</code></h3>
-
-Alias for field number 1
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
+<h2 id="__new__"><code>__new__</code></h2>
 
 ``` python
 @staticmethod
@@ -56,8 +35,8 @@ Creates a validated `TrainSpec` instance.
 #### Args:
 
 * <b>`input_fn`</b>: A function that provides input data for training as minibatches.
-    See <a href="../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
-    information. The function should construct and return one of
+    See [Premade Estimators](https://tensorflow.org/guide/premade_estimators#create_input_functions)
+    for more information. The function should construct and return one of
     the following:
       * A 'tf.data.Dataset' object: Outputs of `Dataset` object must be a
         tuple (features, labels) with same constraints as below.
@@ -82,6 +61,22 @@ A validated `TrainSpec` object.
 
 * <b>`ValueError`</b>: If any of the input arguments is invalid.
 * <b>`TypeError`</b>: If any of the arguments is not of the expected type.
+
+
+
+## Properties
+
+<h3 id="hooks"><code>hooks</code></h3>
+
+Alias for field number 2
+
+<h3 id="input_fn"><code>input_fn</code></h3>
+
+Alias for field number 0
+
+<h3 id="max_steps"><code>max_steps</code></h3>
+
+Alias for field number 1
 
 
 

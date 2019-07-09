@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,15 +11,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 A time series parser for feeding Numpy arrays to a `TimeSeriesInputFn`.
 
 Avoids embedding data in the graph as constants.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -46,6 +41,10 @@ Numpy array input for a `TimeSeriesInputFn`.
     prefixed by the shape of the value corresponding to the `TIMES` key.
 * <b>`read_num_records_hint`</b>: The maximum number of samples to read at one time,
     for efficiency.
+
+
+
+## Methods
 
 <h3 id="check_dataset_size"><code>check_dataset_size</code></h3>
 

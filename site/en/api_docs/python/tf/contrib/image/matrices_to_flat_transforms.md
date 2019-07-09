@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,12 +11,12 @@ tf.contrib.image.matrices_to_flat_transforms(transform_matrices)
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/image/python/ops/image_ops.py).
 
 Converts affine matrices to <a href="../../../tf/contrib/image"><code>tf.contrib.image</code></a> projective transforms.
 
 Note that we expect matrices that map output coordinates to input coordinates.
-To convert forward transformation matrices, call <a href="../../../tf/matrix_inverse"><code>tf.linalg.inv</code></a> on the
+To convert forward transformation matrices, call <a href="../../../tf/linalg/inv"><code>tf.linalg.inv</code></a> on the
 matrices and use the result here.
 
 #### Args:

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/__init__.py).
+Defined in [`tensorflow/contrib/training/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/__init__.py).
 
 Training and input utilities.
 
-See <a href="../../../../api_guides/python/contrib.training">Training (contrib)</a> guide.
+See
+[Contrib Training](https://tensorflow.org/api_guides/python/contrib.training)
+guide.
 
 
 ## Classes

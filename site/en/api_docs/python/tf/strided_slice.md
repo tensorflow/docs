@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -26,7 +23,7 @@ tf.strided_slice(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
@@ -76,10 +73,10 @@ For example,
 `foo[:4, tf.newaxis, :2]` would produce a shape `(4, 1, 2)` tensor.
 
 If the ith bit of `shrink_axis_mask` is set, it implies that the ith
-specification shrinks the dimensionality by 1. `begin[i]`, `end[i]` and
-`strides[i]` must imply a slice of size 1 in the dimension. For example in
-Python one might do `foo[:, 3, :]` which would result in
-`shrink_axis_mask` equal to 2.
+specification shrinks the dimensionality by 1, taking on the value at index
+`begin[i]`. `end[i]` and `strides[i]` are ignored in this case. For example in
+Python one might do `foo[:, 3, :]` which would result in `shrink_axis_mask`
+equal to 2.
 
 
 NOTE: `begin` and `end` are zero-indexed.

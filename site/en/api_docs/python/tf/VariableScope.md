@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/variable_scope.py).
+Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/variable_scope.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 
@@ -48,6 +45,28 @@ easily handled with a context. This object is used for the defaults.
     variable and return the Tensor for the projected value
     (which must have the same shape). Constraints are not safe to
     use when doing asynchronous distributed training.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    reuse,
+    name='',
+    initializer=None,
+    regularizer=None,
+    caching_device=None,
+    partitioner=None,
+    custom_getter=None,
+    name_scope='',
+    dtype=tf.float32,
+    use_resource=None,
+    constraint=None
+)
+```
+
+Creates a new VariableScope with the given properties.
+
+
 
 ## Properties
 
@@ -99,26 +118,6 @@ easily handled with a context. This object is used for the defaults.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    reuse,
-    name='',
-    initializer=None,
-    regularizer=None,
-    caching_device=None,
-    partitioner=None,
-    custom_getter=None,
-    name_scope='',
-    dtype=tf.float32,
-    use_resource=None,
-    constraint=None
-)
-```
-
-Creates a new VariableScope with the given properties.
-
 <h3 id="get_collection"><code>get_collection</code></h3>
 
 ``` python
@@ -138,14 +137,16 @@ get_variable(
     initializer=None,
     regularizer=None,
     reuse=None,
-    trainable=True,
+    trainable=None,
     collections=None,
     caching_device=None,
     partitioner=None,
     validate_shape=True,
     use_resource=None,
     custom_getter=None,
-    constraint=None
+    constraint=None,
+    synchronization=tf.VariableSynchronization.AUTO,
+    aggregation=tf.VariableAggregation.NONE
 )
 ```
 

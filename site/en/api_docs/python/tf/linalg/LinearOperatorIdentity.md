@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linear_operator_identity.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/linalg/linear_operator_identity.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator_identity.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_identity.py).
 
 See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
 
@@ -126,6 +123,64 @@ These have the following meaning:
 * If `is_X == None` (the default), callers should have no expectation either
   way.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    num_rows,
+    batch_shape=None,
+    dtype=None,
+    is_non_singular=True,
+    is_self_adjoint=True,
+    is_positive_definite=True,
+    is_square=True,
+    assert_proper_shapes=False,
+    name='LinearOperatorIdentity'
+)
+```
+
+Initialize a `LinearOperatorIdentity`.
+
+The `LinearOperatorIdentity` is initialized with arguments defining `dtype`
+and shape.
+
+This operator is able to broadcast the leading (batch) dimensions, which
+sometimes requires copying data.  If `batch_shape` is `None`, the operator
+can take arguments of any batch shape without copying.  See examples.
+
+#### Args:
+
+* <b>`num_rows`</b>:  Scalar non-negative integer `Tensor`.  Number of rows in the
+    corresponding identity matrix.
+* <b>`batch_shape`</b>:  Optional `1-D` integer `Tensor`.  The shape of the leading
+    dimensions.  If `None`, this operator has no leading dimensions.
+* <b>`dtype`</b>:  Data type of the matrix that this operator represents.
+* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
+* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
+    transpose.
+* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite,
+    meaning the quadratic form `x^H A x` has positive real part for all
+    nonzero `x`.  Note that we do not require the operator to be
+    self-adjoint to be positive-definite.  See:
+    https://en.wikipedia.org/wiki/Positive-definite_matrix#Extension_for_non-symmetric_matrices
+* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
+* <b>`assert_proper_shapes`</b>:  Python `bool`.  If `False`, only perform static
+    checks that initialization and method arguments have proper shape.
+    If `True`, and static checks are inconclusive, add asserts to the graph.
+* <b>`name`</b>: A name for this `LinearOperator`
+
+
+#### Raises:
+
+* <b>`ValueError`</b>:  If `num_rows` is determined statically to be non-scalar, or
+    negative.
+* <b>`ValueError`</b>:  If `batch_shape` is determined statically to not be 1-D, or
+    negative.
+* <b>`ValueError`</b>:  If any of the following is not `True`:
+    `{is_self_adjoint, is_non_singular, is_positive_definite}`.
+
+
+
 ## Properties
 
 <h3 id="batch_shape"><code>batch_shape</code></h3>
@@ -221,62 +276,6 @@ Python integer, or None if the tensor rank is undefined.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    num_rows,
-    batch_shape=None,
-    dtype=None,
-    is_non_singular=True,
-    is_self_adjoint=True,
-    is_positive_definite=True,
-    is_square=True,
-    assert_proper_shapes=False,
-    name='LinearOperatorIdentity'
-)
-```
-
-Initialize a `LinearOperatorIdentity`.
-
-The `LinearOperatorIdentity` is initialized with arguments defining `dtype`
-and shape.
-
-This operator is able to broadcast the leading (batch) dimensions, which
-sometimes requires copying data.  If `batch_shape` is `None`, the operator
-can take arguments of any batch shape without copying.  See examples.
-
-#### Args:
-
-* <b>`num_rows`</b>:  Scalar non-negative integer `Tensor`.  Number of rows in the
-    corresponding identity matrix.
-* <b>`batch_shape`</b>:  Optional `1-D` integer `Tensor`.  The shape of the leading
-    dimensions.  If `None`, this operator has no leading dimensions.
-* <b>`dtype`</b>:  Data type of the matrix that this operator represents.
-* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
-* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
-    transpose.
-* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite,
-    meaning the quadratic form `x^H A x` has positive real part for all
-    nonzero `x`.  Note that we do not require the operator to be
-    self-adjoint to be positive-definite.  See:
-    https://en.wikipedia.org/wiki/Positive-definite_matrix#Extension_for_non-symmetric_matrices
-* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
-* <b>`assert_proper_shapes`</b>:  Python `bool`.  If `False`, only perform static
-    checks that initialization and method arguments have proper shape.
-    If `True`, and static checks are inconclusive, add asserts to the graph.
-* <b>`name`</b>: A name for this `LinearOperator`
-
-
-#### Raises:
-
-* <b>`ValueError`</b>:  If `num_rows` is determined statically to be non-scalar, or
-    negative.
-* <b>`ValueError`</b>:  If `batch_shape` is determined statically to not be 1-D, or
-    negative.
-* <b>`ValueError`</b>:  If any of the following is not `True`:
-    `{is_self_adjoint, is_non_singular, is_positive_definite}`.
 
 <h3 id="add_to_tensor"><code>add_to_tensor</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/framework/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/framework/__init__.py).
+Defined in [`tensorflow/contrib/framework/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/__init__.py).
 
 Framework utilities.
 
-See the <a href="../../../../api_guides/python/contrib.framework">Framework (contrib)</a> guide.
+See the
+[Contrib Framework](https://tensorflow.org/api_guides/python/contrib.framework)
+guide.
+
 
 
 
@@ -37,7 +37,9 @@ See the <a href="../../../../api_guides/python/contrib.framework">Framework (con
 
 [`class CriticalSection`](../../tf/contrib/framework/CriticalSection): Critical section.
 
-[`class TensorSpec`](../../tf/contrib/framework/TensorSpec): Describes a tf.Tensor.
+[`class RecordInput`](../../tf/contrib/framework/RecordInput): RecordInput asynchronously reads and randomly yields TFRecords.
+
+[`class TensorSpec`](../../tf/contrib/eager/TensorSpec): Describes a tf.Tensor.
 
 [`class VariableDeviceChooser`](../../tf/contrib/framework/VariableDeviceChooser): Device chooser for variables.
 
@@ -78,8 +80,6 @@ See the <a href="../../../../api_guides/python/contrib.framework">Framework (con
 [`assign_from_values(...)`](../../tf/contrib/framework/assign_from_values): Creates an assignment operation from a given mapping.
 
 [`assign_from_values_fn(...)`](../../tf/contrib/framework/assign_from_values_fn): Returns a function that assigns specific variables from the given values.
-
-[`broadcast_to(...)`](../../tf/contrib/framework/broadcast_to): Broadcast an array for a compatible shape.
 
 [`convert_to_tensor_or_sparse_tensor(...)`](../../tf/convert_to_tensor_or_sparse_tensor): Converts value to a `SparseTensor` or `Tensor`.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`LossScaleManager`](../../../tf/contrib/mixed_precision/LossScal
 
 
 
-Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py).
+Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py).
 
 Loss scale manager uses an exponential update strategy.
 
@@ -28,9 +25,7 @@ The number of finite and non-finite steps are cleared every time the loss
 scale is changed. The condition to decrease the loss scale is looser than to
 increase it since the former does not require the steps to be consecutive.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -54,6 +49,10 @@ Constructor of exponential-update loss scale manager.
 * <b>`incr_ratio`</b>: The multiplier to use when increasing the loss scale.
 * <b>`decr_ratio`</b>: The less-than-one-multiplier to use when decreasing the loss
     scale.
+
+
+
+## Methods
 
 <h3 id="get_loss_scale"><code>get_loss_scale</code></h3>
 

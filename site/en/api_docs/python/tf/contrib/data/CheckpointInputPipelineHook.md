@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/iterator_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/data/python/ops/iterator_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/iterator_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/iterator_ops.py).
 
 Checkpoints input pipeline state every N steps or seconds.
 
@@ -59,9 +56,7 @@ that you will need to be careful not to restore the training iterator during
 eval. You can do that by not adding the iterator to the SAVEABLE_OBJECTS
 collector when building the eval graph.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(estimator)
@@ -78,6 +73,10 @@ Initializes a `CheckpointInputPipelineHook`.
 
 * <b>`ValueError`</b>: One of `save_steps` or `save_secs` should be set.
 * <b>`ValueError`</b>: At most one of saver or scaffold should be set.
+
+
+
+## Methods
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 

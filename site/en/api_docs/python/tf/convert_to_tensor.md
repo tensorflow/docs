@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.convert_to_tensor(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
 
 See the guides: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions), [Constants, Sequences, and Random Values](../../../api_guides/python/constant_op), [Control Flow](../../../api_guides/python/control_flow_ops), [Higher Order Functions](../../../api_guides/python/functional_ops), [Images](../../../api_guides/python/image), [Inputs and Readers](../../../api_guides/python/io_ops), [Math](../../../api_guides/python/math_ops), [Neural Network](../../../api_guides/python/nn), [Sparse Tensors](../../../api_guides/python/sparse_ops), [Strings](../../../api_guides/python/string_ops), [Tensor Handle Operations](../../../api_guides/python/session_ops), [Tensor Transformations](../../../api_guides/python/array_ops), [Variables](../../../api_guides/python/state_ops)
 

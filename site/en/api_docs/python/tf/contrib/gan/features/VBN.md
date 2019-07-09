@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/features/python/virtual_batchnorm_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/features/python/virtual_batchnorm_impl.py).
+Defined in [`tensorflow/contrib/gan/python/features/python/virtual_batchnorm_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/features/python/virtual_batchnorm_impl.py).
 
 A class to perform virtual batch normalization.
 
@@ -33,9 +30,7 @@ between all calls to this object.
 The `__init__` API is intended to mimic <a href="../../../../tf/layers/batch_normalization"><code>tf.layers.batch_normalization</code></a> as
 closely as possible.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -93,6 +88,10 @@ can be easily adjusted on a per-example basis.
 * <b>`ValueError`</b>: If `reference_batch` has unknown dimensions at graph
     construction.
 * <b>`ValueError`</b>: If `batch_axis` is the same as `axis`.
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

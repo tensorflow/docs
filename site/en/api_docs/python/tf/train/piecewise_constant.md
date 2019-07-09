@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.train.piecewise_constant(
 
 
 
-Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/learning_rate_decay.py).
+Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/learning_rate_decay.py).
 
 See the guide: [Training > Decaying the learning rate](../../../../api_guides/python/train#Decaying_the_learning_rate)
 
@@ -62,3 +59,11 @@ and values[-1] when `x > boundaries[-1]`.
 * <b>`ValueError`</b>: if types of `x` and `boundaries` do not match, or types of all
       `values` do not match or
       the number of elements in the lists does not match.
+
+
+
+#### Eager Compatibility
+When eager execution is enabled, this function returns a function which in
+turn returns the decayed learning rate Tensor. This can be useful for changing
+the learning rate value across different invocations of optimizer functions.
+

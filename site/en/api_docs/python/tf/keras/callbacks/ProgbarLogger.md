@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
 
 
-Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/callbacks.py).
+Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/callbacks.py).
 
 Callback that prints metrics to stdout.
 
@@ -33,9 +30,7 @@ Callback that prints metrics to stdout.
 
 * <b>`ValueError`</b>: In case of invalid `count_mode`.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -45,6 +40,10 @@ __init__(
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="on_batch_begin"><code>on_batch_begin</code></h3>
 

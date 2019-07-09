@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,13 +20,14 @@ tf.contrib.layers.group_norm(
     variables_collections=None,
     outputs_collections=None,
     trainable=True,
-    scope=None
+    scope=None,
+    mean_close_to_zero=False
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/normalization.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/normalization.py).
+Defined in [`tensorflow/contrib/layers/python/layers/normalization.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/normalization.py).
 
 Functional interface for the group normalization layer.
 
@@ -77,6 +75,19 @@ Reference: https://arxiv.org/abs/1803.08494.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
     `GraphKeys.TRAINABLE_VARIABLES` (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
 * <b>`scope`</b>: Optional scope for `variable_scope`.
+* <b>`mean_close_to_zero`</b>: The mean of `input` before ReLU will be close to zero
+    when batch size >= 4k for Resnet-50 on TPU. If `True`, use
+    `nn.sufficient_statistics` and `nn.normalize_moments` to calculate the
+    variance. This is the same behavior as `fused` equals `True` in batch
+    normalization. If `False`, use `nn.moments` to calculate the variance.
+    When `mean` is close to zero, like 1e-4, use `mean` to calculate the
+    variance may have poor result due to repeated roundoff error and
+    denormalization in `mean`.  When `mean` is large, like 1e2,
+    sum(`input`^2) is so large that only the high-order digits of the elements
+    are being accumulated. Thus, use sum(`input` - `mean`)^2/n to calculate
+    the variance has better accuracy compared to (sum(`input`^2)/n - `mean`^2)
+    when `mean` is large.
+
 
 
 #### Returns:

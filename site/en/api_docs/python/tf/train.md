@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,15 +7,15 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/train/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/train/__init__.py).
+Defined in [`tensorflow/train/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/train/__init__.py).
 
 Support for training models.
 
-See the <a href="../../../api_guides/python/train">Training</a> guide.
+See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 ## Modules
 
-[`queue_runner`](../tf/train/queue_runner) module: Create threads to run multiple enqueue ops.
+[`queue_runner`](../tf/train/queue_runner) module: Public API for tf.train.queue_runner namespace.
 
 ## Classes
 
@@ -136,7 +133,7 @@ See the <a href="../../../api_guides/python/train">Training</a> guide.
 
 [`class SyncReplicasOptimizer`](../tf/train/SyncReplicasOptimizer): Class to synchronize, aggregate gradients and pass them to the optimizer.
 
-[`class VocabInfo`](../tf/estimator/VocabInfo): Vocabulary information for warm-starting.
+[`class VocabInfo`](../tf/train/VocabInfo): Vocabulary information for warm-starting.
 
 [`class WorkerSessionCreator`](../tf/train/WorkerSessionCreator): Creates a tf.Session for a worker.
 
@@ -146,7 +143,7 @@ See the <a href="../../../api_guides/python/train">Training</a> guide.
 
 [`NewCheckpointReader(...)`](../tf/train/NewCheckpointReader)
 
-[`add_queue_runner(...)`](../tf/train/add_queue_runner): Adds a `QueueRunner` to a collection in the graph.
+[`add_queue_runner(...)`](../tf/train/add_queue_runner): Adds a `QueueRunner` to a collection in the graph. (deprecated)
 
 [`assert_global_step(...)`](../tf/train/assert_global_step): Asserts `global_step_tensor` is a scalar int `Variable` or `Tensor`.
 
@@ -222,6 +219,8 @@ See the <a href="../../../api_guides/python/train">Training</a> guide.
 
 [`range_input_producer(...)`](../tf/train/range_input_producer): Produces the integers from 0 to limit-1 in a queue.
 
+[`remove_checkpoint(...)`](../tf/train/remove_checkpoint): Removes a checkpoint given by `checkpoint_prefix`.
+
 [`replica_device_setter(...)`](../tf/train/replica_device_setter): Return a `device function` to use when building a Graph for replicas.
 
 [`sdca_fprint(...)`](../tf/train/sdca_fprint): Computes fingerprints of the input strings.
@@ -236,7 +235,7 @@ See the <a href="../../../api_guides/python/train">Training</a> guide.
 
 [`slice_input_producer(...)`](../tf/train/slice_input_producer): Produces a slice of each `Tensor` in `tensor_list`.
 
-[`start_queue_runners(...)`](../tf/train/start_queue_runners): Starts all queue runners collected in the graph.
+[`start_queue_runners(...)`](../tf/train/start_queue_runners): Starts all queue runners collected in the graph. (deprecated)
 
 [`string_input_producer(...)`](../tf/train/string_input_producer): Output strings (e.g. filenames) to a queue for an input pipeline.
 

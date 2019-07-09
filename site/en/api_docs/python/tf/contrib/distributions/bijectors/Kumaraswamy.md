@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/kumaraswamy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/kumaraswamy.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/kumaraswamy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/kumaraswamy.py).
 
 Compute `Y = g(X) = (1 - (1 - X)**(1 / b))**(1 / a), X in [0, 1]`.
 
@@ -27,6 +24,37 @@ https://en.wikipedia.org/wiki/Kumaraswamy_distribution):
 Y ~ Kumaraswamy(a, b)
 pdf(y; a, b, 0 <= y <= 1) = a * b * y ** (a - 1) * (1 - y**a) ** (b - 1)
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    concentration1=None,
+    concentration0=None,
+    validate_args=False,
+    name='kumaraswamy'
+)
+```
+
+Instantiates the `Kumaraswamy` bijector. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`concentration1`</b>: Python `float` scalar indicating the transform power,
+    i.e., `Y = g(X) = (1 - (1 - X)**(1 / b))**(1 / a)` where `a` is
+    `concentration1`.
+* <b>`concentration0`</b>: Python `float` scalar indicating the transform power,
+    i.e., `Y = g(X) = (1 - (1 - X)**(1 / b))**(1 / a)` where `b` is
+    `concentration0`.
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
+    checked for correctness.
+* <b>`name`</b>: Python `str` name given to ops managed by this object.
+
+
 
 ## Properties
 
@@ -76,31 +104,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    concentration1=None,
-    concentration0=None,
-    validate_args=False,
-    name='kumaraswamy'
-)
-```
-
-Instantiates the `Kumaraswamy` bijector.
-
-#### Args:
-
-* <b>`concentration1`</b>: Python `float` scalar indicating the transform power,
-    i.e., `Y = g(X) = (1 - (1 - X)**(1 / b))**(1 / a)` where `a` is
-    `concentration1`.
-* <b>`concentration0`</b>: Python `float` scalar indicating the transform power,
-    i.e., `Y = g(X) = (1 - (1 - X)**(1 / b))**(1 / a)` where `b` is
-    `concentration0`.
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
-* <b>`name`</b>: Python `str` name given to ops managed by this object.
 
 <h3 id="forward"><code>forward</code></h3>
 

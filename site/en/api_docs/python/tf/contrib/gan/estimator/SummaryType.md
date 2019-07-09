@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -15,11 +12,11 @@ page_type: reference
 ### Aliases:
 
 * Class `tf.contrib.gan.estimator.SummaryType`
-* Class `tf.contrib.gan.estimator.gan_estimator.SummaryType`
+* Class `tf.contrib.gan.estimator.stargan_estimator.SummaryType`
 
 
 
-Defined in [`tensorflow/contrib/gan/python/estimator/python/gan_estimator_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/estimator/python/gan_estimator_impl.py).
+Defined in [`tensorflow/contrib/gan/python/estimator/python/stargan_estimator_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/estimator/python/stargan_estimator_impl.py).
 
 
 

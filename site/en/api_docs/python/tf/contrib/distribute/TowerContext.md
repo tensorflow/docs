@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,22 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/distribute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/distribute.py).
+Defined in [`tensorflow/python/training/distribute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/distribute.py).
 
 DistributionStrategy API inside a `call_for_each_tower()` call.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    distribution_strategy,
+    tower_id
+)
+```
+
+
+
+
 
 ## Properties
 
@@ -43,17 +53,6 @@ Which tower is being defined, a number from 0 to `num_towers - 1`.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    distribution_strategy,
-    tower_id
-)
-```
-
-
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
@@ -114,14 +113,6 @@ with cross-tower-context(distribution):
 
 The return value of `merge_fn`, except for `PerDevice` values which are
 unpacked.
-
-<h3 id="tower_local_var_scope"><code>tower_local_var_scope</code></h3>
-
-``` python
-tower_local_var_scope(reduce_method)
-```
-
-Alias for distribution_strategy.tower_local_var_scope().
 
 
 

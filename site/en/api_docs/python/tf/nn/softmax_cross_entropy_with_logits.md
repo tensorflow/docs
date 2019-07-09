@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.nn.softmax_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Classification](../../../../api_guides/python/nn#Classification)
 
@@ -77,5 +74,6 @@ this function.**
 
 #### Returns:
 
-A `Tensor` of the same shape as `labels` and of the same type as `logits`
-with the softmax cross entropy loss.
+A `Tensor` that contains the softmax cross entropy loss. Its type is the
+same as `logits` and its shape is the same as `labels` except that it does
+not have the last dimension of `labels`.

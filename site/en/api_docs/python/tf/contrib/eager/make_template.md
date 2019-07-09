@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.contrib.eager.make_template(
 
 
 
-Defined in [`tensorflow/python/ops/template.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/template.py).
+Defined in [`tensorflow/python/ops/template.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/template.py).
 
 Make a template, optionally compiling func_ into a graph function.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/estimator/__init__.py).
+Defined in [`tensorflow/contrib/gan/python/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/estimator/__init__.py).
 
 TFGAN estimator module.
 
@@ -23,15 +20,19 @@ with the feature support of TFGAN.
 
 [`head`](../../../tf/contrib/gan/estimator/head) module: `tf.Learn` components for `GANEstimator`'s loss.
 
+[`stargan_estimator`](../../../tf/contrib/gan/estimator/stargan_estimator) module: `tf.Learn` components for `GANEstimator`.
+
 ## Classes
 
 [`class GANEstimator`](../../../tf/contrib/gan/estimator/GANEstimator): An estimator for Generative Adversarial Networks (GANs).
 
 [`class GANHead`](../../../tf/contrib/gan/estimator/GANHead): `Head` for a GAN.
 
+[`class StarGANEstimator`](../../../tf/contrib/gan/estimator/StarGANEstimator): An estimator for Generative Adversarial Networks (GANs).
+
 [`class SummaryType`](../../../tf/contrib/gan/estimator/SummaryType)
 
 ## Functions
 
-[`gan_head(...)`](../../../tf/contrib/gan/estimator/gan_head): Creates a `GANHead`.
+[`gan_head(...)`](../../../tf/contrib/gan/estimator/gan_head): Creates a `GANHead`. (deprecated)
 

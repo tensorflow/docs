@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/train/queue_runner/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/train/queue_runner/__init__.py).
+Defined in [`tensorflow/train/queue_runner/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/train/queue_runner/__init__.py).
 
-Create threads to run multiple enqueue ops.
+Public API for tf.train.queue_runner namespace.
 
 ## Classes
 
@@ -20,7 +17,7 @@ Create threads to run multiple enqueue ops.
 
 ## Functions
 
-[`add_queue_runner(...)`](../../tf/train/add_queue_runner): Adds a `QueueRunner` to a collection in the graph.
+[`add_queue_runner(...)`](../../tf/train/add_queue_runner): Adds a `QueueRunner` to a collection in the graph. (deprecated)
 
-[`start_queue_runners(...)`](../../tf/train/start_queue_runners): Starts all queue runners collected in the graph.
+[`start_queue_runners(...)`](../../tf/train/start_queue_runners): Starts all queue runners collected in the graph. (deprecated)
 

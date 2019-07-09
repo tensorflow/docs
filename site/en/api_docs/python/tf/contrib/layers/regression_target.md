@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.contrib.layers.regression_target(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/target_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/target_column.py).
+Defined in [`tensorflow/contrib/layers/python/layers/target_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/target_column.py).
 
 Creates a _TargetColumn for linear regression. (deprecated)
 

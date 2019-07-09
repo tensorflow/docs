@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/reshape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/reshape.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/reshape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/reshape.py).
 
 Reshapes the `event_shape` of a `Tensor`.
 
@@ -56,6 +53,46 @@ r.inverse_log_det_jacobian(any_value)
 # ==> 0.
 ```
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    event_shape_out,
+    event_shape_in=(-1,),
+    validate_args=False,
+    name=None
+)
+```
+
+Creates a `Reshape` bijector. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`event_shape_out`</b>: An `int`-like vector-shaped `Tensor`
+    representing the event shape of the transformed output.
+* <b>`event_shape_in`</b>: An optional `int`-like vector-shape `Tensor`
+    representing the event shape of the input. This is required in
+    order to define inverse operations; the default of (-1,)
+    assumes a vector-shaped input.
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should
+    be checked for correctness.
+* <b>`name`</b>: Python `str`, name given to ops managed by this object.
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: if either `event_shape_in` or `event_shape_out` has
+    non-integer `dtype`.
+* <b>`ValueError`</b>: if either of `event_shape_in` or `event_shape_out`
+   has non-vector shape (`rank > 1`), or if their sizes do not
+   match.
+
+
+
 ## Properties
 
 <h3 id="dtype"><code>dtype</code></h3>
@@ -96,40 +133,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    event_shape_out,
-    event_shape_in=(-1,),
-    validate_args=False,
-    name=None
-)
-```
-
-Creates a `Reshape` bijector.
-
-#### Args:
-
-* <b>`event_shape_out`</b>: An `int`-like vector-shaped `Tensor`
-    representing the event shape of the transformed output.
-* <b>`event_shape_in`</b>: An optional `int`-like vector-shape `Tensor`
-    representing the event shape of the input. This is required in
-    order to define inverse operations; the default of (-1,)
-    assumes a vector-shaped input.
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should
-    be checked for correctness.
-* <b>`name`</b>: Python `str`, name given to ops managed by this object.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: if either `event_shape_in` or `event_shape_out` has
-    non-integer `dtype`.
-* <b>`ValueError`</b>: if either of `event_shape_in` or `event_shape_out`
-   has non-vector shape (`rank > 1`), or if their sizes do not
-   match.
 
 <h3 id="forward"><code>forward</code></h3>
 

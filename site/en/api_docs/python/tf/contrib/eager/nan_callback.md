@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,6 +18,6 @@ tf.contrib.eager.nan_callback(
 
 
 
-Defined in [`tensorflow/python/eager/execution_callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/eager/execution_callbacks.py).
+Defined in [`tensorflow/python/eager/execution_callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/eager/execution_callbacks.py).
 
 A specialization of `inf_nan_callback` that checks for `nan`s only.

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,62 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py).
+Defined in [`tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py).
 
 Cudnn implementation of LSTM layer.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    num_layers,
+    num_units,
+    input_mode=CUDNN_INPUT_LINEAR_MODE,
+    direction=CUDNN_RNN_UNIDIRECTION,
+    dropout=0.0,
+    seed=None,
+    dtype=tf.float32,
+    kernel_initializer=None,
+    bias_initializer=None,
+    name=None
+)
+```
+
+Creates a CudnnRNN model from model spec.
+
+#### Args:
+
+* <b>`num_layers`</b>: the number of layers for the RNN model.
+* <b>`num_units`</b>: the number of units within the RNN model.
+* <b>`input_mode`</b>: indicate whether there is a linear projection between the
+      input and the actual computation before the first layer. It can be
+      'linear_input', 'skip_input' or 'auto_select'.
+      'linear_input' (default) always applies a linear projection of input
+      onto RNN hidden state. (standard RNN behavior).
+      'skip_input' is only allowed when input_size == num_units;
+      'auto_select' implies 'skip_input' when input_size == num_units;
+      otherwise, it implies 'linear_input'.
+* <b>`direction`</b>: the direction model that the model operates. Can be either
+      'unidirectional' or 'bidirectional'
+* <b>`dropout`</b>: dropout rate, a number between [0, 1]. Dropout is applied between
+      each layer (no dropout is applied for a model with a single layer).
+      When set to 0, dropout is disabled.
+* <b>`seed`</b>: the op seed used for initializing dropout. See <a href="../../../tf/set_random_seed"><code>tf.set_random_seed</code></a>
+      for behavior.
+* <b>`dtype`</b>: tf.float16, tf.float32 or tf.float64
+* <b>`kernel_initializer`</b>: starting value to initialize the weight.
+* <b>`bias_initializer`</b>: starting value to initialize the bias
+    (default is all zeros).
+* <b>`name`</b>: VariableScope for the created subgraph; defaults to class name.
+    This only serves the default scope if later no scope is specified when
+    invoking __call__().
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if direction is invalid. Or dtype is not supported.
+
+
 
 ## Properties
 
@@ -43,10 +93,6 @@ Returns `unidirectional` or `bidirectional`.
 <h3 id="graph"><code>graph</code></h3>
 
 
-
-<h3 id="inbound_nodes"><code>inbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="input"><code>input</code></h3>
 
@@ -164,10 +210,6 @@ A list of tensors.
 
 
 
-<h3 id="outbound_nodes"><code>outbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
-
 <h3 id="output"><code>output</code></h3>
 
 Retrieves the output tensor(s) of a layer.
@@ -270,57 +312,6 @@ A list of variables.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    num_layers,
-    num_units,
-    input_mode=CUDNN_INPUT_LINEAR_MODE,
-    direction=CUDNN_RNN_UNIDIRECTION,
-    dropout=0.0,
-    seed=None,
-    dtype=tf.float32,
-    kernel_initializer=None,
-    bias_initializer=None,
-    name=None
-)
-```
-
-Creates a CudnnRNN model from model spec.
-
-#### Args:
-
-* <b>`num_layers`</b>: the number of layers for the RNN model.
-* <b>`num_units`</b>: the number of units within the RNN model.
-* <b>`input_mode`</b>: indicate whether there is a linear projection between the
-      input and the actual computation before the first layer. It can be
-      'linear_input', 'skip_input' or 'auto_select'.
-      'linear_input' (default) always applies a linear projection of input
-      onto RNN hidden state. (standard RNN behavior).
-      'skip_input' is only allowed when input_size == num_units;
-      'auto_select' implies 'skip_input' when input_size == num_units;
-      otherwise, it implies 'linear_input'.
-* <b>`direction`</b>: the direction model that the model operates. Can be either
-      'unidirectional' or 'bidirectional'
-* <b>`dropout`</b>: dropout rate, a number between [0, 1]. Dropout is applied between
-      each layer (no dropout is applied for a model with a single layer).
-      When set to 0, dropout is disabled.
-* <b>`seed`</b>: the op seed used for initializing dropout. See <a href="../../../tf/set_random_seed"><code>tf.set_random_seed</code></a>
-      for behavior.
-* <b>`dtype`</b>: tf.float16, tf.float32 or tf.float64
-* <b>`kernel_initializer`</b>: starting value to initialize the weight.
-* <b>`bias_initializer`</b>: starting value to initialize the bias
-    (default is all zeros).
-* <b>`name`</b>: VariableScope for the created subgraph; defaults to class name.
-    This only serves the default scope if later no scope is specified when
-    invoking __call__().
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: if direction is invalid. Or dtype is not supported.
-
 <h3 id="__call__"><code>__call__</code></h3>
 
 ``` python
@@ -367,120 +358,6 @@ __deepcopy__(memo)
 
 
 
-<h3 id="add_loss"><code>add_loss</code></h3>
-
-``` python
-add_loss(
-    losses,
-    inputs=None
-)
-```
-
-
-
-<h3 id="add_update"><code>add_update</code></h3>
-
-``` python
-add_update(
-    updates,
-    inputs=None
-)
-```
-
-Add update op(s), potentially dependent on layer inputs.
-
-Weight updates (for instance, the updates of the moving mean and variance
-in a BatchNormalization layer) may be dependent on the inputs passed
-when calling a layer. Hence, when reusing the same layer on
-different inputs `a` and `b`, some entries in `layer.updates` may be
-dependent on `a` and some on `b`. This method automatically keeps track
-of dependencies.
-
-The `get_updates_for` method allows to retrieve the updates relevant to a
-specific set of inputs.
-
-This call is ignored when eager execution is enabled (in that case, variable
-updates are run on the fly and thus do not need to be tracked for later
-execution).
-
-#### Arguments:
-
-* <b>`updates`</b>: Update op, or list/tuple of update ops.
-* <b>`inputs`</b>: If anything other than None is passed, it signals the updates
-    are conditional on some of the layer's inputs,
-    and thus they should only be run where these inputs are available.
-    This is the case for BatchNormalization updates, for instance.
-    If None, the updates will be taken into account unconditionally,
-    and you are responsible for making sure that any dependency they might
-    have is available at runtime.
-    A step counter might fall into this category.
-
-<h3 id="add_variable"><code>add_variable</code></h3>
-
-``` python
-add_variable(
-    *args,
-    **kwargs
-)
-```
-
-Alias for `add_weight`.
-
-<h3 id="add_weight"><code>add_weight</code></h3>
-
-``` python
-add_weight(
-    name,
-    shape,
-    dtype=None,
-    initializer=None,
-    regularizer=None,
-    trainable=True,
-    constraint=None,
-    use_resource=None,
-    partitioner=None
-)
-```
-
-Adds a new variable to the layer, or gets an existing one; returns it.
-
-#### Arguments:
-
-* <b>`name`</b>: variable name.
-* <b>`shape`</b>: variable shape.
-* <b>`dtype`</b>: The type of the variable. Defaults to `self.dtype` or `float32`.
-* <b>`initializer`</b>: initializer instance (callable).
-* <b>`regularizer`</b>: regularizer instance (callable).
-* <b>`trainable`</b>: whether the variable should be part of the layer's
-    "trainable_variables" (e.g. variables, biases)
-    or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
-    Note, if the current variable scope is marked as non-trainable
-    then this parameter is ignored and any added variables are also
-    marked as non-trainable.
-* <b>`constraint`</b>: constraint instance (callable).
-* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
-* <b>`partitioner`</b>: (optional) partitioner instance (callable).  If
-    provided, when the requested variable is created it will be split
-    into multiple partitions according to `partitioner`.  In this case,
-    an instance of `PartitionedVariable` is returned.  Available
-    partitioners include <a href="../../../tf/fixed_size_partitioner"><code>tf.fixed_size_partitioner</code></a> and
-    <a href="../../../tf/variable_axis_size_partitioner"><code>tf.variable_axis_size_partitioner</code></a>.  For more details, see the
-    documentation of <a href="../../../tf/get_variable"><code>tf.get_variable</code></a> and the  "Variable Partitioners
-    and Sharding" section of the API guide.
-
-
-#### Returns:
-
-The created variable.  Usually either a `Variable` or `ResourceVariable`
-instance.  If `partitioner` is not `None`, a `PartitionedVariable`
-instance is returned.
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If called with partioned variable regularization and
-    eager execution is enabled.
-
 <h3 id="apply"><code>apply</code></h3>
 
 ``` python
@@ -525,37 +402,6 @@ creating variables.
 #### Raises:
 
 * <b>`ValueError`</b>: if input_shape has wrong dimension or unknown 3rd dimension.
-
-<h3 id="call"><code>call</code></h3>
-
-``` python
-call(
-    inputs,
-    initial_state=None,
-    training=True
-)
-```
-
-Runs the forward step for the RNN model.
-
-#### Args:
-
-* <b>`inputs`</b>: `3-D` tensor with shape `[time_len, batch_size, input_size]`.
-* <b>`initial_state`</b>: a tuple of tensor(s) of shape
-    `[num_layers * num_dirs, batch_size, num_units]`. If not provided, use
-    zero initial states. The tuple size is 2 for LSTM and 1 for other RNNs.
-* <b>`training`</b>: whether this operation will be used in training or inference.
-
-#### Returns:
-
-* <b>`output`</b>: a tensor of shape `[time_len, batch_size, num_dirs * num_units]`.
-    It is a `concat([fwd_output, bak_output], axis=2)`.
-* <b>`output_states`</b>: a tuple of tensor(s) of the same shape and structure as
-    `initial_state`.
-
-#### Raises:
-
-* <b>`ValueError`</b>: initial_state is not a tuple.
 
 <h3 id="compute_mask"><code>compute_mask</code></h3>
 

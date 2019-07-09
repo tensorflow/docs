@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.tuple(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/control_flow_ops.py).
 
 See the guide: [Control Flow > Control Flow Operations](../../../api_guides/python/control_flow_ops#Control_Flow_Operations)
 
@@ -36,8 +33,8 @@ argument tensors can be computed in parallel, but the values of any tensor
 returned by `tuple` are only available after all the parallel computations
 are done.
 
-See also <a href="../tf/group">group</a> and
-<a href="../tf/control_dependencies">control_dependencies</a>.
+See also <a href="../tf/group"><code>tf.group</code></a> and
+<a href="../tf/control_dependencies"><code>tf.control_dependencies</code></a>.
 
 #### Args:
 

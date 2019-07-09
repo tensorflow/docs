@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,15 +16,15 @@ tf.nn.bias_add(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Activation Functions](../../../../api_guides/python/nn#Activation_Functions)
 
 Adds `bias` to `value`.
 
-This is (mostly) a special case of <a href="../../tf/add"><code>tf.add</code></a> where `bias` is restricted to 1-D.
+This is (mostly) a special case of <a href="../../tf/math/add"><code>tf.add</code></a> where `bias` is restricted to 1-D.
 Broadcasting is supported, so `value` may have any number of dimensions.
-Unlike <a href="../../tf/add"><code>tf.add</code></a>, the type of `bias` is allowed to differ from `value` in the
+Unlike <a href="../../tf/math/add"><code>tf.add</code></a>, the type of `bias` is allowed to differ from `value` in the
 case where both types are quantized.
 
 #### Args:

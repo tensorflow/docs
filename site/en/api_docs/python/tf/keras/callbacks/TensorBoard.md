@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
 
 
-Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/callbacks.py).
+Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/callbacks.py).
 
 Tensorboard basic visualizations.
 
@@ -53,7 +50,9 @@ You can find more information about TensorBoard
 * <b>`write_images`</b>: whether to write model weights to visualize as
         image in TensorBoard.
 * <b>`embeddings_freq`</b>: frequency (in epochs) at which selected embedding
-        layers will be saved.
+        layers will be saved. If set to 0, embeddings won't be computed.
+        Data to be visualized in TensorBoard's Embedding tab must be passed
+        as `embeddings_data`.
 * <b>`embeddings_layer_names`</b>: a list of names of layers to keep eye on. If
         None or empty list all the embedding layer will be watched.
 * <b>`embeddings_metadata`</b>: a dictionary which maps layer name to a file name
@@ -61,10 +60,26 @@ You can find more information about TensorBoard
         [details](https://www.tensorflow.org/how_tos/embedding_viz/#metadata_optional)
         about metadata files format. In case if the same metadata file is
         used for all embedding layers, string can be passed.
+* <b>`embeddings_data`</b>: data to be embedded at layers specified in
+        `embeddings_layer_names`. Numpy array (if the model has a single
+        input) or list of Numpy arrays (if the model has multiple inputs).
+        Learn [more about embeddings](https://www.tensorflow.org/programmers_guide/embedding)
 
-## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
+#### Raises:
+
+* <b>`ValueError`</b>: If histogram_freq is set and no validation data is provided.
+
+
+
+#### Eager Compatibility
+Using `Tensorboard` callback will work while eager execution is enabled,
+however outputting histogram summaries of weights and gradients is not
+supported, and thus `histogram_freq` will be ignored.
+
+
+
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -73,11 +88,19 @@ __init__(
     batch_size=32,
     write_graph=True,
     write_grads=False,
-    write_images=False
+    write_images=False,
+    embeddings_freq=0,
+    embeddings_layer_names=None,
+    embeddings_metadata=None,
+    embeddings_data=None
 )
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="on_batch_begin"><code>on_batch_begin</code></h3>
 
@@ -99,7 +122,7 @@ on_batch_end(
 )
 ```
 
-
+Writes scalar summaries for metrics on every training batch.
 
 <h3 id="on_epoch_begin"><code>on_epoch_begin</code></h3>
 
@@ -110,7 +133,7 @@ on_epoch_begin(
 )
 ```
 
-
+Add histogram op to Model test_function callbacks, reset batch count.
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 
@@ -121,7 +144,7 @@ on_epoch_end(
 )
 ```
 
-
+Checks if summary ops should run next epoch, logs scalar summaries.
 
 <h3 id="on_train_begin"><code>on_train_begin</code></h3>
 
@@ -129,7 +152,7 @@ on_epoch_end(
 on_train_begin(logs=None)
 ```
 
-
+Checks if histogram summaries can be run.
 
 <h3 id="on_train_end"><code>on_train_end</code></h3>
 
@@ -145,7 +168,7 @@ on_train_end(logs=None)
 set_model(model)
 ```
 
-
+Sets Keras model and creates summary ops.
 
 <h3 id="set_params"><code>set_params</code></h3>
 

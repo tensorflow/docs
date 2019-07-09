@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/keras/optimizers/Optimizer)
 
 
 
-Defined in [`tensorflow/python/keras/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/optimizers.py).
+Defined in [`tensorflow/python/keras/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/optimizers.py).
 
 Nesterov Adam optimizer.
 
@@ -31,9 +28,7 @@ at their default values.
     beta_1/beta_2: floats, 0 < beta < 1. Generally close to 1.
 * <b>`epsilon`</b>: float >= 0. Fuzz factor. If `None`, defaults to `K.epsilon()`.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -47,6 +42,10 @@ __init__(
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="from_config"><code>from_config</code></h3>
 

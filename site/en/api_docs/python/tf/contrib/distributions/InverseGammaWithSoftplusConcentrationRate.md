@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,29 @@ Inherits From: [`InverseGamma`](../../../tf/contrib/distributions/InverseGamma)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/inverse_gamma.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/inverse_gamma.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/inverse_gamma.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/inverse_gamma.py).
 
 `InverseGamma` with softplus of `concentration` and `rate`.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    concentration,
+    rate,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='InverseGammaWithSoftplusConcentrationRate'
+)
+```
+
+DEPRECATED FUNCTION
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+
 
 ## Properties
 
@@ -98,20 +115,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    concentration,
-    rate,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='InverseGammaWithSoftplusConcentrationRate'
-)
-```
-
-
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

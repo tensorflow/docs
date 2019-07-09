@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,16 +11,16 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/utils/data_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/utils/data_utils.py).
+Defined in [`tensorflow/python/keras/utils/data_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/data_utils.py).
 
 Base object for fitting to a sequence of data, such as a dataset.
 
-Every `Sequence` must implements the `__getitem__` and the `__len__` methods.
+Every `Sequence` must implement the `__getitem__` and the `__len__` methods.
 If you want to modify your dataset between epochs you may implement
 `on_epoch_end`.
 The method `__getitem__` should return a complete batch.
 
-# Notes
+Notes:
 
 `Sequence` are a safer way to do multiprocessing. This structure guarantees
 that the network will only train once

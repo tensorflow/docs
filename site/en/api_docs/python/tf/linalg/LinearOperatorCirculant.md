@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linear_operator_circulant.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/linalg/linear_operator_circulant.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator_circulant.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_circulant.py).
 
 `LinearOperator` acting like a circulant matrix.
 
@@ -202,6 +199,60 @@ These have the following meaning:
 * If `is_X == None` (the default), callers should have no expectation either
   way.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    spectrum,
+    input_output_dtype=tf.complex64,
+    is_non_singular=None,
+    is_self_adjoint=None,
+    is_positive_definite=None,
+    is_square=True,
+    name='LinearOperatorCirculant'
+)
+```
+
+Initialize an `LinearOperatorCirculant`.
+
+This `LinearOperator` is initialized to have shape `[B1,...,Bb, N, N]`
+by providing `spectrum`, a `[B1,...,Bb, N]` `Tensor`.
+
+If `input_output_dtype = DTYPE`:
+
+* Arguments to methods such as `matmul` or `solve` must be `DTYPE`.
+* Values returned by all methods, such as `matmul` or `determinant` will be
+  cast to `DTYPE`.
+
+Note that if the spectrum is not Hermitian, then this operator corresponds
+to a complex matrix with non-zero imaginary part.  In this case, setting
+`input_output_dtype` to a real type will forcibly cast the output to be
+real, resulting in incorrect results!
+
+If on the other hand the spectrum is Hermitian, then this operator
+corresponds to a real-valued matrix, and setting `input_output_dtype` to
+a real type is fine.
+
+#### Args:
+
+* <b>`spectrum`</b>:  Shape `[B1,...,Bb, N]` `Tensor`.  Allowed dtypes are
+    `float32`, `complex64`.  Type can be different than `input_output_dtype`
+* <b>`input_output_dtype`</b>: `dtype` for input/output.  Must be either
+    `float32` or `complex64`.
+* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
+* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
+    transpose.  If `spectrum` is real, this will always be true.
+* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite,
+    meaning the quadratic form `x^H A x` has positive real part for all
+    nonzero `x`.  Note that we do not require the operator to be
+    self-adjoint to be positive-definite.  See:
+    https://en.wikipedia.org/wiki/Positive-definite_matrix\
+        #Extension_for_non_symmetric_matrices
+* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
+* <b>`name`</b>:  A name to prepend to all ops created by this class.
+
+
+
 ## Properties
 
 <h3 id="batch_shape"><code>batch_shape</code></h3>
@@ -337,58 +388,6 @@ Python integer, or None if the tensor rank is undefined.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    spectrum,
-    input_output_dtype=tf.complex64,
-    is_non_singular=None,
-    is_self_adjoint=None,
-    is_positive_definite=None,
-    is_square=True,
-    name='LinearOperatorCirculant'
-)
-```
-
-Initialize an `LinearOperatorCirculant`.
-
-This `LinearOperator` is initialized to have shape `[B1,...,Bb, N, N]`
-by providing `spectrum`, a `[B1,...,Bb, N]` `Tensor`.
-
-If `input_output_dtype = DTYPE`:
-
-* Arguments to methods such as `matmul` or `solve` must be `DTYPE`.
-* Values returned by all methods, such as `matmul` or `determinant` will be
-  cast to `DTYPE`.
-
-Note that if the spectrum is not Hermitian, then this operator corresponds
-to a complex matrix with non-zero imaginary part.  In this case, setting
-`input_output_dtype` to a real type will forcibly cast the output to be
-real, resulting in incorrect results!
-
-If on the other hand the spectrum is Hermitian, then this operator
-corresponds to a real-valued matrix, and setting `input_output_dtype` to
-a real type is fine.
-
-#### Args:
-
-* <b>`spectrum`</b>:  Shape `[B1,...,Bb, N]` `Tensor`.  Allowed dtypes are
-    `float32`, `complex64`.  Type can be different than `input_output_dtype`
-* <b>`input_output_dtype`</b>: `dtype` for input/output.  Must be either
-    `float32` or `complex64`.
-* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
-* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
-    transpose.  If `spectrum` is real, this will always be true.
-* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite,
-    meaning the quadratic form `x^H A x` has positive real part for all
-    nonzero `x`.  Note that we do not require the operator to be
-    self-adjoint to be positive-definite.  See:
-    https://en.wikipedia.org/wiki/Positive-definite_matrix\
-        #Extension_for_non_symmetric_matrices
-* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
-* <b>`name`</b>:  A name to prepend to all ops created by this class.
 
 <h3 id="add_to_tensor"><code>add_to_tensor</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/__init__.py).
+Defined in [`tensorflow/contrib/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/__init__.py).
 
 Experimental utilities re:tf.estimator.*.
 
@@ -30,6 +27,8 @@ Experimental utilities re:tf.estimator.*.
 
 [`class RNNEstimator`](../../tf/contrib/estimator/RNNEstimator): An Estimator for TensorFlow RNN models with user-specified head.
 
+[`class SavedModelEstimator`](../../tf/contrib/estimator/SavedModelEstimator): Create an Estimator from a SavedModel.
+
 [`class TowerOptimizer`](../../tf/contrib/estimator/TowerOptimizer): Gathers gradients from all towers and reduces them in the last one.
 
 ## Functions
@@ -41,6 +40,10 @@ Experimental utilities re:tf.estimator.*.
 [`boosted_trees_classifier_train_in_memory(...)`](../../tf/contrib/estimator/boosted_trees_classifier_train_in_memory): Trains a boosted tree classifier with in memory dataset.
 
 [`boosted_trees_regressor_train_in_memory(...)`](../../tf/contrib/estimator/boosted_trees_regressor_train_in_memory): Trains a boosted tree regressor with in memory dataset.
+
+[`build_raw_supervised_input_receiver_fn(...)`](../../tf/contrib/estimator/build_raw_supervised_input_receiver_fn): Build a supervised_input_receiver_fn for raw features and labels.
+
+[`build_supervised_input_receiver_fn_from_input_fn(...)`](../../tf/contrib/estimator/build_supervised_input_receiver_fn_from_input_fn): Get a function that returns a SupervisedInputReceiver matching an input_fn.
 
 [`call_logit_fn(...)`](../../tf/contrib/estimator/call_logit_fn): Calls logit_fn.
 
@@ -58,6 +61,10 @@ Experimental utilities re:tf.estimator.*.
 
 [`logistic_regression_head(...)`](../../tf/contrib/estimator/logistic_regression_head): Creates a `_Head` for logistic regression.
 
+[`make_early_stopping_hook(...)`](../../tf/contrib/estimator/make_early_stopping_hook): Creates early-stopping hook.
+
+[`make_stop_at_checkpoint_step_hook(...)`](../../tf/contrib/estimator/make_stop_at_checkpoint_step_hook): Creates a proper StopAtCheckpointStepHook based on chief status.
+
 [`multi_class_head(...)`](../../tf/contrib/estimator/multi_class_head): Creates a `_Head` for multi class classification.
 
 [`multi_head(...)`](../../tf/contrib/estimator/multi_head): Creates a `_Head` for multi-objective learning.
@@ -66,7 +73,17 @@ Experimental utilities re:tf.estimator.*.
 
 [`poisson_regression_head(...)`](../../tf/contrib/estimator/poisson_regression_head): Creates a `_Head` for poisson regression using <a href="../../tf/nn/log_poisson_loss"><code>tf.nn.log_poisson_loss</code></a>.
 
+[`read_eval_metrics(...)`](../../tf/contrib/estimator/read_eval_metrics): Helper to read eval metrics from eval summary files.
+
 [`regression_head(...)`](../../tf/contrib/estimator/regression_head): Creates a `_Head` for regression using the `mean_squared_error` loss.
 
 [`replicate_model_fn(...)`](../../tf/contrib/estimator/replicate_model_fn): Replicate `Estimator.model_fn` over GPUs. (deprecated)
+
+[`stop_if_higher_hook(...)`](../../tf/contrib/estimator/stop_if_higher_hook): Creates hook to stop if the given metric is higher than the threshold.
+
+[`stop_if_lower_hook(...)`](../../tf/contrib/estimator/stop_if_lower_hook): Creates hook to stop if the given metric is lower than the threshold.
+
+[`stop_if_no_decrease_hook(...)`](../../tf/contrib/estimator/stop_if_no_decrease_hook): Creates hook to stop if metric does not decrease within given max steps.
+
+[`stop_if_no_increase_hook(...)`](../../tf/contrib/estimator/stop_if_no_increase_hook): Creates hook to stop if metric does not increase within given max steps.
 

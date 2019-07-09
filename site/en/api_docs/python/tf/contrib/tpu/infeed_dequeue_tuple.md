@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.contrib.tpu.infeed_dequeue_tuple(
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/ops/tpu_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/ops/tpu_ops.py).
+Defined in [`tensorflow/contrib/tpu/python/ops/tpu_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/ops/tpu_ops.py).
 
 A placeholder op for values fed into the TPU simultaneously as a tuple.
 

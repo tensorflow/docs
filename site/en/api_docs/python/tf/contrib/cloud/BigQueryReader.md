@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`ReaderBase`](../../../tf/ReaderBase)
 
 
 
-Defined in [`tensorflow/contrib/cloud/python/ops/bigquery_reader_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/cloud/python/ops/bigquery_reader_ops.py).
+Defined in [`tensorflow/contrib/cloud/python/ops/bigquery_reader_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cloud/python/ops/bigquery_reader_ops.py).
 
 A Reader that outputs keys and tf.Example values from a BigQuery table.
 
@@ -54,21 +51,7 @@ For more information, see 'Table Decorators' in BigQuery docs.
 
 See ReaderBase for supported methods.
 
-## Properties
-
-<h3 id="reader_ref"><code>reader_ref</code></h3>
-
-Op that implements the reader.
-
-<h3 id="supports_serialize"><code>supports_serialize</code></h3>
-
-Whether the Reader implementation can serialize its state.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -107,6 +90,22 @@ Creates a BigQueryReader.
 * <b>`TypeError`</b>: - If features is neither None nor a dict or
              - If columns is neither None nor a list or
              - If both features and columns are None or set.
+
+
+
+## Properties
+
+<h3 id="reader_ref"><code>reader_ref</code></h3>
+
+Op that implements the reader.
+
+<h3 id="supports_serialize"><code>supports_serialize</code></h3>
+
+Whether the Reader implementation can serialize its state.
+
+
+
+## Methods
 
 <h3 id="num_records_produced"><code>num_records_produced</code></h3>
 

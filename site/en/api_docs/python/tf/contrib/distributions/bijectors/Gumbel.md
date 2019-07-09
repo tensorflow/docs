@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/gumbel.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/gumbel.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/gumbel.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/gumbel.py).
 
 Compute `Y = g(X) = exp(-exp(-(X - loc) / scale))`.
 
@@ -28,6 +25,37 @@ Y ~ Gumbel(loc, scale)
 pdf(y; loc, scale) = exp(
   -( (y - loc) / scale + exp(- (y - loc) / scale) ) ) / scale
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    loc=0.0,
+    scale=1.0,
+    validate_args=False,
+    name='gumbel'
+)
+```
+
+Instantiates the `Gumbel` bijector. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`loc`</b>: Float-like `Tensor` that is the same dtype and is
+    broadcastable with `scale`.
+    This is `loc` in `Y = g(X) = exp(-exp(-(X - loc) / scale))`.
+* <b>`scale`</b>: Positive Float-like `Tensor` that is the same dtype and is
+    broadcastable with `loc`.
+    This is `scale` in `Y = g(X) = exp(-exp(-(X - loc) / scale))`.
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
+    checked for correctness.
+* <b>`name`</b>: Python `str` name given to ops managed by this object.
+
+
 
 ## Properties
 
@@ -77,31 +105,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    loc=0.0,
-    scale=1.0,
-    validate_args=False,
-    name='gumbel'
-)
-```
-
-Instantiates the `Gumbel` bijector.
-
-#### Args:
-
-* <b>`loc`</b>: Float-like `Tensor` that is the same dtype and is
-    broadcastable with `scale`.
-    This is `loc` in `Y = g(X) = exp(-exp(-(X - loc) / scale))`.
-* <b>`scale`</b>: Positive Float-like `Tensor` that is the same dtype and is
-    broadcastable with `loc`.
-    This is `scale` in `Y = g(X) = exp(-exp(-(X - loc) / scale))`.
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
-* <b>`name`</b>: Python `str` name given to ops managed by this object.
 
 <h3 id="forward"><code>forward</code></h3>
 

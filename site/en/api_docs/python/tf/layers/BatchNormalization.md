@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`BatchNormalization`](../../tf/keras/layers/BatchNormalization),
 
 
 
-Defined in [`tensorflow/python/layers/normalization.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/layers/normalization.py).
+Defined in [`tensorflow/python/layers/normalization.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/layers/normalization.py).
 
 Batch Normalization layer from http://arxiv.org/abs/1502.03167.
 
@@ -29,7 +26,7 @@ Sergey Ioffe, Christian Szegedy
       normalized, typically the features axis/axes. For instance, after a
       `Conv2D` layer with `data_format="channels_first"`, set `axis=1`. If a
       list of axes is provided, each axis in `axis` will be normalized
-      simultaneously. Default is `-1` which takes uses last axis. Note: when
+      simultaneously. Default is `-1` which uses the last axis. Note: when
       using multi-axis batch norm, the `beta`, `gamma`, `moving_mean`, and
       `moving_variance` variables are the same rank as the input Tensor, with
       dimension size 1 in all reduced (non-axis) dimensions).
@@ -91,6 +88,39 @@ Sergey Ioffe, Christian Szegedy
     virtual_batch_size is specified.
 * <b>`name`</b>: A string, the name of the layer.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    axis=-1,
+    momentum=0.99,
+    epsilon=0.001,
+    center=True,
+    scale=True,
+    beta_initializer=tf.zeros_initializer(),
+    gamma_initializer=tf.ones_initializer(),
+    moving_mean_initializer=tf.zeros_initializer(),
+    moving_variance_initializer=tf.ones_initializer(),
+    beta_regularizer=None,
+    gamma_regularizer=None,
+    beta_constraint=None,
+    gamma_constraint=None,
+    renorm=False,
+    renorm_clipping=None,
+    renorm_momentum=0.99,
+    fused=None,
+    trainable=True,
+    virtual_batch_size=None,
+    adjustment=None,
+    name=None,
+    **kwargs
+)
+```
+
+
+
+
+
 ## Properties
 
 <h3 id="activity_regularizer"><code>activity_regularizer</code></h3>
@@ -104,10 +134,6 @@ Optional regularizer function for the output of this layer.
 <h3 id="graph"><code>graph</code></h3>
 
 
-
-<h3 id="inbound_nodes"><code>inbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="input"><code>input</code></h3>
 
@@ -192,10 +218,6 @@ A list of tensors.
 <h3 id="non_trainable_weights"><code>non_trainable_weights</code></h3>
 
 
-
-<h3 id="outbound_nodes"><code>outbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="output"><code>output</code></h3>
 
@@ -287,37 +309,6 @@ A list of variables.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    axis=-1,
-    momentum=0.99,
-    epsilon=0.001,
-    center=True,
-    scale=True,
-    beta_initializer=tf.zeros_initializer(),
-    gamma_initializer=tf.ones_initializer(),
-    moving_mean_initializer=tf.zeros_initializer(),
-    moving_variance_initializer=tf.ones_initializer(),
-    beta_regularizer=None,
-    gamma_regularizer=None,
-    beta_constraint=None,
-    gamma_constraint=None,
-    renorm=False,
-    renorm_clipping=None,
-    renorm_momentum=0.99,
-    fused=None,
-    trainable=True,
-    virtual_batch_size=None,
-    adjustment=None,
-    name=None,
-    **kwargs
-)
-```
-
-
-
 <h3 id="__call__"><code>__call__</code></h3>
 
 ``` python
@@ -364,120 +355,6 @@ __deepcopy__(memo)
 
 
 
-<h3 id="add_loss"><code>add_loss</code></h3>
-
-``` python
-add_loss(
-    losses,
-    inputs=None
-)
-```
-
-
-
-<h3 id="add_update"><code>add_update</code></h3>
-
-``` python
-add_update(
-    updates,
-    inputs=None
-)
-```
-
-Add update op(s), potentially dependent on layer inputs.
-
-Weight updates (for instance, the updates of the moving mean and variance
-in a BatchNormalization layer) may be dependent on the inputs passed
-when calling a layer. Hence, when reusing the same layer on
-different inputs `a` and `b`, some entries in `layer.updates` may be
-dependent on `a` and some on `b`. This method automatically keeps track
-of dependencies.
-
-The `get_updates_for` method allows to retrieve the updates relevant to a
-specific set of inputs.
-
-This call is ignored when eager execution is enabled (in that case, variable
-updates are run on the fly and thus do not need to be tracked for later
-execution).
-
-#### Arguments:
-
-* <b>`updates`</b>: Update op, or list/tuple of update ops.
-* <b>`inputs`</b>: If anything other than None is passed, it signals the updates
-    are conditional on some of the layer's inputs,
-    and thus they should only be run where these inputs are available.
-    This is the case for BatchNormalization updates, for instance.
-    If None, the updates will be taken into account unconditionally,
-    and you are responsible for making sure that any dependency they might
-    have is available at runtime.
-    A step counter might fall into this category.
-
-<h3 id="add_variable"><code>add_variable</code></h3>
-
-``` python
-add_variable(
-    *args,
-    **kwargs
-)
-```
-
-Alias for `add_weight`.
-
-<h3 id="add_weight"><code>add_weight</code></h3>
-
-``` python
-add_weight(
-    name,
-    shape,
-    dtype=None,
-    initializer=None,
-    regularizer=None,
-    trainable=True,
-    constraint=None,
-    use_resource=None,
-    partitioner=None
-)
-```
-
-Adds a new variable to the layer, or gets an existing one; returns it.
-
-#### Arguments:
-
-* <b>`name`</b>: variable name.
-* <b>`shape`</b>: variable shape.
-* <b>`dtype`</b>: The type of the variable. Defaults to `self.dtype` or `float32`.
-* <b>`initializer`</b>: initializer instance (callable).
-* <b>`regularizer`</b>: regularizer instance (callable).
-* <b>`trainable`</b>: whether the variable should be part of the layer's
-    "trainable_variables" (e.g. variables, biases)
-    or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
-    Note, if the current variable scope is marked as non-trainable
-    then this parameter is ignored and any added variables are also
-    marked as non-trainable.
-* <b>`constraint`</b>: constraint instance (callable).
-* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
-* <b>`partitioner`</b>: (optional) partitioner instance (callable).  If
-    provided, when the requested variable is created it will be split
-    into multiple partitions according to `partitioner`.  In this case,
-    an instance of `PartitionedVariable` is returned.  Available
-    partitioners include <a href="../../tf/fixed_size_partitioner"><code>tf.fixed_size_partitioner</code></a> and
-    <a href="../../tf/variable_axis_size_partitioner"><code>tf.variable_axis_size_partitioner</code></a>.  For more details, see the
-    documentation of <a href="../../tf/get_variable"><code>tf.get_variable</code></a> and the  "Variable Partitioners
-    and Sharding" section of the API guide.
-
-
-#### Returns:
-
-The created variable.  Usually either a `Variable` or `ResourceVariable`
-instance.  If `partitioner` is not `None`, a `PartitionedVariable`
-instance is returned.
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If called with partioned variable regularization and
-    eager execution is enabled.
-
 <h3 id="apply"><code>apply</code></h3>
 
 ``` python
@@ -507,17 +384,6 @@ Output tensor(s).
 
 ``` python
 build(input_shape)
-```
-
-
-
-<h3 id="call"><code>call</code></h3>
-
-``` python
-call(
-    inputs,
-    training=False
-)
 ```
 
 

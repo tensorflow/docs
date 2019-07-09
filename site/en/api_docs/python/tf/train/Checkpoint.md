@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,14 +16,14 @@ Inherits From: [`Checkpointable`](../../tf/contrib/checkpoint/Checkpointable)
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/checkpointable/util.py).
+Defined in [`tensorflow/python/training/checkpointable/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpointable/util.py).
 
 Groups checkpointable objects, saving and restoring them.
 
 `Checkpoint`'s constructor accepts keyword arguments whose values are types
 that contain checkpointable state, such as <a href="../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>
 implementations, <a href="../../tf/Variable"><code>tf.Variable</code></a>, `tf.keras.Layer` implementations, or
-<a href="../../tf/keras/Model"><code>tf.keras.Model</code></a> implementations. It saves these values with a checkpoint, and
+<a href="../../tf/keras/models/Model"><code>tf.keras.Model</code></a> implementations. It saves these values with a checkpoint, and
 maintains a `save_counter` for numbering checkpoints.
 
 Example usage when graph building:
@@ -84,7 +81,7 @@ arguments to their constructors, and each dependency is given a name that is
 identical to the name of the keyword argument for which it was created.
 TensorFlow classes like `Layer`s and `Optimizer`s will automatically add
 dependencies on their variables (e.g. "kernel" and "bias" for
-<a href="../../tf/keras/layers/Dense"><code>tf.keras.layers.Dense</code></a>). Inheriting from <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a> makes managing
+<a href="../../tf/keras/layers/Dense"><code>tf.keras.layers.Dense</code></a>). Inheriting from <a href="../../tf/keras/models/Model"><code>tf.keras.Model</code></a> makes managing
 dependencies easy in user-defined classes, since `Model` hooks into attribute
 assignment. For example:
 
@@ -111,23 +108,7 @@ by the `Dense` layer.
 * <b>`save_counter`</b>: Incremented when `save()` is called. Used to number
     checkpoints.
 
-## Properties
-
-<h3 id="save_counter"><code>save_counter</code></h3>
-
-An integer variable which starts at zero and is incremented on save.
-
-Used to number checkpoints.
-
-#### Returns:
-
-The save counter variable.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(**kwargs)
@@ -143,6 +124,24 @@ Group objects into a training checkpoint.
 #### Raises:
 
 * <b>`ValueError`</b>: If objects in `kwargs` are not checkpointable.
+
+
+
+## Properties
+
+<h3 id="save_counter"><code>save_counter</code></h3>
+
+An integer variable which starts at zero and is incremented on save.
+
+Used to number checkpoints.
+
+#### Returns:
+
+The save counter variable.
+
+
+
+## Methods
 
 <h3 id="__setattr__"><code>__setattr__</code></h3>
 
@@ -227,6 +226,17 @@ The returned status object has the following methods:
     Python objects in the dependency graph with no values in the
     checkpoint. This method returns the status object, and so may be
     chained with `initialize_or_restore` or `run_restore_ops`.
+-  `assert_existing_objects_matched()`:
+    Raises an exception if any existing Python objects in the dependency
+    graph are unmatched. Unlike `assert_consumed`, this assertion will
+    pass if values in the checkpoint have no corresponding Python
+    objects. For example a `tf.keras.Layer` object which has not yet been
+    built, and so has not created any variables, will pass this assertion
+    but fail `assert_consumed`. Useful when loading part of a larger
+    checkpoint into a new Python program, e.g. a training checkpoint with
+    a <a href="../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a> was saved but only the state required for
+    inference is being loaded. This method returns the status object, and
+    so may be chained with `initialize_or_restore` or `run_restore_ops`.
 - `initialize_or_restore(session=None)`:
     When graph building, runs variable initializers if `save_path` is
     `None`, but otherwise runs restore operations. If no `session` is
@@ -247,11 +257,18 @@ save(
 )
 ```
 
-Save a training checkpoint.
+Saves a training checkpoint and provides basic checkpoint management.
 
 The saved checkpoint includes variables created by this object and any
 checkpointable objects it depends on at the time `Checkpoint.save()` is
 called.
+
+`save` is a basic convenience wrapper around the `write` method,
+sequentially numbering checkpoints using `save_counter` and updating the
+metadata used by <a href="../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint</code></a>. More advanced checkpoint
+management, for example garbage collection and custom numbering, may be
+provided by other utilities which also wrap `write`
+(<a href="../../tf/contrib/checkpoint/CheckpointManager"><code>tf.contrib.checkpoint.CheckpointManager</code></a> for example).
 
 #### Args:
 
@@ -266,6 +283,39 @@ called.
 #### Returns:
 
 The full path to the checkpoint.
+
+<h3 id="write"><code>write</code></h3>
+
+``` python
+write(
+    file_prefix,
+    session=None
+)
+```
+
+Writes a training checkpoint.
+
+The checkpoint includes variables created by this object and any
+checkpointable objects it depends on at the time `Checkpoint.write()` is
+called.
+
+`write` does not number checkpoints, increment `save_counter`, or update the
+metadata used by <a href="../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint</code></a>. It is primarily intended for
+use by higher level checkpoint management utilities. `save` provides a very
+basic implementation of these features.
+
+#### Args:
+
+* <b>`file_prefix`</b>: A prefix to use for the checkpoint filenames
+    (/path/to/directory/and_a_prefix).
+* <b>`session`</b>: The session to evaluate variables in. Ignored when executing
+    eagerly. If not provided when graph building, the default session is
+    used.
+
+
+#### Returns:
+
+The full path to the checkpoint (i.e. `file_prefix`).
 
 
 

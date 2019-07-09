@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/python/training/device_setter.py).
+Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/device_setter.py).
 
 Returns the least-loaded ps task for op placement.
 
@@ -35,9 +32,7 @@ off CPU-intensive ops with RAM-intensive ops with network bandwidth.
 This class is intended to be used as a `ps_strategy` in
 <a href="../../../tf/train/replica_device_setter"><code>tf.train.replica_device_setter</code></a>.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -53,6 +48,10 @@ Create a new `LoadBalancingStrategy`.
 * <b>`num_tasks`</b>: Number of ps tasks to cycle among.
 * <b>`load_fn`</b>: A callable that takes an `Operation` and returns a
     numeric load value for that op.
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

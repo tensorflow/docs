@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::EncodeJpeg Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -12,25 +12,25 @@
   <code>#include &lt;image_ops.h&gt;</code>
   <p>JPEG-encode an image. </p>
   <h2>Summary</h2>
-  <p><code>image</code> is a 3-D uint8 <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of shape <code>[height, width, channels]</code>.</p>
+  <p><code>image</code> is a 3-D uint8 <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of shape <code>[height, width, channels]</code>.</p>
   <p>The attr <code>format</code> can be used to override the color format of the encoded output. Values can be:</p>
   <p>
     <ul>
-      <li>`''<code>: Use a default format based on the number of channels in the image. *</code>grayscale<code>: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> a grayscale JPEG image. The</code>channels<code>dimension of</code>image<code>must be 1. *</code>rgb<code>: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> an RGB JPEG image. The</code>channels<code>dimension of</code>image` must be 3.</li>
+      <li>`''<code>: Use a default format based on the number of channels in the image. *</code>grayscale<code>: <a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> a grayscale JPEG image. The</code>channels<code>dimension of</code>image<code>must be 1. *</code>rgb<code>: <a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> an RGB JPEG image. The</code>channels<code>dimension of</code>image` must be 3.</li>
     </ul>
   </p>
   <p>If <code>format</code> is not specified or is the empty string, a default format is picked in function of the number of channels in <code>image</code>:</p>
   <p>
     <ul>
-      <li>1: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> a grayscale image.</li>
-      <li>3: <a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> an RGB image.</li>
+      <li>1: <a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> a grayscale image.</li>
+      <li>3: <a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> an RGB image.</li>
     </ul>
   </p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>image: 3-D with shape <code>[height, width, channels]</code>.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>):<ul>
       <li>format: Per pixel image format.</li>
       <li>quality: Quality of the compression from 0 to 100 (higher is better and slower).</li>
       <li>progressive: If True, create a JPEG that loads progressively (coarse to fine).</li>
@@ -42,7 +42,7 @@
       <li>xmp_metadata: If not empty, embed this XMP metadata in the image header.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 0-D. JPEG-encoded image. </li>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 0-D. JPEG-encoded image. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -52,13 +52,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_encode_jpeg_1a0ca40e89fe38209cf7585aa75db5253b">EncodeJpeg</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_encode_jpeg_1a0ca40e89fe38209cf7585aa75db5253b">EncodeJpeg</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_encode_jpeg_1a79419850b6852e9fef1de27ccaeb02c9">EncodeJpeg</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">EncodeJpeg::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_encode_jpeg_1a79419850b6852e9fef1de27ccaeb02c9">EncodeJpeg</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">EncodeJpeg::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -75,7 +75,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -129,7 +129,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -139,7 +139,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -149,7 +149,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -159,7 +159,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -169,7 +169,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -179,7 +179,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -189,7 +189,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -199,7 +199,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -209,7 +209,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -222,34 +222,34 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs">tensorflow::<wbr/>ops::<wbr/>EncodeJpeg::<wbr/>Attrs</a>
+        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs">tensorflow::<wbr/>ops::<wbr/>EncodeJpeg::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/encode-jpeg.html#classtensorflow_1_1ops_1_1_encode_jpeg">EncodeJpeg</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/encode-jpeg.html#classtensorflow_1_1ops_1_1_encode_jpeg">EncodeJpeg</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1a993f3e068d50550dccdee87eab14bf46">
     <h3>contents</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> contents</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> contents</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1a0ca40e89fe38209cf7585aa75db5253b">
     <h3>EncodeJpeg</h3>
     <pre class="prettyprint"> EncodeJpeg(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1a79419850b6852e9fef1de27ccaeb02c9">
     <h3>EncodeJpeg</h3>
     <pre class="prettyprint"> EncodeJpeg(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">EncodeJpeg::Attrs</a> & attrs
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> image,
+  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">EncodeJpeg::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -271,63 +271,63 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1a955a859ac255af73650246c2be60efa6">
     <h3>ChromaDownsampling</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> ChromaDownsampling(
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> ChromaDownsampling(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1aac4afe05ce09cebfce9f62e2b733243d">
     <h3>DensityUnit</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> DensityUnit(
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> DensityUnit(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1a357af3801d374097cb3ab666711f727c">
     <h3>Format</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> Format(
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> Format(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1a363d3434cd5e13cfe6646e5297e55617">
     <h3>OptimizeSize</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> OptimizeSize(
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> OptimizeSize(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1ad0bc11703455f6452e78d3e9290bfa30">
     <h3>Progressive</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> Progressive(
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> Progressive(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1a8f272a8cab58219e417e67bad1538ee9">
     <h3>Quality</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> Quality(
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> Quality(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1aaf12a81368799b401dbfa78b22eb2e0f">
     <h3>XDensity</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> XDensity(
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> XDensity(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1aba918bc2d45a12d7eee5dab85c56badb">
     <h3>XmpMetadata</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> XmpMetadata(
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> XmpMetadata(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_encode_jpeg_1a34fd19ec04cb0d7801aa09095585eb64">
     <h3>YDensity</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> YDensity(
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/encode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_encode_jpeg_1_1_attrs">Attrs</a> YDensity(
   int64 x
 )</pre>
     <div />

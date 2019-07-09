@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,12 +11,12 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/svm.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/estimators/svm.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/svm.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/svm.py).
 
 Support Vector Machine (SVM) model for binary classification.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Currently, only linear SVMs are supported. For the underlying optimization
@@ -67,30 +64,7 @@ will be a `KeyError`:
     - if `column` is a `RealValuedColumn, a feature with `key=column.name`
       whose `value` is a `Tensor`.
 
-## Properties
-
-<h3 id="config"><code>config</code></h3>
-
-
-
-<h3 id="model_dir"><code>model_dir</code></h3>
-
-
-
-<h3 id="model_fn"><code>model_fn</code></h3>
-
-Returns the model_fn which is bound to self.params.
-
-#### Returns:
-
-The model_fn with the following signature:
-  `def model_fn(features, labels, mode, metrics)`
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -140,6 +114,31 @@ Constructs an `SVM` estimator object.
 #### Raises:
 
 * <b>`ValueError`</b>: if kernels passed is not None.
+
+
+
+## Properties
+
+<h3 id="config"><code>config</code></h3>
+
+
+
+<h3 id="model_dir"><code>model_dir</code></h3>
+
+
+
+<h3 id="model_fn"><code>model_fn</code></h3>
+
+Returns the model_fn which is bound to self.params.
+
+#### Returns:
+
+The model_fn with the following signature:
+  `def model_fn(features, labels, mode, metrics)`
+
+
+
+## Methods
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 

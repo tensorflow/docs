@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/distribute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/distribute.py).
+Defined in [`tensorflow/python/training/distribute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/distribute.py).
 
 A list of devices with a state & compute distribution policy.
 
@@ -72,6 +69,7 @@ To distribute an algorithm, we might use some of these ingredients:
   devices.
 
 We have then a few approaches we want to support:
+
 * Code written (as if) with no knowledge of class `DistributionStrategy`.
   This code should work as before, even if some of the layers, etc.
   used by that code are written to be distribution-aware. This is done
@@ -191,7 +189,7 @@ cross-tower context:
   use its API, including `merge_call()` to get back to cross-tower
   context), once for each tower. May use values with locality T or
   M, and any variable.
-* `d.reduce(m, t)`: in cross-tower context, accepts t with locality T
+* `d.reduce(m, t, t)`: in cross-tower context, accepts t with locality T
   and produces a value with locality M.
 * `d.reduce(m, t, v)`: in cross-tower context, accepts t with
   locality T and produces a value with locality V(`v`).
@@ -201,15 +199,21 @@ cross-tower context:
   V(`v`), output will have locality V(`v`) as well.
 * `d.update_non_slot(d.non_slot_devices(), fn)`: in cross-tower
   context, like `d.update()` except with locality N.
-* `d.fetch(t)`: Copy `t` with any locality to the client's CPU device.
+* `d.read_var(v)`: Gets the (read-only) value of the variable `v` (on
+  the device determined by the current device scope), aggregating
+  across towers for tower-local variables. Frequently, this will be
+  done automatically when using `v` in an expression or fetching it in
+  a cross-tower context, but this function can be used to force that
+  conversion happens at a particular point in time (for example, to
+  add the result of the conversion to a graph collection).
 
 The standard pattern for updating variables is to:
 
 1. Wrap your input dataset in `d.distribute_dataset()` and create an iterator.
 2. Define each tower `d.call_for_each_tower()` up to the point of
    getting a list of gradient, variable pairs.
-3. Call `d.reduce("sum", t, v)` or `d.batch_reduce()` to sum the
-   gradients (with locality T) into values with locality V(`v`).
+3. Call `d.reduce(VariableAggregation.SUM, t, v)` or `d.batch_reduce()` to sum
+   the gradients (with locality T) into values with locality V(`v`).
 4. Call `d.update(v)` for each variable to update its value.
 
 Steps 3 and 4 are done automatically by class `Optimizer` if you call
@@ -218,10 +222,11 @@ manually call its `_distributed_apply` method in a cross-tower context.
 
 Another thing you might want to do in the middle of your tower function
 is an all-reduce of some intermediate value, using `d.reduce()` or
-`d.batch_reduce()` without supplying a variable as the destination.
+`d.batch_reduce()`. You simply provide the same tensor as the input and
+destination.
 
 Layers should expect to be called in a tower context, and can use
-the `get_tower_context()` function to get a `TowerContext` object.  The
+the `get_tower_context()` function to get a `TowerContext` object. The
 `TowerContext` object has a `merge_call()` method for entering
 cross-tower context where you can use `reduce()` (or
 `batch_reduce()`) and then optionally `update()` to update state.
@@ -232,7 +237,24 @@ being used, since there is a default implementation of
 `get_tower_context().is_single_tower` property to run different code
 in the distributed vs. single tower cases.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__()
+```
+
+
+
+
+
 ## Properties
+
+<h3 id="between_graph"><code>between_graph</code></h3>
+
+Whether the strategy uses between-graph replication or not.
+
+This is expected to return a constant value that will not be changed
+throughout its life cycle.
 
 <h3 id="is_single_tower"><code>is_single_tower</code></h3>
 
@@ -250,6 +272,18 @@ Returns number of towers, for purposes of averaging across towers.
 <h3 id="parameter_devices"><code>parameter_devices</code></h3>
 
 Returns the list of devices used for variable and `update` placement.
+
+<h3 id="should_checkpoint"><code>should_checkpoint</code></h3>
+
+Whether checkpointing is needed.
+
+<h3 id="should_init"><code>should_init</code></h3>
+
+Whether initialization is needed.
+
+<h3 id="should_save_summary"><code>should_save_summary</code></h3>
+
+Whether saving summaries is needed.
 
 <h3 id="worker_device_index"><code>worker_device_index</code></h3>
 
@@ -280,19 +314,11 @@ Returns the list of devices used to run `call_for_each_tower()` calls.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__()
-```
-
-
-
 <h3 id="batch_reduce"><code>batch_reduce</code></h3>
 
 ``` python
 batch_reduce(
-    method_string,
+    aggregation,
     value_destination_pairs
 )
 ```
@@ -301,8 +327,9 @@ Combine multiple `reduce` calls into one for faster execution.
 
 #### Args:
 
-* <b>`method_string`</b>: A string indicating how to combine values, either
-    "sum" or "mean".
+* <b>`aggregation`</b>: Indicates how a variable will be aggregated. Accepted values
+    are <a href="../../../tf/VariableAggregation#SUM"><code>tf.VariableAggregation.SUM</code></a>, <a href="../../../tf/VariableAggregation#MEAN"><code>tf.VariableAggregation.MEAN</code></a>,
+    <a href="../../../tf/VariableAggregation#ONLY_FIRST_TOWER"><code>tf.VariableAggregation.ONLY_FIRST_TOWER</code></a>.
 * <b>`value_destination_pairs`</b>: A sequence of (value, destinations)
     pairs. See `reduce()` for a description.
 
@@ -438,10 +465,15 @@ A context manager.
 <h3 id="configure"><code>configure</code></h3>
 
 ``` python
-configure(session_config=None)
+configure(
+    session_config=None,
+    cluster_spec=None,
+    task_type=None,
+    task_id=None
+)
 ```
 
-Find the best configuration given a tensorflow session config.
+Configures the strategy class.
 
 <h3 id="distribute_dataset"><code>distribute_dataset</code></h3>
 
@@ -473,33 +505,23 @@ with distribution_strategy.scope():
 
 A `PerDeviceDataset` that will produce data for each tower.
 
-<h3 id="fetch"><code>fetch</code></h3>
+<h3 id="finalize"><code>finalize</code></h3>
 
 ``` python
-fetch(
-    val,
-    destination='/device:CPU:0',
-    fn=(lambda x: x)
-)
+finalize()
 ```
 
-Return a copy of `val` or `fn(val)` on `destination`.
+Any final actions to be done at the end of all computations.
 
-This is useful for getting a mirrored value onto a device.  It
-will attempt to avoid a copy by checking if the value is already
-on the destination device.
+In eager mode, it executes any finalize actions as a side effect.
+In graph mode, it creates the finalize ops and returns them.
 
-#### Args:
-
-* <b>`val`</b>: Value (which may be mirrored) to copy.
-* <b>`destination`</b>: A device string to copy the value to.
-* <b>`fn`</b>: An optional function to apply to the value on the source
-      device, before copying.
-
+For example, TPU shutdown ops.
 
 #### Returns:
 
-A `Tensor` on `destination`.
+In eager mode, returns `None`.
+In graph mode, a list of ops to execute. Empty list if nothing to be done.
 
 <h3 id="group"><code>group</code></h3>
 
@@ -511,6 +533,24 @@ group(
 ```
 
 Shortcut for `tf.group(distribution.unwrap(value))`.
+
+<h3 id="initialize"><code>initialize</code></h3>
+
+``` python
+initialize()
+```
+
+Any initialization to be done before running any computations.
+
+In eager mode, it executes any initialization as a side effect.
+In graph mode, it creates the initialization ops and returns them.
+
+For example, TPU initialize_system ops.
+
+#### Returns:
+
+In eager mode, returns `None`.
+In graph mode, a list of ops to execute. Empty list if nothing to be done.
 
 <h3 id="non_slot_devices"><code>non_slot_devices</code></h3>
 
@@ -529,13 +569,34 @@ Update those using `update_non_slot()`.
 * <b>`var_list`</b>: The list of variables being optimized, needed with the
     default `DistributionStrategy`.
 
+<h3 id="read_var"><code>read_var</code></h3>
+
+``` python
+read_var(v)
+```
+
+Reads the value of a variable.
+
+Returns the aggregate value of a tower-local variable, or the
+(read-only) value of any other variable.
+
+#### Args:
+
+* <b>`v`</b>: A variable allocated within the scope of this `DistributionStrategy`.
+
+
+#### Returns:
+
+A tensor representing the value of `v`, aggregated across towers if
+necessary.
+
 <h3 id="reduce"><code>reduce</code></h3>
 
 ``` python
 reduce(
-    method_string,
+    aggregation,
     value,
-    destinations=None
+    destinations
 )
 ```
 
@@ -543,19 +604,73 @@ Combine (via e.g. sum or mean) values across towers.
 
 #### Args:
 
-* <b>`method_string`</b>: A string indicating how to combine values, either
-    "sum" or "mean".
+* <b>`aggregation`</b>: Indicates how a variable will be aggregated. Accepted values
+    are <a href="../../../tf/VariableAggregation#SUM"><code>tf.VariableAggregation.SUM</code></a>, <a href="../../../tf/VariableAggregation#MEAN"><code>tf.VariableAggregation.MEAN</code></a>,
+    <a href="../../../tf/VariableAggregation#ONLY_FIRST_TOWER"><code>tf.VariableAggregation.ONLY_FIRST_TOWER</code></a>.
 * <b>`value`</b>: A per-device value with one value per tower.
-* <b>`destinations`</b>: An optional mirrored variable, a device string,
-    list of device strings. The return value will be copied to all
-    destination devices (or all the devices where the mirrored
-    variable resides). If `None` or unspecified, the destinations
-    will match the devices `value` resides on.
+* <b>`destinations`</b>: A mirrored variable, a per-device tensor, a device string,
+    or list of device strings. The return value will be copied to all
+    destination devices (or all the devices where the `destinations` value
+    resides). To perform an all-reduction, pass `value` to `destinations`.
 
 
 #### Returns:
 
 A value mirrored to `destinations`.
+
+<h3 id="run_steps_on_dataset"><code>run_steps_on_dataset</code></h3>
+
+``` python
+run_steps_on_dataset(
+    fn,
+    iterator,
+    iterations=1,
+    initial_loop_values=None
+)
+```
+
+Run `fn` with input from `iterator` for `iterations` times.
+
+This method can be used to run a step function for training a number of
+times using input from a dataset.
+
+#### Args:
+
+* <b>`fn`</b>: function to run using this distribution strategy. The function must
+    have the following signature: def fn(context, *inputs).
+    `context` is an instance of `MultiStepContext` that will be passed when
+    `fn` is run. `context` can be used to specify the outputs to be returned
+    from `fn` by calling `context.set_last_step_output`. It can also be used
+    to capture non tensor outputs by `context.set_non_tensor_output`.
+    See `MultiStepContext` documentation for more information.
+    `inputs` will have same type/structure as `iterator.get_next()`. If the
+    `iterator.get_next()` returns a tuple say `return x, y` then whose will
+    be unpacked and passed to the `step_fn`; and step_fn signature would
+    look like `def step_fn(context, x, y)`. If the iterator returns a single
+    value say `return x` then the value is passed as is; the step_fn
+    signature would look like `def step_fn(context, x)`.
+    Typically, `fn` will use `call_for_each_tower` method of the strategy
+    to distribute the computation over multiple towers.
+* <b>`iterator`</b>: Iterator of a dataset that represents the input for `fn`. The
+    caller is responsible for initializing the iterator as needed.
+* <b>`iterations`</b>: (Optional) Number of iterations that `fn` should be run.
+    Defaults to 1.
+* <b>`initial_loop_values`</b>: (Optional) Initial values to be passed into the
+    loop that runs `fn`. Defaults to `None`. # TODO(priyag): Remove
+    initial_loop_values argument when we have a mechanism to infer the
+    outputs of `fn`.
+
+
+#### Returns:
+
+Returns the `MultiStepContext` object which has the following properties,
+among other things:
+  - run_op: An op that runs `fn` `iterations` times.
+  - last_step_outputs: A dictionary containing tensors set using
+  `context.set_last_step_output`. Evaluating this returns the value of
+  the tensors after the last iteration.
+  - non_tensor_outputs: A dictionatry containing anything that was set by
+    `fn` by calling `context.set_non_tensor_output`.
 
 <h3 id="scope"><code>scope</code></h3>
 
@@ -568,42 +683,6 @@ Returns a context manager selecting this DistributionStrategy as current.
 Inside a `with distribution_strategy.scope():` code block, this thread
 will use a variable creator set by `distribution_strategy`, and will
 enter its "cross-tower context".
-
-#### Returns:
-
-A context manager.
-
-<h3 id="tower_local_var_scope"><code>tower_local_var_scope</code></h3>
-
-``` python
-tower_local_var_scope(reduce_method)
-```
-
-Inside this scope, new variables will not be mirrored.
-
-There will still be one component variable per tower, but there is
-no requirement that they stay in sync. Instead, when saving them
-or calling `fetch()`, we use the value that results when calling
-`reduce()` on all the towers' variables.
-
-Note: tower-local implies not trainable. Instead, it is expected
-that each tower will directly update (using `assign_add()` or
-whatever) its local variable instance but only the aggregated
-value (accessible using `fetch()`) will be exported from the
-model. When it is acceptable to only aggregate on export, we
-greatly reduce communication overhead by using tower-local
-variables.
-
-Note: All component variables will be initialized to the same
-value, using the initialization expression from the first tower.
-The values will match even if the initialization expression uses
-random numbers.
-
-#### Args:
-
-* <b>`reduce_method`</b>: String used as a `method_string` to `reduce()`
-    to get the value to save when checkpointing.
-
 
 #### Returns:
 
@@ -695,6 +774,27 @@ Runs `fn(*args, **kwargs)` on `colocate_with` devices.
 #### Returns:
 
 Return value of `fn`, possibly merged across devices.
+
+<h3 id="value_container"><code>value_container</code></h3>
+
+``` python
+value_container(value)
+```
+
+Returns the container that this per-device `value` belongs to.
+
+#### Args:
+
+* <b>`value`</b>: A value returned by `call_for_each_tower()` or a variable
+    created in `scope()`.
+
+
+#### Returns:
+
+A container that `value` belongs to.
+If value does not belong to any container (including the case of
+container having been destroyed), returns the value itself.
+`value in unwrap(value_container(value))` will always be true.
 
 
 

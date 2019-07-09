@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,14 +19,14 @@ tf.reduce_join(
 
 
 
-Defined in [`tensorflow/python/ops/string_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/string_ops.py).
+Defined in [`tensorflow/python/ops/string_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/string_ops.py).
 
 See the guide: [Strings > Joining](../../../api_guides/python/string_ops#Joining)
 
 Joins a string Tensor across the given dimensions.
 
 Computes the string join across dimensions in the given string Tensor of shape
-`[d_0, d_1, ..., d_n-1]`.  Returns a new Tensor created by joining the input
+`[\\(d_0, d_1, ..., d_{n-1}\\)]`.  Returns a new Tensor created by joining the input
 strings with the given separator (default: empty string).  Negative indices are
 counted backwards from the end, with `-1` being equivalent to `n - 1`.  If
 indices are not specified, joins across all dimensions beginning from `n - 1`

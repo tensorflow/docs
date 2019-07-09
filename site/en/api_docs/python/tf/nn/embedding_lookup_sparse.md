@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.nn.embedding_lookup_sparse(
 
 
 
-Defined in [`tensorflow/python/ops/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/embedding_ops.py).
+Defined in [`tensorflow/python/ops/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/embedding_ops.py).
 
 See the guide: [Neural Network > Embeddings](../../../../api_guides/python/nn#Embeddings)
 
@@ -57,8 +54,8 @@ is the sum of the size of params along dimension 0.
     "mean" is the weighted sum divided by the total weight.
     "sqrtn" is the weighted sum divided by the square root of the sum of the
     squares of the weights.
-* <b>`max_norm`</b>: If provided, each embedding is normalized to have l2 norm equal
-    to max_norm before combining.
+* <b>`max_norm`</b>: If not `None`, each embedding is clipped if its l2-norm is
+    larger than this value, before combining.
 
 
 #### Returns:

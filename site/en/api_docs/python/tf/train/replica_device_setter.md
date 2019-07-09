@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.train.replica_device_setter(
 
 
 
-Defined in [`tensorflow/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/device_setter.py).
+Defined in [`tensorflow/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/device_setter.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 

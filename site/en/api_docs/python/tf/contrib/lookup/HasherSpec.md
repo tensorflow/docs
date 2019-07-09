@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
 
 A structure for the spec of the hashing function to use for hash buckets.
 
@@ -28,21 +25,7 @@ supported, currently only used by a strong hash.
 * <b>`hasher`</b>: The hasher name to use.
 * <b>`key`</b>: The key to be used by the hashing function, if required.
 
-## Properties
-
-<h3 id="hasher"><code>hasher</code></h3>
-
-Alias for field number 0
-
-<h3 id="key"><code>key</code></h3>
-
-Alias for field number 1
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
+<h2 id="__new__"><code>__new__</code></h2>
 
 ``` python
 __new__(
@@ -53,6 +36,18 @@ __new__(
 ```
 
 Create new instance of HasherSpec(hasher, key)
+
+
+
+## Properties
+
+<h3 id="hasher"><code>hasher</code></h3>
+
+Alias for field number 0
+
+<h3 id="key"><code>key</code></h3>
+
+Alias for field number 1
 
 
 

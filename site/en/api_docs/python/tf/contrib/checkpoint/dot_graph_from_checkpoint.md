@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ tf.contrib.checkpoint.dot_graph_from_checkpoint(save_path)
 
 
 
-Defined in [`tensorflow/contrib/checkpoint/python/visualize.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/checkpoint/python/visualize.py).
+Defined in [`tensorflow/contrib/checkpoint/python/visualize.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/checkpoint/python/visualize.py).
 
 Visualizes an object-based checkpoint (from <a href="../../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a>).
 

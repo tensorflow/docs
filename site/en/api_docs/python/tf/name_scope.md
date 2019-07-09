@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
 
@@ -43,17 +40,7 @@ def my_op(a, b, c, name=None):
     return foo_op(..., name=scope)
 ```
 
-## Properties
-
-<h3 id="name"><code>name</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -70,6 +57,18 @@ Initialize the context manager.
 * <b>`name`</b>: The name argument that is passed to the op function.
 * <b>`default_name`</b>: The default name to use if the `name` argument is `None`.
 * <b>`values`</b>: The list of `Tensor` arguments that are passed to the op function.
+
+
+
+## Properties
+
+<h3 id="name"><code>name</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 

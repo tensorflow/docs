@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,9 +18,12 @@ tf.contrib.quantize.experimental_create_training_graph(
 
 
 
-Defined in [`tensorflow/contrib/quantize/python/quantize_graph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/quantize/python/quantize_graph.py).
+Defined in [`tensorflow/contrib/quantize/python/quantize_graph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/quantize/python/quantize_graph.py).
 
 Rewrites a training input_graph in place for simulated quantization.
+
+This function must be invoked prior to insertion of gradient ops in a graph
+as quantization should be modeled in both forward and backward passes.
 
 Variables added by the rewrite get added to the global variables collection.
 

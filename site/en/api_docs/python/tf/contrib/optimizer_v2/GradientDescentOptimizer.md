@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,11 @@ Inherits From: [`OptimizerV2`](../../../tf/contrib/optimizer_v2/OptimizerV2)
 
 
 
-Defined in [`tensorflow/contrib/optimizer_v2/gradient_descent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/optimizer_v2/gradient_descent.py).
+Defined in [`tensorflow/contrib/optimizer_v2/gradient_descent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/optimizer_v2/gradient_descent.py).
 
 Optimizer that implements the gradient descent algorithm.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -43,6 +38,10 @@ Tensor or a Python value.
 * <b>`use_locking`</b>: If True use locks for update operations.
 * <b>`name`</b>: Optional name prefix for the operations created when applying
     gradients. Defaults to "GradientDescent".
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

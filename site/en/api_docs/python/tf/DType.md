@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/dtypes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/dtypes.py).
+Defined in [`tensorflow/python/framework/dtypes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/dtypes.py).
 
 See the guide: [Building Graphs > Tensor types](../../../api_guides/python/framework#Tensor_types)
 
@@ -51,6 +48,29 @@ defined for reference-typed tensors.
 
 The `tf.as_dtype()` function converts numpy types and string type
 names to a `DType` object.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(type_enum)
+```
+
+Creates a new `DataType`.
+
+NOTE(mrry): In normal circumstances, you should not need to
+construct a `DataType` object directly. Instead, use the
+`tf.as_dtype()` function.
+
+#### Args:
+
+* <b>`type_enum`</b>: A `types_pb2.DataType` enum value.
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: If `type_enum` is not a value `types_pb2.DataType`.
+
+
 
 ## Properties
 
@@ -145,27 +165,6 @@ Returns the dtype correspond to this dtype's real part.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(type_enum)
-```
-
-Creates a new `DataType`.
-
-NOTE(mrry): In normal circumstances, you should not need to
-construct a `DataType` object directly. Instead, use the
-`tf.as_dtype()` function.
-
-#### Args:
-
-* <b>`type_enum`</b>: A `types_pb2.DataType` enum value.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: If `type_enum` is not a value `types_pb2.DataType`.
-
 <h3 id="__eq__"><code>__eq__</code></h3>
 
 ``` python
@@ -189,14 +188,6 @@ __ne__(other)
 ```
 
 Returns True iff self != other.
-
-<h3 id="__reduce__"><code>__reduce__</code></h3>
-
-``` python
-__reduce__()
-```
-
-
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 

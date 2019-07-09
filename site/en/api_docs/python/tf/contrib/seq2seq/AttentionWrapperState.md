@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 `namedtuple` storing the state of a `AttentionWrapper`.
 
@@ -32,6 +29,24 @@ Contains:
   - `attention_state`: A single or tuple of nested objects
      containing attention mechanism state for each attention mechanism.
      The objects may contain Tensors or TensorArrays.
+
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    cell_state,
+    attention,
+    time,
+    alignments,
+    alignment_history,
+    attention_state
+)
+```
+
+Create new instance of AttentionWrapperState(cell_state, attention, time, alignments, alignment_history, attention_state)
+
+
 
 ## Properties
 
@@ -62,22 +77,6 @@ Alias for field number 2
 
 
 ## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-__new__(
-    _cls,
-    cell_state,
-    attention,
-    time,
-    alignments,
-    alignment_history,
-    attention_state
-)
-```
-
-Create new instance of AttentionWrapperState(cell_state, attention, time, alignments, alignment_history, attention_state)
 
 <h3 id="clone"><code>clone</code></h3>
 

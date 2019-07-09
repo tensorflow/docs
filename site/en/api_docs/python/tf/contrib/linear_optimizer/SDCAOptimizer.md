@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py).
+Defined in [`tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py).
 
 Wrapper class for SDCA optimizer.
 
@@ -54,6 +51,24 @@ table, typically set to match the number of parameter servers for large
 data sets. You can also specify a `partitioner` object to partition the primal
 weights during training (`div` partitioning strategy will be used).
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    example_id_column,
+    num_loss_partitions=1,
+    num_table_shards=None,
+    symmetric_l1_regularization=0.0,
+    symmetric_l2_regularization=1.0,
+    adaptive=True,
+    partitioner=None
+)
+```
+
+
+
+
+
 ## Properties
 
 <h3 id="adaptive"><code>adaptive</code></h3>
@@ -87,22 +102,6 @@ weights during training (`div` partitioning strategy will be used).
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    example_id_column,
-    num_loss_partitions=1,
-    num_table_shards=None,
-    symmetric_l1_regularization=0.0,
-    symmetric_l2_regularization=1.0,
-    adaptive=True,
-    partitioner=None
-)
-```
-
-
 
 <h3 id="get_name"><code>get_name</code></h3>
 

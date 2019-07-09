@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Defining new operations](../../../api_guides/python/framework#Defining_new_operations)
 
@@ -41,9 +38,7 @@ The decorator argument `op_type` is the string type of an
 operation. This corresponds to the `OpDef.name` field for the proto
 that defines the operation.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(op_type)
@@ -55,6 +50,10 @@ Creates a new decorator with `op_type` as the Operation type.
 
 * <b>`op_type`</b>: The string type of an operation. This corresponds to the
     `OpDef.name` field for the proto that defines the operation.
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

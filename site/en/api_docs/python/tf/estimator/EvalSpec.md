@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/training.py).
+Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/training.py).
 
 Configuration for the "eval" part for the `train_and_evaluate` call.
 
@@ -23,41 +20,7 @@ export. Evaluation consists of computing metrics to judge the performance of
 the trained model.  Export writes out the trained model on to external
 storage.
 
-## Properties
-
-<h3 id="exporters"><code>exporters</code></h3>
-
-Alias for field number 4
-
-<h3 id="hooks"><code>hooks</code></h3>
-
-Alias for field number 3
-
-<h3 id="input_fn"><code>input_fn</code></h3>
-
-Alias for field number 0
-
-<h3 id="name"><code>name</code></h3>
-
-Alias for field number 2
-
-<h3 id="start_delay_secs"><code>start_delay_secs</code></h3>
-
-Alias for field number 5
-
-<h3 id="steps"><code>steps</code></h3>
-
-Alias for field number 1
-
-<h3 id="throttle_secs"><code>throttle_secs</code></h3>
-
-Alias for field number 6
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
+<h2 id="__new__"><code>__new__</code></h2>
 
 ``` python
 @staticmethod
@@ -78,8 +41,8 @@ Creates a validated `EvalSpec` instance.
 #### Args:
 
 * <b>`input_fn`</b>: A function that constructs the input data for evaluation.
-    See <a href="../../../../guide/premade_estimators#create_input_functions">Premade Estimators</a> for more
-    information. The function should construct and return one of
+    See [Premade Estimators](https://tensorflow.org/api_guides/premade_estimators#create_input_functions)
+    for more information. The function should construct and return one of
     the following:
       * A 'tf.data.Dataset' object: Outputs of `Dataset` object must be a
         tuple (features, labels) with same constraints as below.
@@ -113,6 +76,38 @@ A validated `EvalSpec` object.
 
 * <b>`ValueError`</b>: If any of the input arguments is invalid.
 * <b>`TypeError`</b>: If any of the arguments is not of the expected type.
+
+
+
+## Properties
+
+<h3 id="exporters"><code>exporters</code></h3>
+
+Alias for field number 4
+
+<h3 id="hooks"><code>hooks</code></h3>
+
+Alias for field number 3
+
+<h3 id="input_fn"><code>input_fn</code></h3>
+
+Alias for field number 0
+
+<h3 id="name"><code>name</code></h3>
+
+Alias for field number 2
+
+<h3 id="start_delay_secs"><code>start_delay_secs</code></h3>
+
+Alias for field number 5
+
+<h3 id="steps"><code>steps</code></h3>
+
+Alias for field number 1
+
+<h3 id="throttle_secs"><code>throttle_secs</code></h3>
+
+Alias for field number 6
 
 
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/utils/generic_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/utils/generic_utils.py).
+Defined in [`tensorflow/python/keras/utils/generic_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/generic_utils.py).
 
 Provides a scope that changes to `_GLOBAL_CUSTOM_OBJECTS` cannot escape.
 
@@ -34,15 +31,17 @@ Consider a custom object `MyObject` (e.g. a class):
         # save, load, etc. will recognize custom object by name
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(*args)
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 

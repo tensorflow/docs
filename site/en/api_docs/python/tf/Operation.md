@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures)
 
@@ -36,89 +33,7 @@ be executed by passing it to
 <a href="../tf/Session#run"><code>tf.Session.run</code></a>.
 `op.run()` is a shortcut for calling `tf.get_default_session().run(op)`.
 
-## Properties
-
-<h3 id="control_inputs"><code>control_inputs</code></h3>
-
-The `Operation` objects on which this op has a control dependency.
-
-Before this op is executed, TensorFlow will ensure that the
-operations in `self.control_inputs` have finished executing. This
-mechanism can be used to run ops sequentially for performance
-reasons, or to ensure that the side effects of an op are observed
-in the correct order.
-
-#### Returns:
-
-A list of `Operation` objects.
-
-<h3 id="device"><code>device</code></h3>
-
-The name of the device to which this op has been assigned, if any.
-
-#### Returns:
-
-The string name of the device to which this op has been
-assigned, or an empty string if it has not been assigned to a
-device.
-
-<h3 id="graph"><code>graph</code></h3>
-
-The `Graph` that contains this operation.
-
-<h3 id="inputs"><code>inputs</code></h3>
-
-The list of `Tensor` objects representing the data inputs of this op.
-
-<h3 id="name"><code>name</code></h3>
-
-The full name of this operation.
-
-<h3 id="node_def"><code>node_def</code></h3>
-
-Returns the `NodeDef` representation of this operation.
-
-#### Returns:
-
-A
-[`NodeDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/node_def.proto)
-protocol buffer.
-
-<h3 id="op_def"><code>op_def</code></h3>
-
-Returns the `OpDef` proto that represents the type of this op.
-
-#### Returns:
-
-An
-[`OpDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/op_def.proto)
-protocol buffer.
-
-<h3 id="outputs"><code>outputs</code></h3>
-
-The list of `Tensor` objects representing the outputs of this op.
-
-<h3 id="traceback"><code>traceback</code></h3>
-
-Returns the call stack from when this operation was constructed.
-
-<h3 id="traceback_with_start_lines"><code>traceback_with_start_lines</code></h3>
-
-Same as traceback but includes start line of function definition.
-
-#### Returns:
-
-A list of 5-tuples (filename, lineno, name, code, func_start_lineno).
-
-<h3 id="type"><code>type</code></h3>
-
-The type of the op (e.g. `"MatMul"`).
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -173,6 +88,90 @@ regular expression:
     or if `inputs` are not tensors,
     or if `inputs` and `input_types` are incompatible.
 * <b>`ValueError`</b>: if the `node_def` name is not valid.
+
+
+
+## Properties
+
+<h3 id="control_inputs"><code>control_inputs</code></h3>
+
+The `Operation` objects on which this op has a control dependency.
+
+Before this op is executed, TensorFlow will ensure that the
+operations in `self.control_inputs` have finished executing. This
+mechanism can be used to run ops sequentially for performance
+reasons, or to ensure that the side effects of an op are observed
+in the correct order.
+
+#### Returns:
+
+A list of `Operation` objects.
+
+<h3 id="device"><code>device</code></h3>
+
+The name of the device to which this op has been assigned, if any.
+
+#### Returns:
+
+The string name of the device to which this op has been
+assigned, or an empty string if it has not been assigned to a
+device.
+
+<h3 id="graph"><code>graph</code></h3>
+
+The `Graph` that contains this operation.
+
+<h3 id="inputs"><code>inputs</code></h3>
+
+The list of `Tensor` objects representing the data inputs of this op.
+
+<h3 id="name"><code>name</code></h3>
+
+The full name of this operation.
+
+<h3 id="node_def"><code>node_def</code></h3>
+
+Returns the `NodeDef` representation of this operation.
+
+#### Returns:
+
+A
+[`NodeDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/node_def.proto)
+protocol buffer.
+
+<h3 id="op_def"><code>op_def</code></h3>
+
+Returns the `OpDef` proto that represents the type of this op.
+
+#### Returns:
+
+An
+[`OpDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/op_def.proto)
+protocol buffer.
+
+<h3 id="outputs"><code>outputs</code></h3>
+
+The list of `Tensor` objects representing the outputs of this op.
+
+<h3 id="traceback"><code>traceback</code></h3>
+
+Returns the call stack from when this operation was constructed.
+
+<h3 id="traceback_with_start_lines"><code>traceback_with_start_lines</code></h3>
+
+Same as traceback but includes start line of function definition.
+
+#### Returns:
+
+A list of 5-tuples (filename, lineno, name, code, func_start_lineno).
+
+<h3 id="type"><code>type</code></h3>
+
+The type of the op (e.g. `"MatMul"`).
+
+
+
+## Methods
 
 <h3 id="colocation_groups"><code>colocation_groups</code></h3>
 

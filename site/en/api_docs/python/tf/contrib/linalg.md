@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/linalg/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/linalg/__init__.py).
+Defined in [`tensorflow/contrib/linalg/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/linalg/__init__.py).
 
 Linear algebra libraries.
 
-See the <a href="../../../../api_guides/python/contrib.linalg">Linear Algebra (contrib)</a> guide.
+See the[Contrib Linalg](https://tensorflow.org/api_guides/python/contrib.linalg)
+guide.
 
 
 ## Classes

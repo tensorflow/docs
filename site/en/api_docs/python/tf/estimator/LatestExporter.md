@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,23 +11,13 @@ Inherits From: [`Exporter`](../../tf/estimator/Exporter)
 
 
 
-Defined in [`tensorflow/python/estimator/exporter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/exporter.py).
+Defined in [`tensorflow/python/estimator/exporter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/exporter.py).
 
 This class regularly exports the serving graph and checkpoints.
 
 In addition to exporting, this class also garbage collects stale exports.
 
-## Properties
-
-<h3 id="name"><code>name</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -67,6 +54,18 @@ Create an `Exporter` to use with <a href="../../tf/estimator/EvalSpec"><code>tf.
 #### Raises:
 
 * <b>`ValueError`</b>: if any arguments is invalid.
+
+
+
+## Properties
+
+<h3 id="name"><code>name</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="export"><code>export</code></h3>
 

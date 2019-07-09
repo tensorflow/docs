@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`GrpcDebugHook`](../tfdbg/GrpcDebugHook)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/wrappers/hooks.py).
+Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/wrappers/hooks.py).
 
 A tfdbg hook that can be used with TensorBoard Debugger Plugin.
 
@@ -26,9 +23,7 @@ This hook is the same as `GrpcDebugHook`, except that it uses a predefined
   2) watches all tensors in the graph.
 This saves the need for the user to define a `watch_fn`.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -51,6 +46,10 @@ Constructor of TensorBoardDebugHook.
     the source code are to be sent to the debug server(s).
 * <b>`log_usage`</b>: Whether the usage of this class is to be logged (if
     applicable).
+
+
+
+## Methods
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 

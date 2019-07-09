@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`ConditionalAccumulatorBase`](../tf/ConditionalAccumulatorBase)
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Inputs and Readers > Conditional Accumulators](../../../api_guides/python/io_ops#Conditional_Accumulators)
 
@@ -36,6 +33,21 @@ gradients has been accumulated.
     the given name across multiple sessions.
 * <b>`name`</b>: Optional name for the accumulator.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    dtype,
+    shape=None,
+    shared_name=None,
+    name='sparse_conditional_accumulator'
+)
+```
+
+
+
+
+
 ## Properties
 
 <h3 id="accumulator_ref"><code>accumulator_ref</code></h3>
@@ -53,19 +65,6 @@ The name of the underlying accumulator.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    dtype,
-    shape=None,
-    shared_name=None,
-    name='sparse_conditional_accumulator'
-)
-```
-
-
 
 <h3 id="apply_grad"><code>apply_grad</code></h3>
 

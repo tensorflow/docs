@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/activations/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/activations/__init__.py).
+Defined in [`tensorflow/keras/activations/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/activations/__init__.py).
 
 Built-in activation functions.
 
@@ -18,17 +15,17 @@ Built-in activation functions.
 
 [`deserialize(...)`](../../tf/keras/activations/deserialize)
 
-[`elu(...)`](../../tf/keras/activations/elu)
+[`elu(...)`](../../tf/keras/activations/elu): Exponential linear unit.
 
 [`get(...)`](../../tf/keras/activations/get)
 
-[`hard_sigmoid(...)`](../../tf/keras/activations/hard_sigmoid)
+[`hard_sigmoid(...)`](../../tf/keras/activations/hard_sigmoid): Hard sigmoid activation function.
 
 [`linear(...)`](../../tf/keras/activations/linear)
 
-[`relu(...)`](../../tf/keras/activations/relu)
+[`relu(...)`](../../tf/keras/activations/relu): Rectified Linear Unit.
 
-[`selu(...)`](../../tf/keras/activations/selu): Scaled Exponential Linear Unit. (Klambauer et al., 2017).
+[`selu(...)`](../../tf/keras/activations/selu): Scaled Exponential Linear Unit (SELU).
 
 [`serialize(...)`](../../tf/keras/activations/serialize)
 
@@ -36,9 +33,9 @@ Built-in activation functions.
 
 [`softmax(...)`](../../tf/keras/activations/softmax): Softmax activation function.
 
-[`softplus(...)`](../../tf/keras/activations/softplus)
+[`softplus(...)`](../../tf/keras/activations/softplus): Softplus activation function.
 
-[`softsign(...)`](../../tf/keras/activations/softsign)
+[`softsign(...)`](../../tf/keras/activations/softsign): Softsign activation function.
 
 [`tanh(...)`](../../tf/keras/activations/tanh)
 

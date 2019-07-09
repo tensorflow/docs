@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/spectral/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/spectral/__init__.py).
+Defined in [`tensorflow/spectral/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/spectral/__init__.py).
 
 Spectral operators (e.g. DCT, FFT, RFFT).
 
@@ -18,17 +15,19 @@ Spectral operators (e.g. DCT, FFT, RFFT).
 
 [`dct(...)`](../tf/spectral/dct): Computes the 1D [Discrete Cosine Transform (DCT)][dct] of `input`.
 
-[`fft(...)`](../tf/fft): Fast Fourier transform.
+[`fft(...)`](../tf/spectral/fft): Fast Fourier transform.
 
-[`fft2d(...)`](../tf/fft2d): 2D fast Fourier transform.
+[`fft2d(...)`](../tf/spectral/fft2d): 2D fast Fourier transform.
 
-[`fft3d(...)`](../tf/fft3d): 3D fast Fourier transform.
+[`fft3d(...)`](../tf/spectral/fft3d): 3D fast Fourier transform.
 
-[`ifft(...)`](../tf/ifft): Inverse fast Fourier transform.
+[`idct(...)`](../tf/spectral/idct): Computes the 1D [Inverse Discrete Cosine Transform (DCT)][idct] of `input`.
 
-[`ifft2d(...)`](../tf/ifft2d): Inverse 2D fast Fourier transform.
+[`ifft(...)`](../tf/spectral/ifft): Inverse fast Fourier transform.
 
-[`ifft3d(...)`](../tf/ifft3d): Inverse 3D fast Fourier transform.
+[`ifft2d(...)`](../tf/spectral/ifft2d): Inverse 2D fast Fourier transform.
+
+[`ifft3d(...)`](../tf/spectral/ifft3d): Inverse 3D fast Fourier transform.
 
 [`irfft(...)`](../tf/spectral/irfft): Inverse real-valued fast Fourier transform.
 

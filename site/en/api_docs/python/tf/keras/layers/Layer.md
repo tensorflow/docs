@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,11 @@ page_type: reference
 
 ## Class `Layer`
 
+Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/CheckpointableBase)
 
 
 
-
-Defined in [`tensorflow/python/keras/engine/base_layer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/engine/base_layer.py).
+Defined in [`tensorflow/python/keras/engine/base_layer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/engine/base_layer.py).
 
 Base layer class.
 
@@ -27,6 +24,7 @@ losses, updates, and inter-layer connectivity.
 Users will just instantiate a layer and then treat it as a callable.
 
 We recommend that descendants of `Layer` implement the following methods:
+
 * `__init__()`: Save configuration in member variables
 * `build()`: Called once from `__call__`, when we know the shapes of inputs
   and `dtype`. Should have the calls to `add_weight()`, and then
@@ -65,6 +63,21 @@ Mutable properties:
 * <b>`input_spec`</b>: Optional (list of) `InputSpec` object(s) specifying the
     constraints on inputs that can be accepted by the layer.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    trainable=True,
+    name=None,
+    dtype=None,
+    **kwargs
+)
+```
+
+
+
+
+
 ## Properties
 
 <h3 id="activity_regularizer"><code>activity_regularizer</code></h3>
@@ -74,10 +87,6 @@ Optional regularizer function for the output of this layer.
 <h3 id="dtype"><code>dtype</code></h3>
 
 
-
-<h3 id="inbound_nodes"><code>inbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="input"><code>input</code></h3>
 
@@ -162,10 +171,6 @@ A list of tensors.
 <h3 id="non_trainable_weights"><code>non_trainable_weights</code></h3>
 
 
-
-<h3 id="outbound_nodes"><code>outbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="output"><code>output</code></h3>
 
@@ -252,19 +257,6 @@ A list of variables.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    trainable=True,
-    name=None,
-    dtype=None,
-    **kwargs
-)
-```
-
-
 
 <h3 id="__call__"><code>__call__</code></h3>
 
@@ -403,11 +395,13 @@ add_weight(
     dtype=None,
     initializer=None,
     regularizer=None,
-    trainable=True,
+    trainable=None,
     constraint=None,
     partitioner=None,
     use_resource=None,
-    getter=None
+    synchronization=tf.VariableSynchronization.AUTO,
+    aggregation=tf.VariableAggregation.NONE,
+    **kwargs
 )
 ```
 
@@ -425,11 +419,22 @@ Adds a new variable to the layer, or gets an existing one; returns it.
     or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
     Note, if the current variable scope is marked as non-trainable
     then this parameter is ignored and any added variables are also
-    marked as non-trainable.
+    marked as non-trainable. `trainable` defaults to `True` unless
+    `synchronization` is set to `ON_READ`.
 * <b>`constraint`</b>: constraint instance (callable).
 * <b>`partitioner`</b>: Partitioner to be passed to the `Checkpointable` API.
 * <b>`use_resource`</b>: Whether to use `ResourceVariable`.
-* <b>`getter`</b>: Variable getter argument to be passed to the `Checkpointable` API.
+* <b>`synchronization`</b>: Indicates when a distributed a variable will be
+    aggregated. Accepted values are constants defined in the class
+    <a href="../../../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to
+    `AUTO` and the current `DistributionStrategy` chooses
+    when to synchronize. If `synchronization` is set to `ON_READ`,
+    `trainable` must not be set to `True`.
+* <b>`aggregation`</b>: Indicates how a distributed variable will be aggregated.
+    Accepted values are constants defined in the class
+    <a href="../../../tf/VariableAggregation"><code>tf.VariableAggregation</code></a>.
+* <b>`**kwargs`</b>: Additional keyword arguments. Accepted values are `getter` and
+    `collections`.
 
 
 #### Returns:
@@ -443,7 +448,8 @@ instance is returned.
 
 * <b>`RuntimeError`</b>: If called with partioned variable regularization and
     eager execution is enabled.
-* <b>`ValueError`</b>: When giving unsupported dtype and no initializer.
+* <b>`ValueError`</b>: When giving unsupported dtype and no initializer or when
+    trainable has been set to True with synchronization set as `ON_READ`.
 
 <h3 id="apply"><code>apply</code></h3>
 

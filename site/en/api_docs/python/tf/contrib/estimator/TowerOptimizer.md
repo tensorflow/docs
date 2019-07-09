@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,11 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/replicate_model_fn.py).
 
 Gathers gradients from all towers and reduces them in the last one.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(optimizer_or_optimizer_fn)
@@ -50,6 +45,10 @@ wrapped with TowerOptimizer.
 * <b>`optimizer_or_optimizer_fn`</b>: an instance of optimizer to wrap.  That
     instance is going to be used for optimizer-specific logic.  This can
     also be a no-argument function that returns such an optimizer instance.
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

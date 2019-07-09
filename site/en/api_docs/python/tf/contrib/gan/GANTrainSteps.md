@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/namedtuples.py).
+Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/namedtuples.py).
 
 Contains configuration for the GAN Training.
 
@@ -24,21 +21,7 @@ Contains configuration for the GAN Training.
 * <b>`discriminator_train_steps`</b>: Number of discriminator steps to take in each GAN
     step.
 
-## Properties
-
-<h3 id="discriminator_train_steps"><code>discriminator_train_steps</code></h3>
-
-Alias for field number 1
-
-<h3 id="generator_train_steps"><code>generator_train_steps</code></h3>
-
-Alias for field number 0
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
+<h2 id="__new__"><code>__new__</code></h2>
 
 ``` python
 __new__(
@@ -49,6 +32,18 @@ __new__(
 ```
 
 Create new instance of GANTrainSteps(generator_train_steps, discriminator_train_steps)
+
+
+
+## Properties
+
+<h3 id="discriminator_train_steps"><code>discriminator_train_steps</code></h3>
+
+Alias for field number 1
+
+<h3 id="generator_train_steps"><code>generator_train_steps</code></h3>
+
+Alias for field number 0
 
 
 

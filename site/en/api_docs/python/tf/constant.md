@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.constant(
 
 
 
-Defined in [`tensorflow/python/framework/constant_op.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/constant_op.py).
+Defined in [`tensorflow/python/framework/constant_op.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/constant_op.py).
 
 See the guide: [Constants, Sequences, and Random Values > Constant Value Tensors](../../../api_guides/python/constant_op#Constant_Value_Tensors)
 
@@ -53,6 +50,17 @@ tensor = tf.constant([1, 2, 3, 4, 5, 6, 7]) => [1 2 3 4 5 6 7]
 tensor = tf.constant(-1.0, shape=[2, 3]) => [[-1. -1. -1.]
                                              [-1. -1. -1.]]
 ```
+
+<a href="../tf/constant"><code>tf.constant</code></a> differs from <a href="../tf/fill"><code>tf.fill</code></a> in a few ways:
+
+*   <a href="../tf/constant"><code>tf.constant</code></a> supports arbitrary constants, not just uniform scalar
+    Tensors like <a href="../tf/fill"><code>tf.fill</code></a>.
+*   <a href="../tf/constant"><code>tf.constant</code></a> creates a `Const` node in the computation graph with the
+    exact value at graph construction time. On the other hand, <a href="../tf/fill"><code>tf.fill</code></a>
+    creates an Op in the graph that is expanded at runtime.
+*   Because <a href="../tf/constant"><code>tf.constant</code></a> only embeds constant values in the graph, it does
+    not support dynamic shapes based on other runtime Tensors, whereas
+    <a href="../tf/fill"><code>tf.fill</code></a> does.
 
 #### Args:
 

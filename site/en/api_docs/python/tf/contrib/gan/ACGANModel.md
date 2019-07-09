@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/namedtuples.py).
+Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/namedtuples.py).
 
 An ACGANModel contains all the pieces needed for ACGAN training.
 
@@ -27,6 +24,32 @@ See https://arxiv.org/abs/1610.09585 for more details.
     data.
 * <b>`discriminator_gen_classification_logits`</b>: Classification logits for generated
     data.
+
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    generator_inputs,
+    generated_data,
+    generator_variables,
+    generator_scope,
+    generator_fn,
+    real_data,
+    discriminator_real_outputs,
+    discriminator_gen_outputs,
+    discriminator_variables,
+    discriminator_scope,
+    discriminator_fn,
+    one_hot_labels,
+    discriminator_real_classification_logits,
+    discriminator_gen_classification_logits
+)
+```
+
+Create new instance of ACGANModel(generator_inputs, generated_data, generator_variables, generator_scope, generator_fn, real_data, discriminator_real_outputs, discriminator_gen_outputs, discriminator_variables, discriminator_scope, discriminator_fn, one_hot_labels, discriminator_real_classification_logits, discriminator_gen_classification_logits)
+
+
 
 ## Properties
 
@@ -85,34 +108,6 @@ Alias for field number 11
 <h3 id="real_data"><code>real_data</code></h3>
 
 Alias for field number 5
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-__new__(
-    _cls,
-    generator_inputs,
-    generated_data,
-    generator_variables,
-    generator_scope,
-    generator_fn,
-    real_data,
-    discriminator_real_outputs,
-    discriminator_gen_outputs,
-    discriminator_variables,
-    discriminator_scope,
-    discriminator_fn,
-    one_hot_labels,
-    discriminator_real_classification_logits,
-    discriminator_gen_classification_logits
-)
-```
-
-Create new instance of ACGANModel(generator_inputs, generated_data, generator_variables, generator_scope, generator_fn, real_data, discriminator_real_outputs, discriminator_gen_outputs, discriminator_variables, discriminator_scope, discriminator_fn, one_hot_labels, discriminator_real_classification_logits, discriminator_gen_classification_logits)
 
 
 

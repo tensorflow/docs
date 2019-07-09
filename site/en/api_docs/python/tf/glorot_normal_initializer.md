@@ -1,12 +1,15 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.glorot_normal_initializer
+
+### Aliases:
+
+* `tf.glorot_normal_initializer`
+* `tf.initializers.glorot_normal`
+* `tf.keras.initializers.glorot_normal`
 
 ``` python
 tf.glorot_normal_initializer(
@@ -17,7 +20,7 @@ tf.glorot_normal_initializer(
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/init_ops.py).
 
 The Glorot normal initializer, also called Xavier normal initializer.
 

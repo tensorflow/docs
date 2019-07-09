@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/python/training/sync_replicas_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/sync_replicas_optimizer.py).
+Defined in [`tensorflow/python/training/sync_replicas_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/sync_replicas_optimizer.py).
 
 Class to synchronize, aggregate gradients and pass them to the optimizer.
 
@@ -28,7 +25,7 @@ averaging them, then applying them to the variables in one shot, after
 which replicas can fetch the new variables and continue.
 
 The following accumulators/queue are created:
-<empty line>
+
 * N `gradient accumulators`, one per variable to train. Gradients are pushed
   to them and the chief worker will wait until enough gradients are collected
   and then average them before applying to variables. The accumulator will
@@ -43,7 +40,7 @@ The following local variable is created:
 The optimizer adds nodes to the graph to collect gradients and pause the
 trainers until variables are updated.
 For the Parameter Server job:
-<empty line>
+
 1. An accumulator is created for each variable, and each replica pushes the
    gradients into the accumulators instead of directly applying them to the
    variables.
@@ -56,7 +53,7 @@ For the Parameter Server job:
    update its local_step variable and start the next batch.
 
 For the replicas:
-<empty line>
+
 1. Start a step: fetch variables and compute gradients.
 2. Once the gradients have been computed, push them into gradient
    accumulators. Each accumulator will check the staleness and drop the stale.
@@ -110,9 +107,7 @@ my_estimator = DNNClassifier(..., optimizer=opt)
 my_estimator.fit(..., hooks=[sync_replicas_hook])
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -147,6 +142,10 @@ Construct a sync_replicas optimizer.
     needed if variable_averages is passed in.
 * <b>`use_locking`</b>: If True use locks for update operation.
 * <b>`name`</b>: string. Optional name of the returned operation.
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`OptimizerV2`](../../../tf/contrib/optimizer_v2/OptimizerV2)
 
 
 
-Defined in [`tensorflow/contrib/optimizer_v2/adagrad.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/optimizer_v2/adagrad.py).
+Defined in [`tensorflow/contrib/optimizer_v2/adagrad.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/optimizer_v2/adagrad.py).
 
 Optimizer that implements the Adagrad algorithm.
 
@@ -22,9 +19,7 @@ See this [paper](http://www.jmlr.org/papers/volume12/duchi11a/duchi11a.pdf)
 or this
 [intro](http://cs.stanford.edu/~ppasupat/a9online/uploads/proximal_notes.pdf).
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -55,6 +50,10 @@ Tensor or a Python value.
 #### Raises:
 
 * <b>`ValueError`</b>: If the `initial_accumulator_value` is invalid.
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

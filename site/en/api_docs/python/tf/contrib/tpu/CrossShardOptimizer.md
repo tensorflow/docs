@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,19 +11,18 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu_optimizer.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu_optimizer.py).
 
 An optimizer that averages gradients across TPU shards.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
     opt,
     reduction=losses.Reduction.MEAN,
-    name='CrossShardOptimizer'
+    name='CrossShardOptimizer',
+    group_assignment=None
 )
 ```
 
@@ -38,11 +34,18 @@ Construct a new cross-shard optimizer.
 * <b>`reduction`</b>: The reduction to apply to the shard losses.
 * <b>`name`</b>: Optional name prefix for the operations created when applying
     gradients. Defaults to "CrossShardOptimizer".
+* <b>`group_assignment`</b>: Optional 2d int32 lists with shape
+    [num_groups, num_replicas_per_group] which describles how to apply
+    optimizer to subgroups.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: If reduction is not a valid cross-shard reduction.
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
@@ -113,7 +116,8 @@ A list of (gradient, variable) pairs.
 
 #### Raises:
 
-* <b>`ValueError`</b>: If not within a tpu_shard_context.
+* <b>`ValueError`</b>: If not within a tpu_shard_context or group_assignment is
+    invalid.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
@@ -239,14 +243,7 @@ variables created during the execution of the `loss` function.
 variables()
 ```
 
-A list of variables which encode the current state of `Optimizer`.
-
-Includes slot variables and additional global variables created by the
-optimizer in the current default graph.
-
-#### Returns:
-
-A list of variables.
+Forwarding the variables from the underlying optimizer.
 
 
 

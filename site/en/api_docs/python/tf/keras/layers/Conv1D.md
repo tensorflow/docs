@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/layers/convolutional.py).
+Defined in [`tensorflow/python/keras/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/layers/convolutional.py).
 
 1D convolution layer (e.g. temporal convolution).
 
@@ -79,6 +76,33 @@ Output shape:
     3D tensor with shape: `(batch_size, new_steps, filters)`
     `steps` value might have changed due to padding or strides.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    filters,
+    kernel_size,
+    strides=1,
+    padding='valid',
+    data_format='channels_last',
+    dilation_rate=1,
+    activation=None,
+    use_bias=True,
+    kernel_initializer='glorot_uniform',
+    bias_initializer='zeros',
+    kernel_regularizer=None,
+    bias_regularizer=None,
+    activity_regularizer=None,
+    kernel_constraint=None,
+    bias_constraint=None,
+    **kwargs
+)
+```
+
+
+
+
+
 ## Properties
 
 <h3 id="activity_regularizer"><code>activity_regularizer</code></h3>
@@ -88,10 +112,6 @@ Optional regularizer function for the output of this layer.
 <h3 id="dtype"><code>dtype</code></h3>
 
 
-
-<h3 id="inbound_nodes"><code>inbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="input"><code>input</code></h3>
 
@@ -176,10 +196,6 @@ A list of tensors.
 <h3 id="non_trainable_weights"><code>non_trainable_weights</code></h3>
 
 
-
-<h3 id="outbound_nodes"><code>outbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="output"><code>output</code></h3>
 
@@ -267,31 +283,6 @@ A list of variables.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    filters,
-    kernel_size,
-    strides=1,
-    padding='valid',
-    data_format='channels_last',
-    dilation_rate=1,
-    activation=None,
-    use_bias=True,
-    kernel_initializer='glorot_uniform',
-    bias_initializer='zeros',
-    kernel_regularizer=None,
-    bias_regularizer=None,
-    activity_regularizer=None,
-    kernel_constraint=None,
-    bias_constraint=None,
-    **kwargs
-)
-```
-
-
-
 <h3 id="__call__"><code>__call__</code></h3>
 
 ``` python
@@ -331,146 +322,6 @@ Note:
 
 * <b>`ValueError`</b>: if the layer's `call` method returns None (an invalid value).
 
-<h3 id="add_loss"><code>add_loss</code></h3>
-
-``` python
-add_loss(
-    losses,
-    inputs=None
-)
-```
-
-Add loss tensor(s), potentially dependent on layer inputs.
-
-Some losses (for instance, activity regularization losses) may be dependent
-on the inputs passed when calling a layer. Hence, when reusing the same
-layer on different inputs `a` and `b`, some entries in `layer.losses` may
-be dependent on `a` and some on `b`. This method automatically keeps track
-of dependencies.
-
-The `get_losses_for` method allows to retrieve the losses relevant to a
-specific set of inputs.
-
-Note that `add_loss` is not supported when executing eagerly. Instead,
-variable regularizers may be added through `add_variable`. Activity
-regularization is not supported directly (but such losses may be returned
-from `Layer.call()`).
-
-#### Arguments:
-
-* <b>`losses`</b>: Loss tensor, or list/tuple of tensors.
-* <b>`inputs`</b>: If anything other than None is passed, it signals the losses
-    are conditional on some of the layer's inputs,
-    and thus they should only be run where these inputs are available.
-    This is the case for activity regularization losses, for instance.
-    If `None` is passed, the losses are assumed
-    to be unconditional, and will apply across all dataflows of the layer
-    (e.g. weight regularization losses).
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If called in Eager mode.
-
-<h3 id="add_update"><code>add_update</code></h3>
-
-``` python
-add_update(
-    updates,
-    inputs=None
-)
-```
-
-Add update op(s), potentially dependent on layer inputs.
-
-Weight updates (for instance, the updates of the moving mean and variance
-in a BatchNormalization layer) may be dependent on the inputs passed
-when calling a layer. Hence, when reusing the same layer on
-different inputs `a` and `b`, some entries in `layer.updates` may be
-dependent on `a` and some on `b`. This method automatically keeps track
-of dependencies.
-
-The `get_updates_for` method allows to retrieve the updates relevant to a
-specific set of inputs.
-
-This call is ignored when eager execution is enabled (in that case, variable
-updates are run on the fly and thus do not need to be tracked for later
-execution).
-
-#### Arguments:
-
-* <b>`updates`</b>: Update op, or list/tuple of update ops.
-* <b>`inputs`</b>: If anything other than None is passed, it signals the updates
-    are conditional on some of the layer's inputs,
-    and thus they should only be run where these inputs are available.
-    This is the case for BatchNormalization updates, for instance.
-    If None, the updates will be taken into account unconditionally,
-    and you are responsible for making sure that any dependency they might
-    have is available at runtime.
-    A step counter might fall into this category.
-
-<h3 id="add_variable"><code>add_variable</code></h3>
-
-``` python
-add_variable(
-    *args,
-    **kwargs
-)
-```
-
-Alias for `add_weight`.
-
-<h3 id="add_weight"><code>add_weight</code></h3>
-
-``` python
-add_weight(
-    name,
-    shape,
-    dtype=None,
-    initializer=None,
-    regularizer=None,
-    trainable=True,
-    constraint=None,
-    partitioner=None,
-    use_resource=None,
-    getter=None
-)
-```
-
-Adds a new variable to the layer, or gets an existing one; returns it.
-
-#### Arguments:
-
-* <b>`name`</b>: variable name.
-* <b>`shape`</b>: variable shape.
-* <b>`dtype`</b>: The type of the variable. Defaults to `self.dtype` or `float32`.
-* <b>`initializer`</b>: initializer instance (callable).
-* <b>`regularizer`</b>: regularizer instance (callable).
-* <b>`trainable`</b>: whether the variable should be part of the layer's
-    "trainable_variables" (e.g. variables, biases)
-    or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
-    Note, if the current variable scope is marked as non-trainable
-    then this parameter is ignored and any added variables are also
-    marked as non-trainable.
-* <b>`constraint`</b>: constraint instance (callable).
-* <b>`partitioner`</b>: Partitioner to be passed to the `Checkpointable` API.
-* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
-* <b>`getter`</b>: Variable getter argument to be passed to the `Checkpointable` API.
-
-
-#### Returns:
-
-The created variable.  Usually either a `Variable` or `ResourceVariable`
-instance.  If `partitioner` is not `None`, a `PartitionedVariable`
-instance is returned.
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If called with partioned variable regularization and
-    eager execution is enabled.
-* <b>`ValueError`</b>: When giving unsupported dtype and no initializer.
-
 <h3 id="apply"><code>apply</code></h3>
 
 ``` python
@@ -500,14 +351,6 @@ Output tensor(s).
 
 ``` python
 build(input_shape)
-```
-
-
-
-<h3 id="call"><code>call</code></h3>
-
-``` python
-call(inputs)
 ```
 
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,142 +11,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/run_config.py).
+Defined in [`tensorflow/python/estimator/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/run_config.py).
 
 This class specifies the configurations for an `Estimator` run.
 
-## Properties
-
-<h3 id="cluster_spec"><code>cluster_spec</code></h3>
-
-
-
-<h3 id="device_fn"><code>device_fn</code></h3>
-
-Returns the device_fn.
-
-If device_fn is not `None`, it overrides the default
-device function used in `Estimator`.
-Otherwise the default one is used.
-
-<h3 id="evaluation_master"><code>evaluation_master</code></h3>
-
-
-
-<h3 id="global_id_in_cluster"><code>global_id_in_cluster</code></h3>
-
-The global id in the training cluster.
-
-All global ids in the training cluster are assigned from an increasing
-sequence of consecutive integers. The first id is 0.
-
-Note: Task id (the property field `task_id`) is tracking the index of the
-node among all nodes with the SAME task type. For example, given the cluster
-definition as follows:
-
-```
-  cluster = {'chief': ['host0:2222'],
-             'ps': ['host1:2222', 'host2:2222'],
-             'worker': ['host3:2222', 'host4:2222', 'host5:2222']}
-```
-
-Nodes with task type `worker` can have id 0, 1, 2.  Nodes with task type
-`ps` can have id, 0, 1. So, `task_id` is not unique, but the pair
-(`task_type`, `task_id`) can uniquely determine a node in the cluster.
-
-Global id, i.e., this field, is tracking the index of the node among ALL
-nodes in the cluster. It is uniquely assigned.  For example, for the cluster
-spec given above, the global ids are assigned as:
-
-```
-  task_type  | task_id  |  global_id
-  --------------------------------
-  chief      | 0        |  0
-  worker     | 0        |  1
-  worker     | 1        |  2
-  worker     | 2        |  3
-  ps         | 0        |  4
-  ps         | 1        |  5
-```
-
-#### Returns:
-
-An integer id.
-
-<h3 id="is_chief"><code>is_chief</code></h3>
-
-
-
-<h3 id="keep_checkpoint_every_n_hours"><code>keep_checkpoint_every_n_hours</code></h3>
-
-
-
-<h3 id="keep_checkpoint_max"><code>keep_checkpoint_max</code></h3>
-
-
-
-<h3 id="log_step_count_steps"><code>log_step_count_steps</code></h3>
-
-
-
-<h3 id="master"><code>master</code></h3>
-
-
-
-<h3 id="model_dir"><code>model_dir</code></h3>
-
-
-
-<h3 id="num_ps_replicas"><code>num_ps_replicas</code></h3>
-
-
-
-<h3 id="num_worker_replicas"><code>num_worker_replicas</code></h3>
-
-
-
-<h3 id="save_checkpoints_secs"><code>save_checkpoints_secs</code></h3>
-
-
-
-<h3 id="save_checkpoints_steps"><code>save_checkpoints_steps</code></h3>
-
-
-
-<h3 id="save_summary_steps"><code>save_summary_steps</code></h3>
-
-
-
-<h3 id="service"><code>service</code></h3>
-
-Returns the platform defined (in TF_CONFIG) service dict.
-
-<h3 id="session_config"><code>session_config</code></h3>
-
-
-
-<h3 id="task_id"><code>task_id</code></h3>
-
-
-
-<h3 id="task_type"><code>task_type</code></h3>
-
-
-
-<h3 id="tf_random_seed"><code>tf_random_seed</code></h3>
-
-
-
-<h3 id="train_distribute"><code>train_distribute</code></h3>
-
-Returns the optional <a href="../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> object.
-    
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -163,7 +29,10 @@ __init__(
     keep_checkpoint_every_n_hours=10000,
     log_step_count_steps=100,
     train_distribute=None,
-    device_fn=None
+    device_fn=None,
+    protocol=None,
+    eval_distribute=None,
+    experimental_distribute=None
 )
 ```
 
@@ -294,20 +163,175 @@ find the checkpoint due to race condition.
     the feature.
 * <b>`log_step_count_steps`</b>: The frequency, in number of global steps, that the
     global step/sec and the loss will be logged during training.
-* <b>`train_distribute`</b>: an optional instance of
+* <b>`train_distribute`</b>: An optional instance of
     <a href="../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a>. If specified,
     then Estimator will distribute the user's model during training,
-    according to the policy specified by that strategy.
+    according to the policy specified by that strategy. Setting
+    `experimental_distribute.train_distribute` is preferred.
 * <b>`device_fn`</b>: A callable invoked for every `Operation` that takes the
     `Operation` and returns the device string. If `None`, defaults to
     the device function returned by <a href="../../tf/train/replica_device_setter"><code>tf.train.replica_device_setter</code></a>
     with round-robin strategy.
+* <b>`protocol`</b>: An optional argument which specifies the protocol used when
+    starting server. None means default to grpc.
+* <b>`eval_distribute`</b>: An optional instance of
+    <a href="../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a>. If specified,
+    then Estimator will distribute the user's model during evaluation,
+    according to the policy specified by that strategy. Setting
+    `experimental_distribute.eval_distribute` is preferred.
+* <b>`experimental_distribute`</b>: an optional
+    <a href="../../tf/contrib/distribute/DistributeConfig"><code>tf.contrib.distribute.DistributeConfig</code></a> object specifying
+    DistributionStrategy-related configuration. The `train_distribute` and
+    `eval_distribute` can be passed as parameters to `RunConfig` or set in
+    `experimental_distribute` but not both.
 
 
 #### Raises:
 
 * <b>`ValueError`</b>: If both `save_checkpoints_steps` and `save_checkpoints_secs`
   are set.
+
+
+
+## Properties
+
+<h3 id="cluster_spec"><code>cluster_spec</code></h3>
+
+
+
+<h3 id="device_fn"><code>device_fn</code></h3>
+
+Returns the device_fn.
+
+If device_fn is not `None`, it overrides the default
+device function used in `Estimator`.
+Otherwise the default one is used.
+
+<h3 id="eval_distribute"><code>eval_distribute</code></h3>
+
+Optional <a href="../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for evaluation.
+    
+
+<h3 id="evaluation_master"><code>evaluation_master</code></h3>
+
+
+
+<h3 id="global_id_in_cluster"><code>global_id_in_cluster</code></h3>
+
+The global id in the training cluster.
+
+All global ids in the training cluster are assigned from an increasing
+sequence of consecutive integers. The first id is 0.
+
+Note: Task id (the property field `task_id`) is tracking the index of the
+node among all nodes with the SAME task type. For example, given the cluster
+definition as follows:
+
+```
+  cluster = {'chief': ['host0:2222'],
+             'ps': ['host1:2222', 'host2:2222'],
+             'worker': ['host3:2222', 'host4:2222', 'host5:2222']}
+```
+
+Nodes with task type `worker` can have id 0, 1, 2.  Nodes with task type
+`ps` can have id, 0, 1. So, `task_id` is not unique, but the pair
+(`task_type`, `task_id`) can uniquely determine a node in the cluster.
+
+Global id, i.e., this field, is tracking the index of the node among ALL
+nodes in the cluster. It is uniquely assigned.  For example, for the cluster
+spec given above, the global ids are assigned as:
+
+```
+  task_type  | task_id  |  global_id
+  --------------------------------
+  chief      | 0        |  0
+  worker     | 0        |  1
+  worker     | 1        |  2
+  worker     | 2        |  3
+  ps         | 0        |  4
+  ps         | 1        |  5
+```
+
+#### Returns:
+
+An integer id.
+
+<h3 id="is_chief"><code>is_chief</code></h3>
+
+
+
+<h3 id="keep_checkpoint_every_n_hours"><code>keep_checkpoint_every_n_hours</code></h3>
+
+
+
+<h3 id="keep_checkpoint_max"><code>keep_checkpoint_max</code></h3>
+
+
+
+<h3 id="log_step_count_steps"><code>log_step_count_steps</code></h3>
+
+
+
+<h3 id="master"><code>master</code></h3>
+
+
+
+<h3 id="model_dir"><code>model_dir</code></h3>
+
+
+
+<h3 id="num_ps_replicas"><code>num_ps_replicas</code></h3>
+
+
+
+<h3 id="num_worker_replicas"><code>num_worker_replicas</code></h3>
+
+
+
+<h3 id="protocol"><code>protocol</code></h3>
+
+Returns the optional protocol value.
+
+<h3 id="save_checkpoints_secs"><code>save_checkpoints_secs</code></h3>
+
+
+
+<h3 id="save_checkpoints_steps"><code>save_checkpoints_steps</code></h3>
+
+
+
+<h3 id="save_summary_steps"><code>save_summary_steps</code></h3>
+
+
+
+<h3 id="service"><code>service</code></h3>
+
+Returns the platform defined (in TF_CONFIG) service dict.
+
+<h3 id="session_config"><code>session_config</code></h3>
+
+
+
+<h3 id="task_id"><code>task_id</code></h3>
+
+
+
+<h3 id="task_type"><code>task_type</code></h3>
+
+
+
+<h3 id="tf_random_seed"><code>tf_random_seed</code></h3>
+
+
+
+<h3 id="train_distribute"><code>train_distribute</code></h3>
+
+Optional <a href="../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for training.
+    
+
+
+
+## Methods
 
 <h3 id="replace"><code>replace</code></h3>
 
@@ -329,7 +353,10 @@ Only the properties in the following list are allowed to be replaced:
   - `keep_checkpoint_every_n_hours`,
   - `log_step_count_steps`,
   - `train_distribute`,
-  - `device_fn`.
+  - `device_fn`,
+  - `protocol`.
+  - `eval_distribute`,
+  - `experimental_distribute`,
 
 In addition, either `save_checkpoints_steps` or `save_checkpoints_secs`
 can be set (should not be both).

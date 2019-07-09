@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.contrib.signal.frame(
 
 
 
-Defined in [`tensorflow/contrib/signal/python/ops/shape_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/signal/python/ops/shape_ops.py).
+Defined in [`tensorflow/contrib/signal/python/ops/shape_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/signal/python/ops/shape_ops.py).
 
 See the guide: [Signal Processing (contrib) > Framing variable length sequences](../../../../../api_guides/python/contrib.signal#Framing_variable_length_sequences)
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/monitored_session.py).
 
 Control flow instrument for the `step_fn` from `run_step_fn()`.
 
@@ -28,17 +25,7 @@ by accessing the `session`.  A `run()` call with hooks may be performed
 using `run_with_hooks()`.  Computation flow can be interrupted using
 `request_stop()`.
 
-## Properties
-
-<h3 id="session"><code>session</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -53,6 +40,18 @@ Initializes the `step_context` argument for a `step_fn` invocation.
 
 * <b>`session`</b>: An instance of <a href="../../../tf/Session"><code>tf.Session</code></a>.
 * <b>`run_with_hooks_fn`</b>: A function for running fetches and hooks.
+
+
+
+## Properties
+
+<h3 id="session"><code>session</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="request_stop"><code>request_stop</code></h3>
 

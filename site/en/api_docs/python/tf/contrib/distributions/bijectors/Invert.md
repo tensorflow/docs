@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/invert.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/invert.py).
-
-See the guide: [Random variable transformations (contrib) > Bijectors](../../../../../../api_guides/python/contrib.distributions.bijectors#Bijectors)
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/invert.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/invert.py).
 
 Bijector which inverts another Bijector.
 
@@ -29,6 +24,41 @@ exp_gamma_distribution = TransformedDistribution(
   distribution=Gamma(concentration=1., rate=2.),
   bijector=bijector.Invert(bijector.Exp())
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    bijector,
+    validate_args=False,
+    name=None
+)
+```
+
+Creates a `Bijector` which swaps the meaning of `inverse` and `forward`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+Note: An inverted bijector's `inverse_log_det_jacobian` is often more
+efficient if the base bijector implements `_forward_log_det_jacobian`. If
+`_forward_log_det_jacobian` is not implemented then the following code is
+used:
+
+```python
+y = self.inverse(x, **kwargs)
+return -self.inverse_log_det_jacobian(y, **kwargs)
+```
+
+#### Args:
+
+* <b>`bijector`</b>: Bijector instance.
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
+    checked for correctness.
+* <b>`name`</b>: Python `str`, name given to ops managed by this object.
+
+
 
 ## Properties
 
@@ -74,35 +104,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    bijector,
-    validate_args=False,
-    name=None
-)
-```
-
-Creates a `Bijector` which swaps the meaning of `inverse` and `forward`.
-
-Note: An inverted bijector's `inverse_log_det_jacobian` is often more
-efficient if the base bijector implements `_forward_log_det_jacobian`. If
-`_forward_log_det_jacobian` is not implemented then the following code is
-used:
-
-```python
-y = self.inverse(x, **kwargs)
-return -self.inverse_log_det_jacobian(y, **kwargs)
-```
-
-#### Args:
-
-* <b>`bijector`</b>: Bijector instance.
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
-* <b>`name`</b>: Python `str`, name given to ops managed by this object.
 
 <h3 id="forward"><code>forward</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.profiler.write_op_log(
 
 
 
-Defined in [`tensorflow/python/profiler/tfprof_logger.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/profiler/tfprof_logger.py).
+Defined in [`tensorflow/python/profiler/tfprof_logger.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/profiler/tfprof_logger.py).
 
 Log provided 'op_log', and add additional model information below.
 

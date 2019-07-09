@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,14 +11,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/wrappers/scikit_learn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/wrappers/scikit_learn.py).
+Defined in [`tensorflow/python/keras/wrappers/scikit_learn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/wrappers/scikit_learn.py).
 
 Implementation of the scikit-learn classifier API for Keras.
   
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -31,6 +26,10 @@ __init__(
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="check_params"><code>check_params</code></h3>
 

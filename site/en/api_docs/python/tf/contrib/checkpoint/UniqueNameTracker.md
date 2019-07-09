@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/checkpoint/python/containers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/checkpoint/python/containers.py).
+Defined in [`tensorflow/contrib/checkpoint/python/containers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/checkpoint/python/containers.py).
 
 Adds dependencies on checkpointable objects with name hints.
 
@@ -30,10 +27,20 @@ class SlotManager(tf.contrib.checkpoint.Checkpointable):
     self.slotdeps = tf.contrib.checkpoint.UniqueNameTracker()
     slotdeps = self.slotdeps
     slots = []
-    slots.append(slotdeps.track(tfe.Variable(3.), "x"))  # Named "x"
-    slots.append(slotdeps.track(tfe.Variable(4.), "y"))
-    slots.append(slotdeps.track(tfe.Variable(5.), "x"))  # Named "x_1"
+    slots.append(slotdeps.track(tf.Variable(3.), "x"))  # Named "x"
+    slots.append(slotdeps.track(tf.Variable(4.), "y"))
+    slots.append(slotdeps.track(tf.Variable(5.), "x"))  # Named "x_1"
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__()
+```
+
+
+
+
 
 ## Properties
 
@@ -76,14 +83,6 @@ Aggregate updates from any `Layer` instances.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__()
-```
-
-
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 

@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::SparseSegmentSqrtNWithNumSegments Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,16 +13,16 @@
   <p>Computes the sum along sparse segments of a tensor divided by the sqrt of N. </p>
   <h2>Summary</h2>
   <p>N is the size of the segment being reduced.</p>
-  <p>Like <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/sparse-segment-sqrt-n.html#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n">SparseSegmentSqrtN</a></code>, but allows missing ids in <code>segment_ids</code>. If an id is misisng, the <code>output</code> tensor at that position will be zeroed.</p>
-  <p>Read the section on segmentation for an explanation of segments.</p>
+  <p>Like <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/sparse-segment-sqrt-n.html#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n">SparseSegmentSqrtN</a></code>, but allows missing ids in <code>segment_ids</code>. If an id is misisng, the <code>output</code> tensor at that position will be zeroed.</p>
+  <p>Read <a href="https://tensorflow.org/api_guides/python/math_ops#Segmentation">the section on segmentation</a> for an explanation of segments.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>indices: A 1-D tensor. Has same rank as <code>segment_ids</code>.</li>
       <li>segment_ids: A 1-D tensor. Values should be sorted and can be repeated.</li>
       <li>num_segments: Should equal the number of distinct segment IDs.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Has same shape as data, except for dimension 0 which has size <code>k</code>, the number of segments. </li>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Has same shape as data, except for dimension 0 which has size <code>k</code>, the number of segments. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -32,7 +32,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_with_num_segments_1a44628573cc0d7a5d5f1e052fca589e99">SparseSegmentSqrtNWithNumSegments</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_segments)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_with_num_segments_1a44628573cc0d7a5d5f1e052fca589e99">SparseSegmentSqrtNWithNumSegments</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_segments)</code>
         <br />
       </td>
     </tr>
@@ -49,7 +49,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -94,18 +94,18 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_with_num_segments_1a867a58de56787260c7fd1d9d19d4b1d5">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_with_num_segments_1a44628573cc0d7a5d5f1e052fca589e99">
     <h3>SparseSegmentSqrtNWithNumSegments</h3>
     <pre class="prettyprint"> SparseSegmentSqrtNWithNumSegments(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_segments
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_segments
 )</pre>
     <div />
   </div>

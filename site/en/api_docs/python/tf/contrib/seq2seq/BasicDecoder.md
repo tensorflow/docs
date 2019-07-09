@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,11 +11,41 @@ Inherits From: [`Decoder`](../../../tf/contrib/seq2seq/Decoder)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/basic_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/basic_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
 
 See the guide: [Seq2seq Library (contrib) > Dynamic Decoding](../../../../../api_guides/python/contrib.seq2seq#Dynamic_Decoding)
 
 Basic sampling decoder.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    cell,
+    helper,
+    initial_state,
+    output_layer=None
+)
+```
+
+Initialize BasicDecoder.
+
+#### Args:
+
+* <b>`cell`</b>: An `RNNCell` instance.
+* <b>`helper`</b>: A `Helper` instance.
+* <b>`initial_state`</b>: A (possibly nested tuple of...) tensors and TensorArrays.
+    The initial state of the RNNCell.
+* <b>`output_layer`</b>: (Optional) An instance of <a href="../../../tf/layers/Layer"><code>tf.layers.Layer</code></a>, i.e.,
+    <a href="../../../tf/layers/Dense"><code>tf.layers.Dense</code></a>. Optional layer to apply to the RNN output prior
+    to storing the result or sampling.
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: if `cell`, `helper` or `output_layer` have an incorrect type.
+
+
 
 ## Properties
 
@@ -56,34 +83,6 @@ Python bool.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    cell,
-    helper,
-    initial_state,
-    output_layer=None
-)
-```
-
-Initialize BasicDecoder.
-
-#### Args:
-
-* <b>`cell`</b>: An `RNNCell` instance.
-* <b>`helper`</b>: A `Helper` instance.
-* <b>`initial_state`</b>: A (possibly nested tuple of...) tensors and TensorArrays.
-    The initial state of the RNNCell.
-* <b>`output_layer`</b>: (Optional) An instance of <a href="../../../tf/layers/Layer"><code>tf.layers.Layer</code></a>, i.e.,
-    <a href="../../../tf/layers/Dense"><code>tf.layers.Dense</code></a>. Optional layer to apply to the RNN output prior
-    to storing the result or sampling.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: if `cell`, `helper` or `output_layer` have an incorrect type.
 
 <h3 id="finalize"><code>finalize</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,14 +16,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/framework/summary.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/summary.proto).
+Defined in [`tensorflow/core/framework/summary.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/summary.proto).
 
 
 
 ## Child Classes
-[`class Audio`](../tf/Summary/Audio)
+[`class Audio`](../tf/summary/Summary/Audio)
 
-[`class Image`](../tf/Summary/Image)
+[`class Image`](../tf/summary/Summary/Image)
 
-[`class Value`](../tf/Summary/Value)
+[`class Value`](../tf/summary/Summary/Value)
 

@@ -47,8 +47,8 @@
 <html devsite>
   <head>
     <title>SavedModelBundle</title>
-    <meta name="book_path" value="/versions/r1.9/_book.yaml" />
-    <meta name="project_path" value="/_project.yaml" />
+    <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+    <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
 
@@ -138,6 +138,30 @@
     
     <section id="xml-attributes">
 
+    
+    
+    <!-- ======== NESTED CLASS SUMMARY ======== -->
+    <section>
+      <h3>Nested Classes</h3>
+      <table id="nestedclasses" class="jd-sumtable">
+        
+    
+      
+        <tr>
+          <td class="jd-typecol">
+            
+            
+            
+            
+            class</td>
+          <td class="jd-linkcol" colspan="2"><a href="/api_docs/java/reference/org/tensorflow/SavedModelBundle.Loader.html">SavedModelBundle.Loader</a></td>
+          <td class="jd-descrcol" width="100%">Options for loading a SavedModel.&nbsp;</td>
+        </tr>
+        
+        
+    
+      </table>
+    </section>
     
 
     
@@ -230,6 +254,27 @@
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/SavedModelBundle.html#load(java.lang.String, java.lang.String...)">load</a></span>(String exportDir, String... tags)
                 
                   <div class="jd-descrdiv">Load a saved model from an export directory.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                static
+                
+                <a href="/api_docs/java/reference/org/tensorflow/SavedModelBundle.Loader.html">SavedModelBundle.Loader</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/SavedModelBundle.html#loader(java.lang.String)">loader</a></span>(String exportDir)
+                
+                  <div class="jd-descrdiv">Load a saved model.</div>
                 
               </div>
           </td>
@@ -659,7 +704,12 @@
           
   <div class="jd-tagdata jd-tagdescr"><p>Load a saved model from an export directory. The model that is being loaded should be created
  using the <a href="https://www.tensorflow.org/api_docs/python/tf/saved_model">Saved Model
- API</a>.</p></div>
+ API</a>.
+
+ <p>This method is a shorthand for:
+
+ <pre class="prettyprint"><code>SavedModelBundler.loader().withTags(tags).load();
+ </code></pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -677,6 +727,48 @@
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>a bundle containing the graph and associated session.
 </li></ul>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="loader(java.lang.String)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            static
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/SavedModelBundle.Loader.html">SavedModelBundle.Loader</a>
+          </span>
+          <span class="sympad"><strong>loader</strong></span>
+          <span class="params">(String exportDir)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Load a saved model.
+
+ <p/>Returns a <code>Loader</code> object that can set configuration options before actually
+ loading the model,</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>exportDir</td>
+          <td>the directory path containing a saved model.
+</td>
+        </tr>
+      </table>
   </div>
 
         </div>

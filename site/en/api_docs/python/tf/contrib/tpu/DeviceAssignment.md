@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,39 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/device_assignment.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/device_assignment.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/device_assignment.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/device_assignment.py).
 
 Mapping from logical cores in a computation to the physical TPU topology.
 
 Prefer to use the `device_assignment()` helper to construct a
 `DeviceAssignment`; it is easier if less flexible than constructing a
 `DeviceAssignment` directly.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    topology,
+    core_assignment
+)
+```
+
+Constructs a `DeviceAssignment` object.
+
+#### Args:
+
+* <b>`topology`</b>: A `Topology` object that describes the physical TPU topology.
+* <b>`core_assignment`</b>: A logical to physical core mapping, represented as a
+    rank 3 numpy array. See the description of the `core_assignment`
+    property for more details.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If `topology` is not `Topology` object.
+* <b>`ValueError`</b>: If `core_assignment` is not a rank 3 numpy array.
+
+
 
 ## Properties
 
@@ -65,30 +88,6 @@ A `Topology` that describes the TPU topology.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    topology,
-    core_assignment
-)
-```
-
-Constructs a `DeviceAssignment` object.
-
-#### Args:
-
-* <b>`topology`</b>: A `Topology` object that describes the physical TPU topology.
-* <b>`core_assignment`</b>: A logical to physical core mapping, represented as a
-    rank 3 numpy array. See the description of the `core_assignment`
-    property for more details.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: If `topology` is not `Topology` object.
-* <b>`ValueError`</b>: If `core_assignment` is not a rank 3 numpy array.
 
 <h3 id="host_device"><code>host_device</code></h3>
 

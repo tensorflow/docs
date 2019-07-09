@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linear_operator_block_diag.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/linalg/linear_operator_block_diag.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator_block_diag.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_block_diag.py).
 
 Combines one or more `LinearOperators` in to a Block Diagonal matrix.
 
@@ -105,6 +102,49 @@ These have the following meaning:
 * If `is_X == False`, callers should expect the operator to not have `X`.
 * If `is_X == None` (the default), callers should have no expectation either
   way.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    operators,
+    is_non_singular=None,
+    is_self_adjoint=None,
+    is_positive_definite=None,
+    is_square=True,
+    name=None
+)
+```
+
+Initialize a `LinearOperatorBlockDiag`.
+
+`LinearOperatorBlockDiag` is initialized with a list of operators
+`[op_1,...,op_J]`.
+
+#### Args:
+
+* <b>`operators`</b>:  Iterable of `LinearOperator` objects, each with
+    the same `dtype` and composable shape.
+* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
+* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
+    transpose.
+* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite,
+    meaning the quadratic form `x^H A x` has positive real part for all
+    nonzero `x`.  Note that we do not require the operator to be
+    self-adjoint to be positive-definite.  See:
+    https://en.wikipedia.org/wiki/Positive-definite_matrix#Extension_for_non-symmetric_matrices
+* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
+    This is true by default, and will raise a `ValueError` otherwise.
+* <b>`name`</b>: A name for this `LinearOperator`.  Default is the individual
+    operators names joined with `_o_`.
+
+
+#### Raises:
+
+* <b>`TypeError`</b>:  If all operators do not have the same `dtype`.
+* <b>`ValueError`</b>:  If `operators` is empty or are non-square.
+
+
 
 ## Properties
 
@@ -205,47 +245,6 @@ Python integer, or None if the tensor rank is undefined.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    operators,
-    is_non_singular=None,
-    is_self_adjoint=None,
-    is_positive_definite=None,
-    is_square=True,
-    name=None
-)
-```
-
-Initialize a `LinearOperatorBlockDiag`.
-
-`LinearOperatorBlockDiag` is initialized with a list of operators
-`[op_1,...,op_J]`.
-
-#### Args:
-
-* <b>`operators`</b>:  Iterable of `LinearOperator` objects, each with
-    the same `dtype` and composable shape.
-* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
-* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
-    transpose.
-* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite,
-    meaning the quadratic form `x^H A x` has positive real part for all
-    nonzero `x`.  Note that we do not require the operator to be
-    self-adjoint to be positive-definite.  See:
-    https://en.wikipedia.org/wiki/Positive-definite_matrix#Extension_for_non-symmetric_matrices
-* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
-    This is true by default, and will raise a `ValueError` otherwise.
-* <b>`name`</b>: A name for this `LinearOperator`.  Default is the individual
-    operators names joined with `_o_`.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>:  If all operators do not have the same `dtype`.
-* <b>`ValueError`</b>:  If `operators` is empty or are non-square.
 
 <h3 id="add_to_tensor"><code>add_to_tensor</code></h3>
 

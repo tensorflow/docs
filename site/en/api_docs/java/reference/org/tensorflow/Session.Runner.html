@@ -47,8 +47,8 @@
 <html devsite>
   <head>
     <title>Session.Runner</title>
-    <meta name="book_path" value="/versions/r1.9/_book.yaml" />
-    <meta name="project_path" value="/_project.yaml" />
+    <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+    <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
 
@@ -227,6 +227,27 @@
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#addTarget(org.tensorflow.Operand<?>)">addTarget</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Operand.html">Operand</a>&lt;?&gt; operand)
+                
+                  <div class="jd-descrdiv">Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operand</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#addTarget(org.tensorflow.Operation)">addTarget</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a> operation)
                 
                   <div class="jd-descrdiv">Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operation</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.</div>
@@ -337,6 +358,27 @@
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#fetch(java.lang.String, int)">fetch</a></span>(String operation, int index)
                 
                   <div class="jd-descrdiv">Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> return the <code>index</code>-th output of <code>operation</code>.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#fetch(org.tensorflow.Operand<?>)">fetch</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Operand.html">Operand</a>&lt;?&gt; operand)
+                
+                  <div class="jd-descrdiv">Makes <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> return the Tensor referred to by the output of <code>operand</code>.</div>
                 
               </div>
           </td>
@@ -757,6 +799,45 @@
     </div>
     
     
+    <A NAME="addTarget(org.tensorflow.Operand<?>)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
+          </span>
+          <span class="sympad"><strong>addTarget</strong></span>
+          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Operand.html">Operand</a>&lt;?&gt; operand)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operand</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>operand</td>
+          <td><!-- no parameter comment --></td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
     <A NAME="addTarget(org.tensorflow.Operation)"></A>
     
     <div class="jd-details">
@@ -1025,6 +1106,45 @@
     </div>
     
     
+    <A NAME="fetch(org.tensorflow.Operand<?>)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
+          </span>
+          <span class="sympad"><strong>fetch</strong></span>
+          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Operand.html">Operand</a>&lt;?&gt; operand)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Makes <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> return the Tensor referred to by the output of <code>operand</code>. 
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>operand</td>
+          <td><!-- no parameter comment --></td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
     <A NAME="fetch(org.tensorflow.Output<?>)"></A>
     
     <div class="jd-details">
@@ -1048,7 +1168,8 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p>Makes <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> return the Tensor referred to by <code>output</code>. </p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Makes <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> return the Tensor referred to by <code>output</code>. 
+</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">

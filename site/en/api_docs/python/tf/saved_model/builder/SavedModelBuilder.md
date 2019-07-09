@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/saved_model/builder_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/saved_model/builder_impl.py).
+Defined in [`tensorflow/python/saved_model/builder_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/saved_model/builder_impl.py).
 
 Builds the `SavedModel` protocol buffer and saves variables and assets.
 
@@ -55,15 +52,17 @@ with tf.Session(graph=tf.Graph()) as sess:
 builder.save()
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(export_dir)
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="add_meta_graph"><code>add_meta_graph</code></h3>
 
@@ -75,11 +74,16 @@ add_meta_graph(
     legacy_init_op=None,
     clear_devices=False,
     main_op=None,
-    strip_default_attrs=False
+    strip_default_attrs=False,
+    saver=None
 )
 ```
 
-Adds the current meta graph to the SavedModel.
+Adds the current meta graph to the SavedModel. (deprecated arguments)
+
+SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
+Instructions for updating:
+Pass your op to the equivalent parameter main_op instead.
 
 Creates a Saver in the current scope and uses the Saver to export the meta
 graph def. Invoking this API requires the `add_meta_graph_and_variables()`
@@ -94,7 +98,7 @@ API to have been invoked before.
       that this collection should be a subset of the assets saved as part of
       the first meta graph in the SavedModel.
 * <b>`legacy_init_op`</b>: Legacy support for op or group of ops to execute after the
-      restore op upon a load.
+      restore op upon a load. Deprecated; please use main_op instead.
 * <b>`clear_devices`</b>: Set to true if the device info on the default graph should
       be cleared.
 * <b>`main_op`</b>: Op or group of ops to execute when the graph is loaded. Note
@@ -103,6 +107,9 @@ API to have been invoked before.
 * <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
     removed from the NodeDefs. For a detailed guide, see
     [Stripping Default-Valued Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
+* <b>`saver`</b>: An instance of tf.train.Saver that will be used to export the
+    metagraph. If None, a sharded Saver that restores all variables will
+    be used.
 
 
 #### Raises:
@@ -121,11 +128,16 @@ add_meta_graph_and_variables(
     legacy_init_op=None,
     clear_devices=False,
     main_op=None,
-    strip_default_attrs=False
+    strip_default_attrs=False,
+    saver=None
 )
 ```
 
-Adds the current meta graph to the SavedModel and saves variables.
+Adds the current meta graph to the SavedModel and saves variables. (deprecated arguments)
+
+SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
+Instructions for updating:
+Pass your op to the equivalent parameter main_op instead.
 
 Creates a Saver to save the variables from the provided session. Exports the
 corresponding meta graph def. This function assumes that the variables to be
@@ -142,7 +154,7 @@ meta graph defs to be added, the `add_meta_graph()` API must be used.
     def.
 * <b>`assets_collection`</b>: Assets collection to be saved with SavedModel.
 * <b>`legacy_init_op`</b>: Legacy support for op or group of ops to execute after the
-      restore op upon a load.
+      restore op upon a load. Deprecated; please use main_op instead.
 * <b>`clear_devices`</b>: Set to true if the device info on the default graph should
       be cleared.
 * <b>`main_op`</b>: Op or group of ops to execute when the graph is loaded. Note
@@ -151,6 +163,9 @@ meta graph defs to be added, the `add_meta_graph()` API must be used.
 * <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
     removed from the NodeDefs. For a detailed guide, see
     [Stripping Default-Valued Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
+* <b>`saver`</b>: An instance of tf.train.Saver that will be used to export the
+    metagraph and save variables. If None, a sharded Saver that restores
+    all variables will be used.
 
 <h3 id="save"><code>save</code></h3>
 

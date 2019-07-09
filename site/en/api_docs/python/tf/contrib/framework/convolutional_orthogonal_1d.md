@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/init_ops.py).
 
 Initializer that generates a 1D orthogonal kernel for ConvNets.
 
@@ -22,6 +19,7 @@ The shape of the tensor must have length 3. The number of input
 filters must not exceed the number of output filters.
 The orthogonality(==isometry) is exact when the inputs are circular padded.
 There are finite-width effects with non-circular padding (e.g. zero padding).
+See algorithm 1 in [Xiao et al., 2018]: https://arxiv.org/abs/1806.05393
 
 #### Args:
 
@@ -33,9 +31,7 @@ There are finite-width effects with non-circular padding (e.g. zero padding).
     for behavior.
 * <b>`dtype`</b>: The data type.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -46,6 +42,10 @@ __init__(
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

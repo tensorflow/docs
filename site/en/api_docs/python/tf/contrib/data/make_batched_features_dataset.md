@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,6 +11,7 @@ tf.contrib.data.make_batched_features_dataset(
     batch_size,
     features,
     reader=tf.data.TFRecordDataset,
+    label_key=None,
     reader_args=None,
     num_epochs=None,
     shuffle=True,
@@ -29,9 +27,12 @@ tf.contrib.data.make_batched_features_dataset(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/data/python/ops/readers.py).
+Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/readers.py).
 
 Returns a `Dataset` of feature dictionaries from `Example` protos.
+
+If label_key argument is provided, returns a `Dataset` of tuple
+comprising of feature dictionaries and label.
 
 Example:
 
@@ -84,6 +85,9 @@ And the expected output is:
 * <b>`reader`</b>: A function or class that can be
     called with a `filenames` tensor and (optional) `reader_args` and returns
     a `Dataset` of `Example` tensors. Defaults to <a href="../../../tf/data/TFRecordDataset"><code>tf.data.TFRecordDataset</code></a>.
+* <b>`label_key`</b>: (Optional) A string corresponding to the key labels are stored in
+    `tf.Examples`. If provided, it must be one of the `features` key,
+    otherwise results in `ValueError`.
 * <b>`reader_args`</b>: Additional arguments to pass to the reader class.
 * <b>`num_epochs`</b>: Integer specifying the number of times to read through the
     dataset. If None, cycles through the dataset forever. Defaults to `None`.
@@ -111,5 +115,10 @@ And the expected output is:
 
 #### Returns:
 
-A dataset of `dict` elements. Each `dict` maps feature keys to
-`Tensor` or `SparseTensor` objects.
+A dataset of `dict` elements, (or a tuple of `dict` elements and label).
+Each `dict` maps feature keys to `Tensor` or `SparseTensor` objects.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If `label_key` is not one of the `features` keys.

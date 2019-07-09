@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/chain.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/chain.py).
-
-See the guide: [Random variable transformations (contrib) > Bijectors](../../../../../../api_guides/python/contrib.distributions.bijectors#Bijectors)
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/chain.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/chain.py).
 
 Bijector which applies a sequence of bijectors.
 
@@ -49,6 +44,38 @@ Results in:
  = tf.log(tf.exp(tf.log(y)) - 1.)
  = tf.log(y - 1.)
  ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    bijectors=None,
+    validate_args=False,
+    name=None
+)
+```
+
+Instantiates `Chain` bijector. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`bijectors`</b>: Python `list` of bijector instances. An empty list makes this
+    bijector equivalent to the `Identity` bijector.
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
+    checked for correctness.
+* <b>`name`</b>: Python `str`, name given to ops managed by this object. Default:
+    E.g., `Chain([Exp(), Softplus()]).name == "chain_of_exp_of_softplus"`.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if bijectors have different dtypes.
+
+
 
 ## Properties
 
@@ -94,32 +121,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    bijectors=None,
-    validate_args=False,
-    name=None
-)
-```
-
-Instantiates `Chain` bijector.
-
-#### Args:
-
-* <b>`bijectors`</b>: Python `list` of bijector instances. An empty list makes this
-    bijector equivalent to the `Identity` bijector.
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
-* <b>`name`</b>: Python `str`, name given to ops managed by this object. Default:
-    E.g., `Chain([Exp(), Softplus()]).name == "chain_of_exp_of_softplus"`.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: if bijectors have different dtypes.
 
 <h3 id="forward"><code>forward</code></h3>
 

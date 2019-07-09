@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/namedtuples.py).
+Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/namedtuples.py).
 
 An InfoGANModel contains all the pieces needed for InfoGAN training.
 
@@ -30,6 +27,32 @@ See https://arxiv.org/abs/1606.03657 for more details.
     List length should match `structured_generator_inputs`.
 * <b>`discriminator_and_aux_fn`</b>: The original discriminator function that returns
     a tuple of (logits, `predicted_distributions`).
+
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    generator_inputs,
+    generated_data,
+    generator_variables,
+    generator_scope,
+    generator_fn,
+    real_data,
+    discriminator_real_outputs,
+    discriminator_gen_outputs,
+    discriminator_variables,
+    discriminator_scope,
+    discriminator_fn,
+    structured_generator_inputs,
+    predicted_distributions,
+    discriminator_and_aux_fn
+)
+```
+
+Create new instance of InfoGANModel(generator_inputs, generated_data, generator_variables, generator_scope, generator_fn, real_data, discriminator_real_outputs, discriminator_gen_outputs, discriminator_variables, discriminator_scope, discriminator_fn, structured_generator_inputs, predicted_distributions, discriminator_and_aux_fn)
+
+
 
 ## Properties
 
@@ -88,34 +111,6 @@ Alias for field number 5
 <h3 id="structured_generator_inputs"><code>structured_generator_inputs</code></h3>
 
 Alias for field number 11
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-__new__(
-    _cls,
-    generator_inputs,
-    generated_data,
-    generator_variables,
-    generator_scope,
-    generator_fn,
-    real_data,
-    discriminator_real_outputs,
-    discriminator_gen_outputs,
-    discriminator_variables,
-    discriminator_scope,
-    discriminator_fn,
-    structured_generator_inputs,
-    predicted_distributions,
-    discriminator_and_aux_fn
-)
-```
-
-Create new instance of InfoGANModel(generator_inputs, generated_data, generator_variables, generator_scope, generator_fn, real_data, discriminator_real_outputs, discriminator_gen_outputs, discriminator_variables, discriminator_scope, discriminator_fn, structured_generator_inputs, predicted_distributions, discriminator_and_aux_fn)
 
 
 

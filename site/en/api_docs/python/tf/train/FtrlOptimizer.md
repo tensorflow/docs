@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/python/training/ftrl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/ftrl.py).
+Defined in [`tensorflow/python/training/ftrl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/ftrl.py).
 
 See the guide: [Training > Optimizers](../../../../api_guides/python/train#Optimizers)
 
@@ -26,9 +23,7 @@ This version has support for both online L2 (the L2 penalty given in the paper
 above) and shrinkage-type L2 (which is the addition of an L2 penalty to the
 loss function).
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -82,6 +77,10 @@ Construct a new FTRL optimizer.
 #### Raises:
 
 * <b>`ValueError`</b>: If one of the arguments is invalid.
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

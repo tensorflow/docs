@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/device.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/device.py).
+Defined in [`tensorflow/python/framework/device.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/device.py).
 
 Represents a (possibly partial) specification for a TensorFlow device.
 
@@ -55,25 +52,7 @@ which is optionally specified:
 * Device type: The device type string (e.g. "CPU" or "GPU").
 * Device index: The device index.
 
-## Properties
-
-<h3 id="job"><code>job</code></h3>
-
-
-
-<h3 id="replica"><code>replica</code></h3>
-
-
-
-<h3 id="task"><code>task</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -95,6 +74,34 @@ Create a new `DeviceSpec` object.
 * <b>`device_type`</b>: Optional device type string (e.g. "CPU" or "GPU")
 * <b>`device_index`</b>: int.  Optional device index.  If left
     unspecified, device represents 'any' device_index.
+
+
+
+## Properties
+
+<h3 id="job"><code>job</code></h3>
+
+
+
+<h3 id="replica"><code>replica</code></h3>
+
+
+
+<h3 id="task"><code>task</code></h3>
+
+
+
+
+
+## Methods
+
+<h3 id="__eq__"><code>__eq__</code></h3>
+
+``` python
+__eq__(other)
+```
+
+
 
 <h3 id="from_string"><code>from_string</code></h3>
 

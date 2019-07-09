@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,11 @@ page_type: reference
 
 ## Class `Metric`
 
+Inherits From: [`CheckpointableBase`](../../../../tf/contrib/checkpoint/CheckpointableBase)
 
 
 
-
-Defined in [`tensorflow/contrib/eager/python/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/metrics_impl.py).
+Defined in [`tensorflow/contrib/eager/python/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/metrics_impl.py).
 
 A metric holds state for aggregating statistics over an evaluation run.
 
@@ -73,6 +70,19 @@ adds in the state from a list of metrics of the same type as `self`.
 (Default is to sum all the variables.) Note that users should not call
 `aggregate()`, it is for use by TensorFlow infrastructure.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    name=None,
+    use_global_variables=False
+)
+```
+
+
+
+
+
 ## Properties
 
 <h3 id="name"><code>name</code></h3>
@@ -86,17 +96,6 @@ adds in the state from a list of metrics of the same type as `self`.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    name=None,
-    use_global_variables=False
-)
-```
-
-
 
 <h3 id="__call__"><code>__call__</code></h3>
 

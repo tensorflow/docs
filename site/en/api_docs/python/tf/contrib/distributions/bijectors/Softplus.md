@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/softplus.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/softplus.py).
-
-See the guide: [Random variable transformations (contrib) > Bijectors](../../../../../../api_guides/python/contrib.distributions.bijectors#Bijectors)
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/softplus.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/softplus.py).
 
 Bijector which computes `Y = g(X) = Log[1 + exp(X)]`.
 
@@ -56,63 +51,73 @@ zero.  With `hinge_softness = c`, the bijector is:
 >     Note: log(.) and exp(.) are applied element-wise but the Jacobian is a
 >     reduction over the event space.
 >     
->      Properties
->     
->     3 id="dtype"><code>dtype</code></h3>
->     
->     ype of `Tensor`s transformable by this distribution.
->     
->     3 id="forward_min_event_ndims"><code>forward_min_event_ndims</code></h3>
->     
->     turns the minimal number of dimensions bijector.forward operates on.
->     
->     3 id="graph_parents"><code>graph_parents</code></h3>
->     
->     turns this `Bijector`'s graph_parents as a Python list.
->     
->     3 id="hinge_softness"><code>hinge_softness</code></h3>
->     
->     
->     
->     3 id="inverse_min_event_ndims"><code>inverse_min_event_ndims</code></h3>
->     
->     turns the minimal number of dimensions bijector.inverse operates on.
->     
->     3 id="is_constant_jacobian"><code>is_constant_jacobian</code></h3>
->     
->     turns true iff the Jacobian matrix is not a function of x.
->     
->     te: Jacobian matrix is either constant for both forward and inverse or
->     ither.
->     
->     ## Returns:
->     
->     <b>`is_constant_jacobian`</b>: Python `bool`.
->     
->     3 id="name"><code>name</code></h3>
->     
->     turns the string name of this `Bijector`.
->     
->     3 id="validate_args"><code>validate_args</code></h3>
->     
->     turns True if Tensor arguments will be validated.
->     
->     
->     
->      Methods
->     
->     3 id="__init__"><code>__init__</code></h3>
+>     2 id="__init__"><code>__init__</code></h2>
 >     
 ``` python
 __init__(
-    *args,
-    **kwargs
+    hinge_softness=None,
+    validate_args=False,
+    name='softplus'
 )
 ```
+
+DEPRECATED FUNCTION
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
 
 ##### `kwargs`:
 
 *  `hinge_softness`: Nonzero floating point `Tensor`.  Controls the softness of what would otherwise be a kink at the origin.  Default is 1.0
+
+
+
+## Properties
+
+<h3 id="dtype"><code>dtype</code></h3>
+
+dtype of `Tensor`s transformable by this distribution.
+
+<h3 id="forward_min_event_ndims"><code>forward_min_event_ndims</code></h3>
+
+Returns the minimal number of dimensions bijector.forward operates on.
+
+<h3 id="graph_parents"><code>graph_parents</code></h3>
+
+Returns this `Bijector`'s graph_parents as a Python list.
+
+<h3 id="hinge_softness"><code>hinge_softness</code></h3>
+
+
+
+<h3 id="inverse_min_event_ndims"><code>inverse_min_event_ndims</code></h3>
+
+Returns the minimal number of dimensions bijector.inverse operates on.
+
+<h3 id="is_constant_jacobian"><code>is_constant_jacobian</code></h3>
+
+Returns true iff the Jacobian matrix is not a function of x.
+
+Note: Jacobian matrix is either constant for both forward and inverse or
+neither.
+
+#### Returns:
+
+* <b>`is_constant_jacobian`</b>: Python `bool`.
+
+<h3 id="name"><code>name</code></h3>
+
+Returns the string name of this `Bijector`.
+
+<h3 id="validate_args"><code>validate_args</code></h3>
+
+Returns True if Tensor arguments will be validated.
+
+
+
+## Methods
 
 <h3 id="forward"><code>forward</code></h3>
 

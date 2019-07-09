@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.losses.sparse_softmax_cross_entropy(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/losses/losses_impl.py).
 
 Cross-entropy loss using <a href="../../tf/nn/sparse_softmax_cross_entropy_with_logits"><code>tf.nn.sparse_softmax_cross_entropy_with_logits</code></a>.
 
@@ -38,7 +35,8 @@ corresponding sample.
     exception when this op is run on CPU, and return `NaN` for corresponding
     loss and gradient rows on GPU.
 * <b>`logits`</b>: Unscaled log probabilities of shape
-    `[d_0, d_1, ..., d_{r-1}, num_classes]` and dtype `float32` or `float64`.
+    `[d_0, d_1, ..., d_{r-1}, num_classes]` and dtype `float16`, `float32` or
+    `float64`.
 * <b>`weights`</b>: Coefficients for the loss. This must be scalar or broadcastable to
     `labels` (i.e. same rank and each dimension is either 1 or the same).
 * <b>`scope`</b>: the scope for the operations performed in computing the loss.
@@ -56,3 +54,10 @@ Weighted loss `Tensor` of the same type as `logits`. If `reduction` is
 
 * <b>`ValueError`</b>: If the shapes of `logits`, `labels`, and `weights` are
     incompatible, or if any of them are None.
+
+
+
+#### Eager Compatibility
+The `loss_collection` argument is ignored when executing eagerly. Consider
+holding on to the return value or collecting losses via a <a href="../../tf/keras/models/Model"><code>tf.keras.Model</code></a>.
+

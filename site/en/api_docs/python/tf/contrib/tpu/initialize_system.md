@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.contrib.tpu.initialize_system(
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu.py).
 
 Initializes a distributed TPU system for use with TensorFlow.
 
@@ -26,10 +23,10 @@ Initializes a distributed TPU system for use with TensorFlow.
 * <b>`embedding_config`</b>: If not None, an `EmbeddingLayerConfiguration` proto
     describing the desired configuration of the hardware embedding lookup
     tables. If embedding_config is None, no hardware embeddings can be used.
-* <b>`job`</b>: The job (the XXX in TensorFlow device specification /job:XXX)
-    that contains the TPU devices that will be initialized. If job=None
-    it is assumed there is only one job in the TensorFlow flock, and an
-    error will be returned if this assumption does not hold.
+* <b>`job`</b>: The job (the XXX in TensorFlow device specification /job:XXX) that
+    contains the TPU devices that will be initialized. If job=None it is
+    assumed there is only one job in the TensorFlow flock, and an error will
+    be returned if this assumption does not hold.
 
 #### Returns:
 

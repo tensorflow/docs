@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,34 +11,11 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/gmm.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/factorization/python/ops/gmm.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/gmm.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/factorization/python/ops/gmm.py).
 
 An estimator for GMM clustering.
 
-## Properties
-
-<h3 id="config"><code>config</code></h3>
-
-
-
-<h3 id="model_dir"><code>model_dir</code></h3>
-
-
-
-<h3 id="model_fn"><code>model_fn</code></h3>
-
-Returns the model_fn which is bound to self.params.
-
-#### Returns:
-
-The model_fn with the following signature:
-  `def model_fn(features, labels, mode, metrics)`
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -69,6 +43,31 @@ Creates a model for running GMM training and inference.
     See gmm_ops.gmm for the possible values.
 * <b>`covariance_type`</b>: one of "full", "diag".
 * <b>`config`</b>: See Estimator
+
+
+
+## Properties
+
+<h3 id="config"><code>config</code></h3>
+
+
+
+<h3 id="model_dir"><code>model_dir</code></h3>
+
+
+
+<h3 id="model_fn"><code>model_fn</code></h3>
+
+Returns the model_fn which is bound to self.params.
+
+#### Returns:
+
+The model_fn with the following signature:
+  `def model_fn(features, labels, mode, metrics)`
+
+
+
+## Methods
 
 <h3 id="clusters"><code>clusters</code></h3>
 

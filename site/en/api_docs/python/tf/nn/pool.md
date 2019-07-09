@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,7 +20,7 @@ tf.nn.pool(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Pooling](../../../../api_guides/python/nn#Pooling)
 
@@ -45,8 +42,8 @@ In the case that `data_format` does not start with "NC", computes for
 ```
 
 where the reduction function REDUCE depends on the value of `pooling_type`,
-and pad_before is defined based on the value of `padding` as described in the
-<a href="../../tf/nn/convolution">comment here</a>.
+and pad_before is defined based on the value of `padding` as described in
+the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
 The reduction never includes out-of-bounds positions.
 
 In the case that `data_format` starts with `"NC"`, the `input` and output are
@@ -69,7 +66,7 @@ simply transposed as follows:
 * <b>`window_shape`</b>: Sequence of N ints >= 1.
 * <b>`pooling_type`</b>: Specifies pooling operation, must be "AVG" or "MAX".
 * <b>`padding`</b>: The padding algorithm, must be "SAME" or "VALID".
-    See the <a href="../../tf/nn/convolution">comment here</a>
+    See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
 * <b>`dilation_rate`</b>: Optional.  Dilation rate.  List of N ints >= 1.
     Defaults to [1]*N.  If any value of dilation_rate is > 1, then all values
     of strides must be 1.

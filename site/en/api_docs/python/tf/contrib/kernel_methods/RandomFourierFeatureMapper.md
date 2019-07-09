@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +12,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py).
+Defined in [`tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py).
 
 Class that implements Random Fourier Feature Mapping (RFFM) in TensorFlow.
 
@@ -40,32 +38,7 @@ represented as row vectors. The aforementioned paper shows that the linear
 kernel of RFFM-mapped vectors approximates the Gaussian kernel of the initial
 vectors.
 
-## Properties
-
-<h3 id="input_dim"><code>input_dim</code></h3>
-
-
-
-<h3 id="name"><code>name</code></h3>
-
-Returns a name for the `RandomFourierFeatureMapper` instance.
-
-If the name provided in the constructor is `None`, then the object's unique
-id is returned.
-
-#### Returns:
-
-A name for the `RandomFourierFeatureMapper` instance.
-
-<h3 id="output_dim"><code>output_dim</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -92,6 +65,33 @@ Constructs a RandomFourierFeatureMapper instance.
     mapping both at training and eval/inference if these happen in
     different invocations), set this to the same integer.
 * <b>`name`</b>: name for the mapper object.
+
+
+
+## Properties
+
+<h3 id="input_dim"><code>input_dim</code></h3>
+
+
+
+<h3 id="name"><code>name</code></h3>
+
+Returns a name for the `RandomFourierFeatureMapper` instance.
+
+If the name provided in the constructor is `None`, then the object's unique
+id is returned.
+
+#### Returns:
+
+A name for the `RandomFourierFeatureMapper` instance.
+
+<h3 id="output_dim"><code>output_dim</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="map"><code>map</code></h3>
 

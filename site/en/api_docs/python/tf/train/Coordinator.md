@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/coordinator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/coordinator.py).
+Defined in [`tensorflow/python/training/coordinator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/coordinator.py).
 
 See the guides: [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_), [Threading and Queues > Manual Thread Management](../../../../api_guides/python/threading_and_queues#Manual_Thread_Management), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
 
@@ -112,17 +109,7 @@ except Exception:
   ...exception that was passed to coord.request_stop()
 ```
 
-## Properties
-
-<h3 id="joined"><code>joined</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(clean_stop_exception_types=None)
@@ -139,6 +126,18 @@ Create a new Coordinator.
     `(tf.errors.OutOfRangeError,)` which is used by input queues to signal
     the end of input. When feeding training data from a Python iterator it
     is common to add `StopIteration` to this list.
+
+
+
+## Properties
+
+<h3 id="joined"><code>joined</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="clear_stop"><code>clear_stop</code></h3>
 

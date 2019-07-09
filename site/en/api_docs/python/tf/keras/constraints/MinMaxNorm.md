@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ Inherits From: [`Constraint`](../../../tf/keras/constraints/Constraint)
 
 
 
-Defined in [`tensorflow/python/keras/constraints.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/constraints.py).
+Defined in [`tensorflow/python/keras/constraints.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/constraints.py).
 
 MinMaxNorm weight constraint.
 
@@ -49,9 +46,7 @@ to have the norm between a lower bound and an upper bound.
         to constrain the weights of each filter tensor of size
         `(rows, cols, input_depth)`.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -63,6 +58,10 @@ __init__(
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

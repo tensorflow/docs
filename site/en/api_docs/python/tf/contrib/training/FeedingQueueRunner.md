@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,49 @@ Inherits From: [`QueueRunner`](../../../tf/train/QueueRunner)
 
 
 
-Defined in [`tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py).
+Defined in [`tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py).
 
 A queue runner that allows the feeding of values such as numpy arrays.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    queue=None,
+    enqueue_ops=None,
+    close_op=None,
+    cancel_op=None,
+    feed_fns=None,
+    queue_closed_exception_types=None
+)
+```
+
+Initialize the queue runner.
+
+For further documentation, see `queue_runner.py`. Note that
+`FeedingQueueRunner` does not support construction from protobuffer nor
+serialization to protobuffer.
+
+#### Args:
+
+* <b>`queue`</b>: A `Queue`.
+* <b>`enqueue_ops`</b>: List of enqueue ops to run in threads later.
+* <b>`close_op`</b>: Op to close the queue. Pending enqueue ops are preserved.
+* <b>`cancel_op`</b>: Op to close the queue and cancel pending enqueue ops.
+* <b>`feed_fns`</b>: a list of functions that return a dictionary mapping fed
+    `Tensor`s to values. Must be the same length as `enqueue_ops`.
+* <b>`queue_closed_exception_types`</b>: Optional tuple of Exception types that
+    indicate that the queue has been closed when raised during an enqueue
+    operation.  Defaults to
+    `(tf.errors.OutOfRangeError, tf.errors.CancelledError)`.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: `feed_fns` is not `None` and has different length than
+    `enqueue_ops`.
+
+
 
 ## Properties
 
@@ -65,44 +102,6 @@ The string name of the underlying Queue.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    queue=None,
-    enqueue_ops=None,
-    close_op=None,
-    cancel_op=None,
-    feed_fns=None,
-    queue_closed_exception_types=None
-)
-```
-
-Initialize the queue runner.
-
-For further documentation, see `queue_runner.py`. Note that
-`FeedingQueueRunner` does not support construction from protobuffer nor
-serialization to protobuffer.
-
-#### Args:
-
-* <b>`queue`</b>: A `Queue`.
-* <b>`enqueue_ops`</b>: List of enqueue ops to run in threads later.
-* <b>`close_op`</b>: Op to close the queue. Pending enqueue ops are preserved.
-* <b>`cancel_op`</b>: Op to close the queue and cancel pending enqueue ops.
-* <b>`feed_fns`</b>: a list of functions that return a dictionary mapping fed
-    `Tensor`s to values. Must be the same length as `enqueue_ops`.
-* <b>`queue_closed_exception_types`</b>: Optional tuple of Exception types that
-    indicate that the queue has been closed when raised during an enqueue
-    operation.  Defaults to
-    `(tf.errors.OutOfRangeError, tf.errors.CancelledError)`.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: `feed_fns` is not `None` and has different length than
-    `enqueue_ops`.
 
 <h3 id="create_threads"><code>create_threads</code></h3>
 

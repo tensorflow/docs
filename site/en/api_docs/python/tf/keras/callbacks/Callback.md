@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/callbacks.py).
+Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/callbacks.py).
 
 Abstract base class used to build new callbacks.
 
@@ -42,15 +39,17 @@ it passes to its callbacks:
 * <b>`on_batch_end`</b>: logs include `loss`, and optionally `acc`
         (if accuracy monitoring is enabled).
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__()
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="on_batch_begin"><code>on_batch_begin</code></h3>
 

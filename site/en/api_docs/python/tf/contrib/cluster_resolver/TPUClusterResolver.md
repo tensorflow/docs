@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`ClusterResolver`](../../../tf/contrib/cluster_resolver/ClusterR
 
 
 
-Defined in [`tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py).
+Defined in [`tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py).
 
 Cluster Resolver for Google Cloud TPUs.
 
@@ -23,9 +20,7 @@ service. As Cloud TPUs are in alpha, you will need to specify a API definition
 file for this to consume, in addition to a list of Cloud TPUs in your Google
 Cloud Platform project.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -82,6 +77,10 @@ for the IP addresses and ports of each Cloud TPU listed.
 
 * <b>`ImportError`</b>: If the googleapiclient is not installed.
 * <b>`ValueError`</b>: If no TPUs are specified.
+
+
+
+## Methods
 
 <h3 id="__deepcopy__"><code>__deepcopy__</code></h3>
 

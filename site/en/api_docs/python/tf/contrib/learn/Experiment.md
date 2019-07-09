@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,43 +11,21 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/experiment.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/experiment.py).
+Defined in [`tensorflow/contrib/learn/python/learn/experiment.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/experiment.py).
 
 See the guide: [Learn (contrib) > Distributed training utilities](../../../../../api_guides/python/contrib.learn#Distributed_training_utilities)
 
 Experiment is a class containing all information needed to train a model.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 After an experiment is created (by passing an Estimator and inputs for
 training and evaluation), an Experiment instance knows how to invoke training
 and eval loops in a sensible fashion for distributed training.
 
-## Properties
-
-<h3 id="estimator"><code>estimator</code></h3>
-
-
-
-<h3 id="eval_metrics"><code>eval_metrics</code></h3>
-
-
-
-<h3 id="eval_steps"><code>eval_steps</code></h3>
-
-
-
-<h3 id="train_steps"><code>train_steps</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -151,6 +126,30 @@ when a method is executed which requires it.
 
 * <b>`ValueError`</b>: if `estimator` does not implement Estimator interface,
     or if export_strategies has the wrong type.
+
+
+
+## Properties
+
+<h3 id="estimator"><code>estimator</code></h3>
+
+
+
+<h3 id="eval_metrics"><code>eval_metrics</code></h3>
+
+
+
+<h3 id="eval_steps"><code>eval_steps</code></h3>
+
+
+
+<h3 id="train_steps"><code>train_steps</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="continuous_eval"><code>continuous_eval</code></h3>
 

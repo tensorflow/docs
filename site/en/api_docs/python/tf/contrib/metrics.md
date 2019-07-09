@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/metrics/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/metrics/__init__.py).
+Defined in [`tensorflow/contrib/metrics/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/metrics/__init__.py).
 
 Ops for evaluation metrics and summary statistics.
 
-See the <a href="../../../../api_guides/python/contrib.metrics">Metrics (contrib)</a> guide.
+See the
+[Contrib Metrics](https://tensorflow.org/api_guides/python/contrib.metrics)
+guide.
 
 
 ## Functions
@@ -34,6 +33,8 @@ See the <a href="../../../../api_guides/python/contrib.metrics">Metrics (contrib
 [`confusion_matrix(...)`](../../tf/contrib/metrics/confusion_matrix): Deprecated. Use tf.confusion_matrix instead.
 
 [`count(...)`](../../tf/contrib/metrics/count): Computes the number of examples, or sum of `weights`.
+
+[`f1_score(...)`](../../tf/contrib/metrics/f1_score): Computes the approximately best F1-score across different thresholds.
 
 [`precision_at_recall(...)`](../../tf/contrib/metrics/precision_at_recall): Computes the precision at a given recall.
 

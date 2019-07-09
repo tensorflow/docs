@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -13,13 +10,14 @@ tf.saved_model.loader.load(
     sess,
     tags,
     export_dir,
+    import_scope=None,
     **saver_kwargs
 )
 ```
 
 
 
-Defined in [`tensorflow/python/saved_model/loader_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/saved_model/loader_impl.py).
+Defined in [`tensorflow/python/saved_model/loader_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/saved_model/loader_impl.py).
 
 Loads the model from a SavedModel as specified by tags.
 
@@ -31,6 +29,10 @@ Loads the model from a SavedModel as specified by tags.
       SavedModel `save()` API.
 * <b>`export_dir`</b>: Directory in which the SavedModel protocol buffer and variables
       to be loaded are located.
+* <b>`import_scope`</b>: Optional `string` -- if specified, prepend this string
+      followed by '/' to all loaded tensor names. This scope is applied to
+      tensor instances loaded into the passed session, but it is *not* written
+      through to the static `MetaGraphDef` protocol buffer that is returned.
 * <b>`**saver_kwargs`</b>: Optional keyword arguments passed through to Saver.
 
 

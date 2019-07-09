@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/python/training/hparam.py).
+Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/hparam.py).
 
 Class to hold a set of hyperparameters as name-value pairs.
 
@@ -82,9 +79,7 @@ def my_program():
   hparams.parse_json('{"learning_rate": 0.3, "activations": "relu"}')
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -133,6 +128,10 @@ names.  If you use one of the reserved name the constructor raises a
 
 * <b>`ValueError`</b>: If both `hparam_def` and initialization values are provided,
     or if one of the arguments is invalid.
+
+
+
+## Methods
 
 <h3 id="__contains__"><code>__contains__</code></h3>
 

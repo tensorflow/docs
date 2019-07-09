@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py).
+Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py).
 
 Stochastic dual coordinate ascent solver for linear models.
 
@@ -24,6 +21,7 @@ Loss functions supported:
  * Squared loss
  * Hinge loss
  * Smooth hinge loss
+ * Poisson log loss
 
 This class defines an optimizer API to train a linear model.
 
@@ -77,9 +75,7 @@ for _ in range(num_steps):
 lr.approximate_duality_gap()
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -90,6 +86,10 @@ __init__(
 ```
 
 Create a new sdca optimizer.
+
+
+
+## Methods
 
 <h3 id="approximate_duality_gap"><code>approximate_duality_gap</code></h3>
 
@@ -135,6 +135,7 @@ predictions(examples)
 Add operations to compute predictions by the model.
 
 If logistic_loss is being used, predicted probabilities are returned.
+If poisson_loss is being used, predictions are exponentiated.
 Otherwise, (raw) linear predictions (w*x) are returned.
 
 #### Args:

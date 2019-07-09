@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.keras.initializers.lecun_normal
+
+### Aliases:
+
+* `tf.initializers.lecun_normal`
+* `tf.keras.initializers.lecun_normal`
 
 ``` python
 tf.keras.initializers.lecun_normal(seed=None)
@@ -14,7 +16,7 @@ tf.keras.initializers.lecun_normal(seed=None)
 
 
 
-Defined in [`tensorflow/python/keras/initializers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/initializers.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/init_ops.py).
 
 LeCun normal initializer.
 

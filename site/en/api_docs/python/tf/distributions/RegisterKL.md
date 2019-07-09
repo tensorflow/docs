@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,9 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/kullback_leibler.py).
-
-See the guide: [Statistical Distributions (contrib) > Kullback-Leibler Divergence](../../../../api_guides/python/contrib.distributions#Kullback_Leibler_Divergence)
+Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/kullback_leibler.py).
 
 Decorator to register a KL divergence implementation function.
 
@@ -31,9 +26,7 @@ Usage:
 def _kl_normal_mvn(norm_a, norm_b):
   # Return KL(norm_a || norm_b)
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -48,6 +41,10 @@ Initialize the KL registrar.
 
 * <b>`dist_cls_a`</b>: the class of the first argument of the KL divergence.
 * <b>`dist_cls_b`</b>: the class of the second argument of the KL divergence.
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

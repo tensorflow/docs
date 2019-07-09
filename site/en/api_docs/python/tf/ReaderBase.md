@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/io_ops.py).
+Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/io_ops.py).
 
 See the guide: [Inputs and Readers > Readers](../../../api_guides/python/io_ops#Readers)
 
@@ -39,21 +36,7 @@ use <a href="../tf/data"><code>tf.data</code></a> to get data into your model.
 
 
 
-## Properties
-
-<h3 id="reader_ref"><code>reader_ref</code></h3>
-
-Op that implements the reader.
-
-<h3 id="supports_serialize"><code>supports_serialize</code></h3>
-
-Whether the Reader implementation can serialize its state.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -74,6 +57,22 @@ Creates a new ReaderBase.
 #### Raises:
 
 * <b>`RuntimeError`</b>: If eager execution is enabled.
+
+
+
+## Properties
+
+<h3 id="reader_ref"><code>reader_ref</code></h3>
+
+Op that implements the reader.
+
+<h3 id="supports_serialize"><code>supports_serialize</code></h3>
+
+Whether the Reader implementation can serialize its state.
+
+
+
+## Methods
 
 <h3 id="num_records_produced"><code>num_records_produced</code></h3>
 

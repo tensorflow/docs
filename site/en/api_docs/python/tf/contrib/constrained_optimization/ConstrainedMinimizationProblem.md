@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py).
+Defined in [`tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py).
 
 Abstract class representing a `ConstrainedMinimizationProblem`.
 
@@ -66,6 +63,18 @@ Returns the objective function.
 #### Returns:
 
 A 0d tensor that should be minimized.
+
+<h3 id="pre_train_ops"><code>pre_train_ops</code></h3>
+
+Returns a list of `Operation`s to run before the train_op.
+
+When a `ConstrainedOptimizer` creates a train_op (in `minimize`
+`minimize_unconstrained`, or `minimize_constrained`), it will include these
+ops before the main training step.
+
+#### Returns:
+
+A list of `Operation`s.
 
 <h3 id="proxy_constraints"><code>proxy_constraints</code></h3>
 

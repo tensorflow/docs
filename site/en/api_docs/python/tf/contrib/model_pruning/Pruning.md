@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/model_pruning/python/pruning.py).
+Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/model_pruning/python/pruning.py).
 
 
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -44,17 +39,17 @@ sparsity profiles externally and passing it to this pruning functions.
     sparsity function
 * <b>`sparsity`</b>: A tensorflow scalar variable storing the sparsity
 
+
+
+## Methods
+
 <h3 id="add_pruning_summaries"><code>add_pruning_summaries</code></h3>
 
 ``` python
 add_pruning_summaries()
 ```
 
-Adds summaries for this pruning spec.
-
-Args: none
-
-Returns: none
+Adds summaries of weight sparsities and thresholds.
 
 <h3 id="conditional_mask_update_op"><code>conditional_mask_update_op</code></h3>
 

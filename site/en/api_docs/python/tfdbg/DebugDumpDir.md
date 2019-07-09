@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/lib/debug_data.py).
+Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/lib/debug_data.py).
 
 See the guide: [TensorFlow Debugger > Classes for debug-dump data and directories](../../../api_guides/python/tfdbg#Classes_for_debug_dump_data_and_directories)
 
@@ -22,6 +19,35 @@ Data set from a debug-dump directory on filesystem.
 
 An instance of `DebugDumpDir` contains all `DebugTensorDatum` instances
 in a tfdbg dump root directory.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    dump_root,
+    partition_graphs=None,
+    validate=True
+)
+```
+
+`DebugDumpDir` constructor.
+
+#### Args:
+
+* <b>`dump_root`</b>: (`str`) path to the dump root directory.
+* <b>`partition_graphs`</b>: A repeated field of GraphDefs representing the
+      partition graphs executed by the TensorFlow runtime.
+* <b>`validate`</b>: (`bool`) whether the dump files are to be validated against the
+      partition graphs.
+
+
+#### Raises:
+
+* <b>`IOError`</b>: If dump_root does not exist as a directory.
+* <b>`ValueError`</b>: If more than one core metadata file is found under the dump
+    root directory.
+
+
 
 ## Properties
 
@@ -112,33 +138,6 @@ Absolute timestamp of the first dumped tensor across all devices.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    dump_root,
-    partition_graphs=None,
-    validate=True
-)
-```
-
-`DebugDumpDir` constructor.
-
-#### Args:
-
-* <b>`dump_root`</b>: (`str`) path to the dump root directory.
-* <b>`partition_graphs`</b>: A repeated field of GraphDefs representing the
-      partition graphs executed by the TensorFlow runtime.
-* <b>`validate`</b>: (`bool`) whether the dump files are to be validated against the
-      partition graphs.
-
-
-#### Raises:
-
-* <b>`IOError`</b>: If dump_root does not exist as a directory.
-* <b>`ValueError`</b>: If more than one core metadata file is found under the dump
-    root directory.
 
 <h3 id="debug_watch_keys"><code>debug_watch_keys</code></h3>
 

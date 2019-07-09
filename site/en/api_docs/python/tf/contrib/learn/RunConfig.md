@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`RunConfig`](../../../tf/estimator/RunConfig)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
 
 See the guide: [Learn (contrib) > Graph actions](../../../../../api_guides/python/contrib.learn#Graph_actions)
 
@@ -22,6 +19,84 @@ This class specifies the configurations for an `Estimator` run.
 
 This class is a deprecated implementation of <a href="../../../tf/estimator/RunConfig"><code>tf.estimator.RunConfig</code></a>
 interface.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    master=None,
+    num_cores=0,
+    log_device_placement=False,
+    gpu_memory_fraction=1,
+    tf_random_seed=None,
+    save_summary_steps=100,
+    save_checkpoints_secs=_USE_DEFAULT,
+    save_checkpoints_steps=None,
+    keep_checkpoint_max=5,
+    keep_checkpoint_every_n_hours=10000,
+    log_step_count_steps=100,
+    protocol=None,
+    evaluation_master='',
+    model_dir=None,
+    session_config=None
+)
+```
+
+Constructor. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+When switching to tf.estimator.Estimator, use tf.estimator.RunConfig instead.
+
+The superclass `ClusterConfig` may set properties like `cluster_spec`,
+`is_chief`, `master` (if `None` in the args), `num_ps_replicas`, `task_id`,
+and `task_type` based on the `TF_CONFIG` environment variable. See
+`ClusterConfig` for more details.
+
+N.B.: If `save_checkpoints_steps` or `save_checkpoints_secs` is set,
+`keep_checkpoint_max` might need to be adjusted accordingly, especially in
+distributed training. For example, setting `save_checkpoints_secs` as 60
+without adjusting `keep_checkpoint_max` (defaults to 5) leads to situation
+that checkpoint would be garbage collected after 5 minutes. In distributed
+training, the evaluation job starts asynchronously and might fail to load or
+find the checkpoint due to race condition.
+
+#### Args:
+
+* <b>`master`</b>: TensorFlow master. Defaults to empty string for local.
+* <b>`num_cores`</b>: Number of cores to be used. If 0, the system picks an
+    appropriate number (default: 0).
+* <b>`log_device_placement`</b>: Log the op placement to devices (default: False).
+* <b>`gpu_memory_fraction`</b>: Fraction of GPU memory used by the process on
+    each GPU uniformly on the same machine.
+* <b>`tf_random_seed`</b>: Random seed for TensorFlow initializers.
+    Setting this value allows consistency between reruns.
+* <b>`save_summary_steps`</b>: Save summaries every this many steps.
+* <b>`save_checkpoints_secs`</b>: Save checkpoints every this many seconds. Can not
+      be specified with `save_checkpoints_steps`.
+* <b>`save_checkpoints_steps`</b>: Save checkpoints every this many steps. Can not be
+      specified with `save_checkpoints_secs`.
+* <b>`keep_checkpoint_max`</b>: The maximum number of recent checkpoint files to
+    keep. As new files are created, older files are deleted. If None or 0,
+    all checkpoint files are kept. Defaults to 5 (that is, the 5 most recent
+    checkpoint files are kept.)
+* <b>`keep_checkpoint_every_n_hours`</b>: Number of hours between each checkpoint
+    to be saved. The default value of 10,000 hours effectively disables
+    the feature.
+* <b>`log_step_count_steps`</b>: The frequency, in number of global steps, that the
+    global step/sec will be logged during training.
+* <b>`evaluation_master`</b>: the master on which to perform evaluation.
+* <b>`model_dir`</b>: directory where model parameters, graph etc are saved. If
+    `None`, will use `model_dir` property in `TF_CONFIG` environment
+    variable. If both are set, must have same value. If both are `None`, see
+    `Estimator` about where the model will be saved.
+* <b>`session_config`</b>: a ConfigProto used to set session parameters, or None.
+    Note - using this argument, it is easy to provide settings which break
+    otherwise perfectly good models. Use with care.
+* <b>`protocol`</b>: An optional argument which specifies the protocol used when
+    starting server. None means default to grpc.
+
+
 
 ## Properties
 
@@ -40,6 +115,11 @@ Otherwise the default one is used.
 <h3 id="environment"><code>environment</code></h3>
 
 
+
+<h3 id="eval_distribute"><code>eval_distribute</code></h3>
+
+Optional <a href="../../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for evaluation.
+    
 
 <h3 id="evaluation_master"><code>evaluation_master</code></h3>
 
@@ -117,6 +197,10 @@ An integer id.
 
 
 
+<h3 id="protocol"><code>protocol</code></h3>
+
+Returns the optional protocol value.
+
 <h3 id="save_checkpoints_secs"><code>save_checkpoints_secs</code></h3>
 
 
@@ -155,85 +239,12 @@ Returns the platform defined (in TF_CONFIG) service dict.
 
 <h3 id="train_distribute"><code>train_distribute</code></h3>
 
-Returns the optional <a href="../../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> object.
+Optional <a href="../../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for training.
     
 
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    master=None,
-    num_cores=0,
-    log_device_placement=False,
-    gpu_memory_fraction=1,
-    tf_random_seed=None,
-    save_summary_steps=100,
-    save_checkpoints_secs=_USE_DEFAULT,
-    save_checkpoints_steps=None,
-    keep_checkpoint_max=5,
-    keep_checkpoint_every_n_hours=10000,
-    log_step_count_steps=100,
-    evaluation_master='',
-    model_dir=None,
-    session_config=None
-)
-```
-
-Constructor. (deprecated)
-
-THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-When switching to tf.estimator.Estimator, use tf.estimator.RunConfig instead.
-
-The superclass `ClusterConfig` may set properties like `cluster_spec`,
-`is_chief`, `master` (if `None` in the args), `num_ps_replicas`, `task_id`,
-and `task_type` based on the `TF_CONFIG` environment variable. See
-`ClusterConfig` for more details.
-
-N.B.: If `save_checkpoints_steps` or `save_checkpoints_secs` is set,
-`keep_checkpoint_max` might need to be adjusted accordingly, especially in
-distributed training. For example, setting `save_checkpoints_secs` as 60
-without adjusting `keep_checkpoint_max` (defaults to 5) leads to situation
-that checkpoint would be garbage collected after 5 minutes. In distributed
-training, the evaluation job starts asynchronously and might fail to load or
-find the checkpoint due to race condition.
-
-#### Args:
-
-* <b>`master`</b>: TensorFlow master. Defaults to empty string for local.
-* <b>`num_cores`</b>: Number of cores to be used. If 0, the system picks an
-    appropriate number (default: 0).
-* <b>`log_device_placement`</b>: Log the op placement to devices (default: False).
-* <b>`gpu_memory_fraction`</b>: Fraction of GPU memory used by the process on
-    each GPU uniformly on the same machine.
-* <b>`tf_random_seed`</b>: Random seed for TensorFlow initializers.
-    Setting this value allows consistency between reruns.
-* <b>`save_summary_steps`</b>: Save summaries every this many steps.
-* <b>`save_checkpoints_secs`</b>: Save checkpoints every this many seconds. Can not
-      be specified with `save_checkpoints_steps`.
-* <b>`save_checkpoints_steps`</b>: Save checkpoints every this many steps. Can not be
-      specified with `save_checkpoints_secs`.
-* <b>`keep_checkpoint_max`</b>: The maximum number of recent checkpoint files to
-    keep. As new files are created, older files are deleted. If None or 0,
-    all checkpoint files are kept. Defaults to 5 (that is, the 5 most recent
-    checkpoint files are kept.)
-* <b>`keep_checkpoint_every_n_hours`</b>: Number of hours between each checkpoint
-    to be saved. The default value of 10,000 hours effectively disables
-    the feature.
-* <b>`log_step_count_steps`</b>: The frequency, in number of global steps, that the
-    global step/sec will be logged during training.
-* <b>`evaluation_master`</b>: the master on which to perform evaluation.
-* <b>`model_dir`</b>: directory where model parameters, graph etc are saved. If
-    `None`, will use `model_dir` property in `TF_CONFIG` environment
-    variable. If both are set, must have same value. If both are `None`, see
-    `Estimator` about where the model will be saved.
-* <b>`session_config`</b>: a ConfigProto used to set session parameters, or None.
-    Note - using this argument, it is easy to provide settings which break
-    otherwise perfectly good models. Use with care.
 
 <h3 id="get_task_id"><code>get_task_id</code></h3>
 
@@ -271,7 +282,10 @@ Only the properties in the following list are allowed to be replaced:
   - `keep_checkpoint_every_n_hours`,
   - `log_step_count_steps`,
   - `train_distribute`,
-  - `device_fn`.
+  - `device_fn`,
+  - `protocol`.
+  - `eval_distribute`,
+  - `experimental_distribute`,
 
 In addition, either `save_checkpoints_steps` or `save_checkpoints_secs`
 can be set (should not be both).

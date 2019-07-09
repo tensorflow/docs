@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,29 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
 
 Represent a lookup table that persists across different steps.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    key_dtype,
+    value_dtype,
+    name
+)
+```
+
+Construct a lookup table interface.
+
+#### Args:
+
+* <b>`key_dtype`</b>: The table key type.
+* <b>`value_dtype`</b>: The table value type.
+* <b>`name`</b>: A name for the operation (optional).
+
+
 
 ## Properties
 
@@ -39,24 +56,6 @@ The table value dtype.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    key_dtype,
-    value_dtype,
-    name
-)
-```
-
-Construct a lookup table interface.
-
-#### Args:
-
-* <b>`key_dtype`</b>: The table key type.
-* <b>`value_dtype`</b>: The table value type.
-* <b>`name`</b>: A name for the operation (optional).
 
 <h3 id="lookup"><code>lookup</code></h3>
 

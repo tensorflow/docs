@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/distributions/bijector_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/bijector_impl.py).
-
-See the guide: [Random variable transformations (contrib) > Bijectors](../../../../../../api_guides/python/contrib.distributions.bijectors#Bijectors)
+Defined in [`tensorflow/python/ops/distributions/bijector_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/bijector_impl.py).
 
 Interface for transformations of a `Distribution` sample.
 
@@ -364,48 +359,7 @@ abs.inverse_log_det_jacobian(0., event_ndims=0)
 ==> (0., 0.)
 ```
 
-## Properties
-
-<h3 id="dtype"><code>dtype</code></h3>
-
-dtype of `Tensor`s transformable by this distribution.
-
-<h3 id="forward_min_event_ndims"><code>forward_min_event_ndims</code></h3>
-
-Returns the minimal number of dimensions bijector.forward operates on.
-
-<h3 id="graph_parents"><code>graph_parents</code></h3>
-
-Returns this `Bijector`'s graph_parents as a Python list.
-
-<h3 id="inverse_min_event_ndims"><code>inverse_min_event_ndims</code></h3>
-
-Returns the minimal number of dimensions bijector.inverse operates on.
-
-<h3 id="is_constant_jacobian"><code>is_constant_jacobian</code></h3>
-
-Returns true iff the Jacobian matrix is not a function of x.
-
-Note: Jacobian matrix is either constant for both forward and inverse or
-neither.
-
-#### Returns:
-
-* <b>`is_constant_jacobian`</b>: Python `bool`.
-
-<h3 id="name"><code>name</code></h3>
-
-Returns the string name of this `Bijector`.
-
-<h3 id="validate_args"><code>validate_args</code></h3>
-
-Returns True if Tensor arguments will be validated.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -459,6 +413,49 @@ See `Bijector` subclass docstring for more details and specific examples.
     `inverse_min_event_ndims` are specified, or if either of them is
     negative.
 * <b>`ValueError`</b>:  If a member of `graph_parents` is not a `Tensor`.
+
+
+
+## Properties
+
+<h3 id="dtype"><code>dtype</code></h3>
+
+dtype of `Tensor`s transformable by this distribution.
+
+<h3 id="forward_min_event_ndims"><code>forward_min_event_ndims</code></h3>
+
+Returns the minimal number of dimensions bijector.forward operates on.
+
+<h3 id="graph_parents"><code>graph_parents</code></h3>
+
+Returns this `Bijector`'s graph_parents as a Python list.
+
+<h3 id="inverse_min_event_ndims"><code>inverse_min_event_ndims</code></h3>
+
+Returns the minimal number of dimensions bijector.inverse operates on.
+
+<h3 id="is_constant_jacobian"><code>is_constant_jacobian</code></h3>
+
+Returns true iff the Jacobian matrix is not a function of x.
+
+Note: Jacobian matrix is either constant for both forward and inverse or
+neither.
+
+#### Returns:
+
+* <b>`is_constant_jacobian`</b>: Python `bool`.
+
+<h3 id="name"><code>name</code></h3>
+
+Returns the string name of this `Bijector`.
+
+<h3 id="validate_args"><code>validate_args</code></h3>
+
+Returns True if Tensor arguments will be validated.
+
+
+
+## Methods
 
 <h3 id="forward"><code>forward</code></h3>
 

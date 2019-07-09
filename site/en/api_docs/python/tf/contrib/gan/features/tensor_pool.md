@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.contrib.gan.features.tensor_pool(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py).
+Defined in [`tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py).
 
 Queue storing input values and returning random previously stored ones.
 
@@ -33,8 +30,8 @@ pool. Note during inference / testing, it may be appropriate to set
 
 #### Args:
 
-* <b>`input_values`</b>: A `Tensor`, or a list or tuple of `Tensor`s from which to read
-    values to be pooled.
+* <b>`input_values`</b>: An arbitrarily nested structure of `tf.Tensors`, from which to
+    read values to be pooled.
 * <b>`pool_size`</b>: An integer specifying the maximum size of the pool. Defaults to
     50.
 * <b>`pooling_probability`</b>: A float `Tensor` specifying the probability of getting
@@ -44,9 +41,10 @@ pool. Note during inference / testing, it may be appropriate to set
 
 #### Returns:
 
-A `Tensor`, or a list or tuple of `Tensor`s (according to the type ofx
-`input_values`) which is with given probability either the `input_values` or
-a randomly chosen sample that was previously inserted in the pool.
+A nested structure of `Tensor` objects with the same structure as
+`input_values`. With the given probability, the Tensor values are either the
+same as in `input_values` or a randomly chosen sample that was previously
+inserted in the pool.
 
 
 #### Raises:

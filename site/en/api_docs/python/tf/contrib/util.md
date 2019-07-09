@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/util/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/util/__init__.py).
+Defined in [`tensorflow/contrib/util/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/util/__init__.py).
 
 Utilities for dealing with Tensors.
 
-See <a href="../../../../api_guides/python/contrib.util">Utilities (contrib)</a> guide.
+See [Contrib Util](https://tensorflow.org/api_guides/python/contrib.util) guide.
 
 
 ## Modules

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -13,13 +10,14 @@ tf.contrib.image.transform(
     images,
     transforms,
     interpolation='NEAREST',
+    output_shape=None,
     name=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/image/python/ops/image_ops.py).
 
 Applies the given transform(s) to the image(s).
 
@@ -38,6 +36,10 @@ Applies the given transform(s) to the image(s).
      the transform mapping input points to output points. Note that gradients
      are not backpropagated into transformation parameters.
 * <b>`interpolation`</b>: Interpolation mode. Supported values: "NEAREST", "BILINEAR".
+* <b>`output_shape`</b>: Output dimesion after the transform, [height, width].
+     If None, output is the same size as input image.
+
+* <b>`name`</b>: The name of the op.
 
 
 #### Returns:
@@ -50,3 +52,4 @@ will be filled with zeros.
 #### Raises:
 
 * <b>`TypeError`</b>: If `image` is an invalid type.
+* <b>`ValueError`</b>: If output shape is not 1-D int32 Tensor.

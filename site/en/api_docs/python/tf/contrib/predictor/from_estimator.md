@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -13,13 +10,14 @@ tf.contrib.predictor.from_estimator(
     estimator,
     serving_input_receiver_fn,
     output_key=None,
-    graph=None
+    graph=None,
+    config=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/predictor/predictor_factories.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/predictor/predictor_factories.py).
+Defined in [`tensorflow/contrib/predictor/predictor_factories.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/predictor/predictor_factories.py).
 
 Constructs a `Predictor` from a `tf.python.estimator.Estimator`.
 
@@ -32,6 +30,7 @@ Constructs a `Predictor` from a `tf.python.estimator.Estimator`.
     `None`, then `DEFAULT_SERVING_SIGNATURE_DEF_KEY` is used.
 * <b>`graph`</b>: Optional. The Tensorflow `graph` in which prediction should be
     done.
+* <b>`config`</b>: `ConfigProto` proto used to configure the session.
 
 
 #### Returns:

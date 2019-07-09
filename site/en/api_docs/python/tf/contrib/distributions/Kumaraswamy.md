@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`TransformedDistribution`](../../../tf/contrib/distributions/Tra
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/kumaraswamy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/kumaraswamy.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/kumaraswamy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/kumaraswamy.py).
 
 Kumaraswamy distribution.
 
@@ -77,6 +74,45 @@ x = [.2, .3, .5]
 # thus matching batch_shape [2, 3].
 dist.prob(x)         # Shape [2, 3]
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    concentration1=None,
+    concentration0=None,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='Kumaraswamy'
+)
+```
+
+Initialize a batch of Kumaraswamy distributions. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`concentration1`</b>: Positive floating-point `Tensor` indicating mean
+    number of successes; aka "alpha". Implies `self.dtype` and
+    `self.batch_shape`, i.e.,
+    `concentration1.shape = [N1, N2, ..., Nm] = self.batch_shape`.
+* <b>`concentration0`</b>: Positive floating-point `Tensor` indicating mean
+    number of failures; aka "beta". Otherwise has same semantics as
+    `concentration1`.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
+    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
+    result is undefined. When `False`, an exception is raised if one or
+    more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
 
 ## Properties
 
@@ -166,39 +202,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    concentration1=None,
-    concentration0=None,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='Kumaraswamy'
-)
-```
-
-Initialize a batch of Kumaraswamy distributions.
-
-#### Args:
-
-* <b>`concentration1`</b>: Positive floating-point `Tensor` indicating mean
-    number of successes; aka "alpha". Implies `self.dtype` and
-    `self.batch_shape`, i.e.,
-    `concentration1.shape = [N1, N2, ..., Nm] = self.batch_shape`.
-* <b>`concentration0`</b>: Positive floating-point `Tensor` indicating mean
-    number of failures; aka "beta". Otherwise has same semantics as
-    `concentration1`.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
-    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
-    result is undefined. When `False`, an exception is raised if one or
-    more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

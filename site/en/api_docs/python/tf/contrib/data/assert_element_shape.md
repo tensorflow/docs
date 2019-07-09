@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,19 +11,21 @@ tf.contrib.data.assert_element_shape(expected_shapes)
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/data/python/ops/batching.py).
+Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/batching.py).
 
 Assert the shape of this `Dataset`.
 
 ```python
-shapes = [tf.TensorShape([16, 256]), tf.TensorShape(None)]
+shapes = [tf.TensorShape([16, 256]), tf.TensorShape([None, 2])]
 result = dataset.apply(tf.contrib.data.assert_element_shape(shapes))
-print(result.output_shapes)  # ==> "((16, 256), <unknown>)"
+print(result.output_shapes)  # ==> "((16, 256), (<unknown>, 2))"
 ```
 
 If dataset shapes and expected_shape, are fully defined, assert they match.
 Otherwise, add assert op that will validate the shapes when tensors are
 evaluated, and set shapes on tensors, respectively.
+
+Note that unknown dimension in `expected_shapes` will be ignored.
 
 #### Args:
 

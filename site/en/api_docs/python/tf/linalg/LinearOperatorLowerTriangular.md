@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linear_operator_lower_triangular.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/linalg/linear_operator_lower_triangular.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator_lower_triangular.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_lower_triangular.py).
 
 See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
 
@@ -94,6 +91,48 @@ These have the following meaning:
 * If `is_X == False`, callers should expect the operator to not have `X`.
 * If `is_X == None` (the default), callers should have no expectation either
   way.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    tril,
+    is_non_singular=None,
+    is_self_adjoint=None,
+    is_positive_definite=None,
+    is_square=None,
+    name='LinearOperatorLowerTriangular'
+)
+```
+
+Initialize a `LinearOperatorLowerTriangular`.
+
+#### Args:
+
+* <b>`tril`</b>:  Shape `[B1,...,Bb, N, N]` with `b >= 0`, `N >= 0`.
+    The lower triangular part of `tril` defines this operator.  The strictly
+    upper triangle is ignored.
+* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
+    This operator is non-singular if and only if its diagonal elements are
+    all non-zero.
+* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
+    transpose.  This operator is self-adjoint only if it is diagonal with
+    real-valued diagonal entries.  In this case it is advised to use
+    `LinearOperatorDiag`.
+* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite,
+    meaning the quadratic form `x^H A x` has positive real part for all
+    nonzero `x`.  Note that we do not require the operator to be
+    self-adjoint to be positive-definite.  See:
+    https://en.wikipedia.org/wiki/Positive-definite_matrix#Extension_for_non-symmetric_matrices
+* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
+* <b>`name`</b>: A name for this `LinearOperator`.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>:  If `is_square` is `False`.
+
+
 
 ## Properties
 
@@ -190,48 +229,6 @@ Python integer, or None if the tensor rank is undefined.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    tril,
-    is_non_singular=None,
-    is_self_adjoint=None,
-    is_positive_definite=None,
-    is_square=None,
-    name='LinearOperatorLowerTriangular'
-)
-```
-
-Initialize a `LinearOperatorLowerTriangular`.
-
-#### Args:
-
-* <b>`tril`</b>:  Shape `[B1,...,Bb, N, N]` with `b >= 0`, `N >= 0`.
-    The lower triangular part of `tril` defines this operator.  The strictly
-    upper triangle is ignored.  Allowed dtypes: `float16`, `float32`,
-    `float64`.
-* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
-    This operator is non-singular if and only if its diagonal elements are
-    all non-zero.
-* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
-    transpose.  This operator is self-adjoint only if it is diagonal with
-    real-valued diagonal entries.  In this case it is advised to use
-    `LinearOperatorDiag`.
-* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite,
-    meaning the quadratic form `x^H A x` has positive real part for all
-    nonzero `x`.  Note that we do not require the operator to be
-    self-adjoint to be positive-definite.  See:
-    https://en.wikipedia.org/wiki/Positive-definite_matrix#Extension_for_non-symmetric_matrices
-* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
-* <b>`name`</b>: A name for this `LinearOperator`.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>:  If `diag.dtype` is not an allowed type.
-* <b>`ValueError`</b>:  If `is_square` is `False`.
 
 <h3 id="add_to_tensor"><code>add_to_tensor</code></h3>
 

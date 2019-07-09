@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`ExternalOptimizerInterface`](../../../tf/contrib/opt/ExternalOp
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/external_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/external_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/external_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/external_optimizer.py).
 
 Wrapper allowing `scipy.optimize.minimize` to operate a <a href="../../../tf/Session"><code>tf.Session</code></a>.
 
@@ -74,9 +71,7 @@ with tf.Session() as session:
 # The value of vector should now be [1., 1.].
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -119,6 +114,10 @@ Initialize a new interface instance.
     * `(-np.infty, [[1, 2, 3], [4, 5, 6]])`: Entry `var[0, 0]` less than 1,
       `var[0, 1]` less than 2, etc.
 * <b>`**optimizer_kwargs`</b>: Other subclass-specific keyword arguments.
+
+
+
+## Methods
 
 <h3 id="minimize"><code>minimize</code></h3>
 

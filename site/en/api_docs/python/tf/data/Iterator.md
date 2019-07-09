@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,15 +7,48 @@ page_type: reference
 
 ## Class `Iterator`
 
+Inherits From: [`CheckpointableBase`](../../tf/contrib/checkpoint/CheckpointableBase)
 
 
 
-
-Defined in [`tensorflow/python/data/ops/iterator_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/data/ops/iterator_ops.py).
+Defined in [`tensorflow/python/data/ops/iterator_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/data/ops/iterator_ops.py).
 
 See the guide: [Dataset Input Pipeline > Iterating over datasets](../../../../api_guides/python/input_dataset#Iterating_over_datasets)
 
 Represents the state of iterating through a `Dataset`.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    iterator_resource,
+    initializer,
+    output_types,
+    output_shapes,
+    output_classes
+)
+```
+
+Creates a new iterator from the given iterator resource.
+
+Note: Most users will not call this initializer directly, and will
+instead use `Dataset.make_initializable_iterator()` or
+`Dataset.make_one_shot_iterator()`.
+
+#### Args:
+
+* <b>`iterator_resource`</b>: A <a href="../../tf/resource"><code>tf.resource</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> representing the
+    iterator.
+* <b>`initializer`</b>: A <a href="../../tf/Operation"><code>tf.Operation</code></a> that should be run to initialize this
+    iterator.
+* <b>`output_types`</b>: A nested structure of <a href="../../tf/DType"><code>tf.DType</code></a> objects corresponding to
+    each component of an element of this dataset.
+* <b>`output_shapes`</b>: A nested structure of <a href="../../tf/TensorShape"><code>tf.TensorShape</code></a> objects
+    corresponding to each component of an element of this dataset.
+* <b>`output_classes`</b>: A nested structure of Python `type` object corresponding
+    to each component of an element of this iterator.
+
+
 
 ## Properties
 
@@ -68,37 +98,6 @@ of an element of this dataset.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    iterator_resource,
-    initializer,
-    output_types,
-    output_shapes,
-    output_classes
-)
-```
-
-Creates a new iterator from the given iterator resource.
-
-Note: Most users will not call this initializer directly, and will
-instead use `Dataset.make_initializable_iterator()` or
-`Dataset.make_one_shot_iterator()`.
-
-#### Args:
-
-* <b>`iterator_resource`</b>: A <a href="../../tf/resource"><code>tf.resource</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> representing the
-    iterator.
-* <b>`initializer`</b>: A <a href="../../tf/Operation"><code>tf.Operation</code></a> that should be run to initialize this
-    iterator.
-* <b>`output_types`</b>: A nested structure of <a href="../../tf/DType"><code>tf.DType</code></a> objects corresponding to
-    each component of an element of this dataset.
-* <b>`output_shapes`</b>: A nested structure of <a href="../../tf/TensorShape"><code>tf.TensorShape</code></a> objects
-    corresponding to each component of an element of this dataset.
-* <b>`output_classes`</b>: A nested structure of Python `type` object corresponding
-    to each component of an element of this iterator.
-
 <h3 id="from_string_handle"><code>from_string_handle</code></h3>
 
 ``` python
@@ -115,8 +114,8 @@ Creates a new, uninitialized `Iterator` based on the given handle.
 
 This method allows you to define a "feedable" iterator where you can choose
 between concrete iterators by feeding a value in a <a href="../../tf/Session#run"><code>tf.Session.run</code></a> call.
-In that case, `string_handle` would a <a href="../../tf/placeholder"><code>tf.placeholder</code></a>, and you would feed
-it with the value of <a href="../../tf/data/Iterator#string_handle"><code>tf.data.Iterator.string_handle</code></a> in each step.
+In that case, `string_handle` would be a <a href="../../tf/placeholder"><code>tf.placeholder</code></a>, and you would
+feed it with the value of <a href="../../tf/data/Iterator#string_handle"><code>tf.data.Iterator.string_handle</code></a> in each step.
 
 For example, if you had two iterators that marked the current position in
 a training dataset and a test dataset, you could choose which to use in

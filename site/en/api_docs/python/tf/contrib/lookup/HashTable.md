@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`InitializableLookupTableBase`](../../../tf/contrib/lookup/Initi
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
 
 A generic hash table implementation.
 
@@ -28,37 +25,7 @@ table.init.run()
 print(out.eval())
 ```
 
-## Properties
-
-<h3 id="default_value"><code>default_value</code></h3>
-
-The default value of the table.
-
-<h3 id="init"><code>init</code></h3>
-
-The table initialization op.
-
-<h3 id="key_dtype"><code>key_dtype</code></h3>
-
-The table key dtype.
-
-<h3 id="name"><code>name</code></h3>
-
-The name of the table.
-
-<h3 id="table_ref"><code>table_ref</code></h3>
-
-Get the underlying table reference.
-
-<h3 id="value_dtype"><code>value_dtype</code></h3>
-
-The table value dtype.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -89,6 +56,38 @@ the table will be immutable.
 #### Returns:
 
 A `HashTable` object.
+
+
+
+## Properties
+
+<h3 id="default_value"><code>default_value</code></h3>
+
+The default value of the table.
+
+<h3 id="init"><code>init</code></h3>
+
+The table initialization op.
+
+<h3 id="key_dtype"><code>key_dtype</code></h3>
+
+The table key dtype.
+
+<h3 id="name"><code>name</code></h3>
+
+The name of the table.
+
+<h3 id="table_ref"><code>table_ref</code></h3>
+
+Get the underlying table reference.
+
+<h3 id="value_dtype"><code>value_dtype</code></h3>
+
+The table value dtype.
+
+
+
+## Methods
 
 <h3 id="export"><code>export</code></h3>
 

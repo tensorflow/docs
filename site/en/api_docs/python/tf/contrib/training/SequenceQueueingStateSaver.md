@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
+Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
 
 See the guide: [Training (contrib) > Splitting sequence inputs into minibatches with state saving](../../../../../api_guides/python/contrib.training#Splitting_sequence_inputs_into_minibatches_with_state_saving)
 
@@ -127,63 +124,7 @@ while True:
     `allow_small_batch` must be set to true, which causes the SQSS to issue
     progressively smaller mini-batches with the remaining examples.
 
-## Properties
-
-<h3 id="barrier"><code>barrier</code></h3>
-
-
-
-<h3 id="batch_size"><code>batch_size</code></h3>
-
-
-
-<h3 id="name"><code>name</code></h3>
-
-
-
-<h3 id="next_batch"><code>next_batch</code></h3>
-
-The `NextQueuedSequenceBatch` providing access to batched output data.
-
-Also provides access to the `state` and `save_state` methods.
-The first time this gets called, it additionally prepares barrier reads
-and creates `NextQueuedSequenceBatch` / next_batch objects. Subsequent
-calls simply return the previously created `next_batch`.
-
-In order to access data in `next_batch` without blocking, the `prefetch_op`
-must have been run at least `batch_size` times (ideally in a separate
-thread, or launched via a `QueueRunner`). After processing a segment in
-`next_batch()`, `batch.save_state()` must be called which is done by the
-state_saving_rnn. Without this call, the dequeue op associated with the SQSS
-will not run.
-
-#### Returns:
-
-A cached `NextQueuedSequenceBatch` instance.
-
-<h3 id="num_unroll"><code>num_unroll</code></h3>
-
-
-
-<h3 id="prefetch_op"><code>prefetch_op</code></h3>
-
-The op used to prefetch new data into the state saver.
-
-Running it once enqueues one new input example into the state saver.
-The first time this gets called, it additionally creates the prefetch_op.
-Subsequent calls simply return the previously created `prefetch_op`.
-
-It should be run in a separate thread via e.g. a `QueueRunner`.
-
-#### Returns:
-
-An `Operation` that performs prefetching.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -259,6 +200,64 @@ Creates the SequenceQueueingStateSaver.
 * <b>`ValueError`</b>: if any of the input values is inconsistent, e.g. if
   not enough shape information is available from inputs to build
   the state saver.
+
+
+
+## Properties
+
+<h3 id="barrier"><code>barrier</code></h3>
+
+
+
+<h3 id="batch_size"><code>batch_size</code></h3>
+
+
+
+<h3 id="name"><code>name</code></h3>
+
+
+
+<h3 id="next_batch"><code>next_batch</code></h3>
+
+The `NextQueuedSequenceBatch` providing access to batched output data.
+
+Also provides access to the `state` and `save_state` methods.
+The first time this gets called, it additionally prepares barrier reads
+and creates `NextQueuedSequenceBatch` / next_batch objects. Subsequent
+calls simply return the previously created `next_batch`.
+
+In order to access data in `next_batch` without blocking, the `prefetch_op`
+must have been run at least `batch_size` times (ideally in a separate
+thread, or launched via a `QueueRunner`). After processing a segment in
+`next_batch()`, `batch.save_state()` must be called which is done by the
+state_saving_rnn. Without this call, the dequeue op associated with the SQSS
+will not run.
+
+#### Returns:
+
+A cached `NextQueuedSequenceBatch` instance.
+
+<h3 id="num_unroll"><code>num_unroll</code></h3>
+
+
+
+<h3 id="prefetch_op"><code>prefetch_op</code></h3>
+
+The op used to prefetch new data into the state saver.
+
+Running it once enqueues one new input example into the state saver.
+The first time this gets called, it additionally creates the prefetch_op.
+Subsequent calls simply return the previously created `prefetch_op`.
+
+It should be run in a separate thread via e.g. a `QueueRunner`.
+
+#### Returns:
+
+An `Operation` that performs prefetching.
+
+
+
+## Methods
 
 <h3 id="close"><code>close</code></h3>
 

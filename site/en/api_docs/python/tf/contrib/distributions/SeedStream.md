@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/seed_stream.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/seed_stream.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/seed_stream.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/seed_stream.py).
 
 Local PRNG for amplifying seed entropy into seeds for base operations.
 
@@ -149,21 +146,7 @@ seeds seen by `foo`'s callees will differ from those seen by `bar`'s
 callees, even if `foo` and `bar` are invoked with the same input
 seed.
 
-## Properties
-
-<h3 id="original_seed"><code>original_seed</code></h3>
-
-
-
-<h3 id="salt"><code>salt</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -184,6 +167,22 @@ Initializes a `SeedStream`.
     auxiliary entropy.  Must be unique across the Distributions
     and TensorFlow Probability code base.  See class docstring for
     rationale.
+
+
+
+## Properties
+
+<h3 id="original_seed"><code>original_seed</code></h3>
+
+
+
+<h3 id="salt"><code>salt</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

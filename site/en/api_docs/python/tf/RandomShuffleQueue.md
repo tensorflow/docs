@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,50 +11,16 @@ Inherits From: [`QueueBase`](../tf/QueueBase)
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/data_flow_ops.py).
 
-See the guides: [Inputs and Readers > Queues](../../../api_guides/python/io_ops#Queues), [Reading data > `QueueRunner`](../../../api_guides/python/reading_data#_QueueRunner_), [Threading and Queues > Queue usage overview](../../../api_guides/python/threading_and_queues#Queue_usage_overview)
+See the guides: [Inputs and Readers > Queues](../../../api_guides/python/io_ops#Queues), [Reading data > `QueueRunner`](../../../api_guides/python/reading_data#_QueueRunner_), [Threading and Queues > Manual Thread Management](../../../api_guides/python/threading_and_queues#Manual_Thread_Management), [Threading and Queues > Queue usage overview](../../../api_guides/python/threading_and_queues#Queue_usage_overview)
 
 A queue implementation that dequeues elements in a random order.
 
 See <a href="../tf/QueueBase"><code>tf.QueueBase</code></a> for a description of the methods on
 this class.
 
-
-
-#### Eager Compatibility
-Queues are not compatible with eager execution. Instead, please
-use <a href="../tf/data"><code>tf.data</code></a> to get data into your model.
-
-
-
-## Properties
-
-<h3 id="dtypes"><code>dtypes</code></h3>
-
-The list of dtypes for each component of a queue element.
-
-<h3 id="name"><code>name</code></h3>
-
-The name of the underlying queue.
-
-<h3 id="names"><code>names</code></h3>
-
-The list of names for each component of a queue element.
-
-<h3 id="queue_ref"><code>queue_ref</code></h3>
-
-The underlying queue reference.
-
-<h3 id="shapes"><code>shapes</code></h3>
-
-The list of shapes for each component of a queue element.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -114,6 +77,34 @@ queue has been closed.
 * <b>`shared_name`</b>: (Optional.) If non-empty, this queue will be shared under
     the given name across multiple sessions.
 * <b>`name`</b>: Optional name for the queue operation.
+
+
+
+## Properties
+
+<h3 id="dtypes"><code>dtypes</code></h3>
+
+The list of dtypes for each component of a queue element.
+
+<h3 id="name"><code>name</code></h3>
+
+The name of the underlying queue.
+
+<h3 id="names"><code>names</code></h3>
+
+The list of names for each component of a queue element.
+
+<h3 id="queue_ref"><code>queue_ref</code></h3>
+
+The underlying queue reference.
+
+<h3 id="shapes"><code>shapes</code></h3>
+
+The list of shapes for each component of a queue element.
+
+
+
+## Methods
 
 <h3 id="close"><code>close</code></h3>
 

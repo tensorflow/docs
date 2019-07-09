@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,15 +7,54 @@ page_type: reference
 
 ## Class `PhasedLSTMCell`
 
-Inherits From: [`RNNCell`](../../../tf/contrib/rnn/RNNCell)
+Inherits From: [`RNNCell`](../../../tf/nn/rnn_cell/RNNCell)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
 
 Phased LSTM recurrent network cell.
 
 https://arxiv.org/pdf/1610.09513v1.pdf
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    num_units,
+    use_peepholes=False,
+    leak=0.001,
+    ratio_on=0.1,
+    trainable_ratio_on=True,
+    period_init_min=1.0,
+    period_init_max=1000.0,
+    reuse=None
+)
+```
+
+Initialize the Phased LSTM cell.
+
+#### Args:
+
+* <b>`num_units`</b>: int, The number of units in the Phased LSTM cell.
+* <b>`use_peepholes`</b>: bool, set True to enable peephole connections.
+* <b>`leak`</b>: float or scalar float Tensor with value in [0, 1]. Leak applied
+      during training.
+* <b>`ratio_on`</b>: float or scalar float Tensor with value in [0, 1]. Ratio of the
+      period during which the gates are open.
+* <b>`trainable_ratio_on`</b>: bool, weather ratio_on is trainable.
+* <b>`period_init_min`</b>: float or scalar float Tensor. With value > 0.
+      Minimum value of the initialized period.
+      The period values are initialized by drawing from the distribution:
+      e^U(log(period_init_min), log(period_init_max))
+      Where U(.,.) is the uniform distribution.
+* <b>`period_init_max`</b>: float or scalar float Tensor.
+      With value > period_init_min. Maximum value of the initialized period.
+* <b>`reuse`</b>: (optional) Python boolean describing whether to reuse variables
+    in an existing scope. If not `True`, and the existing scope already has
+    the given variables, an error is raised.
+
+
 
 ## Properties
 
@@ -33,10 +69,6 @@ Optional regularizer function for the output of this layer.
 <h3 id="graph"><code>graph</code></h3>
 
 
-
-<h3 id="inbound_nodes"><code>inbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="input"><code>input</code></h3>
 
@@ -121,10 +153,6 @@ A list of tensors.
 <h3 id="non_trainable_weights"><code>non_trainable_weights</code></h3>
 
 
-
-<h3 id="outbound_nodes"><code>outbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="output"><code>output</code></h3>
 
@@ -224,43 +252,6 @@ A list of variables.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    num_units,
-    use_peepholes=False,
-    leak=0.001,
-    ratio_on=0.1,
-    trainable_ratio_on=True,
-    period_init_min=1.0,
-    period_init_max=1000.0,
-    reuse=None
-)
-```
-
-Initialize the Phased LSTM cell.
-
-#### Args:
-
-* <b>`num_units`</b>: int, The number of units in the Phased LSTM cell.
-* <b>`use_peepholes`</b>: bool, set True to enable peephole connections.
-* <b>`leak`</b>: float or scalar float Tensor with value in [0, 1]. Leak applied
-      during training.
-* <b>`ratio_on`</b>: float or scalar float Tensor with value in [0, 1]. Ratio of the
-      period during which the gates are open.
-* <b>`trainable_ratio_on`</b>: bool, weather ratio_on is trainable.
-* <b>`period_init_min`</b>: float or scalar float Tensor. With value > 0.
-      Minimum value of the initialized period.
-      The period values are initialized by drawing from the distribution:
-      e^U(log(period_init_min), log(period_init_max))
-      Where U(.,.) is the uniform distribution.
-* <b>`period_init_max`</b>: float or scalar float Tensor.
-      With value > period_init_min. Maximum value of the initialized period.
-* <b>`reuse`</b>: (optional) Python boolean describing whether to reuse variables
-    in an existing scope. If not `True`, and the existing scope already has
-    the given variables, an error is raised.
-
 <h3 id="__call__"><code>__call__</code></h3>
 
 ``` python
@@ -299,120 +290,6 @@ __deepcopy__(memo)
 
 
 
-<h3 id="add_loss"><code>add_loss</code></h3>
-
-``` python
-add_loss(
-    losses,
-    inputs=None
-)
-```
-
-
-
-<h3 id="add_update"><code>add_update</code></h3>
-
-``` python
-add_update(
-    updates,
-    inputs=None
-)
-```
-
-Add update op(s), potentially dependent on layer inputs.
-
-Weight updates (for instance, the updates of the moving mean and variance
-in a BatchNormalization layer) may be dependent on the inputs passed
-when calling a layer. Hence, when reusing the same layer on
-different inputs `a` and `b`, some entries in `layer.updates` may be
-dependent on `a` and some on `b`. This method automatically keeps track
-of dependencies.
-
-The `get_updates_for` method allows to retrieve the updates relevant to a
-specific set of inputs.
-
-This call is ignored when eager execution is enabled (in that case, variable
-updates are run on the fly and thus do not need to be tracked for later
-execution).
-
-#### Arguments:
-
-* <b>`updates`</b>: Update op, or list/tuple of update ops.
-* <b>`inputs`</b>: If anything other than None is passed, it signals the updates
-    are conditional on some of the layer's inputs,
-    and thus they should only be run where these inputs are available.
-    This is the case for BatchNormalization updates, for instance.
-    If None, the updates will be taken into account unconditionally,
-    and you are responsible for making sure that any dependency they might
-    have is available at runtime.
-    A step counter might fall into this category.
-
-<h3 id="add_variable"><code>add_variable</code></h3>
-
-``` python
-add_variable(
-    *args,
-    **kwargs
-)
-```
-
-Alias for `add_weight`.
-
-<h3 id="add_weight"><code>add_weight</code></h3>
-
-``` python
-add_weight(
-    name,
-    shape,
-    dtype=None,
-    initializer=None,
-    regularizer=None,
-    trainable=True,
-    constraint=None,
-    use_resource=None,
-    partitioner=None
-)
-```
-
-Adds a new variable to the layer, or gets an existing one; returns it.
-
-#### Arguments:
-
-* <b>`name`</b>: variable name.
-* <b>`shape`</b>: variable shape.
-* <b>`dtype`</b>: The type of the variable. Defaults to `self.dtype` or `float32`.
-* <b>`initializer`</b>: initializer instance (callable).
-* <b>`regularizer`</b>: regularizer instance (callable).
-* <b>`trainable`</b>: whether the variable should be part of the layer's
-    "trainable_variables" (e.g. variables, biases)
-    or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
-    Note, if the current variable scope is marked as non-trainable
-    then this parameter is ignored and any added variables are also
-    marked as non-trainable.
-* <b>`constraint`</b>: constraint instance (callable).
-* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
-* <b>`partitioner`</b>: (optional) partitioner instance (callable).  If
-    provided, when the requested variable is created it will be split
-    into multiple partitions according to `partitioner`.  In this case,
-    an instance of `PartitionedVariable` is returned.  Available
-    partitioners include <a href="../../../tf/fixed_size_partitioner"><code>tf.fixed_size_partitioner</code></a> and
-    <a href="../../../tf/variable_axis_size_partitioner"><code>tf.variable_axis_size_partitioner</code></a>.  For more details, see the
-    documentation of <a href="../../../tf/get_variable"><code>tf.get_variable</code></a> and the  "Variable Partitioners
-    and Sharding" section of the API guide.
-
-
-#### Returns:
-
-The created variable.  Usually either a `Variable` or `ResourceVariable`
-instance.  If `partitioner` is not `None`, a `PartitionedVariable`
-instance is returned.
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If called with partioned variable regularization and
-    eager execution is enabled.
-
 <h3 id="apply"><code>apply</code></h3>
 
 ``` python
@@ -445,35 +322,6 @@ build(_)
 ```
 
 
-
-<h3 id="call"><code>call</code></h3>
-
-``` python
-call(
-    inputs,
-    state
-)
-```
-
-Phased LSTM Cell.
-
-#### Args:
-
-* <b>`inputs`</b>: A tuple of 2 Tensor.
-     The first Tensor has shape [batch, 1], and type float32 or float64.
-     It stores the time.
-     The second Tensor has shape [batch, features_size], and type float32.
-     It stores the features.
-* <b>`state`</b>: rnn_cell_impl.LSTMStateTuple, state from previous timestep.
-
-
-#### Returns:
-
-A tuple containing:
-- A Tensor of float32, and shape [batch_size, num_units], representing the
-  output of the cell.
-- A rnn_cell_impl.LSTMStateTuple, containing 2 Tensors of float32, shape
-  [batch_size, num_units], representing the new state and the output.
 
 <h3 id="compute_mask"><code>compute_mask</code></h3>
 
@@ -584,6 +432,18 @@ by `Network` (one layer of abstraction above).
 #### Returns:
 
 Python dictionary.
+
+<h3 id="get_initial_state"><code>get_initial_state</code></h3>
+
+``` python
+get_initial_state(
+    inputs=None,
+    batch_size=None,
+    dtype=None
+)
+```
+
+
 
 <h3 id="get_input_at"><code>get_input_at</code></h3>
 

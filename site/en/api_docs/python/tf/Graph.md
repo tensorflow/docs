@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
 
-See the guide: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures)
+See the guides: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures), [Graph Editor (contrib) > Modules overview](../../../api_guides/python/contrib.graph_editor#Modules_overview), [Graph Editor (contrib)](../../../api_guides/python/contrib.graph_editor)
 
 A TensorFlow computation, represented as a dataflow graph.
 
@@ -62,6 +59,16 @@ example, the <a href="../tf/Variable"><code>tf.Variable</code></a> uses a collec
 all variables that are created during the construction of a graph. The caller
 may define additional collections by specifying a new name.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__()
+```
+
+Creates a new, empty Graph.
+
+
+
 ## Properties
 
 <h3 id="building_function"><code>building_function</code></h3>
@@ -81,7 +88,7 @@ True if this graph has been finalized.
 The GraphDef version information of this graph.
 
 For details on the meaning of each version, see
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/graph.proto).
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/graph.proto).
 
 #### Returns:
 
@@ -105,14 +112,6 @@ An integer version that increases as ops are added to the graph.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__()
-```
-
-Creates a new, empty Graph.
 
 <h3 id="add_to_collection"><code>add_to_collection</code></h3>
 
@@ -170,9 +169,13 @@ Returns a context manager that makes this `Graph` the default graph.
 This method should be used if you want to create multiple graphs
 in the same process. For convenience, a global default graph is
 provided, and all ops will be added to this graph if you do not
-create a new graph explicitly. Use this method with the `with` keyword
-to specify that ops created within the scope of a block should be
-added to this graph.
+create a new graph explicitly.
+
+Use this method with the `with` keyword to specify that ops created within
+the scope of a block should be added to this graph. In this case, once
+the scope of the `with` is exited, the previous default graph is set again
+as default. There is a stack, so it's ok to have multiple nested levels
+of `as_default` calls.
 
 The default graph is a property of the current thread. If you
 create a new thread, and wish to use the default graph in that
@@ -230,7 +233,7 @@ This method is thread-safe.
 #### Returns:
 
 A
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/framework/graph.proto)
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/graph.proto)
 protocol buffer.
 
 
@@ -509,7 +512,11 @@ create_op(
 )
 ```
 
-Creates an `Operation` in this graph.
+Creates an `Operation` in this graph. (deprecated arguments)
+
+SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
+Instructions for updating:
+Shapes are always computed; don't use the compute_shapes as it has no effect.
 
 This is a low-level interface for creating an `Operation`. Most
 programs will not call this method directly, and instead use the
@@ -535,8 +542,8 @@ the default graph.
     proto).
 * <b>`op_def`</b>: (Optional.) The `OpDef` proto that describes the `op_type` that
     the operation will have.
-* <b>`compute_shapes`</b>: (Optional.) If True, shape inference will be performed
-    to compute the shapes of the outputs.
+* <b>`compute_shapes`</b>: (Optional.) Deprecated. Has no effect (shapes are always
+    computed).
 * <b>`compute_device`</b>: (Optional.) If True, device functions will be executed
     to compute the device property of the Operation.
 
@@ -574,7 +581,7 @@ string, a device function, or None:
 
 For information about the valid syntax of device name strings, see
 the documentation in
-[`DeviceNameUtils`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/util/device_name_utils.h).
+[`DeviceNameUtils`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/util/device_name_utils.h).
 
 For example:
 

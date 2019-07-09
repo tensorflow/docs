@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,28 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_gradients.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/lib/debug_gradients.py).
+Defined in [`tensorflow/python/debug/lib/debug_gradients.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/lib/debug_gradients.py).
 
 Gradients Debugger.
 
 Allows retrieval of gradient tensors created by TensorFlow's automatic
 differentiation algorithm, i.e., <a href="../tf/gradients"><code>tf.gradients</code></a> and optimizer classes that
 use it.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(y_tensor=None)
+```
+
+Constructor of GradientsDebugger.
+
+#### Args:
+
+* <b>`y_tensor`</b>: optional: the <a href="../tf/Tensor"><code>tf.Tensor</code></a> to be differentiated, i.e., the tensor
+    on the numerator of the differentiation.
+
+
 
 ## Properties
 
@@ -35,19 +47,6 @@ use it.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(y_tensor=None)
-```
-
-Constructor of GradientsDebugger.
-
-#### Args:
-
-* <b>`y_tensor`</b>: optional: the <a href="../tf/Tensor"><code>tf.Tensor</code></a> to be differentiated, i.e., the tensor
-    on the numerator of the differentiation.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 

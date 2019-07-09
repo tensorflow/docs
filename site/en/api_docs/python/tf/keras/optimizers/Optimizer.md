@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/optimizers.py).
+Defined in [`tensorflow/python/keras/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/optimizers.py).
 
 Abstract optimizer base class.
 
@@ -28,15 +25,17 @@ All Keras optimizers support the following keyword arguments:
     clipvalue: float >= 0. Gradients will be clipped
         when their absolute value exceeds this value.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(**kwargs)
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="from_config"><code>from_config</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,9 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/gamma.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/gamma.py).
-
-See the guide: [Statistical Distributions (contrib) > Univariate (scalar) distributions](../../../../api_guides/python/contrib.distributions#Univariate_scalar_distributions)
+Defined in [`tensorflow/python/ops/distributions/gamma.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/gamma.py).
 
 Gamma distribution.
 
@@ -34,7 +29,7 @@ The probability density function (pdf) is,
 
 ```none
 pdf(x; alpha, beta, x > 0) = x**(alpha - 1) exp(-x beta) / Z
-Z = Gamma(alpha) beta**alpha
+Z = Gamma(alpha) beta**(-alpha)
 ```
 
 where:
@@ -64,15 +59,76 @@ rate = beta = mean / stddev**2 = concentration / mean
 Distribution parameters are automatically broadcast in all functions; see
 examples for details.
 
-WARNING: This distribution may draw 0-valued samples for small `concentration`
-values. See note in <a href="../../tf/random_gamma"><code>tf.random_gamma</code></a> docstring.
+Warning: The samples of this distribution are always non-negative. However,
+the samples that are smaller than `np.finfo(dtype).tiny` are rounded
+to this value, so it appears more often than it should.
+This should only be noticeable when the `concentration` is very small, or the
+`rate` is very large. See note in <a href="../../tf/random_gamma"><code>tf.random_gamma</code></a> docstring.
+
+Samples of this distribution are reparameterized (pathwise differentiable).
+The derivatives are computed using the approach described in the paper
+
+[Michael Figurnov, Shakir Mohamed, Andriy Mnih.
+Implicit Reparameterization Gradients, 2018](https://arxiv.org/abs/1805.08498)
 
 #### Examples
 
 ```python
-dist = Gamma(concentration=3.0, rate=2.0)
-dist2 = Gamma(concentration=[3.0, 4.0], rate=[2.0, 3.0])
+dist = tf.distributions.Gamma(concentration=3.0, rate=2.0)
+dist2 = tf.distributions.Gamma(concentration=[3.0, 4.0], rate=[2.0, 3.0])
 ```
+
+Compute the gradients of samples w.r.t. the parameters:
+
+```python
+concentration = tf.constant(3.0)
+rate = tf.constant(2.0)
+dist = tf.distributions.Gamma(concentration, rate)
+samples = dist.sample(5)  # Shape [5]
+loss = tf.reduce_mean(tf.square(samples))  # Arbitrary loss function
+# Unbiased stochastic gradients of the loss function
+grads = tf.gradients(loss, [concentration, rate])
+```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    concentration,
+    rate,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='Gamma'
+)
+```
+
+Construct Gamma with `concentration` and `rate` parameters.
+
+The parameters `concentration` and `rate` must be shaped in a way that
+supports broadcasting (e.g. `concentration + rate` is a valid operation).
+
+#### Args:
+
+* <b>`concentration`</b>: Floating point tensor, the concentration params of the
+    distribution(s). Must contain only positive values.
+* <b>`rate`</b>: Floating point tensor, the inverse scale params of the
+    distribution(s). Must contain only positive values.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
+    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
+    result is undefined. When `False`, an exception is raised if one or
+    more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: if `concentration` and `rate` are different dtypes.
+
+
 
 ## Properties
 
@@ -154,44 +210,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    concentration,
-    rate,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='Gamma'
-)
-```
-
-Construct Gamma with `concentration` and `rate` parameters.
-
-The parameters `concentration` and `rate` must be shaped in a way that
-supports broadcasting (e.g. `concentration + rate` is a valid operation).
-
-#### Args:
-
-* <b>`concentration`</b>: Floating point tensor, the concentration params of the
-    distribution(s). Must contain only positive values.
-* <b>`rate`</b>: Floating point tensor, the inverse scale params of the
-    distribution(s). Must contain only positive values.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
-    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
-    result is undefined. When `False`, an exception is raised if one or
-    more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: if `concentration` and `rate` are different dtypes.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

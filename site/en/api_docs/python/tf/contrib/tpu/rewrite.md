@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,16 +17,23 @@ tf.contrib.tpu.rewrite(
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu.py).
 
 Rewrites `computation` for execution on a TPU system.
 
 #### Args:
 
-* <b>`computation`</b>: A Python function that builds a computation to apply
-    to the input. If the function takes n inputs, 'inputs' should be
-    a list of n tensors. If the function returns m outputs, rewrite
-    will return a list of m tensors.
+* <b>`computation`</b>: A Python function that builds a computation to apply to the
+    input. If the function takes n inputs, 'inputs' should be a list of n
+    tensors.
+
+    `computation` may return a list of operations and tensors. Tensors must
+    come before operations in the returned list.  The return value of
+    `rewrite` is a list of tensors corresponding to the tensors from the
+    output of `computation`.
+
+    All `Operation`s returned from `computation` will be executed when
+    evaluating any of the returned output tensors.
 * <b>`inputs`</b>: A list of input tensors or `None` (equivalent to an empty list).
 * <b>`infeed_queue`</b>: If not `None`, the `InfeedQueue` from which to append a tuple
     of arguments as inputs to `computation`.

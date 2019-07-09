@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +12,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/factorization_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/factorization/python/ops/factorization_ops.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/factorization_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/factorization/python/ops/factorization_ops.py).
 
 A model for Weighted Alternating Least Squares matrix factorization.
 
@@ -151,6 +149,74 @@ A typical usage example (pseudocode):
         while_transposed_matrix_slices:
           col_update_op.run(session=sess)
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    input_rows,
+    input_cols,
+    n_components,
+    unobserved_weight=0.1,
+    regularization=None,
+    row_init='random',
+    col_init='random',
+    num_row_shards=1,
+    num_col_shards=1,
+    row_weights=1,
+    col_weights=1,
+    use_factors_weights_cache=True,
+    use_gramian_cache=True,
+    use_scoped_vars=False
+)
+```
+
+Creates model for WALS matrix factorization.
+
+#### Args:
+
+* <b>`input_rows`</b>: total number of rows for input matrix.
+* <b>`input_cols`</b>: total number of cols for input matrix.
+* <b>`n_components`</b>: number of dimensions to use for the factors.
+* <b>`unobserved_weight`</b>: weight given to unobserved entries of matrix.
+* <b>`regularization`</b>: weight of L2 regularization term. If None, no
+    regularization is done.
+* <b>`row_init`</b>: initializer for row factor. Can be a tensor or numpy constant.
+    If set to "random", the value is initialized randomly.
+* <b>`col_init`</b>: initializer for column factor. See row_init for details.
+* <b>`num_row_shards`</b>: number of shards to use for row factors.
+* <b>`num_col_shards`</b>: number of shards to use for column factors.
+* <b>`row_weights`</b>: Must be in one of the following three formats: None, a list
+    of lists of non-negative real numbers (or equivalent iterables) or a
+    single non-negative real number.
+    - When set to None, w_ij = unobserved_weight, which simplifies to ALS.
+    Note that col_weights must also be set to "None" in this case.
+    - If it is a list of lists of non-negative real numbers, it needs to be
+    in the form of [[w_0, w_1, ...], [w_k, ... ], [...]], with the number of
+    inner lists matching the number of row factor shards and the elements in
+    each inner list are the weights for the rows of the corresponding row
+    factor shard. In this case,  w_ij = unobserved_weight +
+                                        row_weights[i] * col_weights[j].
+    - If this is a single non-negative real number, this value is used for
+    all row weights and \(w_ij\) = unobserved_weight + row_weights *
+                               col_weights[j].
+    Note that it is allowed to have row_weights as a list while col_weights
+    a single number or vice versa.
+* <b>`col_weights`</b>: See row_weights.
+* <b>`use_factors_weights_cache`</b>: When True, the factors and weights will be
+    cached on the workers before the updates start. Defaults to True. Note
+    that the weights cache is initialized through `worker_init`, and the
+    row/col factors cache is initialized through
+    `initialize_{col/row}_update_op`. In the case where the weights are
+    computed outside and set before the training iterations start, it is
+    important to ensure the `worker_init` op is run afterwards for the
+    weights cache to take effect.
+* <b>`use_gramian_cache`</b>: When True, the Gramians will be cached on the workers
+    before the updates start. Defaults to True.
+* <b>`use_scoped_vars`</b>: When True, the factor and weight vars will also be nested
+    in a tf.name_scope.
+
+
+
 ## Properties
 
 <h3 id="col_factors"><code>col_factors</code></h3>
@@ -216,72 +282,6 @@ the correct values.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    input_rows,
-    input_cols,
-    n_components,
-    unobserved_weight=0.1,
-    regularization=None,
-    row_init='random',
-    col_init='random',
-    num_row_shards=1,
-    num_col_shards=1,
-    row_weights=1,
-    col_weights=1,
-    use_factors_weights_cache=True,
-    use_gramian_cache=True,
-    use_scoped_vars=False
-)
-```
-
-Creates model for WALS matrix factorization.
-
-#### Args:
-
-* <b>`input_rows`</b>: total number of rows for input matrix.
-* <b>`input_cols`</b>: total number of cols for input matrix.
-* <b>`n_components`</b>: number of dimensions to use for the factors.
-* <b>`unobserved_weight`</b>: weight given to unobserved entries of matrix.
-* <b>`regularization`</b>: weight of L2 regularization term. If None, no
-    regularization is done.
-* <b>`row_init`</b>: initializer for row factor. Can be a tensor or numpy constant.
-    If set to "random", the value is initialized randomly.
-* <b>`col_init`</b>: initializer for column factor. See row_init for details.
-* <b>`num_row_shards`</b>: number of shards to use for row factors.
-* <b>`num_col_shards`</b>: number of shards to use for column factors.
-* <b>`row_weights`</b>: Must be in one of the following three formats: None, a list
-    of lists of non-negative real numbers (or equivalent iterables) or a
-    single non-negative real number.
-    - When set to None, w_ij = unobserved_weight, which simplifies to ALS.
-    Note that col_weights must also be set to "None" in this case.
-    - If it is a list of lists of non-negative real numbers, it needs to be
-    in the form of [[w_0, w_1, ...], [w_k, ... ], [...]], with the number of
-    inner lists matching the number of row factor shards and the elements in
-    each inner list are the weights for the rows of the corresponding row
-    factor shard. In this case,  w_ij = unobserved_weight +
-                                        row_weights[i] * col_weights[j].
-    - If this is a single non-negative real number, this value is used for
-    all row weights and \(w_ij\) = unobserved_weight + row_weights *
-                               col_weights[j].
-    Note that it is allowed to have row_weights as a list while col_weights
-    a single number or vice versa.
-* <b>`col_weights`</b>: See row_weights.
-* <b>`use_factors_weights_cache`</b>: When True, the factors and weights will be
-    cached on the workers before the updates start. Defaults to True. Note
-    that the weights cache is initialized through `worker_init`, and the
-    row/col factors cache is initialized through
-    `initialize_{col/row}_update_op`. In the case where the weights are
-    computed outside and set before the training iterations start, it is
-    important to ensure the `worker_init` op is run afterwards for the
-    weights cache to take effect.
-* <b>`use_gramian_cache`</b>: When True, the Gramians will be cached on the workers
-    before the updates start. Defaults to True.
-* <b>`use_scoped_vars`</b>: When True, the factor and weight vars will also be nested
-    in a tf.name_scope.
 
 <h3 id="project_col_factors"><code>project_col_factors</code></h3>
 

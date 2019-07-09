@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.contrib.eager.value_and_gradients_function(
 
 
 
-Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/eager/backprop.py).
+Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/eager/backprop.py).
 
 Returns a function that computes f and its derivative w.r.t. params.
 
@@ -56,22 +53,25 @@ assert y_grad.numpy() == (2 ** 3) - 2 * 2 * 3
 
 #### Args:
 
- f: function to be differentiated. If `f` returns a scalar, this scalar will
-   be differentiated. If `f` returns a tensor or list of tensors, by default
-   a scalar will be computed by adding all their values to produce a single
-   scalar. If desired, the tensors can be elementwise multiplied by the
-   tensors passed as the `dy` keyword argument to the returned gradient
-   function.
- params: list of parameter names of f or list of integers indexing the
-   parameters with respect to which we'll differentiate. Passing `None`
-   differentiates with respect to all parameters.
+* <b>`f`</b>: function to be differentiated. If `f` returns a scalar, this scalar will
+    be differentiated. If `f` returns a tensor or list of tensors, by default
+    a scalar will be computed by adding all their values to produce a single
+    scalar. If desired, the tensors can be elementwise multiplied by the
+    tensors passed as the `dy` keyword argument to the returned gradient
+    function.
+* <b>`params`</b>: list of parameter names of f or list of integers indexing the
+    parameters with respect to which we'll differentiate. Passing `None`
+    differentiates with respect to all parameters.
 
-Returns: function which, when called, returns the value of f and the gradient
- of f with respect to all of `params`. The function takes an extra optional
- keyword argument "dy". Setting it allows computation of vector jacobian
- products for vectors other than the vector of ones.
+
+#### Returns:
+
+function which, when called, returns the value of f and the gradient
+of f with respect to all of `params`. The function takes an extra optional
+keyword argument "dy". Setting it allows computation of vector jacobian
+products for vectors other than the vector of ones.
 
 
 #### Raises:
 
-ValueError: if the params are not all strings or all integers.
+* <b>`ValueError`</b>: if the params are not all strings or all integers.

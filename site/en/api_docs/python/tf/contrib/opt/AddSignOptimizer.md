@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,16 +11,14 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/addsign.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/addsign.py).
+Defined in [`tensorflow/contrib/opt/python/training/addsign.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/addsign.py).
 
 Optimizer that implements the AddSign update.
 
 See [Bello et al., ICML2017],
 [Neural Optimizer Search with RL](https://arxiv.org/abs/1709.07417).
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -73,6 +68,10 @@ opt = AddSignOptimizer(learning_rate=0.1, sign_decay_fn=linear_decay_fn)
 * <b>`use_locking`</b>: If True, use locks for update operations.
 * <b>`name`</b>: Optional name for the operations created when applying gradients.
     Defaults to "AddSignOptimizer".
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

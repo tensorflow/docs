@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/utils/io_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/utils/io_utils.py).
+Defined in [`tensorflow/python/keras/utils/io_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/io_utils.py).
 
 Representation of HDF5 dataset to be used instead of a Numpy array.
 
@@ -43,6 +40,22 @@ be called on every slice of data retrieved.
 #### Returns:
 
 An array-like HDF5 dataset.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    datapath,
+    dataset,
+    start=0,
+    end=None,
+    normalizer=None
+)
+```
+
+
+
+
 
 ## Properties
 
@@ -81,20 +94,6 @@ An integer denoting the number of elements in the dataset.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    datapath,
-    dataset,
-    start=0,
-    end=None,
-    normalizer=None
-)
-```
-
-
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 

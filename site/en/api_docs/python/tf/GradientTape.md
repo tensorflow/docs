@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,17 +16,17 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/eager/backprop.py).
+Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/eager/backprop.py).
 
 Record operations for automatic differentiation.
 
 Operations are recorded if they are executed within this context manager and
 at least one of their inputs is being "watched".
 
-Trainable variables (created by <a href="../tf/contrib/eager/Variable"><code>tf.contrib.eager.Variable</code></a> or
-<a href="../tf/get_variable"><code>tf.get_variable</code></a>, trainable=True is default in both cases) are automatically
-watched. Tensors can be manually watched by invoking the `watch` method on
-this context manager.
+Trainable variables (created by <a href="../tf/Variable"><code>tf.Variable</code></a> or <a href="../tf/get_variable"><code>tf.get_variable</code></a>,
+trainable=True is default in both cases) are automatically watched. Tensors
+can be manually watched by invoking the `watch` method on this context
+manager.
 
 For example, consider the function `y = x * x`. The gradient at `x = 3.0` can
 be computed as:
@@ -73,9 +70,7 @@ del g  # Drop the reference to the tape
 
 Note that only tensors with real or complex dtypes are differentiable.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(persistent=False)
@@ -88,6 +83,10 @@ Creates a new GradientTape.
 * <b>`persistent`</b>: Boolean controlling whether a persistent gradient tape
     is created. False by default, which means at most one call can
     be made to the gradient() method on this object.
+
+
+
+## Methods
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 

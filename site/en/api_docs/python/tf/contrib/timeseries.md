@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,9 +7,10 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/timeseries/__init__.py).
+Defined in [`tensorflow/contrib/timeseries/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/timeseries/__init__.py).
 
 A time series library in TensorFlow (TFTS).
+
 
 
 
@@ -34,9 +32,13 @@ A time series library in TensorFlow (TFTS).
 
 [`class NumpyReader`](../../tf/contrib/timeseries/NumpyReader): A time series parser for feeding Numpy arrays to a `TimeSeriesInputFn`.
 
+[`class OneShotPredictionHead`](../../tf/contrib/timeseries/OneShotPredictionHead): A time series head which exports a single stateless serving signature.
+
 [`class RandomWindowInputFn`](../../tf/contrib/timeseries/RandomWindowInputFn): Wraps a `TimeSeriesReader` to create random batches of windows.
 
 [`class StructuralEnsembleRegressor`](../../tf/contrib/timeseries/StructuralEnsembleRegressor): An Estimator for structural time series models.
+
+[`class TimeSeriesRegressor`](../../tf/contrib/timeseries/TimeSeriesRegressor): An Estimator to fit and evaluate a time series model.
 
 [`class TrainEvalFeatures`](../../tf/contrib/timeseries/TrainEvalFeatures): Feature names used during training and evaluation.
 

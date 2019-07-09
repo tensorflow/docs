@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/summaries.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/eval/python/summaries.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/summaries.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/python/summaries.py).
 
 Common TFGAN summaries.
 
@@ -25,6 +22,8 @@ Common TFGAN summaries.
 [`add_image_comparison_summaries(...)`](../../../../tf/contrib/gan/eval/add_image_comparison_summaries): Adds image summaries to compare triplets of images.
 
 [`add_regularization_loss_summaries(...)`](../../../../tf/contrib/gan/eval/add_regularization_loss_summaries): Adds summaries for a regularization losses..
+
+[`add_stargan_image_summaries(...)`](../../../../tf/contrib/gan/eval/add_stargan_image_summaries): Adds image summaries to see StarGAN image results.
 
 ## Other Members
 

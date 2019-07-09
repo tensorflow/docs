@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`ClusterResolver`](../../../tf/contrib/cluster_resolver/ClusterR
 
 
 
-Defined in [`tensorflow/contrib/cluster_resolver/python/training/gce_cluster_resolver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/cluster_resolver/python/training/gce_cluster_resolver.py).
+Defined in [`tensorflow/contrib/cluster_resolver/python/training/gce_cluster_resolver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cluster_resolver/python/training/gce_cluster_resolver.py).
 
 Cluster Resolver for Google Compute Engine.
 
@@ -24,9 +21,7 @@ this will retrieve the IP address of all the instances within the instance
 group and return a Cluster Resolver object suitable for use for distributed
 TensorFlow.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -63,6 +58,10 @@ each instance in the instance group.
 #### Raises:
 
 * <b>`ImportError`</b>: If the googleapiclient is not installed.
+
+
+
+## Methods
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/constrained_optimization/python/external_regret_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/constrained_optimization/python/external_regret_optimizer.py).
+Defined in [`tensorflow/contrib/constrained_optimization/python/external_regret_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/constrained_optimization/python/external_regret_optimizer.py).
 
 A `ConstrainedOptimizer` based on external-regret minimization.
 
@@ -36,21 +33,7 @@ that it uses proxy constraints (if they're provided) in the update of the
 model parameters, and uses <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>s, instead of SGD, for the
 "inner" updates.
 
-## Properties
-
-<h3 id="constraint_optimizer"><code>constraint_optimizer</code></h3>
-
-Returns the <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a> used for the Lagrange multipliers.
-
-<h3 id="optimizer"><code>optimizer</code></h3>
-
-Returns the <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a> used for optimization.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -83,6 +66,22 @@ A new `AdditiveExternalRegretOptimizer`.
 
 * <b>`ValueError`</b>: If the maximum_multiplier_radius parameter is nonpositive.
 
+
+
+## Properties
+
+<h3 id="constraint_optimizer"><code>constraint_optimizer</code></h3>
+
+Returns the <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a> used for the Lagrange multipliers.
+
+<h3 id="optimizer"><code>optimizer</code></h3>
+
+Returns the <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a> used for optimization.
+
+
+
+## Methods
+
 <h3 id="minimize"><code>minimize</code></h3>
 
 ``` python
@@ -99,7 +98,7 @@ minimize(
 )
 ```
 
-Returns an `Op` for minimizing the constrained problem.
+Returns an `Operation` for minimizing the constrained problem.
 
 This method combines the functionality of `minimize_unconstrained` and
 `minimize_constrained`. If global_step < unconstrained_steps, it will
@@ -128,7 +127,7 @@ problem.
 
 #### Returns:
 
-TensorFlow Op.
+`Operation`, the train_op.
 
 
 #### Raises:
@@ -150,11 +149,11 @@ minimize_constrained(
 )
 ```
 
-Returns an `Op` for minimizing the constrained problem.
+Returns an `Operation` for minimizing the constrained problem.
 
-The `optimizer` constructor parameter will be used to update the model
-parameters, while the Lagrange multipliers will be updated using
-`constrained_optimizer` (if provided) or `optimizer` (if not).
+Unlike `minimize_unconstrained`, this function attempts to find a solution
+that minimizes the `objective` portion of the minimization problem while
+satisfying the `constraints` portion.
 
 #### Args:
 
@@ -172,7 +171,7 @@ parameters, while the Lagrange multipliers will be updated using
 
 #### Returns:
 
-TensorFlow Op.
+`Operation`, the train_op.
 
 <h3 id="minimize_unconstrained"><code>minimize_unconstrained</code></h3>
 
@@ -189,7 +188,7 @@ minimize_unconstrained(
 )
 ```
 
-Returns an `Op` for minimizing the unconstrained problem.
+Returns an `Operation` for minimizing the unconstrained problem.
 
 Unlike `minimize_constrained`, this function ignores the `constraints` (and
 `proxy_constraints`) portion of the minimization problem entirely, and only
@@ -211,7 +210,7 @@ minimizes `objective`.
 
 #### Returns:
 
-TensorFlow Op.
+`Operation`, the train_op.
 
 
 

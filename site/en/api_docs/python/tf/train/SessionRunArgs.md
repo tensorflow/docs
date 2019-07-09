@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/session_run_hook.py).
+Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/session_run_hook.py).
 
 See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
 
@@ -35,6 +32,22 @@ Represents arguments to be added to a `Session.run()` call.
 * <b>`options`</b>: Exactly like the `options` argument to `Session.run()`, i.e., a
     config_pb2.RunOptions proto.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    fetches,
+    feed_dict=None,
+    options=None
+)
+```
+
+
+
+
+
 ## Properties
 
 <h3 id="feed_dict"><code>feed_dict</code></h3>
@@ -48,24 +61,6 @@ Alias for field number 0
 <h3 id="options"><code>options</code></h3>
 
 Alias for field number 2
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-@staticmethod
-__new__(
-    cls,
-    fetches,
-    feed_dict=None,
-    options=None
-)
-```
-
-
 
 
 

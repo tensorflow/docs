@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,28 +7,27 @@ page_type: reference
 
 ``` python
 tf.contrib.tpu.cross_replica_sum(
-    input,
+    x,
+    group_assignment=None,
     name=None
 )
 ```
 
 
 
-Defined in generated file: `tensorflow/contrib/tpu/ops/gen_tpu_ops.py`.
+Defined in [`tensorflow/contrib/tpu/python/ops/tpu_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/ops/tpu_ops.py).
 
-An Op to sum inputs across replicated TPU instances. Each
-
-instance supplies its own input, and the output of each is the sum of
-all the inputs.
+Sum the input tensor accorss replicas according to group_assignment.
 
 #### Args:
 
-* <b>`input`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `float32`.
-    The local input to the sum.
-* <b>`name`</b>: A name for the operation (optional).
+* <b>`x`</b>: The local tensor to the sum.
+* <b>`group_assignment`</b>: Optional 2d int32 lists with shape [num_groups,
+    num_replicas_per_group]. `group_assignment[i]` represents the replica
+    ids in the ith subgroup.
+* <b>`name`</b>: Optional op name.
 
 
 #### Returns:
 
-A `Tensor`. Has the same type as `input`.
-The sum of all the distributed inputs.
+A `Tensor` which is summed across replicas.

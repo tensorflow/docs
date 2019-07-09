@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,9 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/categorical.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/categorical.py).
-
-See the guide: [Statistical Distributions (contrib) > Univariate (scalar) distributions](../../../../api_guides/python/contrib.distributions#Univariate_scalar_distributions)
+Defined in [`tensorflow/python/ops/distributions/categorical.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/categorical.py).
 
 Categorical distribution.
 
@@ -110,6 +105,46 @@ counts = [[...]] # Shape [5, 7, 3]
 dist.prob(counts)  # Shape [5, 7, 3]
 ```
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    logits=None,
+    probs=None,
+    dtype=tf.int32,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='Categorical'
+)
+```
+
+Initialize Categorical distributions using class log-probabilities.
+
+#### Args:
+
+* <b>`logits`</b>: An N-D `Tensor`, `N >= 1`, representing the log probabilities
+    of a set of Categorical distributions. The first `N - 1` dimensions
+    index into a batch of independent distributions and the last dimension
+    represents a vector of logits for each class. Only one of `logits` or
+    `probs` should be passed in.
+* <b>`probs`</b>: An N-D `Tensor`, `N >= 1`, representing the probabilities
+    of a set of Categorical distributions. The first `N - 1` dimensions
+    index into a batch of independent distributions and the last dimension
+    represents a vector of probabilities for each class. Only one of
+    `logits` or `probs` should be passed in.
+* <b>`dtype`</b>: The type of the event samples (default: int32).
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
+    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
+    result is undefined. When `False`, an exception is raised if one or
+    more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
+
 ## Properties
 
 <h3 id="allow_nan_stats"><code>allow_nan_stats</code></h3>
@@ -194,44 +229,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    logits=None,
-    probs=None,
-    dtype=tf.int32,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='Categorical'
-)
-```
-
-Initialize Categorical distributions using class log-probabilities.
-
-#### Args:
-
-* <b>`logits`</b>: An N-D `Tensor`, `N >= 1`, representing the log probabilities
-    of a set of Categorical distributions. The first `N - 1` dimensions
-    index into a batch of independent distributions and the last dimension
-    represents a vector of logits for each class. Only one of `logits` or
-    `probs` should be passed in.
-* <b>`probs`</b>: An N-D `Tensor`, `N >= 1`, representing the probabilities
-    of a set of Categorical distributions. The first `N - 1` dimensions
-    index into a batch of independent distributions and the last dimension
-    represents a vector of probabilities for each class. Only one of
-    `logits` or `probs` should be passed in.
-* <b>`dtype`</b>: The type of the event samples (default: int32).
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
-    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
-    result is undefined. When `False`, an exception is raised if one or
-    more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

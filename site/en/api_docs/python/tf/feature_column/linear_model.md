@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.feature_column.linear_model(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/feature_column/feature_column.py).
 
 Returns a linear prediction `Tensor` based on given `feature_columns`.
 
@@ -31,10 +28,23 @@ Weighted sum refers to logits in classification problems. It refers to the
 prediction itself for linear regression problems.
 
 Note on supported columns: `linear_model` treats categorical columns as
-`indicator_column`s while `input_layer` explicitly requires wrapping each
-of them with an `embedding_column` or an `indicator_column`.
+`indicator_column`s. To be specific, assume the input as `SparseTensor` looks
+like:
 
-Example:
+```python
+  shape = [2, 2]
+  {
+      [0, 0]: "a"
+      [1, 0]: "b"
+      [1, 1]: "c"
+  }
+```
+`linear_model` assigns weights for the presence of "a", "b", "c' implicitly,
+just like `indicator_column`, while `input_layer` explicitly requires wrapping
+each of categorical columns with an `embedding_column` or an
+`indicator_column`.
+
+Example of usage:
 
 ```python
 price = numeric_column('price')
@@ -56,13 +66,45 @@ prediction = linear_model(features, columns)
     to your model. All items should be instances of classes derived from
     `_FeatureColumn`s.
 * <b>`units`</b>: An integer, dimensionality of the output space. Default value is 1.
-* <b>`sparse_combiner`</b>: A string specifying how to reduce if a sparse column is
-    multivalent. Currently "mean", "sqrtn" and "sum" are supported, with "sum"
-    the default. "sqrtn" often achieves good accuracy, in particular with
-    bag-of-words columns. It combines each sparse columns independently.
+* <b>`sparse_combiner`</b>: A string specifying how to reduce if a categorical column
+    is multivalent. Except `numeric_column`, almost all columns passed to
+    `linear_model` are considered as categorical columns.  It combines each
+    categorical column independently. Currently "mean", "sqrtn" and "sum" are
+    supported, with "sum" the default for linear model. "sqrtn" often achieves
+    good accuracy, in particular with bag-of-words columns.
       * "sum": do not normalize features in the column
       * "mean": do l1 normalization on features in the column
       * "sqrtn": do l2 normalization on features in the column
+    For example, for two features represented as the categorical columns:
+
+    ```python
+      # Feature 1
+
+      shape = [2, 2]
+      {
+          [0, 0]: "a"
+          [0, 1]: "b"
+          [1, 0]: "c"
+      }
+
+      # Feature 2
+
+      shape = [2, 3]
+      {
+          [0, 0]: "d"
+          [1, 0]: "e"
+          [1, 1]: "f"
+          [1, 2]: "g"
+      }
+    ```
+    with `sparse_combiner` as "mean", the linear model outputs conceptly are:
+
+    ```
+      y_0 = 1.0 / 2.0 * ( w_a + w_ b) + w_c + b_0
+      y_1 = w_d + 1.0 / 3.0 * ( w_e + w_ f + w_g) + b_1
+    ```
+    where `y_i` is the output, `b_i` is the bias, and `w_x` is the weight
+    assigned to the presence of `x` in the input features.
 * <b>`weight_collections`</b>: A list of collection names to which the Variable will be
     added. Note that, variables will also be added to collections
     <a href="../../tf/GraphKeys#GLOBAL_VARIABLES"><code>tf.GraphKeys.GLOBAL_VARIABLES</code></a> and `ops.GraphKeys.MODEL_VARIABLES`.

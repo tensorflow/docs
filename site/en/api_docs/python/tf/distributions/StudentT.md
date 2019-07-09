@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,9 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/student_t.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/student_t.py).
-
-See the guide: [Statistical Distributions (contrib) > Univariate (scalar) distributions](../../../../api_guides/python/contrib.distributions#Univariate_scalar_distributions)
+Defined in [`tensorflow/python/ops/distributions/student_t.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/student_t.py).
 
 Student's t-distribution.
 
@@ -58,6 +53,12 @@ Y = loc + scale * X
 Notice that `scale` has semantics more similar to standard deviation than
 variance. However it is not actually the std. deviation; the Student's
 t-distribution std. dev. is `scale sqrt(df / (df - 2))` when `df > 2`.
+
+Samples of this distribution are reparameterized (pathwise differentiable).
+The derivatives are computed using the approach described in the paper
+
+[Michael Figurnov, Shakir Mohamed, Andriy Mnih.
+Implicit Reparameterization Gradients, 2018](https://arxiv.org/abs/1805.08498)
 
 #### Examples
 
@@ -96,6 +97,66 @@ dist = tf.distributions.StudentT(df=2, loc=1, scale=[11, 22.])
 # returning a length 2 tensor.
 dist.prob(3.0)
 ```
+
+Compute the gradients of samples w.r.t. the parameters:
+
+```python
+df = tf.constant(2.0)
+loc = tf.constant(2.0)
+scale = tf.constant(11.0)
+dist = tf.distributions.StudentT(df=df, loc=loc, scale=scale)
+samples = dist.sample(5)  # Shape [5]
+loss = tf.reduce_mean(tf.square(samples))  # Arbitrary loss function
+# Unbiased stochastic gradients of the loss function
+grads = tf.gradients(loss, [df, loc, scale])
+```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    df,
+    loc,
+    scale,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='StudentT'
+)
+```
+
+Construct Student's t distributions.
+
+The distributions have degree of freedom `df`, mean `loc`, and scale
+`scale`.
+
+The parameters `df`, `loc`, and `scale` must be shaped in a way that
+supports broadcasting (e.g. `df + loc + scale` is a valid operation).
+
+#### Args:
+
+* <b>`df`</b>: Floating-point `Tensor`. The degrees of freedom of the
+    distribution(s). `df` must contain only positive values.
+* <b>`loc`</b>: Floating-point `Tensor`. The mean(s) of the distribution(s).
+* <b>`scale`</b>: Floating-point `Tensor`. The scaling factor(s) for the
+    distribution(s). Note that `scale` is not technically the standard
+    deviation of this distribution but has semantics more similar to
+    standard deviation than variance.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`,
+    statistics (e.g., mean, mode, variance) use the value "`NaN`" to
+    indicate the result is undefined. When `False`, an exception is raised
+    if one or more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: if loc and scale are different dtypes.
+
+
 
 ## Properties
 
@@ -181,51 +242,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    df,
-    loc,
-    scale,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='StudentT'
-)
-```
-
-Construct Student's t distributions.
-
-The distributions have degree of freedom `df`, mean `loc`, and scale
-`scale`.
-
-The parameters `df`, `loc`, and `scale` must be shaped in a way that
-supports broadcasting (e.g. `df + loc + scale` is a valid operation).
-
-#### Args:
-
-* <b>`df`</b>: Floating-point `Tensor`. The degrees of freedom of the
-    distribution(s). `df` must contain only positive values.
-* <b>`loc`</b>: Floating-point `Tensor`. The mean(s) of the distribution(s).
-* <b>`scale`</b>: Floating-point `Tensor`. The scaling factor(s) for the
-    distribution(s). Note that `scale` is not technically the standard
-    deviation of this distribution but has semantics more similar to
-    standard deviation than variance.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`,
-    statistics (e.g., mean, mode, variance) use the value "`NaN`" to
-    indicate the result is undefined. When `False`, an exception is raised
-    if one or more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: if loc and scale are different dtypes.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

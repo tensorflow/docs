@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,9 +20,7 @@ tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler_logspace(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
-
-See the guide: [BayesFlow Monte Carlo (contrib) > Ops](../../../../../../api_guides/python/contrib.bayesflow.monte_carlo#Ops)
+Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
 
 Importance sampling with a positive function, in log-space.
 

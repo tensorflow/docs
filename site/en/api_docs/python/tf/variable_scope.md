@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/variable_scope.py).
+Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/variable_scope.py).
 
 See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
 
@@ -31,8 +28,8 @@ to it.
 
 Variable scope allows you to create new variables and to share already created
 ones while providing checks to not create or share by accident. For details,
-see the <a href="../../../guide/variables">Variable Scope How To</a>, here we present only a few basic
-examples.
+see the [Variable Scope How To](https://tensorflow.org/guide/variables), here
+we present only a few basic examples.
 
 Simple example of how to create a new variable:
 
@@ -41,6 +38,23 @@ with tf.variable_scope("foo"):
     with tf.variable_scope("bar"):
         v = tf.get_variable("v", [1])
         assert v.name == "foo/bar/v:0"
+```
+
+Simple example of how to reenter a premade variable scope safely:
+
+```python
+with tf.variable_scope("foo") as vs:
+  pass
+
+# Re-enter the variable scope.
+with tf.variable_scope(vs,
+                       auxiliary_name_scope=False) as vs1:
+  # Restore the original name_scope.
+  with tf.name_scope(vs1.original_name_scope):
+      v = tf.get_variable("v", [1])
+      assert v.name == "foo/v:0"
+      c = tf.constant([1], name="c")
+      assert c.name == "foo/c:0"
 ```
 
 Basic example of sharing a variable AUTO_REUSE:
@@ -133,9 +147,7 @@ def thread_target_fn(captured_scope):
 thread = threading.Thread(target=thread_target_fn, args=(main_thread_scope,))
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -173,7 +185,8 @@ Initialize the context manager.
     for this scope as well as all sub-scopes; if tf.AUTO_REUSE, we create
     variables if they do not exist, and return them otherwise; if None, we
     inherit the parent scope's reuse flag. When eager execution is enabled,
-    this argument is always forced to be tf.AUTO_REUSE.
+    new variables are always created unless an EagerVariableStore or
+    template is currently active.
 * <b>`dtype`</b>: type of variables created in this scope (defaults to the type
     in the passed scope, or inherited from parent scope).
 * <b>`use_resource`</b>: If False, all variables will be regular Variables. If True,
@@ -188,7 +201,9 @@ Initialize the context manager.
     (which must have the same shape). Constraints are not safe to
     use when doing asynchronous distributed training.
 * <b>`auxiliary_name_scope`</b>: If `True`, we create an auxiliary name scope with
-    the scope. If `False`, we don't touch name scope.
+    the scope. If `False`, we don't create it. Note that the argument is
+    not inherited, and it only takes effect for once when creating. You
+    should only use it for re-entering a premade variable scope.
 
 
 #### Returns:
@@ -201,6 +216,10 @@ A scope that can be captured and reused.
 * <b>`ValueError`</b>: when trying to reuse within a create scope, or create within
     a reuse scope.
 * <b>`TypeError`</b>: when the types of some arguments are not appropriate.
+
+
+
+## Methods
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 

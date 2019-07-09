@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,21 +11,11 @@ Inherits From: [`ExportOutput`](../../../tf/estimator/export/ExportOutput)
 
 
 
-Defined in [`tensorflow/python/estimator/export/export_output.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/export/export_output.py).
+Defined in [`tensorflow/python/estimator/export/export_output.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/export/export_output.py).
 
 Represents the output of a regression head.
 
-## Properties
-
-<h3 id="value"><code>value</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(value)
@@ -44,6 +31,18 @@ Constructor for `RegressionOutput`.
 #### Raises:
 
 * <b>`ValueError`</b>: if the value is not a `Tensor` with dtype tf.float32.
+
+
+
+## Properties
+
+<h3 id="value"><code>value</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="as_signature_def"><code>as_signature_def</code></h3>
 

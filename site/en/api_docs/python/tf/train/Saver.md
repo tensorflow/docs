@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/saver.py).
 
 See the guides: [Exporting and Importing a MetaGraph > Exporting a Complete Model to MetaGraph](../../../../api_guides/python/meta_graph#Exporting_a_Complete_Model_to_MetaGraph), [Exporting and Importing a MetaGraph](../../../../api_guides/python/meta_graph), [Variables > Saving and Restoring Variables](../../../../api_guides/python/state_ops#Saving_and_Restoring_Variables)
 
 Saves and restores variables.
 
-See <a href="../../../../guide/variables">Variables</a>
+See [Variables](https://tensorflow.org/guide/variables)
 for an overview of variables, saving and restoring.
 
 The `Saver` class adds ops to save and restore variables to and from
@@ -91,23 +88,7 @@ to the most recent checkpoint. That protocol buffer is stored in a file named
 If you create several savers, you can specify a different filename for the
 protocol buffer file in the call to `save()`.
 
-## Properties
-
-<h3 id="last_checkpoints"><code>last_checkpoints</code></h3>
-
-List of not-yet-deleted checkpoint filenames.
-
-You can pass any of the returned values to `restore()`.
-
-#### Returns:
-
-A list of checkpoint filenames, sorted from oldest to newest.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -223,6 +204,24 @@ When eager execution is enabled, `var_list` must specify a `list` or `dict`
 of variables to save. Otherwise, a `RuntimeError` will be raised.
 
 
+
+
+
+## Properties
+
+<h3 id="last_checkpoints"><code>last_checkpoints</code></h3>
+
+List of not-yet-deleted checkpoint filenames.
+
+You can pass any of the returned values to `restore()`.
+
+#### Returns:
+
+A list of checkpoint filenames, sorted from oldest to newest.
+
+
+
+## Methods
 
 <h3 id="as_saver_def"><code>as_saver_def</code></h3>
 
@@ -346,7 +345,7 @@ The `save_path` argument is typically a value previously returned from a
 
 #### Raises:
 
-* <b>`ValueError`</b>: If save_path is None.
+* <b>`ValueError`</b>: If save_path is None or not a valid checkpoint.
 
 <h3 id="save"><code>save</code></h3>
 

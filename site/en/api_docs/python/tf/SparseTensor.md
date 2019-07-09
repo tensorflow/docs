@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/sparse_tensor.py).
+Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/sparse_tensor.py).
 
 See the guide: [Sparse Tensors > Sparse Tensor Representation](../../../api_guides/python/sparse_ops#Sparse_Tensor_Representation)
 
@@ -76,6 +73,26 @@ represents the dense tensor
  [0, 0, 0, 0]]
 ```
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    indices,
+    values,
+    dense_shape
+)
+```
+
+Creates a `SparseTensor`.
+
+#### Args:
+
+* <b>`indices`</b>: A 2-D int64 tensor of shape `[N, ndims]`.
+* <b>`values`</b>: A 1-D tensor of any type and shape `[N]`.
+* <b>`dense_shape`</b>: A 1-D int64 tensor of shape `[ndims]`.
+
+
+
 ## Properties
 
 <h3 id="dense_shape"><code>dense_shape</code></h3>
@@ -103,6 +120,14 @@ A 2-D Tensor of int64 with dense_shape `[N, ndims]`, where `N` is the
 
 The `Operation` that produces `values` as an output.
 
+<h3 id="shape"><code>shape</code></h3>
+
+Get the `TensorShape` representing the shape of the dense tensor.
+
+#### Returns:
+
+A `TensorShape` object.
+
 <h3 id="values"><code>values</code></h3>
 
 The non-zero values in the represented dense tensor.
@@ -114,29 +139,6 @@ A 1-D Tensor of any data type.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    indices,
-    values,
-    dense_shape
-)
-```
-
-Creates a `SparseTensor`.
-
-#### Args:
-
-* <b>`indices`</b>: A 2-D int64 tensor of shape `[N, ndims]`.
-* <b>`values`</b>: A 1-D tensor of any type and shape `[N]`.
-* <b>`dense_shape`</b>: A 1-D int64 tensor of shape `[ndims]`.
-
-
-#### Returns:
-
-A `SparseTensor`.
 
 <h3 id="__div__"><code>__div__</code></h3>
 
@@ -216,6 +218,18 @@ __truediv__(
 ```
 
 Internal helper function for 'sp_t / dense_t'.
+
+<h3 id="consumers"><code>consumers</code></h3>
+
+``` python
+consumers()
+```
+
+Returns a list of `Operation`s that consume this `SparseTensor`.
+
+#### Returns:
+
+A list of `Operation`s.
 
 <h3 id="eval"><code>eval</code></h3>
 

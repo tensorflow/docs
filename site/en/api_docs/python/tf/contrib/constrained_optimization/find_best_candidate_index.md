@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.contrib.constrained_optimization.find_best_candidate_index(
 
 
 
-Defined in [`tensorflow/contrib/constrained_optimization/python/candidates.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/constrained_optimization/python/candidates.py).
+Defined in [`tensorflow/contrib/constrained_optimization/python/candidates.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/constrained_optimization/python/candidates.py).
 
 Heuristically finds the best candidate solution to a constrained problem.
 

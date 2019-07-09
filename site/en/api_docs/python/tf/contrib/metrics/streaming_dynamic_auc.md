@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -15,13 +12,14 @@ tf.contrib.metrics.streaming_dynamic_auc(
     curve='ROC',
     metrics_collections=(),
     updates_collections=(),
-    name=None
+    name=None,
+    weights=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 Computes the apporixmate AUC by a Riemann sum with data-derived thresholds.
 
@@ -48,6 +46,8 @@ and performing the final calculation using all of the concatenated values.
     should be added to.
 * <b>`name`</b>: An optional name for the variable_scope that contains the metric
     variables.
+* <b>`weights`</b>: A 'Tensor' of non-negative weights whose values are castable to
+    `float64`. Will be flattened into a 1-D `Tensor`.
 
 
 #### Returns:

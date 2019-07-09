@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,15 +8,15 @@ page_type: reference
 
 ## Class `Variable`
 
+Inherits From: [`CheckpointableBase`](../tf/contrib/checkpoint/CheckpointableBase)
 
 
 
-
-Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/variables.py).
+Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/variables.py).
 
 See the guide: [Variables > Variables](../../../api_guides/python/state_ops#Variables)
 
-See the <a href="../../../guide/variables">Variables How To</a> for a high level overview.
+See the [Variables Guide](https://tensorflow.org/guide/variables).
 
 A variable maintains state in the graph across calls to `run()`. You add a
 variable to the graph by constructing an instance of the class `Variable`.
@@ -103,38 +101,128 @@ easier, the variable constructor supports a `trainable=<bool>` parameter. If
 various `Optimizer` classes use this collection as the default list of
 variables to optimize.
 
-WARNING: tf.Variable objects have a non-intuitive memory model. A Variable is
-represented internally as a mutable Tensor which can non-deterministically
-alias other Tensors in a graph. The set of operations which consume a Variable
-and can lead to aliasing is undetermined and can change across TensorFlow
-versions. Avoid writing code which relies on the value of a Variable either
-changing or not changing as other operations happen. For example, using
-Variable objects or simple functions thereof as predicates in a <a href="../tf/cond"><code>tf.cond</code></a> is
-dangerous and error-prone:
+WARNING: tf.Variable objects by default have a non-intuitive memory model. A
+Variable is represented internally as a mutable Tensor which can
+non-deterministically alias other Tensors in a graph. The set of operations
+which consume a Variable and can lead to aliasing is undetermined and can
+change across TensorFlow versions. Avoid writing code which relies on the
+value of a Variable either changing or not changing as other operations
+happen. For example, using Variable objects or simple functions thereof as
+predicates in a <a href="../tf/cond"><code>tf.cond</code></a> is dangerous and error-prone:
 
 ```
 v = tf.Variable(True)
 tf.cond(v, lambda: v.assign(False), my_false_fn)  # Note: this is broken.
 ```
 
-Here replacing tf.Variable with tf.contrib.eager.Variable will fix any
-nondeterminism issues.
+Here replacing adding `use_resource=True` when constructing the variable will
+fix any nondeterminism issues:
+
+```
+v = tf.Variable(True, use_resource=True)
+tf.cond(v, lambda: v.assign(False), my_false_fn)
+```
 
 To use the replacement for variables which does
 not have these issues:
 
-* Replace <a href="../tf/Variable"><code>tf.Variable</code></a> with <a href="../tf/contrib/eager/Variable"><code>tf.contrib.eager.Variable</code></a>;
+* Add `use_resource=True` when constructing <a href="../tf/Variable"><code>tf.Variable</code></a>;
 * Call `tf.get_variable_scope().set_use_resource(True)` inside a
   <a href="../tf/variable_scope"><code>tf.variable_scope</code></a> before the `tf.get_variable()` call.
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    initial_value=None,
+    trainable=True,
+    collections=None,
+    validate_shape=True,
+    caching_device=None,
+    name=None,
+    variable_def=None,
+    dtype=None,
+    expected_shape=None,
+    import_scope=None,
+    constraint=None,
+    use_resource=None,
+    synchronization=tf.VariableSynchronization.AUTO,
+    aggregation=tf.VariableAggregation.NONE
+)
+```
+
+Creates a new variable with value `initial_value`.
+
+The new variable is added to the graph collections listed in `collections`,
+which defaults to `[GraphKeys.GLOBAL_VARIABLES]`.
+
+If `trainable` is `True` the variable is also added to the graph collection
+`GraphKeys.TRAINABLE_VARIABLES`.
+
+This constructor creates both a `variable` Op and an `assign` Op to set the
+variable to its initial value.
+
+#### Args:
+
+* <b>`initial_value`</b>: A `Tensor`, or Python object convertible to a `Tensor`,
+    which is the initial value for the Variable. The initial value must have
+    a shape specified unless `validate_shape` is set to False. Can also be a
+    callable with no argument that returns the initial value when called. In
+    that case, `dtype` must be specified. (Note that initializer functions
+    from init_ops.py must first be bound to a shape before being used here.)
+* <b>`trainable`</b>: If `True`, the default, also adds the variable to the graph
+    collection `GraphKeys.TRAINABLE_VARIABLES`. This collection is used as
+    the default list of variables to use by the `Optimizer` classes.
+* <b>`collections`</b>: List of graph collections keys. The new variable is added to
+    these collections. Defaults to `[GraphKeys.GLOBAL_VARIABLES]`.
+* <b>`validate_shape`</b>: If `False`, allows the variable to be initialized with a
+    value of unknown shape. If `True`, the default, the shape of
+    `initial_value` must be known.
+* <b>`caching_device`</b>: Optional device string describing where the Variable
+    should be cached for reading.  Defaults to the Variable's device.
+    If not `None`, caches on another device.  Typical use is to cache
+    on the device where the Ops using the Variable reside, to deduplicate
+    copying through `Switch` and other conditional statements.
+* <b>`name`</b>: Optional name for the variable. Defaults to `'Variable'` and gets
+    uniquified automatically.
+* <b>`variable_def`</b>: `VariableDef` protocol buffer. If not `None`, recreates
+    the Variable object with its contents, referencing the variable's nodes
+    in the graph, which must already exist. The graph is not changed.
+    `variable_def` and the other arguments are mutually exclusive.
+* <b>`dtype`</b>: If set, initial_value will be converted to the given type.
+    If `None`, either the datatype will be kept (if `initial_value` is
+    a Tensor), or `convert_to_tensor` will decide.
+* <b>`expected_shape`</b>: A TensorShape. If set, initial_value is expected
+    to have this shape.
+* <b>`import_scope`</b>: Optional `string`. Name scope to add to the
+    `Variable.` Only used when initializing from protocol buffer.
+* <b>`constraint`</b>: An optional projection function to be applied to the variable
+    after being updated by an `Optimizer` (e.g. used to implement norm
+    constraints or value constraints for layer weights). The function must
+    take as input the unprojected Tensor representing the value of the
+    variable and return the Tensor for the projected value
+    (which must have the same shape). Constraints are not safe to
+    use when doing asynchronous distributed training.
+* <b>`use_resource`</b>: if True, a ResourceVariable is created; otherwise an
+   old-style ref-based variable is created. When eager execution is enabled
+   a resource variable is always created.
+* <b>`synchronization`</b>: Indicates when a distributed a variable will be
+    aggregated. Accepted values are constants defined in the class
+    <a href="../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to
+    `AUTO` and the current `DistributionStrategy` chooses
+    when to synchronize. If `synchronization` is set to `ON_READ`,
+    `trainable` must not be set to `True`.
+* <b>`aggregation`</b>: Indicates how a distributed variable will be aggregated.
+    Accepted values are constants defined in the class
+    <a href="../tf/VariableAggregation"><code>tf.VariableAggregation</code></a>.
 
 
-#### Eager Compatibility
-<a href="../tf/Variable"><code>tf.Variable</code></a> is not compatible with eager execution.  Use
-<a href="../tf/contrib/eager/Variable"><code>tf.contrib.eager.Variable</code></a> instead which is compatible with both eager
-execution and graph construction.  See [the TensorFlow Eager Execution
-guide](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/eager/python/g3doc/guide.md#variables-and-optimizers)
-for details on how variables work in eager execution.
+#### Raises:
+
+* <b>`ValueError`</b>: If both `variable_def` and initial_value are specified.
+* <b>`ValueError`</b>: If the initial value is not specified, or does not have a
+    shape and `validate_shape` is `True`.
+* <b>`RuntimeError`</b>: If eager execution is enabled.
 
 
 
@@ -205,96 +293,6 @@ A `TensorShape`.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    initial_value=None,
-    trainable=True,
-    collections=None,
-    validate_shape=True,
-    caching_device=None,
-    name=None,
-    variable_def=None,
-    dtype=None,
-    expected_shape=None,
-    import_scope=None,
-    constraint=None
-)
-```
-
-Creates a new variable with value `initial_value`.
-
-The new variable is added to the graph collections listed in `collections`,
-which defaults to `[GraphKeys.GLOBAL_VARIABLES]`.
-
-If `trainable` is `True` the variable is also added to the graph collection
-`GraphKeys.TRAINABLE_VARIABLES`.
-
-This constructor creates both a `variable` Op and an `assign` Op to set the
-variable to its initial value.
-
-#### Args:
-
-* <b>`initial_value`</b>: A `Tensor`, or Python object convertible to a `Tensor`,
-    which is the initial value for the Variable. The initial value must have
-    a shape specified unless `validate_shape` is set to False. Can also be a
-    callable with no argument that returns the initial value when called. In
-    that case, `dtype` must be specified. (Note that initializer functions
-    from init_ops.py must first be bound to a shape before being used here.)
-* <b>`trainable`</b>: If `True`, the default, also adds the variable to the graph
-    collection `GraphKeys.TRAINABLE_VARIABLES`. This collection is used as
-    the default list of variables to use by the `Optimizer` classes.
-* <b>`collections`</b>: List of graph collections keys. The new variable is added to
-    these collections. Defaults to `[GraphKeys.GLOBAL_VARIABLES]`.
-* <b>`validate_shape`</b>: If `False`, allows the variable to be initialized with a
-    value of unknown shape. If `True`, the default, the shape of
-    `initial_value` must be known.
-* <b>`caching_device`</b>: Optional device string describing where the Variable
-    should be cached for reading.  Defaults to the Variable's device.
-    If not `None`, caches on another device.  Typical use is to cache
-    on the device where the Ops using the Variable reside, to deduplicate
-    copying through `Switch` and other conditional statements.
-* <b>`name`</b>: Optional name for the variable. Defaults to `'Variable'` and gets
-    uniquified automatically.
-* <b>`variable_def`</b>: `VariableDef` protocol buffer. If not `None`, recreates
-    the Variable object with its contents, referencing the variable's nodes
-    in the graph, which must already exist. The graph is not changed.
-    `variable_def` and the other arguments are mutually exclusive.
-* <b>`dtype`</b>: If set, initial_value will be converted to the given type.
-    If `None`, either the datatype will be kept (if `initial_value` is
-    a Tensor), or `convert_to_tensor` will decide.
-* <b>`expected_shape`</b>: A TensorShape. If set, initial_value is expected
-    to have this shape.
-* <b>`import_scope`</b>: Optional `string`. Name scope to add to the
-    `Variable.` Only used when initializing from protocol buffer.
-* <b>`constraint`</b>: An optional projection function to be applied to the variable
-    after being updated by an `Optimizer` (e.g. used to implement norm
-    constraints or value constraints for layer weights). The function must
-    take as input the unprojected Tensor representing the value of the
-    variable and return the Tensor for the projected value
-    (which must have the same shape). Constraints are not safe to
-    use when doing asynchronous distributed training.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: If both `variable_def` and initial_value are specified.
-* <b>`ValueError`</b>: If the initial value is not specified, or does not have a
-    shape and `validate_shape` is `True`.
-* <b>`RuntimeError`</b>: If eager execution is enabled.
-
-
-
-#### Eager Compatibility
-<a href="../tf/Variable"><code>tf.Variable</code></a> is not compatible with eager execution.  Use
-`tfe.Variable` instead which is compatible with both eager execution
-and graph construction.  See [the TensorFlow Eager Execution
-guide](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/eager/python/g3doc/guide.md#variables-and-optimizers)
-for details on how variables work in eager execution.
-
-
-
 <h3 id="__abs__"><code>__abs__</code></h3>
 
 ``` python
@@ -341,7 +339,7 @@ __add__(
 
 Returns x + y element-wise.
 
-*NOTE*: `Add` supports broadcasting. `AddN` does not. More about broadcasting
+*NOTE*: `math.add` supports broadcasting. `AddN` does not. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -366,7 +364,7 @@ __and__(
 
 Returns the truth value of x AND y element-wise.
 
-*NOTE*: `LogicalAnd` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_and` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -451,7 +449,7 @@ __ge__(
 
 Returns the truth value of (x >= y) element-wise.
 
-*NOTE*: `GreaterEqual` supports broadcasting. More about broadcasting
+*NOTE*: `math.greater_equal` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -529,7 +527,7 @@ __gt__(
 
 Returns the truth value of (x > y) element-wise.
 
-*NOTE*: `Greater` supports broadcasting. More about broadcasting
+*NOTE*: `math.greater` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -612,22 +610,6 @@ __isub__(other)
 
 
 
-<h3 id="__iter__"><code>__iter__</code></h3>
-
-``` python
-__iter__()
-```
-
-Dummy method to prevent iteration. Do not call.
-
-NOTE(mrry): If we register __getitem__ as an overloaded operator,
-Python will valiantly attempt to iterate over the variable's Tensor from 0
-to infinity.  Declaring this method prevents this unintended behavior.
-
-#### Raises:
-
-* <b>`TypeError`</b>: when invoked.
-
 <h3 id="__itruediv__"><code>__itruediv__</code></h3>
 
 ``` python
@@ -647,7 +629,7 @@ __le__(
 
 Returns the truth value of (x <= y) element-wise.
 
-*NOTE*: `LessEqual` supports broadcasting. More about broadcasting
+*NOTE*: `math.less_equal` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -672,7 +654,7 @@ __lt__(
 
 Returns the truth value of (x < y) element-wise.
 
-*NOTE*: `Less` supports broadcasting. More about broadcasting
+*NOTE*: `math.less` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -873,7 +855,7 @@ __or__(
 
 Returns the truth value of x OR y element-wise.
 
-*NOTE*: `LogicalOr` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_or` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -931,7 +913,7 @@ __radd__(
 
 Returns x + y element-wise.
 
-*NOTE*: `Add` supports broadcasting. `AddN` does not. More about broadcasting
+*NOTE*: `math.add` supports broadcasting. `AddN` does not. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -956,7 +938,7 @@ __rand__(
 
 Returns the truth value of x AND y element-wise.
 
-*NOTE*: `LogicalAnd` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_and` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -1194,7 +1176,7 @@ __ror__(
 
 Returns the truth value of x OR y element-wise.
 
-*NOTE*: `LogicalOr` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_or` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -1340,7 +1322,9 @@ x ^ y = (x | y) & ~(x & y).
 ``` python
 assign(
     value,
-    use_locking=False
+    use_locking=False,
+    name=None,
+    read_value=True
 )
 ```
 
@@ -1352,6 +1336,9 @@ This is essentially a shortcut for `assign(self, value)`.
 
 * <b>`value`</b>: A `Tensor`. The new value for this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the assignment.
+* <b>`name`</b>: The name of the operation to be created
+* <b>`read_value`</b>: if True, will return something which evaluates to the
+    new value of the variable; if False will return the assign op.
 
 
 #### Returns:
@@ -1364,7 +1351,9 @@ the assignment has completed.
 ``` python
 assign_add(
     delta,
-    use_locking=False
+    use_locking=False,
+    name=None,
+    read_value=True
 )
 ```
 
@@ -1376,6 +1365,9 @@ Adds a value to this variable.
 
 * <b>`delta`</b>: A `Tensor`. The value to add to this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: The name of the operation to be created
+* <b>`read_value`</b>: if True, will return something which evaluates to the
+    new value of the variable; if False will return the assign op.
 
 
 #### Returns:
@@ -1388,7 +1380,9 @@ the addition has completed.
 ``` python
 assign_sub(
     delta,
-    use_locking=False
+    use_locking=False,
+    name=None,
+    read_value=True
 )
 ```
 
@@ -1400,6 +1394,9 @@ This is essentially a shortcut for `assign_sub(self, delta)`.
 
 * <b>`delta`</b>: A `Tensor`. The value to subtract from this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: The name of the operation to be created
+* <b>`read_value`</b>: if True, will return something which evaluates to the
+    new value of the variable; if False will return the assign op.
 
 
 #### Returns:
@@ -1577,24 +1574,270 @@ dependencies, etc.
 
 A `Tensor` containing the value of the variable.
 
+<h3 id="scatter_add"><code>scatter_add</code></h3>
+
+``` python
+scatter_add(
+    sparse_delta,
+    use_locking=False,
+    name=None
+)
+```
+
+Adds `IndexedSlices` to this variable.
+
+#### Args:
+
+* <b>`sparse_delta`</b>: `IndexedSlices` to be assigned to this variable.
+* <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered subtraction has completed.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_nd_add"><code>scatter_nd_add</code></h3>
+
+``` python
+scatter_nd_add(
+    indices,
+    updates,
+    name=None
+)
+```
+
+Applies sparse addition to individual values or slices in a Variable.
+
+`ref` is a `Tensor` with rank `P` and `indices` is a `Tensor` of rank `Q`.
+
+`indices` must be integer tensor, containing indices into `ref`.
+It must be shape `[d_0, ..., d_{Q-2}, K]` where `0 < K <= P`.
+
+The innermost dimension of `indices` (with length `K`) corresponds to
+indices into elements (if `K = P`) or slices (if `K < P`) along the `K`th
+dimension of `ref`.
+
+`updates` is `Tensor` of rank `Q-1+P-K` with shape:
+
+```
+[d_0, ..., d_{Q-2}, ref.shape[K], ..., ref.shape[P-1]].
+```
+
+For example, say we want to add 4 scattered elements to a rank-1 tensor to
+8 elements. In Python, that update would look like this:
+
+```python
+    ref = tf.Variable([1, 2, 3, 4, 5, 6, 7, 8])
+    indices = tf.constant([[4], [3], [1] ,[7]])
+    updates = tf.constant([9, 10, 11, 12])
+    add = ref.scatter_nd_add(indices, updates)
+    with tf.Session() as sess:
+      print sess.run(add)
+```
+
+The resulting update to ref would look like this:
+
+    [1, 13, 3, 14, 14, 6, 7, 20]
+
+See <a href="../tf/manip/scatter_nd"><code>tf.scatter_nd</code></a> for more details about how to make updates to
+slices.
+
+#### Args:
+
+* <b>`indices`</b>: The indices to be used in the operation.
+* <b>`updates`</b>: The values to be used in the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered subtraction has completed.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_nd_sub"><code>scatter_nd_sub</code></h3>
+
+``` python
+scatter_nd_sub(
+    indices,
+    updates,
+    name=None
+)
+```
+
+Applies sparse subtraction to individual values or slices in a Variable.
+
+`ref` is a `Tensor` with rank `P` and `indices` is a `Tensor` of rank `Q`.
+
+`indices` must be integer tensor, containing indices into `ref`.
+It must be shape `[d_0, ..., d_{Q-2}, K]` where `0 < K <= P`.
+
+The innermost dimension of `indices` (with length `K`) corresponds to
+indices into elements (if `K = P`) or slices (if `K < P`) along the `K`th
+dimension of `ref`.
+
+`updates` is `Tensor` of rank `Q-1+P-K` with shape:
+
+```
+[d_0, ..., d_{Q-2}, ref.shape[K], ..., ref.shape[P-1]].
+```
+
+For example, say we want to add 4 scattered elements to a rank-1 tensor to
+8 elements. In Python, that update would look like this:
+
+```python
+    ref = tf.Variable([1, 2, 3, 4, 5, 6, 7, 8])
+    indices = tf.constant([[4], [3], [1] ,[7]])
+    updates = tf.constant([9, 10, 11, 12])
+    op = ref.scatter_nd_sub(indices, updates)
+    with tf.Session() as sess:
+      print sess.run(op)
+```
+
+The resulting update to ref would look like this:
+
+    [1, -9, 3, -6, -6, 6, 7, -4]
+
+See <a href="../tf/manip/scatter_nd"><code>tf.scatter_nd</code></a> for more details about how to make updates to
+slices.
+
+#### Args:
+
+* <b>`indices`</b>: The indices to be used in the operation.
+* <b>`updates`</b>: The values to be used in the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered subtraction has completed.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_nd_update"><code>scatter_nd_update</code></h3>
+
+``` python
+scatter_nd_update(
+    indices,
+    updates,
+    name=None
+)
+```
+
+Applies sparse assignment to individual values or slices in a Variable.
+
+`ref` is a `Tensor` with rank `P` and `indices` is a `Tensor` of rank `Q`.
+
+`indices` must be integer tensor, containing indices into `ref`.
+It must be shape `[d_0, ..., d_{Q-2}, K]` where `0 < K <= P`.
+
+The innermost dimension of `indices` (with length `K`) corresponds to
+indices into elements (if `K = P`) or slices (if `K < P`) along the `K`th
+dimension of `ref`.
+
+`updates` is `Tensor` of rank `Q-1+P-K` with shape:
+
+```
+[d_0, ..., d_{Q-2}, ref.shape[K], ..., ref.shape[P-1]].
+```
+
+For example, say we want to add 4 scattered elements to a rank-1 tensor to
+8 elements. In Python, that update would look like this:
+
+```python
+    ref = tf.Variable([1, 2, 3, 4, 5, 6, 7, 8])
+    indices = tf.constant([[4], [3], [1] ,[7]])
+    updates = tf.constant([9, 10, 11, 12])
+    op = ref.scatter_nd_assign(indices, updates)
+    with tf.Session() as sess:
+      print sess.run(op)
+```
+
+The resulting update to ref would look like this:
+
+    [1, 11, 3, 10, 9, 6, 7, 12]
+
+See <a href="../tf/manip/scatter_nd"><code>tf.scatter_nd</code></a> for more details about how to make updates to
+slices.
+
+#### Args:
+
+* <b>`indices`</b>: The indices to be used in the operation.
+* <b>`updates`</b>: The values to be used in the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered subtraction has completed.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
 <h3 id="scatter_sub"><code>scatter_sub</code></h3>
 
 ``` python
 scatter_sub(
     sparse_delta,
-    use_locking=False
+    use_locking=False,
+    name=None
 )
 ```
 
 Subtracts `IndexedSlices` from this variable.
 
-This is essentially a shortcut for `scatter_sub(self, sparse_delta.indices,
-sparse_delta.values)`.
-
 #### Args:
 
 * <b>`sparse_delta`</b>: `IndexedSlices` to be subtracted from this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered subtraction has completed.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_update"><code>scatter_update</code></h3>
+
+``` python
+scatter_update(
+    sparse_delta,
+    use_locking=False,
+    name=None
+)
+```
+
+Assigns `IndexedSlices` to this variable.
+
+#### Args:
+
+* <b>`sparse_delta`</b>: `IndexedSlices` to be assigned to this variable.
+* <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: the name of the operation.
 
 
 #### Returns:

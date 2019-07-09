@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/image/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/image/__init__.py).
+Defined in [`tensorflow/image/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/image/__init__.py).
 
 Image processing and decoding ops.
 
-See the <a href="../../../api_guides/python/image">Images</a> guide.
+See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 ## Classes
 
@@ -29,6 +26,8 @@ See the <a href="../../../api_guides/python/image">Images</a> guide.
 [`adjust_gamma(...)`](../tf/image/adjust_gamma): Performs Gamma Correction on the input image.
 
 [`adjust_hue(...)`](../tf/image/adjust_hue): Adjust hue of an RGB image.
+
+[`adjust_jpeg_quality(...)`](../tf/image/adjust_jpeg_quality): Adjust jpeg encoding quality of an RGB image.
 
 [`adjust_saturation(...)`](../tf/image/adjust_saturation): Adjust saturation of an RGB image.
 
@@ -60,6 +59,8 @@ See the <a href="../../../api_guides/python/image">Images</a> guide.
 
 [`extract_glimpse(...)`](../tf/image/extract_glimpse): Extracts a glimpse from the input tensor.
 
+[`extract_image_patches(...)`](../tf/image/extract_image_patches): Extract `patches` from `images` and put them in the "depth" output dimension.
+
 [`extract_jpeg_shape(...)`](../tf/image/extract_jpeg_shape): Extract the shape information of a JPEG-encoded image.
 
 [`flip_left_right(...)`](../tf/image/flip_left_right): Flip an image horizontally (left to right).
@@ -75,6 +76,10 @@ See the <a href="../../../api_guides/python/image">Images</a> guide.
 [`is_jpeg(...)`](../tf/image/is_jpeg): Convenience function to check if the 'contents' encodes a JPEG image.
 
 [`non_max_suppression(...)`](../tf/image/non_max_suppression): Greedily selects a subset of bounding boxes in descending order of score.
+
+[`non_max_suppression_overlaps(...)`](../tf/image/non_max_suppression_overlaps): Greedily selects a subset of bounding boxes in descending order of score.
+
+[`non_max_suppression_padded(...)`](../tf/image/non_max_suppression_padded): Greedily selects a subset of bounding boxes in descending order of score.
 
 [`pad_to_bounding_box(...)`](../tf/image/pad_to_bounding_box): Pad `image` with zeros to the specified `height` and `width`.
 
@@ -92,6 +97,8 @@ See the <a href="../../../api_guides/python/image">Images</a> guide.
 
 [`random_hue(...)`](../tf/image/random_hue): Adjust the hue of an RGB image by a random factor.
 
+[`random_jpeg_quality(...)`](../tf/image/random_jpeg_quality): Randomly changes jpeg encoding quality for inducing jpeg noise.
+
 [`random_saturation(...)`](../tf/image/random_saturation): Adjust the saturation of an RGB image by a random factor.
 
 [`resize_area(...)`](../tf/image/resize_area): Resize `images` to `size` using area interpolation.
@@ -101,6 +108,8 @@ See the <a href="../../../api_guides/python/image">Images</a> guide.
 [`resize_bilinear(...)`](../tf/image/resize_bilinear): Resize `images` to `size` using bilinear interpolation.
 
 [`resize_image_with_crop_or_pad(...)`](../tf/image/resize_image_with_crop_or_pad): Crops and/or pads an image to a target width and height.
+
+[`resize_image_with_pad(...)`](../tf/image/resize_image_with_pad): Resizes and pads an image to a target width and height.
 
 [`resize_images(...)`](../tf/image/resize_images): Resize `images` to `size` using the specified `method`.
 

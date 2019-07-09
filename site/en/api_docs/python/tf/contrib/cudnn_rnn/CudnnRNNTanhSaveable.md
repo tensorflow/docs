@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,21 +11,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py).
+Defined in [`tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py).
 
 SaveableObject implementation handling Cudnn RNN Tanh opaque params.
 
-## Properties
-
-<h3 id="device"><code>device</code></h3>
-
-The device for SaveSpec Tensors.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -89,6 +76,18 @@ Creates a CudnnOpaqueParamsSaveable object.
 * <b>`scope`</b>: string of VariableScope, the scope of equivalent subgraph
       consisting only platform-independent tf RNN cells.
 * <b>`name`</b>: the name of the CudnnOpaqueParamsSaveable object.
+
+
+
+## Properties
+
+<h3 id="device"><code>device</code></h3>
+
+The device for SaveSpec Tensors.
+
+
+
+## Methods
 
 <h3 id="restore"><code>restore</code></h3>
 

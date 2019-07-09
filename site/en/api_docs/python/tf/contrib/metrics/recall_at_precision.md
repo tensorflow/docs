@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,13 +14,14 @@ tf.contrib.metrics.recall_at_precision(
     num_thresholds=200,
     metrics_collections=None,
     updates_collections=None,
-    name=None
+    name=None,
+    strict_mode=False
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 Computes `recall` at `precision`.
 
@@ -57,6 +55,11 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 * <b>`updates_collections`</b>: An optional list of collections that `update_op` should
     be added to.
 * <b>`name`</b>: An optional variable_scope name.
+* <b>`strict_mode`</b>: If true and there exists a threshold where the precision is
+    above the target precision, return the corresponding recall at the
+    threshold. Otherwise, return 0. If false, find the threshold where the
+    precision is closest to the target precision and return the recall at the
+    threshold.
 
 
 #### Returns:

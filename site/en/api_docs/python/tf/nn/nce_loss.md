@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -26,7 +23,7 @@ tf.nn.nce_loss(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Candidate Sampling](../../../../api_guides/python/nn#Candidate_Sampling)
 
@@ -87,7 +84,9 @@ with an otherwise unused class.
       num_true]`. The target classes.
 * <b>`inputs`</b>: A `Tensor` of shape `[batch_size, dim]`.  The forward
       activations of the input network.
-* <b>`num_sampled`</b>: An `int`.  The number of classes to randomly sample per batch.
+* <b>`num_sampled`</b>: An `int`.  The number of negative classes to randomly sample
+      per batch. This single sample of negative classes is evaluated for each
+      element in the batch.
 * <b>`num_classes`</b>: An `int`. The number of possible classes.
 * <b>`num_true`</b>: An `int`.  The number of target classes per training example.
 * <b>`sampled_values`</b>: a tuple of (`sampled_candidates`, `true_expected_count`,

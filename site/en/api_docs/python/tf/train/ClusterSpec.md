@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/server_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/server_lib.py).
+Defined in [`tensorflow/python/training/server_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/server_lib.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -47,21 +44,7 @@ cluster = tf.train.ClusterSpec({"worker": {1: "worker1.example.com:2222"},
                                        "ps1.example.com:2222"]})
 ```
 
-## Properties
-
-<h3 id="jobs"><code>jobs</code></h3>
-
-Returns a list of job names in this cluster.
-
-#### Returns:
-
-A list of strings, corresponding to the names of jobs in this cluster.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(cluster)
@@ -81,6 +64,22 @@ Creates a `ClusterSpec`.
 
 * <b>`TypeError`</b>: If `cluster` is not a dictionary mapping strings to lists
     of strings, and not a <a href="../../tf/train/ClusterDef"><code>tf.train.ClusterDef</code></a> protobuf.
+
+
+
+## Properties
+
+<h3 id="jobs"><code>jobs</code></h3>
+
+Returns a list of job names in this cluster.
+
+#### Returns:
+
+A list of strings, corresponding to the names of jobs in this cluster.
+
+
+
+## Methods
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 

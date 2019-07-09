@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,25 @@ Inherits From: [`Beta`](../../../tf/distributions/Beta)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/beta.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/beta.py).
+Defined in [`tensorflow/python/ops/distributions/beta.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/beta.py).
 
 Beta with softplus transform of `concentration1` and `concentration0`.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    concentration1,
+    concentration0,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='BetaWithSoftplusConcentration'
+)
+```
+
+
+
+
 
 ## Properties
 
@@ -102,20 +115,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    concentration1,
-    concentration0,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='BetaWithSoftplusConcentration'
-)
-```
-
-
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

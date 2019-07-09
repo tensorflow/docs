@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/clustering_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/factorization/python/ops/clustering_ops.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/clustering_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/factorization/python/ops/clustering_ops.py).
 
 Creates the graph for k-means clustering.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -103,6 +98,10 @@ exactly like a full-batch version.
 
 * <b>`ValueError`</b>: An invalid argument was passed to initial_clusters or
     distance_metric.
+
+
+
+## Methods
 
 <h3 id="training_graph"><code>training_graph</code></h3>
 

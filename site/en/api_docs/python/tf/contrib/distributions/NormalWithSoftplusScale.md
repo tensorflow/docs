@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,11 +11,25 @@ Inherits From: [`Normal`](../../../tf/distributions/Normal)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/normal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/normal.py).
-
-See the guide: [Statistical Distributions (contrib) > Univariate (scalar) distributions](../../../../../api_guides/python/contrib.distributions#Univariate_scalar_distributions)
+Defined in [`tensorflow/python/ops/distributions/normal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/normal.py).
 
 Normal with softplus applied to `scale`.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    loc,
+    scale,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='NormalWithSoftplusScale'
+)
+```
+
+
+
+
 
 ## Properties
 
@@ -100,20 +111,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    loc,
-    scale,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='NormalWithSoftplusScale'
-)
-```
-
-
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

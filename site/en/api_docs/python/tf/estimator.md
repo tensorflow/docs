@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,15 +7,15 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/estimator/__init__.py).
+Defined in [`tensorflow/python/estimator/api/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/api/estimator/__init__.py).
 
-Public API for tf.estimator namespace.
+Estimator: High level tools for working with models.
 
 ## Modules
 
-[`export`](../tf/estimator/export) module: Public API for tf.estimator.export namespace.
+[`export`](../tf/estimator/export) module: Utility methods for exporting Estimator.
 
-[`inputs`](../tf/estimator/inputs) module: Public API for tf.estimator.inputs namespace.
+[`inputs`](../tf/estimator/inputs) module: Utility methods to create simple input_fns.
 
 ## Classes
 
@@ -62,9 +59,9 @@ Public API for tf.estimator namespace.
 
 [`class TrainSpec`](../tf/estimator/TrainSpec): Configuration for the "train" part for the `train_and_evaluate` call.
 
-[`class VocabInfo`](../tf/estimator/VocabInfo): Vocabulary information for warm-starting.
+[`class VocabInfo`](../tf/train/VocabInfo): Vocabulary information for warm-starting.
 
-[`class WarmStartSettings`](../tf/estimator/WarmStartSettings): Settings for warm-starting in Estimators.
+[`class WarmStartSettings`](../tf/estimator/WarmStartSettings): Settings for warm-starting in `tf.estimator.Estimators`.
 
 ## Functions
 

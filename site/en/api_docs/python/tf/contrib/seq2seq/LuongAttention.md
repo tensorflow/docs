@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 See the guide: [Seq2seq Library (contrib) > Attention](../../../../../api_guides/python/contrib.seq2seq#Attention)
 
@@ -33,41 +30,7 @@ Bahdanau attention.
 To enable the second form, construct the object with parameter
 `scale=True`.
 
-## Properties
-
-<h3 id="alignments_size"><code>alignments_size</code></h3>
-
-
-
-<h3 id="batch_size"><code>batch_size</code></h3>
-
-
-
-<h3 id="keys"><code>keys</code></h3>
-
-
-
-<h3 id="memory_layer"><code>memory_layer</code></h3>
-
-
-
-<h3 id="query_layer"><code>query_layer</code></h3>
-
-
-
-<h3 id="state_size"><code>state_size</code></h3>
-
-
-
-<h3 id="values"><code>values</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -102,6 +65,42 @@ Construct the AttentionMechanism mechanism.
     `memory_sequence_length` is not None.
 * <b>`dtype`</b>: The data type for the memory layer of the attention mechanism.
 * <b>`name`</b>: Name to use when creating ops.
+
+
+
+## Properties
+
+<h3 id="alignments_size"><code>alignments_size</code></h3>
+
+
+
+<h3 id="batch_size"><code>batch_size</code></h3>
+
+
+
+<h3 id="keys"><code>keys</code></h3>
+
+
+
+<h3 id="memory_layer"><code>memory_layer</code></h3>
+
+
+
+<h3 id="query_layer"><code>query_layer</code></h3>
+
+
+
+<h3 id="state_size"><code>state_size</code></h3>
+
+
+
+<h3 id="values"><code>values</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

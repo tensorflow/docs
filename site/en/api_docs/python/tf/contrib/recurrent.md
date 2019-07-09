@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/recurrent/python/recurrent_api.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/recurrent/python/recurrent_api.py).
+Defined in [`tensorflow/contrib/recurrent/python/recurrent_api.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/recurrent/python/recurrent_api.py).
 
 Recurrent computations library.
 

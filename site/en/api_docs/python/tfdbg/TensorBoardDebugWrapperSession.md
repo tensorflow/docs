@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`GrpcDebugWrapperSession`](../tfdbg/GrpcDebugWrapperSession)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/grpc_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/wrappers/grpc_wrapper.py).
+Defined in [`tensorflow/python/debug/wrappers/grpc_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/wrappers/grpc_wrapper.py).
 
 A tfdbg Session wrapper that can be used with TensorBoard Debugger Plugin.
 
@@ -25,6 +22,34 @@ This wrapper is the same as `GrpcDebugWrapperSession`, except that it uses a
      breakpoints.
   2) watches all tensors in the graph.
 This saves the need for the user to define a `watch_fn`.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    sess,
+    grpc_debug_server_addresses,
+    thread_name_filter=None,
+    send_traceback_and_source_code=True,
+    log_usage=True
+)
+```
+
+Constructor of TensorBoardDebugWrapperSession.
+
+#### Args:
+
+* <b>`sess`</b>: The <a href="../tf/Session"><code>tf.Session</code></a> instance to be wrapped.
+* <b>`grpc_debug_server_addresses`</b>: gRPC address(es) of debug server(s), as a
+    `str` or a `list` of `str`s. E.g., "localhost:2333",
+    "grpc://localhost:2333", ["192.168.0.7:2333", "192.168.0.8:2333"].
+* <b>`thread_name_filter`</b>: Optional filter for thread names.
+* <b>`send_traceback_and_source_code`</b>: Whether traceback of graph elements and
+    the source code are to be sent to the debug server(s).
+* <b>`log_usage`</b>: Whether the usage of this class is to be logged (if
+    applicable).
+
+
 
 ## Properties
 
@@ -51,32 +76,6 @@ This saves the need for the user to define a `watch_fn`.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    sess,
-    grpc_debug_server_addresses,
-    thread_name_filter=None,
-    send_traceback_and_source_code=True,
-    log_usage=True
-)
-```
-
-Constructor of TensorBoardDebugWrapperSession.
-
-#### Args:
-
-* <b>`sess`</b>: The <a href="../tf/Session"><code>tf.Session</code></a> instance to be wrapped.
-* <b>`grpc_debug_server_addresses`</b>: gRPC address(es) of debug server(s), as a
-    `str` or a `list` of `str`s. E.g., "localhost:2333",
-    "grpc://localhost:2333", ["192.168.0.7:2333", "192.168.0.8:2333"].
-* <b>`thread_name_filter`</b>: Optional filter for thread names.
-* <b>`send_traceback_and_source_code`</b>: Whether traceback of graph elements and
-    the source code are to be sent to the debug server(s).
-* <b>`log_usage`</b>: Whether the usage of this class is to be logged (if
-    applicable).
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
@@ -248,7 +247,8 @@ run(
     options=None,
     run_metadata=None,
     callable_runner=None,
-    callable_runner_args=None
+    callable_runner_args=None,
+    callable_options=None
 )
 ```
 

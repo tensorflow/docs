@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`OpError`](../../tf/OpError)
 
 
 
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/errors_impl.py).
+Defined in [`tensorflow/python/framework/errors_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/errors_impl.py).
 
 See the guide: [Running Graphs > Error classes and convenience functions](../../../../api_guides/python/client#Error_classes_and_convenience_functions)
 
@@ -25,6 +22,21 @@ received from another address space belongs to an error-space that
 is not known to this address space. Also errors raised by APIs that
 do not return enough error information may be converted to this
 error.
+
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    node_def,
+    op,
+    message,
+    error_code=UNKNOWN
+)
+```
+
+Creates an `UnknownError`.
+
 
 
 ## Properties
@@ -49,29 +61,12 @@ The operation that failed, if known.
 or `Recv` op, there will be no corresponding
 <a href="../../tf/Operation"><code>tf.Operation</code></a>
 object.  In that case, this will return `None`, and you should
-instead use the <a href="../../tf/OpError#node_def"><code>tf.OpError.node_def</code></a> to
+instead use the <a href="../../tf/errors/OpError#node_def"><code>tf.OpError.node_def</code></a> to
 discover information about the op.
 
 #### Returns:
 
 The `Operation` that failed, or None.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    node_def,
-    op,
-    message,
-    error_code=UNKNOWN
-)
-```
-
-Creates an `UnknownError`.
 
 
 

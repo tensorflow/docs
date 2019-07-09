@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,14 +11,14 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/metric_spec.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/metric_spec.py).
+Defined in [`tensorflow/contrib/learn/python/learn/metric_spec.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/metric_spec.py).
 
 See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
 
 MetricSpec connects a model to metric functions.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 The MetricSpec class contains all information necessary to connect the
@@ -83,37 +80,7 @@ _ = estimator.evaluate(
     })
 ```
 
-## Properties
-
-<h3 id="label_key"><code>label_key</code></h3>
-
-
-
-<h3 id="metric_fn"><code>metric_fn</code></h3>
-
-Metric function.
-
-This function accepts named args: `predictions`, `labels`, `weights`. It
-returns a single `Tensor` or `(value_op, update_op)` pair. See `metric_fn`
-constructor argument for more details.
-
-#### Returns:
-
-Function, see `metric_fn` constructor argument for more details.
-
-<h3 id="prediction_key"><code>prediction_key</code></h3>
-
-
-
-<h3 id="weight_key"><code>weight_key</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -152,6 +119,38 @@ Creates a MetricSpec.
 * <b>`weight_key`</b>: The key for a tensor in the `inputs` dict (output from the
     `input_fn`) to use as the `weights` input to the `metric_fn`.
     Optional. If `None`, no weights will be passed to the `metric_fn`.
+
+
+
+## Properties
+
+<h3 id="label_key"><code>label_key</code></h3>
+
+
+
+<h3 id="metric_fn"><code>metric_fn</code></h3>
+
+Metric function.
+
+This function accepts named args: `predictions`, `labels`, `weights`. It
+returns a single `Tensor` or `(value_op, update_op)` pair. See `metric_fn`
+constructor argument for more details.
+
+#### Returns:
+
+Function, see `metric_fn` constructor argument for more details.
+
+<h3 id="prediction_key"><code>prediction_key</code></h3>
+
+
+
+<h3 id="weight_key"><code>weight_key</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="create_metric_ops"><code>create_metric_ops</code></h3>
 

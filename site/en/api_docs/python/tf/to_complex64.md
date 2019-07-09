@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,19 +14,20 @@ tf.to_complex64(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/math_ops.py).
 
 Casts a tensor to type `complex64`.
 
 #### Args:
 
-* <b>`x`</b>: A `Tensor` or `SparseTensor`.
+* <b>`x`</b>: A `Tensor` or `SparseTensor` or `IndexedSlices`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-A `Tensor` or `SparseTensor` with same shape as `x` with type `complex64`.
+A `Tensor` or `SparseTensor` or `IndexedSlices` with same shape as `x` with
+type `complex64`.
 
 
 #### Raises:

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ tf.contrib.eager.implicit_gradients(f)
 
 
 
-Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/eager/backprop.py).
+Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/eager/backprop.py).
 
 Returns a function which differentiates f with respect to variables.
 
@@ -47,10 +44,10 @@ optimizer.apply_gradients(grads_and_vars)
 
 #### Args:
 
-f: function to be differentiated. If `f` returns a scalar, this scalar will
-  be differentiated. If `f` returns a tensor or list of tensors, by default
-  a scalar will be computed by adding all their values to produce a single
-  scalar.
+* <b>`f`</b>: function to be differentiated. If `f` returns a scalar, this scalar will
+    be differentiated. If `f` returns a tensor or list of tensors, by default
+    a scalar will be computed by adding all their values to produce a single
+    scalar.
 
 
 #### Returns:

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Staging (contrib)](../../../../../api_guides/python/contrib.staging)
 
@@ -49,37 +46,7 @@ devices such as GPUs.
 All get() and peek() commands block if the requested data
 is not present in the Staging Area.
 
-## Properties
-
-<h3 id="capacity"><code>capacity</code></h3>
-
-The maximum number of elements of this staging area.
-
-<h3 id="dtypes"><code>dtypes</code></h3>
-
-The list of dtypes for each component of a staging area element.
-
-<h3 id="memory_limit"><code>memory_limit</code></h3>
-
-The maximum number of bytes of this staging area.
-
-<h3 id="name"><code>name</code></h3>
-
-The name of the staging area.
-
-<h3 id="names"><code>names</code></h3>
-
-The list of names for each component of a staging area element.
-
-<h3 id="shapes"><code>shapes</code></h3>
-
-The list of shapes for each component of a staging area element.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -127,6 +94,38 @@ placed according to the device scope when `get` is called.
 #### Raises:
 
 * <b>`ValueError`</b>: If one of the arguments is invalid.
+
+
+
+## Properties
+
+<h3 id="capacity"><code>capacity</code></h3>
+
+The maximum number of elements of this staging area.
+
+<h3 id="dtypes"><code>dtypes</code></h3>
+
+The list of dtypes for each component of a staging area element.
+
+<h3 id="memory_limit"><code>memory_limit</code></h3>
+
+The maximum number of bytes of this staging area.
+
+<h3 id="name"><code>name</code></h3>
+
+The name of the staging area.
+
+<h3 id="names"><code>names</code></h3>
+
+The list of names for each component of a staging area element.
+
+<h3 id="shapes"><code>shapes</code></h3>
+
+The list of shapes for each component of a staging area element.
+
+
+
+## Methods
 
 <h3 id="clear"><code>clear</code></h3>
 

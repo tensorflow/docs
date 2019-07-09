@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 Supports passing a full time series to a model for evaluation/inference.
 
@@ -26,9 +23,7 @@ predictions. While this is useful for plotting and interactive use,
 `RandomWindowInputFn` is better suited to training and quantitative
 evaluation.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(time_series_reader)
@@ -39,6 +34,10 @@ Initialize the `TimeSeriesInputFn`.
 #### Args:
 
 * <b>`time_series_reader`</b>: A TimeSeriesReader object.
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

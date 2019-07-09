@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.contrib.input_pipeline.obtain_next(
 
 
 
-Defined in [`tensorflow/contrib/input_pipeline/python/ops/input_pipeline_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/input_pipeline/python/ops/input_pipeline_ops.py).
+Defined in [`tensorflow/contrib/input_pipeline/python/ops/input_pipeline_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/input_pipeline/python/ops/input_pipeline_ops.py).
 
 Basic wrapper for the ObtainNextOp.
 

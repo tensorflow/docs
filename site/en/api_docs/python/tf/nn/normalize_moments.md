@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.nn.normalize_moments(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Normalization](../../../../api_guides/python/nn#Normalization)
 
@@ -28,7 +25,7 @@ Calculate the mean and variance of based on the sufficient statistics.
 
 #### Args:
 
-* <b>`counts`</b>: A `Tensor` containing a the total count of the data (one value).
+* <b>`counts`</b>: A `Tensor` containing the total count of the data (one value).
 * <b>`mean_ss`</b>: A `Tensor` containing the mean sufficient statistics: the (possibly
     shifted) sum of the elements to average over.
 * <b>`variance_ss`</b>: A `Tensor` containing the variance sufficient statistics: the

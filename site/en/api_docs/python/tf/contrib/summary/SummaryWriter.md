@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/summary_ops_v2.py).
+Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/summary_ops_v2.py).
 
 Encapsulates a stateful summary writer resource.
 
@@ -22,9 +19,7 @@ See also:
 - <a href="../../../tf/contrib/summary/create_file_writer"><code>tf.contrib.summary.create_file_writer</code></a>
 - <a href="../../../tf/contrib/summary/create_db_writer"><code>tf.contrib.summary.create_db_writer</code></a>
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -34,6 +29,10 @@ __init__(
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="as_default"><code>as_default</code></h3>
 

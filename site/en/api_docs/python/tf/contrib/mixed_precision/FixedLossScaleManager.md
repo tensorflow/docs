@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,15 +11,13 @@ Inherits From: [`LossScaleManager`](../../../tf/contrib/mixed_precision/LossScal
 
 
 
-Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py).
+Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py).
 
 Loss scale manager with a fixed loss scale.
 
 The loss scale is not updated for the lifetime of the class.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(loss_scale)
@@ -42,6 +37,10 @@ Creates the fixed loss scale manager.
 #### Raises:
 
 * <b>`ValueError`</b>: If loss_scale is less than 1.
+
+
+
+## Methods
 
 <h3 id="get_loss_scale"><code>get_loss_scale</code></h3>
 

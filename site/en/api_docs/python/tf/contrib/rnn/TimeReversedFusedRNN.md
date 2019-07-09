@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`FusedRNNCell`](../../../tf/contrib/rnn/FusedRNNCell)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py).
 
 See the guide: [RNN and Cells (contrib) > Core RNN Cell wrappers (RNNCells that wrap other RNNCells)](../../../../../api_guides/python/contrib.rnn#Core_RNN_Cell_wrappers_RNNCells_that_wrap_other_RNNCells_)
 
@@ -30,15 +27,17 @@ fw_out, fw_state = fw_lstm(inputs)
 bw_out, bw_state = bw_lstm(inputs)
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(cell)
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

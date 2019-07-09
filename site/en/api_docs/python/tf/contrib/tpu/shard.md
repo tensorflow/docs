@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -24,15 +21,14 @@ tf.contrib.tpu.shard(
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu.py).
 
 Shards `computation` for parallel execution.
 
-`inputs` must be a list of Tensors or None (equivalent to an empty
-list), each of which has a corresponding split axis (from
-`input_shard_axes`). Each input is split into `num_shards` pieces
-along the corresponding axis, and computation is applied to each
-shard in parallel.
+`inputs` must be a list of Tensors or None (equivalent to an empty list), each
+of which has a corresponding split axis (from `input_shard_axes`). Each input
+is split into `num_shards` pieces along the corresponding axis, and
+computation is applied to each shard in parallel.
 
 Tensors are broadcast to all shards if they are lexically captured by
 `computation`. e.g.,
@@ -55,10 +51,9 @@ Inputs and outputs of the computation must be at least rank-1 Tensors.
 
 * <b>`computation`</b>: A Python function that builds a computation to apply to each
     shard of the input.
-* <b>`inputs`</b>: A list of input tensors or None (equivalent to an empty
-    list). Each input tensor has a corresponding shard axes, given
-    by `input_shard_axes`, which must have size divisible by
-    `num_shards`.
+* <b>`inputs`</b>: A list of input tensors or None (equivalent to an empty list). Each
+    input tensor has a corresponding shard axes, given by `input_shard_axes`,
+    which must have size divisible by `num_shards`.
 * <b>`num_shards`</b>: The number of shards.
 * <b>`input_shard_axes`</b>: A list of dimensions along which to shard `inputs`, or
     `None`. `None` means "shard all inputs along dimension 0". If not `None`,

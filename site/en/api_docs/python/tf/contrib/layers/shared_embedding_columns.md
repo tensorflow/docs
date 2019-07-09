@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -24,7 +21,7 @@ tf.contrib.layers.shared_embedding_columns(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/feature_column.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -50,7 +47,7 @@ Creates a list of `_EmbeddingColumn` sharing the same embedding.
     embedding separately from the generated `_EmbeddingColumn`.
 * <b>`initializer`</b>: A variable initializer function to be used in embedding
     variable initialization. If not specified, defaults to
-    <a href="../../../tf/truncated_normal_initializer"><code>tf.truncated_normal_initializer</code></a> with mean 0.0 and standard deviation
+    <a href="../../../tf/initializers/truncated_normal"><code>tf.truncated_normal_initializer</code></a> with mean 0.0 and standard deviation
     1/sqrt(sparse_id_columns[0].length).
 * <b>`ckpt_to_load_from`</b>: (Optional). String representing checkpoint name/pattern
     to restore the column weights. Required if `tensor_name_in_ckpt` is not

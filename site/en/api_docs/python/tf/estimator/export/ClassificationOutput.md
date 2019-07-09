@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`ExportOutput`](../../../tf/estimator/export/ExportOutput)
 
 
 
-Defined in [`tensorflow/python/estimator/export/export_output.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/export/export_output.py).
+Defined in [`tensorflow/python/estimator/export/export_output.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/export/export_output.py).
 
 Represents the output of a classification head.
 
@@ -32,21 +29,7 @@ If both classes and scores are set, they are interpreted as zipped, so each
 score corresponds to the class at the same index.  Clients should not depend
 on the order of the entries.
 
-## Properties
-
-<h3 id="classes"><code>classes</code></h3>
-
-
-
-<h3 id="scores"><code>scores</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -70,6 +53,22 @@ Constructor for `ClassificationOutput`.
 
 * <b>`ValueError`</b>: if neither classes nor scores is set, or one of them is not a
       `Tensor` with the correct dtype.
+
+
+
+## Properties
+
+<h3 id="classes"><code>classes</code></h3>
+
+
+
+<h3 id="scores"><code>scores</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="as_signature_def"><code>as_signature_def</code></h3>
 

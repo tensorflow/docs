@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/wishart.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/wishart.py).
-
-See the guide: [Statistical Distributions (contrib) > Multivariate distributions](../../../../../api_guides/python/contrib.distributions#Multivariate_distributions)
+Defined in [`tensorflow/contrib/distributions/python/ops/wishart.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/wishart.py).
 
 The matrix Wishart distribution on positive definite matrices.
 
@@ -72,6 +67,48 @@ dist.prob(x)  # Shape is [2, 2].
 # (*) - To efficiently create a trainable covariance matrix, see the example
 #   in tf.contrib.distributions.matrix_diag_transform.
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    df,
+    scale,
+    cholesky_input_output_matrices=False,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='WishartFull'
+)
+```
+
+Construct Wishart distributions. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`df`</b>: `float` or `double` `Tensor`. Degrees of freedom, must be greater than
+    or equal to dimension of the scale matrix.
+* <b>`scale`</b>: `float` or `double` `Tensor`. The symmetric positive definite
+    scale matrix of the distribution.
+* <b>`cholesky_input_output_matrices`</b>: Python `bool`. Any function which whose
+    input or output is a matrix assumes the input is Cholesky and returns a
+    Cholesky factored matrix. Example `log_prob` input takes a Cholesky and
+    `sample_n` returns a Cholesky when
+    `cholesky_input_output_matrices=True`.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
+    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
+    result is undefined. When `False`, an exception is raised if one or
+    more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
 
 ## Properties
 
@@ -161,42 +198,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    df,
-    scale,
-    cholesky_input_output_matrices=False,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='WishartFull'
-)
-```
-
-Construct Wishart distributions.
-
-#### Args:
-
-* <b>`df`</b>: `float` or `double` `Tensor`. Degrees of freedom, must be greater than
-    or equal to dimension of the scale matrix.
-* <b>`scale`</b>: `float` or `double` `Tensor`. The symmetric positive definite
-    scale matrix of the distribution.
-* <b>`cholesky_input_output_matrices`</b>: Python `bool`. Any function which whose
-    input or output is a matrix assumes the input is Cholesky and returns a
-    Cholesky factored matrix. Example `log_prob` input takes a Cholesky and
-    `sample_n` returns a Cholesky when
-    `cholesky_input_output_matrices=True`.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
-    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
-    result is undefined. When `False`, an exception is raised if one or
-    more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

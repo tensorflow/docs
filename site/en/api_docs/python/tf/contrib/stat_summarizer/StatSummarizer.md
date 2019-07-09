@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,19 +11,21 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/pywrap_tensorflow_internal.py).
+Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/pywrap_tensorflow_internal.py).
 
 
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(*args)
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="GetOutputString"><code>GetOutputString</code></h3>
 

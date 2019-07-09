@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/mvn_tril.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/mvn_tril.py).
-
-See the guide: [Statistical Distributions (contrib) > Multivariate distributions](../../../../../api_guides/python/contrib.distributions#Multivariate_distributions)
+Defined in [`tensorflow/contrib/distributions/python/ops/mvn_tril.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/mvn_tril.py).
 
 The multivariate normal distribution on `R^k`.
 
@@ -119,6 +114,66 @@ with tf.variable_scope("model"):
                           dtype=tf.float32, name="chol_Sigma")))
 ```
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    loc=None,
+    scale_tril=None,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='MultivariateNormalTriL'
+)
+```
+
+Construct Multivariate Normal distribution on `R^k`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+The `batch_shape` is the broadcast shape between `loc` and `scale`
+arguments.
+
+The `event_shape` is given by last dimension of the matrix implied by
+`scale`. The last dimension of `loc` (if provided) must broadcast with this.
+
+Recall that `covariance = scale @ scale.T`. A (non-batch) `scale` matrix is:
+
+```none
+scale = scale_tril
+```
+
+where `scale_tril` is lower-triangular `k x k` matrix with non-zero
+diagonal, i.e., `tf.diag_part(scale_tril) != 0`.
+
+Additional leading dimensions (if any) will index batches.
+
+#### Args:
+
+* <b>`loc`</b>: Floating-point `Tensor`. If this is set to `None`, `loc` is
+    implicitly `0`. When specified, may have shape `[B1, ..., Bb, k]` where
+    `b >= 0` and `k` is the event size.
+* <b>`scale_tril`</b>: Floating-point, lower-triangular `Tensor` with non-zero
+    diagonal elements. `scale_tril` has shape `[B1, ..., Bb, k, k]` where
+    `b >= 0` and `k` is the event size.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`,
+    statistics (e.g., mean, mode, variance) use the value "`NaN`" to
+    indicate the result is undefined. When `False`, an exception is raised
+    if one or more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if neither `loc` nor `scale_tril` are specified.
+
+
+
 ## Properties
 
 <h3 id="allow_nan_stats"><code>allow_nan_stats</code></h3>
@@ -207,60 +262,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    loc=None,
-    scale_tril=None,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='MultivariateNormalTriL'
-)
-```
-
-Construct Multivariate Normal distribution on `R^k`.
-
-The `batch_shape` is the broadcast shape between `loc` and `scale`
-arguments.
-
-The `event_shape` is given by last dimension of the matrix implied by
-`scale`. The last dimension of `loc` (if provided) must broadcast with this.
-
-Recall that `covariance = scale @ scale.T`. A (non-batch) `scale` matrix is:
-
-```none
-scale = scale_tril
-```
-
-where `scale_tril` is lower-triangular `k x k` matrix with non-zero
-diagonal, i.e., `tf.diag_part(scale_tril) != 0`.
-
-Additional leading dimensions (if any) will index batches.
-
-#### Args:
-
-* <b>`loc`</b>: Floating-point `Tensor`. If this is set to `None`, `loc` is
-    implicitly `0`. When specified, may have shape `[B1, ..., Bb, k]` where
-    `b >= 0` and `k` is the event size.
-* <b>`scale_tril`</b>: Floating-point, lower-triangular `Tensor` with non-zero
-    diagonal elements. `scale_tril` has shape `[B1, ..., Bb, k, k]` where
-    `b >= 0` and `k` is the event size.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`,
-    statistics (e.g., mean, mode, variance) use the value "`NaN`" to
-    indicate the result is undefined. When `False`, an exception is raised
-    if one or more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: if neither `loc` nor `scale_tril` are specified.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

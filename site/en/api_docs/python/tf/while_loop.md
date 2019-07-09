@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,13 +15,14 @@ tf.while_loop(
     back_prop=True,
     swap_memory=False,
     name=None,
-    maximum_iterations=None
+    maximum_iterations=None,
+    return_same_structure=False
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/control_flow_ops.py).
 
 See the guide: [Control Flow > Control Flow Operations](../../../api_guides/python/control_flow_ops#Control_Flow_Operations)
 
@@ -104,13 +102,18 @@ sequences and large batches.
     to run.  If provided, the `cond` output is AND-ed with an additional
     condition ensuring the number of iterations executed is no greater than
     `maximum_iterations`.
+* <b>`return_same_structure`</b>: If True, output has same structure as `loop_vars`. If
+    eager execution is enabled, this is ignored (and always treated as True).
 
 
 #### Returns:
 
-The output tensors for the loop variables after the loop. When the length
-of `loop_vars` is 1 this is a Tensor, TensorArray or IndexedSlice and when
-the length of `loop_vars` is greater than 1 it returns a list.
+The output tensors for the loop variables after the loop.
+ If `return_same_structure` is True, the return value has the same
+ structure as `loop_vars`.
+ If `return_same_structure` is False, the return value is a Tensor,
+ TensorArray or IndexedSlice if the length of `loop_vars` is 1, or a list
+ otherwise.
 
 
 #### Raises:
@@ -167,6 +170,7 @@ that the thread incrementing the counter runs until completion before
 happen is that the thread updating `x` can never get ahead of the
 counter thread because the thread incrementing `x` depends on the value
 of the counter.
+
 ```python
 import tensorflow as tf
 

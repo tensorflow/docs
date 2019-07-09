@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,13 +16,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linear_operator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/linalg/linear_operator.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator.py).
 
 See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
 
 Base class defining a [batch of] linear operator[s].
 
-Subclasses of `LinearOperator` provide a access to common methods on a
+Subclasses of `LinearOperator` provide access to common methods on a
 (batch) matrix, without the need to materialize the matrix.  This allows:
 
 * Matrix free computations
@@ -52,11 +49,11 @@ and explanations can include constants as well as Big-O notation.
 
 #### Shape compatibility
 
-`LinearOperator` sub classes should operate on a [batch] matrix with
+`LinearOperator` subclasses should operate on a [batch] matrix with
 compatible shape.  Class docstrings should define what is meant by compatible
-shape.  Some sub-classes may not support batching.
+shape.  Some subclasses may not support batching.
 
-An example is:
+Examples:
 
 `x` is a batch matrix with compatible shape for `matmul` if
 
@@ -121,6 +118,50 @@ These have the following meaning:
 * If `is_X == False`, callers should expect the operator to not have `X`.
 * If `is_X == None` (the default), callers should have no expectation either
   way.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    dtype,
+    graph_parents=None,
+    is_non_singular=None,
+    is_self_adjoint=None,
+    is_positive_definite=None,
+    is_square=None,
+    name=None
+)
+```
+
+Initialize the `LinearOperator`.
+
+**This is a private method for subclass use.**
+**Subclasses should copy-paste this `__init__` documentation.**
+
+#### Args:
+
+* <b>`dtype`</b>: The type of the this `LinearOperator`.  Arguments to `matmul` and
+    `solve` will have to be this type.
+* <b>`graph_parents`</b>: Python list of graph prerequisites of this `LinearOperator`
+    Typically tensors that are passed during initialization.
+* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
+* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
+    transpose.  If `dtype` is real, this is equivalent to being symmetric.
+* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite,
+    meaning the quadratic form `x^H A x` has positive real part for all
+    nonzero `x`.  Note that we do not require the operator to be
+    self-adjoint to be positive-definite.  See:
+    https://en.wikipedia.org/wiki/Positive-definite_matrix#Extension_for_non-symmetric_matrices
+* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
+* <b>`name`</b>: A name for this `LinearOperator`.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>:  If any member of graph_parents is `None` or not a `Tensor`.
+* <b>`ValueError`</b>:  If hints are set incorrectly.
+
+
 
 ## Properties
 
@@ -217,48 +258,6 @@ Python integer, or None if the tensor rank is undefined.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    dtype,
-    graph_parents=None,
-    is_non_singular=None,
-    is_self_adjoint=None,
-    is_positive_definite=None,
-    is_square=None,
-    name=None
-)
-```
-
-Initialize the `LinearOperator`.
-
-**This is a private method for subclass use.**
-**Subclasses should copy-paste this `__init__` documentation.**
-
-#### Args:
-
-* <b>`dtype`</b>: The type of the this `LinearOperator`.  Arguments to `matmul` and
-    `solve` will have to be this type.
-* <b>`graph_parents`</b>: Python list of graph prerequisites of this `LinearOperator`
-    Typically tensors that are passed during initialization.
-* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
-* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
-    transpose.  If `dtype` is real, this is equivalent to being symmetric.
-* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite,
-    meaning the quadratic form `x^H A x` has positive real part for all
-    nonzero `x`.  Note that we do not require the operator to be
-    self-adjoint to be positive-definite.  See:
-    https://en.wikipedia.org/wiki/Positive-definite_matrix#Extension_for_non-symmetric_matrices
-* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
-* <b>`name`</b>: A name for this `LinearOperator`.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>:  If any member of graph_parents is `None` or not a `Tensor`.
-* <b>`ValueError`</b>:  If hints are set incorrectly.
 
 <h3 id="add_to_tensor"><code>add_to_tensor</code></h3>
 

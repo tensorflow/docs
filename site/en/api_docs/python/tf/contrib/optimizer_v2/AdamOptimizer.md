@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,16 +12,14 @@ Inherits From: [`OptimizerV2`](../../../tf/contrib/optimizer_v2/OptimizerV2)
 
 
 
-Defined in [`tensorflow/contrib/optimizer_v2/adam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/optimizer_v2/adam.py).
+Defined in [`tensorflow/contrib/optimizer_v2/adam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/optimizer_v2/adam.py).
 
 Optimizer that implements the Adam algorithm.
 
 See [Kingma et al., 2014](http://arxiv.org/abs/1412.6980)
 ([pdf](http://arxiv.org/pdf/1412.6980.pdf)).
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -40,15 +36,14 @@ Construct a new Adam optimizer.
 
 Initialization:
 
-<div> $$m_0 := 0 (Initialize initial 1st moment vector)$$ </div>
-<div> $$v_0 := 0 (Initialize initial 2nd moment vector)$$ </div>
-<div> $$t := 0 (Initialize timestep)$$ </div>
-
+<div> $$m_0 := 0  ext{(Initialize initial 1st moment vector)}$$ </div>
+<div> $$v_0 := 0  ext{(Initialize initial 2nd moment vector)}$$ </div>
+<div> $$t := 0    ext{(Initialize timestep)}$$ </div>
 The update rule for `variable` with gradient `g` uses an optimization
 described at the end of section2 of the paper:
 
 <div> $$t := t + 1$$ </div>
-<div> $$lr_t :=   ext{learning_rate} * \sqrt{(1 - beta_2^t) / (1 - beta_1^t)}$$ </div>
+<div> $$lr_t :=   ext{learning\_rate} * \sqrt{1 - beta_2^t} / (1 - beta_1^t)$$ </div>
 
 <div> $$m_t := beta_1 * m_{t-1} + (1 - beta_1) * g$$ </div>
 <div> $$v_t := beta_2 * v_{t-1} + (1 - beta_2) * g * g$$ </div>
@@ -88,6 +83,10 @@ Tensor or a Python value.
 * <b>`use_locking`</b>: If True use locks for update operations.
 * <b>`name`</b>: Optional name for the operations created when applying gradients.
     Defaults to "Adam".
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

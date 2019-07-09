@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,25 +11,11 @@ Inherits From: [`TextFileInitializer`](../../../tf/contrib/lookup/TextFileInitia
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
 
 Table initializer for `int64` IDs to string tables from a text file.
 
-## Properties
-
-<h3 id="key_dtype"><code>key_dtype</code></h3>
-
-The expected table key dtype.
-
-<h3 id="value_dtype"><code>value_dtype</code></h3>
-
-The expected table value dtype.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -77,6 +60,22 @@ and `value_column_index`.
 
 * <b>`TypeError`</b>: when the filename is empty, or when the table key and value
   data types do not match the expected data types.
+
+
+
+## Properties
+
+<h3 id="key_dtype"><code>key_dtype</code></h3>
+
+The expected table key dtype.
+
+<h3 id="value_dtype"><code>value_dtype</code></h3>
+
+The expected table value dtype.
+
+
+
+## Methods
 
 <h3 id="initialize"><code>initialize</code></h3>
 

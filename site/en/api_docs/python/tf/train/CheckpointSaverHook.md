@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,15 +11,13 @@ Inherits From: [`SessionRunHook`](../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/basic_session_run_hooks.py).
+Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/basic_session_run_hooks.py).
 
 See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
 
 Saves checkpoints every N steps or seconds.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -54,7 +49,11 @@ Initializes a `CheckpointSaverHook`.
 #### Raises:
 
 * <b>`ValueError`</b>: One of `save_steps` or `save_secs` should be set.
-* <b>`ValueError`</b>: At most one of saver or scaffold should be set.
+* <b>`ValueError`</b>: At most one of `saver` or `scaffold` should be set.
+
+
+
+## Methods
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 

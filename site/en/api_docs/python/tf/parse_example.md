@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,13 +16,13 @@ tf.parse_example(
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/parsing_ops.py).
+Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/parsing_ops.py).
 
 See the guides: [Inputs and Readers > Converting](../../../api_guides/python/io_ops#Converting), [Reading data > `QueueRunner`](../../../api_guides/python/reading_data#_QueueRunner_)
 
 Parses `Example` protos into a `dict` of tensors.
 
-Parses a number of serialized [`Example`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/example/example.proto)
+Parses a number of serialized [`Example`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/example/example.proto)
 protos given in `serialized`. We refer to `serialized` as a batch with
 `batch_size` many entries of individual `Example` protos.
 

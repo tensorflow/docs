@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/gmm_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/factorization/python/ops/gmm_ops.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/gmm_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/factorization/python/ops/gmm_ops.py).
 
 Tensorflow Gaussian mixture model clustering class.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -51,6 +46,10 @@ Constructor.
 #### Raises:
 
 Exception if covariance type is unknown.
+
+
+
+## Methods
 
 <h3 id="alphas"><code>alphas</code></h3>
 

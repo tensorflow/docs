@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,9 +16,28 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/platform/gfile.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/platform/gfile.py).
+Defined in [`tensorflow/python/platform/gfile.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/platform/gfile.py).
 
 File I/O wrappers without thread locking.
+
+Note, that this  is somewhat like builtin Python  file I/O, but
+there are  semantic differences to  make it more  efficient for
+some backing filesystems.  For example, a write  mode file will
+not  be opened  until the  first  write call  (to minimize  RPC
+invocations in network filesystems).
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    name,
+    mode='r'
+)
+```
+
+
+
+
 
 ## Properties
 
@@ -36,17 +52,6 @@ Returns the file name.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    name,
-    mode='r'
-)
-```
-
-
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,7 +20,7 @@ tf.feature_column.embedding_column(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/feature_column/feature_column.py).
 
 `_DenseColumn` that converts from sparse, categorical input.
 
@@ -77,7 +74,7 @@ def model_fn(features, ...):
     `tf.embedding_lookup_sparse`.
 * <b>`initializer`</b>: A variable initializer function to be used in embedding
     variable initialization. If not specified, defaults to
-    <a href="../../tf/truncated_normal_initializer"><code>tf.truncated_normal_initializer</code></a> with mean `0.0` and standard deviation
+    <a href="../../tf/initializers/truncated_normal"><code>tf.truncated_normal_initializer</code></a> with mean `0.0` and standard deviation
     `1/sqrt(dimension)`.
 * <b>`ckpt_to_load_from`</b>: String representing checkpoint name/pattern from which to
     restore column weights. Required if `tensor_name_in_ckpt` is not `None`.

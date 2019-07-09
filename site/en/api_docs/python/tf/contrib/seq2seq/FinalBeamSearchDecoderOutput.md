@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
 
 Final outputs returned by the beam search after all decoding is finished.
 
@@ -26,21 +23,7 @@ Final outputs returned by the beam search after all decoding is finished.
 * <b>`beam_search_decoder_output`</b>: An instance of `BeamSearchDecoderOutput` that
     describes the state of the beam search.
 
-## Properties
-
-<h3 id="beam_search_decoder_output"><code>beam_search_decoder_output</code></h3>
-
-Alias for field number 1
-
-<h3 id="predicted_ids"><code>predicted_ids</code></h3>
-
-Alias for field number 0
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
+<h2 id="__new__"><code>__new__</code></h2>
 
 ``` python
 __new__(
@@ -51,6 +34,18 @@ __new__(
 ```
 
 Create new instance of FinalBeamDecoderOutput(predicted_ids, beam_search_decoder_output)
+
+
+
+## Properties
+
+<h3 id="beam_search_decoder_output"><code>beam_search_decoder_output</code></h3>
+
+Alias for field number 1
+
+<h3 id="predicted_ids"><code>predicted_ids</code></h3>
+
+Alias for field number 0
 
 
 

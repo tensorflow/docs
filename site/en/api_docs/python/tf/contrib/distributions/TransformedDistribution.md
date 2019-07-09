@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/transformed_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/transformed_distribution.py).
-
-See the guide: [Statistical Distributions (contrib) > Transformed distributions](../../../../../api_guides/python/contrib.distributions#Transformed_distributions)
+Defined in [`tensorflow/python/ops/distributions/transformed_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/transformed_distribution.py).
 
 A Transformed Distribution.
 
@@ -124,6 +119,40 @@ mvn2 = ds.MultivariateNormalTriL(loc=mean, scale_tril=chol_cov)
 # mvn1.log_prob(x) == mvn2.log_prob(x)
 ```
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    distribution,
+    bijector=None,
+    batch_shape=None,
+    event_shape=None,
+    validate_args=False,
+    name=None
+)
+```
+
+Construct a Transformed Distribution.
+
+#### Args:
+
+* <b>`distribution`</b>: The base distribution instance to transform. Typically an
+    instance of `Distribution`.
+* <b>`bijector`</b>: The object responsible for calculating the transformation.
+    Typically an instance of `Bijector`. `None` means `Identity()`.
+* <b>`batch_shape`</b>: `integer` vector `Tensor` which overrides `distribution`
+    `batch_shape`; valid only if `distribution.is_scalar_batch()`.
+* <b>`event_shape`</b>: `integer` vector `Tensor` which overrides `distribution`
+    `event_shape`; valid only if `distribution.is_scalar_event()`.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class. Default:
+    `bijector.name + distribution.name`.
+
+
+
 ## Properties
 
 <h3 id="allow_nan_stats"><code>allow_nan_stats</code></h3>
@@ -204,38 +233,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    distribution,
-    bijector=None,
-    batch_shape=None,
-    event_shape=None,
-    validate_args=False,
-    name=None
-)
-```
-
-Construct a Transformed Distribution.
-
-#### Args:
-
-* <b>`distribution`</b>: The base distribution instance to transform. Typically an
-    instance of `Distribution`.
-* <b>`bijector`</b>: The object responsible for calculating the transformation.
-    Typically an instance of `Bijector`. `None` means `Identity()`.
-* <b>`batch_shape`</b>: `integer` vector `Tensor` which overrides `distribution`
-    `batch_shape`; valid only if `distribution.is_scalar_batch()`.
-* <b>`event_shape`</b>: `integer` vector `Tensor` which overrides `distribution`
-    `event_shape`; valid only if `distribution.is_scalar_event()`.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class. Default:
-    `bijector.name + distribution.name`.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.manip.roll(
 
 
 
-Defined in [`tensorflow/python/ops/manip_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/manip_ops.py).
+Defined in [`tensorflow/python/ops/manip_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/manip_ops.py).
 
 Rolls the elements of a tensor along an axis.
 

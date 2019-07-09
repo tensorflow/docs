@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/python/training/adagrad_da.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/adagrad_da.py).
+Defined in [`tensorflow/python/training/adagrad_da.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/adagrad_da.py).
 
 See the guide: [Training > Optimizers](../../../../api_guides/python/train#Optimizers)
 
@@ -31,9 +28,7 @@ trained model. This optimizer only guarantees sparsity for linear models. Be
 careful when using AdagradDA for deep networks as it will require careful
 initialization of the gradient accumulators for it to train.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -68,6 +63,10 @@ Construct a new AdagradDA optimizer.
 
 * <b>`ValueError`</b>: If the `initial_gradient_squared_accumulator_value` is
   invalid.
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distribute/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distribute/__init__.py).
+Defined in [`tensorflow/contrib/distribute/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distribute/__init__.py).
 
 Prototype of a distributed computation library for TF.
 
@@ -18,15 +15,21 @@ Prototype of a distributed computation library for TF.
 
 [`class AllReduceCrossTowerOps`](../../tf/contrib/distribute/AllReduceCrossTowerOps): Reduction using all reduce.
 
+[`class CollectiveAllReduceStrategy`](../../tf/contrib/distribute/CollectiveAllReduceStrategy): Distribution strategy that uses collective ops for all-reduce.
+
 [`class CrossTowerOps`](../../tf/contrib/distribute/CrossTowerOps): Base class for cross-tower reduction and broadcasting algorithms.
+
+[`class DistributeConfig`](../../tf/contrib/distribute/DistributeConfig): A config tuple for distribution strategies.
 
 [`class DistributionStrategy`](../../tf/contrib/distribute/DistributionStrategy): A list of devices with a state & compute distribution policy.
 
-[`class MirroredStrategy`](../../tf/contrib/distribute/MirroredStrategy): Mirrors vars to distribute across multiple devices on a single machine.
+[`class MirroredStrategy`](../../tf/contrib/distribute/MirroredStrategy): Mirrors vars to distribute across multiple devices and machines.
 
 [`class Monitor`](../../tf/contrib/distribute/Monitor): Executes training steps, recovers and checkpoints.
 
 [`class OneDeviceStrategy`](../../tf/contrib/distribute/OneDeviceStrategy): A distribution strategy for running on a single device.
+
+[`class ParameterServerStrategy`](../../tf/contrib/distribute/ParameterServerStrategy): A parameter server DistributionStrategy.
 
 [`class ReductionToOneDeviceCrossTowerOps`](../../tf/contrib/distribute/ReductionToOneDeviceCrossTowerOps): Always do reduction to one device first and then do broadcasting.
 
@@ -36,7 +39,11 @@ Prototype of a distributed computation library for TF.
 
 [`class Step`](../../tf/contrib/distribute/Step): Interface for performing each step of a training algorithm.
 
+[`class TPUStrategy`](../../tf/contrib/distribute/TPUStrategy): Experimental TPU distribution strategy implementation.
+
 [`class TowerContext`](../../tf/contrib/distribute/TowerContext): DistributionStrategy API inside a `call_for_each_tower()` call.
+
+[`class UpdateContext`](../../tf/contrib/distribute/UpdateContext): Context manager when you are in `update()` or `update_non_slot()`.
 
 ## Functions
 
@@ -44,11 +51,13 @@ Prototype of a distributed computation library for TF.
 
 [`get_distribution_strategy(...)`](../../tf/contrib/distribute/get_distribution_strategy): Returns the current `DistributionStrategy` object.
 
-[`get_loss_reduction(...)`](../../tf/contrib/distribute/get_loss_reduction): Reduce `method_string` corresponding to the last loss reduction.
+[`get_loss_reduction(...)`](../../tf/contrib/distribute/get_loss_reduction): Reduce `aggregation` corresponding to the last loss reduction.
 
 [`get_tower_context(...)`](../../tf/contrib/distribute/get_tower_context): Returns the current TowerContext or None if in a cross-tower context.
 
 [`has_distribution_strategy(...)`](../../tf/contrib/distribute/has_distribution_strategy): Return if there is a current non-default `DistributionStrategy`.
 
 [`require_tower_context(...)`](../../tf/contrib/distribute/require_tower_context): Verify in `tower_ctx` tower context.
+
+[`run_standard_tensorflow_server(...)`](../../tf/contrib/distribute/run_standard_tensorflow_server): Starts a standard TensorFlow server.
 

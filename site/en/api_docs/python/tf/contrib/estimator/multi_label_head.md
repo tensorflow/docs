@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,7 +20,7 @@ tf.contrib.estimator.multi_label_head(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/head.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/head.py).
 
 Creates a `_Head` for multi-label classification.
 
@@ -40,11 +37,13 @@ The head expects `logits` with shape `[D0, D1, ... DN, n_classes]`. In many
 applications, the shape is `[batch_size, n_classes]`.
 
 Labels can be:
+
 * A multi-hot tensor of shape `[D0, D1, ... DN, n_classes]`
 * An integer `SparseTensor` of class indices. The `dense_shape` must be
   `[D0, D1, ... DN, ?]` and the values within `[0, n_classes)`.
 * If `label_vocabulary` is given, a string `SparseTensor`. The `dense_shape`
-  must be `[D0, D1, ... DN, ?]` and the values within `label_vocabulary`.
+  must be `[D0, D1, ... DN, ?]` and the values within `label_vocabulary` or a
+  multi-hot tensor of shape `[D0, D1, ... DN, n_classes]`.
 
 If `weight_column` is specified, weights must be of shape
 `[D0, D1, ... DN]`, or `[D0, D1, ... DN, 1]`.

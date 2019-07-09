@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`HasherSpec`](../../../tf/contrib/lookup/HasherSpec)
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
 
 A structure to specify a key of the strong keyed hash spec.
 
@@ -26,21 +23,7 @@ would be a fine choice.
 
 * <b>`key`</b>: The key to be used by the keyed hashing function.
 
-## Properties
-
-<h3 id="hasher"><code>hasher</code></h3>
-
-Alias for field number 0
-
-<h3 id="key"><code>key</code></h3>
-
-Alias for field number 1
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
+<h2 id="__new__"><code>__new__</code></h2>
 
 ``` python
 @staticmethod
@@ -51,6 +34,18 @@ __new__(
 ```
 
 
+
+
+
+## Properties
+
+<h3 id="hasher"><code>hasher</code></h3>
+
+Alias for field number 0
+
+<h3 id="key"><code>key</code></h3>
+
+Alias for field number 1
 
 
 

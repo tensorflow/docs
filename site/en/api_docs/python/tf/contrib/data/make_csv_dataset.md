@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -26,15 +23,15 @@ tf.contrib.data.make_csv_dataset(
     shuffle_seed=None,
     prefetch_buffer_size=1,
     num_parallel_reads=1,
-    num_parallel_parser_calls=2,
     sloppy=False,
-    num_rows_for_inference=100
+    num_rows_for_inference=100,
+    compression_type=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/data/python/ops/readers.py).
+Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/readers.py).
 
 Reads CSV files into a dataset.
 
@@ -99,8 +96,6 @@ feature data, and labels is a `Tensor` containing the batch's label data.
     batches consumed per training step.
 * <b>`num_parallel_reads`</b>: Number of threads used to read CSV records from files.
     If >1, the results will be interleaved.
-* <b>`num_parallel_parser_calls`</b>: Number of parallel invocations of the CSV parsing
-    function on CSV records.
 * <b>`sloppy`</b>: If `True`, reading performance will be improved at
     the cost of non-deterministic ordering. If `False`, the order of elements
     produced is deterministic prior to shuffling (elements are still
@@ -109,6 +104,8 @@ feature data, and labels is a `Tensor` containing the batch's label data.
 * <b>`num_rows_for_inference`</b>: Number of rows of a file to use for type inference
     if record_defaults is not provided. If None, reads all the rows of all
     the files. Defaults to 100.
+* <b>`compression_type`</b>: (Optional.) A <a href="../../../tf/string"><code>tf.string</code></a> scalar evaluating to one of
+    `""` (no compression), `"ZLIB"`, or `"GZIP"`. Defaults to no compression.
 
 
 #### Returns:

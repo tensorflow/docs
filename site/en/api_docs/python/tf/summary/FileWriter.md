@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/summary/writer/writer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/summary/writer/writer.py).
+Defined in [`tensorflow/python/summary/writer/writer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/summary/writer/writer.py).
 
 See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
 
@@ -31,9 +28,7 @@ a compatibility layer over new graph-based summaries (<a href="../../tf/contrib/
 to facilitate the use of new summary writing with pre-existing code that
 expects a `FileWriter` instance.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -70,7 +65,7 @@ writer = tf.summary.FileWriter(<some-directory>, sess.graph)
 ```
 
 The `session` argument to the constructor makes the returned `FileWriter` a
-a compatibility layer over new graph-based summaries (<a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a>).
+compatibility layer over new graph-based summaries (<a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a>).
 Crucially, this means the underlying writer resource and events file will
 be shared with any other `FileWriter` using the same `session` and `logdir`,
 and with any <a href="../../tf/contrib/summary/SummaryWriter"><code>tf.contrib.summary.SummaryWriter</code></a> in this session using the
@@ -97,10 +92,17 @@ underlying file writer resource. See <a href="../../tf/contrib/summary"><code>tf
 
 * <b>`RuntimeError`</b>: If called with eager execution enabled.
 
-@compatibility(eager)
+
+
+#### Eager Compatibility
 `FileWriter` is not compatible with eager execution. To write TensorBoard
 summaries under eager execution, use <a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a> instead.
-@end_compatbility
+
+
+
+
+
+## Methods
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 

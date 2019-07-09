@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/contrib/cloud/python/ops/gcs_config_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
+Defined in [`tensorflow/contrib/cloud/python/ops/gcs_config_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
 
 ConfigureGcsHook configures GCS when used with Estimator/TPUEstimator.
 
@@ -40,9 +37,7 @@ creds = {
 tf.contrib.cloud.configure_gcs(sess, credentials=creds)
 ```
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -63,6 +58,10 @@ Constructs a ConfigureGcsHook.
 
 * <b>`ValueError`</b>: If credentials is improperly formatted or block_cache is not a
     BlockCacheParams.
+
+
+
+## Methods
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 

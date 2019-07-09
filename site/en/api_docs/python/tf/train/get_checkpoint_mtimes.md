@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ tf.train.get_checkpoint_mtimes(checkpoint_prefixes)
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/checkpoint_management.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpoint_management.py).
 
 Returns the mtimes (modification timestamps) of the checkpoints.
 

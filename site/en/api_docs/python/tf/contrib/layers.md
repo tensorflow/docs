@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/__init__.py).
+Defined in [`tensorflow/contrib/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/__init__.py).
 
 Ops for building neural network layers, regularizers, summaries, etc.
 
-See the <a href="../../../../api_guides/python/contrib.layers">Layers (contrib)</a> guide.
+See the
+[Contrib Layers](https://tensorflow.org/api_guides/python/contrib.layers)
+guide.
 
 
 
@@ -54,6 +53,8 @@ See the <a href="../../../../api_guides/python/contrib.layers">Layers (contrib)<
 
 [`check_feature_columns(...)`](../../tf/contrib/layers/check_feature_columns): Checks the validity of the set of FeatureColumns.
 
+[`conv1d(...)`](../../tf/contrib/layers/conv1d): Adds an N-D convolution followed by an optional batch_norm layer.
+
 [`conv2d(...)`](../../tf/contrib/layers/conv2d): Adds an N-D convolution followed by an optional batch_norm layer.
 
 [`conv2d_in_plane(...)`](../../tf/contrib/layers/conv2d_in_plane): Performs the same in-plane convolution to each channel independently.
@@ -63,6 +64,10 @@ See the <a href="../../../../api_guides/python/contrib.layers">Layers (contrib)<
 [`conv3d(...)`](../../tf/contrib/layers/conv3d): Adds an N-D convolution followed by an optional batch_norm layer.
 
 [`conv3d_transpose(...)`](../../tf/contrib/layers/conv3d_transpose): Adds a convolution3d_transpose with an optional batch normalization layer.
+
+[`convolution(...)`](../../tf/contrib/layers/convolution): Adds an N-D convolution followed by an optional batch_norm layer.
+
+[`convolution1d(...)`](../../tf/contrib/layers/conv1d): Adds an N-D convolution followed by an optional batch_norm layer.
 
 [`convolution2d(...)`](../../tf/contrib/layers/conv2d): Adds an N-D convolution followed by an optional batch_norm layer.
 

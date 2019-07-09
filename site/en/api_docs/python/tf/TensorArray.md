@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/tensor_array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/tensor_array_ops.py).
+Defined in [`tensorflow/python/ops/tensor_array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/tensor_array_ops.py).
 
 Class wrapping dynamic-sized, per-time-step, write-once Tensor arrays.
 
@@ -22,25 +19,7 @@ This class is meant to be used with dynamic iteration primitives such as
 `while_loop` and `map_fn`.  It supports gradient back-propagation via special
 "flow" control flow dependencies.
 
-## Properties
-
-<h3 id="dtype"><code>dtype</code></h3>
-
-The data type of this TensorArray.
-
-<h3 id="flow"><code>flow</code></h3>
-
-The flow `Tensor` forcing ops leading to this TensorArray state.
-
-<h3 id="handle"><code>handle</code></h3>
-
-The reference to the TensorArray.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -101,6 +80,26 @@ is created within a `while_loop`.
 
 * <b>`ValueError`</b>: if both handle and tensor_array_name are provided.
 * <b>`TypeError`</b>: if handle is provided but is not a Tensor.
+
+
+
+## Properties
+
+<h3 id="dtype"><code>dtype</code></h3>
+
+The data type of this TensorArray.
+
+<h3 id="flow"><code>flow</code></h3>
+
+The flow `Tensor` forcing ops leading to this TensorArray state.
+
+<h3 id="handle"><code>handle</code></h3>
+
+The reference to the TensorArray.
+
+
+
+## Methods
 
 <h3 id="close"><code>close</code></h3>
 

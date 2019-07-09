@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/base.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/checkpointable/base.py).
+Defined in [`tensorflow/python/training/checkpointable/data_structures.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpointable/data_structures.py).
 
 Allows attribute assignment to `Checkpointable` objects with no dependency.
 
@@ -30,15 +27,13 @@ assert obj.no_dependency.name == "nodep:0"
 `obj` in this example has a dependency on the variable "dep", and both
 attributes contain un-wrapped `Variable` objects.
 
-`NoDependency` also works with <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a>, but only for checkpoint
+`NoDependency` also works with <a href="../../../tf/keras/models/Model"><code>tf.keras.Model</code></a>, but only for checkpoint
 dependencies: wrapping a `Layer` in `NoDependency` will assign the (unwrapped)
 `Layer` to the attribute without a checkpoint dependency, but the `Model` will
 still track the `Layer` (so it will appear in `Model.layers`, and its
 variables will appear in `Model.variables`).
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(value)

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`TransformedDistribution`](../../../tf/contrib/distributions/Tra
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/sinh_arcsinh.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/sinh_arcsinh.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/sinh_arcsinh.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/sinh_arcsinh.py).
 
 The SinhArcsinh transformation of a distribution on `(-inf, inf)`.
 
@@ -76,6 +73,57 @@ P[(Y - loc) / scale <= 2] = P[F(Z) * (2 / F_0(2)) <= 2]
                           = P[F(Z) <= F_0(2)]
                           = P[Z <= 2]  (if F = F_0).
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    loc,
+    scale,
+    skewness=None,
+    tailweight=None,
+    distribution=None,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='SinhArcsinh'
+)
+```
+
+Construct SinhArcsinh distribution on `(-inf, inf)`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+Arguments `(loc, scale, skewness, tailweight)` must have broadcastable shape
+(indexing batch dimensions).  They must all have the same `dtype`.
+
+#### Args:
+
+* <b>`loc`</b>: Floating-point `Tensor`.
+* <b>`scale`</b>:  `Tensor` of same `dtype` as `loc`.
+* <b>`skewness`</b>:  Skewness parameter.  Default is `0.0` (no skew).
+* <b>`tailweight`</b>:  Tailweight parameter. Default is `1.0` (unchanged tailweight)
+* <b>`distribution`</b>: `tf.Distribution`-like instance. Distribution that is
+    transformed to produce this distribution.
+    Default is `tf.distributions.Normal(0., 1.)`.
+    Must be a scalar-batch, scalar-event distribution.  Typically
+    `distribution.reparameterization_type = FULLY_REPARAMETERIZED` or it is
+    a function of non-trainable parameters. WARNING: If you backprop through
+    a `SinhArcsinh` sample and `distribution` is not
+    `FULLY_REPARAMETERIZED` yet is a function of trainable variables, then
+    the gradient will be incorrect!
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`,
+    statistics (e.g., mean, mode, variance) use the value "`NaN`" to
+    indicate the result is undefined. When `False`, an exception is raised
+    if one or more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
 
 ## Properties
 
@@ -173,51 +221,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    loc,
-    scale,
-    skewness=None,
-    tailweight=None,
-    distribution=None,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='SinhArcsinh'
-)
-```
-
-Construct SinhArcsinh distribution on `(-inf, inf)`.
-
-Arguments `(loc, scale, skewness, tailweight)` must have broadcastable shape
-(indexing batch dimensions).  They must all have the same `dtype`.
-
-#### Args:
-
-* <b>`loc`</b>: Floating-point `Tensor`.
-* <b>`scale`</b>:  `Tensor` of same `dtype` as `loc`.
-* <b>`skewness`</b>:  Skewness parameter.  Default is `0.0` (no skew).
-* <b>`tailweight`</b>:  Tailweight parameter. Default is `1.0` (unchanged tailweight)
-* <b>`distribution`</b>: `tf.Distribution`-like instance. Distribution that is
-    transformed to produce this distribution.
-    Default is `tf.distributions.Normal(0., 1.)`.
-    Must be a scalar-batch, scalar-event distribution.  Typically
-    `distribution.reparameterization_type = FULLY_REPARAMETERIZED` or it is
-    a function of non-trainable parameters. WARNING: If you backprop through
-    a `SinhArcsinh` sample and `distribution` is not
-    `FULLY_REPARAMETERIZED` yet is a function of trainable variables, then
-    the gradient will be incorrect!
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`,
-    statistics (e.g., mean, mode, variance) use the value "`NaN`" to
-    indicate the result is undefined. When `False`, an exception is raised
-    if one or more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ tf.contrib.model_pruning.get_pruning_hparams()
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/model_pruning/python/pruning.py).
+Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/model_pruning/python/pruning.py).
 
 Get a tf.HParams object with the default values for the hyperparameters.
 
@@ -26,8 +23,11 @@ Get a tf.HParams object with the default values for the hyperparameters.
   end_pruning_step: integer
     the global step at which to terminate pruning. Defaults to -1 implying
     that pruning continues till the training stops
-  do_not_prune: list of strings
-    list of layers that are not pruned
+  weight_sparsity_map: list of strings
+     comma separed list of weight variable name:target sparsity pairs.
+     For layers/weights not in this list, sparsity as specified by the
+     target_sparsity hyperparameter is used.
+     Eg. [conv1:0.9,conv2/kernel:0.8]
   threshold_decay: float
     the decay factor to use for exponential decay of the thresholds
   pruning_frequency: integer

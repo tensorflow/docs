@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ScatterMin Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -26,20 +26,20 @@ ref[indices[i, ..., j], ...] = min(ref[indices[i, ..., j], ...], updates[i, ...,
   <p>Requires <code>updates.shape = indices.shape + ref.shape[1:]</code> or <code>updates.shape = []</code>.</p>
   <p>
     <figure id="@name">
-      <img src="/versions/r1.9/api_docs/cc/images/ScatterAdd.png" />
+      <img src="/versions/r1.11/api_docs/cc/images/ScatterAdd.png" />
     </figure>
   </p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>ref: Should be from a <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a></code> node.</li>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>ref: Should be from a <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a></code> node.</li>
       <li>indices: A tensor of indices into the first dimension of <code>ref</code>.</li>
       <li>updates: A tensor of updated values to reduce into <code>ref</code>.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs.html#structtensorflow_1_1ops_1_1_scatter_min_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs.html#structtensorflow_1_1ops_1_1_scatter_min_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: If True, the update will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: = Same as <code>ref</code>. Returned as a convenience for operations that want to use the updated values after the update is done. </li>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: = Same as <code>ref</code>. Returned as a convenience for operations that want to use the updated values after the update is done. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -49,13 +49,13 @@ ref[indices[i, ..., j], ...] = min(ref[indices[i, ..., j], ...], updates[i, ...,
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_scatter_min_1a20672036c077b2295fe3b7f263f1cbbc">ScatterMin</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_min_1a20672036c077b2295fe3b7f263f1cbbc">ScatterMin</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_scatter_min_1a970f0ae60aca198d4ff561223d356190">ScatterMin</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs.html#structtensorflow_1_1ops_1_1_scatter_min_1_1_attrs">ScatterMin::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_min_1a970f0ae60aca198d4ff561223d356190">ScatterMin</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs.html#structtensorflow_1_1ops_1_1_scatter_min_1_1_attrs">ScatterMin::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -72,7 +72,7 @@ ref[indices[i, ..., j], ...] = min(ref[indices[i, ..., j], ...], updates[i, ...,
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -126,7 +126,7 @@ ref[indices[i, ..., j], ...] = min(ref[indices[i, ..., j], ...], updates[i, ...,
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs.html#structtensorflow_1_1ops_1_1_scatter_min_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs.html#structtensorflow_1_1ops_1_1_scatter_min_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -139,38 +139,38 @@ ref[indices[i, ..., j], ...] = min(ref[indices[i, ..., j], ...], updates[i, ...,
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs">tensorflow::<wbr/>ops::<wbr/>ScatterMin::<wbr/>Attrs</a>
+        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs">tensorflow::<wbr/>ops::<wbr/>ScatterMin::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/scatter-min.html#classtensorflow_1_1ops_1_1_scatter_min">ScatterMin</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/scatter-min.html#classtensorflow_1_1ops_1_1_scatter_min">ScatterMin</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_min_1a246255cec7f7a96a7aaec14b4b44b6b7">
     <h3>output_ref</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_min_1a20672036c077b2295fe3b7f263f1cbbc">
     <h3>ScatterMin</h3>
     <pre class="prettyprint"> ScatterMin(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_scatter_min_1a970f0ae60aca198d4ff561223d356190">
     <h3>ScatterMin</h3>
     <pre class="prettyprint"> ScatterMin(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs.html#structtensorflow_1_1ops_1_1_scatter_min_1_1_attrs">ScatterMin::Attrs</a> & attrs
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
+  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs.html#structtensorflow_1_1ops_1_1_scatter_min_1_1_attrs">ScatterMin::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -192,7 +192,7 @@ ref[indices[i, ..., j], ...] = min(ref[indices[i, ..., j], ...], updates[i, ...,
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_min_1a81d4614aac5d7b4ec68e2513034b2970">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs.html#structtensorflow_1_1ops_1_1_scatter_min_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-min/attrs.html#structtensorflow_1_1ops_1_1_scatter_min_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />

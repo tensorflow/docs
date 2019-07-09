@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,11 +11,21 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/tensor_shape.py).
+Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/tensor_shape.py).
 
 See the guide: [Building Graphs > Defining new operations](../../../api_guides/python/framework#Defining_new_operations)
 
 Represents the value of one dimension in a TensorShape.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(value)
+```
+
+Creates a new Dimension with the given value.
+
+
 
 ## Properties
 
@@ -29,14 +36,6 @@ The value of this dimension, or None if it is unknown.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(value)
-```
-
-Creates a new Dimension with the given value.
 
 <h3 id="__add__"><code>__add__</code></h3>
 
@@ -328,14 +327,6 @@ Returns the sum of `other` and `self`.
 #### Returns:
 
 A Dimension whose value is the sum of `self` and `other`.
-
-<h3 id="__reduce__"><code>__reduce__</code></h3>
-
-``` python
-__reduce__()
-```
-
-
 
 <h3 id="__rfloordiv__"><code>__rfloordiv__</code></h3>
 

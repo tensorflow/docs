@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,17 +7,19 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/models/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/models/__init__.py).
+Defined in [`tensorflow/keras/models/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/models/__init__.py).
 
 Code for model cloning, plus model-related API entries.
 
 ## Classes
 
-[`class Model`](../../tf/keras/Model): `Model` groups layers into an object with training and inference features.
+[`class Model`](../../tf/keras/models/Model): `Model` groups layers into an object with training and inference features.
 
-[`class Sequential`](../../tf/keras/Sequential): Linear stack of layers.
+[`class Sequential`](../../tf/keras/models/Sequential): Linear stack of layers.
 
 ## Functions
+
+[`clone_model(...)`](../../tf/keras/models/clone_model): Clone any `Model` instance.
 
 [`load_model(...)`](../../tf/keras/models/load_model): Loads a model saved via `save_model`.
 

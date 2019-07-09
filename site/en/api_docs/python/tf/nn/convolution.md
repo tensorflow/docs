@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.nn.convolution(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
@@ -71,7 +68,7 @@ input channel number, and z is the N-D spatial offset within the filter. Here,
 `padded_input` is obtained by zero padding the input using an effective
 spatial filter shape of `(spatial_filter_shape-1) * dilation_rate + 1` and
 output striding `strides` as described in the
-<a href="../../../../api_guides/python/nn#Convolution">comment here</a>.
+[comment here](https://tensorflow.org/api_guides/python/nn#Convolution).
 
 In the case that `data_format` does start with `"NC"`, the `input` and output
 (but not the `filter`) are simply transposed as follows:

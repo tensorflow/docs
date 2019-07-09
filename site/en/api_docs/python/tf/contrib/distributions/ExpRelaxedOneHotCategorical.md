@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/relaxed_onehot_categorical.py).
 
 ExpRelaxedOneHotCategorical distribution with temperature and logits.
 
@@ -34,7 +31,7 @@ functions that depend on log-probabilities, such as the KL Divergence found
 in the variational autoencoder loss. The KL divergence between two
 distributions is invariant under invertible transformations, so evaluating
 KL divergences of ExpRelaxedOneHotCategorical samples, which are always
-followed by a <a href="../../../tf/exp"><code>tf.exp</code></a> op, is equivalent to evaluating KL divergences of
+followed by a <a href="../../../tf/math/exp"><code>tf.exp</code></a> op, is equivalent to evaluating KL divergences of
 RelaxedOneHotCategorical samples. See the appendix of Maddison et al., 2016
 for more mathematical details, where this distribution is called the
 ExpConcrete.
@@ -44,7 +41,7 @@ ExpConcrete.
 Creates a continuous distribution, whose exp approximates a 3-class one-hot
 categorical distribution. The 2nd class is the most likely to be the
 largest component in samples drawn from this distribution. If those samples
-are followed by a <a href="../../../tf/exp"><code>tf.exp</code></a> op, then they are distributed as a relaxed onehot
+are followed by a <a href="../../../tf/math/exp"><code>tf.exp</code></a> op, then they are distributed as a relaxed onehot
 categorical.
 
 ```python
@@ -105,6 +102,55 @@ exp_samples = tf.exp(samples)
 
 Chris J. Maddison, Andriy Mnih, and Yee Whye Teh. The Concrete Distribution:
 A Continuous Relaxation of Discrete Random Variables. 2016.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    temperature,
+    logits=None,
+    probs=None,
+    dtype=None,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='ExpRelaxedOneHotCategorical'
+)
+```
+
+Initialize ExpRelaxedOneHotCategorical using class log-probabilities. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`temperature`</b>: An 0-D `Tensor`, representing the temperature
+    of a set of ExpRelaxedCategorical distributions. The temperature should
+    be positive.
+* <b>`logits`</b>: An N-D `Tensor`, `N >= 1`, representing the log probabilities
+    of a set of ExpRelaxedCategorical distributions. The first
+    `N - 1` dimensions index into a batch of independent distributions and
+    the last dimension represents a vector of logits for each class. Only
+    one of `logits` or `probs` should be passed in.
+* <b>`probs`</b>: An N-D `Tensor`, `N >= 1`, representing the probabilities
+    of a set of ExpRelaxedCategorical distributions. The first
+    `N - 1` dimensions index into a batch of independent distributions and
+    the last dimension represents a vector of probabilities for each
+    class. Only one of `logits` or `probs` should be passed in.
+* <b>`dtype`</b>: The type of the event samples (default: inferred from
+    logits/probs).
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
+    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
+    result is undefined. When `False`, an exception is raised if one or
+    more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
 
 ## Properties
 
@@ -194,49 +240,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    temperature,
-    logits=None,
-    probs=None,
-    dtype=None,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='ExpRelaxedOneHotCategorical'
-)
-```
-
-Initialize ExpRelaxedOneHotCategorical using class log-probabilities.
-
-#### Args:
-
-* <b>`temperature`</b>: An 0-D `Tensor`, representing the temperature
-    of a set of ExpRelaxedCategorical distributions. The temperature should
-    be positive.
-* <b>`logits`</b>: An N-D `Tensor`, `N >= 1`, representing the log probabilities
-    of a set of ExpRelaxedCategorical distributions. The first
-    `N - 1` dimensions index into a batch of independent distributions and
-    the last dimension represents a vector of logits for each class. Only
-    one of `logits` or `probs` should be passed in.
-* <b>`probs`</b>: An N-D `Tensor`, `N >= 1`, representing the probabilities
-    of a set of ExpRelaxedCategorical distributions. The first
-    `N - 1` dimensions index into a batch of independent distributions and
-    the last dimension represents a vector of probabilities for each
-    class. Only one of `logits` or `probs` should be passed in.
-* <b>`dtype`</b>: The type of the event samples (default: inferred from
-    logits/probs).
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
-    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
-    result is undefined. When `False`, an exception is raised if one or
-    more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.train.init_from_checkpoint(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/checkpoint_utils.py).
+Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpoint_utils.py).
 
 Initializes current variables with tensors loaded from given checkpoint.
 
@@ -64,7 +61,7 @@ with tf.variable_scope('new_scope_2'):
                          partitioner=lambda shape, dtype: [5, 1])
 
 # Initialize all variables in `new_scope_1` from `old_scope_1`.
-init_from_checkpoint('/tmp/model.ckpt', {'old_scope_1/', 'new_scope_1'})
+init_from_checkpoint('/tmp/model.ckpt', {'old_scope_1/': 'new_scope_1'})
 
 # Use names to specify which variables to initialize from checkpoint.
 init_from_checkpoint('/tmp/model.ckpt',

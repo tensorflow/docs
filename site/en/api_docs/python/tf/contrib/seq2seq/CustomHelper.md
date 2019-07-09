@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,31 +11,13 @@ Inherits From: [`Helper`](../../../tf/contrib/seq2seq/Helper)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/seq2seq/python/ops/helper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/helper.py).
 
 See the guide: [Seq2seq Library (contrib) > Dynamic Decoding](../../../../../api_guides/python/contrib.seq2seq#Dynamic_Decoding)
 
 Base abstract class that allows the user to customize sampling.
 
-## Properties
-
-<h3 id="batch_size"><code>batch_size</code></h3>
-
-
-
-<h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
-
-
-
-<h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
-
-
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -64,6 +43,26 @@ Initializer.
     `int32`, the shape of each value in the `sample_ids` batch. Defaults to
     a scalar.
 * <b>`sample_ids_dtype`</b>: The dtype of the `sample_ids` tensor. Defaults to int32.
+
+
+
+## Properties
+
+<h3 id="batch_size"><code>batch_size</code></h3>
+
+
+
+<h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
+
+
+
+<h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
+
+
+
+
+
+## Methods
 
 <h3 id="initialize"><code>initialize</code></h3>
 

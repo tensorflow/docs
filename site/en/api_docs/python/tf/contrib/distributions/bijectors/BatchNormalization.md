@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/batch_normalization.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/batch_normalization.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/batch_normalization.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/batch_normalization.py).
 
 Compute `Y = g(X) s.t. X = g^-1(Y) = (Y - mean(Y)) / std(Y)`.
 
@@ -69,6 +66,44 @@ accumulated from training. In other words,
      Autoregressive Flow for Density Estimation. In _Neural Information
      Processing Systems_, 2017. https://arxiv.org/abs/1705.07057
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    batchnorm_layer=None,
+    training=True,
+    validate_args=False,
+    name='batch_normalization'
+)
+```
+
+Instantiates the `BatchNorm` bijector. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`batchnorm_layer`</b>: <a href="../../../../tf/layers/BatchNormalization"><code>tf.layers.BatchNormalization</code></a> layer object. If `None`,
+    defaults to
+    `tf.layers.BatchNormalization(gamma_constraint=nn_ops.relu(x) + 1e-6)`.
+    This ensures positivity of the scale variable.
+
+* <b>`training`</b>: If True, updates running-average statistics during call to
+    `inverse()`.
+* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
+    checked for correctness.
+* <b>`name`</b>: Python `str` name given to ops managed by this object.
+
+#### Raises:
+
+* <b>`ValueError`</b>: If bn_layer is not an instance of
+    <a href="../../../../tf/layers/BatchNormalization"><code>tf.layers.BatchNormalization</code></a>, or if it is specified with `renorm=True`
+    or a virtual batch size.
+
+
+
 ## Properties
 
 <h3 id="dtype"><code>dtype</code></h3>
@@ -109,38 +144,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    batchnorm_layer=None,
-    training=True,
-    validate_args=False,
-    name='batch_normalization'
-)
-```
-
-Instantiates the `BatchNorm` bijector.
-
-#### Args:
-
-* <b>`batchnorm_layer`</b>: <a href="../../../../tf/layers/BatchNormalization"><code>tf.layers.BatchNormalization</code></a> layer object. If `None`,
-    defaults to
-    `tf.layers.BatchNormalization(gamma_constraint=nn_ops.relu(x) + 1e-6)`.
-    This ensures positivity of the scale variable.
-
-* <b>`training`</b>: If True, updates running-average statistics during call to
-    `inverse()`.
-* <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
-* <b>`name`</b>: Python `str` name given to ops managed by this object.
-
-#### Raises:
-
-* <b>`ValueError`</b>: If bn_layer is not an instance of
-    <a href="../../../../tf/layers/BatchNormalization"><code>tf.layers.BatchNormalization</code></a>, or if it is specified with `renorm=True`
-    or a virtual batch size.
 
 <h3 id="forward"><code>forward</code></h3>
 

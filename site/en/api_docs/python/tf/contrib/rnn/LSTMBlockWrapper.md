@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Layer`](../../../tf/layers/Layer)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/lstm_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/rnn/python/ops/lstm_ops.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/lstm_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/lstm_ops.py).
 
 See the guide: [RNN and Cells (contrib) > Core RNN Cell wrappers (RNNCells that wrap other RNNCells)](../../../../../api_guides/python/contrib.rnn#Core_RNN_Cell_wrappers_RNNCells_that_wrap_other_RNNCells_)
 
@@ -22,6 +19,21 @@ This is a helper class that provides housekeeping for LSTM cells.
 
 This may be useful for alternative LSTM and similar type of cells.
 The subclasses must implement `_call_cell` method and `num_units` property.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    trainable=True,
+    name=None,
+    dtype=None,
+    **kwargs
+)
+```
+
+
+
+
 
 ## Properties
 
@@ -36,10 +48,6 @@ Optional regularizer function for the output of this layer.
 <h3 id="graph"><code>graph</code></h3>
 
 
-
-<h3 id="inbound_nodes"><code>inbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="input"><code>input</code></h3>
 
@@ -128,10 +136,6 @@ A list of tensors.
 <h3 id="num_units"><code>num_units</code></h3>
 
 Number of units in this cell (output dimension).
-
-<h3 id="outbound_nodes"><code>outbound_nodes</code></h3>
-
-Deprecated, do NOT use! Only for compatibility with external Keras.
 
 <h3 id="output"><code>output</code></h3>
 
@@ -223,19 +227,6 @@ A list of variables.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    trainable=True,
-    name=None,
-    dtype=None,
-    **kwargs
-)
-```
-
-
-
 <h3 id="__call__"><code>__call__</code></h3>
 
 ``` python
@@ -282,120 +273,6 @@ __deepcopy__(memo)
 
 
 
-<h3 id="add_loss"><code>add_loss</code></h3>
-
-``` python
-add_loss(
-    losses,
-    inputs=None
-)
-```
-
-
-
-<h3 id="add_update"><code>add_update</code></h3>
-
-``` python
-add_update(
-    updates,
-    inputs=None
-)
-```
-
-Add update op(s), potentially dependent on layer inputs.
-
-Weight updates (for instance, the updates of the moving mean and variance
-in a BatchNormalization layer) may be dependent on the inputs passed
-when calling a layer. Hence, when reusing the same layer on
-different inputs `a` and `b`, some entries in `layer.updates` may be
-dependent on `a` and some on `b`. This method automatically keeps track
-of dependencies.
-
-The `get_updates_for` method allows to retrieve the updates relevant to a
-specific set of inputs.
-
-This call is ignored when eager execution is enabled (in that case, variable
-updates are run on the fly and thus do not need to be tracked for later
-execution).
-
-#### Arguments:
-
-* <b>`updates`</b>: Update op, or list/tuple of update ops.
-* <b>`inputs`</b>: If anything other than None is passed, it signals the updates
-    are conditional on some of the layer's inputs,
-    and thus they should only be run where these inputs are available.
-    This is the case for BatchNormalization updates, for instance.
-    If None, the updates will be taken into account unconditionally,
-    and you are responsible for making sure that any dependency they might
-    have is available at runtime.
-    A step counter might fall into this category.
-
-<h3 id="add_variable"><code>add_variable</code></h3>
-
-``` python
-add_variable(
-    *args,
-    **kwargs
-)
-```
-
-Alias for `add_weight`.
-
-<h3 id="add_weight"><code>add_weight</code></h3>
-
-``` python
-add_weight(
-    name,
-    shape,
-    dtype=None,
-    initializer=None,
-    regularizer=None,
-    trainable=True,
-    constraint=None,
-    use_resource=None,
-    partitioner=None
-)
-```
-
-Adds a new variable to the layer, or gets an existing one; returns it.
-
-#### Arguments:
-
-* <b>`name`</b>: variable name.
-* <b>`shape`</b>: variable shape.
-* <b>`dtype`</b>: The type of the variable. Defaults to `self.dtype` or `float32`.
-* <b>`initializer`</b>: initializer instance (callable).
-* <b>`regularizer`</b>: regularizer instance (callable).
-* <b>`trainable`</b>: whether the variable should be part of the layer's
-    "trainable_variables" (e.g. variables, biases)
-    or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
-    Note, if the current variable scope is marked as non-trainable
-    then this parameter is ignored and any added variables are also
-    marked as non-trainable.
-* <b>`constraint`</b>: constraint instance (callable).
-* <b>`use_resource`</b>: Whether to use `ResourceVariable`.
-* <b>`partitioner`</b>: (optional) partitioner instance (callable).  If
-    provided, when the requested variable is created it will be split
-    into multiple partitions according to `partitioner`.  In this case,
-    an instance of `PartitionedVariable` is returned.  Available
-    partitioners include <a href="../../../tf/fixed_size_partitioner"><code>tf.fixed_size_partitioner</code></a> and
-    <a href="../../../tf/variable_axis_size_partitioner"><code>tf.variable_axis_size_partitioner</code></a>.  For more details, see the
-    documentation of <a href="../../../tf/get_variable"><code>tf.get_variable</code></a> and the  "Variable Partitioners
-    and Sharding" section of the API guide.
-
-
-#### Returns:
-
-The created variable.  Usually either a `Variable` or `ResourceVariable`
-instance.  If `partitioner` is not `None`, a `PartitionedVariable`
-instance is returned.
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If called with partioned variable regularization and
-    eager execution is enabled.
-
 <h3 id="apply"><code>apply</code></h3>
 
 ``` python
@@ -428,48 +305,6 @@ build(input_shape)
 ```
 
 Creates the variables of the layer.
-
-<h3 id="call"><code>call</code></h3>
-
-``` python
-call(
-    inputs,
-    initial_state=None,
-    dtype=None,
-    sequence_length=None
-)
-```
-
-Run this LSTM on inputs, starting from the given state.
-
-#### Args:
-
-* <b>`inputs`</b>: `3-D` tensor with shape `[time_len, batch_size, input_size]`.
-* <b>`initial_state`</b>: a tuple `(initial_cell_state, initial_output)` with tensors
-    of shape `[batch_size, self._num_units]`. If this is not provided, the
-    cell is expected to create a zero initial state of type `dtype`.
-* <b>`dtype`</b>: The data type for the initial state and expected output. Required
-    if `initial_state` is not provided or RNN state has a heterogeneous
-    dtype.
-* <b>`sequence_length`</b>: Specifies the length of each sequence in inputs. An
-    `int32` or `int64` vector (tensor) size `[batch_size]`, values in `[0,
-    time_len).`
-    Defaults to `time_len` for each element.
-
-
-#### Returns:
-
-A pair containing:
-
-- Output: A `3-D` tensor of shape `[time_len, batch_size, output_size]`
-  or a list of time_len tensors of shape `[batch_size, output_size]`,
-  to match the type of the `inputs`.
-- Final state: a tuple `(cell_state, output)` matching `initial_state`.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: in case of shape mismatches
 
 <h3 id="compute_mask"><code>compute_mask</code></h3>
 

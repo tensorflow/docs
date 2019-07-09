@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`SessionRunHook`](../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/wrappers/hooks.py).
+Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/wrappers/hooks.py).
 
 See the guide: [TensorFlow Debugger > Session wrapper class and `SessionRunHook` implementations](../../../api_guides/python/tfdbg#Session_wrapper_class_and_SessionRunHook_implementations)
 
@@ -25,9 +22,7 @@ Can be used as a hook for <a href="../tf/train/MonitoredSession"><code>tf.train.
 <a href="../tfdbg/LocalCLIDebugWrapperSession"><code>tfdbg.LocalCLIDebugWrapperSession</code></a> in cases where the session is not directly
 available.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -50,6 +45,10 @@ Create a local debugger command-line interface (CLI) hook.
 * <b>`thread_name_filter`</b>: Regular-expression white list for threads on which the
     wrapper session will be active. See doc of `BaseDebugWrapperSession` for
     more details.
+
+
+
+## Methods
 
 <h3 id="add_tensor_filter"><code>add_tensor_filter</code></h3>
 

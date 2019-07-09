@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`ReaderBase`](../tf/ReaderBase)
 
 
 
-Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/io_ops.py).
+Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/io_ops.py).
 
 See the guides: [Inputs and Readers > Readers](../../../api_guides/python/io_ops#Readers), [Reading data > `QueueRunner`](../../../api_guides/python/reading_data#_QueueRunner_)
 
@@ -31,21 +28,7 @@ use <a href="../tf/data"><code>tf.data</code></a> to get data into your model.
 
 
 
-## Properties
-
-<h3 id="reader_ref"><code>reader_ref</code></h3>
-
-Op that implements the reader.
-
-<h3 id="supports_serialize"><code>supports_serialize</code></h3>
-
-Whether the Reader implementation can serialize its state.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -61,6 +44,22 @@ Create a TextLineReader.
 * <b>`skip_header_lines`</b>: An optional int. Defaults to 0.  Number of lines
     to skip from the beginning of every file.
 * <b>`name`</b>: A name for the operation (optional).
+
+
+
+## Properties
+
+<h3 id="reader_ref"><code>reader_ref</code></h3>
+
+Op that implements the reader.
+
+<h3 id="supports_serialize"><code>supports_serialize</code></h3>
+
+Whether the Reader implementation can serialize its state.
+
+
+
+## Methods
 
 <h3 id="num_records_produced"><code>num_records_produced</code></h3>
 

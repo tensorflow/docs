@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/independent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/independent.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/independent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/independent.py).
 
 Independent distribution from batch of distributions.
 
@@ -75,6 +72,45 @@ ind = tfd.Independent(
 ind.batch_shape  # ==> []
 ind.event_shape  # ==> [2, 2]
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    distribution,
+    reinterpreted_batch_ndims=None,
+    validate_args=False,
+    name=None
+)
+```
+
+Construct a `Independent` distribution. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`distribution`</b>: The base distribution instance to transform. Typically an
+    instance of `Distribution`.
+* <b>`reinterpreted_batch_ndims`</b>: Scalar, integer number of rightmost batch dims
+    which will be regarded as event dims. When `None` all but the first
+    batch axis (batch axis 0) will be transferred to event dimensions
+    (analogous to <a href="../../../tf/layers/flatten"><code>tf.layers.flatten</code></a>).
+* <b>`validate_args`</b>: Python `bool`.  Whether to validate input with asserts.
+    If `validate_args` is `False`, and the inputs are invalid,
+    correct behavior is not guaranteed.
+* <b>`name`</b>: The name for ops managed by the distribution.
+    Default value: `Independent + distribution.name`.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if `reinterpreted_batch_ndims` exceeds
+    `distribution.batch_ndims`
+
+
 
 ## Properties
 
@@ -156,39 +192,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    distribution,
-    reinterpreted_batch_ndims=None,
-    validate_args=False,
-    name=None
-)
-```
-
-Construct a `Independent` distribution.
-
-#### Args:
-
-* <b>`distribution`</b>: The base distribution instance to transform. Typically an
-    instance of `Distribution`.
-* <b>`reinterpreted_batch_ndims`</b>: Scalar, integer number of rightmost batch dims
-    which will be regarded as event dims. When `None` all but the first
-    batch axis (batch axis 0) will be transferred to event dimensions
-    (analogous to <a href="../../../tf/layers/flatten"><code>tf.layers.flatten</code></a>).
-* <b>`validate_args`</b>: Python `bool`.  Whether to validate input with asserts.
-    If `validate_args` is `False`, and the inputs are invalid,
-    correct behavior is not guaranteed.
-* <b>`name`</b>: The name for ops managed by the distribution.
-    Default value: `Independent + distribution.name`.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: if `reinterpreted_batch_ndims` exceeds
-    `distribution.batch_ndims`
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

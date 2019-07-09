@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -13,13 +10,14 @@ tf.image.resize_images(
     images,
     size,
     method=ResizeMethod.BILINEAR,
-    align_corners=False
+    align_corners=False,
+    preserve_aspect_ratio=False
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Resizing](../../../../api_guides/python/image#Resizing)
 
@@ -27,7 +25,7 @@ Resize `images` to `size` using the specified `method`.
 
 Resized images will be distorted if their original aspect ratio is not
 the same as `size`.  To avoid distortions see
-<a href="../../tf/image/resize_image_with_crop_or_pad"><code>tf.image.resize_image_with_crop_or_pad</code></a>.
+<a href="../../tf/image/resize_image_with_pad"><code>tf.image.resize_image_with_pad</code></a>.
 
 `method` can be one of:
 
@@ -55,6 +53,10 @@ type `float32`.
 * <b>`align_corners`</b>: bool.  If True, the centers of the 4 corner pixels of the
       input and output tensors are aligned, preserving the values at the
       corner pixels. Defaults to `False`.
+* <b>`preserve_aspect_ratio`</b>: Whether to preserve the aspect ratio. If this is set,
+    then `images` will be resized to a size that fits in `size` while
+    preserving the aspect ratio of the original image. Scales up the image if
+    `size` is bigger than the current size of the `image`. Defaults to False.
 
 
 #### Raises:

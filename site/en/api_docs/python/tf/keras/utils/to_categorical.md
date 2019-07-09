@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.keras.utils.to_categorical(
 
 
 
-Defined in [`tensorflow/python/keras/utils/np_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/utils/np_utils.py).
+Defined in [`tensorflow/python/keras/utils/np_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/np_utils.py).
 
 Converts a class vector (integers) to binary class matrix.
 
@@ -32,4 +29,5 @@ E.g. for use with categorical_crossentropy.
 
 #### Returns:
 
-A binary matrix representation of the input.
+A binary matrix representation of the input. The classes axis is placed
+last.

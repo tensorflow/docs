@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`AdamOptimizer`](../../../tf/train/AdamOptimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/adamax.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/adamax.py).
+Defined in [`tensorflow/contrib/opt/python/training/adamax.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/adamax.py).
 
 Optimizer that implements the AdaMax algorithm.
 
@@ -22,9 +19,7 @@ Adamax is sometimes superior to adam, specially in models with embeddings,
 see [Kingma et al., 2014](http://arxiv.org/abs/1412.6980)
 ([pdf](http://arxiv.org/pdf/1412.6980.pdf)).
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -81,6 +76,10 @@ used).
 * <b>`use_locking`</b>: If True use locks for update operations.
 * <b>`name`</b>: Optional name for the operations created when applying gradients.
     Defaults to "AdaMax".
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

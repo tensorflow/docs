@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,13 +7,15 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/eager/python/tfe.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/tfe.py).
+Defined in [`tensorflow/contrib/eager/python/tfe.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/tfe.py).
 
 TensorFlow Eager execution prototype.
 
 EXPERIMENTAL: APIs here are unstable and likely to change without notice.
 
-To use, at program startup, call `tfe.enable_eager_execution()`.
+To use, at program startup, call `tf.enable_eager_execution()`.
+
+
 
 
 
@@ -54,6 +53,8 @@ To use, at program startup, call `tfe.enable_eager_execution()`.
 
 [`class Sequential`](../../tf/contrib/eager/Sequential): Represents a linear sequence of Layers or functions.
 
+[`class TensorSpec`](../../tf/contrib/eager/TensorSpec): Describes a tf.Tensor.
+
 [`class Variable`](../../tf/contrib/eager/Variable): Variable based on resource handles.
 
 ## Functions
@@ -66,11 +67,15 @@ To use, at program startup, call `tfe.enable_eager_execution()`.
 
 [`clear_execution_callbacks(...)`](../../tf/contrib/eager/clear_execution_callbacks): Clear all execution callbacks from the default eager context.
 
+[`connect_to_remote_host(...)`](../../tf/contrib/eager/connect_to_remote_host): Connects to a single machine to enable remote execution on it.
+
 [`custom_gradient(...)`](../../tf/custom_gradient): Decorator to define a function with a custom gradient.
 
 [`defun(...)`](../../tf/contrib/eager/defun): Compiles a Python function into a callable TensorFlow graph.
 
 [`enable_eager_execution(...)`](../../tf/enable_eager_execution): Enables eager execution for the lifetime of this program.
+
+[`enable_remote_eager_execution(...)`](../../tf/contrib/eager/enable_remote_eager_execution): Enables eager execution for the lifetime of this program.
 
 [`executing_eagerly(...)`](../../tf/executing_eagerly): Returns True if the current thread has eager execution enabled.
 
@@ -106,11 +111,15 @@ To use, at program startup, call `tfe.enable_eager_execution()`.
 
 [`run(...)`](../../tf/contrib/eager/run): Runs the program with an optional main function and argv list.
 
+[`run_all_tests_in_graph_and_eager_modes(...)`](../../tf/contrib/eager/run_all_tests_in_graph_and_eager_modes): Execute all test methods in the given class with and without eager.
+
 [`run_test_in_graph_and_eager_modes(...)`](../../tf/contrib/eager/run_test_in_graph_and_eager_modes): Execute the decorated test with and without enabling eager execution.
 
 [`save_network_checkpoint(...)`](../../tf/contrib/eager/save_network_checkpoint): Save variables from the Network to a checkpoint. (deprecated)
 
 [`set_execution_mode(...)`](../../tf/contrib/eager/set_execution_mode): Sets execution mode for the current thread.
+
+[`set_server_def(...)`](../../tf/contrib/eager/set_server_def)
 
 [`seterr(...)`](../../tf/contrib/eager/seterr): Set how abnormal conditions are handled by the default eager context.
 

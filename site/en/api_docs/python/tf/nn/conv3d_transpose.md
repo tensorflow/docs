@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,14 +19,14 @@ tf.nn.conv3d_transpose(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
 The transpose of `conv3d`.
 
 This operation is sometimes called "deconvolution" after [Deconvolutional
-Networks](http://www.matthewzeiler.com/pubs/cvpr2010/cvpr2010.pdf), but is
+Networks](https://www.matthewzeiler.com/mattzeiler/deconvolutionalnetworks.pdf), but is
 actually the transpose (gradient) of `conv3d` rather than an actual
 deconvolution.
 
@@ -45,7 +42,7 @@ deconvolution.
 * <b>`strides`</b>: A list of ints. The stride of the sliding window for each
     dimension of the input tensor.
 * <b>`padding`</b>: A string, either `'VALID'` or `'SAME'`. The padding algorithm.
-    See the <a href="../../tf/nn/convolution">comment here</a>
+    See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
 * <b>`data_format`</b>: A string, either `'NDHWC'` or `'NCDHW`' specifying the layout
     of the input and output tensors. Defaults to `'NDHWC'`.
 * <b>`name`</b>: Optional name for the returned tensor.

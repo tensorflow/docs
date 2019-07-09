@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -24,7 +21,7 @@ tf.train.noisy_linear_cosine_decay(
 
 
 
-Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/learning_rate_decay.py).
+Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/learning_rate_decay.py).
 
 See the guide: [Training > Decaying the learning rate](../../../../api_guides/python/train#Decaying_the_learning_rate)
 
@@ -93,3 +90,11 @@ learning rate.
 #### Raises:
 
 * <b>`ValueError`</b>: if `global_step` is not supplied.
+
+
+
+#### Eager Compatibility
+When eager execution is enabled, this function returns a function which in
+turn returns the decayed learning rate Tensor. This can be useful for changing
+the learning rate value across different invocations of optimizer functions.
+

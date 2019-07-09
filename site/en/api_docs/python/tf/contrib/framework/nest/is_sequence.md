@@ -1,20 +1,17 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.contrib.framework.nest.is_sequence
 
 ``` python
-tf.contrib.framework.nest.is_sequence(seq)
+tf.contrib.framework.nest.is_sequence(o)
 ```
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/pywrap_tensorflow_internal.py).
 
 Returns a true if its input is a collections.Sequence (except strings).
 

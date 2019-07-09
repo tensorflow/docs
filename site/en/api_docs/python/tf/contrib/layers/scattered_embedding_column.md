@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.contrib.layers.scattered_embedding_column(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/feature_column.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
 
@@ -69,7 +66,7 @@ impact of collisions, but adds the cost of slowing down training.
     For more information: `tf.embedding_lookup_sparse`.
 * <b>`initializer`</b>: A variable initializer function to be used in embedding
     variable initialization. If not specified, defaults to
-    <a href="../../../tf/truncated_normal_initializer"><code>tf.truncated_normal_initializer</code></a> with mean 0 and standard deviation 0.1.
+    <a href="../../../tf/initializers/truncated_normal"><code>tf.truncated_normal_initializer</code></a> with mean 0 and standard deviation 0.1.
 
 
 #### Returns:

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,15 +7,21 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/__init__.py).
+Defined in [`tensorflow/contrib/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/__init__.py).
 
 contrib module containing volatile or experimental code.
 
 ## Modules
 
+[`all_reduce`](../tf/contrib/all_reduce) module: All-reduce implementations.
+
+[`autograph`](../tf/contrib/autograph) module: Autograph compiles Python code into equivalent TensorFlow code.
+
 [`batching`](../tf/contrib/batching) module: Ops and modules related to batch.
 
 [`bayesflow`](../tf/contrib/bayesflow) module: Ops for representing Bayesian computation.
+
+[`bigtable`](../tf/contrib/bigtable) module: Cloud Bigtable Client for TensorFlow.
 
 [`checkpoint`](../tf/contrib/checkpoint) module: Tools for working with object-based checkpoints.
 
@@ -26,7 +29,7 @@ contrib module containing volatile or experimental code.
 
 [`cluster_resolver`](../tf/contrib/cluster_resolver) module: Standard imports for Cluster Resolvers.
 
-[`coder`](../tf/contrib/coder) module: Data compression tools.
+[`coder`](../tf/contrib/coder) module: Data compression ops.
 
 [`compiler`](../tf/contrib/compiler) module: A module for controlling the Tensorflow/XLA JIT compiler.
 
@@ -75,8 +78,6 @@ contrib module containing volatile or experimental code.
 [`keras`](../tf/contrib/keras) module: Implementation of the Keras API meant to be a high-level API for TensorFlow.
 
 [`kernel_methods`](../tf/contrib/kernel_methods) module: Ops and estimators that enable explicit kernel methods in TensorFlow.
-
-[`kfac`](../tf/contrib/kfac) module: Kronecker-factored Approximate Curvature Optimizer.
 
 [`labeled_tensor`](../tf/contrib/labeled_tensor) module: Labels for TensorFlow.
 

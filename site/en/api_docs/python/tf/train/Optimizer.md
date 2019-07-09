@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,11 @@ page_type: reference
 
 ## Class `Optimizer`
 
+Inherits From: [`CheckpointableBase`](../../tf/contrib/checkpoint/CheckpointableBase)
 
 
 
-
-Defined in [`tensorflow/python/training/optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/optimizer.py).
+Defined in [`tensorflow/python/training/optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/optimizer.py).
 
 See the guide: [Training > Optimizers](../../../../api_guides/python/train#Optimizers)
 
@@ -103,9 +100,7 @@ you can ask the optimizer for the variable it created to hold the slot value.
 This can be useful if you want to log debug a training algorithm, report stats
 about the slots, etc.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -129,6 +124,10 @@ This must be called by the constructors of subclasses.
 #### Raises:
 
 * <b>`ValueError`</b>: If name is malformed.
+
+
+
+## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

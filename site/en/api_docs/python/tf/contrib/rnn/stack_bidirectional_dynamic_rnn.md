@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -25,7 +22,7 @@ tf.contrib.rnn.stack_bidirectional_dynamic_rnn(
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/rnn/python/ops/rnn.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/rnn.py).
 
 See the guide: [RNN and Cells (contrib) > Recurrent Neural Networks](../../../../../api_guides/python/contrib.rnn#Recurrent_Neural_Networks)
 
@@ -75,7 +72,7 @@ are returned.
 
 A tuple (outputs, output_state_fw, output_state_bw) where:
 * <b>`outputs`</b>: Output `Tensor` shaped:
-      `batch_size, max_time, layers_output]`. Where layers_output
+      `[batch_size, max_time, layers_output]`. Where layers_output
       are depth-concatenated forward and backward outputs.
     output_states_fw is the final states, one tensor per layer,
       of the forward rnn.

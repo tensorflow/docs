@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -13,6 +10,7 @@ tf.contrib.integrate.odeint_fixed(
     func,
     y0,
     t,
+    dt=None,
     method='rk4',
     name=None
 )
@@ -20,7 +18,7 @@ tf.contrib.integrate.odeint_fixed(
 
 
 
-Defined in [`tensorflow/contrib/integrate/python/ops/odes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/integrate/python/ops/odes.py).
+Defined in [`tensorflow/contrib/integrate/python/ops/odes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/integrate/python/ops/odes.py).
 
 ODE integration on a fixed grid (with no step size control).
 
@@ -37,6 +35,14 @@ the time grid is known a priori to be sufficient.
     `y`. The initial time point should be the first element of this sequence,
     and each time must be larger than the previous time. May have any floating
     point dtype.
+* <b>`dt`</b>: 0-D or 1-D Tensor providing time step suggestion to be used on time
+    integration intervals in `t`. 1-D Tensor should provide values
+    for all intervals, must have 1 less element than that of `t`.
+    If given a 0-D Tensor, the value is interpreted as time step suggestion
+    same for all intervals. If passed None, then time step is set to be the
+    t[1:] - t[:-1]. Defaults to None. The actual step size is obtained by
+    insuring an integer number of steps per interval, potentially reducing the
+    time step.
 * <b>`method`</b>: One of 'midpoint' or 'rk4'.
 * <b>`name`</b>: Optional name for the resulting operation.
 

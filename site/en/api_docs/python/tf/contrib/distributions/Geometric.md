@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/geometric.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/geometric.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/geometric.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/geometric.py).
 
 Geometric distribution.
 
@@ -34,6 +31,48 @@ where:
 
 * `p` is the success probability, `0 < p <= 1`, and,
 * `k` is a non-negative integer.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    logits=None,
+    probs=None,
+    validate_args=False,
+    allow_nan_stats=True,
+    name='Geometric'
+)
+```
+
+Construct Geometric distributions. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+#### Args:
+
+* <b>`logits`</b>: Floating-point `Tensor` with shape `[B1, ..., Bb]` where `b >= 0`
+    indicates the number of batch dimensions. Each entry represents logits
+    for the probability of success for independent Geometric distributions
+    and must be in the range `(-inf, inf]`. Only one of `logits` or `probs`
+    should be specified.
+* <b>`probs`</b>: Positive floating-point `Tensor` with shape `[B1, ..., Bb]`
+    where `b >= 0` indicates the number of batch dimensions. Each entry
+    represents the probability of success for independent Geometric
+    distributions and must be in the range `(0, 1]`. Only one of `logits`
+    or `probs` should be specified.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
+    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
+    result is undefined. When `False`, an exception is raised if one or
+    more of the statistic's batch members are undefined.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
 
 ## Properties
 
@@ -115,42 +154,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    logits=None,
-    probs=None,
-    validate_args=False,
-    allow_nan_stats=True,
-    name='Geometric'
-)
-```
-
-Construct Geometric distributions.
-
-#### Args:
-
-* <b>`logits`</b>: Floating-point `Tensor` with shape `[B1, ..., Bb]` where `b >= 0`
-    indicates the number of batch dimensions. Each entry represents logits
-    for the probability of success for independent Geometric distributions
-    and must be in the range `(-inf, inf]`. Only one of `logits` or `probs`
-    should be specified.
-* <b>`probs`</b>: Positive floating-point `Tensor` with shape `[B1, ..., Bb]`
-    where `b >= 0` indicates the number of batch dimensions. Each entry
-    represents the probability of success for independent Geometric
-    distributions and must be in the range `(0, 1]`. Only one of `logits`
-    or `probs` should be specified.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`, statistics
-    (e.g., mean, mode, variance) use the value "`NaN`" to indicate the
-    result is undefined. When `False`, an exception is raised if one or
-    more of the statistic's batch members are undefined.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,11 +19,15 @@ tf.train.add_queue_runner(
 
 
 
-Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/queue_runner_impl.py).
+Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/queue_runner_impl.py).
 
 See the guides: [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
 
-Adds a `QueueRunner` to a collection in the graph.
+Adds a `QueueRunner` to a collection in the graph. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+To construct input pipelines, use the <a href="../../tf/data"><code>tf.data</code></a> module.
 
 When building a complex model that uses many queues it is often difficult to
 gather all the queue runners that need to be run.  This convenience function

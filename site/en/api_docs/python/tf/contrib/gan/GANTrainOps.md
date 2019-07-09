@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/namedtuples.py).
+Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/namedtuples.py).
 
 GANTrainOps contains the training ops.
 
@@ -23,6 +20,21 @@ GANTrainOps contains the training ops.
 * <b>`generator_train_op`</b>: Op that performs a generator update step.
 * <b>`discriminator_train_op`</b>: Op that performs a discriminator update step.
 * <b>`global_step_inc_op`</b>: Op that increments the shared global step.
+
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    generator_train_op,
+    discriminator_train_op,
+    global_step_inc_op
+)
+```
+
+Create new instance of GANTrainOps(generator_train_op, discriminator_train_op, global_step_inc_op)
+
+
 
 ## Properties
 
@@ -37,23 +49,6 @@ Alias for field number 0
 <h3 id="global_step_inc_op"><code>global_step_inc_op</code></h3>
 
 Alias for field number 2
-
-
-
-## Methods
-
-<h3 id="__new__"><code>__new__</code></h3>
-
-``` python
-__new__(
-    _cls,
-    generator_train_op,
-    discriminator_train_op,
-    global_step_inc_op
-)
-```
-
-Create new instance of GANTrainOps(generator_train_op, discriminator_train_op, global_step_inc_op)
 
 
 

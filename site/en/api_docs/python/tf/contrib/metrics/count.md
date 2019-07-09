@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,10 +17,11 @@ tf.contrib.metrics.count(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 Computes the number of examples, or sum of `weights`.
 
+This metric keeps track of the denominator in <a href="../../../tf/metrics/mean"><code>tf.metrics.mean</code></a>.
 When evaluating some metric (e.g. mean) on one or more subsets of the data,
 this auxiliary metric is useful for keeping track of how many examples there
 are in each subset.
@@ -55,3 +53,4 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 * <b>`ValueError`</b>: If `weights` is not `None` and its shape doesn't match `values`,
     or if either `metrics_collections` or `updates_collections` are not a list
     or tuple.
+* <b>`RuntimeError`</b>: If eager execution is enabled.

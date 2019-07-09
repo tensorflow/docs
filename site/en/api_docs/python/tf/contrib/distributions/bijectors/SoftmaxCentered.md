@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/softmax_centered.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/softmax_centered.py).
-
-See the guide: [Random variable transformations (contrib) > Bijectors](../../../../../../api_guides/python/contrib.distributions.bijectors#Bijectors)
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/softmax_centered.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/softmax_centered.py).
 
 Bijector which computes `Y = g(X) = exp([X 0]) / sum(exp([X 0]))`.
 
@@ -42,6 +37,23 @@ At first blush it may seem like the [Invariance of domain](
 https://en.wikipedia.org/wiki/Invariance_of_domain) theorem implies this
 implementation is not a bijection. However, the appended dimension
 makes the (forward) image non-open and the theorem does not directly apply.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    validate_args=False,
+    name='softmax_centered'
+)
+```
+
+DEPRECATED FUNCTION
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+
 
 ## Properties
 
@@ -83,17 +95,6 @@ Returns True if Tensor arguments will be validated.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    validate_args=False,
-    name='softmax_centered'
-)
-```
-
-
 
 <h3 id="forward"><code>forward</code></h3>
 

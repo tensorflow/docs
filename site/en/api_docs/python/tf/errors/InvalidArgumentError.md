@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`OpError`](../../tf/OpError)
 
 
 
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/errors_impl.py).
+Defined in [`tensorflow/python/framework/errors_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/errors_impl.py).
 
 See the guide: [Running Graphs > Error classes and convenience functions](../../../../api_guides/python/client#Error_classes_and_convenience_functions)
 
@@ -24,9 +21,23 @@ This may occur, for example, if an operation is receives an input
 tensor that has an invalid value or shape. For example, the
 <a href="../../tf/matmul"><code>tf.matmul</code></a> op will raise this
 error if it receives an input that is not a matrix, and the
-<a href="../../tf/reshape"><code>tf.reshape</code></a> op will raise
+<a href="../../tf/manip/reshape"><code>tf.reshape</code></a> op will raise
 this error if the new shape does not match the number of elements in the input
 tensor.
+
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    node_def,
+    op,
+    message
+)
+```
+
+Creates an `InvalidArgumentError`.
+
 
 
 ## Properties
@@ -51,28 +62,12 @@ The operation that failed, if known.
 or `Recv` op, there will be no corresponding
 <a href="../../tf/Operation"><code>tf.Operation</code></a>
 object.  In that case, this will return `None`, and you should
-instead use the <a href="../../tf/OpError#node_def"><code>tf.OpError.node_def</code></a> to
+instead use the <a href="../../tf/errors/OpError#node_def"><code>tf.OpError.node_def</code></a> to
 discover information about the op.
 
 #### Returns:
 
 The `Operation` that failed, or None.
-
-
-
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    node_def,
-    op,
-    message
-)
-```
-
-Creates an `InvalidArgumentError`.
 
 
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,15 +11,13 @@ Inherits From: [`CrossTowerOps`](../../../tf/contrib/distribute/CrossTowerOps)
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/cross_tower_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distribute/python/cross_tower_ops.py).
+Defined in [`tensorflow/contrib/distribute/python/cross_tower_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distribute/python/cross_tower_ops.py).
 
 Always do reduction to one device first and then do broadcasting.
 
 Batch reduction is done by reduction on each element one by one.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -39,11 +34,15 @@ Constructor.
     to the first device in `destinations` of the reduce() method.
 * <b>`accumulation_fn`</b>: a function that does accumulation.
 
+
+
+## Methods
+
 <h3 id="batch_reduce"><code>batch_reduce</code></h3>
 
 ``` python
 batch_reduce(
-    method_string,
+    aggregation,
     value_destination_pairs
 )
 ```
@@ -55,10 +54,10 @@ element which indicates the destinations.
 
 #### Args:
 
-* <b>`method_string`</b>: either 'sum' or 'mean' specifying the reduction method.
+* <b>`aggregation`</b>: Indicates how a variable will be aggregated. Accepted values
+    are <a href="../../../tf/VariableAggregation#SUM"><code>tf.VariableAggregation.SUM</code></a>, <a href="../../../tf/VariableAggregation#MEAN"><code>tf.VariableAggregation.MEAN</code></a>.
 * <b>`value_destination_pairs`</b>: a list or a tuple of tuples of PerDevice objects
-    and destinations. If a destination is None, then the destinations
-    are set to match the devices of the input PerDevice object.
+    (or tensors with device set if there is one tower) and destinations.
 
 
 #### Returns:
@@ -96,21 +95,22 @@ a Mirrored object.
 
 ``` python
 reduce(
-    method_string,
+    aggregation,
     per_device_value,
-    destinations=None
+    destinations
 )
 ```
 
 Reduce `per_device_value` to `destinations`.
 
-It runs the reduction operation defined by `method_string` and put the
+It runs the reduction operation defined by `aggregation` and put the
 result on `destinations`.
 
 #### Args:
 
-* <b>`method_string`</b>: either 'sum' or 'mean' specifying the reduction method.
-* <b>`per_device_value`</b>: a PerDevice object.
+* <b>`aggregation`</b>: Indicates how a variable will be aggregated. Accepted values
+    are <a href="../../../tf/VariableAggregation#SUM"><code>tf.VariableAggregation.SUM</code></a>, <a href="../../../tf/VariableAggregation#MEAN"><code>tf.VariableAggregation.MEAN</code></a>.
+* <b>`per_device_value`</b>: a PerDevice object or a tensor with device set.
 * <b>`destinations`</b>: the reduction destinations.
 
 

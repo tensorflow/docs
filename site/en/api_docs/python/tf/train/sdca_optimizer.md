@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -83,7 +81,7 @@ Dominik Csiba, Zheng Qu, Peter Richtarik. 2015
     with a dense feature group.
 * <b>`example_state_data`</b>: A `Tensor` of type `float32`.
     a list of vectors containing the example state data.
-* <b>`loss_type`</b>: A `string` from: `"logistic_loss", "squared_loss", "hinge_loss", "smooth_hinge_loss"`.
+* <b>`loss_type`</b>: A `string` from: `"logistic_loss", "squared_loss", "hinge_loss", "smooth_hinge_loss", "poisson_loss"`.
     Type of the primal loss. Currently SdcaSolver supports logistic,
     squared and hinge losses.
 * <b>`l1`</b>: A `float`. Symmetric l1 regularization strength.

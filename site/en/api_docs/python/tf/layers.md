@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/layers/__init__.py).
+Defined in [`tensorflow/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/layers/__init__.py).
 
 Public API for tf.layers namespace.
 
@@ -40,7 +37,7 @@ Public API for tf.layers namespace.
 
 [`class Flatten`](../tf/layers/Flatten): Flattens an input tensor while preserving the batch axis (axis 0).
 
-[`class InputSpec`](../tf/layers/InputSpec): Specifies the ndim, dtype and shape of every input to a layer.
+[`class InputSpec`](../tf/keras/layers/InputSpec): Specifies the ndim, dtype and shape of every input to a layer.
 
 [`class Layer`](../tf/layers/Layer): Base layer class.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/quantized_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/quantized_distribution.py).
-
-See the guide: [Statistical Distributions (contrib) > Transformed distributions](../../../../../api_guides/python/contrib.distributions#Transformed_distributions)
+Defined in [`tensorflow/contrib/distributions/python/ops/quantized_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/quantized_distribution.py).
 
 Distribution representing the quantization `Y = ceiling(X)`.
 
@@ -119,6 +114,56 @@ calculating its log-probability of audio samples as `target` and optimizing.
      Synthesis. _arXiv preprint arXiv:1711.10433_, 2017.
      https://arxiv.org/abs/1711.10433
 
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    distribution,
+    low=None,
+    high=None,
+    validate_args=False,
+    name='QuantizedDistribution'
+)
+```
+
+Construct a Quantized Distribution representing `Y = ceiling(X)`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+
+Some properties are inherited from the distribution defining `X`. Example:
+`allow_nan_stats` is determined for this `QuantizedDistribution` by reading
+the `distribution`.
+
+#### Args:
+
+* <b>`distribution`</b>:  The base distribution class to transform. Typically an
+    instance of `Distribution`.
+* <b>`low`</b>: `Tensor` with same `dtype` as this distribution and shape
+    able to be added to samples. Should be a whole number. Default `None`.
+    If provided, base distribution's `prob` should be defined at
+    `low`.
+* <b>`high`</b>: `Tensor` with same `dtype` as this distribution and shape
+    able to be added to samples. Should be a whole number. Default `None`.
+    If provided, base distribution's `prob` should be defined at
+    `high - 1`.
+    `high` must be strictly greater than `low`.
+* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
+    parameters are checked for validity despite possibly degrading runtime
+    performance. When `False` invalid inputs may silently render incorrect
+    outputs.
+* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
+
+
+#### Raises:
+
+* <b>`TypeError`</b>: If `dist_cls` is not a subclass of
+      `Distribution` or continuous.
+* <b>`NotImplementedError`</b>:  If the base distribution does not implement `cdf`.
+
+
+
 ## Properties
 
 <h3 id="allow_nan_stats"><code>allow_nan_stats</code></h3>
@@ -168,6 +213,14 @@ May be partially defined or unknown.
 
 * <b>`event_shape`</b>: `TensorShape`, possibly unknown.
 
+<h3 id="high"><code>high</code></h3>
+
+Highest value that quantization returns.
+
+<h3 id="low"><code>low</code></h3>
+
+Lowest value that quantization returns.
+
 <h3 id="name"><code>name</code></h3>
 
 Name prepended to all ops created by this `Distribution`.
@@ -195,50 +248,6 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    distribution,
-    low=None,
-    high=None,
-    validate_args=False,
-    name='QuantizedDistribution'
-)
-```
-
-Construct a Quantized Distribution representing `Y = ceiling(X)`.
-
-Some properties are inherited from the distribution defining `X`. Example:
-`allow_nan_stats` is determined for this `QuantizedDistribution` by reading
-the `distribution`.
-
-#### Args:
-
-* <b>`distribution`</b>:  The base distribution class to transform. Typically an
-    instance of `Distribution`.
-* <b>`low`</b>: `Tensor` with same `dtype` as this distribution and shape
-    able to be added to samples. Should be a whole number. Default `None`.
-    If provided, base distribution's `prob` should be defined at
-    `low`.
-* <b>`high`</b>: `Tensor` with same `dtype` as this distribution and shape
-    able to be added to samples. Should be a whole number. Default `None`.
-    If provided, base distribution's `prob` should be defined at
-    `high - 1`.
-    `high` must be strictly greater than `low`.
-* <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
-* <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: If `dist_cls` is not a subclass of
-      `Distribution` or continuous.
-* <b>`NotImplementedError`</b>:  If the base distribution does not implement `cdf`.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

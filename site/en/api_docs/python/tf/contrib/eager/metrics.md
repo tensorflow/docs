@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/eager/python/metrics.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/metrics.py).
+Defined in [`tensorflow/contrib/eager/python/metrics.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/metrics.py).
 
 Metrics namespace.
 
@@ -18,7 +15,13 @@ Metrics namespace.
 
 [`class Accuracy`](../../../tf/contrib/eager/metrics/Accuracy): Calculates how often `predictions` matches `labels`.
 
+[`class BinaryAccuracy`](../../../tf/contrib/eager/metrics/BinaryAccuracy): Calculates how often `predictions` matches `labels`.
+
+[`class CategoricalAccuracy`](../../../tf/contrib/eager/metrics/CategoricalAccuracy): Calculates how often `predictions` matches `labels`.
+
 [`class Mean`](../../../tf/contrib/eager/metrics/Mean): Computes the (weighted) mean of the given values.
 
 [`class Metric`](../../../tf/contrib/eager/metrics/Metric): A metric holds state for aggregating statistics over an evaluation run.
+
+[`class SparseAccuracy`](../../../tf/contrib/eager/metrics/SparseAccuracy): Calculates how often `predictions` matches `labels`.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linear_operator_low_rank_update.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/linalg/linear_operator_low_rank_update.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator_low_rank_update.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_low_rank_update.py).
 
 See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
 
@@ -113,6 +110,70 @@ for `X = non_singular`, `self_adjoint`, `positive_definite`,
 * If `is_X == False`, callers should expect the operator to not have `X`.
 * If `is_X == None` (the default), callers should have no expectation either
   way.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    base_operator,
+    u,
+    diag_update=None,
+    v=None,
+    is_diag_update_positive=None,
+    is_non_singular=None,
+    is_self_adjoint=None,
+    is_positive_definite=None,
+    is_square=None,
+    name='LinearOperatorLowRankUpdate'
+)
+```
+
+Initialize a `LinearOperatorLowRankUpdate`.
+
+This creates a `LinearOperator` of the form `A = L + U D V^H`, with
+`L` a `LinearOperator`, `U, V` both [batch] matrices, and `D` a [batch]
+diagonal matrix.
+
+If `L` is non-singular, solves and determinants are available.
+Solves/determinants both involve a solve/determinant of a `K x K` system.
+In the event that L and D are self-adjoint positive-definite, and U = V,
+this can be done using a Cholesky factorization.  The user should set the
+`is_X` matrix property hints, which will trigger the appropriate code path.
+
+#### Args:
+
+* <b>`base_operator`</b>:  Shape `[B1,...,Bb, M, N]`.
+* <b>`u`</b>:  Shape `[B1,...,Bb, M, K]` `Tensor` of same `dtype` as `base_operator`.
+    This is `U` above.
+* <b>`diag_update`</b>:  Optional shape `[B1,...,Bb, K]` `Tensor` with same `dtype`
+    as `base_operator`.  This is the diagonal of `D` above.
+     Defaults to `D` being the identity operator.
+* <b>`v`</b>:  Optional `Tensor` of same `dtype` as `u` and shape `[B1,...,Bb, N, K]`
+     Defaults to `v = u`, in which case the perturbation is symmetric.
+     If `M != N`, then `v` must be set since the perturbation is not square.
+* <b>`is_diag_update_positive`</b>:  Python `bool`.
+    If `True`, expect `diag_update > 0`.
+* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
+    Default is `None`, unless `is_positive_definite` is auto-set to be
+    `True` (see below).
+* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
+    transpose.  Default is `None`, unless `base_operator` is self-adjoint
+    and `v = None` (meaning `u=v`), in which case this defaults to `True`.
+* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite.
+    Default is `None`, unless `base_operator` is positive-definite
+    `v = None` (meaning `u=v`), and `is_diag_update_positive`, in which case
+    this defaults to `True`.
+    Note that we say an operator is positive definite when the quadratic
+    form `x^H A x` has positive real part for all nonzero `x`.
+* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
+* <b>`name`</b>: A name for this `LinearOperator`.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>:  If `is_X` flags are set in an inconsistent way.
+
+
 
 ## Properties
 
@@ -233,69 +294,6 @@ If this operator is `A = L + U D V^H`, this is the `V`.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    base_operator,
-    u,
-    diag_update=None,
-    v=None,
-    is_diag_update_positive=None,
-    is_non_singular=None,
-    is_self_adjoint=None,
-    is_positive_definite=None,
-    is_square=None,
-    name='LinearOperatorLowRankUpdate'
-)
-```
-
-Initialize a `LinearOperatorLowRankUpdate`.
-
-This creates a `LinearOperator` of the form `A = L + U D V^H`, with
-`L` a `LinearOperator`, `U, V` both [batch] matrices, and `D` a [batch]
-diagonal matrix.
-
-If `L` is non-singular, solves and determinants are available.
-Solves/determinants both involve a solve/determinant of a `K x K` system.
-In the event that L and D are self-adjoint positive-definite, and U = V,
-this can be done using a Cholesky factorization.  The user should set the
-`is_X` matrix property hints, which will trigger the appropriate code path.
-
-#### Args:
-
-* <b>`base_operator`</b>:  Shape `[B1,...,Bb, M, N]` real `float16`, `float32` or
-    `float64` `LinearOperator`.  This is `L` above.
-* <b>`u`</b>:  Shape `[B1,...,Bb, M, K]` `Tensor` of same `dtype` as `base_operator`.
-    This is `U` above.
-* <b>`diag_update`</b>:  Optional shape `[B1,...,Bb, K]` `Tensor` with same `dtype`
-    as `base_operator`.  This is the diagonal of `D` above.
-     Defaults to `D` being the identity operator.
-* <b>`v`</b>:  Optional `Tensor` of same `dtype` as `u` and shape `[B1,...,Bb, N, K]`
-     Defaults to `v = u`, in which case the perturbation is symmetric.
-     If `M != N`, then `v` must be set since the perturbation is not square.
-* <b>`is_diag_update_positive`</b>:  Python `bool`.
-    If `True`, expect `diag_update > 0`.
-* <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
-    Default is `None`, unless `is_positive_definite` is auto-set to be
-    `True` (see below).
-* <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
-    transpose.  Default is `None`, unless `base_operator` is self-adjoint
-    and `v = None` (meaning `u=v`), in which case this defaults to `True`.
-* <b>`is_positive_definite`</b>:  Expect that this operator is positive definite.
-    Default is `None`, unless `base_operator` is positive-definite
-    `v = None` (meaning `u=v`), and `is_diag_update_positive`, in which case
-    this defaults to `True`.
-    Note that we say an operator is positive definite when the quadratic
-    form `x^H A x` has positive real part for all nonzero `x`.
-* <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
-* <b>`name`</b>: A name for this `LinearOperator`.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>:  If `is_X` flags are set in an inconsistent way.
 
 <h3 id="add_to_tensor"><code>add_to_tensor</code></h3>
 

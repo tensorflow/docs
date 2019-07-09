@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.losses.hinge_loss(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/losses/losses_impl.py).
 
 Adds a hinge loss to the training procedure.
 
@@ -51,3 +48,10 @@ shape as `labels`; otherwise, it is scalar.
 
 * <b>`ValueError`</b>: If the shapes of `logits` and `labels` don't match or
     if `labels` or `logits` is None.
+
+
+
+#### Eager Compatibility
+The `loss_collection` argument is ignored when executing eagerly. Consider
+holding on to the return value or collecting losses via a <a href="../../tf/keras/models/Model"><code>tf.keras.Model</code></a>.
+

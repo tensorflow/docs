@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,56 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_feed.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu_feed.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_feed.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu_feed.py).
 
 A helper object to build a device infeed queue.
 
 The InfeedQueue builds the host-side and device-side Ops to enqueue and
 dequeue elements, respectively, and ensures that their types and
 shapes match.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    number_of_tuple_elements=None,
+    tuple_types=None,
+    tuple_shapes=None,
+    shard_dimensions=None,
+    name=None
+)
+```
+
+Creates a new InfeedQueue with the given configuration.
+
+The configuration need not be fully specified at creation since it
+can be modified subsequently by methods that set the values
+explicitly or infer them from the shapes of inputs.
+
+#### Args:
+
+* <b>`number_of_tuple_elements`</b>: the number of Tensors fed atomically through the
+    queue, must be present unless it can be inferred from other arguments.
+* <b>`tuple_types`</b>: if not None, a list of types of the elements of the queue.
+* <b>`tuple_shapes`</b>: if not None, a list of shapes of the elements of the queue.
+* <b>`shard_dimensions`</b>: if not None, a list of dimensions on which the
+    elements of the queue should be sharded during automatic
+    parallelization.
+* <b>`name`</b>: the name of the queue.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: if number_of_tuple_elements <= 0; or
+    number_of_tuple_arguments, tuple_types, tuple_shapes, and
+    shard_dimensions are all None; or the length of tuple_types,
+    tuple_shapes, or shard_dimensions is not equal to
+    number_of_tuple_elements; or any element of shard_dimensions
+    can't be converted to a Dimension.
+* <b>`TypeError`</b>: if any element of tuple_types or tuple_shapes can't
+    be converted to a dtype or TensorShape, respectively.
+
+
 
 ## Properties
 
@@ -61,47 +101,6 @@ Returns the types of the InfeedQueue tuple elements.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    number_of_tuple_elements=None,
-    tuple_types=None,
-    tuple_shapes=None,
-    shard_dimensions=None,
-    name=None
-)
-```
-
-Creates a new InfeedQueue with the given configuration.
-
-The configuration need not be fully specified at creation since it
-can be modified subsequently by methods that set the values
-explicitly or infer them from the shapes of inputs.
-
-#### Args:
-
-* <b>`number_of_tuple_elements`</b>: the number of Tensors fed atomically through the
-    queue, must be present unless it can be inferred from other arguments.
-* <b>`tuple_types`</b>: if not None, a list of types of the elements of the queue.
-* <b>`tuple_shapes`</b>: if not None, a list of shapes of the elements of the queue.
-* <b>`shard_dimensions`</b>: if not None, a list of dimensions on which the
-    elements of the queue should be sharded during automatic
-    parallelization.
-* <b>`name`</b>: the name of the queue.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: if number_of_tuple_elements <= 0; or
-    number_of_tuple_arguments, tuple_types, tuple_shapes, and
-    shard_dimensions are all None; or the length of tuple_types,
-    tuple_shapes, or shard_dimensions is not equal to
-    number_of_tuple_elements; or any element of shard_dimensions
-    can't be converted to a Dimension.
-* <b>`TypeError`</b>: if any element of tuple_types or tuple_shapes can't
-    be converted to a dtype or TensorShape, respectively.
 
 <h3 id="freeze"><code>freeze</code></h3>
 
@@ -157,7 +156,8 @@ into XLA, suitable for use within a replicated block.
 ``` python
 generate_enqueue_ops(
     sharded_inputs,
-    tpu_ordinal_function=None
+    tpu_ordinal_function=None,
+    placement_function=None
 )
 ```
 
@@ -183,6 +183,9 @@ will be raised.
     shard index as input and returns the ordinal of the TPU device
     the shard's infeed should be placed on. tpu_ordinal_function must be
     set if the inputs are placed on CPU devices.
+* <b>`placement_function`</b>: if not None, a function that takes the shard index as
+    input and returns the host device where the enqueue op should be placed
+    on.
 
 
 #### Returns:

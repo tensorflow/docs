@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,11 @@ page_type: reference
 
 ## Class `BoundedTensorSpec`
 
-Inherits From: [`TensorSpec`](../../../tf/contrib/framework/TensorSpec)
+Inherits From: [`TensorSpec`](../../../tf/contrib/eager/TensorSpec)
 
 
 
-Defined in [`tensorflow/python/framework/tensor_spec.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/tensor_spec.py).
+Defined in [`tensorflow/python/framework/tensor_spec.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/tensor_spec.py).
 
 A `TensorSpec` that specifies minimum and maximum values.
 
@@ -33,6 +30,41 @@ with values in the set {0, 1, 2}:
 ```python
 spec = tensor_spec.BoundedTensorSpec((3, 5), tf.int32, 0, 2)
 ```
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    shape,
+    dtype,
+    minimum,
+    maximum,
+    name=None
+)
+```
+
+Initializes a new `BoundedTensorSpec`.
+
+#### Args:
+
+* <b>`shape`</b>: Value convertible to <a href="../../../tf/TensorShape"><code>tf.TensorShape</code></a>. The shape of the tensor.
+* <b>`dtype`</b>: Value convertible to <a href="../../../tf/DType"><code>tf.DType</code></a>. The type of the tensor values.
+* <b>`minimum`</b>: Number or sequence specifying the minimum element bounds
+    (inclusive). Must be broadcastable to `shape`.
+* <b>`maximum`</b>: Number or sequence specifying the maximum element bounds
+    (inclusive). Must be broadcastable to `shape`.
+* <b>`name`</b>: Optional string containing a semantic name for the corresponding
+    array. Defaults to `None`.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If `minimum` or `maximum` are not provided or not
+    broadcastable to `shape`.
+* <b>`TypeError`</b>: If the shape is not an iterable or if the `dtype` is an invalid
+    numpy dtype.
+
+
 
 ## Properties
 
@@ -68,39 +100,6 @@ Returns the `TensorShape` that represents the shape of the tensor.
 
 ## Methods
 
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    shape,
-    dtype,
-    minimum,
-    maximum,
-    name=None
-)
-```
-
-Initializes a new `BoundedTensorSpec`.
-
-#### Args:
-
-* <b>`shape`</b>: Value convertible to <a href="../../../tf/TensorShape"><code>tf.TensorShape</code></a>. The shape of the tensor.
-* <b>`dtype`</b>: Value convertible to <a href="../../../tf/DType"><code>tf.DType</code></a>. The type of the tensor values.
-* <b>`minimum`</b>: Number or sequence specifying the minimum element bounds
-    (inclusive). Must be broadcastable to `shape`.
-* <b>`maximum`</b>: Number or sequence specifying the maximum element bounds
-    (inclusive). Must be broadcastable to `shape`.
-* <b>`name`</b>: Optional string containing a semantic name for the corresponding
-    array. Defaults to `None`.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: If `minimum` or `maximum` are not provided or not
-    broadcastable to `shape`.
-* <b>`TypeError`</b>: If the shape is not an iterable or if the `dtype` is an invalid
-    numpy dtype.
-
 <h3 id="__eq__"><code>__eq__</code></h3>
 
 ``` python
@@ -113,14 +112,6 @@ __eq__(other)
 
 ``` python
 __ne__(other)
-```
-
-
-
-<h3 id="__reduce__"><code>__reduce__</code></h3>
-
-``` python
-__reduce__()
 ```
 
 

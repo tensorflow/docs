@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.estimator.train_and_evaluate(
 
 
 
-Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/training.py).
+Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/training.py).
 
 Train and evaluate the `estimator`.
 
@@ -29,14 +26,13 @@ evaluation and export related specification is held in `eval_spec`, including
 evaluation `input_fn`, steps, etc.
 
 This utility function provides consistent behavior for both local
-(non-distributed) and distributed configurations. Currently, the only
-supported distributed training configuration is between-graph replication.
+(non-distributed) and distributed configurations. The default distribution
+configuration is parameter server-based between-graph replication. For other
+types of distribution configurations such as all-reduce training, please use
+[DistributionStrategies](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/distribute).  # pylint: disable=line-too-long
 
 Overfitting: In order to avoid overfitting, it is recommended to set up the
-training `input_fn` to shuffle the training data properly. It is also
-recommended to train the model a little longer, say multiple epochs, before
-performing evaluation, as the input pipeline starts from scratch for each
-training. It is particularly important for local training and evaluation.
+training `input_fn` to shuffle the training data properly.
 
 Stop condition: In order to support both distributed and non-distributed
 configuration reliably, the only supported stop condition for model
@@ -70,10 +66,10 @@ estimator = DNNClassifier(
 #       hidden_units=[1024, 512, 256])
 
 # Input pipeline for train and evaluate.
-def train_input_fn: # returns x, y
+def train_input_fn(): # returns x, y
   # please shuffle the data.
   pass
-def eval_input_fn_eval: # returns x, y
+def eval_input_fn(): # returns x, y
   pass
 
 train_spec = tf.estimator.TrainSpec(input_fn=train_input_fn, max_steps=1000)
@@ -81,6 +77,10 @@ eval_spec = tf.estimator.EvalSpec(input_fn=eval_input_fn)
 
 tf.estimator.train_and_evaluate(estimator, train_spec, eval_spec)
 ```
+Note that in current implementation `estimator.evaluate` will be called
+multiple times. This means that evaluation graph (including eval_input_fn)
+will be re-created for each `evaluate` call. `estimator.train` will be called
+only once.
 
 Example of distributed training:
 
@@ -179,6 +179,11 @@ TF_CONFIG='{
     "task": {"type": "evaluator", "index": 0}
 }'
 ```
+
+When `distribute` or `experimental_distribute.train_distribute` and
+`experimental_distribute.remote_cluster` is set, this method will start a
+client running on the current host which connects to the `remote_cluster` for
+training and evaluation.
 
 #### Args:
 

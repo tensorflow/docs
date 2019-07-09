@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ tf.keras.datasets.cifar100.load_data(label_mode='fine')
 
 
 
-Defined in [`tensorflow/python/keras/datasets/cifar100.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/datasets/cifar100.py).
+Defined in [`tensorflow/python/keras/datasets/cifar100.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/datasets/cifar100.py).
 
 Loads CIFAR100 dataset.
 

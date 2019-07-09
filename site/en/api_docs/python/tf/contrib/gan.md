@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/__init__.py).
+Defined in [`tensorflow/contrib/gan/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/__init__.py).
 
 TFGAN is a lightweight library for training and evaluating GANs.
 
@@ -49,6 +46,8 @@ Please see README.md for details and usage.
 
 [`class RunTrainOpsHook`](../../tf/contrib/gan/RunTrainOpsHook): A hook to run train ops a fixed number of times.
 
+[`class StarGANModel`](../../tf/contrib/gan/StarGANModel): A StarGANModel contains all the pieces needed for StarGAN training.
+
 ## Functions
 
 [`acgan_model(...)`](../../tf/contrib/gan/acgan_model): Returns an ACGANModel contains all the pieces needed for ACGAN training.
@@ -72,4 +71,8 @@ Please see README.md for details and usage.
 [`get_sequential_train_steps(...)`](../../tf/contrib/gan/get_sequential_train_steps): Returns a thin wrapper around slim.learning.train_step, for GANs.
 
 [`infogan_model(...)`](../../tf/contrib/gan/infogan_model): Returns an InfoGAN model outputs and variables.
+
+[`stargan_loss(...)`](../../tf/contrib/gan/stargan_loss): StarGAN Loss.
+
+[`stargan_model(...)`](../../tf/contrib/gan/stargan_model): Returns a StarGAN model outputs and variables.
 

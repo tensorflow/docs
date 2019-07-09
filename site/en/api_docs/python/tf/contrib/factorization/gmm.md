@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.contrib.factorization.gmm(
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/gmm_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/factorization/python/ops/gmm_ops.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/gmm_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/factorization/python/ops/gmm_ops.py).
 
 Creates the graph for Gaussian mixture model (GMM) clustering.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.nn.ctc_beam_search_decoder(
 
 
 
-Defined in [`tensorflow/python/ops/ctc_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/ctc_ops.py).
+Defined in [`tensorflow/python/ops/ctc_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/ctc_ops.py).
 
 See the guide: [Neural Network > Connectionist Temporal Classification (CTC)](../../../../api_guides/python/nn#Connectionist_Temporal_Classification_CTC_)
 

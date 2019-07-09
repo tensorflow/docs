@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,13 +15,14 @@ tfdbg.watch_graph_with_blacklists(
     op_type_regex_blacklist=None,
     tensor_dtype_regex_blacklist=None,
     tolerate_debug_op_creation_failures=False,
-    global_step=-1
+    global_step=-1,
+    reset_disk_byte_usage=False
 )
 ```
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/lib/debug_utils.py).
+Defined in [`tensorflow/python/debug/lib/debug_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/lib/debug_utils.py).
 
 See the guide: [TensorFlow Debugger > Functions for adding debug watches](../../../api_guides/python/tfdbg#Functions_for_adding_debug_watches)
 
@@ -67,3 +65,5 @@ N.B.:
     throwing exceptions.
 * <b>`global_step`</b>: (`int`) Optional global_step count for this debug tensor
     watch.
+* <b>`reset_disk_byte_usage`</b>: (`bool`) whether to reset the tracked disk byte
+    usage to zero (default: `False`).

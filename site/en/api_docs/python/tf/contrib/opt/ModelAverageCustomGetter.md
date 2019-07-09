@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/model_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/model_average_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/model_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/model_average_optimizer.py).
 
 Custom_getter class is used to do.
 
@@ -42,9 +39,7 @@ with tf.device(
   hid_b = tf.get_variable(initializer=tf.zeros([FLAGS.hidden_units]),
                           name="hid_b")
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(worker_device)
@@ -55,6 +50,10 @@ Create a new `ModelAverageCustomGetter`.
 #### Args:
 
 * <b>`worker_device`</b>: String.  Name of the `worker` job.
+
+
+
+## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 

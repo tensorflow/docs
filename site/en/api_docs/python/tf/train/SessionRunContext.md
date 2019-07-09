@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/session_run_hook.py).
+Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/session_run_hook.py).
 
 See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
 
@@ -24,6 +21,19 @@ Provides information about original request to `Session.Run()` function.
 SessionRunHook objects can stop the loop by calling `request_stop()` of
 `run_context`. In the future we may use this object to add more information
 about run without changing the Hook API.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    original_args,
+    session
+)
+```
+
+Initializes SessionRunContext.
+
+
 
 ## Properties
 
@@ -54,17 +64,6 @@ A `bool`
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    original_args,
-    session
-)
-```
-
-Initializes SessionRunContext.
 
 <h3 id="request_stop"><code>request_stop</code></h3>
 

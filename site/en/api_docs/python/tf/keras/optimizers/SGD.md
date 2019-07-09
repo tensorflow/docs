@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/keras/optimizers/Optimizer)
 
 
 
-Defined in [`tensorflow/python/keras/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/optimizers.py).
+Defined in [`tensorflow/python/keras/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/optimizers.py).
 
 Stochastic gradient descent optimizer.
 
@@ -29,9 +26,7 @@ learning rate decay, and Nesterov momentum.
 * <b>`decay`</b>: float >= 0. Learning rate decay over each update.
 * <b>`nesterov`</b>: boolean. Whether to apply Nesterov momentum.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(
@@ -44,6 +39,10 @@ __init__(
 ```
 
 
+
+
+
+## Methods
 
 <h3 id="from_config"><code>from_config</code></h3>
 

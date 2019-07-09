@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Inputs and Readers > Conditional Accumulators](../../../api_guides/python/io_ops#Conditional_Accumulators)
 
@@ -25,6 +22,27 @@ equal to the accumulator's time step) are added to the accumulator.
 
 Extraction of the average gradient is blocked until the required number of
 gradients has been accumulated.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    dtype,
+    shape,
+    accumulator_ref
+)
+```
+
+Creates a new ConditionalAccumulator.
+
+#### Args:
+
+* <b>`dtype`</b>: Datatype of the accumulated gradients.
+* <b>`shape`</b>: Shape of the accumulated gradients.
+* <b>`accumulator_ref`</b>: A handle to the conditional accumulator, created by sub-
+    classes
+
+
 
 ## Properties
 
@@ -43,25 +61,6 @@ The name of the underlying accumulator.
 
 
 ## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
-
-``` python
-__init__(
-    dtype,
-    shape,
-    accumulator_ref
-)
-```
-
-Creates a new ConditionalAccumulator.
-
-#### Args:
-
-* <b>`dtype`</b>: Datatype of the accumulated gradients.
-* <b>`shape`</b>: Shape of the accumulated gradients.
-* <b>`accumulator_ref`</b>: A handle to the conditional accumulator, created by sub-
-    classes
 
 <h3 id="num_accumulated"><code>num_accumulated</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/checkpointable/util.py).
+Defined in [`tensorflow/python/training/checkpointable/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpointable/util.py).
 
 Saves and restores a `Checkpointable` object and its dependencies.
 
@@ -33,9 +30,7 @@ objects are assigned) may not change. These names are local to objects, in
 contrast to the `Variable.name`-based save/restore from <a href="../../../tf/train/Saver"><code>tf.train.Saver</code></a>, and
 so allow additional program transformations.
 
-## Methods
-
-<h3 id="__init__"><code>__init__</code></h3>
+<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
 __init__(root_checkpointable)
@@ -48,6 +43,10 @@ Configure saving.
 * <b>`root_checkpointable`</b>: The root of the object graph to save/restore. This
     object and all of its dependencies are saved in the checkpoint. When
     restoring, objects are matched and restored starting from this root.
+
+
+
+## Methods
 
 <h3 id="restore"><code>restore</code></h3>
 
