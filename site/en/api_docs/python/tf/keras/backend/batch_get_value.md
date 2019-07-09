@@ -1,0 +1,30 @@
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+# tf.keras.backend.batch_get_value
+
+``` python
+tf.keras.backend.batch_get_value(tensors)
+```
+
+
+
+Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+
+Returns the value of more than one tensor variable.
+
+#### Arguments:
+
+* <b>`tensors`</b>: list of ops to run.
+
+
+#### Returns:
+
+A list of Numpy arrays.
+
+
+#### Raises:
+
+* <b>`RuntimeError`</b>: If this method is called inside defun.
