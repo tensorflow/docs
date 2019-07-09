@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -25,7 +22,7 @@ tf.contrib.recurrent.bidirectional_functional_rnn(
 
 
 
-Defined in [`tensorflow/contrib/recurrent/python/ops/functional_rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/recurrent/python/ops/functional_rnn.py).
+Defined in [`tensorflow/contrib/recurrent/python/ops/functional_rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/recurrent/python/ops/functional_rnn.py).
 
 Creates a bidirectional recurrent neural network.
 

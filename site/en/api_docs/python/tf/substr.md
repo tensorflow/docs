@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.substr
+
+### Aliases:
+
+* `tf.strings.substr`
+* `tf.substr`
 
 ``` python
 tf.substr(
@@ -37,7 +39,7 @@ strings, then an `InvalidArgumentError` is thrown.
 `pos` and `len` must have the same shape, otherwise a `ValueError` is thrown on
 Op creation.
 
-*NOTE*: `Substr` supports broadcasting up to two dimensions. More about
+*NOTE*: `strings.substr` supports broadcasting up to two dimensions. More about
 broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/linalg/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/linalg/__init__.py).
+Defined in [`tensorflow/linalg/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/linalg/__init__.py).
 
 Operations for linear algebra.
 
@@ -52,6 +49,8 @@ Operations for linear algebra.
 
 [`cholesky_solve(...)`](../tf/cholesky_solve): Solves systems of linear eqns `A X = RHS`, given Cholesky factorizations.
 
+[`cross(...)`](../tf/cross): Compute the pairwise cross product.
+
 [`det(...)`](../tf/matrix_determinant): Computes the determinant of one or more square matrices.
 
 [`diag(...)`](../tf/matrix_diag): Returns a batched diagonal tensor with a given batched diagonal values.
@@ -87,6 +86,10 @@ Operations for linear algebra.
 [`solve(...)`](../tf/matrix_solve): Solves systems of linear equations.
 
 [`svd(...)`](../tf/svd): Computes the singular value decompositions of one or more matrices.
+
+[`tensor_diag(...)`](../tf/diag): Returns a diagonal tensor with a given diagonal values.
+
+[`tensor_diag_part(...)`](../tf/diag_part): Returns the diagonal part of the tensor.
 
 [`tensordot(...)`](../tf/tensordot): Tensor contraction of a and b along specified axes.
 

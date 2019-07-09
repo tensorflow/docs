@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,7 +20,7 @@ tf.convert_to_tensor_or_sparse_tensor(
 
 
 
-Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/sparse_tensor.py).
+Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/framework/sparse_tensor.py).
 
 See the guides: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions), [Framework (contrib)](../../../api_guides/python/contrib.framework)
 

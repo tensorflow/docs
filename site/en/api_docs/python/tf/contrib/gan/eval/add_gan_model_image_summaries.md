@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,7 +20,7 @@ tf.contrib.gan.eval.add_gan_model_image_summaries(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/summaries_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/eval/python/summaries_impl.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/summaries_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/gan/python/eval/python/summaries_impl.py).
 
 Adds image summaries for real and fake images.
 

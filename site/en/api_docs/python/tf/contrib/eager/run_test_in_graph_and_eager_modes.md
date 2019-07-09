@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 ``` python
 tf.contrib.eager.run_test_in_graph_and_eager_modes(
-    __unused__=None,
+    func=None,
     config=None,
     use_gpu=True,
     reset_test=True,
@@ -20,7 +17,7 @@ tf.contrib.eager.run_test_in_graph_and_eager_modes(
 
 
 
-Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/test_util.py).
+Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/framework/test_util.py).
 
 Execute the decorated test with and without enabling eager execution.
 
@@ -35,7 +32,7 @@ For example, consider the following unittest:
 ```python
 class MyTests(tf.test.TestCase):
 
-  @run_in_graph_and_eager_modes()
+  @run_in_graph_and_eager_modes
   def test_foo(self):
     x = tf.constant([1, 2])
     y = tf.constant([3, 4])
@@ -53,7 +50,9 @@ executing the `z` tensor in a session.
 
 #### Args:
 
-* <b>`__unused__`</b>: Prevents silently skipping tests.
+* <b>`func`</b>: function to be annotated. If `func` is None, this method returns a
+    decorator the can be applied to a function. If `func` is not None this
+    returns the decorator applied to `func`.
 * <b>`config`</b>: An optional config_pb2.ConfigProto to use to configure the
     session when executing graphs.
 * <b>`use_gpu`</b>: If True, attempt to run as many operations as possible on GPU.

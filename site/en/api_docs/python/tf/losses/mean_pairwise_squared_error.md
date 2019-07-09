@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.losses.mean_pairwise_squared_error(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/losses/losses_impl.py).
 
 Adds a pairwise-errors-squared loss to the training procedure.
 
@@ -67,3 +64,8 @@ A scalar `Tensor` that returns the weighted loss.
 * <b>`ValueError`</b>: If the shape of `predictions` doesn't match that of `labels` or
     if the shape of `weights` is invalid.  Also if `labels` or `predictions`
     is None.
+
+@compatbility(eager)
+The `loss_collection` argument is ignored when executing eagerly. Consider
+holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
+@end_compatibility

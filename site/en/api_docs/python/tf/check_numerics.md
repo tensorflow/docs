@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.check_numerics
+
+### Aliases:
+
+* `tf.check_numerics`
+* `tf.debugging.check_numerics`
 
 ``` python
 tf.check_numerics(

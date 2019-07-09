@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`ConditionalDistribution`](../../../tf/contrib/distributions/Con
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/conditional_transformed_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/conditional_transformed_distribution.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/conditional_transformed_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distributions/python/ops/conditional_transformed_distribution.py).
 
 A TransformedDistribution that allows intrinsic conditioning.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,14 +18,14 @@ tf.metrics.recall(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/metrics_impl.py).
+Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/metrics_impl.py).
 
 Computes the recall of the predictions with respect to the labels.
 
 The `recall` function creates two local variables, `true_positives`
 and `false_negatives`, that are used to compute the recall. This value is
 ultimately returned as `recall`, an idempotent operation that simply divides
-`true_positives` by the sum of `true_positives`  and `false_negatives`.
+`true_positives` by the sum of `true_positives` and `false_negatives`.
 
 For estimation of the metric over a stream of data, the function creates an
 `update_op` that updates these variables and returns the `recall`. `update_op`

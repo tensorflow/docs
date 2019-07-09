@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu_optimizer.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/tpu/python/tpu/tpu_optimizer.py).
 
 An optimizer that averages gradients across TPU shards.
 
@@ -26,7 +23,8 @@ An optimizer that averages gradients across TPU shards.
 __init__(
     opt,
     reduction=losses.Reduction.MEAN,
-    name='CrossShardOptimizer'
+    name='CrossShardOptimizer',
+    group_assignment=None
 )
 ```
 
@@ -38,6 +36,8 @@ Construct a new cross-shard optimizer.
 * <b>`reduction`</b>: The reduction to apply to the shard losses.
 * <b>`name`</b>: Optional name prefix for the operations created when applying
     gradients. Defaults to "CrossShardOptimizer".
+* <b>`group_assignment`</b>: Optional list of group ids for applying the optimizer
+    to subgroups.
 
 
 #### Raises:
@@ -113,7 +113,8 @@ A list of (gradient, variable) pairs.
 
 #### Raises:
 
-* <b>`ValueError`</b>: If not within a tpu_shard_context.
+* <b>`ValueError`</b>: If not within a tpu_shard_context or group_assignment is
+    invalid.
 
 <h3 id="get_name"><code>get_name</code></h3>
 

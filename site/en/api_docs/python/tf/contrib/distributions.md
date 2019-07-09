@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,11 +7,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/__init__.py).
+Defined in [`tensorflow/contrib/distributions/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distributions/__init__.py).
 
 Classes representing statistical distributions and ops for working with them.
-
-See the <a href="../../../../api_guides/python/contrib.distributions">Statistical Distributions (contrib)</a> guide.
 
 ## Modules
 
@@ -154,7 +149,7 @@ See the <a href="../../../../api_guides/python/contrib.distributions">Statistica
 
 [`auto_correlation(...)`](../../tf/contrib/distributions/auto_correlation): Auto correlation along one axis.
 
-[`estimator_head_distribution_regression(...)`](../../tf/contrib/distributions/estimator_head_distribution_regression): Creates a `Head` for regression under a generic distribution.
+[`estimator_head_distribution_regression(...)`](../../tf/contrib/distributions/estimator_head_distribution_regression): Creates a `Head` for regression under a generic distribution. (deprecated)
 
 [`fill_triangular(...)`](../../tf/contrib/distributions/fill_triangular): Creates a (batch of) triangular matrix from a vector of inputs.
 
@@ -172,13 +167,13 @@ See the <a href="../../../../api_guides/python/contrib.distributions">Statistica
 
 [`percentile(...)`](../../tf/contrib/distributions/percentile): Compute the `q`-th percentile of `x`.
 
-[`quadrature_scheme_lognormal_gauss_hermite(...)`](../../tf/contrib/distributions/quadrature_scheme_lognormal_gauss_hermite): Use Gauss-Hermite quadrature to form quadrature on positive-reals.
+[`quadrature_scheme_lognormal_gauss_hermite(...)`](../../tf/contrib/distributions/quadrature_scheme_lognormal_gauss_hermite): Use Gauss-Hermite quadrature to form quadrature on positive-reals. (deprecated)
 
-[`quadrature_scheme_lognormal_quantiles(...)`](../../tf/contrib/distributions/quadrature_scheme_lognormal_quantiles): Use LogNormal quantiles to form quadrature on positive-reals.
+[`quadrature_scheme_lognormal_quantiles(...)`](../../tf/contrib/distributions/quadrature_scheme_lognormal_quantiles): Use LogNormal quantiles to form quadrature on positive-reals. (deprecated)
 
-[`quadrature_scheme_softmaxnormal_gauss_hermite(...)`](../../tf/contrib/distributions/quadrature_scheme_softmaxnormal_gauss_hermite): Use Gauss-Hermite quadrature to form quadrature on `K - 1` simplex.
+[`quadrature_scheme_softmaxnormal_gauss_hermite(...)`](../../tf/contrib/distributions/quadrature_scheme_softmaxnormal_gauss_hermite): Use Gauss-Hermite quadrature to form quadrature on `K - 1` simplex. (deprecated)
 
-[`quadrature_scheme_softmaxnormal_quantiles(...)`](../../tf/contrib/distributions/quadrature_scheme_softmaxnormal_quantiles): Use SoftmaxNormal quantiles to form quadrature on `K - 1` simplex.
+[`quadrature_scheme_softmaxnormal_quantiles(...)`](../../tf/contrib/distributions/quadrature_scheme_softmaxnormal_quantiles): Use SoftmaxNormal quantiles to form quadrature on `K - 1` simplex. (deprecated)
 
 [`reduce_weighted_logsumexp(...)`](../../tf/contrib/distributions/reduce_weighted_logsumexp): Computes `log(abs(sum(weight * exp(elements across tensor dimensions))))`.
 

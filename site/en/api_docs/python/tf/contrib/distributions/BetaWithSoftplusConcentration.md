@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Beta`](../../../tf/distributions/Beta)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/beta.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/beta.py).
+Defined in [`tensorflow/python/ops/distributions/beta.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/distributions/beta.py).
 
 Beta with softplus transform of `concentration1` and `concentration0`.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/summary/writer/writer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/summary/writer/writer.py).
+Defined in [`tensorflow/python/summary/writer/writer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/summary/writer/writer.py).
 
 See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
 

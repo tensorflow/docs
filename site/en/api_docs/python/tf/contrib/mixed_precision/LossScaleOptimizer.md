@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,28 +11,32 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/mixed_precision/python/loss_scale_optimizer.py).
+Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/mixed_precision/python/loss_scale_optimizer.py).
 
 An optimizer that applies loss scaling in backprop.
 
-This class is useful for mixed precision training on GPUs (or other potential
-accelerators), which is an approach to improve compute throughput without loss
-of model quality.
+This class is useful for "mixed precision training" on GPUs (or other
+potential accelerators), an approach to improve compute throughput without
+compromising model quality.
 
-The commmon configuration of mixed precision models is the following:
-* variables are kept in high precision (e.g. float32).
-* computations are done in lower precision (e.g. float16). variables are
-  casted to lower precision before they're used.
-* (in training), final gradients are casted back to variable precision and get
-  applied.
+The canonical way to perform mixed precision training is the following:
+* Model variables are kept in high precision (e.g. float32).
+* Computations are done in lower precision (e.g. float16), which enjoys
+  performance speedup by virtue of hardware support. Variables are casted to
+  lower precision before they're used.
+* Final gradients are casted back to high precision dtype, then used to update
+  variables.
 
-Because computations happen in lower precision, gradients in the backprop pass
-might underflow in the smaller dynamic range, causing a model to converge at a
-suboptimal level. This optimizer multiplies the loss by a factor before
-backprop starts to prevent underflow. Before gradients are applied, they are
-casted to higher precision and down-scaled by the same factor, so
-mathematically the variable updates are no different from regular
-same-precision training.
+The side-effect of performing computation in lower precision, is that it comes
+with smaller numerical range. During backproping, small gradients might
+underflow in the reduced numerical range, causing a model to converge at
+suboptimal level.
+
+To prevent underflow, this optimizer multiplies the loss by a factor before
+backprop starts. Consequently, the gradients are linearly scaled up by the
+same factor, thus not falling into the underflow zone. After that, to perserve
+the correctness of backprop, the gradients are down-scaled by the same factor,
+casted to the (higher) variable precision, then applied on the variables.
 
 See [Nvidia's manual on mixed precision training](
 https://docs.nvidia.com/deeplearning/sdk/mixed-precision-training/index.html)
@@ -61,7 +62,7 @@ train_op = loss_scale_optimizer.minimize(loss)
 
 If gradients clipping is applied, one can call
 `optimizer.compute_gradients()` and `optimizer.apply_gradients()`
-seperately.
+separately.
 
 Notice the following way of using LossScaleOptimizer is not intended. Always
 use `loss_scale_optimizer.compute_gradients()` to compute gradients instead of

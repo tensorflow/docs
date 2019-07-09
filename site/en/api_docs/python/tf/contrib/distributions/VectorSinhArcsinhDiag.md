@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`TransformedDistribution`](../../../tf/contrib/distributions/Tra
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/vector_sinh_arcsinh_diag.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/vector_sinh_arcsinh_diag.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/vector_sinh_arcsinh_diag.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distributions/python/ops/vector_sinh_arcsinh_diag.py).
 
 The (diagonal) SinhArcsinh transformation of a distribution on `R^k`.
 
@@ -191,7 +188,11 @@ __init__(
 )
 ```
 
-Construct VectorSinhArcsinhDiag distribution on `R^k`.
+Construct VectorSinhArcsinhDiag distribution on `R^k`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
 
 The arguments `scale_diag` and `scale_identity_multiplier` combine to
 define the diagonal `scale` referred to in this class docstring:

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`DistributionStrategy`](../../../tf/contrib/distribute/Distribut
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/mirrored_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distribute/python/mirrored_strategy.py).
+Defined in [`tensorflow/contrib/distribute/python/mirrored_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distribute/python/mirrored_strategy.py).
 
 Mirrors vars to distribute across multiple devices on a single machine.
 
@@ -80,7 +77,7 @@ __init__(
 
 ``` python
 batch_reduce(
-    method_string,
+    aggregation,
     value_destination_pairs
 )
 ```
@@ -89,8 +86,8 @@ Combine multiple `reduce` calls into one for faster execution.
 
 #### Args:
 
-* <b>`method_string`</b>: A string indicating how to combine values, either
-    "sum" or "mean".
+* <b>`aggregation`</b>: Indicates how a variable will be aggregated. Accepted values
+    are <a href="../../../tf/VariableAggregation#SUM"><code>tf.VariableAggregation.SUM</code></a>, <a href="../../../tf/VariableAggregation#MEAN"><code>tf.VariableAggregation.MEAN</code></a>.
 * <b>`value_destination_pairs`</b>: A sequence of (value, destinations)
     pairs. See `reduce()` for a description.
 
@@ -239,34 +236,6 @@ distribute_dataset(dataset_fn)
 
 
 
-<h3 id="fetch"><code>fetch</code></h3>
-
-``` python
-fetch(
-    val,
-    destination='/device:CPU:0',
-    fn=(lambda x: x)
-)
-```
-
-Return a copy of `val` or `fn(val)` on `destination`.
-
-This is useful for getting a mirrored value onto a device.  It
-will attempt to avoid a copy by checking if the value is already
-on the destination device.
-
-#### Args:
-
-* <b>`val`</b>: Value (which may be mirrored) to copy.
-* <b>`destination`</b>: A device string to copy the value to.
-* <b>`fn`</b>: An optional function to apply to the value on the source
-      device, before copying.
-
-
-#### Returns:
-
-A `Tensor` on `destination`.
-
 <h3 id="group"><code>group</code></h3>
 
 ``` python
@@ -299,11 +268,19 @@ non_slot_devices(var_list)
 
 
 
+<h3 id="read_var"><code>read_var</code></h3>
+
+``` python
+read_var(tower_local_var)
+```
+
+Read the aggregate value of a tower-local variable.
+
 <h3 id="reduce"><code>reduce</code></h3>
 
 ``` python
 reduce(
-    method_string,
+    aggregation,
     value,
     destinations=None
 )
@@ -313,8 +290,8 @@ Combine (via e.g. sum or mean) values across towers.
 
 #### Args:
 
-* <b>`method_string`</b>: A string indicating how to combine values, either
-    "sum" or "mean".
+* <b>`aggregation`</b>: Indicates how a variable will be aggregated. Accepted values
+    are <a href="../../../tf/VariableAggregation#SUM"><code>tf.VariableAggregation.SUM</code></a>, <a href="../../../tf/VariableAggregation#MEAN"><code>tf.VariableAggregation.MEAN</code></a>.
 * <b>`value`</b>: A per-device value with one value per tower.
 * <b>`destinations`</b>: An optional mirrored variable, a device string,
     list of device strings. The return value will be copied to all
@@ -338,42 +315,6 @@ Returns a context manager selecting this DistributionStrategy as current.
 Inside a `with distribution_strategy.scope():` code block, this thread
 will use a variable creator set by `distribution_strategy`, and will
 enter its "cross-tower context".
-
-#### Returns:
-
-A context manager.
-
-<h3 id="tower_local_var_scope"><code>tower_local_var_scope</code></h3>
-
-``` python
-tower_local_var_scope(reduce_method)
-```
-
-Inside this scope, new variables will not be mirrored.
-
-There will still be one component variable per tower, but there is
-no requirement that they stay in sync. Instead, when saving them
-or calling `fetch()`, we use the value that results when calling
-`reduce()` on all the towers' variables.
-
-Note: tower-local implies not trainable. Instead, it is expected
-that each tower will directly update (using `assign_add()` or
-whatever) its local variable instance but only the aggregated
-value (accessible using `fetch()`) will be exported from the
-model. When it is acceptable to only aggregate on export, we
-greatly reduce communication overhead by using tower-local
-variables.
-
-Note: All component variables will be initialized to the same
-value, using the initialization expression from the first tower.
-The values will match even if the initialization expression uses
-random numbers.
-
-#### Args:
-
-* <b>`reduce_method`</b>: String used as a `method_string` to `reduce()`
-    to get the value to save when checkpointing.
-
 
 #### Returns:
 

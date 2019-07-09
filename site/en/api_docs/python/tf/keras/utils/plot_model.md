@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.keras.utils.plot_model(
 
 
 
-Defined in [`tensorflow/python/keras/utils/vis_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/utils/vis_utils.py).
+Defined in [`tensorflow/python/keras/utils/vis_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/keras/utils/vis_utils.py).
 
 Converts a Keras model to dot format and save to a file.
 

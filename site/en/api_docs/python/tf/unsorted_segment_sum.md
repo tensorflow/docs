@@ -1,12 +1,15 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.unsorted_segment_sum
+
+### Aliases:
+
+* `tf.math.unsorted_segment_sum`
+* `tf.unsorted_segment_sum`
 
 ``` python
 tf.unsorted_segment_sum(
@@ -29,7 +32,7 @@ Read <a href="../../../api_guides/python/math_ops#Segmentation">the section on s
 segments.
 
 Computes a tensor such that
-`(output[i] = sum_{j...} data[j...]` where the sum is over tuples `j...` such
+\\(output[i] = sum_{j...} data[j...]\\) where the sum is over tuples `j...` such
 that `segment_ids[j...] == i`.  Unlike `SegmentSum`, `segment_ids`
 need not be sorted and need not cover all values in the full
 range of valid values.

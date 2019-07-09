@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.string_strip
+
+### Aliases:
+
+* `tf.string_strip`
+* `tf.strings.strip`
 
 ``` python
 tf.string_strip(

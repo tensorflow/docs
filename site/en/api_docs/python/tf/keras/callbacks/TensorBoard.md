@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
 
 
-Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/callbacks.py).
+Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/keras/callbacks.py).
 
 Tensorboard basic visualizations.
 
@@ -110,7 +107,7 @@ on_epoch_begin(
 )
 ```
 
-
+Add histogram op to Model test_function callbacks, reset batch count.
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 
@@ -121,7 +118,7 @@ on_epoch_end(
 )
 ```
 
-
+Checks if summary ops should run next epoch, logs scalar summaries.
 
 <h3 id="on_train_begin"><code>on_train_begin</code></h3>
 
@@ -129,7 +126,7 @@ on_epoch_end(
 on_train_begin(logs=None)
 ```
 
-
+Checks if histogram summaries can be run.
 
 <h3 id="on_train_end"><code>on_train_end</code></h3>
 
@@ -145,7 +142,7 @@ on_train_end(logs=None)
 set_model(model)
 ```
 
-
+Sets Keras model and creates summary ops.
 
 <h3 id="set_params"><code>set_params</code></h3>
 

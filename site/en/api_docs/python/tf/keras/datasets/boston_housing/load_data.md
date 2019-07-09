@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.keras.datasets.boston_housing.load_data(
 
 
 
-Defined in [`tensorflow/python/keras/datasets/boston_housing.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/datasets/boston_housing.py).
+Defined in [`tensorflow/python/keras/datasets/boston_housing.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/keras/datasets/boston_housing.py).
 
 Loads the Boston Housing dataset.
 

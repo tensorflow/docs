@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -27,6 +24,7 @@ tf.contrib.layers.separable_conv2d(
     normalizer_fn=None,
     normalizer_params=None,
     weights_initializer=initializers.xavier_initializer(),
+    pointwise_initializer=None,
     weights_regularizer=None,
     biases_initializer=tf.zeros_initializer(),
     biases_regularizer=None,
@@ -40,7 +38,7 @@ tf.contrib.layers.separable_conv2d(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/layers/python/layers/layers.py).
 
 See the guide: [Layers (contrib) > Higher level ops for building neural network layers](../../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers)
 
@@ -78,7 +76,9 @@ to produce the end result.
     `biases_regularizer` are ignored and `biases` are not created nor added.
     default set to None for no normalizer function
 * <b>`normalizer_params`</b>: Normalization function parameters.
-* <b>`weights_initializer`</b>: An initializer for the weights.
+* <b>`weights_initializer`</b>: An initializer for the depthwise weights.
+* <b>`pointwise_initializer`</b>: An initializer for the pointwise weights.
+    default set to None, means use weights_initializer.
 * <b>`weights_regularizer`</b>: Optional regularizer for the weights.
 * <b>`biases_initializer`</b>: An initializer for the biases. If None skip biases.
 * <b>`biases_regularizer`</b>: Optional regularizer for the biases.

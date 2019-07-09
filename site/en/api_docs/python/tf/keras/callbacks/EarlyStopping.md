@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
 
 
-Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/callbacks.py).
+Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/keras/callbacks.py).
 
 Stop training when a monitored quantity has stopped improving.
 
@@ -35,6 +32,9 @@ Stop training when a monitored quantity has stopped improving.
         monitored has stopped increasing; in `auto`
         mode, the direction is automatically inferred
         from the name of the monitored quantity.
+* <b>`baseline`</b>: baseline value for the monitored quantity.
+        Training will stop if the model doesn't show improvement over the
+        baseline.
 
 ## Methods
 
@@ -46,7 +46,8 @@ __init__(
     min_delta=0,
     patience=0,
     verbose=0,
-    mode='auto'
+    mode='auto',
+    baseline=None
 )
 ```
 

@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.equal
+
+### Aliases:
+
+* `tf.equal`
+* `tf.math.equal`
 
 ``` python
 tf.equal(
@@ -24,7 +26,7 @@ See the guide: [Control Flow > Comparison Operators](../../../api_guides/python/
 
 Returns the truth value of (x == y) element-wise.
 
-*NOTE*: `Equal` supports broadcasting. More about broadcasting
+*NOTE*: `math.equal` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:

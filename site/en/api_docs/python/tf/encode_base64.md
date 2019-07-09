@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.encode_base64
+
+### Aliases:
+
+* `tf.encode_base64`
+* `tf.io.encode_base64`
 
 ``` python
 tf.encode_base64(

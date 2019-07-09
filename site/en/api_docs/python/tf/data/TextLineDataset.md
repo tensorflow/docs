@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Dataset`](../../tf/data/Dataset)
 
 
 
-Defined in [`tensorflow/python/data/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/data/ops/readers.py).
+Defined in [`tensorflow/python/data/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/data/ops/readers.py).
 
 See the guide: [Dataset Input Pipeline > Reader classes](../../../../api_guides/python/input_dataset#Reader_classes)
 
@@ -113,21 +110,29 @@ dataset = (dataset.map(lambda x: x ** 2)
 <h3 id="batch"><code>batch</code></h3>
 
 ``` python
-batch(batch_size)
+batch(
+    batch_size,
+    drop_remainder=False
+)
 ```
 
 Combines consecutive elements of this dataset into batches.
 
-NOTE: If the number of elements (`N`) in this dataset is not an exact
-multiple of `batch_size`, the final batch contain smaller tensors with
-shape `N % batch_size` in the batch dimension. If your program depends on
-the batches having the same shape, consider using the
-<a href="../../tf/contrib/data/batch_and_drop_remainder"><code>tf.contrib.data.batch_and_drop_remainder</code></a> transformation instead.
+The tensors in the resulting element will have an additional outer
+dimension, which will be `batch_size` (or `N % batch_size` for the last
+element if `batch_size` does not divide the number of input elements `N`
+evenly and `drop_remainder` is `False`). If your program depends on the
+batches having the same outer dimension, you should set the `drop_remainder`
+argument to `True` to prevent the smaller batch from being produced.
 
 #### Args:
 
 * <b>`batch_size`</b>: A <a href="../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
     consecutive elements of this dataset to combine in a single batch.
+* <b>`drop_remainder`</b>: (Optional.) A <a href="../../tf/bool"><code>tf.bool</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a>, representing
+    whether the last batch should be dropped in the case its has fewer than
+    `batch_size` elements; the default behavior is not to drop the smaller
+    batch.
 
 
 #### Returns:
@@ -202,7 +207,8 @@ Filters this dataset according to `predicate`.
 
 #### Returns:
 
-* <b>`Dataset`</b>: A `Dataset`.
+* <b>`Dataset`</b>: The `Dataset` containing the elements of this dataset for which
+      `predicate` is `True`.
 
 <h3 id="flat_map"><code>flat_map</code></h3>
 
@@ -542,7 +548,83 @@ map(
 )
 ```
 
-Maps `map_func` across this dataset.
+Maps `map_func` across the elements of this dataset.
+
+This transformation applies `map_func` to each element of this dataset, and
+returns a new dataset containing the transformed elements, in the same
+order as they appeared in the input.
+
+For example:
+
+```python
+# NOTE: The following examples use `{ ... }` to represent the
+# contents of a dataset.
+a = { 1, 2, 3, 4, 5 }
+
+a.map(lambda x: x + 1) = { 2, 3, 4, 5, 6 }
+```
+
+The input signature of `map_func` is determined by the structure of each
+element in this dataset. For example:
+
+```python
+# Each element is a <a href="../../tf/Tensor"><code>tf.Tensor</code></a> object.
+a = { 1, 2, 3, 4, 5 }
+# `map_func` takes a single argument of type <a href="../../tf/Tensor"><code>tf.Tensor</code></a> with the same
+# shape and dtype.
+result = a.map(lambda x: ...)
+
+# Each element is a tuple containing two <a href="../../tf/Tensor"><code>tf.Tensor</code></a> objects.
+b = { (1, "foo"), (2, "bar"), (3, "baz") }
+# `map_func` takes two arguments of type <a href="../../tf/Tensor"><code>tf.Tensor</code></a>.
+result = b.map(lambda x_int, y_str: ...)
+
+# Each element is a dictionary mapping strings to <a href="../../tf/Tensor"><code>tf.Tensor</code></a> objects.
+c = { {"a": 1, "b": "foo"}, {"a": 2, "b": "bar"}, {"a": 3, "b": "baz"} }
+# `map_func` takes a single argument of type `dict` with the same keys as
+# the elements.
+result = c.map(lambda d: ...)
+```
+
+The value or values returned by `map_func` determine the structure of each
+element in the returned dataset.
+
+```python
+# `map_func` returns a scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> of type <a href="../../tf/float32"><code>tf.float32</code></a>.
+def f(...):
+  return tf.constant(37.0)
+result = dataset.map(f)
+result.output_classes == tf.Tensor
+result.output_types == tf.float32
+result.output_shapes == []  # scalar
+
+# `map_func` returns two <a href="../../tf/Tensor"><code>tf.Tensor</code></a> objects.
+def g(...):
+  return tf.constant(37.0), tf.constant(["Foo", "Bar", "Baz"])
+result = dataset.map(g)
+result.output_classes == (tf.Tensor, tf.Tensor)
+result.output_types == (tf.float32, tf.string)
+result.output_shapes == ([], [3])
+
+# Python primitives, lists, and NumPy arrays are implicitly converted to
+# <a href="../../tf/Tensor"><code>tf.Tensor</code></a>.
+def h(...):
+  return 37.0, ["Foo", "Bar", "Baz"], np.array([1.0, 2.0] dtype=np.float64)
+result = dataset.map(h)
+result.output_classes == (tf.Tensor, tf.Tensor, tf.Tensor)
+result.output_types == (tf.float32, tf.string, tf.float64)
+result.output_shapes == ([], [3], [2])
+
+# `map_func` can return nested structures.
+def i(...):
+  return {"a": 37.0, "b": [42, 16]}, "foo"
+result.output_classes == ({"a": tf.Tensor, "b": tf.Tensor}, tf.Tensor)
+result.output_types == ({"a": tf.float32, "b": tf.int32}, tf.string)
+result.output_shapes == ({"a": [], "b": [2]}, [])
+```
+
+In addition to <a href="../../tf/Tensor"><code>tf.Tensor</code></a> objects, `map_func` can accept as arguments and
+return <a href="../../tf/SparseTensor"><code>tf.SparseTensor</code></a> objects.
 
 #### Args:
 
@@ -564,20 +646,27 @@ Maps `map_func` across this dataset.
 padded_batch(
     batch_size,
     padded_shapes,
-    padding_values=None
+    padding_values=None,
+    drop_remainder=False
 )
 ```
 
 Combines consecutive elements of this dataset into padded batches.
 
 This transformation combines multiple consecutive elements of the input
-dataset into a single element. Like <a href="../../tf/data/Dataset#batch"><code>tf.data.Dataset.batch</code></a>, the tensors
-in the resulting element have an additional outer dimension, which will be
-`batch_size` for all but the last element, and `N % batch_size` for the
-last element (where `N` is the number of elements in this dataset). Unlike
-<a href="../../tf/data/Dataset#batch"><code>tf.data.Dataset.batch</code></a>, the elements may have different shapes for some
-of their components, and this transformation will pad each component to
-the respective shape in `padding_shapes`. The `padding_shapes` argument
+dataset into a single element.
+
+Like <a href="../../tf/data/Dataset#batch"><code>tf.data.Dataset.batch</code></a>, the tensors in the resulting element will
+have an additional outer dimension, which will be `batch_size` (or
+`N % batch_size` for the last element if `batch_size` does not divide the
+number of input elements `N` evenly and `drop_remainder` is `False`). If
+your program depends on the batches having the same outer dimension, you
+should set the `drop_remainder` argument to `True` to prevent the smaller
+batch from being produced.
+
+Unlike <a href="../../tf/data/Dataset#batch"><code>tf.data.Dataset.batch</code></a>, the input elements to be batched may have
+different shapes, and this transformation will pad each component to the
+respective shape in `padding_shapes`. The `padding_shapes` argument
 determines the resulting shape for each dimension of each component in an
 output element:
 
@@ -586,12 +675,6 @@ output element:
 * If the dimension is unknown (e.g. `tf.Dimension(None)`), the component
   will be padded out to the maximum length of all elements in that
   dimension.
-
-NOTE: If the number of elements (`N`) in this dataset is not an exact
-multiple of `batch_size`, the final batch contain smaller tensors with
-shape `N % batch_size` in the batch dimension. If your program depends on
-the batches having the same shape, consider using the
-<a href="../../tf/contrib/data/padded_batch_and_drop_remainder"><code>tf.contrib.data.padded_batch_and_drop_remainder</code></a> transformation instead.
 
 See also <a href="../../tf/contrib/data/dense_to_sparse_batch"><code>tf.contrib.data.dense_to_sparse_batch</code></a>, which combines elements
 that may have different shapes into a <a href="../../tf/SparseTensor"><code>tf.SparseTensor</code></a>.
@@ -611,6 +694,10 @@ that may have different shapes into a <a href="../../tf/SparseTensor"><code>tf.S
     <a href="../../tf/Tensor"><code>tf.Tensor</code></a>, representing the padding values to use for the
     respective components.  Defaults are `0` for numeric types and
     the empty string for string types.
+* <b>`drop_remainder`</b>: (Optional.) A <a href="../../tf/bool"><code>tf.bool</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a>, representing
+    whether the last batch should be dropped in the case its has fewer than
+    `batch_size` elements; the default behavior is not to drop the smaller
+    batch.
 
 
 #### Returns:

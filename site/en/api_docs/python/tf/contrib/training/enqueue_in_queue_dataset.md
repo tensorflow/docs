@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.contrib.training.enqueue_in_queue_dataset(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/tensor_queue_dataset.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/training/python/training/tensor_queue_dataset.py).
+Defined in [`tensorflow/contrib/training/python/training/tensor_queue_dataset.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/training/python/training/tensor_queue_dataset.py).
 
 Enqueue components into queue from `PrependFromQueueAndPaddedBatchDataset`.
 

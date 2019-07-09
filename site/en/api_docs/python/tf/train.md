@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/train/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/train/__init__.py).
+Defined in [`tensorflow/train/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/train/__init__.py).
 
 Support for training models.
 
@@ -221,6 +218,8 @@ See the <a href="../../../api_guides/python/train">Training</a> guide.
 [`polynomial_decay(...)`](../tf/train/polynomial_decay): Applies a polynomial decay to the learning rate.
 
 [`range_input_producer(...)`](../tf/train/range_input_producer): Produces the integers from 0 to limit-1 in a queue.
+
+[`remove_checkpoint(...)`](../tf/train/remove_checkpoint): Removes a checkpoint given by `checkpoint_prefix`.
 
 [`replica_device_setter(...)`](../tf/train/replica_device_setter): Return a `device function` to use when building a Graph for replicas.
 

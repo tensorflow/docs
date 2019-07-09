@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -24,7 +21,7 @@ tf.feature_column.shared_embedding_columns(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/feature_column/feature_column.py).
 
 List of dense columns that convert from sparse, categorical input.
 
@@ -106,7 +103,8 @@ def model_fn(features, ...):
 * <b>`tensor_name_in_ckpt`</b>: Name of the `Tensor` in `ckpt_to_load_from` from
     which to restore the column weights. Required if `ckpt_to_load_from` is
     not `None`.
-* <b>`max_norm`</b>: If not `None`, embedding values are l2-normalized to this value.
+* <b>`max_norm`</b>: If not `None`, each embedding is clipped if its l2-norm is
+    larger than this value, before combining.
 * <b>`trainable`</b>: Whether or not the embedding is trainable. Default is True.
 
 
@@ -124,3 +122,4 @@ results follows the ordering of `categorical_columns`.
 * <b>`ValueError`</b>: if exactly one of `ckpt_to_load_from` and `tensor_name_in_ckpt`
     is specified.
 * <b>`ValueError`</b>: if `initializer` is specified and is not callable.
+* <b>`RuntimeError`</b>: if eager execution is enabled.

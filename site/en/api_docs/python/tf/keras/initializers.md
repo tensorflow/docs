@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/initializers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/initializers/__init__.py).
+Defined in [`tensorflow/keras/initializers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/keras/initializers/__init__.py).
 
 Keras initializer classes (soon to be replaced with core TF initializers).
 
@@ -62,9 +59,9 @@ Keras initializer classes (soon to be replaced with core TF initializers).
 
 [`get(...)`](../../tf/keras/initializers/get)
 
-[`glorot_normal(...)`](../../tf/keras/initializers/glorot_normal): Glorot normal initializer, also called Xavier normal initializer.
+[`glorot_normal(...)`](../../tf/glorot_normal_initializer): The Glorot normal initializer, also called Xavier normal initializer.
 
-[`glorot_uniform(...)`](../../tf/keras/initializers/glorot_uniform): Glorot uniform initializer, also called Xavier uniform initializer.
+[`glorot_uniform(...)`](../../tf/glorot_uniform_initializer): The Glorot uniform initializer, also called Xavier uniform initializer.
 
 [`he_normal(...)`](../../tf/keras/initializers/he_normal): He normal initializer.
 

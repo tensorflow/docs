@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.contrib.saved_model.get_signature_def_by_key(
 
 
 
-Defined in [`tensorflow/contrib/saved_model/python/saved_model/signature_def_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/saved_model/python/saved_model/signature_def_utils.py).
+Defined in [`tensorflow/contrib/saved_model/python/saved_model/signature_def_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/saved_model/python/saved_model/signature_def_utils.py).
 
 Utility function to get a SignatureDef protocol buffer by its key.
 

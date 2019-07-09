@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.write_file
+
+### Aliases:
+
+* `tf.io.write_file`
+* `tf.write_file`
 
 ``` python
 tf.write_file(

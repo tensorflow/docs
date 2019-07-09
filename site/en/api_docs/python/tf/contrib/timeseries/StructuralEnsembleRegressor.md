@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/estimators.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/timeseries/python/timeseries/estimators.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/estimators.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/timeseries/python/timeseries/estimators.py).
 
 An Estimator for structural time series models.
 
@@ -84,7 +81,8 @@ __init__(
     anomaly_prior_probability=None,
     optimizer=None,
     model_dir=None,
-    config=None
+    config=None,
+    head_type=ts_head_lib.TimeSeriesRegressionHead
 )
 ```
 
@@ -145,6 +143,8 @@ Initialize the Estimator.
       from tf.train.Optimizer. Defaults to Adam with step size 0.02.
 * <b>`model_dir`</b>: See `Estimator`.
 * <b>`config`</b>: See `Estimator`.
+* <b>`head_type`</b>: The kind of head to use for the model (inheriting from
+      `TimeSeriesRegressionHead`).
 
 <h3 id="build_raw_serving_input_receiver_fn"><code>build_raw_serving_input_receiver_fn</code></h3>
 

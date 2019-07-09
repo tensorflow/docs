@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.keras.estimator.model_to_estimator(
 
 
 
-Defined in [`tensorflow/python/estimator/keras.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/keras.py).
+Defined in [`tensorflow/python/estimator/keras.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/estimator/keras.py).
 
 Constructs an `Estimator` instance from given keras model.
 

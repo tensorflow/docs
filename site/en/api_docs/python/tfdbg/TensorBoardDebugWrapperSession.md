@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`GrpcDebugWrapperSession`](../tfdbg/GrpcDebugWrapperSession)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/grpc_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/debug/wrappers/grpc_wrapper.py).
+Defined in [`tensorflow/python/debug/wrappers/grpc_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/debug/wrappers/grpc_wrapper.py).
 
 A tfdbg Session wrapper that can be used with TensorBoard Debugger Plugin.
 
@@ -248,7 +245,8 @@ run(
     options=None,
     run_metadata=None,
     callable_runner=None,
-    callable_runner_args=None
+    callable_runner_args=None,
+    callable_options=None
 )
 ```
 

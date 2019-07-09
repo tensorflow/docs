@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Estimator`](../../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/linear.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/estimator/python/estimator/linear.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/linear.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/estimator/python/estimator/linear.py).
 
 An estimator for TensorFlow linear models with user-specified head.
 
@@ -31,6 +28,18 @@ estimator = LinearEstimator(
     head=tf.contrib.estimator.multi_label_head(n_classes=3),
     feature_columns=[categorical_column_a,
                      categorical_feature_a_x_categorical_feature_b])
+
+# Or estimator using an optimizer with a learning rate decay.
+estimator = LinearEstimator(
+    head=tf.contrib.estimator.multi_label_head(n_classes=3),
+    feature_columns=[categorical_column_a,
+                     categorical_feature_a_x_categorical_feature_b],
+    optimizer=lambda: tf.train.FtrlOptimizer(
+        learning_rate=tf.exponential_decay(
+            learning_rate=0.1,
+            global_step=tf.get_global_step(),
+            decay_steps=10000,
+            decay_rate=0.96))
 
 # Or estimator using the FTRL optimizer with regularization.
 estimator = LinearEstimator(
@@ -112,7 +121,8 @@ __init__(
     model_dir=None,
     optimizer='Ftrl',
     config=None,
-    partitioner=None
+    partitioner=None,
+    sparse_combiner='sum'
 )
 ```
 
@@ -128,10 +138,16 @@ Initializes a `LinearEstimator` instance.
 * <b>`model_dir`</b>: Directory to save model parameters, graph and etc. This can
     also be used to load checkpoints from the directory into a estimator
     to continue training a previously saved model.
-* <b>`optimizer`</b>: An instance of `tf.Optimizer` used to train the model. Defaults
-    to FTRL optimizer.
+* <b>`optimizer`</b>: An instance of `tf.Optimizer` used to train the model. Can also
+    be a string (one of 'Adagrad', 'Adam', 'Ftrl', 'RMSProp', 'SGD'), or
+    callable. Defaults to FTRL optimizer.
 * <b>`config`</b>: `RunConfig` object to configure the runtime settings.
 * <b>`partitioner`</b>: Optional. Partitioner for input layer.
+* <b>`sparse_combiner`</b>: A string specifying how to reduce if a categorical column
+    is multivalent.  One of "mean", "sqrtn", and "sum" -- these are
+    effectively different ways to do example-level normalization, which can
+    be useful for bag-of-words features. for more details, see
+    <a href="../../../tf/feature_column/linear_model">linear_model</a>.
 
 <h3 id="eval_dir"><code>eval_dir</code></h3>
 

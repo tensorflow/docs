@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,18 +15,19 @@ tf.feature_column.categorical_column_with_hash_bucket(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/feature_column/feature_column.py).
 
 Represents sparse feature where ids are set by hashing.
 
 Use this when your sparse features are in string or integer format, and you
 want to distribute your inputs into a finite number of buckets by hashing.
-output_id = Hash(input_feature_string) % bucket_size
+output_id = Hash(input_feature_string) % bucket_size for string type input.
+For int type input, the value is converted to its string representation first
+and then hashed by the same formula.
 
 For input dictionary `features`, `features[key]` is either `Tensor` or
 `SparseTensor`. If `Tensor`, missing values can be represented by `-1` for int
-and `''` for string. Note that these values are independent of the
-`default_value` argument.
+and `''` for string, which will be dropped by this feature column.
 
 Example:
 

@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.invert_permutation
+
+### Aliases:
+
+* `tf.invert_permutation`
+* `tf.math.invert_permutation`
 
 ``` python
 tf.invert_permutation(

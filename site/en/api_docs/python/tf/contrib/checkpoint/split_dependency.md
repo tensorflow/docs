@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.contrib.checkpoint.split_dependency(
 
 
 
-Defined in [`tensorflow/contrib/checkpoint/python/split_dependency.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/checkpoint/python/split_dependency.py).
+Defined in [`tensorflow/contrib/checkpoint/python/split_dependency.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/checkpoint/python/split_dependency.py).
 
 Creates multiple dependencies with a synchronized save/restore.
 

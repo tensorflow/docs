@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.parse_tensor
+
+### Aliases:
+
+* `tf.io.parse_tensor`
+* `tf.parse_tensor`
 
 ``` python
 tf.parse_tensor(

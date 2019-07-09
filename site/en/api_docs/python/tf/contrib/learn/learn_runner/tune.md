@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.contrib.learn.learn_runner.tune(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/learn_runner.py).
+Defined in [`tensorflow/contrib/learn/python/learn/learn_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/learn/python/learn/learn_runner.py).
 
 Tune an experiment with hyper-parameters. (deprecated)
 

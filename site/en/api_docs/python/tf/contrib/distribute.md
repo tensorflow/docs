@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distribute/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distribute/__init__.py).
+Defined in [`tensorflow/contrib/distribute/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distribute/__init__.py).
 
 Prototype of a distributed computation library for TF.
 
@@ -36,6 +33,8 @@ Prototype of a distributed computation library for TF.
 
 [`class Step`](../../tf/contrib/distribute/Step): Interface for performing each step of a training algorithm.
 
+[`class TPUStrategy`](../../tf/contrib/distribute/TPUStrategy): Experimental TPU distribution strategy implementation.
+
 [`class TowerContext`](../../tf/contrib/distribute/TowerContext): DistributionStrategy API inside a `call_for_each_tower()` call.
 
 ## Functions
@@ -44,7 +43,7 @@ Prototype of a distributed computation library for TF.
 
 [`get_distribution_strategy(...)`](../../tf/contrib/distribute/get_distribution_strategy): Returns the current `DistributionStrategy` object.
 
-[`get_loss_reduction(...)`](../../tf/contrib/distribute/get_loss_reduction): Reduce `method_string` corresponding to the last loss reduction.
+[`get_loss_reduction(...)`](../../tf/contrib/distribute/get_loss_reduction): Reduce `aggregation` corresponding to the last loss reduction.
 
 [`get_tower_context(...)`](../../tf/contrib/distribute/get_tower_context): Returns the current TowerContext or None if in a cross-tower context.
 

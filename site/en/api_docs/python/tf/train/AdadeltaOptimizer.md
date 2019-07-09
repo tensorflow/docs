@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/python/training/adadelta.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/adadelta.py).
+Defined in [`tensorflow/python/training/adadelta.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/training/adadelta.py).
 
 See the guide: [Training > Optimizers](../../../../api_guides/python/train#Optimizers)
 
@@ -49,6 +46,16 @@ Construct a new Adadelta optimizer.
 * <b>`use_locking`</b>: If `True` use locks for update operations.
 * <b>`name`</b>: Optional name prefix for the operations created when applying
     gradients.  Defaults to "Adadelta".
+
+
+
+#### Eager Compatibility
+When eager execution is enabled, `learning_rate`, `rho`, and `epsilon` can
+each be a callable that takes no arguments and returns the actual value to
+use. This can be useful for changing these values across different
+invocations of optimizer functions.
+
+
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

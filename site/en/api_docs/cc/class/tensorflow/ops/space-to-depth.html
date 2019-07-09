@@ -2,15 +2,15 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::SpaceToDepth Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.10/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>SpaceToDepth</h1>
   <code>#include &lt;array_ops.h&gt;</code>
-  <p><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/space-to-depth.html#classtensorflow_1_1ops_1_1_space_to_depth">SpaceToDepth</a> for tensors of type T. </p>
+  <p><a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/space-to-depth.html#classtensorflow_1_1ops_1_1_space_to_depth">SpaceToDepth</a> for tensors of type T. </p>
   <h2>Summary</h2>
   <p>Rearranges blocks of spatial data, into depth. More specifically, this op outputs a copy of the input tensor where values from the <code>height</code> and <code>width</code> dimensions are moved to the <code>depth</code> dimension. The attr <code>block_size</code> indicates the input block size.</p>
   <p>
@@ -22,7 +22,7 @@
     </ul>
   </p>
   <p>The <code>data_format</code> attr specifies the layout of the input and output tensors with the following options: "NHWC": <code>[ batch, height, width, channels ]</code> "NCHW": <code>[ batch, channels, height, width ]</code> "NCHW_VECT_C": <code>qint8 [ batch, channels / 4, height, width, 4 ]</code></p>
-  <p>It is useful to consider the operation as transforming a 6-D <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. e.g. for data_format = NHWC, Each element in the input tensor can be specified via 6 coordinates, ordered by decreasing memory layout significance as: n,oY,bY,oX,bX,iC (where n=batch index, oX, oY means X or Y coordinates within the output image, bX, bY means coordinates within the input block, iC means input channels). The output would be a transpose to the following layout: n,oY,oX,bY,bX,iC</p>
+  <p>It is useful to consider the operation as transforming a 6-D <a href="/versions/r1.10/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. e.g. for data_format = NHWC, Each element in the input tensor can be specified via 6 coordinates, ordered by decreasing memory layout significance as: n,oY,bY,oX,bX,iC (where n=batch index, oX, oY means X or Y coordinates within the output image, bX, bY means coordinates within the input block, iC means input channels). The output would be a transpose to the following layout: n,oY,oX,bY,bX,iC</p>
   <p>This operation is useful for resizing the activations between convolutions (but keeping all data), e.g. instead of pooling. It is also useful for training purely convolutional models.</p>
   <p>For example, given an input of shape <code>[1, 2, 2, 1]</code>, data_format = "NHWC" and block_size = 2:</p>
   <p>
@@ -70,11 +70,11 @@ x = [[[[1, 2, 3, 4],
 </pre>
   </p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>block_size: The size of the spatial block.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+      <li><code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -84,13 +84,13 @@ x = [[[[1, 2, 3, 4],
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_space_to_depth_1af04eac8c7799498e98d6a0880c902d26">SpaceToDepth</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64 block_size)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_space_to_depth_1af04eac8c7799498e98d6a0880c902d26">SpaceToDepth</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64 block_size)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_space_to_depth_1ac199ced24497e42c91b0d94c2a880149">SpaceToDepth</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64 block_size, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/space-to-depth/attrs.html#structtensorflow_1_1ops_1_1_space_to_depth_1_1_attrs">SpaceToDepth::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_space_to_depth_1ac199ced24497e42c91b0d94c2a880149">SpaceToDepth</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64 block_size, const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/space-to-depth/attrs.html#structtensorflow_1_1ops_1_1_space_to_depth_1_1_attrs">SpaceToDepth::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -107,7 +107,7 @@ x = [[[[1, 2, 3, 4],
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -161,7 +161,7 @@ x = [[[[1, 2, 3, 4],
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/space-to-depth/attrs.html#structtensorflow_1_1ops_1_1_space_to_depth_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/space-to-depth/attrs.html#structtensorflow_1_1ops_1_1_space_to_depth_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -174,25 +174,25 @@ x = [[[[1, 2, 3, 4],
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/space-to-depth/attrs">tensorflow::<wbr/>ops::<wbr/>SpaceToDepth::<wbr/>Attrs</a>
+        <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/space-to-depth/attrs">tensorflow::<wbr/>ops::<wbr/>SpaceToDepth::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/space-to-depth.html#classtensorflow_1_1ops_1_1_space_to_depth">SpaceToDepth</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/space-to-depth.html#classtensorflow_1_1ops_1_1_space_to_depth">SpaceToDepth</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_space_to_depth_1ab6a6aeae8c419ea989765f059873585d">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_space_to_depth_1af04eac8c7799498e98d6a0880c902d26">
     <h3>SpaceToDepth</h3>
     <pre class="prettyprint"> SpaceToDepth(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
   int64 block_size
 )</pre>
     <div />
@@ -200,10 +200,10 @@ x = [[[[1, 2, 3, 4],
   <div id="classtensorflow_1_1ops_1_1_space_to_depth_1ac199ced24497e42c91b0d94c2a880149">
     <h3>SpaceToDepth</h3>
     <pre class="prettyprint"> SpaceToDepth(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
   int64 block_size,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/space-to-depth/attrs.html#structtensorflow_1_1ops_1_1_space_to_depth_1_1_attrs">SpaceToDepth::Attrs</a> & attrs
+  const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/space-to-depth/attrs.html#structtensorflow_1_1ops_1_1_space_to_depth_1_1_attrs">SpaceToDepth::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -225,7 +225,7 @@ x = [[[[1, 2, 3, 4],
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_space_to_depth_1a8fde3115b73a2051673de2f4b0964b05">
     <h3>DataFormat</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/space-to-depth/attrs.html#structtensorflow_1_1ops_1_1_space_to_depth_1_1_attrs">Attrs</a> DataFormat(
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/space-to-depth/attrs.html#structtensorflow_1_1ops_1_1_space_to_depth_1_1_attrs">Attrs</a> DataFormat(
   StringPiece x
 )</pre>
     <div />

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Conv2D`](../../../tf/keras/layers/Conv2D)
 
 
 
-Defined in [`tensorflow/python/keras/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/layers/convolutional.py).
+Defined in [`tensorflow/python/keras/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/keras/layers/convolutional.py).
 
 Depthwise separable 2D convolution.
 
@@ -27,11 +24,11 @@ output channels are generated per input channel in the depthwise step.
 #### Arguments:
 
 * <b>`kernel_size`</b>: An integer or tuple/list of 2 integers, specifying the
-      width and height of the 2D convolution window.
+      height and width of the 2D convolution window.
       Can be a single integer to specify the same value for
       all spatial dimensions.
 * <b>`strides`</b>: An integer or tuple/list of 2 integers,
-      specifying the strides of the convolution along the width and height.
+      specifying the strides of the convolution along the height and width.
       Can be a single integer to specify the same value for
       all spatial dimensions.
       Specifying any stride value != 1 is incompatible with specifying
@@ -428,10 +425,12 @@ add_weight(
     dtype=None,
     initializer=None,
     regularizer=None,
-    trainable=True,
+    trainable=None,
     constraint=None,
     partitioner=None,
     use_resource=None,
+    synchronization=tf.VariableSynchronization.AUTO,
+    aggregation=tf.VariableAggregation.NONE,
     getter=None
 )
 ```
@@ -450,10 +449,20 @@ Adds a new variable to the layer, or gets an existing one; returns it.
     or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
     Note, if the current variable scope is marked as non-trainable
     then this parameter is ignored and any added variables are also
-    marked as non-trainable.
+    marked as non-trainable. `trainable` defaults to `True` unless
+    `synchronization` is set to `ON_READ`.
 * <b>`constraint`</b>: constraint instance (callable).
 * <b>`partitioner`</b>: Partitioner to be passed to the `Checkpointable` API.
 * <b>`use_resource`</b>: Whether to use `ResourceVariable`.
+* <b>`synchronization`</b>: Indicates when a distributed a variable will be
+    aggregated. Accepted values are constants defined in the class
+    <a href="../../../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to
+    `AUTO` and the current `DistributionStrategy` chooses
+    when to synchronize. If `synchronization` is set to `ON_READ`,
+    `trainable` must not be set to `True`.
+* <b>`aggregation`</b>: Indicates how a distributed variable will be aggregated.
+    Accepted values are constants defined in the class
+    <a href="../../../tf/VariableAggregation"><code>tf.VariableAggregation</code></a>.
 * <b>`getter`</b>: Variable getter argument to be passed to the `Checkpointable` API.
 
 
@@ -468,7 +477,8 @@ instance is returned.
 
 * <b>`RuntimeError`</b>: If called with partioned variable regularization and
     eager execution is enabled.
-* <b>`ValueError`</b>: When giving unsupported dtype and no initializer.
+* <b>`ValueError`</b>: When giving unsupported dtype and no initializer or when
+    trainable has been set to True with synchronization set as `ON_READ`.
 
 <h3 id="apply"><code>apply</code></h3>
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/lite/python/lite.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/lite/python/lite.py).
+Defined in [`tensorflow/contrib/lite/python/lite.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/lite/python/lite.py).
 
 TensorFlow Lite tooling helper functionality.
 
@@ -40,6 +37,8 @@ EXPERIMENTAL: APIs here are unstable and likely to change without notice.
 
 ## Functions
 
+[`build_toco_convert_protos(...)`](../../tf/contrib/lite/build_toco_convert_protos): Builds protocol buffers describing a conversion of a model using TOCO.
+
 [`convert_op_hints_to_stubs(...)`](../../tf/contrib/lite/convert_op_hints_to_stubs): Converts a graphdef with LiteOp hints into stub operations.
 
 [`freeze_saved_model(...)`](../../tf/contrib/lite/freeze_saved_model): Converts a SavedModel to a frozen graph.
@@ -54,7 +53,7 @@ EXPERIMENTAL: APIs here are unstable and likely to change without notice.
 
 [`tensor_name(...)`](../../tf/contrib/lite/tensor_name)
 
-[`toco_convert(...)`](../../tf/contrib/lite/toco_convert): Convert a model using TOCO from `input_format` to `output_format`.
+[`toco_convert(...)`](../../tf/contrib/lite/toco_convert): "Convert a model using TOCO.
 
 [`toco_convert_protos(...)`](../../tf/contrib/lite/toco_convert_protos): Convert `input_data_str` according to model and toco parameters.
 

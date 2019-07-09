@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,9 +14,7 @@ tf.contrib.distributions.softplus_inverse(
 
 
 
-Defined in [`tensorflow/python/ops/distributions/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/util.py).
-
-See the guide: [Statistical Distributions (contrib) > Utilities](../../../../../api_guides/python/contrib.distributions#Utilities)
+Defined in [`tensorflow/python/ops/distributions/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/distributions/util.py).
 
 Computes the inverse softplus, i.e., x = softplus_inverse(softplus(x)).
 

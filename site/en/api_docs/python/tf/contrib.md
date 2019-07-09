@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,15 +7,19 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/__init__.py).
+Defined in [`tensorflow/contrib/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/__init__.py).
 
 contrib module containing volatile or experimental code.
 
 ## Modules
 
+[`all_reduce`](../tf/contrib/all_reduce) module: All-reduce implementations.
+
 [`batching`](../tf/contrib/batching) module: Ops and modules related to batch.
 
 [`bayesflow`](../tf/contrib/bayesflow) module: Ops for representing Bayesian computation.
+
+[`bigtable`](../tf/contrib/bigtable) module: Cloud Bigtable Client for TensorFlow.
 
 [`checkpoint`](../tf/contrib/checkpoint) module: Tools for working with object-based checkpoints.
 

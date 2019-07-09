@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.less_equal
+
+### Aliases:
+
+* `tf.less_equal`
+* `tf.math.less_equal`
 
 ``` python
 tf.less_equal(
@@ -24,7 +26,7 @@ See the guide: [Control Flow > Comparison Operators](../../../api_guides/python/
 
 Returns the truth value of (x <= y) element-wise.
 
-*NOTE*: `LessEqual` supports broadcasting. More about broadcasting
+*NOTE*: `math.less_equal` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:

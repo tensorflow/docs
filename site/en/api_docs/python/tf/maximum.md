@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.maximum
+
+### Aliases:
+
+* `tf.math.maximum`
+* `tf.maximum`
 
 ``` python
 tf.maximum(
@@ -24,7 +26,7 @@ See the guide: [Math > Basic Math Functions](../../../api_guides/python/math_ops
 
 Returns the max of x and y (i.e. x > y ? x : y) element-wise.
 
-*NOTE*: `Maximum` supports broadcasting. More about broadcasting
+*NOTE*: `math.maximum` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:

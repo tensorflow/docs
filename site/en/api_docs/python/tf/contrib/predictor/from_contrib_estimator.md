@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,13 +11,14 @@ tf.contrib.predictor.from_contrib_estimator(
     prediction_input_fn,
     input_alternative_key=None,
     output_alternative_key=None,
-    graph=None
+    graph=None,
+    config=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/predictor/predictor_factories.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/predictor/predictor_factories.py).
+Defined in [`tensorflow/contrib/predictor/predictor_factories.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/predictor/predictor_factories.py).
 
 Constructs a `Predictor` from a <a href="../../../tf/contrib/learn/Estimator"><code>tf.contrib.learn.Estimator</code></a>.
 
@@ -36,6 +34,7 @@ Constructs a `Predictor` from a <a href="../../../tf/contrib/learn/Estimator"><c
     multi-headed models.
 * <b>`graph`</b>: Optional. The Tensorflow `graph` in which prediction should be
     done.
+* <b>`config`</b>: `ConfigProto` proto used to configure the session.
 
 
 #### Returns:

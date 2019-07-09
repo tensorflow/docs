@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,12 +7,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/monitors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/monitors.py).
+Defined in [`tensorflow/contrib/learn/python/learn/monitors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/learn/python/learn/monitors.py).
 
 Monitors instrument the training process (deprecated).
 
 This module and all its submodules are deprecated. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/learn/README.md)
 for migration instructions.
 
 

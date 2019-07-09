@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.nn.sparse_softmax_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Classification](../../../../api_guides/python/nn#Classification)
 
@@ -59,7 +56,8 @@ this function.**
     exception when this op is run on CPU, and return `NaN` for corresponding
     loss and gradient rows on GPU.
 * <b>`logits`</b>: Unscaled log probabilities of shape
-    `[d_0, d_1, ..., d_{r-1}, num_classes]` and dtype `float32` or `float64`.
+    `[d_0, d_1, ..., d_{r-1}, num_classes]` and dtype `float16`, `float32`, or
+    `float64`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

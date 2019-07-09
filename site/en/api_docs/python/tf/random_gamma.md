@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.random_gamma(
 
 
 
-Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/random_ops.py).
+Defined in [`tensorflow/python/ops/random_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/random_ops.py).
 
 See the guide: [Constants, Sequences, and Random Values > Random Tensors](../../../api_guides/python/constant_op#Random_Tensors)
 
@@ -30,25 +27,41 @@ Draws `shape` samples from each of the given Gamma distribution(s).
 `alpha` is the shape parameter describing the distribution(s), and `beta` is
 the inverse scale parameter(s).
 
+Note: Because internal calculations are done using `float64` and casting has
+`floor` semantics, we must manually map zero outcomes to the smallest
+possible positive floating-point value, i.e., `np.finfo(dtype).tiny`.  This
+means that `np.finfo(dtype).tiny` occurs more frequently than it otherwise
+should.  This bias can only happen for small values of `alpha`, i.e.,
+`alpha << 1` or large values of `beta`, i.e., `beta >> 1`.
+
+The samples are differentiable w.r.t. alpha and beta.
+The derivatives are computed using the approach described in the paper
+
+[Michael Figurnov, Shakir Mohamed, Andriy Mnih.
+Implicit Reparameterization Gradients, 2018](https://arxiv.org/abs/1805.08498)
+
 Example:
 
-  samples = tf.random_gamma([10], [0.5, 1.5])
-  # samples has shape [10, 2], where each slice [:, 0] and [:, 1] represents
-  # the samples drawn from each distribution
+```python
+samples = tf.random_gamma([10], [0.5, 1.5])
+# samples has shape [10, 2], where each slice [:, 0] and [:, 1] represents
+# the samples drawn from each distribution
 
-  samples = tf.random_gamma([7, 5], [0.5, 1.5])
-  # samples has shape [7, 5, 2], where each slice [:, :, 0] and [:, :, 1]
-  # represents the 7x5 samples drawn from each of the two distributions
+samples = tf.random_gamma([7, 5], [0.5, 1.5])
+# samples has shape [7, 5, 2], where each slice [:, :, 0] and [:, :, 1]
+# represents the 7x5 samples drawn from each of the two distributions
 
-  samples = tf.random_gamma([30], [[1.],[3.],[5.]], beta=[[3., 4.]])
-  # samples has shape [30, 3, 2], with 30 samples each of 3x2 distributions.
+alpha = tf.constant([[1.],[3.],[5.]])
+beta = tf.constant([[3., 4.]])
+samples = tf.random_gamma([30], alpha=alpha, beta=beta)
+# samples has shape [30, 3, 2], with 30 samples each of 3x2 distributions.
 
-  Note: Because internal calculations are done using `float64` and casting has
-  `floor` semantics, we must manually map zero outcomes to the smallest
-  possible positive floating-point value, i.e., `np.finfo(dtype).tiny`.  This
-  means that `np.finfo(dtype).tiny` occurs more frequently than it otherwise
-  should.  This bias can only happen for small values of `alpha`, i.e.,
-  `alpha << 1` or large values of `beta`, i.e., `beta >> 1`.
+loss = tf.reduce_mean(tf.square(samples))
+dloss_dalpha, dloss_dbeta = tf.gradients(loss, [alpha, beta])
+# unbiased stochastic derivatives of the loss function
+alpha.shape == dloss_dalpha.shape  # True
+beta.shape == dloss_dbeta.shape  # True
+```
 
 #### Args:
 
@@ -71,5 +84,6 @@ Example:
 
 #### Returns:
 
-* <b>`samples`</b>: a `Tensor` of shape `tf.concat(shape, tf.shape(alpha + beta))`
-    with values of type `dtype`.
+* <b>`samples`</b>: a `Tensor` of shape
+    `tf.concat([shape, tf.shape(alpha + beta)], axis=0)` with values of type
+    `dtype`.

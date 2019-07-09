@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.minimum
+
+### Aliases:
+
+* `tf.math.minimum`
+* `tf.minimum`
 
 ``` python
 tf.minimum(
@@ -24,7 +26,7 @@ See the guide: [Math > Basic Math Functions](../../../api_guides/python/math_ops
 
 Returns the min of x and y (i.e. x < y ? x : y) element-wise.
 
-*NOTE*: `Minimum` supports broadcasting. More about broadcasting
+*NOTE*: `math.minimum` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:

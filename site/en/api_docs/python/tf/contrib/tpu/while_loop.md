@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.contrib.tpu.while_loop(
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/training_loop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/training_loop.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/training_loop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/tpu/python/tpu/training_loop.py).
 
 Builds a training loop for TPUs.
 
