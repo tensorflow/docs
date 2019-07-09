@@ -10,4 +10,4 @@
 
 
 - [构建一个基于迁移学习的图像分类器](image_classification)
-- [构建一个基于语音识别的迁移学习](audio_recognizer)
+- [构建一个基于迁移学习的语音识别器](audio_recognizer)
