@@ -1,14 +1,13 @@
 # Frequently Asked Questions
 
-If you don't find an answer to your question here, please look through our
-detailed documentation for the topic or file a
+如果这里找不到你需要的答案，请查看相关专题的详细文档或
 [GitHub issue](https://github.com/tensorflow/tensorflow/issues).
 
-## Model Conversion
+## 模型转换
 
-#### What formats are supported for conversion from TensorFlow to TensorFlow Lite?
+#### 从TensorFlow到TensorFlow Lite的转换，支持哪些格式？
 
-The TensorFlow Lite converter supports the following formats:
+TensowFlow Lite转换器支持如下格式：
 
 *   SavedModels:
     [TFLiteConverter.from_saved_model](../convert/python_api.md#exporting_a_savedmodel_)
@@ -20,124 +19,95 @@ The TensorFlow Lite converter supports the following formats:
 *   tf.Session:
     [TFLiteConverter.from_session](../convert/python_api.md#exporting_a_graphdef_from_tfsession_)
 
-The recommended approach is to integrate the
-[Python converter](../convert/python_api.md) into your model pipeline in order to
-detect compatibility issues early on.
+推荐方法是把
+[Python 转换器](../convert/python_api.md) 集成到你的模型流水线(model pipeline)中，方便更早发现兼容性问题。
 
-#### Why doesn't my model convert?
+#### 为什么我的模型不能转换？
 
-Since the number of TensorFlow Lite operations is smaller than TensorFlow's,
-some inference models may not be able to convert. For unimplemented operations,
-take a look at the question on
-[missing operators](faq.md#why-are-some-operations-not-implemented-in-tensorflow-lite).
-Unsupported operators include embeddings and LSTM/RNNs. For models with
-LSTM/RNNs, you can also try the experimental API
-[OpHint](https://www.tensorflow.org/api_docs/python/tf/lite/OpHint) to convert.
-Models with control flow ops (Switch, Merge, etc) are not convertible at the
-moment, but we are working on adding support for control flow in Tensorflow
-Lite, please see
+因为TensorFlow Lite的操作集比TensorFlow要小，一些推断模型无法被转换。对于未实现的操作，请查看
+[不支持操作](faq.md#why-are-some-operations-not-implemented-in-tensorflow-lite).
+不支持操作包括嵌入和LSTM/RNN。 对于LSTM/RNN模型，可以尝试用实验性API [OpHint](https://www.tensorflow.org/api_docs/python/tf/lite/OpHint)来转换。
+使用控制流操作（Switch、Merge等）的模型当前无法转换，我们正在TensorFlow Lite中加入控制流的支持，请看
 [GitHub issues](https://github.com/tensorflow/tensorflow/issues/28485).
 
-For conversion issues not related to missing operations or control flow ops,
-search our
+与不支持操作或控制流操作无关的转换相关的问题，请搜索
 [GitHub issues](https://github.com/tensorflow/tensorflow/issues?q=label%3Acomp%3Alite+)
-or file a [new one](https://github.com/tensorflow/tensorflow/issues).
+或开启[新的问题](https://github.com/tensorflow/tensorflow/issues).
 
-#### How do I determine the inputs/outputs for GraphDef protocol buffer?
+#### 对于GraphDef协议缓存（protocol buffer），如果确定输入/输出？
 
-The easiest way to inspect a graph from a `.pb` file is to use the
+最简单方式是使用
 [summarize_graph](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/graph_transforms/README.md#inspecting-graphs)
-tool.
+工具从.pb文件中检查图。
 
-If that approach yields an error, you can visualize the GraphDef with
-[TensorBoard](https://www.tensorflow.org/guide/summaries_and_tensorboard) and
-look for the inputs and outputs in the graph. To visualize a `.pb` file, use the
+如果这个方法出错，可以用
+[TensorBoard](https://www.tensorflow.org/guide/summaries_and_tensorboard)可视化GraphDef，从图中查看输入/输出。为了可视化.pb文件，按如下方式使用
 [`import_pb_to_tensorboard.py`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/import_pb_to_tensorboard.py)
-script like below:
+脚本如下:
 
 ```
 python import_pb_to_tensorboard.py --model_dir <model path> --log_dir <log dir path>
 ```
 
-#### How do I inspect a `.tflite` file?
+#### 如何检查一个 `.tflite` 文件?
 
-TensorFlow Lite models can be visualized using the
+TensorFlow Lite模型可以通过
 [visualize.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/tools/visualize.py)
-script in our repository.
+可视化.
 
-*   [Clone the TensorFlow repository](https://www.tensorflow.org/install/source)
-*   Run the `visualize.py` script with bazel:
+*   [复制Tensorflow 仓库](https://www.tensorflow.org/install/source)
+*   用bazel运行 `visualize.py` 脚本:
 
 ```
 bazel run //tensorflow/lite/tools:visualize model.tflite visualized_model.html
 ```
 
-## Models & Operations
+## 模型和操作
 
-#### Why are some operations not implemented in TensorFlow Lite?
+#### 为什么TensorFlow Lite中有些操作没有实现？
 
-In order to keep TensorFlow Lite lightweight, only certain operations were used
-in the converter. The [Compatibility Guide](ops_compatibility.md) provides a
-list of operations currently supported by TensorFlow Lite.
+为了保证TensorFlow Lite的轻量级，只有部分的操作可以被转换。 [兼容性列表](ops_compatibility.md) 提供了目前TensorFlow Lite支持的操作列表。
 
-If you don’t see a specific operation (or an equivalent) listed, it's likely
-that it has not been prioritized. The team tracks requests for new operations on
-GitHub [issue #21526](https://github.com/tensorflow/tensorflow/issues/21526).
-Leave a comment if your request hasn’t already been mentioned.
+如果某个操作不在列表中，意味着它的优先级不高。 开发团队会在GitHub跟踪新的操作请求
+ [issue #21526](https://github.com/tensorflow/tensorflow/issues/21526).
+如果你的操作不在其中，请留言。
 
-In the meanwhile, you could try implementing a
-[custom operator](ops_custom.md) or using a different model that only
-contains supported operators. If binary size is not a constraint, try using
-TensorFlow Lite with [select TensorFlow ops](ops_select.md).
+同时，你可以尝试使用
+[定制操作](ops_custom.md) 或者使用不同的模型，只包含支持的操作. 如果不限制二进制大小，可以试试
+ [select TensorFlow ops](ops_select.md)来使用TensorFlow Lite。
 
-#### How do I test that a TensorFlow Lite model behaves the same as the original TensorFlow model?
+#### 要比对TensorFlow Lite模型和原始的TensorFlow模型，如何测试？
 
-The best way to test the behavior of a TensorFlow Lite model is to use our API
-with test data and compare the outputs to TensorFlow for the same inputs. Take a
-look at our [Python Interpreter example](../convert/python_api.md) that generates
-random data to feed to the interpreter.
+最好的方法是使用API和测试数据，用相同的输入，比较两种模型的输出。请查看 [Python解释器示例](../convert/python_api.md) 它产生随机数据提供给解释器。
 
-## Optimization
+## 优化
 
-#### How do I reduce the size of my converted TensorFlow Lite model?
+#### 如何减少TensorFlow Lite模型的大小？
 
-[Post-training quantization](../performance/post_training_quantization.md) can be
-used during conversion to TensorFlow Lite to reduce the size of the model.
-Post-training quantization quantizes weights to 8-bits of precision from
-floating-point and dequantizes them during runtime to perform floating point
-computations. However, note that this could have some accuracy implications.
+[训练后量化](../performance/post_training_quantization.md) 在转换过程中可以用来减少模型大小。训练后降精度可以把权重精度从浮点降为8位，并在浮点计算前升精度回浮点。注意，这有可能产生精确性问题。
 
-If retraining the model is an option, consider
-[Quantization-aware training](https://github.com/tensorflow/tensorflow/tree/r1.13/tensorflow/contrib/quantize).
-However, note that quantization-aware training is only available for a subset of
-convolutional neural network architectures.
+如果重新训练模型是一个选择, 可以考虑
+[量化训练](https://github.com/tensorflow/tensorflow/tree/r1.13/tensorflow/contrib/quantize).
+然而请注意，量化训练仅仅支持一些CNN结构的神经网络。
 
-For a deeper understanding of different optimization methods, look at
-[Model optimization](../performance/model_optimization.md).
+更深入的优化方法, 请查看
+[模型优化](../performance/model_optimization.md).
 
-#### How do I optimize TensorFlow Lite performance for my machine learning task?
+#### 对于我的机器学习任务，如何优化TensorFlow Lite性能？
 
-The high-level process to optimize TensorFlow Lite performance looks something
-like this:
+优化TensorFlow Lite的宏观处理过程如下：
 
-*   *Make sure that you have the right model for the task.* For image
-    classification, check out our [list of hosted models](hosted_models.md).
-*   *Tweak the number of threads.* Many TensorFlow Lite operators support
-    multi-threaded kernels. You can use `SetNumThreads()` in the
+*   *确保使用适合该任务的正确模型。对于图像分类，请查看[支持的模型列表](hosted_models.md)。*
+*   *微调线程数量*： 许多TensorFlow Lite操作支持多线程内核. 你可以使用 `SetNumThreads()` 在
     [C++ API](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/interpreter.h#L345)
-    to do this. However, increasing threads results in performance variability
-    depending on the environment.
-*   *Use Hardware Accelerators.* TensorFlow Lite supports model acceleration for
-    specific hardware using delegates. For example, to use Android’s Neural
-    Networks API, call
-    [`UseNNAPI`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/interpreter.h#L343)
-    on the interpreter. Or take a look at our
+    。注意，不同环境中增加线程数量带来不同的性能影响。
+*   *使用硬件加速器*： TensorFlow Lite通过委托（delegate）支持特定硬件下的模型加速。例如，在解释器中使用
+    [`UseNNAPI`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/interpreter.h#L343)调用Android的神经网络API。
+  请查看
     [GPU delegate tutorial](../performance/gpu.md).
-*   *(Advanced) Profile Model.* The Tensorflow Lite
-    [benchmarking tool](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark)
-    has a built-in profiler that can show per-operator statistics. If you know
-    how you can optimize an operator’s performance for your specific platform,
-    you can implement a [custom operator](ops_custom.md).
+*   *(高级) 模型调优*： The Tensorflow Lite
+    [评测工具](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark)
+    有内置的计数器，可以统计操作相关数据。如果通过它，你了解到应该优化哪个操作，你就可以用一个 [定制操作](ops_custom.md).
 
-For a more in-depth discussion on how to optimize performance, take a look at
-[Best Practices](../performance/best_practices.md).
+对于更多关于性能优化的深入讨论，请查看
+[最佳实践](../performance/best_practices.md).
