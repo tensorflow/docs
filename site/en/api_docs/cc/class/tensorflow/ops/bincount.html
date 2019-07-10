@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Bincount Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Bincount</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Counts the number of occurrences of each value in an integer array. </p>
+  <h2>Summary</h2>
+  <p>Outputs a vector with length <code>size</code> and the same dtype as <code>weights</code>. If <code>weights</code> are empty, then index <code>i</code> stores the number of times the value <code>i</code> is counted in <code>arr</code>. If <code>weights</code> are non-empty, then index <code>i</code> stores the sum of the value in <code>weights</code> at each index where the corresponding value in <code>arr</code> is <code>i</code>.</p>
+  <p>Values in <code>arr</code> outside of the range [0, size) are ignored.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>arr: int32 <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>.</li>
+      <li>size: non-negative int32 scalar <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>.</li>
+      <li>weights: is an int32, int64, float32, or float64 <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with the same shape as <code>arr</code>, or a length-0 <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>, in which case it acts as all weights equal to 1.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 1D <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with length equal to <code>size</code>. The counts or summed weights for each value in the range [0, size). </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_bincount_1aab467738732ef3a8009ad662ba4d3821">Bincount</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> arr, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> weights)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_bincount_1ac125b9a1515efa737f727151bfeaaa73">bins</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_bincount_1ab09a9d72c4506a6911bfbe00775dde37">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_bincount_1a4e41f60ef9fb7473b6aa1d8b939e11db">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_bincount_1a3ac1f5104aacae7c5ed57e9a2094a80a">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_bincount_1a05eb54bb4dcf8b07c04cd58c4232d229">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_bincount_1ac125b9a1515efa737f727151bfeaaa73">
+    <h3>bins</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> bins</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_bincount_1ab09a9d72c4506a6911bfbe00775dde37">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_bincount_1aab467738732ef3a8009ad662ba4d3821">
+    <h3>Bincount</h3>
+    <pre class="prettyprint"> Bincount(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> arr,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> weights
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_bincount_1a4e41f60ef9fb7473b6aa1d8b939e11db">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_bincount_1a3ac1f5104aacae7c5ed57e9a2094a80a">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_bincount_1a05eb54bb4dcf8b07c04cd58c4232d229">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

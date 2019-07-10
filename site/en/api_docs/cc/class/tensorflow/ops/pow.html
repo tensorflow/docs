@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Pow Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Pow</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Computes the power of one value to another. </p>
+  <h2>Summary</h2>
+  <p>Given a tensor <code>x</code> and a tensor <code>y</code>, this operation computes \(x^y\) for corresponding elements in <code>x</code> and <code>y</code>. For example:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; tensor 'x' is [[2, 2]], [3, 3]]
+&#35; tensor 'y' is [[8, 16], [2, 3]]
+tf.pow(x, y) ==> [[256, 65536], [9, 27]]
+</pre>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The z tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_pow_1aca0c4d8d950913503421c22ff3141a2c">Pow</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_pow_1a7cf450a69c0c08d103b161e9363f7e7a">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_pow_1aa4df670ff306b3b060f6214659131a3e">z</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_pow_1aebdbfbf181ed695203bc0f67e0e98daa">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_pow_1aad45efe34ec9d129f73b5df4715efdce">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_pow_1ab3d1c9b6cda9074b95ded97ba401948d">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_pow_1a7cf450a69c0c08d103b161e9363f7e7a">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_pow_1aa4df670ff306b3b060f6214659131a3e">
+    <h3>z</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> z</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_pow_1aca0c4d8d950913503421c22ff3141a2c">
+    <h3>Pow</h3>
+    <pre class="prettyprint"> Pow(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_pow_1aebdbfbf181ed695203bc0f67e0e98daa">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_pow_1aad45efe34ec9d129f73b5df4715efdce">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_pow_1ab3d1c9b6cda9074b95ded97ba401948d">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

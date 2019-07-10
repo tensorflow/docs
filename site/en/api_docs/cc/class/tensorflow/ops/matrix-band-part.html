@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::MatrixBandPart Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>MatrixBandPart</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Copy a tensor setting everything outside a central band in each innermost matrix. </p>
+  <h2>Summary</h2>
+  <p>to zero.</p>
+  <p>The <code>band</code> part is computed as follows: Assume <code>input</code> has <code>k</code> dimensions <code>[I, J, K, ..., M, N]</code>, then the output is a tensor with the same shape where</p>
+  <p><code>band[i, j, k, ..., m, n] = in_band(m, n) * input[i, j, k, ..., m, n]</code>.</p>
+  <p>The indicator function</p>
+  <p><code>in_band(m, n) = (num_lower < 0 || (m-n) <= num_lower)) && (num_upper < 0 || (n-m) <= num_upper)</code>.</p>
+  <p>For example:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; if 'input' is [[ 0,  1,  2, 3]
+                 [-1,  0,  1, 2]
+                 [-2, -1,  0, 1]
+                 [-3, -2, -1, 0]],</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">tf.matrix_band_part(input, 1, -1) ==> [[ 0,  1,  2, 3]
+                                       [-1,  0,  1, 2]
+                                       [ 0, -1,  0, 1]
+                                       [ 0,  0, -1, 0]],</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">tf.matrix_band_part(input, 2, 1) ==> [[ 0,  1,  0, 0]
+                                      [-1,  0,  1, 0]
+                                      [-2, -1,  0, 1]
+                                      [ 0, -2, -1, 0]]
+</pre>
+  </p>
+  <p>Useful special cases:</p>
+  <p>
+    <pre class="prettyprint">
+ tf.matrix_band_part(input, 0, -1) ==> Upper triangular part.
+ tf.matrix_band_part(input, -1, 0) ==> Lower triangular part.
+ tf.matrix_band_part(input, 0, 0) ==> Diagonal.
+</pre>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/rank.html#classtensorflow_1_1ops_1_1_rank">Rank</a><code>k</code> tensor.</li>
+      <li>num_lower: 0-D tensor. Number of subdiagonals to keep. If negative, keep entire lower triangle.</li>
+      <li>num_upper: 0-D tensor. Number of superdiagonals to keep. If negative, keep entire upper triangle.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/rank.html#classtensorflow_1_1ops_1_1_rank">Rank</a><code>k</code> tensor of the same shape as input. The extracted banded tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_band_part_1aafbd4f5790f99aabe649a2603fab5026">MatrixBandPart</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_lower, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_upper)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_band_part_1a19ddd7640d84cfeb55298dcd2d150a8c">band</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_band_part_1a7f11fcb9cf1a97f13cded627a9579305">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_band_part_1a7a9ecf47b2def85ed1a8e7ab08dfe008">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_band_part_1a1b6a750bbd105a89c4ef9a398ccf7cf1">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_band_part_1a2be19e72aeddcea40f0be7cc6d6fdf97">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_matrix_band_part_1a19ddd7640d84cfeb55298dcd2d150a8c">
+    <h3>band</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> band</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_band_part_1a7f11fcb9cf1a97f13cded627a9579305">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_matrix_band_part_1aafbd4f5790f99aabe649a2603fab5026">
+    <h3>MatrixBandPart</h3>
+    <pre class="prettyprint"> MatrixBandPart(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_lower,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_upper
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_band_part_1a7a9ecf47b2def85ed1a8e7ab08dfe008">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_band_part_1a1b6a750bbd105a89c4ef9a398ccf7cf1">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_band_part_1a2be19e72aeddcea40f0be7cc6d6fdf97">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

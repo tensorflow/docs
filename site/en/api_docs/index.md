@@ -1,3 +1,7 @@
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 # API Documentation
 
 TensorFlow has APIs available in several languages both for constructing and

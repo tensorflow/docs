@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseSegmentSqrtNGrad Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseSegmentSqrtNGrad</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Computes gradients for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/sparse-segment-sqrt-n.html#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n">SparseSegmentSqrtN</a>. </p>
+  <h2>Summary</h2>
+  <p>Returns tensor "output" with same shape as grad, except for dimension 0 whose value is output_dim0.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>grad: gradient propagated to the <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/sparse-segment-sqrt-n.html#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n">SparseSegmentSqrtN</a> op.</li>
+      <li>indices: indices passed to the corresponding <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/sparse-segment-sqrt-n.html#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n">SparseSegmentSqrtN</a> op.</li>
+      <li>segment_ids: segment_ids passed to the corresponding <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/sparse-segment-sqrt-n.html#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n">SparseSegmentSqrtN</a> op.</li>
+      <li>output_dim0: dimension 0 of "data" passed to <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/sparse-segment-sqrt-n.html#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n">SparseSegmentSqrtN</a> op.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1ac363c25609d92a978f2bed20e7158d7d">SparseSegmentSqrtNGrad</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> output_dim0)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1adc740c2bdbfb85a7cece2be4ba75a241">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1a9526b27520b71dd075562b89d23f6d6b">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1a7abd7aef89700566de441da2af17a1cd">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1a6bd942a2caf61e2d8a9cf1be8e20f538">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1a5375b4db84448412e2ff0bf2e7e00afb">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1adc740c2bdbfb85a7cece2be4ba75a241">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1a9526b27520b71dd075562b89d23f6d6b">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1ac363c25609d92a978f2bed20e7158d7d">
+    <h3>SparseSegmentSqrtNGrad</h3>
+    <pre class="prettyprint"> SparseSegmentSqrtNGrad(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> output_dim0
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1a7abd7aef89700566de441da2af17a1cd">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1a6bd942a2caf61e2d8a9cf1be8e20f538">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_segment_sqrt_n_grad_1a5375b4db84448412e2ff0bf2e7e00afb">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

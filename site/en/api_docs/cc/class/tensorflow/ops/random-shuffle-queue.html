@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::RandomShuffleQueue Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>RandomShuffleQueue</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>A queue that randomizes the order of elements. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>component_types: The type of each component in a value.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>):<ul>
+      <li>shapes: The shape of each component in a value. The length of this attr must be either 0 or the same as the length of component_types. If the length of this attr is 0, the shapes of queue elements are not constrained, and only one element may be dequeued at a time.</li>
+      <li>capacity: The upper bound on the number of elements in this queue. Negative numbers mean no limit.</li>
+      <li>min_after_dequeue: Dequeue will block unless there would be this many elements after the dequeue or the queue is closed. This ensures a minimum level of mixing of elements.</li>
+      <li>seed: If either seed or seed2 is set to be non-zero, the random number generator is seeded by the given seed. Otherwise, a random seed is used.</li>
+      <li>seed2: A second seed to avoid seed collision.</li>
+      <li>container: If non-empty, this queue is placed in the given container. Otherwise, a default container is used.</li>
+      <li>shared_name: If non-empty, this queue will be shared under the given name across multiple sessions.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The handle to the queue. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1a9bccc69b7e3a13f4bb5d7323fd05ef6c">RandomShuffleQueue</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & component_types)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1ac7d64746531a706ec9376acd40b3a6ad">RandomShuffleQueue</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & component_types, const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">RandomShuffleQueue::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1a29baf87a7c0accb04db35584eefbc430">handle</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1a15b6a2b2a78276af62a6e37fb3f25d8a">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1a61438811ad12bb57fb2a2d19f00a9189">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1acb4b0c5652b368664dd85dcc037d3c02">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1abb138edd572be65ba0192bf164347847">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1a4413b1b2cb0ddee75d33f76663beeaaa">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1ad14fa9c08950c6c23b22fc601befd539">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1a274e69d218da5754021b398f61c5bf1a">MinAfterDequeue</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1a67af85647a9577958568a226754aab46">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1ae9697d776eb5643d3bf927ee56f4ca4c">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1a8ca53d0b2e6ee989a88c2020e1fc0c08">Shapes</a>(const gtl::ArraySlice< PartialTensorShape > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_random_shuffle_queue_1a6191f641c52c89e90b546d547834a02c">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs">tensorflow::<wbr/>ops::<wbr/>RandomShuffleQueue::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/random-shuffle-queue.html#classtensorflow_1_1ops_1_1_random_shuffle_queue">RandomShuffleQueue</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1a29baf87a7c0accb04db35584eefbc430">
+    <h3>handle</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> handle</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1a15b6a2b2a78276af62a6e37fb3f25d8a">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1a9bccc69b7e3a13f4bb5d7323fd05ef6c">
+    <h3>RandomShuffleQueue</h3>
+    <pre class="prettyprint"> RandomShuffleQueue(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const DataTypeSlice & component_types
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1ac7d64746531a706ec9376acd40b3a6ad">
+    <h3>RandomShuffleQueue</h3>
+    <pre class="prettyprint"> RandomShuffleQueue(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const DataTypeSlice & component_types,
+  const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">RandomShuffleQueue::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1a61438811ad12bb57fb2a2d19f00a9189">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1acb4b0c5652b368664dd85dcc037d3c02">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1abb138edd572be65ba0192bf164347847">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1a4413b1b2cb0ddee75d33f76663beeaaa">
+    <h3>Capacity</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> Capacity(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1ad14fa9c08950c6c23b22fc601befd539">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1a274e69d218da5754021b398f61c5bf1a">
+    <h3>MinAfterDequeue</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> MinAfterDequeue(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1a67af85647a9577958568a226754aab46">
+    <h3>Seed</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> Seed(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1ae9697d776eb5643d3bf927ee56f4ca4c">
+    <h3>Seed2</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> Seed2(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1a8ca53d0b2e6ee989a88c2020e1fc0c08">
+    <h3>Shapes</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> Shapes(
+  const gtl::ArraySlice< PartialTensorShape > & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_random_shuffle_queue_1a6191f641c52c89e90b546d547834a02c">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/random-shuffle-queue/attrs.html#structtensorflow_1_1ops_1_1_random_shuffle_queue_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

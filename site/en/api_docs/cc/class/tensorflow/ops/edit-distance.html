@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::EditDistance Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>EditDistance</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Computes the (possibly normalized) Levenshtein Edit Distance. </p>
+  <h2>Summary</h2>
+  <p>The inputs are variable-length sequences provided by SparseTensors (hypothesis_indices, hypothesis_values, hypothesis_shape) and (truth_indices, truth_values, truth_shape).</p>
+  <p>The inputs are:</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>hypothesis_indices: The indices of the hypothesis list SparseTensor. This is an N x R int64 matrix.</li>
+      <li>hypothesis_values: The values of the hypothesis list SparseTensor. This is an N-length vector.</li>
+      <li>hypothesis_shape: The shape of the hypothesis list SparseTensor. This is an R-length vector.</li>
+      <li>truth_indices: The indices of the truth list SparseTensor. This is an M x R int64 matrix.</li>
+      <li>truth_values: The values of the truth list SparseTensor. This is an M-length vector.</li>
+      <li>truth_shape: truth indices, vector.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/edit-distance/attrs.html#structtensorflow_1_1ops_1_1_edit_distance_1_1_attrs">Attrs</a></code>):<ul>
+      <li>normalize: boolean (if true, edit distances are normalized by length of truth).</li>
+    </ul></p>
+  <p>The output is:</p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A dense float tensor with rank R - 1.</li>
+    </ul></p>
+  <p>For the example input: <pre class="prettyprint">// hypothesis represents a 2x1 matrix with variable-length values:
+//   (0,0) = ["a"]
+//   (1,0) = ["b"]
+hypothesis_indices = [[0, 0, 0],
+                      [1, 0, 0]]
+hypothesis_values = ["a", "b"]
+hypothesis_shape = [2, 1, 1]
+
+// truth represents a 2x2 matrix with variable-length values:
+//   (0,0) = []
+//   (0,1) = ["a"]
+//   (1,0) = ["b", "c"]
+//   (1,1) = ["a"]
+truth_indices = [[0, 1, 0],
+                 [1, 0, 0],
+                 [1, 0, 1],
+                 [1, 1, 0]]
+truth_values = ["a", "b", "c", "a"]
+truth_shape = [2, 2, 2]
+normalize = true
+</pre></p>
+  <p>The output will be: <pre class="prettyprint">// output is a 2x2 matrix with edit distances normalized by truth lengths.
+output = [[inf, 1.0],  // (0,0): no truth, (0,1): no hypothesis
+          [0.5, 1.0]]  // (1,0): addition, (1,1): no hypothesis  </pre></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_edit_distance_1a98448a482111a3a9542eb10497edfbdf">EditDistance</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_indices, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_values, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_shape, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_indices, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_values, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_shape)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_edit_distance_1a71ebfcdcb0c51272c8a1952352c23386">EditDistance</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_indices, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_values, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_shape, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_indices, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_values, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_shape, const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/edit-distance/attrs.html#structtensorflow_1_1ops_1_1_edit_distance_1_1_attrs">EditDistance::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_edit_distance_1ad892f698a1eede4c4a5e8a315e9d49f4">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_edit_distance_1aa1567444ddf9495875bb89e4815572b6">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_edit_distance_1a37f2320123595e25c3b22b85bb73e4de">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_edit_distance_1a0b07c2848a5af99f253674fbe909f3ef">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_edit_distance_1a3dde48ed219986c41f1a0a0409658ae1">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_edit_distance_1ab7877a4f848a5e5f6682247e07a67cbb">Normalize</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/edit-distance/attrs.html#structtensorflow_1_1ops_1_1_edit_distance_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/edit-distance/attrs">tensorflow::<wbr/>ops::<wbr/>EditDistance::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/edit-distance.html#classtensorflow_1_1ops_1_1_edit_distance">EditDistance</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_edit_distance_1ad892f698a1eede4c4a5e8a315e9d49f4">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_edit_distance_1aa1567444ddf9495875bb89e4815572b6">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_edit_distance_1a98448a482111a3a9542eb10497edfbdf">
+    <h3>EditDistance</h3>
+    <pre class="prettyprint"> EditDistance(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_indices,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_values,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_shape,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_indices,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_values,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_shape
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_edit_distance_1a71ebfcdcb0c51272c8a1952352c23386">
+    <h3>EditDistance</h3>
+    <pre class="prettyprint"> EditDistance(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_indices,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_values,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> hypothesis_shape,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_indices,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_values,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> truth_shape,
+  const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/edit-distance/attrs.html#structtensorflow_1_1ops_1_1_edit_distance_1_1_attrs">EditDistance::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_edit_distance_1a37f2320123595e25c3b22b85bb73e4de">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_edit_distance_1a0b07c2848a5af99f253674fbe909f3ef">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_edit_distance_1a3dde48ed219986c41f1a0a0409658ae1">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_edit_distance_1ab7877a4f848a5e5f6682247e07a67cbb">
+    <h3>Normalize</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/edit-distance/attrs.html#structtensorflow_1_1ops_1_1_edit_distance_1_1_attrs">Attrs</a> Normalize(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
