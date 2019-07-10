@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -18,7 +15,7 @@ tf.contrib.eager.restore_network_checkpoint(
 
 
 
-Defined in [`tensorflow/contrib/eager/python/network.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/network.py).
+Defined in [`tensorflow/contrib/eager/python/network.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/eager/python/network.py).
 
 Restore the Network from a checkpoint. (deprecated)
 

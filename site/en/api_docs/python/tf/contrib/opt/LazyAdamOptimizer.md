@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +12,7 @@ Inherits From: [`AdamOptimizer`](../../../tf/train/AdamOptimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/lazy_adam_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/lazy_adam_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/lazy_adam_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/opt/python/training/lazy_adam_optimizer.py).
 
 Variant of the Adam optimizer that handles sparse updates more efficiently.
 
@@ -90,6 +88,16 @@ unless a variable slice was actually used).
 * <b>`use_locking`</b>: If True use locks for update operations.
 * <b>`name`</b>: Optional name for the operations created when applying gradients.
     Defaults to "Adam".
+
+
+
+#### Eager Compatibility
+When eager execution is enabled, `learning_rate`, `beta1`, `beta2`, and
+`epsilon` can each be a callable that takes no arguments and returns the
+actual value to use. This can be useful for changing these values across
+different invocations of optimizer functions.
+
+
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 

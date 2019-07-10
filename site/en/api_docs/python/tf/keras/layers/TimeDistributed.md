@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Wrapper`](../../../tf/keras/layers/Wrapper)
 
 
 
-Defined in [`tensorflow/python/keras/layers/wrappers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/layers/wrappers.py).
+Defined in [`tensorflow/python/keras/layers/wrappers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/keras/layers/wrappers.py).
 
 This wrapper allows to apply a layer to every temporal slice of an input.
 
@@ -59,6 +56,11 @@ for instance with a `Conv2D` layer:
 #### Arguments:
 
 * <b>`layer`</b>: a layer instance.
+
+
+#### Raises:
+
+* <b>`ValueError`</b>: If not initialized with a `Layer` instance.
 
 ## Properties
 
@@ -392,10 +394,12 @@ add_weight(
     dtype=None,
     initializer=None,
     regularizer=None,
-    trainable=True,
+    trainable=None,
     constraint=None,
     partitioner=None,
     use_resource=None,
+    synchronization=tf.VariableSynchronization.AUTO,
+    aggregation=tf.VariableAggregation.NONE,
     getter=None
 )
 ```
@@ -414,10 +418,20 @@ Adds a new variable to the layer, or gets an existing one; returns it.
     or "non_trainable_variables" (e.g. BatchNorm mean, stddev).
     Note, if the current variable scope is marked as non-trainable
     then this parameter is ignored and any added variables are also
-    marked as non-trainable.
+    marked as non-trainable. `trainable` defaults to `True` unless
+    `synchronization` is set to `ON_READ`.
 * <b>`constraint`</b>: constraint instance (callable).
 * <b>`partitioner`</b>: Partitioner to be passed to the `Checkpointable` API.
 * <b>`use_resource`</b>: Whether to use `ResourceVariable`.
+* <b>`synchronization`</b>: Indicates when a distributed a variable will be
+    aggregated. Accepted values are constants defined in the class
+    <a href="../../../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to
+    `AUTO` and the current `DistributionStrategy` chooses
+    when to synchronize. If `synchronization` is set to `ON_READ`,
+    `trainable` must not be set to `True`.
+* <b>`aggregation`</b>: Indicates how a distributed variable will be aggregated.
+    Accepted values are constants defined in the class
+    <a href="../../../tf/VariableAggregation"><code>tf.VariableAggregation</code></a>.
 * <b>`getter`</b>: Variable getter argument to be passed to the `Checkpointable` API.
 
 
@@ -432,7 +446,8 @@ instance is returned.
 
 * <b>`RuntimeError`</b>: If called with partioned variable regularization and
     eager execution is enabled.
-* <b>`ValueError`</b>: When giving unsupported dtype and no initializer.
+* <b>`ValueError`</b>: When giving unsupported dtype and no initializer or when
+    trainable has been set to True with synchronization set as `ON_READ`.
 
 <h3 id="apply"><code>apply</code></h3>
 
@@ -488,18 +503,41 @@ compute_mask(
 )
 ```
 
-Computes an output mask tensor.
+Computes an output mask tensor for Embedding layer.
+
+This is based on the inputs, mask, and the inner layer.
+If batch size is specified:
+Simply return the input `mask`. (An rnn-based implementation with
+more than one rnn inputs is required but not supported in tf.keras yet.)
+Otherwise we call `compute_mask` of the inner layer at each time step.
+If the output mask at each time step is not `None`:
+(E.g., inner layer is Masking or RNN)
+Concatenate all of them and return the concatenation.
+If the output mask at each time step is `None` and the input mask is not
+`None`:(E.g., inner layer is Dense)
+Reduce the input_mask to 2 dimensions and return it.
+Otherwise (both the output mask and the input mask are `None`):
+(E.g., `mask` is not used at all)
+Return `None`.
 
 #### Arguments:
 
-* <b>`inputs`</b>: Tensor or list of tensors.
-* <b>`mask`</b>: Tensor or list of tensors.
+* <b>`inputs`</b>: Tensor with shape [batch size, timesteps, ...] indicating the
+      input to TimeDistributed. If static shape information is available for
+      "batch size", `mask` is returned unmodified.
+* <b>`mask`</b>: Either None (indicating no masking) or a Tensor indicating the
+      input mask for TimeDistributed. The shape can be static or dynamic.
 
 
 #### Returns:
 
-None or a tensor (or list of tensors,
-    one per output tensor of the layer).
+Either None (no masking), or a [batch size, timesteps, ...] Tensor with
+an output mask for the TimeDistributed layer with the shape beyond the
+second dimension being the value of the input mask shape(if the computed
+output mask is none), an output mask with the shape beyond the first
+dimension being the value of the mask shape(if mask is not None) or
+output mask with the shape beyond the first dimension being the
+value of the computed output shape.
 
 <h3 id="compute_output_shape"><code>compute_output_shape</code></h3>
 

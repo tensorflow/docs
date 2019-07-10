@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.compat.as_text(
 
 
 
-Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/util/compat.py).
+Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/util/compat.py).
 
 Returns the given argument as a unicode string.
 

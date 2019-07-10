@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ tf.contrib.learn.run_n(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/learn/python/learn/graph_actions.py).
+Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/learn/python/learn/graph_actions.py).
 
 See the guide: [Learn (contrib) > Graph actions](../../../../../api_guides/python/contrib.learn#Graph_actions)
 

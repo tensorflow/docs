@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,13 +7,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/saved_model/tag_constants.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/saved_model/tag_constants.py).
+Defined in [`tensorflow/python/saved_model/tag_constants.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/saved_model/tag_constants.py).
 
 Common tags used for graphs in SavedModel.
-
-## Classes
-
-[`class tf_export`](../../../tf/contrib/lite/signature_constants/tf_export): Provides ways to export symbols to the TensorFlow API.
 
 ## Other Members
 
@@ -35,4 +28,6 @@ Common tags used for graphs in SavedModel.
 `division`
 
 `print_function`
+
+`tf_export`
 

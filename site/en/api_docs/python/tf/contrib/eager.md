@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/eager/python/tfe.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/eager/python/tfe.py).
+Defined in [`tensorflow/contrib/eager/python/tfe.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/eager/python/tfe.py).
 
 TensorFlow Eager execution prototype.
 
@@ -105,6 +102,8 @@ To use, at program startup, call `tfe.enable_eager_execution()`.
 [`restore_variables_on_create(...)`](../../tf/contrib/eager/restore_variables_on_create): ContextManager that restores variables on creation.
 
 [`run(...)`](../../tf/contrib/eager/run): Runs the program with an optional main function and argv list.
+
+[`run_all_tests_in_graph_and_eager_modes(...)`](../../tf/contrib/eager/run_all_tests_in_graph_and_eager_modes): Execute all test methods in the given class with and without eager.
 
 [`run_test_in_graph_and_eager_modes(...)`](../../tf/contrib/eager/run_test_in_graph_and_eager_modes): Execute the decorated test with and without enabling eager execution.
 

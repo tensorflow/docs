@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::InTopKV2 Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.10/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -12,18 +12,18 @@
   <code>#include &lt;nn_ops.h&gt;</code>
   <p>Says whether the targets are in the top <code>K</code> predictions. </p>
   <h2>Summary</h2>
-  <p>This outputs a <code>batch_size</code> bool array, an entry <code>out[i]</code> is <code>true</code> if the prediction for the target class is among the top <code>k</code> predictions among all predictions for example <code>i</code>. Note that the behavior of <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/in-top-k.html#classtensorflow_1_1ops_1_1_in_top_k">InTopK</a></code> differs from the <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/top-k.html#classtensorflow_1_1ops_1_1_top_k">TopK</a></code> op in its handling of ties; if multiple classes have the same prediction value and straddle the top-<code>k</code> boundary, all of those classes are considered to be in the top <code>k</code>.</p>
+  <p>This outputs a <code>batch_size</code> bool array, an entry <code>out[i]</code> is <code>true</code> if the prediction for the target class is among the top <code>k</code> predictions among all predictions for example <code>i</code>. Note that the behavior of <code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/in-top-k.html#classtensorflow_1_1ops_1_1_in_top_k">InTopK</a></code> differs from the <code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/top-k.html#classtensorflow_1_1ops_1_1_top_k">TopK</a></code> op in its handling of ties; if multiple classes have the same prediction value and straddle the top-<code>k</code> boundary, all of those classes are considered to be in the top <code>k</code>.</p>
   <p>More formally, let</p>
   <p>\(predictions_i\) be the predictions for all classes for example <code>i</code>, \(targets_i\) be the target class for example <code>i</code>, \(out_i\) be the output for example <code>i</code>,</p>
   <p>$$out_i = predictions_{i, targets_i}  TopKIncludingTies(predictions_i)$$</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>predictions: A <code>batch_size</code> x <code>classes</code> tensor.</li>
       <li>targets: A <code>batch_size</code> vector of class ids.</li>
       <li>k: Number of top elements to look at for computing precision.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Computed precision at <code>k</code> as a <code>bool <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>. </li>
+      <li><code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Computed precision at <code>k</code> as a <code>bool <a href="/versions/r1.10/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -33,7 +33,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_in_top_k_v2_1a7c731af26675d2a0a5e65d4bf0501a07">InTopKV2</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> predictions, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> targets, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_in_top_k_v2_1a7c731af26675d2a0a5e65d4bf0501a07">InTopKV2</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> predictions, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> targets, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k)</code>
         <br />
       </td>
     </tr>
@@ -50,7 +50,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -95,17 +95,17 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_in_top_k_v2_1a66a3668a94dcfe6ed4412c6d48fac92b">
     <h3>precision</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> precision</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> precision</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_in_top_k_v2_1a7c731af26675d2a0a5e65d4bf0501a07">
     <h3>InTopKV2</h3>
     <pre class="prettyprint"> InTopKV2(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> predictions,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> targets,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> predictions,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> targets,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k
 )</pre>
     <div />
   </div>

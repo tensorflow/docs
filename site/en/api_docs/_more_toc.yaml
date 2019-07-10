@@ -11,7 +11,7 @@ toc:
 - title: Community Supported
   section:
   - title: "C#"
-    path: htps://github.com/migueldeicaza/TensorFlowSharp
+    path: https://github.com/migueldeicaza/TensorFlowSharp
   - title: "Julia"
     path: https://github.com/malmaud/TensorFlow.jl
     status: external
@@ -25,8 +25,6 @@ toc:
     path: https://github.com/eaplatanios/tensorflow_scala
     status: external
 
-- heading: Ecosystem
+- heading: Resources
 - title: "Hub"
   path: /hub/api_docs/python/hub
-
-

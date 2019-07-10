@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`QueueBase`](../tf/QueueBase)
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Inputs and Readers > Queues](../../../api_guides/python/io_ops#Queues)
 
@@ -22,14 +19,6 @@ A queue implementation that dequeues elements in prioritized order.
 
 See <a href="../tf/QueueBase"><code>tf.QueueBase</code></a> for a description of the methods on
 this class.
-
-
-
-#### Eager Compatibility
-Queues are not compatible with eager execution. Instead, please
-use <a href="../tf/data"><code>tf.data</code></a> to get data into your model.
-
-
 
 ## Properties
 

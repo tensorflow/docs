@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/estimator/python/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/gan/python/estimator/python/head.py).
+Defined in [`tensorflow/contrib/gan/python/estimator/python/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/gan/python/estimator/python/head.py).
 
 `tf.Learn` components for `GANEstimator`'s loss.
 
@@ -20,7 +17,7 @@ Defined in [`tensorflow/contrib/gan/python/estimator/python/head.py`](https://ww
 
 ## Functions
 
-[`gan_head(...)`](../../../../tf/contrib/gan/estimator/gan_head): Creates a `GANHead`.
+[`gan_head(...)`](../../../../tf/contrib/gan/estimator/gan_head): Creates a `GANHead`. (deprecated)
 
 ## Other Members
 

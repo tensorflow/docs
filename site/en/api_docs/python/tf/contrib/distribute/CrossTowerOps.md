@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/cross_tower_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distribute/python/cross_tower_ops.py).
+Defined in [`tensorflow/contrib/distribute/python/cross_tower_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distribute/python/cross_tower_ops.py).
 
 Base class for cross-tower reduction and broadcasting algorithms.
 
@@ -32,7 +29,7 @@ __init__()
 
 ``` python
 batch_reduce(
-    method_string,
+    aggregation,
     value_destination_pairs
 )
 ```
@@ -44,7 +41,8 @@ element which indicates the destinations.
 
 #### Args:
 
-* <b>`method_string`</b>: either 'sum' or 'mean' specifying the reduction method.
+* <b>`aggregation`</b>: Indicates how a variable will be aggregated. Accepted values
+    are <a href="../../../tf/VariableAggregation#SUM"><code>tf.VariableAggregation.SUM</code></a>, <a href="../../../tf/VariableAggregation#MEAN"><code>tf.VariableAggregation.MEAN</code></a>.
 * <b>`value_destination_pairs`</b>: a list or a tuple of tuples of PerDevice objects
     and destinations. If a destination is None, then the destinations
     are set to match the devices of the input PerDevice object.
@@ -85,7 +83,7 @@ a Mirrored object.
 
 ``` python
 reduce(
-    method_string,
+    aggregation,
     per_device_value,
     destinations=None
 )
@@ -93,12 +91,13 @@ reduce(
 
 Reduce `per_device_value` to `destinations`.
 
-It runs the reduction operation defined by `method_string` and put the
+It runs the reduction operation defined by `aggregation` and put the
 result on `destinations`.
 
 #### Args:
 
-* <b>`method_string`</b>: either 'sum' or 'mean' specifying the reduction method.
+* <b>`aggregation`</b>: Indicates how a variable will be aggregated. Accepted values
+    are <a href="../../../tf/VariableAggregation#SUM"><code>tf.VariableAggregation.SUM</code></a>, <a href="../../../tf/VariableAggregation#MEAN"><code>tf.VariableAggregation.MEAN</code></a>.
 * <b>`per_device_value`</b>: a PerDevice object.
 * <b>`destinations`</b>: the reduction destinations.
 

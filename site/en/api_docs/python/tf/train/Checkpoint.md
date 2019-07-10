@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,7 +16,7 @@ Inherits From: [`Checkpointable`](../../tf/contrib/checkpoint/Checkpointable)
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/checkpointable/util.py).
+Defined in [`tensorflow/python/training/checkpointable/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/training/checkpointable/util.py).
 
 Groups checkpointable objects, saving and restoring them.
 

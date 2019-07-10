@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ tf.keras.utils.convert_all_kernels_in_model(model)
 
 
 
-Defined in [`tensorflow/python/keras/utils/layer_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/keras/utils/layer_utils.py).
+Defined in [`tensorflow/python/keras/utils/layer_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/keras/utils/layer_utils.py).
 
 Converts all convolution kernels in a model from Theano to TensorFlow.
 

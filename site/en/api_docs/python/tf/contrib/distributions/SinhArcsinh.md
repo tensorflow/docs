@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`TransformedDistribution`](../../../tf/contrib/distributions/Tra
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/sinh_arcsinh.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/sinh_arcsinh.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/sinh_arcsinh.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distributions/python/ops/sinh_arcsinh.py).
 
 The SinhArcsinh transformation of a distribution on `(-inf, inf)`.
 
@@ -189,7 +186,11 @@ __init__(
 )
 ```
 
-Construct SinhArcsinh distribution on `(-inf, inf)`.
+Construct SinhArcsinh distribution on `(-inf, inf)`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
 
 Arguments `(loc, scale, skewness, tailweight)` must have broadcastable shape
 (indexing batch dimensions).  They must all have the same `dtype`.

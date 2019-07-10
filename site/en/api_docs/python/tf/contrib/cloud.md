@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,13 +7,17 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/cloud/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/cloud/__init__.py).
+Defined in [`tensorflow/contrib/cloud/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/cloud/__init__.py).
 
 Module for cloud ops.
 
 ## Classes
 
 [`class BigQueryReader`](../../tf/contrib/cloud/BigQueryReader): A Reader that outputs keys and tf.Example values from a BigQuery table.
+
+[`class BigTable`](../../tf/contrib/bigtable/BigTable): BigTable is the entrypoint for reading and writing data in Cloud Bigtable.
+
+[`class BigtableClient`](../../tf/contrib/bigtable/BigtableClient): BigtableClient is the entrypoint for interacting with Cloud Bigtable in TF.
 
 [`class BlockCacheParams`](../../tf/contrib/cloud/BlockCacheParams): BlockCacheParams is a struct used for configuring the GCS Block Cache.
 

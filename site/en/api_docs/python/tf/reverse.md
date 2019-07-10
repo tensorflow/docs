@@ -1,12 +1,15 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.reverse
+
+### Aliases:
+
+* `tf.manip.reverse`
+* `tf.reverse`
+* `tf.reverse_v2`
 
 ``` python
 tf.reverse(
@@ -18,14 +21,14 @@ tf.reverse(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/array_ops.py).
+Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
 
 See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
 Reverses specific dimensions of a tensor.
 
 NOTE <a href="../tf/reverse"><code>tf.reverse</code></a> has now changed behavior in preparation for 1.0.
-<a href="../tf/reverse_v2"><code>tf.reverse_v2</code></a> is currently an alias that will be deprecated before TF 1.0.
+<a href="../tf/reverse"><code>tf.reverse_v2</code></a> is currently an alias that will be deprecated before TF 1.0.
 
 Given a `tensor`, and a `int32` tensor `axis` representing the set of
 dimensions of `tensor` to reverse. This operation reverses each dimension

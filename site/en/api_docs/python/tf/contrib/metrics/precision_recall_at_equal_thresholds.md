@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.contrib.metrics.precision_recall_at_equal_thresholds(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 A helper method for creating metrics related to precision-recall curves.
 
@@ -65,7 +62,7 @@ reweight certain values, or more commonly used for masking values.
 * <b>`result`</b>: A named tuple (See PrecisionRecallData within the implementation of
     this function) with properties that are variables of shape
     `[num_thresholds]`. The names of the properties are tp, fp, tn, fn,
-    precision, recall, thresholds.
+    precision, recall, thresholds. Types are same as that of predictions.
 * <b>`update_op`</b>: An op that accumulates values.
 
 

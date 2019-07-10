@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,12 +11,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
 
 Ops and objects returned from a `model_fn` and passed to `TPUEstimator`.
 
-See `EstimatorSpec` for `mode`, 'predictions, 'loss', 'train_op', and
-'export_outputs`.
+See `EstimatorSpec` for `mode`, `predictions`, `loss`, `train_op`, and
+`export_outputs`.
 
 For evaluation, `eval_metrics `is a tuple of `metric_fn` and `tensors`, where
 `metric_fn` runs on CPU to generate metrics and `tensors` represents the
@@ -33,7 +30,7 @@ TPU system to CPU host. All tensors must have be batch-major, i.e., the batch
 size is the first dimension. Once all tensors are available at CPU host from
 all shards, they are concatenated (on CPU) and passed as positional arguments
 to the `metric_fn` if `tensors` is list or keyword arguments if `tensors` is
-dict. `metric_fn` takes the `tensors` and returns a dict from metric string
+a dict. `metric_fn` takes the `tensors` and returns a dict from metric string
 name to the result of calling a metric function, namely a `(metric_tensor,
 update_op)` tuple. See `TPUEstimator` for MNIST example how to specify the
 `eval_metrics`.

@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.as_string
+
+### Aliases:
+
+* `tf.as_string`
+* `tf.dtypes.as_string`
 
 ``` python
 tf.as_string(
@@ -32,7 +34,7 @@ types and boolean.
 
 #### Args:
 
-* <b>`input`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`, `complex64`, `float32`, `float64`, `bool`, `int8`.
+* <b>`input`</b>: A `Tensor`. Must be one of the following types: `int8`, `int16`, `int32`, `int64`, `complex64`, `float32`, `float64`, `bool`.
 * <b>`precision`</b>: An optional `int`. Defaults to `-1`.
     The post-decimal precision to use for floating point numbers.
     Only used if precision > -1.

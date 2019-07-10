@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/python/training/ftrl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/ftrl.py).
+Defined in [`tensorflow/python/training/ftrl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/training/ftrl.py).
 
 See the guide: [Training > Optimizers](../../../../api_guides/python/train#Optimizers)
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/tensor_spec.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/tensor_spec.py).
+Defined in [`tensorflow/python/framework/tensor_spec.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/framework/tensor_spec.py).
 
 Describes a tf.Tensor.
 
@@ -84,14 +81,6 @@ __eq__(other)
 
 ``` python
 __ne__(other)
-```
-
-
-
-<h3 id="__reduce__"><code>__reduce__</code></h3>
-
-``` python
-__reduce__()
 ```
 
 

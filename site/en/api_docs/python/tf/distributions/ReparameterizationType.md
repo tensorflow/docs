@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,9 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/distributions/distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/distribution.py).
-
-See the guide: [Statistical Distributions (contrib) > Base classes](../../../../api_guides/python/contrib.distributions#Base_classes)
+Defined in [`tensorflow/python/ops/distributions/distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/distributions/distribution.py).
 
 Instances of this class represent how sampling is reparameterized.
 
@@ -35,7 +30,7 @@ one of two possible properties for samples from a distribution:
   reparameterized, and straight-through gradients are either partially
   unsupported or are not supported at all. In this case, for purposes of
   e.g. RL or variational inference, it is generally safest to wrap the
-  sample results in a `stop_gradients` call and instead use policy
+  sample results in a `stop_gradients` call and use policy
   gradients / surrogate loss instead.
 
 ## Methods

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/saved_model/builder_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/saved_model/builder_impl.py).
+Defined in [`tensorflow/python/saved_model/builder_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/saved_model/builder_impl.py).
 
 Builds the `SavedModel` protocol buffer and saves variables and assets.
 
@@ -75,7 +72,8 @@ add_meta_graph(
     legacy_init_op=None,
     clear_devices=False,
     main_op=None,
-    strip_default_attrs=False
+    strip_default_attrs=False,
+    saver=None
 )
 ```
 
@@ -103,6 +101,9 @@ API to have been invoked before.
 * <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
     removed from the NodeDefs. For a detailed guide, see
     [Stripping Default-Valued Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
+* <b>`saver`</b>: An instance of tf.train.Saver that will be used to export the
+    metagraph. If None, a sharded Saver that restores all variables will
+    be used.
 
 
 #### Raises:
@@ -121,7 +122,8 @@ add_meta_graph_and_variables(
     legacy_init_op=None,
     clear_devices=False,
     main_op=None,
-    strip_default_attrs=False
+    strip_default_attrs=False,
+    saver=None
 )
 ```
 
@@ -151,6 +153,9 @@ meta graph defs to be added, the `add_meta_graph()` API must be used.
 * <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
     removed from the NodeDefs. For a detailed guide, see
     [Stripping Default-Valued Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
+* <b>`saver`</b>: An instance of tf.train.Saver that will be used to export the
+    metagraph and save variables. If None, a sharded Saver that restores
+    all variables will be used.
 
 <h3 id="save"><code>save</code></h3>
 

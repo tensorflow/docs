@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/lite/python/lite.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/lite/python/lite.py).
+Defined in [`tensorflow/contrib/lite/python/lite.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/lite/python/lite.py).
 
 Convert a TensorFlow model into `output_format` using TOCO.
 
@@ -24,11 +21,11 @@ TFLite FlatBuffer or graph visualization.
 #### Attributes:
 
 
-* <b>`inference_type`</b>: Target data type of arrays in the output file. Currently
-    must be `{FLOAT, QUANTIZED_UINT8}`.  (default FLOAT)
-* <b>`inference_input_type`</b>: Target data type of input arrays. Allows for a
-    different type for input arrays in the case of quantization. Currently
-    must be `{FLOAT, QUANTIZED_UINT8}`. (default `inference_type`)
+* <b>`inference_type`</b>: Target data type of real-number arrays in the output file.
+    Must be `{FLOAT, QUANTIZED_UINT8}`.  (default FLOAT)
+* <b>`inference_input_type`</b>: Target data type of real-number input arrays. Allows
+    for a different type for input arrays in the case of quantization.
+    Must be `{FLOAT, QUANTIZED_UINT8}`. (default `inference_type`)
 * <b>`output_format`</b>: Output file format. Currently must be `{TFLITE,
     GRAPHVIZ_DOT}`. (default TFLITE)
 * <b>`quantized_input_stats`</b>: Dict of strings representing input tensor names
@@ -54,6 +51,16 @@ TFLite FlatBuffer or graph visualization.
     created for any op that is unknown. The developer will need to provide
     these to the TensorFlow Lite runtime with a custom resolver.
     (default False)
+* <b>`quantize_weights`</b>: Boolean indicating whether to store weights as quantized
+    weights followed by dequantize operations. Computation is still done in
+    float, but reduces model size (at the cost of accuracy and latency).
+    (default False)
+* <b>`dump_graphviz_dir`</b>: Full filepath of folder to dump the graphs at various
+    stages of processing GraphViz .dot files. Preferred over
+    --output_format=GRAPHVIZ_DOT in order to keep the requirements of the
+    output file. (default None)
+* <b>`dump_graphviz_video`</b>: Boolean indicating whether to dump the graph after
+    every graph transformation. (default False)
 
 Example usage:
 
@@ -89,7 +96,7 @@ Constructor for TocoConverter.
 #### Args:
 
 
-* <b>`graph_def`</b>: TensorFlow GraphDef.
+* <b>`graph_def`</b>: Frozen TensorFlow GraphDef.
 * <b>`input_tensors`</b>: List of input tensors. Type and shape are computed using
     `foo.get_shape()` and `foo.dtype`.
 * <b>`output_tensors`</b>: List of output tensors (only .name is used from this).
@@ -110,7 +117,8 @@ Graphviz graph depending on value in `output_format`.
 
 #### Raises:
 
-* <b>`ValueError`</b>:     None value for dimension in input_tensor.
+* <b>`ValueError`</b>:     Input shape is not specified.
+    None value for dimension in input_tensor.
 
 <h3 id="from_frozen_graph"><code>from_frozen_graph</code></h3>
 
@@ -129,7 +137,7 @@ Creates a TocoConverter class from a file containing a frozen GraphDef.
 
 #### Args:
 
-* <b>`graph_def_file`</b>: Full filepath of file containing TensorFlow GraphDef.
+* <b>`graph_def_file`</b>: Full filepath of file containing frozen GraphDef.
 * <b>`input_arrays`</b>: List of input tensors to freeze graph with.
 * <b>`output_arrays`</b>: List of output tensors to freeze graph with.
 * <b>`input_shapes`</b>: Dict of strings representing input tensor names to list of
@@ -148,6 +156,38 @@ TocoConverter class.
 * <b>`ValueError`</b>:     Unable to parse input file.
     The graph is not frozen.
     input_arrays or output_arrays contains an invalid tensor name.
+
+<h3 id="from_keras_model_file"><code>from_keras_model_file</code></h3>
+
+``` python
+@classmethod
+from_keras_model_file(
+    cls,
+    model_file,
+    input_arrays=None,
+    input_shapes=None,
+    output_arrays=None
+)
+```
+
+Creates a TocoConverter class from a tf.keras model file.
+
+#### Args:
+
+* <b>`model_file`</b>: Full filepath of HDF5 file containing the tf.keras model.
+* <b>`input_arrays`</b>: List of input tensors to freeze graph with. Uses input
+    arrays from SignatureDef when none are provided. (default None)
+* <b>`input_shapes`</b>: Dict of strings representing input tensor names to list of
+    integers representing input shapes (e.g., {"foo" : [1, 16, 16, 3]}).
+    Automatically determined when input shapes is None (e.g., {"foo" :
+    None}). (default None)
+* <b>`output_arrays`</b>: List of output tensors to freeze graph with. Uses output
+    arrays from SignatureDef when none are provided. (default None)
+
+
+#### Returns:
+
+TocoConverter class.
 
 <h3 id="from_saved_model"><code>from_saved_model</code></h3>
 
@@ -212,6 +252,18 @@ Creates a TocoConverter class from a TensorFlow Session.
 #### Returns:
 
 TocoConverter class.
+
+<h3 id="get_input_arrays"><code>get_input_arrays</code></h3>
+
+``` python
+get_input_arrays()
+```
+
+Returns a list of the names of the input tensors.
+
+#### Returns:
+
+List of strings.
 
 
 

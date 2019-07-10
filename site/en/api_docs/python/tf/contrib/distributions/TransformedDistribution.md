@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/transformed_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/distributions/transformed_distribution.py).
-
-See the guide: [Statistical Distributions (contrib) > Transformed distributions](../../../../../api_guides/python/contrib.distributions#Transformed_distributions)
+Defined in [`tensorflow/python/ops/distributions/transformed_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/distributions/transformed_distribution.py).
 
 A Transformed Distribution.
 

@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/elastic_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/python/training/elastic_average_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/elastic_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/opt/python/training/elastic_average_optimizer.py).
 
 Wrapper optimizer that implements the Elastic Average SGD algorithm.
 This is an async optimizer. During the training, Each worker will update

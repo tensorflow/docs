@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py).
+Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py).
 
 Represents a sparse feature column.
 

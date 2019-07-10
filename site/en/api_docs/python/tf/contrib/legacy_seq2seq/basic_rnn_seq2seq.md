@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,7 +17,7 @@ tf.contrib.legacy_seq2seq.basic_rnn_seq2seq(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 Basic RNN sequence-to-sequence model.
 

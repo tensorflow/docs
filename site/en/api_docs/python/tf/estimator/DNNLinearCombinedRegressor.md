@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ Inherits From: [`Estimator`](../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/python/estimator/canned/dnn_linear_combined.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/canned/dnn_linear_combined.py).
+Defined in [`tensorflow/python/estimator/canned/dnn_linear_combined.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/estimator/canned/dnn_linear_combined.py).
 
 An estimator for TensorFlow Linear and DNN joined models for regression.
 
@@ -46,12 +43,19 @@ estimator = DNNLinearCombinedRegressor(
     # warm-start settings
     warm_start_from="/path/to/checkpoint/dir")
 
-# To apply L1 and L2 regularization, you can set optimizers as follows:
+# To apply L1 and L2 regularization, you can set dnn_optimizer to:
 tf.train.ProximalAdagradOptimizer(
     learning_rate=0.1,
     l1_regularization_strength=0.001,
     l2_regularization_strength=0.001)
-# It is same for FtrlOptimizer.
+# To apply learning rate decay, you can set dnn_optimizer to a callable:
+lambda: tf.AdamOptimizer(
+    learning_rate=tf.exponential_decay(
+        learning_rate=0.1,
+        global_step=tf.get_global_step(),
+        decay_steps=10000,
+        decay_rate=0.96)
+# It is the same for linear_optimizer.
 
 # Input builders
 def input_fn_train: # returns x, y
@@ -83,7 +87,10 @@ Loss is calculated by using mean squared error.
 
 
 #### Eager Compatibility
-Estimators are not compatible with eager execution.
+Estimators can be used while eager execution is enabled. Note that `input_fn`
+and all hooks are executed inside a graph context, so they have to be written
+to be compatible with graph mode. Note that `input_fn` code using <a href="../../tf/data"><code>tf.data</code></a>
+generally works in both graph and eager modes.
 
 
 
@@ -131,7 +138,9 @@ __init__(
     input_layer_partitioner=None,
     config=None,
     warm_start_from=None,
-    loss_reduction=losses.Reduction.SUM
+    loss_reduction=losses.Reduction.SUM,
+    batch_norm=False,
+    linear_sparse_combiner='sum'
 )
 ```
 
@@ -146,12 +155,16 @@ Initializes a DNNLinearCombinedRegressor instance.
     used by linear part of the model. All items in the set must be
     instances of classes derived from `FeatureColumn`.
 * <b>`linear_optimizer`</b>: An instance of `tf.Optimizer` used to apply gradients to
-    the linear part of the model. Defaults to FTRL optimizer.
+    the linear part of the model. Can also be a string (one of 'Adagrad',
+    'Adam', 'Ftrl', 'RMSProp', 'SGD'), or callable. Defaults to FTRL
+    optimizer.
 * <b>`dnn_feature_columns`</b>: An iterable containing all the feature columns used
     by deep part of the model. All items in the set must be instances of
     classes derived from `FeatureColumn`.
 * <b>`dnn_optimizer`</b>: An instance of `tf.Optimizer` used to apply gradients to
-    the deep part of the model. Defaults to Adagrad optimizer.
+    the deep part of the model. Can also be a string (one of 'Adagrad',
+    'Adam', 'Ftrl', 'RMSProp', 'SGD'), or callable. Defaults to Adagrad
+    optimizer.
 * <b>`dnn_hidden_units`</b>: List of hidden units per layer. All layers are fully
     connected.
 * <b>`dnn_activation_fn`</b>: Activation function applied to each layer. If None,
@@ -178,6 +191,12 @@ Initializes a DNNLinearCombinedRegressor instance.
     names are unchanged.
 * <b>`loss_reduction`</b>: One of <a href="../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Describes how
     to reduce training loss over batch. Defaults to `SUM`.
+* <b>`batch_norm`</b>: Whether to use batch normalization after each hidden layer.
+* <b>`linear_sparse_combiner`</b>: A string specifying how to reduce the linear model
+    if a categorical column is multivalent.  One of "mean", "sqrtn", and
+    "sum" -- these are effectively different ways to do example-level
+    normalization, which can be useful for bag-of-words features.  For more
+    details, see <a href="../../tf/feature_column/linear_model">linear_model</a>.
 
 
 #### Raises:

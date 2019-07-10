@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.image.random_flip_up_down(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Flipping, Rotating and Transposing](../../../../api_guides/python/image#Flipping_Rotating_and_Transposing)
 
@@ -28,7 +25,8 @@ dimension, which is `height`.  Otherwise output the image as-is.
 
 #### Args:
 
-* <b>`image`</b>: A 3-D tensor of shape `[height, width, channels].`
+* <b>`image`</b>: 4-D Tensor of shape `[batch, height, width, channels]` or
+         3-D Tensor of shape `[height, width, channels]`.
 * <b>`seed`</b>: A Python integer. Used to create a random seed. See
     <a href="../../tf/set_random_seed"><code>tf.set_random_seed</code></a>
     for behavior.
@@ -36,8 +34,7 @@ dimension, which is `height`.  Otherwise output the image as-is.
 
 #### Returns:
 
-A 3-D tensor of the same type and shape as `image`.
-
+A tensor of the same type and shape as `image`.
 
 #### Raises:
 

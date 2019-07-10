@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/deterministic.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/deterministic.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/deterministic.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distributions/python/ops/deterministic.py).
 
 Vector `Deterministic` distribution on `R^k`.
 
@@ -151,7 +148,11 @@ __init__(
 )
 ```
 
-Initialize a `VectorDeterministic` distribution on `R^k`, for `k >= 0`.
+Initialize a `VectorDeterministic` distribution on `R^k`, for `k >= 0`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
 
 Note that there is only one point in `R^0`, the "point" `[]`.  So if `k = 0`
 then `self.prob([]) == 1`.

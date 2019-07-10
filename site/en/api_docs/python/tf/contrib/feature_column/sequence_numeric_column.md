@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -13,13 +10,14 @@ tf.contrib.feature_column.sequence_numeric_column(
     key,
     shape=(1,),
     default_value=0.0,
-    dtype=tf.float32
+    dtype=tf.float32,
+    normalizer_fn=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py).
+Defined in [`tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py).
 
 Returns a feature column that represents sequences of numeric data.
 
@@ -45,6 +43,12 @@ outputs, state = tf.nn.dynamic_rnn(
 * <b>`default_value`</b>: A single value compatible with `dtype` that is used for
     padding the sparse data into a dense `Tensor`.
 * <b>`dtype`</b>: The type of values.
+* <b>`normalizer_fn`</b>: If not `None`, a function that can be used to normalize the
+    value of the tensor after `default_value` is applied for parsing.
+    Normalizer function takes the input `Tensor` as its argument, and returns
+    the output `Tensor`. (e.g. lambda x: (x - 3.0) / 4.2). Please note that
+    even though the most common use case of this function is normalization, it
+    can be used for any kind of Tensorflow transformations.
 
 
 #### Returns:

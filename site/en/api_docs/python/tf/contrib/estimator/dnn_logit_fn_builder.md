@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -15,13 +12,14 @@ tf.contrib.estimator.dnn_logit_fn_builder(
     feature_columns,
     activation_fn,
     dropout,
-    input_layer_partitioner
+    input_layer_partitioner,
+    batch_norm
 )
 ```
 
 
 
-Defined in [`tensorflow/python/estimator/canned/dnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/canned/dnn.py).
+Defined in [`tensorflow/python/estimator/canned/dnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/estimator/canned/dnn.py).
 
 Function builder for a dnn logit_fn.
 
@@ -36,6 +34,7 @@ Function builder for a dnn logit_fn.
 * <b>`dropout`</b>: When not `None`, the probability we will drop out a given
     coordinate.
 * <b>`input_layer_partitioner`</b>: Partitioner for input layer.
+* <b>`batch_norm`</b>: Whether to use batch normalization after each hidden layer.
 
 
 #### Returns:

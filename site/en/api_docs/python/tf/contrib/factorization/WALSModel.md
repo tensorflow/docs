@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +12,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/factorization_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/factorization/python/ops/factorization_ops.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/factorization_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/factorization/python/ops/factorization_ops.py).
 
 A model for Weighted Alternating Least Squares matrix factorization.
 

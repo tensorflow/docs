@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.dequantize
+
+### Aliases:
+
+* `tf.dequantize`
+* `tf.quantization.dequantize`
 
 ``` python
 tf.dequantize(

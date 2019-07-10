@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/rnn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/rnn/__init__.py).
+Defined in [`tensorflow/contrib/rnn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/rnn/__init__.py).
 
 RNN Cells and additional RNN operations.
 
@@ -72,6 +69,12 @@ See <a href="../../../../api_guides/python/contrib.rnn">RNN and Cells (contrib)<
 
 [`class HighwayWrapper`](../../tf/contrib/rnn/HighwayWrapper): RNNCell wrapper that adds highway connection on cell input and output.
 
+[`class IndRNNCell`](../../tf/contrib/rnn/IndRNNCell): Independently Recurrent Neural Network (IndRNN) cell
+
+[`class IndyGRUCell`](../../tf/contrib/rnn/IndyGRUCell): Independently Gated Recurrent Unit cell.
+
+[`class IndyLSTMCell`](../../tf/contrib/rnn/IndyLSTMCell): Basic IndyLSTM recurrent network cell.
+
 [`class InputProjectionWrapper`](../../tf/contrib/rnn/InputProjectionWrapper): Operator adding an input projection to the given cell.
 
 [`class IntersectionRNNCell`](../../tf/contrib/rnn/IntersectionRNNCell): Intersection Recurrent Neural Network (+RNN) cell.
@@ -101,6 +104,8 @@ See <a href="../../../../api_guides/python/contrib.rnn">RNN and Cells (contrib)<
 [`class RNNCell`](../../tf/contrib/rnn/RNNCell): Abstract object representing an RNN cell.
 
 [`class ResidualWrapper`](../../tf/contrib/rnn/ResidualWrapper): RNNCell wrapper that ensures cell inputs are added to the outputs.
+
+[`class SRUCell`](../../tf/contrib/rnn/SRUCell): SRU, Simple Recurrent Unit.
 
 [`class TimeFreqLSTMCell`](../../tf/contrib/rnn/TimeFreqLSTMCell): Time-Frequency Long short-term memory unit (LSTM) recurrent network cell.
 

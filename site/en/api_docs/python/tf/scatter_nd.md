@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.scatter_nd
+
+### Aliases:
+
+* `tf.manip.scatter_nd`
+* `tf.scatter_nd`
 
 ``` python
 tf.scatter_nd(

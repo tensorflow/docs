@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/estimator/model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/model_fn.py).
+Defined in [`tensorflow/python/estimator/model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/estimator/model_fn.py).
 
 Ops and objects returned from a `model_fn` and passed to an `Estimator`.
 
@@ -103,7 +100,7 @@ arguments will be ignored by an `Estimator`. E.g. `train_op` will be
 ignored in eval and infer modes. Example:
 
 ```python
-def my_model_fn(mode, features, labels):
+def my_model_fn(features, labels, mode):
   predictions = ...
   loss = ...
   train_op = ...
@@ -118,7 +115,7 @@ Alternatively, model_fn can just populate the arguments appropriate to the
 given mode. Example:
 
 ```python
-def my_model_fn(mode, features, labels):
+def my_model_fn(features, labels, mode):
   if (mode == tf.estimator.ModeKeys.TRAIN or
       mode == tf.estimator.ModeKeys.EVAL):
     loss = ...
@@ -163,6 +160,8 @@ def my_model_fn(mode, features, labels):
     Multi-headed models should specify one entry for each head, one of
     which must be named using
     signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY.
+    If no entry is provided, a default `PredictOutput` mapping to
+    `predictions` will be created.
 * <b>`training_chief_hooks`</b>: Iterable of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> objects to
     run on the chief worker during training.
 * <b>`training_hooks`</b>: Iterable of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> objects to run

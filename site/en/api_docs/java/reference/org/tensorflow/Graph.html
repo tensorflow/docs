@@ -47,8 +47,8 @@
 <html devsite>
   <head>
     <title>Graph</title>
-    <meta name="book_path" value="/versions/r1.9/_book.yaml" />
-    <meta name="project_path" value="/_project.yaml" />
+    <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+    <meta name="project_path" value="/versions/r1.10/api_docs/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
 
@@ -202,6 +202,56 @@
       <h3>Public Methods</h3>
       <table id="pubmethods" class="jd-sumtable">
       
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt;
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Graph.html#addGradients(org.tensorflow.Output<?>[], org.tensorflow.Output<?>[], org.tensorflow.Output<?>[])">addGradients</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; y, <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; x, <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; dx)
+                
+                  <div class="jd-descrdiv">Adds operations to compute the partial derivatives of sum of <code>y</code>s w.r.t <code>x</code>s,
+ i.e., <code>d(y_1 + y_2 + ...)/dx_1, d(y_1 + y_2 + ...)/dx_2...</code>
+ <p> 
+ <code>dx</code> are used as initial gradients (which represent the symbolic partial derivatives of some loss function 
+ <code>L</code> w.r.t.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt;
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Graph.html#addGradients(org.tensorflow.Output<?>, org.tensorflow.Output<?>[])">addGradients</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;?&gt; y, <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; x)
+                
+                  <div class="jd-descrdiv">Adds operations to compute the partial derivatives of sum of <code>y</code>s w.r.t <code>x</code>s,
+ i.e., <code>dy/dx_1, dy/dx_2...</code>
+ <p> 
+ This is a simplified version of {@link #addGradients(Output[], Output[], Output[]) where {@code y} is
+ a single output and {@code dx} is null.</div>
+                
+              </div>
+          </td>
+        </tr>
     
     
         
@@ -681,6 +731,115 @@
     <section id="public-methods">
       <h2>Public Methods</h2>
       
+    
+    
+    <A NAME="addGradients(org.tensorflow.Output<?>[], org.tensorflow.Output<?>[], org.tensorflow.Output<?>[])"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt;
+          </span>
+          <span class="sympad"><strong>addGradients</strong></span>
+          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; y, <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; x, <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; dx)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Adds operations to compute the partial derivatives of sum of <code>y</code>s w.r.t <code>x</code>s,
+ i.e., <code>d(y_1 + y_2 + ...)/dx_1, d(y_1 + y_2 + ...)/dx_2...</code>
+ <p> 
+ <code>dx</code> are used as initial gradients (which represent the symbolic partial derivatives of some loss function 
+ <code>L</code> w.r.t. <code>y</code>). <code>dx</code> must be null or have size of <code>y</code>.
+ <p>
+ If <code>dx</code> is null, the implementation will use dx of <code><a href="">ERROR(OnesLike/org.tensorflow.op.core.OnesLike OnesLike)</a></code> for all
+ shapes in <code>y</code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>y</td>
+          <td>output of the function to derive</td>
+        </tr>
+        <tr>
+          <th>x</td>
+          <td>inputs of the function for which partial derivatives are computed</td>
+        </tr>
+        <tr>
+          <th>dx</td>
+          <td>if not null, the partial derivatives of some loss function <code>L</code> w.r.t. <code>y</code></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the partial derivatives <code>dy</code> with the size of <code>x</code>
+</li></ul>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="addGradients(org.tensorflow.Output<?>, org.tensorflow.Output<?>[])"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt;
+          </span>
+          <span class="sympad"><strong>addGradients</strong></span>
+          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;?&gt; y, <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; x)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Adds operations to compute the partial derivatives of sum of <code>y</code>s w.r.t <code>x</code>s,
+ i.e., <code>dy/dx_1, dy/dx_2...</code>
+ <p> 
+ This is a simplified version of {@link #addGradients(Output[], Output[], Output[]) where {@code y} is
+ a single output and {@code dx} is null.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>y</td>
+          <td>output of the function to derive</td>
+        </tr>
+        <tr>
+          <th>x</td>
+          <td>inputs of the function for which partial derivatives are computed</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the partial derivatives <code>dy</code> with the size of <code>x</code>
+</li></ul>
+  </div>
+
+        </div>
+    </div>
     
     
     <A NAME="close()"></A>

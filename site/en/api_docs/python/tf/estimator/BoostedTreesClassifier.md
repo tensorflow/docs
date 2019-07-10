@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,19 @@ Inherits From: [`Estimator`](../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/python/estimator/canned/boosted_trees.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/canned/boosted_trees.py).
+Defined in [`tensorflow/python/estimator/canned/boosted_trees.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/estimator/canned/boosted_trees.py).
 
 A Classifier for Tensorflow Boosted Trees models.
+
+
+
+#### Eager Compatibility
+Estimators can be used while eager execution is enabled. Note that `input_fn`
+and all hooks are executed inside a graph context, so they have to be written
+to be compatible with graph mode. Note that `input_fn` code using <a href="../../tf/data"><code>tf.data</code></a>
+generally works in both graph and eager modes.
+
+
 
 ## Properties
 
@@ -62,7 +69,8 @@ __init__(
     l2_regularization=0.0,
     tree_complexity=0.0,
     min_node_weight=0.0,
-    config=None
+    config=None,
+    center_bias=False
 )
 ```
 
@@ -134,6 +142,13 @@ metrics = classifier.evaluate(input_fn=input_fn_eval)
     split to be considered. The value will be compared with
     sum(leaf_hessian)/(batch_size * n_batches_per_layer).
 * <b>`config`</b>: `RunConfig` object to configure the runtime settings.
+* <b>`center_bias`</b>: Whether bias centering needs to occur. Bias centering refers
+    to the first node in the very first tree returning the prediction that
+    is aligned with the original labels distribution. For example, for
+    regression problems, the first node will return the mean of the labels.
+    For binary classification problems, it will return a logit for a prior
+    probability of label 1.
+
 
 
 #### Raises:

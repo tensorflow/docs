@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/opt/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/opt/__init__.py).
+Defined in [`tensorflow/contrib/opt/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/opt/__init__.py).
 
 A module containing optimization routines.
 
@@ -18,7 +15,11 @@ A module containing optimization routines.
 
 [`class AdaMaxOptimizer`](../../tf/contrib/opt/AdaMaxOptimizer): Optimizer that implements the AdaMax algorithm.
 
+[`class AdamWOptimizer`](../../tf/contrib/opt/AdamWOptimizer): Optimizer that implements the Adam algorithm with weight decay.
+
 [`class AddSignOptimizer`](../../tf/contrib/opt/AddSignOptimizer): Optimizer that implements the AddSign update.
+
+[`class DecoupledWeightDecayExtension`](../../tf/contrib/opt/DecoupledWeightDecayExtension): This class allows to extend optimizers with decoupled weight decay.
 
 [`class DropStaleGradientOptimizer`](../../tf/contrib/opt/DropStaleGradientOptimizer): Wrapper optimizer that checks and drops stale gradient.
 
@@ -28,11 +29,15 @@ A module containing optimization routines.
 
 [`class ExternalOptimizerInterface`](../../tf/contrib/opt/ExternalOptimizerInterface): Base class for interfaces with external optimization algorithms.
 
+[`class GGTOptimizer`](../../tf/contrib/opt/GGTOptimizer): Optimizer that implements the GGT algorithm.
+
 [`class LazyAdamOptimizer`](../../tf/contrib/opt/LazyAdamOptimizer): Variant of the Adam optimizer that handles sparse updates more efficiently.
 
 [`class ModelAverageCustomGetter`](../../tf/contrib/opt/ModelAverageCustomGetter): Custom_getter class is used to do.
 
 [`class ModelAverageOptimizer`](../../tf/contrib/opt/ModelAverageOptimizer): Wrapper optimizer that implements the Model Average algorithm.
+
+[`class MomentumWOptimizer`](../../tf/contrib/opt/MomentumWOptimizer): Optimizer that implements the Momentum algorithm with weight_decay.
 
 [`class MovingAverageOptimizer`](../../tf/contrib/opt/MovingAverageOptimizer): Optimizer that computes a moving average of the variables.
 
@@ -49,4 +54,6 @@ A module containing optimization routines.
 ## Functions
 
 [`clip_gradients_by_global_norm(...)`](../../tf/contrib/opt/clip_gradients_by_global_norm): Clips gradients of a multitask loss by their global norm.
+
+[`extend_with_decoupled_weight_decay(...)`](../../tf/contrib/opt/extend_with_decoupled_weight_decay): Factory function returning an optimizer class with decoupled weight decay.
 

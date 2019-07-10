@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ tf.load_file_system_library(library_filename)
 
 
 
-Defined in [`tensorflow/python/framework/load_library.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/load_library.py).
+Defined in [`tensorflow/python/framework/load_library.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/framework/load_library.py).
 
 See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
 

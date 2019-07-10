@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,13 +20,14 @@ tf.train.MonitoredTrainingSession(
     stop_grace_period_secs=120,
     log_step_count_steps=100,
     max_wait_secs=7200,
-    save_checkpoint_steps=USE_DEFAULT
+    save_checkpoint_steps=USE_DEFAULT,
+    summary_dir=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/training/monitored_session.py).
 
 See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
 
@@ -83,6 +81,8 @@ information.
     `save_checkpoint_steps` and `save_checkpoint_secs` are set to `None`, then
     the default checkpoint saver isn't used. If both are provided, then only
     `save_checkpoint_secs` is used. Default not enabled.
+* <b>`summary_dir`</b>: A string.  Optional path to a directory where to
+    save summaries. If None, checkpoint_dir is used instead.
 
 
 #### Returns:

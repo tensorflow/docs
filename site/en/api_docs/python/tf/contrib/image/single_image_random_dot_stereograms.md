@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -28,7 +25,7 @@ tf.contrib.image.single_image_random_dot_stereograms(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py).
+Defined in [`tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py).
 
 Output a RandomDotStereogram Tensor for export via encode_PNG/JPG OP.
 

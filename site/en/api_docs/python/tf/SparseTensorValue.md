@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/sparse_tensor.py).
+Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/framework/sparse_tensor.py).
 
 See the guide: [Sparse Tensors > Sparse Tensor Representation](../../../api_guides/python/sparse_ops#Sparse_Tensor_Representation)
 

@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::QueueEnqueue Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.10/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -15,15 +15,15 @@
   <p>The components input has k elements, which correspond to the components of tuples stored in the given queue.</p>
   <p>N.B. If the queue is full, this operation will block until the given element has been enqueued (or 'timeout_ms' elapses, if specified).</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>handle: The handle to a queue.</li>
       <li>components: One or more tensors from which the enqueued tensors should be taken.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_1_1_attrs">Attrs</a></code>):<ul>
       <li>timeout_ms: If the queue is full, this operation will block for up to timeout_ms milliseconds. Note: This option is not supported yet.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li>the created <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+      <li>the created <code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -33,13 +33,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_queue_enqueue_1a0f0c1661cfe21aaf3ab6a9621f898b2b">QueueEnqueue</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_enqueue_1a0f0c1661cfe21aaf3ab6a9621f898b2b">QueueEnqueue</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_queue_enqueue_1a90b82cbaf8f3ef9cee2fec35ae559e8f">QueueEnqueue</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_1_1_attrs">QueueEnqueue::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_enqueue_1a90b82cbaf8f3ef9cee2fec35ae559e8f">QueueEnqueue</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components, const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_1_1_attrs">QueueEnqueue::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -56,7 +56,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -90,7 +90,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -103,36 +103,36 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs">tensorflow::<wbr/>ops::<wbr/>QueueEnqueue::<wbr/>Attrs</a>
+        <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs">tensorflow::<wbr/>ops::<wbr/>QueueEnqueue::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/queue-enqueue.html#classtensorflow_1_1ops_1_1_queue_enqueue">QueueEnqueue</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/queue-enqueue.html#classtensorflow_1_1ops_1_1_queue_enqueue">QueueEnqueue</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_queue_enqueue_1ac2647083cdddc7cdc2b993e219eba7bb">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_queue_enqueue_1a0f0c1661cfe21aaf3ab6a9621f898b2b">
     <h3>QueueEnqueue</h3>
     <pre class="prettyprint"> QueueEnqueue(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_queue_enqueue_1a90b82cbaf8f3ef9cee2fec35ae559e8f">
     <h3>QueueEnqueue</h3>
     <pre class="prettyprint"> QueueEnqueue(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_1_1_attrs">QueueEnqueue::Attrs</a> & attrs
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> components,
+  const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_1_1_attrs">QueueEnqueue::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -144,7 +144,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_queue_enqueue_1a705f7ecc8021d5653e3f3adbd92ca8ff">
     <h3>TimeoutMs</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_1_1_attrs">Attrs</a> TimeoutMs(
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/queue-enqueue/attrs.html#structtensorflow_1_1ops_1_1_queue_enqueue_1_1_attrs">Attrs</a> TimeoutMs(
   int64 x
 )</pre>
     <div />

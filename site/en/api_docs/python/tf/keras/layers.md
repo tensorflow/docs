@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/keras/layers/__init__.py).
+Defined in [`tensorflow/keras/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/keras/layers/__init__.py).
 
 Keras layers API.
 
@@ -156,6 +153,8 @@ Keras layers API.
 
 [`class Maximum`](../../tf/keras/layers/Maximum): Layer that computes the maximum (element-wise) a list of inputs.
 
+[`class Minimum`](../../tf/keras/layers/Minimum): Layer that computes the minimum (element-wise) a list of inputs.
+
 [`class Multiply`](../../tf/keras/layers/Multiply): Layer that multiplies (element-wise) a list of inputs.
 
 [`class PReLU`](../../tf/keras/layers/PReLU): Parametric Rectified Linear Unit.
@@ -163,6 +162,8 @@ Keras layers API.
 [`class Permute`](../../tf/keras/layers/Permute): Permutes the dimensions of the input according to a given pattern.
 
 [`class RNN`](../../tf/keras/layers/RNN): Base class for recurrent layers.
+
+[`class ReLU`](../../tf/keras/layers/ReLU): Rectified Linear Unit activation function.
 
 [`class RepeatVector`](../../tf/keras/layers/RepeatVector): Repeats the input n times.
 
@@ -189,6 +190,8 @@ Keras layers API.
 [`class SpatialDropout3D`](../../tf/keras/layers/SpatialDropout3D): Spatial 3D version of Dropout.
 
 [`class StackedRNNCells`](../../tf/keras/layers/StackedRNNCells): Wrapper allowing a stack of RNN cells to behave as a single cell.
+
+[`class Subtract`](../../tf/keras/layers/Subtract): Layer that subtracts two inputs.
 
 [`class ThresholdedReLU`](../../tf/keras/layers/ThresholdedReLU): Thresholded Rectified Linear Unit.
 
@@ -222,5 +225,9 @@ Keras layers API.
 
 [`maximum(...)`](../../tf/keras/layers/maximum): Functional interface to the `Maximum` layer.
 
+[`minimum(...)`](../../tf/keras/layers/minimum): Functional interface to the `Minimum` layer.
+
 [`multiply(...)`](../../tf/keras/layers/multiply): Functional interface to the `Multiply` layer.
+
+[`subtract(...)`](../../tf/keras/layers/subtract): Functional interface to the `Subtract` layer.
 

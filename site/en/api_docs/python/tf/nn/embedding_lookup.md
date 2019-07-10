@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -21,7 +18,7 @@ tf.nn.embedding_lookup(
 
 
 
-Defined in [`tensorflow/python/ops/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/embedding_ops.py).
+Defined in [`tensorflow/python/ops/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/embedding_ops.py).
 
 See the guide: [Neural Network > Embeddings](../../../../api_guides/python/nn#Embeddings)
 
@@ -69,8 +66,8 @@ tensor. The returned tensor has shape `shape(ids) + shape(params)[1:]`.
     in `indices` are always validated to be within range.  If assigned to GPU,
     out-of-bound indices result in safe but unspecified behavior, which may
     include raising an error.
-* <b>`max_norm`</b>: If provided, embedding values are l2-normalized to the value of
-    max_norm.
+* <b>`max_norm`</b>: If not `None`, each embedding is clipped if its l2-norm is
+    larger than this value.
 
 
 #### Returns:

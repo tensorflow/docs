@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -19,13 +16,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linear_operator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/linalg/linear_operator.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/linalg/linear_operator.py).
 
 See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
 
 Base class defining a [batch of] linear operator[s].
 
-Subclasses of `LinearOperator` provide a access to common methods on a
+Subclasses of `LinearOperator` provide access to common methods on a
 (batch) matrix, without the need to materialize the matrix.  This allows:
 
 * Matrix free computations
@@ -52,11 +49,11 @@ and explanations can include constants as well as Big-O notation.
 
 #### Shape compatibility
 
-`LinearOperator` sub classes should operate on a [batch] matrix with
+`LinearOperator` subclasses should operate on a [batch] matrix with
 compatible shape.  Class docstrings should define what is meant by compatible
-shape.  Some sub-classes may not support batching.
+shape.  Some subclasses may not support batching.
 
-An example is:
+Examples:
 
 `x` is a batch matrix with compatible shape for `matmul` if
 

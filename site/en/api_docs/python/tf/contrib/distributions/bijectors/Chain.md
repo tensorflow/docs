@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/chain.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/chain.py).
-
-See the guide: [Random variable transformations (contrib) > Bijectors](../../../../../../api_guides/python/contrib.distributions.bijectors#Bijectors)
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/chain.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distributions/python/ops/bijectors/chain.py).
 
 Bijector which applies a sequence of bijectors.
 
@@ -105,7 +100,11 @@ __init__(
 )
 ```
 
-Instantiates `Chain` bijector.
+Instantiates `Chain` bijector. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
 
 #### Args:
 

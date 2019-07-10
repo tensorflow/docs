@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -17,7 +14,7 @@ tf.contrib.data.sliding_window_batch(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/sliding.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/data/python/ops/sliding.py).
+Defined in [`tensorflow/contrib/data/python/ops/sliding.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/data/python/ops/sliding.py).
 
 A sliding window with size of `window_size` and step of `stride`.
 
@@ -44,7 +41,7 @@ a.apply(tf.contrib.data.sliding_window_batch(window_size=3, stride=2)) ==
     elements in the sliding window.
 * <b>`stride`</b>: (Optional.) A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
     steps moving the sliding window forward for one iteration. The default
-    is `1`. It must be in `[1, window_size)`.
+    is `1`. It must be positive.
 
 
 #### Returns:

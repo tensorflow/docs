@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/spectral/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/spectral/__init__.py).
+Defined in [`tensorflow/spectral/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/spectral/__init__.py).
 
 Spectral operators (e.g. DCT, FFT, RFFT).
 
@@ -23,6 +20,8 @@ Spectral operators (e.g. DCT, FFT, RFFT).
 [`fft2d(...)`](../tf/fft2d): 2D fast Fourier transform.
 
 [`fft3d(...)`](../tf/fft3d): 3D fast Fourier transform.
+
+[`idct(...)`](../tf/spectral/idct): Computes the 1D [Inverse Discrete Cosine Transform (DCT)][idct] of `input`.
 
 [`ifft(...)`](../tf/ifft): Inverse fast Fourier transform.
 

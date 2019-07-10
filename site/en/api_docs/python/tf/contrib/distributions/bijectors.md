@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -10,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/bijectors/__init__.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distributions/python/ops/bijectors/__init__.py).
 
 Bijector Ops.
 
@@ -38,6 +35,8 @@ Bijector Ops.
 
 [`class Exp`](../../../tf/contrib/distributions/bijectors/Exp): Compute `Y = g(X) = exp(X)`.
 
+[`class FillTriangular`](../../../tf/contrib/distributions/bijectors/FillTriangular): Transforms vectors to triangular.
+
 [`class Gumbel`](../../../tf/contrib/distributions/bijectors/Gumbel): Compute `Y = g(X) = exp(-exp(-(X - loc) / scale))`.
 
 [`class Identity`](../../../tf/contrib/distributions/bijectors/Identity): Compute Y = g(X) = X.
@@ -62,6 +61,8 @@ Bijector Ops.
 
 [`class Reshape`](../../../tf/contrib/distributions/bijectors/Reshape): Reshapes the `event_shape` of a `Tensor`.
 
+[`class ScaleTriL`](../../../tf/contrib/distributions/bijectors/ScaleTriL): Transforms unconstrained vectors to TriL matrices with positive diagonal.
+
 [`class Sigmoid`](../../../tf/contrib/distributions/bijectors/Sigmoid): Bijector which computes `Y = g(X) = 1 / (1 + exp(-X))`.
 
 [`class SinhArcsinh`](../../../tf/contrib/distributions/bijectors/SinhArcsinh): Compute `Y = g(X) = Sinh( (Arcsinh(X) + skewness) * tailweight )`.
@@ -74,11 +75,13 @@ Bijector Ops.
 
 [`class Square`](../../../tf/contrib/distributions/bijectors/Square): Compute `g(X) = X^2`; X is a positive real number.
 
+[`class TransformDiagonal`](../../../tf/contrib/distributions/bijectors/TransformDiagonal): Applies a Bijector to the diagonal of a matrix.
+
 ## Functions
 
-[`masked_autoregressive_default_template(...)`](../../../tf/contrib/distributions/bijectors/masked_autoregressive_default_template): Build the Masked Autoregressive Density Estimator (Germain et al., 2015).
+[`masked_autoregressive_default_template(...)`](../../../tf/contrib/distributions/bijectors/masked_autoregressive_default_template): Build the Masked Autoregressive Density Estimator (Germain et al., 2015). (deprecated)
 
-[`masked_dense(...)`](../../../tf/contrib/distributions/bijectors/masked_dense): A autoregressively masked dense layer. Analogous to <a href="../../../tf/layers/dense"><code>tf.layers.dense</code></a>.
+[`masked_dense(...)`](../../../tf/contrib/distributions/bijectors/masked_dense): A autoregressively masked dense layer. Analogous to <a href="../../../tf/layers/dense"><code>tf.layers.dense</code></a>. (deprecated)
 
-[`real_nvp_default_template(...)`](../../../tf/contrib/distributions/bijectors/real_nvp_default_template): Build a scale-and-shift function using a multi-layer neural network.
+[`real_nvp_default_template(...)`](../../../tf/contrib/distributions/bijectors/real_nvp_default_template): Build a scale-and-shift function using a multi-layer neural network. (deprecated)
 

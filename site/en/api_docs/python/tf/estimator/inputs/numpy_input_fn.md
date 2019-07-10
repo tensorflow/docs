@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -22,7 +19,7 @@ tf.estimator.inputs.numpy_input_fn(
 
 
 
-Defined in [`tensorflow/python/estimator/inputs/numpy_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/estimator/inputs/numpy_io.py).
+Defined in [`tensorflow/python/estimator/inputs/numpy_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/estimator/inputs/numpy_io.py).
 
 Returns input function that would feed dict of numpy arrays into the model.
 

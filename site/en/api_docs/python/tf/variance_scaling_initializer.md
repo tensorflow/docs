@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,12 +17,14 @@ Inherits From: [`Initializer`](../tf/keras/initializers/Initializer)
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/init_ops.py).
 
 Initializer capable of adapting its scale to the shape of weights tensors.
 
-With `distribution="normal"`, samples are drawn from a truncated normal
-distribution centered on zero, with `stddev = sqrt(scale / n)`
+With `distribution="truncated_normal" or "untruncated_normal"`,
+samples are drawn from a truncated/untruncated normal
+distribution with a mean of zero and a standard deviation (after truncation,
+if used) `stddev = sqrt(scale / n)`
 where n is:
   - number of input units in the weight tensor, if mode = "fan_in"
   - number of output units, if mode = "fan_out"
@@ -58,13 +57,17 @@ within [-limit, limit], with `limit = sqrt(3 * scale / n)`.
 __init__(
     scale=1.0,
     mode='fan_in',
-    distribution='normal',
+    distribution='truncated_normal',
     seed=None,
     dtype=tf.float32
 )
 ```
 
+DEPRECATED FUNCTION ARGUMENTS
 
+SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
+Instructions for updating:
+`normal` is a deprecated alias for `truncated_normal`
 
 <h3 id="__call__"><code>__call__</code></h3>
 

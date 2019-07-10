@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,9 +11,7 @@ Inherits From: [`MultivariateNormalDiag`](../../../tf/contrib/distributions/Mult
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/mvn_diag.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/contrib/distributions/python/ops/mvn_diag.py).
-
-See the guide: [Statistical Distributions (contrib) > Multivariate distributions](../../../../../api_guides/python/contrib.distributions#Multivariate_distributions)
+Defined in [`tensorflow/contrib/distributions/python/ops/mvn_diag.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/contrib/distributions/python/ops/mvn_diag.py).
 
 MultivariateNormalDiag with `diag_stddev = softplus(diag_stddev)`.
 
@@ -121,7 +116,11 @@ __init__(
 )
 ```
 
+DEPRECATED FUNCTION
 
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 

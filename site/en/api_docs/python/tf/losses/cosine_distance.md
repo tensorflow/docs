@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -23,7 +20,7 @@ tf.losses.cosine_distance(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/losses/losses_impl.py).
 
 Adds a cosine-distance loss to the training procedure. (deprecated arguments)
 
@@ -58,3 +55,8 @@ shape as `labels`; otherwise, it is scalar.
 
 * <b>`ValueError`</b>: If `predictions` shape doesn't match `labels` shape, or
     `axis`, `labels`, `predictions` or `weights` is `None`.
+
+@compatbility(eager)
+The `loss_collection` argument is ignored when executing eagerly. Consider
+holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
+@end_compatibility

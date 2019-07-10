@@ -1,8 +1,6 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -14,7 +12,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/framework/ops.py).
 
 See the guide: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures)
 
@@ -199,7 +197,7 @@ __add__(
 
 Returns x + y element-wise.
 
-*NOTE*: `Add` supports broadcasting. `AddN` does not. More about broadcasting
+*NOTE*: `math.add` supports broadcasting. `AddN` does not. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -224,7 +222,7 @@ __and__(
 
 Returns the truth value of x AND y element-wise.
 
-*NOTE*: `LogicalAnd` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_and` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -345,7 +343,7 @@ __ge__(
 
 Returns the truth value of (x >= y) element-wise.
 
-*NOTE*: `GreaterEqual` supports broadcasting. More about broadcasting
+*NOTE*: `math.greater_equal` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -440,7 +438,7 @@ __gt__(
 
 Returns the truth value of (x > y) element-wise.
 
-*NOTE*: `Greater` supports broadcasting. More about broadcasting
+*NOTE*: `math.greater` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -495,7 +493,7 @@ __le__(
 
 Returns the truth value of (x <= y) element-wise.
 
-*NOTE*: `LessEqual` supports broadcasting. More about broadcasting
+*NOTE*: `math.less_equal` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -521,7 +519,7 @@ __lt__(
 
 Returns the truth value of (x < y) element-wise.
 
-*NOTE*: `Less` supports broadcasting. More about broadcasting
+*NOTE*: `math.less` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -736,7 +734,7 @@ __or__(
 
 Returns the truth value of x OR y element-wise.
 
-*NOTE*: `LogicalOr` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_or` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -794,7 +792,7 @@ __radd__(
 
 Returns x + y element-wise.
 
-*NOTE*: `Add` supports broadcasting. `AddN` does not. More about broadcasting
+*NOTE*: `math.add` supports broadcasting. `AddN` does not. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -819,7 +817,7 @@ __rand__(
 
 Returns the truth value of x AND y element-wise.
 
-*NOTE*: `LogicalAnd` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_and` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -1057,7 +1055,7 @@ __ror__(
 
 Returns the truth value of x OR y element-wise.
 
-*NOTE*: `LogicalOr` supports broadcasting. More about broadcasting
+*NOTE*: `math.logical_or` supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:

@@ -2,15 +2,15 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::Dequantize Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.9/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.10/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>Dequantize</h1>
   <code>#include &lt;array_ops.h&gt;</code>
-  <p><a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/dequantize.html#classtensorflow_1_1ops_1_1_dequantize">Dequantize</a> the 'input' tensor into a float <a href="/versions/r1.9/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. </p>
+  <p><a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/dequantize.html#classtensorflow_1_1ops_1_1_dequantize">Dequantize</a> the 'input' tensor into a float <a href="/versions/r1.10/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. </p>
   <h2>Summary</h2>
   <p>[min_range, max_range] are scalar floats that specify the range for the 'input' data. The 'mode' attribute controls exactly which calculations are used to convert the float values to their quantized equivalents.</p>
   <p>In 'MIN_COMBINED' mode, each value of the tensor will undergo the following:</p>
@@ -21,7 +21,7 @@ out[i] = min_range + (in[i]* (max_range - min_range) / range(T))
   <p>
     <i>MIN_COMBINED Mode Example</i>
   </p>
-  <p>If the input comes from a <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/quantized-relu6.html#classtensorflow_1_1ops_1_1_quantized_relu6">QuantizedRelu6</a>, the output type is quint8 (range of 0-255) but the possible range of <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/quantized-relu6.html#classtensorflow_1_1ops_1_1_quantized_relu6">QuantizedRelu6</a> is 0-6. The min_range and max_range values are therefore 0.0 and 6.0. <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/dequantize.html#classtensorflow_1_1ops_1_1_dequantize">Dequantize</a> on quint8 will take each value, cast to float, and multiply by 6 / 255. Note that if quantizedtype is qint8, the operation will additionally add each value by 128 prior to casting.</p>
+  <p>If the input comes from a <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/quantized-relu6.html#classtensorflow_1_1ops_1_1_quantized_relu6">QuantizedRelu6</a>, the output type is quint8 (range of 0-255) but the possible range of <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/quantized-relu6.html#classtensorflow_1_1ops_1_1_quantized_relu6">QuantizedRelu6</a> is 0-6. The min_range and max_range values are therefore 0.0 and 6.0. <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/dequantize.html#classtensorflow_1_1ops_1_1_dequantize">Dequantize</a> on quint8 will take each value, cast to float, and multiply by 6 / 255. Note that if quantizedtype is qint8, the operation will additionally add each value by 128 prior to casting.</p>
   <p>If the mode is 'MIN_FIRST', then this approach is used:</p>
   <p>
     <pre class="prettyprint">
@@ -57,12 +57,12 @@ result = range_min + ((input - numeric_limits<T>::min()) * range_scale)
 result = input * s
 </pre></p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>min_range: The minimum scalar value possibly produced for the input.</li>
       <li>max_range: The maximum scalar value possibly produced for the input.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+      <li><code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -72,13 +72,13 @@ result = input * s
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_dequantize_1ace6411557abc00c6e59649720be7d579">Dequantize</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_dequantize_1ace6411557abc00c6e59649720be7d579">Dequantize</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_dequantize_1afb71f46f9e4fc4922578ecd9116ad9b1">Dequantize</a>(const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range, ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range, const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/dequantize/attrs.html#structtensorflow_1_1ops_1_1_dequantize_1_1_attrs">Dequantize::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_dequantize_1afb71f46f9e4fc4922578ecd9116ad9b1">Dequantize</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range, const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/dequantize/attrs.html#structtensorflow_1_1ops_1_1_dequantize_1_1_attrs">Dequantize::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -95,7 +95,7 @@ result = input * s
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -149,7 +149,7 @@ result = input * s
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/dequantize/attrs.html#structtensorflow_1_1ops_1_1_dequantize_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/dequantize/attrs.html#structtensorflow_1_1ops_1_1_dequantize_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -162,38 +162,38 @@ result = input * s
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/dequantize/attrs">tensorflow::<wbr/>ops::<wbr/>Dequantize::<wbr/>Attrs</a>
+        <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/dequantize/attrs">tensorflow::<wbr/>ops::<wbr/>Dequantize::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.9/api_docs/cc/class/tensorflow/ops/dequantize.html#classtensorflow_1_1ops_1_1_dequantize">Dequantize</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/dequantize.html#classtensorflow_1_1ops_1_1_dequantize">Dequantize</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_dequantize_1a5c4618ae3d058bcd8547217612f8f41e">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_dequantize_1ace6411557abc00c6e59649720be7d579">
     <h3>Dequantize</h3>
     <pre class="prettyprint"> Dequantize(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_dequantize_1afb71f46f9e4fc4922578ecd9116ad9b1">
     <h3>Dequantize</h3>
     <pre class="prettyprint"> Dequantize(
-  const ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range,
-  ::<a href="/versions/r1.9/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range,
-  const <a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/dequantize/attrs.html#structtensorflow_1_1ops_1_1_dequantize_1_1_attrs">Dequantize::Attrs</a> & attrs
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min_range,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_range,
+  const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/dequantize/attrs.html#structtensorflow_1_1ops_1_1_dequantize_1_1_attrs">Dequantize::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -215,7 +215,7 @@ result = input * s
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_dequantize_1ac9873b34c5c0eb36296e0fe726644fc9">
     <h3>Mode</h3>
-    <pre class="prettyprint"><a href="/versions/r1.9/api_docs/cc/struct/tensorflow/ops/dequantize/attrs.html#structtensorflow_1_1ops_1_1_dequantize_1_1_attrs">Attrs</a> Mode(
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/dequantize/attrs.html#structtensorflow_1_1ops_1_1_dequantize_1_1_attrs">Attrs</a> Mode(
   StringPiece x
 )</pre>
     <div />

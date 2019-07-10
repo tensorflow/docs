@@ -1,8 +1,5 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
@@ -20,11 +17,11 @@ tf.parse_single_sequence_example(
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/python/ops/parsing_ops.py).
+Defined in [`tensorflow/python/ops/parsing_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/ops/parsing_ops.py).
 
 Parses a single `SequenceExample` proto.
 
-Parses a single serialized [`SequenceExample`](https://www.github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/example/example.proto)
+Parses a single serialized [`SequenceExample`](https://www.github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/core/example/example.proto)
 proto given in `serialized`.
 
 This op parses a serialized sequence example into a tuple of dictionaries
