@@ -364,7 +364,7 @@ def _big_source_link(location):
   if 'github.com' not in location.url:
     return _small_source_link(location)
 
-  return template.format(location.url)
+  return template.format(url=location.url)
 
 
 def _small_source_link(location):
