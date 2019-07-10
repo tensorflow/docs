@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.signal.linear_to_mel_weight_matrix
 
+Returns a matrix to warp linear scale spectrograms to the [mel scale][mel].
+
 ### Aliases:
 
+* `tf.compat.v1.signal.linear_to_mel_weight_matrix`
+* `tf.compat.v2.signal.linear_to_mel_weight_matrix`
 * `tf.contrib.signal.linear_to_mel_weight_matrix`
 * `tf.signal.linear_to_mel_weight_matrix`
 
@@ -24,9 +28,9 @@ tf.signal.linear_to_mel_weight_matrix(
 
 
 
-Defined in [`tensorflow/python/ops/signal/mel_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/signal/mel_ops.py).
+Defined in [`python/ops/signal/mel_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/mel_ops.py).
 
-Returns a matrix to warp linear scale spectrograms to the [mel scale][mel].
+<!-- Placeholder for "Used in" -->
 
 Returns a weight matrix that can be used to re-weight a `Tensor` containing
 `num_spectrogram_bins` linearly sampled frequency information from
@@ -53,19 +57,20 @@ The matrix can be used with <a href="../../tf/tensordot"><code>tf.tensordot</cod
 
 #### Args:
 
+
 * <b>`num_mel_bins`</b>: Python int. How many bands in the resulting mel spectrum.
 * <b>`num_spectrogram_bins`</b>: An integer `Tensor`. How many bins there are in the
-    source spectrogram data, which is understood to be `fft_size // 2 + 1`,
-    i.e. the spectrogram only contains the nonredundant FFT bins.
+  source spectrogram data, which is understood to be `fft_size // 2 + 1`,
+  i.e. the spectrogram only contains the nonredundant FFT bins.
 * <b>`sample_rate`</b>: Python float. Samples per second of the input signal used to
-    create the spectrogram. We need this to figure out the actual frequencies
-    for each spectrogram bin, which dictates how they are mapped into the mel
-    scale.
+  create the spectrogram. We need this to figure out the actual frequencies
+  for each spectrogram bin, which dictates how they are mapped into the mel
+  scale.
 * <b>`lower_edge_hertz`</b>: Python float. Lower bound on the frequencies to be
-    included in the mel spectrum. This corresponds to the lower edge of the
-    lowest triangular band.
+  included in the mel spectrum. This corresponds to the lower edge of the
+  lowest triangular band.
 * <b>`upper_edge_hertz`</b>: Python float. The desired top edge of the highest
-    frequency band.
+  frequency band.
 * <b>`dtype`</b>: The `DType` of the result matrix. Must be a floating point type.
 * <b>`name`</b>: An optional name for the operation.
 
@@ -75,10 +80,12 @@ The matrix can be used with <a href="../../tf/tensordot"><code>tf.tensordot</cod
 A `Tensor` of shape `[num_spectrogram_bins, num_mel_bins]`.
 
 
+
 #### Raises:
 
-* <b>`ValueError`</b>: If num_mel_bins/num_spectrogram_bins/sample_rate are not
-    positive, lower_edge_hertz is negative, frequency edges are incorrectly
-    ordered, or upper_edge_hertz is larger than the Nyquist frequency.
+
+* <b>`ValueError`</b>: If `num_mel_bins`/`num_spectrogram_bins`/`sample_rate` are not
+  positive, `lower_edge_hertz` is negative, frequency edges are incorrectly
+  ordered, or `upper_edge_hertz` is larger than the Nyquist frequency.
 
 [mel]: https://en.wikipedia.org/wiki/Mel_scale

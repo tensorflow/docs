@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.erosion2d
 
+Computes the grayscale erosion of 4-D `value` and 3-D `kernel` tensors.
+
+### Aliases:
+
+* `tf.compat.v1.nn.erosion2d`
+* `tf.nn.erosion2d`
+
 ``` python
 tf.nn.erosion2d(
     value,
@@ -18,9 +25,9 @@ tf.nn.erosion2d(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Computes the grayscale erosion of 4-D `value` and 3-D `kernel` tensors.
+<!-- Placeholder for "Used in" -->
 
 The `value` tensor has shape `[batch, in_height, in_width, depth]` and the
 `kernel` tensor has shape `[kernel_height, kernel_width, depth]`, i.e.,
@@ -44,19 +51,20 @@ the dilation of `-value` by the reflected `kernel`.
 
 #### Args:
 
+
 * <b>`value`</b>: A `Tensor`. 4-D with shape `[batch, in_height, in_width, depth]`.
 * <b>`kernel`</b>: A `Tensor`. Must have the same type as `value`.
-    3-D with shape `[kernel_height, kernel_width, depth]`.
+  3-D with shape `[kernel_height, kernel_width, depth]`.
 * <b>`strides`</b>: A list of `ints` that has length `>= 4`.
-    1-D of length 4. The stride of the sliding window for each dimension of
-    the input tensor. Must be: `[1, stride_height, stride_width, 1]`.
+  1-D of length 4. The stride of the sliding window for each dimension of
+  the input tensor. Must be: `[1, stride_height, stride_width, 1]`.
 * <b>`rates`</b>: A list of `ints` that has length `>= 4`.
-    1-D of length 4. The input stride for atrous morphological dilation.
-    Must be: `[1, rate_height, rate_width, 1]`.
+  1-D of length 4. The input stride for atrous morphological dilation.
+  Must be: `[1, rate_height, rate_width, 1]`.
 * <b>`padding`</b>: A `string` from: `"SAME", "VALID"`.
-    The type of padding algorithm to use.
+  The type of padding algorithm to use.
 * <b>`name`</b>: A name for the operation (optional). If not specified "erosion2d"
-    is used.
+  is used.
 
 
 #### Returns:
@@ -65,7 +73,9 @@ A `Tensor`. Has the same type as `value`.
 4-D with shape `[batch, out_height, out_width, depth]`.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the `value` depth does not match `kernel`' shape, or if
-    padding is other than `'VALID'` or `'SAME'`.
+  padding is other than `'VALID'` or `'SAME'`.

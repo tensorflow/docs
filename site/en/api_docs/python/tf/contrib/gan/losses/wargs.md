@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.gan.losses.wargs
 
-
-
-Defined in [`tensorflow/contrib/gan/python/losses/python/losses_wargs.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/losses/python/losses_wargs.py).
-
 TFGAN grouped API. Please see README.md for details and usage.
+
+
+
+Defined in [`contrib/gan/python/losses/python/losses_wargs.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/losses/python/losses_wargs.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Functions
 

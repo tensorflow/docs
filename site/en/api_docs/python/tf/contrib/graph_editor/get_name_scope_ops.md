@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.get_name_scope_ops
 
+Get all the operations under the given scope path.
+
 ``` python
 tf.contrib.graph_editor.get_name_scope_ops(
     ops,
@@ -14,11 +16,13 @@ tf.contrib.graph_editor.get_name_scope_ops(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/select.py).
+Defined in [`contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/select.py).
 
-Get all the operations under the given scope path.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`ops`</b>: an object convertible to a list of tf.Operation.
 * <b>`scope`</b>: a scope path.
@@ -27,6 +31,8 @@ Get all the operations under the given scope path.
 
 A list of tf.Operation.
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if ops cannot be converted to a list of tf.Operation.

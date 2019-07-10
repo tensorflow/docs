@@ -7,15 +7,20 @@ page_type: reference
 
 ## Class `ScipyOptimizerInterface`
 
+Wrapper allowing `scipy.optimize.minimize` to operate a <a href="../../../tf/Session"><code>tf.compat.v1.Session</code></a>.
+
 Inherits From: [`ExternalOptimizerInterface`](../../../tf/contrib/opt/ExternalOptimizerInterface)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/external_optimizer.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/opt/python/training/external_optimizer.py).
+Defined in [`contrib/opt/python/training/external_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/external_optimizer.py).
 
-Wrapper allowing `scipy.optimize.minimize` to operate a <a href="../../../tf/Session"><code>tf.Session</code></a>.
+<!-- Placeholder for "Used in" -->
 
-Example:
+
+#### Example:
+
+
 
 ```python
 vector = tf.Variable([7., 7.], 'vector')
@@ -25,7 +30,7 @@ loss = tf.reduce_sum(tf.square(vector))
 
 optimizer = ScipyOptimizerInterface(loss, options={'maxiter': 100})
 
-with tf.Session() as session:
+with tf.compat.v1.Session() as session:
   optimizer.minimize(session)
 
 # The value of vector should now be [0., 0.].
@@ -42,7 +47,7 @@ loss = tf.reduce_sum(tf.square(vector))
 optimizer = ScipyOptimizerInterface(
     loss, var_to_bounds={vector: ([1, 2], np.infty)})
 
-with tf.Session() as session:
+with tf.compat.v1.Session() as session:
   optimizer.minimize(session)
 
 # The value of vector should now be [1., 2.].
@@ -65,7 +70,7 @@ inequalities = [vector[0] - 1.]
 optimizer = ScipyOptimizerInterface(
     loss, equalities=equalities, inequalities=inequalities, method='SLSQP')
 
-with tf.Session() as session:
+with tf.compat.v1.Session() as session:
   optimizer.minimize(session)
 
 # The value of vector should now be [1., 1.].
@@ -86,33 +91,35 @@ __init__(
 
 Initialize a new interface instance.
 
+
 #### Args:
+
 
 * <b>`loss`</b>: A scalar `Tensor` to be minimized.
 * <b>`var_list`</b>: Optional `list` of `Variable` objects to update to minimize
-    `loss`.  Defaults to the list of variables collected in the graph
-    under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  `loss`.  Defaults to the list of variables collected in the graph
+  under the key `GraphKeys.TRAINABLE_VARIABLES`.
 * <b>`equalities`</b>: Optional `list` of equality constraint scalar `Tensor`s to be
-    held equal to zero.
+  held equal to zero.
 * <b>`inequalities`</b>: Optional `list` of inequality constraint scalar `Tensor`s
-    to be held nonnegative.
+  to be held nonnegative.
 * <b>`var_to_bounds`</b>: Optional `dict` where each key is an optimization
-    `Variable` and each corresponding value is a length-2 tuple of
-    `(low, high)` bounds. Although enforcing this kind of simple constraint
-    could be accomplished with the `inequalities` arg, not all optimization
-    algorithms support general inequality constraints, e.g. L-BFGS-B. Both
-    `low` and `high` can either be numbers or anything convertible to a
-    NumPy array that can be broadcast to the shape of `var` (using
-    `np.broadcast_to`). To indicate that there is no bound, use `None` (or
-    `+/- np.infty`). For example, if `var` is a 2x3 matrix, then any of
-    the following corresponding `bounds` could be supplied:
-    * `(0, np.infty)`: Each element of `var` held positive.
-    * `(-np.infty, [1, 2])`: First column less than 1, second column less
-      than 2.
-    * `(-np.infty, [[1], [2], [3]])`: First row less than 1, second row less
-      than 2, etc.
-    * `(-np.infty, [[1, 2, 3], [4, 5, 6]])`: Entry `var[0, 0]` less than 1,
-      `var[0, 1]` less than 2, etc.
+  `Variable` and each corresponding value is a length-2 tuple of
+  `(low, high)` bounds. Although enforcing this kind of simple constraint
+  could be accomplished with the `inequalities` arg, not all optimization
+  algorithms support general inequality constraints, e.g. L-BFGS-B. Both
+  `low` and `high` can either be numbers or anything convertible to a
+  NumPy array that can be broadcast to the shape of `var` (using
+  `np.broadcast_to`). To indicate that there is no bound, use `None` (or
+  `+/- np.infty`). For example, if `var` is a 2x3 matrix, then any of
+  the following corresponding `bounds` could be supplied:
+  * `(0, np.infty)`: Each element of `var` held positive.
+  * `(-np.infty, [1, 2])`: First column less than 1, second column less
+    than 2.
+  * `(-np.infty, [[1], [2], [3]])`: First row less than 1, second row less
+    than 2, etc.
+  * `(-np.infty, [[1, 2, 3], [4, 5, 6]])`: Entry `var[0, 0]` less than 1,
+    `var[0, 1]` less than 2, etc.
 * <b>`**optimizer_kwargs`</b>: Other subclass-specific keyword arguments.
 
 
@@ -143,15 +150,16 @@ executing commands to control a `Session`.
 
 #### Args:
 
+
 * <b>`session`</b>: A `Session` instance.
 * <b>`feed_dict`</b>: A feed dict to be passed to calls to `session.run`.
 * <b>`fetches`</b>: A list of `Tensor`s to fetch and supply to `loss_callback`
-    as positional arguments.
+  as positional arguments.
 * <b>`step_callback`</b>: A function to be called at each optimization step;
-    arguments are the current values of all optimization variables
-    flattened into a single vector.
+  arguments are the current values of all optimization variables
+  flattened into a single vector.
 * <b>`loss_callback`</b>: A function to be called every time the loss and gradients
-    are computed, with evaluated fetches supplied as positional arguments.
+  are computed, with evaluated fetches supplied as positional arguments.
 * <b>`**run_kwargs`</b>: kwargs to pass to `session.run`.
 
 

@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `GreedyLoadBalancingStrategy`
 
-
-
-
-
-Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/device_setter.py).
-
 Returns the least-loaded ps task for op placement.
+
+
+
+
+
+Defined in [`contrib/training/python/training/device_setter.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/device_setter.py).
+
+<!-- Placeholder for "Used in" -->
 
 The load is calculated by a user-specified load function passed in at
 construction.  There are no units for load, and the load function is
@@ -30,7 +32,7 @@ could consider the difference in access patterns across ops, or trade
 off CPU-intensive ops with RAM-intensive ops with network bandwidth.
 
 This class is intended to be used as a `ps_strategy` in
-<a href="../../../tf/train/replica_device_setter"><code>tf.train.replica_device_setter</code></a>.
+<a href="../../../tf/train/replica_device_setter"><code>tf.compat.v1.train.replica_device_setter</code></a>.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -43,11 +45,13 @@ __init__(
 
 Create a new `LoadBalancingStrategy`.
 
+
 #### Args:
+
 
 * <b>`num_tasks`</b>: Number of ps tasks to cycle among.
 * <b>`load_fn`</b>: A callable that takes an `Operation` and returns a
-    numeric load value for that op.
+  numeric load value for that op.
 
 
 
@@ -61,7 +65,9 @@ __call__(op)
 
 Choose a ps task index for the given `Operation`.
 
+
 #### Args:
+
 
 * <b>`op`</b>: A `Operation` to be placed on ps.
 
@@ -71,6 +77,7 @@ Choose a ps task index for the given `Operation`.
 The next ps task index to use for the `Operation`. Greedily
 places the op on the least-loaded ps task so far, as determined
 by the load function.
+
 
 
 

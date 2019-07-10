@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.image.sample_distorted_bounding_box
 
+Generate a single randomly distorted bounding box for an image. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.image.sample_distorted_bounding_box`
+* `tf.image.sample_distorted_bounding_box`
+
 ``` python
 tf.image.sample_distorted_bounding_box(
     image_size,
@@ -22,9 +29,9 @@ tf.image.sample_distorted_bounding_box(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Generate a single randomly distorted bounding box for an image. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -61,7 +68,7 @@ For example,
     # Draw the bounding box in an image summary.
     image_with_box = tf.image.draw_bounding_boxes(tf.expand_dims(image, 0),
                                                   bbox_for_draw)
-    tf.summary.image('images_with_box', image_with_box)
+    tf.compat.v1.summary.image('images_with_box', image_with_box)
 
     # Employ the bounding box to distort the image.
     distorted_image = tf.slice(image, begin, size)
@@ -74,42 +81,33 @@ false and no bounding boxes are supplied, an error is raised.
 
 #### Args:
 
+
 * <b>`image_size`</b>: A `Tensor`. Must be one of the following types: `uint8`, `int8`,
-    `int16`, `int32`, `int64`.
-    1-D, containing `[height, width, channels]`.
-* <b>`bounding_boxes`</b>: A `Tensor` of type `float32`.
-    3-D with shape `[batch, N, 4]` describing the N bounding boxes
-    associated with the image.
-* <b>`seed`</b>: An optional `int`. Defaults to `0`.
-    If either `seed` or `seed2` are set to non-zero, the random number
-    generator is seeded by the given `seed`.  Otherwise, it is seeded by a
-      random
-    seed.
-* <b>`seed2`</b>: An optional `int`. Defaults to `0`.
-    A second seed to avoid seed collision.
-* <b>`min_object_covered`</b>: A Tensor of type `float32`. Defaults to `0.1`.
-    The cropped area of the image must contain at least this
-    fraction of any bounding box supplied. The value of this parameter should
-      be
-    non-negative. In the case of 0, the cropped area does not need to overlap
-    any of the bounding boxes supplied.
+  `int16`, `int32`, `int64`. 1-D, containing `[height, width, channels]`.
+* <b>`bounding_boxes`</b>: A `Tensor` of type `float32`. 3-D with shape `[batch, N, 4]`
+  describing the N bounding boxes associated with the image.
+* <b>`seed`</b>: An optional `int`. Defaults to `0`. If either `seed` or `seed2` are
+  set to non-zero, the random number generator is seeded by the given
+  `seed`.  Otherwise, it is seeded by a random seed.
+* <b>`seed2`</b>: An optional `int`. Defaults to `0`. A second seed to avoid seed
+  collision.
+* <b>`min_object_covered`</b>: A Tensor of type `float32`. Defaults to `0.1`. The
+  cropped area of the image must contain at least this fraction of any
+  bounding box supplied. The value of this parameter should be non-negative.
+  In the case of 0, the cropped area does not need to overlap any of the
+  bounding boxes supplied.
 * <b>`aspect_ratio_range`</b>: An optional list of `floats`. Defaults to `[0.75,
-    1.33]`.
-    The cropped area of the image must have an aspect ratio =
-    width / height within this range.
-* <b>`area_range`</b>: An optional list of `floats`. Defaults to `[0.05, 1]`.
-    The cropped area of the image must contain a fraction of the
-    supplied image within this range.
-* <b>`max_attempts`</b>: An optional `int`. Defaults to `100`.
-    Number of attempts at generating a cropped region of the image
-    of the specified constraints. After `max_attempts` failures, return the
-      entire
-    image.
+  1.33]`. The cropped area of the image must have an aspect ratio = width /
+  height within this range.
+* <b>`area_range`</b>: An optional list of `floats`. Defaults to `[0.05, 1]`. The
+  cropped area of the image must contain a fraction of the supplied image
+  within this range.
+* <b>`max_attempts`</b>: An optional `int`. Defaults to `100`. Number of attempts at
+  generating a cropped region of the image of the specified constraints.
+  After `max_attempts` failures, return the entire image.
 * <b>`use_image_if_no_bounding_boxes`</b>: An optional `bool`. Defaults to `False`.
-    Controls behavior if no bounding boxes supplied.
-    If true, assume an implicit bounding box covering the whole input. If
-      false,
-    raise an error.
+  Controls behavior if no bounding boxes supplied. If true, assume an
+  implicit bounding box covering the whole input. If false, raise an error.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -117,12 +115,13 @@ false and no bounding boxes are supplied, an error is raised.
 
 A tuple of `Tensor` objects (begin, size, bboxes).
 
+
 * <b>`begin`</b>: A `Tensor`. Has the same type as `image_size`. 1-D, containing
-  `[offset_height, offset_width, 0]`. Provide as input to
-    <a href="../../tf/slice"><code>tf.slice</code></a>.
+`[offset_height, offset_width, 0]`. Provide as input to
+  <a href="../../tf/slice"><code>tf.slice</code></a>.
 * <b>`size`</b>: A `Tensor`. Has the same type as `image_size`. 1-D, containing
-  `[target_height, target_width, -1]`. Provide as input to
-    <a href="../../tf/slice"><code>tf.slice</code></a>.
+`[target_height, target_width, -1]`. Provide as input to
+  <a href="../../tf/slice"><code>tf.slice</code></a>.
 * <b>`bboxes`</b>: A `Tensor` of type `float32`. 3-D with shape `[1, 1, 4]` containing
-  the distorted bounding box.
-    Provide as input to <a href="../../tf/image/draw_bounding_boxes"><code>tf.image.draw_bounding_boxes</code></a>.
+the distorted bounding box.
+  Provide as input to <a href="../../tf/image/draw_bounding_boxes"><code>tf.image.draw_bounding_boxes</code></a>.

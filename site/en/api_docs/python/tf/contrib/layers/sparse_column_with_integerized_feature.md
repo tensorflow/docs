@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.sparse_column_with_integerized_feature
 
+Creates an integerized _SparseColumn.
+
 ``` python
 tf.contrib.layers.sparse_column_with_integerized_feature(
     column_name,
@@ -16,9 +18,9 @@ tf.contrib.layers.sparse_column_with_integerized_feature(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/feature_column.py).
+Defined in [`contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column.py).
 
-Creates an integerized _SparseColumn.
+<!-- Placeholder for "Used in" -->
 
 Use this when your features are already pre-integerized into int64 IDs, that
 is, when the set of values to output is already coming in as what's desired in
@@ -33,20 +35,21 @@ values in the tensor which are always zero.)
 
 #### Args:
 
+
 * <b>`column_name`</b>: A string defining sparse column name.
 * <b>`bucket_size`</b>: An int that is >= 1. The number of buckets. It should be bigger
-    than maximum feature. In other words features in this column should be an
-    int64 in range [0, bucket_size)
+  than maximum feature. In other words features in this column should be an
+  int64 in range [0, bucket_size)
 * <b>`combiner`</b>: A string specifying how to reduce if the sparse column is
-    multivalent. Currently "mean", "sqrtn" and "sum" are supported, with "sum"
-    the default. "sqrtn" often achieves good accuracy, in particular with
-    bag-of-words columns.
-      * "sum": do not normalize features in the column
-      * "mean": do l1 normalization on features in the column
-      * "sqrtn": do l2 normalization on features in the column
-    For more information: `tf.embedding_lookup_sparse`.
+  multivalent. Currently "mean", "sqrtn" and "sum" are supported, with "sum"
+  the default. "sqrtn" often achieves good accuracy, in particular with
+  bag-of-words columns.
+    * "sum": do not normalize features in the column
+    * "mean": do l1 normalization on features in the column
+    * "sqrtn": do l2 normalization on features in the column
+  For more information: `tf.embedding_lookup_sparse`.
 * <b>`dtype`</b>: Type of features. It should be an integer type. Default value is
-    dtypes.int64.
+  dtypes.int64.
 
 
 #### Returns:
@@ -54,7 +57,9 @@ values in the tensor which are always zero.)
 An integerized _SparseColumn definition.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: bucket_size is less than 1.
 * <b>`ValueError`</b>: dtype is not integer.

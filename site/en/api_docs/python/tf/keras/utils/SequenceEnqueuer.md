@@ -7,18 +7,28 @@ page_type: reference
 
 ## Class `SequenceEnqueuer`
 
-
-
-
-
-Defined in [`tensorflow/python/keras/utils/data_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/utils/data_utils.py).
-
 Base class to enqueue inputs.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.keras.utils.SequenceEnqueuer`
+* Class `tf.compat.v2.keras.utils.SequenceEnqueuer`
+* Class `tf.keras.utils.SequenceEnqueuer`
+
+
+
+Defined in [`python/keras/utils/data_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/utils/data_utils.py).
+
+<!-- Placeholder for "Used in" -->
 
 The task of an Enqueuer is to use parallelism to speed up preprocessing.
 This is done with processes or threads.
 
-Example:
+#### Example:
+
+
 
 ```python
     enqueuer = SequenceEnqueuer(...)
@@ -41,7 +51,8 @@ __init__(
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -68,6 +79,7 @@ is_running()
 
 
 
+
 <h3 id="start"><code>start</code></h3>
 
 ``` python
@@ -79,11 +91,13 @@ start(
 
 Starts the handler's workers.
 
+
 #### Arguments:
+
 
 * <b>`workers`</b>: Number of workers.
 * <b>`max_queue_size`</b>: queue size
-        (when full, workers could block on `put()`)
+    (when full, workers could block on `put()`)
 
 <h3 id="stop"><code>stop</code></h3>
 
@@ -96,6 +110,7 @@ Stops running threads and wait for them to exit, if necessary.
 Should be called by the same thread which called `start()`.
 
 #### Arguments:
+
 
 * <b>`timeout`</b>: maximum time to wait on `thread.join()`
 

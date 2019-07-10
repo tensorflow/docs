@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.broadcast_static_shape
 
+Computes the shape of a broadcast given known shapes.
+
+### Aliases:
+
+* `tf.broadcast_static_shape`
+* `tf.compat.v1.broadcast_static_shape`
+* `tf.compat.v2.broadcast_static_shape`
+
 ``` python
 tf.broadcast_static_shape(
     shape_x,
@@ -14,9 +22,9 @@ tf.broadcast_static_shape(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Computes the shape of a broadcast given known shapes.
+<!-- Placeholder for "Used in" -->
 
 When shape_x and shape_y are fully known TensorShapes this computes a
 TensorShape which is the shape of the result of a broadcasting op applied in
@@ -30,6 +38,7 @@ tensors have statically known shapes.
 
 #### Args:
 
+
 * <b>`shape_x`</b>: A `TensorShape`
 * <b>`shape_y`</b>: A `TensorShape`
 
@@ -39,6 +48,8 @@ tensors have statically known shapes.
 A `TensorShape` representing the broadcasted shape.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the two shapes can not be broadcasted.

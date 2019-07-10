@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `Dimension`
 
-
-
-
-
-Defined in [`tensorflow/python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/tensor_shape.py).
-
 Represents the value of one dimension in a TensorShape.
+
+
+
+### Aliases:
+
+* Class `tf.Dimension`
+* Class `tf.compat.v1.Dimension`
+
+
+
+Defined in [`python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_shape.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -25,11 +33,13 @@ Creates a new Dimension with the given value.
 
 
 
+
 ## Properties
 
 <h3 id="value"><code>value</code></h3>
 
 The value of this dimension, or None if it is unknown.
+
 
 
 
@@ -46,13 +56,18 @@ Returns the sum of `self` and `other`.
 Dimensions are summed as follows:
 
 ```python
-tf.Dimension(m)    + tf.Dimension(n)    == tf.Dimension(m + n)
-tf.Dimension(m)    + tf.Dimension(None) == tf.Dimension(None)
-tf.Dimension(None) + tf.Dimension(n)    == tf.Dimension(None)
-tf.Dimension(None) + tf.Dimension(None) == tf.Dimension(None)
+tf.compat.v1.Dimension(m)    + tf.compat.v1.Dimension(n)     ==
+tf.compat.v1.Dimension(m + n)
+tf.compat.v1.Dimension(m)    + tf.compat.v1.Dimension(None)  # equiv. to
+tf.compat.v1.Dimension(None)
+tf.compat.v1.Dimension(None) + tf.compat.v1.Dimension(n)     # equiv. to
+tf.compat.v1.Dimension(None)
+tf.compat.v1.Dimension(None) + tf.compat.v1.Dimension(None)  # equiv. to
+tf.compat.v1.Dimension(None)
 ```
 
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension, or a value accepted by `as_dimension`.
 
@@ -60,6 +75,7 @@ tf.Dimension(None) + tf.Dimension(None) == tf.Dimension(None)
 #### Returns:
 
 A Dimension whose value is the sum of `self` and `other`.
+
 
 <h3 id="__div__"><code>__div__</code></h3>
 
@@ -76,12 +92,14 @@ to Python 3.
 
 #### Args:
 
+
 * <b>`other`</b>: Another `Dimension`.
 
 
 #### Returns:
 
 A `Dimension` whose value is the integer quotient of `self` and `other`.
+
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
@@ -90,6 +108,7 @@ __eq__(other)
 ```
 
 Returns true if `other` has the same known value as this Dimension.
+
 
 <h3 id="__floordiv__"><code>__floordiv__</code></h3>
 
@@ -102,13 +121,18 @@ Returns the quotient of `self` and `other` rounded down.
 Dimensions are divided as follows:
 
 ```python
-tf.Dimension(m)    // tf.Dimension(n)    == tf.Dimension(m // n)
-tf.Dimension(m)    // tf.Dimension(None) == tf.Dimension(None)
-tf.Dimension(None) // tf.Dimension(n)    == tf.Dimension(None)
-tf.Dimension(None) // tf.Dimension(None) == tf.Dimension(None)
+tf.compat.v1.Dimension(m)    // tf.compat.v1.Dimension(n)     ==
+tf.compat.v1.Dimension(m // n)
+tf.compat.v1.Dimension(m)    // tf.compat.v1.Dimension(None)  # equiv. to
+tf.compat.v1.Dimension(None)
+tf.compat.v1.Dimension(None) // tf.compat.v1.Dimension(n)     # equiv. to
+tf.compat.v1.Dimension(None)
+tf.compat.v1.Dimension(None) // tf.compat.v1.Dimension(None)  # equiv. to
+tf.compat.v1.Dimension(None)
 ```
 
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension, or a value accepted by `as_dimension`.
 
@@ -116,6 +140,7 @@ tf.Dimension(None) // tf.Dimension(None) == tf.Dimension(None)
 #### Returns:
 
 A `Dimension` whose value is the integer quotient of `self` and `other`.
+
 
 <h3 id="__ge__"><code>__ge__</code></h3>
 
@@ -128,13 +153,14 @@ Returns True if `self` is known to be greater than or equal to `other`.
 Dimensions are compared as follows:
 
 ```python
-(tf.Dimension(m)    >= tf.Dimension(n))    == (m >= n)
-(tf.Dimension(m)    >= tf.Dimension(None)) == None
-(tf.Dimension(None) >= tf.Dimension(n))    == None
-(tf.Dimension(None) >= tf.Dimension(None)) == None
+(tf.compat.v1.Dimension(m)    >= tf.compat.v1.Dimension(n))    == (m >= n)
+(tf.compat.v1.Dimension(m)    >= tf.compat.v1.Dimension(None)) == None
+(tf.compat.v1.Dimension(None) >= tf.compat.v1.Dimension(n))    == None
+(tf.compat.v1.Dimension(None) >= tf.compat.v1.Dimension(None)) == None
 ```
 
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension.
 
@@ -143,6 +169,7 @@ Dimensions are compared as follows:
 
 The value of `self.value >= other.value` if both are known, otherwise
 None.
+
 
 <h3 id="__gt__"><code>__gt__</code></h3>
 
@@ -155,13 +182,14 @@ Returns True if `self` is known to be greater than `other`.
 Dimensions are compared as follows:
 
 ```python
-(tf.Dimension(m)    > tf.Dimension(n))    == (m > n)
-(tf.Dimension(m)    > tf.Dimension(None)) == None
-(tf.Dimension(None) > tf.Dimension(n))    == None
-(tf.Dimension(None) > tf.Dimension(None)) == None
+(tf.compat.v1.Dimension(m)    > tf.compat.v1.Dimension(n))    == (m > n)
+(tf.compat.v1.Dimension(m)    > tf.compat.v1.Dimension(None)) == None
+(tf.compat.v1.Dimension(None) > tf.compat.v1.Dimension(n))    == None
+(tf.compat.v1.Dimension(None) > tf.compat.v1.Dimension(None)) == None
 ```
 
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension.
 
@@ -170,21 +198,6 @@ Dimensions are compared as follows:
 
 The value of `self.value > other.value` if both are known, otherwise
 None.
-
-<h3 id="__index__"><code>__index__</code></h3>
-
-``` python
-__index__()
-```
-
-
-
-<h3 id="__int__"><code>__int__</code></h3>
-
-``` python
-__int__()
-```
-
 
 
 <h3 id="__le__"><code>__le__</code></h3>
@@ -198,13 +211,14 @@ Returns True if `self` is known to be less than or equal to `other`.
 Dimensions are compared as follows:
 
 ```python
-(tf.Dimension(m)    <= tf.Dimension(n))    == (m <= n)
-(tf.Dimension(m)    <= tf.Dimension(None)) == None
-(tf.Dimension(None) <= tf.Dimension(n))    == None
-(tf.Dimension(None) <= tf.Dimension(None)) == None
+(tf.compat.v1.Dimension(m)    <= tf.compat.v1.Dimension(n))    == (m <= n)
+(tf.compat.v1.Dimension(m)    <= tf.compat.v1.Dimension(None)) == None
+(tf.compat.v1.Dimension(None) <= tf.compat.v1.Dimension(n))    == None
+(tf.compat.v1.Dimension(None) <= tf.compat.v1.Dimension(None)) == None
 ```
 
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension.
 
@@ -213,13 +227,6 @@ Dimensions are compared as follows:
 
 The value of `self.value <= other.value` if both are known, otherwise
 None.
-
-<h3 id="__long__"><code>__long__</code></h3>
-
-``` python
-__long__()
-```
-
 
 
 <h3 id="__lt__"><code>__lt__</code></h3>
@@ -233,13 +240,14 @@ Returns True if `self` is known to be less than `other`.
 Dimensions are compared as follows:
 
 ```python
-(tf.Dimension(m)    < tf.Dimension(n))    == (m < n)
-(tf.Dimension(m)    < tf.Dimension(None)) == None
-(tf.Dimension(None) < tf.Dimension(n))    == None
-(tf.Dimension(None) < tf.Dimension(None)) == None
+(tf.compat.v1.Dimension(m)    < tf.compat.v1.Dimension(n))    == (m < n)
+(tf.compat.v1.Dimension(m)    < tf.compat.v1.Dimension(None)) == None
+(tf.compat.v1.Dimension(None) < tf.compat.v1.Dimension(n))    == None
+(tf.compat.v1.Dimension(None) < tf.compat.v1.Dimension(None)) == None
 ```
 
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension.
 
@@ -248,6 +256,7 @@ Dimensions are compared as follows:
 
 The value of `self.value < other.value` if both are known, otherwise
 None.
+
 
 <h3 id="__mod__"><code>__mod__</code></h3>
 
@@ -260,13 +269,18 @@ Returns `self` modulo `other`.
 Dimension moduli are computed as follows:
 
 ```python
-tf.Dimension(m)    % tf.Dimension(n)    == tf.Dimension(m % n)
-tf.Dimension(m)    % tf.Dimension(None) == tf.Dimension(None)
-tf.Dimension(None) % tf.Dimension(n)    == tf.Dimension(None)
-tf.Dimension(None) % tf.Dimension(None) == tf.Dimension(None)
+tf.compat.v1.Dimension(m)    % tf.compat.v1.Dimension(n)     ==
+tf.compat.v1.Dimension(m % n)
+tf.compat.v1.Dimension(m)    % tf.compat.v1.Dimension(None)  # equiv. to
+tf.compat.v1.Dimension(None)
+tf.compat.v1.Dimension(None) % tf.compat.v1.Dimension(n)     # equiv. to
+tf.compat.v1.Dimension(None)
+tf.compat.v1.Dimension(None) % tf.compat.v1.Dimension(None)  # equiv. to
+tf.compat.v1.Dimension(None)
 ```
 
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension, or a value accepted by `as_dimension`.
 
@@ -274,6 +288,7 @@ tf.Dimension(None) % tf.Dimension(None) == tf.Dimension(None)
 #### Returns:
 
 A Dimension whose value is `self` modulo `other`.
+
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
@@ -286,13 +301,18 @@ Returns the product of `self` and `other`.
 Dimensions are summed as follows:
 
 ```python
-tf.Dimension(m)    * tf.Dimension(n)    == tf.Dimension(m * n)
-tf.Dimension(m)    * tf.Dimension(None) == tf.Dimension(None)
-tf.Dimension(None) * tf.Dimension(n)    == tf.Dimension(None)
-tf.Dimension(None) * tf.Dimension(None) == tf.Dimension(None)
+tf.compat.v1.Dimension(m)    * tf.compat.v1.Dimension(n)     ==
+tf.compat.v1.Dimension(m * n)
+tf.compat.v1.Dimension(m)    * tf.compat.v1.Dimension(None)  # equiv. to
+tf.compat.v1.Dimension(None)
+tf.compat.v1.Dimension(None) * tf.compat.v1.Dimension(n)     # equiv. to
+tf.compat.v1.Dimension(None)
+tf.compat.v1.Dimension(None) * tf.compat.v1.Dimension(None)  # equiv. to
+tf.compat.v1.Dimension(None)
 ```
 
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension, or a value accepted by `as_dimension`.
 
@@ -300,6 +320,7 @@ tf.Dimension(None) * tf.Dimension(None) == tf.Dimension(None)
 #### Returns:
 
 A Dimension whose value is the product of `self` and `other`.
+
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
@@ -309,6 +330,7 @@ __ne__(other)
 
 Returns true if `other` has a different known value from `self`.
 
+
 <h3 id="__radd__"><code>__radd__</code></h3>
 
 ``` python
@@ -317,7 +339,9 @@ __radd__(other)
 
 Returns the sum of `other` and `self`.
 
+
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension, or a value accepted by `as_dimension`.
 
@@ -325,6 +349,30 @@ Returns the sum of `other` and `self`.
 #### Returns:
 
 A Dimension whose value is the sum of `self` and `other`.
+
+
+<h3 id="__rdiv__"><code>__rdiv__</code></h3>
+
+``` python
+__rdiv__(other)
+```
+
+Use `__floordiv__` via `x // y` instead.
+
+This function exists only to have a better error message. Instead of:
+`TypeError: unsupported operand type(s) for /: 'int' and 'Dimension'`,
+this function will explicitly call for usage of `//` instead.
+
+#### Args:
+
+
+* <b>`other`</b>: Another `Dimension`.
+
+
+#### Raises:
+
+TypeError.
+
 
 <h3 id="__rfloordiv__"><code>__rfloordiv__</code></h3>
 
@@ -334,7 +382,9 @@ __rfloordiv__(other)
 
 Returns the quotient of `other` and `self` rounded down.
 
+
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension, or a value accepted by `as_dimension`.
 
@@ -342,6 +392,7 @@ Returns the quotient of `other` and `self` rounded down.
 #### Returns:
 
 A `Dimension` whose value is the integer quotient of `self` and `other`.
+
 
 <h3 id="__rmod__"><code>__rmod__</code></h3>
 
@@ -351,7 +402,9 @@ __rmod__(other)
 
 Returns `other` modulo `self`.
 
+
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension, or a value accepted by `as_dimension`.
 
@@ -359,6 +412,7 @@ Returns `other` modulo `self`.
 #### Returns:
 
 A Dimension whose value is `other` modulo `self`.
+
 
 <h3 id="__rmul__"><code>__rmul__</code></h3>
 
@@ -368,7 +422,9 @@ __rmul__(other)
 
 Returns the product of `self` and `other`.
 
+
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension, or a value accepted by `as_dimension`.
 
@@ -376,6 +432,7 @@ Returns the product of `self` and `other`.
 #### Returns:
 
 A Dimension whose value is the product of `self` and `other`.
+
 
 <h3 id="__rsub__"><code>__rsub__</code></h3>
 
@@ -385,7 +442,9 @@ __rsub__(other)
 
 Returns the subtraction of `self` from `other`.
 
+
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension, or a value accepted by `as_dimension`.
 
@@ -393,6 +452,30 @@ Returns the subtraction of `self` from `other`.
 #### Returns:
 
 A Dimension whose value is the subtraction of `self` from `other`.
+
+
+<h3 id="__rtruediv__"><code>__rtruediv__</code></h3>
+
+``` python
+__rtruediv__(other)
+```
+
+Use `__floordiv__` via `x // y` instead.
+
+This function exists only to have a better error message. Instead of:
+`TypeError: unsupported operand type(s) for /: 'int' and 'Dimension'`,
+this function will explicitly call for usage of `//` instead.
+
+#### Args:
+
+
+* <b>`other`</b>: Another `Dimension`.
+
+
+#### Raises:
+
+TypeError.
+
 
 <h3 id="__sub__"><code>__sub__</code></h3>
 
@@ -405,13 +488,18 @@ Returns the subtraction of `other` from `self`.
 Dimensions are subtracted as follows:
 
 ```python
-tf.Dimension(m)    - tf.Dimension(n)    == tf.Dimension(m - n)
-tf.Dimension(m)    - tf.Dimension(None) == tf.Dimension(None)
-tf.Dimension(None) - tf.Dimension(n)    == tf.Dimension(None)
-tf.Dimension(None) - tf.Dimension(None) == tf.Dimension(None)
+tf.compat.v1.Dimension(m)    - tf.compat.v1.Dimension(n)     ==
+tf.compat.v1.Dimension(m - n)
+tf.compat.v1.Dimension(m)    - tf.compat.v1.Dimension(None)  # equiv. to
+tf.compat.v1.Dimension(None)
+tf.compat.v1.Dimension(None) - tf.compat.v1.Dimension(n)     # equiv. to
+tf.compat.v1.Dimension(None)
+tf.compat.v1.Dimension(None) - tf.compat.v1.Dimension(None)  # equiv. to
+tf.compat.v1.Dimension(None)
 ```
 
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension, or a value accepted by `as_dimension`.
 
@@ -419,6 +507,30 @@ tf.Dimension(None) - tf.Dimension(None) == tf.Dimension(None)
 #### Returns:
 
 A Dimension whose value is the subtraction of `other` from `self`.
+
+
+<h3 id="__truediv__"><code>__truediv__</code></h3>
+
+``` python
+__truediv__(other)
+```
+
+Use `__floordiv__` via `x // y` instead.
+
+This function exists only to have a better error message. Instead of:
+`TypeError: unsupported operand type(s) for /: 'Dimension' and 'int'`,
+this function will explicitly call for usage of `//` instead.
+
+#### Args:
+
+
+* <b>`other`</b>: Another `Dimension`.
+
+
+#### Raises:
+
+TypeError.
+
 
 <h3 id="assert_is_compatible_with"><code>assert_is_compatible_with</code></h3>
 
@@ -428,15 +540,18 @@ assert_is_compatible_with(other)
 
 Raises an exception if `other` is not compatible with this Dimension.
 
+
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `self` and `other` are not compatible (see
-    is_compatible_with).
+  is_compatible_with).
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 
@@ -451,12 +566,14 @@ An unknown Dimension is compatible with all other Dimensions.
 
 #### Args:
 
+
 * <b>`other`</b>: Another Dimension.
 
 
 #### Returns:
 
 True if this Dimension and `other` are compatible.
+
 
 <h3 id="merge_with"><code>merge_with</code></h3>
 
@@ -469,16 +586,21 @@ Returns a Dimension that combines the information in `self` and `other`.
 Dimensions are combined as follows:
 
 ```python
-tf.Dimension(n)   .merge_with(tf.Dimension(n))    == tf.Dimension(n)
-tf.Dimension(n)   .merge_with(tf.Dimension(None)) == tf.Dimension(n)
-tf.Dimension(None).merge_with(tf.Dimension(n))    == tf.Dimension(n)
-tf.Dimension(None).merge_with(tf.Dimension(None)) == tf.Dimension(None)
+tf.compat.v1.Dimension(n)   .merge_with(tf.compat.v1.Dimension(n))     ==
+tf.compat.v1.Dimension(n)
+tf.compat.v1.Dimension(n)   .merge_with(tf.compat.v1.Dimension(None))  ==
+tf.compat.v1.Dimension(n)
+tf.compat.v1.Dimension(None).merge_with(tf.compat.v1.Dimension(n))     ==
+tf.compat.v1.Dimension(n)
+# equivalent to tf.compat.v1.Dimension(None)
+tf.compat.v1.Dimension(None).merge_with(tf.compat.v1.Dimension(None))
 
 # raises ValueError for n != m
-tf.Dimension(n)   .merge_with(tf.Dimension(m))
+tf.compat.v1.Dimension(n)   .merge_with(tf.compat.v1.Dimension(m))
 ```
 
 #### Args:
+
 
 * <b>`other`</b>: Another Dimension.
 
@@ -489,10 +611,12 @@ A Dimension containing the combined information of `self` and
 `other`.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `self` and `other` are not compatible (see
-    is_compatible_with).
+  is_compatible_with).
 
 
 

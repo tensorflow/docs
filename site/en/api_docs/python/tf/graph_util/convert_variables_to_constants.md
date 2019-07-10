@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.graph_util.convert_variables_to_constants
 
+Replaces all the variables in a graph with constants of the same values. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.graph_util.convert_variables_to_constants`
+* `tf.graph_util.convert_variables_to_constants`
+
 ``` python
 tf.graph_util.convert_variables_to_constants(
     sess,
@@ -17,13 +24,13 @@ tf.graph_util.convert_variables_to_constants(
 
 
 
-Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/graph_util_impl.py).
+Defined in [`python/framework/graph_util_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/graph_util_impl.py).
 
-Replaces all the variables in a graph with constants of the same values. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use tf.compat.v1.graph_util.convert_variables_to_constants
+Use <a href="../../tf/graph_util/convert_variables_to_constants"><code>tf.compat.v1.graph_util.convert_variables_to_constants</code></a>
 
 If you have a trained graph containing Variable ops, it can be convenient to
 convert them all to Const ops holding the same values. This makes it possible
@@ -32,13 +39,14 @@ removal of a lot of ops related to loading and saving the variables.
 
 #### Args:
 
+
 * <b>`sess`</b>: Active TensorFlow session containing the variables.
 * <b>`input_graph_def`</b>: GraphDef object holding the network.
 * <b>`output_node_names`</b>: List of name strings for the result nodes of the graph.
 * <b>`variable_names_whitelist`</b>: The set of variable names to convert (by default,
-                            all variables are converted).
+                          all variables are converted).
 * <b>`variable_names_blacklist`</b>: The set of variable names to omit converting
-                            to constants.
+                          to constants.
 
 
 #### Returns:

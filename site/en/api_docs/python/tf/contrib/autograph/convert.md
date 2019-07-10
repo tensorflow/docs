@@ -5,19 +5,20 @@ page_type: reference
 
 # tf.contrib.autograph.convert
 
+Decorator that compiles a function to use TensorFlow ops.
+
 ``` python
 tf.contrib.autograph.convert(
     recursive=False,
-    verbose=converter.Verbosity.BRIEF,
-    optional_features=tf.autograph.experimental.Feature.ALL
+    optional_features=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/autograph/impl/api.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/autograph/impl/api.py).
+Defined in [`python/autograph/impl/api.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/autograph/impl/api.py).
 
-Decorator that compiles a function to use TensorFlow ops.
+<!-- Placeholder for "Used in" -->
 
 The decorator is dynamic - it recompiles the target whenever the decorated
 function is called. This means the parameter values are known at conversion.
@@ -26,12 +27,12 @@ correctly processed.
 
 #### Args:
 
+
 * <b>`recursive`</b>: bool, whether to recursively convert any functions or classes
-    that the converted function may use.
-* <b>`verbose`</b>: converter.Verbosity, the level of verbosity.
+  that the converted function may use.
 * <b>`optional_features`</b>: converted.Feature, allows toggling optional or
-    experimental features. When set to None, only the core features are
-    enabled.
+  experimental features. When set to None, only the core features are
+  enabled.
 
 
 #### Returns:

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.xavier_initializer
 
+Returns an initializer performing "Xavier" initialization for weights.
+
 ### Aliases:
 
 * `tf.contrib.layers.xavier_initializer`
@@ -20,9 +22,9 @@ tf.contrib.layers.xavier_initializer(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/initializers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/initializers.py).
+Defined in [`contrib/layers/python/layers/initializers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/initializers.py).
 
-Returns an initializer performing "Xavier" initialization for weights.
+<!-- Placeholder for "Used in" -->
 
 This function implements the weight initialization from:
 
@@ -39,9 +41,10 @@ deviation of `sqrt(2. / (in + out))` is used.
 
 #### Args:
 
+
 * <b>`uniform`</b>: Whether to use uniform or normal distributed random initialization.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-        <a href="../../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
+      <a href="../../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
 * <b>`dtype`</b>: The data type. Only floating point types are supported.
 
 

@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.io.parse_example
 
+Parses `Example` protos into a `dict` of tensors.
+
 ### Aliases:
 
+* `tf.compat.v1.io.parse_example`
+* `tf.compat.v1.parse_example`
 * `tf.io.parse_example`
 * `tf.parse_example`
 
@@ -21,11 +25,11 @@ tf.io.parse_example(
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/parsing_ops.py).
+Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
-Parses `Example` protos into a `dict` of tensors.
+<!-- Placeholder for "Used in" -->
 
-Parses a number of serialized [`Example`](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/example/example.proto)
+Parses a number of serialized [`Example`](https://www.tensorflow.org/code/tensorflow/core/example/example.proto)
 protos given in `serialized`. We refer to `serialized` as a batch with
 `batch_size` many entries of individual `Example` protos.
 
@@ -51,28 +55,30 @@ Its `values` come from the feature in the examples with key `value_key`.
 A `values[i]` comes from a position `k` in the feature of an example at batch
 entry `batch`. This positional information is recorded in `indices[i]` as
 `[batch, index_0, index_1, ...]` where `index_j` is the `k-th` value of
-the feature in the example at with key `SparseFeature.index_key[j]`.
+the feature in the example at with key <a href="../../tf/io/SparseFeature#index_key"><code>SparseFeature.index_key[j]</code></a>.
 In other words, we split the indices (except the first index indicating the
 batch entry) of a `SparseTensor` by dimension into different features of the
 `Example`. Due to its complexity a `VarLenFeature` should be preferred over a
 `SparseFeature` whenever possible.
 
 Each `FixedLenFeature` `df` maps to a `Tensor` of the specified type (or
-<a href="../../tf/dtypes#float32"><code>tf.float32</code></a> if not specified) and shape `(serialized.size(),) + df.shape`.
+<a href="../../tf#float32"><code>tf.float32</code></a> if not specified) and shape `(serialized.size(),) + df.shape`.
 
 `FixedLenFeature` entries with a `default_value` are optional. With no default
 value, we will fail if that `Feature` is missing from any example in
 `serialized`.
 
 Each `FixedLenSequenceFeature` `df` maps to a `Tensor` of the specified type
-(or <a href="../../tf/dtypes#float32"><code>tf.float32</code></a> if not specified) and shape
+(or <a href="../../tf#float32"><code>tf.float32</code></a> if not specified) and shape
 `(serialized.size(), None) + df.shape`.
 All examples in `serialized` will be padded with `default_value` along the
 second dimension.
 
-Examples:
+#### Examples:
 
-For example, if one expects a <a href="../../tf/dtypes#float32"><code>tf.float32</code></a> `VarLenFeature` `ft` and three
+
+
+For example, if one expects a <a href="../../tf#float32"><code>tf.float32</code></a> `VarLenFeature` `ft` and three
 serialized `Example`s are provided:
 
 ```
@@ -162,7 +168,9 @@ For dense results in two serialized `Example`s:
 ]
 ```
 
-We can use arguments:
+#### We can use arguments:
+
+
 
 ```
 example_names: ["input0", "input1"],
@@ -221,13 +229,14 @@ Then the output is a dictionary:
 
 #### Args:
 
+
 * <b>`serialized`</b>: A vector (1-D Tensor) of strings, a batch of binary
-    serialized `Example` protos.
+  serialized `Example` protos.
 * <b>`features`</b>: A `dict` mapping feature keys to `FixedLenFeature`,
-    `VarLenFeature`, and `SparseFeature` values.
+  `VarLenFeature`, and `SparseFeature` values.
 * <b>`name`</b>: A name for this operation (optional).
 * <b>`example_names`</b>: A vector (1-D Tensor) of strings (optional), the names of
-    the serialized protos in the batch.
+  the serialized protos in the batch.
 
 
 #### Returns:
@@ -235,6 +244,8 @@ Then the output is a dictionary:
 A `dict` mapping feature keys to `Tensor` and `SparseTensor` values.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if any feature is invalid.

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.nn.compute_accidental_hits
 
+Compute the position ids in `sampled_candidates` matching `true_classes`.
+
+### Aliases:
+
+* `tf.compat.v1.nn.compute_accidental_hits`
+* `tf.compat.v2.nn.compute_accidental_hits`
+* `tf.nn.compute_accidental_hits`
+
 ``` python
 tf.nn.compute_accidental_hits(
     true_classes,
@@ -17,9 +25,9 @@ tf.nn.compute_accidental_hits(
 
 
 
-Defined in [`tensorflow/python/ops/candidate_sampling_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/candidate_sampling_ops.py).
+Defined in [`python/ops/candidate_sampling_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/candidate_sampling_ops.py).
 
-Compute the position ids in `sampled_candidates` matching `true_classes`.
+<!-- Placeholder for "Used in" -->
 
 In Candidate Sampling, this operation facilitates virtually removing
 sampled classes which happen to match target classes.  This is done
@@ -43,10 +51,11 @@ target classes as noise classes for the same example.
 
 #### Args:
 
+
 * <b>`true_classes`</b>: A `Tensor` of type `int64` and shape `[batch_size,
-    num_true]`. The target classes.
+  num_true]`. The target classes.
 * <b>`sampled_candidates`</b>: A tensor of type `int64` and shape `[num_sampled]`.
-    The sampled_candidates output of CandidateSampler.
+  The sampled_candidates output of CandidateSampler.
 * <b>`num_true`</b>: An `int`.  The number of target classes per training example.
 * <b>`seed`</b>: An `int`. An operation-specific seed. Default is 0.
 * <b>`name`</b>: A name for the operation (optional).
@@ -54,9 +63,10 @@ target classes as noise classes for the same example.
 
 #### Returns:
 
+
 * <b>`indices`</b>: A `Tensor` of type `int32` and shape `[num_accidental_hits]`.
-    Values indicate rows in `true_classes`.
+  Values indicate rows in `true_classes`.
 * <b>`ids`</b>: A `Tensor` of type `int64` and shape `[num_accidental_hits]`.
-    Values indicate positions in `sampled_candidates`.
+  Values indicate positions in `sampled_candidates`.
 * <b>`weights`</b>: A `Tensor` of type `float` and shape `[num_accidental_hits]`.
-    Each value is `-FLOAT_MAX`.
+  Each value is `-FLOAT_MAX`.

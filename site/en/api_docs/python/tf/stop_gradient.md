@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.stop_gradient
 
+Stops gradient computation.
+
+### Aliases:
+
+* `tf.compat.v1.stop_gradient`
+* `tf.compat.v2.stop_gradient`
+* `tf.stop_gradient`
+
 ``` python
 tf.stop_gradient(
     input,
@@ -14,9 +22,9 @@ tf.stop_gradient(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Stops gradient computation.
+<!-- Placeholder for "Used in" -->
 
 When executed in a graph, this op outputs its input tensor as-is.
 
@@ -39,6 +47,7 @@ to pretend that the value was a constant. Some examples include:
    example generation process.
 
 #### Args:
+
 
 * <b>`input`</b>: A `Tensor`.
 * <b>`name`</b>: A name for the operation (optional).

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.copy_graph.get_copied_op
 
+Given an `Operation` instance from some `Graph`, returns
+
 ``` python
 tf.contrib.copy_graph.get_copied_op(
     org_instance,
@@ -15,9 +17,9 @@ tf.contrib.copy_graph.get_copied_op(
 
 
 
-Defined in [`tensorflow/contrib/copy_graph/python/util/copy_elements.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
+Defined in [`contrib/copy_graph/python/util/copy_elements.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
 
-Given an `Operation` instance from some `Graph`, returns
+<!-- Placeholder for "Used in" -->
 its namesake from `graph`, under the specified scope
 (default `""`).
 
@@ -25,6 +27,7 @@ If a copy of `org_instance` is present in `graph` under the given
 `scope`, it will be returned.
 
 #### Args:
+
 
 * <b>`org_instance`</b>: An `Operation` from some `Graph`.
 * <b>`graph`</b>: The `Graph` to be searched for a copr of `org_instance`.

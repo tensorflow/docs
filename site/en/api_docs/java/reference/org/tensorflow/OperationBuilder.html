@@ -47,8 +47,8 @@
 <html devsite>
   <head>
     <title>OperationBuilder</title>
-    <meta name="book_path" value="/versions/r1.13/api_docs/_book.yaml" />
-    <meta name="project_path" value="/versions/r1.13/api_docs/_project.yaml" />
+    <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+    <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
 
@@ -57,13 +57,6 @@
     <div id="api-info-block">
 
     
-    
-      
-       
-      
-      
-      
-      
     
 
     <div class="api-level">
@@ -80,7 +73,7 @@
 
     
     <div id="jd-header">
-      public  final   class
+      public     interface
       <b>OperationBuilder</b>
     </div><!-- end jd-header -->
     
@@ -94,20 +87,45 @@
     
 
     
+    <table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="3" style="border:none;margin:0;padding:0;font-size:85%;">
+    Known Indirect Subclasses
+    
+  <div id="subclasses-indirect">
+      <div id="subclasses-indirect-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+              <a href="/api_docs/java/reference/org/tensorflow/GraphOperationBuilder.html">GraphOperationBuilder</a>
+            
+          
+      </div>
+      <div id="subclasses-indirect-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/GraphOperationBuilder.html">GraphOperationBuilder</a></td>
+              <td class="jd-descrcol" width="100%">An <code><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a></code> for adding <code><a href="/api_docs/java/reference/org/tensorflow/GraphOperation.html">GraphOperation</a></code>s to a <code><a href="/api_docs/java/reference/org/tensorflow/Graph.html">Graph</a></code>.&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+    </td></tr></table>
+    
 
     <div class="jd-descr">
     
     
-    <p>A builder for <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>s in a <code><a href="/api_docs/java/reference/org/tensorflow/Graph.html">Graph</a></code>.
+    <p>A builder for <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>s.
 
- <p>Instances of an OperationBuilder are <b>not</b> thread-safe.
+ <p>For example, the following uses the builder to create an operation that produces the constant
+ "3" as its output:
 
- <p>A builder for adding <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>s to a <code><a href="/api_docs/java/reference/org/tensorflow/Graph.html">Graph</a></code>. For example, the following uses
- the builder to create an operation that produces the constant "3" as its output:
-
- <pre class="prettyprint"><code>// g is a Graph instance.
+ <pre class="prettyprint"><code>// env is an ExecutionEnvironment, such as a Graph instance.
  try (Tensor c1 = Tensor.create(3.0f)) {
-   g.opBuilder("Const", "MyConst")
+   env.opBuilder("Const", "MyConst")
        .setAttr("dtype", c1.dataType())
        .setAttr("value", c1)
        .build();
@@ -176,7 +194,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -197,7 +215,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -208,7 +226,7 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#addInput(org.tensorflow.Output<?>)">addInput</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;?&gt; input)
                 
-                  <div class="jd-descrdiv">Returns the builder to create an operation.</div>
+                  <div class="jd-descrdiv">Add the output of another operation as the next input of the operation being built.</div>
                 
               </div>
           </td>
@@ -218,7 +236,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -229,6 +247,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#addInputList(org.tensorflow.Output<?>[])">addInputList</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; inputs)
                 
+                  <div class="jd-descrdiv">Add the outputs of another operation as the next inputs of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -237,7 +257,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -248,7 +268,7 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#build()">build</a></span>()
                 
-                  <div class="jd-descrdiv">Add the <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code> being built to the <code><a href="/api_docs/java/reference/org/tensorflow/Graph.html">Graph</a></code>.</div>
+                  <div class="jd-descrdiv">Build the <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>.</div>
                 
               </div>
           </td>
@@ -258,7 +278,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -269,6 +289,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, org.tensorflow.Tensor<?>)">setAttr</a></span>(String name, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; value)
                 
+                  <div class="jd-descrdiv">Set the tensor value of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -277,7 +299,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -288,6 +310,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, org.tensorflow.Tensor<?>[])">setAttr</a></span>(String name, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor[]</a>&lt;?&gt; value)
                 
+                  <div class="jd-descrdiv">Set the tensor values of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -296,7 +320,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -307,6 +331,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, java.lang.String[])">setAttr</a></span>(String name, String[] value)
                 
+                  <div class="jd-descrdiv">Set the string values of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -315,7 +341,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -326,6 +352,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, boolean[])">setAttr</a></span>(String name, boolean[] value)
                 
+                  <div class="jd-descrdiv">Set the boolean values of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -334,7 +362,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -345,6 +373,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, org.tensorflow.DataType[])">setAttr</a></span>(String name, <a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType[]</a> value)
                 
+                  <div class="jd-descrdiv">Set the type values of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -353,7 +383,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -364,6 +394,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, java.lang.String)">setAttr</a></span>(String name, String value)
                 
+                  <div class="jd-descrdiv">Set the string value of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -372,7 +404,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -383,6 +415,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, float[])">setAttr</a></span>(String name, float[] value)
                 
+                  <div class="jd-descrdiv">Set the float values of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -391,7 +425,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -402,6 +436,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, long)">setAttr</a></span>(String name, long value)
                 
+                  <div class="jd-descrdiv">Set the long value of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -410,7 +446,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -421,6 +457,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, long[])">setAttr</a></span>(String name, long[] value)
                 
+                  <div class="jd-descrdiv">Set the long values of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -429,7 +467,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -440,6 +478,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, boolean)">setAttr</a></span>(String name, boolean value)
                 
+                  <div class="jd-descrdiv">Set the boolean value of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -448,7 +488,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -459,6 +499,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, org.tensorflow.Shape[])">setAttr</a></span>(String name, <a href="/api_docs/java/reference/org/tensorflow/Shape.html">Shape[]</a> value)
                 
+                  <div class="jd-descrdiv">Set the shape values of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -467,7 +509,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -478,6 +520,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, float)">setAttr</a></span>(String name, float value)
                 
+                  <div class="jd-descrdiv">Set the float value of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -486,7 +530,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -497,6 +541,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, org.tensorflow.DataType)">setAttr</a></span>(String name, <a href="/api_docs/java/reference/org/tensorflow/DataType.html">DataType</a> value)
                 
+                  <div class="jd-descrdiv">Set the type value of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -505,7 +551,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -516,6 +562,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, byte[])">setAttr</a></span>(String name, byte[] value)
                 
+                  <div class="jd-descrdiv">Set the byte values of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -524,7 +572,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -535,6 +583,8 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setAttr(java.lang.String, org.tensorflow.Shape)">setAttr</a></span>(String name, <a href="/api_docs/java/reference/org/tensorflow/Shape.html">Shape</a> value)
                 
+                  <div class="jd-descrdiv">Set the shape value of an attribute of the operation being built.</div>
+                
               </div>
           </td>
         </tr>
@@ -543,7 +593,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -553,6 +603,8 @@
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html#setDevice(java.lang.String)">setDevice</a></span>(String device)
+                
+                  <div class="jd-descrdiv">Set the device requested for computing the operation being built.</div>
                 
               </div>
           </td>
@@ -567,206 +619,6 @@
     
 
     
-    
-    
-    <!-- =========== METHOD SUMMARY ============ -->
-    <section id="inhmethods">
-      <h3>Inherited Methods</h3>
-      
-        
-        <div class="expandable">
-          <span class="showalways">
-            From class
-            java.lang.Object
-          </span>
-          <div id="inherited-methods-java.lang.Object">
-            <div id="inherited-methods-java.lang.Object-list"
-                  class="jd-inheritedLinks">
-            </div>
-            <div id="inherited-methods-java.lang.Object-summary">
-              <table class="jd-sumtable-expando">
-              
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                
-                
-                
-                boolean
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">equals</span>(Object arg0)
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                Class&lt;?&gt;
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">getClass</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                
-                
-                
-                int
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">hashCode</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                void
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">notify</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                void
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">notifyAll</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                
-                
-                
-                String
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">toString</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                void
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">wait</span>(long arg0, int arg1)
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                void
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">wait</span>(long arg0)
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                void
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">wait</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-    
-              </table>
-            </div>
-          </div>
-        </div>
-        
-      
-      </section>
     
 
     </section><!--xml-attributes-->
@@ -820,7 +672,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -870,7 +722,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -885,16 +737,13 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the builder to create an operation.
-
- <p>Inputs to TensorFlow operations are outputs of another TensorFlow operation. This method is
- used to add a input to a <code><a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a></code>.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Add the output of another operation as the next input of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>input</th>
-          <td><code><a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a></code> supposed to be the input of the OperationBuilder.</td>
+          <td><code><a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a></code> supposed to be the input of the operation being built.</td>
         </tr>
       </table>
   </div>
@@ -916,7 +765,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -931,15 +780,20 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Add the outputs of another operation as the next inputs of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>inputs</th>
-          <td><!-- no parameter comment --></td>
+          <td>list of <code><a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a></code> supposed to be the inputs of the operation being built.</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -954,7 +808,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a>
           </span>
@@ -969,7 +823,15 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p>Add the <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code> being built to the <code><a href="/api_docs/java/reference/org/tensorflow/Graph.html">Graph</a></code>.
+  <div class="jd-tagdata jd-tagdescr"><p>Build the <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>.
+
+ <p>The following action will also be performed depending on the current execution environment.
+
+ <ul>
+   <li>In eager mode, the result of the operation will be computed immediately.
+   <li>In graph mode, the operation will be added as a node to the graph to be executed later,
+       when running a <code><a href="/api_docs/java/reference/org/tensorflow/Session.html">Session</a></code>.
+ </ul>
 
  <p>The OperationBuilder is not usable after build() returns.
 </p></div>
@@ -986,7 +848,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1001,19 +863,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the tensor value of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute value</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1028,7 +895,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1043,19 +910,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the tensor values of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute values</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1070,7 +942,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1085,19 +957,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the string values of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute values</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1112,7 +989,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1127,19 +1004,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the boolean values of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute values</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1154,7 +1036,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1169,19 +1051,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the type values of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute values</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1196,7 +1083,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1211,19 +1098,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the string value of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute value</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1238,7 +1130,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1253,19 +1145,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the float values of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute values</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1280,7 +1177,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1295,19 +1192,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the long value of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute value</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1322,7 +1224,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1337,19 +1239,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the long values of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute values</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1364,7 +1271,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1379,19 +1286,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the boolean value of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute value</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1406,7 +1318,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1421,19 +1333,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the shape values of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute values</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1448,7 +1365,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1463,19 +1380,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the float value of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute value</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1490,7 +1412,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1505,19 +1427,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the type value of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute value</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1532,7 +1459,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1547,19 +1474,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the byte values of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute values</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1574,7 +1506,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1589,19 +1521,24 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the shape value of an attribute of the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>name</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute name</td>
         </tr>
         <tr>
           <th>value</th>
-          <td><!-- no parameter comment --></td>
+          <td>attribute value</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>
@@ -1616,7 +1553,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
           </span>
@@ -1631,15 +1568,20 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set the device requested for computing the operation being built.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>device</th>
-          <td><!-- no parameter comment --></td>
+          <td>the requested device, as a string</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the OperationBuilder instance for chaining.
+</li></ul>
   </div>
 
         </div>

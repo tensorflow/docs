@@ -7,13 +7,16 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
 
-Public API for tf.io.gfile namespace.
+## Classes
+
+[`class GFile`](../../tf/io/gfile/GFile): File I/O wrappers without thread locking.
 
 ## Functions
 
-[`copy(...)`](../../tf/io/gfile/copy): Copies data from src to dst.
+[`copy(...)`](../../tf/io/gfile/copy): Copies data from `src` to `dst`.
 
 [`exists(...)`](../../tf/io/gfile/exists): Determines whether a path exists or not.
 

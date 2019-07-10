@@ -5,17 +5,27 @@ page_type: reference
 
 # tf.io.gfile.stat
 
+Returns file statistics for a given path.
+
+### Aliases:
+
+* `tf.compat.v1.io.gfile.stat`
+* `tf.compat.v2.io.gfile.stat`
+* `tf.io.gfile.stat`
+
 ``` python
 tf.io.gfile.stat(path)
 ```
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/lib/io/file_io.py).
+Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
-Returns file statistics for a given path.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`path`</b>: string, path to a file
 
@@ -25,6 +35,8 @@ Returns file statistics for a given path.
 FileStatistics struct that contains information about the path
 
 
+
 #### Raises:
+
 
 * <b>`errors.OpError`</b>: If the operation fails.

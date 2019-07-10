@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.update_add
 
+Update the value of `x` by adding `increment`.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.update_add`
+* `tf.compat.v2.keras.backend.update_add`
+* `tf.keras.backend.update_add`
+
 ``` python
 tf.keras.backend.update_add(
     x,
@@ -14,11 +22,13 @@ tf.keras.backend.update_add(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Update the value of `x` by adding `increment`.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: A Variable.
 * <b>`increment`</b>: A tensor of same shape as `x`.

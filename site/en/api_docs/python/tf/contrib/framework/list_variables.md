@@ -5,17 +5,21 @@ page_type: reference
 
 # tf.contrib.framework.list_variables
 
+Returns list of all variables in the latest checkpoint.
+
 ``` python
 tf.contrib.framework.list_variables(checkpoint_dir)
 ```
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
+Defined in [`contrib/framework/python/framework/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
 
-Returns list of all variables in the latest checkpoint.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`checkpoint_dir`</b>: Directory with checkpoints file or path to checkpoint.
 

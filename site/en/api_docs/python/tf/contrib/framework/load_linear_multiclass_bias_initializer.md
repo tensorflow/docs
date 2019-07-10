@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.load_linear_multiclass_bias_initializer
 
+Loads pre-trained multi-class biases for linear models from checkpoint.
+
 ``` python
 tf.contrib.framework.load_linear_multiclass_bias_initializer(
     ckpt_path,
@@ -20,9 +22,9 @@ tf.contrib.framework.load_linear_multiclass_bias_initializer(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/checkpoint_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
+Defined in [`contrib/framework/python/ops/checkpoint_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
 
-Loads pre-trained multi-class biases for linear models from checkpoint.
+<!-- Placeholder for "Used in" -->
 
 Wrapper around `load_and_remap_matrix_initializer()` specialized for loading
 multi-class bias and remapping according to the provided vocab files. See docs
@@ -32,23 +34,24 @@ provided row_vocab is the class vocabulary, and the expected shape is
 
 #### Args:
 
+
 * <b>`ckpt_path`</b>: Path to the TensorFlow checkpoint (version 2, `TensorBundle`)
-    from which the old matrix `Tensor` will be loaded.
+  from which the old matrix `Tensor` will be loaded.
 * <b>`bias_tensor_name`</b>: Tensor name to load from in the checkpoints.
 * <b>`new_class_vocab_size`</b>: Number of entries in the new class vocab.
 * <b>`old_class_vocab_file`</b>: A scalar `Tensor` of type `string` containing the
-    path to the old class vocabulary file.
+  path to the old class vocabulary file.
 * <b>`new_class_vocab_file`</b>: A scalar `Tensor` of type `string` containing the
-    path to the new class vocabulary file.
+  path to the new class vocabulary file.
 * <b>`num_class_oov_buckets`</b>: `int` specifying the number of out-of-vocabulary
-    buckets to use for the classes. Must be >= 0.
+  buckets to use for the classes. Must be >= 0.
 * <b>`initializer`</b>: Initializer function that accepts a 1-D tensor as the arg to
-    specify the shape of the returned tensor. If `None`, defaults to using
-    `zeros_initializer()`.
+  specify the shape of the returned tensor. If `None`, defaults to using
+  `zeros_initializer()`.
 * <b>`max_rows_in_memory`</b>: `int` specifying the maximum number of rows to load from
-    the checkpoint at once. If less than or equal to 0, the entire matrix will
-    be loaded into memory. Setting this arg trades increased disk reads for
-    lower memory usage.
+  the checkpoint at once. If less than or equal to 0, the entire matrix will
+  be loaded into memory. Setting this arg trades increased disk reads for
+  lower memory usage.
 
 
 #### Returns:

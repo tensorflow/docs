@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `WorkerSessionCreator`
 
+Creates a tf.compat.v1.Session for a worker.
+
 Inherits From: [`SessionCreator`](../../tf/train/SessionCreator)
 
+### Aliases:
+
+* Class `tf.compat.v1.train.WorkerSessionCreator`
+* Class `tf.train.WorkerSessionCreator`
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/monitored_session.py).
 
-Creates a tf.Session for a worker.
+Defined in [`python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/monitored_session.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -28,10 +36,12 @@ __init__(
 
 Initializes a worker session creator.
 
+
 #### Args:
 
+
 * <b>`scaffold`</b>: A `Scaffold` used for gathering or building supportive ops. If
-    not specified a default one is created. It's used to finalize the graph.
+  not specified a default one is created. It's used to finalize the graph.
 * <b>`master`</b>: `String` representation of the TensorFlow master to use.
 * <b>`config`</b>: `ConfigProto` proto used to configure the session.
 * <b>`max_wait_secs`</b>: Maximum time to wait for the session to become available.
@@ -45,6 +55,7 @@ Initializes a worker session creator.
 ``` python
 create_session()
 ```
+
 
 
 

@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `RecordInput`
 
-
-
-
-
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/data_flow_ops.py).
-
 RecordInput asynchronously reads and randomly yields TFRecords.
+
+
+
+
+
+Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 A RecordInput Op will continuously read a batch of records asynchronously
 into a buffer of some fixed capacity. It can also asynchronously yield
@@ -43,27 +45,30 @@ __init__(
 
 Constructs a RecordInput Op.
 
+
 #### Args:
 
+
 * <b>`file_pattern`</b>: File path to the dataset, possibly containing wildcards.
-    All matching files will be iterated over each epoch.
+  All matching files will be iterated over each epoch.
 * <b>`batch_size`</b>: How many records to return at a time.
 * <b>`buffer_size`</b>: The maximum number of records the buffer will contain.
 * <b>`parallelism`</b>: How many reader threads to use for reading from files.
 * <b>`shift_ratio`</b>: What percentage of the total number files to move the start
-    file forward by each epoch.
+  file forward by each epoch.
 * <b>`seed`</b>: Specify the random number seed used by generator that randomizes
-    records.
+  records.
 * <b>`name`</b>: Optional name for the operation.
 * <b>`batches`</b>: None by default, creating a single batch op. Otherwise specifies
-    how many batches to create, which are returned as a list when
-    `get_yield_op()` is called. An example use case is to split processing
-    between devices on one computer.
+  how many batches to create, which are returned as a list when
+  `get_yield_op()` is called. An example use case is to split processing
+  between devices on one computer.
 * <b>`compression_type`</b>: The type of compression for the file. Currently ZLIB and
-    GZIP are supported. Defaults to none.
+  GZIP are supported. Defaults to none.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If one of the arguments is invalid.
 

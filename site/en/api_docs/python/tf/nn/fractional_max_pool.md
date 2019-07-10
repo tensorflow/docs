@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.fractional_max_pool
 
+Performs fractional max pooling on the input. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.nn.fractional_max_pool`
+* `tf.nn.fractional_max_pool`
+
 ``` python
 tf.nn.fractional_max_pool(
     value,
@@ -20,9 +27,9 @@ tf.nn.fractional_max_pool(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Performs fractional max pooling on the input. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -61,39 +68,41 @@ Fractional Max-Pooling](http://arxiv.org/abs/1412.6071)
 
 #### Args:
 
+
 * <b>`value`</b>: A `Tensor`. 4-D with shape `[batch, height, width, channels]`.
 * <b>`pooling_ratio`</b>: A list of `floats` that has length >= 4.  Pooling ratio for
-    each dimension of `value`, currently only supports row and col dimension
-    and should be >= 1.0. For example, a valid pooling ratio looks like [1.0,
-    1.44, 1.73, 1.0]. The first and last elements must be 1.0 because we don't
-    allow pooling on batch and channels dimensions.  1.44 and 1.73 are pooling
-    ratio on height and width dimensions respectively.
+  each dimension of `value`, currently only supports row and col dimension
+  and should be >= 1.0. For example, a valid pooling ratio looks like [1.0,
+  1.44, 1.73, 1.0]. The first and last elements must be 1.0 because we don't
+  allow pooling on batch and channels dimensions.  1.44 and 1.73 are pooling
+  ratio on height and width dimensions respectively.
 * <b>`pseudo_random`</b>: An optional `bool`.  Defaults to `False`. When set to `True`,
-    generates the pooling sequence in a pseudorandom fashion, otherwise, in a
-    random fashion. Check paper [Benjamin Graham, Fractional
-    Max-Pooling](http://arxiv.org/abs/1412.6071) for difference between
-    pseudorandom and random.
+  generates the pooling sequence in a pseudorandom fashion, otherwise, in a
+  random fashion. Check paper [Benjamin Graham, Fractional
+  Max-Pooling](http://arxiv.org/abs/1412.6071) for difference between
+  pseudorandom and random.
 * <b>`overlapping`</b>: An optional `bool`.  Defaults to `False`.  When set to `True`,
-    it means when pooling, the values at the boundary of adjacent pooling
-    cells are used by both cells. For example:
-    `index  0  1  2  3  4`
-    `value  20 5  16 3  7`
-    If the pooling sequence is [0, 2, 4], then 16, at index 2 will be used
-    twice.  The result would be [20, 16] for fractional max pooling.
+  it means when pooling, the values at the boundary of adjacent pooling
+  cells are used by both cells. For example:
+  `index  0  1  2  3  4`
+  `value  20 5  16 3  7`
+  If the pooling sequence is [0, 2, 4], then 16, at index 2 will be used
+  twice.  The result would be [20, 16] for fractional max pooling.
 * <b>`deterministic`</b>: An optional `bool`.  Deprecated; use `fractional_max_pool_v2`
-    instead.
+  instead.
 * <b>`seed`</b>: An optional `int`.  Defaults to `0`.  If set to be non-zero, the
-    random number generator is seeded by the given seed.  Otherwise it is
-    seeded by a random seed.
+  random number generator is seeded by the given seed.  Otherwise it is
+  seeded by a random seed.
 * <b>`seed2`</b>: An optional `int`.  Deprecated; use `fractional_max_pool_v2` instead.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
+
 A tuple of `Tensor` objects (`output`, `row_pooling_sequence`,
 `col_pooling_sequence`).
-* <b>`output`</b>: Output `Tensor` after fractional max pooling.  Has the same type as
+  output: Output `Tensor` after fractional max pooling.  Has the same type as
     `value`.
-* <b>`row_pooling_sequence`</b>: A `Tensor` of type `int64`.
-* <b>`col_pooling_sequence`</b>: A `Tensor` of type `int64`.
+  row_pooling_sequence: A `Tensor` of type `int64`.
+  col_pooling_sequence: A `Tensor` of type `int64`.

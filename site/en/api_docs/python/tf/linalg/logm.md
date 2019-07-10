@@ -6,6 +6,14 @@ page_type: reference
 
 # tf.linalg.logm
 
+Computes the matrix logarithm of one or more square matrices:
+
+### Aliases:
+
+* `tf.compat.v1.linalg.logm`
+* `tf.compat.v2.linalg.logm`
+* `tf.linalg.logm`
+
 ``` python
 tf.linalg.logm(
     input,
@@ -15,9 +23,9 @@ tf.linalg.logm(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_linalg_ops.py`.
+Defined in generated file: `python/ops/gen_linalg_ops.py`.
 
-Computes the matrix logarithm of one or more square matrices:
+<!-- Placeholder for "Used in" -->
 
 
 \\(log(exp(A)) = A\\)
@@ -37,8 +45,9 @@ containing the exponential for all input submatrices `[..., :, :]`.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. Must be one of the following types: `complex64`, `complex128`.
-    Shape is `[..., M, M]`.
+  Shape is `[..., M, M]`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

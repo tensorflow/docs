@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.learn.run_n
 
+Run `output_dict` tensors `n` times, with the same `feed_dict` each run. (deprecated)
+
 ``` python
 tf.contrib.learn.run_n(
     output_dict,
@@ -16,9 +18,9 @@ tf.contrib.learn.run_n(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/graph_actions.py).
+Defined in [`contrib/learn/python/learn/graph_actions.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/graph_actions.py).
 
-Run `output_dict` tensors `n` times, with the same `feed_dict` each run. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2017-02-15.
 Instructions for updating:
@@ -26,11 +28,12 @@ graph_actions.py will be deleted. Use tf.train.* utilities instead. You can use 
 
 #### Args:
 
+
 * <b>`output_dict`</b>: A `dict` mapping string names to tensors to run. Must all be
-    from the same graph.
+  from the same graph.
 * <b>`feed_dict`</b>: `dict` of input values to feed each run.
 * <b>`restore_checkpoint_path`</b>: A string containing the path to a checkpoint to
-    restore.
+  restore.
 * <b>`n`</b>: Number of times to repeat.
 
 

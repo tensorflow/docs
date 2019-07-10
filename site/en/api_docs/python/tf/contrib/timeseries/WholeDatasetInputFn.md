@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `WholeDatasetInputFn`
 
-
-
-
-
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
-
 Supports passing a full time series to a model for evaluation/inference.
+
+
+
+
+
+Defined in [`contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+
+<!-- Placeholder for "Used in" -->
 
 Note that this `TimeSeriesInputFn` is not designed for high throughput, and
 should not be used for training. It allows for sequential evaluation on a full
@@ -31,7 +33,9 @@ __init__(time_series_reader)
 
 Initialize the `TimeSeriesInputFn`.
 
+
 #### Args:
+
 
 * <b>`time_series_reader`</b>: A TimeSeriesReader object.
 
@@ -45,7 +49,8 @@ Initialize the `TimeSeriesInputFn`.
 __call__()
 ```
 
-Call self as a function.
+
+
 
 <h3 id="create_batch"><code>create_batch</code></h3>
 
@@ -55,10 +60,12 @@ create_batch()
 
 A suitable `input_fn` for an `Estimator`'s `evaluate()`.
 
+
 #### Returns:
 
 A dictionary mapping feature names to `Tensors`, each shape
 prefixed by [1, data set size] (i.e. a batch size of 1).
+
 
 
 

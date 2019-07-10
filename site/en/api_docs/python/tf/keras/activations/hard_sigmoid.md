@@ -5,19 +5,28 @@ page_type: reference
 
 # tf.keras.activations.hard_sigmoid
 
+Hard sigmoid activation function.
+
+### Aliases:
+
+* `tf.compat.v1.keras.activations.hard_sigmoid`
+* `tf.compat.v2.keras.activations.hard_sigmoid`
+* `tf.keras.activations.hard_sigmoid`
+
 ``` python
 tf.keras.activations.hard_sigmoid(x)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/activations.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/activations.py).
+Defined in [`python/keras/activations.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/activations.py).
 
-Hard sigmoid activation function.
+<!-- Placeholder for "Used in" -->
 
 Faster to compute than sigmoid activation.
 
 #### Arguments:
+
 
 * <b>`x`</b>: Input tensor.
 

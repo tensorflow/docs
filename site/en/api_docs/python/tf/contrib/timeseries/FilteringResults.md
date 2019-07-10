@@ -7,19 +7,19 @@ page_type: reference
 
 ## Class `FilteringResults`
 
-
-
-
-
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/feature_keys.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/timeseries/python/timeseries/feature_keys.py).
-
 Keys returned from evaluation/filtering.
+
+
+
+
+
+Defined in [`contrib/timeseries/python/timeseries/feature_keys.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/feature_keys.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Class Members
 
-<h3 id="STATE_PREFIX"><code>STATE_PREFIX</code></h3>
-
-<h3 id="STATE_TUPLE"><code>STATE_TUPLE</code></h3>
-
-<h3 id="TIMES"><code>TIMES</code></h3>
-
+* `STATE_PREFIX = 'model_state'` <a id="STATE_PREFIX"></a>
+* `STATE_TUPLE = 'start_tuple'` <a id="STATE_TUPLE"></a>
+* `TIMES = 'times'` <a id="TIMES"></a>

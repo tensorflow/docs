@@ -5,13 +5,16 @@ page_type: reference
 
 # Module: tf.contrib.cluster_resolver.python.training.tpu_cluster_resolver
 
-
-
-Defined in [`tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py).
-
 Stub file for TPUClusterResolver to maintain backwards compatibility.
+
+
+
+Defined in [`contrib/cluster_resolver/python/training/tpu_cluster_resolver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 
-[`class TPUClusterResolver`](../../../../../tf/contrib/cluster_resolver/TPUClusterResolver): Cluster Resolver for Google Cloud TPUs.
+[`class TPUClusterResolver`](../../../../../tf/distribute/cluster_resolver/TPUClusterResolver): Cluster Resolver for Google Cloud TPUs.
 

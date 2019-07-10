@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.quantize.create_eval_graph
 
+Rewrites an eval input_graph in place for simulated quantization.
+
 ``` python
 tf.contrib.quantize.create_eval_graph(input_graph=None)
 ```
 
 
 
-Defined in [`tensorflow/contrib/quantize/python/quantize_graph.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/quantize/python/quantize_graph.py).
+Defined in [`contrib/quantize/python/quantize_graph.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/quantize/python/quantize_graph.py).
 
-Rewrites an eval input_graph in place for simulated quantization.
+<!-- Placeholder for "Used in" -->
 
 Variables added by the rewrite get added to the global variables collection.
 
@@ -24,11 +26,13 @@ change.
 
 #### Args:
 
+
 * <b>`input_graph`</b>: The tf.Graph to be transformed, if None then defaults to the
-    default graph.
+  default graph.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If elements contains an element that isn't a tf.Tensor or
-    tf.Operation.
+  tf.Operation.

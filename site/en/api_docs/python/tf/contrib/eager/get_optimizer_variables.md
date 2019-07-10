@@ -5,22 +5,26 @@ page_type: reference
 
 # tf.contrib.eager.get_optimizer_variables
 
+Returns a list of variables for the given <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>.
+
 ``` python
 tf.contrib.eager.get_optimizer_variables(optimizer)
 ```
 
 
 
-Defined in [`tensorflow/contrib/eager/python/saver.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/saver.py).
+Defined in [`contrib/eager/python/saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/saver.py).
 
-Returns a list of variables for the given <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>.
+<!-- Placeholder for "Used in" -->
 
 Equivalent to `optimizer.variables()`.
 
 #### Args:
 
-* <b>`optimizer`</b>: An instance of <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a> which has created variables
-    (typically after a call to `Optimizer.minimize`).
+
+* <b>`optimizer`</b>: An instance of <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a> which has created
+  variables (typically after a call to `Optimizer.minimize`).
+
 
 #### Returns:
 

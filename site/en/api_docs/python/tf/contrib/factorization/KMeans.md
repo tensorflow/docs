@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `KMeans`
 
-
-
-
-
-Defined in [`tensorflow/contrib/factorization/python/ops/clustering_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/factorization/python/ops/clustering_ops.py).
-
 Creates the graph for k-means clustering.
+
+
+
+
+
+Defined in [`contrib/factorization/python/ops/clustering_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/factorization/python/ops/clustering_ops.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -60,44 +63,46 @@ exactly like a full-batch version.
 
 #### Args:
 
+
 * <b>`inputs`</b>: An input tensor or list of input tensors. It is assumed that the
-    data points have been previously randomly permuted.
+  data points have been previously randomly permuted.
 * <b>`num_clusters`</b>: An integer tensor specifying the number of clusters. This
-    argument is ignored if initial_clusters is a tensor or numpy array.
+  argument is ignored if initial_clusters is a tensor or numpy array.
 * <b>`initial_clusters`</b>: Specifies the clusters used during initialization. One
-    of the following:
-    - a tensor or numpy array with the initial cluster centers.
-    - a function f(inputs, k) that returns up to k centers from `inputs`.
-    - "random": Choose centers randomly from `inputs`.
-    - "kmeans_plus_plus": Use kmeans++ to choose centers from `inputs`.
-    - "kmc2": Use the fast k-MC2 algorithm to choose centers from `inputs`.
-    In the last three cases, one batch of `inputs` may not yield
-    `num_clusters` centers, in which case initialization will require
-    multiple batches until enough centers are chosen. In the case of
-    "random" or "kmeans_plus_plus", if the input size is <= `num_clusters`
-    then the entire batch is chosen to be cluster centers.
+  of the following:
+  - a tensor or numpy array with the initial cluster centers.
+  - a function f(inputs, k) that returns up to k centers from `inputs`.
+  - "random": Choose centers randomly from `inputs`.
+  - "kmeans_plus_plus": Use kmeans++ to choose centers from `inputs`.
+  - "kmc2": Use the fast k-MC2 algorithm to choose centers from `inputs`.
+  In the last three cases, one batch of `inputs` may not yield
+  `num_clusters` centers, in which case initialization will require
+  multiple batches until enough centers are chosen. In the case of
+  "random" or "kmeans_plus_plus", if the input size is <= `num_clusters`
+  then the entire batch is chosen to be cluster centers.
 * <b>`distance_metric`</b>: Distance metric used for clustering. Supported options:
-    "squared_euclidean", "cosine".
+  "squared_euclidean", "cosine".
 * <b>`use_mini_batch`</b>: If true, use the mini-batch k-means algorithm. Else assume
-    full batch.
+  full batch.
 * <b>`mini_batch_steps_per_iteration`</b>: Number of steps after which the updated
-    cluster centers are synced back to a master copy.
+  cluster centers are synced back to a master copy.
 * <b>`random_seed`</b>: Seed for PRNG used to initialize seeds.
 * <b>`kmeans_plus_plus_num_retries`</b>: For each point that is sampled during
-    kmeans++ initialization, this parameter specifies the number of
-    additional points to draw from the current distribution before selecting
-    the best. If a negative value is specified, a heuristic is used to
-    sample O(log(num_to_sample)) additional points.
+  kmeans++ initialization, this parameter specifies the number of
+  additional points to draw from the current distribution before selecting
+  the best. If a negative value is specified, a heuristic is used to
+  sample O(log(num_to_sample)) additional points.
 * <b>`kmc2_chain_length`</b>: Determines how many candidate points are used by the
-    k-MC2 algorithm to produce one new cluster centers. If a (mini-)batch
-    contains less points, one new cluster center is generated from the
-    (mini-)batch.
+  k-MC2 algorithm to produce one new cluster centers. If a (mini-)batch
+  contains less points, one new cluster center is generated from the
+  (mini-)batch.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: An invalid argument was passed to initial_clusters or
-    distance_metric.
+  distance_metric.
 
 
 
@@ -122,16 +127,17 @@ True. Then multiple workers may execute training_op any number of times.
 #### Returns:
 
 A tuple consisting of:
+
 * <b>`all_scores`</b>: A matrix (or list of matrices) of dimensions (num_input,
-    num_clusters) where the value is the distance of an input vector and a
-    cluster center.
+  num_clusters) where the value is the distance of an input vector and a
+  cluster center.
 * <b>`cluster_idx`</b>: A vector (or list of vectors). Each element in the vector
-    corresponds to an input row in 'inp' and specifies the cluster id
-    corresponding to the input.
+  corresponds to an input row in 'inp' and specifies the cluster id
+  corresponding to the input.
 * <b>`scores`</b>: Similar to cluster_idx but specifies the distance to the
-    assigned cluster instead.
+  assigned cluster instead.
 * <b>`cluster_centers_initialized`</b>: scalar indicating whether clusters have been
-    initialized.
+  initialized.
 * <b>`init_op`</b>: an op to initialize the clusters.
 * <b>`training_op`</b>: an op that runs an iteration of training.
 

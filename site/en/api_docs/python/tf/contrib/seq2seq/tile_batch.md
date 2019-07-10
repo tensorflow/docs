@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.seq2seq.tile_batch
 
+Tile the batch dimension of a (possibly nested structure of) tensor(s) t.
+
 ``` python
 tf.contrib.seq2seq.tile_batch(
     t,
@@ -15,9 +17,9 @@ tf.contrib.seq2seq.tile_batch(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+Defined in [`contrib/seq2seq/python/ops/beam_search_decoder.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
 
-Tile the batch dimension of a (possibly nested structure of) tensor(s) t.
+<!-- Placeholder for "Used in" -->
 
 For each tensor t in a (possibly nested structure) of tensors,
 this function takes a tensor t shaped `[batch_size, s0, s1, ...]` composed of
@@ -27,6 +29,7 @@ minibatch entries `t[0], ..., t[batch_size - 1]` and tiles it to have a shape
 `multiplier` times.
 
 #### Args:
+
 
 * <b>`t`</b>: `Tensor` shaped `[batch_size, ...]`.
 * <b>`multiplier`</b>: Python int.
@@ -39,7 +42,9 @@ A (possibly nested structure of) `Tensor` shaped
 `[batch_size * multiplier, ...]`.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if tensor(s) `t` do not have a statically known rank or
-  the rank is < 1.
+the rank is < 1.

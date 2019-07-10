@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `TensorShape`
 
-
-
-
-
-Defined in [`tensorflow/python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/tensor_shape.py).
-
 Represents the shape of a `Tensor`.
+
+
+
+### Aliases:
+
+* Class `tf.TensorShape`
+* Class `tf.compat.v1.TensorShape`
+* Class `tf.compat.v2.TensorShape`
+
+
+
+Defined in [`python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_shape.py).
+
+<!-- Placeholder for "Used in" -->
 
 A `TensorShape` represents a possibly-partial shape specification for a
 `Tensor`. It may be one of the following:
@@ -40,12 +48,15 @@ __init__(dims)
 
 Creates a new TensorShape with the given dimensions.
 
+
 #### Args:
+
 
 * <b>`dims`</b>: A list of Dimensions, or None if the shape is unspecified.
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: If dims cannot be converted to a list of dimensions.
 
@@ -57,13 +68,16 @@ Creates a new TensorShape with the given dimensions.
 
 Returns a list of Dimensions, or None if the shape is unspecified.
 
+
 <h3 id="ndims"><code>ndims</code></h3>
 
 Deprecated accessor for `rank`.
 
+
 <h3 id="rank"><code>rank</code></h3>
 
 Returns the rank of this shape, or None if it is unspecified.
+
 
 
 
@@ -77,11 +91,13 @@ __bool__()
 
 Returns True if this shape contains non-zero information.
 
+
 <h3 id="__concat__"><code>__concat__</code></h3>
 
 ``` python
 __concat__(other)
 ```
+
 
 
 
@@ -93,6 +109,7 @@ __eq__(other)
 
 Returns True if `self` is equivalent to `other`.
 
+
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
 ``` python
@@ -101,11 +118,13 @@ __getitem__(key)
 
 Returns the value of a dimension or a shape, depending on the key.
 
+
 #### Args:
 
+
 * <b>`key`</b>: If `key` is an integer, returns the dimension at that index;
-    otherwise if `key` is a slice, returns a TensorShape whose
-    dimensions are those selected by the slice from `self`.
+  otherwise if `key` is a slice, returns a TensorShape whose dimensions
+  are those selected by the slice from `self`.
 
 
 #### Returns:
@@ -114,10 +133,12 @@ An integer if `key` is an integer, or a `TensorShape` if `key` is a
 slice.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `key` is a slice and `self` is completely unknown and
-    the step is set.
+  the step is set.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
@@ -127,6 +148,7 @@ __iter__()
 
 Returns `self.dims` if the rank is known, otherwise raises ValueError.
 
+
 <h3 id="__len__"><code>__len__</code></h3>
 
 ``` python
@@ -134,6 +156,7 @@ __len__()
 ```
 
 Returns the rank of this shape, or raises ValueError if unspecified.
+
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
@@ -143,6 +166,7 @@ __ne__(other)
 
 Returns True if `self` is known to be different from `other`.
 
+
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
 ``` python
@@ -150,6 +174,7 @@ __nonzero__()
 ```
 
 Returns True if this shape contains non-zero information.
+
 
 <h3 id="as_list"><code>as_list</code></h3>
 
@@ -159,12 +184,15 @@ as_list()
 
 Returns a list of integers or `None` for each dimension.
 
+
 #### Returns:
 
 A list of integers or `None` for each dimension.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `self` is an unknown shape with an unknown rank.
 
@@ -176,6 +204,7 @@ as_proto()
 
 Returns this shape as a `TensorShapeProto`.
 
+
 <h3 id="assert_has_rank"><code>assert_has_rank</code></h3>
 
 ``` python
@@ -184,12 +213,15 @@ assert_has_rank(rank)
 
 Raises an exception if `self` is not compatible with the given `rank`.
 
+
 #### Args:
+
 
 * <b>`rank`</b>: An integer.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `self` does not represent a shape with the given `rank`.
 
@@ -206,10 +238,12 @@ This method can be used to assert that there exists a shape that both
 
 #### Args:
 
+
 * <b>`other`</b>: Another TensorShape.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `self` and `other` do not represent the same shape.
 
@@ -221,7 +255,9 @@ assert_is_fully_defined()
 
 Raises an exception if `self` is not fully defined in every dimension.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `self` does not have a known value for every dimension.
 
@@ -233,15 +269,18 @@ assert_same_rank(other)
 
 Raises an exception if `self` and `other` do not have compatible ranks.
 
+
 #### Args:
+
 
 * <b>`other`</b>: Another `TensorShape`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `self` and `other` do not represent shapes with the
-    same rank.
+  same rank.
 
 <h3 id="concatenate"><code>concatenate</code></h3>
 
@@ -258,6 +297,7 @@ information for use with slicing.
 
 #### Args:
 
+
 * <b>`other`</b>: Another `TensorShape`.
 
 
@@ -265,6 +305,7 @@ information for use with slicing.
 
 A `TensorShape` whose dimensions are the concatenation of the
 dimensions in `self` and `other`.
+
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 
@@ -304,12 +345,14 @@ TensorShape([4, 4]).
 
 #### Args:
 
+
 * <b>`other`</b>: Another TensorShape.
 
 
 #### Returns:
 
 True iff `self` is compatible with `other`.
+
 
 <h3 id="is_fully_defined"><code>is_fully_defined</code></h3>
 
@@ -318,6 +361,7 @@ is_fully_defined()
 ```
 
 Returns True iff `self` is fully defined in every dimension.
+
 
 <h3 id="merge_with"><code>merge_with</code></h3>
 
@@ -328,9 +372,10 @@ merge_with(other)
 Returns a `TensorShape` combining the information in `self` and `other`.
 
 The dimensions in `self` and `other` are merged elementwise,
-according to the rules defined for `Dimension.merge_with()`.
+according to the rules defined for <a href="../tf/Dimension#merge_with"><code>Dimension.merge_with()</code></a>.
 
 #### Args:
+
 
 * <b>`other`</b>: Another `TensorShape`.
 
@@ -341,7 +386,9 @@ A `TensorShape` containing the combined information of `self` and
 `other`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `self` and `other` are not compatible.
 
@@ -364,6 +411,7 @@ Returns the most specific TensorShape compatible with `self` and `other`.
 
 #### Args:
 
+
 * <b>`other`</b>: Another `TensorShape`.
 
 
@@ -372,6 +420,7 @@ Returns the most specific TensorShape compatible with `self` and `other`.
 A `TensorShape` which is the most specific compatible shape of `self`
 and `other`.
 
+
 <h3 id="num_elements"><code>num_elements</code></h3>
 
 ``` python
@@ -379,6 +428,7 @@ num_elements()
 ```
 
 Returns the total number of elements, or none for incomplete shapes.
+
 
 <h3 id="with_rank"><code>with_rank</code></h3>
 
@@ -393,6 +443,7 @@ known rank.
 
 #### Args:
 
+
 * <b>`rank`</b>: An integer.
 
 
@@ -401,7 +452,9 @@ known rank.
 A shape that is at least as specific as `self` with the given rank.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `self` does not represent a shape with the given `rank`.
 
@@ -413,7 +466,9 @@ with_rank_at_least(rank)
 
 Returns a shape based on `self` with at least the given rank.
 
+
 #### Args:
+
 
 * <b>`rank`</b>: An integer.
 
@@ -424,10 +479,12 @@ A shape that is at least as specific as `self` with at least the given
 rank.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `self` does not represent a shape with at least the given
-    `rank`.
+  `rank`.
 
 <h3 id="with_rank_at_most"><code>with_rank_at_most</code></h3>
 
@@ -437,7 +494,9 @@ with_rank_at_most(rank)
 
 Returns a shape based on `self` with at most the given rank.
 
+
 #### Args:
+
 
 * <b>`rank`</b>: An integer.
 
@@ -448,10 +507,12 @@ A shape that is at least as specific as `self` with at most the given
 rank.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `self` does not represent a shape with at most the given
-    `rank`.
+  `rank`.
 
 
 

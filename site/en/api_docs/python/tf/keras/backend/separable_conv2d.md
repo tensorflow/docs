@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.separable_conv2d
 
+2D convolution with separable filters.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.separable_conv2d`
+* `tf.compat.v2.keras.backend.separable_conv2d`
+* `tf.keras.backend.separable_conv2d`
+
 ``` python
 tf.keras.backend.separable_conv2d(
     x,
@@ -19,11 +27,13 @@ tf.keras.backend.separable_conv2d(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-2D convolution with separable filters.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: input tensor
 * <b>`depthwise_kernel`</b>: convolution kernel for the depthwise convolution.
@@ -32,7 +42,7 @@ Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/
 * <b>`padding`</b>: string, `"same"` or `"valid"`.
 * <b>`data_format`</b>: string, `"channels_last"` or `"channels_first"`.
 * <b>`dilation_rate`</b>: tuple of integers,
-        dilation rates for the separable convolution.
+    dilation rates for the separable convolution.
 
 
 #### Returns:
@@ -40,7 +50,10 @@ Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/
 Output tensor.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `data_format` is neither `channels_last` or
-    `channels_first`.
+`channels_first`.
+* <b>`ValueError`</b>: if `strides` is not a tuple of 2 integers.

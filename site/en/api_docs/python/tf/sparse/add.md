@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.sparse.add
 
+Adds two tensors, at least one of each is a `SparseTensor`. (deprecated arguments)
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.add`
+* `tf.compat.v1.sparse_add`
 * `tf.sparse.add`
 * `tf.sparse_add`
 
@@ -21,9 +25,9 @@ tf.sparse.add(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Adds two tensors, at least one of each is a `SparseTensor`. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(thresh)`. They will be removed in a future version.
 Instructions for updating:
@@ -31,7 +35,7 @@ thresh is deprecated, use threshold instead
 
 If one `SparseTensor` and one `Tensor` are passed in, returns a `Tensor`.  If
 both arguments are `SparseTensor`s, this returns a `SparseTensor`.  The order
-of arguments does not matter.  Use vanilla `tf.add()` for adding two dense
+of arguments does not matter.  Use vanilla <a href="../../tf/math/add"><code>tf.add()</code></a> for adding two dense
 `Tensor`s.
 
 The shapes of the two operands must match: broadcasting is not supported.
@@ -57,21 +61,22 @@ For example, suppose the logical sum of two sparse operands is (densified):
 
 Then,
 
-    * `thresh == 0` (the default): all 5 index/value pairs will be returned.
-    * `thresh == 0.11`: only .1 and 0 will vanish, and the remaining three
-        index/value pairs will be returned.
-    * `thresh == 0.21`: .1, 0, and -.2 will vanish.
+* `thresh == 0` (the default): all 5 index/value pairs will be returned.
+* `thresh == 0.11`: only .1 and 0 will vanish, and the remaining three
+    index/value pairs will be returned.
+* `thresh == 0.21`: .1, 0, and -.2 will vanish.
 
 #### Args:
 
+
 * <b>`a`</b>: The first operand; `SparseTensor` or `Tensor`.
 * <b>`b`</b>: The second operand; `SparseTensor` or `Tensor`. At least one operand
-    must be sparse.
+  must be sparse.
 * <b>`threshold`</b>: An optional 0-D `Tensor` (defaults to `0`). The magnitude
-    threshold that determines if an output value/index pair takes space. Its
-    dtype should match that of the values if they are real; if the latter are
-    complex64/complex128, then the dtype should be float32/float64,
-    correspondingly.
+  threshold that determines if an output value/index pair takes space. Its
+  dtype should match that of the values if they are real; if the latter are
+  complex64/complex128, then the dtype should be float32/float64,
+  correspondingly.
 * <b>`thresh`</b>: Deprecated alias for `threshold`.
 
 
@@ -80,6 +85,8 @@ Then,
 A `SparseTensor` or a `Tensor`, representing the sum.
 
 
+
 #### Raises:
 
-* <b>`TypeError`</b>: If both `a` and `b` are `Tensor`s.  Use `tf.add()` instead.
+
+* <b>`TypeError`</b>: If both `a` and `b` are `Tensor`s.  Use <a href="../../tf/math/add"><code>tf.add()</code></a> instead.

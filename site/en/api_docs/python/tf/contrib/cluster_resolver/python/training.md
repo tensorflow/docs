@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.cluster_resolver.python.training
 
-
-
-Defined in [`tensorflow/contrib/cluster_resolver/python/training/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/cluster_resolver/python/training/__init__.py).
-
 Library Imports for Cluster Resolvers.
+
+
+
+Defined in [`contrib/cluster_resolver/python/training/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cluster_resolver/python/training/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Modules
 
@@ -17,19 +20,19 @@ Library Imports for Cluster Resolvers.
 
 ## Classes
 
-[`class ClusterResolver`](../../../../tf/contrib/cluster_resolver/ClusterResolver): Abstract class for all implementations of ClusterResolvers.
+[`class ClusterResolver`](../../../../tf/distribute/cluster_resolver/ClusterResolver): Abstract class for all implementations of ClusterResolvers.
 
-[`class GceClusterResolver`](../../../../tf/contrib/cluster_resolver/GceClusterResolver): Cluster Resolver for Google Compute Engine.
+[`class GCEClusterResolver`](../../../../tf/distribute/cluster_resolver/GCEClusterResolver): Cluster Resolver for Google Compute Engine.
 
-[`class KubernetesClusterResolver`](../../../../tf/contrib/cluster_resolver/KubernetesClusterResolver): Cluster Resolver for Kubernetes.
+[`class KubernetesClusterResolver`](../../../../tf/distribute/cluster_resolver/KubernetesClusterResolver): Cluster Resolver for Kubernetes.
 
-[`class SimpleClusterResolver`](../../../../tf/contrib/cluster_resolver/SimpleClusterResolver): Simple implementation of ClusterResolver that accepts a ClusterSpec.
+[`class SimpleClusterResolver`](../../../../tf/distribute/cluster_resolver/SimpleClusterResolver): Simple implementation of ClusterResolver that accepts a ClusterSpec.
 
-[`class SlurmClusterResolver`](../../../../tf/contrib/cluster_resolver/SlurmClusterResolver): Cluster Resolver for system with Slurm workload manager.
+[`class SlurmClusterResolver`](../../../../tf/distribute/cluster_resolver/SlurmClusterResolver): Cluster Resolver for system with Slurm workload manager.
 
-[`class TFConfigClusterResolver`](../../../../tf/contrib/cluster_resolver/TFConfigClusterResolver): Implementation of a ClusterResolver which reads the TF_CONFIG EnvVar.
+[`class TFConfigClusterResolver`](../../../../tf/distribute/cluster_resolver/TFConfigClusterResolver): Implementation of a ClusterResolver which reads the TF_CONFIG EnvVar.
 
-[`class TPUClusterResolver`](../../../../tf/contrib/cluster_resolver/TPUClusterResolver): Cluster Resolver for Google Cloud TPUs.
+[`class TPUClusterResolver`](../../../../tf/distribute/cluster_resolver/TPUClusterResolver): Cluster Resolver for Google Cloud TPUs.
 
-[`class UnionClusterResolver`](../../../../tf/contrib/cluster_resolver/UnionClusterResolver): Performs a union on underlying ClusterResolvers.
+[`class UnionClusterResolver`](../../../../tf/distribute/cluster_resolver/UnionResolver): Performs a union on underlying ClusterResolvers.
 

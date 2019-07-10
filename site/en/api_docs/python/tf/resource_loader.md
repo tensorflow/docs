@@ -7,9 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Resource management library.
 
 ## Functions
 

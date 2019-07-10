@@ -7,9 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Logging and Summary Operations.
 
 ## Functions
 
@@ -45,13 +44,8 @@ Logging and Summary Operations.
 
 ## Other Members
 
-<h3 id="DEBUG"><code>DEBUG</code></h3>
-
-<h3 id="ERROR"><code>ERROR</code></h3>
-
-<h3 id="FATAL"><code>FATAL</code></h3>
-
-<h3 id="INFO"><code>INFO</code></h3>
-
-<h3 id="WARN"><code>WARN</code></h3>
-
+* `DEBUG = 10` <a id="DEBUG"></a>
+* `ERROR = 40` <a id="ERROR"></a>
+* `FATAL = 50` <a id="FATAL"></a>
+* `INFO = 20` <a id="INFO"></a>
+* `WARN = 30` <a id="WARN"></a>

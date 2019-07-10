@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.constraints.deserialize
 
+
+
+### Aliases:
+
+* `tf.compat.v1.keras.constraints.deserialize`
+* `tf.compat.v2.keras.constraints.deserialize`
+* `tf.keras.constraints.deserialize`
+
 ``` python
 tf.keras.constraints.deserialize(
     config,
@@ -14,5 +22,6 @@ tf.keras.constraints.deserialize(
 
 
 
-Defined in [`tensorflow/python/keras/constraints.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/constraints.py).
+Defined in [`python/keras/constraints.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/constraints.py).
 
+<!-- Placeholder for "Used in" -->

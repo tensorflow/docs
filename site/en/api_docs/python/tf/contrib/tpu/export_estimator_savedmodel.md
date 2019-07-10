@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.tpu.export_estimator_savedmodel
 
+Export `Estimator` trained model for TPU inference.
+
 ``` python
 tf.contrib.tpu.export_estimator_savedmodel(
     estimator,
@@ -12,31 +14,30 @@ tf.contrib.tpu.export_estimator_savedmodel(
     serving_input_receiver_fn,
     assets_extra=None,
     as_text=False,
-    checkpoint_path=None,
-    strip_default_attrs=False
+    checkpoint_path=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
+Defined in [`python/estimator/tpu/tpu_estimator.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py).
 
-Export `Estimator` trained model for TPU inference.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`estimator`</b>: `Estimator` with which model has been trained.
 * <b>`export_dir_base`</b>: A string containing a directory in which to create
-    timestamped subdirectories containing exported SavedModels.
+  timestamped subdirectories containing exported SavedModels.
 * <b>`serving_input_receiver_fn`</b>: A function that takes no argument and returns a
-    `ServingInputReceiver` or `TensorServingInputReceiver`.
+  `ServingInputReceiver` or `TensorServingInputReceiver`.
 * <b>`assets_extra`</b>: A dict specifying how to populate the assets.extra directory
-    within the exported SavedModel, or `None` if no extra assets are needed.
+  within the exported SavedModel, or `None` if no extra assets are needed.
 * <b>`as_text`</b>: whether to write the SavedModel proto in text format.
 * <b>`checkpoint_path`</b>: The checkpoint path to export.  If `None` (the default),
-    the most recent checkpoint found within the model directory is chosen.
-* <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
-    removed from the NodeDefs.
+  the most recent checkpoint found within the model directory is chosen.
 
 
 #### Returns:

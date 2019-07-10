@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.rank
 
+Returns the rank of a tensor.
+
+### Aliases:
+
+* `tf.compat.v1.rank`
+* `tf.compat.v2.rank`
+* `tf.rank`
+
 ``` python
 tf.rank(
     input,
@@ -14,13 +22,15 @@ tf.rank(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Returns the rank of a tensor.
+<!-- Placeholder for "Used in" -->
 
 Returns a 0-D `int32` `Tensor` representing the rank of `input`.
 
-For example:
+#### For example:
+
+
 
 ```python
 # shape of tensor 't' is [2, 2, 3]
@@ -34,6 +44,7 @@ element of the tensor. Rank is also known as "order", "degree", or "ndims."
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor` or `SparseTensor`.
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -41,6 +52,7 @@ element of the tensor. Rank is also known as "order", "degree", or "ndims."
 #### Returns:
 
 A `Tensor` of type `int32`.
+
 
 
 

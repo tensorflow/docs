@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.learn.learn_runner.tune
 
+Tune an experiment with hyper-parameters. (deprecated)
+
 ``` python
 tf.contrib.learn.learn_runner.tune(
     experiment_fn,
@@ -14,9 +16,9 @@ tf.contrib.learn.learn_runner.tune(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_runner.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/learn_runner.py).
+Defined in [`contrib/learn/python/learn/learn_runner.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/learn_runner.py).
 
-Tune an experiment with hyper-parameters. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -27,7 +29,8 @@ corresponding hyper-parameters. For each trial, it retrieves the
 hyper-parameters from `tuner`, creates an Experiment by calling experiment_fn,
 and then reports the measure back to `tuner`.
 
-Example:
+#### Example:
+
 
 ```
   def _create_my_experiment(run_config, hparams):
@@ -42,11 +45,10 @@ Example:
 
   learn_runner.tune(experiment_fn=_create_my_experiment, tuner)
 ```
-#### Args:
-
-* <b>`experiment_fn`</b>: A function that creates an `Experiment`. It should accept an
+Args:
+  experiment_fn: A function that creates an `Experiment`. It should accept an
     argument `run_config` which should be used to create the `Estimator` (
     passed as `config` to its constructor), and an argument `hparams`, which
     should be used for hyper-parameters tuning. It must return an
     `Experiment`.
-* <b>`tuner`</b>: A `Tuner` instance.
+  tuner: A `Tuner` instance.

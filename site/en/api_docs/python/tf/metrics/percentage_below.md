@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.metrics.percentage_below
 
+Computes the percentage of values less than the given threshold.
+
+### Aliases:
+
+* `tf.compat.v1.metrics.percentage_below`
+* `tf.metrics.percentage_below`
+
 ``` python
 tf.metrics.percentage_below(
     values,
@@ -18,9 +25,9 @@ tf.metrics.percentage_below(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/metrics_impl.py).
+Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
-Computes the percentage of values less than the given threshold.
+<!-- Placeholder for "Used in" -->
 
 The `percentage_below` function creates two local variables,
 `total` and `count` that are used to compute the percentage of `values` that
@@ -36,29 +43,32 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`values`</b>: A numeric `Tensor` of arbitrary size.
 * <b>`threshold`</b>: A scalar threshold.
 * <b>`weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
-    `values`, and must be broadcastable to `values` (i.e., all dimensions must
-    be either `1`, or the same as the corresponding `values` dimension).
+  `values`, and must be broadcastable to `values` (i.e., all dimensions must
+  be either `1`, or the same as the corresponding `values` dimension).
 * <b>`metrics_collections`</b>: An optional list of collections that the metric
-    value variable should be added to.
+  value variable should be added to.
 * <b>`updates_collections`</b>: An optional list of collections that the metric update
-    ops should be added to.
+  ops should be added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
 
+
 * <b>`percentage`</b>: A `Tensor` representing the current mean, the value of `total`
-    divided by `count`.
+  divided by `count`.
 * <b>`update_op`</b>: An operation that increments the `total` and `count` variables
-    appropriately.
+  appropriately.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `weights` is not `None` and its shape doesn't match `values`,
-    or if either `metrics_collections` or `updates_collections` are not a list
-    or tuple.
+  or if either `metrics_collections` or `updates_collections` are not a list
+  or tuple.
 * <b>`RuntimeError`</b>: If eager execution is enabled.

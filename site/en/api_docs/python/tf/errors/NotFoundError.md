@@ -7,16 +7,24 @@ page_type: reference
 
 ## Class `NotFoundError`
 
-Inherits From: [`OpError`](../../tf/errors/OpError)
-
-
-
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/errors_impl.py).
-
 Raised when a requested entity (e.g., a file or directory) was not found.
 
+Inherits From: [`OpError`](../../tf/errors/OpError)
+
+### Aliases:
+
+* Class `tf.compat.v1.errors.NotFoundError`
+* Class `tf.compat.v2.errors.NotFoundError`
+* Class `tf.errors.NotFoundError`
+
+
+
+Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
+
+<!-- Placeholder for "Used in" -->
+
 For example, running the
-<a href="../../tf/ReaderBase#read"><code>tf.WholeFileReader.read</code></a>
+<a href="../../tf/WholeFileReader#read"><code>tf.WholeFileReader.read</code></a>
 operation could raise `NotFoundError` if it receives the name of a file that
 does not exist.
 
@@ -35,19 +43,23 @@ Creates a `NotFoundError`.
 
 
 
+
 ## Properties
 
 <h3 id="error_code"><code>error_code</code></h3>
 
 The integer error code that describes the error.
 
+
 <h3 id="message"><code>message</code></h3>
 
 The error message that describes the error.
 
+
 <h3 id="node_def"><code>node_def</code></h3>
 
 The `NodeDef` proto representing the op that failed.
+
 
 <h3 id="op"><code>op</code></h3>
 
@@ -63,6 +75,7 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
+
 
 
 

@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.quantization.dequantize
 
+Dequantize the 'input' tensor into a float Tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.dequantize`
+* `tf.compat.v1.quantization.dequantize`
+* `tf.compat.v2.quantization.dequantize`
 * `tf.dequantize`
 * `tf.quantization.dequantize`
 
@@ -22,9 +27,9 @@ tf.quantization.dequantize(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Dequantize the 'input' tensor into a float Tensor.
+<!-- Placeholder for "Used in" -->
 
 [min_range, max_range] are scalar floats that specify the range for
 the 'input' data. The 'mode' attribute controls exactly which calculations are
@@ -107,11 +112,12 @@ result = input * s
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. Must be one of the following types: `qint8`, `quint8`, `qint32`, `qint16`, `quint16`.
 * <b>`min_range`</b>: A `Tensor` of type `float32`.
-    The minimum scalar value possibly produced for the input.
+  The minimum scalar value possibly produced for the input.
 * <b>`max_range`</b>: A `Tensor` of type `float32`.
-    The maximum scalar value possibly produced for the input.
+  The maximum scalar value possibly produced for the input.
 * <b>`mode`</b>: An optional `string` from: `"MIN_COMBINED", "MIN_FIRST", "SCALED"`. Defaults to `"MIN_COMBINED"`.
 * <b>`name`</b>: A name for the operation (optional).
 

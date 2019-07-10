@@ -11,7 +11,29 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/profiler/tfprof_log.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/profiler/tfprof_log.proto).
+### Aliases:
 
-A ProtocolMessage
+* Class `tf.compat.v1.profiler.OpLogProto.IdToStringEntry`
+* Class `tf.profiler.OpLogProto.IdToStringEntry`
+
+
+
+Defined in [`core/profiler/tfprof_log.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/profiler/tfprof_log.proto).
+
+<!-- Placeholder for "Used in" -->
+
+
+## Properties
+
+<h3 id="key"><code>key</code></h3>
+
+`int64 key`
+
+
+<h3 id="value"><code>value</code></h3>
+
+`string value`
+
+
+
 

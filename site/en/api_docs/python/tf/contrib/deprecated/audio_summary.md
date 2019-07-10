@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.deprecated.audio_summary
 
+Outputs a `Summary` protocol buffer with audio. (deprecated)
+
 ``` python
 tf.contrib.deprecated.audio_summary(
     tag,
@@ -18,9 +20,9 @@ tf.contrib.deprecated.audio_summary(
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/logging_ops.py).
+Defined in [`python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/logging_ops.py).
 
-Outputs a `Summary` protocol buffer with audio. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-11-30.
 Instructions for updating:
@@ -28,7 +30,8 @@ Please switch to tf.summary.audio. Note that tf.summary.audio uses the node name
 
 This op is deprecated. Please switch to tf.summary.audio.
 For an explanation of why this op was deprecated, and information on how to
-migrate, look ['here'](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/deprecated/__init__.py)
+migrate, look
+['here'](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/deprecated/__init__.py)
 
 The summary has up to `max_outputs` summary values containing audio. The
 audio is built from `tensor` which must be 3-D with shape `[batch_size,
@@ -45,15 +48,16 @@ build the `tag` of the summary values:
 
 #### Args:
 
-* <b>`tag`</b>: A scalar `Tensor` of type `string`. Used to build the `tag`
-    of the summary values.
+
+* <b>`tag`</b>: A scalar `Tensor` of type `string`. Used to build the `tag` of the
+  summary values.
 * <b>`tensor`</b>: A 3-D `float32` `Tensor` of shape `[batch_size, frames, channels]`
-    or a 2-D `float32` `Tensor` of shape `[batch_size, frames]`.
+  or a 2-D `float32` `Tensor` of shape `[batch_size, frames]`.
 * <b>`sample_rate`</b>: A Scalar `float32` `Tensor` indicating the sample rate of the
-    signal in hertz.
+  signal in hertz.
 * <b>`max_outputs`</b>: Max number of batch elements to generate audio for.
 * <b>`collections`</b>: Optional list of ops.GraphKeys.  The collections to add the
-    summary to.  Defaults to [ops.GraphKeys.SUMMARIES]
+  summary to.  Defaults to [ops.GraphKeys.SUMMARIES]
 * <b>`name`</b>: A name for the operation (optional).
 
 

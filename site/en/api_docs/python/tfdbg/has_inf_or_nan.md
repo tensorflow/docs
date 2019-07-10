@@ -14,7 +14,7 @@ tfdbg.has_inf_or_nan(
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/lib/debug_data.py).
+Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/lib/debug_data.py).
 
 A predicate for whether a tensor consists of any bad numerical values.
 

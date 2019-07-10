@@ -5,22 +5,26 @@ page_type: reference
 
 # tf.contrib.image.compose_transforms
 
+Composes the transforms tensors.
+
 ``` python
 tf.contrib.image.compose_transforms(*transforms)
 ```
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`contrib/image/python/ops/image_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/image/python/ops/image_ops.py).
 
-Composes the transforms tensors.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`*transforms`</b>: List of image projective transforms to be composed. Each
-      transform is length 8 (single transform) or shape (N, 8) (batched
-      transforms). The shapes of all inputs must be equal, and at least one
-      input must be given.
+    transform is length 8 (single transform) or shape (N, 8) (batched
+    transforms). The shapes of all inputs must be equal, and at least one
+    input must be given.
 
 
 #### Returns:

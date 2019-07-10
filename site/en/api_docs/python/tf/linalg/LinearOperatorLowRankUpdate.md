@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `LinearOperatorLowRankUpdate`
 
+Perturb a `LinearOperator` with a rank `K` update.
+
 Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
+### Aliases:
+
+* Class `tf.compat.v1.linalg.LinearOperatorLowRankUpdate`
+* Class `tf.compat.v2.linalg.LinearOperatorLowRankUpdate`
+* Class `tf.linalg.LinearOperatorLowRankUpdate`
 
 
-Defined in [`tensorflow/python/ops/linalg/linear_operator_low_rank_update.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/linalg/linear_operator_low_rank_update.py).
 
-Perturb a `LinearOperator` with a rank `K` update.
+Defined in [`python/ops/linalg/linear_operator_low_rank_update.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg/linear_operator_low_rank_update.py).
+
+<!-- Placeholder for "Used in" -->
 
 This operator acts like a [batch] matrix `A` with shape
 `[B1,...,Bb, M, N]` for some `b >= 0`.  The first `b` indices index a
@@ -135,34 +143,36 @@ this can be done using a Cholesky factorization.  The user should set the
 
 #### Args:
 
+
 * <b>`base_operator`</b>:  Shape `[B1,...,Bb, M, N]`.
 * <b>`u`</b>:  Shape `[B1,...,Bb, M, K]` `Tensor` of same `dtype` as `base_operator`.
-    This is `U` above.
+  This is `U` above.
 * <b>`diag_update`</b>:  Optional shape `[B1,...,Bb, K]` `Tensor` with same `dtype`
-    as `base_operator`.  This is the diagonal of `D` above.
-     Defaults to `D` being the identity operator.
+  as `base_operator`.  This is the diagonal of `D` above.
+   Defaults to `D` being the identity operator.
 * <b>`v`</b>:  Optional `Tensor` of same `dtype` as `u` and shape `[B1,...,Bb, N, K]`
-     Defaults to `v = u`, in which case the perturbation is symmetric.
-     If `M != N`, then `v` must be set since the perturbation is not square.
+   Defaults to `v = u`, in which case the perturbation is symmetric.
+   If `M != N`, then `v` must be set since the perturbation is not square.
 * <b>`is_diag_update_positive`</b>:  Python `bool`.
-    If `True`, expect `diag_update > 0`.
+  If `True`, expect `diag_update > 0`.
 * <b>`is_non_singular`</b>:  Expect that this operator is non-singular.
-    Default is `None`, unless `is_positive_definite` is auto-set to be
-    `True` (see below).
+  Default is `None`, unless `is_positive_definite` is auto-set to be
+  `True` (see below).
 * <b>`is_self_adjoint`</b>:  Expect that this operator is equal to its hermitian
-    transpose.  Default is `None`, unless `base_operator` is self-adjoint
-    and `v = None` (meaning `u=v`), in which case this defaults to `True`.
+  transpose.  Default is `None`, unless `base_operator` is self-adjoint
+  and `v = None` (meaning `u=v`), in which case this defaults to `True`.
 * <b>`is_positive_definite`</b>:  Expect that this operator is positive definite.
-    Default is `None`, unless `base_operator` is positive-definite
-    `v = None` (meaning `u=v`), and `is_diag_update_positive`, in which case
-    this defaults to `True`.
-    Note that we say an operator is positive definite when the quadratic
-    form `x^H A x` has positive real part for all nonzero `x`.
+  Default is `None`, unless `base_operator` is positive-definite
+  `v = None` (meaning `u=v`), and `is_diag_update_positive`, in which case
+  this defaults to `True`.
+  Note that we say an operator is positive definite when the quadratic
+  form `x^H A x` has positive real part for all nonzero `x`.
 * <b>`is_square`</b>:  Expect that this operator acts like square [batch] matrices.
 * <b>`name`</b>: A name for this `LinearOperator`.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>:  If `is_X` flags are set in an inconsistent way.
 
@@ -170,9 +180,28 @@ this can be done using a Cholesky factorization.  The user should set the
 
 ## Properties
 
+<h3 id="H"><code>H</code></h3>
+
+Returns the adjoint of the current `LinearOperator`.
+
+Given `A` representing this `LinearOperator`, return `A*`.
+Note that calling `self.adjoint()` and `self.H` are equivalent.
+
+#### Args:
+
+
+* <b>`name`</b>:  A name for this `Op`.
+
+
+#### Returns:
+
+`LinearOperator` which represents the adjoint of this `LinearOperator`.
+
+
 <h3 id="base_operator"><code>base_operator</code></h3>
 
 If this operator is `A = L + U D V^H`, this is the `L`.
+
 
 <h3 id="batch_shape"><code>batch_shape</code></h3>
 
@@ -186,13 +215,16 @@ If this operator acts like the batch matrix `A` with
 
 `TensorShape`, statically determined, may be undefined.
 
+
 <h3 id="diag_operator"><code>diag_operator</code></h3>
 
 If this operator is `A = L + U D V^H`, this is `D`.
 
+
 <h3 id="diag_update"><code>diag_update</code></h3>
 
 If this operator is `A = L + U D V^H`, this is the diagonal of `D`.
+
 
 <h3 id="domain_dimension"><code>domain_dimension</code></h3>
 
@@ -205,19 +237,24 @@ If this operator acts like the batch matrix `A` with
 
 `Dimension` object.
 
+
 <h3 id="dtype"><code>dtype</code></h3>
 
 The `DType` of `Tensor`s handled by this `LinearOperator`.
+
 
 <h3 id="graph_parents"><code>graph_parents</code></h3>
 
 List of graph dependencies of this `LinearOperator`.
 
+
 <h3 id="is_diag_update_positive"><code>is_diag_update_positive</code></h3>
 
 If this operator is `A = L + U D V^H`, this hints `D > 0` elementwise.
 
+
 <h3 id="is_non_singular"><code>is_non_singular</code></h3>
+
 
 
 
@@ -225,7 +262,9 @@ If this operator is `A = L + U D V^H`, this hints `D > 0` elementwise.
 
 
 
+
 <h3 id="is_self_adjoint"><code>is_self_adjoint</code></h3>
+
 
 
 
@@ -233,9 +272,11 @@ If this operator is `A = L + U D V^H`, this hints `D > 0` elementwise.
 
 Return `True/False` depending on if this operator is square.
 
+
 <h3 id="name"><code>name</code></h3>
 
 Name prepended to all ops created by this `LinearOperator`.
+
 
 <h3 id="range_dimension"><code>range_dimension</code></h3>
 
@@ -247,6 +288,7 @@ If this operator acts like the batch matrix `A` with
 #### Returns:
 
 `Dimension` object.
+
 
 <h3 id="shape"><code>shape</code></h3>
 
@@ -260,6 +302,7 @@ If this operator acts like the batch matrix `A` with
 
 `TensorShape`, statically determined, may be undefined.
 
+
 <h3 id="tensor_rank"><code>tensor_rank</code></h3>
 
 Rank (in the sense of tensors) of matrix corresponding to this operator.
@@ -269,6 +312,7 @@ If this operator acts like the batch matrix `A` with
 
 #### Args:
 
+
 * <b>`name`</b>:  A name for this `Op`.
 
 
@@ -276,13 +320,16 @@ If this operator acts like the batch matrix `A` with
 
 Python integer, or None if the tensor rank is undefined.
 
+
 <h3 id="u"><code>u</code></h3>
 
 If this operator is `A = L + U D V^H`, this is the `U`.
 
+
 <h3 id="v"><code>v</code></h3>
 
 If this operator is `A = L + U D V^H`, this is the `V`.
+
 
 
 
@@ -299,7 +346,9 @@ add_to_tensor(
 
 Add matrix represented by this operator to `x`.  Equivalent to `A + x`.
 
+
 #### Args:
+
 
 * <b>`x`</b>:  `Tensor` with same `dtype` and shape broadcastable to `self.shape`.
 * <b>`name`</b>:  A name to give this `Op`.
@@ -308,6 +357,29 @@ Add matrix represented by this operator to `x`.  Equivalent to `A + x`.
 #### Returns:
 
 A `Tensor` with broadcast shape and same `dtype` as `self`.
+
+
+<h3 id="adjoint"><code>adjoint</code></h3>
+
+``` python
+adjoint(name='adjoint')
+```
+
+Returns the adjoint of the current `LinearOperator`.
+
+Given `A` representing this `LinearOperator`, return `A*`.
+Note that calling `self.adjoint()` and `self.H` are equivalent.
+
+#### Args:
+
+
+* <b>`name`</b>:  A name for this `Op`.
+
+
+#### Returns:
+
+`LinearOperator` which represents the adjoint of this `LinearOperator`.
+
 
 <h3 id="assert_non_singular"><code>assert_non_singular</code></h3>
 
@@ -326,6 +398,7 @@ eps := np.finfo(self.dtype.as_numpy_dtype).eps
 
 #### Args:
 
+
 * <b>`name`</b>:  A string name to prepend to created ops.
 
 
@@ -333,6 +406,7 @@ eps := np.finfo(self.dtype.as_numpy_dtype).eps
 
 An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
   the operator is singular.
+
 
 <h3 id="assert_positive_definite"><code>assert_positive_definite</code></h3>
 
@@ -348,6 +422,7 @@ be self-adjoint to be positive definite.
 
 #### Args:
 
+
 * <b>`name`</b>:  A name to give this `Op`.
 
 
@@ -355,6 +430,7 @@ be self-adjoint to be positive definite.
 
 An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
   the operator is not positive definite.
+
 
 <h3 id="assert_self_adjoint"><code>assert_self_adjoint</code></h3>
 
@@ -369,6 +445,7 @@ transpose.
 
 #### Args:
 
+
 * <b>`name`</b>:  A string name to prepend to created ops.
 
 
@@ -376,6 +453,7 @@ transpose.
 
 An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
   the operator is not self-adjoint.
+
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 
@@ -391,12 +469,14 @@ If this operator acts like the batch matrix `A` with
 
 #### Args:
 
+
 * <b>`name`</b>:  A name for this `Op`.
 
 
 #### Returns:
 
 `int32` `Tensor`
+
 
 <h3 id="cholesky"><code>cholesky</code></h3>
 
@@ -412,6 +492,7 @@ decomposition.
 
 #### Args:
 
+
 * <b>`name`</b>:  A name for this `Op`.
 
 
@@ -421,10 +502,12 @@ decomposition.
 in the Cholesky decomposition.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: When the `LinearOperator` is not hinted to be positive
-    definite and self adjoint.
+  definite and self adjoint.
 
 <h3 id="determinant"><code>determinant</code></h3>
 
@@ -434,7 +517,9 @@ determinant(name='det')
 
 Determinant for every batch member.
 
+
 #### Args:
+
 
 * <b>`name`</b>:  A name for this `Op`.
 
@@ -444,7 +529,9 @@ Determinant for every batch member.
 `Tensor` with shape `self.batch_shape` and same `dtype` as `self`.
 
 
+
 #### Raises:
+
 
 * <b>`NotImplementedError`</b>:  If `self.is_square` is `False`.
 
@@ -468,16 +555,18 @@ my_operator.diag_part()
 ==> [1., 2.]
 
 # Equivalent, but inefficient method
-tf.matrix_diag_part(my_operator.to_dense())
+tf.linalg.diag_part(my_operator.to_dense())
 ==> [1., 2.]
 ```
 
 #### Args:
 
+
 * <b>`name`</b>:  A name for this `Op`.
 
 
 #### Returns:
+
 
 * <b>`diag_part`</b>:  A `Tensor` of same `dtype` as self.
 
@@ -496,12 +585,42 @@ If this operator acts like the batch matrix `A` with
 
 #### Args:
 
+
 * <b>`name`</b>:  A name for this `Op`.
 
 
 #### Returns:
 
 `int32` `Tensor`
+
+
+<h3 id="inverse"><code>inverse</code></h3>
+
+``` python
+inverse(name='inverse')
+```
+
+Returns the Inverse of this `LinearOperator`.
+
+Given `A` representing this `LinearOperator`, return a `LinearOperator`
+representing `A^-1`.
+
+#### Args:
+
+
+* <b>`name`</b>: A name scope to use for ops added by this method.
+
+
+#### Returns:
+
+`LinearOperator` representing inverse of this matrix.
+
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: When the `LinearOperator` is not hinted to be `non_singular`.
 
 <h3 id="log_abs_determinant"><code>log_abs_determinant</code></h3>
 
@@ -511,7 +630,9 @@ log_abs_determinant(name='log_abs_det')
 
 Log absolute value of determinant for every batch member.
 
+
 #### Args:
+
 
 * <b>`name`</b>:  A name for this `Op`.
 
@@ -521,7 +642,9 @@ Log absolute value of determinant for every batch member.
 `Tensor` with shape `self.batch_shape` and same `dtype` as `self`.
 
 
+
 #### Raises:
+
 
 * <b>`NotImplementedError`</b>:  If `self.is_square` is `False`.
 
@@ -554,11 +677,12 @@ Y[..., :, r] = sum_j A[..., :, j] X[j, r]
 
 #### Args:
 
+
 * <b>`x`</b>: `LinearOperator` or `Tensor` with compatible shape and same `dtype` as
-    `self`. See class docstring for definition of compatibility.
+  `self`. See class docstring for definition of compatibility.
 * <b>`adjoint`</b>: Python `bool`.  If `True`, left multiply by the adjoint: `A^H x`.
 * <b>`adjoint_arg`</b>:  Python `bool`.  If `True`, compute `A x^H` where `x^H` is
-    the hermitian transpose (transposition and complex conjugation).
+  the hermitian transpose (transposition and complex conjugation).
 * <b>`name`</b>:  A name for this `Op`.
 
 
@@ -566,6 +690,7 @@ Y[..., :, r] = sum_j A[..., :, j] X[j, r]
 
 A `LinearOperator` or `Tensor` with shape `[..., M, R]` and same `dtype`
   as `self`.
+
 
 <h3 id="matvec"><code>matvec</code></h3>
 
@@ -594,10 +719,11 @@ Y[..., :] = sum_j A[..., :, j] X[..., j]
 
 #### Args:
 
+
 * <b>`x`</b>: `Tensor` with compatible shape and same `dtype` as `self`.
-    `x` is treated as a [batch] vector meaning for every set of leading
-    dimensions, the last dimension defines a vector.
-    See class docstring for definition of compatibility.
+  `x` is treated as a [batch] vector meaning for every set of leading
+  dimensions, the last dimension defines a vector.
+  See class docstring for definition of compatibility.
 * <b>`adjoint`</b>: Python `bool`.  If `True`, left multiply by the adjoint: `A^H x`.
 * <b>`name`</b>:  A name for this `Op`.
 
@@ -605,6 +731,7 @@ Y[..., :] = sum_j A[..., :, j] X[..., j]
 #### Returns:
 
 A `Tensor` with shape `[..., M]` and same `dtype` as `self`.
+
 
 <h3 id="range_dimension_tensor"><code>range_dimension_tensor</code></h3>
 
@@ -621,12 +748,14 @@ If this operator acts like the batch matrix `A` with
 
 #### Args:
 
+
 * <b>`name`</b>:  A name for this `Op`.
 
 
 #### Returns:
 
 `int32` `Tensor`
+
 
 <h3 id="shape_tensor"><code>shape_tensor</code></h3>
 
@@ -638,9 +767,10 @@ Shape of this `LinearOperator`, determined at runtime.
 
 If this operator acts like the batch matrix `A` with
 `A.shape = [B1,...,Bb, M, N]`, then this returns a `Tensor` holding
-`[B1,...,Bb, M, N]`, equivalent to `tf.shape(A)`.
+`[B1,...,Bb, M, N]`, equivalent to <a href="../../tf/shape"><code>tf.shape(A)</code></a>.
 
 #### Args:
+
 
 * <b>`name`</b>:  A name for this `Op`.
 
@@ -648,6 +778,7 @@ If this operator acts like the batch matrix `A` with
 #### Returns:
 
 `int32` `Tensor`
+
 
 <h3 id="solve"><code>solve</code></h3>
 
@@ -665,7 +796,9 @@ Solve (exact or approx) `R` (batch) systems of equations: `A X = rhs`.
 The returned `Tensor` will be close to an exact solution if `A` is well
 conditioned. Otherwise closeness will vary. See class docstring for details.
 
-Examples:
+#### Examples:
+
+
 
 ```python
 # Make an operator acting like batch matrix A.  Assume A.shape = [..., M, N]
@@ -685,14 +818,15 @@ operator.matmul(X)
 
 #### Args:
 
+
 * <b>`rhs`</b>: `Tensor` with same `dtype` as this operator and compatible shape.
-    `rhs` is treated like a [batch] matrix meaning for every set of leading
-    dimensions, the last two dimensions defines a matrix.
-    See class docstring for definition of compatibility.
+  `rhs` is treated like a [batch] matrix meaning for every set of leading
+  dimensions, the last two dimensions defines a matrix.
+  See class docstring for definition of compatibility.
 * <b>`adjoint`</b>: Python `bool`.  If `True`, solve the system involving the adjoint
-    of this `LinearOperator`:  `A^H X = rhs`.
+  of this `LinearOperator`:  `A^H X = rhs`.
 * <b>`adjoint_arg`</b>:  Python `bool`.  If `True`, solve `A X = rhs^H` where `rhs^H`
-    is the hermitian transpose (transposition and complex conjugation).
+  is the hermitian transpose (transposition and complex conjugation).
 * <b>`name`</b>:  A name scope to use for ops added by this method.
 
 
@@ -701,7 +835,9 @@ operator.matmul(X)
 `Tensor` with shape `[...,N, R]` and same `dtype` as `rhs`.
 
 
+
 #### Raises:
+
 
 * <b>`NotImplementedError`</b>:  If `self.is_non_singular` or `is_square` is False.
 
@@ -720,7 +856,9 @@ Solve single equation with best effort: `A X = rhs`.
 The returned `Tensor` will be close to an exact solution if `A` is well
 conditioned. Otherwise closeness will vary. See class docstring for details.
 
-Examples:
+#### Examples:
+
+
 
 ```python
 # Make an operator acting like batch matrix A.  Assume A.shape = [..., M, N]
@@ -740,12 +878,13 @@ operator.matvec(X)
 
 #### Args:
 
+
 * <b>`rhs`</b>: `Tensor` with same `dtype` as this operator.
-    `rhs` is treated like a [batch] vector meaning for every set of leading
-    dimensions, the last dimension defines a vector.  See class docstring
-    for definition of compatibility regarding batch dimensions.
+  `rhs` is treated like a [batch] vector meaning for every set of leading
+  dimensions, the last dimension defines a vector.  See class docstring
+  for definition of compatibility regarding batch dimensions.
 * <b>`adjoint`</b>: Python `bool`.  If `True`, solve the system involving the adjoint
-    of this `LinearOperator`:  `A^H X = rhs`.
+  of this `LinearOperator`:  `A^H X = rhs`.
 * <b>`name`</b>:  A name scope to use for ops added by this method.
 
 
@@ -754,7 +893,9 @@ operator.matvec(X)
 `Tensor` with shape `[...,N]` and same `dtype` as `rhs`.
 
 
+
 #### Raises:
+
 
 * <b>`NotImplementedError`</b>:  If `self.is_non_singular` or `is_square` is False.
 
@@ -771,12 +912,14 @@ If this operator acts like the batch matrix `A` with
 
 #### Args:
 
+
 * <b>`name`</b>:  A name for this `Op`.
 
 
 #### Returns:
 
 `int32` `Tensor`, determined at runtime.
+
 
 <h3 id="to_dense"><code>to_dense</code></h3>
 
@@ -785,6 +928,7 @@ to_dense(name='to_dense')
 ```
 
 Return a dense (batch) matrix representing this operator.
+
 
 <h3 id="trace"><code>trace</code></h3>
 
@@ -798,12 +942,14 @@ If the operator is square, this is also the sum of the eigenvalues.
 
 #### Args:
 
+
 * <b>`name`</b>:  A name for this `Op`.
 
 
 #### Returns:
 
 Shape `[B1,...,Bb]` `Tensor` of same `dtype` as `self`.
+
 
 
 

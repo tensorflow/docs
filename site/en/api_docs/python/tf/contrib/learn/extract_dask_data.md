@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.learn.extract_dask_data
 
+Extract data from dask.Series or dask.DataFrame for predictors. (deprecated)
+
 ``` python
 tf.contrib.learn.extract_dask_data(data)
 ```
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_io/dask_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/learn_io/dask_io.py).
+Defined in [`contrib/learn/python/learn/learn_io/dask_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/learn_io/dask_io.py).
 
-Extract data from dask.Series or dask.DataFrame for predictors. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -24,6 +26,7 @@ for one or more predictors, this operation returns a single dask.DataFrame or
 dask.Series that can be iterated over.
 
 #### Args:
+
 
 * <b>`data`</b>: A distributed dask.DataFrame or dask.Series.
 

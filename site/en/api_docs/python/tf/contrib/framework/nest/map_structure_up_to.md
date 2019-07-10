@@ -5,36 +5,51 @@ page_type: reference
 
 # tf.contrib.framework.nest.map_structure_up_to
 
+Applies a function or op to a number of partially flattened inputs.
+
 ``` python
 tf.contrib.framework.nest.map_structure_up_to(
     shallow_tree,
     func,
-    *inputs
+    *inputs,
+    **kwargs
 )
 ```
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/util/nest.py).
+Defined in [`python/util/nest.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/nest.py).
 
-Applies a function or op to a number of partially flattened inputs.
+<!-- Placeholder for "Used in" -->
 
 The `inputs` are flattened up to `shallow_tree` before being mapped.
 
-Use Case:
+#### Use Case:
+
+
 
 Sometimes we wish to apply a function to a partially flattened
 sequence (for example when the function itself takes sequence inputs). We
 achieve this by specifying a shallow structure, `shallow_tree` we wish to
 flatten up to.
 
-The `inputs`, can be thought of as having the same structure as
+The `inputs`, can be thought of as having the same structure layout as
 `shallow_tree`, but with leaf nodes that are themselves tree structures.
 
 This function therefore will return something with the same base structure as
 `shallow_tree`.
 
-Examples:
+#### Examples:
+
+
+
+```python
+shallow_tree = [None, None]
+inp_val = [1, 2, 3]
+out = map_structure_up_to(shallow_tree, lambda x: 2 * x, inp_val)
+
+# Output is: [2, 4]
+```
 
 ```python
 ab_tuple = collections.namedtuple("ab_tuple", "a, b")
@@ -60,24 +75,31 @@ out = map_structure_up_to(
 
 #### Args:
 
+
 * <b>`shallow_tree`</b>: a shallow tree, common to all the inputs.
 * <b>`func`</b>: callable which will be applied to each input individually.
 * <b>`*inputs`</b>: arbitrarily nested combination of objects that are compatible with
-      shallow_tree. The function `func` is applied to corresponding
-      partially flattened elements of each input, so the function must support
-      arity of `len(inputs)`.
+    shallow_tree. The function `func` is applied to corresponding
+    partially flattened elements of each input, so the function must support
+    arity of `len(inputs)`.
+* <b>`**kwargs`</b>: kwargs to feed to func(). Special kwarg
+  `check_types` is not passed to func, but instead determines whether the
+  types of iterables within the structures have to be same (e.g.
+  `map_structure(func, [1], (1,))` raises a `TypeError` exception). To allow
+  this set this argument to `False`.
 
 
 #### Raises:
 
+
 * <b>`TypeError`</b>: If `shallow_tree` is a sequence but `input_tree` is not.
 * <b>`TypeError`</b>: If the sequence types of `shallow_tree` are different from
-    `input_tree`.
+  `input_tree`.
 * <b>`ValueError`</b>: If the sequence lengths of `shallow_tree` are different from
-    `input_tree`.
+  `input_tree`.
 
 
 #### Returns:
 
-result of repeatedly applying `func`, with same structure as
+result of repeatedly applying `func`, with the same structure layout as
 `shallow_tree`.

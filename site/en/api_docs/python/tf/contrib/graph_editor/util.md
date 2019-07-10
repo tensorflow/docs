@@ -5,9 +5,12 @@ page_type: reference
 
 # Module: tf.contrib.graph_editor.util
 
-
-
-Defined in [`tensorflow/contrib/graph_editor/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/util.py).
-
 Utility functions for the graph_editor.
+
+
+
+Defined in [`contrib/graph_editor/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/util.py).
+
+<!-- Placeholder for "Used in" -->
+
 

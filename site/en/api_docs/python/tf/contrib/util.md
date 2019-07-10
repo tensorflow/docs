@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.util
 
-
-
-Defined in [`tensorflow/contrib/util/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/util/__init__.py).
-
 Utilities for dealing with Tensors.
+
+
+
+Defined in [`contrib/util/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/util/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 ## Modules
@@ -18,7 +20,7 @@ Utilities for dealing with Tensors.
 
 ## Functions
 
-[`constant_value(...)`](../../tf/contrib/util/constant_value): Returns the constant value of the given tensor, if efficiently calculable.
+[`constant_value(...)`](../../tf/get_static_value): Returns the constant value of the given tensor, if efficiently calculable.
 
 [`make_ndarray(...)`](../../tf/make_ndarray): Create a numpy ndarray from a tensor.
 

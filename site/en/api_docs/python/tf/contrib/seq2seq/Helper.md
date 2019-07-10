@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `Helper`
 
-
-
-
-
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/seq2seq/python/ops/helper.py).
-
 Interface for implementing sampling in seq2seq decoders.
+
+
+
+
+
+Defined in [`contrib/seq2seq/python/ops/helper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/helper.py).
+
+<!-- Placeholder for "Used in" -->
 
 Helper instances are used by `BasicDecoder`.
 
@@ -49,6 +51,7 @@ initialize(name=None)
 
 Returns `(initial_finished, initial_inputs)`.
 
+
 <h3 id="next_inputs"><code>next_inputs</code></h3>
 
 ``` python
@@ -63,6 +66,7 @@ next_inputs(
 
 Returns `(finished, next_inputs, next_state)`.
 
+
 <h3 id="sample"><code>sample</code></h3>
 
 ``` python
@@ -75,6 +79,7 @@ sample(
 ```
 
 Returns `sample_ids`.
+
 
 
 

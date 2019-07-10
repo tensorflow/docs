@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.cond
 
+Return `true_fn()` if the predicate `pred` is true else `false_fn()`. (deprecated arguments)
+
+### Aliases:
+
+* `tf.compat.v1.cond`
+* `tf.cond`
+
 ``` python
 tf.cond(
     pred,
@@ -19,9 +26,9 @@ tf.cond(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/control_flow_ops.py).
 
-Return `true_fn()` if the predicate `pred` is true else `false_fn()`. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(fn1, fn2)`. They will be removed in a future version.
 Instructions for updating:
@@ -42,13 +49,13 @@ z = tf.multiply(a, b)
 result = tf.cond(x < y, lambda: tf.add(x, z), lambda: tf.square(y))
 ```
 
-If `x < y`, the <a href="../tf/math/add"><code>tf.add</code></a> operation will be executed and <a href="../tf/math/square"><code>tf.square</code></a>
+If `x < y`, the `tf.add` operation will be executed and `tf.square`
 operation will not be executed. Since `z` is needed for at least one
 branch of the `cond`, the <a href="../tf/math/multiply"><code>tf.multiply</code></a> operation is always executed,
 unconditionally.
 
 Note that `cond` calls `true_fn` and `false_fn` *exactly once* (inside the
-call to `cond`, and not at all during `Session.run()`). `cond`
+call to `cond`, and not at all during <a href="../tf/InteractiveSession#run"><code>Session.run()</code></a>). `cond`
 stitches together the graph fragments created during the `true_fn` and
 `false_fn` calls with some additional graph nodes to ensure that the right
 branch gets executed depending on the value of `pred`.
@@ -62,8 +69,9 @@ This behavior is disabled by passing `strict=True`.
 
 #### Args:
 
+
 * <b>`pred`</b>: A scalar determining whether to return the result of `true_fn` or
-    `false_fn`.
+  `false_fn`.
 * <b>`true_fn`</b>: The callable to be performed if pred is true.
 * <b>`false_fn`</b>: The callable to be performed if pred is false.
 * <b>`strict`</b>: A boolean that enables/disables 'strict' mode; see above.
@@ -76,13 +84,18 @@ Tensors returned by the call to either `true_fn` or `false_fn`. If the
 callables return a singleton list, the element is extracted from the list.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if `true_fn` or `false_fn` is not callable.
 * <b>`ValueError`</b>: if `true_fn` and `false_fn` do not return the same number of
-    tensors, or return tensors of different types.
+  tensors, or return tensors of different types.
 
-Example:
+
+#### Example:
+
+
 
 ```python
 x = tf.constant(2)

@@ -5,15 +5,22 @@ page_type: reference
 
 # tf.enable_resource_variables
 
+Creates resource variables by default.
+
+### Aliases:
+
+* `tf.compat.v1.enable_resource_variables`
+* `tf.enable_resource_variables`
+
 ``` python
 tf.enable_resource_variables()
 ```
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variable_scope.py).
+Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
-Creates resource variables by default.
+<!-- Placeholder for "Used in" -->
 
 Resource variables are improved versions of TensorFlow variables with a
 well-defined memory model. Accessing a resource variable reads its value, and

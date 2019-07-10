@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.dropout
 
+Sets entries in `x` to zero at random, while scaling the entire tensor.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.dropout`
+* `tf.compat.v2.keras.backend.dropout`
+* `tf.keras.backend.dropout`
+
 ``` python
 tf.keras.backend.dropout(
     x,
@@ -16,17 +24,19 @@ tf.keras.backend.dropout(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Sets entries in `x` to zero at random, while scaling the entire tensor.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
 
+
 * <b>`x`</b>: tensor
 * <b>`level`</b>: fraction of the entries in the tensor
-        that will be set to 0.
+    that will be set to 0.
 * <b>`noise_shape`</b>: shape for randomly generated keep/drop flags,
-        must be broadcastable to the shape of `x`
+    must be broadcastable to the shape of `x`
 * <b>`seed`</b>: random seed to ensure determinism.
 
 

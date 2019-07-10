@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::FakeQuantWithMinMaxVars Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVars</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Fake-quantize the 'inputs' tensor of type float via global float scalars <code>min</code></p>
+  <h2>Summary</h2>
+  <p>and <code>max</code> to 'outputs' tensor of same shape as <code>inputs</code>.</p>
+  <p><code>[min; max]</code> define the clamping range for the <code>inputs</code> data. <code>inputs</code> values are quantized into the quantization range (<code>[0; 2^num_bits - 1]</code> when <code>narrow_range</code> is false and <code>[1; 2^num_bits - 1]</code> when it is true) and then de-quantized and output as floats in <code>[min; max]</code> interval. <code>num_bits</code> is the bitwidth of the quantization; between 2 and 16, inclusive.</p>
+  <p>This operation has a gradient and thus allows for training <code>min</code> and <code>max</code> values.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The outputs tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a00ee58aabd6226983d344471c6956521">FakeQuantWithMinMaxVars</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a86e17a607800b4a82880a67535ed4395">FakeQuantWithMinMaxVars</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max, const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1_1_attrs">FakeQuantWithMinMaxVars::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1af7b295d43fd540e49c6a4e1621d8ed30">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a9fc018d2523132a82d3e60c8e7dc465f">outputs</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a1d4aaa7a38907c46fc2ea3372028d94c">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a384ba596b1a4aebcb314a87e7411fd62">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1ac698bada55ee29951a83182f80ee6395">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1aee3dc1525e2c3837ac1b66757ec20823">NarrowRange</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a08eae0ee7977569586e1a3fadb261b95">NumBits</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars/attrs">tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVars::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars">FakeQuantWithMinMaxVars</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1af7b295d43fd540e49c6a4e1621d8ed30">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a9fc018d2523132a82d3e60c8e7dc465f">
+    <h3>outputs</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> outputs</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a00ee58aabd6226983d344471c6956521">
+    <h3>FakeQuantWithMinMaxVars</h3>
+    <pre class="prettyprint"> FakeQuantWithMinMaxVars(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a86e17a607800b4a82880a67535ed4395">
+    <h3>FakeQuantWithMinMaxVars</h3>
+    <pre class="prettyprint"> FakeQuantWithMinMaxVars(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> inputs,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> min,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max,
+  const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1_1_attrs">FakeQuantWithMinMaxVars::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a1d4aaa7a38907c46fc2ea3372028d94c">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a384ba596b1a4aebcb314a87e7411fd62">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1ac698bada55ee29951a83182f80ee6395">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1aee3dc1525e2c3837ac1b66757ec20823">
+    <h3>NarrowRange</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1_1_attrs">Attrs</a> NarrowRange(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1a08eae0ee7977569586e1a3fadb261b95">
+    <h3>NumBits</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_1_1_attrs">Attrs</a> NumBits(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

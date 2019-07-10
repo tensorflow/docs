@@ -7,29 +7,28 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.saved_model namespace.
 
 ## Modules
 
-[`builder`](../tf/saved_model/builder) module: SavedModel builder.
+[`builder`](../tf/saved_model/builder) module
 
-[`constants`](../tf/saved_model/constants) module: Constants for SavedModel save and restore operations.
+[`constants`](../tf/saved_model/constants) module
 
-[`experimental`](../tf/saved_model/experimental) module: Public API for tf.saved_model.experimental namespace.
+[`experimental`](../tf/saved_model/experimental) module
 
-[`loader`](../tf/saved_model/loader) module: Loader functionality for SavedModel with hermetic, language-neutral exports.
+[`loader`](../tf/saved_model/loader) module
 
-[`main_op`](../tf/saved_model/main_op) module: SavedModel main op.
+[`main_op`](../tf/saved_model/main_op) module
 
-[`signature_constants`](../tf/saved_model/signature_constants) module: Signature constants for SavedModel save and restore operations.
+[`signature_constants`](../tf/saved_model/signature_constants) module
 
-[`signature_def_utils`](../tf/saved_model/signature_def_utils) module: SignatureDef utility functions.
+[`signature_def_utils`](../tf/saved_model/signature_def_utils) module
 
-[`tag_constants`](../tf/saved_model/tag_constants) module: Common tags used for graphs in SavedModel.
+[`tag_constants`](../tf/saved_model/tag_constants) module
 
-[`utils`](../tf/saved_model/utils) module: SavedModel utility functions.
+[`utils`](../tf/saved_model/utils) module
 
 ## Classes
 
@@ -51,6 +50,8 @@ Public API for tf.saved_model namespace.
 
 [`load(...)`](../tf/saved_model/load): Loads the model from a SavedModel as specified by tags. (deprecated)
 
+[`load_v2(...)`](../tf/saved_model/load_v2): Load a SavedModel from `export_dir`.
+
 [`main_op_with_restore(...)`](../tf/saved_model/main_op_with_restore): Returns a main op to init variables, tables and restore the graph. (deprecated)
 
 [`maybe_saved_model_directory(...)`](../tf/saved_model/contains_saved_model): Checks whether the provided export directory could contain a SavedModel.
@@ -59,55 +60,33 @@ Public API for tf.saved_model namespace.
 
 [`regression_signature_def(...)`](../tf/saved_model/regression_signature_def): Creates regression signature from given examples and predictions.
 
+[`save(...)`](../tf/saved_model/save): Exports the Trackable object `obj` to [SavedModel format](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md).
+
 [`simple_save(...)`](../tf/saved_model/simple_save): Convenience function to build a SavedModel suitable for serving. (deprecated)
 
 ## Other Members
 
-<h3 id="ASSETS_DIRECTORY"><code>ASSETS_DIRECTORY</code></h3>
-
-<h3 id="ASSETS_KEY"><code>ASSETS_KEY</code></h3>
-
-<h3 id="CLASSIFY_INPUTS"><code>CLASSIFY_INPUTS</code></h3>
-
-<h3 id="CLASSIFY_METHOD_NAME"><code>CLASSIFY_METHOD_NAME</code></h3>
-
-<h3 id="CLASSIFY_OUTPUT_CLASSES"><code>CLASSIFY_OUTPUT_CLASSES</code></h3>
-
-<h3 id="CLASSIFY_OUTPUT_SCORES"><code>CLASSIFY_OUTPUT_SCORES</code></h3>
-
-<h3 id="DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></h3>
-
-<h3 id="GPU"><code>GPU</code></h3>
-
-<h3 id="LEGACY_INIT_OP_KEY"><code>LEGACY_INIT_OP_KEY</code></h3>
-
-<h3 id="MAIN_OP_KEY"><code>MAIN_OP_KEY</code></h3>
-
-<h3 id="PREDICT_INPUTS"><code>PREDICT_INPUTS</code></h3>
-
-<h3 id="PREDICT_METHOD_NAME"><code>PREDICT_METHOD_NAME</code></h3>
-
-<h3 id="PREDICT_OUTPUTS"><code>PREDICT_OUTPUTS</code></h3>
-
-<h3 id="REGRESS_INPUTS"><code>REGRESS_INPUTS</code></h3>
-
-<h3 id="REGRESS_METHOD_NAME"><code>REGRESS_METHOD_NAME</code></h3>
-
-<h3 id="REGRESS_OUTPUTS"><code>REGRESS_OUTPUTS</code></h3>
-
-<h3 id="SAVED_MODEL_FILENAME_PB"><code>SAVED_MODEL_FILENAME_PB</code></h3>
-
-<h3 id="SAVED_MODEL_FILENAME_PBTXT"><code>SAVED_MODEL_FILENAME_PBTXT</code></h3>
-
-<h3 id="SAVED_MODEL_SCHEMA_VERSION"><code>SAVED_MODEL_SCHEMA_VERSION</code></h3>
-
-<h3 id="SERVING"><code>SERVING</code></h3>
-
-<h3 id="TPU"><code>TPU</code></h3>
-
-<h3 id="TRAINING"><code>TRAINING</code></h3>
-
-<h3 id="VARIABLES_DIRECTORY"><code>VARIABLES_DIRECTORY</code></h3>
-
-<h3 id="VARIABLES_FILENAME"><code>VARIABLES_FILENAME</code></h3>
-
+* `ASSETS_DIRECTORY = 'assets'` <a id="ASSETS_DIRECTORY"></a>
+* `ASSETS_KEY = 'saved_model_assets'` <a id="ASSETS_KEY"></a>
+* `CLASSIFY_INPUTS = 'inputs'` <a id="CLASSIFY_INPUTS"></a>
+* `CLASSIFY_METHOD_NAME = 'tensorflow/serving/classify'` <a id="CLASSIFY_METHOD_NAME"></a>
+* `CLASSIFY_OUTPUT_CLASSES = 'classes'` <a id="CLASSIFY_OUTPUT_CLASSES"></a>
+* `CLASSIFY_OUTPUT_SCORES = 'scores'` <a id="CLASSIFY_OUTPUT_SCORES"></a>
+* `DEFAULT_SERVING_SIGNATURE_DEF_KEY = 'serving_default'` <a id="DEFAULT_SERVING_SIGNATURE_DEF_KEY"></a>
+* `GPU = 'gpu'` <a id="GPU"></a>
+* `LEGACY_INIT_OP_KEY = 'legacy_init_op'` <a id="LEGACY_INIT_OP_KEY"></a>
+* `MAIN_OP_KEY = 'saved_model_main_op'` <a id="MAIN_OP_KEY"></a>
+* `PREDICT_INPUTS = 'inputs'` <a id="PREDICT_INPUTS"></a>
+* `PREDICT_METHOD_NAME = 'tensorflow/serving/predict'` <a id="PREDICT_METHOD_NAME"></a>
+* `PREDICT_OUTPUTS = 'outputs'` <a id="PREDICT_OUTPUTS"></a>
+* `REGRESS_INPUTS = 'inputs'` <a id="REGRESS_INPUTS"></a>
+* `REGRESS_METHOD_NAME = 'tensorflow/serving/regress'` <a id="REGRESS_METHOD_NAME"></a>
+* `REGRESS_OUTPUTS = 'outputs'` <a id="REGRESS_OUTPUTS"></a>
+* `SAVED_MODEL_FILENAME_PB = 'saved_model.pb'` <a id="SAVED_MODEL_FILENAME_PB"></a>
+* `SAVED_MODEL_FILENAME_PBTXT = 'saved_model.pbtxt'` <a id="SAVED_MODEL_FILENAME_PBTXT"></a>
+* `SAVED_MODEL_SCHEMA_VERSION = 1` <a id="SAVED_MODEL_SCHEMA_VERSION"></a>
+* `SERVING = 'serve'` <a id="SERVING"></a>
+* `TPU = 'tpu'` <a id="TPU"></a>
+* `TRAINING = 'train'` <a id="TRAINING"></a>
+* `VARIABLES_DIRECTORY = 'variables'` <a id="VARIABLES_DIRECTORY"></a>
+* `VARIABLES_FILENAME = 'variables'` <a id="VARIABLES_FILENAME"></a>

@@ -5,18 +5,20 @@ page_type: reference
 
 # tf.contrib.autograph.converted_call
 
+Compiles a function call inline. For internal use only.
+
 ``` python
 tf.contrib.autograph.converted_call(
     f,
     owner,
     options,
-    *args,
-    **kwargs
+    args,
+    kwargs
 )
 ```
 
 
 
-Defined in [`tensorflow/python/autograph/impl/api.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/autograph/impl/api.py).
+Defined in [`python/autograph/impl/api.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/autograph/impl/api.py).
 
-Compiles a function call inline. For internal use only.
+<!-- Placeholder for "Used in" -->

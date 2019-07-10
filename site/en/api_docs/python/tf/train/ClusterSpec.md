@@ -7,17 +7,25 @@ page_type: reference
 
 ## Class `ClusterSpec`
 
-
-
-
-
-Defined in [`tensorflow/python/training/server_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/server_lib.py).
-
 Represents a cluster as a set of "tasks", organized into "jobs".
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.train.ClusterSpec`
+* Class `tf.compat.v2.train.ClusterSpec`
+* Class `tf.train.ClusterSpec`
+
+
+
+Defined in [`python/training/server_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/server_lib.py).
+
+<!-- Placeholder for "Used in" -->
 
 A <a href="../../tf/train/ClusterSpec"><code>tf.train.ClusterSpec</code></a> represents the set of processes that
 participate in a distributed TensorFlow computation. Every
-<a href="../../tf/distribute/Server"><code>tf.train.Server</code></a> is constructed in a particular cluster.
+<a href="../../tf/distribute/Server"><code>tf.distribute.Server</code></a> is constructed in a particular cluster.
 
 To create a cluster with two jobs and five tasks, you specify the
 mapping from job names to lists of network addresses (typically
@@ -50,18 +58,20 @@ __init__(cluster)
 
 Creates a `ClusterSpec`.
 
+
 #### Args:
 
-* <b>`cluster`</b>: A dictionary mapping one or more job names to (i) a
-    list of network addresses, or (ii) a dictionary mapping integer
-    task indices to network addresses; or a <a href="../../tf/train/ClusterDef"><code>tf.train.ClusterDef</code></a>
-    protocol buffer.
+
+* <b>`cluster`</b>: A dictionary mapping one or more job names to (i) a list of
+  network addresses, or (ii) a dictionary mapping integer task indices to
+  network addresses; or a <a href="../../tf/train/ClusterDef"><code>tf.train.ClusterDef</code></a> protocol buffer.
 
 
 #### Raises:
 
+
 * <b>`TypeError`</b>: If `cluster` is not a dictionary mapping strings to lists
-    of strings, and not a <a href="../../tf/train/ClusterDef"><code>tf.train.ClusterDef</code></a> protobuf.
+  of strings, and not a <a href="../../tf/train/ClusterDef"><code>tf.train.ClusterDef</code></a> protobuf.
 
 
 
@@ -71,9 +81,11 @@ Creates a `ClusterSpec`.
 
 Returns a list of job names in this cluster.
 
+
 #### Returns:
 
 A list of strings, corresponding to the names of jobs in this cluster.
+
 
 
 
@@ -87,13 +99,15 @@ __bool__()
 
 
 
+
 <h3 id="__eq__"><code>__eq__</code></h3>
 
 ``` python
 __eq__(other)
 ```
 
-Return self==value.
+
+
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
@@ -101,13 +115,15 @@ Return self==value.
 __ne__(other)
 ```
 
-Return self!=value.
+
+
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
 ``` python
 __nonzero__()
 ```
+
 
 
 
@@ -118,6 +134,7 @@ as_cluster_def()
 ```
 
 Returns a <a href="../../tf/train/ClusterDef"><code>tf.train.ClusterDef</code></a> protocol buffer based on this cluster.
+
 
 <h3 id="as_dict"><code>as_dict</code></h3>
 
@@ -137,6 +154,7 @@ addresses.
 A dictionary mapping job names to lists or dictionaries
 describing the tasks in those jobs.
 
+
 <h3 id="job_tasks"><code>job_tasks</code></h3>
 
 ``` python
@@ -153,6 +171,7 @@ to find the number of tasks defined in a particular job.
 
 #### Args:
 
+
 * <b>`job_name`</b>: The string name of a job in this cluster.
 
 
@@ -163,7 +182,9 @@ corresponds to the task index of each task. The list may contain
 `None` if the job was defined with a sparse set of task indices.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `job_name` does not name a job in this cluster.
 
@@ -175,7 +196,9 @@ num_tasks(job_name)
 
 Returns the number of tasks defined in the given job.
 
+
 #### Args:
+
 
 * <b>`job_name`</b>: The string name of a job in this cluster.
 
@@ -185,7 +208,9 @@ Returns the number of tasks defined in the given job.
 The number of tasks defined in the given job.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `job_name` does not name a job in this cluster.
 
@@ -200,7 +225,9 @@ task_address(
 
 Returns the address of the given task in the given job.
 
+
 #### Args:
+
 
 * <b>`job_name`</b>: The string name of a job in this cluster.
 * <b>`task_index`</b>: A non-negative integer.
@@ -211,10 +238,12 @@ Returns the address of the given task in the given job.
 The address of the given task in the given job.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `job_name` does not name a job in this cluster,
-  or no task with index `task_index` is defined in that job.
+or no task with index `task_index` is defined in that job.
 
 <h3 id="task_indices"><code>task_indices</code></h3>
 
@@ -224,7 +253,9 @@ task_indices(job_name)
 
 Returns a list of valid task indices in the given job.
 
+
 #### Args:
+
 
 * <b>`job_name`</b>: The string name of a job in this cluster.
 
@@ -234,10 +265,12 @@ Returns a list of valid task indices in the given job.
 A list of valid task indices in the given job.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `job_name` does not name a job in this cluster,
-  or no task with index `task_index` is defined in that job.
+or no task with index `task_index` is defined in that job.
 
 
 

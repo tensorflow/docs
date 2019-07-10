@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.get_session_tensor
 
+Get the tensor of type `dtype` by feeding a tensor handle.
+
+### Aliases:
+
+* `tf.compat.v1.get_session_tensor`
+* `tf.get_session_tensor`
+
 ``` python
 tf.get_session_tensor(
     handle,
@@ -15,9 +22,9 @@ tf.get_session_tensor(
 
 
 
-Defined in [`tensorflow/python/ops/session_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/session_ops.py).
+Defined in [`python/ops/session_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/session_ops.py).
 
-Get the tensor of type `dtype` by feeding a tensor handle.
+<!-- Placeholder for "Used in" -->
 
 This is EXPERIMENTAL and subject to change.
 
@@ -27,6 +34,7 @@ session.
 
 #### Args:
 
+
 * <b>`handle`</b>: The string representation of a persistent tensor handle.
 * <b>`dtype`</b>: The type of the output tensor.
 * <b>`name`</b>: Optional name prefix for the return tensor.
@@ -34,18 +42,22 @@ session.
 
 #### Returns:
 
-  A pair of tensors. The first is a placeholder for feeding a
-  tensor handle and the second is the tensor in the session state
-  keyed by the tensor handle.
+A pair of tensors. The first is a placeholder for feeding a
+tensor handle and the second is the tensor in the session state
+keyed by the tensor handle.
 
-Example:
+
+
+#### Example:
+
+
 
 ```python
 c = tf.multiply(a, b)
-h = tf.get_session_handle(c)
+h = tf.compat.v1.get_session_handle(c)
 h = sess.run(h)
 
-p, a = tf.get_session_tensor(h.handle, tf.float32)
+p, a = tf.compat.v1.get_session_tensor(h.handle, tf.float32)
 b = tf.multiply(a, 10)
 c = sess.run(b, feed_dict={p: h.handle})
 ```

@@ -5,9 +5,12 @@ page_type: reference
 
 # Module: tf.contrib.testing
 
-
-
-Defined in [`tensorflow/contrib/testing/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/testing/__init__.py).
-
 Testing utilities.
+
+
+
+Defined in [`contrib/testing/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/testing/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 

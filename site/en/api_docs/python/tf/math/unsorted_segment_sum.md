@@ -6,8 +6,13 @@ page_type: reference
 
 # tf.math.unsorted_segment_sum
 
+Computes the sum along segments of a tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.math.unsorted_segment_sum`
+* `tf.compat.v1.unsorted_segment_sum`
+* `tf.compat.v2.math.unsorted_segment_sum`
 * `tf.math.unsorted_segment_sum`
 * `tf.unsorted_segment_sum`
 
@@ -22,12 +27,12 @@ tf.math.unsorted_segment_sum(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Computes the sum along segments of a tensor.
+<!-- Placeholder for "Used in" -->
 
 Read
-[the section on segmentation](https://tensorflow.org/api_guides/python/math_ops#Segmentation)
+[the section on segmentation](https://tensorflow.org/api_docs/python/tf/math#Segmentation)
 for an explanation of segments.
 
 Computes a tensor such that
@@ -46,11 +51,19 @@ added to the sum of the segment.
 <img style="width:100%" src="https://www.tensorflow.org/images/UnsortedSegmentSum.png" alt>
 </div>
 
+``` python
+c = tf.constant([[1,2,3,4], [5,6,7,8], [4,3,2,1]])
+tf.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
+# ==> [[ 5,  5, 5, 5],
+#       [5,  6, 7, 8]]
+```
+
 #### Args:
+
 
 * <b>`data`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`, `int32`, `uint8`, `int16`, `int8`, `complex64`, `int64`, `qint8`, `quint8`, `qint32`, `bfloat16`, `uint16`, `complex128`, `half`, `uint32`, `uint64`.
 * <b>`segment_ids`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    A tensor whose shape is a prefix of `data.shape`.
+  A tensor whose shape is a prefix of `data.shape`.
 * <b>`num_segments`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
 * <b>`name`</b>: A name for the operation (optional).
 

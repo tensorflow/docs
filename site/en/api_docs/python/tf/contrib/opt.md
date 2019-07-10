@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.opt
 
-
-
-Defined in [`tensorflow/contrib/opt/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/opt/__init__.py).
-
 A module containing optimization routines.
+
+
+
+Defined in [`contrib/opt/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 
@@ -59,7 +62,7 @@ A module containing optimization routines.
 
 [`class RegAdagradOptimizer`](../../tf/contrib/opt/RegAdagradOptimizer): RegAdagrad: Adagrad with updates that optionally skip updating the slots.
 
-[`class ScipyOptimizerInterface`](../../tf/contrib/opt/ScipyOptimizerInterface): Wrapper allowing `scipy.optimize.minimize` to operate a <a href="../../tf/Session"><code>tf.Session</code></a>.
+[`class ScipyOptimizerInterface`](../../tf/contrib/opt/ScipyOptimizerInterface): Wrapper allowing `scipy.optimize.minimize` to operate a <a href="../../tf/Session"><code>tf.compat.v1.Session</code></a>.
 
 [`class ShampooOptimizer`](../../tf/contrib/opt/ShampooOptimizer): The Shampoo Optimizer
 

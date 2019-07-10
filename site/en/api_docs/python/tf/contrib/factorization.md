@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.factorization
 
-
-
-Defined in [`tensorflow/contrib/factorization/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/factorization/__init__.py).
-
 Ops and modules related to factorization.
+
+
+
+Defined in [`contrib/factorization/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/factorization/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 
@@ -31,11 +34,7 @@ Ops and modules related to factorization.
 
 ## Other Members
 
-<h3 id="COSINE_DISTANCE"><code>COSINE_DISTANCE</code></h3>
-
-<h3 id="KMEANS_PLUS_PLUS_INIT"><code>KMEANS_PLUS_PLUS_INIT</code></h3>
-
-<h3 id="RANDOM_INIT"><code>RANDOM_INIT</code></h3>
-
-<h3 id="SQUARED_EUCLIDEAN_DISTANCE"><code>SQUARED_EUCLIDEAN_DISTANCE</code></h3>
-
+* `COSINE_DISTANCE = 'cosine'` <a id="COSINE_DISTANCE"></a>
+* `KMEANS_PLUS_PLUS_INIT = 'kmeans_plus_plus'` <a id="KMEANS_PLUS_PLUS_INIT"></a>
+* `RANDOM_INIT = 'random'` <a id="RANDOM_INIT"></a>
+* `SQUARED_EUCLIDEAN_DISTANCE = 'squared_euclidean'` <a id="SQUARED_EUCLIDEAN_DISTANCE"></a>

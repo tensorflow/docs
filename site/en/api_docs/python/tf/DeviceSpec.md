@@ -7,19 +7,28 @@ page_type: reference
 
 ## Class `DeviceSpec`
 
-
-
-
-
-Defined in [`tensorflow/python/framework/device.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/device.py).
-
 Represents a (possibly partial) specification for a TensorFlow device.
+
+Inherits From: [`DeviceSpec`](../tf/compat/v2/DeviceSpec)
+
+### Aliases:
+
+* Class `tf.DeviceSpec`
+* Class `tf.compat.v1.DeviceSpec`
+
+
+
+Defined in [`python/framework/device_spec.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/device_spec.py).
+
+<!-- Placeholder for "Used in" -->
 
 `DeviceSpec`s are used throughout TensorFlow to describe where state is stored
 and computations occur. Using `DeviceSpec` allows you to parse device spec
 strings to verify their validity, merge them or compose them programmatically.
 
-Example:
+#### Example:
+
+
 
 ```python
 # Place the operations on device "GPU:0" in the "ps" job.
@@ -66,20 +75,33 @@ __init__(
 
 Create a new `DeviceSpec` object.
 
+
 #### Args:
+
 
 * <b>`job`</b>: string.  Optional job name.
 * <b>`replica`</b>: int.  Optional replica index.
 * <b>`task`</b>: int.  Optional task index.
 * <b>`device_type`</b>: Optional device type string (e.g. "CPU" or "GPU")
 * <b>`device_index`</b>: int.  Optional device index.  If left
-    unspecified, device represents 'any' device_index.
+  unspecified, device represents 'any' device_index.
 
 
 
 ## Properties
 
+<h3 id="device_index"><code>device_index</code></h3>
+
+
+
+
+<h3 id="device_type"><code>device_type</code></h3>
+
+
+
+
 <h3 id="job"><code>job</code></h3>
+
 
 
 
@@ -87,7 +109,9 @@ Create a new `DeviceSpec` object.
 
 
 
+
 <h3 id="task"><code>task</code></h3>
+
 
 
 
@@ -101,30 +125,84 @@ Create a new `DeviceSpec` object.
 __eq__(other)
 ```
 
-Return self==value.
+Checks if the `other` DeviceSpec is same as the current instance, eg have
+
+   same value for all the internal fields.
+
+#### Args:
+
+
+* <b>`other`</b>: Another DeviceSpec
+
+
+#### Returns:
+
+Return `True` if `other` is also a DeviceSpec instance and has same value
+as the current instance.
+Return `False` otherwise.
+
 
 <h3 id="from_string"><code>from_string</code></h3>
 
 ``` python
-@staticmethod
-from_string(spec)
+from_string(
+    cls,
+    spec
+)
 ```
 
 Construct a `DeviceSpec` from a string.
 
+
 #### Args:
 
+
 * <b>`spec`</b>: a string of the form
-   /job:<name>/replica:<id>/task:<id>/device:CPU:<id>
-  or
-   /job:<name>/replica:<id>/task:<id>/device:GPU:<id>
-  as cpu and gpu are mutually exclusive.
-  All entries are optional.
+ /job:<name>/replica:<id>/task:<id>/device:CPU:<id>
+or
+ /job:<name>/replica:<id>/task:<id>/device:GPU:<id>
+as cpu and gpu are mutually exclusive.
+All entries are optional.
 
 
 #### Returns:
 
 A DeviceSpec.
+
+
+<h3 id="make_merged_spec"><code>make_merged_spec</code></h3>
+
+``` python
+make_merged_spec(dev)
+```
+
+Returns a new DeviceSpec which incorporates `dev`.
+
+When combining specs, `dev` will take precidence over the current spec.
+So for instance:
+
+```
+first_spec = tf.DeviceSpec(job=0, device_type="CPU")
+second_spec = tf.DeviceSpec(device_type="GPU")
+combined_spec = first_spec.make_merged_spec(second_spec)
+```
+
+is equivalent to:
+
+```
+combined_spec = tf.DeviceSpec(job=0, device_type="GPU")
+```
+
+#### Args:
+
+
+* <b>`dev`</b>: a `DeviceSpec`
+
+
+#### Returns:
+
+A new `DeviceSpec` which combines `self` and `dev`
+
 
 <h3 id="merge_from"><code>merge_from</code></h3>
 
@@ -134,7 +212,11 @@ merge_from(dev)
 
 Merge the properties of "dev" into this `DeviceSpec`.
 
+Note: Will be removed in TensorFlow 2.x since DeviceSpecs will become
+      immutable.
+
 #### Args:
+
 
 * <b>`dev`</b>: a `DeviceSpec`.
 
@@ -146,14 +228,52 @@ parse_from_string(spec)
 
 Parse a `DeviceSpec` name into its components.
 
+2.x behavior change:
+  In TensorFlow 1.x, this function mutates its own state and returns itself.
+  In 2.x, DeviceSpecs are immutable, and this function will return a
+    DeviceSpec which contains the spec.
+
+  Recommended:
+
+    ```
+    # my_spec and my_updated_spec are unrelated.
+    my_spec = tf.DeviceSpec.from_string("/CPU:0")
+    my_updated_spec = tf.DeviceSpec.from_string("/GPU:0")
+    with tf.device(my_updated_spec):
+      ...
+    ```
+
+  Will work in 1.x and 2.x (though deprecated in 2.x):
+
+    ```
+    my_spec = tf.DeviceSpec.from_string("/CPU:0")
+    my_updated_spec = my_spec.parse_from_string("/GPU:0")
+    with tf.device(my_updated_spec):
+      ...
+    ```
+
+  Will NOT work in 2.x:
+
+    ```
+    my_spec = tf.DeviceSpec.from_string("/CPU:0")
+    my_spec.parse_from_string("/GPU:0")  # <== Will not update my_spec
+    with tf.device(my_spec):
+      ...
+    ```
+
+  In general, <a href="../tf/DeviceSpec#from_string"><code>DeviceSpec.from_string</code></a> should completely replace
+  <a href="../tf/DeviceSpec#parse_from_string"><code>DeviceSpec.parse_from_string</code></a>, and <a href="../tf/compat/v2/DeviceSpec#replace"><code>DeviceSpec.replace</code></a> should
+  completely replace setting attributes directly.
+
 #### Args:
 
-* <b>`spec`</b>: a string of the form
-   /job:<name>/replica:<id>/task:<id>/device:CPU:<id>
-  or
-   /job:<name>/replica:<id>/task:<id>/device:GPU:<id>
-  as cpu and gpu are mutually exclusive.
-  All entries are optional.
+
+* <b>`spec`</b>: an optional string of the form
+ /job:<name>/replica:<id>/task:<id>/device:CPU:<id>
+or
+ /job:<name>/replica:<id>/task:<id>/device:GPU:<id>
+as cpu and gpu are mutually exclusive.
+All entries are optional.
 
 
 #### Returns:
@@ -161,9 +281,40 @@ Parse a `DeviceSpec` name into its components.
 The `DeviceSpec`.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if the spec was not valid.
+
+<h3 id="replace"><code>replace</code></h3>
+
+``` python
+replace(**kwargs)
+```
+
+Convenience method for making a new DeviceSpec by overriding fields.
+
+
+#### For instance:
+
+
+```
+my_spec = DeviceSpec=(job="my_job", device="CPU")
+my_updated_spec = my_spec.replace(device="GPU")
+my_other_spec = my_spec.replace(device=None)
+```
+
+#### Args:
+
+
+* <b>`**kwargs`</b>: This method takes the same args as the DeviceSpec constructor
+
+
+#### Returns:
+
+A DeviceSpec with the fields specified in kwargs overridden.
+
 
 <h3 id="to_string"><code>to_string</code></h3>
 
@@ -173,10 +324,12 @@ to_string()
 
 Return a string representation of this `DeviceSpec`.
 
+
 #### Returns:
 
 a string of the form
 /job:<name>/replica:<id>/task:<id>/device:<device_type>:<id>.
+
 
 
 

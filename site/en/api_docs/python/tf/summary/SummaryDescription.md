@@ -11,7 +11,24 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/framework/summary.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/framework/summary.proto).
+### Aliases:
 
-A ProtocolMessage
+* Class `tf.compat.v1.summary.SummaryDescription`
+* Class `tf.summary.SummaryDescription`
+
+
+
+Defined in [`core/framework/summary.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/summary.proto).
+
+<!-- Placeholder for "Used in" -->
+
+
+## Properties
+
+<h3 id="type_hint"><code>type_hint</code></h3>
+
+`string type_hint`
+
+
+
 

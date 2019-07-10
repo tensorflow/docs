@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `InputFnOps`
 
-
-
-
-
-Defined in [`tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
-
 A return type for an input_fn (deprecated).
+
+
+
+
+
+Defined in [`contrib/learn/python/learn/utils/input_fn_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
+
+<!-- Placeholder for "Used in" -->
 
 THIS CLASS IS DEPRECATED. Please use tf.estimator.export.ServingInputReceiver
 instead.
@@ -32,24 +34,10 @@ The expected return values are:
     Typically, this is used by a serving input_fn, which expects to be fed
     serialized `tf.Example` protos.
 
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-__new__(
-    _cls,
-    features,
-    labels,
-    default_inputs
-)
-```
-
-Create new instance of InputFnOps(features, labels, default_inputs)
-
-
-
 ## Properties
 
 <h3 id="features"><code>features</code></h3>
+
 
 
 
@@ -57,7 +45,9 @@ Create new instance of InputFnOps(features, labels, default_inputs)
 
 
 
+
 <h3 id="default_inputs"><code>default_inputs</code></h3>
+
 
 
 

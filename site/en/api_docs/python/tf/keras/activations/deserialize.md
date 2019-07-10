@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.activations.deserialize
 
+
+
+### Aliases:
+
+* `tf.compat.v1.keras.activations.deserialize`
+* `tf.compat.v2.keras.activations.deserialize`
+* `tf.keras.activations.deserialize`
+
 ``` python
 tf.keras.activations.deserialize(
     name,
@@ -14,5 +22,6 @@ tf.keras.activations.deserialize(
 
 
 
-Defined in [`tensorflow/python/keras/activations.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/activations.py).
+Defined in [`python/keras/activations.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/activations.py).
 
+<!-- Placeholder for "Used in" -->

@@ -7,21 +7,23 @@ page_type: reference
 
 ## Class `Strategy`
 
+A list of devices with a state & compute distribution policy.
 
+Inherits From: [`Strategy`](../../tf/compat/v2/distribute/Strategy)
 
 ### Aliases:
 
+* Class `tf.compat.v1.distribute.Strategy`
 * Class `tf.contrib.distribute.DistributionStrategy`
 * Class `tf.distribute.Strategy`
 
 
 
-Defined in [`tensorflow/python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/distribute_lib.py).
+Defined in [`python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/distribute_lib.py).
 
-A list of devices with a state & compute distribution policy.
+<!-- Placeholder for "Used in" -->
 
-See [tensorflow/contrib/distribute/README.md](
-https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distribute/README.md)
+See [the guide](https://www.tensorflow.org/guide/distribute_strategy)
 for overview and examples.
 
 <h2 id="__init__"><code>__init__</code></h2>
@@ -30,7 +32,8 @@ for overview and examples.
 __init__(extended)
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -40,55 +43,132 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <a href="../../tf/distribute/StrategyExtended"><code>tf.distribute.StrategyExtended</code></a> with additional methods.
 
+
 <h3 id="num_replicas_in_sync"><code>num_replicas_in_sync</code></h3>
 
 Returns number of replicas over which gradients are aggregated.
 
 
 
+
 ## Methods
 
-<h3 id="__deepcopy__"><code>__deepcopy__</code></h3>
+<h3 id="experimental_distribute_dataset"><code>experimental_distribute_dataset</code></h3>
 
 ``` python
-__deepcopy__(memo)
+experimental_distribute_dataset(dataset)
 ```
 
+Distributes a tf.data.Dataset instance provided via `dataset`.
 
+In a multi-worker setting, we will first attempt to distribute the dataset
+by attempting to detect whether the dataset is being created out of
+ReaderDatasets (e.g. TFRecordDataset, TextLineDataset, etc.) and if so,
+attempting to shard the input files. Note that there has to be at least one
+input file per worker. If you have less than one input file per worker, we
+suggest that you should disable distributing your dataset using the method
+below.
 
-<h3 id="experimental_finalize"><code>experimental_finalize</code></h3>
+If that attempt is unsuccessful (e.g. the dataset is created from a
+Dataset.range), we will shard the dataset evenly at the end by appending a
+`.shard` operation to the end of the processing pipeline. This will cause
+the entire preprocessing pipeline for all the data to be run on every
+worker, and each worker will do redundant work. We will print a warning
+if this method of sharding is selected.
 
-``` python
-experimental_finalize()
+You can disable dataset distribution using the `auto_shard` option in
+<a href="../../tf/data/experimental/DistributeOptions"><code>tf.data.experimental.DistributeOptions</code></a>.
+
+Within each host, we will also split the data among all the worker devices
+(if more than one a present), and this will happen even if multi-worker
+sharding is disabled using the method above.
+
+The following is an example:
+
+```python
+strategy = tf.distribute.MirroredStrategy()
+
+# Create a dataset
+dataset = dataset_ops.Dataset.TFRecordDataset([
+  "/a/1.tfr", "/a/2.tfr", "/a/3.tfr", /a/4.tfr"])
+
+# Distribute that dataset
+dist_dataset = strategy.experimental_distribute_dataset(dataset)
+# Iterate over the distributed dataset
+for x in dist_dataset:
+  # process dataset elements
+  strategy.experimental_run_v2(train_step, args=(x,))
 ```
 
-Any final actions to be done at the end of all computations.
+#### Args:
 
-In eager mode, it executes any finalize actions as a side effect.
-In graph mode, it creates the finalize ops and returns them.
 
-For example, TPU shutdown ops.
+* <b>`dataset`</b>: <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> that will be sharded across all replicas using
+  the rules stated above.
+
 
 #### Returns:
 
-A list of ops to execute.
+A `DistributedDataset` which returns inputs for each step of the
+computation.
 
-<h3 id="experimental_initialize"><code>experimental_initialize</code></h3>
+
+<h3 id="experimental_local_results"><code>experimental_local_results</code></h3>
 
 ``` python
-experimental_initialize()
+experimental_local_results(value)
 ```
 
-Any initialization to be done before running any computations.
+Returns the list of all local per-replica values contained in `value`.
 
-In eager mode, it executes any initialization as a side effect.
-In graph mode, it creates the initialization ops and returns them.
+Note: This only returns values on the workers initiated by this client.
+When using a `Strategy` like
+<a href="../../tf/distribute/experimental/MultiWorkerMirroredStrategy"><code>tf.distribute.experimental.MultiWorkerMirroredStrategy</code></a>, each worker
+will be its own client, and this function will only return values
+computed on that worker.
 
-For example, TPU initialize_system ops.
+#### Args:
+
+
+* <b>`value`</b>: A value returned by `experimental_run()`, `experimental_run_v2()`,
+  `extended.call_for_each_replica()`, or a variable created in `scope`.
+
 
 #### Returns:
 
-A list of ops to execute.
+A tuple of values contained in `value`. If `value` represents a single
+value, this returns `(value,).`
+
+
+<h3 id="experimental_make_numpy_dataset"><code>experimental_make_numpy_dataset</code></h3>
+
+``` python
+experimental_make_numpy_dataset(
+    numpy_input,
+    session=None
+)
+```
+
+Makes a dataset for input provided via a numpy array.
+
+This avoids adding `numpy_input` as a large constant in the graph,
+and copies the data to the machine or machines that will be processing
+the input.
+
+#### Args:
+
+
+* <b>`numpy_input`</b>: A nest of NumPy input arrays that will be distributed evenly
+  across all replicas. Note that lists of Numpy arrays are stacked,
+  as that is normal <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> behavior.
+* <b>`session`</b>: (TensorFlow v1.x graph execution only) A session used for
+  initialization.
+
+
+#### Returns:
+
+A <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> representing `numpy_input`.
+
 
 <h3 id="experimental_run"><code>experimental_run</code></h3>
 
@@ -101,24 +181,28 @@ experimental_run(
 
 Runs ops in `fn` on each replica, with inputs from `input_iterator`.
 
+DEPRECATED: This method is not available in TF 2.x. Please switch
+to using `experimental_run_v2` instead.
+
 When eager execution is enabled, executes ops specified by `fn` on each
-replica.  Otherwise, builds a graph to execute the ops on each replica.
+replica. Otherwise, builds a graph to execute the ops on each replica.
 
 Each replica will take a single, different input from the inputs provided by
 one `get_next` call on the input iterator.
 
-`fn` may call `tf.distribute.get_replica_context()` to access members such
+`fn` may call <a href="../../tf/distribute/get_replica_context"><code>tf.distribute.get_replica_context()</code></a> to access members such
 as `replica_id_in_sync_group`.
 
-IMPORTANT: Depending on the `DistributionStrategy` being used, and whether
-eager execution is enabled, `fn` may be called one or more times (once for
-each replica).
+IMPORTANT: Depending on the <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> implementation being
+used, and whether eager execution is enabled, `fn` may be called one or more
+times (once for each replica).
 
 #### Args:
 
-* <b>`fn`</b>: function to run. The inputs to the function must match the outputs of
-    `input_iterator.get_next()`. The output must be a `tf.nest` of
-    `Tensor`s.
+
+* <b>`fn`</b>: The function to run. The inputs to the function must match the outputs
+  of `input_iterator.get_next()`. The output must be a <a href="../../tf/nest"><code>tf.nest</code></a> of
+  `Tensor`s.
 * <b>`input_iterator`</b>: (Optional) input iterator from which the inputs are taken.
 
 
@@ -130,13 +214,55 @@ structure can either be `PerReplica` (if the values are unsynchronized),
 `Mirrored` (if the values are kept in sync), or `Tensor` (if running on a
 single replica).
 
+
+<h3 id="experimental_run_v2"><code>experimental_run_v2</code></h3>
+
+``` python
+experimental_run_v2(
+    fn,
+    args=(),
+    kwargs=None
+)
+```
+
+Runs ops in `fn` on each replica, with the given arguments.
+
+When eager execution is enabled, executes ops specified by `fn` on each
+replica. Otherwise, builds a graph to execute the ops on each replica.
+
+`fn` may call <a href="../../tf/distribute/get_replica_context"><code>tf.distribute.get_replica_context()</code></a> to access members such
+as `replica_id_in_sync_group`.
+
+IMPORTANT: Depending on the <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> implementation being
+used, and whether eager execution is enabled, `fn` may be called one or more
+times (once for each replica).
+
+#### Args:
+
+
+* <b>`fn`</b>: The function to run. The output must be a <a href="../../tf/nest"><code>tf.nest</code></a> of `Tensor`s.
+* <b>`args`</b>: (Optional) Positional arguments to `fn`.
+* <b>`kwargs`</b>: (Optional) Keyword arguments to `fn`.
+
+
+#### Returns:
+
+Merged return value of `fn` across replicas. The structure of the return
+value is the same as the return value from `fn`. Each element in the
+structure can either be `PerReplica` (if the values are unsynchronized),
+`Mirrored` (if the values are kept in sync), or `Tensor` (if running on a
+single replica).
+
+
 <h3 id="make_dataset_iterator"><code>make_dataset_iterator</code></h3>
 
 ``` python
 make_dataset_iterator(dataset)
 ```
 
-Makes an iterator for input provided via input_dataset.
+Makes an iterator for input provided via `dataset`.
+
+DEPRECATED: This method is not available in TF 2.x.
 
 Data from the given dataset will be distributed evenly across all the
 compute replicas. We will assume that the input dataset is batched by the
@@ -151,14 +277,16 @@ customize which input is fed to which replica/worker etc.
 
 #### Args:
 
+
 * <b>`dataset`</b>: <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> that will be distributed evenly across all
-    replicas.
+  replicas.
 
 
 #### Returns:
 
 An `tf.distribute.InputIterator` which returns inputs for each step of the
 computation.  User should call `initialize` on the returned iterator.
+
 
 <h3 id="make_input_fn_iterator"><code>make_input_fn_iterator</code></h3>
 
@@ -171,54 +299,96 @@ make_input_fn_iterator(
 
 Returns an iterator split across replicas created from an input function.
 
+DEPRECATED: This method is not available in TF 2.x.
+
 The `input_fn` should take an <a href="../../tf/distribute/InputContext"><code>tf.distribute.InputContext</code></a> object where
-information about input sharding can be accessed:
+information about batching and input sharding can be accessed:
 
 ```
 def input_fn(input_context):
-  d = tf.data.Dataset.from_tensors([[1.]]).repeat()
+  batch_size = input_context.get_per_replica_batch_size(global_batch_size)
+  d = tf.data.Dataset.from_tensors([[1.]]).repeat().batch(batch_size)
   return d.shard(input_context.num_input_pipelines,
                  input_context.input_pipeline_id)
 with strategy.scope():
-  iterator = strategy.make_input_fn_iterator(
-      input_fn)
-  replica_results = strategy.extended.call_for_each_replica(
-      replica_fn, iterator.get_next())
+  iterator = strategy.make_input_fn_iterator(input_fn)
+  replica_results = strategy.experimental_run(replica_fn, iterator)
 ```
+
+The <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> returned by `input_fn` should have a per-replica
+batch size, which may be computed using
+`input_context.get_per_replica_batch_size`.
 
 #### Args:
 
-* <b>`input_fn`</b>: A function that returns a <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a>. This function is
-    expected to take an <a href="../../tf/distribute/InputContext"><code>tf.distribute.InputContext</code></a> object.
+
+* <b>`input_fn`</b>: A function taking a <a href="../../tf/distribute/InputContext"><code>tf.distribute.InputContext</code></a> object and
+  returning a <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a>.
 * <b>`replication_mode`</b>: an enum value of <a href="../../tf/distribute/InputReplicationMode"><code>tf.distribute.InputReplicationMode</code></a>.
-    Only `PER_WORKER` is supported currently.
+  Only `PER_WORKER` is supported currently, which means there will be
+  a single call to `input_fn` per worker. Replicas will dequeue from the
+  local <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> on their worker.
 
 
 #### Returns:
 
-An iterator object that can be initialized and fetched next element.
+An iterator object that should first be `.initialize()`-ed. It may then
+either be passed to `strategy.experimental_run()` or you can
+`iterator.get_next()` to get the next value to pass to
+`strategy.extended.call_for_each_replica()`.
+
 
 <h3 id="reduce"><code>reduce</code></h3>
 
 ``` python
 reduce(
     reduce_op,
-    value
+    value,
+    axis=None
 )
 ```
 
 Reduce `value` across replicas.
 
+Given a per-replica value returned by `experimental_run_v2`, say a
+per-example loss, the batch will be divided across all the replicas.  This
+function allows you to aggregate across replicas and optionally also across
+batch elements.  For example, if you have a global batch size of 8 and 2
+replicas, values for examples `[0, 1, 2, 3]` will be on replica 0 and
+`[4, 5, 6, 7]` will be on replica 1. By default, `reduce` will just
+aggregate across replicas, returning `[0+4, 1+5, 2+6, 3+7]`. This is useful
+when each replica is computing a scalar or some other value that doesn't
+have a "batch" dimension (like a gradient). More often you will want to
+aggregate across the global batch, which you can get by specifying the batch
+dimension as the `axis`, typically `axis=0`. In this case it would return a
+scalar `0+1+2+3+4+5+6+7`.
+
+If there is a last partial batch, you will need to specify an axis so
+that the resulting shape is consistent across replicas. So if the last
+batch has size 6 and it is divided into [0, 1, 2, 3] and [4, 5], you
+would get a shape mismatch unless you specify `axis=0`. If you specify
+<a href="../../tf/distribute/ReduceOp#MEAN"><code>tf.distribute.ReduceOp.MEAN</code></a>, using `axis=0` will use the correct
+denominator of 6. Contrast this with computing `reduce_mean` to get a
+scalar value on each replica and this function to average those means,
+which will weigh some values `1/8` and others `1/4`.
+
 #### Args:
 
+
 * <b>`reduce_op`</b>: A <a href="../../tf/distribute/ReduceOp"><code>tf.distribute.ReduceOp</code></a> value specifying how values should
-    be combined.
-* <b>`value`</b>: A "per replica" value to be combined into a single tensor.
+  be combined.
+* <b>`value`</b>: A "per replica" value, e.g. returned by `experimental_run_v2` to
+  be combined into a single tensor.
+* <b>`axis`</b>: Specifies the dimension to reduce along within each
+  replica's tensor. Should typically be set to the batch dimension, or
+  `None` to only reduce across replicas (e.g. if the tensor has no batch
+  dimension).
 
 
 #### Returns:
 
 A `Tensor`.
+
 
 <h3 id="scope"><code>scope</code></h3>
 
@@ -236,6 +406,7 @@ enter its "cross-replica context".
 
 A context manager.
 
+
 <h3 id="update_config_proto"><code>update_config_proto</code></h3>
 
 ``` python
@@ -244,11 +415,14 @@ update_config_proto(config_proto)
 
 Returns a copy of `config_proto` modified for use with this strategy.
 
+DEPRECATED: This method is not available in TF 2.x.
+
 The updated config has something needed to run a strategy, e.g.
 configuration to run collective ops, or device filters to improve
 distributed training performance.
 
 #### Args:
+
 
 * <b>`config_proto`</b>: a <a href="../../tf/ConfigProto"><code>tf.ConfigProto</code></a> object.
 
@@ -256,6 +430,7 @@ distributed training performance.
 #### Returns:
 
 The updated copy of the `config_proto`.
+
 
 
 

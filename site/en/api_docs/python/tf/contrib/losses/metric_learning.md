@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.losses.metric_learning
 
-
-
-Defined in [`tensorflow/contrib/losses/python/metric_learning/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/metric_learning/__init__.py).
-
 Ops for building neural network losses.
+
+
+
+Defined in [`contrib/losses/python/metric_learning/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/metric_learning/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 See [Contrib Losses](https://tensorflow.org/api_guides/python/contrib.losses).
 

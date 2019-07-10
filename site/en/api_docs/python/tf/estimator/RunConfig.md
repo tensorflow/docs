@@ -7,9 +7,22 @@ page_type: reference
 
 ## Class `RunConfig`
 
-
-
 This class specifies the configurations for an `Estimator` run.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.estimator.RunConfig`
+* Class `tf.compat.v2.estimator.RunConfig`
+* Class `tf.estimator.RunConfig`
+
+
+
+Defined in [`python/estimator/run_config.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/run_config.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -28,7 +41,8 @@ __init__(
     device_fn=None,
     protocol=None,
     eval_distribute=None,
-    experimental_distribute=None
+    experimental_distribute=None,
+    experimental_max_worker_delay_secs=None
 )
 ```
 
@@ -87,7 +101,8 @@ Example of non-chief node:
   assert not config.is_chief
 ```
 
-Example of chief node:
+#### Example of chief node:
+
 
 ```
   cluster = {'chief': ['host0:2222'],
@@ -136,62 +151,73 @@ find the checkpoint due to race condition.
 
 #### Args:
 
+
 * <b>`model_dir`</b>: directory where model parameters, graph, etc are saved. If
-    `PathLike` object, the path will be resolved. If `None`, will use a
-    default value set by the Estimator.
+  `PathLike` object, the path will be resolved. If `None`, will use a
+  default value set by the Estimator.
 * <b>`tf_random_seed`</b>: Random seed for TensorFlow initializers.
-    Setting this value allows consistency between reruns.
+  Setting this value allows consistency between reruns.
 * <b>`save_summary_steps`</b>: Save summaries every this many steps.
 * <b>`save_checkpoints_steps`</b>: Save checkpoints every this many steps. Can not be
-      specified with `save_checkpoints_secs`.
+    specified with `save_checkpoints_secs`.
 * <b>`save_checkpoints_secs`</b>: Save checkpoints every this many seconds. Can not
-      be specified with `save_checkpoints_steps`. Defaults to 600 seconds if
-      both `save_checkpoints_steps` and `save_checkpoints_secs` are not set
-      in constructor.  If both `save_checkpoints_steps` and
-      `save_checkpoints_secs` are None, then checkpoints are disabled.
-* <b>`session_config`</b>: a ConfigProto used to set session parameters, or None.
+    be specified with `save_checkpoints_steps`. Defaults to 600 seconds if
+    both `save_checkpoints_steps` and `save_checkpoints_secs` are not set
+    in constructor.  If both `save_checkpoints_steps` and
+    `save_checkpoints_secs` are `None`, then checkpoints are disabled.
+* <b>`session_config`</b>: a ConfigProto used to set session parameters, or `None`.
 * <b>`keep_checkpoint_max`</b>: The maximum number of recent checkpoint files to
-    keep. As new files are created, older files are deleted. If None or 0,
-    all checkpoint files are kept. Defaults to 5 (that is, the 5 most recent
-    checkpoint files are kept.)
+  keep. As new files are created, older files are deleted. If `None` or 0,
+  all checkpoint files are kept. Defaults to 5 (that is, the 5 most recent
+  checkpoint files are kept.)
 * <b>`keep_checkpoint_every_n_hours`</b>: Number of hours between each checkpoint
-    to be saved. The default value of 10,000 hours effectively disables
-    the feature.
+  to be saved. The default value of 10,000 hours effectively disables
+  the feature.
 * <b>`log_step_count_steps`</b>: The frequency, in number of global steps, that the
-    global step/sec and the loss will be logged during training.
-* <b>`train_distribute`</b>: An optional instance of
-    <a href="../../tf/distribute/Strategy"><code>tf.contrib.distribute.DistributionStrategy</code></a>. If specified,
-    then Estimator will distribute the user's model during training,
-    according to the policy specified by that strategy. Setting
-    `experimental_distribute.train_distribute` is preferred.
+  global step and the loss will be logged during training.  Also controls
+  the frequency that the global steps / s will be logged (and written to
+  summary) during training.
+* <b>`train_distribute`</b>: An optional instance of <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a>.
+  If specified, then Estimator will distribute the user's model during
+  training, according to the policy specified by that strategy. Setting
+  `experimental_distribute.train_distribute` is preferred.
 * <b>`device_fn`</b>: A callable invoked for every `Operation` that takes the
-    `Operation` and returns the device string. If `None`, defaults to
-    the device function returned by <a href="../../tf/train/replica_device_setter"><code>tf.train.replica_device_setter</code></a>
-    with round-robin strategy.
+  `Operation` and returns the device string. If `None`, defaults to
+  the device function returned by <a href="../../tf/train/replica_device_setter"><code>tf.train.replica_device_setter</code></a>
+  with round-robin strategy.
 * <b>`protocol`</b>: An optional argument which specifies the protocol used when
-    starting server. None means default to grpc.
-* <b>`eval_distribute`</b>: An optional instance of
-    <a href="../../tf/distribute/Strategy"><code>tf.contrib.distribute.DistributionStrategy</code></a>. If specified,
-    then Estimator will distribute the user's model during evaluation,
-    according to the policy specified by that strategy. Setting
-    `experimental_distribute.eval_distribute` is preferred.
-* <b>`experimental_distribute`</b>: an optional
-    <a href="../../tf/contrib/distribute/DistributeConfig"><code>tf.contrib.distribute.DistributeConfig</code></a> object specifying
-    DistributionStrategy-related configuration. The `train_distribute` and
-    `eval_distribute` can be passed as parameters to `RunConfig` or set in
-    `experimental_distribute` but not both.
+  starting server. `None` means default to grpc.
+* <b>`eval_distribute`</b>: An optional instance of <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a>.
+  If specified, then Estimator will distribute the user's model during
+  evaluation, according to the policy specified by that strategy.
+  Setting `experimental_distribute.eval_distribute` is preferred.
+* <b>`experimental_distribute`</b>: An optional
+  <a href="../../tf/contrib/distribute/DistributeConfig"><code>tf.contrib.distribute.DistributeConfig</code></a> object specifying
+  DistributionStrategy-related configuration. The `train_distribute` and
+  `eval_distribute` can be passed as parameters to `RunConfig` or set in
+  `experimental_distribute` but not both.
+* <b>`experimental_max_worker_delay_secs`</b>: An optional integer
+  specifying the maximum time a worker should wait before starting.
+  By default, workers are started at staggered times, with each worker
+  being delayed by up to 60 seconds. This is intended to reduce the risk
+  of divergence, which can occur when many workers simultaneously update
+  the weights of a randomly initialized model. Users who warm-start their
+  models and train them for short durations (a few minutes or less) should
+  consider reducing this default to improve training times.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If both `save_checkpoints_steps` and `save_checkpoints_secs`
-  are set.
+are set.
 
 
 
 ## Properties
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
+
 
 
 
@@ -205,10 +231,16 @@ Otherwise the default one is used.
 
 <h3 id="eval_distribute"><code>eval_distribute</code></h3>
 
-Optional <a href="../../tf/distribute/Strategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for evaluation.
+Optional <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> for evaluation.
     
 
 <h3 id="evaluation_master"><code>evaluation_master</code></h3>
+
+
+
+
+<h3 id="experimental_max_worker_delay_secs"><code>experimental_max_worker_delay_secs</code></h3>
+
 
 
 
@@ -252,7 +284,9 @@ spec given above, the global ids are assigned as:
 
 An integer id.
 
+
 <h3 id="is_chief"><code>is_chief</code></h3>
+
 
 
 
@@ -260,7 +294,9 @@ An integer id.
 
 
 
+
 <h3 id="keep_checkpoint_max"><code>keep_checkpoint_max</code></h3>
+
 
 
 
@@ -268,7 +304,9 @@ An integer id.
 
 
 
+
 <h3 id="master"><code>master</code></h3>
+
 
 
 
@@ -276,7 +314,9 @@ An integer id.
 
 
 
+
 <h3 id="num_ps_replicas"><code>num_ps_replicas</code></h3>
+
 
 
 
@@ -284,11 +324,14 @@ An integer id.
 
 
 
+
 <h3 id="protocol"><code>protocol</code></h3>
 
 Returns the optional protocol value.
 
+
 <h3 id="save_checkpoints_secs"><code>save_checkpoints_secs</code></h3>
+
 
 
 
@@ -296,7 +339,9 @@ Returns the optional protocol value.
 
 
 
+
 <h3 id="save_summary_steps"><code>save_summary_steps</code></h3>
+
 
 
 
@@ -304,7 +349,9 @@ Returns the optional protocol value.
 
 Returns the platform defined (in TF_CONFIG) service dict.
 
+
 <h3 id="session_config"><code>session_config</code></h3>
+
 
 
 
@@ -312,7 +359,9 @@ Returns the platform defined (in TF_CONFIG) service dict.
 
 
 
+
 <h3 id="task_type"><code>task_type</code></h3>
+
 
 
 
@@ -320,9 +369,10 @@ Returns the platform defined (in TF_CONFIG) service dict.
 
 
 
+
 <h3 id="train_distribute"><code>train_distribute</code></h3>
 
-Optional <a href="../../tf/distribute/Strategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for training.
+Optional <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> for training.
     
 
 
@@ -353,25 +403,29 @@ Only the properties in the following list are allowed to be replaced:
   - `protocol`.
   - `eval_distribute`,
   - `experimental_distribute`,
+  - `experimental_max_worker_delay_secs`,
 
 In addition, either `save_checkpoints_steps` or `save_checkpoints_secs`
 can be set (should not be both).
 
 #### Args:
 
+
 * <b>`**kwargs`</b>: keyword named properties with new values.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If any property name in `kwargs` does not exist or is not
-    allowed to be replaced, or both `save_checkpoints_steps` and
-    `save_checkpoints_secs` are set.
+  allowed to be replaced, or both `save_checkpoints_steps` and
+  `save_checkpoints_secs` are set.
 
 
 #### Returns:
 
 a new instance of `RunConfig`.
+
 
 
 

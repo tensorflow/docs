@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.eye
 
+Instantiate an identity matrix and returns it.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.eye`
+* `tf.compat.v2.keras.backend.eye`
+* `tf.keras.backend.eye`
+
 ``` python
 tf.keras.backend.eye(
     size,
@@ -15,11 +23,13 @@ tf.keras.backend.eye(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Instantiate an identity matrix and returns it.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`size`</b>: Integer, number of rows/columns.
 * <b>`dtype`</b>: String, data type of returned Keras variable.
@@ -28,9 +38,13 @@ Instantiate an identity matrix and returns it.
 
 #### Returns:
 
-    A Keras variable, an identity matrix.
+A Keras variable, an identity matrix.
 
-Example:
+
+
+#### Example:
+
+
 ```python
     >>> from keras import backend as K
     >>> kvar = K.eye(3)

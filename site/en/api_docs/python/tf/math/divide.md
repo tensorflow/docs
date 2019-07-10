@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.math.divide
 
+Computes Python style division of `x` by `y`.
+
 ### Aliases:
 
+* `tf.compat.v1.divide`
+* `tf.compat.v1.math.divide`
+* `tf.compat.v2.divide`
+* `tf.compat.v2.math.divide`
 * `tf.divide`
 * `tf.math.divide`
 
@@ -20,6 +26,6 @@ tf.math.divide(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Computes Python style division of `x` by `y`.
+<!-- Placeholder for "Used in" -->

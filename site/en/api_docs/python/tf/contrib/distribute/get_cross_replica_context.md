@@ -5,20 +5,24 @@ page_type: reference
 
 # tf.contrib.distribute.get_cross_replica_context
 
+Returns the current tf.distribute.Strategy if in a cross-replica context.
+
 ``` python
 tf.contrib.distribute.get_cross_replica_context()
 ```
 
 
 
-Defined in [`tensorflow/python/distribute/distribution_strategy_context.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/distribution_strategy_context.py).
+Defined in [`python/distribute/distribution_strategy_context.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/distribution_strategy_context.py).
 
-Returns the current tf.distribute.Strategy if in a cross-replica context.
+<!-- Placeholder for "Used in" -->
 
 DEPRECATED: Please use `in_cross_replica_context()` and
-`get_distribution_strategy()` instead.
+`get_strategy()` instead.
 
-Note that execution:
+#### Note that execution:
+
+
 
 1. starts in the default (single-replica) replica context;
 2. switches to cross-replica context when entering a

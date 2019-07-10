@@ -5,15 +5,18 @@ page_type: reference
 
 # tf.contrib.eager.num_gpus
 
+Get the number of available GPU devices.
+
 ``` python
 tf.contrib.eager.num_gpus()
 ```
 
 
 
-Defined in [`tensorflow/python/eager/context.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/eager/context.py).
+Defined in [`python/eager/context.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/context.py).
 
-Get the number of available GPU devices.
+<!-- Placeholder for "Used in" -->
+
 
 #### Returns:
 

@@ -7,18 +7,31 @@ page_type: reference
 
 ## Class `Interpreter`
 
+Interpreter interface for TensorFlow Lite Models.
+
 
 
 ### Aliases:
 
-* Class `tf.contrib.lite.Interpreter`
+* Class `tf.compat.v1.lite.Interpreter`
+* Class `tf.compat.v2.lite.Interpreter`
 * Class `tf.lite.Interpreter`
 
 
 
-Defined in [`tensorflow/lite/python/interpreter.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/lite/python/interpreter.py).
+Defined in [`lite/python/interpreter.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/interpreter.py).
 
-Interpreter inferace for TF-Lite Models.
+<!-- Placeholder for "Used in" -->
+
+This makes the TensorFlow Lite interpreter accessible in Python.
+It is possible to use this interpreter in a multithreaded Python environment,
+but you must be sure to call functions of a particular instance from only
+one thread at a time. So if you want to have 4 threads running different
+inferences simultaneously, create  an interpreter for each one as thread-local
+data. Similarly, if you are calling invoke() in one thread on a single
+interpreter but you want to use tensor() on another thread once it is done,
+you must use a synchronization primitive between the threads to ensure invoke
+has returned before calling tensor().
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -31,13 +44,16 @@ __init__(
 
 Constructor.
 
+
 #### Args:
+
 
 * <b>`model_path`</b>: Path to TF-Lite Flatbuffer file.
 * <b>`model_content`</b>: Content of model.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the interpreter was unable to create.
 
@@ -53,6 +69,7 @@ allocate_tensors()
 
 
 
+
 <h3 id="get_input_details"><code>get_input_details</code></h3>
 
 ``` python
@@ -61,9 +78,11 @@ get_input_details()
 
 Gets model input details.
 
+
 #### Returns:
 
 A list of input details.
+
 
 <h3 id="get_output_details"><code>get_output_details</code></h3>
 
@@ -73,9 +92,11 @@ get_output_details()
 
 Gets model output details.
 
+
 #### Returns:
 
 A list of output details.
+
 
 <h3 id="get_tensor"><code>get_tensor</code></h3>
 
@@ -85,17 +106,20 @@ get_tensor(tensor_index)
 
 Gets the value of the input tensor (get a copy).
 
-If you wish to avoid the copy, use `tensor()`.
+If you wish to avoid the copy, use `tensor()`. This function cannot be used
+to read intermediate results.
 
 #### Args:
 
+
 * <b>`tensor_index`</b>: Tensor index of tensor to get. This value can be gotten from
-                the 'index' field in get_output_details.
+              the 'index' field in get_output_details.
 
 
 #### Returns:
 
 a numpy array.
+
 
 <h3 id="get_tensor_details"><code>get_tensor_details</code></h3>
 
@@ -112,6 +136,7 @@ added to the list. This includes temporary tensors without a name.
 
 A list of dictionaries containing tensor information.
 
+
 <h3 id="invoke"><code>invoke</code></h3>
 
 ``` python
@@ -121,9 +146,13 @@ invoke()
 Invoke the interpreter.
 
 Be sure to set the input sizes, allocate tensors and fill values before
-calling this.
+calling this. Also, note that this function releases the GIL so heavy
+computation can be done in the background while the Python interpreter
+continues. No other function on this object should be called while the
+invoke() call has not finished.
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: When the underlying interpreter fails raise ValueError.
 
@@ -132,6 +161,7 @@ calling this.
 ``` python
 reset_all_variables()
 ```
+
 
 
 
@@ -146,14 +176,17 @@ resize_tensor_input(
 
 Resizes an input tensor.
 
+
 #### Args:
 
+
 * <b>`input_index`</b>: Tensor index of input to set. This value can be gotten from
-               the 'index' field in get_input_details.
+             the 'index' field in get_input_details.
 * <b>`tensor_size`</b>: The tensor_shape to resize the input to.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the interpreter could not resize the input tensor.
 
@@ -173,12 +206,14 @@ numpy buffer pointing to the input buffer in the tflite interpreter.
 
 #### Args:
 
+
 * <b>`tensor_index`</b>: Tensor index of tensor to set. This value can be gotten from
-                the 'index' field in get_input_details.
+              the 'index' field in get_input_details.
 * <b>`value`</b>: Value of tensor to set.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the interpreter could not set the tensor.
 
@@ -193,9 +228,12 @@ Returns function that gives a numpy view of the current tensor buffer.
 This allows reading and writing to this tensors w/o copies. This more
 closely mirrors the C++ Interpreter class interface's tensor() member, hence
 the name. Be careful to not hold these output references through calls
-to `allocate_tensors()` and `invoke()`.
+to `allocate_tensors()` and `invoke()`. This function cannot be used to read
+intermediate results.
 
-Usage:
+#### Usage:
+
+
 
 ```
 interpreter.allocate_tensors()
@@ -214,7 +252,9 @@ because it is possible the interpreter would resize and invalidate the
 referenced tensors. The NumPy API doesn't allow any mutability of the
 the underlying buffers.
 
-WRONG:
+#### WRONG:
+
+
 
 ```
 input = interpreter.tensor(interpreter.get_input_details()[0]["index"])()
@@ -227,8 +267,9 @@ for i in range(10):
 
 #### Args:
 
+
 * <b>`tensor_index`</b>: Tensor index of tensor to get. This value can be gotten from
-                the 'index' field in get_output_details.
+              the 'index' field in get_output_details.
 
 
 #### Returns:
@@ -236,6 +277,7 @@ for i in range(10):
 A function that can return a new numpy array pointing to the internal
 TFLite tensor state at any point. It is safe to hold the function forever,
 but it is not safe to hold the numpy array forever.
+
 
 
 

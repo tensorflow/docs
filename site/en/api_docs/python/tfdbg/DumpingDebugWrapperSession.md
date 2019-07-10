@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/dumping_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/wrappers/dumping_wrapper.py).
+Defined in [`tensorflow/python/debug/wrappers/dumping_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/wrappers/dumping_wrapper.py).
 
 Debug Session wrapper that dumps debug data to filesystem.
 
@@ -36,7 +36,7 @@ Constructor of DumpingDebugWrapperSession.
 * <b>`session_root`</b>: (`str`) Path to the session root directory. Must be a
     directory that does not exist or an empty directory. If the directory
     does not exist, it will be created by the debugger core during debug
-    <a href="../tf/InteractiveSession#run"><code>tf.Session.run</code></a>
+    <a href="../tf/Session#run"><code>tf.Session.run</code></a>
     calls.
     As the `run()` calls occur, subdirectories will be added to
     `session_root`. The subdirectories' names has the following pattern:
@@ -64,7 +64,7 @@ Constructor of DumpingDebugWrapperSession.
 
 <h3 id="graph"><code>graph</code></h3>
 
-The underlying TensorFlow graph, to be used in building Operations.
+
 
 <h3 id="graph_def"><code>graph_def</code></h3>
 
@@ -76,7 +76,7 @@ The underlying TensorFlow graph, to be used in building Operations.
 
 <h3 id="sess_str"><code>sess_str</code></h3>
 
-The TensorFlow process to which this session will connect.
+
 
 <h3 id="session"><code>session</code></h3>
 
@@ -129,17 +129,6 @@ increment_run_call_count()
 ```
 
 
-
-<h3 id="invoke_node_stepper"><code>invoke_node_stepper</code></h3>
-
-``` python
-invoke_node_stepper(
-    node_stepper,
-    restore_variable_values_on_exit=True
-)
-```
-
-See doc of BaseDebugWrapperSession.invoke_node_stepper.
 
 <h3 id="list_devices"><code>list_devices</code></h3>
 
@@ -198,7 +187,7 @@ partial_run(
 )
 ```
 
-Continues the execution with additional feeds and fetches.
+
 
 <h3 id="partial_run_setup"><code>partial_run_setup</code></h3>
 

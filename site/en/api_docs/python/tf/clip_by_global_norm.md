@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.clip_by_global_norm
 
+Clips values of multiple tensors by the ratio of the sum of their norms.
+
+### Aliases:
+
+* `tf.clip_by_global_norm`
+* `tf.compat.v1.clip_by_global_norm`
+* `tf.compat.v2.clip_by_global_norm`
+
 ``` python
 tf.clip_by_global_norm(
     t_list,
@@ -16,9 +24,9 @@ tf.clip_by_global_norm(
 
 
 
-Defined in [`tensorflow/python/ops/clip_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/clip_ops.py).
+Defined in [`python/ops/clip_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/clip_ops.py).
 
-Clips values of multiple tensors by the ratio of the sum of their norms.
+<!-- Placeholder for "Used in" -->
 
 Given a tuple or list of tensors `t_list`, and a clipping ratio `clip_norm`,
 this operation returns a list of clipped tensors `list_clipped`
@@ -37,6 +45,9 @@ where:
 If `clip_norm > global_norm` then the entries in `t_list` remain as they are,
 otherwise they're all shrunk by the global ratio.
 
+If `global_norm == infinity` then the entries in `t_list` are all set to `NaN`
+to signal that an error occurred.
+
 Any of the entries of `t_list` that are of type `None` are ignored.
 
 This is the correct way to perform gradient clipping (for example, see
@@ -48,14 +59,16 @@ ready before the clipping operation can be performed.
 
 #### Args:
 
+
 * <b>`t_list`</b>: A tuple or list of mixed `Tensors`, `IndexedSlices`, or None.
 * <b>`clip_norm`</b>: A 0-D (scalar) `Tensor` > 0. The clipping ratio.
 * <b>`use_norm`</b>: A 0-D (scalar) `Tensor` of type `float` (optional). The global
-    norm to use. If not provided, `global_norm()` is used to compute the norm.
+  norm to use. If not provided, `global_norm()` is used to compute the norm.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
+
 
 * <b>`list_clipped`</b>: A list of `Tensors` of the same type as `list_t`.
 * <b>`global_norm`</b>: A 0-D (scalar) `Tensor` representing the global norm.
@@ -63,5 +76,5 @@ ready before the clipping operation can be performed.
 
 #### Raises:
 
+
 * <b>`TypeError`</b>: If `t_list` is not a sequence.
-* <b>`InvalidArgumentError`</b>: If global norm is not finite.

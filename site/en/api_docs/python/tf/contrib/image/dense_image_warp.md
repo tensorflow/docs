@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.image.dense_image_warp
 
+Image warping using per-pixel flow vectors.
+
 ``` python
 tf.contrib.image.dense_image_warp(
     image,
@@ -15,9 +17,9 @@ tf.contrib.image.dense_image_warp(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/dense_image_warp.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/image/python/ops/dense_image_warp.py).
+Defined in [`contrib/image/python/ops/dense_image_warp.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/image/python/ops/dense_image_warp.py).
 
-Image warping using per-pixel flow vectors.
+<!-- Placeholder for "Used in" -->
 
 Apply a non-linear warp to the image, where the warp is specified by a dense
 flow field of offset vectors that define the correspondences of pixel values
@@ -34,12 +36,13 @@ of the image, we use the nearest pixel values at the image boundary.
 
 #### Args:
 
+
 * <b>`image`</b>: 4-D float `Tensor` with shape `[batch, height, width, channels]`.
 * <b>`flow`</b>: A 4-D float `Tensor` with shape `[batch, height, width, 2]`.
 * <b>`name`</b>: A name for the operation (optional).
 
-  Note that image and flow can be of type tf.half, tf.float32, or tf.float64,
-  and do not necessarily have to be the same type.
+Note that image and flow can be of type tf.half, tf.float32, or tf.float64,
+and do not necessarily have to be the same type.
 
 
 #### Returns:
@@ -48,7 +51,9 @@ A 4-D float `Tensor` with shape`[batch, height, width, channels]`
   and same type as input image.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if height < 2 or width < 2 or the inputs have the wrong number
-              of dimensions.
+            of dimensions.

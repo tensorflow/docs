@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.optimizer_v2
 
-
-
-Defined in [`tensorflow/contrib/optimizer_v2/optimizer_v2_symbols.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/optimizer_v2/optimizer_v2_symbols.py).
-
 Distribution-aware version of Optimizer.
+
+
+
+Defined in [`contrib/optimizer_v2/optimizer_v2_symbols.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/optimizer_v2/optimizer_v2_symbols.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 

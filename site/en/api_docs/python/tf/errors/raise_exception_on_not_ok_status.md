@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `raise_exception_on_not_ok_status`
 
-
-
-
-
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/errors_impl.py).
-
 Context manager to check for C API status.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.errors.raise_exception_on_not_ok_status`
+* Class `tf.errors.raise_exception_on_not_ok_status`
+
+
+
+Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Methods
 
@@ -22,6 +30,7 @@ Context manager to check for C API status.
 ``` python
 __enter__()
 ```
+
 
 
 
@@ -34,6 +43,7 @@ __exit__(
     traceback_arg
 )
 ```
+
 
 
 

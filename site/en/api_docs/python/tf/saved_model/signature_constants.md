@@ -7,31 +7,19 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Signature constants for SavedModel save and restore operations.
 
 ## Other Members
 
-<h3 id="CLASSIFY_INPUTS"><code>CLASSIFY_INPUTS</code></h3>
-
-<h3 id="CLASSIFY_METHOD_NAME"><code>CLASSIFY_METHOD_NAME</code></h3>
-
-<h3 id="CLASSIFY_OUTPUT_CLASSES"><code>CLASSIFY_OUTPUT_CLASSES</code></h3>
-
-<h3 id="CLASSIFY_OUTPUT_SCORES"><code>CLASSIFY_OUTPUT_SCORES</code></h3>
-
-<h3 id="DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></h3>
-
-<h3 id="PREDICT_INPUTS"><code>PREDICT_INPUTS</code></h3>
-
-<h3 id="PREDICT_METHOD_NAME"><code>PREDICT_METHOD_NAME</code></h3>
-
-<h3 id="PREDICT_OUTPUTS"><code>PREDICT_OUTPUTS</code></h3>
-
-<h3 id="REGRESS_INPUTS"><code>REGRESS_INPUTS</code></h3>
-
-<h3 id="REGRESS_METHOD_NAME"><code>REGRESS_METHOD_NAME</code></h3>
-
-<h3 id="REGRESS_OUTPUTS"><code>REGRESS_OUTPUTS</code></h3>
-
+* `CLASSIFY_INPUTS = 'inputs'` <a id="CLASSIFY_INPUTS"></a>
+* `CLASSIFY_METHOD_NAME = 'tensorflow/serving/classify'` <a id="CLASSIFY_METHOD_NAME"></a>
+* `CLASSIFY_OUTPUT_CLASSES = 'classes'` <a id="CLASSIFY_OUTPUT_CLASSES"></a>
+* `CLASSIFY_OUTPUT_SCORES = 'scores'` <a id="CLASSIFY_OUTPUT_SCORES"></a>
+* `DEFAULT_SERVING_SIGNATURE_DEF_KEY = 'serving_default'` <a id="DEFAULT_SERVING_SIGNATURE_DEF_KEY"></a>
+* `PREDICT_INPUTS = 'inputs'` <a id="PREDICT_INPUTS"></a>
+* `PREDICT_METHOD_NAME = 'tensorflow/serving/predict'` <a id="PREDICT_METHOD_NAME"></a>
+* `PREDICT_OUTPUTS = 'outputs'` <a id="PREDICT_OUTPUTS"></a>
+* `REGRESS_INPUTS = 'inputs'` <a id="REGRESS_INPUTS"></a>
+* `REGRESS_METHOD_NAME = 'tensorflow/serving/regress'` <a id="REGRESS_METHOD_NAME"></a>
+* `REGRESS_OUTPUTS = 'outputs'` <a id="REGRESS_OUTPUTS"></a>

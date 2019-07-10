@@ -5,18 +5,27 @@ page_type: reference
 
 # tf.ragged.row_splits_to_segment_ids
 
+Generates the segmentation corresponding to a RaggedTensor `row_splits`.
+
+### Aliases:
+
+* `tf.compat.v1.ragged.row_splits_to_segment_ids`
+* `tf.compat.v2.ragged.row_splits_to_segment_ids`
+* `tf.ragged.row_splits_to_segment_ids`
+
 ``` python
 tf.ragged.row_splits_to_segment_ids(
     splits,
-    name=None
+    name=None,
+    out_type=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/ragged/segment_id_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/ragged/segment_id_ops.py).
+Defined in [`python/ops/ragged/segment_id_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/segment_id_ops.py).
 
-Generates the segmentation corresponding to a RaggedTensor `row_splits`.
+<!-- Placeholder for "Used in" -->
 
 Returns an integer vector `segment_ids`, where `segment_ids[i] == j` if
 `splits[j] <= i < splits[j+1]`.  Example:
@@ -28,15 +37,20 @@ Returns an integer vector `segment_ids`, where `segment_ids[i] == j` if
 
 #### Args:
 
-* <b>`splits`</b>: A sorted 1-D int64 Tensor.  `splits[0]` must be zero.
+
+* <b>`splits`</b>: A sorted 1-D integer Tensor.  `splits[0]` must be zero.
 * <b>`name`</b>: A name prefix for the returned tensor (optional).
+* <b>`out_type`</b>: The dtype for the return value.  Defaults to `splits.dtype`,
+  or <a href="../../tf#int64"><code>tf.int64</code></a> if `splits` does not have a dtype.
 
 
 #### Returns:
 
-A sorted 1-D int64 Tensor, with `shape=[splits[-1]]`
+A sorted 1-D integer Tensor, with `shape=[splits[-1]]`
+
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `splits` is invalid.

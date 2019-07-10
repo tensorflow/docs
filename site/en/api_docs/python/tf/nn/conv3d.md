@@ -5,23 +5,31 @@ page_type: reference
 
 # tf.nn.conv3d
 
+Computes a 3-D convolution given 5-D `input` and `filter` tensors.
+
+### Aliases:
+
+* `tf.compat.v1.nn.conv3d`
+* `tf.nn.conv3d`
+
 ``` python
 tf.nn.conv3d(
     input,
-    filter,
-    strides,
-    padding,
+    filter=None,
+    strides=None,
+    padding=None,
     data_format='NDHWC',
     dilations=[1, 1, 1, 1, 1],
-    name=None
+    name=None,
+    filters=None
 )
 ```
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_nn_ops.py`.
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Computes a 3-D convolution given 5-D `input` and `filter` tensors.
+<!-- Placeholder for "Used in" -->
 
 In signal processing, cross-correlation is a measure of similarity of
 two waveforms as a function of a time-lag applied to one of them. This
@@ -31,28 +39,29 @@ Our Conv3D implements a form of cross-correlation.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. Must be one of the following types: `half`, `bfloat16`, `float32`, `float64`.
-    Shape `[batch, in_depth, in_height, in_width, in_channels]`.
+  Shape `[batch, in_depth, in_height, in_width, in_channels]`.
 * <b>`filter`</b>: A `Tensor`. Must have the same type as `input`.
-    Shape `[filter_depth, filter_height, filter_width, in_channels,
-    out_channels]`. `in_channels` must match between `input` and `filter`.
+  Shape `[filter_depth, filter_height, filter_width, in_channels,
+  out_channels]`. `in_channels` must match between `input` and `filter`.
 * <b>`strides`</b>: A list of `ints` that has length `>= 5`.
-    1-D tensor of length 5. The stride of the sliding window for each
-    dimension of `input`. Must have `strides[0] = strides[4] = 1`.
+  1-D tensor of length 5. The stride of the sliding window for each
+  dimension of `input`. Must have `strides[0] = strides[4] = 1`.
 * <b>`padding`</b>: A `string` from: `"SAME", "VALID"`.
-    The type of padding algorithm to use.
+  The type of padding algorithm to use.
 * <b>`data_format`</b>: An optional `string` from: `"NDHWC", "NCDHW"`. Defaults to `"NDHWC"`.
-    The data format of the input and output data. With the
-    default format "NDHWC", the data is stored in the order of:
-        [batch, in_depth, in_height, in_width, in_channels].
-    Alternatively, the format could be "NCDHW", the data storage order is:
-        [batch, in_channels, in_depth, in_height, in_width].
+  The data format of the input and output data. With the
+  default format "NDHWC", the data is stored in the order of:
+      [batch, in_depth, in_height, in_width, in_channels].
+  Alternatively, the format could be "NCDHW", the data storage order is:
+      [batch, in_channels, in_depth, in_height, in_width].
 * <b>`dilations`</b>: An optional list of `ints`. Defaults to `[1, 1, 1, 1, 1]`.
-    1-D tensor of length 5.  The dilation factor for each dimension of
-    `input`. If set to k > 1, there will be k-1 skipped cells between each
-    filter element on that dimension. The dimension order is determined by the
-    value of `data_format`, see above for details. Dilations in the batch and
-    depth dimensions must be 1.
+  1-D tensor of length 5.  The dilation factor for each dimension of
+  `input`. If set to k > 1, there will be k-1 skipped cells between each
+  filter element on that dimension. The dimension order is determined by the
+  value of `data_format`, see above for details. Dilations in the batch and
+  depth dimensions must be 1.
 * <b>`name`</b>: A name for the operation (optional).
 
 

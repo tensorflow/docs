@@ -7,18 +7,22 @@ page_type: reference
 
 ## Class `name_scope`
 
+A context manager for use when defining a Python op.
+
 
 
 ### Aliases:
 
+* Class `tf.compat.v1.keras.backend.name_scope`
+* Class `tf.compat.v1.name_scope`
 * Class `tf.keras.backend.name_scope`
 * Class `tf.name_scope`
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
-A context manager for use when defining a Python op.
+<!-- Placeholder for "Used in" -->
 
 This context manager validates that the given `values` are from the
 same graph, makes that graph the default graph, and pushes a
@@ -50,17 +54,26 @@ __init__(
 
 Initialize the context manager.
 
+
 #### Args:
+
 
 * <b>`name`</b>: The name argument that is passed to the op function.
 * <b>`default_name`</b>: The default name to use if the `name` argument is `None`.
 * <b>`values`</b>: The list of `Tensor` arguments that are passed to the op function.
 
 
+#### Raises:
+
+
+* <b>`TypeError`</b>: if `default_name` is passed in but not a string.
+
+
 
 ## Properties
 
 <h3 id="name"><code>name</code></h3>
+
 
 
 
@@ -76,15 +89,18 @@ __enter__()
 
 Start the scope block.
 
+
 #### Returns:
 
 The scope name.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if neither `name` nor `default_name` is provided
-    but `values` are.
+  but `values` are.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
@@ -95,6 +111,7 @@ __exit__(
     traceback_arg
 )
 ```
+
 
 
 

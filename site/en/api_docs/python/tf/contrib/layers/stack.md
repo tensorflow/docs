@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.stack
 
+Builds a stack of layers by applying layer repeatedly using stack_args.
+
 ``` python
 tf.contrib.layers.stack(
     inputs,
@@ -16,9 +18,9 @@ tf.contrib.layers.stack(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
-Builds a stack of layers by applying layer repeatedly using stack_args.
+<!-- Placeholder for "Used in" -->
 
 `stack` allows you to repeatedly apply the same operation with different
 arguments `stack_args[i]`. For each application of the layer, `stack` creates
@@ -40,6 +42,7 @@ layers are called with `scope='stack'`.
 
 #### Args:
 
+
 * <b>`inputs`</b>: A `Tensor` suitable for layer.
 * <b>`layer`</b>: A layer with arguments `(inputs, *args, **kwargs)`
 * <b>`stack_args`</b>: A list/tuple of parameters for each call of layer.
@@ -51,6 +54,8 @@ layers are called with `scope='stack'`.
 A `Tensor` result of applying the stacked layers.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the op is unknown or wrong.

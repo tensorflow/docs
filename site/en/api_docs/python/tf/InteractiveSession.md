@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `InteractiveSession`
 
-
-
-
-
-Defined in [`tensorflow/python/client/session.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/client/session.py).
-
 A TensorFlow `Session` for use in interactive contexts, such as a shell.
+
+
+
+### Aliases:
+
+* Class `tf.InteractiveSession`
+* Class `tf.compat.v1.InteractiveSession`
+
+
+
+Defined in [`python/client/session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/client/session.py).
+
+<!-- Placeholder for "Used in" -->
 
 The only difference with a regular `Session` is that an `InteractiveSession`
 installs itself as the default session on construction.
@@ -25,10 +32,12 @@ This is convenient in interactive shells and [IPython
 notebooks](http://ipython.org), as it avoids having to pass an explicit
 `Session` object to run ops.
 
-For example:
+#### For example:
+
+
 
 ```python
-sess = tf.InteractiveSession()
+sess = tf.compat.v1.InteractiveSession()
 a = tf.constant(5.0)
 b = tf.constant(6.0)
 c = a * b
@@ -45,7 +54,7 @@ programs is to follow that pattern:
 a = tf.constant(5.0)
 b = tf.constant(6.0)
 c = a * b
-with tf.Session():
+with tf.compat.v1.Session():
   # We can also use 'c.eval()' here.
   print(c.eval())
 ```
@@ -64,7 +73,7 @@ Creates a new interactive TensorFlow session.
 
 If no `graph` argument is specified when constructing the session,
 the default graph will be launched in the session. If you are
-using more than one graph (created with `tf.Graph()` in the same
+using more than one graph (created with <a href="../tf/Graph"><code>tf.Graph()</code></a>) in the same
 process, you will have to use different sessions for each graph,
 but each graph can be used in multiple sessions. In this case, it
 is often clearer to pass the graph to be launched explicitly to
@@ -72,8 +81,9 @@ the session constructor.
 
 #### Args:
 
+
 * <b>`target`</b>: (Optional.) The execution engine to connect to.
-    Defaults to using an in-process engine.
+  Defaults to using an in-process engine.
 * <b>`graph`</b>: (Optional.) The `Graph` to be launched (described above).
 * <b>`config`</b>: (Optional) `ConfigProto` proto used to configure the session.
 
@@ -85,18 +95,22 @@ the session constructor.
 
 The graph that was launched in this session.
 
+
 <h3 id="graph_def"><code>graph_def</code></h3>
 
 A serializable version of the underlying TensorFlow graph.
+
 
 #### Returns:
 
 A graph_pb2.GraphDef proto containing nodes for all of the Operations in
 the underlying TensorFlow graph.
 
+
 <h3 id="sess_str"><code>sess_str</code></h3>
 
-The TensorFlow process to which this session will connect.
+
+
 
 
 
@@ -116,14 +130,14 @@ this session.
 
 ```python
 c = tf.constant(..)
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 
 with sess.as_default():
-  assert tf.get_default_session() is sess
+  assert tf.compat.v1.get_default_session() is sess
   print(c.eval())
 ```
 
-To get the current default session, use <a href="../tf/get_default_session"><code>tf.get_default_session</code></a>.
+To get the current default session, use <a href="../tf/get_default_session"><code>tf.compat.v1.get_default_session</code></a>.
 
 *N.B.* The `as_default` context manager *does not* close the
 session when you exit the context, and you must close the session
@@ -131,7 +145,7 @@ explicitly.
 
 ```python
 c = tf.constant(...)
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 with sess.as_default():
   print(c.eval())
 # ...
@@ -141,7 +155,7 @@ with sess.as_default():
 sess.close()
 ```
 
-Alternatively, you can use `with tf.Session():` to create a
+Alternatively, you can use `with tf.compat.v1.Session():` to create a
 session that is automatically closed on exiting the context,
 including when an uncaught exception is raised.
 
@@ -152,13 +166,15 @@ thread's function.
 
 *N.B.* Entering a `with sess.as_default():` block does not affect
 the current default graph. If you are using multiple graphs, and
-`sess.graph` is different from the value of <a href="../tf/get_default_graph"><code>tf.get_default_graph</code></a>,
-you must explicitly enter a `with sess.graph.as_default():` block
-to make `sess.graph` the default graph.
+`sess.graph` is different from the value of
+<a href="../tf/get_default_graph"><code>tf.compat.v1.get_default_graph</code></a>, you must explicitly enter a
+`with sess.graph.as_default():` block to make `sess.graph` the default
+graph.
 
 #### Returns:
 
 A context manager using this session as the default session.
+
 
 <h3 id="close"><code>close</code></h3>
 
@@ -167,6 +183,7 @@ close()
 ```
 
 Closes an `InteractiveSession`.
+
 
 <h3 id="list_devices"><code>list_devices</code></h3>
 
@@ -182,22 +199,29 @@ for d in devices:
   print(d.name)
 ```
 
-Each element in the list has the following properties:
- - `name`: A string with the full name of the device. ex:
-      `/job:worker/replica:0/task:3/device:CPU:0`
- - `device_type`: The type of the device (e.g. `CPU`, `GPU`, `TPU`.)
- - `memory_limit`: The maximum amount of memory available on the device.
-      Note: depending on the device, it is possible the usable memory could
-      be substantially less.
+#### Where:
+
+Each element in the list has the following properties
+
+* <b>`name`</b>: A string with the full name of the device. ex:
+    `/job:worker/replica:0/task:3/device:CPU:0`
+* <b>`device_type`</b>: The type of the device (e.g. `CPU`, `GPU`, `TPU`.)
+* <b>`memory_limit`</b>: The maximum amount of memory available on the device.
+    Note: depending on the device, it is possible the usable memory could
+    be substantially less.
+
+
 #### Raises:
 
+
 * <b>`tf.errors.OpError`</b>: If it encounters an error (e.g. session is in an
-  invalid state, or network errors occur).
+invalid state, or network errors occur).
 
 
 #### Returns:
 
 A list of devices in the session.
+
 
 <h3 id="make_callable"><code>make_callable</code></h3>
 
@@ -216,25 +240,27 @@ must be compatible feed values for the respective elements of `feed_list`.
 For example, if element `i` of `feed_list` is a <a href="../tf/Tensor"><code>tf.Tensor</code></a>, the `i`th
 argument to the returned callable must be a numpy ndarray (or something
 convertible to an ndarray) with matching element type and shape. See
-<a href="../tf/InteractiveSession#run"><code>tf.Session.run</code></a> for details of the allowable feed key and value types.
+<a href="../tf/Session#run"><code>tf.Session.run</code></a> for details of the allowable feed key and value types.
 
 The returned callable will have the same return type as
-`tf.Session.run(fetches, ...)`. For example, if `fetches` is a <a href="../tf/Tensor"><code>tf.Tensor</code></a>,
+<a href="../tf/Session#run"><code>tf.Session.run(fetches, ...)</code></a>. For example, if `fetches` is a <a href="../tf/Tensor"><code>tf.Tensor</code></a>,
 the callable will return a numpy ndarray; if `fetches` is a <a href="../tf/Operation"><code>tf.Operation</code></a>,
 it will return `None`.
 
 #### Args:
 
-* <b>`fetches`</b>: A value or list of values to fetch. See <a href="../tf/InteractiveSession#run"><code>tf.Session.run</code></a>
-    for details of the allowable fetch types.
+
+* <b>`fetches`</b>: A value or list of values to fetch. See <a href="../tf/Session#run"><code>tf.Session.run</code></a>
+  for details of the allowable fetch types.
 * <b>`feed_list`</b>: (Optional.) A list of `feed_dict` keys. See
-    <a href="../tf/InteractiveSession#run"><code>tf.Session.run</code></a> for details of the allowable feed key types.
+  <a href="../tf/Session#run"><code>tf.Session.run</code></a> for details of the allowable feed key types.
 * <b>`accept_options`</b>: (Optional.) If `True`, the returned `Callable` will be
-    able to accept <a href="../tf/RunOptions"><code>tf.RunOptions</code></a> and <a href="../tf/RunMetadata"><code>tf.RunMetadata</code></a> as optional
-    keyword arguments `options` and `run_metadata`, respectively, with
-    the same syntax and semantics as <a href="../tf/InteractiveSession#run"><code>tf.Session.run</code></a>, which is useful
-    for certain use cases (profiling and debugging) but will result in
-    measurable slowdown of the `Callable`'s performance. Default: `False`.
+  able to accept <a href="../tf/RunOptions"><code>tf.compat.v1.RunOptions</code></a> and <a href="../tf/RunMetadata"><code>tf.compat.v1.RunMetadata</code></a>
+  as optional keyword arguments `options` and `run_metadata`,
+  respectively, with the same syntax and semantics as <a href="../tf/Session#run"><code>tf.Session.run</code></a>,
+  which is useful for certain use cases (profiling and debugging) but
+  will result in measurable slowdown of the `Callable`'s
+  performance. Default: `False`.
 
 
 #### Returns:
@@ -243,10 +269,12 @@ A function that when called will execute the step defined by
 `feed_list` and `fetches` in this session.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: If `fetches` or `feed_list` cannot be interpreted
-    as arguments to <a href="../tf/InteractiveSession#run"><code>tf.Session.run</code></a>.
+  as arguments to <a href="../tf/Session#run"><code>tf.Session.run</code></a>.
 
 <h3 id="partial_run"><code>partial_run</code></h3>
 
@@ -286,12 +314,13 @@ res = sess.partial_run(h, r2, feed_dict={c: res})
 
 #### Args:
 
+
 * <b>`handle`</b>: A handle for a sequence of partial runs.
 * <b>`fetches`</b>: A single graph element, a list of graph elements,
-    or a dictionary whose values are graph elements or lists of graph
-    elements (see documentation for `run`).
+  or a dictionary whose values are graph elements or lists of graph
+  elements (see documentation for `run`).
 * <b>`feed_dict`</b>: A dictionary that maps graph elements to values
-    (described above).
+  (described above).
 
 
 #### Returns:
@@ -302,7 +331,9 @@ same keys as `fetches` if that is a dictionary
 (see documentation for `run`).
 
 
+
 #### Raises:
+
 
 * <b>`tf.errors.OpError`</b>: Or one of its subclasses on error.
 
@@ -324,6 +355,7 @@ The tensors will be supplied by the subsequent `partial_run` calls.
 
 #### Args:
 
+
 * <b>`fetches`</b>: A single graph element, or a list of graph elements.
 * <b>`feeds`</b>: A single graph element, or a list of graph elements.
 
@@ -333,10 +365,12 @@ The tensors will be supplied by the subsequent `partial_run` calls.
 A handle for partial run.
 
 
+
 #### Raises:
 
+
 * <b>`RuntimeError`</b>: If this `Session` is in an invalid state (e.g. has been
-    closed).
+  closed).
 * <b>`TypeError`</b>: If `fetches` or `feed_dict` keys are of an inappropriate type.
 * <b>`tf.errors.OpError`</b>: Or one of its subclasses if a TensorFlow error happens.
 
@@ -369,7 +403,7 @@ elements at its leaves.  A graph element can be one of the following types:
   value of that tensor.
 * A <a href="../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
   The corresponding fetched value will be a
-  <a href="../tf/SparseTensorValue"><code>tf.SparseTensorValue</code></a>
+  <a href="../tf/SparseTensorValue"><code>tf.compat.v1.SparseTensorValue</code></a>
   containing the value of that sparse tensor.
 * A `get_tensor_handle` op.  The corresponding fetched value will be a
   numpy ndarray containing the handle of that tensor.
@@ -379,7 +413,9 @@ The value returned by `run()` has the same shape as the `fetches` argument,
 where the leaves are replaced by the corresponding values returned by
 TensorFlow.
 
-Example:
+#### Example:
+
+
 
 ```python
    a = tf.constant([10, 20])
@@ -409,12 +445,12 @@ one of the following types:
   value may be a Python scalar, string, list, or numpy ndarray
   that can be converted to the same `dtype` as that
   tensor. Additionally, if the key is a
-  <a href="../tf/placeholder"><code>tf.placeholder</code></a>, the shape of
+  <a href="../tf/placeholder"><code>tf.compat.v1.placeholder</code></a>, the shape of
   the value will be checked for compatibility with the placeholder.
 * If the key is a
   <a href="../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>,
   the value should be a
-  <a href="../tf/SparseTensorValue"><code>tf.SparseTensorValue</code></a>.
+  <a href="../tf/SparseTensorValue"><code>tf.compat.v1.SparseTensorValue</code></a>.
 * If the key is a nested tuple of `Tensor`s or `SparseTensor`s, the value
   should be a nested tuple with the same structure that maps to their
   corresponding values as above.
@@ -433,11 +469,12 @@ collected into this argument and passed back.
 
 #### Args:
 
+
 * <b>`fetches`</b>: A single graph element, a list of graph elements,
-    or a dictionary whose values are graph elements or lists of graph
-    elements (described above).
+  or a dictionary whose values are graph elements or lists of graph
+  elements (described above).
 * <b>`feed_dict`</b>: A dictionary that maps graph elements to values
-    (described above).
+  (described above).
 * <b>`options`</b>: A [`RunOptions`] protocol buffer
 * <b>`run_metadata`</b>: A [`RunMetadata`] protocol buffer
 
@@ -451,13 +488,15 @@ Order in which `fetches` operations are evaluated inside the call
 is undefined.
 
 
+
 #### Raises:
 
+
 * <b>`RuntimeError`</b>: If this `Session` is in an invalid state (e.g. has been
-    closed).
+  closed).
 * <b>`TypeError`</b>: If `fetches` or `feed_dict` keys are of an inappropriate type.
 * <b>`ValueError`</b>: If `fetches` or `feed_dict` keys are invalid or refer to a
-    `Tensor` that doesn't exist.
+  `Tensor` that doesn't exist.
 
 
 

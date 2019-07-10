@@ -5,6 +5,15 @@ page_type: reference
 
 # tf.keras.metrics.categorical_accuracy
 
+
+
+### Aliases:
+
+* `tf.compat.v1.keras.metrics.categorical_accuracy`
+* `tf.compat.v2.keras.metrics.categorical_accuracy`
+* `tf.compat.v2.metrics.categorical_accuracy`
+* `tf.keras.metrics.categorical_accuracy`
+
 ``` python
 tf.keras.metrics.categorical_accuracy(
     y_true,
@@ -14,5 +23,6 @@ tf.keras.metrics.categorical_accuracy(
 
 
 
-Defined in [`tensorflow/python/keras/metrics.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/metrics.py).
+Defined in [`python/keras/metrics.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/metrics.py).
 
+<!-- Placeholder for "Used in" -->

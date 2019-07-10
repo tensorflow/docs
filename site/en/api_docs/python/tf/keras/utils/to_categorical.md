@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.utils.to_categorical
 
+Converts a class vector (integers) to binary class matrix.
+
+### Aliases:
+
+* `tf.compat.v1.keras.utils.to_categorical`
+* `tf.compat.v2.keras.utils.to_categorical`
+* `tf.keras.utils.to_categorical`
+
 ``` python
 tf.keras.utils.to_categorical(
     y,
@@ -15,16 +23,17 @@ tf.keras.utils.to_categorical(
 
 
 
-Defined in [`tensorflow/python/keras/utils/np_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/utils/np_utils.py).
+Defined in [`python/keras/utils/np_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/utils/np_utils.py).
 
-Converts a class vector (integers) to binary class matrix.
+<!-- Placeholder for "Used in" -->
 
 E.g. for use with categorical_crossentropy.
 
 #### Arguments:
 
+
 * <b>`y`</b>: class vector to be converted into a matrix
-        (integers from 0 to num_classes).
+    (integers from 0 to num_classes).
 * <b>`num_classes`</b>: total number of classes.
 * <b>`dtype`</b>: The data type expected by the input. Default: `'float32'`.
 

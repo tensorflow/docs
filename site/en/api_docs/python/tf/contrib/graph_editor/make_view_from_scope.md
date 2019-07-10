@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.make_view_from_scope
 
+Make a subgraph from a name scope.
+
 ### Aliases:
 
 * `tf.contrib.graph_editor.make_view_from_scope`
@@ -19,11 +21,13 @@ tf.contrib.graph_editor.make_view_from_scope(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/subgraph.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/subgraph.py).
+Defined in [`contrib/graph_editor/subgraph.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/subgraph.py).
 
-Make a subgraph from a name scope.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`scope`</b>: the name of the scope.
 * <b>`graph`</b>: the <a href="../../../tf/Graph"><code>tf.Graph</code></a>.

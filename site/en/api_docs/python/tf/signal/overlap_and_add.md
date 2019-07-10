@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.signal.overlap_and_add
 
+Reconstructs a signal from a framed representation.
+
 ### Aliases:
 
+* `tf.compat.v1.signal.overlap_and_add`
+* `tf.compat.v2.signal.overlap_and_add`
 * `tf.contrib.signal.overlap_and_add`
 * `tf.signal.overlap_and_add`
 
@@ -20,9 +24,9 @@ tf.signal.overlap_and_add(
 
 
 
-Defined in [`tensorflow/python/ops/signal/reconstruction_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/signal/reconstruction_ops.py).
+Defined in [`python/ops/signal/reconstruction_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/reconstruction_ops.py).
 
-Reconstructs a signal from a framed representation.
+<!-- Placeholder for "Used in" -->
 
 Adds potentially overlapping frames of a signal with shape
 `[..., frames, frame_length]`, offsetting subsequent frames by `frame_step`.
@@ -32,10 +36,11 @@ The resulting tensor has shape `[..., output_size]` where
 
 #### Args:
 
+
 * <b>`signal`</b>: A [..., frames, frame_length] `Tensor`. All dimensions may be
-    unknown, and rank must be at least 2.
+  unknown, and rank must be at least 2.
 * <b>`frame_step`</b>: An integer or scalar `Tensor` denoting overlap offsets. Must be
-    less than or equal to `frame_length`.
+  less than or equal to `frame_length`.
 * <b>`name`</b>: An optional name for the operation.
 
 
@@ -45,7 +50,9 @@ A `Tensor` with shape `[..., output_size]` containing the overlap-added
 frames of `signal`'s inner-most two dimensions.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `signal`'s rank is less than 2, or `frame_step` is not a
-    scalar integer.
+  scalar integer.

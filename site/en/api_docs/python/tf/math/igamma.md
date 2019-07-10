@@ -6,8 +6,13 @@ page_type: reference
 
 # tf.math.igamma
 
+Compute the lower regularized incomplete Gamma function `P(a, x)`.
+
 ### Aliases:
 
+* `tf.compat.v1.igamma`
+* `tf.compat.v1.math.igamma`
+* `tf.compat.v2.math.igamma`
 * `tf.igamma`
 * `tf.math.igamma`
 
@@ -21,9 +26,9 @@ tf.math.igamma(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Compute the lower regularized incomplete Gamma function `P(a, x)`.
+<!-- Placeholder for "Used in" -->
 
 The lower regularized incomplete Gamma function is defined as:
 
@@ -40,6 +45,7 @@ Note, above `Q(a, x)` (`Igammac`) is the upper regularized complete
 Gamma function.
 
 #### Args:
+
 
 * <b>`a`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`.
 * <b>`x`</b>: A `Tensor`. Must have the same type as `a`.

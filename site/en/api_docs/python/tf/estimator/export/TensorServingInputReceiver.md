@@ -7,9 +7,21 @@ page_type: reference
 
 ## Class `TensorServingInputReceiver`
 
-
-
 A return type for a serving_input_receiver_fn.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.estimator.export.TensorServingInputReceiver`
+* Class `tf.compat.v2.estimator.export.TensorServingInputReceiver`
+* Class `tf.estimator.export.TensorServingInputReceiver`
+
+
+
+Defined in [`python/estimator/export/export.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/export/export.py).
+
+<!-- Placeholder for "Used in" -->
 
 This is for use with models that expect a single `Tensor` or `SparseTensor`
 as an input feature, as opposed to a dict of features.
@@ -17,8 +29,8 @@ as an input feature, as opposed to a dict of features.
 The normal `ServingInputReceiver` always returns a feature dict, even if it
 contains only one entry, and so can be used only with models that accept such
 a dict.  For models that accept only a single raw feature, the
-`serving_input_receiver_fn` provided to `Estimator.export_savedmodel()` should
-return this `TensorServingInputReceiver` instead.  See:
+`serving_input_receiver_fn` provided to <a href="../../../tf/estimator/Estimator#export_saved_model"><code>Estimator.export_saved_model()</code></a>
+should return this `TensorServingInputReceiver` instead.  See:
 https://github.com/tensorflow/tensorflow/issues/11674
 
 Note that the receiver_tensors and receiver_tensor_alternatives arguments
@@ -42,25 +54,10 @@ The expected return values are:
     feature `Tensor`s *downstream* of the tf.parse_example() op.
     Defaults to None.
 
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-@staticmethod
-__new__(
-    cls,
-    features,
-    receiver_tensors,
-    receiver_tensors_alternatives=None
-)
-```
-
-Create new instance of TensorServingInputReceiver(features, receiver_tensors, receiver_tensors_alternatives)
-
-
-
 ## Properties
 
 <h3 id="features"><code>features</code></h3>
+
 
 
 
@@ -68,7 +65,9 @@ Create new instance of TensorServingInputReceiver(features, receiver_tensors, re
 
 
 
+
 <h3 id="receiver_tensors_alternatives"><code>receiver_tensors_alternatives</code></h3>
+
 
 
 

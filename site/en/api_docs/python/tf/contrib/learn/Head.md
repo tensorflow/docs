@@ -7,16 +7,18 @@ page_type: reference
 
 ## Class `Head`
 
-
-
-
-
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/head.py).
-
 Interface for the head/top of a model.
 
+
+
+
+
+Defined in [`contrib/learn/python/learn/estimators/head.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/head.py).
+
+<!-- Placeholder for "Used in" -->
+
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.tensorflow.org/code/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Given logits (or output of a hidden layer), a Head knows how to compute
@@ -30,7 +32,9 @@ predictions, loss, default metric and export signature. It is meant to,
 2) To allow users to seamlessly switch between 1 to n heads for multi
 objective learning (See _MultiHead implementation for more details)
 
-Common usage:
+#### Common usage:
+
+
 Here is simplified model_fn to build a multiclass DNN model.
 
 >     def _my_dnn_model_fn(features, labels, mode, params, config=None):
@@ -79,7 +83,7 @@ use case,
 >         scope=...)
 >     if mode == tf.contrib.learn.ModeKeys.TRAIN:
 >       optimizer = ...
->       sync = tf.train.SyncReplicasOptimizer(opt=optimizer, ...)
+>       sync = tf.compat.v1.train.SyncReplicasOptimizer(opt=optimizer, ...)
 >       update_op = tf.contrib.layers.optimize_loss(optimizer=sync,
 >                                                   loss=model_fn_ops.loss, ...)
 >       hooks = [sync.make_session_run_hook(is_chief)]
@@ -96,6 +100,7 @@ Typically, logits is of shape `[batch_size, logits_dimension]`.
 #### Returns:
 
 The expected size of the `logits` tensor.
+
 
 
 
@@ -123,20 +128,21 @@ Please note that,
 
 #### Args:
 
+
 * <b>`features`</b>: Input `dict` of `Tensor` objects.
 * <b>`mode`</b>: Estimator's `ModeKeys`.
 * <b>`labels`</b>: Labels `Tensor`, or `dict` of same.
 * <b>`train_op_fn`</b>: Function that takes a scalar loss `Tensor` and returns an op
-      to optimize the model with the loss. This is used in TRAIN mode and
-      must not be None. None is allowed in other modes. If you want to
-      optimize loss yourself you can pass `no_op_train_fn` and then use
-      ModeFnOps.loss to compute and apply gradients.
+    to optimize the model with the loss. This is used in TRAIN mode and
+    must not be None. None is allowed in other modes. If you want to
+    optimize loss yourself you can pass `no_op_train_fn` and then use
+    ModeFnOps.loss to compute and apply gradients.
 * <b>`logits`</b>: logits `Tensor` to be used by the head.
 * <b>`logits_input`</b>: `Tensor` from which to build logits, often needed when you
-    don't want to compute the logits. Typically this is the activation of
-    the last hidden layer in a DNN. Some heads (like the ones responsible
-    for candidate sampling) intrinsically avoid computing full logits and
-    only accepts logits_input.
+  don't want to compute the logits. Typically this is the activation of
+  the last hidden layer in a DNN. Some heads (like the ones responsible
+  for candidate sampling) intrinsically avoid computing full logits and
+  only accepts logits_input.
 * <b>`scope`</b>: Optional scope for `variable_scope`.
 
 
@@ -145,7 +151,9 @@ Please note that,
 An instance of `ModelFnOps`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `mode` is not recognized.
 * <b>`ValueError`</b>: If neither or both of `logits` and `logits_input` is provided.

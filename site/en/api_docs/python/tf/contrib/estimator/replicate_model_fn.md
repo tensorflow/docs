@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.replicate_model_fn
 
+Replicate `Estimator.model_fn` over GPUs. (deprecated)
+
 ``` python
 tf.contrib.estimator.replicate_model_fn(
     model_fn,
@@ -13,7 +15,11 @@ tf.contrib.estimator.replicate_model_fn(
 )
 ```
 
-Replicate `Estimator.model_fn` over GPUs. (deprecated)
+
+
+Defined in [`contrib/estimator/python/estimator/replicate_model_fn.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py).
+
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-05-31.
 Instructions for updating:
@@ -86,7 +92,9 @@ On distribution of variables:
 Variables are not duplicated between towers.  Instead, they are placed on a
 single device as defined above and shared across towers.
 
-On overhead:
+#### On overhead:
+
+
 If only one device is specified, then aggregation of loss and gradients
 doesn't happen. Replication consists of placing `model_fn` onto the
 specified device.
@@ -97,19 +105,21 @@ On current limitations:
 
 #### Args:
 
+
 * <b>`model_fn`</b>: `model_fn` as defined in `Estimator`.  See the section above about
-    the train_op argument of `EstimatorSpec`.
+  the train_op argument of `EstimatorSpec`.
 * <b>`loss_reduction`</b>: controls whether losses are summed or averaged.
 * <b>`devices`</b>: Optional list of devices to replicate the model across.  This
-    argument can be used to replicate only on the subset of available GPUs.
-    If `None`, then all available GPUs are going to be used for replication.
-    If no GPUs are available, then the model is going to be placed on the CPU.
+  argument can be used to replicate only on the subset of available GPUs.
+  If `None`, then all available GPUs are going to be used for replication.
+  If no GPUs are available, then the model is going to be placed on the CPU.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if there is no `loss_reduction` or if TowerOptimizer is
-    mis-used.
+  mis-used.
 
 
 #### Returns:

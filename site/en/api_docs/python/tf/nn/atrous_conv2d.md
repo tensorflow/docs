@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.nn.atrous_conv2d
 
+Atrous convolution (a.k.a. convolution with holes or dilated convolution).
+
+### Aliases:
+
+* `tf.compat.v1.nn.atrous_conv2d`
+* `tf.compat.v2.nn.atrous_conv2d`
+* `tf.nn.atrous_conv2d`
+
 ``` python
 tf.nn.atrous_conv2d(
     value,
@@ -17,9 +25,9 @@ tf.nn.atrous_conv2d(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Atrous convolution (a.k.a. convolution with holes or dilated convolution).
+<!-- Placeholder for "Used in" -->
 
 This function is a simpler wrapper around the more general
 <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a>, and exists only for backwards compatibility. You can
@@ -37,7 +45,9 @@ filters along the `height` and `width` dimensions, hence the name atrous
 convolution or convolution with holes (the French word trous means holes in
 English).
 
-More specifically:
+#### More specifically:
+
+
 
 ```
 output[batch, height, width, out_channel] =
@@ -114,21 +124,22 @@ inputs are identical.
 
 #### Args:
 
+
 * <b>`value`</b>: A 4-D `Tensor` of type `float`. It needs to be in the default "NHWC"
-    format. Its shape is `[batch, in_height, in_width, in_channels]`.
+  format. Its shape is `[batch, in_height, in_width, in_channels]`.
 * <b>`filters`</b>: A 4-D `Tensor` with the same type as `value` and shape
-    `[filter_height, filter_width, in_channels, out_channels]`. `filters`'
-    `in_channels` dimension must match that of `value`. Atrous convolution is
-    equivalent to standard convolution with upsampled filters with effective
-    height `filter_height + (filter_height - 1) * (rate - 1)` and effective
-    width `filter_width + (filter_width - 1) * (rate - 1)`, produced by
-    inserting `rate - 1` zeros along consecutive elements across the
-    `filters`' spatial dimensions.
+  `[filter_height, filter_width, in_channels, out_channels]`. `filters`'
+  `in_channels` dimension must match that of `value`. Atrous convolution is
+  equivalent to standard convolution with upsampled filters with effective
+  height `filter_height + (filter_height - 1) * (rate - 1)` and effective
+  width `filter_width + (filter_width - 1) * (rate - 1)`, produced by
+  inserting `rate - 1` zeros along consecutive elements across the
+  `filters`' spatial dimensions.
 * <b>`rate`</b>: A positive int32. The stride with which we sample input values across
-    the `height` and `width` dimensions. Equivalently, the rate by which we
-    upsample the filter values by inserting zeros across the `height` and
-    `width` dimensions. In the literature, the same parameter is sometimes
-    called `input stride` or `dilation`.
+  the `height` and `width` dimensions. Equivalently, the rate by which we
+  upsample the filter values by inserting zeros across the `height` and
+  `width` dimensions. In the literature, the same parameter is sometimes
+  called `input stride` or `dilation`.
 * <b>`padding`</b>: A string, either `'VALID'` or `'SAME'`. The padding algorithm.
 * <b>`name`</b>: Optional name for the returned tensor.
 
@@ -146,7 +157,9 @@ Output shape with `'SAME'` padding is:
     [batch, height, width, out_channels].
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If input/output depth does not match `filters`' shape, or if
-    padding is other than `'VALID'` or `'SAME'`.
+  padding is other than `'VALID'` or `'SAME'`.

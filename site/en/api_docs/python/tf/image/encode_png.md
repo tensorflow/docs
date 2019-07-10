@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.image.encode_png
 
+PNG-encode an image.
+
+### Aliases:
+
+* `tf.compat.v1.image.encode_png`
+* `tf.compat.v2.image.encode_png`
+* `tf.image.encode_png`
+
 ``` python
 tf.image.encode_png(
     image,
@@ -15,9 +23,9 @@ tf.image.encode_png(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_image_ops.py`.
+Defined in generated file: `python/ops/gen_image_ops.py`.
 
-PNG-encode an image.
+<!-- Placeholder for "Used in" -->
 
 `image` is a 3-D uint8 or uint16 Tensor of shape `[height, width, channels]`
 where `channels` is:
@@ -33,8 +41,9 @@ the smallest output, but is slower.
 
 #### Args:
 
+
 * <b>`image`</b>: A `Tensor`. Must be one of the following types: `uint8`, `uint16`.
-    3-D with shape `[height, width, channels]`.
+  3-D with shape `[height, width, channels]`.
 * <b>`compression`</b>: An optional `int`. Defaults to `-1`. Compression level.
 * <b>`name`</b>: A name for the operation (optional).
 

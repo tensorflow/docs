@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.math.round
 
+Rounds the values of a tensor to the nearest integer, element-wise.
+
 ### Aliases:
 
+* `tf.compat.v1.math.round`
+* `tf.compat.v1.round`
+* `tf.compat.v2.math.round`
+* `tf.compat.v2.round`
 * `tf.math.round`
 * `tf.round`
 
@@ -19,9 +25,9 @@ tf.math.round(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Rounds the values of a tensor to the nearest integer, element-wise.
+<!-- Placeholder for "Used in" -->
 
 Rounds half to even.  Also known as bankers rounding. If you want to round
 according to the current system rounding mode use tf::cint.
@@ -33,6 +39,7 @@ tf.round(x)  # [ 1.0, 2.0, 2.0, 2.0, -4.0 ]
 ```
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor` of type `float16`, `float32`, `float64`, `int32`, or `int64`.
 * <b>`name`</b>: A name for the operation (optional).

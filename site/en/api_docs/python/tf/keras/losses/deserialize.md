@@ -5,6 +5,15 @@ page_type: reference
 
 # tf.keras.losses.deserialize
 
+
+
+### Aliases:
+
+* `tf.compat.v1.keras.losses.deserialize`
+* `tf.compat.v2.keras.losses.deserialize`
+* `tf.compat.v2.losses.deserialize`
+* `tf.keras.losses.deserialize`
+
 ``` python
 tf.keras.losses.deserialize(
     name,
@@ -14,5 +23,6 @@ tf.keras.losses.deserialize(
 
 
 
-Defined in [`tensorflow/python/keras/losses.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/losses.py).
+Defined in [`python/keras/losses.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/losses.py).
 
+<!-- Placeholder for "Used in" -->

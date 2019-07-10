@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.cyclegan_loss
 
+Returns the losses for a `CycleGANModel`.
+
 ``` python
 tf.contrib.gan.cyclegan_loss(
     model,
@@ -18,25 +20,26 @@ tf.contrib.gan.cyclegan_loss(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/train.py).
+Defined in [`contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/train.py).
 
-Returns the losses for a `CycleGANModel`.
+<!-- Placeholder for "Used in" -->
 
 See https://arxiv.org/abs/1703.10593 for more details.
 
 #### Args:
 
+
 * <b>`model`</b>: A `CycleGANModel` namedtuple.
 * <b>`generator_loss_fn`</b>: The loss function on the generator. Takes a `GANModel`
-    named tuple.
+  named tuple.
 * <b>`discriminator_loss_fn`</b>: The loss function on the discriminator. Takes a
-    `GANModel` namedtuple.
+  `GANModel` namedtuple.
 * <b>`cycle_consistency_loss_fn`</b>: The cycle consistency loss function. Takes a
-    `CycleGANModel` namedtuple.
+  `CycleGANModel` namedtuple.
 * <b>`cycle_consistency_loss_weight`</b>: A non-negative Python number or a scalar
-    `Tensor` indicating how much to weigh the cycle consistency loss.
+  `Tensor` indicating how much to weigh the cycle consistency loss.
 * <b>`**kwargs`</b>: Keyword args to pass directly to `gan_loss` to construct the loss
-    for each partial model of `model`.
+  for each partial model of `model`.
 
 
 #### Returns:
@@ -44,6 +47,8 @@ See https://arxiv.org/abs/1703.10593 for more details.
 A `CycleGANLoss` namedtuple.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `model` is not a `CycleGANModel` namedtuple.

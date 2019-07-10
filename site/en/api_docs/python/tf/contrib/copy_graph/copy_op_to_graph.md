@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.copy_graph.copy_op_to_graph
 
+Returns a copy of an operation from another Graph under a specified scope.
+
 ``` python
 tf.contrib.copy_graph.copy_op_to_graph(
     org_instance,
@@ -16,9 +18,9 @@ tf.contrib.copy_graph.copy_op_to_graph(
 
 
 
-Defined in [`tensorflow/contrib/copy_graph/python/util/copy_elements.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
+Defined in [`contrib/copy_graph/python/util/copy_elements.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
 
-Returns a copy of an operation from another Graph under a specified scope.
+<!-- Placeholder for "Used in" -->
 
 Given an `Operation` `org_instance` from one `Graph`,
 initializes and returns a copy of it from another `Graph`,
@@ -33,8 +35,9 @@ to evaluate `org_instance` must be provided as input.
 
 #### Args:
 
+
 * <b>`org_instance`</b>: An `Operation` from some `Graph`. Could be a
-    `Placeholder` as well.
+  `Placeholder` as well.
 * <b>`to_graph`</b>: The `Graph` to copy `org_instance` to.
 * <b>`variables`</b>: An iterable of `Variable` instances to copy `org_instance` to.
 * <b>`scope`</b>: A scope for the new `Variable` (default `""`).
@@ -45,6 +48,8 @@ to evaluate `org_instance` must be provided as input.
 The copied `Operation` from `to_graph`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `org_instance` is not an `Operation` or `Tensor`.

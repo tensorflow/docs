@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.quantization.quantize
 
+Quantize the 'input' tensor of type float to 'output' tensor of type 'T'.
+
 ### Aliases:
 
+* `tf.compat.v1.quantization.quantize`
+* `tf.compat.v1.quantize`
+* `tf.compat.v2.quantization.quantize`
 * `tf.quantization.quantize`
 * `tf.quantize`
 
@@ -24,9 +29,9 @@ tf.quantization.quantize(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Quantize the 'input' tensor of type float to 'output' tensor of type 'T'.
+<!-- Placeholder for "Used in" -->
 
 [min_range, max_range] are scalar floats that specify the range for
 the 'input' data. The 'mode' attribute controls exactly which calculations are
@@ -129,11 +134,12 @@ operations that have to perform further calculations on them.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor` of type `float32`.
 * <b>`min_range`</b>: A `Tensor` of type `float32`.
-    The minimum scalar value possibly produced for the input.
+  The minimum scalar value possibly produced for the input.
 * <b>`max_range`</b>: A `Tensor` of type `float32`.
-    The maximum scalar value possibly produced for the input.
+  The maximum scalar value possibly produced for the input.
 * <b>`T`</b>: A <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.qint8, tf.quint8, tf.qint32, tf.qint16, tf.quint16`.
 * <b>`mode`</b>: An optional `string` from: `"MIN_COMBINED", "MIN_FIRST", "SCALED"`. Defaults to `"MIN_COMBINED"`.
 * <b>`round_mode`</b>: An optional `string` from: `"HALF_AWAY_FROM_ZERO", "HALF_TO_EVEN"`. Defaults to `"HALF_AWAY_FROM_ZERO"`.
@@ -143,6 +149,7 @@ operations that have to perform further calculations on them.
 #### Returns:
 
 A tuple of `Tensor` objects (output, output_min, output_max).
+
 
 * <b>`output`</b>: A `Tensor` of type `T`.
 * <b>`output_min`</b>: A `Tensor` of type `float32`.

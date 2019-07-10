@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ScatterNdSub Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ScatterNdSub</h1>
+  <code>#include &lt;state_ops.h&gt;</code>
+  <p>Applies sparse subtraction between <code>updates</code> and individual values or slices. </p>
+  <h2>Summary</h2>
+  <p>within a given variable according to <code>indices</code>.</p>
+  <p><code>ref</code> is a <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with rank <code>P</code> and <code>indices</code> is a <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q</code>.</p>
+  <p><code>indices</code> must be integer tensor, containing indices into <code>ref</code>. It must be shape \([d_0, ..., d_{Q-2}, K]\) where <code>0 < K <= P</code>.</p>
+  <p>The innermost dimension of <code>indices</code> (with length <code>K</code>) corresponds to indices into elements (if <code>K = P</code>) or slices (if <code>K < P</code>) along the <code>K</code>th dimension of <code>ref</code>.</p>
+  <p><code>updates</code> is <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q-1+P-K</code> with shape:</p>
+  <p>$$[d_0, ..., d_{Q-2}, ref.shape[K], ..., ref.shape[P-1]].$$</p>
+  <p>For example, say we want to subtract 4 scattered elements from a rank-1 tensor with 8 elements. In Python, that subtraction would look like this: <pre class="prettyprint">ref = tf.Variable([1, 2, 3, 4, 5, 6, 7, 8])
+indices = tf.constant([[4], [3], [1], [7]])
+updates = tf.constant([9, 10, 11, 12])
+sub = tf.scatter_nd_sub(ref, indices, updates)
+with tf.Session() as sess:
+  print sess.run(sub)
+</pre></p>
+  <p>The resulting update to ref would look like this: <pre class="prettyprint">[1, -9, 3, -6, -4, 6, 7, -4]
+</pre></p>
+  <p>See <code>tf.scatter_nd</code> for more details about how to make updates to slices.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>ref: A mutable <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Should be from a <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a> node.</li>
+      <li>indices: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must be one of the following types: int32, int64. A tensor of indices into ref.</li>
+      <li>updates: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must have the same type as ref. A tensor of updated values to subtract from ref.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/scatter-nd-sub/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_sub_1_1_attrs">Attrs</a></code>):<ul>
+      <li>use_locking: An optional bool. Defaults to True. If True, the assignment will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as ref. Returned as a convenience for operations that want to use the updated values after the update is done. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_sub_1ae406028cdb445b008dc38cb063867d92">ScatterNdSub</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_sub_1a6095e143f12d98bdd6840e3c82b0849e">ScatterNdSub</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/scatter-nd-sub/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_sub_1_1_attrs">ScatterNdSub::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_sub_1a3ce12481ccf50ae215315bae8f9ebaa6">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_sub_1a2b35fc093c9c33c9fb2117ce2d348f1e">output_ref</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_sub_1a395194967a9288f615ec9e74e220043a">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_sub_1ad87ae02563483cc2d919170789fbf278">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_sub_1ae3ae0bc213eec019e7ab8a5fe78171df">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_nd_sub_1a0378357edf53a55d9d8bcd4f18730266">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/scatter-nd-sub/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_sub_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/scatter-nd-sub/attrs">tensorflow::<wbr/>ops::<wbr/>ScatterNdSub::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/scatter-nd-sub.html#classtensorflow_1_1ops_1_1_scatter_nd_sub">ScatterNdSub</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_scatter_nd_sub_1a3ce12481ccf50ae215315bae8f9ebaa6">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scatter_nd_sub_1a2b35fc093c9c33c9fb2117ce2d348f1e">
+    <h3>output_ref</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_scatter_nd_sub_1ae406028cdb445b008dc38cb063867d92">
+    <h3>ScatterNdSub</h3>
+    <pre class="prettyprint"> ScatterNdSub(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scatter_nd_sub_1a6095e143f12d98bdd6840e3c82b0849e">
+    <h3>ScatterNdSub</h3>
+    <pre class="prettyprint"> ScatterNdSub(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
+  const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/scatter-nd-sub/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_sub_1_1_attrs">ScatterNdSub::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scatter_nd_sub_1a395194967a9288f615ec9e74e220043a">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scatter_nd_sub_1ad87ae02563483cc2d919170789fbf278">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scatter_nd_sub_1ae3ae0bc213eec019e7ab8a5fe78171df">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_scatter_nd_sub_1a0378357edf53a55d9d8bcd4f18730266">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/scatter-nd-sub/attrs.html#structtensorflow_1_1ops_1_1_scatter_nd_sub_1_1_attrs">Attrs</a> UseLocking(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

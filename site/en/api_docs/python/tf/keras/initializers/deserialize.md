@@ -5,6 +5,15 @@ page_type: reference
 
 # tf.keras.initializers.deserialize
 
+Return an `Initializer` object from its config.
+
+### Aliases:
+
+* `tf.compat.v1.keras.initializers.deserialize`
+* `tf.compat.v2.initializers.deserialize`
+* `tf.compat.v2.keras.initializers.deserialize`
+* `tf.keras.initializers.deserialize`
+
 ``` python
 tf.keras.initializers.deserialize(
     config,
@@ -14,5 +23,6 @@ tf.keras.initializers.deserialize(
 
 
 
-Defined in [`tensorflow/python/keras/initializers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/initializers.py).
+Defined in [`python/keras/initializers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/initializers.py).
 
+<!-- Placeholder for "Used in" -->

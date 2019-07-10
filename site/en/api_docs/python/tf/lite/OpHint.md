@@ -7,18 +7,20 @@ page_type: reference
 
 ## Class `OpHint`
 
+A class that helps build tflite function invocations.
+
 
 
 ### Aliases:
 
-* Class `tf.contrib.lite.OpHint`
+* Class `tf.compat.v1.lite.OpHint`
 * Class `tf.lite.OpHint`
 
 
 
-Defined in [`tensorflow/lite/python/op_hint.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/lite/python/op_hint.py).
+Defined in [`lite/python/op_hint.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/op_hint.py).
 
-A class that helps build tflite function invocations.
+<!-- Placeholder for "Used in" -->
 
 It allows you to take a bunch of TensorFlow ops and annotate the construction
 such that toco knows how to convert it to tflite. This embeds a pseudo
@@ -36,15 +38,28 @@ is to be exported from the current op.
 ``` python
 __init__(
     function_name,
+    level=1,
+    children_inputs_mappings=None,
     **kwargs
 )
 ```
 
 Create a OpHint.
 
+
 #### Args:
 
+
 * <b>`function_name`</b>: Name of the function (the custom op name in tflite)
+* <b>`level`</b>: OpHint level.
+* <b>`children_inputs_mappings`</b>: Children OpHint inputs/outputs mapping.
+  children_inputs_mappings should like below:
+  "parent_first_child_input":
+      [{"parent_input_index": num, "child_input_index": num}, ...]
+  "parent_last_child_output":
+      [{"parent_output_index": num, "child_output_index": num}, ...]
+  "internal_children_input_output":
+      [{"child_input_index": num, "child_output_index": num}, ...]
 * <b>`**kwargs`</b>: Keyword arguments of any constant attributes for the function.
 
 
@@ -65,24 +80,27 @@ add_input(
 
 Add a wrapped input argument to the hint.
 
+
 #### Args:
 
+
 * <b>`*args`</b>: The input tensor.
-* <b>`**kwargs`</b>:     "name" label
-    "tag" a tag to group multiple arguments that will be aggregated. I.e.
-      a string like 'cool_input'. Basically multiple inputs can be added
-      to the same hint for parallel operations that will eventually be
-      combined. An example would be static_rnn which creates multiple copies
-      of state or inputs.
-    "aggregate" aggregation strategy that is valid only for tag non None.
-      Acceptable values are OpHint.AGGREGATE_FIRST, OpHint.AGGREGATE_LAST,
-      and OpHint.AGGREGATE_STACK.
-    "index_override" The global index to use. This corresponds to the
-      argument order in the final stub that will be generated.
+* <b>`**kwargs`</b>:   "name" label
+  "tag" a tag to group multiple arguments that will be aggregated. I.e.
+    a string like 'cool_input'. Basically multiple inputs can be added
+    to the same hint for parallel operations that will eventually be
+    combined. An example would be static_rnn which creates multiple copies
+    of state or inputs.
+  "aggregate" aggregation strategy that is valid only for tag non None.
+    Acceptable values are OpHint.AGGREGATE_FIRST, OpHint.AGGREGATE_LAST,
+    and OpHint.AGGREGATE_STACK.
+  "index_override" The global index to use. This corresponds to the
+    argument order in the final stub that will be generated.
 
 #### Returns:
 
 The wrapped input tensor.
+
 
 <h3 id="add_inputs"><code>add_inputs</code></h3>
 
@@ -95,7 +113,9 @@ add_inputs(
 
 Add a sequence of inputs to the function invocation.
 
+
 #### Args:
+
 
 * <b>`*args`</b>: List of inputs to be converted (should be Tf.Tensor).
 * <b>`**kwargs`</b>: This allows 'names' which should be a list of names.
@@ -104,6 +124,7 @@ Add a sequence of inputs to the function invocation.
 
 Wrapped inputs (identity standins that have additional metadata). These
 are also are also tf.Tensor's.
+
 
 <h3 id="add_output"><code>add_output</code></h3>
 
@@ -116,24 +137,27 @@ add_output(
 
 Add a wrapped output argument to the hint.
 
+
 #### Args:
 
+
 * <b>`*args`</b>: The output tensor.
-* <b>`**kwargs`</b>:     "name" label
-    "tag" a tag to group multiple arguments that will be aggregated. I.e.
-      a string like 'cool_input'. Basically multiple inputs can be added
-      to the same hint for parallel operations that will eventually be
-      combined. An example would be static_rnn which creates multiple copies
-      of state or inputs.
-    "aggregate" aggregation strategy that is valid only for tag non None.
-      Acceptable values are OpHint.AGGREGATE_FIRST, OpHint.AGGREGATE_LAST,
-      and OpHint.AGGREGATE_STACK.
-    "index_override" The global index to use. This corresponds to the
-      argument order in the final stub that will be generated.
+* <b>`**kwargs`</b>:   "name" label
+  "tag" a tag to group multiple arguments that will be aggregated. I.e.
+    a string like 'cool_input'. Basically multiple inputs can be added
+    to the same hint for parallel operations that will eventually be
+    combined. An example would be static_rnn which creates multiple copies
+    of state or inputs.
+  "aggregate" aggregation strategy that is valid only for tag non None.
+    Acceptable values are OpHint.AGGREGATE_FIRST, OpHint.AGGREGATE_LAST,
+    and OpHint.AGGREGATE_STACK.
+  "index_override" The global index to use. This corresponds to the
+    argument order in the final stub that will be generated.
 
 #### Returns:
 
 The wrapped output tensor.
+
 
 <h3 id="add_outputs"><code>add_outputs</code></h3>
 
@@ -146,7 +170,9 @@ add_outputs(
 
 Add a sequence of outputs to the function invocation.
 
+
 #### Args:
+
 
 * <b>`*args`</b>: List of outputs to be converted (should be tf.Tensor).
 * <b>`**kwargs`</b>: See
@@ -158,25 +184,18 @@ are also tf.Tensor's.
 
 
 
+
 ## Class Members
 
-<h3 id="AGGREGATE_FIRST"><code>AGGREGATE_FIRST</code></h3>
-
-<h3 id="AGGREGATE_LAST"><code>AGGREGATE_LAST</code></h3>
-
-<h3 id="AGGREGATE_STACK"><code>AGGREGATE_STACK</code></h3>
-
-<h3 id="FUNCTION_AGGREGATE_ATTR"><code>FUNCTION_AGGREGATE_ATTR</code></h3>
-
-<h3 id="FUNCTION_INPUT_INDEX_ATTR"><code>FUNCTION_INPUT_INDEX_ATTR</code></h3>
-
-<h3 id="FUNCTION_NAME_ATTR"><code>FUNCTION_NAME_ATTR</code></h3>
-
-<h3 id="FUNCTION_OUTPUT_INDEX_ATTR"><code>FUNCTION_OUTPUT_INDEX_ATTR</code></h3>
-
-<h3 id="FUNCTION_SORT_INDEX_ATTR"><code>FUNCTION_SORT_INDEX_ATTR</code></h3>
-
-<h3 id="FUNCTION_UUID_ATTR"><code>FUNCTION_UUID_ATTR</code></h3>
-
-<h3 id="TFLITE_INPUT_INDICES"><code>TFLITE_INPUT_INDICES</code></h3>
-
+* `AGGREGATE_FIRST = 'first'` <a id="AGGREGATE_FIRST"></a>
+* `AGGREGATE_LAST = 'last'` <a id="AGGREGATE_LAST"></a>
+* `AGGREGATE_STACK = 'stack'` <a id="AGGREGATE_STACK"></a>
+* `CHILDREN_INPUTS_MAPPINGS = '_tflite_children_ophint_inputs_mapping'` <a id="CHILDREN_INPUTS_MAPPINGS"></a>
+* `FUNCTION_AGGREGATE_ATTR = '_tflite_function_aggregate'` <a id="FUNCTION_AGGREGATE_ATTR"></a>
+* `FUNCTION_INPUT_INDEX_ATTR = '_tflite_function_input_index'` <a id="FUNCTION_INPUT_INDEX_ATTR"></a>
+* `FUNCTION_LEVEL_ATTR = '_tflite_ophint_level'` <a id="FUNCTION_LEVEL_ATTR"></a>
+* `FUNCTION_NAME_ATTR = '_tflite_function_name'` <a id="FUNCTION_NAME_ATTR"></a>
+* `FUNCTION_OUTPUT_INDEX_ATTR = '_tflite_function_output_index'` <a id="FUNCTION_OUTPUT_INDEX_ATTR"></a>
+* `FUNCTION_SORT_INDEX_ATTR = '_tflite_function_sort_index'` <a id="FUNCTION_SORT_INDEX_ATTR"></a>
+* `FUNCTION_UUID_ATTR = '_tflite_function_uuid'` <a id="FUNCTION_UUID_ATTR"></a>
+* `TFLITE_INPUT_INDICES = '_tflite_input_indices'` <a id="TFLITE_INPUT_INDICES"></a>

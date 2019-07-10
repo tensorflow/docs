@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `AllReduceCrossDeviceOps`
 
-Inherits From: [`CrossDeviceOps`](../../../tf/contrib/distribute/CrossDeviceOps)
+Reduction using all-reduce.
+
+Inherits From: [`CrossDeviceOps`](../../../tf/distribute/CrossDeviceOps)
 
 
 
-Defined in [`tensorflow/python/distribute/cross_device_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/cross_device_ops.py).
+Defined in [`python/distribute/cross_device_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/cross_device_ops.py).
 
-Reduction using all reduce.
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -40,12 +43,12 @@ more efficient cross-device transportation:
 
 #### Args:
 
+
 * <b>`all_reduce_alg`</b>: the all-reduce algorithm to use, currently only "nccl" or
-    "hierarchical_copy" are supported.
+  "hierarchical_copy" are supported.
 * <b>`num_packs`</b>: see above.
 * <b>`agg_small_grads_max_bytes`</b>: see above.
 * <b>`agg_small_grads_max_group`</b>: see above.
-    tensors.
 
 
 
@@ -67,10 +70,11 @@ element which indicates the destinations.
 
 #### Args:
 
+
 * <b>`reduce_op`</b>: Indicates how per_replica_value will be reduced. Accepted
-    values are <a href="../../../tf/distribute/ReduceOp#SUM"><code>tf.distribute.ReduceOp.SUM</code></a>, <a href="../../../tf/distribute/ReduceOp#MEAN"><code>tf.distribute.ReduceOp.MEAN</code></a>.
+  values are <a href="../../../tf/distribute/ReduceOp#SUM"><code>tf.distribute.ReduceOp.SUM</code></a>, <a href="../../../tf/distribute/ReduceOp#MEAN"><code>tf.distribute.ReduceOp.MEAN</code></a>.
 * <b>`value_destination_pairs`</b>: a list or a tuple of tuples of PerReplica objects
-    (or tensors with device set if there is one device) and destinations.
+  (or tensors with device set if there is one device) and destinations.
 
 
 #### Returns:
@@ -78,10 +82,12 @@ element which indicates the destinations.
 a list of Mirrored objects.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `value_destination_pairs` is not a list or a tuple of
-    tuples of PerReplica objects and destinations
+  tuples of PerReplica objects and destinations
 
 <h3 id="broadcast"><code>broadcast</code></h3>
 
@@ -94,7 +100,9 @@ broadcast(
 
 Broadcast the `tensor` to destinations.
 
+
 #### Args:
+
 
 * <b>`tensor`</b>: the tensor to broadcast.
 * <b>`destinations`</b>: the broadcast destinations.
@@ -103,6 +111,7 @@ Broadcast the `tensor` to destinations.
 #### Returns:
 
 a Mirrored object.
+
 
 <h3 id="reduce"><code>reduce</code></h3>
 
@@ -121,8 +130,9 @@ result on `destinations`.
 
 #### Args:
 
+
 * <b>`reduce_op`</b>: Indicates how per_replica_value will be reduced. Accepted
-    values are <a href="../../../tf/distribute/ReduceOp#SUM"><code>tf.distribute.ReduceOp.SUM</code></a>, <a href="../../../tf/distribute/ReduceOp#MEAN"><code>tf.distribute.ReduceOp.MEAN</code></a>.
+  values are <a href="../../../tf/distribute/ReduceOp#SUM"><code>tf.distribute.ReduceOp.SUM</code></a>, <a href="../../../tf/distribute/ReduceOp#MEAN"><code>tf.distribute.ReduceOp.MEAN</code></a>.
 * <b>`per_replica_value`</b>: a PerReplica object or a tensor with device set.
 * <b>`destinations`</b>: the reduction destinations.
 
@@ -132,9 +142,12 @@ result on `destinations`.
 a Mirrored object.
 
 
+
 #### Raises:
 
-* <b>`ValueError`</b>: if per_replica_value is not a PerReplica object.
+
+* <b>`ValueError`</b>: if per_replica_value can't be converted to a PerReplica
+  object.
 
 
 

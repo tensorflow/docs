@@ -7,44 +7,44 @@ page_type: reference
 
 ## Class `Feature`
 
+Represents conversion options that can be toggled on or off.
+
 
 
 ### Aliases:
 
 * Class `tf.autograph.experimental.Feature`
+* Class `tf.compat.v1.autograph.experimental.Feature`
+* Class `tf.compat.v2.autograph.experimental.Feature`
 * Class `tf.contrib.autograph.Feature`
 
 
 
-Defined in [`tensorflow/python/autograph/core/converter.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/autograph/core/converter.py).
+Defined in [`python/autograph/core/converter.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/autograph/core/converter.py).
 
-Represents conversion options that can be toggled on or off.
+<!-- Placeholder for "Used in" -->
+
 
 #### Attributes:
 
+
 * <b>`ALL`</b>: Enable all features.
 * <b>`AUTO_CONTROL_DEPS`</b>: Insert of control dependencies in the generated code.
-* <b>`DECORATORS`</b>: Allow decorators in local functions. Note that special
-    decorators, like `tf.function`, are allowed regardless of this toggle.
-* <b>`ERROR_REWRITING`</b>: Rewrite errors that occur in the generated code to
-    indicate the source code to which the failing code corresponds.
+* <b>`ASSERT_STATEMENTS`</b>: Convert Tensor-dependent assert statements to tf.Assert.
+* <b>`BUILTIN_FUNCTIONS`</b>: Convert builtin functions applied to Tensors to
+  their TF counterparts.
 * <b>`LISTS`</b>: Convert list idioms, like initializers, slices, append, etc.
+* <b>`LOGICAL_EXPRESSIONS`</b>: Convert data-dependent logical expressions applied to
+  Tensors to their TF counterparts.
 * <b>`NAME_SCOPES`</b>: Insert name scopes that name ops according to context, like the
-    function they were defined in.
+  function they were defined in.
 
 ## Class Members
 
-<h3 id="ALL"><code>ALL</code></h3>
-
-<h3 id="AUTO_CONTROL_DEPS"><code>AUTO_CONTROL_DEPS</code></h3>
-
-<h3 id="DECORATORS"><code>DECORATORS</code></h3>
-
-<h3 id="ERROR_REWRITING"><code>ERROR_REWRITING</code></h3>
-
-<h3 id="LISTS"><code>LISTS</code></h3>
-
-<h3 id="NAME_SCOPES"><code>NAME_SCOPES</code></h3>
-
-<h3 id="__members__"><code>__members__</code></h3>
-
+* `ALL` <a id="ALL"></a>
+* `ASSERT_STATEMENTS` <a id="ASSERT_STATEMENTS"></a>
+* `AUTO_CONTROL_DEPS` <a id="AUTO_CONTROL_DEPS"></a>
+* `BUILTIN_FUNCTIONS` <a id="BUILTIN_FUNCTIONS"></a>
+* `LISTS` <a id="LISTS"></a>
+* `LOGICAL_EXPRESSIONS` <a id="LOGICAL_EXPRESSIONS"></a>
+* `NAME_SCOPES` <a id="NAME_SCOPES"></a>

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.eager.inf_callback
 
+A specialization of `inf_nan_callback` that checks for `inf`s only.
+
 ``` python
 tf.contrib.eager.inf_callback(
     op_type,
@@ -18,6 +20,6 @@ tf.contrib.eager.inf_callback(
 
 
 
-Defined in [`tensorflow/python/eager/execution_callbacks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/eager/execution_callbacks.py).
+Defined in [`python/eager/execution_callbacks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/execution_callbacks.py).
 
-A specialization of `inf_nan_callback` that checks for `inf`s only.
+<!-- Placeholder for "Used in" -->

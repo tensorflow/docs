@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `SparseFeatureColumn`
 
-
-
-
-
-Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py).
-
 Represents a sparse feature column.
+
+
+
+
+
+Defined in [`contrib/linear_optimizer/python/ops/sparse_feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py).
+
+<!-- Placeholder for "Used in" -->
 
 Contains three tensors representing a sparse feature column, they are
 example indices (`int64`), feature indices (`int64`), and feature
@@ -70,17 +72,19 @@ This class is deprecated. To UPDATE or USE linear optimizers, please check its l
 
 #### Args:
 
+
 * <b>`example_indices`</b>: A 1-D int64 tensor of shape `[N]`. Also, accepts
-  python lists, or numpy arrays.
+python lists, or numpy arrays.
 * <b>`feature_indices`</b>: A 1-D int64 tensor of shape `[N]`. Also, accepts
-  python lists, or numpy arrays.
+python lists, or numpy arrays.
 * <b>`feature_values`</b>: An optional 1-D tensor float tensor of shape `[N]`. Also,
-  accepts python lists, or numpy arrays.
+accepts python lists, or numpy arrays.
 
 
 #### Returns:
 
 A `SparseFeatureColumn`
+
 
 
 
@@ -90,25 +94,31 @@ A `SparseFeatureColumn`
 
 The example indices represented as a dense tensor.
 
+
 #### Returns:
 
 A 1-D Tensor of int64 with shape `[N]`.
+
 
 <h3 id="feature_indices"><code>feature_indices</code></h3>
 
 The feature indices represented as a dense tensor.
 
+
 #### Returns:
 
 A 1-D Tensor of int64 with shape `[N]`.
+
 
 <h3 id="feature_values"><code>feature_values</code></h3>
 
 The feature values represented as a dense tensor.
 
+
 #### Returns:
 
 May return None, or a 1-D Tensor of float32 with shape `[N]`.
+
 
 
 

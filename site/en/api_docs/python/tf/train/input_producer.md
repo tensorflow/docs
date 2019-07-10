@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.input_producer
 
+Output the rows of `input_tensor` to a queue for an input pipeline. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.train.input_producer`
+* `tf.train.input_producer`
+
 ``` python
 tf.train.input_producer(
     input_tensor,
@@ -22,9 +29,9 @@ tf.train.input_producer(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/input.py).
+Defined in [`python/training/input.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/input.py).
 
-Output the rows of `input_tensor` to a queue for an input pipeline. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -35,24 +42,25 @@ Note: if `num_epochs` is not `None`, this function creates local counter
 
 #### Args:
 
+
 * <b>`input_tensor`</b>: A tensor with the rows to produce. Must be at least
-    one-dimensional. Must either have a fully-defined shape, or
-    `element_shape` must be defined.
+  one-dimensional. Must either have a fully-defined shape, or
+  `element_shape` must be defined.
 * <b>`element_shape`</b>: (Optional.) A `TensorShape` representing the shape of a
-    row of `input_tensor`, if it cannot be inferred.
+  row of `input_tensor`, if it cannot be inferred.
 * <b>`num_epochs`</b>: (Optional.) An integer. If specified `input_producer` produces
-    each row of `input_tensor` `num_epochs` times before generating an
-    `OutOfRange` error. If not specified, `input_producer` can cycle through
-    the rows of `input_tensor` an unlimited number of times.
+  each row of `input_tensor` `num_epochs` times before generating an
+  `OutOfRange` error. If not specified, `input_producer` can cycle through
+  the rows of `input_tensor` an unlimited number of times.
 * <b>`shuffle`</b>: (Optional.) A boolean. If true, the rows are randomly shuffled
-    within each epoch.
+  within each epoch.
 * <b>`seed`</b>: (Optional.) An integer. The seed to use if `shuffle` is true.
 * <b>`capacity`</b>: (Optional.) The capacity of the queue to be used for buffering
-    the input.
+  the input.
 * <b>`shared_name`</b>: (Optional.) If set, this queue will be shared under the given
-    name across multiple sessions.
+  name across multiple sessions.
 * <b>`summary_name`</b>: (Optional.) If set, a scalar summary for the current queue
-    size will be generated, using this name as part of the tag.
+  size will be generated, using this name as part of the tag.
 * <b>`name`</b>: (Optional.) A name for queue.
 * <b>`cancel_op`</b>: (Optional.) Cancel op for the queue
 
@@ -64,7 +72,9 @@ added to the current `QUEUE_RUNNER` collection of the current
 graph.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the shape of the input cannot be inferred from the arguments.
 * <b>`RuntimeError`</b>: If called with eager execution enabled.

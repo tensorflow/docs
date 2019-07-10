@@ -7,11 +7,14 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Operations for working with string Tensors.
 
 ## Functions
+
+[`as_string(...)`](../tf/strings/as_string): Converts each entry in the given tensor to strings.  Supports many numeric
+
+[`bytes_split(...)`](../tf/strings/bytes_split): Split string elements of `input` into bytes.
 
 [`format(...)`](../tf/strings/format): Formats a string template using a list of tensors.
 
@@ -19,13 +22,15 @@ Operations for working with string Tensors.
 
 [`length(...)`](../tf/strings/length): String lengths of `input`.
 
+[`lower(...)`](../tf/strings/lower): TODO: add doc.
+
 [`reduce_join(...)`](../tf/strings/reduce_join): Joins a string Tensor across the given dimensions.
 
 [`regex_full_match(...)`](../tf/strings/regex_full_match): Check if the input matches the regex pattern.
 
 [`regex_replace(...)`](../tf/strings/regex_replace): Replace elements of `input` matching regex `pattern` with `rewrite`.
 
-[`split(...)`](../tf/strings/split): Split elements of `source` based on `sep` into a `SparseTensor`.
+[`split(...)`](../tf/strings/split): Split elements of `input` based on `sep`.
 
 [`strip(...)`](../tf/strings/strip): Strip leading and trailing whitespaces from the Tensor.
 
@@ -52,4 +57,6 @@ Operations for working with string Tensors.
 [`unicode_split_with_offsets(...)`](../tf/strings/unicode_split_with_offsets): Splits each string into a sequence of code points with start offsets.
 
 [`unicode_transcode(...)`](../tf/strings/unicode_transcode): Transcode the input text from a source encoding to a destination encoding.
+
+[`upper(...)`](../tf/strings/upper): TODO: add doc.
 

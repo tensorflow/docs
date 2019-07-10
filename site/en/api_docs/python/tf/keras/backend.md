@@ -7,9 +7,17 @@ page_type: reference
 
 
 
+### Aliases:
+
+* Module `tf.compat.v1.keras.backend`
+* Module `tf.keras.backend`
 
 
-Keras backend API.
+
+Defined in [`python/keras/api/_v1/keras/backend/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/backend/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 
@@ -77,6 +85,10 @@ Keras backend API.
 
 [`ctc_label_dense_to_sparse(...)`](../../tf/keras/backend/ctc_label_dense_to_sparse): Converts CTC labels from dense to sparse.
 
+[`cumprod(...)`](../../tf/keras/backend/cumprod): Cumulative product of the values in a tensor, alongside the specified axis.
+
+[`cumsum(...)`](../../tf/keras/backend/cumsum): Cumulative sum of the values in a tensor, alongside the specified axis.
+
 [`dot(...)`](../../tf/keras/backend/dot): Multiplies 2 tensors (and/or variables) and returns a *tensor*.
 
 [`dropout(...)`](../../tf/keras/backend/dropout): Sets entries in `x` to zero at random, while scaling the entire tensor.
@@ -139,9 +151,15 @@ Keras backend API.
 
 [`learning_phase(...)`](../../tf/keras/backend/learning_phase): Returns the learning phase flag.
 
+[`learning_phase_scope(...)`](../../tf/keras/backend/learning_phase_scope): Provides a scope within which the learning phase is equal to `value`.
+
 [`less(...)`](../../tf/keras/backend/less): Element-wise truth value of (x < y).
 
 [`less_equal(...)`](../../tf/keras/backend/less_equal): Element-wise truth value of (x <= y).
+
+[`local_conv1d(...)`](../../tf/keras/backend/local_conv1d): Apply 1D conv with un-shared weights.
+
+[`local_conv2d(...)`](../../tf/keras/backend/local_conv2d): Apply 2D conv with un-shared weights.
 
 [`log(...)`](../../tf/keras/backend/log): Element-wise log.
 

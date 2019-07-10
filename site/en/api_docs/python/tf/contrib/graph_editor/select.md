@@ -5,9 +5,12 @@ page_type: reference
 
 # Module: tf.contrib.graph_editor.select
 
-
-
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/select.py).
-
 Various ways of selecting operations and tensors in a graph.
+
+
+
+Defined in [`contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/select.py).
+
+<!-- Placeholder for "Used in" -->
+
 

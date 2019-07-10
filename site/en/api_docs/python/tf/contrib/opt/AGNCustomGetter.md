@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `AGNCustomGetter`
 
-
-
-
-
-Defined in [`tensorflow/contrib/opt/python/training/agn_optimizer.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/opt/python/training/agn_optimizer.py).
-
 Custom_getter class is used to do:
+
+
+
+
+
+Defined in [`contrib/opt/python/training/agn_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/agn_optimizer.py).
+
+<!-- Placeholder for "Used in" -->
 
 1. Change trainable variables to local collection and place them at worker
   device
@@ -50,7 +52,8 @@ __call__(
 )
 ```
 
-Call self as a function.
+
+
 
 
 

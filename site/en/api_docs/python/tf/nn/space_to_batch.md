@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.nn.space_to_batch
 
+SpaceToBatch for 4-D tensors of type T.
+
 ### Aliases:
 
+* `tf.compat.v1.nn.space_to_batch`
+* `tf.compat.v1.space_to_batch`
 * `tf.nn.space_to_batch`
 * `tf.space_to_batch`
 
@@ -14,16 +18,17 @@ page_type: reference
 tf.nn.space_to_batch(
     input,
     paddings,
-    block_size,
-    name=None
+    block_size=None,
+    name=None,
+    block_shape=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-SpaceToBatch for 4-D tensors of type T.
+<!-- Placeholder for "Used in" -->
 
 This is a legacy version of the more general SpaceToBatchND.
 
@@ -35,93 +40,78 @@ block size.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. 4-D with shape `[batch, height, width, depth]`.
 * <b>`paddings`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    2-D tensor of non-negative integers with shape `[2, 2]`. It specifies
-      the padding of the input with zeros across the spatial dimensions as follows:
+  2-D tensor of non-negative integers with shape `[2, 2]`. It specifies
+    the padding of the input with zeros across the spatial dimensions as follows:
 
-          paddings = [[pad_top, pad_bottom], [pad_left, pad_right]]
+        paddings = [[pad_top, pad_bottom], [pad_left, pad_right]]
 
-      The effective spatial dimensions of the zero-padded input tensor will be:
+    The effective spatial dimensions of the zero-padded input tensor will be:
 
-          height_pad = pad_top + height + pad_bottom
-          width_pad = pad_left + width + pad_right
+        height_pad = pad_top + height + pad_bottom
+        width_pad = pad_left + width + pad_right
 
-    The attr `block_size` must be greater than one. It indicates the block size.
+  The attr `block_size` must be greater than one. It indicates the block size.
 
-      * Non-overlapping blocks of size `block_size x block size` in the height and
-        width dimensions are rearranged into the batch dimension at each location.
-      * The batch of the output tensor is `batch * block_size * block_size`.
-      * Both height_pad and width_pad must be divisible by block_size.
+    * Non-overlapping blocks of size `block_size x block size` in the height and
+      width dimensions are rearranged into the batch dimension at each location.
+    * The batch of the output tensor is `batch * block_size * block_size`.
+    * Both height_pad and width_pad must be divisible by block_size.
 
-    The shape of the output will be:
+  The shape of the output will be:
 
-        [batch*block_size*block_size, height_pad/block_size, width_pad/block_size,
-         depth]
+      [batch*block_size*block_size, height_pad/block_size, width_pad/block_size,
+       depth]
 
-    Some examples:
+  Some examples:
 
-    (1) For the following input of shape `[1, 2, 2, 1]` and block_size of 2:
+  (1) For the following input of shape `[1, 2, 2, 1]` and block_size of 2:
 
-    ```
-    x = [[[[1], [2]], [[3], [4]]]]
-    ```
+>     x = [[[[1], [2]], [[3], [4]]]]
 
-    The output tensor has shape `[4, 1, 1, 1]` and value:
+  The output tensor has shape `[4, 1, 1, 1]` and value:
 
-    ```
-    [[[[1]]], [[[2]]], [[[3]]], [[[4]]]]
-    ```
+>     [[[[1]]], [[[2]]], [[[3]]], [[[4]]]]
 
-    (2) For the following input of shape `[1, 2, 2, 3]` and block_size of 2:
+  (2) For the following input of shape `[1, 2, 2, 3]` and block_size of 2:
 
-    ```
-    x = [[[[1, 2, 3], [4, 5, 6]],
-          [[7, 8, 9], [10, 11, 12]]]]
-    ```
+>     x = [[[[1, 2, 3], [4, 5, 6]],
+>           [[7, 8, 9], [10, 11, 12]]]]
 
-    The output tensor has shape `[4, 1, 1, 3]` and value:
+  The output tensor has shape `[4, 1, 1, 3]` and value:
 
-    ```
-    [[[1, 2, 3]], [[4, 5, 6]], [[7, 8, 9]], [[10, 11, 12]]]
-    ```
+>     [[[[1, 2, 3]]], [[[4, 5, 6]]], [[[7, 8, 9]]], [[[10, 11, 12]]]]
 
-    (3) For the following input of shape `[1, 4, 4, 1]` and block_size of 2:
+  (3) For the following input of shape `[1, 4, 4, 1]` and block_size of 2:
 
-    ```
-    x = [[[[1],   [2],  [3],  [4]],
-          [[5],   [6],  [7],  [8]],
-          [[9],  [10], [11],  [12]],
-          [[13], [14], [15],  [16]]]]
-    ```
+>     x = [[[[1],   [2],  [3],  [4]],
+>           [[5],   [6],  [7],  [8]],
+>           [[9],  [10], [11],  [12]],
+>           [[13], [14], [15],  [16]]]]
 
-    The output tensor has shape `[4, 2, 2, 1]` and value:
+  The output tensor has shape `[4, 2, 2, 1]` and value:
 
-    ```
-    x = [[[[1], [3]], [[9], [11]]],
-         [[[2], [4]], [[10], [12]]],
-         [[[5], [7]], [[13], [15]]],
-         [[[6], [8]], [[14], [16]]]]
-    ```
+>     x = [[[[1], [3]], [[9], [11]]],
+>          [[[2], [4]], [[10], [12]]],
+>          [[[5], [7]], [[13], [15]]],
+>          [[[6], [8]], [[14], [16]]]]
 
-    (4) For the following input of shape `[2, 2, 4, 1]` and block_size of 2:
+  (4) For the following input of shape `[2, 2, 4, 1]` and block_size of 2:
 
-    ```
-    x = [[[[1],   [2],  [3],  [4]],
-          [[5],   [6],  [7],  [8]]],
-         [[[9],  [10], [11],  [12]],
-          [[13], [14], [15],  [16]]]]
-    ```
+>     x = [[[[1],   [2],  [3],  [4]],
+>           [[5],   [6],  [7],  [8]]],
+>          [[[9],  [10], [11],  [12]],
+>           [[13], [14], [15],  [16]]]]
 
-    The output tensor has shape `[8, 1, 2, 1]` and value:
+  The output tensor has shape `[8, 1, 2, 1]` and value:
 
-    ```
-    x = [[[[1], [3]]], [[[9], [11]]], [[[2], [4]]], [[[10], [12]]],
-         [[[5], [7]]], [[[13], [15]]], [[[6], [8]]], [[[14], [16]]]]
-    ```
+>     x = [[[[1], [3]]], [[[9], [11]]], [[[2], [4]]], [[[10], [12]]],
+>          [[[5], [7]]], [[[13], [15]]], [[[6], [8]]], [[[14], [16]]]]
 
-    Among others, this operation is useful for reducing atrous convolution into
-    regular convolution.
+  Among others, this operation is useful for reducing atrous convolution into
+  regular convolution.
 * <b>`block_size`</b>: An `int` that is `>= 2`.
 * <b>`name`</b>: A name for the operation (optional).
 

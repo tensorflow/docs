@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.crf
 
-
-
-Defined in [`tensorflow/contrib/crf/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/crf/__init__.py).
-
 Linear-chain CRF layer.
+
+
+
+Defined in [`contrib/crf/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/crf/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 ## Classes

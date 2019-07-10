@@ -7,16 +7,18 @@ page_type: reference
 
 ## Class `MetricSpec`
 
-
-
-
-
-Defined in [`tensorflow/contrib/learn/python/learn/metric_spec.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/metric_spec.py).
-
 MetricSpec connects a model to metric functions.
 
+
+
+
+
+Defined in [`contrib/learn/python/learn/metric_spec.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/metric_spec.py).
+
+<!-- Placeholder for "Used in" -->
+
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.tensorflow.org/code/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 The MetricSpec class contains all information necessary to connect the
@@ -31,7 +33,9 @@ When building the ops to run in evaluation, an `Estimator` will call
 `create_metric_ops`, which will connect the given `metric_fn` to the model
 as detailed in the docstring for `create_metric_ops`, and return the metric.
 
-Example:
+#### Example:
+
+
 
 Assuming a model has an input function which returns inputs containing
 (among other things) a tensor with key "input_key", and a labels dictionary
@@ -99,30 +103,32 @@ Creates a MetricSpec.
 
 #### Args:
 
+
 * <b>`metric_fn`</b>: A function to use as a metric. See `_adapt_metric_fn` for
-    rules on how `predictions`, `labels`, and `weights` are passed to this
-    function. This must return either a single `Tensor`, which is
-    interpreted as a value of this metric, or a pair
-    `(value_op, update_op)`, where `value_op` is the op to call to
-    obtain the value of the metric, and `update_op` should be run for
-    each batch to update internal state.
+  rules on how `predictions`, `labels`, and `weights` are passed to this
+  function. This must return either a single `Tensor`, which is
+  interpreted as a value of this metric, or a pair
+  `(value_op, update_op)`, where `value_op` is the op to call to
+  obtain the value of the metric, and `update_op` should be run for
+  each batch to update internal state.
 * <b>`prediction_key`</b>: The key for a tensor in the `predictions` dict (output
-    from the `model_fn`) to use as the `predictions` input to the
-    `metric_fn`. Optional. If `None`, the `model_fn` must return a single
-    tensor or a dict with only a single entry as `predictions`.
+  from the `model_fn`) to use as the `predictions` input to the
+  `metric_fn`. Optional. If `None`, the `model_fn` must return a single
+  tensor or a dict with only a single entry as `predictions`.
 * <b>`label_key`</b>: The key for a tensor in the `labels` dict (output from the
-    `input_fn`) to use as the `labels` input to the `metric_fn`.
-    Optional. If `None`, the `input_fn` must return a single tensor or a
-    dict with only a single entry as `labels`.
+  `input_fn`) to use as the `labels` input to the `metric_fn`.
+  Optional. If `None`, the `input_fn` must return a single tensor or a
+  dict with only a single entry as `labels`.
 * <b>`weight_key`</b>: The key for a tensor in the `inputs` dict (output from the
-    `input_fn`) to use as the `weights` input to the `metric_fn`.
-    Optional. If `None`, no weights will be passed to the `metric_fn`.
+  `input_fn`) to use as the `weights` input to the `metric_fn`.
+  Optional. If `None`, no weights will be passed to the `metric_fn`.
 
 
 
 ## Properties
 
 <h3 id="label_key"><code>label_key</code></h3>
+
 
 
 
@@ -138,11 +144,14 @@ constructor argument for more details.
 
 Function, see `metric_fn` constructor argument for more details.
 
+
 <h3 id="prediction_key"><code>prediction_key</code></h3>
 
 
 
+
 <h3 id="weight_key"><code>weight_key</code></h3>
+
 
 
 
@@ -182,11 +191,12 @@ to be `None`.
 
 #### Args:
 
+
 * <b>`inputs`</b>: A dict of inputs produced by the `input_fn`
 * <b>`labels`</b>: A dict of labels or a single label tensor produced by the
-    `input_fn`.
+  `input_fn`.
 * <b>`predictions`</b>: A dict of predictions or a single tensor produced by the
-    `model_fn`.
+  `model_fn`.
 
 
 #### Returns:
@@ -194,13 +204,15 @@ to be `None`.
 The result of calling `metric_fn`.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `predictions` or `labels` is a single `Tensor` and
-    `self.prediction_key` or `self.label_key` is not `None`; or if
-    `self.label_key` is `None` but `labels` is a dict with more than one
-    element, or if `self.prediction_key` is `None` but `predictions` is a
-    dict with more than one element.
+  `self.prediction_key` or `self.label_key` is not `None`; or if
+  `self.label_key` is `None` but `labels` is a dict with more than one
+  element, or if `self.prediction_key` is `None` but `predictions` is a
+  dict with more than one element.
 
 
 

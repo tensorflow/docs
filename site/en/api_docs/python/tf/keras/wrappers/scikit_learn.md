@@ -7,9 +7,17 @@ page_type: reference
 
 
 
+### Aliases:
+
+* Module `tf.compat.v1.keras.wrappers.scikit_learn`
+* Module `tf.keras.wrappers.scikit_learn`
 
 
-Wrapper for using the Scikit-Learn API with Keras models.
+
+Defined in [`python/keras/api/_v1/keras/wrappers/scikit_learn/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/wrappers/scikit_learn/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.streaming_precision
 
+Computes the precision of the predictions with respect to the labels. (deprecated)
+
 ``` python
 tf.contrib.metrics.streaming_precision(
     predictions,
@@ -18,9 +20,9 @@ tf.contrib.metrics.streaming_precision(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
-Computes the precision of the predictions with respect to the labels. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -41,31 +43,34 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`predictions`</b>: The predicted values, a `bool` `Tensor` of arbitrary shape.
 * <b>`labels`</b>: The ground truth values, a `bool` `Tensor` whose dimensions must
-    match `predictions`.
+  match `predictions`.
 * <b>`weights`</b>: `Tensor` whose rank is either 0, or the same rank as `labels`, and
-    must be broadcastable to `labels` (i.e., all dimensions must be either
-    `1`, or the same as the corresponding `labels` dimension).
+  must be broadcastable to `labels` (i.e., all dimensions must be either
+  `1`, or the same as the corresponding `labels` dimension).
 * <b>`metrics_collections`</b>: An optional list of collections that `precision` should
-    be added to.
+  be added to.
 * <b>`updates_collections`</b>: An optional list of collections that `update_op` should
-    be added to.
+  be added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
 
+
 * <b>`precision`</b>: Scalar float `Tensor` with the value of `true_positives`
-    divided by the sum of `true_positives` and `false_positives`.
+  divided by the sum of `true_positives` and `false_positives`.
 * <b>`update_op`</b>: `Operation` that increments `true_positives` and
-    `false_positives` variables appropriately and whose value matches
-    `precision`.
+  `false_positives` variables appropriately and whose value matches
+  `precision`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `predictions` and `labels` have mismatched shapes, or if
-    `weights` is not `None` and its shape doesn't match `predictions`, or if
-    either `metrics_collections` or `updates_collections` are not a list or
-    tuple.
+  `weights` is not `None` and its shape doesn't match `predictions`, or if
+  either `metrics_collections` or `updates_collections` are not a list or
+  tuple.

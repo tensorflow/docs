@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.sparse.slice
 
+Slice a `SparseTensor` based on the `start` and `size.
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.slice`
+* `tf.compat.v1.sparse_slice`
+* `tf.compat.v2.sparse.slice`
 * `tf.sparse.slice`
 * `tf.sparse_slice`
 
@@ -21,9 +26,9 @@ tf.sparse.slice(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Slice a `SparseTensor` based on the `start` and `size.
+<!-- Placeholder for "Used in" -->
 
 For example, if the input is
 
@@ -43,6 +48,7 @@ Graphically the output tensors are:
 
 #### Args:
 
+
 * <b>`sp_input`</b>: The `SparseTensor` to split.
 * <b>`start`</b>: 1-D. tensor represents the start of the slice.
 * <b>`size`</b>: 1-D. tensor represents the size of the slice.
@@ -54,6 +60,8 @@ Graphically the output tensors are:
 A `SparseTensor` objects resulting from splicing.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `sp_input` is not a `SparseTensor`.

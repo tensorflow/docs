@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.training.resample_at_rate
 
+Given `inputs` tensors, stochastically resamples each at a given rate.
+
 ``` python
 tf.contrib.training.resample_at_rate(
     inputs,
@@ -17,9 +19,9 @@ tf.contrib.training.resample_at_rate(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/resample.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/resample.py).
+Defined in [`contrib/training/python/training/resample.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/resample.py).
 
-Given `inputs` tensors, stochastically resamples each at a given rate.
+<!-- Placeholder for "Used in" -->
 
 For example, if the inputs are `[[a1, a2], [b1, b2]]` and the rates
 tensor contains `[3, 1]`, then the return value may look like `[[a1,
@@ -30,9 +32,10 @@ the number of invocations.
 
 #### Args:
 
+
 * <b>`inputs`</b>: A list of tensors, each of which has a shape of `[batch_size, ...]`
 * <b>`rates`</b>: A tensor of shape `[batch_size]` containing the resampling rates
-     for each input.
+   for each input.
 * <b>`scope`</b>: Scope for the op.
 * <b>`seed`</b>: Random seed to use.
 * <b>`back_prop`</b>: Whether to allow back-propagation through this op.

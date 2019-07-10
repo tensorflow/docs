@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `ConfigureGcsHook`
 
+ConfigureGcsHook configures GCS when used with Estimator/TPUEstimator.
+
 Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/contrib/cloud/python/ops/gcs_config_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
+Defined in [`contrib/cloud/python/ops/gcs_config_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
 
-ConfigureGcsHook configures GCS when used with Estimator/TPUEstimator.
+<!-- Placeholder for "Used in" -->
 
 Warning: GCS `credentials` may be transmitted over the network unencrypted.
 Please ensure that the network is trusted before using this function. For
@@ -21,10 +23,12 @@ users running code entirely within Google Cloud, your data is protected by
 encryption in between data centers. For more information, please take a look
 at https://cloud.google.com/security/encryption-in-transit/.
 
-Example:
+#### Example:
+
+
 
 ```
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 refresh_token = raw_input("Refresh token: ")
 client_secret = raw_input("Client secret: ")
 client_id = "<REDACTED>"
@@ -48,7 +52,9 @@ __init__(
 
 Constructs a ConfigureGcsHook.
 
+
 #### Args:
+
 
 * <b>`credentials`</b>: A json-formatted string.
 * <b>`block_cache`</b>: A `BlockCacheParams`
@@ -56,8 +62,9 @@ Constructs a ConfigureGcsHook.
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If credentials is improperly formatted or block_cache is not a
-    BlockCacheParams.
+  BlockCacheParams.
 
 
 
@@ -72,20 +79,8 @@ after_create_session(
 )
 ```
 
-Called when new TensorFlow session is created.
 
-This is called to signal the hooks that a new session has been created. This
-has two essential differences with the situation in which `begin` is called:
 
-* When this is called, the graph is finalized and ops can no longer be added
-    to the graph.
-* This method will also be called as a result of recovering a wrapped
-    session, not only at the beginning of the overall session.
-
-#### Args:
-
-* <b>`session`</b>: A TensorFlow Session that has been created.
-* <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
 <h3 id="after_run"><code>after_run</code></h3>
 
@@ -107,6 +102,7 @@ The `run_context` argument is the same one send to `before_run` call.
 If `session.run()` raises any exceptions then `after_run()` is not called.
 
 #### Args:
+
 
 * <b>`run_context`</b>: A `SessionRunContext` object.
 * <b>`run_values`</b>: A SessionRunValues object.
@@ -133,6 +129,7 @@ At this point graph is finalized and you can not add ops.
 
 #### Args:
 
+
 * <b>`run_context`</b>: A `SessionRunContext` object.
 
 
@@ -140,19 +137,15 @@ At this point graph is finalized and you can not add ops.
 
 None or a `SessionRunArgs` object.
 
+
 <h3 id="begin"><code>begin</code></h3>
 
 ``` python
 begin()
 ```
 
-Called once before using the session.
 
-When called, the default graph is the one that will be launched in the
-session.  The hook can modify the graph by adding new operations to it.
-After the `begin()` call the graph will be finalized and the other callbacks
-can not modify the graph anymore. Second call of `begin()` on the same
-graph, should not change the graph.
+
 
 <h3 id="end"><code>end</code></h3>
 
@@ -172,6 +165,7 @@ Note the difference between `end()` and `after_run()` behavior when
 `end()` is called but `after_run()` is not called.
 
 #### Args:
+
 
 * <b>`session`</b>: A TensorFlow Session that will be soon closed.
 

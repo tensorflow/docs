@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.scatter_nd_update
 
+Applies sparse `updates` to individual values or slices in a Variable.
+
+### Aliases:
+
+* `tf.compat.v1.scatter_nd_update`
+* `tf.scatter_nd_update`
+
 ``` python
 tf.scatter_nd_update(
     ref,
@@ -17,9 +24,9 @@ tf.scatter_nd_update(
 
 
 
-Defined in [`tensorflow/python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/state_ops.py).
+Defined in [`python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/state_ops.py).
 
-Applies sparse `updates` to individual values or slices in a Variable.
+<!-- Placeholder for "Used in" -->
 
 `ref` is a `Tensor` with rank `P` and `indices` is a `Tensor` of rank `Q`.
 
@@ -43,8 +50,8 @@ For example, say we want to update 4 scattered elements to a rank-1 tensor to
     ref = tf.Variable([1, 2, 3, 4, 5, 6, 7, 8])
     indices = tf.constant([[4], [3], [1] ,[7]])
     updates = tf.constant([9, 10, 11, 12])
-    update = tf.scatter_nd_update(ref, indices, updates)
-    with tf.Session() as sess:
+    update = tf.compat.v1.scatter_nd_update(ref, indices, updates)
+    with tf.compat.v1.Session() as sess:
       print sess.run(update)
 ```
 
@@ -57,16 +64,17 @@ slices.
 
 #### Args:
 
+
 * <b>`ref`</b>: A Variable.
 * <b>`indices`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    A tensor of indices into ref.
+  A tensor of indices into ref.
 * <b>`updates`</b>: A `Tensor`. Must have the same type as `ref`.
-    A Tensor. Must have the same type as ref. A tensor of updated
-    values to add to ref.
+  A Tensor. Must have the same type as ref. A tensor of updated
+  values to add to ref.
 * <b>`use_locking`</b>: An optional `bool`. Defaults to `True`.
-    An optional bool. Defaults to True. If True, the assignment will
-    be protected by a lock; otherwise the behavior is undefined,
-    but may exhibit less contention.
+  An optional bool. Defaults to True. If True, the assignment will
+  be protected by a lock; otherwise the behavior is undefined,
+  but may exhibit less contention.
 * <b>`name`</b>: A name for the operation (optional).
 
 

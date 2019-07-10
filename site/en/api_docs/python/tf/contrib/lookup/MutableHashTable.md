@@ -7,23 +7,26 @@ page_type: reference
 
 ## Class `MutableHashTable`
 
+A generic mutable hash table implementation.
+
 Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
-A generic mutable hash table implementation.
+<!-- Placeholder for "Used in" -->
 
 Data can be inserted by calling the insert method and removed by calling the
 remove method. It does not support initialization via the init method.
 
-Example usage:
+#### Example usage:
+
+
 
 ```python
-table = tf.contrib.lookup.MutableHashTable(key_dtype=tf.string,
-                                           value_dtype=tf.int64,
-                                           default_value=-1)
+table = tf.lookup.MutableHashTable(key_dtype=tf.string, value_dtype=tf.int64,
+                                   default_value=-1)
 sess.run(table.insert(keys, values))
 out = table.lookup(query_keys)
 print(out.eval())
@@ -36,7 +39,6 @@ __init__(
     key_dtype,
     value_dtype,
     default_value,
-    shared_name=None,
     name='MutableHashTable',
     checkpoint=True
 )
@@ -49,15 +51,14 @@ and value_dtype, respectively.
 
 #### Args:
 
+
 * <b>`key_dtype`</b>: the type of the key tensors.
 * <b>`value_dtype`</b>: the type of the value tensors.
 * <b>`default_value`</b>: The value to use if a key is missing in the table.
-* <b>`shared_name`</b>: If non-empty, this table will be shared under
-    the given name across multiple sessions.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`checkpoint`</b>: if True, the contents of the table are saved to and restored
-    from checkpoints. If `shared_name` is empty for a checkpointed table, it
-    is shared using the table node name.
+  from checkpoints. If `shared_name` is empty for a checkpointed table, it
+  is shared using the table node name.
 
 
 #### Returns:
@@ -65,7 +66,9 @@ and value_dtype, respectively.
 A `MutableHashTable` object.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If checkpoint is True and no name was specified.
 
@@ -77,13 +80,16 @@ A `MutableHashTable` object.
 
 The table key dtype.
 
+
 <h3 id="name"><code>name</code></h3>
 
-The name of the table.
+
+
 
 <h3 id="resource_handle"><code>resource_handle</code></h3>
 
 Returns the resource handle associated with this Resource.
+
 
 <h3 id="value_dtype"><code>value_dtype</code></h3>
 
@@ -91,15 +97,8 @@ The table value dtype.
 
 
 
+
 ## Methods
-
-<h3 id="create_resource"><code>create_resource</code></h3>
-
-``` python
-create_resource()
-```
-
-A function that creates a resource handle.
 
 <h3 id="export"><code>export</code></h3>
 
@@ -109,7 +108,9 @@ export(name=None)
 
 Returns tensors of all keys and values in the table.
 
+
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -119,13 +120,6 @@ Returns tensors of all keys and values in the table.
 A pair of tensors with the first tensor containing all keys and the
   second tensors containing all values in the table.
 
-<h3 id="initialize"><code>initialize</code></h3>
-
-``` python
-initialize()
-```
-
-A function that initializes the resource. Optional.
 
 <h3 id="insert"><code>insert</code></h3>
 
@@ -139,12 +133,14 @@ insert(
 
 Associates `keys` with `values`.
 
+
 #### Args:
 
-* <b>`keys`</b>: Keys to insert. Can be a tensor of any shape. Must match the
-    table's key type.
+
+* <b>`keys`</b>: Keys to insert. Can be a tensor of any shape. Must match the table's
+  key type.
 * <b>`values`</b>: Values to be associated with keys. Must be a tensor of the same
-    shape as `keys` and match the table's value type.
+  shape as `keys` and match the table's value type.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -153,10 +149,12 @@ Associates `keys` with `values`.
 The created Operation.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: when `keys` or `values` doesn't match the table data
-    types.
+  types.
 
 <h3 id="lookup"><code>lookup</code></h3>
 
@@ -173,8 +171,9 @@ The `default_value` is used for keys not present in the table.
 
 #### Args:
 
+
 * <b>`keys`</b>: Keys to look up. Can be a tensor of any shape. Must match the
-    table's key_dtype.
+  table's key_dtype.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -184,7 +183,9 @@ A tensor containing the values in the same shape as `keys` using the
   table's value type.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: when `keys` do not match the table data types.
 
@@ -203,8 +204,9 @@ If a key is not present in the table, it is silently ignored.
 
 #### Args:
 
+
 * <b>`keys`</b>: Keys to remove. Can be a tensor of any shape. Must match the table's
-    key type.
+  key type.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -213,7 +215,9 @@ If a key is not present in the table, it is silently ignored.
 The created Operation.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: when `keys` do not match the table data types.
 
@@ -225,7 +229,9 @@ size(name=None)
 
 Compute the number of elements in this table.
 
+
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -233,6 +239,7 @@ Compute the number of elements in this table.
 #### Returns:
 
 A scalar tensor containing the number of elements in this table.
+
 
 
 

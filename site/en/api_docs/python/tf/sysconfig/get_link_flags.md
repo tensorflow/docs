@@ -5,15 +5,24 @@ page_type: reference
 
 # tf.sysconfig.get_link_flags
 
+Get the link flags for custom operators.
+
+### Aliases:
+
+* `tf.compat.v1.sysconfig.get_link_flags`
+* `tf.compat.v2.sysconfig.get_link_flags`
+* `tf.sysconfig.get_link_flags`
+
 ``` python
 tf.sysconfig.get_link_flags()
 ```
 
 
 
-Defined in [`tensorflow/python/platform/sysconfig.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/sysconfig.py).
+Defined in [`python/platform/sysconfig.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/sysconfig.py).
 
-Get the link flags for custom operators.
+<!-- Placeholder for "Used in" -->
+
 
 #### Returns:
 

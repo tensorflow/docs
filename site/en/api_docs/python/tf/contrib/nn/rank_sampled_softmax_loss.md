@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.nn.rank_sampled_softmax_loss
 
+Computes softmax loss using rank-based adaptive resampling.
+
 ``` python
 tf.contrib.nn.rank_sampled_softmax_loss(
     weights,
@@ -25,9 +27,9 @@ tf.contrib.nn.rank_sampled_softmax_loss(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/sampling_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/nn/python/ops/sampling_ops.py).
+Defined in [`contrib/nn/python/ops/sampling_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/nn/python/ops/sampling_ops.py).
 
-Computes softmax loss using rank-based adaptive resampling.
+<!-- Placeholder for "Used in" -->
 
 This has been shown to improve rank loss after training compared to
 <a href="../../../tf/nn/sampled_softmax_loss"><code>tf.nn.sampled_softmax_loss</code></a>. For a description of the algorithm and some
@@ -80,32 +82,33 @@ elif mode == "eval":
 
 #### Args:
 
+
 * <b>`weights`</b>: A `Tensor` or `PartitionedVariable` of shape `[num_classes, dim]`,
-      or a list of `Tensor` objects whose concatenation along dimension 0
-      has shape [num_classes, dim]. The (possibly-sharded) class embeddings.
+    or a list of `Tensor` objects whose concatenation along dimension 0
+    has shape [num_classes, dim]. The (possibly-sharded) class embeddings.
 * <b>`biases`</b>: A `Tensor` or `PartitionedVariable` of shape `[num_classes]`.
-      The (possibly-sharded) class biases.
+    The (possibly-sharded) class biases.
 * <b>`labels`</b>: A `Tensor` of type `int64` and shape `[batch_size,
-      num_true]`. The target classes. Note that this format differs from
-      the `labels` argument of `nn.softmax_cross_entropy_with_logits`.
+    num_true]`. The target classes. Note that this format differs from
+    the `labels` argument of `nn.softmax_cross_entropy_with_logits`.
 * <b>`inputs`</b>: A `Tensor` of shape `[batch_size, dim]`. The forward
-      activations of the input network.
+    activations of the input network.
 * <b>`num_sampled`</b>: An `int`. The number of classes to randomly sample per batch.
 * <b>`num_resampled`</b>: An `int`. The number of classes to select from the
-      `num_sampled` classes using the adaptive resampling algorithm. Must be
-      less than `num_sampled`.
+    `num_sampled` classes using the adaptive resampling algorithm. Must be
+    less than `num_sampled`.
 * <b>`num_classes`</b>: An `int`. The number of possible classes.
 * <b>`num_true`</b>: An `int`.  The number of target classes per training example.
 * <b>`sampled_values`</b>: A tuple of (`sampled_candidates`, `true_expected_count`,
-      `sampled_expected_count`) returned by a `*_candidate_sampler` function.
-      If None, default to `nn.learned_unigram_candidate_sampler`.
+    `sampled_expected_count`) returned by a `*_candidate_sampler` function.
+    If None, default to `nn.learned_unigram_candidate_sampler`.
 * <b>`resampling_temperature`</b>: A scalar `Tensor` with the temperature parameter
-      for the adaptive resampling algorithm.
+    for the adaptive resampling algorithm.
 * <b>`remove_accidental_hits`</b>: A `bool`. Whether to remove "accidental hits"
-      where a sampled class equals one of the target classes.
+    where a sampled class equals one of the target classes.
 * <b>`partition_strategy`</b>: A string specifying the partitioning strategy, relevant
-      if `len(weights) > 1`. Currently `"div"` and `"mod"` are supported.
-      See <a href="../../../tf/nn/embedding_lookup"><code>tf.nn.embedding_lookup</code></a> for more details.
+    if `len(weights) > 1`. Currently `"div"` and `"mod"` are supported.
+    See <a href="../../../tf/nn/embedding_lookup"><code>tf.nn.embedding_lookup</code></a> for more details.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -114,6 +117,8 @@ elif mode == "eval":
 A `batch_size` 1-D tensor of per-example sampled softmax losses.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `num_sampled <= num_resampled`.

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.input_pipeline.obtain_next
 
+Basic wrapper for the ObtainNextOp.
+
 ``` python
 tf.contrib.input_pipeline.obtain_next(
     string_list_tensor,
@@ -14,11 +16,13 @@ tf.contrib.input_pipeline.obtain_next(
 
 
 
-Defined in [`tensorflow/contrib/input_pipeline/python/ops/input_pipeline_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/input_pipeline/python/ops/input_pipeline_ops.py).
+Defined in [`contrib/input_pipeline/python/ops/input_pipeline_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/input_pipeline/python/ops/input_pipeline_ops.py).
 
-Basic wrapper for the ObtainNextOp.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`string_list_tensor`</b>: A tensor that is a list of strings
 * <b>`counter`</b>: an int64 ref tensor to keep track of which element is returned.

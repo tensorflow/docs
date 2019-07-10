@@ -5,9 +5,13 @@ page_type: reference
 
 # tf.debugging.assert_less_equal
 
+Assert the condition `x <= y` holds element-wise.
+
 ### Aliases:
 
 * `tf.assert_less_equal`
+* `tf.compat.v1.assert_less_equal`
+* `tf.compat.v1.debugging.assert_less_equal`
 * `tf.debugging.assert_less_equal`
 
 ``` python
@@ -23,14 +27,14 @@ tf.debugging.assert_less_equal(
 
 
 
-Defined in [`tensorflow/python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/check_ops.py).
+Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
 
-Assert the condition `x <= y` holds element-wise.
+<!-- Placeholder for "Used in" -->
 
 Example of adding a dependency to an operation:
 
 ```python
-with tf.control_dependencies([tf.assert_less_equal(x, y)]):
+with tf.control_dependencies([tf.compat.v1.assert_less_equal(x, y)]):
   output = tf.reduce_sum(x)
 ```
 
@@ -40,10 +44,11 @@ If both `x` and `y` are empty, this is trivially satisfied.
 
 #### Args:
 
+
 * <b>`x`</b>:  Numeric `Tensor`.
 * <b>`y`</b>:  Numeric `Tensor`, same dtype as and broadcastable to `x`.
 * <b>`data`</b>:  The tensors to print out if the condition is False.  Defaults to
-    error message and first few entries of `x`, `y`.
+  error message and first few entries of `x`, `y`.
 * <b>`summarize`</b>: Print this many entries of each tensor.
 * <b>`message`</b>: A string to prefix to the default message.
 * <b>`name`</b>: A name for this operation (optional).  Defaults to "assert_less_equal"

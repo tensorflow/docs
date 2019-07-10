@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.range
 
+Creates a sequence of numbers.
+
+### Aliases:
+
+* `tf.compat.v1.range`
+* `tf.compat.v2.range`
+* `tf.range`
+
 ``` python
 tf.range(limit, delta=1, dtype=None, name='range')
 tf.range(start, limit, delta=1, dtype=None, name='range')
@@ -12,9 +20,9 @@ tf.range(start, limit, delta=1, dtype=None, name='range')
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Creates a sequence of numbers.
+<!-- Placeholder for "Used in" -->
 
 Creates a sequence of numbers that begins at `start` and extends by
 increments of `delta` up to but not including `limit`.
@@ -25,7 +33,9 @@ it is provided explicitly.
 Like the Python builtin `range`, `start` defaults to 0, so that
 `range(n) = range(0, n)`.
 
-For example:
+#### For example:
+
+
 
 ```python
 start = 3
@@ -44,14 +54,14 @@ tf.range(limit)  # [0, 1, 2, 3, 4]
 
 #### Args:
 
-* <b>`start`</b>: A 0-D `Tensor` (scalar). Acts as first entry in the range if
-    `limit` is not None; otherwise, acts as range limit and first entry
-    defaults to 0.
-* <b>`limit`</b>: A 0-D `Tensor` (scalar). Upper limit of sequence,
-    exclusive. If None, defaults to the value of `start` while the first
-    entry of the range defaults to 0.
-* <b>`delta`</b>: A 0-D `Tensor` (scalar). Number that increments
-    `start`. Defaults to 1.
+
+* <b>`start`</b>: A 0-D `Tensor` (scalar). Acts as first entry in the range if `limit`
+  is not None; otherwise, acts as range limit and first entry defaults to 0.
+* <b>`limit`</b>: A 0-D `Tensor` (scalar). Upper limit of sequence, exclusive. If None,
+  defaults to the value of `start` while the first entry of the range
+  defaults to 0.
+* <b>`delta`</b>: A 0-D `Tensor` (scalar). Number that increments `start`. Defaults to
+  1.
 * <b>`dtype`</b>: The type of the elements of the resulting tensor.
 * <b>`name`</b>: A name for the operation. Defaults to "range".
 
@@ -59,6 +69,7 @@ tf.range(limit)  # [0, 1, 2, 3, 4]
 #### Returns:
 
 An 1-D `Tensor` of type `dtype`.
+
 
 
 

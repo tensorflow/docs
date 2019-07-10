@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.saved_model.get_tensor_from_tensor_info
 
+Returns the Tensor or SparseTensor described by a TensorInfo proto. (deprecated)
+
 ### Aliases:
 
+* `tf.compat.v1.saved_model.get_tensor_from_tensor_info`
+* `tf.compat.v1.saved_model.utils.get_tensor_from_tensor_info`
 * `tf.saved_model.get_tensor_from_tensor_info`
 * `tf.saved_model.utils.get_tensor_from_tensor_info`
 
@@ -20,9 +24,9 @@ tf.saved_model.get_tensor_from_tensor_info(
 
 
 
-Defined in [`tensorflow/python/saved_model/utils_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/saved_model/utils_impl.py).
+Defined in [`python/saved_model/utils_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/utils_impl.py).
 
-Returns the Tensor or SparseTensor described by a TensorInfo proto. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -30,11 +34,12 @@ This function will only be available through the v1 compatibility library as tf.
 
 #### Args:
 
+
 * <b>`tensor_info`</b>: A TensorInfo proto describing a Tensor or SparseTensor.
 * <b>`graph`</b>: The tf.Graph in which tensors are looked up. If None, the
-      current default graph is used.
+    current default graph is used.
 * <b>`import_scope`</b>: If not None, names in `tensor_info` are prefixed with this
-      string before lookup.
+    string before lookup.
 
 
 #### Returns:
@@ -42,7 +47,9 @@ This function will only be available through the v1 compatibility library as tf.
 The Tensor or SparseTensor in `graph` described by `tensor_info`.
 
 
+
 #### Raises:
+
 
 * <b>`KeyError`</b>: If `tensor_info` does not correspond to a tensor in `graph`.
 * <b>`ValueError`</b>: If `tensor_info` is malformed.

@@ -7,12 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-SavedModel builder.
-
-Builds a SavedModel that can be saved to storage, is language neutral, and
-enables systems to produce, consume, or transform TensorFlow Models.
 
 ## Classes
 

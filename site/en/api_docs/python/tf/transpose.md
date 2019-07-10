@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.transpose
 
+Transposes `a`.
+
+### Aliases:
+
+* `tf.compat.v1.transpose`
+* `tf.transpose`
+
 ``` python
 tf.transpose(
     a,
@@ -16,9 +23,11 @@ tf.transpose(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Transposes `a`. Permutes the dimensions according to `perm`.
+<!-- Placeholder for "Used in" -->
+
+Permutes the dimensions according to `perm`.
 
 The returned tensor's dimension i will correspond to the input dimension
 `perm[i]`. If `perm` is not given, it is set to (n-1...0), where n is
@@ -29,7 +38,9 @@ are conjugated and transposed.
 
 
 
-For example:
+#### For example:
+
+
 
 ```python
 x = tf.constant([[1, 2, 3], [4, 5, 6]])
@@ -56,7 +67,7 @@ x = tf.constant([[[ 1,  2,  3],
                   [10, 11, 12]]])
 
 # Take the transpose of the matrices in dimension-0
-# (this common operation has a shorthand `linalg.transpose`)
+# (this common operation has a shorthand `linalg.matrix_transpose`)
 tf.transpose(x, perm=[0, 2, 1])  # [[[1,  4],
                                  #   [2,  5],
                                  #   [3,  6]],
@@ -67,16 +78,18 @@ tf.transpose(x, perm=[0, 2, 1])  # [[[1,  4],
 
 #### Args:
 
+
 * <b>`a`</b>: A `Tensor`.
 * <b>`perm`</b>: A permutation of the dimensions of `a`.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`conjugate`</b>: Optional bool. Setting it to `True` is mathematically equivalent
-    to tf.conj(tf.transpose(input)).
+  to tf.math.conj(tf.transpose(input)).
 
 
 #### Returns:
 
 A transposed `Tensor`.
+
 
 #### Numpy Compatibility
 In `numpy` transposes are memory-efficient constant time operations as they

@@ -7,19 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Signal processing operations.
-
-See the [tf.signal](https://tensorflow.org/api_guides/python/contrib.signal)
-guide.
-
-
-[hamming]: https://en.wikipedia.org/wiki/Window_function#Hamming_window
-[hann]: https://en.wikipedia.org/wiki/Window_function#Hann_window
-[mel]: https://en.wikipedia.org/wiki/Mel_scale
-[mfcc]: https://en.wikipedia.org/wiki/Mel-frequency_cepstrum
-[stft]: https://en.wikipedia.org/wiki/Short-time_Fourier_transform
 
 ## Functions
 

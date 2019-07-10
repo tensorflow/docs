@@ -5,19 +5,21 @@ page_type: reference
 
 # tf.contrib.data.assert_element_shape
 
+Assert the shape of this `Dataset`.
+
 ``` python
 tf.contrib.data.assert_element_shape(expected_shapes)
 ```
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/batching.py).
+Defined in [`contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/batching.py).
 
-Assert the shape of this `Dataset`.
+<!-- Placeholder for "Used in" -->
 
 ```python
 shapes = [tf.TensorShape([16, 256]), tf.TensorShape([None, 2])]
-result = dataset.apply(tf.contrib.data.assert_element_shape(shapes))
+result = dataset.apply(tf.data.experimental.assert_element_shape(shapes))
 print(result.output_shapes)  # ==> "((16, 256), (<unknown>, 2))"
 ```
 
@@ -28,6 +30,7 @@ evaluated, and set shapes on tensors, respectively.
 Note that unknown dimension in `expected_shapes` will be ignored.
 
 #### Args:
+
 
 * <b>`expected_shapes`</b>: A nested structure of <a href="../../../tf/TensorShape"><code>tf.TensorShape</code></a> objects.
 

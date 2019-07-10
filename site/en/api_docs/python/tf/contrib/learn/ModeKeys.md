@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `ModeKeys`
 
-
-
-
-
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/model_fn.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/model_fn.py).
-
 Standard names for model modes (deprecated).
+
+
+
+
+
+Defined in [`contrib/learn/python/learn/estimators/model_fn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/model_fn.py).
+
+<!-- Placeholder for "Used in" -->
 
 THIS CLASS IS DEPRECATED.
 
@@ -39,11 +41,9 @@ validate(
 
 
 
+
 ## Class Members
 
-<h3 id="EVAL"><code>EVAL</code></h3>
-
-<h3 id="INFER"><code>INFER</code></h3>
-
-<h3 id="TRAIN"><code>TRAIN</code></h3>
-
+* `EVAL = 'eval'` <a id="EVAL"></a>
+* `INFER = 'infer'` <a id="INFER"></a>
+* `TRAIN = 'train'` <a id="TRAIN"></a>

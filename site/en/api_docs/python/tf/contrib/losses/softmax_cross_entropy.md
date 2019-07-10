@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.losses.softmax_cross_entropy
 
+Creates a cross-entropy loss using tf.nn.softmax_cross_entropy_with_logits. (deprecated)
+
 ``` python
 tf.contrib.losses.softmax_cross_entropy(
     logits,
@@ -17,9 +19,9 @@ tf.contrib.losses.softmax_cross_entropy(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/losses/loss_ops.py).
+Defined in [`contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
-Creates a cross-entropy loss using tf.nn.softmax_cross_entropy_with_logits. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-12-30.
 Instructions for updating:
@@ -36,10 +38,11 @@ If `label_smoothing` is nonzero, smooth the labels towards 1/num_classes:
 
 #### Args:
 
+
 * <b>`logits`</b>: [batch_size, num_classes] logits outputs of the network .
 * <b>`onehot_labels`</b>: [batch_size, num_classes] one-hot-encoded labels.
 * <b>`weights`</b>: Coefficients for the loss. The tensor must be a scalar or a tensor
-    of shape [batch_size].
+  of shape [batch_size].
 * <b>`label_smoothing`</b>: If greater than 0 then smooth the labels.
 * <b>`scope`</b>: the scope for the operations performed in computing the loss.
 
@@ -49,7 +52,9 @@ If `label_smoothing` is nonzero, smooth the labels towards 1/num_classes:
 A scalar `Tensor` representing the mean loss value.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the shape of `logits` doesn't match that of `onehot_labels`
-    or if the shape of `weights` is invalid or if `weights` is None.
+  or if the shape of `weights` is invalid or if `weights` is None.

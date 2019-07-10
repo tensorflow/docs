@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `UpdateContext`
 
-
-
-
-
-Defined in [`tensorflow/python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/distribute_lib.py).
-
 Context manager when you are in `update()` or `update_non_slot()`.
+
+
+
+
+
+Defined in [`python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/distribute_lib.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -21,7 +24,8 @@ Context manager when you are in `update()` or `update_non_slot()`.
 __init__(device)
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -35,6 +39,7 @@ __enter__()
 
 
 
+
 <h3 id="__exit__"><code>__exit__</code></h3>
 
 ``` python
@@ -44,6 +49,7 @@ __exit__(
     traceback
 )
 ```
+
 
 
 

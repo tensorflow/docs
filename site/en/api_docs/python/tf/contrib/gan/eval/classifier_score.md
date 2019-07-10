@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.classifier_score
 
+Classifier score for evaluating a conditional generative model.
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.classifier_metrics.classifier_score`
@@ -20,9 +22,9 @@ tf.contrib.gan.eval.classifier_score(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
-Classifier score for evaluating a conditional generative model.
+<!-- Placeholder for "Used in" -->
 
 This is based on the Inception Score, but for an arbitrary classifier.
 
@@ -41,11 +43,12 @@ uses.
 
 #### Args:
 
+
 * <b>`images`</b>: Images to calculate the classifier score for.
 * <b>`classifier_fn`</b>: A function that takes images and produces logits based on a
-    classifier.
+  classifier.
 * <b>`num_batches`</b>: Number of batches to split `generated_images` in to in order to
-    efficiently run them through the classifier network.
+  efficiently run them through the classifier network.
 
 
 #### Returns:

@@ -7,13 +7,12 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.layers namespace.
 
 ## Modules
 
-[`experimental`](../tf/layers/experimental) module: Public API for tf.layers.experimental namespace.
+[`experimental`](../tf/layers/experimental) module
 
 ## Classes
 
@@ -41,7 +40,7 @@ Public API for tf.layers namespace.
 
 [`class Flatten`](../tf/layers/Flatten): Flattens an input tensor while preserving the batch axis (axis 0).
 
-[`class InputSpec`](../tf/keras/layers/InputSpec): Specifies the ndim, dtype and shape of every input to a layer.
+[`class InputSpec`](../tf/layers/InputSpec): Specifies the ndim, dtype and shape of every input to a layer.
 
 [`class Layer`](../tf/layers/Layer): Base layer class.
 
@@ -85,7 +84,7 @@ Public API for tf.layers namespace.
 
 [`max_pooling2d(...)`](../tf/layers/max_pooling2d): Max pooling layer for 2D inputs (e.g. images). (deprecated)
 
-[`max_pooling3d(...)`](../tf/layers/max_pooling3d): Max pooling layer for 3D inputs (e.g. volumes). (deprecated)
+[`max_pooling3d(...)`](../tf/layers/max_pooling3d): Max pooling layer for 3D inputs (e.g. (deprecated)
 
 [`separable_conv1d(...)`](../tf/layers/separable_conv1d): Functional interface for the depthwise separable 1D convolution layer. (deprecated)
 

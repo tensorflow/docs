@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.learn.extract_pandas_data
 
+Extract data from pandas.DataFrame for predictors. (deprecated)
+
 ``` python
 tf.contrib.learn.extract_pandas_data(data)
 ```
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_io/pandas_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/learn_io/pandas_io.py).
+Defined in [`contrib/learn/python/learn/learn_io/pandas_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/learn_io/pandas_io.py).
 
-Extract data from pandas.DataFrame for predictors. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -24,6 +26,7 @@ DataFrame is expected to contain values of type int, float or bool.
 
 #### Args:
 
+
 * <b>`data`</b>: `pandas.DataFrame` containing the data to be extracted.
 
 
@@ -32,6 +35,8 @@ DataFrame is expected to contain values of type int, float or bool.
 A numpy `ndarray` of the DataFrame's values as floats.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if data contains types other than int, float or bool.

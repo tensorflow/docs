@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `SubGraphView`
 
-
-
-
-
-Defined in [`tensorflow/contrib/graph_editor/subgraph.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/subgraph.py).
-
 A subgraph view on an existing <a href="../../../tf/Graph"><code>tf.Graph</code></a>.
+
+
+
+
+
+Defined in [`contrib/graph_editor/subgraph.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/subgraph.py).
+
+<!-- Placeholder for "Used in" -->
 
 An instance of this class is a subgraph view on an existing <a href="../../../tf/Graph"><code>tf.Graph</code></a>.
 "subgraph" means that it can represent part of the whole <a href="../../../tf/Graph"><code>tf.Graph</code></a>.
@@ -21,7 +23,9 @@ An instance of this class is a subgraph view on an existing <a href="../../../tf
 on the <a href="../../../tf/Graph"><code>tf.Graph</code></a>. Note that in this documentation, the term "subgraph" is
 often used as substitute to "subgraph view".
 
-A subgraph contains:
+#### A subgraph contains:
+
+
 
 * a list of input tensors, accessible via the `inputs` property.
 * a list of output tensors, accessible via the `outputs` property.
@@ -125,20 +129,23 @@ __init__(
 
 Create a subgraph containing the given ops and the "passthrough" tensors.
 
+
 #### Args:
 
+
 * <b>`inside_ops`</b>: an object convertible to a list of <a href="../../../tf/Operation"><code>tf.Operation</code></a>. This list
-    defines all the operations in the subgraph.
+  defines all the operations in the subgraph.
 * <b>`passthrough_ts`</b>: an object convertible to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>. This list
-    define all the "passthrough" tensors. A passthrough tensor is a tensor
-    which goes directly from the input of the subgraph to it output, without
-    any intermediate operations. All the non passthrough tensors are
-    silently ignored.
+  define all the "passthrough" tensors. A passthrough tensor is a tensor
+  which goes directly from the input of the subgraph to it output, without
+  any intermediate operations. All the non passthrough tensors are
+  silently ignored.
 
 #### Raises:
 
+
 * <b>`TypeError`</b>: if inside_ops cannot be converted to a list of <a href="../../../tf/Operation"><code>tf.Operation</code></a>
-    or if `passthrough_ts` cannot be converted to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
+  or if `passthrough_ts` cannot be converted to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
 
 
 
@@ -148,29 +155,36 @@ Create a subgraph containing the given ops and the "passthrough" tensors.
 
 The connected input tensors of this subgraph view.
 
+
 <h3 id="connected_outputs"><code>connected_outputs</code></h3>
 
 The connected output tensors of this subgraph view.
+
 
 <h3 id="graph"><code>graph</code></h3>
 
 The underlying <a href="../../../tf/Graph"><code>tf.Graph</code></a>.
 
+
 <h3 id="inputs"><code>inputs</code></h3>
 
 The input tensors of this subgraph view.
+
 
 <h3 id="ops"><code>ops</code></h3>
 
 The operations in this subgraph view.
 
+
 <h3 id="outputs"><code>outputs</code></h3>
 
 The output tensors of this subgraph view.
 
+
 <h3 id="passthroughs"><code>passthroughs</code></h3>
 
 The passthrough tensors, going straight from input to output.
+
 
 
 
@@ -184,20 +198,6 @@ __bool__()
 
 Allows for implicit boolean conversion.
 
-<h3 id="__copy__"><code>__copy__</code></h3>
-
-``` python
-__copy__()
-```
-
-Create a copy of this subgraph.
-
-Note that this class is a "view", copying it only create another view and
-does not copy the underlying part of the <a href="../../../tf/Graph"><code>tf.Graph</code></a>.
-
-#### Returns:
-
-A new identical instance of the original subgraph view.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
@@ -220,6 +220,7 @@ with ge.make_sgv(...) as sgv:
 
 Itself.
 
+
 <h3 id="__exit__"><code>__exit__</code></h3>
 
 ``` python
@@ -232,6 +233,7 @@ __exit__(
 
 
 
+
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
 ``` python
@@ -239,6 +241,7 @@ __nonzero__()
 ```
 
 Allows for implicit boolean conversion.
+
 
 <h3 id="consumers"><code>consumers</code></h3>
 
@@ -255,6 +258,7 @@ of one of the output tensors and is not in the subgraph.
 
 A list of <a href="../../../tf/Operation"><code>tf.Operation</code></a> which are the consumers of this subgraph view.
 
+
 <h3 id="copy"><code>copy</code></h3>
 
 ``` python
@@ -270,6 +274,7 @@ does not copy the underlying part of the tf.Graph.
 
 A new instance identical to the original one.
 
+
 <h3 id="find_op_by_name"><code>find_op_by_name</code></h3>
 
 ``` python
@@ -278,7 +283,9 @@ find_op_by_name(op_name)
 
 Return the op named op_name.
 
+
 #### Args:
+
 
 * <b>`op_name`</b>: the name to search for
 
@@ -286,7 +293,9 @@ Return the op named op_name.
 
 The op named op_name.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if the op_name could not be found.
 * <b>`AssertionError`</b>: if the name was found multiple time.
@@ -299,7 +308,9 @@ input_index(t)
 
 Find the input index corresponding to the given input tensor t.
 
+
 #### Args:
+
 
 * <b>`t`</b>: the input tensor of this subgraph view.
 
@@ -307,7 +318,9 @@ Find the input index corresponding to the given input tensor t.
 
 The index in the self.inputs list.
 
+
 #### Raises:
+
 
 * <b>`Error`</b>: if t in not an input tensor.
 
@@ -319,6 +332,7 @@ is_passthrough(t)
 
 Check whether a tensor is passthrough.
 
+
 <h3 id="op"><code>op</code></h3>
 
 ``` python
@@ -326,6 +340,7 @@ op(op_id)
 ```
 
 Get an op by its index.
+
 
 <h3 id="output_index"><code>output_index</code></h3>
 
@@ -335,7 +350,9 @@ output_index(t)
 
 Find the output index corresponding to given output tensor t.
 
+
 #### Args:
+
 
 * <b>`t`</b>: the output tensor of this subgraph view.
 
@@ -343,7 +360,9 @@ Find the output index corresponding to given output tensor t.
 
 The index in the self.outputs list.
 
+
 #### Raises:
+
 
 * <b>`Error`</b>: if t in not an output tensor.
 
@@ -363,21 +382,23 @@ affected.
 
 #### Args:
 
+
 * <b>`new_input_indices`</b>: an iterable of integers or tf.Tensors
-    representing a mapping between the old inputs and the new ones.
-    Integers must be positive and smaller than the number of old inputs.
-    tf.Tensors must belong to the old list of inputs.
-    This mapping can be under-complete and must be without repetitions.
+  representing a mapping between the old inputs and the new ones.
+  Integers must be positive and smaller than the number of old inputs.
+  tf.Tensors must belong to the old list of inputs.
+  This mapping can be under-complete and must be without repetitions.
 * <b>`new_output_indices`</b>: an iterable of integers or tf.Tensors
-    representing a mapping between the old outputs and the new ones.
-    Integers must be positive and smaller than the number of old outputs.
-    tf.Tensors must belong to the old list of outputs.
-    This mapping can be under-complete and can have repetitions.
+  representing a mapping between the old outputs and the new ones.
+  Integers must be positive and smaller than the number of old outputs.
+  tf.Tensors must belong to the old list of outputs.
+  This mapping can be under-complete and can have repetitions.
 
 #### Returns:
 
 A new modified instance of the original subgraph view with remapped
   inputs and outputs.
+
 
 <h3 id="remap_default"><code>remap_default</code></h3>
 
@@ -390,7 +411,9 @@ remap_default(
 
 Remap the inputs and/or outputs to the default mapping.
 
+
 #### Args:
+
 
 * <b>`remove_input_map`</b>: if True the input map is reset to the default one.
 * <b>`remove_output_map`</b>: if True the output map is reset to the default one.
@@ -399,6 +422,7 @@ Remap the inputs and/or outputs to the default mapping.
 
 A new modified instance of the original subgraph view with its
   input and/or output mapping reset to the default one.
+
 
 <h3 id="remap_inputs"><code>remap_inputs</code></h3>
 
@@ -416,16 +440,18 @@ affected.
 
 #### Args:
 
+
 * <b>`new_input_indices`</b>: an iterable of integers or tf.Tensors
-    representing a mapping between the old inputs and the new ones.
-    Integers must be positive and smaller than the number of old inputs.
-    tf.Tensors must belong to the old list of inputs.
-    This mapping can be under-complete and must be without repetitions.
+  representing a mapping between the old inputs and the new ones.
+  Integers must be positive and smaller than the number of old inputs.
+  tf.Tensors must belong to the old list of inputs.
+  This mapping can be under-complete and must be without repetitions.
 
 #### Returns:
 
 A new modified instance of the original subgraph view with remapped
   inputs.
+
 
 <h3 id="remap_outputs"><code>remap_outputs</code></h3>
 
@@ -443,16 +469,18 @@ affected.
 
 #### Args:
 
+
 * <b>`new_output_indices`</b>: an iterable of integers or tf.Tensors
-    representing a mapping between the old outputs and the new ones.
-    Integers must be positive and smaller than the number of old outputs.
-    tf.Tensors must belong to the old list of outputs.
-    This mapping can be under-complete and can have repetitions.
+  representing a mapping between the old outputs and the new ones.
+  Integers must be positive and smaller than the number of old outputs.
+  tf.Tensors must belong to the old list of outputs.
+  This mapping can be under-complete and can have repetitions.
 
 #### Returns:
 
 A new modified instance of the original subgraph view with remapped
   outputs.
+
 
 <h3 id="remap_outputs_make_unique"><code>remap_outputs_make_unique</code></h3>
 
@@ -462,6 +490,7 @@ remap_outputs_make_unique()
 
 Remap the outputs so that all the tensors appears only once.
 
+
 <h3 id="remap_outputs_to_consumers"><code>remap_outputs_to_consumers</code></h3>
 
 ``` python
@@ -469,6 +498,7 @@ remap_outputs_to_consumers()
 ```
 
 Remap the outputs to match the number of consumers.
+
 
 <h3 id="remove_unused_ops"><code>remove_unused_ops</code></h3>
 
@@ -478,13 +508,16 @@ remove_unused_ops(control_inputs=True)
 
 Remove unused ops.
 
+
 #### Args:
+
 
 * <b>`control_inputs`</b>: if True, control inputs are used to detect used ops.
 
 #### Returns:
 
 A new subgraph view which only contains used operations.
+
 
 
 

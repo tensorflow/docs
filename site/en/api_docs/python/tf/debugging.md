@@ -7,9 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.debugging namespace.
 
 ## Functions
 
@@ -51,11 +50,15 @@ Public API for tf.debugging namespace.
 
 [`assert_same_float_dtype(...)`](../tf/debugging/assert_same_float_dtype): Validate and return float type based on `tensors` and `dtype`.
 
-[`assert_scalar(...)`](../tf/debugging/assert_scalar): Asserts that the given `tensor` is a scalar.
+[`assert_scalar(...)`](../tf/debugging/assert_scalar): Asserts that the given `tensor` is a scalar (i.e. zero-dimensional).
+
+[`assert_shapes(...)`](../tf/debugging/assert_shapes): Assert tensor shapes and dimension size relationships between tensors.
 
 [`assert_type(...)`](../tf/debugging/assert_type): Statically asserts that the given `Tensor` is of the specified type.
 
 [`check_numerics(...)`](../tf/debugging/check_numerics): Checks a tensor for NaN and Inf values.
+
+[`get_log_device_placement(...)`](../tf/debugging/get_log_device_placement): Get if device placements are logged.
 
 [`is_finite(...)`](../tf/math/is_finite): Returns which elements of x are finite.
 
@@ -65,7 +68,9 @@ Public API for tf.debugging namespace.
 
 [`is_non_decreasing(...)`](../tf/math/is_non_decreasing): Returns `True` if `x` is non-decreasing.
 
-[`is_numeric_tensor(...)`](../tf/debugging/is_numeric_tensor)
+[`is_numeric_tensor(...)`](../tf/debugging/is_numeric_tensor): Returns `True` if the elements of `tensor` are numbers.
 
 [`is_strictly_increasing(...)`](../tf/math/is_strictly_increasing): Returns `True` if `x` is strictly increasing.
+
+[`set_log_device_placement(...)`](../tf/debugging/set_log_device_placement): Set if device placements should be logged.
 

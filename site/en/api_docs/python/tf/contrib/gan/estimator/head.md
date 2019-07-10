@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.gan.estimator.head
 
-
-
-Defined in [`tensorflow/contrib/gan/python/estimator/python/head.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/estimator/python/head.py).
-
 `tf.Learn` components for `GANEstimator`'s loss.
+
+
+
+Defined in [`contrib/gan/python/estimator/python/head.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/estimator/python/head.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 
@@ -18,8 +21,4 @@ Defined in [`tensorflow/contrib/gan/python/estimator/python/head.py`](https://gi
 ## Functions
 
 [`gan_head(...)`](../../../../tf/contrib/gan/estimator/gan_head): Creates a `GANHead`. (deprecated)
-
-## Other Members
-
-<h3 id="__all__"><code>__all__</code></h3>
 

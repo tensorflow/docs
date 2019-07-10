@@ -5,15 +5,22 @@ page_type: reference
 
 # tf.train.checkpoint_exists
 
+Checks whether a V1 or V2 checkpoint exists with the specified prefix. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.train.checkpoint_exists`
+* `tf.train.checkpoint_exists`
+
 ``` python
 tf.train.checkpoint_exists(checkpoint_prefix)
 ```
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/checkpoint_management.py).
+Defined in [`python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_management.py).
 
-Checks whether a V1 or V2 checkpoint exists with the specified prefix. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -24,10 +31,11 @@ into account the naming difference between V1 and V2 formats.
 
 #### Args:
 
+
 * <b>`checkpoint_prefix`</b>: the prefix of a V1 or V2 checkpoint, with V2 taking
-    priority.  Typically the result of `Saver.save()` or that of
-    `tf.train.latest_checkpoint()`, regardless of sharded/non-sharded or
-    V1/V2.
+  priority.  Typically the result of <a href="../../tf/train/Saver#save"><code>Saver.save()</code></a> or that of
+  <a href="../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint()</code></a>, regardless of sharded/non-sharded or
+  V1/V2.
 
 #### Returns:
 

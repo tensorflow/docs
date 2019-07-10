@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.ctc_label_dense_to_sparse
 
+Converts CTC labels from dense to sparse.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.ctc_label_dense_to_sparse`
+* `tf.compat.v2.keras.backend.ctc_label_dense_to_sparse`
+* `tf.keras.backend.ctc_label_dense_to_sparse`
+
 ``` python
 tf.keras.backend.ctc_label_dense_to_sparse(
     labels,
@@ -14,11 +22,13 @@ tf.keras.backend.ctc_label_dense_to_sparse(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Converts CTC labels from dense to sparse.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`labels`</b>: dense CTC labels.
 * <b>`label_lengths`</b>: length of the labels.

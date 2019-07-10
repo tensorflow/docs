@@ -5,15 +5,22 @@ page_type: reference
 
 # tf.variable_creator_scope
 
+Scope which defines a variable creation function to be used by variable().
+
+### Aliases:
+
+* `tf.compat.v1.variable_creator_scope`
+* `tf.variable_creator_scope`
+
 ``` python
 tf.variable_creator_scope(variable_creator)
 ```
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variable_scope.py).
+Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
-Scope which defines a variable creation function to be used by variable().
+<!-- Placeholder for "Used in" -->
 
 variable_creator is expected to be a function with the following signature:
 
@@ -40,7 +47,7 @@ The valid keyword arguments in kwds are:
       that case, `dtype` must be specified. (Note that initializer functions
       from init_ops.py must first be bound to a shape before being used here.)
     trainable: If `True`, the default, also adds the variable to the graph
-      collection `GraphKeys.TRAINABLE_VARIABLES`. This collection is used as
+      collection <a href="../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>. This collection is used as
       the default list of variables to use by the `Optimizer` classes.
       `trainable` defaults to `True` unless `synchronization` is
       set to `ON_READ`.
@@ -76,6 +83,7 @@ This set may grow over time, so it's important the signature of creators is as
 mentioned above.
 
 #### Args:
+
 
 * <b>`variable_creator`</b>: the passed creator
 

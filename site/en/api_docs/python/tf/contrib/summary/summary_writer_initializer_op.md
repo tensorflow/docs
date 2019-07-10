@@ -5,21 +5,26 @@ page_type: reference
 
 # tf.contrib.summary.summary_writer_initializer_op
 
+Graph-mode only. Returns the list of ops to create all summary writers.
+
 ``` python
 tf.contrib.summary.summary_writer_initializer_op()
 ```
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/summary_ops_v2.py).
+Defined in [`python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/summary_ops_v2.py).
 
-Graph-mode only. Returns the list of ops to create all summary writers.
+<!-- Placeholder for "Used in" -->
+
 
 #### Returns:
 
 The initializer ops.
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: If in Eager mode.

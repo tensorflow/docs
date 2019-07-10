@@ -7,20 +7,24 @@ page_type: reference
 
 ## Class `NotFittedError`
 
-
-
-
-
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/_sklearn.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py).
-
 Exception class to raise if estimator is used before fitting.
+
+
+
+
+
+Defined in [`contrib/learn/python/learn/estimators/_sklearn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py).
+
+<!-- Placeholder for "Used in" -->
 
 USE OF THIS EXCEPTION IS DEPRECATED.
 
 This class inherits from both ValueError and AttributeError to help with
 exception handling and backward compatibility.
 
-Examples:
+#### Examples:
+
+
 >>> from sklearn.svm import LinearSVC
 >>> from sklearn.exceptions import NotFittedError
 >>> try:
@@ -42,17 +46,6 @@ __init__(
 )
 ```
 
-
-
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-__new__(
-    type,
-    *args,
-    **kwargs
-)
-```
 
 
 

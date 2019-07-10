@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.multi_class_target
 
+Creates a _TargetColumn for multi class single label classification. (deprecated)
+
 ``` python
 tf.contrib.layers.multi_class_target(
     n_classes,
@@ -15,9 +17,9 @@ tf.contrib.layers.multi_class_target(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/target_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/target_column.py).
+Defined in [`contrib/layers/python/layers/target_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/target_column.py).
 
-Creates a _TargetColumn for multi class single label classification. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-11-12.
 Instructions for updating:
@@ -27,12 +29,13 @@ The target column uses softmax cross entropy loss.
 
 #### Args:
 
+
 * <b>`n_classes`</b>: Integer, number of classes, must be >= 2
 * <b>`label_name`</b>: String, name of the key in label dict. Can be null if label
-      is a tensor (single headed models).
+    is a tensor (single headed models).
 * <b>`weight_column_name`</b>: A string defining feature column name representing
-    weights. It is used to down weight or boost examples during training. It
-    will be multiplied by the loss of the example.
+  weights. It is used to down weight or boost examples during training. It
+  will be multiplied by the loss of the example.
 
 
 #### Returns:
@@ -40,6 +43,8 @@ The target column uses softmax cross entropy loss.
 An instance of _MultiClassTargetColumn.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if n_classes is < 2

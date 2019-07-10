@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `NextQueuedSequenceBatch`
 
-
-
-
-
-Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
-
 NextQueuedSequenceBatch stores deferred SequenceQueueingStateSaver data.
+
+
+
+
+
+Defined in [`contrib/training/python/training/sequence_queueing_state_saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
+
+<!-- Placeholder for "Used in" -->
 
 This class is instantiated by `SequenceQueueingStateSaver` and is accessible
 via its `next_batch` property.
@@ -24,7 +26,8 @@ via its `next_batch` property.
 __init__(state_saver)
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -42,9 +45,11 @@ exhausted.
 
 A scalar integer tensor, the batch_size
 
+
 <h3 id="context"><code>context</code></h3>
 
 A dict mapping keys of `input_context` to batched context.
+
 
 #### Returns:
 
@@ -61,6 +66,7 @@ then for this property:
 context["name"].get_shape() == [batch_size, d1, d2, ...]
 ```
 
+
 <h3 id="insertion_index"><code>insertion_index</code></h3>
 
 The insertion indices of the examples (when they were first added).
@@ -74,6 +80,7 @@ by the prefetch op between iterations.
 #### Returns:
 
 An int64 vector of length `batch_size`, the insertion indices.
+
 
 <h3 id="key"><code>key</code></h3>
 
@@ -91,6 +98,7 @@ where `original_key` is the unique key read in by the prefetcher.
 
 A string vector of length `batch_size`, the keys.
 
+
 <h3 id="length"><code>length</code></h3>
 
 The lengths of the given truncated unrolled examples.
@@ -102,6 +110,7 @@ this number is between `0` and `num_unroll`.
 #### Returns:
 
 An integer vector of length `batch_size`, the lengths.
+
 
 <h3 id="next_key"><code>next_key</code></h3>
 
@@ -125,6 +134,7 @@ where `original_key` is the unique key read in by the prefetcher.
 
 A string vector of length `batch_size`, the keys.
 
+
 <h3 id="sequence"><code>sequence</code></h3>
 
 An int32 vector, length `batch_size`: the sequence index of each entry.
@@ -140,6 +150,7 @@ are assigned to each split.
 
 An int32 vector `Tensor`.
 
+
 <h3 id="sequence_count"><code>sequence_count</code></h3>
 
 An int32 vector, length `batch_size`: the sequence count of each entry.
@@ -151,9 +162,11 @@ When an input is split up, the number of splits is equal to:
 
 An int32 vector `Tensor`.
 
+
 <h3 id="sequences"><code>sequences</code></h3>
 
 A dict mapping keys of `input_sequences` to split and rebatched data.
+
 
 #### Returns:
 
@@ -170,13 +183,16 @@ where `None` meant the sequence time was dynamic, then for this property:
 sequences["name"].get_shape() == [batch_size, num_unroll, d1, d2, ...].
 ```
 
+
 <h3 id="total_length"><code>total_length</code></h3>
 
 The lengths of the original (non-truncated) unrolled examples.
 
+
 #### Returns:
 
 An integer vector of length `batch_size`, the total lengths.
+
 
 
 
@@ -194,22 +210,20 @@ save_state(
 
 Returns an op to save the current batch of state `state_name`.
 
+
 #### Args:
+
 
 * <b>`state_name`</b>: string, matches a key provided in `initial_states`.
 * <b>`value`</b>: A `Tensor`.
-    Its type must match that of `initial_states[state_name].dtype`.
-    If we had at input:
+  Its type must match that of `initial_states[state_name].dtype`.
+  If we had at input:
 
-    ```python
-    initial_states[state_name].get_shape() == [d1, d2, ...]
-    ```
+>     initial_states[state_name].get_shape() == [d1, d2, ...]
 
-    then the shape of `value` must match:
+  then the shape of `value` must match:
 
-    ```python
-    tf.shape(value) == [batch_size, d1, d2, ...]
-    ```
+>     tf.shape(value) == [batch_size, d1, d2, ...]
 
 * <b>`name`</b>: string (optional).  The name scope for newly created ops.
 
@@ -222,10 +236,12 @@ accesses data from the state saver (otherwise the state saver
 will never progress through its states and run out of capacity).
 
 
+
 #### Raises:
 
+
 * <b>`KeyError`</b>: if `state_name` does not match any of the initial states
-    declared in `initial_states`.
+  declared in `initial_states`.
 
 <h3 id="state"><code>state</code></h3>
 
@@ -235,7 +251,9 @@ state(state_name)
 
 Returns batched state tensors.
 
+
 #### Args:
+
 
 * <b>`state_name`</b>: string, matches a key provided in `initial_states`.
 
@@ -259,10 +277,12 @@ state(state_name).get_shape() == [batch_size, d1, d2, ...]
 ```
 
 
+
 #### Raises:
 
+
 * <b>`KeyError`</b>: if `state_name` does not match any of the initial states
-    declared in `initial_states`.
+  declared in `initial_states`.
 
 
 

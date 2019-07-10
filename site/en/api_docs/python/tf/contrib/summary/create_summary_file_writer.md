@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.summary.create_summary_file_writer
 
+Please use <a href="../../../tf/contrib/summary/create_file_writer"><code>tf.contrib.summary.create_file_writer</code></a>. (deprecated)
+
 ``` python
 tf.contrib.summary.create_summary_file_writer(
     *args,
@@ -14,9 +16,9 @@ tf.contrib.summary.create_summary_file_writer(
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/summary_ops_v2.py).
+Defined in [`python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/summary_ops_v2.py).
 
-Please use <a href="../../../tf/contrib/summary/create_file_writer"><code>tf.contrib.summary.create_file_writer</code></a>. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:

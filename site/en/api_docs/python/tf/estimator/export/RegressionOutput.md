@@ -7,9 +7,22 @@ page_type: reference
 
 ## Class `RegressionOutput`
 
+Represents the output of a regression head.
+
 Inherits From: [`ExportOutput`](../../../tf/estimator/export/ExportOutput)
 
-Represents the output of a regression head.
+### Aliases:
+
+* Class `tf.compat.v1.estimator.export.RegressionOutput`
+* Class `tf.compat.v2.estimator.export.RegressionOutput`
+* Class `tf.estimator.export.RegressionOutput`
+
+
+
+Defined in [`python/saved_model/model_utils/export_output.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/model_utils/export_output.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -19,12 +32,15 @@ __init__(value)
 
 Constructor for `RegressionOutput`.
 
+
 #### Args:
+
 
 * <b>`value`</b>: a float `Tensor` giving the predicted values.  Required.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if the value is not a `Tensor` with dtype tf.float32.
 
@@ -38,6 +54,7 @@ Constructor for `RegressionOutput`.
 
 
 
+
 ## Methods
 
 <h3 id="as_signature_def"><code>as_signature_def</code></h3>
@@ -46,15 +63,8 @@ Constructor for `RegressionOutput`.
 as_signature_def(receiver_tensors)
 ```
 
-Generate a SignatureDef proto for inclusion in a MetaGraphDef.
 
-The SignatureDef will specify outputs as described in this ExportOutput,
-and will use the provided receiver_tensors as inputs.
 
-#### Args:
-
-* <b>`receiver_tensors`</b>: a `Tensor`, or a dict of string to `Tensor`, specifying
-    input nodes that will be fed.
 
 
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.apply_regularization
 
+Returns the summed penalty by applying `regularizer` to the `weights_list`.
+
 ``` python
 tf.contrib.layers.apply_regularization(
     regularizer,
@@ -14,9 +16,9 @@ tf.contrib.layers.apply_regularization(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/regularizers.py).
+Defined in [`contrib/layers/python/layers/regularizers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/regularizers.py).
 
-Returns the summed penalty by applying `regularizer` to the `weights_list`.
+<!-- Placeholder for "Used in" -->
 
 Adding a regularization penalty over the layer weights and embedding weights
 can help prevent overfitting the training data. Regularization over layer
@@ -25,11 +27,12 @@ subtraction, it usually shouldn't hurt much either.
 
 #### Args:
 
+
 * <b>`regularizer`</b>: A function that takes a single `Tensor` argument and returns
-    a scalar `Tensor` output.
+  a scalar `Tensor` output.
 * <b>`weights_list`</b>: List of weights `Tensors` or `Variables` to apply
-    `regularizer` over. Defaults to the `GraphKeys.WEIGHTS` collection if
-    `None`.
+  `regularizer` over. Defaults to the `GraphKeys.WEIGHTS` collection if
+  `None`.
 
 
 #### Returns:
@@ -37,7 +40,9 @@ subtraction, it usually shouldn't hurt much either.
 A scalar representing the overall regularization penalty.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `regularizer` does not return a scalar output, or if we find
-      no weights.
+    no weights.

@@ -5,15 +5,22 @@ page_type: reference
 
 # tf.assert_variables_initialized
 
+Returns an Op to check if variables are initialized.
+
+### Aliases:
+
+* `tf.assert_variables_initialized`
+* `tf.compat.v1.assert_variables_initialized`
+
 ``` python
 tf.assert_variables_initialized(var_list=None)
 ```
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variables.py).
+Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
-Returns an Op to check if variables are initialized.
+<!-- Placeholder for "Used in" -->
 
 NOTE: This function is obsolete and will be removed in 6 months.  Please
 change your implementation to use `report_uninitialized_variables()`.
@@ -27,13 +34,15 @@ logged by the C++ runtime. This is expected.
 
 #### Args:
 
+
 * <b>`var_list`</b>: List of `Variable` objects to check. Defaults to the
-    value of `global_variables().`
+  value of `global_variables().`
 
 
 #### Returns:
 
-  An Op, or None if there are no variables.
+An Op, or None if there are no variables.
+
 
 
 **NOTE** The output of this function should be used.  If it is not, a warning will be logged.  To mark the output as used, call its .mark_used() method.

@@ -5,17 +5,26 @@ page_type: reference
 
 # tf.gfile.Glob
 
+Returns a list of files that match the given pattern(s).
+
+### Aliases:
+
+* `tf.compat.v1.gfile.Glob`
+* `tf.gfile.Glob`
+
 ``` python
 tf.gfile.Glob(filename)
 ```
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/lib/io/file_io.py).
+Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
-Returns a list of files that match the given pattern(s).
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`filename`</b>: string or iterable of strings. The glob pattern(s).
 
@@ -25,6 +34,8 @@ Returns a list of files that match the given pattern(s).
 A list of strings containing filenames that match the given pattern(s).
 
 
+
 #### Raises:
+
 
 * <b>`errors.OpError`</b>: If there are filesystem / directory listing errors.

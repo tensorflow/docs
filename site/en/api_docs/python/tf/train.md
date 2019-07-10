@@ -7,15 +7,14 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Support for training models.
-
-See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 ## Modules
 
-[`queue_runner`](../tf/train/queue_runner) module: Public API for tf.train.queue_runner namespace.
+[`experimental`](../tf/train/experimental) module
+
+[`queue_runner`](../tf/train/queue_runner) module
 
 ## Classes
 
@@ -27,9 +26,9 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`class AdamOptimizer`](../tf/train/AdamOptimizer): Optimizer that implements the Adam algorithm.
 
-[`class BytesList`](../tf/train/BytesList): A ProtocolMessage
+[`class BytesList`](../tf/train/BytesList)
 
-[`class Checkpoint`](../tf/train/Checkpoint): Groups checkpointable objects, saving and restoring them.
+[`class Checkpoint`](../tf/train/Checkpoint): Groups trackable objects, saving and restoring them.
 
 [`class CheckpointManager`](../tf/train/CheckpointManager): Deletes old checkpoints.
 
@@ -37,31 +36,31 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`class CheckpointSaverListener`](../tf/train/CheckpointSaverListener): Interface for listeners that take action before or after checkpoint save.
 
-[`class ChiefSessionCreator`](../tf/train/ChiefSessionCreator): Creates a tf.Session for a chief.
+[`class ChiefSessionCreator`](../tf/train/ChiefSessionCreator): Creates a tf.compat.v1.Session for a chief.
 
-[`class ClusterDef`](../tf/train/ClusterDef): A ProtocolMessage
+[`class ClusterDef`](../tf/train/ClusterDef)
 
 [`class ClusterSpec`](../tf/train/ClusterSpec): Represents a cluster as a set of "tasks", organized into "jobs".
 
 [`class Coordinator`](../tf/train/Coordinator): A coordinator for threads.
 
-[`class Example`](../tf/train/Example): A ProtocolMessage
+[`class Example`](../tf/train/Example)
 
 [`class ExponentialMovingAverage`](../tf/train/ExponentialMovingAverage): Maintains moving averages of variables by employing an exponential decay.
 
-[`class Feature`](../tf/train/Feature): A ProtocolMessage
+[`class Feature`](../tf/train/Feature)
 
-[`class FeatureList`](../tf/train/FeatureList): A ProtocolMessage
+[`class FeatureList`](../tf/train/FeatureList)
 
-[`class FeatureLists`](../tf/train/FeatureLists): A ProtocolMessage
+[`class FeatureLists`](../tf/train/FeatureLists)
 
-[`class Features`](../tf/train/Features): A ProtocolMessage
+[`class Features`](../tf/train/Features)
 
 [`class FeedFnHook`](../tf/train/FeedFnHook): Runs `feed_fn` and sets the `feed_dict` accordingly.
 
 [`class FinalOpsHook`](../tf/train/FinalOpsHook): A hook which evaluates `Tensors` at the end of a session.
 
-[`class FloatList`](../tf/train/FloatList): A ProtocolMessage
+[`class FloatList`](../tf/train/FloatList)
 
 [`class FtrlOptimizer`](../tf/train/FtrlOptimizer): Optimizer that implements the FTRL algorithm.
 
@@ -69,9 +68,9 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`class GradientDescentOptimizer`](../tf/train/GradientDescentOptimizer): Optimizer that implements the gradient descent algorithm.
 
-[`class Int64List`](../tf/train/Int64List): A ProtocolMessage
+[`class Int64List`](../tf/train/Int64List)
 
-[`class JobDef`](../tf/train/JobDef): A ProtocolMessage
+[`class JobDef`](../tf/train/JobDef)
 
 [`class LoggingTensorHook`](../tf/train/LoggingTensorHook): Prints the given tensors every N local steps, every N seconds, or at end.
 
@@ -81,7 +80,7 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`class MonitoredSession`](../tf/train/MonitoredSession): Session-like object that handles initialization, recovery and hooks.
 
-[`class NanLossDuringTrainingError`](../tf/train/NanLossDuringTrainingError): Unspecified run-time error.
+[`class NanLossDuringTrainingError`](../tf/train/NanLossDuringTrainingError)
 
 [`class NanTensorHook`](../tf/train/NanTensorHook): Monitors the loss tensor and stops training if loss is NaN.
 
@@ -99,29 +98,29 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`class Saver`](../tf/train/Saver): Saves and restores variables.
 
-[`class SaverDef`](../tf/train/SaverDef): A ProtocolMessage
+[`class SaverDef`](../tf/train/SaverDef)
 
 [`class Scaffold`](../tf/train/Scaffold): Structure to create or gather pieces commonly needed to train a model.
 
 [`class SecondOrStepTimer`](../tf/train/SecondOrStepTimer): Timer that triggers at most once every N seconds or once every N steps.
 
-[`class SequenceExample`](../tf/train/SequenceExample): A ProtocolMessage
+[`class SequenceExample`](../tf/train/SequenceExample)
 
 [`class Server`](../tf/distribute/Server): An in-process TensorFlow server, for use in distributed training.
 
-[`class ServerDef`](../tf/train/ServerDef): A ProtocolMessage
+[`class ServerDef`](../tf/train/ServerDef)
 
 [`class SessionCreator`](../tf/train/SessionCreator): A factory for tf.Session.
 
 [`class SessionManager`](../tf/train/SessionManager): Training helper that restores from checkpoint and creates session.
 
-[`class SessionRunArgs`](../tf/train/SessionRunArgs): Represents arguments to be added to a `Session.run()` call.
+[`class SessionRunArgs`](../tf/train/SessionRunArgs): Represents arguments to be added to a <a href="../tf/InteractiveSession#run"><code>Session.run()</code></a> call.
 
 [`class SessionRunContext`](../tf/train/SessionRunContext): Provides information about the `session.run()` call being made.
 
 [`class SessionRunHook`](../tf/train/SessionRunHook): Hook to extend calls to MonitoredSession.run().
 
-[`class SessionRunValues`](../tf/train/SessionRunValues): Contains the results of `Session.run()`.
+[`class SessionRunValues`](../tf/train/SessionRunValues): Contains the results of <a href="../tf/InteractiveSession#run"><code>Session.run()</code></a>.
 
 [`class SingularMonitoredSession`](../tf/train/SingularMonitoredSession): Session-like object that handles initialization, restoring, and hooks.
 
@@ -137,7 +136,7 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`class VocabInfo`](../tf/train/VocabInfo): Vocabulary information for warm-starting.
 
-[`class WorkerSessionCreator`](../tf/train/WorkerSessionCreator): Creates a tf.Session for a worker.
+[`class WorkerSessionCreator`](../tf/train/WorkerSessionCreator): Creates a tf.compat.v1.Session for a worker.
 
 ## Functions
 
@@ -157,6 +156,8 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`checkpoint_exists(...)`](../tf/train/checkpoint_exists): Checks whether a V1 or V2 checkpoint exists with the specified prefix. (deprecated)
 
+[`checkpoints_iterator(...)`](../tf/train/checkpoints_iterator): Continuously yield new checkpoint files as they appear.
+
 [`cosine_decay(...)`](../tf/train/cosine_decay): Applies cosine decay to the learning rate.
 
 [`cosine_decay_restarts(...)`](../tf/train/cosine_decay_restarts): Applies cosine decay with restarts to the learning rate.
@@ -167,7 +168,7 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`exponential_decay(...)`](../tf/train/exponential_decay): Applies exponential decay to the learning rate.
 
-[`export_meta_graph(...)`](../tf/train/export_meta_graph): Returns `MetaGraphDef` proto. Optionally writes it to filename.
+[`export_meta_graph(...)`](../tf/train/export_meta_graph): Returns `MetaGraphDef` proto.
 
 [`generate_checkpoint_state_proto(...)`](../tf/train/generate_checkpoint_state_proto): Generates a checkpoint state proto.
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.get_variables_to_restore
 
+Gets the list of the variables to restore.
+
 ``` python
 tf.contrib.framework.get_variables_to_restore(
     include=None,
@@ -14,18 +16,20 @@ tf.contrib.framework.get_variables_to_restore(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
 
-Gets the list of the variables to restore.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`include`</b>: an optional list/tuple of scope strings for filtering which
-    variables from the VARIABLES collection to include. None would include all
-    the variables.
+  variables from the VARIABLES collection to include. None would include all
+  the variables.
 * <b>`exclude`</b>: an optional list/tuple of scope strings for filtering which
-    variables from the VARIABLES collection to exclude. None it would not
-    exclude any.
+  variables from the VARIABLES collection to exclude. None it would not
+  exclude any.
 
 
 #### Returns:
@@ -33,6 +37,8 @@ Gets the list of the variables to restore.
 a list of variables to restore.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: include or exclude is provided but is not a list or a tuple.

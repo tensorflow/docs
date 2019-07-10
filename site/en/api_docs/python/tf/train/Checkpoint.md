@@ -7,23 +7,26 @@ page_type: reference
 
 ## Class `Checkpoint`
 
+Groups trackable objects, saving and restoring them.
+
 Inherits From: [`Checkpointable`](../../tf/contrib/checkpoint/Checkpointable)
 
 ### Aliases:
 
+* Class `tf.compat.v1.train.Checkpoint`
 * Class `tf.contrib.eager.Checkpoint`
 * Class `tf.train.Checkpoint`
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/checkpointable/util.py).
+Defined in [`python/training/tracking/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/util.py).
 
-Groups checkpointable objects, saving and restoring them.
+<!-- Placeholder for "Used in" -->
 
 `Checkpoint`'s constructor accepts keyword arguments whose values are types
-that contain checkpointable state, such as <a href="../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>
+that contain trackable state, such as <a href="../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>
 implementations, <a href="../../tf/Variable"><code>tf.Variable</code></a>, `tf.keras.Layer` implementations, or
-<a href="../../tf/keras/models/Model"><code>tf.keras.Model</code></a> implementations. It saves these values with a checkpoint, and
+<a href="../../tf/keras/Model"><code>tf.keras.Model</code></a> implementations. It saves these values with a checkpoint, and
 maintains a `save_counter` for numbering checkpoints.
 
 Example usage when graph building:
@@ -39,7 +42,7 @@ checkpoint = tf.train.Checkpoint(optimizer=optimizer, model=model)
 status = checkpoint.restore(tf.train.latest_checkpoint(checkpoint_directory))
 train_op = optimizer.minimize( ... )
 status.assert_consumed()  # Optional sanity checks.
-with tf.Session() as session:
+with tf.compat.v1.Session() as session:
   # Use the Session to restore variables, or initialize them if
   # tf.train.latest_checkpoint returned None.
   status.initialize_or_restore(session)
@@ -54,7 +57,7 @@ Example usage with eager execution enabled:
 import tensorflow as tf
 import os
 
-tf.enable_eager_execution()
+tf.compat.v1.enable_eager_execution()
 
 checkpoint_directory = "/tmp/training_checkpoints"
 checkpoint_prefix = os.path.join(checkpoint_directory, "ckpt")
@@ -67,21 +70,22 @@ status.assert_consumed()  # Optional sanity checks.
 checkpoint.save(file_prefix=checkpoint_prefix)
 ```
 
-`Checkpoint.save` and `Checkpoint.restore` write and read object-based
-checkpoints, in contrast to <a href="../../tf/train/Saver"><code>tf.train.Saver</code></a> which writes and reads
+<a href="../../tf/train/Checkpoint#save"><code>Checkpoint.save</code></a> and <a href="../../tf/train/Checkpoint#restore"><code>Checkpoint.restore</code></a> write and read object-based
+checkpoints, in contrast to <a href="../../tf/train/Saver"><code>tf.compat.v1.train.Saver</code></a> which writes and reads
 `variable.name` based checkpoints. Object-based checkpointing saves a graph of
 dependencies between Python objects (`Layer`s, `Optimizer`s, `Variable`s,
 etc.) with named edges, and this graph is used to match variables when
 restoring a checkpoint. It can be more robust to changes in the Python
 program, and helps to support restore-on-create for variables when executing
-eagerly. Prefer <a href="../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a> over <a href="../../tf/train/Saver"><code>tf.train.Saver</code></a> for new code.
+eagerly. Prefer <a href="../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a> over <a href="../../tf/train/Saver"><code>tf.compat.v1.train.Saver</code></a> for new
+code.
 
 `Checkpoint` objects have dependencies on the objects passed as keyword
 arguments to their constructors, and each dependency is given a name that is
 identical to the name of the keyword argument for which it was created.
 TensorFlow classes like `Layer`s and `Optimizer`s will automatically add
 dependencies on their variables (e.g. "kernel" and "bias" for
-<a href="../../tf/keras/layers/Dense"><code>tf.keras.layers.Dense</code></a>). Inheriting from <a href="../../tf/keras/models/Model"><code>tf.keras.Model</code></a> makes managing
+<a href="../../tf/keras/layers/Dense"><code>tf.keras.layers.Dense</code></a>). Inheriting from <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a> makes managing
 dependencies easy in user-defined classes, since `Model` hooks into attribute
 assignment. For example:
 
@@ -103,10 +107,26 @@ which in turn depends on its variables. As a result, saving an instance of
 `Regress` using <a href="../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a> will also save all the variables created
 by the `Dense` layer.
 
+When variables are assigned to multiple workers, each worker writes its own
+section of the checkpoint. These sections are then merged/re-indexed to behave
+as a single checkpoint. This avoids copying all variables to one worker, but
+does require that all workers see a common filesystem.
+
+While <a href="../../tf/keras/Model#save_weights"><code>tf.keras.Model.save_weights</code></a> and <a href="../../tf/train/Checkpoint#save"><code>tf.train.Checkpoint.save</code></a> save in the
+same format, note that the root of the resulting checkpoint is the object the
+save method is attached to. This means saving a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a> using
+`save_weights` and loading into a <a href="../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a> with a `Model`
+attached (or vice versa) will not match the `Model`'s variables. See the
+[guide to training
+checkpoints](https://www.tensorflow.org/alpha/guide/checkpoints) for
+details. Prefer <a href="../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a> over <a href="../../tf/keras/Model#save_weights"><code>tf.keras.Model.save_weights</code></a> for
+training checkpoints.
+
 #### Attributes:
 
+
 * <b>`save_counter`</b>: Incremented when `save()` is called. Used to number
-    checkpoints.
+  checkpoints.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -116,14 +136,18 @@ __init__(**kwargs)
 
 Group objects into a training checkpoint.
 
+
 #### Args:
 
+
 * <b>`**kwargs`</b>: Keyword arguments are set as attributes of this object, and are
-    saved with the checkpoint. Values must be checkpointable objects.
+  saved with the checkpoint. Values must be trackable objects.
+
 
 #### Raises:
 
-* <b>`ValueError`</b>: If objects in `kwargs` are not checkpointable.
+
+* <b>`ValueError`</b>: If objects in `kwargs` are not trackable.
 
 
 
@@ -141,18 +165,8 @@ The save counter variable.
 
 
 
+
 ## Methods
-
-<h3 id="__setattr__"><code>__setattr__</code></h3>
-
-``` python
-__setattr__(
-    name,
-    value
-)
-```
-
-Support self.foo = checkpointable syntax.
 
 <h3 id="restore"><code>restore</code></h3>
 
@@ -168,7 +182,7 @@ When executing eagerly, either assigns values immediately if variables to
 restore have been created already, or defers restoration until the variables
 are created. Dependencies added after this call will be matched if they have
 a corresponding object in the checkpoint (the restore request will queue in
-any checkpointable object waiting for the expected dependency to be added).
+any trackable object waiting for the expected dependency to be added).
 
 When graph building, restoration ops are added to the graph but not run
 immediately.
@@ -197,7 +211,7 @@ checkpoint.restore(path).assert_consumed().run_restore_ops()
 If the checkpoint has not been consumed completely, then the list of restore
 ops will grow as more objects are added to the dependency graph.
 
-Name-based <a href="../../tf/train/Saver"><code>tf.train.Saver</code></a> checkpoints can be loaded using this
+Name-based <a href="../../tf/train/Saver"><code>tf.compat.v1.train.Saver</code></a> checkpoints can be loaded using this
 method. Names are used to match variables. No restore ops are created/run
 until `run_restore_ops()` or `initialize_or_restore()` are called on the
 returned status object when graph building, but there is restore-on-creation
@@ -206,12 +220,13 @@ when executing eagerly. Re-encode name-based checkpoints using
 
 #### Args:
 
+
 * <b>`save_path`</b>: The path to the checkpoint, as returned by `save` or
-    <a href="../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint</code></a>. If None (as when there is no latest
-    checkpoint for <a href="../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint</code></a> to return), returns an
-    object which may run initializers for objects in the dependency
-    graph. If the checkpoint was written by the name-based <a href="../../tf/train/Saver"><code>tf.train.Saver</code></a>,
-    names are used to match variables.
+  <a href="../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint</code></a>. If None (as when there is no latest
+  checkpoint for <a href="../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint</code></a> to return), returns an
+  object which may run initializers for objects in the dependency graph.
+  If the checkpoint was written by the name-based
+  <a href="../../tf/train/Saver"><code>tf.compat.v1.train.Saver</code></a>, names are used to match variables.
 
 
 #### Returns:
@@ -236,7 +251,8 @@ The returned status object has the following methods:
     built, and so has not created any variables, will pass this assertion
     but fail `assert_consumed`. Useful when loading part of a larger
     checkpoint into a new Python program, e.g. a training checkpoint with
-    a <a href="../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a> was saved but only the state required for
+    a <a href="../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a> was saved but only the state required
+    for
     inference is being loaded. This method returns the status object, and
     so may be chained with `initialize_or_restore` or `run_restore_ops`.
 
@@ -245,6 +261,11 @@ The returned status object has the following methods:
     sanity checking in library code where objects may exist in the
     checkpoint which haven't been created in Python and some Python
     objects may not have a checkpointed value.
+
+* `expect_partial()`: Silence warnings about incomplete checkpoint
+    restores. Warnings are otherwise printed for unused parts of the
+    checkpoint file or object when the `Checkpoint` object is deleted
+    (often at program shutdown).
 
 * `initialize_or_restore(session=None)`:
     When graph building, runs variable initializers if `save_path` is
@@ -258,6 +279,7 @@ The returned status object has the following methods:
     executing eagerly (restore operations are run eagerly). May only be
     called when `save_path` is not `None`.
 
+
 <h3 id="save"><code>save</code></h3>
 
 ``` python
@@ -270,7 +292,7 @@ save(
 Saves a training checkpoint and provides basic checkpoint management.
 
 The saved checkpoint includes variables created by this object and any
-checkpointable objects it depends on at the time `Checkpoint.save()` is
+trackable objects it depends on at the time <a href="../../tf/train/Checkpoint#save"><code>Checkpoint.save()</code></a> is
 called.
 
 `save` is a basic convenience wrapper around the `write` method,
@@ -282,17 +304,19 @@ provided by other utilities which also wrap `write`
 
 #### Args:
 
+
 * <b>`file_prefix`</b>: A prefix to use for the checkpoint filenames
-    (/path/to/directory/and_a_prefix). Names are generated based on this
-    prefix and `Checkpoint.save_counter`.
+  (/path/to/directory/and_a_prefix). Names are generated based on this
+  prefix and <a href="../../tf/train/Checkpoint#save_counter"><code>Checkpoint.save_counter</code></a>.
 * <b>`session`</b>: The session to evaluate variables in. Ignored when executing
-    eagerly. If not provided when graph building, the default session is
-    used.
+  eagerly. If not provided when graph building, the default session is
+  used.
 
 
 #### Returns:
 
 The full path to the checkpoint.
+
 
 <h3 id="write"><code>write</code></h3>
 
@@ -306,7 +330,7 @@ write(
 Writes a training checkpoint.
 
 The checkpoint includes variables created by this object and any
-checkpointable objects it depends on at the time `Checkpoint.write()` is
+trackable objects it depends on at the time <a href="../../tf/train/Checkpoint#write"><code>Checkpoint.write()</code></a> is
 called.
 
 `write` does not number checkpoints, increment `save_counter`, or update the
@@ -316,16 +340,18 @@ basic implementation of these features.
 
 #### Args:
 
+
 * <b>`file_prefix`</b>: A prefix to use for the checkpoint filenames
-    (/path/to/directory/and_a_prefix).
+  (/path/to/directory/and_a_prefix).
 * <b>`session`</b>: The session to evaluate variables in. Ignored when executing
-    eagerly. If not provided when graph building, the default session is
-    used.
+  eagerly. If not provided when graph building, the default session is
+  used.
 
 
 #### Returns:
 
 The full path to the checkpoint (i.e. `file_prefix`).
+
 
 
 

@@ -7,9 +7,17 @@ page_type: reference
 
 
 
+### Aliases:
+
+* Module `tf.compat.v1.keras.regularizers`
+* Module `tf.keras.regularizers`
 
 
-Built-in regularizers.
+
+Defined in [`python/keras/api/_v1/keras/regularizers/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/regularizers/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 

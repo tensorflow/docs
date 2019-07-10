@@ -11,7 +11,7 @@ Inherits From: [`GrpcDebugWrapperSession`](../tfdbg/GrpcDebugWrapperSession)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/grpc_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/wrappers/grpc_wrapper.py).
+Defined in [`tensorflow/python/debug/wrappers/grpc_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/wrappers/grpc_wrapper.py).
 
 A tfdbg Session wrapper that can be used with TensorBoard Debugger Plugin.
 
@@ -39,7 +39,7 @@ Constructor of TensorBoardDebugWrapperSession.
 
 #### Args:
 
-* <b>`sess`</b>: The <a href="../tf/Session"><code>tf.Session</code></a> instance to be wrapped.
+* <b>`sess`</b>: The `tf.compat.v1.Session` instance to be wrapped.
 * <b>`grpc_debug_server_addresses`</b>: gRPC address(es) of debug server(s), as a
     `str` or a `list` of `str`s. E.g., "localhost:2333",
     "grpc://localhost:2333", ["192.168.0.7:2333", "192.168.0.8:2333"].
@@ -55,7 +55,7 @@ Constructor of TensorBoardDebugWrapperSession.
 
 <h3 id="graph"><code>graph</code></h3>
 
-The underlying TensorFlow graph, to be used in building Operations.
+
 
 <h3 id="graph_def"><code>graph_def</code></h3>
 
@@ -67,7 +67,7 @@ The underlying TensorFlow graph, to be used in building Operations.
 
 <h3 id="sess_str"><code>sess_str</code></h3>
 
-The TensorFlow process to which this session will connect.
+
 
 <h3 id="session"><code>session</code></h3>
 
@@ -120,17 +120,6 @@ increment_run_call_count()
 ```
 
 
-
-<h3 id="invoke_node_stepper"><code>invoke_node_stepper</code></h3>
-
-``` python
-invoke_node_stepper(
-    node_stepper,
-    restore_variable_values_on_exit=True
-)
-```
-
-See doc of BaseDebugWrapperSession.invoke_node_stepper.
 
 <h3 id="list_devices"><code>list_devices</code></h3>
 
@@ -189,7 +178,7 @@ partial_run(
 )
 ```
 
-Continues the execution with additional feeds and fetches.
+
 
 <h3 id="partial_run_setup"><code>partial_run_setup</code></h3>
 
@@ -252,33 +241,7 @@ run(
 )
 ```
 
-Wrapper around Session.run() that inserts tensor watch options.
 
-#### Args:
-
-* <b>`fetches`</b>: Same as the `fetches` arg to regular `Session.run()`.
-* <b>`feed_dict`</b>: Same as the `feed_dict` arg to regular `Session.run()`.
-* <b>`options`</b>: Same as the `options` arg to regular `Session.run()`.
-* <b>`run_metadata`</b>: Same as the `run_metadata` arg to regular `Session.run()`.
-* <b>`callable_runner`</b>: A `callable` returned by `Session.make_callable()`.
-    If not `None`, `fetches` and `feed_dict` must both be `None`.
-    Mutually exclusive with `callable_options`.
-* <b>`callable_runner_args`</b>: An optional list of arguments to `callable_runner`
-    or for `callable_options`.
-* <b>`callable_options`</b>: An instance of `config_pb2.CallableOptions`, to be
-    used with `Session._make_callable_from_options()`. Mutually exclusive
-    with `callable_runner`.
-
-
-#### Returns:
-
-Simply forwards the output of the wrapped `Session.run()` call.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: On invalid `OnRunStartAction` value. Or if `callable_runner`
-    is not `None` and either or both of `fetches` and `feed_dict` is `None`.
 
 <h3 id="run_step_fn"><code>run_step_fn</code></h3>
 

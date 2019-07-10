@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.sparse.to_indicator
 
+Converts a `SparseTensor` of ids into a dense bool indicator tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.to_indicator`
+* `tf.compat.v1.sparse_to_indicator`
+* `tf.compat.v2.sparse.to_indicator`
 * `tf.sparse.to_indicator`
 * `tf.sparse_to_indicator`
 
@@ -20,9 +25,9 @@ tf.sparse.to_indicator(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Converts a `SparseTensor` of ids into a dense bool indicator tensor.
+<!-- Placeholder for "Used in" -->
 
 The last dimension of `sp_input.indices` is discarded and replaced with
 the values of `sp_input`.  If `sp_input.dense_shape = [D0, D1, ..., Dn, K]`,
@@ -56,10 +61,11 @@ The input `SparseTensor` must be in row-major order.
 
 #### Args:
 
+
 * <b>`sp_input`</b>: A `SparseTensor` with `values` property of type `int32` or
-    `int64`.
+  `int64`.
 * <b>`vocab_size`</b>: A scalar int64 Tensor (or Python int) containing the new size
-    of the last dimension, `all(0 <= sp_input.values < vocab_size)`.
+  of the last dimension, `all(0 <= sp_input.values < vocab_size)`.
 * <b>`name`</b>: A name prefix for the returned tensors (optional)
 
 
@@ -68,6 +74,8 @@ The input `SparseTensor` must be in row-major order.
 A dense bool indicator tensor representing the indices with specified value.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `sp_input` is not a `SparseTensor`.

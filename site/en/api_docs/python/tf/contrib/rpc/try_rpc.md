@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.rpc.try_rpc
 
+TODO: add doc.
+
 ``` python
 tf.contrib.rpc.try_rpc(
     address,
@@ -19,11 +21,13 @@ tf.contrib.rpc.try_rpc(
 
 
 
-Defined in generated file: `tensorflow/contrib/rpc/python/ops/gen_rpc_op.py`.
+Defined in generated file: `contrib/rpc/python/ops/gen_rpc_op.py`.
 
-TODO: add doc.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`address`</b>: A `Tensor` of type `string`.
 * <b>`method`</b>: A `Tensor` of type `string`.
@@ -37,6 +41,7 @@ TODO: add doc.
 #### Returns:
 
 A tuple of `Tensor` objects (response, status_code, status_message).
+
 
 * <b>`response`</b>: A `Tensor` of type `string`.
 * <b>`status_code`</b>: A `Tensor` of type `int32`.

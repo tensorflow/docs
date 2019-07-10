@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.quantized_relu_x
 
+Computes Quantized Rectified Linear X: `min(max(features, 0), max_value)`
+
+### Aliases:
+
+* `tf.compat.v1.nn.quantized_relu_x`
+* `tf.nn.quantized_relu_x`
+
 ``` python
 tf.nn.quantized_relu_x(
     features,
@@ -18,25 +25,28 @@ tf.nn.quantized_relu_x(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_nn_ops.py`.
+Defined in generated file: `python/ops/gen_nn_ops.py`.
 
-Computes Quantized Rectified Linear X: `min(max(features, 0), max_value)`
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`features`</b>: A `Tensor`. Must be one of the following types: `qint8`, `quint8`, `qint32`, `qint16`, `quint16`.
 * <b>`max_value`</b>: A `Tensor` of type `float32`.
 * <b>`min_features`</b>: A `Tensor` of type `float32`.
-    The float value that the lowest quantized value represents.
+  The float value that the lowest quantized value represents.
 * <b>`max_features`</b>: A `Tensor` of type `float32`.
-    The float value that the highest quantized value represents.
-* <b>`out_type`</b>: An optional <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.qint8, tf.quint8, tf.qint32, tf.qint16, tf.quint16`. Defaults to <a href="../../tf/dtypes#quint8"><code>tf.quint8</code></a>.
+  The float value that the highest quantized value represents.
+* <b>`out_type`</b>: An optional <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.qint8, tf.quint8, tf.qint32, tf.qint16, tf.quint16`. Defaults to <a href="../../tf#quint8"><code>tf.quint8</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A tuple of `Tensor` objects (activations, min_activations, max_activations).
+
 
 * <b>`activations`</b>: A `Tensor` of type `out_type`.
 * <b>`min_activations`</b>: A `Tensor` of type `float32`.

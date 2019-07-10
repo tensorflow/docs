@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.training.bucket
 
+Lazy bucketing of input tensors according to `which_bucket`.
+
 ``` python
 tf.contrib.training.bucket(
     tensors,
@@ -25,9 +27,9 @@ tf.contrib.training.bucket(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/bucket_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/bucket_ops.py).
+Defined in [`contrib/training/python/training/bucket_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/bucket_ops.py).
 
-Lazy bucketing of input tensors according to `which_bucket`.
+<!-- Placeholder for "Used in" -->
 
 The argument `tensors` can be a list or a dictionary of tensors.
 The value returned by the function will be of the same type
@@ -70,34 +72,35 @@ operations that depend on fixed batch_size would fail.
 
 #### Args:
 
+
 * <b>`tensors`</b>: The list or dictionary of tensors, representing a single element,
-    to bucket.  Nested lists are not supported.
+  to bucket.  Nested lists are not supported.
 * <b>`which_bucket`</b>: An `int32` scalar Tensor taking a value in `[0, num_buckets)`.
 * <b>`batch_size`</b>: The new batch size pulled from the queue (all queues will have
-    the same size).  If a list is passed in then each bucket will have a
-    different batch_size.
-    (python int, int32 scalar or iterable of integers of length num_buckets).
+  the same size).  If a list is passed in then each bucket will have a
+  different batch_size.
+  (python int, int32 scalar or iterable of integers of length num_buckets).
 * <b>`num_buckets`</b>: A python integer, the number of buckets.
 * <b>`num_threads`</b>: An integer.  The number of threads enqueuing `tensors`.
 * <b>`capacity`</b>: An integer. The maximum number of minibatches in the top queue,
-    and also (by default) the maximum number of elements within each bucket.
+  and also (by default) the maximum number of elements within each bucket.
 * <b>`bucket_capacities`</b>: (Optional) None or a list of integers, the capacities of
-    each bucket. If None, capacity is used (default). If specified, it must
-    be a list of integers of length num_buckets: the i-th element is used
-    as capacity for the i-th bucket queue.
+  each bucket. If None, capacity is used (default). If specified, it must
+  be a list of integers of length num_buckets: the i-th element is used
+  as capacity for the i-th bucket queue.
 * <b>`shapes`</b>: (Optional) The shapes for each example.  Defaults to the
-    inferred shapes for `tensors`.
+  inferred shapes for `tensors`.
 * <b>`dynamic_pad`</b>: Boolean.  Allow variable dimensions in input shapes.
-    The given dimensions are padded upon dequeue so that tensors within a
-    batch have the same shapes.
+  The given dimensions are padded upon dequeue so that tensors within a
+  batch have the same shapes.
 * <b>`allow_smaller_final_batch`</b>: (Optional) Boolean. If `True`, allow the final
-    batches to be smaller if there are insufficient items left in the queues.
+  batches to be smaller if there are insufficient items left in the queues.
 * <b>`keep_input`</b>: A `bool` scalar Tensor.  If provided, this tensor controls
-    whether the input is added to the queue or not.  If it evaluates `True`,
-    then `tensors` are added to the bucket; otherwise they are dropped.  This
-    tensor essentially acts as a filtering mechanism.
+  whether the input is added to the queue or not.  If it evaluates `True`,
+  then `tensors` are added to the bucket; otherwise they are dropped.  This
+  tensor essentially acts as a filtering mechanism.
 * <b>`shared_name`</b>: (Optional). If set, the queues will be shared under the given
-    name across multiple sessions.
+  name across multiple sessions.
 * <b>`name`</b>: (Optional) A name for the operations.
 
 
@@ -109,9 +112,11 @@ dictionary of batched outputs corresponding to elements of `tensors`.
 Every step will receive a new bucket of outputs.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the `shapes` are not specified, and cannot be
-    inferred from the elements of `tensors` or if batch_size is a sequence
-    but its length != num_buckets. Also if bucket_capacities is not None but
-    its length != num_buckets.
+  inferred from the elements of `tensors` or if batch_size is a sequence
+  but its length != num_buckets. Also if bucket_capacities is not None but
+  its length != num_buckets.

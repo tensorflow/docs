@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.shape_n
 
+Returns shape of tensors.
+
+### Aliases:
+
+* `tf.compat.v1.shape_n`
+* `tf.compat.v2.shape_n`
+* `tf.shape_n`
+
 ``` python
 tf.shape_n(
     input,
@@ -15,15 +23,17 @@ tf.shape_n(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Returns shape of tensors.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`input`</b>: A list of at least 1 `Tensor` object with the same type.
-* <b>`out_type`</b>: The specified output type of the operation
-    (`int32` or `int64`). Defaults to <a href="../tf/dtypes#int32"><code>tf.int32</code></a>(optional).
+* <b>`out_type`</b>: The specified output type of the operation (`int32` or `int64`).
+  Defaults to <a href="../tf#int32"><code>tf.int32</code></a>(optional).
 * <b>`name`</b>: A name for the operation (optional).
 
 

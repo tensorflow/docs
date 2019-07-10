@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.variable_op_scope
 
+Deprecated: context manager for defining an op that creates variables.
+
+### Aliases:
+
+* `tf.compat.v1.variable_op_scope`
+* `tf.variable_op_scope`
+
 ``` python
 tf.variable_op_scope(
     values,
@@ -24,6 +31,6 @@ tf.variable_op_scope(
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variable_scope.py).
+Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
-Deprecated: context manager for defining an op that creates variables.
+<!-- Placeholder for "Used in" -->

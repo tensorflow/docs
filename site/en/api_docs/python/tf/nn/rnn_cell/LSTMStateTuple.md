@@ -7,37 +7,26 @@ page_type: reference
 
 ## Class `LSTMStateTuple`
 
+Tuple used by LSTM Cells for `state_size`, `zero_state`, and output state.
+
 
 
 ### Aliases:
 
+* Class `tf.compat.v1.nn.rnn_cell.LSTMStateTuple`
 * Class `tf.contrib.rnn.LSTMStateTuple`
 * Class `tf.nn.rnn_cell.LSTMStateTuple`
 
 
 
-Defined in [`tensorflow/python/ops/rnn_cell_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/rnn_cell_impl.py).
+Defined in [`python/ops/rnn_cell_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn_cell_impl.py).
 
-Tuple used by LSTM Cells for `state_size`, `zero_state`, and output state.
+<!-- Placeholder for "Used in" -->
 
 Stores two elements: `(c, h)`, in that order. Where `c` is the hidden state
 and `h` is the output.
 
 Only used when `state_is_tuple=True`.
-
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-__new__(
-    _cls,
-    c,
-    h
-)
-```
-
-Create new instance of LSTMStateTuple(c, h)
-
-
 
 ## Properties
 
@@ -45,11 +34,14 @@ Create new instance of LSTMStateTuple(c, h)
 
 
 
+
 <h3 id="h"><code>h</code></h3>
 
 
 
+
 <h3 id="dtype"><code>dtype</code></h3>
+
 
 
 

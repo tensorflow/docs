@@ -7,17 +7,24 @@ page_type: reference
 
 ## Class `VariableAggregation`
 
-
-
-
-
-Defined in [`tensorflow/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variables.py).
-
 Indicates how a distributed variable will be aggregated.
 
-<a href="../tf/distribute/Strategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> distributes a model by making
-multiple copies (called "replicas") acting data-parallel on different elements
-of the input batch. When performing some variable-update operation, say
+
+
+### Aliases:
+
+* Class `tf.VariableAggregation`
+* Class `tf.compat.v1.VariableAggregation`
+
+
+
+Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
+
+<!-- Placeholder for "Used in" -->
+
+<a href="../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> distributes a model by making multiple copies
+(called "replicas") acting data-parallel on different elements of the input
+batch. When performing some variable-update operation, say
 `var.assign_add(x)`, in a model, we need to resolve how to combine the
 different values for `x` computed in the different replicas.
 
@@ -32,15 +39,7 @@ different values for `x` computed in the different replicas.
 
 ## Class Members
 
-<h3 id="MEAN"><code>MEAN</code></h3>
-
-<h3 id="NONE"><code>NONE</code></h3>
-
-<h3 id="ONLY_FIRST_REPLICA"><code>ONLY_FIRST_REPLICA</code></h3>
-
-<h3 id="ONLY_FIRST_TOWER"><code>ONLY_FIRST_TOWER</code></h3>
-
-<h3 id="SUM"><code>SUM</code></h3>
-
-<h3 id="__members__"><code>__members__</code></h3>
-
+* `MEAN` <a id="MEAN"></a>
+* `NONE` <a id="NONE"></a>
+* `ONLY_FIRST_REPLICA` <a id="ONLY_FIRST_REPLICA"></a>
+* `SUM` <a id="SUM"></a>

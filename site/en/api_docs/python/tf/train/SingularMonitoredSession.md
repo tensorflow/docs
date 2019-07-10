@@ -7,30 +7,39 @@ page_type: reference
 
 ## Class `SingularMonitoredSession`
 
-
-
-
-
-Defined in [`tensorflow/python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/monitored_session.py).
-
 Session-like object that handles initialization, restoring, and hooks.
 
+
+
+### Aliases:
+
+* Class `tf.compat.v1.train.SingularMonitoredSession`
+* Class `tf.train.SingularMonitoredSession`
+
+
+
+Defined in [`python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/monitored_session.py).
+
+<!-- Placeholder for "Used in" -->
+
 Please note that this utility is not recommended for distributed settings.
-For distributed settings, please use <a href="../../tf/train/MonitoredSession"><code>tf.train.MonitoredSession</code></a>. The
+For distributed settings, please use <a href="../../tf/train/MonitoredSession"><code>tf.compat.v1.train.MonitoredSession</code></a>.
+The
 differences between `MonitoredSession` and `SingularMonitoredSession` are:
 
 * `MonitoredSession` handles `AbortedError` and `UnavailableError` for
   distributed settings, but `SingularMonitoredSession` does not.
 * `MonitoredSession` can be created in `chief` or `worker` modes.
   `SingularMonitoredSession` is always created as `chief`.
-* You can access the raw <a href="../../tf/Session"><code>tf.Session</code></a> object used by
+* You can access the raw <a href="../../tf/Session"><code>tf.compat.v1.Session</code></a> object used by
   `SingularMonitoredSession`, whereas in MonitoredSession the raw session is
   private. This can be used:
     - To `run` without hooks.
     - To save and restore.
 * All other functionality is identical.
 
-Example usage:
+#### Example usage:
+
 
 ```python
 saver_hook = CheckpointSaverHook(...)
@@ -80,19 +89,21 @@ __init__(
 
 Creates a SingularMonitoredSession.
 
+
 #### Args:
+
 
 * <b>`hooks`</b>: An iterable of `SessionRunHook' objects.
 * <b>`scaffold`</b>: A `Scaffold` used for gathering or building supportive ops. If
-    not specified a default one is created. It's used to finalize the graph.
+  not specified a default one is created. It's used to finalize the graph.
 * <b>`master`</b>: `String` representation of the TensorFlow master to use.
 * <b>`config`</b>: `ConfigProto` proto used to configure the session.
 * <b>`checkpoint_dir`</b>: A string.  Optional path to a directory where to restore
-    variables.
+  variables.
 * <b>`stop_grace_period_secs`</b>: Number of seconds given to threads to stop after
-    `close()` has been called.
+  `close()` has been called.
 * <b>`checkpoint_filename_with_path`</b>: A string. Optional path to a checkpoint
-    file from which to restore variables.
+  file from which to restore variables.
 
 
 
@@ -107,6 +118,7 @@ The graph that was launched in this session.
 
 
 
+
 ## Methods
 
 <h3 id="__enter__"><code>__enter__</code></h3>
@@ -114,6 +126,7 @@ The graph that was launched in this session.
 ``` python
 __enter__()
 ```
+
 
 
 
@@ -129,11 +142,13 @@ __exit__(
 
 
 
+
 <h3 id="close"><code>close</code></h3>
 
 ``` python
 close()
 ```
+
 
 
 
@@ -144,6 +159,7 @@ raw_session()
 ```
 
 Returns underlying `TensorFlow.Session` object.
+
 
 <h3 id="run"><code>run</code></h3>
 
@@ -158,19 +174,21 @@ run(
 
 Run ops in the monitored session.
 
-This method is completely compatible with the `tf.Session.run()` method.
+This method is completely compatible with the <a href="../../tf/Session#run"><code>tf.Session.run()</code></a> method.
 
 #### Args:
 
-* <b>`fetches`</b>: Same as `tf.Session.run()`.
-* <b>`feed_dict`</b>: Same as `tf.Session.run()`.
-* <b>`options`</b>: Same as `tf.Session.run()`.
-* <b>`run_metadata`</b>: Same as `tf.Session.run()`.
+
+* <b>`fetches`</b>: Same as <a href="../../tf/Session#run"><code>tf.Session.run()</code></a>.
+* <b>`feed_dict`</b>: Same as <a href="../../tf/Session#run"><code>tf.Session.run()</code></a>.
+* <b>`options`</b>: Same as <a href="../../tf/Session#run"><code>tf.Session.run()</code></a>.
+* <b>`run_metadata`</b>: Same as <a href="../../tf/Session#run"><code>tf.Session.run()</code></a>.
 
 
 #### Returns:
 
-Same as `tf.Session.run()`.
+Same as <a href="../../tf/Session#run"><code>tf.Session.run()</code></a>.
+
 
 <h3 id="run_step_fn"><code>run_step_fn</code></h3>
 
@@ -180,37 +198,28 @@ run_step_fn(step_fn)
 
 Run ops using a step function.
 
+
 #### Args:
 
+
 * <b>`step_fn`</b>: A function or a method with a single argument of type
-    `StepContext`.  The function may use methods of the argument to
-    perform computations with access to a raw session.
+  `StepContext`.  The function may use methods of the argument to perform
+  computations with access to a raw session.  The returned value of the
+  `step_fn` will be returned from `run_step_fn`, unless a stop is
+  requested.  In that case, the next `should_stop` call will return True.
+  Example usage:  ```python
+     with tf.Graph().as_default(): c =
+       tf.compat.v1.placeholder(dtypes.float32) v = tf.add(c, 4.0) w =
+       tf.add(c, 0.5)
+       def step_fn(step_context):
+         a = step_context.session.run(fetches=v, feed_dict={c: 0.5})
+         if a <= 4.5: step_context.request_stop()
+         return step_context.run_with_hooks(fetches=w, feed_dict={c: 0.1})
+       with tf.MonitoredSession() as session:
+         while not session.should_stop(): a = session.run_step_fn(step_fn)
 
-    The returned value of the `step_fn` will be returned from `run_step_fn`,
-    unless a stop is requested.  In that case, the next `should_stop` call
-    will return True.
-
-    Example usage:
-
-    ```python
-       with tf.Graph().as_default():
-         c = tf.placeholder(dtypes.float32)
-         v = tf.add(c, 4.0)
-         w = tf.add(c, 0.5)
-
-         def step_fn(step_context):
-           a = step_context.session.run(fetches=v, feed_dict={c: 0.5})
-           if a <= 4.5:
-             step_context.request_stop()
-           return step_context.run_with_hooks(fetches=w, feed_dict={c: 0.1})
-
-         with tf.MonitoredSession() as session:
-           while not session.should_stop():
-             a = session.run_step_fn(step_fn)
-    ```
-
-    Hooks interact with the `run_with_hooks()` call inside the `step_fn`
-    as they do with a `MonitoredSession.run` call.
+           ```  Hooks interact with the `run_with_hooks()` call inside the
+           `step_fn` as they do with a <a href="../../tf/train/MonitoredSession#run"><code>MonitoredSession.run</code></a> call.
 
 
 #### Returns:
@@ -218,19 +227,22 @@ Run ops using a step function.
 Returns the returned value of `step_fn`.
 
 
+
 #### Raises:
 
+
 * <b>`StopIteration`</b>: if `step_fn` has called `request_stop()`.  It may be
-    caught by `with tf.MonitoredSession()` to close the session.
+  caught by `with tf.MonitoredSession()` to close the session.
 * <b>`ValueError`</b>: if `step_fn` doesn't have a single argument called
-    `step_context`. It may also optionally have `self` for cases when it
-    belongs to an object.
+  `step_context`. It may also optionally have `self` for cases when it
+  belongs to an object.
 
 <h3 id="should_stop"><code>should_stop</code></h3>
 
 ``` python
 should_stop()
 ```
+
 
 
 

@@ -7,21 +7,27 @@ page_type: reference
 
 ## Class `RandomShuffleQueue`
 
+A queue implementation that dequeues elements in a random order.
+
 Inherits From: [`QueueBase`](../../tf/queue/QueueBase)
 
 ### Aliases:
 
 * Class `tf.RandomShuffleQueue`
+* Class `tf.compat.v1.RandomShuffleQueue`
+* Class `tf.compat.v1.io.RandomShuffleQueue`
+* Class `tf.compat.v1.queue.RandomShuffleQueue`
+* Class `tf.compat.v2.queue.RandomShuffleQueue`
 * Class `tf.io.RandomShuffleQueue`
 * Class `tf.queue.RandomShuffleQueue`
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
 
-A queue implementation that dequeues elements in a random order.
+<!-- Placeholder for "Used in" -->
 
-See <a href="../../tf/queue/QueueBase"><code>tf.QueueBase</code></a> for a description of the methods on
+See <a href="../../tf/queue/QueueBase"><code>tf.queue.QueueBase</code></a> for a description of the methods on
 this class.
 
 <h2 id="__init__"><code>__init__</code></h2>
@@ -65,21 +71,22 @@ queue has been closed.
 
 #### Args:
 
+
 * <b>`capacity`</b>: An integer. The upper bound on the number of elements
-    that may be stored in this queue.
+  that may be stored in this queue.
 * <b>`min_after_dequeue`</b>: An integer (described above).
 * <b>`dtypes`</b>:  A list of `DType` objects. The length of `dtypes` must equal
-    the number of tensors in each queue element.
+  the number of tensors in each queue element.
 * <b>`shapes`</b>: (Optional.) A list of fully-defined `TensorShape` objects
-    with the same length as `dtypes`, or `None`.
+  with the same length as `dtypes`, or `None`.
 * <b>`names`</b>: (Optional.) A list of string naming the components in the queue
-    with the same length as `dtypes`, or `None`.  If specified the dequeue
-    methods return a dictionary with the names as keys.
+  with the same length as `dtypes`, or `None`.  If specified the dequeue
+  methods return a dictionary with the names as keys.
 * <b>`seed`</b>: A Python integer. Used to create a random seed. See
-    <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>
-    for behavior.
+  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  for behavior.
 * <b>`shared_name`</b>: (Optional.) If non-empty, this queue will be shared under
-    the given name across multiple sessions.
+  the given name across multiple sessions.
 * <b>`name`</b>: Optional name for the queue operation.
 
 
@@ -90,21 +97,26 @@ queue has been closed.
 
 The list of dtypes for each component of a queue element.
 
+
 <h3 id="name"><code>name</code></h3>
 
 The name of the underlying queue.
+
 
 <h3 id="names"><code>names</code></h3>
 
 The list of names for each component of a queue element.
 
+
 <h3 id="queue_ref"><code>queue_ref</code></h3>
 
 The underlying queue reference.
 
+
 <h3 id="shapes"><code>shapes</code></h3>
 
 The list of shapes for each component of a queue element.
+
 
 
 
@@ -134,14 +146,16 @@ be canceled.
 
 #### Args:
 
+
 * <b>`cancel_pending_enqueues`</b>: (Optional.) A boolean, defaulting to
-    `False` (described above).
+  `False` (described above).
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 The operation that closes the queue.
+
 
 <h3 id="dequeue"><code>dequeue</code></h3>
 
@@ -155,7 +169,7 @@ If the queue is empty when this operation executes, it will block
 until there is an element to dequeue.
 
 At runtime, this operation may raise an error if the queue is
-<a href="../../tf/io/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
+<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
 queue is closed, the queue is empty, and there are no pending
 enqueue operations that can fulfill this request,
 <a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> will be raised. If the session is
@@ -164,12 +178,14 @@ enqueue operations that can fulfill this request,
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 The tuple of tensors that was dequeued.
+
 
 <h3 id="dequeue_many"><code>dequeue_many</code></h3>
 
@@ -190,7 +206,7 @@ If the queue is closed and there are less than `n` elements left, then an
 `OutOfRange` exception is raised.
 
 At runtime, this operation may raise an error if the queue is
-<a href="../../tf/io/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
+<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
 queue is closed, the queue contains fewer than `n` elements, and
 there are no pending enqueue operations that can fulfill this
 request, <a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> will be raised. If the
@@ -199,6 +215,7 @@ session is <a href="../../tf/Session#close"><code>tf.Session.close</code></a>,
 
 #### Args:
 
+
 * <b>`n`</b>: A scalar `Tensor` containing the number of elements to dequeue.
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -206,6 +223,7 @@ session is <a href="../../tf/Session#close"><code>tf.Session.close</code></a>,
 #### Returns:
 
 The list of concatenated tensors that was dequeued.
+
 
 <h3 id="dequeue_up_to"><code>dequeue_up_to</code></h3>
 
@@ -228,13 +246,14 @@ will have size `n` in the 0th dimension.
 
 If the queue is closed and there are more than `0` but fewer than
 `n` elements remaining, then instead of raising a
-<a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> like <a href="../../tf/io/QueueBase#dequeue_many"><code>tf.QueueBase.dequeue_many</code></a>,
+<a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> like <a href="../../tf/queue/QueueBase#dequeue_many"><code>tf.QueueBase.dequeue_many</code></a>,
 less than `n` elements are returned immediately.  If the queue is
 closed and there are `0` elements left in the queue, then a
 <a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> is raised just like in `dequeue_many`.
 Otherwise the behavior is identical to `dequeue_many`.
 
 #### Args:
+
 
 * <b>`n`</b>: A scalar `Tensor` containing the number of elements to dequeue.
 * <b>`name`</b>: A name for the operation (optional).
@@ -243,6 +262,7 @@ Otherwise the behavior is identical to `dequeue_many`.
 #### Returns:
 
 The tuple of concatenated tensors that was dequeued.
+
 
 <h3 id="enqueue"><code>enqueue</code></h3>
 
@@ -259,7 +279,7 @@ If the queue is full when this operation executes, it will block
 until the element has been enqueued.
 
 At runtime, this operation may raise an error if the queue is
-<a href="../../tf/io/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
+<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
 queue is closed before this operation runs,
 <a href="../../tf/errors/CancelledError"><code>tf.errors.CancelledError</code></a> will be raised. If this operation is
 blocked, and either (i) the queue is closed by a close operation
@@ -269,14 +289,16 @@ with `cancel_pending_enqueues=True`, or (ii) the session is
 
 #### Args:
 
+
 * <b>`vals`</b>: A tensor, a list or tuple of tensors, or a dictionary containing
-    the values to enqueue.
+  the values to enqueue.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 The operation that enqueues a new tuple of tensors to the queue.
+
 
 <h3 id="enqueue_many"><code>enqueue_many</code></h3>
 
@@ -297,7 +319,7 @@ If the queue is full when this operation executes, it will block
 until all of the elements have been enqueued.
 
 At runtime, this operation may raise an error if the queue is
-<a href="../../tf/io/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
+<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
 queue is closed before this operation runs,
 <a href="../../tf/errors/CancelledError"><code>tf.errors.CancelledError</code></a> will be raised. If this operation is
 blocked, and either (i) the queue is closed by a close operation
@@ -307,14 +329,16 @@ with `cancel_pending_enqueues=True`, or (ii) the session is
 
 #### Args:
 
+
 * <b>`vals`</b>: A tensor, a list or tuple of tensors, or a dictionary
-    from which the queue elements are taken.
+  from which the queue elements are taken.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 The operation that enqueues a batch of tuples of tensors to the queue.
+
 
 <h3 id="from_list"><code>from_list</code></h3>
 
@@ -327,10 +351,12 @@ from_list(
 
 Create a queue using the queue reference from `queues[index]`.
 
+
 #### Args:
 
+
 * <b>`index`</b>: An integer scalar tensor that determines the input that gets
-    selected.
+  selected.
 * <b>`queues`</b>: A list of `QueueBase` objects.
 
 
@@ -339,10 +365,12 @@ Create a queue using the queue reference from `queues[index]`.
 A `QueueBase` object.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: When `queues` is not a list of `QueueBase` objects,
-    or when the data types of `queues` are not all the same.
+  or when the data types of `queues` are not all the same.
 
 <h3 id="is_closed"><code>is_closed</code></h3>
 
@@ -357,12 +385,14 @@ is open.
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 True if the queue is closed and false if the queue is open.
+
 
 <h3 id="size"><code>size</code></h3>
 
@@ -372,7 +402,9 @@ size(name=None)
 
 Compute the number of elements in this queue.
 
+
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -380,6 +412,7 @@ Compute the number of elements in this queue.
 #### Returns:
 
 A scalar tensor containing the number of elements in this queue.
+
 
 
 

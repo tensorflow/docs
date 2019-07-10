@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.clip_gradients_by_norm
 
+Returns an optimizer which clips gradients before applying them.
+
 ``` python
 tf.contrib.estimator.clip_gradients_by_norm(
     optimizer,
@@ -12,9 +14,16 @@ tf.contrib.estimator.clip_gradients_by_norm(
 )
 ```
 
-Returns an optimizer which clips gradients before applying them.
 
-Example:
+
+Defined in [`contrib/estimator/python/estimator/extenders.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/extenders.py).
+
+<!-- Placeholder for "Used in" -->
+
+
+#### Example:
+
+
 
 ```python
 optimizer = tf.train.ProximalAdagradOptimizer(
@@ -29,6 +38,7 @@ estimator = tf.estimator.DNNClassifier(
 ```
 
 #### Args:
+
 
 * <b>`optimizer`</b>: An `tf.Optimizer` object to apply gradients.
 * <b>`clip_norm`</b>: A 0-D (scalar) `Tensor` > 0. The clipping ratio.

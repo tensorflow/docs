@@ -11,8 +11,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
+
+Defined in [`contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 ## Properties
@@ -21,7 +24,9 @@ Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https:
 
 
 
+
 <h3 id="state_size"><code>state_size</code></h3>
+
 
 
 

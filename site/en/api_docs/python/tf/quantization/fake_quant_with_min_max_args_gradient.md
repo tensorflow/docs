@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.quantization.fake_quant_with_min_max_args_gradient
 
+Compute gradients for a FakeQuantWithMinMaxArgs operation.
+
 ### Aliases:
 
+* `tf.compat.v1.fake_quant_with_min_max_args_gradient`
+* `tf.compat.v1.quantization.fake_quant_with_min_max_args_gradient`
+* `tf.compat.v2.quantization.fake_quant_with_min_max_args_gradient`
 * `tf.fake_quant_with_min_max_args_gradient`
 * `tf.quantization.fake_quant_with_min_max_args_gradient`
 
@@ -24,16 +29,18 @@ tf.quantization.fake_quant_with_min_max_args_gradient(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Compute gradients for a FakeQuantWithMinMaxArgs operation.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`gradients`</b>: A `Tensor` of type `float32`.
-    Backpropagated gradients above the FakeQuantWithMinMaxArgs operation.
+  Backpropagated gradients above the FakeQuantWithMinMaxArgs operation.
 * <b>`inputs`</b>: A `Tensor` of type `float32`.
-    Values passed as inputs to the FakeQuantWithMinMaxArgs operation.
+  Values passed as inputs to the FakeQuantWithMinMaxArgs operation.
 * <b>`min`</b>: An optional `float`. Defaults to `-6`.
 * <b>`max`</b>: An optional `float`. Defaults to `6`.
 * <b>`num_bits`</b>: An optional `int`. Defaults to `8`.

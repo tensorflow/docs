@@ -5,8 +5,11 @@ page_type: reference
 
 # tf.make_tensor_proto
 
+Create a TensorProto.
+
 ### Aliases:
 
+* `tf.compat.v1.make_tensor_proto`
 * `tf.contrib.util.make_tensor_proto`
 * `tf.make_tensor_proto`
 
@@ -22,18 +25,20 @@ tf.make_tensor_proto(
 
 
 
-Defined in [`tensorflow/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/tensor_util.py).
+Defined in [`python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_util.py).
 
-Create a TensorProto.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`values`</b>:         Values to put in the TensorProto.
 * <b>`dtype`</b>:          Optional tensor_pb2 DataType value.
 * <b>`shape`</b>:          List of integers representing the dimensions of tensor.
 * <b>`verify_shape`</b>:   Boolean that enables verification of a shape of values.
-  allow_broadcast:Boolean that enables allowing scalars and 1 length vector
-      broadcasting. Cannot be true when verify_shape is true.
+allow_broadcast:Boolean that enables allowing scalars and 1 length vector
+    broadcasting. Cannot be true when verify_shape is true.
 
 
 #### Returns:
@@ -41,17 +46,19 @@ Create a TensorProto.
 A `TensorProto`. Depending on the type, it may contain data in the
 "tensor_content" attribute, which is not directly useful to Python programs.
 To access the values you should convert the proto back to a numpy ndarray
-with `tf.make_ndarray(proto)`.
+with <a href="../tf/make_ndarray"><code>tf.make_ndarray(proto)</code></a>.
 
 If `values` is a `TensorProto`, it is immediately returned; `dtype` and
 `shape` are ignored.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>:  if unsupported types are provided.
 * <b>`ValueError`</b>: if arguments have inappropriate values or if verify_shape is
-   True and shape of values is not equals to a shape from the argument.
+ True and shape of values is not equals to a shape from the argument.
 
 make_tensor_proto accepts "values" of a python scalar, a python list, a
 numpy ndarray, or a numpy scalar.

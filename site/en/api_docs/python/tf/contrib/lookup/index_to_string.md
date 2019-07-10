@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.lookup.index_to_string
 
+Maps `tensor` of indices into string values based on `mapping`. (deprecated)
+
 ``` python
 tf.contrib.lookup.index_to_string(
     tensor,
@@ -16,9 +18,9 @@ tf.contrib.lookup.index_to_string(
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`contrib/lookup/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/lookup/lookup_ops.py).
 
-Maps `tensor` of indices into string values based on `mapping`. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2017-01-07.
 Instructions for updating:
@@ -32,9 +34,11 @@ Any input which does not have a corresponding index in 'mapping'
 (an out-of-vocabulary entry) is assigned the `default_value`
 
 The underlying table must be initialized by calling
-`session.run(tf.tables_initializer)` once.
+`session.run(tf.compat.v1.tables_initializer)` once.
 
-For example:
+#### For example:
+
+
 
 ```python
 mapping_string = tf.constant(["emerson", "lake", "palmer"])
@@ -42,16 +46,17 @@ indices = tf.constant([1, 5], tf.int64)
 values = tf.contrib.lookup.index_to_string(
     indices, mapping=mapping_string, default_value="UNKNOWN")
 ...
-tf.tables_initializer().run()
+tf.compat.v1.tables_initializer().run()
 
 values.eval() ==> ["lake", "UNKNOWN"]
 ```
 
 #### Args:
 
+
 * <b>`tensor`</b>: A `int64` `Tensor` with the indices to map to strings.
 * <b>`mapping`</b>: A 1-D string `Tensor` that specifies the strings to map from
-    indices.
+  indices.
 * <b>`default_value`</b>: The string value to use for out-of-vocabulary indices.
 * <b>`name`</b>: A name for this op (optional).
 

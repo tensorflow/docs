@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.mean_only_frechet_classifier_distance_from_activations
 
+Classifier distance for evaluating a generative model from activations.
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.classifier_metrics.mean_only_frechet_classifier_distance_from_activations`
@@ -19,9 +21,9 @@ tf.contrib.gan.eval.mean_only_frechet_classifier_distance_from_activations(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
-Classifier distance for evaluating a generative model from activations.
+<!-- Placeholder for "Used in" -->
 
 Given two Gaussian distribution with means m and m_w and covariance matrices
 C and C_w, this function calcuates
@@ -46,10 +48,11 @@ still retains much of the same information as FID.
 
 #### Args:
 
+
 * <b>`real_activations`</b>: 2D array of activations of real images of size
-    [num_images, num_dims] to use to compute Frechet Inception distance.
+  [num_images, num_dims] to use to compute Frechet Inception distance.
 * <b>`generated_activations`</b>: 2D array of activations of generated images of size
-    [num_images, num_dims] to use to compute Frechet Inception distance.
+  [num_images, num_dims] to use to compute Frechet Inception distance.
 
 
 #### Returns:

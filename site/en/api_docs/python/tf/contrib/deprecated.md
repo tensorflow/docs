@@ -5,23 +5,25 @@ page_type: reference
 
 # Module: tf.contrib.deprecated
 
-
-
-Defined in [`tensorflow/contrib/deprecated/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/deprecated/__init__.py).
-
 Non-core alias for the deprecated tf.X_summary ops.
+
+
+
+Defined in [`contrib/deprecated/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/deprecated/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 For TensorFlow 1.0, we have reorganized the TensorFlow summary ops into a
 submodule, and made some semantic tweaks. The first thing to note is that we
 moved the APIs around as follows:
 
 ```python
-tf.scalar_summary -> tf.summary.scalar
-tf.histogram_summary -> tf.summary.histogram
-tf.audio_summary -> tf.summary.audio
-tf.image_summary -> tf.summary.image
-tf.merge_summary -> tf.summary.merge
-tf.merge_all_summaries -> tf.summary.merge_all
+tf.scalar_summary -> tf.compat.v1.summary.scalar
+tf.histogram_summary -> tf.compat.v1.summary.histogram
+tf.audio_summary -> tf.compat.v1.summary.audio
+tf.image_summary -> tf.compat.v1.summary.image
+tf.merge_summary -> tf.compat.v1.summary.merge
+tf.merge_all_summaries -> tf.compat.v1.summary.merge_all
 ```
 
 We think this API is cleaner and will improve long-term discoverability and
@@ -56,8 +58,8 @@ def add_activation_summaries(v, scope):
 
 # After
 def add_activation_summaries(v):
-  tf.summary.scalar("fraction_of_zero", tf.nn.fraction_of_zero(v))
-  tf.summary.histogram("activations", v)
+  tf.compat.v1.summary.scalar("fraction_of_zero", tf.nn.fraction_of_zero(v))
+  tf.compat.v1.summary.histogram("activations", v)
 ```
 
 Now, so long as the add_activation_summaries function is called from within the
@@ -71,10 +73,12 @@ In addition to the name change described above, there are two further changes
 to the new summary ops:
 
 - the "max_images" argument for `tf.image_summary` was renamed to "max_outputs
-  for <a href="../../tf/summary/image"><code>tf.summary.image</code></a>
+  for <a href="../../tf/summary/image"><code>tf.compat.v1.summary.image</code></a>
 - `tf.scalar_summary` accepted arbitrary tensors of tags and values. But
-  <a href="../../tf/summary/scalar"><code>tf.summary.scalar</code></a> requires a single scalar name and scalar value. In most
-  cases, you can create <a href="../../tf/summary/scalar"><code>tf.summary.scalar</code></a> in a loop to get the same behavior
+  <a href="../../tf/summary/scalar"><code>tf.compat.v1.summary.scalar</code></a> requires a single scalar name and scalar value.
+  In most
+  cases, you can create <a href="../../tf/summary/scalar"><code>tf.compat.v1.summary.scalar</code></a> in a loop to get the same
+  behavior
 
 As before, TensorBoard groups charts by the top-level <a href="../../tf/name_scope"><code>tf.name_scope</code></a> which may
 be inconvenient, for in the new summary ops, the summary will inherit that

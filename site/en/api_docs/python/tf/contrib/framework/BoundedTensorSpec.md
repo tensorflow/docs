@@ -7,15 +7,19 @@ page_type: reference
 
 ## Class `BoundedTensorSpec`
 
+A `TensorSpec` that specifies minimum and maximum values.
+
 Inherits From: [`TensorSpec`](../../../tf/TensorSpec)
 
 
 
-Defined in [`tensorflow/python/framework/tensor_spec.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/tensor_spec.py).
+Defined in [`python/framework/tensor_spec.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_spec.py).
 
-A `TensorSpec` that specifies minimum and maximum values.
+<!-- Placeholder for "Used in" -->
 
-Example usage:
+
+#### Example usage:
+
 
 ```python
 spec = tensor_spec.BoundedTensorSpec((1, 2, 3), tf.float32, 0, (5, 5, 5))
@@ -45,24 +49,27 @@ __init__(
 
 Initializes a new `BoundedTensorSpec`.
 
+
 #### Args:
+
 
 * <b>`shape`</b>: Value convertible to <a href="../../../tf/TensorShape"><code>tf.TensorShape</code></a>. The shape of the tensor.
 * <b>`dtype`</b>: Value convertible to <a href="../../../tf/dtypes/DType"><code>tf.DType</code></a>. The type of the tensor values.
 * <b>`minimum`</b>: Number or sequence specifying the minimum element bounds
-    (inclusive). Must be broadcastable to `shape`.
+  (inclusive). Must be broadcastable to `shape`.
 * <b>`maximum`</b>: Number or sequence specifying the maximum element bounds
-    (inclusive). Must be broadcastable to `shape`.
+  (inclusive). Must be broadcastable to `shape`.
 * <b>`name`</b>: Optional string containing a semantic name for the corresponding
-    array. Defaults to `None`.
+  array. Defaults to `None`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `minimum` or `maximum` are not provided or not
-    broadcastable to `shape`.
+  broadcastable to `shape`.
 * <b>`TypeError`</b>: If the shape is not an iterable or if the `dtype` is an invalid
-    numpy dtype.
+  numpy dtype.
 
 
 
@@ -72,21 +79,26 @@ Initializes a new `BoundedTensorSpec`.
 
 Returns the `dtype` of elements in the tensor.
 
+
 <h3 id="maximum"><code>maximum</code></h3>
 
 Returns a NumPy array specifying the maximum bounds (inclusive).
+
 
 <h3 id="minimum"><code>minimum</code></h3>
 
 Returns a NumPy array specifying the minimum bounds (inclusive).
 
+
 <h3 id="name"><code>name</code></h3>
 
 Returns the (optionally provided) name of the described tensor.
 
+
 <h3 id="shape"><code>shape</code></h3>
 
 Returns the `TensorShape` that represents the shape of the tensor.
+
 
 
 
@@ -98,7 +110,8 @@ Returns the `TensorShape` that represents the shape of the tensor.
 __eq__(other)
 ```
 
-Return self==value.
+
+
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
@@ -106,7 +119,8 @@ Return self==value.
 __ne__(other)
 ```
 
-Return self!=value.
+
+
 
 <h3 id="from_spec"><code>from_spec</code></h3>
 
@@ -120,6 +134,7 @@ from_spec(
 
 
 
+
 <h3 id="from_tensor"><code>from_tensor</code></h3>
 
 ``` python
@@ -129,6 +144,7 @@ from_tensor(
     name=None
 )
 ```
+
 
 
 
@@ -145,12 +161,14 @@ and their shapes are compatible (see <a href="../../../tf/TensorShape#is_compati
 
 #### Args:
 
+
 * <b>`spec_or_tensor`</b>: A tf.TensorSpec or a tf.Tensor
 
 
 #### Returns:
 
 True if spec_or_tensor is compatible with self.
+
 
 
 

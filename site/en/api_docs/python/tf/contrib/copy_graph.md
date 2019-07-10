@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.copy_graph
 
-
-
-Defined in [`tensorflow/contrib/copy_graph/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/copy_graph/__init__.py).
-
 Functions to copy elements between graphs.
+
+
+
+Defined in [`contrib/copy_graph/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/copy_graph/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Functions
 

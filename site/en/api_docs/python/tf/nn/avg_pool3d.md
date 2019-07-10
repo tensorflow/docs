@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.nn.avg_pool3d
 
+Performs the average pooling on the input.
+
+### Aliases:
+
+* `tf.compat.v1.nn.avg_pool3d`
+* `tf.compat.v2.nn.avg_pool3d`
+* `tf.nn.avg_pool3d`
+
 ``` python
 tf.nn.avg_pool3d(
     input,
@@ -18,31 +26,28 @@ tf.nn.avg_pool3d(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_nn_ops.py`.
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Performs 3D average pooling on the input.
+<!-- Placeholder for "Used in" -->
+
+Each entry in `output` is the mean of the corresponding size `ksize`
+window in `value`.
 
 #### Args:
 
-* <b>`input`</b>: A `Tensor`. Must be one of the following types: `half`, `bfloat16`, `float32`, `float64`.
-    Shape `[batch, depth, rows, cols, channels]` tensor to pool over.
-* <b>`ksize`</b>: A list of `ints` that has length `>= 5`.
-    1-D tensor of length 5. The size of the window for each dimension of
-    the input tensor. Must have `ksize[0] = ksize[4] = 1`.
-* <b>`strides`</b>: A list of `ints` that has length `>= 5`.
-    1-D tensor of length 5. The stride of the sliding window for each
-    dimension of `input`. Must have `strides[0] = strides[4] = 1`.
-* <b>`padding`</b>: A `string` from: `"SAME", "VALID"`.
-    The type of padding algorithm to use.
-* <b>`data_format`</b>: An optional `string` from: `"NDHWC", "NCDHW"`. Defaults to `"NDHWC"`.
-    The data format of the input and output data. With the
-    default format "NDHWC", the data is stored in the order of:
-        [batch, in_depth, in_height, in_width, in_channels].
-    Alternatively, the format could be "NCDHW", the data storage order is:
-        [batch, in_channels, in_depth, in_height, in_width].
-* <b>`name`</b>: A name for the operation (optional).
+
+* <b>`input`</b>: A 5-D `Tensor` of shape `[batch, height, width, channels]` and type
+  `float32`, `float64`, `qint8`, `quint8`, or `qint32`.
+* <b>`ksize`</b>: An int or list of `ints` that has length `1`, `3` or `5`. The size of
+  the window for each dimension of the input tensor.
+* <b>`strides`</b>: An int or list of `ints` that has length `1`, `3` or `5`. The
+  stride of the sliding window for each dimension of the input tensor.
+* <b>`padding`</b>: A string, either `'VALID'` or `'SAME'`. The padding algorithm.
+  See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
+* <b>`data_format`</b>: A string. 'NDHWC' and 'NCDHW' are supported.
+* <b>`name`</b>: Optional name for the operation.
 
 
 #### Returns:
 
-A `Tensor`. Has the same type as `input`.
+A `Tensor` with the same type as `value`.  The average pooled output tensor.

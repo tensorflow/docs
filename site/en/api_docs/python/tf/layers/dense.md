@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.layers.dense
 
+Functional interface for the densely-connected layer. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.layers.dense`
+* `tf.layers.dense`
+
 ``` python
 tf.layers.dense(
     inputs,
@@ -26,9 +33,9 @@ tf.layers.dense(
 
 
 
-Defined in [`tensorflow/python/layers/core.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/layers/core.py).
+Defined in [`python/layers/core.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/core.py).
 
-Functional interface for the densely-connected layer. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -43,31 +50,32 @@ and `bias` is a bias vector created by the layer
 
 #### Arguments:
 
+
 * <b>`inputs`</b>: Tensor input.
 * <b>`units`</b>: Integer or Long, dimensionality of the output space.
 * <b>`activation`</b>: Activation function (callable). Set it to None to maintain a
-    linear activation.
+  linear activation.
 * <b>`use_bias`</b>: Boolean, whether the layer uses a bias.
 * <b>`kernel_initializer`</b>: Initializer function for the weight matrix.
-    If `None` (default), weights are initialized using the default
-    initializer used by <a href="../../tf/get_variable"><code>tf.get_variable</code></a>.
+  If `None` (default), weights are initialized using the default
+  initializer used by <a href="../../tf/get_variable"><code>tf.compat.v1.get_variable</code></a>.
 * <b>`bias_initializer`</b>: Initializer function for the bias.
 * <b>`kernel_regularizer`</b>: Regularizer function for the weight matrix.
 * <b>`bias_regularizer`</b>: Regularizer function for the bias.
 * <b>`activity_regularizer`</b>: Regularizer function for the output.
 * <b>`kernel_constraint`</b>: An optional projection function to be applied to the
-      kernel after being updated by an `Optimizer` (e.g. used to implement
-      norm constraints or value constraints for layer weights). The function
-      must take as input the unprojected variable and must return the
-      projected variable (which must have the same shape). Constraints are
-      not safe to use when doing asynchronous distributed training.
+    kernel after being updated by an `Optimizer` (e.g. used to implement
+    norm constraints or value constraints for layer weights). The function
+    must take as input the unprojected variable and must return the
+    projected variable (which must have the same shape). Constraints are
+    not safe to use when doing asynchronous distributed training.
 * <b>`bias_constraint`</b>: An optional projection function to be applied to the
-      bias after being updated by an `Optimizer`.
+    bias after being updated by an `Optimizer`.
 * <b>`trainable`</b>: Boolean, if `True` also add variables to the graph collection
-    `GraphKeys.TRAINABLE_VARIABLES` (see <a href="../../tf/Variable"><code>tf.Variable</code></a>).
+  <a href="../../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see <a href="../../tf/Variable"><code>tf.Variable</code></a>).
 * <b>`name`</b>: String, the name of the layer.
 * <b>`reuse`</b>: Boolean, whether to reuse the weights of a previous layer
-    by the same name.
+  by the same name.
 
 
 #### Returns:
@@ -76,6 +84,8 @@ Output tensor the same shape as `inputs` except the last dimension is of
 size `units`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if eager execution is enabled.

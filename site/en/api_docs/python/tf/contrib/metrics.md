@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.metrics
 
-
-
-Defined in [`tensorflow/contrib/metrics/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/__init__.py).
-
 Ops for evaluation metrics and summary statistics.
+
+
+
+Defined in [`contrib/metrics/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 See the
 [Contrib Metrics](https://tensorflow.org/api_guides/python/contrib.metrics)
@@ -30,7 +32,7 @@ guide.
 
 [`cohen_kappa(...)`](../../tf/contrib/metrics/cohen_kappa): Calculates Cohen's kappa.
 
-[`confusion_matrix(...)`](../../tf/contrib/metrics/confusion_matrix): Deprecated. Use tf.confusion_matrix instead.
+[`confusion_matrix(...)`](../../tf/contrib/metrics/confusion_matrix): Deprecated. Use tf.math.confusion_matrix instead.
 
 [`count(...)`](../../tf/contrib/metrics/count): Computes the number of examples, or sum of `weights`.
 

@@ -5,10 +5,12 @@ page_type: reference
 
 # Module: tf.contrib.util.loader
 
-
-
-Defined in [`tensorflow/contrib/util/loader.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/util/loader.py).
-
 Utilities for loading op libraries.
+
+
+
+Defined in [`contrib/util/loader.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/util/loader.py).
+
+<!-- Placeholder for "Used in" -->
 
 

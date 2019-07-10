@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.summary
 
-
-
-Defined in [`tensorflow/contrib/summary/summary.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/summary/summary.py).
-
 TensorFlow Summary API v2.
+
+
+
+Defined in [`contrib/summary/summary.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/summary/summary.py).
+
+<!-- Placeholder for "Used in" -->
 
 The operations in this package are safe to use with eager execution turned on or
 off. It has a more flexible API that allows summaries to be written directly
@@ -57,11 +59,11 @@ with tf.Session(...) as sess:
 
 ## Classes
 
-[`class SummaryWriter`](../../tf/contrib/summary/SummaryWriter): Encapsulates a stateful summary writer resource.
+[`class SummaryWriter`](../../tf/compat/v2/summary/SummaryWriter): Interface representing a stateful summary writer object.
 
 ## Functions
 
-[`all_summary_ops(...)`](../../tf/contrib/summary/all_summary_ops): Graph-mode only. Returns all summary ops.
+[`all_summary_ops(...)`](../../tf/summary/all_v2_summary_ops): Returns all V2-style summary ops defined in the current default graph.
 
 [`always_record_summaries(...)`](../../tf/contrib/summary/always_record_summaries): Sets the should_record_summaries Tensor to always true.
 
@@ -75,7 +77,7 @@ with tf.Session(...) as sess:
 
 [`eval_dir(...)`](../../tf/contrib/summary/eval_dir): Construct a logdir for an eval summary writer.
 
-[`flush(...)`](../../tf/contrib/summary/flush): Forces summary writer to send any buffered data to storage.
+[`flush(...)`](../../tf/compat/v2/summary/flush): Forces summary writer to send any buffered data to storage.
 
 [`generic(...)`](../../tf/contrib/summary/generic): Writes a tensor summary if possible.
 
@@ -85,9 +87,9 @@ with tf.Session(...) as sess:
 
 [`image(...)`](../../tf/contrib/summary/image): Writes an image summary if possible.
 
-[`import_event(...)`](../../tf/contrib/summary/import_event): Writes a <a href="../../tf/Event"><code>tf.Event</code></a> binary proto.
+[`import_event(...)`](../../tf/contrib/summary/import_event): Writes a <a href="../../tf/Event"><code>tf.compat.v1.Event</code></a> binary proto.
 
-[`initialize(...)`](../../tf/contrib/summary/initialize): Initializes summary writing for graph execution mode.
+[`initialize(...)`](../../tf/summary/initialize): Initializes summary writing for graph execution mode.
 
 [`never_record_summaries(...)`](../../tf/contrib/summary/never_record_summaries): Sets the should_record_summaries Tensor to always false.
 
@@ -98,12 +100,4 @@ with tf.Session(...) as sess:
 [`should_record_summaries(...)`](../../tf/contrib/summary/should_record_summaries): Returns boolean Tensor which is true if summaries should be recorded.
 
 [`summary_writer_initializer_op(...)`](../../tf/contrib/summary/summary_writer_initializer_op): Graph-mode only. Returns the list of ops to create all summary writers.
-
-## Other Members
-
-<h3 id="absolute_import"><code>absolute_import</code></h3>
-
-<h3 id="division"><code>division</code></h3>
-
-<h3 id="print_function"><code>print_function</code></h3>
 

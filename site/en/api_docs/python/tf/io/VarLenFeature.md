@@ -7,39 +7,34 @@ page_type: reference
 
 ## Class `VarLenFeature`
 
+Configuration for parsing a variable-length input feature.
+
 
 
 ### Aliases:
 
 * Class `tf.VarLenFeature`
+* Class `tf.compat.v1.VarLenFeature`
+* Class `tf.compat.v1.io.VarLenFeature`
+* Class `tf.compat.v2.io.VarLenFeature`
 * Class `tf.io.VarLenFeature`
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/parsing_ops.py).
+Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
-Configuration for parsing a variable-length input feature.
+<!-- Placeholder for "Used in" -->
+
 
 #### Fields:
 
+
 * <b>`dtype`</b>: Data type of input.
-
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-__new__(
-    _cls,
-    dtype
-)
-```
-
-Create new instance of VarLenFeature(dtype,)
-
-
 
 ## Properties
 
 <h3 id="dtype"><code>dtype</code></h3>
+
 
 
 

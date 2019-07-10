@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.sdca_fprint
 
+Computes fingerprints of the input strings.
+
+### Aliases:
+
+* `tf.compat.v1.train.sdca_fprint`
+* `tf.train.sdca_fprint`
+
 ``` python
 tf.train.sdca_fprint(
     input,
@@ -14,14 +21,16 @@ tf.train.sdca_fprint(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_sdca_ops.py`.
+Defined in generated file: `python/ops/gen_sdca_ops.py`.
 
-Computes fingerprints of the input strings.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor` of type `string`.
-    vector of strings to compute fingerprints on.
+  vector of strings to compute fingerprints on.
 * <b>`name`</b>: A name for the operation (optional).
 
 

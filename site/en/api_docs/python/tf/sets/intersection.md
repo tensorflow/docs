@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.sets.intersection
 
+Compute set intersection of elements in last dimension of `a` and `b`.
+
 ### Aliases:
 
+* `tf.compat.v1.sets.intersection`
+* `tf.compat.v1.sets.set_intersection`
+* `tf.compat.v2.sets.intersection`
 * `tf.contrib.metrics.set_intersection`
 * `tf.sets.intersection`
 * `tf.sets.set_intersection`
@@ -21,13 +26,15 @@ tf.sets.intersection(
 
 
 
-Defined in [`tensorflow/python/ops/sets_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sets_impl.py).
+Defined in [`python/ops/sets_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sets_impl.py).
 
-Compute set intersection of elements in last dimension of `a` and `b`.
+<!-- Placeholder for "Used in" -->
 
 All but the last dimension of `a` and `b` must match.
 
-Example:
+#### Example:
+
+
 
 ```python
   import tensorflow as tf
@@ -56,8 +63,8 @@ Example:
   ])
   b = tf.SparseTensor(list(b.keys()), list(b.values()), dense_shape=[2, 2, 4])
 
-  # <a href="../../tf/sets/intersection"><code>tf.sets.set_intersection</code></a> is applied to each aligned pair of sets.
-  tf.sets.set_intersection(a, b)
+  # `tf.sets.intersection` is applied to each aligned pair of sets.
+  tf.sets.intersection(a, b)
 
   # The result will be equivalent to either of:
   #
@@ -73,12 +80,13 @@ Example:
 
 #### Args:
 
+
 * <b>`a`</b>: `Tensor` or `SparseTensor` of the same type as `b`. If sparse, indices
-      must be sorted in row-major order.
+    must be sorted in row-major order.
 * <b>`b`</b>: `Tensor` or `SparseTensor` of the same type as `a`. If sparse, indices
-      must be sorted in row-major order.
+    must be sorted in row-major order.
 * <b>`validate_indices`</b>: Whether to validate the order and range of sparse indices
-     in `a` and `b`.
+   in `a` and `b`.
 
 
 #### Returns:

@@ -7,15 +7,25 @@ page_type: reference
 
 ## Class `StubOutForTesting`
 
-
-
-
-
-Defined in [`tensorflow/python/platform/googletest.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/googletest.py).
-
 Support class for stubbing methods out for unit testing.
 
-Sample Usage:
+
+
+### Aliases:
+
+* Class `tf.compat.v1.test.StubOutForTesting`
+* Class `tf.test.StubOutForTesting`
+
+
+
+Defined in [`python/platform/googletest.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/googletest.py).
+
+<!-- Placeholder for "Used in" -->
+
+
+#### Sample Usage:
+
+
 
 You want os.path.exists() to always return true during testing.
 
@@ -34,7 +44,8 @@ value of os.path.exists and restores it.
 __init__()
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -47,6 +58,7 @@ CleanUp()
 ```
 
 Undoes all SmartSet() & Set() calls, restoring original definitions.
+
 
 <h3 id="Set"><code>Set</code></h3>
 
@@ -71,6 +83,7 @@ classmethod of parent.
 
 #### Args:
 
+
 * <b>`parent`</b>: The context in which the attribute child_name is to be changed.
 * <b>`child_name`</b>: The name of the attribute to change.
 * <b>`new_child`</b>: The new value of the attribute.
@@ -94,16 +107,20 @@ unless that has been explicitly allowed by the type.
 This method supports the case where attr_name is a staticmethod or a
 classmethod of obj.
 
-Notes:
-  - If obj is an instance, then it is its class that will actually be
-    stubbed. Note that the method Set() does not do that: if obj is
-    an instance, it (and not its class) will be stubbed.
-  - The stubbing is using the builtin getattr and setattr. So, the __get__
-    and __set__ will be called when stubbing (TODO: A better idea would
-    probably be to manipulate obj.__dict__ instead of getattr() and
-    setattr()).
+#### Notes:
+
+- If obj is an instance, then it is its class that will actually be
+  stubbed. Note that the method Set() does not do that: if obj is
+  an instance, it (and not its class) will be stubbed.
+- The stubbing is using the builtin getattr and setattr. So, the __get__
+  and __set__ will be called when stubbing (TODO: A better idea would
+  probably be to manipulate obj.__dict__ instead of getattr() and
+  setattr()).
+
+
 
 #### Args:
+
 
 * <b>`obj`</b>: The object whose attributes we want to modify.
 * <b>`attr_name`</b>: The name of the attribute to modify.
@@ -111,6 +128,7 @@ Notes:
 
 
 #### Raises:
+
 
 * <b>`AttributeError`</b>: If the attribute cannot be found.
 
@@ -142,22 +160,12 @@ object is deleted; there is no need to call it explicitly.
 It is okay to call UnsetAll() repeatedly, as later calls have no
 effect if no Set() calls have been made.
 
-<h3 id="__del__"><code>__del__</code></h3>
-
-``` python
-__del__()
-```
-
-Do not rely on the destructor to undo your stubs.
-
-You cannot guarantee exactly when the destructor will get called without
-relying on implementation details of a Python VM that may change.
-
 <h3 id="__enter__"><code>__enter__</code></h3>
 
 ``` python
 __enter__()
 ```
+
 
 
 
@@ -170,6 +178,7 @@ __exit__(
     unused_tb
 )
 ```
+
 
 
 

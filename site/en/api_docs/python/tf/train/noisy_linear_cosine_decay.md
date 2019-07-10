@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.noisy_linear_cosine_decay
 
+Applies noisy linear cosine decay to the learning rate.
+
+### Aliases:
+
+* `tf.compat.v1.train.noisy_linear_cosine_decay`
+* `tf.train.noisy_linear_cosine_decay`
+
 ``` python
 tf.train.noisy_linear_cosine_decay(
     learning_rate,
@@ -21,9 +28,9 @@ tf.train.noisy_linear_cosine_decay(
 
 
 
-Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/learning_rate_decay.py).
+Defined in [`python/training/learning_rate_decay.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/learning_rate_decay.py).
 
-Applies noisy linear cosine decay to the learning rate.
+<!-- Placeholder for "Used in" -->
 
 See [Bello et al., ICML2017] Neural Optimizer Search with RL.
 https://arxiv.org/abs/1709.07417
@@ -55,7 +62,8 @@ decayed_learning_rate = learning_rate * decayed
 where eps_t is 0-centered gaussian noise with variance
 initial_variance / (1 + global_step) ** variance_decay
 
-Example usage:
+#### Example usage:
+
 
 ```python
 decay_steps = 1000
@@ -65,27 +73,31 @@ lr_decayed = noisy_linear_cosine_decay(
 
 #### Args:
 
+
 * <b>`learning_rate`</b>: A scalar `float32` or `float64` Tensor or a Python number.
-    The initial learning rate.
-* <b>`global_step`</b>: A scalar `int32` or `int64` `Tensor` or a Python number.
-    Global step to use for the decay computation.
-* <b>`decay_steps`</b>: A scalar `int32` or `int64` `Tensor` or a Python number.
-    Number of steps to decay over.
+  The initial learning rate.
+* <b>`global_step`</b>: A scalar `int32` or `int64` `Tensor` or a Python number. Global
+  step to use for the decay computation.
+* <b>`decay_steps`</b>: A scalar `int32` or `int64` `Tensor` or a Python number. Number
+  of steps to decay over.
 * <b>`initial_variance`</b>: initial variance for the noise. See computation above.
 * <b>`variance_decay`</b>: decay for the noise's variance. See computation above.
-* <b>`num_periods`</b>: Number of periods in the cosine part of the decay.
-    See computation above.
+* <b>`num_periods`</b>: Number of periods in the cosine part of the decay. See
+  computation above.
 * <b>`alpha`</b>: See computation above.
 * <b>`beta`</b>: See computation above.
 * <b>`name`</b>: String.  Optional name of the operation.  Defaults to
-    'NoisyLinearCosineDecay'.
+  'NoisyLinearCosineDecay'.
+
 
 #### Returns:
 
 A scalar `Tensor` of the same type as `learning_rate`.  The decayed
 learning rate.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `global_step` is not supplied.
 

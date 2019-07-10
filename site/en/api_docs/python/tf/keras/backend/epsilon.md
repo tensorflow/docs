@@ -5,22 +5,34 @@ page_type: reference
 
 # tf.keras.backend.epsilon
 
+Returns the value of the fuzz factor used in numeric expressions.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.epsilon`
+* `tf.compat.v2.keras.backend.epsilon`
+* `tf.keras.backend.epsilon`
+
 ``` python
 tf.keras.backend.epsilon()
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend_config.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend_config.py).
 
-Returns the value of the fuzz factor used in numeric expressions.
+<!-- Placeholder for "Used in" -->
+
 
 #### Returns:
 
-    A float.
+A float.
 
-Example:
+
+
+#### Example:
+
+
 ```python
-    >>> keras.backend.epsilon()
-    1e-07
+keras.backend.epsilon() >>>1e-07
 ```

@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.scatter_nd
 
+Scatter `updates` into a new tensor according to `indices`.
+
 ### Aliases:
 
+* `tf.compat.v1.manip.scatter_nd`
+* `tf.compat.v1.scatter_nd`
+* `tf.compat.v2.scatter_nd`
 * `tf.manip.scatter_nd`
 * `tf.scatter_nd`
 
@@ -21,9 +26,9 @@ tf.scatter_nd(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Scatter `updates` into a new tensor according to `indices`.
+<!-- Placeholder for "Used in" -->
 
 Creates a new tensor by applying sparse `updates` to individual values or
 slices within a tensor (initially zero for numeric, empty for string) of
@@ -31,7 +36,7 @@ the given `shape` according to indices.  This operator is the inverse of the
 <a href="../tf/gather_nd"><code>tf.gather_nd</code></a> operator which extracts values or slices from a given tensor.
 
 This operation is similar to tensor_scatter_add, except that the tensor is
-zero-initialized. Calling `tf.scatter_nd(indices, values, shape)` is identical
+zero-initialized. Calling <a href="../tf/scatter_nd"><code>tf.scatter_nd(indices, values, shape)</code></a> is identical
 to `tensor_scatter_add(tf.zeros(shape, values.dtype), indices, values)`
 
 If `indices` contains duplicates, then their updates are accumulated (summed).
@@ -110,11 +115,12 @@ On GPU, if an out of bound index is found, the index is ignored.
 
 #### Args:
 
+
 * <b>`indices`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    Index tensor.
+  Index tensor.
 * <b>`updates`</b>: A `Tensor`. Updates to scatter into output.
 * <b>`shape`</b>: A `Tensor`. Must have the same type as `indices`.
-    1-D. The shape of the resulting tensor.
+  1-D. The shape of the resulting tensor.
 * <b>`name`</b>: A name for the operation (optional).
 
 

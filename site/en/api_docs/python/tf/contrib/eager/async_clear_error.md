@@ -5,12 +5,14 @@ page_type: reference
 
 # tf.contrib.eager.async_clear_error
 
+Clears errors raised during ASYNC execution mode.
+
 ``` python
 tf.contrib.eager.async_clear_error()
 ```
 
 
 
-Defined in [`tensorflow/python/eager/context.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/eager/context.py).
+Defined in [`python/eager/context.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/context.py).
 
-Clears errors raised during ASYNC execution mode.
+<!-- Placeholder for "Used in" -->

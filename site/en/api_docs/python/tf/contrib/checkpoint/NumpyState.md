@@ -7,15 +7,20 @@ page_type: reference
 
 ## Class `NumpyState`
 
+A trackable object whose NumPy array attributes are saved/restored.
+
 Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/CheckpointableBase)
 
 
 
-Defined in [`tensorflow/contrib/checkpoint/python/python_state.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/checkpoint/python/python_state.py).
+Defined in [`contrib/checkpoint/python/python_state.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/checkpoint/python/python_state.py).
 
-A checkpointable object whose NumPy array attributes are saved/restored.
+<!-- Placeholder for "Used in" -->
 
-Example usage:
+
+#### Example usage:
+
+
 
 ```python
 arrays = tf.contrib.checkpoint.NumpyState()
@@ -44,27 +49,4 @@ eagerly). When restoring they skip the TensorFlow graph entirely, and so no
 restore ops need be run. This means that restoration always happens eagerly,
 rather than waiting for `checkpoint.restore(...).run_restore_ops()` like
 TensorFlow variables when graph building.
-
-## Methods
-
-<h3 id="__getattribute__"><code>__getattribute__</code></h3>
-
-``` python
-__getattribute__(name)
-```
-
-Un-wrap `_NumpyWrapper` objects when accessing attributes.
-
-<h3 id="__setattr__"><code>__setattr__</code></h3>
-
-``` python
-__setattr__(
-    name,
-    value
-)
-```
-
-Automatically wrap NumPy arrays assigned to attributes.
-
-
 

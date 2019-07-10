@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.image.rot90
 
+Rotate image(s) counter-clockwise by 90 degrees.
+
+### Aliases:
+
+* `tf.compat.v1.image.rot90`
+* `tf.compat.v2.image.rot90`
+* `tf.image.rot90`
+
 ``` python
 tf.image.rot90(
     image,
@@ -15,14 +23,16 @@ tf.image.rot90(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Rotate image(s) counter-clockwise by 90 degrees.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
-* <b>`image`</b>: 4-D Tensor of shape `[batch, height, width, channels]` or
-         3-D Tensor of shape `[height, width, channels]`.
+
+* <b>`image`</b>: 4-D Tensor of shape `[batch, height, width, channels]` or 3-D Tensor
+  of shape `[height, width, channels]`.
 * <b>`k`</b>: A scalar integer. The number of times the image is rotated by 90 degrees.
 * <b>`name`</b>: A name for this operation (optional).
 
@@ -32,6 +42,8 @@ Rotate image(s) counter-clockwise by 90 degrees.
 A rotated tensor of the same type and shape as `image`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if the shape of `image` not supported.

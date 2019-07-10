@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `ConstrainedMinimizationProblem`
 
-
-
-
-
-Defined in [`tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py).
-
 Abstract class representing a `ConstrainedMinimizationProblem`.
+
+
+
+
+
+Defined in [`contrib/constrained_optimization/python/constrained_minimization_problem.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py).
+
+<!-- Placeholder for "Used in" -->
 
 A ConstrainedMinimizationProblem consists of an objective function to
 minimize, and a set of constraint functions that are constrained to be
@@ -40,29 +42,35 @@ will be g_i <= 0.
 
 A tensor of constraint functions.
 
+
 <h3 id="num_constraints"><code>num_constraints</code></h3>
 
 Returns the number of constraints.
+
 
 #### Returns:
 
 An int containing the number of constraints.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the constraints (or proxy_constraints, if present) do not
-    have fully-known shapes, OR if proxy_constraints are present, and the
-    shapes of constraints and proxy_constraints are fully-known, but they're
-    different.
+  have fully-known shapes, OR if proxy_constraints are present, and the
+  shapes of constraints and proxy_constraints are fully-known, but they're
+  different.
 
 <h3 id="objective"><code>objective</code></h3>
 
 Returns the objective function.
 
+
 #### Returns:
 
 A 0d tensor that should be minimized.
+
 
 <h3 id="pre_train_ops"><code>pre_train_ops</code></h3>
 
@@ -75,6 +83,7 @@ ops before the main training step.
 #### Returns:
 
 A list of `Operation`s.
+
 
 <h3 id="proxy_constraints"><code>proxy_constraints</code></h3>
 
@@ -95,6 +104,7 @@ approximation of `constraints`.
 #### Returns:
 
 A tensor of proxy constraint functions.
+
 
 
 

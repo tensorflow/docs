@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.gfile.Rename
 
+Rename or move a file / directory.
+
+### Aliases:
+
+* `tf.compat.v1.gfile.Rename`
+* `tf.gfile.Rename`
+
 ``` python
 tf.gfile.Rename(
     oldname,
@@ -15,18 +22,21 @@ tf.gfile.Rename(
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/lib/io/file_io.py).
+Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
-Rename or move a file / directory.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`oldname`</b>: string, pathname for a file
 * <b>`newname`</b>: string, pathname to which the file needs to be moved
 * <b>`overwrite`</b>: boolean, if false it's an error for `newname` to be occupied by
-      an existing file.
+  an existing file.
 
 
 #### Raises:
+
 
 * <b>`errors.OpError`</b>: If the operation fails.

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.lookup.index_to_string_table_from_file
 
+Returns a lookup table that maps a `Tensor` of indices into strings.
+
 ``` python
 tf.contrib.lookup.index_to_string_table_from_file(
     vocabulary_file,
@@ -19,9 +21,9 @@ tf.contrib.lookup.index_to_string_table_from_file(
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/lookup_ops.py).
+Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
-Returns a lookup table that maps a `Tensor` of indices into strings.
+<!-- Placeholder for "Used in" -->
 
 This operation constructs a lookup table to map int64 indices into string
 values. The table is initialized from a vocabulary file specified in
@@ -32,7 +34,8 @@ Any input which does not have a corresponding index in the vocabulary file
 (an out-of-vocabulary entry) is assigned the `default_value`
 
 The underlying table must be initialized by calling
-`session.run(tf.tables_initializer)` or `session.run(table.init)` once.
+`session.run(tf.compat.v1.tables_initializer)` or `session.run(table.init)`
+once.
 
 To specify multi-column vocabulary files, use key_column_index and
 value_column_index and delimiter.
@@ -44,7 +47,9 @@ value_column_index and delimiter.
 - A value >=0 means use the index (starting at zero) of the split line based
   on `delimiter`.
 
-Sample Usages:
+#### Sample Usages:
+
+
 
 If we have a vocabulary file "test.txt" with the following content:
 
@@ -60,21 +65,22 @@ table = tf.lookup.index_to_string_table_from_file(
     vocabulary_file="test.txt", default_value="UNKNOWN")
 values = table.lookup(indices)
 ...
-tf.tables_initializer().run()
+tf.compat.v1.tables_initializer().run()
 
 values.eval() ==> ["lake", "UNKNOWN"]
 ```
 
 #### Args:
 
+
 * <b>`vocabulary_file`</b>: The vocabulary filename, may be a constant scalar `Tensor`.
 * <b>`vocab_size`</b>: Number of the elements in the vocabulary, if known.
 * <b>`default_value`</b>: The value to use for out-of-vocabulary indices.
 * <b>`name`</b>: A name for this op (optional).
 * <b>`key_column_index`</b>: The column index from the text file to get the `key`
-    values from. The default is to use the line number, starting from zero.
+  values from. The default is to use the line number, starting from zero.
 * <b>`value_column_index`</b>: The column index from the text file to get the `value`
-    values from. The default is to use the whole line content.
+  values from. The default is to use the whole line content.
 * <b>`delimiter`</b>: The delimiter to separate fields in a line.
 
 
@@ -84,7 +90,9 @@ The lookup table to map a string values associated to a given index `int64`
 `Tensors`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: when `vocabulary_file` is empty.
 * <b>`ValueError`</b>: when `vocab_size` is invalid.

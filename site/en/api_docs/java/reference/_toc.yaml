@@ -1,55 +1,49 @@
-
 toc:
 - title: "org.tensorflow"
-  path: /versions/r1.13/api_docs/java/reference/org/tensorflow/package-summary.html
-  section: 
-    
+  path: /versions/r1.14/api_docs/java/reference/org/tensorflow/package-summary.html
+  section:
   - title: "DataType"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/DataType.html
-    
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/DataType.html
+  - title: "ExecutionEnvironment"
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/ExecutionEnvironment.html
   - title: "Graph"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/Graph.html
-    
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Graph.html
+    section:
+    - title: "WhileSubgraphBuilder"
+      path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Graph.WhileSubgraphBuilder.html
+  - title: "GraphOperation"
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/GraphOperation.html
+  - title: "GraphOperationBuilder"
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/GraphOperationBuilder.html
   - title: "Operand"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/Operand.html
-    
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Operand.html
   - title: "Operation"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/Operation.html
-    
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Operation.html
   - title: "OperationBuilder"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/OperationBuilder.html
-    
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/OperationBuilder.html
   - title: "Output"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/Output.html
-    
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Output.html
   - title: "SavedModelBundle"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/SavedModelBundle.html
-    section: 
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/SavedModelBundle.html
+    section:
     - title: "Loader"
-      path: /versions/r1.13/api_docs/java/reference/org/tensorflow/SavedModelBundle.Loader.html
-    
+      path: /versions/r1.14/api_docs/java/reference/org/tensorflow/SavedModelBundle.Loader.html
   - title: "Server"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/Server.html
-    
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Server.html
   - title: "Session"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/Session.html
-    section: 
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Session.html
+    section:
     - title: "Run"
-      path: /versions/r1.13/api_docs/java/reference/org/tensorflow/Session.Run.html
+      path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Session.Run.html
     - title: "Runner"
-      path: /versions/r1.13/api_docs/java/reference/org/tensorflow/Session.Runner.html
-    
+      path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Session.Runner.html
   - title: "Shape"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/Shape.html
-    
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Shape.html
   - title: "Tensor"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/Tensor.html
-    
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Tensor.html
   - title: "TensorFlow"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/TensorFlow.html
-    
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/TensorFlow.html
   - title: "TensorFlowException"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/TensorFlowException.html
-    
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/TensorFlowException.html
   - title: "Tensors"
-    path: /versions/r1.13/api_docs/java/reference/org/tensorflow/Tensors.html
+    path: /versions/r1.14/api_docs/java/reference/org/tensorflow/Tensors.html

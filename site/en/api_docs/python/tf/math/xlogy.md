@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.math.xlogy
 
+Returns 0 if x == 0, and x * log(y) otherwise, elementwise.
+
+### Aliases:
+
+* `tf.compat.v1.math.xlogy`
+* `tf.compat.v2.math.xlogy`
+* `tf.math.xlogy`
+
 ``` python
 tf.math.xlogy(
     x,
@@ -15,11 +23,13 @@ tf.math.xlogy(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Returns 0 if x == 0, and x * log(y) otherwise, elementwise.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `half`, `float32`, `float64`, `complex64`, `complex128`.
 * <b>`y`</b>: A `Tensor`. Must have the same type as `x`.

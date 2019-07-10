@@ -7,18 +7,24 @@ page_type: reference
 
 ## Class `SparseTensor`
 
+Represents a sparse tensor.
+
 
 
 ### Aliases:
 
 * Class `tf.SparseTensor`
+* Class `tf.compat.v1.SparseTensor`
+* Class `tf.compat.v1.sparse.SparseTensor`
+* Class `tf.compat.v2.SparseTensor`
+* Class `tf.compat.v2.sparse.SparseTensor`
 * Class `tf.sparse.SparseTensor`
 
 
 
-Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/sparse_tensor.py).
+Defined in [`python/framework/sparse_tensor.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/sparse_tensor.py).
 
-Represents a sparse tensor.
+<!-- Placeholder for "Used in" -->
 
 TensorFlow represents a sparse tensor as three separate dense tensors:
 `indices`, `values`, and `dense_shape`.  In Python, the three tensors are
@@ -60,7 +66,7 @@ By convention, `indices` should be sorted in row-major order (or equivalently
 lexicographic order on the tuples `indices[i]`). This is not enforced when
 `SparseTensor` objects are constructed, but most ops assume correct ordering.
 If the ordering of sparse tensor `st` is wrong, a fixed version can be
-obtained by calling `tf.sparse_reorder(st)`.
+obtained by calling <a href="../../tf/sparse/reorder"><code>tf.sparse.reorder(st)</code></a>.
 
 Example: The sparse tensor
 
@@ -88,7 +94,9 @@ __init__(
 
 Creates a `SparseTensor`.
 
+
 #### Args:
+
 
 * <b>`indices`</b>: A 2-D int64 tensor of shape `[N, ndims]`.
 * <b>`values`</b>: A 1-D tensor of any type and shape `[N]`.
@@ -102,42 +110,52 @@ Creates a `SparseTensor`.
 
 A 1-D Tensor of int64 representing the shape of the dense tensor.
 
+
 <h3 id="dtype"><code>dtype</code></h3>
 
 The `DType` of elements in this tensor.
+
 
 <h3 id="graph"><code>graph</code></h3>
 
 The `Graph` that contains the index, value, and dense_shape tensors.
 
+
 <h3 id="indices"><code>indices</code></h3>
 
 The indices of non-zero values in the represented dense tensor.
+
 
 #### Returns:
 
 A 2-D Tensor of int64 with dense_shape `[N, ndims]`, where `N` is the
   number of non-zero values in the tensor, and `ndims` is the rank.
 
+
 <h3 id="op"><code>op</code></h3>
 
 The `Operation` that produces `values` as an output.
+
 
 <h3 id="shape"><code>shape</code></h3>
 
 Get the `TensorShape` representing the shape of the dense tensor.
 
+
 #### Returns:
 
 A `TensorShape` object.
+
 
 <h3 id="values"><code>values</code></h3>
 
 The non-zero values in the represented dense tensor.
 
+
 #### Returns:
 
 A 1-D Tensor of any data type.
+
 
 
 
@@ -159,21 +177,23 @@ the other direction.
 
 #### Args:
 
+
 * <b>`sp_indices`</b>: A `Tensor` of type `int64`.
-    2-D.  `N x R` matrix with the indices of non-empty values in a
-    SparseTensor, possibly not in canonical ordering.
+  2-D.  `N x R` matrix with the indices of non-empty values in a
+  SparseTensor, possibly not in canonical ordering.
 * <b>`sp_values`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`, `int32`, `uint8`, `int16`, `int8`, `complex64`, `int64`, `qint8`, `quint8`, `qint32`, `bfloat16`, `uint16`, `complex128`, `half`, `uint32`, `uint64`.
-    1-D.  `N` non-empty values corresponding to `sp_indices`.
+  1-D.  `N` non-empty values corresponding to `sp_indices`.
 * <b>`sp_shape`</b>: A `Tensor` of type `int64`.
-    1-D.  Shape of the input SparseTensor.
+  1-D.  Shape of the input SparseTensor.
 * <b>`dense`</b>: A `Tensor`. Must have the same type as `sp_values`.
-    `R`-D.  The dense Tensor operand.
+  `R`-D.  The dense Tensor operand.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A `Tensor`. Has the same type as `sp_values`.
+
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
@@ -195,21 +215,23 @@ the other direction.
 
 #### Args:
 
+
 * <b>`sp_indices`</b>: A `Tensor` of type `int64`.
-    2-D.  `N x R` matrix with the indices of non-empty values in a
-    SparseTensor, possibly not in canonical ordering.
+  2-D.  `N x R` matrix with the indices of non-empty values in a
+  SparseTensor, possibly not in canonical ordering.
 * <b>`sp_values`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`, `int32`, `uint8`, `int16`, `int8`, `complex64`, `int64`, `qint8`, `quint8`, `qint32`, `bfloat16`, `uint16`, `complex128`, `half`, `uint32`, `uint64`.
-    1-D.  `N` non-empty values corresponding to `sp_indices`.
+  1-D.  `N` non-empty values corresponding to `sp_indices`.
 * <b>`sp_shape`</b>: A `Tensor` of type `int64`.
-    1-D.  Shape of the input SparseTensor.
+  1-D.  Shape of the input SparseTensor.
 * <b>`dense`</b>: A `Tensor`. Must have the same type as `sp_values`.
-    `R`-D.  The dense Tensor operand.
+  `R`-D.  The dense Tensor operand.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A `Tensor`. Has the same type as `sp_values`.
+
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
@@ -222,17 +244,15 @@ __truediv__(
 
 Internal helper function for 'sp_t / dense_t'.
 
+
 <h3 id="consumers"><code>consumers</code></h3>
 
 ``` python
 consumers()
 ```
 
-Returns a list of `Operation`s that consume this `SparseTensor`.
 
-#### Returns:
 
-A list of `Operation`s.
 
 <h3 id="eval"><code>eval</code></h3>
 
@@ -249,22 +269,23 @@ Calling this method will execute all preceding operations that
 produce the inputs needed for the operation that produces this
 tensor.
 
-*N.B.* Before invoking `SparseTensor.eval()`, its graph must have been
+*N.B.* Before invoking <a href="../../tf/sparse/SparseTensor#eval"><code>SparseTensor.eval()</code></a>, its graph must have been
 launched in a session, and either a default session must be
 available, or `session` must be specified explicitly.
 
 #### Args:
 
-* <b>`feed_dict`</b>: A dictionary that maps `Tensor` objects to feed values.
-    See <a href="../../tf/InteractiveSession#run"><code>tf.Session.run</code></a> for a
-    description of the valid feed values.
+
+* <b>`feed_dict`</b>: A dictionary that maps `Tensor` objects to feed values. See
+  <a href="../../tf/Session#run"><code>tf.Session.run</code></a> for a description of the valid feed values.
 * <b>`session`</b>: (Optional.) The `Session` to be used to evaluate this sparse
-    tensor. If none, the default session will be used.
+  tensor. If none, the default session will be used.
 
 
 #### Returns:
 
 A `SparseTensorValue` object.
+
 
 <h3 id="from_value"><code>from_value</code></h3>
 
@@ -278,6 +299,7 @@ from_value(
 
 
 
+
 <h3 id="get_shape"><code>get_shape</code></h3>
 
 ``` python
@@ -286,9 +308,11 @@ get_shape()
 
 Get the `TensorShape` representing the shape of the dense tensor.
 
+
 #### Returns:
 
 A `TensorShape` object.
+
 
 
 

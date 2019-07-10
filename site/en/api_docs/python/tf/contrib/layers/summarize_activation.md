@@ -5,20 +5,23 @@ page_type: reference
 
 # tf.contrib.layers.summarize_activation
 
+Summarize an activation.
+
 ``` python
 tf.contrib.layers.summarize_activation(op)
 ```
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/summaries.py).
+Defined in [`contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/summaries.py).
 
-Summarize an activation.
+<!-- Placeholder for "Used in" -->
 
 This applies the given activation and adds useful summaries specific to the
 activation.
 
 #### Args:
+
 
 * <b>`op`</b>: The tensor to summarize (assumed to be a layer activation).
 

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.moving_average_update
 
+Compute the moving average of a variable.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.moving_average_update`
+* `tf.compat.v2.keras.backend.moving_average_update`
+* `tf.keras.backend.moving_average_update`
+
 ``` python
 tf.keras.backend.moving_average_update(
     x,
@@ -15,11 +23,13 @@ tf.keras.backend.moving_average_update(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Compute the moving average of a variable.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: A Variable.
 * <b>`value`</b>: A tensor with the same shape as `variable`.

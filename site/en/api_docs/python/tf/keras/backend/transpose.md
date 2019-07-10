@@ -5,26 +5,39 @@ page_type: reference
 
 # tf.keras.backend.transpose
 
+Transposes a tensor and returns it.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.transpose`
+* `tf.compat.v2.keras.backend.transpose`
+* `tf.keras.backend.transpose`
+
 ``` python
 tf.keras.backend.transpose(x)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Transposes a tensor and returns it.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable.
 
 
 #### Returns:
 
-    A tensor.
+A tensor.
 
-Examples:
+
+
+#### Examples:
+
 
 ```python
     >>> var = K.variable([[1, 2, 3], [4, 5, 6]])

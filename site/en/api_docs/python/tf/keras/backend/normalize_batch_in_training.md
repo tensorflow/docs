@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.normalize_batch_in_training
 
+Computes mean and std for batch then apply batch_normalization on batch.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.normalize_batch_in_training`
+* `tf.compat.v2.keras.backend.normalize_batch_in_training`
+* `tf.keras.backend.normalize_batch_in_training`
+
 ``` python
 tf.keras.backend.normalize_batch_in_training(
     x,
@@ -17,17 +25,19 @@ tf.keras.backend.normalize_batch_in_training(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Computes mean and std for batch then apply batch_normalization on batch.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Input tensor or variable.
 * <b>`gamma`</b>: Tensor by which to scale the input.
 * <b>`beta`</b>: Tensor with which to center the input.
 * <b>`reduction_axes`</b>: iterable of integers,
-        axes over which to normalize.
+    axes over which to normalize.
 * <b>`epsilon`</b>: Fuzz factor.
 
 

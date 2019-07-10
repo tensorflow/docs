@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.get_variables_by_name
 
+Gets the list of variables that were given that name.
+
 ``` python
 tf.contrib.framework.get_variables_by_name(
     given_name,
@@ -14,11 +16,13 @@ tf.contrib.framework.get_variables_by_name(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
 
-Gets the list of variables that were given that name.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`given_name`</b>: name given to the variable without any scope.
 * <b>`scope`</b>: an optional scope for filtering the variables to return.

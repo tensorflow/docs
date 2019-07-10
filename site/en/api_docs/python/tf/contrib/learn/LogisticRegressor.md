@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.learn.LogisticRegressor
 
+Builds a logistic regression Estimator for binary classification.
+
 ``` python
 tf.contrib.learn.LogisticRegressor(
     model_fn,
@@ -17,18 +19,20 @@ tf.contrib.learn.LogisticRegressor(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py).
+Defined in [`contrib/learn/python/learn/estimators/logistic_regressor.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py).
 
-Builds a logistic regression Estimator for binary classification.
+<!-- Placeholder for "Used in" -->
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.tensorflow.org/code/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 This method provides a basic Estimator with some additional metrics for custom
 binary classification models, including AUC, precision/recall and accuracy.
 
-Example:
+#### Example:
+
+
 
 ```python
   # See tf.contrib.learn.Estimator(...) for details on model_fn structure
@@ -47,19 +51,20 @@ Example:
 
 #### Args:
 
+
 * <b>`model_fn`</b>: Model function with the signature:
-    `(features, labels, mode) -> (predictions, loss, train_op)`.
-    Expects the returned predictions to be probabilities in [0.0, 1.0].
+  `(features, labels, mode) -> (predictions, loss, train_op)`.
+  Expects the returned predictions to be probabilities in [0.0, 1.0].
 * <b>`thresholds`</b>: List of floating point thresholds to use for accuracy,
-    precision, and recall metrics. If `None`, defaults to `[0.5]`.
+  precision, and recall metrics. If `None`, defaults to `[0.5]`.
 * <b>`model_dir`</b>: Directory to save model parameters, graphs, etc. This can also
-    be used to load checkpoints from the directory into a estimator to
-    continue training a previously saved model.
+  be used to load checkpoints from the directory into a estimator to
+  continue training a previously saved model.
 * <b>`config`</b>: A RunConfig configuration object.
 * <b>`feature_engineering_fn`</b>: Feature engineering function. Takes features and
-                    labels which are the output of `input_fn` and
-                    returns features and labels which will be fed
-                    into the model.
+                  labels which are the output of `input_fn` and
+                  returns features and labels which will be fed
+                  into the model.
 
 
 #### Returns:

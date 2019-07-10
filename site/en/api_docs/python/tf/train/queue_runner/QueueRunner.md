@@ -7,18 +7,22 @@ page_type: reference
 
 ## Class `QueueRunner`
 
+Holds a list of enqueue operations for a queue, each to be run in a thread.
+
 
 
 ### Aliases:
 
+* Class `tf.compat.v1.train.QueueRunner`
+* Class `tf.compat.v1.train.queue_runner.QueueRunner`
 * Class `tf.train.QueueRunner`
 * Class `tf.train.queue_runner.QueueRunner`
 
 
 
-Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/queue_runner_impl.py).
+Defined in [`python/training/queue_runner_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/queue_runner_impl.py).
 
-Holds a list of enqueue operations for a queue, each to be run in a thread.
+<!-- Placeholder for "Used in" -->
 
 Queues are a convenient TensorFlow mechanism to compute tensors
 asynchronously using multiple threads. For example in the canonical 'Input
@@ -72,27 +76,29 @@ to all be the same op, but it is expected that they all enqueue tensors in
 
 #### Args:
 
+
 * <b>`queue`</b>: A `Queue`.
 * <b>`enqueue_ops`</b>: List of enqueue ops to run in threads later.
 * <b>`close_op`</b>: Op to close the queue. Pending enqueue ops are preserved.
 * <b>`cancel_op`</b>: Op to close the queue and cancel pending enqueue ops.
 * <b>`queue_closed_exception_types`</b>: Optional tuple of Exception types that
-    indicate that the queue has been closed when raised during an enqueue
-    operation.  Defaults to `(tf.errors.OutOfRangeError,)`.  Another common
-    case includes `(tf.errors.OutOfRangeError, tf.errors.CancelledError)`,
-    when some of the enqueue ops may dequeue from other Queues.
+  indicate that the queue has been closed when raised during an enqueue
+  operation.  Defaults to `(tf.errors.OutOfRangeError,)`.  Another common
+  case includes `(tf.errors.OutOfRangeError, tf.errors.CancelledError)`,
+  when some of the enqueue ops may dequeue from other Queues.
 * <b>`queue_runner_def`</b>: Optional `QueueRunnerDef` protocol buffer. If specified,
-    recreates the QueueRunner from its contents. `queue_runner_def` and the
-    other arguments are mutually exclusive.
+  recreates the QueueRunner from its contents. `queue_runner_def` and the
+  other arguments are mutually exclusive.
 * <b>`import_scope`</b>: Optional `string`. Name scope to add. Only used when
-    initializing from protocol buffer.
+  initializing from protocol buffer.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If both `queue_runner_def` and `queue` are both specified.
 * <b>`ValueError`</b>: If `queue` or `enqueue_ops` are not provided when not
-    restoring from `queue_runner_def`.
+  restoring from `queue_runner_def`.
 * <b>`RuntimeError`</b>: If eager execution is enabled.
 
 
@@ -103,11 +109,14 @@ to all be the same op, but it is expected that they all enqueue tensors in
 
 
 
+
 <h3 id="close_op"><code>close_op</code></h3>
 
 
 
+
 <h3 id="enqueue_ops"><code>enqueue_ops</code></h3>
+
 
 
 
@@ -129,15 +138,19 @@ depending on whether or not a `Coordinator` was passed to
 A list of Python `Exception` objects.  The list is empty if no exception
 was captured.  (No exceptions are captured when using a Coordinator.)
 
+
 <h3 id="name"><code>name</code></h3>
 
 The string name of the underlying Queue.
+
 
 <h3 id="queue"><code>queue</code></h3>
 
 
 
+
 <h3 id="queue_closed_exception_types"><code>queue_closed_exception_types</code></h3>
+
 
 
 
@@ -172,17 +185,19 @@ new threads will be created.
 
 #### Args:
 
+
 * <b>`sess`</b>: A `Session`.
 * <b>`coord`</b>: Optional `Coordinator` object for reporting errors and checking
-    stop conditions.
+  stop conditions.
 * <b>`daemon`</b>: Boolean.  If `True` make the threads daemon threads.
 * <b>`start`</b>: Boolean.  If `True` starts the threads.  If `False` the
-    caller must call the `start()` method of the returned threads.
+  caller must call the `start()` method of the returned threads.
 
 
 #### Returns:
 
 A list of threads.
+
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
@@ -196,6 +211,7 @@ from_proto(
 
 Returns a `QueueRunner` object created from `queue_runner_def`.
 
+
 <h3 id="to_proto"><code>to_proto</code></h3>
 
 ``` python
@@ -204,7 +220,9 @@ to_proto(export_scope=None)
 
 Converts this `QueueRunner` to a `QueueRunnerDef` protocol buffer.
 
+
 #### Args:
+
 
 * <b>`export_scope`</b>: Optional `string`. Name scope to remove.
 
@@ -213,6 +231,7 @@ Converts this `QueueRunner` to a `QueueRunnerDef` protocol buffer.
 
 A `QueueRunnerDef` protocol buffer, or `None` if the `Variable` is not in
 the specified name scope.
+
 
 
 

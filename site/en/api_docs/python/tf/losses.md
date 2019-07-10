@@ -7,11 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Loss operations for use in neural networks.
-
-Note: All the losses are added to the `GraphKeys.LOSSES` collection by default.
 
 ## Classes
 

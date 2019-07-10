@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.lookup.string_to_index
 
+Maps `tensor` of strings into `int64` indices based on `mapping`. (deprecated)
+
 ``` python
 tf.contrib.lookup.string_to_index(
     tensor,
@@ -16,9 +18,9 @@ tf.contrib.lookup.string_to_index(
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`contrib/lookup/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/lookup/lookup_ops.py).
 
-Maps `tensor` of strings into `int64` indices based on `mapping`. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2017-01-07.
 Instructions for updating:
@@ -35,9 +37,11 @@ Elements in `mapping` cannot be duplicated, otherwise the initialization
 will throw a FailedPreconditionError.
 
 The underlying table must be initialized by calling
-`session.run(tf.tables_initializer)` once.
+`session.run(tf.compat.v1.tables_initializer)` once.
 
-For example:
+#### For example:
+
+
 
 ```python
 mapping_strings = tf.constant(["emerson", "lake", "palmer"])
@@ -45,18 +49,19 @@ feats = tf.constant(["emerson", "lake", "and", "palmer"])
 ids = tf.contrib.lookup.string_to_index(
     feats, mapping=mapping_strings, default_value=-1)
 ...
-tf.tables_initializer().run()
+tf.compat.v1.tables_initializer().run()
 
 ids.eval()  ==> [0, 1, -1, 2]
 ```
 
 #### Args:
 
+
 * <b>`tensor`</b>: A 1-D input `Tensor` with the strings to map to indices.
 * <b>`mapping`</b>: A 1-D string `Tensor` that specifies the mapping of strings to
-    indices.
+  indices.
 * <b>`default_value`</b>: The `int64` value to use for out-of-vocabulary strings.
-    Defaults to -1.
+  Defaults to -1.
 * <b>`name`</b>: A name for this op (optional).
 
 

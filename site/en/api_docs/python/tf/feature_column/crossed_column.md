@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.feature_column.crossed_column
 
+Returns a column for performing crosses of categorical features.
+
+### Aliases:
+
+* `tf.compat.v1.feature_column.crossed_column`
+* `tf.compat.v2.feature_column.crossed_column`
+* `tf.feature_column.crossed_column`
+
 ``` python
 tf.feature_column.crossed_column(
     keys,
@@ -15,9 +23,9 @@ tf.feature_column.crossed_column(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/feature_column/feature_column_v2.py).
+Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
-Returns a column for performing crosses of categorical features.
+<!-- Placeholder for "Used in" -->
 
 Crossed features will be hashed according to `hash_bucket_size`. Conceptually,
 the transformation can be thought of as:
@@ -58,7 +66,7 @@ Here is an example to create a linear model with crosses of string features:
 ```python
 keywords_x_doc_terms = crossed_column(['keywords', 'doc_terms'], 50K)
 columns = [keywords_x_doc_terms, ...]
-features = tf.parse_example(..., features=make_parse_example_spec(columns))
+features = tf.io.parse_example(..., features=make_parse_example_spec(columns))
 linear_prediction = linear_model(features, columns)
 ```
 
@@ -69,7 +77,7 @@ keywords = categorical_column_with_vocabulary_file(
     'keywords', '/path/to/vocabulary/file', vocabulary_size=1K)
 keywords_x_doc_terms = crossed_column([keywords, 'doc_terms'], 50K)
 columns = [keywords_x_doc_terms, ...]
-features = tf.parse_example(..., features=make_parse_example_spec(columns))
+features = tf.io.parse_example(..., features=make_parse_example_spec(columns))
 linear_prediction = linear_model(features, columns)
 ```
 
@@ -84,7 +92,7 @@ price = numeric_column('price')
 bucketized_price = bucketized_column(price, boundaries=[...])
 vertical_id_x_price = crossed_column([vertical_id, bucketized_price], 50K)
 columns = [vertical_id_x_price, ...]
-features = tf.parse_example(..., features=make_parse_example_spec(columns))
+features = tf.io.parse_example(..., features=make_parse_example_spec(columns))
 linear_prediction = linear_model(features, columns)
 ```
 
@@ -99,14 +107,15 @@ dense_tensor = input_layer(features, [vertical_id_x_price_embedded, ...])
 
 #### Args:
 
+
 * <b>`keys`</b>: An iterable identifying the features to be crossed. Each element can
-    be either:
-    * string: Will use the corresponding feature which must be of string type.
-    * `CategoricalColumn`: Will use the transformed tensor produced by this
-      column. Does not support hashed categorical column.
+  be either:
+  * string: Will use the corresponding feature which must be of string type.
+  * `CategoricalColumn`: Will use the transformed tensor produced by this
+    column. Does not support hashed categorical column.
 * <b>`hash_bucket_size`</b>: An int > 1. The number of buckets.
 * <b>`hash_key`</b>: Specify the hash_key that will be used by the `FingerprintCat64`
-    function to combine the crosses fingerprints on SparseCrossOp (optional).
+  function to combine the crosses fingerprints on SparseCrossOp (optional).
 
 
 #### Returns:
@@ -114,7 +123,9 @@ dense_tensor = input_layer(features, [vertical_id_x_price_embedded, ...])
 A `CrossedColumn`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `len(keys) < 2`.
 * <b>`ValueError`</b>: If any of the keys is neither a string nor `CategoricalColumn`.

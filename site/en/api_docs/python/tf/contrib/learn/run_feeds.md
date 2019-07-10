@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.learn.run_feeds
 
+See run_feeds_iter(). Returns a `list` instead of an iterator. (deprecated)
+
 ``` python
 tf.contrib.learn.run_feeds(
     *args,
@@ -14,9 +16,9 @@ tf.contrib.learn.run_feeds(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/graph_actions.py).
+Defined in [`contrib/learn/python/learn/graph_actions.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/graph_actions.py).
 
-See run_feeds_iter(). Returns a `list` instead of an iterator. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2017-02-15.
 Instructions for updating:

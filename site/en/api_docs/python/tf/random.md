@@ -7,9 +7,12 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
 
-Public API for tf.random namespace.
+## Modules
+
+[`experimental`](../tf/random/experimental) module
 
 ## Functions
 
@@ -33,7 +36,7 @@ Public API for tf.random namespace.
 
 [`poisson(...)`](../tf/random/poisson): Draws `shape` samples from each of the given Poisson distribution(s).
 
-[`set_random_seed(...)`](../tf/random/set_random_seed): Sets the graph-level random seed.
+[`set_random_seed(...)`](../tf/random/set_random_seed): Sets the graph-level random seed for the default graph.
 
 [`shuffle(...)`](../tf/random/shuffle): Randomly shuffles a tensor along its first dimension.
 

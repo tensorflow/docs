@@ -6,6 +6,8 @@ page_type: reference
 
 # tf.contrib.kernel_methods.sparse_multiclass_hinge_loss
 
+Adds Ops for computing the multiclass hinge loss.
+
 ``` python
 tf.contrib.kernel_methods.sparse_multiclass_hinge_loss(
     labels,
@@ -19,9 +21,9 @@ tf.contrib.kernel_methods.sparse_multiclass_hinge_loss(
 
 
 
-Defined in [`tensorflow/contrib/kernel_methods/python/losses.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/kernel_methods/python/losses.py).
+Defined in [`contrib/kernel_methods/python/losses.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/kernel_methods/python/losses.py).
 
-Adds Ops for computing the multiclass hinge loss.
+<!-- Placeholder for "Used in" -->
 
 The implementation is based on the following paper:
 On the Algorithmic Implementation of Multiclass Kernel-based Vector Machines
@@ -33,16 +35,17 @@ with correct label c*, the loss is given by:
 <div>   $$loss = max_{c != c*} logits_c - logits_{c*} + 1.$$ </div>
 or equivalently
 <div>   $$loss = max_c { logits_c - logits_{c*} + I_{c != c*} }$$ </div>
-where \(I_{c != c*} = 1\      ext{if}\ c != c*\) and 0 otherwise.
+where \\(I_{c != c*} = 1\ \text{if}\ c != c*\\) and 0 otherwise.
 
 #### Args:
 
+
 * <b>`labels`</b>: `Tensor` of shape [batch_size] or [batch_size, 1]. Corresponds to
-    the ground truth. Each entry must be an index in `[0, num_classes)`.
+  the ground truth. Each entry must be an index in `[0, num_classes)`.
 * <b>`logits`</b>: `Tensor` of shape [batch_size, num_classes] corresponding to the
-    unscaled logits. Its dtype should be either `float32` or `float64`.
+  unscaled logits. Its dtype should be either `float32` or `float64`.
 * <b>`weights`</b>: Optional (python) scalar or `Tensor`. If a non-scalar `Tensor`, its
-    rank should be either 1 ([batch_size]) or 2 ([batch_size, 1]).
+  rank should be either 1 ([batch_size]) or 2 ([batch_size, 1]).
 * <b>`scope`</b>: The scope for the operations performed in computing the loss.
 * <b>`loss_collection`</b>: collection to which the loss will be added.
 * <b>`reduction`</b>: Type of reduction to apply to loss.
@@ -54,8 +57,10 @@ Weighted loss float `Tensor`. If `reduction` is `NONE`, this has the same
 shape as `labels`; otherwise, it is a scalar.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `logits`, `labels` or `weights` have invalid or inconsistent
-    shapes.
+  shapes.
 * <b>`ValueError`</b>: If `labels` tensor has invalid dtype.

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.metrics.auc
 
+Computes the approximate AUC via a Riemann sum.
+
+### Aliases:
+
+* `tf.compat.v1.metrics.auc`
+* `tf.metrics.auc`
+
 ``` python
 tf.metrics.auc(
     labels,
@@ -15,15 +22,16 @@ tf.metrics.auc(
     updates_collections=None,
     curve='ROC',
     name=None,
-    summation_method='trapezoidal'
+    summation_method='trapezoidal',
+    thresholds=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/metrics_impl.py).
+Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
-Computes the approximate AUC via a Riemann sum.
+<!-- Placeholder for "Used in" -->
 
 The `auc` function creates four local variables, `true_positives`,
 `true_negatives`, `false_positives` and `false_negatives` that are used to
@@ -44,7 +52,9 @@ For best results, `predictions` should be distributed approximately uniformly
 in the range [0, 1] and not peaked around 0 or 1. The quality of the AUC
 approximation may be poor if this is not the case. Setting `summation_method`
 to 'minoring' or 'majoring' can help quantify the error in the approximation
-by providing lower or upper bound estimate of the AUC.
+by providing lower or upper bound estimate of the AUC. The `thresholds`
+parameter can be used to manually specify thresholds which split the
+predictions more evenly.
 
 For estimation of the metric over a stream of data, the function creates an
 `update_op` operation that updates these variables and returns the `auc`.
@@ -53,46 +63,55 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`labels`</b>: A `Tensor` whose shape matches `predictions`. Will be cast to
-    `bool`.
+  `bool`.
 * <b>`predictions`</b>: A floating point `Tensor` of arbitrary shape and whose values
-    are in the range `[0, 1]`.
+  are in the range `[0, 1]`.
 * <b>`weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
-    `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
-    be either `1`, or the same as the corresponding `labels` dimension).
+  `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
+  be either `1`, or the same as the corresponding `labels` dimension).
 * <b>`num_thresholds`</b>: The number of thresholds to use when discretizing the roc
-    curve.
+  curve.
 * <b>`metrics_collections`</b>: An optional list of collections that `auc` should be
-    added to.
+  added to.
 * <b>`updates_collections`</b>: An optional list of collections that `update_op` should
-    be added to.
+  be added to.
 * <b>`curve`</b>: Specifies the name of the curve to be computed, 'ROC' [default] or
-    'PR' for the Precision-Recall-curve.
+  'PR' for the Precision-Recall-curve.
 * <b>`name`</b>: An optional variable_scope name.
 * <b>`summation_method`</b>: Specifies the Riemann summation method used
-    (https://en.wikipedia.org/wiki/Riemann_sum): 'trapezoidal' [default] that
-    applies the trapezoidal rule; 'careful_interpolation', a variant of it
-    differing only by a more correct interpolation scheme for PR-AUC -
-    interpolating (true/false) positives but not the ratio that is precision;
-    'minoring' that applies left summation for increasing intervals and right
-    summation for decreasing intervals; 'majoring' that does the opposite.
-    Note that 'careful_interpolation' is strictly preferred to 'trapezoidal'
-    (to be deprecated soon) as it applies the same method for ROC, and a
-    better one (see Davis & Goadrich 2006 for details) for the PR curve.
+  (https://en.wikipedia.org/wiki/Riemann_sum): 'trapezoidal' [default] that
+  applies the trapezoidal rule; 'careful_interpolation', a variant of it
+  differing only by a more correct interpolation scheme for PR-AUC -
+  interpolating (true/false) positives but not the ratio that is precision;
+  'minoring' that applies left summation for increasing intervals and right
+  summation for decreasing intervals; 'majoring' that does the opposite.
+  Note that 'careful_interpolation' is strictly preferred to 'trapezoidal'
+  (to be deprecated soon) as it applies the same method for ROC, and a
+  better one (see Davis & Goadrich 2006 for details) for the PR curve.
+* <b>`thresholds`</b>: An optional list of floating point values to use as the
+  thresholds for discretizing the curve. If set, the `num_thresholds`
+  parameter is ignored. Values should be in [0, 1]. Endpoint thresholds
+  equal to {-epsilon, 1+epsilon} for a small positive epsilon value will be
+  automatically included with these to correctly handle predictions equal to
+   exactly 0 or 1.
 
 
 #### Returns:
 
+
 * <b>`auc`</b>: A scalar `Tensor` representing the current area-under-curve.
 * <b>`update_op`</b>: An operation that increments the `true_positives`,
-    `true_negatives`, `false_positives` and `false_negatives` variables
-    appropriately and whose value matches `auc`.
+  `true_negatives`, `false_positives` and `false_negatives` variables
+  appropriately and whose value matches `auc`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `predictions` and `labels` have mismatched shapes, or if
-    `weights` is not `None` and its shape doesn't match `predictions`, or if
-    either `metrics_collections` or `updates_collections` are not a list or
-    tuple.
+  `weights` is not `None` and its shape doesn't match `predictions`, or if
+  either `metrics_collections` or `updates_collections` are not a list or
+  tuple.
 * <b>`RuntimeError`</b>: If eager execution is enabled.

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.get_graph_from_inputs
 
+Returns the appropriate graph to use for the given inputs.
+
 ``` python
 tf.contrib.framework.get_graph_from_inputs(
     op_input_list,
@@ -14,9 +16,9 @@ tf.contrib.framework.get_graph_from_inputs(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/ops.py).
+Defined in [`contrib/framework/python/ops/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/ops.py).
 
-Returns the appropriate graph to use for the given inputs.
+<!-- Placeholder for "Used in" -->
 
 1. If `graph` is provided, we validate that all inputs in `op_input_list` are
    from the same graph.
@@ -28,18 +30,20 @@ Returns the appropriate graph to use for the given inputs.
 
 #### Args:
 
+
 * <b>`op_input_list`</b>: A list of inputs to an operation, which may include `Tensor`,
-    `Operation`, and other objects that may be converted to a graph element.
+  `Operation`, and other objects that may be converted to a graph element.
 * <b>`graph`</b>: (Optional) The explicit graph to use.
 
 
 #### Raises:
 
+
 * <b>`TypeError`</b>: If `op_input_list` is not a list or tuple, or if graph is not a
-    Graph.
+  Graph.
 * <b>`ValueError`</b>: If a graph is explicitly passed and not all inputs are from it,
-    or if the inputs are from multiple graphs, or we could not find a graph
-    and there was no default graph.
+  or if the inputs are from multiple graphs, or we could not find a graph
+  and there was no default graph.
 
 
 #### Returns:

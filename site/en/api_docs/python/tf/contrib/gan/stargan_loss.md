@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.stargan_loss
 
+StarGAN Loss.
+
 ``` python
 tf.contrib.gan.stargan_loss(
     model,
@@ -25,39 +27,39 @@ tf.contrib.gan.stargan_loss(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/train.py).
+Defined in [`contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/train.py).
 
-StarGAN Loss.
+<!-- Placeholder for "Used in" -->
 
-The four major part can be found here: http://screen/tMRMBAohDYG.
 
 #### Args:
 
+
 * <b>`model`</b>: (StarGAN) Model output of the stargan_model() function call.
 * <b>`generator_loss_fn`</b>: The loss function on the generator. Takes a
-    `StarGANModel` named tuple.
+  `StarGANModel` named tuple.
 * <b>`discriminator_loss_fn`</b>: The loss function on the discriminator. Takes a
-    `StarGANModel` namedtuple.
+  `StarGANModel` namedtuple.
 * <b>`gradient_penalty_weight`</b>: (float) Gradient penalty weight. Default to 10 per
-    the original paper https://arxiv.org/abs/1711.09020. Set to 0 or None to
+  the original paper https://arxiv.org/abs/1711.09020. Set to 0 or None to
     turn off gradient penalty.
 * <b>`gradient_penalty_epsilon`</b>: (float) A small positive number added for
-    numerical stability when computing the gradient norm.
+  numerical stability when computing the gradient norm.
 * <b>`gradient_penalty_target`</b>: (float, or tf.float `Tensor`) The target value of
-    gradient norm. Defaults to 1.0.
+  gradient norm. Defaults to 1.0.
 * <b>`gradient_penalty_one_sided`</b>: (bool) If `True`, penalty proposed in
-    https://arxiv.org/abs/1709.08894 is used. Defaults to `False`.
+  https://arxiv.org/abs/1709.08894 is used. Defaults to `False`.
 * <b>`reconstruction_loss_fn`</b>: The reconstruction loss function. Default to L1-norm
-    and the function must conform to the <a href="../../../tf/losses"><code>tf.losses</code></a> API.
+  and the function must conform to the <a href="../../../tf/losses"><code>tf.losses</code></a> API.
 * <b>`reconstruction_loss_weight`</b>: Reconstruction loss weight. Default to 10.0.
 * <b>`classification_loss_fn`</b>: The loss function on the discriminator's ability to
-    classify domain of the input. Default to one-hot softmax cross entropy
-    loss, and the function must conform to the <a href="../../../tf/losses"><code>tf.losses</code></a> API.
+  classify domain of the input. Default to one-hot softmax cross entropy
+  loss, and the function must conform to the <a href="../../../tf/losses"><code>tf.losses</code></a> API.
 * <b>`classification_loss_weight`</b>: (float) Classification loss weight. Default to
-    1.0.
+  1.0.
 * <b>`classification_one_hot`</b>: (bool) If the label is one hot representation.
-    Default to True. If False, classification classification_loss_fn need to
-    be sigmoid cross entropy loss instead.
+  Default to True. If False, classification classification_loss_fn need to
+  be sigmoid cross entropy loss instead.
 * <b>`add_summaries`</b>: (bool) Add the loss to the summary
 
 
@@ -66,7 +68,9 @@ The four major part can be found here: http://screen/tMRMBAohDYG.
 GANLoss namedtuple where we have generator loss and discriminator loss.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If input StarGANModel.input_data_domain_label does not have rank
-  2, or dimension 2 is not defined.
+2, or dimension 2 is not defined.

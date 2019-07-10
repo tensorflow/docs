@@ -7,20 +7,26 @@ page_type: reference
 
 ## Class `RegisterKL`
 
+Decorator to register a KL divergence implementation function.
+
 
 
 ### Aliases:
 
+* Class `tf.compat.v1.distributions.RegisterKL`
 * Class `tf.contrib.distributions.RegisterKL`
 * Class `tf.distributions.RegisterKL`
 
 
 
-Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/distributions/kullback_leibler.py).
+Defined in [`python/ops/distributions/kullback_leibler.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/kullback_leibler.py).
 
-Decorator to register a KL divergence implementation function.
+<!-- Placeholder for "Used in" -->
 
-Usage:
+
+#### Usage:
+
+
 
 @distributions.RegisterKL(distributions.Normal, distributions.Normal)
 def _kl_normal_mvn(norm_a, norm_b):
@@ -43,6 +49,7 @@ The TensorFlow Distributions library has moved to TensorFlow Probability (https:
 
 #### Args:
 
+
 * <b>`dist_cls_a`</b>: the class of the first argument of the KL divergence.
 * <b>`dist_cls_b`</b>: the class of the second argument of the KL divergence.
 
@@ -58,7 +65,9 @@ __call__(kl_fn)
 
 Perform the KL registration.
 
+
 #### Args:
+
 
 * <b>`kl_fn`</b>: The function to use for the KL divergence.
 
@@ -68,11 +77,13 @@ Perform the KL registration.
 kl_fn
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if kl_fn is not a callable.
 * <b>`ValueError`</b>: if a KL divergence function has already been registered for
-    the given argument classes.
+  the given argument classes.
 
 
 

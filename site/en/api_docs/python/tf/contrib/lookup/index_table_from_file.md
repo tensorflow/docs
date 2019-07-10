@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.lookup.index_table_from_file
 
+Returns a lookup table that converts a string tensor into int64 IDs.
+
 ``` python
 tf.contrib.lookup.index_table_from_file(
     vocabulary_file=None,
@@ -22,9 +24,9 @@ tf.contrib.lookup.index_table_from_file(
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/lookup_ops.py).
+Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
-Returns a lookup table that converts a string tensor into int64 IDs.
+<!-- Placeholder for "Used in" -->
 
 This operation constructs a lookup table to convert tensor of strings into
 int64 IDs. The mapping can be initialized from a vocabulary file specified in
@@ -38,7 +40,8 @@ The bucket ID range is
 `[vocabulary size, vocabulary size + num_oov_buckets - 1]`.
 
 The underlying table must be initialized by calling
-`session.run(tf.tables_initializer)` or `session.run(table.init)` once.
+`session.run(tf.compat.v1.tables_initializer)` or `session.run(table.init)`
+once.
 
 To specify multi-column vocabulary files, use key_column_index and
 value_column_index and delimiter.
@@ -50,7 +53,9 @@ value_column_index and delimiter.
 - A value >=0 means use the index (starting at zero) of the split line based
   on `delimiter`.
 
-Sample Usages:
+#### Sample Usages:
+
+
 
 If we have a vocabulary file "test.txt" with the following content:
 
@@ -66,26 +71,27 @@ table = tf.lookup.index_table_from_file(
     vocabulary_file="test.txt", num_oov_buckets=1)
 ids = table.lookup(features)
 ...
-tf.tables_initializer().run()
+tf.compat.v1.tables_initializer().run()
 
 ids.eval()  ==> [0, 1, 3, 2]  # where 3 is the out-of-vocabulary bucket
 ```
 
 #### Args:
 
+
 * <b>`vocabulary_file`</b>: The vocabulary filename, may be a constant scalar `Tensor`.
 * <b>`num_oov_buckets`</b>: The number of out-of-vocabulary buckets.
 * <b>`vocab_size`</b>: Number of the elements in the vocabulary, if known.
 * <b>`default_value`</b>: The value to use for out-of-vocabulary feature values.
-    Defaults to -1.
+  Defaults to -1.
 * <b>`hasher_spec`</b>: A `HasherSpec` to specify the hash function to use for
-    assignation of out-of-vocabulary buckets.
+  assignation of out-of-vocabulary buckets.
 * <b>`key_dtype`</b>: The `key` data type.
 * <b>`name`</b>: A name for this op (optional).
 * <b>`key_column_index`</b>: The column index from the text file to get the `key`
-    values from. The default is to use the whole line content.
+  values from. The default is to use the whole line content.
 * <b>`value_column_index`</b>: The column index from the text file to get the `value`
-    values from. The default is to use the line number, starting from zero.
+  values from. The default is to use the line number, starting from zero.
 * <b>`delimiter`</b>: The delimiter to separate fields in a line.
 
 
@@ -94,8 +100,10 @@ ids.eval()  ==> [0, 1, 3, 2]  # where 3 is the out-of-vocabulary bucket
 The lookup table to map a `key_dtype` `Tensor` to index `int64` `Tensor`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `vocabulary_file` is not set.
 * <b>`ValueError`</b>: If `num_oov_buckets` is negative or `vocab_size` is not greater
-    than zero.
+  than zero.

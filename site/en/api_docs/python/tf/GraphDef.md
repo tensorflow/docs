@@ -11,7 +11,39 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/framework/graph.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/framework/graph.proto).
+### Aliases:
 
-A ProtocolMessage
+* Class `tf.GraphDef`
+* Class `tf.compat.v1.GraphDef`
+
+
+
+Defined in [`core/framework/graph.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/graph.proto).
+
+<!-- Placeholder for "Used in" -->
+
+
+## Properties
+
+<h3 id="library"><code>library</code></h3>
+
+`FunctionDefLibrary library`
+
+
+<h3 id="node"><code>node</code></h3>
+
+`repeated NodeDef node`
+
+
+<h3 id="version"><code>version</code></h3>
+
+`int32 version`
+
+
+<h3 id="versions"><code>versions</code></h3>
+
+`VersionDef versions`
+
+
+
 

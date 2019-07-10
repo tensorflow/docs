@@ -5,15 +5,22 @@ page_type: reference
 
 # tf.initialize_all_variables
 
+See <a href="../tf/initializers/global_variables"><code>tf.compat.v1.global_variables_initializer</code></a>. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.initialize_all_variables`
+* `tf.initialize_all_variables`
+
 ``` python
 tf.initialize_all_variables()
 ```
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variables.py).
+Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
-See <a href="../tf/initializers/global_variables"><code>tf.global_variables_initializer</code></a>. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2017-03-02.
 Instructions for updating:

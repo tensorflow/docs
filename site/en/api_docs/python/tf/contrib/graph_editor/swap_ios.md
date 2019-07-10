@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.swap_ios
 
+Swap the inputs and outputs of sgv1 to sgv0 (see _reroute_sgv).
+
 ``` python
 tf.contrib.graph_editor.swap_ios(
     sgv0,
@@ -14,6 +16,6 @@ tf.contrib.graph_editor.swap_ios(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/reroute.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/reroute.py).
+Defined in [`contrib/graph_editor/reroute.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/reroute.py).
 
-Swap the inputs and outputs of sgv1 to sgv0 (see _reroute_sgv).
+<!-- Placeholder for "Used in" -->

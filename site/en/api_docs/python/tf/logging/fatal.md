@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.logging.fatal
 
+
+
+### Aliases:
+
+* `tf.compat.v1.logging.fatal`
+* `tf.logging.fatal`
+
 ``` python
 tf.logging.fatal(
     msg,
@@ -15,5 +22,6 @@ tf.logging.fatal(
 
 
 
-Defined in [`tensorflow/python/platform/tf_logging.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/tf_logging.py).
+Defined in [`python/platform/tf_logging.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/tf_logging.py).
 
+<!-- Placeholder for "Used in" -->

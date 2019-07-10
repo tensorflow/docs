@@ -6,6 +6,8 @@ page_type: reference
 
 # tf.contrib.image.interpolate_spline
 
+Interpolate signal using polyharmonic interpolation.
+
 ``` python
 tf.contrib.image.interpolate_spline(
     train_points,
@@ -19,9 +21,9 @@ tf.contrib.image.interpolate_spline(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/interpolate_spline.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/image/python/ops/interpolate_spline.py).
+Defined in [`contrib/image/python/ops/interpolate_spline.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/image/python/ops/interpolate_spline.py).
 
-Interpolate signal using polyharmonic interpolation.
+<!-- Placeholder for "Used in" -->
 
 The interpolant has the form
 <div> $$f(x) = \sum_{i = 1}^n w_i \phi(||x - c_i||) + v^T x + b.$$ </div>
@@ -54,19 +56,20 @@ at graph construction time. However, d and k must be known.
 
 #### Args:
 
+
 * <b>`train_points`</b>: `[batch_size, n, d]` float `Tensor` of n d-dimensional
-    locations. These do not need to be regularly-spaced.
+  locations. These do not need to be regularly-spaced.
 * <b>`train_values`</b>: `[batch_size, n, k]` float `Tensor` of n c-dimensional values
-    evaluated at train_points.
+  evaluated at train_points.
 * <b>`query_points`</b>: `[batch_size, m, d]` `Tensor` of m d-dimensional locations
-    where we will output the interpolant's values.
+  where we will output the interpolant's values.
 * <b>`order`</b>: order of the interpolation. Common values are 1 for
-    \\(\phi(r) = r\\), 2 for \\(\phi(r) = r^2 * log(r)\\) (thin-plate spline),
-     or 3 for \\(\phi(r) = r^3\\).
+  \\(\phi(r) = r\\), 2 for \\(\phi(r) = r^2 * log(r)\\) (thin-plate spline),
+   or 3 for \\(\phi(r) = r^3\\).
 * <b>`regularization_weight`</b>: weight placed on the regularization term.
-    This will depend substantially on the problem, and it should always be
-    tuned. For many problems, it is reasonable to use no regularization.
-    If using a non-zero value, we recommend a small value like 0.001.
+  This will depend substantially on the problem, and it should always be
+  tuned. For many problems, it is reasonable to use no regularization.
+  If using a non-zero value, we recommend a small value like 0.001.
 * <b>`name`</b>: name prefix for ops created by this function
 
 

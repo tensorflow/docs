@@ -7,28 +7,20 @@ page_type: reference
 
 ## Class `SparseTensorValue`
 
-
-
-
-
-Defined in [`tensorflow/python/framework/sparse_tensor.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/sparse_tensor.py).
-
 SparseTensorValue(indices, values, dense_shape)
 
-<h2 id="__new__"><code>__new__</code></h2>
 
-``` python
-@staticmethod
-__new__(
-    _cls,
-    indices,
-    values,
-    dense_shape
-)
-```
 
-Create new instance of SparseTensorValue(indices, values, dense_shape)
+### Aliases:
 
+* Class `tf.SparseTensorValue`
+* Class `tf.compat.v1.SparseTensorValue`
+
+
+
+Defined in [`python/framework/sparse_tensor.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/sparse_tensor.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 ## Properties
@@ -37,11 +29,14 @@ Create new instance of SparseTensorValue(indices, values, dense_shape)
 
 
 
+
 <h3 id="values"><code>values</code></h3>
 
 
 
+
 <h3 id="dense_shape"><code>dense_shape</code></h3>
+
 
 
 

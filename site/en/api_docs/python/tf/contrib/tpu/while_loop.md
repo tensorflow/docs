@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.tpu.while_loop
 
+Builds a training loop for TPUs.
+
 ``` python
 tf.contrib.tpu.while_loop(
     condition,
@@ -17,9 +19,9 @@ tf.contrib.tpu.while_loop(
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/training_loop.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/tpu/python/tpu/training_loop.py).
+Defined in [`python/tpu/training_loop.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/training_loop.py).
 
-Builds a training loop for TPUs.
+<!-- Placeholder for "Used in" -->
 
 The set of loop-carried tensors corresponds to `inputs`.  Both
 `condition` and `body` take the current value of the loop-carried
@@ -31,12 +33,13 @@ loop-carried tensors.
 
 #### Args:
 
+
 * <b>`condition`</b>: a Python function that builds the loop condition.
 * <b>`body`</b>: a Python function that builds the loop body.
 * <b>`inputs`</b>: a list of initial values passed into the training loop, or
-    None (equivalent to an empty list).
+  None (equivalent to an empty list).
 * <b>`infeed_queue`</b>: if not None, the infeed queue from which to append a tuple
-    of arguments as inputs to condition.
+  of arguments as inputs to condition.
 * <b>`name`</b>: (Deprecated) Does nothing.
 
 
@@ -45,6 +48,8 @@ loop-carried tensors.
 The final values of the loop-carried tensors.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if body or condition has the wrong signature.

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.summarize_tensors
 
+Summarize a set of tensors.
+
 ``` python
 tf.contrib.layers.summarize_tensors(
     tensors,
@@ -14,6 +16,6 @@ tf.contrib.layers.summarize_tensors(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/summaries.py).
+Defined in [`contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/summaries.py).
 
-Summarize a set of tensors.
+<!-- Placeholder for "Used in" -->

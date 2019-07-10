@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.sequence_mask
 
+Returns a mask tensor representing the first N positions of each cell.
+
+### Aliases:
+
+* `tf.compat.v1.sequence_mask`
+* `tf.compat.v2.sequence_mask`
+* `tf.sequence_mask`
+
 ``` python
 tf.sequence_mask(
     lengths,
@@ -16,9 +24,9 @@ tf.sequence_mask(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Returns a mask tensor representing the first N positions of each cell.
+<!-- Placeholder for "Used in" -->
 
 If `lengths` has shape `[d_1, d_2, ..., d_n]` the resulting tensor `mask` has
 dtype `dtype` and shape `[d_1, d_2, ..., d_n, maxlen]`, with
@@ -27,7 +35,9 @@ dtype `dtype` and shape `[d_1, d_2, ..., d_n, maxlen]`, with
 mask[i_1, i_2, ..., i_n, j] = (j < lengths[i_1, i_2, ..., i_n])
 ```
 
-Examples:
+#### Examples:
+
+
 
 ```python
 tf.sequence_mask([1, 3, 2], 5)  # [[True, False, False, False, False],
@@ -42,16 +52,20 @@ tf.sequence_mask([[1, 3],[2,0]])  # [[[True, False, False],
 
 #### Args:
 
+
 * <b>`lengths`</b>: integer tensor, all its values <= maxlen.
 * <b>`maxlen`</b>: scalar integer tensor, size of last dimension of returned tensor.
-    Default is the maximum value in `lengths`.
+  Default is the maximum value in `lengths`.
 * <b>`dtype`</b>: output type of the resulting tensor.
 * <b>`name`</b>: name of the op.
+
 
 #### Returns:
 
 A mask tensor of shape `lengths.shape + (maxlen,)`, cast to specified dtype.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `maxlen` is not a scalar.

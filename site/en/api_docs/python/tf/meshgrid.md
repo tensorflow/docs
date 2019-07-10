@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.meshgrid
 
+Broadcasts parameters for evaluation on an N-D grid.
+
+### Aliases:
+
+* `tf.compat.v1.meshgrid`
+* `tf.compat.v2.meshgrid`
+* `tf.meshgrid`
+
 ``` python
 tf.meshgrid(
     *args,
@@ -14,20 +22,24 @@ tf.meshgrid(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Broadcasts parameters for evaluation on an N-D grid.
+<!-- Placeholder for "Used in" -->
 
 Given N one-dimensional coordinate arrays `*args`, returns a list `outputs`
 of N-D coordinate arrays for evaluating expressions on an N-D grid.
 
-Notes:
+#### Notes:
+
+
 
 `meshgrid` supports cartesian ('xy') and matrix ('ij') indexing conventions.
 When the `indexing` argument is set to 'xy' (the default), the broadcasting
 instructions for the first two dimensions are swapped.
 
-Examples:
+#### Examples:
+
+
 
 Calling `X, Y = meshgrid(x, y)` with the tensors
 
@@ -45,17 +57,20 @@ X, Y = tf.meshgrid(x, y)
 
 #### Args:
 
+
 * <b>`*args`</b>: `Tensor`s with rank 1.
-* <b>`**kwargs`</b>:     - indexing: Either 'xy' or 'ij' (optional, default: 'xy').
-    - name: A name for the operation (optional).
+* <b>`**kwargs`</b>:   - indexing: Either 'xy' or 'ij' (optional, default: 'xy').
+  - name: A name for the operation (optional).
 
 
 #### Returns:
+
 
 * <b>`outputs`</b>: A list of N `Tensor`s with rank N.
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: When no keyword arguments (kwargs) are passed.
 * <b>`ValueError`</b>: When indexing keyword argument is not one of `xy` or `ij`.

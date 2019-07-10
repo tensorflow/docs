@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.sparse.reshape
 
+Reshapes a `SparseTensor` to represent values in a new dense shape.
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.reshape`
+* `tf.compat.v1.sparse_reshape`
+* `tf.compat.v2.sparse.reshape`
 * `tf.sparse.reshape`
 * `tf.sparse_reshape`
 
@@ -20,9 +25,9 @@ tf.sparse.reshape(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Reshapes a `SparseTensor` to represent values in a new dense shape.
+<!-- Placeholder for "Used in" -->
 
 This operation has the same semantics as `reshape` on the represented dense
 tensor.  The indices of non-empty values in `sp_input` are recomputed based
@@ -55,9 +60,10 @@ shape `[9, 4]` and `indices` / `values`:
 
 #### Args:
 
+
 * <b>`sp_input`</b>: The input `SparseTensor`.
 * <b>`shape`</b>: A 1-D (vector) int64 `Tensor` specifying the new dense shape of the
-    represented `SparseTensor`.
+  represented `SparseTensor`.
 * <b>`name`</b>: A name prefix for the returned tensors (optional)
 
 
@@ -67,9 +73,11 @@ A `SparseTensor` with the same non-empty values but with indices calculated
 by the new dense shape.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `sp_input` is not a `SparseTensor`.
 * <b>`ValueError`</b>:  If argument `shape` requests a `SparseTensor` with a different
-    number of elements than `sp_input`.
+  number of elements than `sp_input`.
 * <b>`ValueError`</b>:  If `shape` has more than one inferred (== -1) dimension.

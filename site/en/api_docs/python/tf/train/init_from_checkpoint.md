@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.init_from_checkpoint
 
+Replaces <a href="../../tf/Variable"><code>tf.Variable</code></a> initializers so they load from a checkpoint file.
+
+### Aliases:
+
+* `tf.compat.v1.train.init_from_checkpoint`
+* `tf.train.init_from_checkpoint`
+
 ``` python
 tf.train.init_from_checkpoint(
     ckpt_dir_or_file,
@@ -14,12 +21,12 @@ tf.train.init_from_checkpoint(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/checkpoint_utils.py).
+Defined in [`python/training/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_utils.py).
 
-Replaces <a href="../../tf/Variable"><code>tf.Variable</code></a> initializers so they load from a checkpoint file.
+<!-- Placeholder for "Used in" -->
 
 Values are not loaded immediately, but when the initializer is run
-(typically by running a <a href="../../tf/initializers/global_variables"><code>tf.global_variables_initializer</code></a> op).
+(typically by running a <a href="../../tf/initializers/global_variables"><code>tf.compat.v1.global_variables_initializer</code></a> op).
 
 Note: This overrides default initialization ops of specified variables and
 redefines dtype.
@@ -42,7 +49,9 @@ Assignment map supports following syntax:
 Supports loading into partitioned variables, which are represented as
 `'<variable>/part_<part #>'`.
 
-Example:
+#### Example:
+
+
 
 ```python
 
@@ -52,15 +61,15 @@ Example:
 #  -- name='old_scope_2/var3', shape=[100, 100]
 
 # Create new model's variables
-with tf.variable_scope('new_scope_1'):
-  var1 = tf.get_variable('var1', shape=[20, 2],
-                         initializer=tf.zeros_initializer())
-with tf.variable_scope('new_scope_2'):
-  var2 = tf.get_variable('var2', shape=[50, 4],
-                         initializer=tf.zeros_initializer())
+with tf.compat.v1.variable_scope('new_scope_1'):
+  var1 = tf.compat.v1.get_variable('var1', shape=[20, 2],
+                         initializer=tf.compat.v1.zeros_initializer())
+with tf.compat.v1.variable_scope('new_scope_2'):
+  var2 = tf.compat.v1.get_variable('var2', shape=[50, 4],
+                         initializer=tf.compat.v1.zeros_initializer())
   # Partition into 5 variables along the first axis.
-  var3 = tf.get_variable(name='var3', shape=[100, 100],
-                         initializer=tf.zeros_initializer(),
+  var3 = tf.compat.v1.get_variable(name='var3', shape=[100, 100],
+                         initializer=tf.compat.v1.zeros_initializer(),
                          partitioner=lambda shape, dtype: [5, 1])
 
 # Initialize all variables in `new_scope_1` from `old_scope_1`.
@@ -88,13 +97,15 @@ init_from_checkpoint('/tmp/model.ckpt',
 
 #### Args:
 
+
 * <b>`ckpt_dir_or_file`</b>: Directory with checkpoints file or path to checkpoint.
 * <b>`assignment_map`</b>: Dict, where keys are names of the variables in the
-    checkpoint and values are current variables or names of current variables
-    (in default graph).
+  checkpoint and values are current variables or names of current variables
+  (in default graph).
 
 
 #### Raises:
 
-* <b>`tf.errors.OpError`</b>: If missing checkpoints or tensors in checkpoints.
-* <b>`ValueError`</b>: If missing variables in current graph.
+
+* <b>`ValueError`</b>: If missing variables in current graph, or if missing
+  checkpoints or tensors in checkpoints.

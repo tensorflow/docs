@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.constrained_optimization
 
-
-
-Defined in [`tensorflow/contrib/constrained_optimization/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/constrained_optimization/__init__.py).
-
 A library for performing constrained optimization in TensorFlow.
+
+
+
+Defined in [`contrib/constrained_optimization/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/constrained_optimization/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 

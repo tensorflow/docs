@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.io.deserialize_many_sparse
 
+Deserialize and concatenate `SparseTensors` from a serialized minibatch.
+
 ### Aliases:
 
+* `tf.compat.v1.deserialize_many_sparse`
+* `tf.compat.v1.io.deserialize_many_sparse`
+* `tf.compat.v2.io.deserialize_many_sparse`
 * `tf.deserialize_many_sparse`
 * `tf.io.deserialize_many_sparse`
 
@@ -21,9 +26,9 @@ tf.io.deserialize_many_sparse(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Deserialize and concatenate `SparseTensors` from a serialized minibatch.
+<!-- Placeholder for "Used in" -->
 
 The input `serialized_sparse` must be a string matrix of shape `[N x 3]` where
 `N` is the minibatch size and the rows correspond to packed outputs of
@@ -39,7 +44,7 @@ size.
 
 The input `SparseTensor` objects' indices are assumed ordered in
 standard lexicographic order.  If this is not the case, after this
-step run `sparse.reorder` to restore index ordering.
+step run <a href="../../tf/sparse/reorder"><code>sparse.reorder</code></a> to restore index ordering.
 
 For example, if the serialized input is a `[2, 3]` matrix representing two
 original `SparseTensor` objects:
@@ -69,8 +74,9 @@ then the final deserialized `SparseTensor` will be:
 
 #### Args:
 
+
 * <b>`serialized_sparse`</b>: 2-D `Tensor` of type `string` of shape `[N, 3]`.
-    The serialized and packed `SparseTensor` objects.
+  The serialized and packed `SparseTensor` objects.
 * <b>`dtype`</b>: The `dtype` of the serialized `SparseTensor` objects.
 * <b>`rank`</b>: (optional) Python int, the rank of the `SparseTensor` objects.
 * <b>`name`</b>: A name prefix for the returned tensors (optional)

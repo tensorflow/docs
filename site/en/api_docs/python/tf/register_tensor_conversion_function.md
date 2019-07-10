@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.register_tensor_conversion_function
 
+Registers a function for converting objects of `base_type` to `Tensor`.
+
+### Aliases:
+
+* `tf.compat.v1.register_tensor_conversion_function`
+* `tf.compat.v2.register_tensor_conversion_function`
+* `tf.register_tensor_conversion_function`
+
 ``` python
 tf.register_tensor_conversion_function(
     base_type,
@@ -15,9 +23,9 @@ tf.register_tensor_conversion_function(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
-Registers a function for converting objects of `base_type` to `Tensor`.
+<!-- Placeholder for "Used in" -->
 
 The conversion function must have the following signature:
 
@@ -44,16 +52,18 @@ registered with a smaller priority than `G`.
 
 #### Args:
 
+
 * <b>`base_type`</b>: The base type or tuple of base types for all objects that
-    `conversion_func` accepts.
+  `conversion_func` accepts.
 * <b>`conversion_func`</b>: A function that converts instances of `base_type` to
-    `Tensor`.
+  `Tensor`.
 * <b>`priority`</b>: Optional integer that indicates the priority for applying this
-    conversion function. Conversion functions with smaller priority values
-    run earlier than conversion functions with larger priority values.
-    Defaults to 100.
+  conversion function. Conversion functions with smaller priority values run
+  earlier than conversion functions with larger priority values. Defaults to
+  100.
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: If the arguments do not have the appropriate type.

@@ -5,26 +5,40 @@ page_type: reference
 
 # tf.keras.backend.eval
 
+Evaluates the value of a variable.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.eval`
+* `tf.compat.v2.keras.backend.eval`
+* `tf.keras.backend.eval`
+
 ``` python
 tf.keras.backend.eval(x)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Evaluates the value of a variable.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: A variable.
 
 
 #### Returns:
 
-    A Numpy array.
+A Numpy array.
 
-Examples:
+
+
+#### Examples:
+
+
 ```python
     >>> from keras import backend as K
     >>> kvar = K.variable(np.array([[1, 2], [3, 4]]), dtype='float32')

@@ -7,16 +7,18 @@ page_type: reference
 
 ## Class `SKCompat`
 
-
-
-
-
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
-
 Scikit learn wrapper for TensorFlow Learn Estimator.
 
+
+
+
+
+Defined in [`contrib/learn/python/learn/estimators/estimator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
+
+<!-- Placeholder for "Used in" -->
+
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.tensorflow.org/code/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 <h2 id="__init__"><code>__init__</code></h2>
@@ -50,6 +52,7 @@ fit(
 
 
 
+
 <h3 id="get_params"><code>get_params</code></h3>
 
 ``` python
@@ -58,18 +61,21 @@ get_params(deep=True)
 
 Get parameters for this estimator.
 
+
 #### Args:
+
 
 * <b>`deep`</b>: boolean, optional
 
-    If `True`, will return the parameters for this estimator and
-    contained subobjects that are estimators.
+  If `True`, will return the parameters for this estimator and
+  contained subobjects that are estimators.
 
 
 #### Returns:
 
-* <b>`params `</b>: mapping of string to any
-  Parameter names mapped to their values.
+
+* <b>`params`</b>: mapping of string to any
+Parameter names mapped to their values.
 
 <h3 id="predict"><code>predict</code></h3>
 
@@ -80,6 +86,7 @@ predict(
     outputs=None
 )
 ```
+
 
 
 
@@ -98,6 +105,7 @@ score(
 
 
 
+
 <h3 id="set_params"><code>set_params</code></h3>
 
 ``` python
@@ -113,6 +121,7 @@ component of a nested object.
 
 #### Args:
 
+
 * <b>`**params`</b>: Parameters.
 
 
@@ -121,7 +130,9 @@ component of a nested object.
 self
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If params contain invalid names.
 

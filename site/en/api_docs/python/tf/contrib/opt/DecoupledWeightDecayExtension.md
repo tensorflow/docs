@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `DecoupledWeightDecayExtension`
 
-
-
-
-
-Defined in [`tensorflow/contrib/opt/python/training/weight_decay_optimizers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py).
-
 This class allows to extend optimizers with decoupled weight decay.
+
+
+
+
+
+Defined in [`contrib/opt/python/training/weight_decay_optimizers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py).
+
+<!-- Placeholder for "Used in" -->
 
 It implements the decoupled weight decay described by Loshchilov & Hutter
 (https://arxiv.org/pdf/1711.05101.pdf), in which the weight decay is
@@ -46,7 +48,8 @@ Note: when applying a decay to the learning rate, be sure to manually apply
 the decay to the `weight_decay` as well. For example:
 
 ```python
-  schedule = tf.train.piecewise_constant(tf.train.get_global_step(), 
+  schedule =
+  tf.compat.v1.train.piecewise_constant(tf.compat.v1.train.get_global_step(),
                                          [10000, 15000], [1e-0, 1e-1, 1e-2])
   lr = 1e-1 * schedule()
   wd = lambda: 1e-4 * schedule()
@@ -70,12 +73,13 @@ __init__(
 
 Construct the extension class that adds weight decay to an optimizer.
 
+
 #### Args:
 
-* <b>`weight_decay`</b>: A `Tensor` or a floating point value, the factor by which
-    a variable is decayed in the update step.
-* <b>`**kwargs`</b>: Optional list or tuple or set of `Variable` objects to
-    decay.
+
+* <b>`weight_decay`</b>: A `Tensor` or a floating point value, the factor by which a
+  variable is decayed in the update step.
+* <b>`**kwargs`</b>: Optional list or tuple or set of `Variable` objects to decay.
 
 
 
@@ -103,12 +107,13 @@ For more information see the documentation of Optimizer.apply_gradients.
 
 #### Args:
 
+
 * <b>`grads_and_vars`</b>: List of (gradient, variable) pairs as returned by
-    `compute_gradients()`.
-* <b>`global_step`</b>: Optional `Variable` to increment by one after the
-    variables have been updated.
-* <b>`name`</b>: Optional name for the returned operation.  Default to the
-    name passed to the `Optimizer` constructor.
+  `compute_gradients()`.
+* <b>`global_step`</b>: Optional `Variable` to increment by one after the variables
+  have been updated.
+* <b>`name`</b>: Optional name for the returned operation.  Default to the name
+  passed to the `Optimizer` constructor.
 * <b>`decay_var_list`</b>: Optional list of decay variables.
 
 
@@ -116,6 +121,7 @@ For more information see the documentation of Optimizer.apply_gradients.
 
 An `Operation` that applies the specified gradients. If `global_step`
 was not None, that operation also increments `global_step`.
+
 
 <h3 id="minimize"><code>minimize</code></h3>
 
@@ -143,18 +149,19 @@ For more information see the documentation of Optimizer.minimize.
 
 #### Args:
 
+
 * <b>`loss`</b>: A `Tensor` containing the value to minimize.
-* <b>`global_step`</b>: Optional `Variable` to increment by one after the
-    variables have been updated.
+* <b>`global_step`</b>: Optional `Variable` to increment by one after the variables
+  have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
-    minimize `loss`.  Defaults to the list of variables collected in
-    the graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  minimize `loss`.  Defaults to the list of variables collected in the
+  graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
-    `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
+  `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
-    Valid values are defined in the class `AggregationMethod`.
-* <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with
-    the corresponding op.
+  Valid values are defined in the class `AggregationMethod`.
+* <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with the
+  corresponding op.
 * <b>`name`</b>: Optional name for the returned operation.
 * <b>`grad_loss`</b>: Optional. A `Tensor` holding the gradient computed for `loss`.
 * <b>`decay_var_list`</b>: Optional list of decay variables.
@@ -164,6 +171,7 @@ For more information see the documentation of Optimizer.minimize.
 
 An Operation that updates the variables in `var_list`.  If `global_step`
 was not `None`, that operation also increments `global_step`.
+
 
 
 

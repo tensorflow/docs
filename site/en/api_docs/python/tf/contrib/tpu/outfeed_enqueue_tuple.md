@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.tpu.outfeed_enqueue_tuple
 
+Enqueue multiple Tensor values on the computation outfeed.
+
 ``` python
 tf.contrib.tpu.outfeed_enqueue_tuple(
     inputs,
@@ -14,15 +16,17 @@ tf.contrib.tpu.outfeed_enqueue_tuple(
 
 
 
-Defined in generated file: `tensorflow/contrib/tpu/ops/gen_tpu_ops.py`.
+Defined in generated file: `python/ops/gen_tpu_ops.py`.
 
-An op which emits multiple Tensor values from an XLA computation.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`inputs`</b>: A list of `Tensor` objects.
-    A list of tensors that will be inserted into the outfeed queue as an
-    XLA tuple.
+  A list of tensors that will be inserted into the outfeed queue as an
+  XLA tuple.
 * <b>`name`</b>: A name for the operation (optional).
 
 

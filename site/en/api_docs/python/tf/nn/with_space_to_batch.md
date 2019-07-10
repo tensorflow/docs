@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.nn.with_space_to_batch
 
+Performs `op` on the space-to-batch representation of `input`.
+
+### Aliases:
+
+* `tf.compat.v1.nn.with_space_to_batch`
+* `tf.compat.v2.nn.with_space_to_batch`
+* `tf.nn.with_space_to_batch`
+
 ``` python
 tf.nn.with_space_to_batch(
     input,
@@ -19,9 +27,9 @@ tf.nn.with_space_to_batch(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Performs `op` on the space-to-batch representation of `input`.
+<!-- Placeholder for "Used in" -->
 
 This has the effect of transforming sliding window operations into the
 corresponding "atrous" operation in which the input is sampled at the
@@ -130,22 +138,23 @@ can be combined into a single `with_space_to_batch` operation as follows:
 
 #### Args:
 
+
 * <b>`input`</b>: Tensor of rank > max(spatial_dims).
 * <b>`dilation_rate`</b>: int32 Tensor of *known* shape [num_spatial_dims].
 * <b>`padding`</b>: str constant equal to "VALID" or "SAME"
 * <b>`op`</b>: Function that maps (input, num_spatial_dims, padding) -> output
 * <b>`filter_shape`</b>: If padding = "SAME", specifies the shape of the convolution
-    kernel/pooling window as an integer Tensor of shape [>=num_spatial_dims].
-    If padding = "VALID", filter_shape is ignored and need not be specified.
+  kernel/pooling window as an integer Tensor of shape [>=num_spatial_dims].
+  If padding = "VALID", filter_shape is ignored and need not be specified.
 * <b>`spatial_dims`</b>: Monotonically increasing sequence of `num_spatial_dims`
-    integers (which are >= 1) specifying the spatial dimensions of `input`
-    and output.  Defaults to: `range(1, num_spatial_dims+1)`.
+  integers (which are >= 1) specifying the spatial dimensions of `input`
+  and output.  Defaults to: `range(1, num_spatial_dims+1)`.
 * <b>`data_format`</b>: A string or None.  Specifies whether the channel dimension of
-    the `input` and output is the last dimension (default, or if `data_format`
-    does not start with "NC"), or the second dimension (if `data_format`
-    starts with "NC").  For N=1, the valid values are "NWC" (default) and
-    "NCW".  For N=2, the valid values are "NHWC" (default) and "NCHW".
-    For N=3, the valid values are "NDHWC" (default) and "NCDHW".
+  the `input` and output is the last dimension (default, or if `data_format`
+  does not start with "NC"), or the second dimension (if `data_format`
+  starts with "NC").  For N=1, the valid values are "NWC" (default) and
+  "NCW".  For N=2, the valid values are "NHWC" (default) and "NCHW".
+  For N=3, the valid values are "NDHWC" (default) and "NCDHW".
 
 
 #### Returns:
@@ -154,7 +163,9 @@ The output Tensor as described above, dimensions will vary based on the op
 provided.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `padding` is invalid or the arguments are incompatible.
 * <b>`ValueError`</b>: if `spatial_dims` are invalid.

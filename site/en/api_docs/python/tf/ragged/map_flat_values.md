@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.ragged.map_flat_values
 
+Applies `op` to the values of one or more RaggedTensors.
+
+### Aliases:
+
+* `tf.compat.v1.ragged.map_flat_values`
+* `tf.compat.v2.ragged.map_flat_values`
+* `tf.ragged.map_flat_values`
+
 ``` python
 tf.ragged.map_flat_values(
     op,
@@ -15,9 +23,9 @@ tf.ragged.map_flat_values(
 
 
 
-Defined in [`tensorflow/python/ops/ragged/ragged_functional_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/ragged/ragged_functional_ops.py).
+Defined in [`python/ops/ragged/ragged_functional_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_functional_ops.py).
 
-Applies `op` to the values of one or more RaggedTensors.
+<!-- Placeholder for "Used in" -->
 
 Replaces any `RaggedTensor` in `args` or `kwargs` with its `flat_values`
 tensor, and then calls `op`.  Returns a `RaggedTensor` that is constructed
@@ -27,7 +35,9 @@ the `op`.
 If the input arguments contain multiple `RaggedTensor`s, then they must have
 identical `nested_row_splits`.
 
-Examples:
+#### Examples:
+
+
 
 ```python
 >>> rt = ragged.constant([[1, 2, 3], [], [4, 5], [6]])
@@ -41,11 +51,12 @@ Examples:
 
 #### Args:
 
+
 * <b>`op`</b>: The operation that should be applied to the RaggedTensor `flat_values`.
-    `op` is typically an element-wise operation (such as math_ops.add), but
-    any operation that preserves the size of the outermost dimension can be
-    used.  I.e., `shape[0]` of the value returned by `op` must match
-    `shape[0]` of the `RaggedTensor`s' `flat_values` tensors.
+  `op` is typically an element-wise operation (such as math_ops.add), but
+  any operation that preserves the size of the outermost dimension can be
+  used.  I.e., `shape[0]` of the value returned by `op` must match
+  `shape[0]` of the `RaggedTensor`s' `flat_values` tensors.
 * <b>`*args`</b>: Arguments for `op`.
 * <b>`**kwargs`</b>: Keyword arguments for `op`.
 
@@ -55,7 +66,9 @@ Examples:
 A `RaggedTensor` whose `ragged_rank` matches the `ragged_rank` of all
 input `RaggedTensor`s.
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If args contains no `RaggedTensors`, or if the `nested_splits`
-    of the input `RaggedTensor`s are not identical.
+  of the input `RaggedTensor`s are not identical.

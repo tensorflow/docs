@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.while_loop
 
+Repeat `body` while the condition `cond` is true.
+
+### Aliases:
+
+* `tf.compat.v1.while_loop`
+* `tf.while_loop`
+
 ``` python
 tf.while_loop(
     cond,
@@ -22,9 +29,9 @@ tf.while_loop(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/control_flow_ops.py).
 
-Repeat `body` while the condition `cond` is true.
+<!-- Placeholder for "Used in" -->
 
 `cond` is a callable returning a boolean scalar tensor. `body` is a callable
 returning a (possibly nested) tuple, namedtuple or list of tensors of the same
@@ -38,12 +45,12 @@ return TensorArray objects.  The flows of the TensorArray objects will
 be appropriately forwarded between loops and during gradient calculations.
 
 Note that `while_loop` calls `cond` and `body` *exactly once* (inside the
-call to `while_loop`, and not at all during `Session.run()`). `while_loop`
+call to `while_loop`, and not at all during <a href="../tf/InteractiveSession#run"><code>Session.run()</code></a>). `while_loop`
 stitches together the graph fragments created during the `cond` and `body`
 calls with some additional graph nodes to create the graph flow that
 repeats `body` until `cond` returns false.
 
-For correctness, `tf.while_loop()` strictly enforces shape invariants for
+For correctness, <a href="../tf/while_loop"><code>tf.while_loop()</code></a> strictly enforces shape invariants for
 the loop variables. A shape invariant is a (possibly partial) shape that
 is unchanged across the iterations of the loop. An error will be raised
 if the shape of a loop variable after an iteration is determined to be more
@@ -86,22 +93,23 @@ sequences and large batches.
 
 #### Args:
 
+
 * <b>`cond`</b>: A callable that represents the termination condition of the loop.
 * <b>`body`</b>: A callable that represents the loop body.
 * <b>`loop_vars`</b>: A (possibly nested) tuple, namedtuple or list of numpy array,
-    `Tensor`, and `TensorArray` objects.
+  `Tensor`, and `TensorArray` objects.
 * <b>`shape_invariants`</b>: The shape invariants for the loop variables.
 * <b>`parallel_iterations`</b>: The number of iterations allowed to run in parallel. It
-    must be a positive integer.
+  must be a positive integer.
 * <b>`back_prop`</b>: Whether backprop is enabled for this while loop.
 * <b>`swap_memory`</b>: Whether GPU-CPU memory swap is enabled for this loop.
 * <b>`name`</b>: Optional name prefix for the returned tensors.
 * <b>`maximum_iterations`</b>: Optional maximum number of iterations of the while loop
-    to run.  If provided, the `cond` output is AND-ed with an additional
-    condition ensuring the number of iterations executed is no greater than
-    `maximum_iterations`.
+  to run.  If provided, the `cond` output is AND-ed with an additional
+  condition ensuring the number of iterations executed is no greater than
+  `maximum_iterations`.
 * <b>`return_same_structure`</b>: If True, output has same structure as `loop_vars`. If
-    eager execution is enabled, this is ignored (and always treated as True).
+  eager execution is enabled, this is ignored (and always treated as True).
 
 
 #### Returns:
@@ -114,12 +122,17 @@ The output tensors for the loop variables after the loop.
  otherwise.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if `cond` or `body` is not callable.
 * <b>`ValueError`</b>: if `loop_vars` is empty.
 
-Example:
+
+#### Example:
+
+
 
 ```python
 i = tf.constant(0)
@@ -175,9 +188,10 @@ import tensorflow as tf
 n = 10000
 x = tf.constant(list(range(n)))
 c = lambda i, x: i < n
-b = lambda i, x: (tf.Print(i + 1, [i]), tf.Print(x + 1, [i], "x:"))
+b = lambda i, x: (tf.compat.v1.Print(i + 1, [i]), tf.compat.v1.Print(x + 1,
+[i], "x:"))
 i, out = tf.while_loop(c, b, (0, x))
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
     print(sess.run(i))  # prints [0] ... [9999]
 
     # The following line may increment the counter and x in parallel.

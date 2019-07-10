@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.estimator.inputs.numpy_input_fn
 
+Returns input function that would feed dict of numpy arrays into the model.
+
+### Aliases:
+
+* `tf.compat.v1.estimator.inputs.numpy_input_fn`
+* `tf.estimator.inputs.numpy_input_fn`
+
 ``` python
 tf.estimator.inputs.numpy_input_fn(
     x,
@@ -17,13 +24,19 @@ tf.estimator.inputs.numpy_input_fn(
 )
 ```
 
-Returns input function that would feed dict of numpy arrays into the model.
+
+
+Defined in [`python/estimator/inputs/numpy_io.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/inputs/numpy_io.py).
+
+<!-- Placeholder for "Used in" -->
 
 This returns a function outputting `features` and `targets` based on the dict
 of numpy arrays. The dict `features` has the same keys as the `x`. The dict
 `targets` has the same keys as the `y` if `y` is a dict.
 
-Example:
+#### Example:
+
+
 
 ```python
 age = np.arange(4) * 1.0
@@ -38,18 +51,19 @@ with tf.Session() as session:
 
 #### Args:
 
+
 * <b>`x`</b>: numpy array object or dict of numpy array objects. If an array,
-    the array will be treated as a single feature.
+  the array will be treated as a single feature.
 * <b>`y`</b>: numpy array object or dict of numpy array object. `None` if absent.
 * <b>`batch_size`</b>: Integer, size of batches to return.
 * <b>`num_epochs`</b>: Integer, number of epochs to iterate over data. If `None` will
-    run forever.
+  run forever.
 * <b>`shuffle`</b>: Boolean, if True shuffles the queue. Avoid shuffle at prediction
-    time.
+  time.
 * <b>`queue_capacity`</b>: Integer, size of queue to accumulate.
 * <b>`num_threads`</b>: Integer, number of threads used for reading and enqueueing. In
-    order to have predicted and repeatable order of reading and enqueueing,
-    such as in prediction and evaluation mode, `num_threads` should be 1.
+  order to have predicted and repeatable order of reading and enqueueing,
+  such as in prediction and evaluation mode, `num_threads` should be 1.
 
 
 #### Returns:
@@ -57,10 +71,12 @@ with tf.Session() as session:
 Function, that has signature of ()->(dict of `features`, `targets`)
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if the shape of `y` mismatches the shape of values in `x` (i.e.,
-    values in `x` have same shape).
+  values in `x` have same shape).
 * <b>`ValueError`</b>: if duplicate keys are in both `x` and `y` when `y` is a dict.
 * <b>`ValueError`</b>: if x or y is an empty dict.
 * <b>`TypeError`</b>: `x` is not a dict or array.

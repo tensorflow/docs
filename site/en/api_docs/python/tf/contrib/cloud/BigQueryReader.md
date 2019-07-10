@@ -7,43 +7,49 @@ page_type: reference
 
 ## Class `BigQueryReader`
 
+A Reader that outputs keys and tf.Example values from a BigQuery table.
+
 Inherits From: [`ReaderBase`](../../../tf/ReaderBase)
 
 
 
-Defined in [`tensorflow/contrib/cloud/python/ops/bigquery_reader_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/cloud/python/ops/bigquery_reader_ops.py).
+Defined in [`contrib/cloud/python/ops/bigquery_reader_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cloud/python/ops/bigquery_reader_ops.py).
 
-A Reader that outputs keys and tf.Example values from a BigQuery table.
+<!-- Placeholder for "Used in" -->
 
-Example use:
 
->     # Assume a BigQuery has the following schema,
->     #     name      STRING,
->     #     age       INT,
->     #     state     STRING
->     
->     # Create the parse_examples list of features.
->     features = dict(
->       name=tf.FixedLenFeature([1], tf.string),
->       age=tf.FixedLenFeature([1], tf.int32),
->       state=tf.FixedLenFeature([1], dtype=tf.string, default_value="UNK"))
->     
->     # Create a Reader.
->     reader = bigquery_reader_ops.BigQueryReader(project_id=PROJECT,
->                                                 dataset_id=DATASET,
->                                                 table_id=TABLE,
->                                                 timestamp_millis=TIME,
->                                                 num_partitions=NUM_PARTITIONS,
->                                                 features=features)
->     
->     # Populate a queue with the BigQuery Table partitions.
->     queue = tf.train.string_input_producer(reader.partitions())
->     
->     # Read and parse examples.
->     row_id, examples_serialized = reader.read(queue)
->     examples = tf.parse_example(examples_serialized, features=features)
->     
->     # Process the Tensors examples["name"], examples["age"], etc...
+#### Example use:
+
+```python
+# Assume a BigQuery has the following schema,
+#     name      STRING,
+#     age       INT,
+#     state     STRING
+
+# Create the parse_examples list of features.
+features = dict(
+  name=tf.io.FixedLenFeature([1], tf.string),
+  age=tf.io.FixedLenFeature([1], tf.int32),
+  state=tf.io.FixedLenFeature([1], dtype=tf.string, default_value="UNK"))
+
+# Create a Reader.
+reader = bigquery_reader_ops.BigQueryReader(project_id=PROJECT,
+                                            dataset_id=DATASET,
+                                            table_id=TABLE,
+                                            timestamp_millis=TIME,
+                                            num_partitions=NUM_PARTITIONS,
+                                            features=features)
+
+# Populate a queue with the BigQuery Table partitions.
+queue = tf.compat.v1.train.string_input_producer(reader.partitions())
+
+# Read and parse examples.
+row_id, examples_serialized = reader.read(queue)
+examples = tf.io.parse_example(examples_serialized, features=features)
+
+# Process the Tensors examples["name"], examples["age"], etc...
+```
+
 
 Note that to create a reader a snapshot timestamp is necessary. This
 will enable the reader to look at a consistent snapshot of the table.
@@ -69,17 +75,19 @@ __init__(
 
 Creates a BigQueryReader.
 
+
 #### Args:
+
 
 * <b>`project_id`</b>: GCP project ID.
 * <b>`dataset_id`</b>: BigQuery dataset ID.
 * <b>`table_id`</b>: BigQuery table ID.
 * <b>`timestamp_millis`</b>: timestamp to snapshot the table in milliseconds since
-    the epoch. Relative (negative or zero) snapshot times are not allowed.
-    For more details, see 'Table Decorators' in BigQuery docs.
+  the epoch. Relative (negative or zero) snapshot times are not allowed.
+  For more details, see 'Table Decorators' in BigQuery docs.
 * <b>`num_partitions`</b>: Number of non-overlapping partitions to read from.
 * <b>`features`</b>: parse_example compatible dict from keys to `VarLenFeature` and
-    `FixedLenFeature` objects.  Keys are read as columns from the db.
+  `FixedLenFeature` objects.  Keys are read as columns from the db.
 * <b>`columns`</b>: list of columns to read, can be set iff features is None.
 * <b>`test_end_point`</b>: Used only for testing purposes (optional).
 * <b>`name`</b>: a name for the operation (optional).
@@ -87,9 +95,10 @@ Creates a BigQueryReader.
 
 #### Raises:
 
+
 * <b>`TypeError`</b>: - If features is neither None nor a dict or
-             - If columns is neither None nor a list or
-             - If both features and columns are None or set.
+           - If columns is neither None nor a list or
+           - If both features and columns are None or set.
 
 
 
@@ -99,9 +108,11 @@ Creates a BigQueryReader.
 
 Op that implements the reader.
 
+
 <h3 id="supports_serialize"><code>supports_serialize</code></h3>
 
 Whether the Reader implementation can serialize its state.
+
 
 
 
@@ -120,12 +131,14 @@ succeeded.
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 An int64 Tensor.
+
 
 <h3 id="num_work_units_completed"><code>num_work_units_completed</code></h3>
 
@@ -135,7 +148,9 @@ num_work_units_completed(name=None)
 
 Returns the number of work units this reader has finished processing.
 
+
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -143,6 +158,7 @@ Returns the number of work units this reader has finished processing.
 #### Returns:
 
 An int64 Tensor.
+
 
 <h3 id="partitions"><code>partitions</code></h3>
 
@@ -157,12 +173,14 @@ bulk read.
 
 #### Args:
 
+
 * <b>`name`</b>: a name for the operation (optional).
 
 
 #### Returns:
 
 `1-D` string `Tensor` of serialized `BigQueryTablePartition` messages.
+
 
 <h3 id="read"><code>read</code></h3>
 
@@ -181,14 +199,16 @@ finished with the previous file).
 
 #### Args:
 
+
 * <b>`queue`</b>: A Queue or a mutable string Tensor representing a handle
-    to a Queue, with string work items.
+  to a Queue, with string work items.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A tuple of Tensors (key, value).
+
 * <b>`key`</b>: A string scalar Tensor.
 * <b>`value`</b>: A string scalar Tensor.
 
@@ -211,8 +231,9 @@ It may return less than num_records even before the last batch.
 
 #### Args:
 
+
 * <b>`queue`</b>: A Queue or a mutable string Tensor representing a handle
-    to a Queue, with string work items.
+  to a Queue, with string work items.
 * <b>`num_records`</b>: Number of records to read.
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -220,6 +241,7 @@ It may return less than num_records even before the last batch.
 #### Returns:
 
 A tuple of Tensors (keys, values).
+
 * <b>`keys`</b>: A 1-D string Tensor.
 * <b>`values`</b>: A 1-D string Tensor.
 
@@ -231,7 +253,9 @@ reset(name=None)
 
 Restore a reader to its initial clean state.
 
+
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -239,6 +263,7 @@ Restore a reader to its initial clean state.
 #### Returns:
 
 The created Operation.
+
 
 <h3 id="restore_state"><code>restore_state</code></h3>
 
@@ -256,14 +281,16 @@ Unimplemented error.
 
 #### Args:
 
+
 * <b>`state`</b>: A string Tensor.
-    Result of a SerializeState of a Reader with matching type.
+  Result of a SerializeState of a Reader with matching type.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 The created Operation.
+
 
 <h3 id="serialize_state"><code>serialize_state</code></h3>
 
@@ -278,12 +305,14 @@ Unimplemented error.
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A string Tensor.
+
 
 
 

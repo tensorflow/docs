@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.eager.metrics
 
-
-
-Defined in [`tensorflow/contrib/eager/python/metrics.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/metrics.py).
-
 Metrics namespace.
+
+
+
+Defined in [`contrib/eager/python/metrics.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/metrics.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 

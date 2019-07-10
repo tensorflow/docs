@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.gan.losses
 
-
-
-Defined in [`tensorflow/contrib/gan/python/losses/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/losses/__init__.py).
-
 TFGAN losses and penalties.
+
+
+
+Defined in [`contrib/gan/python/losses/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/losses/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 Losses can be used with individual arguments or with GANModel tuples.
 

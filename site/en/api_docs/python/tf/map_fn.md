@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.map_fn
 
+map on the list of tensors unpacked from `elems` on dimension 0.
+
+### Aliases:
+
+* `tf.compat.v1.map_fn`
+* `tf.compat.v2.map_fn`
+* `tf.map_fn`
+
 ``` python
 tf.map_fn(
     fn,
@@ -20,9 +28,9 @@ tf.map_fn(
 
 
 
-Defined in [`tensorflow/python/ops/functional_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/functional_ops.py).
+Defined in [`python/ops/map_fn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/map_fn.py).
 
-map on the list of tensors unpacked from `elems` on dimension 0.
+<!-- Placeholder for "Used in" -->
 
 The simplest version of `map_fn` repeatedly applies the callable `fn` to a
 sequence of elements from first to last. The elements are made of the
@@ -83,19 +91,20 @@ running map_fn in parallel.
 
 #### Args:
 
+
 * <b>`fn`</b>: The callable to be performed.  It accepts one argument, which will
-    have the same (possibly nested) structure as `elems`.  Its output
-    must have the same structure as `dtype` if one is provided, otherwise
-    it must have the same structure as `elems`.
+  have the same (possibly nested) structure as `elems`.  Its output
+  must have the same structure as `dtype` if one is provided, otherwise
+  it must have the same structure as `elems`.
 * <b>`elems`</b>: A tensor or (possibly nested) sequence of tensors, each of which
-    will be unpacked along their first dimension.  The nested sequence
-    of the resulting slices will be applied to `fn`.
+  will be unpacked along their first dimension.  The nested sequence
+  of the resulting slices will be applied to `fn`.
 * <b>`dtype`</b>: (optional) The output type(s) of `fn`.  If `fn` returns a structure
-    of Tensors differing from the structure of `elems`, then `dtype` is not
-    optional and must have the same structure as the output of `fn`.
+  of Tensors differing from the structure of `elems`, then `dtype` is not
+  optional and must have the same structure as the output of `fn`.
 * <b>`parallel_iterations`</b>: (optional) The number of iterations allowed to run
-    in parallel. When graph building, the default value is 10. While executing
-    eagerly, the default value is set to 1.
+  in parallel. When graph building, the default value is 10. While executing
+  eagerly, the default value is set to 1.
 * <b>`back_prop`</b>: (optional) True enables support for back propagation.
 * <b>`swap_memory`</b>: (optional) True enables GPU-CPU memory swapping.
 * <b>`infer_shape`</b>: (optional) False disables tests for consistent output shapes.
@@ -109,23 +118,32 @@ results of applying `fn` to tensors unpacked from `elems` along the first
 dimension, from first to last.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: if `fn` is not callable or the structure of the output of
-    `fn` and `dtype` do not match, or if elems is a SparseTensor.
+  `fn` and `dtype` do not match, or if elems is a SparseTensor.
 * <b>`ValueError`</b>: if the lengths of the output of `fn` and `dtype` do not match.
 
-Examples:
 
->     elems = np.array([1, 2, 3, 4, 5, 6])
->     squares = map_fn(lambda x: x * x, elems)
->     # squares == [1, 4, 9, 16, 25, 36]
+#### Examples:
 
->     elems = (np.array([1, 2, 3]), np.array([-1, 1, -1]))
->     alternate = map_fn(lambda x: x[0] * x[1], elems, dtype=tf.int64)
->     # alternate == [-1, 2, -3]
+```python
+elems = np.array([1, 2, 3, 4, 5, 6])
+squares = map_fn(lambda x: x * x, elems)
+# squares == [1, 4, 9, 16, 25, 36]
+```
 
->     elems = np.array([1, 2, 3])
->     alternates = map_fn(lambda x: (x, -x), elems, dtype=(tf.int64, tf.int64))
->     # alternates[0] == [1, 2, 3]
->     # alternates[1] == [-1, -2, -3]
+```python
+elems = (np.array([1, 2, 3]), np.array([-1, 1, -1]))
+alternate = map_fn(lambda x: x[0] * x[1], elems, dtype=tf.int64)
+# alternate == [-1, 2, -3]
+```
+
+```python
+elems = np.array([1, 2, 3])
+alternates = map_fn(lambda x: (x, -x), elems, dtype=(tf.int64, tf.int64))
+# alternates[0] == [1, 2, 3]
+# alternates[1] == [-1, -2, -3]
+```

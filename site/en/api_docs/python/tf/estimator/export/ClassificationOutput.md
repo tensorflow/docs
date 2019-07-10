@@ -7,9 +7,21 @@ page_type: reference
 
 ## Class `ClassificationOutput`
 
+Represents the output of a classification head.
+
 Inherits From: [`ExportOutput`](../../../tf/estimator/export/ExportOutput)
 
-Represents the output of a classification head.
+### Aliases:
+
+* Class `tf.compat.v1.estimator.export.ClassificationOutput`
+* Class `tf.compat.v2.estimator.export.ClassificationOutput`
+* Class `tf.estimator.export.ClassificationOutput`
+
+
+
+Defined in [`python/saved_model/model_utils/export_output.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/model_utils/export_output.py).
+
+<!-- Placeholder for "Used in" -->
 
 Either classes or scores or both must be set.
 
@@ -36,19 +48,22 @@ __init__(
 
 Constructor for `ClassificationOutput`.
 
+
 #### Args:
 
+
 * <b>`scores`</b>: A float `Tensor` giving scores (sometimes but not always
-      interpretable as probabilities) for each class.  May be `None`, but
-      only if `classes` is set.  Interpretation varies-- see class doc.
+    interpretable as probabilities) for each class.  May be `None`, but
+    only if `classes` is set.  Interpretation varies-- see class doc.
 * <b>`classes`</b>: A string `Tensor` giving predicted class labels.  May be `None`,
-      but only if `scores` is set.  Interpretation varies-- see class doc.
+    but only if `scores` is set.  Interpretation varies-- see class doc.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if neither classes nor scores is set, or one of them is not a
-      `Tensor` with the correct dtype.
+    `Tensor` with the correct dtype.
 
 
 
@@ -58,7 +73,9 @@ Constructor for `ClassificationOutput`.
 
 
 
+
 <h3 id="scores"><code>scores</code></h3>
+
 
 
 
@@ -72,15 +89,8 @@ Constructor for `ClassificationOutput`.
 as_signature_def(receiver_tensors)
 ```
 
-Generate a SignatureDef proto for inclusion in a MetaGraphDef.
 
-The SignatureDef will specify outputs as described in this ExportOutput,
-and will use the provided receiver_tensors as inputs.
 
-#### Args:
-
-* <b>`receiver_tensors`</b>: a `Tensor`, or a dict of string to `Tensor`, specifying
-    input nodes that will be fed.
 
 
 

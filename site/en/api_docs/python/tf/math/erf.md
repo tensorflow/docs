@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.math.erf
 
+Computes the Gauss error function of `x` element-wise.
+
 ### Aliases:
 
+* `tf.compat.v1.erf`
+* `tf.compat.v1.math.erf`
+* `tf.compat.v2.math.erf`
 * `tf.erf`
 * `tf.math.erf`
 
@@ -19,11 +24,13 @@ tf.math.erf(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Computes the Gauss error function of `x` element-wise.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`.
 * <b>`name`</b>: A name for the operation (optional).

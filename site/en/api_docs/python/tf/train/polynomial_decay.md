@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.polynomial_decay
 
+Applies a polynomial decay to the learning rate.
+
+### Aliases:
+
+* `tf.compat.v1.train.polynomial_decay`
+* `tf.train.polynomial_decay`
+
 ``` python
 tf.train.polynomial_decay(
     learning_rate,
@@ -19,9 +26,9 @@ tf.train.polynomial_decay(
 
 
 
-Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/learning_rate_decay.py).
+Defined in [`python/training/learning_rate_decay.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/learning_rate_decay.py).
 
-Applies a polynomial decay to the learning rate.
+<!-- Placeholder for "Used in" -->
 
 It is commonly observed that a monotonically decreasing learning rate, whose
 degree of change is carefully chosen, results in a better performing model.
@@ -60,31 +67,33 @@ global_step = tf.Variable(0, trainable=False)
 starter_learning_rate = 0.1
 end_learning_rate = 0.01
 decay_steps = 10000
-learning_rate = tf.train.polynomial_decay(starter_learning_rate, global_step,
+learning_rate = tf.compat.v1.train.polynomial_decay(starter_learning_rate,
+global_step,
                                           decay_steps, end_learning_rate,
                                           power=0.5)
 # Passing global_step to minimize() will increment it at each step.
 learning_step = (
-    tf.train.GradientDescentOptimizer(learning_rate)
+    tf.compat.v1.train.GradientDescentOptimizer(learning_rate)
     .minimize(...my loss..., global_step=global_step)
 )
 ```
 
 #### Args:
 
-* <b>`learning_rate`</b>: A scalar `float32` or `float64` `Tensor` or a
-    Python number.  The initial learning rate.
-* <b>`global_step`</b>: A scalar `int32` or `int64` `Tensor` or a Python number.
-    Global step to use for the decay computation.  Must not be negative.
-* <b>`decay_steps`</b>: A scalar `int32` or `int64` `Tensor` or a Python number.
-    Must be positive.  See the decay computation above.
-* <b>`end_learning_rate`</b>: A scalar `float32` or `float64` `Tensor` or a
-    Python number.  The minimal end learning rate.
-* <b>`power`</b>: A scalar `float32` or `float64` `Tensor` or a
-    Python number.  The power of the polynomial. Defaults to linear, 1.0.
+
+* <b>`learning_rate`</b>: A scalar `float32` or `float64` `Tensor` or a Python number.
+  The initial learning rate.
+* <b>`global_step`</b>: A scalar `int32` or `int64` `Tensor` or a Python number. Global
+  step to use for the decay computation.  Must not be negative.
+* <b>`decay_steps`</b>: A scalar `int32` or `int64` `Tensor` or a Python number. Must
+  be positive.  See the decay computation above.
+* <b>`end_learning_rate`</b>: A scalar `float32` or `float64` `Tensor` or a Python
+  number.  The minimal end learning rate.
+* <b>`power`</b>: A scalar `float32` or `float64` `Tensor` or a Python number.  The
+  power of the polynomial. Defaults to linear, 1.0.
 * <b>`cycle`</b>: A boolean, whether or not it should cycle beyond decay_steps.
 * <b>`name`</b>: String.  Optional name of the operation. Defaults to
-    'PolynomialDecay'.
+  'PolynomialDecay'.
 
 
 #### Returns:
@@ -93,7 +102,9 @@ A scalar `Tensor` of the same type as `learning_rate`.  The decayed
 learning rate.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `global_step` is not supplied.
 

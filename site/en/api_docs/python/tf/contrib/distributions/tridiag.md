@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.distributions.tridiag
 
+Creates a matrix with values set above, below, and on the diagonal.
+
 ``` python
 tf.contrib.distributions.tridiag(
     below=None,
@@ -16,11 +18,14 @@ tf.contrib.distributions.tridiag(
 
 
 
-Defined in [`tensorflow/python/ops/distributions/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/distributions/util.py).
+Defined in [`python/ops/distributions/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/util.py).
 
-Creates a matrix with values set above, below, and on the diagonal.
+<!-- Placeholder for "Used in" -->
 
-Example:
+
+#### Example:
+
+
 
 ```python
 tridiag(below=[1., 2., 3.],
@@ -36,20 +41,23 @@ Warning: This Op is intended for convenience, not efficiency.
 
 #### Args:
 
+
 * <b>`below`</b>: `Tensor` of shape `[B1, ..., Bb, d-1]` corresponding to the below
-    diagonal part. `None` is logically equivalent to `below = 0`.
+  diagonal part. `None` is logically equivalent to `below = 0`.
 * <b>`diag`</b>: `Tensor` of shape `[B1, ..., Bb, d]` corresponding to the diagonal
-    part.  `None` is logically equivalent to `diag = 0`.
+  part.  `None` is logically equivalent to `diag = 0`.
 * <b>`above`</b>: `Tensor` of shape `[B1, ..., Bb, d-1]` corresponding to the above
-    diagonal part.  `None` is logically equivalent to `above = 0`.
+  diagonal part.  `None` is logically equivalent to `above = 0`.
 * <b>`name`</b>: Python `str`. The name to give this op.
 
 
 #### Returns:
 
+
 * <b>`tridiag`</b>: `Tensor` with values set above, below and on the diagonal.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if all inputs are `None`.

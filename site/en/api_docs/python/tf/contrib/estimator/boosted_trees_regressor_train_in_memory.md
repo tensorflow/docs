@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.boosted_trees_regressor_train_in_memory
 
+Trains a boosted tree regressor with in memory dataset.
+
 ``` python
 tf.contrib.estimator.boosted_trees_regressor_train_in_memory(
     train_input_fn,
@@ -22,13 +24,21 @@ tf.contrib.estimator.boosted_trees_regressor_train_in_memory(
     config=None,
     train_hooks=None,
     center_bias=False,
-    pruning_mode='none'
+    pruning_mode='none',
+    quantile_sketch_epsilon=0.01
 )
 ```
 
-Trains a boosted tree regressor with in memory dataset.
 
-Example:
+
+Defined in [`contrib/estimator/python/estimator/boosted_trees.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/boosted_trees.py).
+
+<!-- Placeholder for "Used in" -->
+
+
+#### Example:
+
+
 
 ```python
 bucketized_feature_1 = bucketized_column(
@@ -61,48 +71,52 @@ metrics = regressor.evaluate(input_fn=input_fn_eval, steps=10)
 
 #### Args:
 
+
 * <b>`train_input_fn`</b>: the input function returns a dataset containing a single
-    epoch of *unbatched* features and labels.
+  epoch of *unbatched* features and labels.
 * <b>`feature_columns`</b>: An iterable containing all the feature columns used by
-    the model. All items in the set should be instances of classes derived
-    from `FeatureColumn`.
+  the model. All items in the set should be instances of classes derived
+  from `FeatureColumn`.
 * <b>`model_dir`</b>: Directory to save model parameters, graph and etc. This can
-    also be used to load checkpoints from the directory into a estimator
-    to continue training a previously saved model.
+  also be used to load checkpoints from the directory into an estimator
+  to continue training a previously saved model.
 * <b>`label_dimension`</b>: Number of regression targets per example.
-    Multi-dimensional support is not yet implemented.
+  Multi-dimensional support is not yet implemented.
 * <b>`weight_column`</b>: A string or a `_NumericColumn` created by
-    <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
-    weights. It is used to downweight or boost examples during training. It
-    will be multiplied by the loss of the example. If it is a string, it is
-    used as a key to fetch weight tensor from the `features`. If it is a
-    `_NumericColumn`, raw tensor is fetched by key `weight_column.key`,
-    then weight_column.normalizer_fn is applied on it to get weight tensor.
+  <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
+  weights. It is used to downweight or boost examples during training. It
+  will be multiplied by the loss of the example. If it is a string, it is
+  used as a key to fetch weight tensor from the `features`. If it is a
+  `_NumericColumn`, raw tensor is fetched by key `weight_column.key`,
+  then weight_column.normalizer_fn is applied on it to get weight tensor.
 * <b>`n_trees`</b>: number trees to be created.
 * <b>`max_depth`</b>: maximum depth of the tree to grow.
 * <b>`learning_rate`</b>: shrinkage parameter to be used when a tree added to the
-    model.
+  model.
 * <b>`l1_regularization`</b>: regularization multiplier applied to the absolute
-    weights of the tree leafs.
+  weights of the tree leafs.
 * <b>`l2_regularization`</b>: regularization multiplier applied to the square weights
-    of the tree leafs.
+  of the tree leafs.
 * <b>`tree_complexity`</b>: regularization factor to penalize trees with more leaves.
 * <b>`min_node_weight`</b>: minimum hessian a node must have for a split to be
-      considered. The value will be compared with sum(leaf_hessian)/
-      (batch_size * n_batches_per_layer).
+    considered. The value will be compared with sum(leaf_hessian)/
+    (batch_size * n_batches_per_layer).
 * <b>`config`</b>: `RunConfig` object to configure the runtime settings.
 * <b>`train_hooks`</b>: a list of Hook instances to be passed to estimator.train().
 * <b>`center_bias`</b>: Whether bias centering needs to occur. Bias centering refers
-      to the first node in the very first tree returning the prediction that
-      is aligned with the original labels distribution. For example, for
-      regression problems, the first node will return the mean of the labels.
-      For binary classification problems, it will return a logit for a prior
-      probability of label 1.
+    to the first node in the very first tree returning the prediction that
+    is aligned with the original labels distribution. For example, for
+    regression problems, the first node will return the mean of the labels.
+    For binary classification problems, it will return a logit for a prior
+    probability of label 1.
 * <b>`pruning_mode`</b>: one of 'none', 'pre', 'post' to indicate no pruning, pre-
-      pruning (do not split a node if not enough gain is observed) and post
-      pruning (build the tree up to a max depth and then prune branches with
-      negative gain). For pre and post pruning, you MUST provide
-      tree_complexity >0.
+    pruning (do not split a node if not enough gain is observed) and post
+    pruning (build the tree up to a max depth and then prune branches with
+    negative gain). For pre and post pruning, you MUST provide
+    tree_complexity >0.
+* <b>`quantile_sketch_epsilon`</b>: float between 0 and 1. Error bound for quantile
+    computation. This is only used for float feature columns, and the number
+    of buckets generated per float feature is 1/quantile_sketch_epsilon.
 
 
 #### Returns:
@@ -111,7 +125,9 @@ a `BoostedTreesClassifier` instance created with the given arguments and
   trained with the data loaded up on memory from the input_fn.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: when wrong arguments are given or unsupported functionalities
-     are requested.
+   are requested.

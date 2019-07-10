@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `Iterator`
 
+Represents the state of iterating through a `Dataset`.
+
 Inherits From: [`CheckpointableBase`](../../tf/contrib/checkpoint/CheckpointableBase)
 
+### Aliases:
+
+* Class `tf.compat.v1.data.Iterator`
+* Class `tf.data.Iterator`
 
 
-Defined in [`tensorflow/python/data/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/ops/iterator_ops.py).
 
-Represents the state of iterating through a `Dataset`.
+Defined in [`python/data/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/ops/iterator_ops.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -30,21 +38,22 @@ __init__(
 Creates a new iterator from the given iterator resource.
 
 Note: Most users will not call this initializer directly, and will
-instead use `Dataset.make_initializable_iterator()` or
-`Dataset.make_one_shot_iterator()`.
+instead use <a href="../../tf/data/Dataset#make_initializable_iterator"><code>Dataset.make_initializable_iterator()</code></a> or
+<a href="../../tf/data/Dataset#make_one_shot_iterator"><code>Dataset.make_one_shot_iterator()</code></a>.
 
 #### Args:
 
-* <b>`iterator_resource`</b>: A <a href="../../tf/dtypes#resource"><code>tf.resource</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> representing the
-    iterator.
+
+* <b>`iterator_resource`</b>: A <a href="../../tf#resource"><code>tf.resource</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> representing the
+  iterator.
 * <b>`initializer`</b>: A <a href="../../tf/Operation"><code>tf.Operation</code></a> that should be run to initialize this
-    iterator.
+  iterator.
 * <b>`output_types`</b>: A nested structure of <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> objects corresponding to
-    each component of an element of this iterator.
+  each component of an element of this iterator.
 * <b>`output_shapes`</b>: A nested structure of <a href="../../tf/TensorShape"><code>tf.TensorShape</code></a> objects
-    corresponding to each component of an element of this iterator.
+  corresponding to each component of an element of this iterator.
 * <b>`output_classes`</b>: A nested structure of Python `type` objects corresponding
-    to each component of an element of this iterator.
+  to each component of an element of this iterator.
 
 
 
@@ -54,18 +63,25 @@ instead use `Dataset.make_initializable_iterator()` or
 
 A <a href="../../tf/Operation"><code>tf.Operation</code></a> that should be run to initialize this iterator.
 
+
 #### Returns:
 
 A <a href="../../tf/Operation"><code>tf.Operation</code></a> that should be run to initialize this iterator
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If this iterator initializes itself automatically.
 
 <h3 id="output_classes"><code>output_classes</code></h3>
 
-Returns the class of each component of an element of this iterator.
+Returns the class of each component of an element of this iterator. (deprecated)
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use <a href="../../tf/data/get_output_classes"><code>tf.compat.v1.data.get_output_classes(iterator)</code></a>.
 
 The expected values are <a href="../../tf/Tensor"><code>tf.Tensor</code></a> and <a href="../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
 
@@ -74,23 +90,34 @@ The expected values are <a href="../../tf/Tensor"><code>tf.Tensor</code></a> and
 A nested structure of Python `type` objects corresponding to each
 component of an element of this dataset.
 
+
 <h3 id="output_shapes"><code>output_shapes</code></h3>
 
-Returns the shape of each component of an element of this iterator.
+Returns the shape of each component of an element of this iterator. (deprecated)
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use <a href="../../tf/data/get_output_shapes"><code>tf.compat.v1.data.get_output_shapes(iterator)</code></a>.
 
 #### Returns:
 
 A nested structure of <a href="../../tf/TensorShape"><code>tf.TensorShape</code></a> objects corresponding to each
 component of an element of this dataset.
 
+
 <h3 id="output_types"><code>output_types</code></h3>
 
-Returns the type of each component of an element of this iterator.
+Returns the type of each component of an element of this iterator. (deprecated)
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use <a href="../../tf/data/get_output_types"><code>tf.compat.v1.data.get_output_types(iterator)</code></a>.
 
 #### Returns:
 
 A nested structure of <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> objects corresponding to each component
 of an element of this dataset.
+
 
 
 
@@ -111,8 +138,9 @@ from_string_handle(
 Creates a new, uninitialized `Iterator` based on the given handle.
 
 This method allows you to define a "feedable" iterator where you can choose
-between concrete iterators by feeding a value in a <a href="../../tf/InteractiveSession#run"><code>tf.Session.run</code></a> call.
-In that case, `string_handle` would be a <a href="../../tf/placeholder"><code>tf.placeholder</code></a>, and you would
+between concrete iterators by feeding a value in a <a href="../../tf/Session#run"><code>tf.Session.run</code></a> call.
+In that case, `string_handle` would be a <a href="../../tf/placeholder"><code>tf.compat.v1.placeholder</code></a>, and you
+would
 feed it with the value of <a href="../../tf/data/Iterator#string_handle"><code>tf.data.Iterator.string_handle</code></a> in each step.
 
 For example, if you had two iterators that marked the current position in
@@ -126,7 +154,7 @@ train_iterator_handle = sess.run(train_iterator.string_handle())
 test_iterator = tf.data.Dataset(...).make_one_shot_iterator()
 test_iterator_handle = sess.run(test_iterator.string_handle())
 
-handle = tf.placeholder(tf.string, shape=[])
+handle = tf.compat.v1.placeholder(tf.string, shape=[])
 iterator = tf.data.Iterator.from_string_handle(
     handle, train_iterator.output_types)
 
@@ -139,21 +167,23 @@ test_loss = sess.run(loss, feed_dict={handle: test_iterator_handle})
 
 #### Args:
 
-* <b>`string_handle`</b>: A scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> of type <a href="../../tf/dtypes#string"><code>tf.string</code></a> that evaluates
-    to a handle produced by the `Iterator.string_handle()` method.
+
+* <b>`string_handle`</b>: A scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> of type <a href="../../tf#string"><code>tf.string</code></a> that evaluates to
+  a handle produced by the <a href="../../tf/data/Iterator#string_handle"><code>Iterator.string_handle()</code></a> method.
 * <b>`output_types`</b>: A nested structure of <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> objects corresponding to
-    each component of an element of this dataset.
+  each component of an element of this dataset.
 * <b>`output_shapes`</b>: (Optional.) A nested structure of <a href="../../tf/TensorShape"><code>tf.TensorShape</code></a> objects
-    corresponding to each component of an element of this dataset. If
-    omitted, each component will have an unconstrainted shape.
+  corresponding to each component of an element of this dataset. If
+  omitted, each component will have an unconstrainted shape.
 * <b>`output_classes`</b>: (Optional.) A nested structure of Python `type` objects
-    corresponding to each component of an element of this iterator. If
-    omitted, each component is assumed to be of type <a href="../../tf/Tensor"><code>tf.Tensor</code></a>.
+  corresponding to each component of an element of this iterator. If
+  omitted, each component is assumed to be of type <a href="../../tf/Tensor"><code>tf.Tensor</code></a>.
 
 
 #### Returns:
 
 An `Iterator`.
+
 
 <h3 id="from_structure"><code>from_structure</code></h3>
 
@@ -174,7 +204,7 @@ is reusable with many different datasets.
 
 The returned iterator is not bound to a particular dataset, and it has
 no `initializer`. To initialize the iterator, run the operation returned by
-`Iterator.make_initializer(dataset)`.
+<a href="../../tf/data/Iterator#make_initializer"><code>Iterator.make_initializer(dataset)</code></a>.
 
 The following is an example
 
@@ -214,17 +244,18 @@ for _ in range(num_epochs):
 
 #### Args:
 
+
 * <b>`output_types`</b>: A nested structure of <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> objects corresponding to
-    each component of an element of this dataset.
+  each component of an element of this dataset.
 * <b>`output_shapes`</b>: (Optional.) A nested structure of <a href="../../tf/TensorShape"><code>tf.TensorShape</code></a> objects
-    corresponding to each component of an element of this dataset. If
-    omitted, each component will have an unconstrainted shape.
+  corresponding to each component of an element of this dataset. If
+  omitted, each component will have an unconstrainted shape.
 * <b>`shared_name`</b>: (Optional.) If non-empty, this iterator will be shared under
-    the given name across multiple sessions that share the same devices
-    (e.g. when using a remote server).
+  the given name across multiple sessions that share the same devices
+  (e.g. when using a remote server).
 * <b>`output_classes`</b>: (Optional.) A nested structure of Python `type` objects
-    corresponding to each component of an element of this iterator. If
-    omitted, each component is assumed to be of type <a href="../../tf/Tensor"><code>tf.Tensor</code></a>.
+  corresponding to each component of an element of this iterator. If
+  omitted, each component is assumed to be of type <a href="../../tf/Tensor"><code>tf.Tensor</code></a>.
 
 
 #### Returns:
@@ -232,10 +263,12 @@ for _ in range(num_epochs):
 An `Iterator`.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: If the structures of `output_shapes` and `output_types` are
-    not the same.
+  not the same.
 
 <h3 id="get_next"><code>get_next</code></h3>
 
@@ -247,22 +280,22 @@ Returns a nested structure of <a href="../../tf/Tensor"><code>tf.Tensor</code></
 
 In graph mode, you should typically call this method *once* and use its
 result as the input to another computation. A typical loop will then call
-<a href="../../tf/InteractiveSession#run"><code>tf.Session.run</code></a> on the result of that computation. The loop will terminate
-when the `Iterator.get_next()` operation raises
+<a href="../../tf/Session#run"><code>tf.Session.run</code></a> on the result of that computation. The loop will terminate
+when the <a href="../../tf/data/Iterator#get_next"><code>Iterator.get_next()</code></a> operation raises
 <a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a>. The following skeleton shows how to use
 this method when building a training loop:
 
 ```python
-dataset = ...  # A <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object.
+dataset = ...  # A `tf.data.Dataset` object.
 iterator = dataset.make_initializable_iterator()
 next_element = iterator.get_next()
 
 # Build a TensorFlow graph that does something with each element.
 loss = model_function(next_element)
-optimizer = ...  # A <a href="../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a> object.
+optimizer = ...  # A `tf.compat.v1.train.Optimizer` object.
 train_op = optimizer.minimize(loss)
 
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
   try:
     while True:
       sess.run(train_op)
@@ -270,10 +303,10 @@ with tf.Session() as sess:
     pass
 ```
 
-NOTE: It is legitimate to call `Iterator.get_next()` multiple times, e.g.
+NOTE: It is legitimate to call <a href="../../tf/data/Iterator#get_next"><code>Iterator.get_next()</code></a> multiple times, e.g.
 when you are distributing different elements to multiple devices in a single
-step. However, a common pitfall arises when users call `Iterator.get_next()`
-in each iteration of their training loop. `Iterator.get_next()` adds ops to
+step. However, a common pitfall arises when users call <a href="../../tf/data/Iterator#get_next"><code>Iterator.get_next()</code></a>
+in each iteration of their training loop. <a href="../../tf/data/Iterator#get_next"><code>Iterator.get_next()</code></a> adds ops to
 the graph, and executing each op allocates resources (including threads); as
 a consequence, invoking it in every iteration of a training loop causes
 slowdown and eventual resource exhaustion. To guard against this outcome, we
@@ -282,12 +315,14 @@ suspiciousness.
 
 #### Args:
 
+
 * <b>`name`</b>: (Optional.) A name for the created operation.
 
 
 #### Returns:
 
 A nested structure of <a href="../../tf/Tensor"><code>tf.Tensor</code></a> objects.
+
 
 <h3 id="make_initializer"><code>make_initializer</code></h3>
 
@@ -300,7 +335,9 @@ make_initializer(
 
 Returns a <a href="../../tf/Operation"><code>tf.Operation</code></a> that initializes this iterator on `dataset`.
 
+
 #### Args:
+
 
 * <b>`dataset`</b>: A `Dataset` with compatible structure to this iterator.
 * <b>`name`</b>: (Optional.) A name for the created operation.
@@ -312,10 +349,12 @@ A <a href="../../tf/Operation"><code>tf.Operation</code></a> that can be run to 
 `dataset`.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: If `dataset` and this iterator do not have a compatible
-    element structure.
+  element structure.
 
 <h3 id="string_handle"><code>string_handle</code></h3>
 
@@ -325,14 +364,17 @@ string_handle(name=None)
 
 Returns a string-valued <a href="../../tf/Tensor"><code>tf.Tensor</code></a> that represents this iterator.
 
+
 #### Args:
+
 
 * <b>`name`</b>: (Optional.) A name for the created operation.
 
 
 #### Returns:
 
-A scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> of type <a href="../../tf/dtypes#string"><code>tf.string</code></a>.
+A scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> of type <a href="../../tf#string"><code>tf.string</code></a>.
+
 
 
 

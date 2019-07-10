@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.distribute.get_replica_context
 
+Returns the current <a href="../../tf/distribute/ReplicaContext"><code>tf.distribute.ReplicaContext</code></a> or `None`.
+
 ### Aliases:
 
+* `tf.compat.v1.distribute.get_replica_context`
+* `tf.compat.v2.distribute.get_replica_context`
 * `tf.contrib.distribute.get_replica_context`
 * `tf.distribute.get_replica_context`
 
@@ -16,13 +20,15 @@ tf.distribute.get_replica_context()
 
 
 
-Defined in [`tensorflow/python/distribute/distribution_strategy_context.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/distribution_strategy_context.py).
+Defined in [`python/distribute/distribution_strategy_context.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/distribution_strategy_context.py).
 
-Returns the current <a href="../../tf/distribute/ReplicaContext"><code>tf.distribute.ReplicaContext</code></a> or `None`.
+<!-- Placeholder for "Used in" -->
 
 Returns `None` if in a cross-replica context.
 
-Note that execution:
+#### Note that execution:
+
+
 
 1. starts in the default (single-replica) replica context (this function
    will return the default `ReplicaContext` object);

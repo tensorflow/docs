@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.identity
 
+Return a tensor with the same shape and contents as input.
+
+### Aliases:
+
+* `tf.compat.v1.identity`
+* `tf.compat.v2.identity`
+* `tf.identity`
+
 ``` python
 tf.identity(
     input,
@@ -14,11 +22,13 @@ tf.identity(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Return a tensor with the same shape and contents as input.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`input`</b>: A `Tensor`.
 * <b>`name`</b>: A name for the operation (optional).

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.streaming_sparse_average_precision_at_top_k
 
+Computes average precision@k of predictions with respect to sparse labels.
+
 ``` python
 tf.contrib.metrics.streaming_sparse_average_precision_at_top_k(
     top_k_predictions,
@@ -18,9 +20,9 @@ tf.contrib.metrics.streaming_sparse_average_precision_at_top_k(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
-Computes average precision@k of predictions with respect to sparse labels.
+<!-- Placeholder for "Used in" -->
 
 `streaming_sparse_average_precision_at_top_k` creates two local variables,
 `average_precision_at_<k>/total` and `average_precision_at_<k>/max`, that
@@ -39,36 +41,39 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`top_k_predictions`</b>: Integer `Tensor` with shape [D1, ... DN, k] where N >= 1.
-    Commonly, N=1 and `predictions_idx` has shape [batch size, k]. The final
-    dimension must be set and contains the top `k` predicted class indices.
-    [D1, ... DN] must match `labels`. Values should be in range
-    [0, num_classes).
-* <b>`labels`</b>: `int64` `Tensor` or `SparseTensor` with shape
-    [D1, ... DN, num_labels] or [D1, ... DN], where the latter implies
-    num_labels=1. N >= 1 and num_labels is the number of target classes for
-    the associated prediction. Commonly, N=1 and `labels` has shape
-    [batch_size, num_labels]. [D1, ... DN] must match `top_k_predictions`.
-    Values should be in range [0, num_classes).
+  Commonly, N=1 and `predictions_idx` has shape [batch size, k]. The final
+  dimension must be set and contains the top `k` predicted class indices.
+  [D1, ... DN] must match `labels`. Values should be in range [0,
+  num_classes).
+* <b>`labels`</b>: `int64` `Tensor` or `SparseTensor` with shape [D1, ... DN,
+  num_labels] or [D1, ... DN], where the latter implies num_labels=1. N >= 1
+  and num_labels is the number of target classes for the associated
+  prediction. Commonly, N=1 and `labels` has shape [batch_size, num_labels].
+  [D1, ... DN] must match `top_k_predictions`. Values should be in range [0,
+  num_classes).
 * <b>`weights`</b>: `Tensor` whose rank is either 0, or n-1, where n is the rank of
-    `labels`. If the latter, it must be broadcastable to `labels` (i.e., all
-    dimensions must be either `1`, or the same as the corresponding `labels`
-    dimension).
-* <b>`metrics_collections`</b>: An optional list of collections that values should
-    be added to.
-* <b>`updates_collections`</b>: An optional list of collections that updates should
-    be added to.
+  `labels`. If the latter, it must be broadcastable to `labels` (i.e., all
+  dimensions must be either `1`, or the same as the corresponding `labels`
+  dimension).
+* <b>`metrics_collections`</b>: An optional list of collections that values should be
+  added to.
+* <b>`updates_collections`</b>: An optional list of collections that updates should be
+  added to.
 * <b>`name`</b>: Name of new update operation, and namespace for other dependent ops.
 
 
 #### Returns:
 
+
 * <b>`mean_average_precision`</b>: Scalar `float64` `Tensor` with the mean average
-    precision values.
+  precision values.
 * <b>`update`</b>: `Operation` that increments variables appropriately, and whose
-    value matches `metric`.
+  value matches `metric`.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if the last dimension of top_k_predictions is not set.

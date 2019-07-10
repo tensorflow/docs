@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.copy_graph.copy_variable_to_graph
 
+Given a `Variable` instance from one `Graph`, initializes and returns
+
 ``` python
 tf.contrib.copy_graph.copy_variable_to_graph(
     org_instance,
@@ -15,13 +17,14 @@ tf.contrib.copy_graph.copy_variable_to_graph(
 
 
 
-Defined in [`tensorflow/contrib/copy_graph/python/util/copy_elements.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
+Defined in [`contrib/copy_graph/python/util/copy_elements.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
 
-Given a `Variable` instance from one `Graph`, initializes and returns
+<!-- Placeholder for "Used in" -->
 a copy of it from another `Graph`, under the specified scope
 (default `""`).
 
 #### Args:
+
 
 * <b>`org_instance`</b>: A `Variable` from some `Graph`.
 * <b>`to_graph`</b>: The `Graph` to copy the `Variable` to.
@@ -33,6 +36,8 @@ a copy of it from another `Graph`, under the specified scope
 The copied `Variable` from `to_graph`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `org_instance` is not a `Variable`.

@@ -5,17 +5,21 @@ page_type: reference
 
 # tf.contrib.graph_editor.get_tensors
 
+get all the tensors which are input or output of an op in the graph.
+
 ``` python
 tf.contrib.graph_editor.get_tensors(graph)
 ```
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/util.py).
+Defined in [`contrib/graph_editor/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/util.py).
 
-get all the tensors which are input or output of an op in the graph.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`graph`</b>: a <a href="../../../tf/Graph"><code>tf.Graph</code></a>.
 
@@ -23,6 +27,8 @@ get all the tensors which are input or output of an op in the graph.
 
 A list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if graph is not a <a href="../../../tf/Graph"><code>tf.Graph</code></a>.

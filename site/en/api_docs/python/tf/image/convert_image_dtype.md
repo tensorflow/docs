@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.image.convert_image_dtype
 
+Convert `image` to `dtype`, scaling its values if needed.
+
+### Aliases:
+
+* `tf.compat.v1.image.convert_image_dtype`
+* `tf.compat.v2.image.convert_image_dtype`
+* `tf.image.convert_image_dtype`
+
 ``` python
 tf.image.convert_image_dtype(
     image,
@@ -16,9 +24,9 @@ tf.image.convert_image_dtype(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Convert `image` to `dtype`, scaling its values if needed.
+<!-- Placeholder for "Used in" -->
 
 Images that are represented using floating point values are expected to have
 values in the range [0,1). Image data stored in integer data types are
@@ -37,6 +45,7 @@ type, and when casting from a signed to an unsigned type; `saturate` has no
 effect on casts between floats, or on casts that increase the type's range).
 
 #### Args:
+
 
 * <b>`image`</b>: An image.
 * <b>`dtype`</b>: A `DType` to convert `image` to.

@@ -7,21 +7,20 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Module for constructing RNN Cells.
 
 ## Classes
 
-[`class BasicLSTMCell`](../../tf/nn/rnn_cell/BasicLSTMCell): DEPRECATED: Please use <a href="../../tf/nn/rnn_cell/LSTMCell"><code>tf.nn.rnn_cell.LSTMCell</code></a> instead.
+[`class BasicLSTMCell`](../../tf/nn/rnn_cell/BasicLSTMCell): DEPRECATED: Please use <a href="../../tf/nn/rnn_cell/LSTMCell"><code>tf.compat.v1.nn.rnn_cell.LSTMCell</code></a> instead.
 
 [`class BasicRNNCell`](../../tf/nn/rnn_cell/BasicRNNCell): The most basic RNN cell.
 
-[`class DeviceWrapper`](../../tf/nn/rnn_cell/DeviceWrapper): Operator that ensures an RNNCell runs on a particular device.
+[`class DeviceWrapper`](../../tf/nn/rnn_cell/DeviceWrapper)
 
 [`class DropoutWrapper`](../../tf/nn/rnn_cell/DropoutWrapper): Operator adding dropout to inputs and outputs of the given cell.
 
-[`class GRUCell`](../../tf/nn/rnn_cell/GRUCell): Gated Recurrent Unit cell (cf. http://arxiv.org/abs/1406.1078).
+[`class GRUCell`](../../tf/nn/rnn_cell/GRUCell): Gated Recurrent Unit cell (cf.
 
 [`class LSTMCell`](../../tf/nn/rnn_cell/LSTMCell): Long short-term memory unit (LSTM) recurrent network cell.
 

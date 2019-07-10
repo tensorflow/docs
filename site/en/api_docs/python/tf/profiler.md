@@ -7,19 +7,18 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.profiler namespace.
 
 ## Classes
 
-[`class AdviceProto`](../tf/profiler/AdviceProto): A ProtocolMessage
+[`class AdviceProto`](../tf/profiler/AdviceProto)
 
-[`class GraphNodeProto`](../tf/profiler/GraphNodeProto): A ProtocolMessage
+[`class GraphNodeProto`](../tf/profiler/GraphNodeProto)
 
-[`class MultiGraphNodeProto`](../tf/profiler/MultiGraphNodeProto): A ProtocolMessage
+[`class MultiGraphNodeProto`](../tf/profiler/MultiGraphNodeProto)
 
-[`class OpLogProto`](../tf/profiler/OpLogProto): A ProtocolMessage
+[`class OpLogProto`](../tf/profiler/OpLogProto)
 
 [`class ProfileOptionBuilder`](../tf/profiler/ProfileOptionBuilder): Option Builder for Profiling API.
 

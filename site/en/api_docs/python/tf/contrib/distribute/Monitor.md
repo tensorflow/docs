@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `Monitor`
 
-
-
-
-
-Defined in [`tensorflow/contrib/distribute/python/monitor.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distribute/python/monitor.py).
-
 Executes training steps, recovers and checkpoints.
+
+
+
+
+
+Defined in [`contrib/distribute/python/monitor.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distribute/python/monitor.py).
+
+<!-- Placeholder for "Used in" -->
 
 Note that this class is particularly preliminary, experimental, and
 expected to change.
@@ -29,7 +31,9 @@ __init__(
 
 Initialize the Monitor with components for executing training steps.
 
+
 #### Args:
+
 
 * <b>`step_callable`</b>: a training `Step` that's capable of signaling when done.
 * <b>`session`</b>: a `Session` instance that's needed for graph mode.
@@ -37,8 +41,9 @@ Initialize the Monitor with components for executing training steps.
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `session` was provided for eager mode or not provided for
-    graph mode.
+  graph mode.
 
 
 
@@ -49,6 +54,7 @@ Initialize the Monitor with components for executing training steps.
 ``` python
 run_steps(num_steps=None)
 ```
+
 
 
 

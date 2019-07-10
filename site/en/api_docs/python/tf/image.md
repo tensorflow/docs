@@ -7,11 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Image processing and decoding ops.
-
-See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 ## Classes
 
@@ -25,13 +22,15 @@ See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 [`adjust_gamma(...)`](../tf/image/adjust_gamma): Performs Gamma Correction on the input image.
 
-[`adjust_hue(...)`](../tf/image/adjust_hue): Adjust hue of an RGB image.
+[`adjust_hue(...)`](../tf/image/adjust_hue): Adjust hue of RGB images.
 
 [`adjust_jpeg_quality(...)`](../tf/image/adjust_jpeg_quality): Adjust jpeg encoding quality of an RGB image.
 
-[`adjust_saturation(...)`](../tf/image/adjust_saturation): Adjust saturation of an RGB image.
+[`adjust_saturation(...)`](../tf/image/adjust_saturation): Adjust saturation of RGB images.
 
 [`central_crop(...)`](../tf/image/central_crop): Crop the central region of the image(s).
+
+[`combined_non_max_suppression(...)`](../tf/image/combined_non_max_suppression): Greedily selects a subset of bounding boxes in descending order of score.
 
 [`convert_image_dtype(...)`](../tf/image/convert_image_dtype): Convert `image` to `dtype`, scaling its values if needed.
 
@@ -43,9 +42,9 @@ See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 [`decode_bmp(...)`](../tf/io/decode_bmp): Decode the first frame of a BMP-encoded image to a uint8 tensor.
 
-[`decode_gif(...)`](../tf/io/decode_gif): Decode the first frame of a GIF-encoded image to a uint8 tensor.
+[`decode_gif(...)`](../tf/io/decode_gif): Decode the frame(s) of a GIF-encoded image to a uint8 tensor.
 
-[`decode_image(...)`](../tf/io/decode_image): Convenience function for `decode_bmp`, `decode_gif`, `decode_jpeg`,
+[`decode_image(...)`](../tf/io/decode_image): Function for `decode_bmp`, `decode_gif`, `decode_jpeg`, and `decode_png`.
 
 [`decode_jpeg(...)`](../tf/io/decode_jpeg): Decode a JPEG-encoded image to a uint8 tensor.
 
@@ -62,6 +61,8 @@ See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 [`extract_image_patches(...)`](../tf/image/extract_image_patches): Extract `patches` from `images` and put them in the "depth" output dimension.
 
 [`extract_jpeg_shape(...)`](../tf/io/extract_jpeg_shape): Extract the shape information of a JPEG-encoded image.
+
+[`extract_patches(...)`](../tf/image/extract_patches): Extract `patches` from `images` and put them in the \"depth\" output dimension.
 
 [`flip_left_right(...)`](../tf/image/flip_left_right): Flip an image horizontally (left to right).
 
@@ -89,7 +90,7 @@ See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 [`random_brightness(...)`](../tf/image/random_brightness): Adjust the brightness of images by a random factor.
 
-[`random_contrast(...)`](../tf/image/random_contrast): Adjust the contrast of an image by a random factor.
+[`random_contrast(...)`](../tf/image/random_contrast): Adjust the contrast of an image or images by a random factor.
 
 [`random_crop(...)`](../tf/image/random_crop): Randomly crops a tensor to a given size.
 
@@ -97,27 +98,29 @@ See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 [`random_flip_up_down(...)`](../tf/image/random_flip_up_down): Randomly flips an image vertically (upside down).
 
-[`random_hue(...)`](../tf/image/random_hue): Adjust the hue of an RGB image by a random factor.
+[`random_hue(...)`](../tf/image/random_hue): Adjust the hue of RGB images by a random factor.
 
 [`random_jpeg_quality(...)`](../tf/image/random_jpeg_quality): Randomly changes jpeg encoding quality for inducing jpeg noise.
 
-[`random_saturation(...)`](../tf/image/random_saturation): Adjust the saturation of an RGB image by a random factor.
+[`random_saturation(...)`](../tf/image/random_saturation): Adjust the saturation of RGB images by a random factor.
 
-[`resize(...)`](../tf/image/resize_images)
+[`resize(...)`](../tf/image/resize_images): Resize `images` to `size` using the specified `method`.
 
 [`resize_area(...)`](../tf/image/resize_area): Resize `images` to `size` using area interpolation.
 
-[`resize_bicubic(...)`](../tf/image/resize_bicubic): Resize `images` to `size` using bicubic interpolation.
+[`resize_bicubic(...)`](../tf/image/resize_bicubic)
 
-[`resize_bilinear(...)`](../tf/image/resize_bilinear): Resize `images` to `size` using bilinear interpolation.
+[`resize_bilinear(...)`](../tf/image/resize_bilinear)
 
-[`resize_image_with_crop_or_pad(...)`](../tf/image/resize_image_with_crop_or_pad): Crops and/or pads an image to a target width and height.
+[`resize_image_with_crop_or_pad(...)`](../tf/image/resize_with_crop_or_pad): Crops and/or pads an image to a target width and height.
 
 [`resize_image_with_pad(...)`](../tf/image/resize_image_with_pad): Resizes and pads an image to a target width and height.
 
-[`resize_images(...)`](../tf/image/resize_images)
+[`resize_images(...)`](../tf/image/resize_images): Resize `images` to `size` using the specified `method`.
 
-[`resize_nearest_neighbor(...)`](../tf/image/resize_nearest_neighbor): Resize `images` to `size` using nearest neighbor interpolation.
+[`resize_nearest_neighbor(...)`](../tf/image/resize_nearest_neighbor)
+
+[`resize_with_crop_or_pad(...)`](../tf/image/resize_with_crop_or_pad): Crops and/or pads an image to a target width and height.
 
 [`rgb_to_grayscale(...)`](../tf/image/rgb_to_grayscale): Converts one or more images from RGB to Grayscale.
 
@@ -139,9 +142,9 @@ See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 [`total_variation(...)`](../tf/image/total_variation): Calculate and return the total variation for one or more images.
 
-[`transpose(...)`](../tf/image/transpose)
+[`transpose(...)`](../tf/image/transpose): Transpose image(s) by swapping the height and width dimension.
 
-[`transpose_image(...)`](../tf/image/transpose)
+[`transpose_image(...)`](../tf/image/transpose): Transpose image(s) by swapping the height and width dimension.
 
 [`yiq_to_rgb(...)`](../tf/image/yiq_to_rgb): Converts one or more images from YIQ to RGB.
 

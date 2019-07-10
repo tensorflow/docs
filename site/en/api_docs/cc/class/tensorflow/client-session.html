@@ -2,15 +2,15 @@
 <html devsite>
 <head>
   <title>tensorflow::ClientSession Class Reference</title>
-  <meta name="project_path" value="/versions/r1.13/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.13/api_docs/_book.yaml" />
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ClientSession</h1>
   <code>#include &lt;client_session.h&gt;</code>
-  <p>A <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session">ClientSession</a></code> object lets the caller drive the evaluation of the TensorFlow graph constructed with the C++ API. </p>
+  <p>A <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session">ClientSession</a></code> object lets the caller drive the evaluation of the TensorFlow graph constructed with the C++ API. </p>
   <h2>Summary</h2>
   <p>Example: <pre class="prettyprint">Scope root = Scope::NewRootScope();
 auto a = Placeholder(root, DT_INT32);
@@ -29,21 +29,21 @@ if (!s.ok()) { ... }  </pre></p>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1_client_session_1ac52798100986741ff24aba4a758d8e4d">ClientSession</a>(const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope, const string & target)</code>
+        <code><a href="#classtensorflow_1_1_client_session_1ac52798100986741ff24aba4a758d8e4d">ClientSession</a>(const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope, const string & target)</code>
         <br />
         <div>Create a new session to evaluate the graph contained in <code>scope</code> by connecting to the TensorFlow runtime specified by <code>target</code>. </div>
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1_client_session_1a791dce94ca627aec0c4318b125f60b6f">ClientSession</a>(const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope)</code>
+        <code><a href="#classtensorflow_1_1_client_session_1a791dce94ca627aec0c4318b125f60b6f">ClientSession</a>(const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope)</code>
         <br />
         <div>Same as above, but use the empty string ("") as the target specification. </div>
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1_client_session_1a997f25e1940f59e004d99be1ce8b1d6a">ClientSession</a>(const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope, const SessionOptions & session_options)</code>
+        <code><a href="#classtensorflow_1_1_client_session_1a997f25e1940f59e004d99be1ce8b1d6a">ClientSession</a>(const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope, const SessionOptions & session_options)</code>
         <br />
         <div>Create a new session, configuring it with <code>session_options</code>. </div>
       </td>
@@ -67,14 +67,14 @@ if (!s.ok()) { ... }  </pre></p>
       </td>
       <td>typedef<div>
           <code>int64</code>
-        </div><div>A handle to a subgraph, created with <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a1173b3254b1940937a59c5adfb196316">ClientSession::MakeCallable()</a></code>. </div></td>
+        </div><div>A handle to a subgraph, created with <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a1173b3254b1940937a59c5adfb196316">ClientSession::MakeCallable()</a></code>. </div></td>
     </tr>
     <tr>
       <td>
         <code><a href="#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a></code>
       </td>
       <td>typedef<div>
-          <code>std::unordered_map< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a>, <a href="/versions/r1.13/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Input::Initializer</a>, <a href="/versions/r1.13/api_docs/cc/struct/tensorflow/output-hash.html#structtensorflow_1_1_output_hash">OutputHash</a> ></code>
+          <code>std::unordered_map< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a>, <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Input::Initializer</a>, <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/output-hash.html#structtensorflow_1_1_output_hash">OutputHash</a> ></code>
         </div><div>A data type to represent feeds to a Run call. </div></td>
     </tr>
   </table>
@@ -86,77 +86,77 @@ if (!s.ok()) { ... }  </pre></p>
     </tr>
     <tr>
       <td>
-        <code><a href="#classtensorflow_1_1_client_session_1a1173b3254b1940937a59c5adfb196316">MakeCallable</a>(const CallableOptions & callable_options, <a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> *out_handle)</code>
+        <code><a href="#classtensorflow_1_1_client_session_1a1173b3254b1940937a59c5adfb196316">MakeCallable</a>(const CallableOptions & callable_options, <a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> *out_handle)</code>
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
         </div>
         <div>Creates a <code>handle</code> for invoking the subgraph defined by <code>callable_options</code>. </div>
       </td>
     </tr>
     <tr>
       <td>
-        <code><a href="#classtensorflow_1_1_client_session_1a7f028aa32b4b924e1be040c49c44221a">ReleaseCallable</a>(<a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> handle)</code>
+        <code><a href="#classtensorflow_1_1_client_session_1a7f028aa32b4b924e1be040c49c44221a">ReleaseCallable</a>(<a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> handle)</code>
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
         </div>
         <div>Releases resources associated with the given <code>handle</code> in this session. </div>
       </td>
     </tr>
     <tr>
       <td>
-        <code><a href="#classtensorflow_1_1_client_session_1abba158c5343b74800d2d00b6ce75cf79">Run</a>(const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs) const </code>
+        <code><a href="#classtensorflow_1_1_client_session_1abba158c5343b74800d2d00b6ce75cf79">Run</a>(const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs) const </code>
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
         </div>
         <div>Evaluate the tensors in <code>fetch_outputs</code>. </div>
       </td>
     </tr>
     <tr>
       <td>
-        <code><a href="#classtensorflow_1_1_client_session_1a69299ff76cb16b83467e93569870250a">Run</a>(const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs, const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs) const </code>
+        <code><a href="#classtensorflow_1_1_client_session_1a69299ff76cb16b83467e93569870250a">Run</a>(const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs, const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs) const </code>
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
         </div>
         <div>Same as above, but use the mapping in <code>inputs</code> as feeds. </div>
       </td>
     </tr>
     <tr>
       <td>
-        <code><a href="#classtensorflow_1_1_client_session_1a706a9b3dfde4aa64c7ca9e85ac666b1d">Run</a>(const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs, const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs, std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs) const </code>
+        <code><a href="#classtensorflow_1_1_client_session_1a706a9b3dfde4aa64c7ca9e85ac666b1d">Run</a>(const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs, const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs, std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs) const </code>
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
         </div>
         <div>Same as above. Additionally runs the operations ins <code>run_outputs</code>. </div>
       </td>
     </tr>
     <tr>
       <td>
-        <code><a href="#classtensorflow_1_1_client_session_1a46e06a478a61001923a545e0922038e2">Run</a>(const RunOptions & run_options, const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs, const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs, std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs, RunMetadata *run_metadata) const </code>
+        <code><a href="#classtensorflow_1_1_client_session_1a46e06a478a61001923a545e0922038e2">Run</a>(const RunOptions & run_options, const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs, const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs, const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs, std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs, RunMetadata *run_metadata) const </code>
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
         </div>
         <div>Use <code>run_options</code> to turn on performance profiling. </div>
       </td>
     </tr>
     <tr>
       <td>
-        <code><a href="#classtensorflow_1_1_client_session_1ad5ba274d6e978e36be7aa8e53207faa2">RunCallable</a>(<a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> handle, const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > & feed_tensors, std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *fetch_tensors, RunMetadata *run_metadata)</code>
+        <code><a href="#classtensorflow_1_1_client_session_1ad5ba274d6e978e36be7aa8e53207faa2">RunCallable</a>(<a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> handle, const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > & feed_tensors, std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *fetch_tensors, RunMetadata *run_metadata)</code>
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
         </div>
         <div>Invokes the subgraph named by <code>handle</code> with the given options and input tensors. </div>
       </td>
@@ -167,22 +167,22 @@ if (!s.ok()) { ... }  </pre></p>
     <h3>CallableHandle</h3>
     <pre class="prettyprint">int64 CallableHandle</pre>
     <div>
-      <p>A handle to a subgraph, created with <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a1173b3254b1940937a59c5adfb196316">ClientSession::MakeCallable()</a></code>. </p>
+      <p>A handle to a subgraph, created with <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a1173b3254b1940937a59c5adfb196316">ClientSession::MakeCallable()</a></code>. </p>
     </div>
   </div>
   <div id="classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">
     <h3>FeedType</h3>
-    <pre class="prettyprint">std::unordered_map< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a>, <a href="/versions/r1.13/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Input::Initializer</a>, <a href="/versions/r1.13/api_docs/cc/struct/tensorflow/output-hash.html#structtensorflow_1_1_output_hash">OutputHash</a> > FeedType</pre>
+    <pre class="prettyprint">std::unordered_map< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a>, <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Input::Initializer</a>, <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/output-hash.html#structtensorflow_1_1_output_hash">OutputHash</a> > FeedType</pre>
     <div>
       <p>A data type to represent feeds to a Run call. </p>
-      <p>This is a map of <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> objects returned by op-constructors to the value to feed them with. See <code><a href="/versions/r1.13/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Input::Initializer</a></code> for details on what can be used as feed values. </p>
+      <p>This is a map of <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> objects returned by op-constructors to the value to feed them with. See <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Input::Initializer</a></code> for details on what can be used as feed values. </p>
     </div>
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1_client_session_1ac52798100986741ff24aba4a758d8e4d">
     <h3>ClientSession</h3>
     <pre class="prettyprint"> ClientSession(
-  const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope,
+  const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope,
   const string & target
 )</pre>
     <div>
@@ -192,7 +192,7 @@ if (!s.ok()) { ... }  </pre></p>
   <div id="classtensorflow_1_1_client_session_1a791dce94ca627aec0c4318b125f60b6f">
     <h3>ClientSession</h3>
     <pre class="prettyprint"> ClientSession(
-  const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope
+  const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope
 )</pre>
     <div>
       <p>Same as above, but use the empty string ("") as the target specification. </p>
@@ -201,7 +201,7 @@ if (!s.ok()) { ... }  </pre></p>
   <div id="classtensorflow_1_1_client_session_1a997f25e1940f59e004d99be1ce8b1d6a">
     <h3>ClientSession</h3>
     <pre class="prettyprint"> ClientSession(
-  const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope,
+  const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> & scope,
   const SessionOptions & session_options
 )</pre>
     <div>
@@ -210,9 +210,9 @@ if (!s.ok()) { ... }  </pre></p>
   </div>
   <div id="classtensorflow_1_1_client_session_1a1173b3254b1940937a59c5adfb196316">
     <h3>MakeCallable</h3>
-    <pre class="prettyprint"><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> MakeCallable(
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> MakeCallable(
   const CallableOptions & callable_options,
-  <a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> *out_handle
+  <a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> *out_handle
 )</pre>
     <div>
       <p>Creates a <code>handle</code> for invoking the subgraph defined by <code>callable_options</code>. </p>
@@ -221,8 +221,8 @@ if (!s.ok()) { ... }  </pre></p>
   </div>
   <div id="classtensorflow_1_1_client_session_1a7f028aa32b4b924e1be040c49c44221a">
     <h3>ReleaseCallable</h3>
-    <pre class="prettyprint"><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> ReleaseCallable(
-  <a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> handle
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> ReleaseCallable(
+  <a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> handle
 )</pre>
     <div>
       <p>Releases resources associated with the given <code>handle</code> in this session. </p>
@@ -231,21 +231,21 @@ if (!s.ok()) { ... }  </pre></p>
   </div>
   <div id="classtensorflow_1_1_client_session_1abba158c5343b74800d2d00b6ce75cf79">
     <h3>Run</h3>
-    <pre class="prettyprint"><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
-  const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
-  std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
+  const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
+  std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs
 ) const </pre>
     <div>
       <p>Evaluate the tensors in <code>fetch_outputs</code>. </p>
-      <p>The values are returned as <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> objects in <code>outputs</code>. The number and order of <code>outputs</code> will match <code>fetch_outputs</code>. </p>
+      <p>The values are returned as <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> objects in <code>outputs</code>. The number and order of <code>outputs</code> will match <code>fetch_outputs</code>. </p>
     </div>
   </div>
   <div id="classtensorflow_1_1_client_session_1a69299ff76cb16b83467e93569870250a">
     <h3>Run</h3>
-    <pre class="prettyprint"><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
-  const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs,
-  const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
-  std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
+  const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs,
+  const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
+  std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs
 ) const </pre>
     <div>
       <p>Same as above, but use the mapping in <code>inputs</code> as feeds. </p>
@@ -253,11 +253,11 @@ if (!s.ok()) { ... }  </pre></p>
   </div>
   <div id="classtensorflow_1_1_client_session_1a706a9b3dfde4aa64c7ca9e85ac666b1d">
     <h3>Run</h3>
-    <pre class="prettyprint"><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
-  const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs,
-  const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
-  const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs,
-  std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
+  const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs,
+  const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
+  const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs,
+  std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs
 ) const </pre>
     <div>
       <p>Same as above. Additionally runs the operations ins <code>run_outputs</code>. </p>
@@ -265,12 +265,12 @@ if (!s.ok()) { ... }  </pre></p>
   </div>
   <div id="classtensorflow_1_1_client_session_1a46e06a478a61001923a545e0922038e2">
     <h3>Run</h3>
-    <pre class="prettyprint"><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> Run(
   const RunOptions & run_options,
-  const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs,
-  const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
-  const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs,
-  std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs,
+  const <a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1acc9df9cd0b78bc70aa100c122e1d0b79">FeedType</a> & inputs,
+  const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> > & fetch_outputs,
+  const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> > & run_outputs,
+  std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *outputs,
   RunMetadata *run_metadata
 ) const </pre>
     <div>
@@ -280,10 +280,10 @@ if (!s.ok()) { ... }  </pre></p>
   </div>
   <div id="classtensorflow_1_1_client_session_1ad5ba274d6e978e36be7aa8e53207faa2">
     <h3>RunCallable</h3>
-    <pre class="prettyprint"><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> RunCallable(
-  <a href="/versions/r1.13/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> handle,
-  const std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > & feed_tensors,
-  std::vector< <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *fetch_tensors,
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> RunCallable(
+  <a href="/versions/r1.14/api_docs/cc/class/tensorflow/client-session.html#classtensorflow_1_1_client_session_1a5a406e8a9e34fab90abedb64eaff9b64">CallableHandle</a> handle,
+  const std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > & feed_tensors,
+  std::vector< <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> > *fetch_tensors,
   RunMetadata *run_metadata
 )</pre>
     <div>

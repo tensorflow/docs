@@ -5,12 +5,19 @@ page_type: reference
 
 # tf.no_regularizer
 
+Use this function to prevent regularization of variables.
+
+### Aliases:
+
+* `tf.compat.v1.no_regularizer`
+* `tf.no_regularizer`
+
 ``` python
 tf.no_regularizer(_)
 ```
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variable_scope.py).
+Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
-Use this function to prevent regularization of variables.
+<!-- Placeholder for "Used in" -->

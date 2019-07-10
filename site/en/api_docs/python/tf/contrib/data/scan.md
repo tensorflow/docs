@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.data.scan
 
+A transformation that scans a function across an input dataset. (deprecated)
+
 ``` python
 tf.contrib.data.scan(
     initial_state,
@@ -14,13 +16,13 @@ tf.contrib.data.scan(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/scan_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/scan_ops.py).
+Defined in [`contrib/data/python/ops/scan_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/scan_ops.py).
 
-A transformation that scans a function across an input dataset. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.experimental.scan(...)`.
+Use <a href="../../../tf/data/experimental/scan"><code>tf.data.experimental.scan(...)</code></a>.
 
 This transformation is a stateful relative of <a href="../../../tf/data/Dataset#map"><code>tf.data.Dataset.map</code></a>.
 In addition to mapping `scan_func` across the elements of the input dataset,
@@ -29,12 +31,13 @@ In addition to mapping `scan_func` across the elements of the input dataset,
 
 #### Args:
 
+
 * <b>`initial_state`</b>: A nested structure of tensors, representing the initial state
-    of the accumulator.
+  of the accumulator.
 * <b>`scan_func`</b>: A function that maps `(old_state, input_element)` to
-    `(new_state, output_element). It must take two arguments and return a
-    pair of nested structures of tensors. The `new_state` must match the
-    structure of `initial_state`.
+  `(new_state, output_element). It must take two arguments and return a
+  pair of nested structures of tensors. The `new_state` must match the
+  structure of `initial_state`.
 
 
 #### Returns:

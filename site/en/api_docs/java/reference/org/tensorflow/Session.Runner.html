@@ -47,8 +47,8 @@
 <html devsite>
   <head>
     <title>Session.Runner</title>
-    <meta name="book_path" value="/versions/r1.13/api_docs/_book.yaml" />
-    <meta name="project_path" value="/versions/r1.13/api_docs/_project.yaml" />
+    <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+    <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
 
@@ -269,6 +269,28 @@
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(org.tensorflow.Operand<?>, org.tensorflow.Tensor<?>)">feed</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Operand.html">Operand</a>&lt;?&gt; operand, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; t)
+                
+                  <div class="jd-descrdiv">Use <code>t</code> instead of the Tensor referred to by executing the operation referred to by
+ <code>operand</code>.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, org.tensorflow.Tensor<?>)">feed</a></span>(String operation, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; t)
                 
                   <div class="jd-descrdiv">Avoid evaluating <code>operation</code> and substitute <code>t</code> for the value it produces.</div>
@@ -294,28 +316,6 @@
                 
                   <div class="jd-descrdiv">Avoid evaluating the <code>index</code>-th output of <code>operation</code> by substituting <code>t</code>
  for the value it produces.</div>
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                
-                
-                
-                <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(org.tensorflow.Output<?>, org.tensorflow.Tensor<?>)">feed</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;?&gt; o, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; t)
-                
-                  <div class="jd-descrdiv">Use <code>t</code> instead of the Tensor referred to by executing the operation referred to by
- <code>output</code>.</div>
                 
               </div>
           </td>
@@ -861,13 +861,66 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p>Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operation</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operation</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>operation</th>
+          <td><!-- no parameter comment --></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th></th>
+            <td>if the operation is not a <code><a href="/api_docs/java/reference/org/tensorflow/GraphOperation.html">GraphOperation</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="feed(org.tensorflow.Operand<?>, org.tensorflow.Tensor<?>)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
+          </span>
+          <span class="sympad"><strong>feed</strong></span>
+          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Operand.html">Operand</a>&lt;?&gt; operand, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; t)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Use <code>t</code> instead of the Tensor referred to by executing the operation referred to by
+ <code>operand</code>.
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>operand</th>
+          <td><!-- no parameter comment --></td>
+        </tr>
+        <tr>
+          <th>t</th>
           <td><!-- no parameter comment --></td>
         </tr>
       </table>
@@ -961,50 +1014,6 @@
         </tr>
         <tr>
           <th>index</th>
-          <td><!-- no parameter comment --></td>
-        </tr>
-        <tr>
-          <th>t</th>
-          <td><!-- no parameter comment --></td>
-        </tr>
-      </table>
-  </div>
-
-        </div>
-    </div>
-    
-    
-    <A NAME="feed(org.tensorflow.Output<?>, org.tensorflow.Tensor<?>)"></A>
-    
-    <div class="jd-details">
-        <h4 class="jd-details-title">
-          <span class="normal">
-            public
-            
-            
-            
-            
-            <a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html">Session.Runner</a>
-          </span>
-          <span class="sympad"><strong>feed</strong></span>
-          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;?&gt; o, <a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a>&lt;?&gt; t)</span>
-        </h4>
-          <div class="api-level">
-            <div></div>
-            
-  
-
-          </div>
-        <div class="jd-details-descr">
-          
-  <div class="jd-tagdata jd-tagdescr"><p>Use <code>t</code> instead of the Tensor referred to by executing the operation referred to by
- <code>output</code>.
-</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>o</th>
           <td><!-- no parameter comment --></td>
         </tr>
         <tr>

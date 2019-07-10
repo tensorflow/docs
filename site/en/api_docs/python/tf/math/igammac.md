@@ -6,8 +6,13 @@ page_type: reference
 
 # tf.math.igammac
 
+Compute the upper regularized incomplete Gamma function `Q(a, x)`.
+
 ### Aliases:
 
+* `tf.compat.v1.igammac`
+* `tf.compat.v1.math.igammac`
+* `tf.compat.v2.math.igammac`
 * `tf.igammac`
 * `tf.math.igammac`
 
@@ -21,9 +26,9 @@ tf.math.igammac(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Compute the upper regularized incomplete Gamma function `Q(a, x)`.
+<!-- Placeholder for "Used in" -->
 
 The upper regularized incomplete Gamma function is defined as:
 
@@ -39,6 +44,7 @@ Note, above `P(a, x)` (`Igamma`) is the lower regularized complete
 Gamma function.
 
 #### Args:
+
 
 * <b>`a`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`.
 * <b>`x`</b>: A `Tensor`. Must have the same type as `a`.

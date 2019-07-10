@@ -11,7 +11,7 @@ Inherits From: [`SessionRunHook`](../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/wrappers/hooks.py).
+Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/wrappers/hooks.py).
 
 A hook that streams debugger-related events to any grpc_debug_server.
 
@@ -22,8 +22,8 @@ This enables debugging features in Tensorboard such as health pills.
 When the arguments of debug_utils.watch_graph changes, strongly consider
 changing arguments here too so that features are available to tflearn users.
 
-Can be used as a hook for <a href="../tf/train/MonitoredSession"><code>tf.train.MonitoredSession</code></a>s and
-<a href="../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a>s.
+Can be used as a hook for `tf.compat.v1.train.MonitoredSession`s and
+`tf.estimator.Estimator`s.
 
 <h2 id="__init__"><code>__init__</code></h2>
 

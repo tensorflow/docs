@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.initializers.local_variables
 
+Returns an Op that initializes all local variables.
+
 ### Aliases:
 
+* `tf.compat.v1.initializers.local_variables`
+* `tf.compat.v1.local_variables_initializer`
 * `tf.initializers.local_variables`
 * `tf.local_variables_initializer`
 
@@ -16,9 +20,9 @@ tf.initializers.local_variables()
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variables.py).
+Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
-Returns an Op that initializes all local variables.
+<!-- Placeholder for "Used in" -->
 
 This is just a shortcut for `variables_initializer(local_variables())`
 

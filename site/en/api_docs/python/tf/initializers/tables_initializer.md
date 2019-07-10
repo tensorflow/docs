@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.initializers.tables_initializer
 
+Returns an Op that initializes all tables of the default graph.
+
 ### Aliases:
 
+* `tf.compat.v1.initializers.tables_initializer`
+* `tf.compat.v1.tables_initializer`
 * `tf.initializers.tables_initializer`
 * `tf.tables_initializer`
 
@@ -16,11 +20,16 @@ tf.initializers.tables_initializer(name='init_all_tables')
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/lookup_ops.py).
+Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
-Returns an Op that initializes all tables of the default graph.
+<!-- Placeholder for "Used in" -->
+
+See the [Low Level
+Intro](https://www.tensorflow.org/guide/low_level_intro#feature_columns)
+guide, for an example of usage.
 
 #### Args:
+
 
 * <b>`name`</b>: Optional name for the initialization op.
 

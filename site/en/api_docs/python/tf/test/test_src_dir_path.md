@@ -5,20 +5,29 @@ page_type: reference
 
 # tf.test.test_src_dir_path
 
+Creates an absolute test srcdir path given a relative path.
+
+### Aliases:
+
+* `tf.compat.v1.test.test_src_dir_path`
+* `tf.test.test_src_dir_path`
+
 ``` python
 tf.test.test_src_dir_path(relative_path)
 ```
 
 
 
-Defined in [`tensorflow/python/platform/test.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/test.py).
+Defined in [`python/platform/test.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/test.py).
 
-Creates an absolute test srcdir path given a relative path.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`relative_path`</b>: a path relative to tensorflow root.
-    e.g. "core/platform".
+  e.g. "core/platform".
 
 
 #### Returns:

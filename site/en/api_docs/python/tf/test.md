@@ -7,14 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Testing.
-
-See the [Testing](https://tensorflow.org/api_guides/python/test) guide.
-
-Note: `tf.test.mock` is an alias to the python `mock` or `unittest.mock`
-depending on the python version.
 
 ## Classes
 
@@ -28,7 +22,7 @@ depending on the python version.
 
 [`assert_equal_graph_def(...)`](../tf/test/assert_equal_graph_def): Asserts that two `GraphDef`s are (mostly) the same.
 
-[`benchmark_config(...)`](../tf/test/benchmark_config): Returns a tf.ConfigProto for disabling the dependency optimizer.
+[`benchmark_config(...)`](../tf/test/benchmark_config): Returns a tf.compat.v1.ConfigProto for disabling the dependency optimizer.
 
 [`compute_gradient(...)`](../tf/test/compute_gradient): Computes and returns the theoretical and numerical Jacobian.
 

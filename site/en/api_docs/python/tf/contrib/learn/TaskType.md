@@ -7,19 +7,19 @@ page_type: reference
 
 ## Class `TaskType`
 
-
-
-
-
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
-
 DEPRECATED CLASS.
+
+
+
+
+
+Defined in [`contrib/learn/python/learn/estimators/run_config.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Class Members
 
-<h3 id="MASTER"><code>MASTER</code></h3>
-
-<h3 id="PS"><code>PS</code></h3>
-
-<h3 id="WORKER"><code>WORKER</code></h3>
-
+* `MASTER = 'master'` <a id="MASTER"></a>
+* `PS = 'ps'` <a id="PS"></a>
+* `WORKER = 'worker'` <a id="WORKER"></a>

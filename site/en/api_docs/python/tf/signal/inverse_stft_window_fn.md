@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.signal.inverse_stft_window_fn
 
+Generates a window function that can be used in `inverse_stft`.
+
 ### Aliases:
 
+* `tf.compat.v1.signal.inverse_stft_window_fn`
+* `tf.compat.v2.signal.inverse_stft_window_fn`
 * `tf.contrib.signal.inverse_stft_window_fn`
 * `tf.signal.inverse_stft_window_fn`
 
@@ -20,9 +24,9 @@ tf.signal.inverse_stft_window_fn(
 
 
 
-Defined in [`tensorflow/python/ops/signal/spectral_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/signal/spectral_ops.py).
+Defined in [`python/ops/signal/spectral_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/spectral_ops.py).
 
-Generates a window function that can be used in `inverse_stft`.
+<!-- Placeholder for "Used in" -->
 
 Constructs a window that is equal to the forward window with a further
 pointwise amplitude correction.  `inverse_stft_window_fn` is equivalent to
@@ -31,6 +35,7 @@ pointwise amplitude correction.  `inverse_stft_window_fn` is equivalent to
 See examples in `inverse_stft` documentation for usage.
 
 #### Args:
+
 
 * <b>`frame_step`</b>: An integer scalar `Tensor`. The number of samples to step.
 * <b>`forward_window_fn`</b>: window_fn used in the forward transform, `stft`.

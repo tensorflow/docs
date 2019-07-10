@@ -7,9 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.dtypes namespace.
 
 ## Classes
 
@@ -19,7 +18,7 @@ Public API for tf.dtypes namespace.
 
 [`as_dtype(...)`](../tf/dtypes/as_dtype): Converts the given `type_value` to a `DType`.
 
-[`as_string(...)`](../tf/dtypes/as_string): Converts each entry in the given tensor to strings.  Supports many numeric
+[`as_string(...)`](../tf/strings/as_string): Converts each entry in the given tensor to strings.  Supports many numeric
 
 [`cast(...)`](../tf/dtypes/cast): Casts a tensor to a new type.
 
@@ -29,55 +28,29 @@ Public API for tf.dtypes namespace.
 
 ## Other Members
 
-<h3 id="QUANTIZED_DTYPES"><code>QUANTIZED_DTYPES</code></h3>
-
-<h3 id="bfloat16"><code>bfloat16</code></h3>
-
-<h3 id="bool"><code>bool</code></h3>
-
-<h3 id="complex128"><code>complex128</code></h3>
-
-<h3 id="complex64"><code>complex64</code></h3>
-
-<h3 id="double"><code>double</code></h3>
-
-<h3 id="float16"><code>float16</code></h3>
-
-<h3 id="float32"><code>float32</code></h3>
-
-<h3 id="float64"><code>float64</code></h3>
-
-<h3 id="half"><code>half</code></h3>
-
-<h3 id="int16"><code>int16</code></h3>
-
-<h3 id="int32"><code>int32</code></h3>
-
-<h3 id="int64"><code>int64</code></h3>
-
-<h3 id="int8"><code>int8</code></h3>
-
-<h3 id="qint16"><code>qint16</code></h3>
-
-<h3 id="qint32"><code>qint32</code></h3>
-
-<h3 id="qint8"><code>qint8</code></h3>
-
-<h3 id="quint16"><code>quint16</code></h3>
-
-<h3 id="quint8"><code>quint8</code></h3>
-
-<h3 id="resource"><code>resource</code></h3>
-
-<h3 id="string"><code>string</code></h3>
-
-<h3 id="uint16"><code>uint16</code></h3>
-
-<h3 id="uint32"><code>uint32</code></h3>
-
-<h3 id="uint64"><code>uint64</code></h3>
-
-<h3 id="uint8"><code>uint8</code></h3>
-
-<h3 id="variant"><code>variant</code></h3>
-
+* `QUANTIZED_DTYPES` <a id="QUANTIZED_DTYPES"></a>
+* `bfloat16` <a id="bfloat16"></a>
+* `bool` <a id="bool"></a>
+* `complex128` <a id="complex128"></a>
+* `complex64` <a id="complex64"></a>
+* `double` <a id="double"></a>
+* `float16` <a id="float16"></a>
+* `float32` <a id="float32"></a>
+* `float64` <a id="float64"></a>
+* `half` <a id="half"></a>
+* `int16` <a id="int16"></a>
+* `int32` <a id="int32"></a>
+* `int64` <a id="int64"></a>
+* `int8` <a id="int8"></a>
+* `qint16` <a id="qint16"></a>
+* `qint32` <a id="qint32"></a>
+* `qint8` <a id="qint8"></a>
+* `quint16` <a id="quint16"></a>
+* `quint8` <a id="quint8"></a>
+* `resource` <a id="resource"></a>
+* `string` <a id="string"></a>
+* `uint16` <a id="uint16"></a>
+* `uint32` <a id="uint32"></a>
+* `uint64` <a id="uint64"></a>
+* `uint8` <a id="uint8"></a>
+* `variant` <a id="variant"></a>

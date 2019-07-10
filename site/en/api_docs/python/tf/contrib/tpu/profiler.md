@@ -5,19 +5,22 @@ page_type: reference
 
 # Module: tf.contrib.tpu.profiler
 
+Stub file to maintain backwards compatibility.
 
 
-Defined in [`tensorflow/contrib/tpu/python/profiler/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/tpu/python/profiler/__init__.py).
 
-Classes for TPU trace events.
+Defined in [`contrib/tpu/python/profiler/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/tpu/python/profiler/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 
-[`class Device`](../../../tf/contrib/tpu/profiler/Device): A ProtocolMessage
+[`class Device`](../../../tf/contrib/tpu/profiler/Device)
 
-[`class Resource`](../../../tf/contrib/tpu/profiler/Resource): A ProtocolMessage
+[`class Resource`](../../../tf/contrib/tpu/profiler/Resource)
 
-[`class Trace`](../../../tf/contrib/tpu/profiler/Trace): A ProtocolMessage
+[`class Trace`](../../../tf/contrib/tpu/profiler/Trace)
 
-[`class TraceEvent`](../../../tf/contrib/tpu/profiler/TraceEvent): A ProtocolMessage
+[`class TraceEvent`](../../../tf/contrib/tpu/profiler/TraceEvent)
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.sum_regularizer
 
+Returns a function that applies the sum of multiple regularizers.
+
 ``` python
 tf.contrib.layers.sum_regularizer(
     regularizer_list,
@@ -14,11 +16,13 @@ tf.contrib.layers.sum_regularizer(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/regularizers.py).
+Defined in [`contrib/layers/python/layers/regularizers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/regularizers.py).
 
-Returns a function that applies the sum of multiple regularizers.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`regularizer_list`</b>: A list of regularizers to apply.
 * <b>`scope`</b>: An optional scope name

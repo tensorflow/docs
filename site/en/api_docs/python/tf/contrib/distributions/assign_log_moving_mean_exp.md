@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.distributions.assign_log_moving_mean_exp
 
+Compute the log of the exponentially weighted moving mean of the exp.
+
 ``` python
 tf.contrib.distributions.assign_log_moving_mean_exp(
     log_mean_exp_var,
@@ -16,9 +18,9 @@ tf.contrib.distributions.assign_log_moving_mean_exp(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/moving_stats.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/moving_stats.py).
+Defined in [`contrib/distributions/python/ops/moving_stats.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/moving_stats.py).
 
-Compute the log of the exponentially weighted moving mean of the exp.
+<!-- Placeholder for "Used in" -->
 
 If `log_value` is a draw from a stationary random variable, this function
 approximates `log(E[exp(log_value)])`, i.e., a weighted log-sum-exp. More
@@ -43,23 +45,26 @@ update to the tf.Variable is presumed efficient due to being lock-free.)
 
 #### Args:
 
+
 * <b>`log_mean_exp_var`</b>: `float`-like `Variable` representing the log of the
-    exponentially weighted moving mean of the exp. Same shape as `log_value`.
+  exponentially weighted moving mean of the exp. Same shape as `log_value`.
 * <b>`log_value`</b>: `float`-like `Tensor` representing a new (streaming) observation.
-    Same shape as `log_mean_exp_var`.
+  Same shape as `log_mean_exp_var`.
 * <b>`decay`</b>: A `float`-like `Tensor`. The moving mean decay. Typically close to
-    `1.`, e.g., `0.999`.
+  `1.`, e.g., `0.999`.
 * <b>`name`</b>: Optional name of the returned operation.
 
 
 #### Returns:
 
+
 * <b>`log_mean_exp_var`</b>: A reference to the input 'Variable' tensor with the
-    `log_value`-updated log of the exponentially weighted moving mean of exp.
+  `log_value`-updated log of the exponentially weighted moving mean of exp.
 
 
 #### Raises:
 
+
 * <b>`TypeError`</b>: if `log_mean_exp_var` does not have float type `dtype`.
 * <b>`TypeError`</b>: if `log_mean_exp_var`, `log_value`, `decay` have different
-    `base_dtype`.
+  `base_dtype`.

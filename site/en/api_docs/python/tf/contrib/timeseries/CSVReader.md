@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `CSVReader`
 
-
-
-
-
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
-
 Reads from a collection of CSV-formatted files.
+
+
+
+
+
+Defined in [`contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -29,28 +32,31 @@ __init__(
 
 CSV-parsing reader for a `TimeSeriesInputFn`.
 
+
 #### Args:
 
-* <b>`filenames`</b>: A filename or list of filenames to read the time series
-      from. Each line must have columns corresponding to `column_names`.
-* <b>`column_names`</b>: A list indicating names for each
-      feature. `TrainEvalFeatures.TIMES` and `TrainEvalFeatures.VALUES` are
-      required; `VALUES` may be repeated to indicate a multivariate series.
+
+* <b>`filenames`</b>: A filename or list of filenames to read the time series from.
+  Each line must have columns corresponding to `column_names`.
+* <b>`column_names`</b>: A list indicating names for each feature.
+  `TrainEvalFeatures.TIMES` and `TrainEvalFeatures.VALUES` are required;
+  `VALUES` may be repeated to indicate a multivariate series.
 * <b>`column_dtypes`</b>: If provided, must be a list with the same length as
-      `column_names`, indicating dtypes for each column. Defaults to
-      <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> for `TrainEvalFeatures.TIMES` and <a href="../../../tf/dtypes#float32"><code>tf.float32</code></a> for
-      everything else.
-* <b>`skip_header_lines`</b>: Passed on to <a href="../../../tf/TextLineReader"><code>tf.TextLineReader</code></a>; skips this number of
-      lines at the beginning of each file.
+  `column_names`, indicating dtypes for each column. Defaults to
+  <a href="../../../tf#int64"><code>tf.int64</code></a> for `TrainEvalFeatures.TIMES` and <a href="../../../tf#float32"><code>tf.float32</code></a> for everything
+  else.
+* <b>`skip_header_lines`</b>: Passed on to <a href="../../../tf/TextLineReader"><code>tf.compat.v1.TextLineReader</code></a>; skips this
+  number of lines at the beginning of each file.
 * <b>`read_num_records_hint`</b>: When not reading a full dataset, indicates the
-      number of records to parse/transfer in a single chunk (for
-      efficiency). The actual number transferred at one time may be more or
-      less.
+  number of records to parse/transfer in a single chunk (for efficiency).
+  The actual number transferred at one time may be more or less.
+
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If required column names are not specified, or if lengths do
-    not match.
+  not match.
 
 
 
@@ -72,9 +78,10 @@ method.
 
 #### Args:
 
+
 * <b>`minimum_dataset_size`</b>: The minimum number of records which should be
-    contained in the dataset. Readers should attempt to raise an error when
-    possible if an epoch of data contains fewer records.
+  contained in the dataset. Readers should attempt to raise an error when
+  possible if an epoch of data contains fewer records.
 
 <h3 id="read"><code>read</code></h3>
 
@@ -82,7 +89,8 @@ method.
 read()
 ```
 
-Reads a chunk of data from the <a href="../../../tf/ReaderBase"><code>tf.ReaderBase</code></a> for later re-chunking.
+Reads a chunk of data from the <a href="../../../tf/ReaderBase"><code>tf.compat.v1.ReaderBase</code></a> for later re-chunking.
+
 
 <h3 id="read_full"><code>read_full</code></h3>
 
@@ -91,6 +99,7 @@ read_full()
 ```
 
 Reads a full epoch of data into memory.
+
 
 
 

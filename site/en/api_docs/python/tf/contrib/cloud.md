@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.cloud
 
-
-
-Defined in [`tensorflow/contrib/cloud/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/cloud/__init__.py).
-
 Module for cloud ops.
+
+
+
+Defined in [`contrib/cloud/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cloud/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 

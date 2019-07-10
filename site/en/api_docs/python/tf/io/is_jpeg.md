@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.io.is_jpeg
 
+Convenience function to check if the 'contents' encodes a JPEG image.
+
 ### Aliases:
 
+* `tf.compat.v1.image.is_jpeg`
+* `tf.compat.v1.io.is_jpeg`
+* `tf.compat.v2.image.is_jpeg`
+* `tf.compat.v2.io.is_jpeg`
 * `tf.image.is_jpeg`
 * `tf.io.is_jpeg`
 
@@ -19,11 +25,13 @@ tf.io.is_jpeg(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Convenience function to check if the 'contents' encodes a JPEG image.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`contents`</b>: 0-D `string`. The encoded image bytes.
 * <b>`name`</b>: A name for the operation (optional)

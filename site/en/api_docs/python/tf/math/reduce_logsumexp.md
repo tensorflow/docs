@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.math.reduce_logsumexp
 
+Computes log(sum(exp(elements across dimensions of a tensor))). (deprecated arguments)
+
 ### Aliases:
 
+* `tf.compat.v1.math.reduce_logsumexp`
+* `tf.compat.v1.reduce_logsumexp`
 * `tf.math.reduce_logsumexp`
 * `tf.reduce_logsumexp`
 
@@ -23,9 +27,9 @@ tf.math.reduce_logsumexp(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Computes log(sum(exp(elements across dimensions of a tensor))). (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(keep_dims)`. They will be removed in a future version.
 Instructions for updating:
@@ -43,7 +47,9 @@ This function is more numerically stable than log(sum(exp(input))). It avoids
 overflows caused by taking the exp of large inputs and underflows caused by
 taking the log of small inputs.
 
-For example:
+#### For example:
+
+
 
 ```python
 x = tf.constant([[0., 0., 0.], [0., 0., 0.]])
@@ -56,10 +62,11 @@ tf.reduce_logsumexp(x, [0, 1])  # log(6)
 
 #### Args:
 
+
 * <b>`input_tensor`</b>: The tensor to reduce. Should have numeric type.
 * <b>`axis`</b>: The dimensions to reduce. If `None` (the default), reduces all
-    dimensions. Must be in the range `[-rank(input_tensor),
-    rank(input_tensor))`.
+  dimensions. Must be in the range `[-rank(input_tensor),
+  rank(input_tensor))`.
 * <b>`keepdims`</b>: If true, retains reduced dimensions with length 1.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`reduction_indices`</b>: The old (deprecated) name for axis.

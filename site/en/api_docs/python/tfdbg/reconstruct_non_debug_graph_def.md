@@ -11,12 +11,12 @@ tfdbg.reconstruct_non_debug_graph_def(debug_graph_def)
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_graphs.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/lib/debug_graphs.py).
+Defined in [`tensorflow/python/debug/lib/debug_graphs.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/lib/debug_graphs.py).
 
 Reconstruct original (non-debugger-decorated) partition GraphDef.
 
-This method strips the input <a href="../tf/GraphDef"><code>tf.GraphDef</code></a> of the Copy* and Debug*-type nodes
-inserted by the debugger.
+This method strips the input `tf.compat.v1.GraphDef` of the Copy* and
+Debug*-type nodes inserted by the debugger.
 
 The reconstructed partition graph is identical to the original (i.e.,
   non-debugger-decorated) partition graph except in the following respects:
@@ -28,10 +28,11 @@ The reconstructed partition graph is identical to the original (i.e.,
 
 #### Args:
 
-* <b>`debug_graph_def`</b>: The debugger-decorated <a href="../tf/GraphDef"><code>tf.GraphDef</code></a>, with the
+* <b>`debug_graph_def`</b>: The debugger-decorated `tf.compat.v1.GraphDef`, with the
     debugger-inserted Copy* and Debug* nodes.
 
 
 #### Returns:
 
-The reconstructed <a href="../tf/GraphDef"><code>tf.GraphDef</code></a> stripped of the debugger-inserted nodes.
+The reconstructed `tf.compat.v1.GraphDef` stripped of the debugger-inserted
+nodes.

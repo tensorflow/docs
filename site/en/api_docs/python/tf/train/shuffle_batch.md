@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.shuffle_batch
 
+Creates batches by randomly shuffling tensors. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.train.shuffle_batch`
+* `tf.train.shuffle_batch`
+
 ``` python
 tf.train.shuffle_batch(
     tensors,
@@ -23,9 +30,9 @@ tf.train.shuffle_batch(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/input.py).
+Defined in [`python/training/input.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/input.py).
 
-Creates batches by randomly shuffling tensors. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -57,11 +64,13 @@ operation is feeding another input queue, its queue runner will catch
 this exception, however, if this operation is used in your main thread
 you are responsible for catching this yourself.
 
-For example:
+#### For example:
+
+
 
 ```python
 # Creates batches of 32 images and 32 labels.
-image_batch, label_batch = tf.train.shuffle_batch(
+image_batch, label_batch = tf.compat.v1.train.shuffle_batch(
       [single_image, single_label],
       batch_size=32,
       num_threads=4,
@@ -83,20 +92,21 @@ operations that depend on fixed batch_size would fail.
 
 #### Args:
 
+
 * <b>`tensors`</b>: The list or dictionary of tensors to enqueue.
 * <b>`batch_size`</b>: The new batch size pulled from the queue.
 * <b>`capacity`</b>: An integer. The maximum number of elements in the queue.
 * <b>`min_after_dequeue`</b>: Minimum number elements in the queue after a
-    dequeue, used to ensure a level of mixing of elements.
+  dequeue, used to ensure a level of mixing of elements.
 * <b>`num_threads`</b>: The number of threads enqueuing `tensor_list`.
 * <b>`seed`</b>: Seed for the random shuffling within the queue.
 * <b>`enqueue_many`</b>: Whether each tensor in `tensor_list` is a single example.
 * <b>`shapes`</b>: (Optional) The shapes for each example.  Defaults to the
-    inferred shapes for `tensor_list`.
+  inferred shapes for `tensor_list`.
 * <b>`allow_smaller_final_batch`</b>: (Optional) Boolean. If `True`, allow the final
-    batch to be smaller if there are insufficient items left in the queue.
+  batch to be smaller if there are insufficient items left in the queue.
 * <b>`shared_name`</b>: (Optional) If set, this queue will be shared under the given
-    name across multiple sessions.
+  name across multiple sessions.
 * <b>`name`</b>: (Optional) A name for the operations.
 
 
@@ -105,10 +115,12 @@ operations that depend on fixed batch_size would fail.
 A list or dictionary of tensors with the types as `tensors`.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the `shapes` are not specified, and cannot be
-    inferred from the elements of `tensors`.
+  inferred from the elements of `tensors`.
 
 
 

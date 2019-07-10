@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.streaming_mean
 
+Computes the (weighted) mean of the given values. (deprecated)
+
 ``` python
 tf.contrib.metrics.streaming_mean(
     values,
@@ -17,9 +19,9 @@ tf.contrib.metrics.streaming_mean(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
-Computes the (weighted) mean of the given values. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -39,27 +41,30 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`values`</b>: A `Tensor` of arbitrary dimensions.
 * <b>`weights`</b>: `Tensor` whose rank is either 0, or the same rank as `values`, and
-    must be broadcastable to `values` (i.e., all dimensions must be either
-    `1`, or the same as the corresponding `values` dimension).
-* <b>`metrics_collections`</b>: An optional list of collections that `mean`
-    should be added to.
-* <b>`updates_collections`</b>: An optional list of collections that `update_op`
-    should be added to.
+  must be broadcastable to `values` (i.e., all dimensions must be either
+  `1`, or the same as the corresponding `values` dimension).
+* <b>`metrics_collections`</b>: An optional list of collections that `mean` should be
+  added to.
+* <b>`updates_collections`</b>: An optional list of collections that `update_op` should
+  be added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
 
+
 * <b>`mean`</b>: A `Tensor` representing the current mean, the value of `total` divided
-    by `count`.
+  by `count`.
 * <b>`update_op`</b>: An operation that increments the `total` and `count` variables
-    appropriately and whose value matches `mean`.
+  appropriately and whose value matches `mean`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `weights` is not `None` and its shape doesn't match `values`,
-    or if either `metrics_collections` or `updates_collections` are not a list
-    or tuple.
+  or if either `metrics_collections` or `updates_collections` are not a list
+  or tuple.

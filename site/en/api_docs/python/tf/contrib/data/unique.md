@@ -5,19 +5,21 @@ page_type: reference
 
 # tf.contrib.data.unique
 
+Creates a `Dataset` from another `Dataset`, discarding duplicates. (deprecated)
+
 ``` python
 tf.contrib.data.unique()
 ```
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/unique.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/unique.py).
+Defined in [`contrib/data/python/ops/unique.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/unique.py).
 
-Creates a `Dataset` from another `Dataset`, discarding duplicates. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.experimental.unique()`.
+Use <a href="../../../tf/data/experimental/unique"><code>tf.data.experimental.unique()</code></a>.
 
 Use this transformation to produce a dataset that contains one instance of
 each unique element in the input. For example:
@@ -26,7 +28,7 @@ each unique element in the input. For example:
 dataset = tf.data.Dataset.from_tensor_slices([1, 37, 2, 37, 2, 1])
 
 # Using `unique()` will drop the duplicate elements.
-dataset = dataset.apply(tf.contrib.data.unique())  # ==> { 1, 37, 2 }
+dataset = dataset.apply(tf.data.experimental.unique())  # ==> { 1, 37, 2 }
 ```
 
 #### Returns:

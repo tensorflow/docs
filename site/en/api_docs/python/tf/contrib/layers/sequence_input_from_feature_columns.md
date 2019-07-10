@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.sequence_input_from_feature_columns
 
+Builds inputs for sequence models from `FeatureColumn`s. (experimental)
+
 ``` python
 tf.contrib.layers.sequence_input_from_feature_columns(
     *args,
@@ -14,9 +16,9 @@ tf.contrib.layers.sequence_input_from_feature_columns(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/experimental.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/framework/experimental.py).
+Defined in [`contrib/framework/python/framework/experimental.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/framework/experimental.py).
 
-Builds inputs for sequence models from `FeatureColumn`s. (experimental)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS EXPERIMENTAL. It may change or be removed at any time, and without warning.
 
@@ -29,15 +31,16 @@ constructed using any of the following: `ScatteredEmbeddingColumn`,
 
 #### Args:
 
+
 * <b>`columns_to_tensors`</b>: A mapping from feature column to tensors. 'string' key
-    means a base feature (not-transformed). It can have FeatureColumn as a
-    key too. That means that FeatureColumn is already transformed by input
-    pipeline.
+  means a base feature (not-transformed). It can have FeatureColumn as a
+  key too. That means that FeatureColumn is already transformed by input
+  pipeline.
 * <b>`feature_columns`</b>: A set containing all the feature columns. All items in the
-    set should be instances of classes derived by FeatureColumn.
+  set should be instances of classes derived by FeatureColumn.
 * <b>`weight_collections`</b>: List of graph collections to which weights are added.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-    `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
 * <b>`scope`</b>: Optional scope for variable_scope.
 
 
@@ -46,6 +49,8 @@ constructed using any of the following: `ScatteredEmbeddingColumn`,
 A Tensor which can be consumed by hidden layers in the neural network.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if FeatureColumn cannot be consumed by a neural network.

@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.periodic_resample
 
-
-
-Defined in [`tensorflow/contrib/periodic_resample/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/periodic_resample/__init__.py).
-
 Custom op used by periodic_resample.
+
+
+
+Defined in [`contrib/periodic_resample/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/periodic_resample/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Functions
 

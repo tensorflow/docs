@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.losses.wargs.minimax_discriminator_loss
 
+Original minimax discriminator loss for GANs, with label smoothing.
+
 ``` python
 tf.contrib.gan.losses.wargs.minimax_discriminator_loss(
     discriminator_real_outputs,
@@ -21,9 +23,9 @@ tf.contrib.gan.losses.wargs.minimax_discriminator_loss(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/losses/python/losses_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/losses/python/losses_impl.py).
+Defined in [`contrib/gan/python/losses/python/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/losses/python/losses_impl.py).
 
-Original minimax discriminator loss for GANs, with label smoothing.
+<!-- Placeholder for "Used in" -->
 
 Note that the authors don't recommend using this loss. A more practically
 useful loss is `modified_discriminator_loss`.
@@ -36,20 +38,21 @@ details.
 
 #### Args:
 
+
 * <b>`discriminator_real_outputs`</b>: Discriminator output on real data.
 * <b>`discriminator_gen_outputs`</b>: Discriminator output on generated data. Expected
-    to be in the range of (-inf, inf).
+  to be in the range of (-inf, inf).
 * <b>`label_smoothing`</b>: The amount of smoothing for positive labels. This technique
-    is taken from `Improved Techniques for Training GANs`
-    (https://arxiv.org/abs/1606.03498). `0.0` means no smoothing.
+  is taken from `Improved Techniques for Training GANs`
+  (https://arxiv.org/abs/1606.03498). `0.0` means no smoothing.
 * <b>`real_weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
-    `real_data`, and must be broadcastable to `real_data` (i.e., all
-    dimensions must be either `1`, or the same as the corresponding
-    dimension).
+  `real_data`, and must be broadcastable to `real_data` (i.e., all
+  dimensions must be either `1`, or the same as the corresponding
+  dimension).
 * <b>`generated_weights`</b>: Same as `real_weights`, but for `generated_data`.
 * <b>`scope`</b>: The scope for the operations performed in computing the loss.
 * <b>`loss_collection`</b>: collection to which this loss will be added.
-* <b>`reduction`</b>: A <a href="../../../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> to apply to loss.
+* <b>`reduction`</b>: A <a href="../../../../../tf/losses/Reduction"><code>tf.compat.v1.losses.Reduction</code></a> to apply to loss.
 * <b>`add_summaries`</b>: Whether or not to add summaries for the loss.
 
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.flatten
 
+Flattens the input while maintaining the batch_size.
+
 ``` python
 tf.contrib.layers.flatten(
     inputs,
@@ -15,13 +17,14 @@ tf.contrib.layers.flatten(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
-Flattens the input while maintaining the batch_size.
+<!-- Placeholder for "Used in" -->
 
   Assumes that the first dimension represents the batch.
 
 #### Args:
+
 
 * <b>`inputs`</b>: A tensor of size [batch_size, ...].
 * <b>`outputs_collections`</b>: Collection to add the outputs.
@@ -32,6 +35,8 @@ Flattens the input while maintaining the batch_size.
 
 A flattened tensor with shape [batch_size, k].
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If inputs rank is unknown or less than 2.

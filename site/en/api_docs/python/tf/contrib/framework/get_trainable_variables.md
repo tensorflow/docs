@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.get_trainable_variables
 
+Gets the list of trainable variables, filtered by scope and/or suffix.
+
 ``` python
 tf.contrib.framework.get_trainable_variables(
     scope=None,
@@ -14,11 +16,13 @@ tf.contrib.framework.get_trainable_variables(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
 
-Gets the list of trainable variables, filtered by scope and/or suffix.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`scope`</b>: an optional scope for filtering the variables to return.
 * <b>`suffix`</b>: an optional suffix for filtering the variables to return.

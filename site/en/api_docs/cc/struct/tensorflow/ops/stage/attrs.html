@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Stage::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Stage::<wbr/>Attrs</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/stage.html#classtensorflow_1_1ops_1_1_stage">Stage</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1aeb5767fc152a20b8cd92e15ad39c5bd8">capacity_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1ae5180d0dde62f97e88d7891f439f3af2">container_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a0a15b1656a545276df8510f0363e3310">memory_limit_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a11d9178ead9ed1cbc246ce54e8edbc57">shared_name_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a92ee88d30535d3c23ccf719af1e1f5ac">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a></code>
+        </div>
+        <div><a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/maximum.html#classtensorflow_1_1ops_1_1_maximum">Maximum</a> number of elements in the Staging Area. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a5749fd10abbf367b44f2320d97703e67">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this queue is placed in the given container. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a73d56e5cb0d4cff96c5f1ceece23f135">MemoryLimit</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The maximum number of bytes allowed for Tensors in the Staging Area. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_stage_1_1_attrs_1ab0cb880e9cabeb461cc83b239a048eef">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>It is necessary to match this name to the matching <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/unstage.html#classtensorflow_1_1ops_1_1_unstage">Unstage</a> Op. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1aeb5767fc152a20b8cd92e15ad39c5bd8">
+    <h3>capacity_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::Stage::Attrs::capacity_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1ae5180d0dde62f97e88d7891f439f3af2">
+    <h3>container_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::Stage::Attrs::container_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a0a15b1656a545276df8510f0363e3310">
+    <h3>memory_limit_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::Stage::Attrs::memory_limit_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a11d9178ead9ed1cbc246ce54e8edbc57">
+    <h3>shared_name_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::Stage::Attrs::shared_name_ = ""</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a92ee88d30535d3c23ccf719af1e1f5ac">
+    <h3>Capacity</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a> tensorflow::ops::Stage::Attrs::Capacity(
+  int64 x
+)</pre>
+    <div>
+      <p><a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/maximum.html#classtensorflow_1_1ops_1_1_maximum">Maximum</a> number of elements in the Staging Area. </p>
+      <p>If > 0, inserts on the container will block when the capacity is reached.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a5749fd10abbf367b44f2320d97703e67">
+    <h3>Container</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a> tensorflow::ops::Stage::Attrs::Container(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this queue is placed in the given container. </p>
+      <p>Otherwise, a default container is used.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1a73d56e5cb0d4cff96c5f1ceece23f135">
+    <h3>MemoryLimit</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a> tensorflow::ops::Stage::Attrs::MemoryLimit(
+  int64 x
+)</pre>
+    <div>
+      <p>The maximum number of bytes allowed for Tensors in the Staging Area. </p>
+      <p>If > 0, inserts will block until sufficient space is available.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_stage_1_1_attrs_1ab0cb880e9cabeb461cc83b239a048eef">
+    <h3>SharedName</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a> tensorflow::ops::Stage::Attrs::SharedName(
+  StringPiece x
+)</pre>
+    <div>
+      <p>It is necessary to match this name to the matching <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/unstage.html#classtensorflow_1_1ops_1_1_unstage">Unstage</a> Op. </p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+</body>
+</html>

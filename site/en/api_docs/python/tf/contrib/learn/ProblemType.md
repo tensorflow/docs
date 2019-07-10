@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `ProblemType`
 
-
-
-
-
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/constants.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/constants.py).
-
 Enum-like values for the type of problem that the model solves.
+
+
+
+
+
+Defined in [`contrib/learn/python/learn/estimators/constants.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/constants.py).
+
+<!-- Placeholder for "Used in" -->
 
 THIS CLASS IS DEPRECATED.
 
@@ -28,11 +30,7 @@ The following values are supported:
 
 ## Class Members
 
-<h3 id="CLASSIFICATION"><code>CLASSIFICATION</code></h3>
-
-<h3 id="LINEAR_REGRESSION"><code>LINEAR_REGRESSION</code></h3>
-
-<h3 id="LOGISTIC_REGRESSION"><code>LOGISTIC_REGRESSION</code></h3>
-
-<h3 id="UNSPECIFIED"><code>UNSPECIFIED</code></h3>
-
+* `CLASSIFICATION = 1` <a id="CLASSIFICATION"></a>
+* `LINEAR_REGRESSION = 2` <a id="LINEAR_REGRESSION"></a>
+* `LOGISTIC_REGRESSION = 3` <a id="LOGISTIC_REGRESSION"></a>
+* `UNSPECIFIED = 0` <a id="UNSPECIFIED"></a>

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.deprecated_arg_values
 
+Decorator for marking specific function argument values as deprecated.
+
 ``` python
 tf.contrib.framework.deprecated_arg_values(
     date,
@@ -16,9 +18,9 @@ tf.contrib.framework.deprecated_arg_values(
 
 
 
-Defined in [`tensorflow/python/util/deprecation.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/util/deprecation.py).
+Defined in [`python/util/deprecation.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/deprecation.py).
 
-Decorator for marking specific function argument values as deprecated.
+<!-- Placeholder for "Used in" -->
 
 This decorator logs a deprecation warning whenever the decorated function is
 called with the deprecated argument values. It has the following format:
@@ -36,13 +38,14 @@ prepended to the rest of the docstring.
 
 #### Args:
 
+
 * <b>`date`</b>: String or None. The date the function is scheduled to be removed.
-    Must be ISO 8601 (YYYY-MM-DD), or None
+  Must be ISO 8601 (YYYY-MM-DD), or None
 * <b>`instructions`</b>: String. Instructions on how to update code using the
-    deprecated function.
+  deprecated function.
 * <b>`warn_once`</b>: If `True`, warn only the first time this function is called with
-    deprecated argument values. Otherwise, every call (with a deprecated
-    argument value) will log a warning.
+  deprecated argument values. Otherwise, every call (with a deprecated
+  argument value) will log a warning.
 * <b>`**deprecated_kwargs`</b>: The deprecated argument values.
 
 
@@ -51,7 +54,9 @@ prepended to the rest of the docstring.
 Decorated function or method.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If date is not None or in ISO 8601 format, or instructions are
-    empty.
+  empty.

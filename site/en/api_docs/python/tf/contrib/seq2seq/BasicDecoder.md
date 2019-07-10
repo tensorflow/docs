@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `BasicDecoder`
 
+Basic sampling decoder.
+
 Inherits From: [`Decoder`](../../../tf/contrib/seq2seq/Decoder)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/basic_decoder.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
+Defined in [`contrib/seq2seq/python/ops/basic_decoder.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
 
-Basic sampling decoder.
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -28,18 +31,21 @@ __init__(
 
 Initialize BasicDecoder.
 
+
 #### Args:
+
 
 * <b>`cell`</b>: An `RNNCell` instance.
 * <b>`helper`</b>: A `Helper` instance.
 * <b>`initial_state`</b>: A (possibly nested tuple of...) tensors and TensorArrays.
-    The initial state of the RNNCell.
-* <b>`output_layer`</b>: (Optional) An instance of <a href="../../../tf/layers/Layer"><code>tf.layers.Layer</code></a>, i.e.,
-    <a href="../../../tf/layers/Dense"><code>tf.layers.Dense</code></a>. Optional layer to apply to the RNN output prior
-    to storing the result or sampling.
+  The initial state of the RNNCell.
+* <b>`output_layer`</b>: (Optional) An instance of <a href="../../../tf/layers/Layer"><code>tf.compat.v1.layers.Layer</code></a>, i.e.,
+  <a href="../../../tf/layers/Dense"><code>tf.compat.v1.layers.Dense</code></a>. Optional layer to apply to the RNN output
+  prior to storing the result or sampling.
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: if `cell`, `helper` or `output_layer` have an incorrect type.
 
@@ -49,15 +55,18 @@ Initialize BasicDecoder.
 
 <h3 id="batch_size"><code>batch_size</code></h3>
 
-The batch size of input values.
+
+
 
 <h3 id="output_dtype"><code>output_dtype</code></h3>
 
-A (possibly nested tuple of...) dtype[s].
+
+
 
 <h3 id="output_size"><code>output_size</code></h3>
 
-A (possibly nested tuple of...) integer[s] or `TensorShape` object[s].
+
+
 
 <h3 id="tracks_own_finished"><code>tracks_own_finished</code></h3>
 
@@ -80,6 +89,7 @@ Python bool.
 
 
 
+
 ## Methods
 
 <h3 id="finalize"><code>finalize</code></h3>
@@ -94,6 +104,7 @@ finalize(
 
 
 
+
 <h3 id="initialize"><code>initialize</code></h3>
 
 ``` python
@@ -102,7 +113,9 @@ initialize(name=None)
 
 Initialize the decoder.
 
+
 #### Args:
+
 
 * <b>`name`</b>: Name scope for any created operations.
 
@@ -110,6 +123,7 @@ Initialize the decoder.
 #### Returns:
 
 `(finished, first_inputs, initial_state)`.
+
 
 <h3 id="step"><code>step</code></h3>
 
@@ -124,7 +138,9 @@ step(
 
 Perform a decoding step.
 
+
 #### Args:
+
 
 * <b>`time`</b>: scalar `int32` tensor.
 * <b>`inputs`</b>: A (structure of) input tensors.
@@ -135,6 +151,7 @@ Perform a decoding step.
 #### Returns:
 
 `(outputs, next_state, next_inputs, finished)`.
+
 
 
 

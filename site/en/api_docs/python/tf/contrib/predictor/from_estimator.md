@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.predictor.from_estimator
 
+Constructs a `Predictor` from a `tf.python.estimator.Estimator`.
+
 ``` python
 tf.contrib.predictor.from_estimator(
     estimator,
@@ -17,19 +19,21 @@ tf.contrib.predictor.from_estimator(
 
 
 
-Defined in [`tensorflow/contrib/predictor/predictor_factories.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/predictor/predictor_factories.py).
+Defined in [`contrib/predictor/predictor_factories.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/predictor/predictor_factories.py).
 
-Constructs a `Predictor` from a `tf.python.estimator.Estimator`.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`estimator`</b>: an instance of `learn.python.estimator.Estimator`.
 * <b>`serving_input_receiver_fn`</b>: a function that takes no arguments and returns
-    an instance of `ServingInputReceiver` compatible with `estimator`.
+  an instance of `ServingInputReceiver` compatible with `estimator`.
 * <b>`output_key`</b>: Optional string specifying the export output to use. If
-    `None`, then `DEFAULT_SERVING_SIGNATURE_DEF_KEY` is used.
+  `None`, then `DEFAULT_SERVING_SIGNATURE_DEF_KEY` is used.
 * <b>`graph`</b>: Optional. The Tensorflow `graph` in which prediction should be
-    done.
+  done.
 * <b>`config`</b>: `ConfigProto` proto used to configure the session.
 
 
@@ -38,7 +42,9 @@ Constructs a `Predictor` from a `tf.python.estimator.Estimator`.
 An initialized `Predictor`.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: if `estimator` is a contrib `Estimator` instead of a core
-    `Estimator`.
+  `Estimator`.

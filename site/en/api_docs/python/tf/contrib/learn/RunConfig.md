@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `RunConfig`
 
+This class specifies the configurations for an `Estimator` run.
+
 Inherits From: [`RunConfig`](../../../tf/estimator/RunConfig)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
+Defined in [`contrib/learn/python/learn/estimators/run_config.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
 
-This class specifies the configurations for an `Estimator` run.
+<!-- Placeholder for "Used in" -->
 
 This class is a deprecated implementation of <a href="../../../tf/estimator/RunConfig"><code>tf.estimator.RunConfig</code></a>
 interface.
@@ -61,44 +63,46 @@ find the checkpoint due to race condition.
 
 #### Args:
 
+
 * <b>`master`</b>: TensorFlow master. Defaults to empty string for local.
 * <b>`num_cores`</b>: Number of cores to be used. If 0, the system picks an
-    appropriate number (default: 0).
+  appropriate number (default: 0).
 * <b>`log_device_placement`</b>: Log the op placement to devices (default: False).
 * <b>`gpu_memory_fraction`</b>: Fraction of GPU memory used by the process on
-    each GPU uniformly on the same machine.
+  each GPU uniformly on the same machine.
 * <b>`tf_random_seed`</b>: Random seed for TensorFlow initializers.
-    Setting this value allows consistency between reruns.
+  Setting this value allows consistency between reruns.
 * <b>`save_summary_steps`</b>: Save summaries every this many steps.
 * <b>`save_checkpoints_secs`</b>: Save checkpoints every this many seconds. Can not
-      be specified with `save_checkpoints_steps`.
+    be specified with `save_checkpoints_steps`.
 * <b>`save_checkpoints_steps`</b>: Save checkpoints every this many steps. Can not be
-      specified with `save_checkpoints_secs`.
+    specified with `save_checkpoints_secs`.
 * <b>`keep_checkpoint_max`</b>: The maximum number of recent checkpoint files to
-    keep. As new files are created, older files are deleted. If None or 0,
-    all checkpoint files are kept. Defaults to 5 (that is, the 5 most recent
-    checkpoint files are kept.)
+  keep. As new files are created, older files are deleted. If None or 0,
+  all checkpoint files are kept. Defaults to 5 (that is, the 5 most recent
+  checkpoint files are kept.)
 * <b>`keep_checkpoint_every_n_hours`</b>: Number of hours between each checkpoint
-    to be saved. The default value of 10,000 hours effectively disables
-    the feature.
+  to be saved. The default value of 10,000 hours effectively disables
+  the feature.
 * <b>`log_step_count_steps`</b>: The frequency, in number of global steps, that the
-    global step/sec will be logged during training.
+  global step/sec will be logged during training.
 * <b>`evaluation_master`</b>: the master on which to perform evaluation.
 * <b>`model_dir`</b>: directory where model parameters, graph etc are saved. If
-    `None`, will use `model_dir` property in `TF_CONFIG` environment
-    variable. If both are set, must have same value. If both are `None`, see
-    `Estimator` about where the model will be saved.
+  `None`, will use `model_dir` property in `TF_CONFIG` environment
+  variable. If both are set, must have same value. If both are `None`, see
+  `Estimator` about where the model will be saved.
 * <b>`session_config`</b>: a ConfigProto used to set session parameters, or None.
-    Note - using this argument, it is easy to provide settings which break
-    otherwise perfectly good models. Use with care.
+  Note - using this argument, it is easy to provide settings which break
+  otherwise perfectly good models. Use with care.
 * <b>`protocol`</b>: An optional argument which specifies the protocol used when
-    starting server. None means default to grpc.
+  starting server. None means default to grpc.
 
 
 
 ## Properties
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
+
 
 
 
@@ -114,12 +118,19 @@ Otherwise the default one is used.
 
 
 
+
 <h3 id="eval_distribute"><code>eval_distribute</code></h3>
 
-Optional <a href="../../../tf/distribute/Strategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for evaluation.
+Optional <a href="../../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> for evaluation.
     
 
 <h3 id="evaluation_master"><code>evaluation_master</code></h3>
+
+
+
+
+<h3 id="experimental_max_worker_delay_secs"><code>experimental_max_worker_delay_secs</code></h3>
+
 
 
 
@@ -163,7 +174,9 @@ spec given above, the global ids are assigned as:
 
 An integer id.
 
+
 <h3 id="is_chief"><code>is_chief</code></h3>
+
 
 
 
@@ -171,7 +184,9 @@ An integer id.
 
 
 
+
 <h3 id="keep_checkpoint_max"><code>keep_checkpoint_max</code></h3>
+
 
 
 
@@ -179,7 +194,9 @@ An integer id.
 
 
 
+
 <h3 id="master"><code>master</code></h3>
+
 
 
 
@@ -187,7 +204,9 @@ An integer id.
 
 
 
+
 <h3 id="num_ps_replicas"><code>num_ps_replicas</code></h3>
+
 
 
 
@@ -195,11 +214,14 @@ An integer id.
 
 
 
+
 <h3 id="protocol"><code>protocol</code></h3>
 
 Returns the optional protocol value.
 
+
 <h3 id="save_checkpoints_secs"><code>save_checkpoints_secs</code></h3>
+
 
 
 
@@ -207,7 +229,9 @@ Returns the optional protocol value.
 
 
 
+
 <h3 id="save_summary_steps"><code>save_summary_steps</code></h3>
+
 
 
 
@@ -215,7 +239,9 @@ Returns the optional protocol value.
 
 Returns the platform defined (in TF_CONFIG) service dict.
 
+
 <h3 id="session_config"><code>session_config</code></h3>
+
 
 
 
@@ -223,7 +249,9 @@ Returns the platform defined (in TF_CONFIG) service dict.
 
 
 
+
 <h3 id="task_type"><code>task_type</code></h3>
+
 
 
 
@@ -231,13 +259,15 @@ Returns the platform defined (in TF_CONFIG) service dict.
 
 
 
+
 <h3 id="tf_random_seed"><code>tf_random_seed</code></h3>
+
 
 
 
 <h3 id="train_distribute"><code>train_distribute</code></h3>
 
-Optional <a href="../../../tf/distribute/Strategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for training.
+Optional <a href="../../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> for training.
     
 
 
@@ -259,6 +289,7 @@ variable.
 #### Returns:
 
 `TF_CONFIG['task']['index']`. Defaults to 0.
+
 
 <h3 id="replace"><code>replace</code></h3>
 
@@ -284,25 +315,29 @@ Only the properties in the following list are allowed to be replaced:
   - `protocol`.
   - `eval_distribute`,
   - `experimental_distribute`,
+  - `experimental_max_worker_delay_secs`,
 
 In addition, either `save_checkpoints_steps` or `save_checkpoints_secs`
 can be set (should not be both).
 
 #### Args:
 
+
 * <b>`**kwargs`</b>: keyword named properties with new values.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If any property name in `kwargs` does not exist or is not
-    allowed to be replaced, or both `save_checkpoints_steps` and
-    `save_checkpoints_secs` are set.
+  allowed to be replaced, or both `save_checkpoints_steps` and
+  `save_checkpoints_secs` are set.
 
 
 #### Returns:
 
 a new instance of `RunConfig`.
+
 
 <h3 id="uid"><code>uid</code></h3>
 
@@ -323,14 +358,16 @@ is subject to change.
 
 #### Args:
 
+
 * <b>`whitelist`</b>: A list of the string names of the properties uid should not
-    include. If `None`, defaults to `_DEFAULT_UID_WHITE_LIST`, which
-    includes most properties user allowes to change.
+  include. If `None`, defaults to `_DEFAULT_UID_WHITE_LIST`, which
+  includes most properties user allowes to change.
 
 
 #### Returns:
 
 A uid string.
+
 
 
 

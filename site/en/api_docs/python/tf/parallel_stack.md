@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.parallel_stack
 
+Stacks a list of rank-`R` tensors into one rank-`(R+1)` tensor in parallel.
+
+### Aliases:
+
+* `tf.compat.v1.parallel_stack`
+* `tf.compat.v2.parallel_stack`
+* `tf.parallel_stack`
+
 ``` python
 tf.parallel_stack(
     values,
@@ -14,9 +22,9 @@ tf.parallel_stack(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Stacks a list of rank-`R` tensors into one rank-`(R+1)` tensor in parallel.
+<!-- Placeholder for "Used in" -->
 
 Requires that the shape of inputs be known at graph construction time.
 
@@ -25,7 +33,9 @@ each tensor in `values`, by packing them along the first dimension.
 Given a list of length `N` of tensors of shape `(A, B, C)`; the `output`
 tensor will have the shape `(N, A, B, C)`.
 
-For example:
+#### For example:
+
+
 
 ```python
 x = tf.constant([1, 4])
@@ -49,10 +59,12 @@ This is the opposite of unstack.  The numpy equivalent is
 
 #### Args:
 
+
 * <b>`values`</b>: A list of `Tensor` objects with the same shape and type.
 * <b>`name`</b>: A name for this operation (optional).
 
 
 #### Returns:
+
 
 * <b>`output`</b>: A stacked `Tensor` with the same type as `values`.

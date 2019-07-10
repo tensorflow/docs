@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.min_max_variable_partitioner
 
+Partitioner to allocate minimum size per slice.
+
+### Aliases:
+
+* `tf.compat.v1.min_max_variable_partitioner`
+* `tf.min_max_variable_partitioner`
+
 ``` python
 tf.min_max_variable_partitioner(
     max_partitions=1,
@@ -16,9 +23,9 @@ tf.min_max_variable_partitioner(
 
 
 
-Defined in [`tensorflow/python/ops/partitioned_variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/partitioned_variables.py).
+Defined in [`python/ops/partitioned_variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/partitioned_variables.py).
 
-Partitioner to allocate minimum size per slice.
+<!-- Placeholder for "Used in" -->
 
 Returns a partitioner that partitions the variable of given shape and dtype
 such that each partition has a minimum of `min_slice_size` slice of the
@@ -27,12 +34,13 @@ variable. The maximum number of such partitions (upper bound) is given by
 
 #### Args:
 
+
 * <b>`max_partitions`</b>: Upper bound on the number of partitions. Defaults to 1.
 * <b>`axis`</b>: Axis along which to partition the variable. Defaults to 0.
 * <b>`min_slice_size`</b>: Minimum size of the variable slice per partition. Defaults
-    to 256K.
+  to 256K.
 * <b>`bytes_per_string_element`</b>: If the `Variable` is of type string, this provides
-    an estimate of how large each scalar in the `Variable` is.
+  an estimate of how large each scalar in the `Variable` is.
 
 
 #### Returns:

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.layers.subtract
 
+Functional interface to the `Subtract` layer.
+
+### Aliases:
+
+* `tf.compat.v1.keras.layers.subtract`
+* `tf.compat.v2.keras.layers.subtract`
+* `tf.keras.layers.subtract`
+
 ``` python
 tf.keras.layers.subtract(
     inputs,
@@ -14,11 +22,13 @@ tf.keras.layers.subtract(
 
 
 
-Defined in [`tensorflow/python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/layers/merge.py).
+Defined in [`python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/merge.py).
 
-Functional interface to the `Subtract` layer.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`inputs`</b>: A list of input tensors (exactly 2).
 * <b>`**kwargs`</b>: Standard layer keyword arguments.
@@ -26,9 +36,13 @@ Functional interface to the `Subtract` layer.
 
 #### Returns:
 
-    A tensor, the difference of the inputs.
+A tensor, the difference of the inputs.
 
-Examples:
+
+
+#### Examples:
+
+
 
 ```python
     import keras

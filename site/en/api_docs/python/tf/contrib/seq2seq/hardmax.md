@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.seq2seq.hardmax
 
+Returns batched one-hot vectors.
+
 ``` python
 tf.contrib.seq2seq.hardmax(
     logits,
@@ -14,16 +16,18 @@ tf.contrib.seq2seq.hardmax(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
-Returns batched one-hot vectors.
+<!-- Placeholder for "Used in" -->
 
 The depth index containing the `1` is that of the maximum logit value.
 
 #### Args:
 
+
 * <b>`logits`</b>: A batch tensor of logit values.
 * <b>`name`</b>: Name to use when creating ops.
+
 
 #### Returns:
 

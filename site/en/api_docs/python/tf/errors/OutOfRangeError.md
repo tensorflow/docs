@@ -7,18 +7,26 @@ page_type: reference
 
 ## Class `OutOfRangeError`
 
-Inherits From: [`OpError`](../../tf/errors/OpError)
-
-
-
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/errors_impl.py).
-
 Raised when an operation iterates past the valid input range.
 
+Inherits From: [`OpError`](../../tf/errors/OpError)
+
+### Aliases:
+
+* Class `tf.compat.v1.errors.OutOfRangeError`
+* Class `tf.compat.v2.errors.OutOfRangeError`
+* Class `tf.errors.OutOfRangeError`
+
+
+
+Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
+
+<!-- Placeholder for "Used in" -->
+
 This exception is raised in "end-of-file" conditions, such as when a
-<a href="../../tf/io/QueueBase#dequeue"><code>tf.QueueBase.dequeue</code></a>
+<a href="../../tf/queue/QueueBase#dequeue"><code>tf.QueueBase.dequeue</code></a>
 operation is blocked on an empty queue, and a
-<a href="../../tf/io/QueueBase#close"><code>tf.QueueBase.close</code></a>
+<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a>
 operation executes.
 
 
@@ -36,19 +44,23 @@ Creates an `OutOfRangeError`.
 
 
 
+
 ## Properties
 
 <h3 id="error_code"><code>error_code</code></h3>
 
 The integer error code that describes the error.
 
+
 <h3 id="message"><code>message</code></h3>
 
 The error message that describes the error.
 
+
 <h3 id="node_def"><code>node_def</code></h3>
 
 The `NodeDef` proto representing the op that failed.
+
 
 <h3 id="op"><code>op</code></h3>
 
@@ -64,6 +76,7 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
+
 
 
 

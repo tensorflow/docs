@@ -5,12 +5,14 @@ page_type: reference
 
 # tf.contrib.summary.never_record_summaries
 
+Sets the should_record_summaries Tensor to always false.
+
 ``` python
 tf.contrib.summary.never_record_summaries()
 ```
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/summary_ops_v2.py).
+Defined in [`python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/summary_ops_v2.py).
 
-Sets the should_record_summaries Tensor to always false.
+<!-- Placeholder for "Used in" -->

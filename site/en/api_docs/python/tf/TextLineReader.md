@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `TextLineReader`
 
+A Reader that outputs the lines of a file delimited by newlines.
+
 Inherits From: [`ReaderBase`](../tf/ReaderBase)
 
+### Aliases:
+
+* Class `tf.TextLineReader`
+* Class `tf.compat.v1.TextLineReader`
 
 
-Defined in [`tensorflow/python/ops/io_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/io_ops.py).
 
-A Reader that outputs the lines of a file delimited by newlines.
+Defined in [`python/ops/io_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/io_ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 Newlines are stripped from the output.
 See ReaderBase for supported methods.
@@ -43,8 +50,9 @@ Queue-based input pipelines have been replaced by <a href="../tf/data"><code>tf.
 
 #### Args:
 
+
 * <b>`skip_header_lines`</b>: An optional int. Defaults to 0.  Number of lines
-    to skip from the beginning of every file.
+  to skip from the beginning of every file.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -55,9 +63,11 @@ Queue-based input pipelines have been replaced by <a href="../tf/data"><code>tf.
 
 Op that implements the reader.
 
+
 <h3 id="supports_serialize"><code>supports_serialize</code></h3>
 
 Whether the Reader implementation can serialize its state.
+
 
 
 
@@ -76,12 +86,14 @@ succeeded.
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 An int64 Tensor.
+
 
 <h3 id="num_work_units_completed"><code>num_work_units_completed</code></h3>
 
@@ -91,7 +103,9 @@ num_work_units_completed(name=None)
 
 Returns the number of work units this reader has finished processing.
 
+
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -99,6 +113,7 @@ Returns the number of work units this reader has finished processing.
 #### Returns:
 
 An int64 Tensor.
+
 
 <h3 id="read"><code>read</code></h3>
 
@@ -117,14 +132,16 @@ finished with the previous file).
 
 #### Args:
 
+
 * <b>`queue`</b>: A Queue or a mutable string Tensor representing a handle
-    to a Queue, with string work items.
+  to a Queue, with string work items.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A tuple of Tensors (key, value).
+
 * <b>`key`</b>: A string scalar Tensor.
 * <b>`value`</b>: A string scalar Tensor.
 
@@ -147,8 +164,9 @@ It may return less than num_records even before the last batch.
 
 #### Args:
 
+
 * <b>`queue`</b>: A Queue or a mutable string Tensor representing a handle
-    to a Queue, with string work items.
+  to a Queue, with string work items.
 * <b>`num_records`</b>: Number of records to read.
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -156,6 +174,7 @@ It may return less than num_records even before the last batch.
 #### Returns:
 
 A tuple of Tensors (keys, values).
+
 * <b>`keys`</b>: A 1-D string Tensor.
 * <b>`values`</b>: A 1-D string Tensor.
 
@@ -167,7 +186,9 @@ reset(name=None)
 
 Restore a reader to its initial clean state.
 
+
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -175,6 +196,7 @@ Restore a reader to its initial clean state.
 #### Returns:
 
 The created Operation.
+
 
 <h3 id="restore_state"><code>restore_state</code></h3>
 
@@ -192,14 +214,16 @@ Unimplemented error.
 
 #### Args:
 
+
 * <b>`state`</b>: A string Tensor.
-    Result of a SerializeState of a Reader with matching type.
+  Result of a SerializeState of a Reader with matching type.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 The created Operation.
+
 
 <h3 id="serialize_state"><code>serialize_state</code></h3>
 
@@ -214,12 +238,14 @@ Unimplemented error.
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A string Tensor.
+
 
 
 

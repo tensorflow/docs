@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.run_image_classifier
 
+Runs a network from a frozen graph.
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.classifier_metrics.run_image_classifier`
@@ -22,11 +24,13 @@ tf.contrib.gan.eval.run_image_classifier(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
-Runs a network from a frozen graph.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`tensor`</b>: An Input tensor.
 * <b>`graph_def`</b>: A GraphDef proto.
@@ -41,6 +45,8 @@ Classifier output if `output_tensor` is a string, or a list of outputs if
 `output_tensor` is a list.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `input_tensor` or `output_tensor` aren't in the graph_def.

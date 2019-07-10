@@ -5,22 +5,24 @@ page_type: reference
 
 # Module: tf.contrib.gan.eval
 
+TF-GAN evaluation module.
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/__init__.py).
 
-TFGAN evaluation module.
+Defined in [`contrib/gan/python/eval/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 This module supports techniques such as Inception Score, Frechet Inception
 distance, and Sliced Wasserstein distance.
 
 ## Modules
 
-[`classifier_metrics`](../../../tf/contrib/gan/eval/classifier_metrics) module: Model evaluation tools for TFGAN.
+[`classifier_metrics`](../../../tf/contrib/gan/eval/classifier_metrics) module: Model evaluation tools for TF-GAN.
 
 [`eval_utils`](../../../tf/contrib/gan/eval/eval_utils) module: Utility file for visualizing generated images.
 
-[`summaries`](../../../tf/contrib/gan/eval/summaries) module: Common TFGAN summaries.
+[`summaries`](../../../tf/contrib/gan/eval/summaries) module: Common TF-GAN summaries.
 
 ## Functions
 
@@ -76,13 +78,8 @@ distance, and Sliced Wasserstein distance.
 
 ## Other Members
 
-<h3 id="INCEPTION_DEFAULT_IMAGE_SIZE"><code>INCEPTION_DEFAULT_IMAGE_SIZE</code></h3>
-
-<h3 id="frechet_inception_distance"><code>frechet_inception_distance</code></h3>
-
-<h3 id="inception_score"><code>inception_score</code></h3>
-
-<h3 id="kernel_inception_distance"><code>kernel_inception_distance</code></h3>
-
-<h3 id="kernel_inception_distance_and_std"><code>kernel_inception_distance_and_std</code></h3>
-
+* `INCEPTION_DEFAULT_IMAGE_SIZE = 299` <a id="INCEPTION_DEFAULT_IMAGE_SIZE"></a>
+* `frechet_inception_distance` <a id="frechet_inception_distance"></a>
+* `inception_score` <a id="inception_score"></a>
+* `kernel_inception_distance` <a id="kernel_inception_distance"></a>
+* `kernel_inception_distance_and_std` <a id="kernel_inception_distance_and_std"></a>

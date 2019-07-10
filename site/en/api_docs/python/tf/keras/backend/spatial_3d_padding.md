@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.spatial_3d_padding
 
+Pads 5D tensor with zeros along the depth, height, width dimensions.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.spatial_3d_padding`
+* `tf.compat.v2.keras.backend.spatial_3d_padding`
+* `tf.keras.backend.spatial_3d_padding`
+
 ``` python
 tf.keras.backend.spatial_3d_padding(
     x,
@@ -15,9 +23,9 @@ tf.keras.backend.spatial_3d_padding(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Pads 5D tensor with zeros along the depth, height, width dimensions.
+<!-- Placeholder for "Used in" -->
 
 Pads these dimensions with respectively
 "padding[0]", "padding[1]" and "padding[2]" zeros left and right.
@@ -29,6 +37,7 @@ the 3rd, 4th and 5th dimension will be padded.
 
 #### Arguments:
 
+
 * <b>`x`</b>: Tensor or variable.
 * <b>`padding`</b>: Tuple of 3 tuples, padding pattern.
 * <b>`data_format`</b>: One of `channels_last` or `channels_first`.
@@ -39,7 +48,9 @@ the 3rd, 4th and 5th dimension will be padded.
 A padded 5D tensor.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `data_format` is neither
-        `channels_last` or `channels_first`.
+    `channels_last` or `channels_first`.

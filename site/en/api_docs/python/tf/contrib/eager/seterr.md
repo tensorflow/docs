@@ -5,17 +5,21 @@ page_type: reference
 
 # tf.contrib.eager.seterr
 
+Set how abnormal conditions are handled by the default eager context.
+
 ``` python
 tf.contrib.eager.seterr(inf_or_nan=None)
 ```
 
 
 
-Defined in [`tensorflow/python/eager/execution_callbacks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/eager/execution_callbacks.py).
+Defined in [`python/eager/execution_callbacks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/execution_callbacks.py).
 
-Set how abnormal conditions are handled by the default eager context.
+<!-- Placeholder for "Used in" -->
 
-Example:
+
+#### Example:
+
 
 ```python
 tfe.seterr(inf_or_nan=ExecutionCallback.RAISE)
@@ -32,9 +36,10 @@ c = a / b  # <-- Does NOT raise exception anymore.
 
 #### Args:
 
+
 * <b>`inf_or_nan`</b>: An `ExecutionCallback` determining the action for infinity
-    (`inf`) and NaN (`nan`) values. A value of `None` leads to no change in
-    the action of the condition.
+  (`inf`) and NaN (`nan`) values. A value of `None` leads to no change in
+  the action of the condition.
 
 
 #### Returns:
@@ -42,6 +47,8 @@ c = a / b  # <-- Does NOT raise exception anymore.
 A dictionary of old actions.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the value of any keyword arguments is invalid.

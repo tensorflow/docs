@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.io.encode_base64
 
+Encode strings into web-safe base64 format.
+
 ### Aliases:
 
+* `tf.compat.v1.encode_base64`
+* `tf.compat.v1.io.encode_base64`
+* `tf.compat.v2.io.encode_base64`
 * `tf.encode_base64`
 * `tf.io.encode_base64`
 
@@ -20,9 +25,9 @@ tf.io.encode_base64(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_string_ops.py`.
+Defined in generated file: `python/ops/gen_string_ops.py`.
 
-Encode strings into web-safe base64 format.
+<!-- Placeholder for "Used in" -->
 
 Refer to the following article for more information on base64 format:
 en.wikipedia.org/wiki/Base64. Base64 strings may have padding with '=' at the
@@ -33,9 +38,10 @@ Web-safe means that the encoder uses - and _ instead of + and /.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor` of type `string`. Strings to be encoded.
 * <b>`pad`</b>: An optional `bool`. Defaults to `False`.
-    Bool whether padding is applied at the ends.
+  Bool whether padding is applied at the ends.
 * <b>`name`</b>: A name for the operation (optional).
 
 

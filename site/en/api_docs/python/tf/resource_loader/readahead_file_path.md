@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.resource_loader.readahead_file_path
 
+Readahead files not implemented; simply returns given path.
+
+### Aliases:
+
+* `tf.compat.v1.resource_loader.readahead_file_path`
+* `tf.resource_loader.readahead_file_path`
+
 ``` python
 tf.resource_loader.readahead_file_path(
     path,
@@ -14,6 +21,6 @@ tf.resource_loader.readahead_file_path(
 
 
 
-Defined in [`tensorflow/python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/resource_loader.py).
+Defined in [`python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/resource_loader.py).
 
-Readahead files not implemented; simply returns given path.
+<!-- Placeholder for "Used in" -->

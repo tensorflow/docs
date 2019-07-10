@@ -5,15 +5,20 @@ page_type: reference
 
 # tf.contrib.framework.nest.yield_flat_paths
 
+Yields paths for some nested structure.
+
 ``` python
-tf.contrib.framework.nest.yield_flat_paths(nest)
+tf.contrib.framework.nest.yield_flat_paths(
+    nest,
+    expand_composites=False
+)
 ```
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/util/nest.py).
+Defined in [`python/util/nest.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/nest.py).
 
-Yields paths for some nested structure.
+<!-- Placeholder for "Used in" -->
 
 Paths are lists of objects which can be str-converted, which may include
 integers or other types which are used as indices in a dict.
@@ -40,7 +45,10 @@ E.g. if we have a tuple `value = Foo(a=3, b=Bar(c=23, d=42))`
 
 #### Args:
 
+
 * <b>`nest`</b>: the value to produce a flattened paths list for.
+* <b>`expand_composites`</b>: If true, then composite tensors such as tf.SparseTensor
+   and tf.RaggedTensor are expanded into their component tensors.
 
 
 #### Yields:

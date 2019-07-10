@@ -7,13 +7,23 @@ page_type: reference
 
 ## Class `SessionRunContext`
 
-
-
-
-
-Defined in [`tensorflow/python/training/session_run_hook.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/session_run_hook.py).
-
 Provides information about the `session.run()` call being made.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.estimator.SessionRunContext`
+* Class `tf.compat.v1.train.SessionRunContext`
+* Class `tf.compat.v2.estimator.SessionRunContext`
+* Class `tf.estimator.SessionRunContext`
+* Class `tf.train.SessionRunContext`
+
+
+
+Defined in [`python/training/session_run_hook.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/session_run_hook.py).
+
+<!-- Placeholder for "Used in" -->
 
 Provides information about original request to `Session.Run()` function.
 SessionRunHook objects can stop the loop by calling `request_stop()` of
@@ -33,31 +43,33 @@ Initializes SessionRunContext.
 
 
 
+
 ## Properties
 
 <h3 id="original_args"><code>original_args</code></h3>
 
 A `SessionRunArgs` object holding the original arguments of `run()`.
 
-If user called `MonitoredSession.run(fetches=a, feed_dict=b)`, then this
+If user called <a href="../../tf/train/MonitoredSession#run"><code>MonitoredSession.run(fetches=a, feed_dict=b)</code></a>, then this
 field is equal to SessionRunArgs(a, b).
 
 #### Returns:
 
 A `SessionRunArgs` object
 
+
 <h3 id="session"><code>session</code></h3>
 
 A TensorFlow session object which will execute the `run`.
+
 
 <h3 id="stop_requested"><code>stop_requested</code></h3>
 
 Returns whether a stop is requested or not.
 
 If true, `MonitoredSession` stops iterations.
-#### Returns:
-
-A `bool`
+Returns:
+  A `bool`
 
 
 

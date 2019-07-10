@@ -7,15 +7,23 @@ page_type: reference
 
 
 
+### Aliases:
+
+* Module `tf.compat.v1.keras.models`
+* Module `tf.keras.models`
 
 
-Code for model cloning, plus model-related API entries.
+
+Defined in [`python/keras/api/_v1/keras/models/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/models/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 
-[`class Model`](../../tf/keras/models/Model): `Model` groups layers into an object with training and inference features.
+[`class Model`](../../tf/keras/Model): `Model` groups layers into an object with training and inference features.
 
-[`class Sequential`](../../tf/keras/models/Sequential): Linear stack of layers.
+[`class Sequential`](../../tf/keras/Sequential): Linear stack of layers.
 
 ## Functions
 
@@ -29,5 +37,5 @@ Code for model cloning, plus model-related API entries.
 
 [`model_from_yaml(...)`](../../tf/keras/models/model_from_yaml): Parses a yaml model configuration file and returns a model instance.
 
-[`save_model(...)`](../../tf/keras/models/save_model): Saves a model to a HDF5 file.
+[`save_model(...)`](../../tf/keras/models/save_model): Saves a model as a TensorFlow SavedModel or HDF5 file.
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.gan_train_ops
 
+Returns GAN train ops.
+
 ``` python
 tf.contrib.gan.gan_train_ops(
     model,
@@ -19,27 +21,27 @@ tf.contrib.gan.gan_train_ops(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/train.py).
+Defined in [`contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/train.py).
 
-Returns GAN train ops.
+<!-- Placeholder for "Used in" -->
 
-The highest-level call in TFGAN. It is composed of functions that can also
+The highest-level call in TF-GAN. It is composed of functions that can also
 be called, should a user require more control over some part of the GAN
 training process.
 
 #### Args:
+
 
 * <b>`model`</b>: A GANModel.
 * <b>`loss`</b>: A GANLoss.
 * <b>`generator_optimizer`</b>: The optimizer for generator updates.
 * <b>`discriminator_optimizer`</b>: The optimizer for the discriminator updates.
 * <b>`check_for_unused_update_ops`</b>: If `True`, throws an exception if there are
-    update ops outside of the generator or discriminator scopes.
+  update ops outside of the generator or discriminator scopes.
 * <b>`is_chief`</b>: Specifies whether or not the training is being run by the primary
-    replica during replica training.
-* <b>`**kwargs`</b>: Keyword args to pass directly to
-    `training.create_train_op` for both the generator and
-    discriminator train op.
+  replica during replica training.
+* <b>`**kwargs`</b>: Keyword args to pass directly to `training.create_train_op` for
+  both the generator and discriminator train op.
 
 
 #### Returns:

@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.seq2seq
 
-
-
-Defined in [`tensorflow/contrib/seq2seq/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/seq2seq/__init__.py).
-
 Ops for building neural network seq2seq decoders and losses.
+
+
+
+Defined in [`contrib/seq2seq/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 See the
 [Contrib Seq2seq](https://tensorflow.org/api_guides/python/contrib.seq2seq)
@@ -29,13 +31,13 @@ guide.
 
 [`class BasicDecoder`](../../tf/contrib/seq2seq/BasicDecoder): Basic sampling decoder.
 
-[`class BasicDecoderOutput`](../../tf/contrib/seq2seq/BasicDecoderOutput): BasicDecoderOutput(rnn_output, sample_id)
+[`class BasicDecoderOutput`](../../tf/contrib/seq2seq/BasicDecoderOutput)
 
 [`class BeamSearchDecoder`](../../tf/contrib/seq2seq/BeamSearchDecoder): BeamSearch sampling decoder.
 
-[`class BeamSearchDecoderOutput`](../../tf/contrib/seq2seq/BeamSearchDecoderOutput): BeamSearchDecoderOutput(scores, predicted_ids, parent_ids)
+[`class BeamSearchDecoderOutput`](../../tf/contrib/seq2seq/BeamSearchDecoderOutput)
 
-[`class BeamSearchDecoderState`](../../tf/contrib/seq2seq/BeamSearchDecoderState): BeamSearchDecoderState(cell_state, log_probs, finished, lengths, accumulated_attention_probs)
+[`class BeamSearchDecoderState`](../../tf/contrib/seq2seq/BeamSearchDecoderState)
 
 [`class CustomHelper`](../../tf/contrib/seq2seq/CustomHelper): Base abstract class that allows the user to customize sampling.
 

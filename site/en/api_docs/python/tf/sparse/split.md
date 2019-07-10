@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.sparse.split
 
+Split a `SparseTensor` into `num_split` tensors along `axis`. (deprecated arguments)
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.split`
+* `tf.compat.v1.sparse_split`
 * `tf.sparse.split`
 * `tf.sparse_split`
 
@@ -23,9 +27,9 @@ tf.sparse.split(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Split a `SparseTensor` into `num_split` tensors along `axis`. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(split_dim)`. They will be removed in a future version.
 Instructions for updating:
@@ -43,14 +47,15 @@ input is:
 Graphically the output tensors are:
 
     output_tensor[0] =
-    [    a ]
-    [b c   ]
+    [    a   ]
+    [b c     ]
 
     output_tensor[1] =
     [ d e  ]
     [      ]
 
 #### Args:
+
 
 * <b>`keyword_required`</b>: Python 2 standin for * (temporary for argument reorder)
 * <b>`sp_input`</b>: The `SparseTensor` to split.
@@ -65,7 +70,9 @@ Graphically the output tensors are:
 `num_split` `SparseTensor` objects resulting from splitting `value`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `sp_input` is not a `SparseTensor`.
 * <b>`ValueError`</b>: If the deprecated `split_dim` and `axis` are both non None.

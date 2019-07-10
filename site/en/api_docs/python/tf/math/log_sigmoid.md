@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.math.log_sigmoid
 
+Computes log sigmoid of `x` element-wise.
+
 ### Aliases:
 
+* `tf.compat.v1.log_sigmoid`
+* `tf.compat.v1.math.log_sigmoid`
+* `tf.compat.v2.math.log_sigmoid`
 * `tf.log_sigmoid`
 * `tf.math.log_sigmoid`
 
@@ -19,14 +24,15 @@ tf.math.log_sigmoid(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Computes log sigmoid of `x` element-wise.
+<!-- Placeholder for "Used in" -->
 
 Specifically, `y = log(1 / (1 + exp(-x)))`.  For numerical stability,
 we use `y = -tf.nn.softplus(-x)`.
 
 #### Args:
+
 
 * <b>`x`</b>: A Tensor with type `float32` or `float64`.
 * <b>`name`</b>: A name for the operation (optional).

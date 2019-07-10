@@ -8,125 +8,138 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/__init__.py).
 
-Bring in all of the public TensorFlow interface into this module.
+
+Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Modules
 
-[`app`](./tf/app) module: Generic entry point script.
+[`app`](./tf/app) module
 
-[`autograph`](./tf/autograph) module: Conversion of plain Python into TensorFlow graph code.
+[`audio`](./tf/audio) module
 
-[`bitwise`](./tf/bitwise) module: Operations for manipulating the binary representations of integers.
+[`autograph`](./tf/autograph) module
 
-[`compat`](./tf/compat) module: Functions for Python 2 vs. 3 compatibility.
+[`bitwise`](./tf/bitwise) module
+
+[`compat`](./tf/compat) module
+
+[`config`](./tf/config) module
 
 [`contrib`](./tf/contrib) module: contrib module containing volatile or experimental code.
 
-[`data`](./tf/data) module: <a href="./tf/data/Dataset"><code>tf.data.Dataset</code></a> API for input pipelines.
+[`data`](./tf/data) module
 
-[`debugging`](./tf/debugging) module: Public API for tf.debugging namespace.
+[`debugging`](./tf/debugging) module
 
-[`distribute`](./tf/distribute) module: Library for running a computation across multiple devices.
+[`distribute`](./tf/distribute) module
 
-[`distributions`](./tf/distributions) module: Core module for TensorFlow distribution objects and helpers.
+[`distributions`](./tf/distributions) module
 
-[`dtypes`](./tf/dtypes) module: Public API for tf.dtypes namespace.
+[`dtypes`](./tf/dtypes) module
 
-[`errors`](./tf/errors) module: Exception types for TensorFlow errors.
+[`errors`](./tf/errors) module
 
-[`estimator`](./tf/estimator) module: Estimator: High level tools for working with models.
+[`estimator`](./tf/estimator) module
 
-[`experimental`](./tf/experimental) module: Public API for tf.experimental namespace.
+[`experimental`](./tf/experimental) module
 
-[`feature_column`](./tf/feature_column) module: Public API for tf.feature_column namespace.
+[`feature_column`](./tf/feature_column) module
 
-[`flags`](./tf/app/flags) module: Import router for absl.flags. See https://github.com/abseil/abseil-py.
+[`gfile`](./tf/gfile) module
 
-[`gfile`](./tf/gfile) module: Import router for file_io.
+[`graph_util`](./tf/graph_util) module
 
-[`graph_util`](./tf/graph_util) module: Helpers to manipulate a tensor graph in python.
+[`image`](./tf/image) module
 
-[`image`](./tf/image) module: Image processing and decoding ops.
+[`initializers`](./tf/initializers) module
 
-[`initializers`](./tf/initializers) module: Public API for tf.initializers namespace.
+[`io`](./tf/io) module
 
-[`io`](./tf/io) module: Public API for tf.io namespace.
+[`keras`](./tf/keras) module
 
-[`keras`](./tf/keras) module: Implementation of the Keras API meant to be a high-level API for TensorFlow.
+[`layers`](./tf/layers) module
 
-[`layers`](./tf/layers) module: Public API for tf.layers namespace.
+[`linalg`](./tf/linalg) module
 
-[`linalg`](./tf/linalg) module: Operations for linear algebra.
+[`lite`](./tf/lite) module
 
-[`lite`](./tf/lite) module: Public API for tf.lite namespace.
+[`logging`](./tf/logging) module
 
-[`logging`](./tf/logging) module: Logging and Summary Operations.
+[`lookup`](./tf/lookup) module
 
-[`losses`](./tf/losses) module: Loss operations for use in neural networks.
+[`losses`](./tf/losses) module
 
-[`manip`](./tf/manip) module: Operators for manipulating tensors.
+[`manip`](./tf/manip) module
 
-[`math`](./tf/math) module: Basic arithmetic operators.
+[`math`](./tf/math) module
 
-[`metrics`](./tf/metrics) module: Evaluation-related metrics.
+[`metrics`](./tf/metrics) module
 
-[`nn`](./tf/nn) module: Wrappers for primitive Neural Net (NN) Operations.
+[`nest`](./tf/nest) module
 
-[`profiler`](./tf/profiler) module: Public API for tf.profiler namespace.
+[`nn`](./tf/nn) module
 
-[`python_io`](./tf/python_io) module: Python functions for directly manipulating TFRecord-formatted files.
+[`profiler`](./tf/profiler) module
 
-[`pywrap_tensorflow`](./tf/pywrap_tensorflow) module: A wrapper for TensorFlow SWIG-generated bindings.
+[`python_io`](./tf/python_io) module
 
-[`quantization`](./tf/quantization) module: Public API for tf.quantization namespace.
+[`quantization`](./tf/quantization) module
 
-[`queue`](./tf/queue) module: Public API for tf.queue namespace.
+[`queue`](./tf/queue) module
 
-[`ragged`](./tf/ragged) module: Ragged Tensors.
+[`ragged`](./tf/ragged) module
 
-[`random`](./tf/random) module: Public API for tf.random namespace.
+[`random`](./tf/random) module
 
-[`resource_loader`](./tf/resource_loader) module: Resource management library.
+[`raw_ops`](./tf/raw_ops) module
 
-[`saved_model`](./tf/saved_model) module: Public API for tf.saved_model namespace.
+[`resource_loader`](./tf/resource_loader) module
 
-[`sets`](./tf/sets) module: Tensorflow set operations.
+[`saved_model`](./tf/saved_model) module
 
-[`signal`](./tf/signal) module: Signal processing operations.
+[`sets`](./tf/sets) module
 
-[`sparse`](./tf/sparse) module: Sparse Tensor Representation.
+[`signal`](./tf/signal) module
 
-[`spectral`](./tf/spectral) module: Public API for tf.spectral namespace.
+[`sparse`](./tf/sparse) module
 
-[`strings`](./tf/strings) module: Operations for working with string Tensors.
+[`spectral`](./tf/spectral) module
 
-[`summary`](./tf/summary) module: Public API for tf.summary namespace.
+[`strings`](./tf/strings) module
 
-[`sysconfig`](./tf/sysconfig) module: System configuration library.
+[`summary`](./tf/summary) module
 
-[`test`](./tf/test) module: Testing.
+[`sysconfig`](./tf/sysconfig) module
 
-[`tools`](./tf/tools) module
+[`test`](./tf/test) module
 
-[`train`](./tf/train) module: Support for training models.
+[`tpu`](./tf/tpu) module
 
-[`user_ops`](./tf/user_ops) module: Public API for tf.user_ops namespace.
+[`train`](./tf/train) module
 
-[`version`](./tf/version) module: Public API for tf.version namespace.
+[`user_ops`](./tf/user_ops) module
+
+[`version`](./tf/version) module
+
+[`xla`](./tf/xla) module
 
 ## Classes
 
 [`class AggregationMethod`](./tf/AggregationMethod): A class listing aggregation methods used to combine gradients.
 
-[`class AttrValue`](./tf/AttrValue): A ProtocolMessage
+[`class AttrValue`](./tf/AttrValue)
 
 [`class ConditionalAccumulator`](./tf/ConditionalAccumulator): A conditional accumulator for aggregating gradients.
 
 [`class ConditionalAccumulatorBase`](./tf/ConditionalAccumulatorBase): A conditional accumulator for aggregating gradients.
 
-[`class ConfigProto`](./tf/ConfigProto): A ProtocolMessage
+[`class ConfigProto`](./tf/ConfigProto)
+
+[`class CriticalSection`](./tf/CriticalSection): Critical section.
 
 [`class DType`](./tf/dtypes/DType): Represents the type of the elements in a `Tensor`.
 
@@ -134,7 +147,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`class Dimension`](./tf/Dimension): Represents the value of one dimension in a TensorShape.
 
-[`class Event`](./tf/Event): A ProtocolMessage
+[`class Event`](./tf/Event)
 
 [`class FIFOQueue`](./tf/queue/FIFOQueue): A queue implementation that dequeues elements in first-in first-out order.
 
@@ -144,19 +157,19 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`class FixedLengthRecordReader`](./tf/FixedLengthRecordReader): A Reader that outputs fixed-length records from a file.
 
-[`class GPUOptions`](./tf/GPUOptions): A ProtocolMessage
+[`class GPUOptions`](./tf/GPUOptions)
 
 [`class GradientTape`](./tf/GradientTape): Record operations for automatic differentiation.
 
 [`class Graph`](./tf/Graph): A TensorFlow computation, represented as a dataflow graph.
 
-[`class GraphDef`](./tf/GraphDef): A ProtocolMessage
+[`class GraphDef`](./tf/GraphDef)
 
 [`class GraphKeys`](./tf/GraphKeys): Standard names to use for graph collections.
 
-[`class GraphOptions`](./tf/GraphOptions): A ProtocolMessage
+[`class GraphOptions`](./tf/GraphOptions)
 
-[`class HistogramProto`](./tf/HistogramProto): A ProtocolMessage
+[`class HistogramProto`](./tf/HistogramProto)
 
 [`class IdentityReader`](./tf/IdentityReader): A Reader that outputs the queued work as both the key and value.
 
@@ -166,19 +179,21 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`class LMDBReader`](./tf/LMDBReader): A Reader that outputs the records from a LMDB file.
 
-[`class LogMessage`](./tf/LogMessage): A ProtocolMessage
+[`class LogMessage`](./tf/LogMessage)
 
-[`class MetaGraphDef`](./tf/MetaGraphDef): A ProtocolMessage
+[`class MetaGraphDef`](./tf/MetaGraphDef)
 
-[`class NameAttrList`](./tf/NameAttrList): A ProtocolMessage
+[`class Module`](./tf/Module): Base neural network module class.
 
-[`class NodeDef`](./tf/NodeDef): A ProtocolMessage
+[`class NameAttrList`](./tf/NameAttrList)
+
+[`class NodeDef`](./tf/NodeDef)
 
 [`class OpError`](./tf/errors/OpError): A generic error that is raised when TensorFlow execution fails.
 
 [`class Operation`](./tf/Operation): Represents a graph node that performs computation on tensors.
 
-[`class OptimizerOptions`](./tf/OptimizerOptions): A ProtocolMessage
+[`class OptimizerOptions`](./tf/OptimizerOptions)
 
 [`class PaddingFIFOQueue`](./tf/queue/PaddingFIFOQueue): A FIFOQueue that supports batching variable-sized tensors by padding.
 
@@ -194,13 +209,13 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`class RegisterGradient`](./tf/RegisterGradient): A decorator for registering the gradient function for an op type.
 
-[`class RunMetadata`](./tf/RunMetadata): A ProtocolMessage
+[`class RunMetadata`](./tf/RunMetadata)
 
-[`class RunOptions`](./tf/RunOptions): A ProtocolMessage
+[`class RunOptions`](./tf/RunOptions)
 
 [`class Session`](./tf/Session): A class for running TensorFlow operations.
 
-[`class SessionLog`](./tf/SessionLog): A ProtocolMessage
+[`class SessionLog`](./tf/SessionLog)
 
 [`class SparseConditionalAccumulator`](./tf/sparse/SparseConditionalAccumulator): A conditional accumulator for aggregating sparse gradients.
 
@@ -210,9 +225,9 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`class SparseTensorValue`](./tf/SparseTensorValue): SparseTensorValue(indices, values, dense_shape)
 
-[`class Summary`](./tf/Summary): A ProtocolMessage
+[`class Summary`](./tf/Summary)
 
-[`class SummaryMetadata`](./tf/SummaryMetadata): A ProtocolMessage
+[`class SummaryMetadata`](./tf/SummaryMetadata)
 
 [`class TFRecordReader`](./tf/TFRecordReader): A Reader that outputs the records from a TFRecords file.
 
@@ -220,7 +235,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`class TensorArray`](./tf/TensorArray): Class wrapping dynamic-sized, per-time-step, write-once Tensor arrays.
 
-[`class TensorInfo`](./tf/TensorInfo): A ProtocolMessage
+[`class TensorInfo`](./tf/TensorInfo)
 
 [`class TensorShape`](./tf/TensorShape): Represents the shape of a `Tensor`.
 
@@ -242,21 +257,21 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`class WholeFileReader`](./tf/WholeFileReader): A Reader that outputs the entire contents of a file as a value.
 
-[`class constant_initializer`](./tf/keras/initializers/Constant): Initializer that generates tensors with constant values.
+[`class constant_initializer`](./tf/initializers/constant): Initializer that generates tensors with constant values.
 
-[`class glorot_normal_initializer`](./tf/keras/initializers/glorot_normal): The Glorot normal initializer, also called Xavier normal initializer.
+[`class glorot_normal_initializer`](./tf/glorot_normal_initializer): The Glorot normal initializer, also called Xavier normal initializer.
 
 [`class glorot_uniform_initializer`](./tf/glorot_uniform_initializer): The Glorot uniform initializer, also called Xavier uniform initializer.
 
 [`class name_scope`](./tf/name_scope): A context manager for use when defining a Python op.
 
-[`class ones_initializer`](./tf/keras/initializers/Ones): Initializer that generates tensors initialized to 1.
+[`class ones_initializer`](./tf/initializers/ones): Initializer that generates tensors initialized to 1.
 
-[`class orthogonal_initializer`](./tf/keras/initializers/Orthogonal): Initializer that generates an orthogonal matrix.
+[`class orthogonal_initializer`](./tf/initializers/orthogonal): Initializer that generates an orthogonal matrix.
 
-[`class random_normal_initializer`](./tf/initializers/random_normal): Initializer that generates tensors with a normal distribution.
+[`class random_normal_initializer`](./tf/random_normal_initializer): Initializer that generates tensors with a normal distribution.
 
-[`class random_uniform_initializer`](./tf/initializers/random_uniform): Initializer that generates tensors with a uniform distribution.
+[`class random_uniform_initializer`](./tf/random_uniform_initializer): Initializer that generates tensors with a uniform distribution.
 
 [`class truncated_normal_initializer`](./tf/initializers/truncated_normal): Initializer that generates a truncated normal distribution.
 
@@ -264,9 +279,9 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`class variable_scope`](./tf/variable_scope): A context manager for defining ops that creates variables (layers).
 
-[`class variance_scaling_initializer`](./tf/keras/initializers/VarianceScaling): Initializer capable of adapting its scale to the shape of weights tensors.
+[`class variance_scaling_initializer`](./tf/initializers/variance_scaling): Initializer capable of adapting its scale to the shape of weights tensors.
 
-[`class zeros_initializer`](./tf/keras/initializers/Zeros): Initializer that generates tensors initialized to 0.
+[`class zeros_initializer`](./tf/zeros_initializer): Initializer that generates tensors initialized to 0.
 
 ## Functions
 
@@ -288,15 +303,15 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`add(...)`](./tf/math/add): Returns x + y element-wise.
 
-[`add_check_numerics_ops(...)`](./tf/add_check_numerics_ops): Connect a `check_numerics` to every floating point tensor.
+[`add_check_numerics_ops(...)`](./tf/add_check_numerics_ops): Connect a <a href="./tf/debugging/check_numerics"><code>tf.debugging.check_numerics</code></a> to every floating point tensor.
 
 [`add_n(...)`](./tf/math/add_n): Adds all input tensors element-wise.
 
-[`add_to_collection(...)`](./tf/add_to_collection): Wrapper for `Graph.add_to_collection()` using the default graph.
+[`add_to_collection(...)`](./tf/add_to_collection): Wrapper for <a href="./tf/Graph#add_to_collection"><code>Graph.add_to_collection()</code></a> using the default graph.
 
-[`add_to_collections(...)`](./tf/add_to_collections): Wrapper for `Graph.add_to_collections()` using the default graph.
+[`add_to_collections(...)`](./tf/add_to_collections): Wrapper for <a href="./tf/Graph#add_to_collections"><code>Graph.add_to_collections()</code></a> using the default graph.
 
-[`all_variables(...)`](./tf/all_variables): See <a href="./tf/global_variables"><code>tf.global_variables</code></a>. (deprecated)
+[`all_variables(...)`](./tf/all_variables): Use <a href="./tf/global_variables"><code>tf.compat.v1.global_variables</code></a> instead. (deprecated)
 
 [`angle(...)`](./tf/math/angle): Returns the element-wise argument of a complex (or real) tensor.
 
@@ -312,9 +327,9 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`as_dtype(...)`](./tf/dtypes/as_dtype): Converts the given `type_value` to a `DType`.
 
-[`as_string(...)`](./tf/dtypes/as_string): Converts each entry in the given tensor to strings.  Supports many numeric
+[`as_string(...)`](./tf/strings/as_string): Converts each entry in the given tensor to strings.  Supports many numeric
 
-[`asin(...)`](./tf/math/asin): Computes asin of x element-wise.
+[`asin(...)`](./tf/math/asin): Computes the trignometric inverse sine of x element-wise.
 
 [`asinh(...)`](./tf/math/asinh): Computes inverse hyperbolic sine of x element-wise.
 
@@ -352,27 +367,27 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`assert_same_float_dtype(...)`](./tf/debugging/assert_same_float_dtype): Validate and return float type based on `tensors` and `dtype`.
 
-[`assert_scalar(...)`](./tf/debugging/assert_scalar): Asserts that the given `tensor` is a scalar.
+[`assert_scalar(...)`](./tf/debugging/assert_scalar): Asserts that the given `tensor` is a scalar (i.e. zero-dimensional).
 
 [`assert_type(...)`](./tf/debugging/assert_type): Statically asserts that the given `Tensor` is of the specified type.
 
 [`assert_variables_initialized(...)`](./tf/assert_variables_initialized): Returns an Op to check if variables are initialized.
 
-[`assign(...)`](./tf/assign): Update 'ref' by assigning 'value' to it.
+[`assign(...)`](./tf/assign): Update `ref` by assigning `value` to it.
 
-[`assign_add(...)`](./tf/assign_add): Update 'ref' by adding 'value' to it.
+[`assign_add(...)`](./tf/assign_add): Update `ref` by adding `value` to it.
 
-[`assign_sub(...)`](./tf/assign_sub): Update 'ref' by subtracting 'value' from it.
+[`assign_sub(...)`](./tf/assign_sub): Update `ref` by subtracting `value` from it.
 
-[`atan(...)`](./tf/math/atan): Computes atan of x element-wise.
+[`atan(...)`](./tf/math/atan): Computes the trignometric inverse tangent of x element-wise.
 
 [`atan2(...)`](./tf/math/atan2): Computes arctangent of `y/x` element-wise, respecting signs of the arguments.
 
 [`atanh(...)`](./tf/math/atanh): Computes inverse hyperbolic tangent of x element-wise.
 
-[`batch_gather(...)`](./tf/batch_gather): Gather slices from `params` according to `indices` with leading batch dims.
+[`batch_gather(...)`](./tf/batch_gather): Gather slices from params according to indices with leading batch dims. (deprecated)
 
-[`batch_scatter_update(...)`](./tf/batch_scatter_update): Generalization of <a href="./tf/scatter_update"><code>tf.scatter_update</code></a> to axis different than 0. (deprecated)
+[`batch_scatter_update(...)`](./tf/batch_scatter_update): Generalization of <a href="./tf/scatter_update"><code>tf.compat.v1.scatter_update</code></a> to axis different than 0. (deprecated)
 
 [`batch_to_space(...)`](./tf/batch_to_space): BatchToSpace for 4-D tensors of type T.
 
@@ -384,7 +399,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`bitcast(...)`](./tf/bitcast): Bitcasts a tensor from one type to another without copying data.
 
-[`boolean_mask(...)`](./tf/boolean_mask): Apply boolean mask to tensor.  Numpy equivalent is `tensor[mask]`.
+[`boolean_mask(...)`](./tf/boolean_mask): Apply boolean mask to tensor.
 
 [`broadcast_dynamic_shape(...)`](./tf/broadcast_dynamic_shape): Computes the shape of a broadcast given symbolic shapes.
 
@@ -426,9 +441,9 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`constant(...)`](./tf/constant): Creates a constant tensor.
 
-[`container(...)`](./tf/container): Wrapper for `Graph.container()` using the default graph.
+[`container(...)`](./tf/container): Wrapper for <a href="./tf/Graph#container"><code>Graph.container()</code></a> using the default graph.
 
-[`control_dependencies(...)`](./tf/control_dependencies): Wrapper for `Graph.control_dependencies()` using the default graph.
+[`control_dependencies(...)`](./tf/control_dependencies): Wrapper for <a href="./tf/Graph#control_dependencies"><code>Graph.control_dependencies()</code></a> using the default graph.
 
 [`convert_to_tensor(...)`](./tf/convert_to_tensor): Converts the given `value` to a `Tensor`.
 
@@ -440,7 +455,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`cosh(...)`](./tf/math/cosh): Computes hyperbolic cosine of x element-wise.
 
-[`count_nonzero(...)`](./tf/math/count_nonzero): Computes number of nonzero elements across dimensions of a tensor. (deprecated arguments)
+[`count_nonzero(...)`](./tf/math/count_nonzero): Computes number of nonzero elements across dimensions of a tensor. (deprecated arguments) (deprecated arguments)
 
 [`count_up_to(...)`](./tf/count_up_to): Increments 'ref' until it reaches 'limit'. (deprecated)
 
@@ -462,7 +477,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`decode_json_example(...)`](./tf/io/decode_json_example): Convert JSON-encoded Example records to binary protocol buffer strings.
 
-[`decode_raw(...)`](./tf/io/decode_raw): Reinterpret the bytes of a string as a vector of numbers.
+[`decode_raw(...)`](./tf/decode_raw): Convert raw byte strings into tensors. (deprecated arguments)
 
 [`delete_session_tensor(...)`](./tf/delete_session_tensor): Delete the tensor for the given tensor handle.
 
@@ -472,7 +487,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`deserialize_many_sparse(...)`](./tf/io/deserialize_many_sparse): Deserialize and concatenate `SparseTensors` from a serialized minibatch.
 
-[`device(...)`](./tf/device): Wrapper for `Graph.device()` using the default graph.
+[`device(...)`](./tf/device): Wrapper for <a href="./tf/Graph#device"><code>Graph.device()</code></a> using the default graph.
 
 [`diag(...)`](./tf/linalg/tensor_diag): Returns a diagonal tensor with a given diagonal values.
 
@@ -480,9 +495,9 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`digamma(...)`](./tf/math/digamma): Computes Psi, the derivative of Lgamma (the log of the absolute value of
 
-[`dimension_at_index(...)`](./tf/dimension_at_index): Compatibility utility required to allow for both V1 and V2 behavior in TF.
+[`dimension_at_index(...)`](./tf/compat/dimension_at_index): Compatibility utility required to allow for both V1 and V2 behavior in TF.
 
-[`dimension_value(...)`](./tf/dimension_value): Compatibility utility required to allow for both V1 and V2 behavior in TF.
+[`dimension_value(...)`](./tf/compat/dimension_value): Compatibility utility required to allow for both V1 and V2 behavior in TF.
 
 [`disable_eager_execution(...)`](./tf/disable_eager_execution): Disables eager execution.
 
@@ -494,7 +509,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`div(...)`](./tf/div): Divides x / y elementwise (using Python 2 division operator semantics). (deprecated)
 
-[`div_no_nan(...)`](./tf/div_no_nan): Computes an unsafe divide which returns 0 if the y is zero.
+[`div_no_nan(...)`](./tf/math/divide_no_nan): Computes an unsafe divide which returns 0 if the y is zero.
 
 [`divide(...)`](./tf/math/divide): Computes Python style division of `x` by `y`.
 
@@ -558,6 +573,8 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`fill(...)`](./tf/fill): Creates a tensor filled with a scalar value.
 
+[`fingerprint(...)`](./tf/fingerprint): Generates fingerprint values.
+
 [`fixed_size_partitioner(...)`](./tf/fixed_size_partitioner): Partitioner to specify a fixed number of shards along given axis.
 
 [`floor(...)`](./tf/math/floor): Returns element-wise largest integer not greater than x.
@@ -566,19 +583,21 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`floordiv(...)`](./tf/math/floordiv): Divides `x / y` elementwise, rounding toward the most negative integer.
 
-[`floormod(...)`](./tf/floormod): Returns element-wise remainder of division. When `x < 0` xor `y < 0` is
+[`floormod(...)`](./tf/math/floormod): Returns element-wise remainder of division. When `x < 0` xor `y < 0` is
 
 [`foldl(...)`](./tf/foldl): foldl on the list of tensors unpacked from `elems` on dimension 0.
 
 [`foldr(...)`](./tf/foldr): foldr on the list of tensors unpacked from `elems` on dimension 0.
 
+[`function(...)`](./tf/function): Creates a callable TensorFlow graph from a Python function.
+
 [`gather(...)`](./tf/gather): Gather slices from `params` axis `axis` according to `indices`.
 
 [`gather_nd(...)`](./tf/gather_nd): Gather slices from `params` into a Tensor with shape specified by `indices`.
 
-[`get_collection(...)`](./tf/get_collection): Wrapper for `Graph.get_collection()` using the default graph.
+[`get_collection(...)`](./tf/get_collection): Wrapper for <a href="./tf/Graph#get_collection"><code>Graph.get_collection()</code></a> using the default graph.
 
-[`get_collection_ref(...)`](./tf/get_collection_ref): Wrapper for `Graph.get_collection_ref()` using the default graph.
+[`get_collection_ref(...)`](./tf/get_collection_ref): Wrapper for <a href="./tf/Graph#get_collection_ref"><code>Graph.get_collection_ref()</code></a> using the default graph.
 
 [`get_default_graph(...)`](./tf/get_default_graph): Returns the default graph for the current thread.
 
@@ -593,6 +612,8 @@ Bring in all of the public TensorFlow interface into this module.
 [`get_session_handle(...)`](./tf/get_session_handle): Return the handle of `data`.
 
 [`get_session_tensor(...)`](./tf/get_session_tensor): Get the tensor of type `dtype` by feeding a tensor handle.
+
+[`get_static_value(...)`](./tf/get_static_value): Returns the constant value of the given tensor, if efficiently calculable.
 
 [`get_variable(...)`](./tf/get_variable): Gets an existing variable with these parameters or create a new one.
 
@@ -642,11 +663,11 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`initialize_all_tables(...)`](./tf/initialize_all_tables): Returns an Op that initializes all tables of the default graph. (deprecated)
 
-[`initialize_all_variables(...)`](./tf/initialize_all_variables): See <a href="./tf/initializers/global_variables"><code>tf.global_variables_initializer</code></a>. (deprecated)
+[`initialize_all_variables(...)`](./tf/initialize_all_variables): See <a href="./tf/initializers/global_variables"><code>tf.compat.v1.global_variables_initializer</code></a>. (deprecated)
 
-[`initialize_local_variables(...)`](./tf/initialize_local_variables): See <a href="./tf/initializers/local_variables"><code>tf.local_variables_initializer</code></a>. (deprecated)
+[`initialize_local_variables(...)`](./tf/initialize_local_variables): See <a href="./tf/initializers/local_variables"><code>tf.compat.v1.local_variables_initializer</code></a>. (deprecated)
 
-[`initialize_variables(...)`](./tf/initialize_variables): See <a href="./tf/initializers/variables"><code>tf.variables_initializer</code></a>. (deprecated)
+[`initialize_variables(...)`](./tf/initialize_variables): See <a href="./tf/initializers/variables"><code>tf.compat.v1.variables_initializer</code></a>. (deprecated)
 
 [`invert_permutation(...)`](./tf/math/invert_permutation): Computes the inverse permutation of a tensor.
 
@@ -658,9 +679,11 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`is_non_decreasing(...)`](./tf/math/is_non_decreasing): Returns `True` if `x` is non-decreasing.
 
-[`is_numeric_tensor(...)`](./tf/debugging/is_numeric_tensor)
+[`is_numeric_tensor(...)`](./tf/debugging/is_numeric_tensor): Returns `True` if the elements of `tensor` are numbers.
 
 [`is_strictly_increasing(...)`](./tf/math/is_strictly_increasing): Returns `True` if `x` is strictly increasing.
+
+[`is_tensor(...)`](./tf/is_tensor): Checks whether `x` is a tensor or "tensor-like".
 
 [`is_variable_initialized(...)`](./tf/is_variable_initialized): Tests if a variable has been initialized.
 
@@ -698,7 +721,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`logical_or(...)`](./tf/math/logical_or): Returns the truth value of x OR y element-wise.
 
-[`logical_xor(...)`](./tf/math/logical_xor): x ^ y = (x | y) & ~(x & y).
+[`logical_xor(...)`](./tf/math/logical_xor): Logical XOR function.
 
 [`make_ndarray(...)`](./tf/make_ndarray): Create a numpy ndarray from a tensor.
 
@@ -730,9 +753,9 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`matrix_square_root(...)`](./tf/linalg/sqrtm): Computes the matrix square root of one or more square matrices:
 
-[`matrix_transpose(...)`](./tf/linalg/transpose): Transposes last two dimensions of tensor `a`.
+[`matrix_transpose(...)`](./tf/linalg/matrix_transpose): Transposes last two dimensions of tensor `a`.
 
-[`matrix_triangular_solve(...)`](./tf/linalg/triangular_solve): Solves systems of linear equations with upper or lower triangular matrices by
+[`matrix_triangular_solve(...)`](./tf/linalg/triangular_solve): Solves systems of linear equations with upper or lower triangular matrices by backsubstitution.
 
 [`maximum(...)`](./tf/math/maximum): Returns the max of x and y (i.e. x > y ? x : y) element-wise.
 
@@ -742,7 +765,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`minimum(...)`](./tf/math/minimum): Returns the min of x and y (i.e. x < y ? x : y) element-wise.
 
-[`mod(...)`](./tf/floormod): Returns element-wise remainder of division. When `x < 0` xor `y < 0` is
+[`mod(...)`](./tf/math/floormod): Returns element-wise remainder of division. When `x < 0` xor `y < 0` is
 
 [`model_variables(...)`](./tf/model_variables): Returns all variables in the MODEL_VARIABLES collection.
 
@@ -760,9 +783,13 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`no_regularizer(...)`](./tf/no_regularizer): Use this function to prevent regularization of variables.
 
+[`nondifferentiable_batch_function(...)`](./tf/nondifferentiable_batch_function): Batches the computation done by the decorated function.
+
 [`norm(...)`](./tf/norm): Computes the norm of vectors, matrices, and tensors. (deprecated arguments)
 
 [`not_equal(...)`](./tf/math/not_equal): Returns the truth value of (x != y) element-wise.
+
+[`numpy_function(...)`](./tf/numpy_function): Wraps a python function and uses it as a TensorFlow op.
 
 [`one_hot(...)`](./tf/one_hot): Returns a one-hot tensor.
 
@@ -794,7 +821,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`print(...)`](./tf/print): Print the specified inputs.
 
-[`py_func(...)`](./tf/py_func): Wraps a python function and uses it as a TensorFlow op. (deprecated)
+[`py_func(...)`](./tf/py_func): Wraps a python function and uses it as a TensorFlow op.
 
 [`py_function(...)`](./tf/py_function): Wraps a python function into a TensorFlow op that executes it eagerly.
 
@@ -859,6 +886,8 @@ Bring in all of the public TensorFlow interface into this module.
 [`reset_default_graph(...)`](./tf/reset_default_graph): Clears the default graph stack and resets the global default graph.
 
 [`reshape(...)`](./tf/reshape): Reshapes a tensor.
+
+[`resource_variables_enabled(...)`](./tf/resource_variables_enabled): Returns `True` if resource variables are enabled.
 
 [`reverse(...)`](./tf/reverse): Reverses specific dimensions of a tensor.
 
@@ -926,7 +955,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`serialize_tensor(...)`](./tf/io/serialize_tensor): Transforms a Tensor into a serialized TensorProto proto.
 
-[`set_random_seed(...)`](./tf/random/set_random_seed): Sets the graph-level random seed.
+[`set_random_seed(...)`](./tf/random/set_random_seed): Sets the graph-level random seed for the default graph.
 
 [`setdiff1d(...)`](./tf/setdiff1d): Computes the difference between two lists of numbers or strings.
 
@@ -1028,7 +1057,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`string_join(...)`](./tf/strings/join): Joins the strings in the given list of string tensors into one tensor;
 
-[`string_split(...)`](./tf/string_split): Split elements of `source` based on `delimiter` into a `SparseTensor`.
+[`string_split(...)`](./tf/string_split): Split elements of `source` based on `delimiter`. (deprecated arguments)
 
 [`string_strip(...)`](./tf/strings/strip): Strip leading and trailing whitespaces from the Tensor.
 
@@ -1046,17 +1075,25 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`svd(...)`](./tf/linalg/svd): Computes the singular value decompositions of one or more matrices.
 
+[`switch_case(...)`](./tf/switch_case): Create a switch/case operation, i.e. an integer-indexed conditional.
+
 [`tables_initializer(...)`](./tf/initializers/tables_initializer): Returns an Op that initializes all tables of the default graph.
 
 [`tan(...)`](./tf/math/tan): Computes tan of x element-wise.
 
 [`tanh(...)`](./tf/math/tanh): Computes hyperbolic tangent of `x` element-wise.
 
-[`tensor_scatter_add(...)`](./tf/tensor_scatter_add): Adds sparse `updates` to an existing tensor according to `indices`.
+[`tensor_scatter_add(...)`](./tf/tensor_scatter_nd_add): Adds sparse `updates` to an existing tensor according to `indices`.
 
-[`tensor_scatter_sub(...)`](./tf/tensor_scatter_sub): Subtracts sparse `updates` from an existing tensor according to `indices`.
+[`tensor_scatter_nd_add(...)`](./tf/tensor_scatter_nd_add): Adds sparse `updates` to an existing tensor according to `indices`.
 
-[`tensor_scatter_update(...)`](./tf/tensor_scatter_update): Scatter `updates` into an existing tensor according to `indices`.
+[`tensor_scatter_nd_sub(...)`](./tf/tensor_scatter_nd_sub): Subtracts sparse `updates` from an existing tensor according to `indices`.
+
+[`tensor_scatter_nd_update(...)`](./tf/tensor_scatter_nd_update): Scatter `updates` into an existing tensor according to `indices`.
+
+[`tensor_scatter_sub(...)`](./tf/tensor_scatter_nd_sub): Subtracts sparse `updates` from an existing tensor according to `indices`.
+
+[`tensor_scatter_update(...)`](./tf/tensor_scatter_nd_update): Scatter `updates` into an existing tensor according to `indices`.
 
 [`tensordot(...)`](./tf/tensordot): Tensor contraction of a and b along specified axes.
 
@@ -1082,7 +1119,7 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`trainable_variables(...)`](./tf/trainable_variables): Returns all variables created with `trainable=True`.
 
-[`transpose(...)`](./tf/transpose): Transposes `a`. Permutes the dimensions according to `perm`.
+[`transpose(...)`](./tf/transpose): Transposes `a`.
 
 [`truediv(...)`](./tf/math/truediv): Divides x / y elementwise (using Python 3 division operator semantics).
 
@@ -1122,9 +1159,13 @@ Bring in all of the public TensorFlow interface into this module.
 
 [`variables_initializer(...)`](./tf/initializers/variables): Returns an Op that initializes a list of variables.
 
+[`vectorized_map(...)`](./tf/vectorized_map): Parallel map on the list of tensors unpacked from `elems` on dimension 0.
+
 [`verify_tensor_all_finite(...)`](./tf/debugging/assert_all_finite): Assert that the tensor does not contain any NaN's or Inf's.
 
-[`where(...)`](./tf/where): Return the elements, either from `x` or `y`, depending on the `condition`.
+[`where(...)`](./tf/where): Return the elements, either from `x` or `y`, depending on the `condition`. (deprecated)
+
+[`where_v2(...)`](./tf/where_v2): Return the elements, either from `x` or `y`, depending on the `condition`.
 
 [`while_loop(...)`](./tf/while_loop): Repeat `body` while the condition `cond` is true.
 
@@ -1140,87 +1181,40 @@ Bring in all of the public TensorFlow interface into this module.
 
 ## Other Members
 
-<h3 id="AUTO_REUSE"><code>AUTO_REUSE</code></h3>
-
-<h3 id="COMPILER_VERSION"><code>COMPILER_VERSION</code></h3>
-
-<h3 id="CXX11_ABI_FLAG"><code>CXX11_ABI_FLAG</code></h3>
-
-<h3 id="GIT_VERSION"><code>GIT_VERSION</code></h3>
-
-<h3 id="GRAPH_DEF_VERSION"><code>GRAPH_DEF_VERSION</code></h3>
-
-<h3 id="GRAPH_DEF_VERSION_MIN_CONSUMER"><code>GRAPH_DEF_VERSION_MIN_CONSUMER</code></h3>
-
-<h3 id="GRAPH_DEF_VERSION_MIN_PRODUCER"><code>GRAPH_DEF_VERSION_MIN_PRODUCER</code></h3>
-
-<h3 id="MONOLITHIC_BUILD"><code>MONOLITHIC_BUILD</code></h3>
-
-<h3 id="QUANTIZED_DTYPES"><code>QUANTIZED_DTYPES</code></h3>
-
-<h3 id="VERSION"><code>VERSION</code></h3>
-
-<h3 id="__all__"><code>__all__</code></h3>
-
-<h3 id="__compiler_version__"><code>__compiler_version__</code></h3>
-
-<h3 id="__cxx11_abi_flag__"><code>__cxx11_abi_flag__</code></h3>
-
-<h3 id="__git_version__"><code>__git_version__</code></h3>
-
-<h3 id="__monolithic_build__"><code>__monolithic_build__</code></h3>
-
-<h3 id="__version__"><code>__version__</code></h3>
-
-<h3 id="bfloat16"><code>bfloat16</code></h3>
-
-<h3 id="bool"><code>bool</code></h3>
-
-<h3 id="complex128"><code>complex128</code></h3>
-
-<h3 id="complex64"><code>complex64</code></h3>
-
-<h3 id="double"><code>double</code></h3>
-
-<h3 id="float16"><code>float16</code></h3>
-
-<h3 id="float32"><code>float32</code></h3>
-
-<h3 id="float64"><code>float64</code></h3>
-
-<h3 id="half"><code>half</code></h3>
-
-<h3 id="int16"><code>int16</code></h3>
-
-<h3 id="int32"><code>int32</code></h3>
-
-<h3 id="int64"><code>int64</code></h3>
-
-<h3 id="int8"><code>int8</code></h3>
-
-<h3 id="newaxis"><code>newaxis</code></h3>
-
-<h3 id="qint16"><code>qint16</code></h3>
-
-<h3 id="qint32"><code>qint32</code></h3>
-
-<h3 id="qint8"><code>qint8</code></h3>
-
-<h3 id="quint16"><code>quint16</code></h3>
-
-<h3 id="quint8"><code>quint8</code></h3>
-
-<h3 id="resource"><code>resource</code></h3>
-
-<h3 id="string"><code>string</code></h3>
-
-<h3 id="uint16"><code>uint16</code></h3>
-
-<h3 id="uint32"><code>uint32</code></h3>
-
-<h3 id="uint64"><code>uint64</code></h3>
-
-<h3 id="uint8"><code>uint8</code></h3>
-
-<h3 id="variant"><code>variant</code></h3>
-
+* `AUTO_REUSE` <a id="AUTO_REUSE"></a>
+* `COMPILER_VERSION = '4.8.5'` <a id="COMPILER_VERSION"></a>
+* `CXX11_ABI_FLAG = 0` <a id="CXX11_ABI_FLAG"></a>
+* `GIT_VERSION = 'v1.14.0-rc1-22-gaf24dc91b5'` <a id="GIT_VERSION"></a>
+* `GRAPH_DEF_VERSION = 38` <a id="GRAPH_DEF_VERSION"></a>
+* `GRAPH_DEF_VERSION_MIN_CONSUMER = 0` <a id="GRAPH_DEF_VERSION_MIN_CONSUMER"></a>
+* `GRAPH_DEF_VERSION_MIN_PRODUCER = 0` <a id="GRAPH_DEF_VERSION_MIN_PRODUCER"></a>
+* `MONOLITHIC_BUILD = 0` <a id="MONOLITHIC_BUILD"></a>
+* `QUANTIZED_DTYPES` <a id="QUANTIZED_DTYPES"></a>
+* `VERSION = '1.14.0'` <a id="VERSION"></a>
+* `bfloat16` <a id="bfloat16"></a>
+* `bool` <a id="bool"></a>
+* `complex128` <a id="complex128"></a>
+* `complex64` <a id="complex64"></a>
+* `double` <a id="double"></a>
+* `float16` <a id="float16"></a>
+* `float32` <a id="float32"></a>
+* `float64` <a id="float64"></a>
+* `half` <a id="half"></a>
+* `int16` <a id="int16"></a>
+* `int32` <a id="int32"></a>
+* `int64` <a id="int64"></a>
+* `int8` <a id="int8"></a>
+* `plugin_dir = '/home/kbuilder/.local/lib/python3.4/site-packages/tensorflow-plugins'` <a id="plugin_dir"></a>
+* `qint16` <a id="qint16"></a>
+* `qint32` <a id="qint32"></a>
+* `qint8` <a id="qint8"></a>
+* `quint16` <a id="quint16"></a>
+* `quint8` <a id="quint8"></a>
+* `resource` <a id="resource"></a>
+* `s = '/home/kbuilder/.local/lib/python3.4/site-packages'` <a id="s"></a>
+* `string` <a id="string"></a>
+* `uint16` <a id="uint16"></a>
+* `uint32` <a id="uint32"></a>
+* `uint64` <a id="uint64"></a>
+* `uint8` <a id="uint8"></a>
+* `variant` <a id="variant"></a>

@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.math.softplus
 
+Computes softplus: `log(exp(features) + 1)`.
+
 ### Aliases:
 
+* `tf.compat.v1.math.softplus`
+* `tf.compat.v1.nn.softplus`
+* `tf.compat.v2.math.softplus`
+* `tf.compat.v2.nn.softplus`
 * `tf.math.softplus`
 * `tf.nn.softplus`
 
@@ -19,11 +25,13 @@ tf.math.softplus(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_nn_ops.py`.
+Defined in generated file: `python/ops/gen_nn_ops.py`.
 
-Computes softplus: `log(exp(features) + 1)`.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`features`</b>: A `Tensor`. Must be one of the following types: `half`, `bfloat16`, `float32`, `float64`.
 * <b>`name`</b>: A name for the operation (optional).

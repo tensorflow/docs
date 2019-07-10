@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.cudnn_rnn
 
-
-
-Defined in [`tensorflow/contrib/cudnn_rnn/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/cudnn_rnn/__init__.py).
-
 Ops for fused Cudnn RNN models.
+
+
+
+Defined in [`contrib/cudnn_rnn/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cudnn_rnn/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 ## Classes
@@ -36,9 +38,9 @@ Ops for fused Cudnn RNN models.
 
 [`class CudnnRNNRelu`](../../tf/contrib/cudnn_rnn/CudnnRNNRelu): Cudnn implementation of the RNN-relu layer.
 
-[`class CudnnRNNReluSaveable`](../../tf/contrib/cudnn_rnn/CudnnRNNReluSaveable): SaveableObject implementation handling Cudnn LSTM opaque params.
+[`class CudnnRNNReluSaveable`](../../tf/contrib/cudnn_rnn/CudnnRNNReluSaveable)
 
 [`class CudnnRNNTanh`](../../tf/contrib/cudnn_rnn/CudnnRNNTanh): Cudnn implementation of the RNN-tanh layer.
 
-[`class CudnnRNNTanhSaveable`](../../tf/contrib/cudnn_rnn/CudnnRNNTanhSaveable): SaveableObject implementation handling Cudnn LSTM opaque params.
+[`class CudnnRNNTanhSaveable`](../../tf/contrib/cudnn_rnn/CudnnRNNTanhSaveable)
 

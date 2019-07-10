@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.reshape
 
+Reshapes a tensor to the specified shape.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.reshape`
+* `tf.compat.v2.keras.backend.reshape`
+* `tf.keras.backend.reshape`
+
 ``` python
 tf.keras.backend.reshape(
     x,
@@ -14,11 +22,13 @@ tf.keras.backend.reshape(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Reshapes a tensor to the specified shape.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable.
 * <b>`shape`</b>: Target shape tuple.

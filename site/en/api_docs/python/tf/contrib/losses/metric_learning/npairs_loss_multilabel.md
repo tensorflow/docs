@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.losses.metric_learning.npairs_loss_multilabel
 
+Computes the npairs loss with multilabel data.
+
 ``` python
 tf.contrib.losses.metric_learning.npairs_loss_multilabel(
     sparse_labels,
@@ -17,9 +19,9 @@ tf.contrib.losses.metric_learning.npairs_loss_multilabel(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
+Defined in [`contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
 
-Computes the npairs loss with multilabel data.
+<!-- Placeholder for "Used in" -->
 
 Npairs loss expects paired data where a pair is composed of samples from the
 same labels and each pairs in the minibatch have different labels. The loss
@@ -36,22 +38,25 @@ sums to one.
 
 #### Args:
 
+
 * <b>`sparse_labels`</b>: List of 1-D Boolean `SparseTensor` of dense_shape
-                 [batch_size/2, num_classes] labels for the anchor-pos pairs.
+               [batch_size/2, num_classes] labels for the anchor-pos pairs.
 * <b>`embeddings_anchor`</b>: 2-D `Tensor` of shape [batch_size/2, embedding_dim] for
-    the embedding vectors for the anchor images. Embeddings should not be
-    l2 normalized.
+  the embedding vectors for the anchor images. Embeddings should not be
+  l2 normalized.
 * <b>`embeddings_positive`</b>: 2-D `Tensor` of shape [batch_size/2, embedding_dim] for
-    the embedding vectors for the positive images. Embeddings should not be
-    l2 normalized.
+  the embedding vectors for the positive images. Embeddings should not be
+  l2 normalized.
 * <b>`reg_lambda`</b>: Float. L2 regularization term on the embedding vectors.
 * <b>`print_losses`</b>: Boolean. Option to print the xent and l2loss.
 
 
 #### Returns:
 
+
 * <b>`npairs_loss`</b>: tf.float32 scalar.
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: When the specified sparse_labels is not a `SparseTensor`.

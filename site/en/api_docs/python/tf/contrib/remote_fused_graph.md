@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.remote_fused_graph
 
-
-
-Defined in [`tensorflow/contrib/remote_fused_graph/pylib/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/remote_fused_graph/pylib/__init__.py).
-
 Remote fused graph ops python library.
+
+
+
+Defined in [`contrib/remote_fused_graph/pylib/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/remote_fused_graph/pylib/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 ## This package provides classes for remote fused graph ops.
 

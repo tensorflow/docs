@@ -11,7 +11,29 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/framework/node_def.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/framework/node_def.proto).
+### Aliases:
 
-A ProtocolMessage
+* Class `tf.NodeDef.AttrEntry`
+* Class `tf.compat.v1.NodeDef.AttrEntry`
+
+
+
+Defined in [`core/framework/node_def.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/node_def.proto).
+
+<!-- Placeholder for "Used in" -->
+
+
+## Properties
+
+<h3 id="key"><code>key</code></h3>
+
+`string key`
+
+
+<h3 id="value"><code>value</code></h3>
+
+`AttrValue value`
+
+
+
 

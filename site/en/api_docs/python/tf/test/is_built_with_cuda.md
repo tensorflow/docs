@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.test.is_built_with_cuda
 
+Returns whether TensorFlow was built with CUDA (GPU) support.
+
+### Aliases:
+
+* `tf.compat.v1.test.is_built_with_cuda`
+* `tf.compat.v2.test.is_built_with_cuda`
+* `tf.test.is_built_with_cuda`
+
 ``` python
 tf.test.is_built_with_cuda()
 ```
 
 
 
-Defined in [`tensorflow/python/platform/test.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/test.py).
+Defined in [`python/platform/test.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/test.py).
 
-Returns whether TensorFlow was built with CUDA (GPU) support.
+<!-- Placeholder for "Used in" -->

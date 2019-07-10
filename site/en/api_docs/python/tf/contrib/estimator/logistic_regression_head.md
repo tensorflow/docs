@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.logistic_regression_head
 
+Creates a `_Head` for logistic regression.
+
 ``` python
 tf.contrib.estimator.logistic_regression_head(
     weight_column=None,
@@ -13,7 +15,11 @@ tf.contrib.estimator.logistic_regression_head(
 )
 ```
 
-Creates a `_Head` for logistic regression.
+
+
+Defined in [`contrib/estimator/python/estimator/head.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/head.py).
+
+<!-- Placeholder for "Used in" -->
 
 Uses `sigmoid_cross_entropy_with_logits` loss, which is the same as
 `binary_classification_head`. The differences compared to
@@ -44,7 +50,7 @@ The head can be used with a canned estimator. Example:
 
 ```python
 my_head = tf.contrib.estimator.logistic_regression_head()
-my_estimator = tf.contrib.estimator.DNNEstimator(
+my_estimator = tf.estimator.DNNEstimator(
     head=my_head,
     hidden_units=...,
     feature_columns=...)
@@ -69,16 +75,17 @@ my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
 
 #### Args:
 
+
 * <b>`weight_column`</b>: A string or a `_NumericColumn` created by
-    <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
-    weights. It is used to down weight or boost examples during training. It
-    will be multiplied by the loss of the example.
+  <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
+  weights. It is used to down weight or boost examples during training. It
+  will be multiplied by the loss of the example.
 * <b>`loss_reduction`</b>: One of <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Describes how to
-    reduce training loss over batch and label dimension. Defaults to
-    `SUM_OVER_BATCH_SIZE`, namely weighted sum of losses divided by
-    `batch size * label_dimension`. See <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a>.
+  reduce training loss over batch and label dimension. Defaults to
+  `SUM_OVER_BATCH_SIZE`, namely weighted sum of losses divided by
+  `batch size * label_dimension`. See `tf.losses.Reduction`.
 * <b>`name`</b>: name of the head. If provided, summary and metrics keys will be
-    suffixed by `"/" + name`. Also used as `name_scope` when creating ops.
+  suffixed by `"/" + name`. Also used as `name_scope` when creating ops.
 
 
 #### Returns:
@@ -86,6 +93,8 @@ my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
 An instance of `_Head` for logistic regression.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `loss_reduction` is invalid.

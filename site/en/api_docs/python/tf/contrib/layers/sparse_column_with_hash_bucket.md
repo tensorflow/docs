@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.sparse_column_with_hash_bucket
 
+Creates a _SparseColumn with hashed bucket configuration.
+
 ``` python
 tf.contrib.layers.sparse_column_with_hash_bucket(
     column_name,
@@ -17,9 +19,9 @@ tf.contrib.layers.sparse_column_with_hash_bucket(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/feature_column.py).
+Defined in [`contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column.py).
 
-Creates a _SparseColumn with hashed bucket configuration.
+<!-- Placeholder for "Used in" -->
 
 Use this when your sparse features are in string or integer format, but you
 don't have a vocab file that maps each value to an integer ID.
@@ -30,20 +32,21 @@ pair in the `hash_keys`. This is useful to reduce the collision of hashed ids.
 
 #### Args:
 
+
 * <b>`column_name`</b>: A string defining sparse column name.
 * <b>`hash_bucket_size`</b>: An int that is > 1. The number of buckets.
 * <b>`combiner`</b>: A string specifying how to reduce if the sparse column is
-    multivalent. Currently "mean", "sqrtn" and "sum" are supported, with "sum"
-    the default. "sqrtn" often achieves good accuracy, in particular with
-    bag-of-words columns.
-      * "sum": do not normalize features in the column
-      * "mean": do l1 normalization on features in the column
-      * "sqrtn": do l2 normalization on features in the column
-    For more information: `tf.embedding_lookup_sparse`.
+  multivalent. Currently "mean", "sqrtn" and "sum" are supported, with "sum"
+  the default. "sqrtn" often achieves good accuracy, in particular with
+  bag-of-words columns.
+    * "sum": do not normalize features in the column
+    * "mean": do l1 normalization on features in the column
+    * "sqrtn": do l2 normalization on features in the column
+  For more information: `tf.embedding_lookup_sparse`.
 * <b>`dtype`</b>: The type of features. Only string and integer types are supported.
 * <b>`hash_keys`</b>: The hash keys to use. It is a list of lists of two uint64s. If
-    None, simple and fast hashing algorithm is used. Otherwise, multiple
-    strong hash ids would be produced with each two unit64s in this argument.
+  None, simple and fast hashing algorithm is used. Otherwise, multiple
+  strong hash ids would be produced with each two unit64s in this argument.
 
 
 #### Returns:
@@ -51,7 +54,9 @@ pair in the `hash_keys`. This is useful to reduce the collision of hashed ids.
 A _SparseColumn with hashed bucket configuration
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: hash_bucket_size is not greater than 2.
 * <b>`ValueError`</b>: dtype is neither string nor integer.

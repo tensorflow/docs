@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `HParams`
 
-
-
-
-
-Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/hparam.py).
-
 Class to hold a set of hyperparameters as name-value pairs.
+
+
+
+
+
+Defined in [`contrib/training/python/training/hparam.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/hparam.py).
+
+<!-- Placeholder for "Used in" -->
 
 A `HParams` object holds hyperparameters used to build and train a model,
 such as the number of hidden units in a neural net layer or the learning rate
@@ -49,7 +51,9 @@ one flag for each hyperparameter.
 The syntax expected for each value depends on the type of the parameter.
 See `parse()` for a description of the syntax.
 
-Example:
+#### Example:
+
+
 
 ```python
 # Define a command line flag to pass name=value pairs.
@@ -63,8 +67,10 @@ args = parser.parse_args()
 def my_program():
   # Create a HParams object specifying the names and values of the
   # model hyperparameters:
-  hparams = tf.HParams(learning_rate=0.1, num_hidden_units=100,
-                       activations=['relu', 'tanh'])
+  hparams = tf.contrib.training.HParams(
+      learning_rate=0.1,
+      num_hidden_units=100,
+      activations=['relu', 'tanh'])
 
   # Override hyperparameters values by parsing the command line
   hparams.parse(args.hparams)
@@ -97,13 +103,15 @@ The parameter types are inferred from the type of the values passed.
 The parameter names are added as attributes of `HParams` object, so they
 can be accessed directly with the dot notation `hparams._name_`.
 
-Example:
+#### Example:
+
+
 
 ```python
 # Define 3 hyperparameters: 'learning_rate' is a float parameter,
 # 'num_hidden_units' an integer parameter, and 'activation' a string
 # parameter.
-hparams = tf.HParams(
+hparams = tf.contrib.training.HParams(
     learning_rate=0.1, num_hidden_units=100, activation='relu')
 
 hparams.activation ==> 'relu'
@@ -115,19 +123,21 @@ names.  If you use one of the reserved name the constructor raises a
 
 #### Args:
 
+
 * <b>`hparam_def`</b>: Serialized hyperparameters, encoded as a hparam_pb2.HParamDef
-    protocol buffer. If provided, this object is initialized by
-    deserializing hparam_def.  Otherwise **kwargs is used.
+  protocol buffer. If provided, this object is initialized by
+  deserializing hparam_def.  Otherwise **kwargs is used.
 * <b>`model_structure`</b>: An instance of ModelStructure, defining the feature
-    crosses to be used in the Trial.
+  crosses to be used in the Trial.
 * <b>`**kwargs`</b>: Key-value pairs where the key is the hyperparameter name and
-    the value is the value for the parameter.
+  the value is the value for the parameter.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If both `hparam_def` and initialization values are provided,
-    or if one of the arguments is invalid.
+  or if one of the arguments is invalid.
 
 
 
@@ -138,6 +148,7 @@ names.  If you use one of the reserved name the constructor raises a
 ``` python
 __contains__(key)
 ```
+
 
 
 
@@ -152,14 +163,17 @@ add_hparam(
 
 Adds {name, value} pair to hyperparameters.
 
+
 #### Args:
+
 
 * <b>`name`</b>: Name of the hyperparameter.
 * <b>`value`</b>: Value of the hyperparameter. Can be one of the following types:
-    int, float, string, int list, float list, or string list.
+  int, float, string, int list, float list, or string list.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if one of the arguments is invalid.
 
@@ -171,7 +185,10 @@ del_hparam(name)
 
 Removes the hyperparameter with key 'name'.
 
+Does nothing if it isn't present.
+
 #### Args:
+
 
 * <b>`name`</b>: Name of the hyperparameter.
 
@@ -187,6 +204,7 @@ from_proto(
 
 
 
+
 <h3 id="get"><code>get</code></h3>
 
 ``` python
@@ -198,11 +216,13 @@ get(
 
 Returns the value of `key` if it exists, else `default`.
 
+
 <h3 id="get_model_structure"><code>get_model_structure</code></h3>
 
 ``` python
 get_model_structure()
 ```
+
 
 
 
@@ -212,9 +232,11 @@ get_model_structure()
 override_from_dict(values_dict)
 ```
 
-Override hyperparameter values, parsing new values from a dictionary.
+Override existing hyperparameter values, parsing new values from a dictionary.
+
 
 #### Args:
+
 
 * <b>`values_dict`</b>: Dictionary of name:value pairs.
 
@@ -224,8 +246,11 @@ Override hyperparameter values, parsing new values from a dictionary.
 The `HParams` instance.
 
 
+
 #### Raises:
 
+
+* <b>`KeyError`</b>: If a hyperparameter in `values_dict` doesn't exist.
 * <b>`ValueError`</b>: If `values_dict` cannot be parsed.
 
 <h3 id="parse"><code>parse</code></h3>
@@ -234,14 +259,15 @@ The `HParams` instance.
 parse(values)
 ```
 
-Override hyperparameter values, parsing new values from a string.
+Override existing hyperparameter values, parsing new values from a string.
 
 See parse_values for more detail on the allowed format for values.
 
 #### Args:
 
-* <b>`values`</b>: String.  Comma separated list of `name=value` pairs where
-    'value' must follow the syntax described above.
+
+* <b>`values`</b>: String.  Comma separated list of `name=value` pairs where 'value'
+  must follow the syntax described above.
 
 
 #### Returns:
@@ -249,9 +275,12 @@ See parse_values for more detail on the allowed format for values.
 The `HParams` instance.
 
 
+
 #### Raises:
 
-* <b>`ValueError`</b>: If `values` cannot be parsed.
+
+* <b>`ValueError`</b>: If `values` cannot be parsed or a hyperparameter in `values`
+doesn't exist.
 
 <h3 id="parse_json"><code>parse_json</code></h3>
 
@@ -259,9 +288,11 @@ The `HParams` instance.
 parse_json(values_json)
 ```
 
-Override hyperparameter values, parsing new values from a json object.
+Override existing hyperparameter values, parsing new values from a json object.
+
 
 #### Args:
+
 
 * <b>`values_json`</b>: String containing a json object of name:value pairs.
 
@@ -271,8 +302,11 @@ Override hyperparameter values, parsing new values from a json object.
 The `HParams` instance.
 
 
+
 #### Raises:
 
+
+* <b>`KeyError`</b>: If a hyperparameter in `values_json` doesn't exist.
 * <b>`ValueError`</b>: If `values_json` cannot be parsed.
 
 <h3 id="set_from_map"><code>set_from_map</code></h3>
@@ -303,12 +337,15 @@ existing hyperparameter.
 
 #### Args:
 
+
 * <b>`name`</b>: Name of the hyperparameter.
 * <b>`value`</b>: New value of the hyperparameter.
 
 
 #### Raises:
 
+
+* <b>`KeyError`</b>: If the hyperparameter doesn't exist.
 * <b>`ValueError`</b>: If there is a type mismatch.
 
 <h3 id="set_model_structure"><code>set_model_structure</code></h3>
@@ -316,6 +353,7 @@ existing hyperparameter.
 ``` python
 set_model_structure(model_structure)
 ```
+
 
 
 
@@ -331,20 +369,23 @@ to_json(
 
 Serializes the hyperparameters into JSON.
 
+
 #### Args:
 
+
 * <b>`indent`</b>: If a non-negative integer, JSON array elements and object members
-    will be pretty-printed with that indent level. An indent level of 0, or
-    negative, will only insert newlines. `None` (the default) selects the
-    most compact representation.
+  will be pretty-printed with that indent level. An indent level of 0, or
+  negative, will only insert newlines. `None` (the default) selects the
+  most compact representation.
 * <b>`separators`</b>: Optional `(item_separator, key_separator)` tuple. Default is
-    `(', ', ': ')`.
+  `(', ', ': ')`.
 * <b>`sort_keys`</b>: If `True`, the output dictionaries will be sorted by key.
 
 
 #### Returns:
 
 A JSON string.
+
 
 <h3 id="to_proto"><code>to_proto</code></h3>
 
@@ -354,7 +395,9 @@ to_proto(export_scope=None)
 
 Converts a `HParams` object to a `HParamDef` protocol buffer.
 
+
 #### Args:
+
 
 * <b>`export_scope`</b>: Optional `string`. Name scope to remove.
 
@@ -362,6 +405,7 @@ Converts a `HParams` object to a `HParamDef` protocol buffer.
 #### Returns:
 
 A `HParamDef` protocol buffer.
+
 
 <h3 id="values"><code>values</code></h3>
 
@@ -371,10 +415,12 @@ values()
 
 Return the hyperparameter values as a Python dictionary.
 
+
 #### Returns:
 
 A dictionary with hyperparameter names as keys.  The values are the
 hyperparameter values.
+
 
 
 

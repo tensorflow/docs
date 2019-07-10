@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.assert_or_get_global_step
 
+Verifies that a global step tensor is valid or gets one if None is given.
+
 ``` python
 tf.contrib.framework.assert_or_get_global_step(
     graph=None,
@@ -14,9 +16,9 @@ tf.contrib.framework.assert_or_get_global_step(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
 
-Verifies that a global step tensor is valid or gets one if None is given.
+<!-- Placeholder for "Used in" -->
 
 If `global_step_tensor` is not None, check that it is a valid global step
 tensor (using `assert_global_step`). Otherwise find a global step tensor using
@@ -24,9 +26,10 @@ tensor (using `assert_global_step`). Otherwise find a global step tensor using
 
 #### Args:
 
+
 * <b>`graph`</b>: The graph to find the global step tensor for.
-* <b>`global_step_tensor`</b>: The tensor to check for suitability as a global step.
-    If None is given (the default), find a global step tensor.
+* <b>`global_step_tensor`</b>: The tensor to check for suitability as a global step. If
+  None is given (the default), find a global step tensor.
 
 
 #### Returns:

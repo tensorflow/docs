@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.learn.multi_head
 
+Creates a MultiHead stemming from same logits/hidden layer. (deprecated)
+
 ``` python
 tf.contrib.learn.multi_head(
     heads,
@@ -14,9 +16,9 @@ tf.contrib.learn.multi_head(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/head.py).
+Defined in [`contrib/learn/python/learn/estimators/head.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/head.py).
 
-Creates a MultiHead stemming from same logits/hidden layer. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -24,9 +26,10 @@ Please switch to tf.contrib.estimator.*_head.
 
 #### Args:
 
+
 * <b>`heads`</b>: list of Head objects.
 * <b>`loss_weights`</b>: optional list of weights to be used to merge losses from
-      each head. All losses are weighted equally if not provided.
+    each head. All losses are weighted equally if not provided.
 
 
 #### Returns:
@@ -34,6 +37,8 @@ Please switch to tf.contrib.estimator.*_head.
 A instance of `Head` that merges multiple heads.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if heads and loss_weights have different size.

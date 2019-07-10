@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.eager.restore_variables_on_create
 
+ContextManager that restores variables on creation.
+
 ``` python
 tf.contrib.eager.restore_variables_on_create(
     *args,
@@ -12,7 +14,7 @@ tf.contrib.eager.restore_variables_on_create(
 )
 ```
 
-ContextManager that restores variables on creation.
+<!-- Placeholder for "Used in" -->
 
   When save_path is None (e.g. No checkpoint), does nothing.
   Otherwise, it preloads all values from checkpoint. When the
@@ -24,12 +26,13 @@ ContextManager that restores variables on creation.
 
 #### Args:
 
+
 * <b>`save_path`</b>: The checkpoint file prefix.
 * <b>`map_func`</b>: A function that given the variable name as argument
-      and returns a variable name in checkpoint for restore. If
-      None, use the variable with the same name in checkpoint to restore.
-      It's an error that the mapped variable name doesn't exist in
-      checkpoint.
+    and returns a variable name in checkpoint for restore. If
+    None, use the variable with the same name in checkpoint to restore.
+    It's an error that the mapped variable name doesn't exist in
+    checkpoint.
 
 
 #### Yields:
@@ -37,7 +40,9 @@ ContextManager that restores variables on creation.
 Nothing.
 
 
+
 #### Raises:
+
 
 * <b>`NotFoundError`</b>: If the variable is not found in checkpoint.
 * <b>`ValueError`</b>: If not used in eager mode or map_func is not callable.

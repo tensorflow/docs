@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.identity_n
 
+Returns a list of tensors with the same shapes and contents as the input
+
+### Aliases:
+
+* `tf.compat.v1.identity_n`
+* `tf.compat.v2.identity_n`
+* `tf.identity_n`
+
 ``` python
 tf.identity_n(
     input,
@@ -14,9 +22,9 @@ tf.identity_n(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Returns a list of tensors with the same shapes and contents as the input
+<!-- Placeholder for "Used in" -->
 
 tensors.
 
@@ -35,6 +43,7 @@ def ApplyG(op, dy, _):
 ```
 
 #### Args:
+
 
 * <b>`input`</b>: A list of `Tensor` objects.
 * <b>`name`</b>: A name for the operation (optional).

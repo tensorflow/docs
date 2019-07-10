@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.seq2seq.gather_tree
 
+Calculates the full beams from the per-step ids and parent beam ids.
+
 ``` python
 tf.contrib.seq2seq.gather_tree(
     step_ids,
@@ -17,9 +19,9 @@ tf.contrib.seq2seq.gather_tree(
 
 
 
-Defined in generated file: `tensorflow/contrib/seq2seq/ops/gen_beam_search_ops.py`.
+Defined in generated file: `contrib/seq2seq/ops/gen_beam_search_ops.py`.
 
-Calculates the full beams from the per-step ids and parent beam ids.
+<!-- Placeholder for "Used in" -->
 
 On CPU, if an out of bound parent id is found, an error is returned.
 On GPU, if an out of bound parent id is found, a -1 is stored in the
@@ -32,10 +34,11 @@ TODO(ebrevdo): fill in the remainder of this docstring.
 
 #### Args:
 
+
 * <b>`step_ids`</b>: A `Tensor`. Must be one of the following types: `int32`.
-    `[max_time, batch_size, beam_width]`.
+  `[max_time, batch_size, beam_width]`.
 * <b>`parent_ids`</b>: A `Tensor`. Must have the same type as `step_ids`.
-    `[max_time, batch_size, beam_width]`.
+  `[max_time, batch_size, beam_width]`.
 * <b>`max_sequence_lengths`</b>: A `Tensor` of type `int32`. `[batch_size]`.
 * <b>`end_token`</b>: A `Tensor`. Must have the same type as `step_ids`. `[]`.
 * <b>`name`</b>: A name for the operation (optional).

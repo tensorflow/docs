@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.required_space_to_batch_paddings
 
+Calculate padding required to make block_shape divide input_shape.
+
+### Aliases:
+
+* `tf.compat.v1.required_space_to_batch_paddings`
+* `tf.compat.v2.required_space_to_batch_paddings`
+* `tf.required_space_to_batch_paddings`
+
 ``` python
 tf.required_space_to_batch_paddings(
     input_shape,
@@ -16,20 +24,21 @@ tf.required_space_to_batch_paddings(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Calculate padding required to make block_shape divide input_shape.
+<!-- Placeholder for "Used in" -->
 
 This function can be used to calculate a suitable paddings argument for use
 with space_to_batch_nd and batch_to_space_nd.
 
 #### Args:
 
+
 * <b>`input_shape`</b>: int32 Tensor of shape [N].
 * <b>`block_shape`</b>: int32 Tensor of shape [N].
 * <b>`base_paddings`</b>: Optional int32 Tensor of shape [N, 2].  Specifies the minimum
-    amount of padding to use.  All elements must be >= 0.  If not specified,
-    defaults to 0.
+  amount of padding to use.  All elements must be >= 0.  If not specified,
+  defaults to 0.
 * <b>`name`</b>: string.  Optional name prefix.
 
 
@@ -38,12 +47,13 @@ with space_to_batch_nd and batch_to_space_nd.
 (paddings, crops), where:
 
 `paddings` and `crops` are int32 Tensors of rank 2 and shape [N, 2]
-* <b>`satisfying`</b>: 
-      paddings[i, 0] = base_paddings[i, 0].
-      0 <= paddings[i, 1] - base_paddings[i, 1] < block_shape[i]
-      (input_shape[i] + paddings[i, 0] + paddings[i, 1]) % block_shape[i] == 0
 
-      crops[i, 0] = 0
-      crops[i, 1] = paddings[i, 1] - base_paddings[i, 1]
+* <b>`satisfying`</b>: 
+    paddings[i, 0] = base_paddings[i, 0].
+    0 <= paddings[i, 1] - base_paddings[i, 1] < block_shape[i]
+    (input_shape[i] + paddings[i, 0] + paddings[i, 1]) % block_shape[i] == 0
+
+    crops[i, 0] = 0
+    crops[i, 1] = paddings[i, 1] - base_paddings[i, 1]
 
 Raises: ValueError if called with incompatible shapes.

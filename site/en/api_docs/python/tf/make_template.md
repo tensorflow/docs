@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.make_template
 
+Given an arbitrary function, wrap it so that it does variable sharing.
+
+### Aliases:
+
+* `tf.compat.v1.make_template`
+* `tf.make_template`
+
 ``` python
 tf.make_template(
     name_,
@@ -18,9 +25,9 @@ tf.make_template(
 
 
 
-Defined in [`tensorflow/python/ops/template.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/template.py).
+Defined in [`python/ops/template.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/template.py).
 
-Given an arbitrary function, wrap it so that it does variable sharing.
+<!-- Placeholder for "Used in" -->
 
 This wraps `func_` in a Template and partially evaluates it. Templates are
 functions that create variables the first time they are called and reuse them
@@ -28,12 +35,14 @@ thereafter. In order for `func_` to be compatible with a `Template` it must
 have the following properties:
 
 * The function should create all trainable variables and any variables that
-   should be reused by calling <a href="../tf/get_variable"><code>tf.get_variable</code></a>. If a trainable variable is
+   should be reused by calling <a href="../tf/get_variable"><code>tf.compat.v1.get_variable</code></a>. If a trainable
+   variable is
    created using <a href="../tf/Variable"><code>tf.Variable</code></a>, then a ValueError will be thrown. Variables
    that are intended to be locals can be created by specifying
-   `tf.Variable(..., trainable=false)`.
+   <a href="../tf/Variable"><code>tf.Variable(..., trainable=false)</code></a>.
 * The function may use variable scopes and other templates internally to
-    create and reuse variables, but it shouldn't use <a href="../tf/global_variables"><code>tf.global_variables</code></a> to
+    create and reuse variables, but it shouldn't use
+    <a href="../tf/global_variables"><code>tf.compat.v1.global_variables</code></a> to
     capture variables that are defined outside of the scope of the function.
 * Internal scopes and variable names should not depend on any arguments that
     are not supplied to `make_template`. In general you will get a ValueError
@@ -47,12 +56,12 @@ couldn't reuse the variable.
 
 ```python
 def my_op(x, scalar_name):
-  var1 = tf.get_variable(scalar_name,
+  var1 = tf.compat.v1.get_variable(scalar_name,
                          shape=[],
-                         initializer=tf.constant_initializer(1))
+                         initializer=tf.compat.v1.constant_initializer(1))
   return x * var1
 
-scale_by_y = tf.make_template('scale_by_y', my_op, scalar_name='y')
+scale_by_y = tf.compat.v1.make_template('scale_by_y', my_op, scalar_name='y')
 
 z = scale_by_y(input1)
 w = scale_by_y(input2)
@@ -71,19 +80,21 @@ If all of these are true, then 2 properties are enforced by the template:
 
 ```python
 def my_op(x, scalar_name):
-  var1 = tf.get_variable(scalar_name,
+  var1 = tf.compat.v1.get_variable(scalar_name,
                          shape=[],
-                         initializer=tf.constant_initializer(1))
+                         initializer=tf.compat.v1.constant_initializer(1))
   return x * var1
 
-with tf.variable_scope('scope') as vs:
-  scale_by_y = tf.make_template('scale_by_y', my_op, scalar_name='y')
+with tf.compat.v1.variable_scope('scope') as vs:
+  scale_by_y = tf.compat.v1.make_template('scale_by_y', my_op,
+  scalar_name='y')
   z = scale_by_y(input1)
   w = scale_by_y(input2)
 
 # Creates a template that reuses the variables above.
-with tf.variable_scope(vs, reuse=True):
-  scale_by_y2 = tf.make_template('scale_by_y', my_op, scalar_name='y')
+with tf.compat.v1.variable_scope(vs, reuse=True):
+  scale_by_y2 = tf.compat.v1.make_template('scale_by_y', my_op,
+  scalar_name='y')
   z2 = scale_by_y2(input1)
   w2 = scale_by_y2(input2)
 ```
@@ -99,18 +110,19 @@ reduce the likelihood of collisions with kwargs.
 
 #### Args:
 
+
 * <b>`name_`</b>: A name for the scope created by this template. If necessary, the name
-    will be made unique by appending `_N` to the name.
+  will be made unique by appending `_N` to the name.
 * <b>`func_`</b>: The function to wrap.
 * <b>`create_scope_now_`</b>: Boolean controlling whether the scope should be created
-    when the template is constructed or when the template is called. Default
-    is False, meaning the scope is created when the template is called.
+  when the template is constructed or when the template is called. Default
+  is False, meaning the scope is created when the template is called.
 * <b>`unique_name_`</b>: When used, it overrides name_ and is not made unique. If a
-    template of the same scope/unique_name already exists and reuse is false,
-    an error is raised. Defaults to None.
+  template of the same scope/unique_name already exists and reuse is false,
+  an error is raised. Defaults to None.
 * <b>`custom_getter_`</b>: Optional custom getter for variables used in `func_`. See
-    the <a href="../tf/get_variable"><code>tf.get_variable</code></a> `custom_getter` documentation for
-    more information.
+  the <a href="../tf/get_variable"><code>tf.compat.v1.get_variable</code></a> `custom_getter` documentation for more
+  information.
 * <b>`**kwargs`</b>: Keyword arguments to apply to `func_`.
 
 
@@ -125,6 +137,8 @@ variables, which are guaranteed to be unique. All subsequent calls will
 re-enter the scope and reuse those variables.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `name_` is None.

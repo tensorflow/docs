@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.summary.eval_dir
 
+Construct a logdir for an eval summary writer.
+
 ``` python
 tf.contrib.summary.eval_dir(
     model_dir,
@@ -14,6 +16,6 @@ tf.contrib.summary.eval_dir(
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/summary_ops_v2.py).
+Defined in [`python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/summary_ops_v2.py).
 
-Construct a logdir for an eval summary writer.
+<!-- Placeholder for "Used in" -->

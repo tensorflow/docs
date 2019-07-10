@@ -7,18 +7,22 @@ page_type: reference
 
 ## Class `NoDependency`
 
+Allows attribute assignment to `Trackable` objects with no dependency.
 
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/data_structures.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/checkpointable/data_structures.py).
 
-Allows attribute assignment to `Checkpointable` objects with no dependency.
+Defined in [`python/training/tracking/data_structures.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/data_structures.py).
 
-Example usage:
+<!-- Placeholder for "Used in" -->
+
+
+#### Example usage:
+
 
 ```python
-obj = Checkpointable()
+obj = Trackable()
 obj.has_dependency = tf.Variable(0., name="dep")
 obj.no_dependency = NoDependency(tf.Variable(1., name="nodep"))
 assert obj.no_dependency.name == "nodep:0"
@@ -27,7 +31,7 @@ assert obj.no_dependency.name == "nodep:0"
 `obj` in this example has a dependency on the variable "dep", and both
 attributes contain un-wrapped `Variable` objects.
 
-`NoDependency` also works with <a href="../../../tf/keras/models/Model"><code>tf.keras.Model</code></a>, but only for checkpoint
+`NoDependency` also works with <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a>, but only for checkpoint
 dependencies: wrapping a `Layer` in `NoDependency` will assign the (unwrapped)
 `Layer` to the attribute without a checkpoint dependency, but the `Model` will
 still track the `Layer` (so it will appear in `Model.layers`, and its
@@ -39,7 +43,8 @@ variables will appear in `Model.variables`).
 __init__(value)
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 

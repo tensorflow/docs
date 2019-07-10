@@ -5,19 +5,18 @@ page_type: reference
 
 # Module: tf.contrib.gan.estimator.stargan_estimator
 
-
-
-Defined in [`tensorflow/contrib/gan/python/estimator/python/stargan_estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/estimator/python/stargan_estimator.py).
-
 `tf.Learn` components for `GANEstimator`.
+
+
+
+Defined in [`contrib/gan/python/estimator/python/stargan_estimator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/estimator/python/stargan_estimator.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 
 [`class StarGANEstimator`](../../../../tf/contrib/gan/estimator/StarGANEstimator): An estimator for Generative Adversarial Networks (GANs).
 
-[`class SummaryType`](../../../../tf/contrib/gan/estimator/SummaryType): An enumeration.
-
-## Other Members
-
-<h3 id="__all__"><code>__all__</code></h3>
+[`class SummaryType`](../../../../tf/contrib/gan/estimator/SummaryType)
 

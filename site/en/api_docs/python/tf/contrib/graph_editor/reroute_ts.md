@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.reroute_ts
 
+For each tensor's pair, replace the end of t1 by the end of t0.
+
 ``` python
 tf.contrib.graph_editor.reroute_ts(
     ts0,
@@ -16,9 +18,9 @@ tf.contrib.graph_editor.reroute_ts(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/reroute.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/reroute.py).
+Defined in [`contrib/graph_editor/reroute.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/reroute.py).
 
-For each tensor's pair, replace the end of t1 by the end of t0.
+<!-- Placeholder for "Used in" -->
 
     B0 B1     B0 B1
     |  |    => |/
@@ -28,19 +30,22 @@ The end of the tensors in ts1 are left dangling.
 
 #### Args:
 
+
 * <b>`ts0`</b>: an object convertible to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
 * <b>`ts1`</b>: an object convertible to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
 * <b>`can_modify`</b>: iterable of operations which can be modified. Any operation
-    outside within_ops will be left untouched by this function.
+  outside within_ops will be left untouched by this function.
 * <b>`cannot_modify`</b>: iterable of operations which cannot be modified. Any
-    operation within cannot_modify will be left untouched by this function.
+  operation within cannot_modify will be left untouched by this function.
 
 #### Returns:
 
 The number of individual modifications made by the function.
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if ts0 or ts1 cannot be converted to a list of tf.Tensor.
 * <b>`TypeError`</b>: if can_modify or cannot_modify is not None and cannot be
-    converted to a list of tf.Operation.
+  converted to a list of tf.Operation.

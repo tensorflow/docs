@@ -7,7 +7,10 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
 
-Public API for tf.user_ops namespace.
+## Functions
+
+[`my_fact(...)`](../tf/user_ops/my_fact): Example of overriding the generated code for an Op.
 

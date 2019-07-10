@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.convert_to_tensor
 
+Converts the given `value` to a `Tensor`.
+
+### Aliases:
+
+* `tf.compat.v1.convert_to_tensor`
+* `tf.convert_to_tensor`
+
 ``` python
 tf.convert_to_tensor(
     value,
     dtype=None,
     name=None,
-    preferred_dtype=None
+    preferred_dtype=None,
+    dtype_hint=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
-Converts the given `value` to a `Tensor`.
+<!-- Placeholder for "Used in" -->
 
 This function converts Python objects of various types to `Tensor`
 objects. It accepts `Tensor` objects, numpy arrays, Python lists,
@@ -49,23 +57,27 @@ Note: This function diverges from default Numpy behavior for `float` and
 
 #### Args:
 
+
 * <b>`value`</b>: An object whose type has a registered `Tensor` conversion function.
-* <b>`dtype`</b>: Optional element type for the returned tensor. If missing, the
-    type is inferred from the type of `value`.
+* <b>`dtype`</b>: Optional element type for the returned tensor. If missing, the type
+  is inferred from the type of `value`.
 * <b>`name`</b>: Optional name to use if a new `Tensor` is created.
-* <b>`preferred_dtype`</b>: Optional element type for the returned tensor,
-    used when dtype is None. In some cases, a caller may not have a
-    dtype in mind when converting to a tensor, so preferred_dtype
-    can be used as a soft preference.  If the conversion to
-    `preferred_dtype` is not possible, this argument has no effect.
+* <b>`preferred_dtype`</b>: Optional element type for the returned tensor, used when
+  dtype is None. In some cases, a caller may not have a dtype in mind when
+  converting to a tensor, so preferred_dtype can be used as a soft
+  preference.  If the conversion to `preferred_dtype` is not possible, this
+  argument has no effect.
+* <b>`dtype_hint`</b>: same meaning as preferred_dtype, and overrides it.
 
 
 #### Returns:
 
-An `Tensor` based on `value`.
+A `Tensor` based on `value`.
+
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: If no conversion function is registered for `value` to `dtype`.
 * <b>`RuntimeError`</b>: If a registered conversion function returns an invalid value.

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.distributions.quadrature_scheme_lognormal_gauss_hermite
 
+Use Gauss-Hermite quadrature to form quadrature on positive-reals. (deprecated)
+
 ``` python
 tf.contrib.distributions.quadrature_scheme_lognormal_gauss_hermite(
     loc,
@@ -17,9 +19,9 @@ tf.contrib.distributions.quadrature_scheme_lognormal_gauss_hermite(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/poisson_lognormal.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/poisson_lognormal.py).
+Defined in [`contrib/distributions/python/ops/poisson_lognormal.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/poisson_lognormal.py).
 
-Use Gauss-Hermite quadrature to form quadrature on positive-reals. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
 Instructions for updating:
@@ -30,22 +32,24 @@ than `quadrature_scheme_lognormal_quantiles`.
 
 #### Args:
 
+
 * <b>`loc`</b>: `float`-like (batch of) scalar `Tensor`; the location parameter of
-    the LogNormal prior.
+  the LogNormal prior.
 * <b>`scale`</b>: `float`-like (batch of) scalar `Tensor`; the scale parameter of
-    the LogNormal prior.
+  the LogNormal prior.
 * <b>`quadrature_size`</b>: Python `int` scalar representing the number of quadrature
-    points.
+  points.
 * <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
-    parameters are checked for validity despite possibly degrading runtime
-    performance. When `False` invalid inputs may silently render incorrect
-    outputs.
+  parameters are checked for validity despite possibly degrading runtime
+  performance. When `False` invalid inputs may silently render incorrect
+  outputs.
 * <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
 
 
 #### Returns:
 
+
 * <b>`grid`</b>: (Batch of) length-`quadrature_size` vectors representing the
-    `log_rate` parameters of a `Poisson`.
+  `log_rate` parameters of a `Poisson`.
 * <b>`probs`</b>: (Batch of) length-`quadrature_size` vectors representing the
-    weight associate with each `grid` value.
+  weight associate with each `grid` value.

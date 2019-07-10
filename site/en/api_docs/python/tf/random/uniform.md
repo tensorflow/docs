@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.random.uniform
 
+Outputs random values from a uniform distribution.
+
 ### Aliases:
 
+* `tf.compat.v1.random.uniform`
+* `tf.compat.v1.random_uniform`
+* `tf.compat.v2.random.uniform`
 * `tf.random.uniform`
 * `tf.random_uniform`
 
@@ -23,9 +28,9 @@ tf.random.uniform(
 
 
 
-Defined in [`tensorflow/python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/random_ops.py).
+Defined in [`python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/random_ops.py).
 
-Outputs random values from a uniform distribution.
+<!-- Placeholder for "Used in" -->
 
 The generated values follow a uniform distribution in the range
 `[minval, maxval)`. The lower bound `minval` is included in the range, while
@@ -41,17 +46,18 @@ In the integer case, the random integers are slightly biased unless
 
 #### Args:
 
+
 * <b>`shape`</b>: A 1-D integer Tensor or Python array. The shape of the output tensor.
 * <b>`minval`</b>: A 0-D Tensor or Python value of type `dtype`. The lower bound on the
-    range of random values to generate.  Defaults to 0.
+  range of random values to generate.  Defaults to 0.
 * <b>`maxval`</b>: A 0-D Tensor or Python value of type `dtype`. The upper bound on
-    the range of random values to generate.  Defaults to 1 if `dtype` is
-    floating point.
+  the range of random values to generate.  Defaults to 1 if `dtype` is
+  floating point.
 * <b>`dtype`</b>: The type of the output: `float16`, `float32`, `float64`, `int32`,
-    or `int64`.
+  or `int64`.
 * <b>`seed`</b>: A Python integer. Used to create a random seed for the distribution.
-    See <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>
-    for behavior.
+  See <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  for behavior.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -60,6 +66,8 @@ In the integer case, the random integers are slightly biased unless
 A tensor of the specified shape filled with random uniform values.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `dtype` is integral and `maxval` is not specified.

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.metrics.mean_tensor
 
+Computes the element-wise (weighted) mean of the given tensors.
+
+### Aliases:
+
+* `tf.compat.v1.metrics.mean_tensor`
+* `tf.metrics.mean_tensor`
+
 ``` python
 tf.metrics.mean_tensor(
     values,
@@ -17,9 +24,9 @@ tf.metrics.mean_tensor(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/metrics_impl.py).
+Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
-Computes the element-wise (weighted) mean of the given tensors.
+<!-- Placeholder for "Used in" -->
 
 In contrast to the `mean` function which returns a scalar with the
 mean,  this function returns an average tensor with the same shape as the
@@ -39,28 +46,31 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`values`</b>: A `Tensor` of arbitrary dimensions.
 * <b>`weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
-    `values`, and must be broadcastable to `values` (i.e., all dimensions must
-    be either `1`, or the same as the corresponding `values` dimension).
+  `values`, and must be broadcastable to `values` (i.e., all dimensions must
+  be either `1`, or the same as the corresponding `values` dimension).
 * <b>`metrics_collections`</b>: An optional list of collections that `mean`
-    should be added to.
+  should be added to.
 * <b>`updates_collections`</b>: An optional list of collections that `update_op`
-    should be added to.
+  should be added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
 
+
 * <b>`mean`</b>: A float `Tensor` representing the current mean, the value of `total`
-    divided by `count`.
+  divided by `count`.
 * <b>`update_op`</b>: An operation that increments the `total` and `count` variables
-    appropriately and whose value matches `mean_value`.
+  appropriately and whose value matches `mean_value`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `weights` is not `None` and its shape doesn't match `values`,
-    or if either `metrics_collections` or `updates_collections` are not a list
-    or tuple.
+  or if either `metrics_collections` or `updates_collections` are not a list
+  or tuple.
 * <b>`RuntimeError`</b>: If eager execution is enabled.

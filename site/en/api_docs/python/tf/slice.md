@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.slice
 
+Extracts a slice from a tensor.
+
+### Aliases:
+
+* `tf.compat.v1.slice`
+* `tf.compat.v2.slice`
+* `tf.slice`
+
 ``` python
 tf.slice(
     input_,
@@ -16,9 +24,9 @@ tf.slice(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Extracts a slice from a tensor.
+<!-- Placeholder for "Used in" -->
 
 This operation extracts a slice of size `size` from a tensor `input` starting
 at the location specified by `begin`. The slice `size` is represented as a
@@ -42,7 +50,9 @@ This operation requires that:
 
 `0 <= begin[i] <= begin[i] + size[i] <= Di  for i in [0, n]`
 
-For example:
+#### For example:
+
+
 
 ```python
 t = tf.constant([[[1, 1, 1], [2, 2, 2]],
@@ -56,6 +66,7 @@ tf.slice(t, [1, 0, 0], [2, 1, 3])  # [[[3, 3, 3]],
 ```
 
 #### Args:
+
 
 * <b>`input_`</b>: A `Tensor`.
 * <b>`begin`</b>: An `int32` or `int64` `Tensor`.

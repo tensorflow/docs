@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.image.psnr
 
+Returns the Peak Signal-to-Noise Ratio between a and b.
+
+### Aliases:
+
+* `tf.compat.v1.image.psnr`
+* `tf.compat.v2.image.psnr`
+* `tf.image.psnr`
+
 ``` python
 tf.image.psnr(
     a,
@@ -16,16 +24,18 @@ tf.image.psnr(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Returns the Peak Signal-to-Noise Ratio between a and b.
+<!-- Placeholder for "Used in" -->
 
 This is intended to be used on signals (or images). Produces a PSNR value for
 each image in batch.
 
 The last three dimensions of input are expected to be [height, width, depth].
 
-Example:
+#### Example:
+
+
 
 ```python
     # Read images from file.
@@ -43,14 +53,15 @@ Example:
 
 #### Arguments:
 
+
 * <b>`a`</b>: First set of images.
 * <b>`b`</b>: Second set of images.
 * <b>`max_val`</b>: The dynamic range of the images (i.e., the difference between the
-    maximum the and minimum allowed values).
+  maximum the and minimum allowed values).
 * <b>`name`</b>: Namespace to embed the computation in.
 
 
 #### Returns:
 
-The scalar PSNR between a and b. The returned tensor has type <a href="../../tf/dtypes#float32"><code>tf.float32</code></a>
+The scalar PSNR between a and b. The returned tensor has type <a href="../../tf#float32"><code>tf.float32</code></a>
 and shape [batch_size, 1].

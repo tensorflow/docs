@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.searchsorted
 
+Searches input tensor for values on the innermost dimension.
+
+### Aliases:
+
+* `tf.compat.v1.searchsorted`
+* `tf.compat.v2.searchsorted`
+* `tf.searchsorted`
+
 ``` python
 tf.searchsorted(
     sorted_sequence,
@@ -17,9 +25,9 @@ tf.searchsorted(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Searches input tensor for values on the innermost dimension.
+<!-- Placeholder for "Used in" -->
 
 A 2-D example:
 
@@ -42,11 +50,12 @@ A 2-D example:
 
 #### Args:
 
+
 * <b>`sorted_sequence`</b>: N-D `Tensor` containing a sorted sequence.
 * <b>`values`</b>: N-D `Tensor` containing the search values.
 * <b>`side`</b>: 'left' or 'right'; 'left' corresponds to lower_bound and 'right' to
-    upper_bound.
-* <b>`out_type`</b>: The output type (`int32` or `int64`).  Default is <a href="../tf/dtypes#int32"><code>tf.int32</code></a>.
+  upper_bound.
+* <b>`out_type`</b>: The output type (`int32` or `int64`).  Default is <a href="../tf#int32"><code>tf.int32</code></a>.
 * <b>`name`</b>: Optional name for the operation.
 
 
@@ -58,8 +67,10 @@ is not a global index to the entire `Tensor`, but the index in the last
 dimension.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the last dimension of `sorted_sequence >= 2^31-1` elements.
-              If the total size of values exceeds `2^31 - 1` elements.
-              If the first `N-1` dimensions of the two tensors don't match.
+            If the total size of values exceeds `2^31 - 1` elements.
+            If the first `N-1` dimensions of the two tensors don't match.

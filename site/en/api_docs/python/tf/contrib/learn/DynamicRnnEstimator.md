@@ -7,16 +7,18 @@ page_type: reference
 
 ## Class `DynamicRnnEstimator`
 
+Dynamically unrolled RNN (deprecated).
+
 Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/dynamic_rnn_estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/dynamic_rnn_estimator.py).
+Defined in [`contrib/learn/python/learn/estimators/dynamic_rnn_estimator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/dynamic_rnn_estimator.py).
 
-Dynamically unrolled RNN (deprecated).
+<!-- Placeholder for "Used in" -->
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.tensorflow.org/code/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 <h2 id="__init__"><code>__init__</code></h2>
@@ -77,58 +79,60 @@ Entry `[i, j]` is the prediction associated with sequence `i` and time step
 
 #### Args:
 
+
 * <b>`problem_type`</b>: whether the `Estimator` is intended for a regression or
-    classification problem. Value must be one of
-    `ProblemType.CLASSIFICATION` or `ProblemType.LINEAR_REGRESSION`.
+  classification problem. Value must be one of
+  `ProblemType.CLASSIFICATION` or `ProblemType.LINEAR_REGRESSION`.
 * <b>`prediction_type`</b>: whether the `Estimator` should return a value for each
-    step in the sequence, or just a single value for the final time step.
-    Must be one of `PredictionType.SINGLE_VALUE` or
-    `PredictionType.MULTIPLE_VALUE`.
+  step in the sequence, or just a single value for the final time step.
+  Must be one of `PredictionType.SINGLE_VALUE` or
+  `PredictionType.MULTIPLE_VALUE`.
 * <b>`sequence_feature_columns`</b>: An iterable containing all the feature columns
-    describing sequence features. All items in the iterable should be
-    instances of classes derived from `FeatureColumn`.
+  describing sequence features. All items in the iterable should be
+  instances of classes derived from `FeatureColumn`.
 * <b>`context_feature_columns`</b>: An iterable containing all the feature columns
-    describing context features, i.e., features that apply across all time
-    steps. All items in the set should be instances of classes derived from
-    `FeatureColumn`.
+  describing context features, i.e., features that apply across all time
+  steps. All items in the set should be instances of classes derived from
+  `FeatureColumn`.
 * <b>`num_classes`</b>: the number of classes for a classification problem. Only
-    used when `problem_type=ProblemType.CLASSIFICATION`.
+  used when `problem_type=ProblemType.CLASSIFICATION`.
 * <b>`num_units`</b>: A list of integers indicating the number of units in the
-    `RNNCell`s in each layer.
+  `RNNCell`s in each layer.
 * <b>`cell_type`</b>: A subclass of `RNNCell` or one of 'basic_rnn,' 'lstm' or 'gru'.
 * <b>`optimizer`</b>: The type of optimizer to use. Either a subclass of
-    `Optimizer`, an instance of an `Optimizer`, a callback that returns an
-    optimizer, or a string. Strings must be one of 'Adagrad', 'Adam',
-    'Ftrl', 'Momentum', 'RMSProp' or 'SGD. See `layers.optimize_loss` for
-    more details.
+  `Optimizer`, an instance of an `Optimizer`, a callback that returns an
+  optimizer, or a string. Strings must be one of 'Adagrad', 'Adam',
+  'Ftrl', 'Momentum', 'RMSProp' or 'SGD. See `layers.optimize_loss` for
+  more details.
 * <b>`learning_rate`</b>: Learning rate. This argument has no effect if `optimizer`
-    is an instance of an `Optimizer`.
+  is an instance of an `Optimizer`.
 * <b>`predict_probabilities`</b>: A boolean indicating whether to predict
-    probabilities for all classes. Used only if `problem_type` is
-    `ProblemType.CLASSIFICATION`
+  probabilities for all classes. Used only if `problem_type` is
+  `ProblemType.CLASSIFICATION`
 * <b>`momentum`</b>: Momentum value. Only used if `optimizer_type` is 'Momentum'.
 * <b>`gradient_clipping_norm`</b>: Parameter used for gradient clipping. If `None`,
-    then no clipping is performed.
+  then no clipping is performed.
 * <b>`dropout_keep_probabilities`</b>: a list of dropout probabilities or `None`.
-    If a list is given, it must have length `len(num_units) + 1`. If
-    `None`, then no dropout is applied.
+  If a list is given, it must have length `len(num_units) + 1`. If
+  `None`, then no dropout is applied.
 * <b>`model_dir`</b>: The directory in which to save and restore the model graph,
-    parameters, etc.
+  parameters, etc.
 * <b>`feature_engineering_fn`</b>: Takes features and labels which are the output of
-    `input_fn` and returns features and labels which will be fed into
-    `model_fn`. Please check `model_fn` for a definition of features and
-    labels.
+  `input_fn` and returns features and labels which will be fed into
+  `model_fn`. Please check `model_fn` for a definition of features and
+  labels.
 * <b>`config`</b>: A `RunConfig` instance.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: `problem_type` is not one of
-    `ProblemType.LINEAR_REGRESSION` or `ProblemType.CLASSIFICATION`.
+  `ProblemType.LINEAR_REGRESSION` or `ProblemType.CLASSIFICATION`.
 * <b>`ValueError`</b>: `problem_type` is `ProblemType.CLASSIFICATION` but
-    `num_classes` is not specified.
+  `num_classes` is not specified.
 * <b>`ValueError`</b>: `prediction_type` is not one of
-    `PredictionType.MULTIPLE_VALUE` or `PredictionType.SINGLE_VALUE`.
+  `PredictionType.MULTIPLE_VALUE` or `PredictionType.SINGLE_VALUE`.
 
 
 
@@ -138,18 +142,22 @@ Entry `[i, j]` is the prediction associated with sequence `i` and time step
 
 
 
+
 <h3 id="model_dir"><code>model_dir</code></h3>
 
-Returns a path in which the eval process will look for checkpoints.
+
+
 
 <h3 id="model_fn"><code>model_fn</code></h3>
 
 Returns the model_fn which is bound to self.params.
 
+
 #### Returns:
 
 The model_fn with the following signature:
   `def model_fn(features, labels, mode, metrics)`
+
 
 
 
@@ -185,9 +193,10 @@ Example conversion:
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If at least one of `x` or `y` is provided, and at least one of
-      `input_fn` or `feed_fn` is provided.
-      Or if `metrics` is not `None` or `dict`.
+    `input_fn` or `feed_fn` is provided.
+    Or if `metrics` is not `None` or `dict`.
 
 <h3 id="export"><code>export</code></h3>
 
@@ -213,32 +222,33 @@ Please use Estimator.export_savedmodel() instead.
 
 #### Args:
 
+
 * <b>`export_dir`</b>: A string containing a directory to write the exported graph
-    and checkpoints.
+  and checkpoints.
 * <b>`input_fn`</b>: If `use_deprecated_input_fn` is true, then a function that given
-    `Tensor` of `Example` strings, parses it into features that are then
-    passed to the model. Otherwise, a function that takes no argument and
-    returns a tuple of (features, labels), where features is a dict of
-    string key to `Tensor` and labels is a `Tensor` that's currently not
-    used (and so can be `None`).
+  `Tensor` of `Example` strings, parses it into features that are then
+  passed to the model. Otherwise, a function that takes no argument and
+  returns a tuple of (features, labels), where features is a dict of
+  string key to `Tensor` and labels is a `Tensor` that's currently not
+  used (and so can be `None`).
 * <b>`input_feature_key`</b>: Only used if `use_deprecated_input_fn` is false. String
-    key into the features dict returned by `input_fn` that corresponds to a
-    the raw `Example` strings `Tensor` that the exported model will take as
-    input. Can only be `None` if you're using a custom `signature_fn` that
-    does not use the first arg (examples).
+  key into the features dict returned by `input_fn` that corresponds to a
+  the raw `Example` strings `Tensor` that the exported model will take as
+  input. Can only be `None` if you're using a custom `signature_fn` that
+  does not use the first arg (examples).
 * <b>`use_deprecated_input_fn`</b>: Determines the signature format of `input_fn`.
 * <b>`signature_fn`</b>: Function that returns a default signature and a named
-    signature map, given `Tensor` of `Example` strings, `dict` of `Tensor`s
-    for features and `Tensor` or `dict` of `Tensor`s for predictions.
+  signature map, given `Tensor` of `Example` strings, `dict` of `Tensor`s
+  for features and `Tensor` or `dict` of `Tensor`s for predictions.
 * <b>`prediction_key`</b>: The key for a tensor in the `predictions` dict (output
-    from the `model_fn`) to use as the `predictions` input to the
-    `signature_fn`. Optional. If `None`, predictions will pass to
-    `signature_fn` without filtering.
+  from the `model_fn`) to use as the `predictions` input to the
+  `signature_fn`. Optional. If `None`, predictions will pass to
+  `signature_fn` without filtering.
 * <b>`default_batch_size`</b>: Default batch size of the `Example` placeholder.
 * <b>`exports_to_keep`</b>: Number of exports to keep.
 * <b>`checkpoint_path`</b>: the checkpoint path of the model to be exported. If it is
-      `None` (which is default), will use the latest checkpoint in
-      export_dir.
+    `None` (which is default), will use the latest checkpoint in
+    export_dir.
 
 
 #### Returns:
@@ -247,6 +257,7 @@ The string path to the exported directory. NB: this functionality was
 added ca. 2016/09/25; clients that depend on the return value may need
 to handle the case where this function returns None because subclasses
 are not returning a value.
+
 
 <h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
 
@@ -265,32 +276,34 @@ export_savedmodel(
 
 Exports inference graph as a SavedModel into given dir.
 
+
 #### Args:
 
+
 * <b>`export_dir_base`</b>: A string containing a directory to write the exported
-    graph and checkpoints.
+  graph and checkpoints.
 * <b>`serving_input_fn`</b>: A function that takes no argument and
-    returns an `InputFnOps`.
+  returns an `InputFnOps`.
 * <b>`default_output_alternative_key`</b>: the name of the head to serve when none is
-    specified.  Not needed for single-headed models.
+  specified.  Not needed for single-headed models.
 * <b>`assets_extra`</b>: A dict specifying how to populate the assets.extra directory
-    within the exported SavedModel.  Each key should give the destination
-    path (including the filename) relative to the assets.extra directory.
-    The corresponding value gives the full path of the source file to be
-    copied.  For example, the simple case of copying a single file without
-    renaming it is specified as
-    `{'my_asset_file.txt': '/path/to/my_asset_file.txt'}`.
+  within the exported SavedModel.  Each key should give the destination
+  path (including the filename) relative to the assets.extra directory.
+  The corresponding value gives the full path of the source file to be
+  copied.  For example, the simple case of copying a single file without
+  renaming it is specified as
+  `{'my_asset_file.txt': '/path/to/my_asset_file.txt'}`.
 * <b>`as_text`</b>: whether to write the SavedModel proto in text format.
 * <b>`checkpoint_path`</b>: The checkpoint path to export.  If None (the default),
-    the most recent checkpoint found within the model directory is chosen.
+  the most recent checkpoint found within the model directory is chosen.
 * <b>`graph_rewrite_specs`</b>: an iterable of `GraphRewriteSpec`.  Each element will
-    produce a separate MetaGraphDef within the exported SavedModel, tagged
-    and rewritten as specified.  Defaults to a single entry using the
-    default serving tag ("serve") and no rewriting.
+  produce a separate MetaGraphDef within the exported SavedModel, tagged
+  and rewritten as specified.  Defaults to a single entry using the
+  default serving tag ("serve") and no rewriting.
 * <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
-    removed from the NodeDefs. For a detailed guide, see
-    [Stripping Default-Valued
-      Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
+  removed from the NodeDefs. For a detailed guide, see
+  [Stripping Default-Valued
+    Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
 
 
 #### Returns:
@@ -298,7 +311,9 @@ Exports inference graph as a SavedModel into given dir.
 The string path to the exported directory.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if an unrecognized export_type is requested.
 
@@ -328,6 +343,7 @@ Example conversion:
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `x` or `y` are not `None` while `input_fn` is not `None`.
 * <b>`ValueError`</b>: If both `steps` and `max_steps` are not `None`.
 
@@ -339,18 +355,21 @@ get_params(deep=True)
 
 Get parameters for this estimator.
 
+
 #### Args:
+
 
 * <b>`deep`</b>: boolean, optional
 
-    If `True`, will return the parameters for this estimator and
-    contained subobjects that are estimators.
+  If `True`, will return the parameters for this estimator and
+  contained subobjects that are estimators.
 
 
 #### Returns:
 
-* <b>`params `</b>: mapping of string to any
-  Parameter names mapped to their values.
+
+* <b>`params`</b>: mapping of string to any
+Parameter names mapped to their values.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
 
@@ -360,9 +379,11 @@ get_variable_names()
 
 Returns list of all variable names in this model.
 
+
 #### Returns:
 
 List of names.
+
 
 <h3 id="get_variable_value"><code>get_variable_value</code></h3>
 
@@ -372,7 +393,9 @@ get_variable_value(name)
 
 Returns value of the variable given by name.
 
+
 #### Args:
+
 
 * <b>`name`</b>: string, name of the tensor.
 
@@ -380,6 +403,7 @@ Returns value of the variable given by name.
 #### Returns:
 
 Numpy array - value of the tensor.
+
 
 <h3 id="partial_fit"><code>partial_fit</code></h3>
 
@@ -414,20 +438,21 @@ to converge, and you want to split up training into subparts.
 
 #### Args:
 
+
 * <b>`x`</b>: Matrix of shape [n_samples, n_features...]. Can be iterator that
-     returns arrays of features. The training input samples for fitting the
-     model. If set, `input_fn` must be `None`.
+   returns arrays of features. The training input samples for fitting the
+   model. If set, `input_fn` must be `None`.
 * <b>`y`</b>: Vector or matrix [n_samples] or [n_samples, n_outputs]. Can be
-     iterator that returns array of labels. The training label values
-     (class labels in classification, real numbers in regression). If set,
-     `input_fn` must be `None`.
+   iterator that returns array of labels. The training label values
+   (class labels in classification, real numbers in regression). If set,
+   `input_fn` must be `None`.
 * <b>`input_fn`</b>: Input function. If set, `x`, `y`, and `batch_size` must be
-    `None`.
+  `None`.
 * <b>`steps`</b>: Number of steps for which to train model. If `None`, train forever.
 * <b>`batch_size`</b>: minibatch size to use on the input, defaults to first
-    dimension of `x`. Must be `None` if `input_fn` is provided.
+  dimension of `x`. Must be `None` if `input_fn` is provided.
 * <b>`monitors`</b>: List of `BaseMonitor` subclass instances. Used for callbacks
-    inside the training loop.
+  inside the training loop.
 
 
 #### Returns:
@@ -435,10 +460,12 @@ to converge, and you want to split up training into subparts.
 `self`, for chaining.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If at least one of `x` and `y` is provided, and `input_fn` is
-      provided.
+    provided.
 
 <h3 id="predict"><code>predict</code></h3>
 
@@ -465,21 +492,22 @@ Example conversion:
 
 #### Args:
 
+
 * <b>`x`</b>: Matrix of shape [n_samples, n_features...]. Can be iterator that
-     returns arrays of features. The training input samples for fitting the
-     model. If set, `input_fn` must be `None`.
+   returns arrays of features. The training input samples for fitting the
+   model. If set, `input_fn` must be `None`.
 * <b>`input_fn`</b>: Input function. If set, `x` and 'batch_size' must be `None`.
 * <b>`batch_size`</b>: Override default batch size. If set, 'input_fn' must be
-    'None'.
+  'None'.
 * <b>`outputs`</b>: list of `str`, name of the output to predict.
-    If `None`, returns all.
+  If `None`, returns all.
 * <b>`as_iterable`</b>: If True, return an iterable which keeps yielding predictions
-    for each example until inputs are exhausted. Note: The inputs must
-    terminate if you want the iterable to terminate (e.g. be sure to pass
-    num_epochs=1 if you are using something like read_batch_features).
+  for each example until inputs are exhausted. Note: The inputs must
+  terminate if you want the iterable to terminate (e.g. be sure to pass
+  num_epochs=1 if you are using something like read_batch_features).
 * <b>`iterate_batches`</b>: If True, yield the whole batch at once instead of
-    decomposing the batch into individual samples. Only relevant when
-    as_iterable is True.
+  decomposing the batch into individual samples. Only relevant when
+  as_iterable is True.
 
 
 #### Returns:
@@ -490,7 +518,9 @@ of numpy arrays if `model_fn` returns a `dict`. Returns an iterable of
 predictions if as_iterable is True.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If x and input_fn are both provided or both `None`.
 
@@ -509,6 +539,7 @@ component of a nested object.
 
 #### Args:
 
+
 * <b>`**params`</b>: Parameters.
 
 
@@ -517,7 +548,9 @@ component of a nested object.
 self
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If params contain invalid names.
 

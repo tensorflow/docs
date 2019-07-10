@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.update
 
+
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.update`
+* `tf.compat.v2.keras.backend.update`
+* `tf.keras.backend.update`
+
 ``` python
 tf.keras.backend.update(
     x,
@@ -14,5 +22,6 @@ tf.keras.backend.update(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
+<!-- Placeholder for "Used in" -->

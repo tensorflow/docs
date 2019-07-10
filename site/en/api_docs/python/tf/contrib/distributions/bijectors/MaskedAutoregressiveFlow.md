@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `MaskedAutoregressiveFlow`
 
+Affine MaskedAutoregressiveFlow bijector for vector-valued events.
+
 Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijector)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
+Defined in [`contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
 
-Affine MaskedAutoregressiveFlow bijector for vector-valued events.
+<!-- Placeholder for "Used in" -->
 
 The affine autoregressive flow [(Papamakarios et al., 2016)][3] provides a
 relatively simple framework for user-specified (deep) architectures to learn
@@ -110,9 +112,9 @@ maf = tfd.TransformedDistribution(
             hidden_layers=[512, 512])),
     event_shape=[dims])
 
-x = maf.sample()  # Expensive; uses <a href="../../../../tf/while_loop"><code>tf.while_loop</code></a>, no Bijector caching.
+x = maf.sample()  # Expensive; uses `tf.while_loop`, no Bijector caching.
 maf.log_prob(x)   # Almost free; uses Bijector caching.
-maf.log_prob(0.)  # Cheap; no <a href="../../../../tf/while_loop"><code>tf.while_loop</code></a> despite no Bijector caching.
+maf.log_prob(0.)  # Cheap; no `tf.while_loop` despite no Bijector caching.
 
 # [Papamakarios et al. (2016)][3] also describe an Inverse Autoregressive
 # Flow [(Kingma et al., 2016)][2]:
@@ -123,9 +125,9 @@ iaf = tfd.TransformedDistribution(
             hidden_layers=[512, 512]))),
     event_shape=[dims])
 
-x = iaf.sample()  # Cheap; no <a href="../../../../tf/while_loop"><code>tf.while_loop</code></a> despite no Bijector caching.
+x = iaf.sample()  # Cheap; no `tf.while_loop` despite no Bijector caching.
 iaf.log_prob(x)   # Almost free; uses Bijector caching.
-iaf.log_prob(0.)  # Expensive; uses <a href="../../../../tf/while_loop"><code>tf.while_loop</code></a>, no Bijector caching.
+iaf.log_prob(0.)  # Expensive; uses `tf.while_loop`, no Bijector caching.
 
 # In many (if not most) cases the default `shift_and_log_scale_fn` will be a
 # poor choice. Here's an example of using a "shift only" version and with a
@@ -176,25 +178,27 @@ The TensorFlow Distributions library has moved to TensorFlow Probability (https:
 
 #### Args:
 
+
 * <b>`shift_and_log_scale_fn`</b>: Python `callable` which computes `shift` and
-    `log_scale` from both the forward domain (`x`) and the inverse domain
-    (`y`). Calculation must respect the "autoregressive property" (see class
-    docstring). Suggested default
-    `masked_autoregressive_default_template(hidden_layers=...)`.
-    Typically the function contains `tf.Variables` and is wrapped using
-    <a href="../../../../tf/make_template"><code>tf.make_template</code></a>. Returning `None` for either (both) `shift`,
-    `log_scale` is equivalent to (but more efficient than) returning zero.
+  `log_scale` from both the forward domain (`x`) and the inverse domain
+  (`y`). Calculation must respect the "autoregressive property" (see class
+  docstring). Suggested default
+  `masked_autoregressive_default_template(hidden_layers=...)`. Typically
+  the function contains `tf.Variables` and is wrapped using
+  <a href="../../../../tf/make_template"><code>tf.compat.v1.make_template</code></a>. Returning `None` for either (both)
+  `shift`, `log_scale` is equivalent to (but more efficient than)
+  returning zero.
 * <b>`is_constant_jacobian`</b>: Python `bool`. Default: `False`. When `True` the
-    implementation assumes `log_scale` does not depend on the forward domain
-    (`x`) or inverse domain (`y`) values. (No validation is made;
-    `is_constant_jacobian=False` is always safe but possibly computationally
-    inefficient.)
+  implementation assumes `log_scale` does not depend on the forward domain
+  (`x`) or inverse domain (`y`) values. (No validation is made;
+  `is_constant_jacobian=False` is always safe but possibly computationally
+  inefficient.)
 * <b>`validate_args`</b>: Python `bool` indicating whether arguments should be
-    checked for correctness.
+  checked for correctness.
 * <b>`unroll_loop`</b>: Python `bool` indicating whether the <a href="../../../../tf/while_loop"><code>tf.while_loop</code></a> in
-    `_forward` should be replaced with a static for loop. Requires that
-    the final dimension of `x` be known at graph construction time. Defaults
-    to `False`.
+  `_forward` should be replaced with a static for loop. Requires that the
+  final dimension of `x` be known at graph construction time. Defaults to
+  `False`.
 * <b>`name`</b>: Python `str`, name given to ops managed by this object.
 
 
@@ -205,17 +209,21 @@ The TensorFlow Distributions library has moved to TensorFlow Probability (https:
 
 dtype of `Tensor`s transformable by this distribution.
 
+
 <h3 id="forward_min_event_ndims"><code>forward_min_event_ndims</code></h3>
 
 Returns the minimal number of dimensions bijector.forward operates on.
+
 
 <h3 id="graph_parents"><code>graph_parents</code></h3>
 
 Returns this `Bijector`'s graph_parents as a Python list.
 
+
 <h3 id="inverse_min_event_ndims"><code>inverse_min_event_ndims</code></h3>
 
 Returns the minimal number of dimensions bijector.inverse operates on.
+
 
 <h3 id="is_constant_jacobian"><code>is_constant_jacobian</code></h3>
 
@@ -226,15 +234,18 @@ neither.
 
 #### Returns:
 
+
 * <b>`is_constant_jacobian`</b>: Python `bool`.
 
 <h3 id="name"><code>name</code></h3>
 
 Returns the string name of this `Bijector`.
 
+
 <h3 id="validate_args"><code>validate_args</code></h3>
 
 Returns True if Tensor arguments will be validated.
+
 
 
 
@@ -251,7 +262,9 @@ forward(
 
 Returns the forward `Bijector` evaluation, i.e., X = g(Y).
 
+
 #### Args:
+
 
 * <b>`x`</b>: `Tensor`. The input to the "forward" evaluation.
 * <b>`name`</b>: The name to give this op.
@@ -262,10 +275,12 @@ Returns the forward `Bijector` evaluation, i.e., X = g(Y).
 `Tensor`.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: if `self.dtype` is specified and `x.dtype` is not
-    `self.dtype`.
+  `self.dtype`.
 * <b>`NotImplementedError`</b>: if `_forward` is not implemented.
 
 <h3 id="forward_event_shape"><code>forward_event_shape</code></h3>
@@ -280,14 +295,16 @@ Same meaning as `forward_event_shape_tensor`. May be only partially defined.
 
 #### Args:
 
+
 * <b>`input_shape`</b>: `TensorShape` indicating event-portion shape passed into
-    `forward` function.
+  `forward` function.
 
 
 #### Returns:
 
+
 * <b>`forward_event_shape_tensor`</b>: `TensorShape` indicating event-portion shape
-    after applying `forward`. Possibly unknown.
+  after applying `forward`. Possibly unknown.
 
 <h3 id="forward_event_shape_tensor"><code>forward_event_shape_tensor</code></h3>
 
@@ -300,17 +317,20 @@ forward_event_shape_tensor(
 
 Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
 
+
 #### Args:
 
+
 * <b>`input_shape`</b>: `Tensor`, `int32` vector indicating event-portion shape
-    passed into `forward` function.
+  passed into `forward` function.
 * <b>`name`</b>: name to give to the op
 
 
 #### Returns:
 
+
 * <b>`forward_event_shape_tensor`</b>: `Tensor`, `int32` vector indicating
-    event-portion shape after applying `forward`.
+  event-portion shape after applying `forward`.
 
 <h3 id="forward_log_det_jacobian"><code>forward_log_det_jacobian</code></h3>
 
@@ -324,14 +344,16 @@ forward_log_det_jacobian(
 
 Returns both the forward_log_det_jacobian.
 
+
 #### Args:
+
 
 * <b>`x`</b>: `Tensor`. The input to the "forward" Jacobian determinant evaluation.
 * <b>`event_ndims`</b>: Number of dimensions in the probabilistic events being
-    transformed. Must be greater than or equal to
-    `self.forward_min_event_ndims`. The result is summed over the final
-    dimensions to produce a scalar Jacobian determinant for each event,
-    i.e. it has shape `x.shape.ndims - event_ndims` dimensions.
+  transformed. Must be greater than or equal to
+  `self.forward_min_event_ndims`. The result is summed over the final
+  dimensions to produce a scalar Jacobian determinant for each event,
+  i.e. it has shape `x.shape.ndims - event_ndims` dimensions.
 * <b>`name`</b>: The name to give this op.
 
 
@@ -341,13 +363,15 @@ Returns both the forward_log_det_jacobian.
   If not injective this is not implemented.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: if `self.dtype` is specified and `y.dtype` is not
-    `self.dtype`.
+  `self.dtype`.
 * <b>`NotImplementedError`</b>: if neither `_forward_log_det_jacobian`
-    nor {`_inverse`, `_inverse_log_det_jacobian`} are implemented, or
-    this is a non-injective bijector.
+  nor {`_inverse`, `_inverse_log_det_jacobian`} are implemented, or
+  this is a non-injective bijector.
 
 <h3 id="inverse"><code>inverse</code></h3>
 
@@ -360,7 +384,9 @@ inverse(
 
 Returns the inverse `Bijector` evaluation, i.e., X = g^{-1}(Y).
 
+
 #### Args:
+
 
 * <b>`y`</b>: `Tensor`. The input to the "inverse" evaluation.
 * <b>`name`</b>: The name to give this op.
@@ -373,10 +399,12 @@ Returns the inverse `Bijector` evaluation, i.e., X = g^{-1}(Y).
   `k` points `(x1, ..., xk)` such that `g(xi) = y`.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: if `self.dtype` is specified and `y.dtype` is not
-    `self.dtype`.
+  `self.dtype`.
 * <b>`NotImplementedError`</b>: if `_inverse` is not implemented.
 
 <h3 id="inverse_event_shape"><code>inverse_event_shape</code></h3>
@@ -391,14 +419,16 @@ Same meaning as `inverse_event_shape_tensor`. May be only partially defined.
 
 #### Args:
 
+
 * <b>`output_shape`</b>: `TensorShape` indicating event-portion shape passed into
-    `inverse` function.
+  `inverse` function.
 
 
 #### Returns:
 
+
 * <b>`inverse_event_shape_tensor`</b>: `TensorShape` indicating event-portion shape
-    after applying `inverse`. Possibly unknown.
+  after applying `inverse`. Possibly unknown.
 
 <h3 id="inverse_event_shape_tensor"><code>inverse_event_shape_tensor</code></h3>
 
@@ -411,17 +441,20 @@ inverse_event_shape_tensor(
 
 Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
 
+
 #### Args:
 
+
 * <b>`output_shape`</b>: `Tensor`, `int32` vector indicating event-portion shape
-    passed into `inverse` function.
+  passed into `inverse` function.
 * <b>`name`</b>: name to give to the op
 
 
 #### Returns:
 
+
 * <b>`inverse_event_shape_tensor`</b>: `Tensor`, `int32` vector indicating
-    event-portion shape after applying `inverse`.
+  event-portion shape after applying `inverse`.
 
 <h3 id="inverse_log_det_jacobian"><code>inverse_log_det_jacobian</code></h3>
 
@@ -442,12 +475,13 @@ evaluated at `g^{-1}(y)`.
 
 #### Args:
 
+
 * <b>`y`</b>: `Tensor`. The input to the "inverse" Jacobian determinant evaluation.
 * <b>`event_ndims`</b>: Number of dimensions in the probabilistic events being
-    transformed. Must be greater than or equal to
-    `self.inverse_min_event_ndims`. The result is summed over the final
-    dimensions to produce a scalar Jacobian determinant for each event,
-    i.e. it has shape `y.shape.ndims - event_ndims` dimensions.
+  transformed. Must be greater than or equal to
+  `self.inverse_min_event_ndims`. The result is summed over the final
+  dimensions to produce a scalar Jacobian determinant for each event,
+  i.e. it has shape `y.shape.ndims - event_ndims` dimensions.
 * <b>`name`</b>: The name to give this op.
 
 
@@ -459,10 +493,12 @@ evaluated at `g^{-1}(y)`.
   of `g` to the `ith` partition `Di`.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: if `self.dtype` is specified and `y.dtype` is not
-    `self.dtype`.
+  `self.dtype`.
 * <b>`NotImplementedError`</b>: if `_inverse_log_det_jacobian` is not implemented.
 
 

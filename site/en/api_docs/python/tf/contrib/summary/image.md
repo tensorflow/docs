@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.summary.image
 
+Writes an image summary if possible.
+
 ``` python
 tf.contrib.summary.image(
     name,
@@ -18,6 +20,6 @@ tf.contrib.summary.image(
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/summary_ops_v2.py).
+Defined in [`python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/summary_ops_v2.py).
 
-Writes an image summary if possible.
+<!-- Placeholder for "Used in" -->

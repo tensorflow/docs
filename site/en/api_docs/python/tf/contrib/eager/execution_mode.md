@@ -5,12 +5,14 @@ page_type: reference
 
 # tf.contrib.eager.execution_mode
 
+Context manager for setting execution mode for current thread.
+
 ``` python
 tf.contrib.eager.execution_mode(mode)
 ```
 
 
 
-Defined in [`tensorflow/python/eager/context.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/eager/context.py).
+Defined in [`python/eager/context.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/context.py).
 
-Context manager for setting execution mode for current thread.
+<!-- Placeholder for "Used in" -->

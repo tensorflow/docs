@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.conv3d
 
+3D convolution.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.conv3d`
+* `tf.compat.v2.keras.backend.conv3d`
+* `tf.keras.backend.conv3d`
+
 ``` python
 tf.keras.backend.conv3d(
     x,
@@ -18,19 +26,19 @@ tf.keras.backend.conv3d(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-3D convolution.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable.
 * <b>`kernel`</b>: kernel tensor.
 * <b>`strides`</b>: strides tuple.
 * <b>`padding`</b>: string, `"same"` or `"valid"`.
 * <b>`data_format`</b>: string, `"channels_last"` or `"channels_first"`.
-        Whether to use Theano or TensorFlow/CNTK data format
-        for inputs/kernels/outputs.
 * <b>`dilation_rate`</b>: tuple of 3 integers.
 
 
@@ -39,7 +47,9 @@ Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/
 A tensor, result of 3D convolution.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `data_format` is neither `channels_last` or
-    `channels_first`.
+`channels_first`.

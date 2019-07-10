@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.Print
 
+Prints a list of tensors. (deprecated)
+
+### Aliases:
+
+* `tf.Print`
+* `tf.compat.v1.Print`
+
 ``` python
 tf.Print(
     input_,
@@ -18,16 +25,16 @@ tf.Print(
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/logging_ops.py).
+Defined in [`python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/logging_ops.py).
 
-Prints a list of tensors. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-08-20.
 Instructions for updating:
 Use tf.print instead of tf.Print. Note that tf.print returns a no-output operator that directly prints the output. Outside of defuns or eager mode, this operator will not be executed unless it is directly specified in session.run or used as a control dependency for other operators. This is only a concern in graph mode. Below is an example of how to ensure tf.print executes in graph mode:
 
 ```python
-    sess = tf.Session()
+    sess = tf.compat.v1.Session()
     with sess.as_default():
         tensor = tf.range(10)
         print_op = tf.print(tensor)
@@ -50,13 +57,14 @@ Note: This op prints to the standard error. It is not currently compatible
 
 #### Args:
 
+
 * <b>`input_`</b>: A tensor passed through this op.
 * <b>`data`</b>: A list of tensors to print out when op is evaluated.
 * <b>`message`</b>: A string, prefix of the error message.
 * <b>`first_n`</b>: Only log `first_n` number of times. Negative numbers log always;
-           this is the default.
+  this is the default.
 * <b>`summarize`</b>: Only print this many entries of each tensor. If None, then a
-             maximum of 3 elements are printed per input tensor.
+  maximum of 3 elements are printed per input tensor.
 * <b>`name`</b>: A name for the operation (optional).
 
 

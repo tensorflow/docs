@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.regression_head
 
+Creates a `_Head` for regression using the `mean_squared_error` loss.
+
 ``` python
 tf.contrib.estimator.regression_head(
     weight_column=None,
@@ -16,7 +18,11 @@ tf.contrib.estimator.regression_head(
 )
 ```
 
-Creates a `_Head` for regression using the `mean_squared_error` loss.
+
+
+Defined in [`contrib/estimator/python/estimator/head.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/head.py).
+
+<!-- Placeholder for "Used in" -->
 
 The loss is the weighted sum over all input dimensions. Namely, if the input
 labels have shape `[batch_size, label_dimension]`, the loss is the weighted
@@ -48,7 +54,7 @@ The head can be used with a canned estimator. Example:
 
 ```python
 my_head = tf.contrib.estimator.regression_head()
-my_estimator = tf.contrib.estimator.DNNEstimator(
+my_estimator = tf.estimator.DNNEstimator(
     head=my_head,
     hidden_units=...,
     feature_columns=...)
@@ -73,22 +79,23 @@ my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
 
 #### Args:
 
+
 * <b>`weight_column`</b>: A string or a `_NumericColumn` created by
-    <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
-    weights. It is used to down weight or boost examples during training. It
-    will be multiplied by the loss of the example.
+  <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
+  weights. It is used to down weight or boost examples during training. It
+  will be multiplied by the loss of the example.
 * <b>`label_dimension`</b>: Number of regression labels per example. This is the size
-    of the last dimension of the labels `Tensor` (typically, this has shape
-    `[batch_size, label_dimension]`).
+  of the last dimension of the labels `Tensor` (typically, this has shape
+  `[batch_size, label_dimension]`).
 * <b>`loss_reduction`</b>: One of <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Describes how to
-    reduce training loss over batch and label dimension. Defaults to
-    `SUM_OVER_BATCH_SIZE`, namely weighted sum of losses divided by
-    `batch size * label_dimension`. See <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a>.
+  reduce training loss over batch and label dimension. Defaults to
+  `SUM_OVER_BATCH_SIZE`, namely weighted sum of losses divided by
+  `batch size * label_dimension`. See `tf.losses.Reduction`.
 * <b>`loss_fn`</b>: Optional loss function. Defaults to `mean_squared_error`.
 * <b>`inverse_link_fn`</b>: Optional inverse link function, also known as 'mean
-    function'. Defaults to identity.
+  function'. Defaults to identity.
 * <b>`name`</b>: name of the head. If provided, summary and metrics keys will be
-    suffixed by `"/" + name`. Also used as `name_scope` when creating ops.
+  suffixed by `"/" + name`. Also used as `name_scope` when creating ops.
 
 
 #### Returns:
@@ -96,6 +103,8 @@ my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
 An instance of `_Head` for linear regression.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `label_dimension` or `loss_reduction` is invalid.

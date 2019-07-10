@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.data
 
-
-
-Defined in [`tensorflow/contrib/data/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/__init__.py).
-
 Experimental API for building input pipelines.
+
+
+
+Defined in [`contrib/data/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 This module contains experimental `Dataset` sources and transformations that can
 be used in conjunction with the <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> API. Note that the
@@ -106,5 +108,4 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 ## Other Members
 
-<h3 id="AUTOTUNE"><code>AUTOTUNE</code></h3>
-
+* `AUTOTUNE = -1` <a id="AUTOTUNE"></a>

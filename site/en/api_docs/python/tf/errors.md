@@ -7,9 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Exception types for TensorFlow errors.
 
 ## Classes
 
@@ -57,37 +56,20 @@ Exception types for TensorFlow errors.
 
 ## Other Members
 
-<h3 id="ABORTED"><code>ABORTED</code></h3>
-
-<h3 id="ALREADY_EXISTS"><code>ALREADY_EXISTS</code></h3>
-
-<h3 id="CANCELLED"><code>CANCELLED</code></h3>
-
-<h3 id="DATA_LOSS"><code>DATA_LOSS</code></h3>
-
-<h3 id="DEADLINE_EXCEEDED"><code>DEADLINE_EXCEEDED</code></h3>
-
-<h3 id="FAILED_PRECONDITION"><code>FAILED_PRECONDITION</code></h3>
-
-<h3 id="INTERNAL"><code>INTERNAL</code></h3>
-
-<h3 id="INVALID_ARGUMENT"><code>INVALID_ARGUMENT</code></h3>
-
-<h3 id="NOT_FOUND"><code>NOT_FOUND</code></h3>
-
-<h3 id="OK"><code>OK</code></h3>
-
-<h3 id="OUT_OF_RANGE"><code>OUT_OF_RANGE</code></h3>
-
-<h3 id="PERMISSION_DENIED"><code>PERMISSION_DENIED</code></h3>
-
-<h3 id="RESOURCE_EXHAUSTED"><code>RESOURCE_EXHAUSTED</code></h3>
-
-<h3 id="UNAUTHENTICATED"><code>UNAUTHENTICATED</code></h3>
-
-<h3 id="UNAVAILABLE"><code>UNAVAILABLE</code></h3>
-
-<h3 id="UNIMPLEMENTED"><code>UNIMPLEMENTED</code></h3>
-
-<h3 id="UNKNOWN"><code>UNKNOWN</code></h3>
-
+* `ABORTED = 10` <a id="ABORTED"></a>
+* `ALREADY_EXISTS = 6` <a id="ALREADY_EXISTS"></a>
+* `CANCELLED = 1` <a id="CANCELLED"></a>
+* `DATA_LOSS = 15` <a id="DATA_LOSS"></a>
+* `DEADLINE_EXCEEDED = 4` <a id="DEADLINE_EXCEEDED"></a>
+* `FAILED_PRECONDITION = 9` <a id="FAILED_PRECONDITION"></a>
+* `INTERNAL = 13` <a id="INTERNAL"></a>
+* `INVALID_ARGUMENT = 3` <a id="INVALID_ARGUMENT"></a>
+* `NOT_FOUND = 5` <a id="NOT_FOUND"></a>
+* `OK = 0` <a id="OK"></a>
+* `OUT_OF_RANGE = 11` <a id="OUT_OF_RANGE"></a>
+* `PERMISSION_DENIED = 7` <a id="PERMISSION_DENIED"></a>
+* `RESOURCE_EXHAUSTED = 8` <a id="RESOURCE_EXHAUSTED"></a>
+* `UNAUTHENTICATED = 16` <a id="UNAUTHENTICATED"></a>
+* `UNAVAILABLE = 14` <a id="UNAVAILABLE"></a>
+* `UNIMPLEMENTED = 12` <a id="UNIMPLEMENTED"></a>
+* `UNKNOWN = 2` <a id="UNKNOWN"></a>

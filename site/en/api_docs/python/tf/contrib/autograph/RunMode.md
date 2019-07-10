@@ -7,27 +7,27 @@ page_type: reference
 
 ## Class `RunMode`
 
-
-
-
-
-Defined in [`tensorflow/python/autograph/impl/api.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/autograph/impl/api.py).
-
 Specifies the way a converted function or method should be executed in TF.
+
+
+
+
+
+Defined in [`python/autograph/impl/api.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/autograph/impl/api.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 #### Attributes:
 
 * GRAPH: Call this function directly, as-is. This is suitable for functions
-    that were already designed for TF graphs and contain ops.
+  that were already designed for TF graphs and contain ops.
 * PY_FUNC: Wrap this function into a py_func op. This is suitable for code
-    that will only run correctly in Python, for example code that renders
-    to the display, reads keyboard input, etc.
+  that will only run correctly in Python, for example code that renders to
+  the display, reads keyboard input, etc.
+
 
 ## Class Members
 
-<h3 id="GRAPH"><code>GRAPH</code></h3>
-
-<h3 id="PY_FUNC"><code>PY_FUNC</code></h3>
-
-<h3 id="__members__"><code>__members__</code></h3>
-
+* `GRAPH` <a id="GRAPH"></a>
+* `PY_FUNC` <a id="PY_FUNC"></a>

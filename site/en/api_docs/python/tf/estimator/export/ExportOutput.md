@@ -7,9 +7,21 @@ page_type: reference
 
 ## Class `ExportOutput`
 
-
-
 Represents an output of a model that can be served.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.estimator.export.ExportOutput`
+* Class `tf.compat.v2.estimator.export.ExportOutput`
+* Class `tf.estimator.export.ExportOutput`
+
+
+
+Defined in [`python/saved_model/model_utils/export_output.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/model_utils/export_output.py).
+
+<!-- Placeholder for "Used in" -->
 
 These typically correspond to model heads.
 
@@ -28,8 +40,9 @@ and will use the provided receiver_tensors as inputs.
 
 #### Args:
 
+
 * <b>`receiver_tensors`</b>: a `Tensor`, or a dict of string to `Tensor`, specifying
-    input nodes that will be fed.
+  input nodes that will be fed.
 
 
 

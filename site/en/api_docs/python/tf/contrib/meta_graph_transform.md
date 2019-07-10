@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.meta_graph_transform
 
-
-
-Defined in [`tensorflow/contrib/meta_graph_transform/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/meta_graph_transform/__init__.py).
-
 Utility for applying the Graph Transform tool to a MetaGraphDef.
+
+
+
+Defined in [`contrib/meta_graph_transform/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/meta_graph_transform/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Modules
 

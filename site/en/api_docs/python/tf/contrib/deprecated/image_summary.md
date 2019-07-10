@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.deprecated.image_summary
 
+Outputs a `Summary` protocol buffer with images. (deprecated)
+
 ``` python
 tf.contrib.deprecated.image_summary(
     tag,
@@ -17,16 +19,17 @@ tf.contrib.deprecated.image_summary(
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/logging_ops.py).
+Defined in [`python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/logging_ops.py).
 
-Outputs a `Summary` protocol buffer with images. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-11-30.
 Instructions for updating:
 Please switch to tf.summary.image. Note that tf.summary.image uses the node name instead of the tag. This means that TensorFlow will automatically de-duplicate summary names based on the scope they are created in. Also, the max_images argument was renamed to max_outputs.
 
 For an explanation of why this op was deprecated, and information on how to
-migrate, look ['here'](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/deprecated/__init__.py)
+migrate, look
+['here'](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/deprecated/__init__.py)
 
 The summary has up to `max_images` summary values containing images. The
 images are built from `tensor` which must be 4-D with shape `[batch_size,
@@ -57,13 +60,14 @@ build the `tag` of the summary values:
 
 #### Args:
 
-* <b>`tag`</b>: A scalar `Tensor` of type `string`. Used to build the `tag`
-    of the summary values.
+
+* <b>`tag`</b>: A scalar `Tensor` of type `string`. Used to build the `tag` of the
+  summary values.
 * <b>`tensor`</b>: A 4-D `uint8` or `float32` `Tensor` of shape `[batch_size, height,
-    width, channels]` where `channels` is 1, 3, or 4.
+  width, channels]` where `channels` is 1, 3, or 4.
 * <b>`max_images`</b>: Max number of batch elements to generate images for.
 * <b>`collections`</b>: Optional list of ops.GraphKeys.  The collections to add the
-    summary to.  Defaults to [ops.GraphKeys.SUMMARIES]
+  summary to.  Defaults to [ops.GraphKeys.SUMMARIES]
 * <b>`name`</b>: A name for the operation (optional).
 
 

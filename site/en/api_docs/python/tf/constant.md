@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.constant
 
+Creates a constant tensor.
+
+### Aliases:
+
+* `tf.compat.v1.constant`
+* `tf.constant`
+
 ``` python
 tf.constant(
     value,
@@ -17,9 +24,9 @@ tf.constant(
 
 
 
-Defined in [`tensorflow/python/framework/constant_op.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/constant_op.py).
+Defined in [`python/framework/constant_op.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/constant_op.py).
 
-Creates a constant tensor.
+<!-- Placeholder for "Used in" -->
 
 The resulting tensor is populated with values of type `dtype`, as
 specified by arguments `value` and (optionally) `shape` (see examples
@@ -38,7 +45,9 @@ the resulting tensor. If not present, the shape of `value` is used.
 If the argument `dtype` is not specified, then the type is inferred from
 the type of `value`.
 
-For example:
+#### For example:
+
+
 
 ```python
 # Constant 1-D Tensor populated with value list.
@@ -62,6 +71,7 @@ tensor = tf.constant(-1.0, shape=[2, 3]) => [[-1. -1. -1.]
 
 #### Args:
 
+
 * <b>`value`</b>:          A constant value (or list) of output type `dtype`.
 
 * <b>`dtype`</b>:          The type of the elements of the resulting tensor.
@@ -78,6 +88,8 @@ tensor = tf.constant(-1.0, shape=[2, 3]) => [[-1. -1. -1.]
 A Constant Tensor.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if shape is incorrectly specified or unsupported.

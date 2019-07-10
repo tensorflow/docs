@@ -7,16 +7,24 @@ page_type: reference
 
 ## Class `DataLossError`
 
-Inherits From: [`OpError`](../../tf/errors/OpError)
-
-
-
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/errors_impl.py).
-
 Raised when unrecoverable data loss or corruption is encountered.
 
+Inherits From: [`OpError`](../../tf/errors/OpError)
+
+### Aliases:
+
+* Class `tf.compat.v1.errors.DataLossError`
+* Class `tf.compat.v2.errors.DataLossError`
+* Class `tf.errors.DataLossError`
+
+
+
+Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
+
+<!-- Placeholder for "Used in" -->
+
 For example, this may be raised by running a
-<a href="../../tf/ReaderBase#read"><code>tf.WholeFileReader.read</code></a>
+<a href="../../tf/WholeFileReader#read"><code>tf.WholeFileReader.read</code></a>
 operation, if the file is truncated while it is being read.
 
 
@@ -34,19 +42,23 @@ Creates a `DataLossError`.
 
 
 
+
 ## Properties
 
 <h3 id="error_code"><code>error_code</code></h3>
 
 The integer error code that describes the error.
 
+
 <h3 id="message"><code>message</code></h3>
 
 The error message that describes the error.
 
+
 <h3 id="node_def"><code>node_def</code></h3>
 
 The `NodeDef` proto representing the op that failed.
+
 
 <h3 id="op"><code>op</code></h3>
 
@@ -62,6 +74,7 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
+
 
 
 

@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.math.reduce_all
 
+Computes the "logical and" of elements across dimensions of a tensor. (deprecated arguments)
+
 ### Aliases:
 
+* `tf.compat.v1.math.reduce_all`
+* `tf.compat.v1.reduce_all`
 * `tf.math.reduce_all`
 * `tf.reduce_all`
 
@@ -23,9 +27,9 @@ tf.math.reduce_all(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Computes the "logical and" of elements across dimensions of a tensor. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(keep_dims)`. They will be removed in a future version.
 Instructions for updating:
@@ -39,7 +43,9 @@ are retained with length 1.
 If `axis` is None, all dimensions are reduced, and a
 tensor with a single element is returned.
 
-For example:
+#### For example:
+
+
 
 ```python
 x = tf.constant([[True,  True], [False, False]])
@@ -50,10 +56,11 @@ tf.reduce_all(x, 1)  # [True, False]
 
 #### Args:
 
+
 * <b>`input_tensor`</b>: The boolean tensor to reduce.
 * <b>`axis`</b>: The dimensions to reduce. If `None` (the default), reduces all
-    dimensions. Must be in the range `[-rank(input_tensor),
-    rank(input_tensor))`.
+  dimensions. Must be in the range `[-rank(input_tensor),
+  rank(input_tensor))`.
 * <b>`keepdims`</b>: If true, retains reduced dimensions with length 1.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`reduction_indices`</b>: The old (deprecated) name for axis.
@@ -63,6 +70,7 @@ tf.reduce_all(x, 1)  # [True, False]
 #### Returns:
 
 The reduced tensor.
+
 
 
 

@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.data.experimental.unbatch
 
+Splits elements of a dataset into multiple elements on the batch dimension.
+
+### Aliases:
+
+* `tf.compat.v1.data.experimental.unbatch`
+* `tf.compat.v2.data.experimental.unbatch`
+* `tf.data.experimental.unbatch`
+
 ``` python
 tf.data.experimental.unbatch()
 ```
 
 
 
-Defined in [`tensorflow/python/data/experimental/ops/batching.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/experimental/ops/batching.py).
+Defined in [`python/data/experimental/ops/batching.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/batching.py).
 
-Splits elements of a dataset into multiple elements on the batch dimension.
+<!-- Placeholder for "Used in" -->
 
 For example, if elements of the dataset are shaped `[B, a0, a1, ...]`,
 where `B` may vary for each input element, then for each element in the

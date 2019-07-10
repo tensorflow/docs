@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.sparse.concat
 
+Concatenates a list of `SparseTensor` along the specified dimension. (deprecated arguments)
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.concat`
+* `tf.compat.v1.sparse_concat`
 * `tf.sparse.concat`
 * `tf.sparse_concat`
 
@@ -16,15 +20,16 @@ tf.sparse.concat(
     sp_inputs,
     name=None,
     expand_nonconcat_dim=False,
-    concat_dim=None
+    concat_dim=None,
+    expand_nonconcat_dims=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Concatenates a list of `SparseTensor` along the specified dimension. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(concat_dim)`. They will be removed in a future version.
 Instructions for updating:
@@ -110,13 +115,15 @@ Graphically this is equivalent to doing
 
 #### Args:
 
+
 * <b>`axis`</b>: Dimension to concatenate along. Must be in range [-rank, rank),
-    where rank is the number of dimensions in each input `SparseTensor`.
+  where rank is the number of dimensions in each input `SparseTensor`.
 * <b>`sp_inputs`</b>: List of `SparseTensor` to concatenate.
 * <b>`name`</b>: A name prefix for the returned tensors (optional).
 * <b>`expand_nonconcat_dim`</b>: Whether to allow the expansion in the non-concat
-    dimensions. Defaulted to False.
+  dimensions. Defaulted to False.
 * <b>`concat_dim`</b>: The old (deprecated) name for axis.
+* <b>`expand_nonconcat_dims`</b>: alias for expand_nonconcat_dim
 
 
 #### Returns:
@@ -124,6 +131,8 @@ Graphically this is equivalent to doing
 A `SparseTensor` with the concatenated output.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `sp_inputs` is not a list of `SparseTensor`.

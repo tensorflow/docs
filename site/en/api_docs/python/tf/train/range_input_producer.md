@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.range_input_producer
 
+Produces the integers from 0 to limit-1 in a queue. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.train.range_input_producer`
+* `tf.train.range_input_producer`
+
 ``` python
 tf.train.range_input_producer(
     limit,
@@ -19,9 +26,9 @@ tf.train.range_input_producer(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/input.py).
+Defined in [`python/training/input.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/input.py).
 
-Produces the integers from 0 to limit-1 in a queue. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -32,17 +39,18 @@ Note: if `num_epochs` is not `None`, this function creates local counter
 
 #### Args:
 
+
 * <b>`limit`</b>: An int32 scalar tensor.
 * <b>`num_epochs`</b>: An integer (optional). If specified, `range_input_producer`
-    produces each integer `num_epochs` times before generating an
-    OutOfRange error. If not specified, `range_input_producer` can cycle
-    through the integers an unlimited number of times.
+  produces each integer `num_epochs` times before generating an
+  OutOfRange error. If not specified, `range_input_producer` can cycle
+  through the integers an unlimited number of times.
 * <b>`shuffle`</b>: Boolean. If true, the integers are randomly shuffled within each
-    epoch.
+  epoch.
 * <b>`seed`</b>: An integer (optional). Seed used if shuffle == True.
 * <b>`capacity`</b>: An integer. Sets the queue capacity.
 * <b>`shared_name`</b>: (optional). If set, this queue will be shared under the given
-    name across multiple sessions.
+  name across multiple sessions.
 * <b>`name`</b>: A name for the operations (optional).
 
 
@@ -50,6 +58,7 @@ Note: if `num_epochs` is not `None`, this function creates local counter
 
 A Queue with the output integers.  A `QueueRunner` for the Queue
 is added to the current `Graph`'s `QUEUE_RUNNER` collection.
+
 
 
 

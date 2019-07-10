@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.foldr
 
+foldr on the list of tensors unpacked from `elems` on dimension 0.
+
+### Aliases:
+
+* `tf.compat.v1.foldr`
+* `tf.compat.v2.foldr`
+* `tf.foldr`
+
 ``` python
 tf.foldr(
     fn,
@@ -19,9 +27,9 @@ tf.foldr(
 
 
 
-Defined in [`tensorflow/python/ops/functional_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/functional_ops.py).
+Defined in [`python/ops/functional_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/functional_ops.py).
 
-foldr on the list of tensors unpacked from `elems` on dimension 0.
+<!-- Placeholder for "Used in" -->
 
 This foldr operator repeatedly applies the callable `fn` to a sequence
 of elements from last to first. The elements are made of the tensors
@@ -42,14 +50,15 @@ match the structure of `elems`.  That is, if `elems` is
 
 #### Args:
 
+
 * <b>`fn`</b>: The callable to be performed.
-* <b>`elems`</b>: A tensor or (possibly nested) sequence of tensors, each of which
-    will be unpacked along their first dimension.  The nested sequence
-    of the resulting slices will be the first argument to `fn`.
+* <b>`elems`</b>: A tensor or (possibly nested) sequence of tensors, each of which will
+  be unpacked along their first dimension.  The nested sequence of the
+  resulting slices will be the first argument to `fn`.
 * <b>`initializer`</b>: (optional) A tensor or (possibly nested) sequence of tensors,
-    as the initial value for the accumulator.
-* <b>`parallel_iterations`</b>: (optional) The number of iterations allowed to run
-    in parallel.
+  as the initial value for the accumulator.
+* <b>`parallel_iterations`</b>: (optional) The number of iterations allowed to run in
+  parallel.
 * <b>`back_prop`</b>: (optional) True enables support for back propagation.
 * <b>`swap_memory`</b>: (optional) True enables GPU-CPU memory swapping.
 * <b>`name`</b>: (optional) Name prefix for the returned tensors.
@@ -62,11 +71,17 @@ A tensor or (possibly nested) sequence of tensors, resulting from applying
 to first.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if `fn` is not callable.
 
-Example:
->     elems = [1, 2, 3, 4, 5, 6]
->     sum = foldr(lambda a, x: a + x, elems)
->     # sum == 21
+
+#### Example:
+
+```python
+elems = [1, 2, 3, 4, 5, 6]
+sum = foldr(lambda a, x: a + x, elems)
+# sum == 21
+```

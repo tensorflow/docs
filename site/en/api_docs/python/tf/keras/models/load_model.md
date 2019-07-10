@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.models.load_model
 
+Loads a model saved via `save_model`.
+
+### Aliases:
+
+* `tf.compat.v1.keras.models.load_model`
+* `tf.compat.v2.keras.models.load_model`
+* `tf.keras.models.load_model`
+
 ``` python
 tf.keras.models.load_model(
     filepath,
@@ -15,20 +23,22 @@ tf.keras.models.load_model(
 
 
 
-Defined in [`tensorflow/python/keras/engine/saving.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/engine/saving.py).
+Defined in [`python/keras/saving/save.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/saving/save.py).
 
-Loads a model saved via `save_model`.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
 
+
 * <b>`filepath`</b>: One of the following:
-        - String, path to the saved model
-        - `h5py.File` object from which to load the model
+    - String, path to the saved model
+    - `h5py.File` object from which to load the model
 * <b>`custom_objects`</b>: Optional dictionary mapping names
-        (strings) to custom classes or functions to be
-        considered during deserialization.
+    (strings) to custom classes or functions to be
+    considered during deserialization.
 * <b>`compile`</b>: Boolean, whether to compile the model
-        after loading.
+    after loading.
 
 
 #### Returns:
@@ -41,7 +51,9 @@ to False, the compilation is omitted without any
 warning.
 
 
+
 #### Raises:
 
-* <b>`ImportError`</b>: if h5py is not available.
-* <b>`ValueError`</b>: In case of an invalid savefile.
+
+* <b>`ImportError`</b>: if loading from an hdf5 file and h5py is not available.
+* <b>`IOError`</b>: In case of an invalid savefile.

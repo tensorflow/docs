@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `RandomStrategy`
 
-
-
-
-
-Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/device_setter.py).
-
 Returns a random PS task for op placement.
+
+
+
+
+
+Defined in [`contrib/training/python/training/device_setter.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/device_setter.py).
+
+<!-- Placeholder for "Used in" -->
 
 This may perform better than the default round-robin placement if you
 have a large number of variables. Depending on your architecture and
@@ -37,6 +39,7 @@ Creates a new `RandomStrategy`.
 
 
 
+
 ## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
@@ -46,6 +49,7 @@ __call__(op)
 ```
 
 Chooses a ps task index for the given `Operation`.
+
 
 
 

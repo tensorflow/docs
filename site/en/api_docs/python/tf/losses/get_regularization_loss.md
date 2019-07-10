@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.losses.get_regularization_loss
 
+Gets the total regularization loss.
+
+### Aliases:
+
+* `tf.compat.v1.losses.get_regularization_loss`
+* `tf.losses.get_regularization_loss`
+
 ``` python
 tf.losses.get_regularization_loss(
     scope=None,
@@ -14,11 +21,13 @@ tf.losses.get_regularization_loss(
 
 
 
-Defined in [`tensorflow/python/ops/losses/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/losses/util.py).
+Defined in [`python/ops/losses/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/util.py).
 
-Gets the total regularization loss.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`scope`</b>: An optional scope name for filtering the losses to return.
 * <b>`name`</b>: The name of the returned tensor.

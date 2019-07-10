@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.linalg.inv
 
+Computes the inverse of one or more square invertible matrices or their
+
 ### Aliases:
 
+* `tf.compat.v1.linalg.inv`
+* `tf.compat.v1.matrix_inverse`
+* `tf.compat.v2.linalg.inv`
 * `tf.linalg.inv`
 * `tf.matrix_inverse`
 
@@ -20,9 +25,9 @@ tf.linalg.inv(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_linalg_ops.py`.
+Defined in generated file: `python/ops/gen_linalg_ops.py`.
 
-Computes the inverse of one or more square invertible matrices or their
+<!-- Placeholder for "Used in" -->
 
 adjoints (conjugate transposes).
 
@@ -38,8 +43,9 @@ garbage result.
 
 #### Args:
 
-* <b>`input`</b>: A `Tensor`. Must be one of the following types: `float64`, `float32`, `complex64`, `complex128`.
-    Shape is `[..., M, M]`.
+
+* <b>`input`</b>: A `Tensor`. Must be one of the following types: `float64`, `float32`, `half`, `complex64`, `complex128`.
+  Shape is `[..., M, M]`.
 * <b>`adjoint`</b>: An optional `bool`. Defaults to `False`.
 * <b>`name`</b>: A name for the operation (optional).
 

@@ -7,13 +7,14 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Operations for linear algebra.
 
 ## Classes
 
 [`class LinearOperator`](../tf/linalg/LinearOperator): Base class defining a [batch of] linear operator[s].
+
+[`class LinearOperatorAdjoint`](../tf/linalg/LinearOperatorAdjoint): `LinearOperator` representing the adjoint of another operator.
 
 [`class LinearOperatorBlockDiag`](../tf/linalg/LinearOperatorBlockDiag): Combines one or more `LinearOperators` in to a Block Diagonal matrix.
 
@@ -29,7 +30,11 @@ Operations for linear algebra.
 
 [`class LinearOperatorFullMatrix`](../tf/linalg/LinearOperatorFullMatrix): `LinearOperator` that wraps a [batch] matrix.
 
+[`class LinearOperatorHouseholder`](../tf/linalg/LinearOperatorHouseholder): `LinearOperator` acting like a [batch] of Householder transformations.
+
 [`class LinearOperatorIdentity`](../tf/linalg/LinearOperatorIdentity): `LinearOperator` acting like a [batch] square identity matrix.
+
+[`class LinearOperatorInversion`](../tf/linalg/LinearOperatorInversion): `LinearOperator` representing the inverse of another operator.
 
 [`class LinearOperatorKronecker`](../tf/linalg/LinearOperatorKronecker): Kronecker product between two `LinearOperators`.
 
@@ -38,6 +43,8 @@ Operations for linear algebra.
 [`class LinearOperatorLowerTriangular`](../tf/linalg/LinearOperatorLowerTriangular): `LinearOperator` acting like a [batch] square lower triangular matrix.
 
 [`class LinearOperatorScaledIdentity`](../tf/linalg/LinearOperatorScaledIdentity): `LinearOperator` acting like a scaled [batch] identity matrix `A = c I`.
+
+[`class LinearOperatorToeplitz`](../tf/linalg/LinearOperatorToeplitz): `LinearOperator` acting like a [batch] of toeplitz matrices.
 
 [`class LinearOperatorZeros`](../tf/linalg/LinearOperatorZeros): `LinearOperator` acting like a [batch] zero matrix.
 
@@ -85,6 +92,8 @@ Operations for linear algebra.
 
 [`matmul(...)`](../tf/linalg/matmul): Multiplies matrix `a` by matrix `b`, producing `a` * `b`.
 
+[`matrix_transpose(...)`](../tf/linalg/matrix_transpose): Transposes last two dimensions of tensor `a`.
+
 [`matvec(...)`](../tf/linalg/matvec): Multiplies matrix `a` by vector `b`, producing `a` * `b`.
 
 [`norm(...)`](../tf/norm): Computes the norm of vectors, matrices, and tensors. (deprecated arguments)
@@ -109,7 +118,11 @@ Operations for linear algebra.
 
 [`trace(...)`](../tf/linalg/trace): Compute the trace of a tensor `x`.
 
-[`transpose(...)`](../tf/linalg/transpose): Transposes last two dimensions of tensor `a`.
+[`transpose(...)`](../tf/linalg/matrix_transpose): Transposes last two dimensions of tensor `a`.
 
-[`triangular_solve(...)`](../tf/linalg/triangular_solve): Solves systems of linear equations with upper or lower triangular matrices by
+[`triangular_solve(...)`](../tf/linalg/triangular_solve): Solves systems of linear equations with upper or lower triangular matrices by backsubstitution.
+
+[`tridiagonal_matmul(...)`](../tf/linalg/tridiagonal_matmul): Multiplies tridiagonal matrix by matrix.
+
+[`tridiagonal_solve(...)`](../tf/linalg/tridiagonal_solve): Solves tridiagonal systems of equations.
 

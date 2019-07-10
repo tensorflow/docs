@@ -5,9 +5,13 @@ page_type: reference
 
 # tf.debugging.assert_near
 
+Assert the condition `x` and `y` are close element-wise.
+
 ### Aliases:
 
 * `tf.assert_near`
+* `tf.compat.v1.assert_near`
+* `tf.compat.v1.debugging.assert_near`
 * `tf.debugging.assert_near`
 
 ``` python
@@ -25,14 +29,14 @@ tf.debugging.assert_near(
 
 
 
-Defined in [`tensorflow/python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/check_ops.py).
+Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
 
-Assert the condition `x` and `y` are close element-wise.
+<!-- Placeholder for "Used in" -->
 
 Example of adding a dependency to an operation:
 
 ```python
-with tf.control_dependencies([tf.assert_near(x, y)]):
+with tf.control_dependencies([tf.compat.v1.assert_near(x, y)]):
   output = tf.reduce_sum(x)
 ```
 
@@ -50,14 +54,15 @@ See `numpy.finfo`.
 
 #### Args:
 
+
 * <b>`x`</b>:  Float or complex `Tensor`.
 * <b>`y`</b>:  Float or complex `Tensor`, same `dtype` as, and broadcastable to, `x`.
 * <b>`rtol`</b>:  `Tensor`.  Same `dtype` as, and broadcastable to, `x`.
-    The relative tolerance.  Default is `10 * eps`.
+  The relative tolerance.  Default is `10 * eps`.
 * <b>`atol`</b>:  `Tensor`.  Same `dtype` as, and broadcastable to, `x`.
-    The absolute tolerance.  Default is `10 * eps`.
+  The absolute tolerance.  Default is `10 * eps`.
 * <b>`data`</b>:  The tensors to print out if the condition is False.  Defaults to
-    error message and first few entries of `x`, `y`.
+  error message and first few entries of `x`, `y`.
 * <b>`summarize`</b>: Print this many entries of each tensor.
 * <b>`message`</b>: A string to prefix to the default message.
 * <b>`name`</b>: A name for this operation (optional).  Defaults to "assert_near".
@@ -66,6 +71,7 @@ See `numpy.finfo`.
 #### Returns:
 
 Op that raises `InvalidArgumentError` if `x` and `y` are not close enough.
+
 
 
 

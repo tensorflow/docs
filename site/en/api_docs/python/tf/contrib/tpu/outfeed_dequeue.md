@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.tpu.outfeed_dequeue
 
+Retrieves a single tensor from the computation outfeed.
+
 ``` python
 tf.contrib.tpu.outfeed_dequeue(
     dtype,
@@ -16,24 +18,24 @@ tf.contrib.tpu.outfeed_dequeue(
 
 
 
-Defined in generated file: `tensorflow/contrib/tpu/ops/gen_tpu_ops.py`.
+Defined in generated file: `python/ops/gen_tpu_ops.py`.
 
-Retrieves a single tensor from the computation outfeed.  This operation will
+<!-- Placeholder for "Used in" -->
 
-block indefinitely until data is available.
+This operation will block indefinitely until data is available.
 
 #### Args:
+
 
 * <b>`dtype`</b>: A <a href="../../../tf/dtypes/DType"><code>tf.DType</code></a>. The type of elements in the tensor.
 * <b>`shape`</b>: A <a href="../../../tf/TensorShape"><code>tf.TensorShape</code></a> or list of `ints`. The shape of the tensor.
 * <b>`device_ordinal`</b>: An optional `int`. Defaults to `-1`.
-    The TPU device to use. This should be -1 when the Op
-    is running on a TPU device, and >= 0 when the Op is running on the CPU
-    device.
+  The TPU device to use. This should be -1 when the Op
+  is running on a TPU device, and >= 0 when the Op is running on the CPU
+  device.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A `Tensor` of type `dtype`.
-A tensor that will be read from the device outfeed.

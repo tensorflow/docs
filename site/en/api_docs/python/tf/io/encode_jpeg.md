@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.io.encode_jpeg
 
+JPEG-encode an image.
+
 ### Aliases:
 
+* `tf.compat.v1.image.encode_jpeg`
+* `tf.compat.v1.io.encode_jpeg`
+* `tf.compat.v2.image.encode_jpeg`
+* `tf.compat.v2.io.encode_jpeg`
 * `tf.image.encode_jpeg`
 * `tf.io.encode_jpeg`
 
@@ -28,9 +34,9 @@ tf.io.encode_jpeg(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_image_ops.py`.
+Defined in generated file: `python/ops/gen_image_ops.py`.
 
-JPEG-encode an image.
+<!-- Placeholder for "Used in" -->
 
 `image` is a 3-D uint8 Tensor of shape `[height, width, channels]`.
 
@@ -51,27 +57,28 @@ in function of the number of channels in `image`:
 
 #### Args:
 
+
 * <b>`image`</b>: A `Tensor` of type `uint8`.
-    3-D with shape `[height, width, channels]`.
+  3-D with shape `[height, width, channels]`.
 * <b>`format`</b>: An optional `string` from: `"", "grayscale", "rgb"`. Defaults to `""`.
-    Per pixel image format.
+  Per pixel image format.
 * <b>`quality`</b>: An optional `int`. Defaults to `95`.
-    Quality of the compression from 0 to 100 (higher is better and slower).
+  Quality of the compression from 0 to 100 (higher is better and slower).
 * <b>`progressive`</b>: An optional `bool`. Defaults to `False`.
-    If True, create a JPEG that loads progressively (coarse to fine).
+  If True, create a JPEG that loads progressively (coarse to fine).
 * <b>`optimize_size`</b>: An optional `bool`. Defaults to `False`.
-    If True, spend CPU/RAM to reduce size with no quality change.
+  If True, spend CPU/RAM to reduce size with no quality change.
 * <b>`chroma_downsampling`</b>: An optional `bool`. Defaults to `True`.
-    See http://en.wikipedia.org/wiki/Chroma_subsampling.
+  See http://en.wikipedia.org/wiki/Chroma_subsampling.
 * <b>`density_unit`</b>: An optional `string` from: `"in", "cm"`. Defaults to `"in"`.
-    Unit used to specify `x_density` and `y_density`:
-    pixels per inch (`'in'`) or centimeter (`'cm'`).
+  Unit used to specify `x_density` and `y_density`:
+  pixels per inch (`'in'`) or centimeter (`'cm'`).
 * <b>`x_density`</b>: An optional `int`. Defaults to `300`.
-    Horizontal pixels per density unit.
+  Horizontal pixels per density unit.
 * <b>`y_density`</b>: An optional `int`. Defaults to `300`.
-    Vertical pixels per density unit.
+  Vertical pixels per density unit.
 * <b>`xmp_metadata`</b>: An optional `string`. Defaults to `""`.
-    If not empty, embed this XMP metadata in the image header.
+  If not empty, embed this XMP metadata in the image header.
 * <b>`name`</b>: A name for the operation (optional).
 
 

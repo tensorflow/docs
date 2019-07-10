@@ -6,8 +6,13 @@ page_type: reference
 
 # tf.math.segment_max
 
+Computes the maximum along segments of a tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.math.segment_max`
+* `tf.compat.v1.segment_max`
+* `tf.compat.v2.math.segment_max`
 * `tf.math.segment_max`
 * `tf.segment_max`
 
@@ -21,12 +26,12 @@ tf.math.segment_max(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Computes the maximum along segments of a tensor.
+<!-- Placeholder for "Used in" -->
 
 Read
-[the section on segmentation](https://tensorflow.org/api_guides/python/math_ops#Segmentation)
+[the section on segmentation](https://tensorflow.org/api_docs/python/tf/math#Segmentation)
 for an explanation of segments.
 
 Computes a tensor such that
@@ -39,12 +44,24 @@ If the max is empty for a given segment ID `i`, `output[i] = 0`.
 <img style="width:100%" src="https://www.tensorflow.org/images/SegmentMax.png" alt>
 </div>
 
+#### For example:
+
+
+
+```
+c = tf.constant([[1,2,3,4], [4, 3, 2, 1], [5,6,7,8]])
+tf.segment_max(c, tf.constant([0, 0, 1]))
+# ==> [[4, 3, 3, 4],
+#      [5, 6, 7, 8]]
+```
+
 #### Args:
+
 
 * <b>`data`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`, `int32`, `uint8`, `int16`, `int8`, `int64`, `bfloat16`, `uint16`, `half`, `uint32`, `uint64`.
 * <b>`segment_ids`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    A 1-D tensor whose size is equal to the size of `data`'s
-    first dimension.  Values should be sorted and can be repeated.
+  A 1-D tensor whose size is equal to the size of `data`'s
+  first dimension.  Values should be sorted and can be repeated.
 * <b>`name`</b>: A name for the operation (optional).
 
 

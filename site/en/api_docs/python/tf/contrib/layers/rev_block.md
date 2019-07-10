@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.rev_block
 
+A block of reversible residual layers.
+
 ``` python
 tf.contrib.layers.rev_block(
     x1,
@@ -20,9 +22,9 @@ tf.contrib.layers.rev_block(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/rev_block_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
+Defined in [`contrib/layers/python/layers/rev_block_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
 
-A block of reversible residual layers.
+<!-- Placeholder for "Used in" -->
 
 A reversible residual layer is defined as:
 
@@ -34,7 +36,9 @@ y2 = x2 + g(y1, g_side_input)
 A reversible residual block, defined here, is a series of reversible residual
 layers.
 
-Limitations:
+#### Limitations:
+
+
 * f and g must not close over any Tensors; all side inputs to f and g should
   be passed in with f_side_input and g_side_input which will be forwarded to
   f and g.
@@ -43,21 +47,22 @@ Limitations:
 
 #### Args:
 
+
 * <b>`x1`</b>: a float Tensor.
 * <b>`x2`</b>: a float Tensor.
 * <b>`f`</b>: a function, (Tensor) -> (Tensor) (or list of such of length num_layers).
-    Should not change the shape of the Tensor. Can make calls to get_variable.
-    See f_side_input if there are side inputs.
+  Should not change the shape of the Tensor. Can make calls to get_variable.
+  See f_side_input if there are side inputs.
 * <b>`g`</b>: a function, (Tensor) -> (Tensor) (or list of such of length num_layers).
-    Should not change the shape of the Tensor. Can make calls to get_variable.
-    See g_side_input if there are side inputs.
+  Should not change the shape of the Tensor. Can make calls to get_variable.
+  See g_side_input if there are side inputs.
 * <b>`num_layers`</b>: int, number of reversible residual layers. Each layer will
-    apply f and g according to the equations above, with new variables in each
-    layer.
+  apply f and g according to the equations above, with new variables in each
+  layer.
 * <b>`f_side_input`</b>: list of Tensors, side input to f. If not None, signature of f
-    should be (Tensor, list<Tensor>) -> (Tensor).
+  should be (Tensor, list<Tensor>) -> (Tensor).
 * <b>`g_side_input`</b>: list of Tensors, side input to g. If not None, signature of g
-    should be (Tensor, list<Tensor>) -> (Tensor).
+  should be (Tensor, list<Tensor>) -> (Tensor).
 * <b>`is_training`</b>: bool, whether to actually use the efficient backprop codepath.
 
 

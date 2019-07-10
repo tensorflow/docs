@@ -7,18 +7,23 @@ page_type: reference
 
 ## Class `OpError`
 
+A generic error that is raised when TensorFlow execution fails.
+
 
 
 ### Aliases:
 
 * Class `tf.OpError`
+* Class `tf.compat.v1.OpError`
+* Class `tf.compat.v1.errors.OpError`
+* Class `tf.compat.v2.errors.OpError`
 * Class `tf.errors.OpError`
 
 
 
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/errors_impl.py).
+Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
 
-A generic error that is raised when TensorFlow execution fails.
+<!-- Placeholder for "Used in" -->
 
 Whenever possible, the session will raise a more specific subclass
 of `OpError` from the <a href="../../tf/errors"><code>tf.errors</code></a> module.
@@ -36,10 +41,12 @@ __init__(
 
 Creates a new `OpError` indicating that a particular op failed.
 
+
 #### Args:
 
+
 * <b>`node_def`</b>: The `node_def_pb2.NodeDef` proto representing the op that
-    failed, if known; otherwise None.
+  failed, if known; otherwise None.
 * <b>`op`</b>: The `ops.Operation` that failed, if known; otherwise None.
 * <b>`message`</b>: The message string describing the failure.
 * <b>`error_code`</b>: The `error_codes_pb2.Code` describing the error.
@@ -52,13 +59,16 @@ Creates a new `OpError` indicating that a particular op failed.
 
 The integer error code that describes the error.
 
+
 <h3 id="message"><code>message</code></h3>
 
 The error message that describes the error.
 
+
 <h3 id="node_def"><code>node_def</code></h3>
 
 The `NodeDef` proto representing the op that failed.
+
 
 <h3 id="op"><code>op</code></h3>
 
@@ -74,6 +84,7 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
+
 
 
 

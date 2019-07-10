@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.training.parse_values
 
+Parses hyperparameter values from a string into a python map.
+
 ``` python
 tf.contrib.training.parse_values(
     values,
@@ -15,9 +17,9 @@ tf.contrib.training.parse_values(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/hparam.py).
+Defined in [`contrib/training/python/training/hparam.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/hparam.py).
 
-Parses hyperparameter values from a string into a python map.
+<!-- Placeholder for "Used in" -->
 
 `values` is a string containing comma-separated `name=value` pairs.
 For each pair, the value of the hyperparameter named `name` is set to
@@ -55,17 +57,18 @@ list name.  E.g. for "arr[1]=0" the type_map must have the key "arr" (not
 
 #### Args:
 
+
 * <b>`values`</b>: String.  Comma separated list of `name=value` pairs where
-    'value' must follow the syntax described above.
+  'value' must follow the syntax described above.
 * <b>`type_map`</b>: A dictionary mapping hyperparameter names to types.  Note every
-    parameter name in values must be a key in type_map.  The values must
-    conform to the types indicated, where a value V is said to conform to a
-    type T if either V has type T, or V is a list of elements of type T.
-    Hence, for a multidimensional parameter 'x' taking float values,
-    'x=[0.1,0.2]' will parse successfully if type_map['x'] = float.
+  parameter name in values must be a key in type_map.  The values must
+  conform to the types indicated, where a value V is said to conform to a
+  type T if either V has type T, or V is a list of elements of type T.
+  Hence, for a multidimensional parameter 'x' taking float values,
+  'x=[0.1,0.2]' will parse successfully if type_map['x'] = float.
 * <b>`ignore_unknown`</b>: Bool. Whether values that are missing a type in type_map
-    should be ignored. If set to True, a ValueError will not be raised for
-    unknown hyperparameter type.
+  should be ignored. If set to True, a ValueError will not be raised for
+  unknown hyperparameter type.
 
 
 #### Returns:
@@ -77,10 +80,12 @@ A python map mapping each name to either:
 (e.g. "x=5,L=[1,2],arr[1]=3" results in {'x':5,'L':[1,2],'arr':{1:3}}")
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If there is a problem with input.
-  * If `values` cannot be parsed.
-  * If a list is assigned to a list index (e.g. 'a[1] = [1,2,3]').
-  * If the same rvalue is assigned two different values (e.g. 'a=1,a=2',
-    'a[1]=1,a[1]=2', or 'a=1,a=[1]')
+* If `values` cannot be parsed.
+* If a list is assigned to a list index (e.g. 'a[1] = [1,2,3]').
+* If the same rvalue is assigned two different values (e.g. 'a=1,a=2',
+  'a[1]=1,a[1]=2', or 'a=1,a=[1]')

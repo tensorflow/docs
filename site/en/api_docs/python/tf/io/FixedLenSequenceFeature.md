@@ -7,18 +7,23 @@ page_type: reference
 
 ## Class `FixedLenSequenceFeature`
 
+Configuration for parsing a variable-length input feature into a `Tensor`.
+
 
 
 ### Aliases:
 
 * Class `tf.FixedLenSequenceFeature`
+* Class `tf.compat.v1.FixedLenSequenceFeature`
+* Class `tf.compat.v1.io.FixedLenSequenceFeature`
+* Class `tf.compat.v2.io.FixedLenSequenceFeature`
 * Class `tf.io.FixedLenSequenceFeature`
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/parsing_ops.py).
+Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
-Configuration for parsing a variable-length input feature into a `Tensor`.
+<!-- Placeholder for "Used in" -->
 
 The resulting `Tensor` of parsing a single `SequenceExample` or `Example` has
 a static `shape` of `[None] + shape` and the specified `dtype`.
@@ -32,33 +37,17 @@ the parse functions will fail on any examples missing this feature.
 
 #### Fields:
 
+
 * <b>`shape`</b>: Shape of input data for dimension 2 and higher. First dimension is
-    of variable length `None`.
+  of variable length `None`.
 * <b>`dtype`</b>: Data type of input.
 * <b>`allow_missing`</b>: Whether to allow this feature to be missing from a feature
-    list item. Is available only for parsing `SequenceExample` not for
-    parsing `Examples`.
+  list item. Is available only for parsing `SequenceExample` not for
+  parsing `Examples`.
 * <b>`default_value`</b>: Scalar value to be used to pad multiple `Example`s to their
-    maximum length. Irrelevant for parsing a single `Example` or
-    `SequenceExample`. Defaults to "" for dtype string and 0 otherwise
-    (optional).
-
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-@staticmethod
-__new__(
-    cls,
-    shape,
-    dtype,
-    allow_missing=False,
-    default_value=None
-)
-```
-
-Create new instance of FixedLenSequenceFeature(shape, dtype, allow_missing, default_value)
-
-
+  maximum length. Irrelevant for parsing a single `Example` or
+  `SequenceExample`. Defaults to "" for dtype string and 0 otherwise
+  (optional).
 
 ## Properties
 
@@ -66,7 +55,9 @@ Create new instance of FixedLenSequenceFeature(shape, dtype, allow_missing, defa
 
 
 
+
 <h3 id="dtype"><code>dtype</code></h3>
+
 
 
 
@@ -74,7 +65,9 @@ Create new instance of FixedLenSequenceFeature(shape, dtype, allow_missing, defa
 
 
 
+
 <h3 id="default_value"><code>default_value</code></h3>
+
 
 
 

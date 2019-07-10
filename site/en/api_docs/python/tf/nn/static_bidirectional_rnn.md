@@ -5,8 +5,11 @@ page_type: reference
 
 # tf.nn.static_bidirectional_rnn
 
+Creates a bidirectional recurrent neural network. (deprecated)
+
 ### Aliases:
 
+* `tf.compat.v1.nn.static_bidirectional_rnn`
 * `tf.contrib.rnn.static_bidirectional_rnn`
 * `tf.nn.static_bidirectional_rnn`
 
@@ -25,9 +28,9 @@ tf.nn.static_bidirectional_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/rnn.py).
+Defined in [`python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn.py).
 
-Creates a bidirectional recurrent neural network. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -44,23 +47,24 @@ length(s) of the sequence(s) or completely unrolled if length(s) is not given.
 
 #### Args:
 
+
 * <b>`cell_fw`</b>: An instance of RNNCell, to be used for forward direction.
 * <b>`cell_bw`</b>: An instance of RNNCell, to be used for backward direction.
-* <b>`inputs`</b>: A length T list of inputs, each a tensor of shape
-    [batch_size, input_size], or a nested tuple of such elements.
-* <b>`initial_state_fw`</b>: (optional) An initial state for the forward RNN.
-    This must be a tensor of appropriate type and shape
-    `[batch_size, cell_fw.state_size]`.
-    If `cell_fw.state_size` is a tuple, this should be a tuple of
-    tensors having shapes `[batch_size, s] for s in cell_fw.state_size`.
-* <b>`initial_state_bw`</b>: (optional) Same as for `initial_state_fw`, but using
-    the corresponding properties of `cell_bw`.
-* <b>`dtype`</b>: (optional) The data type for the initial state.  Required if
-    either of the initial states are not provided.
+* <b>`inputs`</b>: A length T list of inputs, each a tensor of shape [batch_size,
+  input_size], or a nested tuple of such elements.
+* <b>`initial_state_fw`</b>: (optional) An initial state for the forward RNN. This must
+  be a tensor of appropriate type and shape `[batch_size,
+  cell_fw.state_size]`. If `cell_fw.state_size` is a tuple, this should be a
+  tuple of tensors having shapes `[batch_size, s] for s in
+  cell_fw.state_size`.
+* <b>`initial_state_bw`</b>: (optional) Same as for `initial_state_fw`, but using the
+  corresponding properties of `cell_bw`.
+* <b>`dtype`</b>: (optional) The data type for the initial state.  Required if either
+  of the initial states are not provided.
 * <b>`sequence_length`</b>: (optional) An int32/int64 vector, size `[batch_size]`,
-    containing the actual lengths for each of the sequences.
+  containing the actual lengths for each of the sequences.
 * <b>`scope`</b>: VariableScope for the created subgraph; defaults to
-    "bidirectional_rnn"
+  "bidirectional_rnn"
 
 
 #### Returns:
@@ -72,7 +76,9 @@ A tuple (outputs, output_state_fw, output_state_bw) where:
   output_state_bw is the final state of the backward rnn.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `cell_fw` or `cell_bw` is not an instance of `RNNCell`.
 * <b>`ValueError`</b>: If inputs is None or an empty list.

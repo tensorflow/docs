@@ -7,9 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Operations for manipulating the binary representations of integers.
 
 ## Functions
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.multi_label_head
 
+Creates a `_Head` for multi-label classification.
+
 ``` python
 tf.contrib.estimator.multi_label_head(
     n_classes,
@@ -18,7 +20,11 @@ tf.contrib.estimator.multi_label_head(
 )
 ```
 
-Creates a `_Head` for multi-label classification.
+
+
+Defined in [`contrib/estimator/python/estimator/head.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/head.py).
+
+<!-- Placeholder for "Used in" -->
 
 Multi-label classification handles the case where each example may have zero
 or more associated labels, from a discrete set. This is distinct from
@@ -32,7 +38,9 @@ the loss is the average over `n_classes` and the weighted sum over
 The head expects `logits` with shape `[D0, D1, ... DN, n_classes]`. In many
 applications, the shape is `[batch_size, n_classes]`.
 
-Labels can be:
+#### Labels can be:
+
+
 
 * A multi-hot tensor of shape `[D0, D1, ... DN, n_classes]`
 * An integer `SparseTensor` of class indices. The `dense_shape` must be
@@ -54,7 +62,7 @@ The head can be used with a canned estimator. Example:
 
 ```python
 my_head = tf.contrib.estimator.multi_label_head(n_classes=3)
-my_estimator = tf.contrib.estimator.DNNEstimator(
+my_estimator = tf.estimator.DNNEstimator(
     head=my_head,
     hidden_units=...,
     feature_columns=...)
@@ -79,32 +87,33 @@ my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
 
 #### Args:
 
+
 * <b>`n_classes`</b>: Number of classes, must be greater than 1 (for 1 class, use
-    `binary_classification_head`).
+  `binary_classification_head`).
 * <b>`weight_column`</b>: A string or a `_NumericColumn` created by
-    <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
-    weights. It is used to down weight or boost examples during training. It
-    will be multiplied by the loss of the example.  Per-class weighting is
-    not supported.
+  <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
+  weights. It is used to down weight or boost examples during training. It
+  will be multiplied by the loss of the example.  Per-class weighting is
+  not supported.
 * <b>`thresholds`</b>: Iterable of floats in the range `(0, 1)`. Accuracy, precision
-    and recall metrics are evaluated for each threshold value. The threshold
-    is applied to the predicted probabilities, i.e. above the threshold is
-    `true`, below is `false`.
+  and recall metrics are evaluated for each threshold value. The threshold
+  is applied to the predicted probabilities, i.e. above the threshold is
+  `true`, below is `false`.
 * <b>`label_vocabulary`</b>: A list of strings represents possible label values. If it
-    is not given, that means labels are already encoded as integer within
-    [0, n_classes) or multi-hot Tensor. If given, labels must be SparseTensor
-    string type and have any value in `label_vocabulary`. Also there will be
-    errors if vocabulary is not provided and labels are string.
+  is not given, that means labels are already encoded as integer within
+  [0, n_classes) or multi-hot Tensor. If given, labels must be SparseTensor
+  string type and have any value in `label_vocabulary`. Also there will be
+  errors if vocabulary is not provided and labels are string.
 * <b>`loss_reduction`</b>: One of <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Describes how to
-    reduce training loss over batch. Defaults to `SUM_OVER_BATCH_SIZE`, namely
-    weighted sum of losses divided by batch size. See <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a>.
+  reduce training loss over batch. Defaults to `SUM_OVER_BATCH_SIZE`, namely
+  weighted sum of losses divided by batch size. See <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a>.
 * <b>`loss_fn`</b>: Optional loss function.
 * <b>`classes_for_class_based_metrics`</b>: List of integer class IDs or string class
-    names for which per-class metrics are evaluated. If integers, all must be
-    in the range `[0, n_classes - 1]`. If strings, all must be in
-    `label_vocabulary`.
+  names for which per-class metrics are evaluated. If integers, all must be
+  in the range `[0, n_classes - 1]`. If strings, all must be in
+  `label_vocabulary`.
 * <b>`name`</b>: name of the head. If provided, summary and metrics keys will be
-    suffixed by `"/" + name`. Also used as `name_scope` when creating ops.
+  suffixed by `"/" + name`. Also used as `name_scope` when creating ops.
 
 
 #### Returns:
@@ -112,7 +121,9 @@ my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
 An instance of `_Head` for multi-label classification.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `n_classes`, `thresholds`, `loss_reduction`, `loss_fn` or
-  `metric_class_ids` is invalid.
+`metric_class_ids` is invalid.

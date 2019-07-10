@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.pool3d
 
+3D Pooling.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.pool3d`
+* `tf.compat.v2.keras.backend.pool3d`
+* `tf.keras.backend.pool3d`
+
 ``` python
 tf.keras.backend.pool3d(
     x,
@@ -18,11 +26,13 @@ tf.keras.backend.pool3d(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-3D Pooling.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable.
 * <b>`pool_size`</b>: tuple of 3 integers.
@@ -37,8 +47,10 @@ Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/
 A tensor, result of 3D pooling.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `data_format` is neither `"channels_last"` or
-    `"channels_first"`.
+`"channels_first"`.
 * <b>`ValueError`</b>: if `pool_mode` is neither `"max"` or `"avg"`.

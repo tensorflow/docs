@@ -7,18 +7,20 @@ page_type: reference
 
 ## Class `StrategyExtended`
 
+Additional APIs for algorithms that need to be distribution-aware.
 
+Inherits From: [`StrategyExtended`](../../tf/compat/v2/distribute/StrategyExtended)
 
 ### Aliases:
 
-* Class `tf.contrib.distribute.DistributionStrategyExtended`
+* Class `tf.compat.v1.distribute.StrategyExtended`
 * Class `tf.distribute.StrategyExtended`
 
 
 
-Defined in [`tensorflow/python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/distribute_lib.py).
+Defined in [`python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/distribute_lib.py).
 
-Additional APIs for algorithms that need to be distribution-aware.
+<!-- Placeholder for "Used in" -->
 
 The intent is that you can write an algorithm in a stylized way and
 it will be usable with a variety of different
@@ -87,7 +89,7 @@ We have then a few approaches we want to support:
 >     with my_strategy.scope():
 >       iterator = my_strategy.make_dataset_iterator(dataset)
 >       session.run(iterator.initialize())
->       replica_train_ops = my_strategy.extended.call_for_each_replica(
+>       replica_train_ops = my_strategy.experimental_run_v2(
 >           replica_fn, args=(iterator.get_next(),))
 >       train_op = my_strategy.group(replica_train_ops)
 
@@ -110,10 +112,10 @@ Lower-level concepts:
   from device to values. "PerReplica" is used when the value may be
   different across replicas, and "Mirrored" when the value are the same.
 * Unwrapping and merging: Consider calling a function `fn` on multiple
-  replicas, like `extended.call_for_each_replica(fn, args=[w])` with an
+  replicas, like `experimental_run_v2(fn, args=[w])` with an
   argument `w` that is a wrapped value. This means `w` will have a map taking
   replica device `d0` to `w0`, replica device `d1` to `w1`,
-  etc. `extended.call_for_each_replica()` unwraps `w` before calling `fn`, so
+  etc. `experimental_run_v2()` unwraps `w` before calling `fn`, so
   it calls `fn(w0)` on `d0`, `fn(w1)` on `d1`, etc.  It then merges the return
   values from `fn()`, which can possibly result in wrapped values. For
   example, let's say `fn()` returns a tuple with three components: `(x, a,
@@ -166,23 +168,18 @@ cross-replica context:
   for `d`
 * `with d.extended.colocate_vars_with(v)`: in replica/cross-replica context,
   variables will be created with locality V(`v`). That is, if we write
-  `with d.extended.colocate_vars_with(v1): v2 = tf.get_variable(...)`,
-  then `v2` will have locality V(`v1`), i.e. locality V(`v2`) will equal
-  V(`v1`).
+  `with d.extended.colocate_vars_with(v1):
+  v2 = tf.Variable(...)`, then `v2` will have locality V(`v1`),
+  i.e. locality V(`v2`) will equal V(`v1`).
 * `with d.extended.colocate_vars_with(d.extended.non_slot_devices(...))`: in
   replica/cross-replica context, variables will be created with locality N
-* `v = tf.get_variable(...)`: in replica/cross-replica context, creates
-  a variable (which by definition will have locality V(`v`), though
+* `v = tf.Variable(...)`: in replica/cross-replica context,
+  creates a variable (which by definition will have locality V(`v`), though
   will match another locality if inside a `colocate_vars_with`
   scope).
-* `d.make_dataset_iterator(dataset)` (or the deprecated
-  `d.distribute_dataset(dataset).make_one_shot_iterator()`): in cross-replica
+* `d.make_dataset_iterator(dataset)`: in cross-replica
   context, produces an iterator with locality T
-* `d.extended.broadcast_to(t)`: in cross-replica context, produces a value
-  with locality M
-* `d.extended.broadcast_to(t, v)`: in cross-replica context, produces a value
-  with locality V(`v`)
-* `d.extended.call_for_each_replica(fn, ...)`: in cross-replica context, runs
+* `d.experimental_run_v2(fn, ...)`: in cross-replica context, runs
   `fn()` in a replica context (and so may call `get_replica_context()` and
   use its API, including `merge_call()` to get back to cross-replica
   context), once for each replica. May use values with locality T or
@@ -197,18 +194,11 @@ cross-replica context:
   V(`v`), output will have locality V(`v`) as well.
 * `d.extended.update_non_slot(d.extended.non_slot_devices(), fn)`: in
   cross-replica context, like `d.extended.update()` except with locality N.
-* `d.extended.read_var(v)`: Gets the (read-only) value of the variable `v` (on
-  the device determined by the current device scope), aggregating
-  across replicas for replica-local variables. Frequently, this will be
-  done automatically when using `v` in an expression or fetching it in
-  a cross-replica context, but this function can be used to force that
-  conversion happens at a particular point in time (for example, to
-  add the result of the conversion to a graph collection).
 
 The standard pattern for updating variables is to:
 
 1. Create an input iterator with `d.make_dataset_iterator()`.
-2. Define each replica `d.extended.call_for_each_replica()` up to the point of
+2. Define each replica `d.experimental_run_v2()` up to the point of
    getting a list of gradient, variable pairs.
 3. Call `d.extended.reduce_to(VariableAggregation.SUM, t, v)` or
    `d.extended.batch_reduce_to()` to sum the gradients (with locality T)
@@ -246,7 +236,8 @@ the <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></
 __init__(container_strategy)
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -263,21 +254,26 @@ throughout its life cycle.
 
 
 
+
 <h3 id="experimental_should_init"><code>experimental_should_init</code></h3>
 
 Whether initialization is needed.
+
 
 <h3 id="parameter_devices"><code>parameter_devices</code></h3>
 
 Returns the tuple of all devices used to place variables.
 
+
 <h3 id="should_checkpoint"><code>should_checkpoint</code></h3>
 
 Whether checkpointing is needed.
 
+
 <h3 id="should_save_summary"><code>should_save_summary</code></h3>
 
 Whether saving summaries is needed.
+
 
 <h3 id="worker_devices"><code>worker_devices</code></h3>
 
@@ -299,19 +295,19 @@ batch_reduce_to(
 
 Combine multiple `reduce_to` calls into one for faster execution.
 
+
 #### Args:
 
+
 * <b>`reduce_op`</b>: Reduction type, an instance of <a href="../../tf/distribute/ReduceOp"><code>tf.distribute.ReduceOp</code></a> enum.
-    DEPRECATED but still accepted values:
-    <a href="../../tf/VariableAggregation#SUM"><code>tf.VariableAggregation.SUM</code></a>,
-    <a href="../../tf/VariableAggregation#MEAN"><code>tf.VariableAggregation.MEAN</code></a>,
 * <b>`value_destination_pairs`</b>: A sequence of (value, destinations)
-    pairs. See `reduce_to()` for a description.
+  pairs. See `reduce_to()` for a description.
 
 
 #### Returns:
 
 A list of mirrored values, one per pair in `value_destination_pairs`.
+
 
 <h3 id="broadcast_to"><code>broadcast_to</code></h3>
 
@@ -324,16 +320,19 @@ broadcast_to(
 
 Mirror a tensor on one device to all worker devices.
 
+
 #### Args:
+
 
 * <b>`tensor`</b>: A Tensor value to broadcast.
 * <b>`destinations`</b>: A mirrored variable or device string specifying the
-    destination devices to copy `tensor` to.
+  destination devices to copy `tensor` to.
 
 
 #### Returns:
 
 A value mirrored to `destinations` devices.
+
 
 <h3 id="call_for_each_replica"><code>call_for_each_replica</code></h3>
 
@@ -361,7 +360,7 @@ given back to each replica call. After that execution resumes until
 # Called once in "cross-replica" context.
 def merge_fn(distribution, three_plus_replica_id):
   # sum the values across replicas
-  return sum(distribution.unwrap(three_plus_replica_id))
+  return sum(distribution.experimental_local_results(three_plus_replica_id))
 
 # Called once per replica in `distribution`, in a "replica" context.
 def fn(three):
@@ -374,12 +373,14 @@ def fn(three):
 with distribution.scope():
   # in "cross-replica" context
   ...
-  merged_results = distribution.call_for_each_replica(fn, args=[3])
+  merged_results = distribution.experimental_run_v2(fn, args=[3])
   # merged_results has the values from every replica execution of `fn`.
-  print(distribution.unwrap(merged_results))  # Prints a list
+  # This statement prints a list:
+  print(distribution.experimental_local_results(merged_results))
 ```
 
 #### Args:
+
 
 * <b>`fn`</b>: function to run (will be run once per replica).
 * <b>`args`</b>: Tuple or list with positional arguments for `fn`.
@@ -389,6 +390,7 @@ with distribution.scope():
 #### Returns:
 
 Merged return value of `fn` across all replicas.
+
 
 <h3 id="colocate_vars_with"><code>colocate_vars_with</code></h3>
 
@@ -401,37 +403,72 @@ Scope that controls which devices variables will be created on.
 No operations should be added to the graph inside this scope, it
 should only be used when creating variables (some implementations
 work by changing variable creation, others work by using a
-tf.colocate_with() scope).
+tf.compat.v1.colocate_with() scope).
 
 This may only be used inside `self.scope()`.
 
-Example usage:
+#### Example usage:
+
+
 
 ```
 with strategy.scope():
-  var1 = tf.get_variable(...)
-  with strategy.extended.colocate_vars_with(v1):
+  var1 = tf.Variable(...)
+  with strategy.extended.colocate_vars_with(var1):
     # var2 and var3 will be created on the same device(s) as var1
-    var2 = tf.get_variable(...)
-    var3 = tf.get_variable(...)
+    var2 = tf.Variable(...)
+    var3 = tf.Variable(...)
 
   def fn(v1, v2, v3):
     # operates on v1 from var1, v2 from var2, and v3 from var3
 
-  # `fn` runs on every device `v1` is on, `v2` and `v3` will be there too.
-  strategy.extended.update(v1, fn, args=(v2, v3))
+  # `fn` runs on every device `var1` is on, `var2` and `var3` will be there
+  # too.
+  strategy.extended.update(var1, fn, args=(var2, var3))
 ```
 
 #### Args:
 
-* <b>`colocate_with_variable`</b>: A created in `self.scope()`. Variables created
-    while in the returned context manager will be on the same set of
-    devices as `colocate_with_variable`.
+
+* <b>`colocate_with_variable`</b>: A variable created in this strategy's `scope()`.
+  Variables created while in the returned context manager will be on the
+  same set of devices as `colocate_with_variable`.
 
 
 #### Returns:
 
 A context manager.
+
+
+<h3 id="experimental_make_numpy_dataset"><code>experimental_make_numpy_dataset</code></h3>
+
+``` python
+experimental_make_numpy_dataset(
+    numpy_input,
+    session=None
+)
+```
+
+Makes a dataset for input provided via a numpy array.
+
+This avoids adding `numpy_input` as a large constant in the graph,
+and copies the data to the machine or machines that will be processing
+the input.
+
+#### Args:
+
+
+* <b>`numpy_input`</b>: A nest of NumPy input arrays that will be distributed evenly
+  across all replicas. Note that lists of Numpy arrays are stacked, as
+  that is normal <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> behavior.
+* <b>`session`</b>: (TensorFlow v1.x graph execution only) A session used for
+  initialization.
+
+
+#### Returns:
+
+A <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> representing `numpy_input`.
+
 
 <h3 id="experimental_run_steps_on_iterator"><code>experimental_run_steps_on_iterator</code></h3>
 
@@ -451,22 +488,23 @@ times using input from a dataset.
 
 #### Args:
 
+
 * <b>`fn`</b>: function to run using this distribution strategy. The function must
-    have the following signature: `def fn(context, inputs)`.
-    `context` is an instance of `MultiStepContext` that will be passed when
-    `fn` is run. `context` can be used to specify the outputs to be returned
-    from `fn` by calling `context.set_last_step_output`. It can also be used
-    to capture non tensor outputs by `context.set_non_tensor_output`.
-    See `MultiStepContext` documentation for more information.
-    `inputs` will have same type/structure as `iterator.get_next()`.
-    Typically, `fn` will use `call_for_each_replica` method of the strategy
-    to distribute the computation over multiple replicas.
+  have the following signature: `def fn(context, inputs)`. `context` is an
+    instance of `MultiStepContext` that will be passed when `fn` is run.
+    `context` can be used to specify the outputs to be returned from `fn`
+    by calling `context.set_last_step_output`. It can also be used to
+    capture non tensor outputs by `context.set_non_tensor_output`. See
+    `MultiStepContext` documentation for more information. `inputs` will
+    have same type/structure as `iterator.get_next()`. Typically, `fn`
+    will use `call_for_each_replica` method of the strategy to distribute
+    the computation over multiple replicas.
 * <b>`iterator`</b>: Iterator of a dataset that represents the input for `fn`. The
-    caller is responsible for initializing the iterator as needed.
+  caller is responsible for initializing the iterator as needed.
 * <b>`iterations`</b>: (Optional) Number of iterations that `fn` should be run.
-    Defaults to 1.
+  Defaults to 1.
 * <b>`initial_loop_values`</b>: (Optional) Initial values to be passed into the
-    loop that runs `fn`. Defaults to `None`. # TODO(priyag): Remove
+  loop that runs `fn`. Defaults to `None`. # TODO(priyag): Remove
     initial_loop_values argument when we have a mechanism to infer the
     outputs of `fn`.
 
@@ -482,6 +520,7 @@ among other things:
   - non_tensor_outputs: A dictionatry containing anything that was set by
     `fn` by calling `context.set_non_tensor_output`.
 
+
 <h3 id="non_slot_devices"><code>non_slot_devices</code></h3>
 
 ``` python
@@ -496,8 +535,9 @@ Update those using `update_non_slot()`.
 
 #### Args:
 
+
 * <b>`var_list`</b>: The list of variables being optimized, needed with the
-    default <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a>.
+  default <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a>.
 
 <h3 id="read_var"><code>read_var</code></h3>
 
@@ -512,6 +552,7 @@ Returns the aggregate value of a replica-local variable, or the
 
 #### Args:
 
+
 * <b>`v`</b>: A variable allocated within the scope of this <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a>.
 
 
@@ -519,6 +560,7 @@ Returns the aggregate value of a replica-local variable, or the
 
 A tensor representing the value of `v`, aggregated across replicas if
 necessary.
+
 
 <h3 id="reduce_to"><code>reduce_to</code></h3>
 
@@ -532,22 +574,22 @@ reduce_to(
 
 Combine (via e.g. sum or mean) values across replicas.
 
+
 #### Args:
 
+
 * <b>`reduce_op`</b>: Reduction type, an instance of <a href="../../tf/distribute/ReduceOp"><code>tf.distribute.ReduceOp</code></a> enum.
-    DEPRECATED but still accepted values:
-    <a href="../../tf/VariableAggregation#SUM"><code>tf.VariableAggregation.SUM</code></a>,
-    <a href="../../tf/VariableAggregation#MEAN"><code>tf.VariableAggregation.MEAN</code></a>,
 * <b>`value`</b>: A per-replica value with one value per replica.
 * <b>`destinations`</b>: A mirrored variable, a per-replica tensor, or a device
-    string. The return value will be copied to all destination devices (or
-    all the devices where the `destinations` value resides). To perform an
-    all-reduction, pass `value` to `destinations`.
+  string. The return value will be copied to all destination devices (or
+  all the devices where the `destinations` value resides). To perform an
+  all-reduction, pass `value` to `destinations`.
 
 
 #### Returns:
 
 A value mirrored to `destinations`.
+
 
 <h3 id="update"><code>update</code></h3>
 
@@ -583,12 +625,13 @@ calling `fn`.
 
 #### Args:
 
+
 * <b>`var`</b>: Variable, possibly mirrored to multiple devices, to operate on.
 * <b>`fn`</b>: Function to call. Should take the variable as the first argument.
 * <b>`args`</b>: Tuple or list. Additional positional arguments to pass to `fn()`.
 * <b>`kwargs`</b>: Dict with keyword arguments to pass to `fn()`.
 * <b>`group`</b>: Boolean. Defaults to True. If False, the return value will be
-    unwrapped.
+  unwrapped.
 
 
 #### Returns:
@@ -599,6 +642,7 @@ all, the side effects (updates) will happen on every replica. If instead
 "group=False" is specified, this function will return a nest of lists
 where each list has an element per replica, and the caller is responsible
 for ensuring all elements are executed.
+
 
 <h3 id="update_non_slot"><code>update_non_slot</code></h3>
 
@@ -614,19 +658,22 @@ update_non_slot(
 
 Runs `fn(*args, **kwargs)` on `colocate_with` devices.
 
+
 #### Args:
+
 
 * <b>`colocate_with`</b>: The return value of `non_slot_devices()`.
 * <b>`fn`</b>: Function to execute.
 * <b>`args`</b>: Tuple or list. Positional arguments to pass to `fn()`.
 * <b>`kwargs`</b>: Dict with keyword arguments to pass to `fn()`.
 * <b>`group`</b>: Boolean. Defaults to True. If False, the return value will be
-    unwrapped.
+  unwrapped.
 
 
 #### Returns:
 
 Return value of `fn`, possibly merged across devices.
+
 
 <h3 id="value_container"><code>value_container</code></h3>
 
@@ -636,10 +683,12 @@ value_container(value)
 
 Returns the container that this per-replica `value` belongs to.
 
+
 #### Args:
 
-* <b>`value`</b>: A value returned by `call_for_each_replica()` or a variable
-    created in `scope()`.
+
+* <b>`value`</b>: A value returned by `experimental_run_v2()` or a variable
+  created in `scope()`.
 
 
 #### Returns:
@@ -647,7 +696,41 @@ Returns the container that this per-replica `value` belongs to.
 A container that `value` belongs to.
 If value does not belong to any container (including the case of
 container having been destroyed), returns the value itself.
-`value in unwrap(value_container(value))` will always be true.
+`value in experimental_local_results(value_container(value))` will
+always be true.
+
+
+<h3 id="variable_created_in_scope"><code>variable_created_in_scope</code></h3>
+
+``` python
+variable_created_in_scope(v)
+```
+
+Tests whether `v` was created while this strategy scope was active.
+
+Variables created inside the strategy scope are "owned" by it:
+
+>>> with strategy.scope():
+...   v = tf.Variable(1.)
+>>> strategy.variable_created_in_scope(v)
+True
+
+Variables created outside the strategy are not owned by it:
+
+>>> v = tf.Variable(1.)
+>>> strategy.variable_created_in_scope(v)
+False
+
+#### Args:
+
+
+* <b>`v`</b>: A <a href="../../tf/Variable"><code>tf.Variable</code></a> instance.
+
+
+#### Returns:
+
+True if `v` was created inside the scope, False if not.
+
 
 
 

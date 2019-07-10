@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.random_binomial
 
+Returns a tensor with random binomial distribution of values.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.random_binomial`
+* `tf.compat.v2.keras.backend.random_binomial`
+* `tf.keras.backend.random_binomial`
+
 ``` python
 tf.keras.backend.random_binomial(
     shape,
@@ -16,11 +24,16 @@ tf.keras.backend.random_binomial(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Returns a tensor with random binomial distribution of values.
+<!-- Placeholder for "Used in" -->
+
+The binomial distribution with parameters `n` and `p` is the probability
+distribution of the number of successful Bernoulli process. Only supports
+`n` = 1 for now.
 
 #### Arguments:
+
 
 * <b>`shape`</b>: A tuple of integers, the shape of tensor to create.
 * <b>`p`</b>: A float, `0. <= p <= 1`, probability of binomial distribution.

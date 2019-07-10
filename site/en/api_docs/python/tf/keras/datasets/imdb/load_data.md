@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.datasets.imdb.load_data
 
+Loads the IMDB dataset.
+
+### Aliases:
+
+* `tf.compat.v1.keras.datasets.imdb.load_data`
+* `tf.compat.v2.keras.datasets.imdb.load_data`
+* `tf.keras.datasets.imdb.load_data`
+
 ``` python
 tf.keras.datasets.imdb.load_data(
     path='imdb.npz',
@@ -21,24 +29,26 @@ tf.keras.datasets.imdb.load_data(
 
 
 
-Defined in [`tensorflow/python/keras/datasets/imdb.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/datasets/imdb.py).
+Defined in [`python/keras/datasets/imdb.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/datasets/imdb.py).
 
-Loads the IMDB dataset.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
 
+
 * <b>`path`</b>: where to cache the data (relative to `~/.keras/dataset`).
 * <b>`num_words`</b>: max number of words to include. Words are ranked
-        by how often they occur (in the training set) and only
-        the most frequent words are kept
+    by how often they occur (in the training set) and only
+    the most frequent words are kept
 * <b>`skip_top`</b>: skip the top N most frequently occurring words
-        (which may not be informative).
+    (which may not be informative).
 * <b>`maxlen`</b>: sequences longer than this will be filtered out.
 * <b>`seed`</b>: random seed for sample shuffling.
 * <b>`start_char`</b>: The start of a sequence will be marked with this character.
-        Set to 1 because 0 is usually the padding character.
+    Set to 1 because 0 is usually the padding character.
 * <b>`oov_char`</b>: words that were cut out because of the `num_words`
-        or `skip_top` limit will be replaced with this character.
+    or `skip_top` limit will be replaced with this character.
 * <b>`index_from`</b>: index actual words with this index and higher.
 * <b>`**kwargs`</b>: Used for backwards compatibility.
 
@@ -48,10 +58,12 @@ Loads the IMDB dataset.
 Tuple of Numpy arrays: `(x_train, y_train), (x_test, y_test)`.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: in case `maxlen` is so low
-        that no input sequence could be kept.
+    that no input sequence could be kept.
 
 Note that the 'out of vocabulary' character is only used for
 words that were present in the training set but are not included

@@ -7,17 +7,18 @@ page_type: reference
 
 ## Class `TrainEvalFeatures`
 
-
-
-
-
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/feature_keys.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/timeseries/python/timeseries/feature_keys.py).
-
 Feature names used during training and evaluation.
+
+
+
+
+
+Defined in [`contrib/timeseries/python/timeseries/feature_keys.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/feature_keys.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Class Members
 
-<h3 id="TIMES"><code>TIMES</code></h3>
-
-<h3 id="VALUES"><code>VALUES</code></h3>
-
+* `TIMES = 'times'` <a id="TIMES"></a>
+* `VALUES = 'values'` <a id="VALUES"></a>

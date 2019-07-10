@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.summary.histogram
 
+Writes a histogram summary if possible.
+
 ``` python
 tf.contrib.summary.histogram(
     name,
@@ -16,6 +18,6 @@ tf.contrib.summary.histogram(
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/summary_ops_v2.py).
+Defined in [`python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/summary_ops_v2.py).
 
-Writes a histogram summary if possible.
+<!-- Placeholder for "Used in" -->

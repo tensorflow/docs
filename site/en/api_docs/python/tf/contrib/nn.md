@@ -5,18 +5,20 @@ page_type: reference
 
 # Module: tf.contrib.nn
 
-
-
-Defined in [`tensorflow/contrib/nn/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/nn/__init__.py).
-
 Module for variants of ops in tf.nn.
+
+
+
+Defined in [`contrib/nn/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/nn/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 ## Functions
 
 [`alpha_dropout(...)`](../../tf/contrib/nn/alpha_dropout): Computes alpha dropout.
 
-[`conv1d_transpose(...)`](../../tf/contrib/nn/conv1d_transpose): The transpose of `conv1d`.
+[`conv1d_transpose(...)`](../../tf/nn/conv1d_transpose): The transpose of `conv1d`.
 
 [`deprecated_flipped_sigmoid_cross_entropy_with_logits(...)`](../../tf/contrib/nn/deprecated_flipped_sigmoid_cross_entropy_with_logits): Computes sigmoid cross entropy given `logits`.
 
@@ -24,7 +26,7 @@ Module for variants of ops in tf.nn.
 
 [`deprecated_flipped_sparse_softmax_cross_entropy_with_logits(...)`](../../tf/contrib/nn/deprecated_flipped_sparse_softmax_cross_entropy_with_logits): Computes sparse softmax cross entropy between `logits` and `labels`.
 
-[`nth_element(...)`](../../tf/contrib/nn/nth_element): Finds values of the `n`-th order statistic for the last dmension.
+[`nth_element(...)`](../../tf/contrib/nn/nth_element): Finds values of the `n`-th smallest value for the last dimension.
 
 [`rank_sampled_softmax_loss(...)`](../../tf/contrib/nn/rank_sampled_softmax_loss): Computes softmax loss using rank-based adaptive resampling.
 

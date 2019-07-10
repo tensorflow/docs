@@ -7,24 +7,26 @@ page_type: reference
 
 ## Class `TFRecordCompressionType`
 
+The type of compression for the record.
+
 
 
 ### Aliases:
 
+* Class `tf.compat.v1.io.TFRecordCompressionType`
+* Class `tf.compat.v1.python_io.TFRecordCompressionType`
 * Class `tf.io.TFRecordCompressionType`
 * Class `tf.python_io.TFRecordCompressionType`
 
 
 
-Defined in [`tensorflow/python/lib/io/tf_record.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/lib/io/tf_record.py).
+Defined in [`python/lib/io/tf_record.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/tf_record.py).
 
-The type of compression for the record.
+<!-- Placeholder for "Used in" -->
+
 
 ## Class Members
 
-<h3 id="GZIP"><code>GZIP</code></h3>
-
-<h3 id="NONE"><code>NONE</code></h3>
-
-<h3 id="ZLIB"><code>ZLIB</code></h3>
-
+* `GZIP = 2` <a id="GZIP"></a>
+* `NONE = 0` <a id="NONE"></a>
+* `ZLIB = 1` <a id="ZLIB"></a>

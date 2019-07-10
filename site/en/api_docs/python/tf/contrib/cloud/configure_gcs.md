@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.cloud.configure_gcs
 
+Configures the GCS file system for a given a session.
+
 ``` python
 tf.contrib.cloud.configure_gcs(
     session,
@@ -16,9 +18,9 @@ tf.contrib.cloud.configure_gcs(
 
 
 
-Defined in [`tensorflow/contrib/cloud/python/ops/gcs_config_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
+Defined in [`contrib/cloud/python/ops/gcs_config_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
 
-Configures the GCS file system for a given a session.
+<!-- Placeholder for "Used in" -->
 
 Warning: GCS `credentials` may be transmitted over the network unencrypted.
 Please ensure that the network is trusted before using this function. For
@@ -28,8 +30,9 @@ at https://cloud.google.com/security/encryption-in-transit/.
 
 #### Args:
 
-* <b>`session`</b>: A <a href="../../../tf/Session"><code>tf.Session</code></a> session that should be used to configure the GCS
-    file system.
+
+* <b>`session`</b>: A <a href="../../../tf/Session"><code>tf.compat.v1.Session</code></a> session that should be used to configure
+  the GCS file system.
 * <b>`credentials`</b>: [Optional.] A JSON string
 * <b>`block_cache`</b>: [Optional.] A BlockCacheParams to configure the block cache .
 * <b>`device`</b>: [Optional.] The device to place the configure ops.

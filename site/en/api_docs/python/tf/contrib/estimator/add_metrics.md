@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.add_metrics
 
+Creates a new <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> which has given metrics.
+
 ``` python
 tf.contrib.estimator.add_metrics(
     estimator,
@@ -12,9 +14,16 @@ tf.contrib.estimator.add_metrics(
 )
 ```
 
-Creates a new <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> which has given metrics.
 
-Example:
+
+Defined in [`contrib/estimator/python/estimator/extenders.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/extenders.py).
+
+<!-- Placeholder for "Used in" -->
+
+
+#### Example:
+
+
 
 ```python
   def my_auc(labels, predictions):
@@ -40,22 +49,23 @@ Example usage of custom metric which uses features:
 
 #### Args:
 
+
 * <b>`estimator`</b>: A <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> object.
 * <b>`metric_fn`</b>: A function which should obey the following signature:
-    - Args: can only have following four arguments in any order:
-      * predictions: Predictions `Tensor` or dict of `Tensor` created by given
-        `estimator`.
-      * features: Input `dict` of `Tensor` objects created by `input_fn` which
-        is given to `estimator.evaluate` as an argument.
-      * labels:  Labels `Tensor` or dict of `Tensor` created by `input_fn`
-        which is given to `estimator.evaluate` as an argument.
-      * config: config attribute of the `estimator`.
-     - Returns:
-       Dict of metric results keyed by name. Final metrics are a union of this
-       and `estimator's` existing metrics. If there is a name conflict between
-       this and `estimator`s existing metrics, this will override the existing
-       one. The values of the dict are the results of calling a metric
-       function, namely a `(metric_tensor, update_op)` tuple.
+  - Args: can only have following four arguments in any order:
+    * predictions: Predictions `Tensor` or dict of `Tensor` created by given
+      `estimator`.
+    * features: Input `dict` of `Tensor` objects created by `input_fn` which
+      is given to `estimator.evaluate` as an argument.
+    * labels:  Labels `Tensor` or dict of `Tensor` created by `input_fn`
+      which is given to `estimator.evaluate` as an argument.
+    * config: config attribute of the `estimator`.
+   - Returns:
+     Dict of metric results keyed by name. Final metrics are a union of this
+     and `estimator's` existing metrics. If there is a name conflict between
+     this and `estimator`s existing metrics, this will override the existing
+     one. The values of the dict are the results of calling a metric
+     function, namely a `(metric_tensor, update_op)` tuple.
 
 
 #### Returns:

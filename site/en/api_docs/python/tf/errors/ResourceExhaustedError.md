@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `ResourceExhaustedError`
 
+Some resource has been exhausted.
+
 Inherits From: [`OpError`](../../tf/errors/OpError)
 
+### Aliases:
+
+* Class `tf.compat.v1.errors.ResourceExhaustedError`
+* Class `tf.compat.v2.errors.ResourceExhaustedError`
+* Class `tf.errors.ResourceExhaustedError`
 
 
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/errors_impl.py).
 
-Some resource has been exhausted.
+Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
+
+<!-- Placeholder for "Used in" -->
 
 For example, this error might be raised if a per-user quota is
 exhausted, or perhaps the entire file system is out of space.
@@ -33,19 +41,23 @@ Creates a `ResourceExhaustedError`.
 
 
 
+
 ## Properties
 
 <h3 id="error_code"><code>error_code</code></h3>
 
 The integer error code that describes the error.
 
+
 <h3 id="message"><code>message</code></h3>
 
 The error message that describes the error.
 
+
 <h3 id="node_def"><code>node_def</code></h3>
 
 The `NodeDef` proto representing the op that failed.
+
 
 <h3 id="op"><code>op</code></h3>
 
@@ -61,6 +73,7 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
+
 
 
 

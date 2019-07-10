@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `AlreadyExistsError`
 
+Raised when an entity that we attempted to create already exists.
+
 Inherits From: [`OpError`](../../tf/errors/OpError)
 
+### Aliases:
+
+* Class `tf.compat.v1.errors.AlreadyExistsError`
+* Class `tf.compat.v2.errors.AlreadyExistsError`
+* Class `tf.errors.AlreadyExistsError`
 
 
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/errors_impl.py).
 
-Raised when an entity that we attempted to create already exists.
+Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
+
+<!-- Placeholder for "Used in" -->
 
 For example, running an operation that saves a file
 (e.g. <a href="../../tf/train/Saver#save"><code>tf.train.Saver.save</code></a>)
@@ -35,19 +43,23 @@ Creates an `AlreadyExistsError`.
 
 
 
+
 ## Properties
 
 <h3 id="error_code"><code>error_code</code></h3>
 
 The integer error code that describes the error.
 
+
 <h3 id="message"><code>message</code></h3>
 
 The error message that describes the error.
 
+
 <h3 id="node_def"><code>node_def</code></h3>
 
 The `NodeDef` proto representing the op that failed.
+
 
 <h3 id="op"><code>op</code></h3>
 
@@ -63,6 +75,7 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
+
 
 
 

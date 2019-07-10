@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.data.group_by_window
 
+A transformation that groups windows of elements by key and reduces them. (deprecated)
+
 ``` python
 tf.contrib.data.group_by_window(
     key_func,
@@ -16,13 +18,13 @@ tf.contrib.data.group_by_window(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/grouping.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/grouping.py).
+Defined in [`contrib/data/python/ops/grouping.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/grouping.py).
 
-A transformation that groups windows of elements by key and reduces them. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.experimental.group_by_window(...)`.
+Use <a href="../../../tf/data/experimental/group_by_window"><code>tf.data.experimental.group_by_window(...)</code></a>.
 
 This transformation maps each consecutive element in a dataset to a key
 using `key_func` and groups the elements by key. It then applies
@@ -35,19 +37,20 @@ the key through `window_size_func`.
 
 #### Args:
 
+
 * <b>`key_func`</b>: A function mapping a nested structure of tensors
-    (having shapes and types defined by `self.output_shapes` and
-    `self.output_types`) to a scalar <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> tensor.
+  (having shapes and types defined by `self.output_shapes` and
+  `self.output_types`) to a scalar <a href="../../../tf#int64"><code>tf.int64</code></a> tensor.
 * <b>`reduce_func`</b>: A function mapping a key and a dataset of up to `window_size`
-    consecutive elements matching that key to another dataset.
-* <b>`window_size`</b>: A <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
-    consecutive elements matching the same key to combine in a single
-    batch, which will be passed to `reduce_func`. Mutually exclusive with
-    `window_size_func`.
-* <b>`window_size_func`</b>: A function mapping a key to a <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> scalar
-    <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of consecutive elements matching
-    the same key to combine in a single batch, which will be passed to
-    `reduce_func`. Mutually exclusive with `window_size`.
+  consecutive elements matching that key to another dataset.
+* <b>`window_size`</b>: A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
+  consecutive elements matching the same key to combine in a single
+  batch, which will be passed to `reduce_func`. Mutually exclusive with
+  `window_size_func`.
+* <b>`window_size_func`</b>: A function mapping a key to a <a href="../../../tf#int64"><code>tf.int64</code></a> scalar
+  <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of consecutive elements matching
+  the same key to combine in a single batch, which will be passed to
+  `reduce_func`. Mutually exclusive with `window_size`.
 
 
 #### Returns:
@@ -56,7 +59,9 @@ A `Dataset` transformation function, which can be passed to
 <a href="../../../tf/data/Dataset#apply"><code>tf.data.Dataset.apply</code></a>.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if neither or both of {`window_size`, `window_size_func`} are
-    passed.
+  passed.

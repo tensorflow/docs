@@ -5,20 +5,29 @@ page_type: reference
 
 # tf.train.create_global_step
 
+Create global step tensor in graph.
+
+### Aliases:
+
+* `tf.compat.v1.train.create_global_step`
+* `tf.train.create_global_step`
+
 ``` python
 tf.train.create_global_step(graph=None)
 ```
 
 
 
-Defined in [`tensorflow/python/training/training_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/training_util.py).
+Defined in [`python/training/training_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/training_util.py).
 
-Create global step tensor in graph.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
-* <b>`graph`</b>: The graph in which to create the global step tensor. If missing,
-    use default graph.
+
+* <b>`graph`</b>: The graph in which to create the global step tensor. If missing, use
+  default graph.
 
 
 #### Returns:
@@ -26,6 +35,8 @@ Create global step tensor in graph.
 Global step tensor.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if global step tensor is already defined.

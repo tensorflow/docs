@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `InferenceHelper`
 
+A helper to use during inference with a custom sampling function.
+
 Inherits From: [`Helper`](../../../tf/contrib/seq2seq/Helper)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/seq2seq/python/ops/helper.py).
+Defined in [`contrib/seq2seq/python/ops/helper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/helper.py).
 
-A helper to use during inference with a custom sampling function.
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -30,18 +33,20 @@ __init__(
 
 Initializer.
 
+
 #### Args:
+
 
 * <b>`sample_fn`</b>: A callable that takes `outputs` and emits tensor `sample_ids`.
 * <b>`sample_shape`</b>: Either a list of integers, or a 1-D Tensor of type `int32`,
-    the shape of the each sample in the batch returned by `sample_fn`.
+  the shape of the each sample in the batch returned by `sample_fn`.
 * <b>`sample_dtype`</b>: the dtype of the sample returned by `sample_fn`.
 * <b>`start_inputs`</b>: The initial batch of inputs.
 * <b>`end_fn`</b>: A callable that takes `sample_ids` and emits a `bool` vector
-    shaped `[batch_size]` indicating whether each sample is an end token.
+  shaped `[batch_size]` indicating whether each sample is an end token.
 * <b>`next_inputs_fn`</b>: (Optional) A callable that takes `sample_ids` and returns
-    the next batch of inputs. If not provided, `sample_ids` is used as the
-    next batch of inputs.
+  the next batch of inputs. If not provided, `sample_ids` is used as the
+  next batch of inputs.
 
 
 
@@ -49,21 +54,18 @@ Initializer.
 
 <h3 id="batch_size"><code>batch_size</code></h3>
 
-Batch size of tensor returned by `sample`.
 
-Returns a scalar int32 tensor.
+
 
 <h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
 
-DType of tensor returned by `sample`.
 
-Returns a DType.
+
 
 <h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
 
-Shape of tensor returned by `sample`, excluding the batch dimension.
 
-Returns a `TensorShape`.
+
 
 
 
@@ -75,7 +77,8 @@ Returns a `TensorShape`.
 initialize(name=None)
 ```
 
-Returns `(initial_finished, initial_inputs)`.
+
+
 
 <h3 id="next_inputs"><code>next_inputs</code></h3>
 
@@ -89,7 +92,8 @@ next_inputs(
 )
 ```
 
-Returns `(finished, next_inputs, next_state)`.
+
+
 
 <h3 id="sample"><code>sample</code></h3>
 
@@ -102,7 +106,8 @@ sample(
 )
 ```
 
-Returns `sample_ids`.
+
+
 
 
 

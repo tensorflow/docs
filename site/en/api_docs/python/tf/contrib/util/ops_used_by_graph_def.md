@@ -5,19 +5,22 @@ page_type: reference
 
 # tf.contrib.util.ops_used_by_graph_def
 
+Collect the list of ops used by a graph.
+
 ``` python
 tf.contrib.util.ops_used_by_graph_def(graph_def)
 ```
 
 
 
-Defined in [`tensorflow/python/framework/meta_graph.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/meta_graph.py).
+Defined in [`python/framework/meta_graph.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/meta_graph.py).
 
-Collect the list of ops used by a graph.
+<!-- Placeholder for "Used in" -->
 
 Does not validate that the ops are all registered.
 
 #### Args:
+
 
 * <b>`graph_def`</b>: A `GraphDef` proto, as from `graph.as_graph_def()`.
 

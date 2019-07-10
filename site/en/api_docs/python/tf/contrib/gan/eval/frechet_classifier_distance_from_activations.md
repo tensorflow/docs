@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.frechet_classifier_distance_from_activations
 
+Classifier distance for evaluating a generative model.
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.classifier_metrics.frechet_classifier_distance_from_activations`
@@ -19,9 +21,9 @@ tf.contrib.gan.eval.frechet_classifier_distance_from_activations(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
-Classifier distance for evaluating a generative model.
+<!-- Placeholder for "Used in" -->
 
 This methods computes the Frechet classifier distance from activations of
 real images and generated images. This can be used independently of the
@@ -49,10 +51,11 @@ generative models.
 
 #### Args:
 
+
 * <b>`real_activations`</b>: 2D Tensor containing activations of real data. Shape is
-    [batch_size, activation_size].
+  [batch_size, activation_size].
 * <b>`generated_activations`</b>: 2D Tensor containing activations of generated data.
-    Shape is [batch_size, activation_size].
+  Shape is [batch_size, activation_size].
 
 
 #### Returns:

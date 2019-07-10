@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.learn.no_op_train_fn
 
+DEPRECATED FUNCTION
+
 ``` python
 tf.contrib.learn.no_op_train_fn(loss)
 ```
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/head.py).
+Defined in [`contrib/learn/python/learn/estimators/head.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/head.py).
 
-DEPRECATED FUNCTION
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:

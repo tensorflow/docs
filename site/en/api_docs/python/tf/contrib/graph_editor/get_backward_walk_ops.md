@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.get_backward_walk_ops
 
+Do a backward graph walk and return all the visited ops.
+
 ``` python
 tf.contrib.graph_editor.get_backward_walk_ops(
     seed_ops,
@@ -18,22 +20,24 @@ tf.contrib.graph_editor.get_backward_walk_ops(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/select.py).
+Defined in [`contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/select.py).
 
-Do a backward graph walk and return all the visited ops.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`seed_ops`</b>: an iterable of operations from which the backward graph
-    walk starts. If a list of tensors is given instead, the seed_ops are set
-    to be the generators of those tensors.
+  walk starts. If a list of tensors is given instead, the seed_ops are set
+  to be the generators of those tensors.
 * <b>`inclusive`</b>: if True the given seed_ops are also part of the resulting set.
 * <b>`within_ops`</b>: an iterable of <a href="../../../tf/Operation"><code>tf.Operation</code></a> within which the search is
-    restricted. If `within_ops` is `None`, the search is performed within
-    the whole graph.
+  restricted. If `within_ops` is `None`, the search is performed within
+  the whole graph.
 * <b>`within_ops_fn`</b>: if provided, a function on ops that should return True iff
-    the op is within the graph traversal. This can be used along within_ops,
-    in which case an op is within if it is also in within_ops.
+  the op is within the graph traversal. This can be used along within_ops,
+  in which case an op is within if it is also in within_ops.
 * <b>`stop_at_ts`</b>: an iterable of tensors at which the graph walk stops.
 * <b>`control_inputs`</b>: if True, control inputs will be used while moving backward.
 
@@ -41,7 +45,9 @@ Do a backward graph walk and return all the visited ops.
 
 A Python set of all the <a href="../../../tf/Operation"><code>tf.Operation</code></a> behind `seed_ops`.
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: if `seed_ops` or `within_ops` cannot be converted to a list of
-    <a href="../../../tf/Operation"><code>tf.Operation</code></a>.
+  <a href="../../../tf/Operation"><code>tf.Operation</code></a>.

@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.math.minimum
 
+Returns the min of x and y (i.e. x < y ? x : y) element-wise.
+
 ### Aliases:
 
+* `tf.compat.v1.math.minimum`
+* `tf.compat.v1.minimum`
+* `tf.compat.v2.math.minimum`
+* `tf.compat.v2.minimum`
 * `tf.math.minimum`
 * `tf.minimum`
 
@@ -20,14 +26,15 @@ tf.math.minimum(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Returns the min of x and y (i.e. x < y ? x : y) element-wise.
+<!-- Placeholder for "Used in" -->
 
-*NOTE*: `math.minimum` supports broadcasting. More about broadcasting
+*NOTE*: <a href="../../tf/math/minimum"><code>math.minimum</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `int32`, `int64`.
 * <b>`y`</b>: A `Tensor`. Must have the same type as `x`.

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.quantized_conv2d
 
+Computes a 2D convolution given quantized 4D input and filter tensors.
+
+### Aliases:
+
+* `tf.compat.v1.nn.quantized_conv2d`
+* `tf.nn.quantized_conv2d`
+
 ``` python
 tf.nn.quantized_conv2d(
     input,
@@ -23,9 +30,9 @@ tf.nn.quantized_conv2d(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_nn_ops.py`.
+Defined in generated file: `python/ops/gen_nn_ops.py`.
 
-Computes a 2D convolution given quantized 4D input and filter tensors.
+<!-- Placeholder for "Used in" -->
 
 The inputs are quantized tensors where the lowest value represents the real
 number of the associated minimum, and the highest represents the maximum.
@@ -34,35 +41,37 @@ taking the returned minimum and maximum values into account.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. Must be one of the following types: `qint8`, `quint8`, `qint32`, `qint16`, `quint16`.
 * <b>`filter`</b>: A `Tensor`. Must be one of the following types: `qint8`, `quint8`, `qint32`, `qint16`, `quint16`.
-    filter's input_depth dimension must match input's depth dimensions.
+  filter's input_depth dimension must match input's depth dimensions.
 * <b>`min_input`</b>: A `Tensor` of type `float32`.
-    The float value that the lowest quantized input value represents.
+  The float value that the lowest quantized input value represents.
 * <b>`max_input`</b>: A `Tensor` of type `float32`.
-    The float value that the highest quantized input value represents.
+  The float value that the highest quantized input value represents.
 * <b>`min_filter`</b>: A `Tensor` of type `float32`.
-    The float value that the lowest quantized filter value represents.
+  The float value that the lowest quantized filter value represents.
 * <b>`max_filter`</b>: A `Tensor` of type `float32`.
-    The float value that the highest quantized filter value represents.
+  The float value that the highest quantized filter value represents.
 * <b>`strides`</b>: A list of `ints`.
-    The stride of the sliding window for each dimension of the input
-    tensor.
+  The stride of the sliding window for each dimension of the input
+  tensor.
 * <b>`padding`</b>: A `string` from: `"SAME", "VALID"`.
-    The type of padding algorithm to use.
-* <b>`out_type`</b>: An optional <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.qint8, tf.quint8, tf.qint32, tf.qint16, tf.quint16`. Defaults to <a href="../../tf/dtypes#qint32"><code>tf.qint32</code></a>.
+  The type of padding algorithm to use.
+* <b>`out_type`</b>: An optional <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.qint8, tf.quint8, tf.qint32, tf.qint16, tf.quint16`. Defaults to <a href="../../tf#qint32"><code>tf.qint32</code></a>.
 * <b>`dilations`</b>: An optional list of `ints`. Defaults to `[1, 1, 1, 1]`.
-    1-D tensor of length 4.  The dilation factor for each dimension of
-    `input`. If set to k > 1, there will be k-1 skipped cells between each
-    filter element on that dimension. The dimension order is determined by the
-    value of `data_format`, see above for details. Dilations in the batch and
-    depth dimensions must be 1.
+  1-D tensor of length 4.  The dilation factor for each dimension of
+  `input`. If set to k > 1, there will be k-1 skipped cells between each
+  filter element on that dimension. The dimension order is determined by the
+  value of `data_format`, see above for details. Dilations in the batch and
+  depth dimensions must be 1.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A tuple of `Tensor` objects (output, min_output, max_output).
+
 
 * <b>`output`</b>: A `Tensor` of type `out_type`.
 * <b>`min_output`</b>: A `Tensor` of type `float32`.

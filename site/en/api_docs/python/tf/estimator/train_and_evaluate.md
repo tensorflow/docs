@@ -1,9 +1,18 @@
 page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.train_and_evaluate
+
+Train and evaluate the `estimator`.
+
+### Aliases:
+
+* `tf.compat.v1.estimator.train_and_evaluate`
+* `tf.compat.v2.estimator.train_and_evaluate`
+* `tf.estimator.train_and_evaluate`
 
 ``` python
 tf.estimator.train_and_evaluate(
@@ -13,7 +22,11 @@ tf.estimator.train_and_evaluate(
 )
 ```
 
-Train and evaluate the `estimator`.
+
+
+Defined in [`python/estimator/training.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/training.py).
+
+<!-- Placeholder for "Used in" -->
 
 This utility function trains, evaluates, and (optionally) exports the model by
 using the given `estimator`. All training related specification is held in
@@ -25,7 +38,7 @@ This utility function provides consistent behavior for both local
 (non-distributed) and distributed configurations. The default distribution
 configuration is parameter server-based between-graph replication. For other
 types of distribution configurations such as all-reduce training, please use
-[DistributionStrategies](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/distribute).  # pylint: disable=line-too-long
+[DistributionStrategies](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/distribute).
 
 Overfitting: In order to avoid overfitting, it is recommended to set up the
 training `input_fn` to shuffle the training data properly.
@@ -37,7 +50,7 @@ model is trained forever. *Use with care* if model stop condition is
 different. For example, assume that the model is expected to be trained with
 one epoch of training data, and the training `input_fn` is configured to throw
 `OutOfRangeError` after going through one epoch, which stops the
-`Estimator.train`. For a three-training-worker distributed configuration, each
+<a href="../../tf/estimator/Estimator#train"><code>Estimator.train</code></a>. For a three-training-worker distributed configuration, each
 training worker is likely to go through the whole epoch independently. So, the
 model will be trained with three epochs of training data instead of one epoch.
 
@@ -81,7 +94,7 @@ only once.
 Example of distributed training:
 
 Regarding the example of distributed training, the code above can be used
-without a change (Please do make sure that the `RunConfig.model_dir` for all
+without a change (Please do make sure that the <a href="../../tf/estimator/RunConfig#model_dir"><code>RunConfig.model_dir</code></a> for all
 workers is set to the same directory, i.e., a shared file system all workers
 can read and write). The only extra work to do is setting the environment
 variable `TF_CONFIG` properly for each worker correspondingly.
@@ -183,10 +196,11 @@ training and evaluation.
 
 #### Args:
 
+
 * <b>`estimator`</b>: An `Estimator` instance to train and evaluate.
 * <b>`train_spec`</b>: A `TrainSpec` instance to specify the training specification.
 * <b>`eval_spec`</b>: A `EvalSpec` instance to specify the evaluation and export
-    specification.
+  specification.
 
 
 #### Returns:
@@ -196,6 +210,8 @@ export results using the specified `ExportStrategy`.
 Currently, the return value is undefined for distributed training mode.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if environment variable `TF_CONFIG` is incorrectly set.

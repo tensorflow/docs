@@ -7,6 +7,8 @@ page_type: reference
 
 ## Class `BigtableTable`
 
+Entry point for reading and writing data in Cloud Bigtable.
+
 
 
 ### Aliases:
@@ -16,9 +18,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/bigtable/python/ops/bigtable_api.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/bigtable/python/ops/bigtable_api.py).
+Defined in [`contrib/bigtable/python/ops/bigtable_api.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/bigtable/python/ops/bigtable_api.py).
 
-Entry point for reading and writing data in Cloud Bigtable.
+<!-- Placeholder for "Used in" -->
 
 This BigtableTable class is the Python representation of the Cloud Bigtable
 table within TensorFlow. Methods on this class allow data to be read from and
@@ -35,7 +37,8 @@ __init__(
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -49,16 +52,19 @@ keys_by_prefix_dataset(prefix)
 
 Retrieves the row keys matching a given prefix.
 
+
 #### Args:
 
+
 * <b>`prefix`</b>: All row keys that begin with `prefix` in the table will be
-    retrieved.
+  retrieved.
 
 
 #### Returns:
 
-A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>. containing <a href="../../../tf/dtypes#string"><code>tf.string</code></a> Tensors corresponding to all
+A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>. containing <a href="../../../tf#string"><code>tf.string</code></a> Tensors corresponding to all
 of the row keys matching that prefix.
+
 
 <h3 id="keys_by_range_dataset"><code>keys_by_range_dataset</code></h3>
 
@@ -75,16 +81,18 @@ Note: it does NOT retrieve the values of columns.
 
 #### Args:
 
+
 * <b>`start`</b>: The start row key. The row keys for rows after start (inclusive)
-    will be retrieved.
+  will be retrieved.
 * <b>`end`</b>: (Optional.) The end row key. Rows up to (but not including) end will
-    be retrieved. If end is None, all subsequent row keys will be retrieved.
+  be retrieved. If end is None, all subsequent row keys will be retrieved.
 
 
 #### Returns:
 
-A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> containing <a href="../../../tf/dtypes#string"><code>tf.string</code></a> Tensors corresponding to all
+A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> containing <a href="../../../tf#string"><code>tf.string</code></a> Tensors corresponding to all
 of the row keys between `start` and `end`.
+
 
 <h3 id="lookup_columns"><code>lookup_columns</code></h3>
 
@@ -97,7 +105,10 @@ lookup_columns(
 
 Retrieves the values of columns for a dataset of keys.
 
-Example usage:
+
+#### Example usage:
+
+
 
 ```python
 table = bigtable_client.table("my_table")
@@ -129,6 +140,7 @@ Note: this list can change at any time.
 
 #### Args:
 
+
 * <b>`*args`</b>: A list of tuples containing (column family, column name) pairs.
 * <b>`**kwargs`</b>: Column families (keys) and column qualifiers (values).
 
@@ -137,6 +149,7 @@ Note: this list can change at any time.
 
 A function that can be passed to <a href="../../../tf/data/Dataset#apply"><code>tf.data.Dataset.apply</code></a> to retrieve the
 values of columns for the rows.
+
 
 <h3 id="parallel_scan_prefix"><code>parallel_scan_prefix</code></h3>
 
@@ -176,20 +189,21 @@ Note: only the latest value of a cell will be retrieved.
 
 #### Args:
 
+
 * <b>`prefix`</b>: The prefix all row keys must match to be retrieved for prefix-
-    based scans.
+  based scans.
 * <b>`num_parallel_scans`</b>: (Optional.) The number of concurrent scans against the
-    Cloud Bigtable instance.
+  Cloud Bigtable instance.
 * <b>`probability`</b>: (Optional.) A float between 0 (exclusive) and 1 (inclusive).
-    A non-1 value indicates to probabilistically sample rows with the
-    provided probability.
+  A non-1 value indicates to probabilistically sample rows with the
+  provided probability.
 * <b>`columns`</b>: The columns to read. Note: most commonly, they are expressed as
-    kwargs. Use the columns value if you are using column families that are
-    reserved. The value of columns and kwargs are merged. Columns is a list
-    of tuples of strings ("column_family", "column_qualifier").
+  kwargs. Use the columns value if you are using column families that are
+  reserved. The value of columns and kwargs are merged. Columns is a list
+  of tuples of strings ("column_family", "column_qualifier").
 * <b>`**kwargs`</b>: The column families and columns to read. Keys are treated as
-    column_families, and values can be either lists of strings, or strings
-    that are treated as the column qualifier (column name).
+  column_families, and values can be either lists of strings, or strings
+  that are treated as the column qualifier (column name).
 
 
 #### Returns:
@@ -197,7 +211,9 @@ Note: only the latest value of a cell will be retrieved.
 A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> returning the row keys and the cell contents.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the configured probability is unexpected.
 
@@ -243,20 +259,21 @@ Note: only the latest value of a cell will be retrieved.
 
 #### Args:
 
+
 * <b>`start`</b>: The start of the range when scanning by range.
 * <b>`end`</b>: (Optional.) The end of the range when scanning by range.
 * <b>`num_parallel_scans`</b>: (Optional.) The number of concurrent scans against the
-    Cloud Bigtable instance.
+  Cloud Bigtable instance.
 * <b>`probability`</b>: (Optional.) A float between 0 (exclusive) and 1 (inclusive).
-    A non-1 value indicates to probabilistically sample rows with the
-    provided probability.
+  A non-1 value indicates to probabilistically sample rows with the
+  provided probability.
 * <b>`columns`</b>: The columns to read. Note: most commonly, they are expressed as
-    kwargs. Use the columns value if you are using column families that are
-    reserved. The value of columns and kwargs are merged. Columns is a list
-    of tuples of strings ("column_family", "column_qualifier").
+  kwargs. Use the columns value if you are using column families that are
+  reserved. The value of columns and kwargs are merged. Columns is a list
+  of tuples of strings ("column_family", "column_qualifier").
 * <b>`**kwargs`</b>: The column families and columns to read. Keys are treated as
-    column_families, and values can be either lists of strings, or strings
-    that are treated as the column qualifier (column name).
+  column_families, and values can be either lists of strings, or strings
+  that are treated as the column qualifier (column name).
 
 
 #### Returns:
@@ -264,7 +281,9 @@ Note: only the latest value of a cell will be retrieved.
 A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> returning the row keys and the cell contents.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the configured probability is unexpected.
 
@@ -283,6 +302,7 @@ scanning in parallel.
 #### Returns:
 
 A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> returning string row keys.
+
 
 <h3 id="scan_prefix"><code>scan_prefix</code></h3>
 
@@ -317,18 +337,19 @@ Note: only the latest value of a cell will be retrieved.
 
 #### Args:
 
+
 * <b>`prefix`</b>: The prefix all row keys must match to be retrieved for prefix-
-    based scans.
+  based scans.
 * <b>`probability`</b>: (Optional.) A float between 0 (exclusive) and 1 (inclusive).
-    A non-1 value indicates to probabilistically sample rows with the
-    provided probability.
+  A non-1 value indicates to probabilistically sample rows with the
+  provided probability.
 * <b>`columns`</b>: The columns to read. Note: most commonly, they are expressed as
-    kwargs. Use the columns value if you are using column families that are
-    reserved. The value of columns and kwargs are merged. Columns is a list
-    of tuples of strings ("column_family", "column_qualifier").
+  kwargs. Use the columns value if you are using column families that are
+  reserved. The value of columns and kwargs are merged. Columns is a list
+  of tuples of strings ("column_family", "column_qualifier").
 * <b>`**kwargs`</b>: The column families and columns to read. Keys are treated as
-    column_families, and values can be either lists of strings, or strings
-    that are treated as the column qualifier (column name).
+  column_families, and values can be either lists of strings, or strings
+  that are treated as the column qualifier (column name).
 
 
 #### Returns:
@@ -336,7 +357,9 @@ Note: only the latest value of a cell will be retrieved.
 A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> returning the row keys and the cell contents.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the configured probability is unexpected.
 
@@ -374,18 +397,19 @@ Note: only the latest value of a cell will be retrieved.
 
 #### Args:
 
+
 * <b>`start`</b>: The start of the range when scanning by range.
 * <b>`end`</b>: (Optional.) The end of the range when scanning by range.
 * <b>`probability`</b>: (Optional.) A float between 0 (exclusive) and 1 (inclusive).
-    A non-1 value indicates to probabilistically sample rows with the
-    provided probability.
+  A non-1 value indicates to probabilistically sample rows with the
+  provided probability.
 * <b>`columns`</b>: The columns to read. Note: most commonly, they are expressed as
-    kwargs. Use the columns value if you are using column families that are
-    reserved. The value of columns and kwargs are merged. Columns is a list
-    of tuples of strings ("column_family", "column_qualifier").
+  kwargs. Use the columns value if you are using column families that are
+  reserved. The value of columns and kwargs are merged. Columns is a list
+  of tuples of strings ("column_family", "column_qualifier").
 * <b>`**kwargs`</b>: The column families and columns to read. Keys are treated as
-    column_families, and values can be either lists of strings, or strings
-    that are treated as the column qualifier (column name).
+  column_families, and values can be either lists of strings, or strings
+  that are treated as the column qualifier (column name).
 
 
 #### Returns:
@@ -393,7 +417,9 @@ Note: only the latest value of a cell will be retrieved.
 A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> returning the row keys and the cell contents.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the configured probability is unexpected.
 
@@ -410,19 +436,21 @@ write(
 
 Writes a dataset to the table.
 
+
 #### Args:
 
+
 * <b>`dataset`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> to be written to this table. It must produce
-    a list of number-of-columns+1 elements, all of which must be strings.
-    The first value will be used as the row key, and subsequent values will
-    be used as cell values for the corresponding columns from the
-    corresponding column_families and columns entries.
-* <b>`column_families`</b>: A <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> of <a href="../../../tf/dtypes#string"><code>tf.string</code></a>s corresponding to the
-    column names to store the dataset's elements into.
-* <b>`columns`</b>: A <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> of <a href="../../../tf/dtypes#string"><code>tf.string</code></a>s corresponding to the column names
-    to store the dataset's elements into.
+  a list of number-of-columns+1 elements, all of which must be strings.
+  The first value will be used as the row key, and subsequent values will
+  be used as cell values for the corresponding columns from the
+  corresponding column_families and columns entries.
+* <b>`column_families`</b>: A <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> of <a href="../../../tf#string"><code>tf.string</code></a>s corresponding to the
+  column names to store the dataset's elements into.
+* <b>`columns`</b>: A <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> of <a href="../../../tf#string"><code>tf.string</code></a>s corresponding to the column names
+  to store the dataset's elements into.
 * <b>`timestamp`</b>: (Optional.) An int64 timestamp to write all the values at.
-    Leave as None to use server-provided timestamps.
+  Leave as None to use server-provided timestamps.
 
 
 #### Returns:
@@ -430,11 +458,13 @@ Writes a dataset to the table.
 A <a href="../../../tf/Operation"><code>tf.Operation</code></a> that can be run to perform the write.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If there are unexpected or incompatible types, or if the
-    number of columns and column_families does not match the output of
-    `dataset`.
+  number of columns and column_families does not match the output of
+  `dataset`.
 
 
 

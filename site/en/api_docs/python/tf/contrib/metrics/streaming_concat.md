@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.streaming_concat
 
+Concatenate values along an axis across batches.
+
 ``` python
 tf.contrib.metrics.streaming_concat(
     values,
@@ -18,9 +20,9 @@ tf.contrib.metrics.streaming_concat(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
-Concatenate values along an axis across batches.
+<!-- Placeholder for "Used in" -->
 
 The function `streaming_concat` creates two local variables, `array` and
 `size`, that are used to store concatenated values. Internally, `array` is
@@ -36,20 +38,22 @@ using the same framework as other streaming metrics.
 
 #### Args:
 
+
 * <b>`values`</b>: `Tensor` to concatenate. Rank and the shape along all axes other
-    than the axis to concatenate along must be statically known.
+  than the axis to concatenate along must be statically known.
 * <b>`axis`</b>: optional integer axis to concatenate along.
 * <b>`max_size`</b>: optional integer maximum size of `value` along the given axis.
-    Once the maximum size is reached, further updates are no-ops. By default,
-    there is no maximum size: the array is resized as necessary.
-* <b>`metrics_collections`</b>: An optional list of collections that `value`
-    should be added to.
+  Once the maximum size is reached, further updates are no-ops. By default,
+  there is no maximum size: the array is resized as necessary.
+* <b>`metrics_collections`</b>: An optional list of collections that `value` should be
+  added to.
 * <b>`updates_collections`</b>: An optional list of collections `update_op` should be
-    added to.
+  added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
+
 
 * <b>`value`</b>: A `Tensor` representing the concatenated values.
 * <b>`update_op`</b>: An operation that concatenates the next values.
@@ -57,6 +61,7 @@ using the same framework as other streaming metrics.
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `values` does not have a statically known rank, `axis` is
-    not in the valid range or the size of `values` is not statically known
-    along any axis other than `axis`.
+  not in the valid range or the size of `values` is not statically known
+  along any axis other than `axis`.

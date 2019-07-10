@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `MultitaskOptimizerWrapper`
 
-
-
-
-
-Defined in [`tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
-
 Optimizer wrapper making all-zero gradients harmless.
+
+
+
+
+
+Defined in [`contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
+
+<!-- Placeholder for "Used in" -->
 
 This might be useful when a multi-task loss is used,
 and some components of the loss might be
@@ -38,10 +40,11 @@ The gradient calculation and application
 are delegated to an underlying optimizer.
 The gradient application is altered only for all-zero tensors.
 
-Example:
+#### Example:
+
 
 ```python
-momentum_optimizer = tf.train.MomentumOptimizer(
+momentum_optimizer = tf.compat.v1.train.MomentumOptimizer(
   learning_rate, momentum=0.9)
 multitask_momentum_optimizer = tf.contrib.opt.MultitaskOptimizerWrapper(
   momentum_optimizer)
@@ -61,21 +64,11 @@ __init__(opt)
 
 Constructor.
 
+
 #### Args:
 
+
 * <b>`opt`</b>: an instance of a class that implements tf.train.Optimizer.
-
-
-
-## Methods
-
-<h3 id="__getattr__"><code>__getattr__</code></h3>
-
-``` python
-__getattr__(name)
-```
-
-
 
 
 

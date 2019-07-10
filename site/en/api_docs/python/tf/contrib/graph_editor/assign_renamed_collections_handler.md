@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.assign_renamed_collections_handler
 
+Add the transformed elem to the (renamed) collections of elem.
+
 ``` python
 tf.contrib.graph_editor.assign_renamed_collections_handler(
     info,
@@ -15,14 +17,15 @@ tf.contrib.graph_editor.assign_renamed_collections_handler(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/transform.py).
+Defined in [`contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/transform.py).
 
-Add the transformed elem to the (renamed) collections of elem.
+<!-- Placeholder for "Used in" -->
 
 A collection is renamed only if is not a known key, as described in
-<a href="../../../tf/GraphKeys"><code>tf.GraphKeys</code></a>.
+<a href="../../../tf/GraphKeys"><code>tf.compat.v1.GraphKeys</code></a>.
 
 #### Args:
+
 
 * <b>`info`</b>: Transform._TmpInfo instance.
 * <b>`elem`</b>: the original element (<a href="../../../tf/Tensor"><code>tf.Tensor</code></a> or <a href="../../../tf/Operation"><code>tf.Operation</code></a>)

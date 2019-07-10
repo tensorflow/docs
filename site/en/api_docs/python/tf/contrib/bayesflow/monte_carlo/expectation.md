@@ -6,6 +6,8 @@ page_type: reference
 
 # tf.contrib.bayesflow.monte_carlo.expectation
 
+Computes the Monte-Carlo approximation of \\(E_p[f(X)]\\). (deprecated)
+
 ``` python
 tf.contrib.bayesflow.monte_carlo.expectation(
     f,
@@ -20,9 +22,9 @@ tf.contrib.bayesflow.monte_carlo.expectation(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
+Defined in [`contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
 
-Computes the Monte-Carlo approximation of \\(E_p[f(X)]\\). (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
 Instructions for updating:
@@ -69,7 +71,9 @@ Unless p is not reparametrized, it is usually preferable to
 Warning: users are responsible for verifying `p` is a "reparameterized"
 distribution.
 
-Example Use:
+#### Example Use:
+
+
 
 ```python
 import tensorflow_probability as tfp
@@ -123,36 +127,39 @@ approx_kl_p_q = tfp.vi.monte_carlo_csiszar_f_divergence(
 
 #### Args:
 
+
 * <b>`f`</b>: Python callable which can return `f(samples)`.
 * <b>`samples`</b>: `Tensor` of samples used to form the Monte-Carlo approximation of
-    \\(E_p[f(X)]\\).  A batch of samples should be indexed by `axis`
-    dimensions.
+  \\(E_p[f(X)]\\).  A batch of samples should be indexed by `axis`
+  dimensions.
 * <b>`log_prob`</b>: Python callable which can return `log_prob(samples)`. Must
-    correspond to the natural-logarithm of the pdf/pmf of each sample. Only
-    required/used if `use_reparametrization=False`.
-    Default value: `None`.
+  correspond to the natural-logarithm of the pdf/pmf of each sample. Only
+  required/used if `use_reparametrization=False`.
+  Default value: `None`.
 * <b>`use_reparametrization`</b>: Python `bool` indicating that the approximation
-    should use the fact that the gradient of samples is unbiased. Whether
-    `True` or `False`, this arg only affects the gradient of the resulting
-    `approx_expectation`.
-    Default value: `True`.
+  should use the fact that the gradient of samples is unbiased. Whether
+  `True` or `False`, this arg only affects the gradient of the resulting
+  `approx_expectation`.
+  Default value: `True`.
 * <b>`axis`</b>: The dimensions to average. If `None`, averages all
-    dimensions.
-    Default value: `0` (the left-most dimension).
+  dimensions.
+  Default value: `0` (the left-most dimension).
 * <b>`keep_dims`</b>: If True, retains averaged dimensions using size `1`.
-    Default value: `False`.
+  Default value: `False`.
 * <b>`name`</b>: A `name_scope` for operations created by this function.
-    Default value: `None` (which implies "expectation").
+  Default value: `None` (which implies "expectation").
 
 
 #### Returns:
 
+
 * <b>`approx_expectation`</b>: `Tensor` corresponding to the Monte-Carlo approximation
-    of \\(E_p[f(X)]\\).
+  of \\(E_p[f(X)]\\).
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `f` is not a Python `callable`.
 * <b>`ValueError`</b>: if `use_reparametrization=False` and `log_prob` is not a Python
-    `callable`.
+  `callable`.

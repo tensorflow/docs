@@ -5,8 +5,11 @@ page_type: reference
 
 # tf.nn.static_state_saving_rnn
 
+RNN that accepts a state saver for time-truncated RNN calculation. (deprecated)
+
 ### Aliases:
 
+* `tf.compat.v1.nn.static_state_saving_rnn`
 * `tf.contrib.rnn.static_state_saving_rnn`
 * `tf.nn.static_state_saving_rnn`
 
@@ -23,23 +26,27 @@ tf.nn.static_state_saving_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/rnn.py).
+Defined in [`python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn.py).
 
-RNN that accepts a state saver for time-truncated RNN calculation.
+<!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please use <a href="../../tf/keras/layers/RNN"><code>keras.layers.RNN(cell, stateful=True)</code></a>, which is equivalent to this API
 
 #### Args:
 
+
 * <b>`cell`</b>: An instance of `RNNCell`.
-* <b>`inputs`</b>: A length T list of inputs, each a `Tensor` of shape
-    `[batch_size, input_size]`.
+* <b>`inputs`</b>: A length T list of inputs, each a `Tensor` of shape `[batch_size,
+  input_size]`.
 * <b>`state_saver`</b>: A state saver object with methods `state` and `save_state`.
 * <b>`state_name`</b>: Python string or tuple of strings.  The name to use with the
-    state_saver. If the cell returns tuples of states (i.e.,
-    `cell.state_size` is a tuple) then `state_name` should be a tuple of
-    strings having the same length as `cell.state_size`.  Otherwise it should
-    be a single string.
-* <b>`sequence_length`</b>: (optional) An int32/int64 vector size [batch_size].
-    See the documentation for rnn() for more details about sequence_length.
+  state_saver. If the cell returns tuples of states (i.e., `cell.state_size`
+  is a tuple) then `state_name` should be a tuple of strings having the same
+  length as `cell.state_size`.  Otherwise it should be a single string.
+* <b>`sequence_length`</b>: (optional) An int32/int64 vector size [batch_size]. See the
+  documentation for rnn() for more details about sequence_length.
 * <b>`scope`</b>: VariableScope for the created subgraph; defaults to "rnn".
 
 
@@ -50,8 +57,10 @@ A pair (outputs, state) where:
   states is the final state
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `cell` is not an instance of RNNCell.
 * <b>`ValueError`</b>: If `inputs` is `None` or an empty list, or if the arity and
-   type of `state_name` does not match that of `cell.state_size`.
+ type of `state_name` does not match that of `cell.state_size`.

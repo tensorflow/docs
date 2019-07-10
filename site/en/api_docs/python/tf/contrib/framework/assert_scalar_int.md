@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.assert_scalar_int
 
+Assert `tensor` is 0-D, of type <a href="../../../tf#int32"><code>tf.int32</code></a> or <a href="../../../tf#int64"><code>tf.int64</code></a>.
+
 ``` python
 tf.contrib.framework.assert_scalar_int(
     tensor,
@@ -14,11 +16,13 @@ tf.contrib.framework.assert_scalar_int(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/framework/tensor_util.py).
+Defined in [`contrib/framework/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/framework/tensor_util.py).
 
-Assert `tensor` is 0-D, of type <a href="../../../tf/dtypes#int32"><code>tf.int32</code></a> or <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a>.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`tensor`</b>: `Tensor` to test.
 * <b>`name`</b>: Name of the op and of the new `Tensor` if one is created.
@@ -27,6 +31,8 @@ Assert `tensor` is 0-D, of type <a href="../../../tf/dtypes#int32"><code>tf.int3
 
 `tensor`, for chaining.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `tensor` is not 0-D, of integer type.

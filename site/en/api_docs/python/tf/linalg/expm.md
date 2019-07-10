@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.linalg.expm
 
+Computes the matrix exponential of one or more square matrices.
+
+### Aliases:
+
+* `tf.compat.v1.linalg.expm`
+* `tf.compat.v2.linalg.expm`
+* `tf.linalg.expm`
+
 ``` python
 tf.linalg.expm(
     input,
@@ -14,9 +22,9 @@ tf.linalg.expm(
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linalg_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/linalg/linalg_impl.py).
+Defined in [`python/ops/linalg/linalg_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg/linalg_impl.py).
 
-Computes the matrix exponential of one or more square matrices.
+<!-- Placeholder for "Used in" -->
 
 exp(A) = \sum_{n=0}^\infty A^n/n!
 
@@ -31,8 +39,9 @@ containing the exponential for all input submatrices `[..., :, :]`.
 
 #### Args:
 
-* <b>`input`</b>: A `Tensor`. Must be `float16`, `float32`, `float64`, `complex64`,
-    or `complex128` with shape `[..., M, M]`.
+
+* <b>`input`</b>: A `Tensor`. Must be `float16`, `float32`, `float64`, `complex64`, or
+  `complex128` with shape `[..., M, M]`.
 * <b>`name`</b>:  A name to give this `Op` (optional).
 
 
@@ -41,7 +50,9 @@ containing the exponential for all input submatrices `[..., :, :]`.
 the matrix exponential of the input.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: An unsupported type is provided as input.
 

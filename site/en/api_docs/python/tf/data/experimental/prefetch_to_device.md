@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.data.experimental.prefetch_to_device
 
+A transformation that prefetches dataset values to the given `device`.
+
+### Aliases:
+
+* `tf.compat.v1.data.experimental.prefetch_to_device`
+* `tf.compat.v2.data.experimental.prefetch_to_device`
+* `tf.data.experimental.prefetch_to_device`
+
 ``` python
 tf.data.experimental.prefetch_to_device(
     device,
@@ -14,18 +22,19 @@ tf.data.experimental.prefetch_to_device(
 
 
 
-Defined in [`tensorflow/python/data/experimental/ops/prefetching_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/experimental/ops/prefetching_ops.py).
+Defined in [`python/data/experimental/ops/prefetching_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/prefetching_ops.py).
 
-A transformation that prefetches dataset values to the given `device`.
+<!-- Placeholder for "Used in" -->
 
 NOTE: Although the transformation creates a <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>, the
 transformation must be the final `Dataset` in the input pipeline.
 
 #### Args:
 
+
 * <b>`device`</b>: A string. The name of a device to which elements will be prefetched.
 * <b>`buffer_size`</b>: (Optional.) The number of elements to buffer on `device`.
-    Defaults to an automatically chosen value.
+  Defaults to an automatically chosen value.
 
 
 #### Returns:

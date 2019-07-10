@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.metrics.aggregate_metric_map
 
+Aggregates the metric names to tuple dictionary.
+
 ``` python
 tf.contrib.metrics.aggregate_metric_map(names_to_tuples)
 ```
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
-Aggregates the metric names to tuple dictionary.
+<!-- Placeholder for "Used in" -->
 
 This function is useful for pairing metric names with their associated value
 and update ops when the list of metrics is long. For example:
@@ -33,8 +35,9 @@ and update ops when the list of metrics is long. For example:
 
 #### Args:
 
+
 * <b>`names_to_tuples`</b>: a map of metric names to tuples, each of which contain the
-    pair of (value_tensor, update_op) from a streaming metric.
+  pair of (value_tensor, update_op) from a streaming metric.
 
 
 #### Returns:

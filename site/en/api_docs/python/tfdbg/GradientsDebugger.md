@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_gradients.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/lib/debug_gradients.py).
+Defined in [`tensorflow/python/debug/lib/debug_gradients.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/lib/debug_gradients.py).
 
 Gradients Debugger.
 
@@ -133,7 +133,7 @@ z = tf.square(debug_y)
 
 # Create a train op under the grad_debugger context.
 with grad_debugger:
-  train_op = tf.train.GradientDescentOptimizer(z)
+  train_op = tf.compat.v1.train.GradientDescentOptimizer(z)
 
 # Now we can reflect through grad_debugger to get the gradient tensor
 # with respect to y.
@@ -209,7 +209,7 @@ z = tf.square(debug_y)
 # Create a train op under the grad_debugger context.
 grad_debugger = tf_debug.GradientsDebugger()
 with grad_debugger.watch_gradients_by_tensor_names(r"(x|y):0$"):
-  train_op = tf.train.GradientDescentOptimizer(z)
+  train_op = tf.compat.v1.train.GradientDescentOptimizer(z)
 
 # Now we can reflect through grad_debugger to get the gradient tensor
 # with respect to x and y.
@@ -264,7 +264,7 @@ z = tf.square(debug_y)
 # Create a train op under the grad_debugger context.
 grad_debugger = tf_debug.GradientsDebugger()
 with grad_debugger.watch_gradients_by_tensors(y):
-  train_op = tf.train.GradientDescentOptimizer(z)
+  train_op = tf.compat.v1.train.GradientDescentOptimizer(z)
 
 # Now we can reflect through grad_debugger to get the gradient tensor
 # with respect to y.

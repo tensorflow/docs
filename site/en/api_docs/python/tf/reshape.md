@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.reshape
 
+Reshapes a tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.manip.reshape`
+* `tf.compat.v1.reshape`
+* `tf.compat.v2.reshape`
 * `tf.manip.reshape`
 * `tf.reshape`
 
@@ -20,9 +25,9 @@ tf.reshape(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Reshapes a tensor.
+<!-- Placeholder for "Used in" -->
 
 Given `tensor`, this operation returns a tensor that has the same values
 as `tensor` with shape `shape`.
@@ -35,7 +40,9 @@ If `shape` is 1-D or higher, then the operation returns a tensor with shape
 `shape` filled with the values of `tensor`. In this case, the number of elements
 implied by `shape` must be the same as the number of elements in `tensor`.
 
-For example:
+#### For example:
+
+
 
 ```
 # tensor 't' is [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -83,9 +90,10 @@ reshape(t, []) ==> 7
 
 #### Args:
 
+
 * <b>`tensor`</b>: A `Tensor`.
 * <b>`shape`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    Defines the shape of the output tensor.
+  Defines the shape of the output tensor.
 * <b>`name`</b>: A name for the operation (optional).
 
 

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.summary.merge_all
 
+Merges all summaries collected in the default graph.
+
+### Aliases:
+
+* `tf.compat.v1.summary.merge_all`
+* `tf.summary.merge_all`
+
 ``` python
 tf.summary.merge_all(
     key=tf.GraphKeys.SUMMARIES,
@@ -15,14 +22,16 @@ tf.summary.merge_all(
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/summary/summary.py).
+Defined in [`python/summary/summary.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/summary.py).
 
-Merges all summaries collected in the default graph.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`key`</b>: `GraphKey` used to collect the summaries.  Defaults to
-    `GraphKeys.SUMMARIES`.
+  <a href="../../tf/GraphKeys#SUMMARIES"><code>GraphKeys.SUMMARIES</code></a>.
 * <b>`scope`</b>: Optional scope used to filter the summary ops, using `re.match`
 
 
@@ -33,7 +42,9 @@ If no summaries were collected, returns None.  Otherwise returns a scalar
 buffer resulting from the merging.
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: If called with eager execution enabled.
 

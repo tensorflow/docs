@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.estimator.regressor_parse_example_spec
 
+Generates parsing spec for tf.parse_example to be used with regressors.
+
+### Aliases:
+
+* `tf.compat.v1.estimator.regressor_parse_example_spec`
+* `tf.compat.v2.estimator.regressor_parse_example_spec`
+* `tf.estimator.regressor_parse_example_spec`
+
 ``` python
 tf.estimator.regressor_parse_example_spec(
     feature_columns,
@@ -16,7 +24,11 @@ tf.estimator.regressor_parse_example_spec(
 )
 ```
 
-Generates parsing spec for tf.parse_example to be used with regressors.
+
+
+Defined in [`python/estimator/canned/parsing_utils.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/parsing_utils.py).
+
+<!-- Placeholder for "Used in" -->
 
 If users keep data in tf.Example format, they need to call tf.parse_example
 with a proper feature spec. There are two main things that this utility helps:
@@ -85,25 +97,26 @@ estimator.train(input_fn=input_fn_train)
 
 #### Args:
 
+
 * <b>`feature_columns`</b>: An iterable containing all feature columns. All items
-    should be instances of classes derived from `_FeatureColumn`.
+  should be instances of classes derived from `_FeatureColumn`.
 * <b>`label_key`</b>: A string identifying the label. It means tf.Example stores labels
-    with this key.
+  with this key.
 * <b>`label_dtype`</b>: A `tf.dtype` identifies the type of labels. By default it is
-    <a href="../../tf/dtypes#float32"><code>tf.float32</code></a>.
+  <a href="../../tf#float32"><code>tf.float32</code></a>.
 * <b>`label_default`</b>: used as label if label_key does not exist in given
-    tf.Example. By default default_value is none, which means
-    <a href="../../tf/io/parse_example"><code>tf.parse_example</code></a> will error out if there is any missing label.
+  tf.Example. By default default_value is none, which means
+  <a href="../../tf/io/parse_example"><code>tf.parse_example</code></a> will error out if there is any missing label.
 * <b>`label_dimension`</b>: Number of regression targets per example. This is the
-    size of the last dimension of the labels and logits `Tensor` objects
-    (typically, these have shape `[batch_size, label_dimension]`).
+  size of the last dimension of the labels and logits `Tensor` objects
+  (typically, these have shape `[batch_size, label_dimension]`).
 * <b>`weight_column`</b>: A string or a `_NumericColumn` created by
-    <a href="../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
-    weights. It is used to down weight or boost examples during training. It
-    will be multiplied by the loss of the example. If it is a string, it is
-    used as a key to fetch weight tensor from the `features`. If it is a
-    `_NumericColumn`, raw tensor is fetched by key `weight_column.key`,
-    then weight_column.normalizer_fn is applied on it to get weight tensor.
+  <a href="../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
+  weights. It is used to down weight or boost examples during training. It
+  will be multiplied by the loss of the example. If it is a string, it is
+  used as a key to fetch weight tensor from the `features`. If it is a
+  `_NumericColumn`, raw tensor is fetched by key `weight_column.key`,
+  then weight_column.normalizer_fn is applied on it to get weight tensor.
 
 
 #### Returns:
@@ -112,11 +125,13 @@ A dict mapping each feature key to a `FixedLenFeature` or `VarLenFeature`
 value.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If label is used in `feature_columns`.
 * <b>`ValueError`</b>: If weight_column is used in `feature_columns`.
 * <b>`ValueError`</b>: If any of the given `feature_columns` is not a `_FeatureColumn`
-    instance.
+  instance.
 * <b>`ValueError`</b>: If `weight_column` is not a `_NumericColumn` instance.
 * <b>`ValueError`</b>: if label_key is None.

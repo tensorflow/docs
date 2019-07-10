@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `SyncReplicasOptimizer`
 
+Class to synchronize, aggregate gradients and pass them to the optimizer.
+
 Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
+### Aliases:
+
+* Class `tf.compat.v1.train.SyncReplicasOptimizer`
+* Class `tf.train.SyncReplicasOptimizer`
 
 
-Defined in [`tensorflow/python/training/sync_replicas_optimizer.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/sync_replicas_optimizer.py).
 
-Class to synchronize, aggregate gradients and pass them to the optimizer.
+Defined in [`python/training/sync_replicas_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/sync_replicas_optimizer.py).
+
+<!-- Placeholder for "Used in" -->
 
 This class is deprecated. For synchrononous training, please use [Distribution
 Strategies](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/distribute).
@@ -59,7 +66,9 @@ For the Parameter Server job:
    a token exists. If one worker is stuck for some reason and does not
    consume a token, another worker can use it.
 
-For the replicas:
+#### For the replicas:
+
+
 
 1. Start a step: fetch variables and compute gradients.
 2. Once the gradients have been computed, push them into gradient
@@ -80,7 +89,7 @@ opt = GradientDescentOptimizer(learning_rate=0.1)
 # Note that if you want to have 2 backup replicas, you can change
 # total_num_replicas=52 and make sure this number matches how many physical
 # replicas you started in your job.
-opt = tf.train.SyncReplicasOptimizer(opt, replicas_to_aggregate=50,
+opt = tf.compat.v1.train.SyncReplicasOptimizer(opt, replicas_to_aggregate=50,
                                total_num_replicas=50)
 
 # Some models have startup_delays to help stabilize the model but when using
@@ -136,21 +145,22 @@ The `SyncReplicaOptimizer` class is deprecated. For synchrononous training, plea
 
 #### Args:
 
+
 * <b>`opt`</b>: The actual optimizer that will be used to compute and apply the
-    gradients. Must be one of the Optimizer classes.
+  gradients. Must be one of the Optimizer classes.
 * <b>`replicas_to_aggregate`</b>: number of replicas to aggregate for each variable
-    update.
+  update.
 * <b>`total_num_replicas`</b>: Total number of tasks/workers/replicas, could be
-    different from replicas_to_aggregate.
-    If total_num_replicas > replicas_to_aggregate: it is backup_replicas +
-    replicas_to_aggregate.
-    If total_num_replicas < replicas_to_aggregate: Replicas compute
-    multiple batches per update to variables.
+  different from replicas_to_aggregate.
+  If total_num_replicas > replicas_to_aggregate: it is backup_replicas +
+  replicas_to_aggregate.
+  If total_num_replicas < replicas_to_aggregate: Replicas compute
+  multiple batches per update to variables.
 * <b>`variable_averages`</b>: Optional `ExponentialMovingAverage` object, used to
-    maintain moving averages for the variables passed in
-    `variables_to_average`.
+  maintain moving averages for the variables passed in
+  `variables_to_average`.
 * <b>`variables_to_average`</b>: a list of variables that need to be averaged. Only
-    needed if variable_averages is passed in.
+  needed if variable_averages is passed in.
 * <b>`use_locking`</b>: If True use locks for update operation.
 * <b>`name`</b>: string. Optional name of the returned operation.
 
@@ -175,25 +185,28 @@ apply_gradients() from the real optimizer.
 
 #### Args:
 
+
 * <b>`grads_and_vars`</b>: List of (gradient, variable) pairs as returned by
-    compute_gradients().
+  compute_gradients().
 * <b>`global_step`</b>: Optional Variable to increment by one after the
-    variables have been updated.
+  variables have been updated.
 * <b>`name`</b>: Optional name for the returned operation.  Default to the
-    name passed to the Optimizer constructor.
+  name passed to the Optimizer constructor.
 
 
 #### Returns:
 
+
 * <b>`train_op`</b>: The op to dequeue a token so the replicas can exit this batch
-  and start the next one. This is executed by each replica.
+and start the next one. This is executed by each replica.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the grads_and_vars is empty.
 * <b>`ValueError`</b>: If global step is not provided, the staleness cannot be
-    checked.
+  checked.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
 
@@ -214,6 +227,7 @@ gradients can hurt the gradients from other replicas.
 
 #### Args:
 
+
 * <b>`*args`</b>: Arguments for compute_gradients().
 * <b>`**kwargs`</b>: Keyword arguments for compute_gradients().
 
@@ -221,6 +235,7 @@ gradients can hurt the gradients from other replicas.
 #### Returns:
 
 A list of (gradient, variable) pairs.
+
 
 <h3 id="get_chief_queue_runner"><code>get_chief_queue_runner</code></h3>
 
@@ -241,7 +256,9 @@ actually generates this queuerunner.
 A `QueueRunner` for chief to execute.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If this is called before apply_gradients().
 
@@ -261,6 +278,7 @@ variable update. Make sure:
 
 #### Args:
 
+
 * <b>`num_tokens`</b>: Number of tokens to add to the queue.
 
 
@@ -269,17 +287,20 @@ variable update. Make sure:
 An op for the chief/sync replica to fill the token queue.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If this is called before apply_gradients().
 * <b>`ValueError`</b>: If num_tokens are smaller than replicas_to_aggregate -
-    total_num_replicas.
+  total_num_replicas.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
 ``` python
 get_name()
 ```
+
 
 
 
@@ -298,6 +319,7 @@ This simply wraps the get_slot() from the actual optimizer.
 
 #### Args:
 
+
 * <b>`*args`</b>: Arguments for get_slot().
 * <b>`**kwargs`</b>: Keyword arguments for get_slot().
 
@@ -305,6 +327,7 @@ This simply wraps the get_slot() from the actual optimizer.
 #### Returns:
 
 The `Variable` for the slot if it was created, `None` otherwise.
+
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
@@ -321,6 +344,7 @@ This simply wraps the get_slot_names() from the actual optimizer.
 
 #### Args:
 
+
 * <b>`*args`</b>: Arguments for get_slot().
 * <b>`**kwargs`</b>: Keyword arguments for get_slot().
 
@@ -328,6 +352,7 @@ This simply wraps the get_slot_names() from the actual optimizer.
 #### Returns:
 
 A list of strings.
+
 
 <h3 id="make_session_run_hook"><code>make_session_run_hook</code></h3>
 
@@ -339,6 +364,7 @@ make_session_run_hook(
 ```
 
 Creates a hook to handle SyncReplicasHook ops such as initialization.
+
 
 <h3 id="minimize"><code>minimize</code></h3>
 
@@ -364,18 +390,19 @@ of using this function.
 
 #### Args:
 
+
 * <b>`loss`</b>: A `Tensor` containing the value to minimize.
 * <b>`global_step`</b>: Optional `Variable` to increment by one after the
-    variables have been updated.
+  variables have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
-    minimize `loss`.  Defaults to the list of variables collected in
-    the graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  minimize `loss`.  Defaults to the list of variables collected in
+  the graph under the key <a href="../../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
-    `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
+  `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
-    Valid values are defined in the class `AggregationMethod`.
+  Valid values are defined in the class `AggregationMethod`.
 * <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with
-    the corresponding op.
+  the corresponding op.
 * <b>`name`</b>: Optional name for the returned operation.
 * <b>`grad_loss`</b>: Optional. A `Tensor` holding the gradient computed for `loss`.
 
@@ -386,7 +413,9 @@ An Operation that updates the variables in `var_list`.  If `global_step`
 was not `None`, that operation also increments `global_step`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If some of the variables are not `Variable` objects.
 
@@ -420,11 +449,9 @@ A list of variables.
 
 
 
+
 ## Class Members
 
-<h3 id="GATE_GRAPH"><code>GATE_GRAPH</code></h3>
-
-<h3 id="GATE_NONE"><code>GATE_NONE</code></h3>
-
-<h3 id="GATE_OP"><code>GATE_OP</code></h3>
-
+* `GATE_GRAPH = 2` <a id="GATE_GRAPH"></a>
+* `GATE_NONE = 0` <a id="GATE_NONE"></a>
+* `GATE_OP = 1` <a id="GATE_OP"></a>

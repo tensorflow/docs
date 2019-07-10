@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.with_same_shape
 
+Assert tensors are the same shape, from the same graph.
+
 ``` python
 tf.contrib.framework.with_same_shape(
     expected_tensor,
@@ -14,11 +16,13 @@ tf.contrib.framework.with_same_shape(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/framework/tensor_util.py).
+Defined in [`contrib/framework/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/framework/tensor_util.py).
 
-Assert tensors are the same shape, from the same graph.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`expected_tensor`</b>: Tensor with expected shape.
 * <b>`tensor`</b>: Tensor of actual values.

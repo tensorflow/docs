@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `Topology`
 
-
-
-
-
-Defined in [`tensorflow/contrib/tpu/python/tpu/topology.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/tpu/python/tpu/topology.py).
-
 Describes a set of TPU devices.
+
+
+
+
+
+Defined in [`python/tpu/topology.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/topology.py).
+
+<!-- Placeholder for "Used in" -->
 
 Represents both the shape of the physical mesh, and the mapping between
 TensorFlow TPU devices to physical mesh coordinates.
@@ -36,23 +38,25 @@ the other arguments are ignored. Otherwise, the topology is computed from
 
 #### Args:
 
+
 * <b>`serialized`</b>: A serialized `TopologyProto`, or `None`. If not `None`, the
-    serialized proto is parsed to discover the topology.
+  serialized proto is parsed to discover the topology.
 * <b>`mesh_shape`</b>: A sequence of 3 positive integers, or `None`. If not `None`,
-    the shape of the TPU topology, in number of cores. Ignored if
-    `serialized` is not `None`.
+  the shape of the TPU topology, in number of cores. Ignored if
+  `serialized` is not `None`.
 * <b>`device_coordinates`</b>: A rank 3 numpy array that describes the mapping from
-    TensorFlow TPU devices to TPU fabric coordinates, or `None`. Ignored
-    if `serialized is not `None`.
+  TensorFlow TPU devices to TPU fabric coordinates, or `None`. Ignored
+  if `serialized is not `None`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `serialized` does not describe a well-formed topology.
 * <b>`ValueError`</b>: If `serialized` is `None` and `mesh_shape` is not a sequence
-    of 3 positive integers.
+  of 3 positive integers.
 * <b>`ValueError`</b>: If `serialized` is `None` and `device_coordinates` is not a
-    rank 3 numpy int32 array that describes a valid coordinate mapping.
+  rank 3 numpy int32 array that describes a valid coordinate mapping.
 
 
 
@@ -61,6 +65,7 @@ the other arguments are ignored. Otherwise, the topology is computed from
 <h3 id="device_coordinates"><code>device_coordinates</code></h3>
 
 Describes the mapping from TPU devices to topology coordinates.
+
 
 #### Returns:
 
@@ -71,21 +76,26 @@ cluster topology. Each entry gives the `axis`-th coordinate in the
 topology of a task/device pair. TPU topologies are 3-dimensional, with
 dimensions `(x, y, core number)`.
 
+
 <h3 id="mesh_rank"><code>mesh_rank</code></h3>
 
 Returns the number of dimensions in the mesh.
+
 
 <h3 id="mesh_shape"><code>mesh_shape</code></h3>
 
 A rank 1 int32 array describing the shape of the TPU topology.
 
+
 <h3 id="num_tasks"><code>num_tasks</code></h3>
 
 Returns the number of TensorFlow tasks in the TPU slice.
 
+
 <h3 id="num_tpus_per_task"><code>num_tpus_per_task</code></h3>
 
 Returns the number of TPU devices per task in the TPU slice.
+
 
 
 
@@ -102,6 +112,7 @@ cpu_device_name_at_coordinates(
 
 Returns the CPU device attached to a logical core.
 
+
 <h3 id="serialized"><code>serialized</code></h3>
 
 ``` python
@@ -109,6 +120,7 @@ serialized()
 ```
 
 Returns the serialized form of the topology.
+
 
 <h3 id="task_ordinal_at_coordinates"><code>task_ordinal_at_coordinates</code></h3>
 
@@ -118,16 +130,19 @@ task_ordinal_at_coordinates(device_coordinates)
 
 Returns the TensorFlow task number attached to `device_coordinates`.
 
+
 #### Args:
 
+
 * <b>`device_coordinates`</b>: An integer sequence describing a device's physical
-    coordinates in the TPU fabric.
+  coordinates in the TPU fabric.
 
 
 #### Returns:
 
 Returns the TensorFlow task number that contains the TPU device with those
 physical coordinates.
+
 
 <h3 id="tpu_device_name_at_coordinates"><code>tpu_device_name_at_coordinates</code></h3>
 
@@ -140,6 +155,7 @@ tpu_device_name_at_coordinates(
 
 Returns the name of the TPU device assigned to a logical core.
 
+
 <h3 id="tpu_device_ordinal_at_coordinates"><code>tpu_device_ordinal_at_coordinates</code></h3>
 
 ``` python
@@ -148,16 +164,19 @@ tpu_device_ordinal_at_coordinates(device_coordinates)
 
 Returns the TensorFlow device number at `device_coordinates`.
 
+
 #### Args:
 
+
 * <b>`device_coordinates`</b>: An integer sequence describing a device's physical
-    coordinates in the TPU fabric.
+  coordinates in the TPU fabric.
 
 
 #### Returns:
 
 Returns the TensorFlow device number within the task corresponding to
 attached to the device with those physical coordinates.
+
 
 
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.weighted_sum_from_feature_columns
 
+A tf.contrib.layers style linear prediction builder based on FeatureColumn.
+
 ``` python
 tf.contrib.layers.weighted_sum_from_feature_columns(
     columns_to_tensors,
@@ -18,42 +20,48 @@ tf.contrib.layers.weighted_sum_from_feature_columns(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
+Defined in [`contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
-A tf.contrib.layers style linear prediction builder based on FeatureColumn.
+<!-- Placeholder for "Used in" -->
 
 Generally a single example in training data is described with feature columns.
 This function generates weighted sum for each num_outputs. Weighted sum refers
 to logits in classification problems. It refers to prediction itself for
 linear regression problems.
 
-Example:
+#### Example:
 
->     # Building model for training
->     feature_columns = (
->         real_valued_column("my_feature1"),
->         ...
->     )
->     columns_to_tensor = tf.parse_example(...)
->     logits = weighted_sum_from_feature_columns(
->         columns_to_tensors=columns_to_tensor,
->         feature_columns=feature_columns,
->         num_outputs=1)
->     loss = tf.nn.sigmoid_cross_entropy_with_logits(labels=labels,
->                                                    logits=logits)
+
+```
+# Building model for training
+feature_columns = (
+    real_valued_column("my_feature1"),
+    ...
+)
+columns_to_tensor = tf.io.parse_example(...)
+logits = weighted_sum_from_feature_columns(
+    columns_to_tensors=columns_to_tensor,
+    feature_columns=feature_columns,
+    num_outputs=1)
+loss = tf.nn.sigmoid_cross_entropy_with_logits(labels=labels,
+                                               logits=logits)
+```
+
+
 
 #### Args:
 
+
 * <b>`columns_to_tensors`</b>: A mapping from feature column to tensors. 'string' key
-    means a base feature (not-transformed). It can have FeatureColumn as a
-    key too. That means that FeatureColumn is already transformed by input
-    pipeline. For example, `inflow` may have handled transformations.
+  means a base feature (not-transformed). It can have FeatureColumn as a
+  key too. That means that FeatureColumn is already transformed by input
+  pipeline. For example, `inflow` may have handled transformations.
 * <b>`feature_columns`</b>: A set containing all the feature columns. All items in the
-    set should be instances of classes derived from FeatureColumn.
+  set should be instances of classes derived from FeatureColumn.
 * <b>`num_outputs`</b>: An integer specifying number of outputs. Default value is 1.
 * <b>`weight_collections`</b>: List of graph collections to which weights are added.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-    `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
 * <b>`scope`</b>: Optional scope for variable_scope.
 
 
@@ -66,6 +74,8 @@ A tuple containing:
   * A Variable which is used for bias.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if FeatureColumn cannot be used for linear predictions.

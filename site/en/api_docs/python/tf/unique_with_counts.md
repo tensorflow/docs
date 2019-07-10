@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.unique_with_counts
 
+Finds unique elements in a 1-D tensor.
+
+### Aliases:
+
+* `tf.compat.v1.unique_with_counts`
+* `tf.compat.v2.unique_with_counts`
+* `tf.unique_with_counts`
+
 ``` python
 tf.unique_with_counts(
     x,
@@ -15,9 +23,9 @@ tf.unique_with_counts(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Finds unique elements in a 1-D tensor.
+<!-- Placeholder for "Used in" -->
 
 This operation returns a tensor `y` containing all of the unique elements of `x`
 sorted in the same order that they occur in `x`. This operation also returns a
@@ -27,7 +35,9 @@ contains the count of each element of `y` in `x`. In other words:
 
 `y[idx[i]] = x[i] for i in [0, 1,...,rank(x) - 1]`
 
-For example:
+#### For example:
+
+
 
 ```
 # tensor 'x' is [1, 1, 2, 4, 4, 4, 7, 8, 8]
@@ -39,14 +49,16 @@ count ==> [2, 1, 3, 1, 2]
 
 #### Args:
 
+
 * <b>`x`</b>: A `Tensor`. 1-D.
-* <b>`out_idx`</b>: An optional <a href="../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf/dtypes#int32"><code>tf.int32</code></a>.
+* <b>`out_idx`</b>: An optional <a href="../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf#int32"><code>tf.int32</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A tuple of `Tensor` objects (y, idx, count).
+
 
 * <b>`y`</b>: A `Tensor`. Has the same type as `x`.
 * <b>`idx`</b>: A `Tensor` of type `out_idx`.

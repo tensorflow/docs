@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.losses.acgan_discriminator_loss
 
+
+
 ``` python
 tf.contrib.gan.losses.acgan_discriminator_loss(
     gan_model,
@@ -14,5 +16,6 @@ tf.contrib.gan.losses.acgan_discriminator_loss(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/losses/python/tuple_losses_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/losses/python/tuple_losses_impl.py).
+Defined in [`contrib/gan/python/losses/python/tuple_losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/losses/python/tuple_losses_impl.py).
 
+<!-- Placeholder for "Used in" -->

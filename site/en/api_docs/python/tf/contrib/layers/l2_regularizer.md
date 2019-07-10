@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.l2_regularizer
 
+Returns a function that can be used to apply L2 regularization to weights.
+
 ``` python
 tf.contrib.layers.l2_regularizer(
     scale,
@@ -14,13 +16,14 @@ tf.contrib.layers.l2_regularizer(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/regularizers.py).
+Defined in [`contrib/layers/python/layers/regularizers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/regularizers.py).
 
-Returns a function that can be used to apply L2 regularization to weights.
+<!-- Placeholder for "Used in" -->
 
 Small values of L2 can help prevent overfitting the training data.
 
 #### Args:
+
 
 * <b>`scale`</b>: A scalar multiplier `Tensor`. 0.0 disables the regularizer.
 * <b>`scope`</b>: An optional scope name.
@@ -31,6 +34,8 @@ Small values of L2 can help prevent overfitting the training data.
 A function with signature `l2(weights)` that applies L2 regularization.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If scale is negative or if scale is not a float.

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.linalg.lu
 
+Computes the LU decomposition of one or more square matrices.
+
+### Aliases:
+
+* `tf.compat.v1.linalg.lu`
+* `tf.compat.v2.linalg.lu`
+* `tf.linalg.lu`
+
 ``` python
 tf.linalg.lu(
     input,
@@ -15,9 +23,9 @@ tf.linalg.lu(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_linalg_ops.py`.
+Defined in generated file: `python/ops/gen_linalg_ops.py`.
 
-Computes the LU decomposition of one or more square matrices.
+<!-- Placeholder for "Used in" -->
 
 The input is a tensor of shape `[..., M, M]` whose inner-most 2 dimensions
 form square matrices.
@@ -39,16 +47,18 @@ P, then the L, U and P satisfies P_mat * input = L * U.
 
 #### Args:
 
-* <b>`input`</b>: A `Tensor`. Must be one of the following types: `float64`, `float32`, `complex64`, `complex128`.
-    A tensor of shape `[..., M, M]` whose inner-most 2 dimensions form matrices of
-    size `[M, M]`.
-* <b>`output_idx_type`</b>: An optional <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../../tf/dtypes#int32"><code>tf.int32</code></a>.
+
+* <b>`input`</b>: A `Tensor`. Must be one of the following types: `float64`, `float32`, `half`, `complex64`, `complex128`.
+  A tensor of shape `[..., M, M]` whose inner-most 2 dimensions form matrices of
+  size `[M, M]`.
+* <b>`output_idx_type`</b>: An optional <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../../tf#int32"><code>tf.int32</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A tuple of `Tensor` objects (lu, p).
+
 
 * <b>`lu`</b>: A `Tensor`. Has the same type as `input`.
 * <b>`p`</b>: A `Tensor` of type `output_idx_type`.

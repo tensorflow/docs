@@ -7,17 +7,25 @@ page_type: reference
 
 ## Class `UnimplementedError`
 
+Raised when an operation has not been implemented.
+
 Inherits From: [`OpError`](../../tf/errors/OpError)
 
+### Aliases:
+
+* Class `tf.compat.v1.errors.UnimplementedError`
+* Class `tf.compat.v2.errors.UnimplementedError`
+* Class `tf.errors.UnimplementedError`
 
 
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/errors_impl.py).
 
-Raised when an operation has not been implemented.
+Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
+
+<!-- Placeholder for "Used in" -->
 
 Some operations may raise this error when passed otherwise-valid
 arguments that it does not currently support. For example, running
-the <a href="../../tf/nn/max_pool"><code>tf.nn.max_pool</code></a> operation
+the <a href="../../tf/nn/max_pool2d"><code>tf.nn.max_pool2d</code></a> operation
 would raise this error if pooling was requested on the batch dimension,
 because this is not yet supported.
 
@@ -36,19 +44,23 @@ Creates an `UnimplementedError`.
 
 
 
+
 ## Properties
 
 <h3 id="error_code"><code>error_code</code></h3>
 
 The integer error code that describes the error.
 
+
 <h3 id="message"><code>message</code></h3>
 
 The error message that describes the error.
 
+
 <h3 id="node_def"><code>node_def</code></h3>
 
 The `NodeDef` proto representing the op that failed.
+
 
 <h3 id="op"><code>op</code></h3>
 
@@ -64,6 +76,7 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
+
 
 
 

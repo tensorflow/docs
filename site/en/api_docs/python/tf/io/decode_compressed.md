@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.io.decode_compressed
 
+Decompress strings.
+
 ### Aliases:
 
+* `tf.compat.v1.decode_compressed`
+* `tf.compat.v1.io.decode_compressed`
+* `tf.compat.v2.io.decode_compressed`
 * `tf.decode_compressed`
 * `tf.io.decode_compressed`
 
@@ -20,9 +25,9 @@ tf.io.decode_compressed(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_parsing_ops.py`.
+Defined in generated file: `python/ops/gen_parsing_ops.py`.
 
-Decompress strings.
+<!-- Placeholder for "Used in" -->
 
 This op decompresses each element of the `bytes` input `Tensor`, which
 is assumed to be compressed using the given `compression_type`.
@@ -33,11 +38,12 @@ element in `bytes`.
 
 #### Args:
 
+
 * <b>`bytes`</b>: A `Tensor` of type `string`.
-    A Tensor of string which is compressed.
+  A Tensor of string which is compressed.
 * <b>`compression_type`</b>: An optional `string`. Defaults to `""`.
-    A scalar containing either (i) the empty string (no
-    compression), (ii) "ZLIB", or (iii) "GZIP".
+  A scalar containing either (i) the empty string (no
+  compression), (ii) "ZLIB", or (iii) "GZIP".
 * <b>`name`</b>: A name for the operation (optional).
 
 

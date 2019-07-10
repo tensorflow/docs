@@ -7,16 +7,23 @@ page_type: reference
 
 ## Class `Supervisor`
 
-
-
-
-
-Defined in [`tensorflow/python/training/supervisor.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/supervisor.py).
-
 A training helper that checkpoints models and computes summaries.
 
+
+
+### Aliases:
+
+* Class `tf.compat.v1.train.Supervisor`
+* Class `tf.train.Supervisor`
+
+
+
+Defined in [`python/training/supervisor.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/supervisor.py).
+
+<!-- Placeholder for "Used in" -->
+
 This class is deprecated. Please use
-<a href="../../tf/train/MonitoredTrainingSession"><code>tf.train.MonitoredTrainingSession</code></a> instead.
+<a href="../../tf/train/MonitoredTrainingSession"><code>tf.compat.v1.train.MonitoredTrainingSession</code></a> instead.
 
 The Supervisor is a small wrapper around a `Coordinator`, a `Saver`,
 and a `SessionManager` that takes care of common needs of TensorFlow
@@ -68,7 +75,7 @@ if the program is running as the *chief*.
 # or job_def.name, or job_def.tasks. It's entirely up to the end user.
 # But there can be only one *chief*.
 is_chief = (server_def.task_index == 0)
-server = tf.train.Server(server_def)
+server = tf.distribute.Server(server_def)
 
 with tf.Graph().as_default():
   ...add operations to the graph...
@@ -111,7 +118,7 @@ following values for the --master flag:
 * Specifying `'grpc://hostname:port'` requests a session that uses
   the RPC interface to a specific host, and also allows the in-process
   master to access remote tensorflow workers. Often, it is
-  appropriate to pass `server.target` (for some <a href="../../tf/distribute/Server"><code>tf.train.Server</code></a>
+  appropriate to pass `server.target` (for some <a href="../../tf/distribute/Server"><code>tf.distribute.Server</code></a>
   named `server).
 
 #### Advanced use
@@ -204,72 +211,71 @@ Please switch to tf.train.MonitoredTrainingSession
 
 #### Args:
 
+
 * <b>`graph`</b>: A `Graph`.  The graph that the model will use.  Defaults to the
-    default `Graph`.  The supervisor may add operations to the graph before
-    creating a session, but the graph should not be modified by the caller
-    after passing it to the supervisor.
+  default `Graph`.  The supervisor may add operations to the graph before
+  creating a session, but the graph should not be modified by the caller
+  after passing it to the supervisor.
 * <b>`ready_op`</b>: 1-D string `Tensor`.  This tensor is evaluated by supervisors in
-    `prepare_or_wait_for_session()` to check if the model is ready to use.
-    The model is considered ready if it returns an empty array.  Defaults to
-    the tensor returned from `tf.report_uninitialized_variables()`  If
-    `None`, the model is not checked for readiness.
+  `prepare_or_wait_for_session()` to check if the model is ready to use.
+  The model is considered ready if it returns an empty array.  Defaults to
+  the tensor returned from <a href="../../tf/report_uninitialized_variables"><code>tf.compat.v1.report_uninitialized_variables()</code></a>
+  If `None`, the model is not checked for readiness.
 * <b>`ready_for_local_init_op`</b>: 1-D string `Tensor`.  This tensor is evaluated by
-    supervisors in `prepare_or_wait_for_session()` to check if the model is
-    ready to run the local_init_op.
-    The model is considered ready if it returns an empty array. Defaults to
-    `None`. If `None`, the model is not checked for readiness before running
-    local_init_op.
-* <b>`is_chief`</b>: If True, create a chief supervisor in charge of initializing
-    and restoring the model.  If False, create a supervisor that relies
-    on a chief supervisor for inits and restore.
+  supervisors in `prepare_or_wait_for_session()` to check if the model is
+  ready to run the local_init_op. The model is considered ready if it
+  returns an empty array. Defaults to `None`. If `None`, the model is not
+  checked for readiness before running local_init_op.
+* <b>`is_chief`</b>: If True, create a chief supervisor in charge of initializing and
+  restoring the model.  If False, create a supervisor that relies on a
+  chief supervisor for inits and restore.
 * <b>`init_op`</b>: `Operation`.  Used by chief supervisors to initialize the model
-    when it can not be recovered.  Defaults to an `Operation` that
-    initializes all global variables.  If `None`, no initialization is done
-    automatically unless you pass a value for `init_fn`, see below.
+  when it can not be recovered.  Defaults to an `Operation` that
+  initializes all global variables.  If `None`, no initialization is done
+  automatically unless you pass a value for `init_fn`, see below.
 * <b>`init_feed_dict`</b>: A dictionary that maps `Tensor` objects to feed values.
-    This feed dictionary will be used when `init_op` is evaluated.
+  This feed dictionary will be used when `init_op` is evaluated.
 * <b>`local_init_op`</b>: `Operation`. Used by all supervisors to run initializations
-    that should run for every new supervisor instance. By default these
-    are table initializers and initializers for local variables.
-    If `None`, no further per supervisor-instance initialization is
-    done automatically.
+  that should run for every new supervisor instance. By default these are
+  table initializers and initializers for local variables. If `None`, no
+  further per supervisor-instance initialization is done automatically.
 * <b>`logdir`</b>: A string.  Optional path to a directory where to checkpoint the
-    model and log events for the visualizer.  Used by chief supervisors.
-    The directory will be created if it does not exist.
-* <b>`summary_op`</b>: An `Operation` that returns a Summary for the event logs.
-    Used by chief supervisors if a `logdir` was specified.  Defaults to the
-    operation returned from summary.merge_all().  If `None`, summaries are
-    not computed automatically.
+  model and log events for the visualizer.  Used by chief supervisors. The
+  directory will be created if it does not exist.
+* <b>`summary_op`</b>: An `Operation` that returns a Summary for the event logs. Used
+  by chief supervisors if a `logdir` was specified.  Defaults to the
+  operation returned from summary.merge_all().  If `None`, summaries are
+  not computed automatically.
 * <b>`saver`</b>: A Saver object.  Used by chief supervisors if a `logdir` was
-    specified.  Defaults to the saved returned by Saver().
-    If `None`, the model is not saved automatically.
+  specified.  Defaults to the saved returned by Saver(). If `None`, the
+  model is not saved automatically.
 * <b>`global_step`</b>: An integer Tensor of size 1 that counts steps.  The value
-    from 'global_step' is used in summaries and checkpoint filenames.
-    Default to the op named 'global_step' in the graph if it exists, is of
-    rank 1, size 1, and of type tf.int32 or tf.int64.  If `None` the global
-    step is not recorded in summaries and checkpoint files.  Used by chief
-    supervisors if a `logdir` was specified.
+  from 'global_step' is used in summaries and checkpoint filenames.
+  Default to the op named 'global_step' in the graph if it exists, is of
+  rank 1, size 1, and of type tf.int32 or tf.int64.  If `None` the global
+  step is not recorded in summaries and checkpoint files.  Used by chief
+  supervisors if a `logdir` was specified.
 * <b>`save_summaries_secs`</b>: Number of seconds between the computation of
-    summaries for the event log.  Defaults to 120 seconds.  Pass 0 to
-    disable summaries.
+  summaries for the event log.  Defaults to 120 seconds.  Pass 0 to
+  disable summaries.
 * <b>`save_model_secs`</b>: Number of seconds between the creation of model
-    checkpoints.  Defaults to 600 seconds.  Pass 0 to disable checkpoints.
-* <b>`recovery_wait_secs`</b>: Number of seconds between checks that the model
-    is ready.  Used by supervisors when waiting for a chief supervisor
-    to initialize or restore the model.  Defaults to 30 seconds.
+  checkpoints.  Defaults to 600 seconds.  Pass 0 to disable checkpoints.
+* <b>`recovery_wait_secs`</b>: Number of seconds between checks that the model is
+  ready.  Used by supervisors when waiting for a chief supervisor to
+  initialize or restore the model.  Defaults to 30 seconds.
 * <b>`stop_grace_secs`</b>: Grace period, in seconds, given to running threads to
-    stop when `stop()` is called.  Defaults to 120 seconds.
+  stop when `stop()` is called.  Defaults to 120 seconds.
 * <b>`checkpoint_basename`</b>: The basename for checkpoint saving.
 * <b>`session_manager`</b>: `SessionManager`, which manages Session creation and
-    recovery. If it is `None`, a default `SessionManager` will be created
-    with the set of arguments passed in for backwards compatibility.
-* <b>`summary_writer`</b>: `SummaryWriter` to use or `USE_DEFAULT`.  Can be `None`
-    to indicate that no summaries should be written.
-* <b>`init_fn`</b>: Optional callable used to initialize the model. Called
-    after the optional `init_op` is called.  The callable must accept one
-    argument, the session being initialized.
+  recovery. If it is `None`, a default `SessionManager` will be created
+  with the set of arguments passed in for backwards compatibility.
+* <b>`summary_writer`</b>: `SummaryWriter` to use or `USE_DEFAULT`.  Can be `None` to
+  indicate that no summaries should be written.
+* <b>`init_fn`</b>: Optional callable used to initialize the model. Called after the
+  optional `init_op` is called.  The callable must accept one argument,
+  the session being initialized.
 * <b>`local_init_run_options`</b>: RunOptions to be passed as the SessionManager
-    local_init_run_options parameter.
+  local_init_run_options parameter.
 
 
 #### Returns:
@@ -277,7 +283,9 @@ Please switch to tf.train.MonitoredTrainingSession
 A `Supervisor`.
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: If called with eager execution enabled.
 
@@ -303,39 +311,49 @@ during your training.
 
 A Coordinator object.
 
+
 <h3 id="global_step"><code>global_step</code></h3>
 
 Return the global_step Tensor used by the supervisor.
+
 
 #### Returns:
 
 An integer Tensor for the global_step.
 
+
 <h3 id="init_feed_dict"><code>init_feed_dict</code></h3>
 
 Return the feed dictionary used when evaluating the `init_op`.
+
 
 #### Returns:
 
 A feed dictionary or `None`.
 
+
 <h3 id="init_op"><code>init_op</code></h3>
 
 Return the Init Op used by the supervisor.
+
 
 #### Returns:
 
 An Op or `None`.
 
+
 <h3 id="is_chief"><code>is_chief</code></h3>
 
 Return True if this is a chief supervisor.
+
 
 #### Returns:
 
 A bool.
 
+
 <h3 id="ready_for_local_init_op"><code>ready_for_local_init_op</code></h3>
+
 
 
 
@@ -343,65 +361,81 @@ A bool.
 
 Return the Ready Op used by the supervisor.
 
+
 #### Returns:
 
 An Op or `None`.
+
 
 <h3 id="save_model_secs"><code>save_model_secs</code></h3>
 
 Return the delay between checkpoints.
 
+
 #### Returns:
 
 A timestamp.
+
 
 <h3 id="save_path"><code>save_path</code></h3>
 
 Return the save path used by the supervisor.
 
+
 #### Returns:
 
 A string.
+
 
 <h3 id="save_summaries_secs"><code>save_summaries_secs</code></h3>
 
 Return the delay between summary computations.
 
+
 #### Returns:
 
 A timestamp.
+
 
 <h3 id="saver"><code>saver</code></h3>
 
 Return the Saver used by the supervisor.
 
+
 #### Returns:
 
 A Saver object.
+
 
 <h3 id="session_manager"><code>session_manager</code></h3>
 
 Return the SessionManager used by the Supervisor.
 
+
 #### Returns:
 
 A SessionManager object.
+
 
 <h3 id="summary_op"><code>summary_op</code></h3>
 
 Return the Summary Tensor used by the chief supervisor.
 
+
 #### Returns:
 
 A string Tensor for the summary or `None`.
+
 
 <h3 id="summary_writer"><code>summary_writer</code></h3>
 
 Return the SummaryWriter used by the chief supervisor.
 
+
 #### Returns:
 
 A SummaryWriter.
+
 
 
 
@@ -429,6 +463,7 @@ so it does not need to be passed to the `stop()` method.
 
 #### Args:
 
+
 * <b>`timer_interval_secs`</b>: Number. Time boundaries at which to call `target`.
 * <b>`target`</b>: A callable object.
 * <b>`args`</b>: Optional arguments to pass to `target` when calling it.
@@ -438,6 +473,7 @@ so it does not need to be passed to the `stop()` method.
 #### Returns:
 
 The started thread.
+
 
 <h3 id="PrepareSession"><code>PrepareSession</code></h3>
 
@@ -460,20 +496,22 @@ manager to start the standard services.
 
 #### Args:
 
-* <b>`master`</b>: name of the TensorFlow master to use.  See the <a href="../../tf/Session"><code>tf.Session</code></a>
-    constructor for how this is interpreted.
-* <b>`config`</b>: Optional ConfigProto proto used to configure the session,
-    which is passed as-is to create the session.
+
+* <b>`master`</b>: name of the TensorFlow master to use.  See the
+  <a href="../../tf/Session"><code>tf.compat.v1.Session</code></a> constructor for how this is interpreted.
+* <b>`config`</b>: Optional ConfigProto proto used to configure the session, which is
+  passed as-is to create the session.
 * <b>`wait_for_checkpoint`</b>: Whether we should wait for the availability of a
-    checkpoint before creating Session. Defaults to False.
+  checkpoint before creating Session. Defaults to False.
 * <b>`max_wait_secs`</b>: Maximum time to wait for the session to become available.
 * <b>`start_standard_services`</b>: Whether to start the standard services and the
-    queue runners.
+  queue runners.
 
 
 #### Returns:
 
 A Session object that can be used to drive the model.
+
 
 <h3 id="RequestStop"><code>RequestStop</code></h3>
 
@@ -483,13 +521,14 @@ RequestStop(ex=None)
 
 Request that the coordinator stop the threads.
 
-See `Coordinator.request_stop()`.
+See <a href="../../tf/train/Coordinator#request_stop"><code>Coordinator.request_stop()</code></a>.
 
 #### Args:
 
+
 * <b>`ex`</b>: Optional `Exception`, or Python `exc_info` tuple as returned by
-    `sys.exc_info()`.  If this is the first call to `request_stop()` the
-    corresponding exception is recorded and re-raised from `join()`.
+  `sys.exc_info()`.  If this is the first call to `request_stop()` the
+  corresponding exception is recorded and re-raised from `join()`.
 
 <h3 id="ShouldStop"><code>ShouldStop</code></h3>
 
@@ -499,11 +538,12 @@ ShouldStop()
 
 Check if the coordinator was told to stop.
 
-See `Coordinator.should_stop()`.
+See <a href="../../tf/train/Coordinator#should_stop"><code>Coordinator.should_stop()</code></a>.
 
 #### Returns:
 
 True if the coordinator was told to stop, False otherwise.
+
 
 <h3 id="StartQueueRunners"><code>StartQueueRunners</code></h3>
 
@@ -523,10 +563,11 @@ you do not need to call this explicitly.
 
 #### Args:
 
+
 * <b>`sess`</b>: A `Session`.
 * <b>`queue_runners`</b>: A list of `QueueRunners`. If not specified, we'll use the
-    list of queue runners gathered in the graph under the key
-    `GraphKeys.QUEUE_RUNNERS`.
+  list of queue runners gathered in the graph under the key
+  <a href="../../tf/GraphKeys#QUEUE_RUNNERS"><code>GraphKeys.QUEUE_RUNNERS</code></a>.
 
 
 #### Returns:
@@ -534,7 +575,9 @@ you do not need to call this explicitly.
 The list of threads started for the `QueueRunners`.
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: If called with eager execution enabled.
 
@@ -563,6 +606,7 @@ on the parameters to the constructor and may include:
 
 #### Args:
 
+
 * <b>`sess`</b>: A Session.
 
 
@@ -573,11 +617,13 @@ the Supervisor's Coordinator to join these threads with:
   sv.coord.Join(<list of threads>)
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: If called with a non-chief Supervisor.
 * <b>`ValueError`</b>: If not `logdir` was passed to the constructor as the
-    services need a log directory.
+  services need a log directory.
 
 <h3 id="Stop"><code>Stop</code></h3>
 
@@ -595,17 +641,18 @@ This does not close the session.
 
 #### Args:
 
+
 * <b>`threads`</b>: Optional list of threads to join with the coordinator.  If
-    `None`, defaults to the threads running the standard services, the
-    threads started for `QueueRunners`, and the threads started by the
-    `loop()` method.  To wait on additional threads, pass the
-    list in this parameter.
+  `None`, defaults to the threads running the standard services, the
+  threads started for `QueueRunners`, and the threads started by the
+  `loop()` method.  To wait on additional threads, pass the list in this
+  parameter.
 * <b>`close_summary_writer`</b>: Whether to close the `summary_writer`.  Defaults to
-    `True` if the summary writer was created by the supervisor, `False`
-    otherwise.
-* <b>`ignore_live_threads`</b>: If `True` ignores threads that remain running after
-    a grace period when joining threads via the coordinator, instead of
-    raising a RuntimeError.
+  `True` if the summary writer was created by the supervisor, `False`
+  otherwise.
+* <b>`ignore_live_threads`</b>: If `True` ignores threads that remain running after a
+  grace period when joining threads via the coordinator, instead of
+  raising a RuntimeError.
 
 <h3 id="StopOnException"><code>StopOnException</code></h3>
 
@@ -615,11 +662,12 @@ StopOnException()
 
 Context handler to stop the supervisor when an exception is raised.
 
-See `Coordinator.stop_on_exception()`.
+See <a href="../../tf/train/Coordinator#stop_on_exception"><code>Coordinator.stop_on_exception()</code></a>.
 
 #### Returns:
 
 A context handler.
+
 
 <h3 id="SummaryComputed"><code>SummaryComputed</code></h3>
 
@@ -633,15 +681,18 @@ SummaryComputed(
 
 Indicate that a summary was computed.
 
+
 #### Args:
+
 
 * <b>`sess`</b>: A `Session` object.
 * <b>`summary`</b>: A Summary proto, or a string holding a serialized summary proto.
 * <b>`global_step`</b>: Int. global step this summary is associated with. If `None`,
-    it will try to fetch the current step.
+  it will try to fetch the current step.
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: if 'summary' is not a Summary proto or a string.
 * <b>`RuntimeError`</b>: if the Supervisor was created without a `logdir`.
@@ -653,6 +704,7 @@ WaitForStop()
 ```
 
 Block waiting for the coordinator to stop.
+
 
 <h3 id="loop"><code>loop</code></h3>
 
@@ -676,6 +728,7 @@ so it does not need to be passed to the `stop()` method.
 
 #### Args:
 
+
 * <b>`timer_interval_secs`</b>: Number. Time boundaries at which to call `target`.
 * <b>`target`</b>: A callable object.
 * <b>`args`</b>: Optional arguments to pass to `target` when calling it.
@@ -685,6 +738,7 @@ so it does not need to be passed to the `stop()` method.
 #### Returns:
 
 The started thread.
+
 
 <h3 id="managed_session"><code>managed_session</code></h3>
 
@@ -706,7 +760,7 @@ The context manager is typically used as follows:
 
 ```python
 def train():
-  sv = tf.train.Supervisor(...)
+  sv = tf.compat.v1.train.Supervisor(...)
   with sv.managed_session(<master>) as sess:
     for step in xrange(..):
       if sv.should_stop():
@@ -740,14 +794,15 @@ the training loop and are considered normal termination.
 
 #### Args:
 
-* <b>`master`</b>: name of the TensorFlow master to use.  See the <a href="../../tf/Session"><code>tf.Session</code></a>
-    constructor for how this is interpreted.
-* <b>`config`</b>: Optional `ConfigProto` proto used to configure the session.
-    Passed as-is to create the session.
-* <b>`start_standard_services`</b>: Whether to start the standard services,
-    such as checkpoint, summary and step counter.
-* <b>`close_summary_writer`</b>: Whether to close the summary writer when
-    closing the session.  Defaults to True.
+
+* <b>`master`</b>: name of the TensorFlow master to use.  See the
+  <a href="../../tf/Session"><code>tf.compat.v1.Session</code></a> constructor for how this is interpreted.
+* <b>`config`</b>: Optional `ConfigProto` proto used to configure the session. Passed
+  as-is to create the session.
+* <b>`start_standard_services`</b>: Whether to start the standard services, such as
+  checkpoint, summary and step counter.
+* <b>`close_summary_writer`</b>: Whether to close the summary writer when closing the
+  session.  Defaults to True.
 
 
 #### Returns:
@@ -755,6 +810,7 @@ the training loop and are considered normal termination.
 A context manager that yields a `Session` restored from the latest
 checkpoint or initialized from scratch if not checkpoint exists.  The
 session is closed when the `with` block exits.
+
 
 <h3 id="prepare_or_wait_for_session"><code>prepare_or_wait_for_session</code></h3>
 
@@ -777,20 +833,22 @@ manager to start the standard services.
 
 #### Args:
 
-* <b>`master`</b>: name of the TensorFlow master to use.  See the <a href="../../tf/Session"><code>tf.Session</code></a>
-    constructor for how this is interpreted.
-* <b>`config`</b>: Optional ConfigProto proto used to configure the session,
-    which is passed as-is to create the session.
+
+* <b>`master`</b>: name of the TensorFlow master to use.  See the
+  <a href="../../tf/Session"><code>tf.compat.v1.Session</code></a> constructor for how this is interpreted.
+* <b>`config`</b>: Optional ConfigProto proto used to configure the session, which is
+  passed as-is to create the session.
 * <b>`wait_for_checkpoint`</b>: Whether we should wait for the availability of a
-    checkpoint before creating Session. Defaults to False.
+  checkpoint before creating Session. Defaults to False.
 * <b>`max_wait_secs`</b>: Maximum time to wait for the session to become available.
 * <b>`start_standard_services`</b>: Whether to start the standard services and the
-    queue runners.
+  queue runners.
 
 
 #### Returns:
 
 A Session object that can be used to drive the model.
+
 
 <h3 id="request_stop"><code>request_stop</code></h3>
 
@@ -800,13 +858,14 @@ request_stop(ex=None)
 
 Request that the coordinator stop the threads.
 
-See `Coordinator.request_stop()`.
+See <a href="../../tf/train/Coordinator#request_stop"><code>Coordinator.request_stop()</code></a>.
 
 #### Args:
 
+
 * <b>`ex`</b>: Optional `Exception`, or Python `exc_info` tuple as returned by
-    `sys.exc_info()`.  If this is the first call to `request_stop()` the
-    corresponding exception is recorded and re-raised from `join()`.
+  `sys.exc_info()`.  If this is the first call to `request_stop()` the
+  corresponding exception is recorded and re-raised from `join()`.
 
 <h3 id="should_stop"><code>should_stop</code></h3>
 
@@ -816,11 +875,12 @@ should_stop()
 
 Check if the coordinator was told to stop.
 
-See `Coordinator.should_stop()`.
+See <a href="../../tf/train/Coordinator#should_stop"><code>Coordinator.should_stop()</code></a>.
 
 #### Returns:
 
 True if the coordinator was told to stop, False otherwise.
+
 
 <h3 id="start_queue_runners"><code>start_queue_runners</code></h3>
 
@@ -840,10 +900,11 @@ you do not need to call this explicitly.
 
 #### Args:
 
+
 * <b>`sess`</b>: A `Session`.
 * <b>`queue_runners`</b>: A list of `QueueRunners`. If not specified, we'll use the
-    list of queue runners gathered in the graph under the key
-    `GraphKeys.QUEUE_RUNNERS`.
+  list of queue runners gathered in the graph under the key
+  <a href="../../tf/GraphKeys#QUEUE_RUNNERS"><code>GraphKeys.QUEUE_RUNNERS</code></a>.
 
 
 #### Returns:
@@ -851,7 +912,9 @@ you do not need to call this explicitly.
 The list of threads started for the `QueueRunners`.
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: If called with eager execution enabled.
 
@@ -880,6 +943,7 @@ on the parameters to the constructor and may include:
 
 #### Args:
 
+
 * <b>`sess`</b>: A Session.
 
 
@@ -890,11 +954,13 @@ the Supervisor's Coordinator to join these threads with:
   sv.coord.Join(<list of threads>)
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: If called with a non-chief Supervisor.
 * <b>`ValueError`</b>: If not `logdir` was passed to the constructor as the
-    services need a log directory.
+  services need a log directory.
 
 <h3 id="stop"><code>stop</code></h3>
 
@@ -912,17 +978,18 @@ This does not close the session.
 
 #### Args:
 
+
 * <b>`threads`</b>: Optional list of threads to join with the coordinator.  If
-    `None`, defaults to the threads running the standard services, the
-    threads started for `QueueRunners`, and the threads started by the
-    `loop()` method.  To wait on additional threads, pass the
-    list in this parameter.
+  `None`, defaults to the threads running the standard services, the
+  threads started for `QueueRunners`, and the threads started by the
+  `loop()` method.  To wait on additional threads, pass the list in this
+  parameter.
 * <b>`close_summary_writer`</b>: Whether to close the `summary_writer`.  Defaults to
-    `True` if the summary writer was created by the supervisor, `False`
-    otherwise.
-* <b>`ignore_live_threads`</b>: If `True` ignores threads that remain running after
-    a grace period when joining threads via the coordinator, instead of
-    raising a RuntimeError.
+  `True` if the summary writer was created by the supervisor, `False`
+  otherwise.
+* <b>`ignore_live_threads`</b>: If `True` ignores threads that remain running after a
+  grace period when joining threads via the coordinator, instead of
+  raising a RuntimeError.
 
 <h3 id="stop_on_exception"><code>stop_on_exception</code></h3>
 
@@ -932,11 +999,12 @@ stop_on_exception()
 
 Context handler to stop the supervisor when an exception is raised.
 
-See `Coordinator.stop_on_exception()`.
+See <a href="../../tf/train/Coordinator#stop_on_exception"><code>Coordinator.stop_on_exception()</code></a>.
 
 #### Returns:
 
 A context handler.
+
 
 <h3 id="summary_computed"><code>summary_computed</code></h3>
 
@@ -950,15 +1018,18 @@ summary_computed(
 
 Indicate that a summary was computed.
 
+
 #### Args:
+
 
 * <b>`sess`</b>: A `Session` object.
 * <b>`summary`</b>: A Summary proto, or a string holding a serialized summary proto.
 * <b>`global_step`</b>: Int. global step this summary is associated with. If `None`,
-    it will try to fetch the current step.
+  it will try to fetch the current step.
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: if 'summary' is not a Summary proto or a string.
 * <b>`RuntimeError`</b>: if the Supervisor was created without a `logdir`.
@@ -973,7 +1044,7 @@ Block waiting for the coordinator to stop.
 
 
 
+
 ## Class Members
 
-<h3 id="USE_DEFAULT"><code>USE_DEFAULT</code></h3>
-
+* `USE_DEFAULT = 0` <a id="USE_DEFAULT"></a>

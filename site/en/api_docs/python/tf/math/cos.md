@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.math.cos
 
+Computes cos of x element-wise.
+
 ### Aliases:
 
+* `tf.compat.v1.cos`
+* `tf.compat.v1.math.cos`
+* `tf.compat.v2.cos`
+* `tf.compat.v2.math.cos`
 * `tf.cos`
 * `tf.math.cos`
 
@@ -19,11 +25,13 @@ tf.math.cos(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Computes cos of x element-wise.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `complex64`, `complex128`.
 * <b>`name`</b>: A name for the operation (optional).

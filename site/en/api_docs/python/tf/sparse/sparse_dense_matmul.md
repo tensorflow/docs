@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.sparse.sparse_dense_matmul
 
+Multiply SparseTensor (of rank 2) "A" by dense matrix "B".
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.matmul`
+* `tf.compat.v1.sparse.sparse_dense_matmul`
+* `tf.compat.v1.sparse_tensor_dense_matmul`
+* `tf.compat.v2.sparse.sparse_dense_matmul`
 * `tf.sparse.matmul`
 * `tf.sparse.sparse_dense_matmul`
 * `tf.sparse_tensor_dense_matmul`
@@ -23,15 +29,15 @@ tf.sparse.sparse_dense_matmul(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Multiply SparseTensor (of rank 2) "A" by dense matrix "B".
+<!-- Placeholder for "Used in" -->
 
 No validity checking is performed on the indices of `A`.  However, the
 following input format is recommended for optimal behavior:
 
 * If `adjoint_a == false`: `A` should be sorted in lexicographically
-  increasing order.  Use `sparse.reorder` if you're not sure.
+  increasing order.  Use <a href="../../tf/sparse/reorder"><code>sparse.reorder</code></a> if you're not sure.
 * If `adjoint_a == true`: `A` should be sorted in order of increasing
   dimension 1 (i.e., "column major" order instead of "row major" order).
 
@@ -95,11 +101,15 @@ purposes of the comparison, the time spent converting from a `SparseTensor` to
 a dense `Tensor` is not included, so it is overly conservative with respect to
 the time ratio.
 
-Benchmark system:
+#### Benchmark system:
+
+
 CPU: Intel Ivybridge with HyperThreading (6 cores) dL1:32KB dL2:256KB dL3:12MB
 GPU: NVidia Tesla k40c
 
-Compiled with:
+#### Compiled with:
+
+
 `-c opt --config=cuda --copt=-mavx`
 
 ```
@@ -208,12 +218,13 @@ B dense [k, n]
 
 #### Args:
 
+
 * <b>`sp_a`</b>: SparseTensor A, of rank 2.
 * <b>`b`</b>: A dense Matrix with the same dtype as sp_a.
 * <b>`adjoint_a`</b>: Use the adjoint of A in the matrix multiply.  If A is complex,
-    this is transpose(conj(A)).  Otherwise it's transpose(A).
+  this is transpose(conj(A)).  Otherwise it's transpose(A).
 * <b>`adjoint_b`</b>: Use the adjoint of B in the matrix multiply.  If B is complex,
-    this is transpose(conj(B)).  Otherwise it's transpose(B).
+  this is transpose(conj(B)).  Otherwise it's transpose(B).
 * <b>`name`</b>: A name prefix for the returned tensors (optional)
 
 

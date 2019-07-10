@@ -7,14 +7,21 @@ page_type: reference
 
 ## Class `Initializer`
 
-
-
-
-
-Defined in [`tensorflow/python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/init_ops.py).
-
 Initializer base class: all initializers inherit from this class.
-  
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.keras.initializers.Initializer`
+* Class `tf.keras.initializers.Initializer`
+
+
+
+Defined in [`python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Methods
 
@@ -30,13 +37,15 @@ __call__(
 
 Returns a tensor object initialized as specified by the initializer.
 
+
 #### Args:
+
 
 * <b>`shape`</b>: Shape of the tensor.
 * <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
-    dtype.
+  dtype.
 * <b>`partition_info`</b>: Optional information about the possible partitioning of a
-    tensor.
+  tensor.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
@@ -50,7 +59,10 @@ from_config(
 
 Instantiates an initializer from a configuration dictionary.
 
-Example:
+
+#### Example:
+
+
 
 ```python
 initializer = RandomUniform(-1, 1)
@@ -60,13 +72,15 @@ initializer = RandomUniform.from_config(config)
 
 #### Args:
 
-* <b>`config`</b>: A Python dictionary.
-    It will typically be the output of `get_config`.
+
+* <b>`config`</b>: A Python dictionary. It will typically be the output of
+  `get_config`.
 
 
 #### Returns:
 
 An Initializer instance.
+
 
 <h3 id="get_config"><code>get_config</code></h3>
 
@@ -76,9 +90,11 @@ get_config()
 
 Returns the configuration of the initializer as a JSON-serializable dict.
 
+
 #### Returns:
 
 A JSON-serializable Python dict.
+
 
 
 

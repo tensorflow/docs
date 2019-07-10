@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.auc_with_confidence_intervals
 
+Computes the AUC and asymptotic normally distributed confidence interval.
+
 ``` python
 tf.contrib.metrics.auc_with_confidence_intervals(
     labels,
@@ -20,9 +22,9 @@ tf.contrib.metrics.auc_with_confidence_intervals(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
-Computes the AUC and asymptotic normally distributed confidence interval.
+<!-- Placeholder for "Used in" -->
 
 USAGE NOTE: this approach requires storing all of the predictions and labels
 for a single evaluation in memory, so it may not be usable when the evaluation
@@ -36,34 +38,37 @@ concatenated values.
 
 #### Args:
 
+
 * <b>`labels`</b>: A `Tensor` of ground truth labels with the same shape as `labels`
-    and with values of 0 or 1 whose values are castable to `int64`.
+  and with values of 0 or 1 whose values are castable to `int64`.
 * <b>`predictions`</b>: A `Tensor` of predictions whose values are castable to
-    `float64`. Will be flattened into a 1-D `Tensor`.
+  `float64`. Will be flattened into a 1-D `Tensor`.
 * <b>`weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
-    `labels`.
+  `labels`.
 * <b>`alpha`</b>: Confidence interval level desired.
 * <b>`logit_transformation`</b>: A boolean value indicating whether the estimate should
-    be logit transformed prior to calculating the confidence interval. Doing
-    so enforces the restriction that the AUC should never be outside the
-    interval [0,1].
+  be logit transformed prior to calculating the confidence interval. Doing
+  so enforces the restriction that the AUC should never be outside the
+  interval [0,1].
 * <b>`metrics_collections`</b>: An optional iterable of collections that `auc` should
-    be added to.
+  be added to.
 * <b>`updates_collections`</b>: An optional iterable of collections that `update_op`
-    should be added to.
+  should be added to.
 * <b>`name`</b>: An optional name for the variable_scope that contains the metric
-    variables.
+  variables.
 
 
 #### Returns:
 
+
 * <b>`auc`</b>: A 1-D `Tensor` containing the current area-under-curve, lower, and
-    upper confidence interval values.
+  upper confidence interval values.
 * <b>`update_op`</b>: An operation that concatenates the input labels and predictions
-    to the accumulated values.
+  to the accumulated values.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `labels`, `predictions`, and `weights` have mismatched shapes
-  or if `alpha` isn't in the range (0,1).
+or if `alpha` isn't in the range (0,1).

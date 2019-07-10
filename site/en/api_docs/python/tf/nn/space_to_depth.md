@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.nn.space_to_depth
 
+SpaceToDepth for tensors of type T.
+
 ### Aliases:
 
+* `tf.compat.v1.nn.space_to_depth`
+* `tf.compat.v1.space_to_depth`
 * `tf.nn.space_to_depth`
 * `tf.space_to_depth`
 
@@ -21,9 +25,9 @@ tf.nn.space_to_depth(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-SpaceToDepth for tensors of type T.
+<!-- Placeholder for "Used in" -->
 
 Rearranges blocks of spatial data, into depth. More specifically,
 this op outputs a copy of the input tensor where values from the `height`
@@ -110,6 +114,7 @@ x = [[[[1, 2, 3, 4],
 ```
 
 #### Args:
+
 
 * <b>`input`</b>: A `Tensor`.
 * <b>`block_size`</b>: An `int` that is `>= 2`. The size of the spatial block.

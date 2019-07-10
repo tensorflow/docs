@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.saved_model.build_signature_def
 
+Utility function to build a SignatureDef protocol buffer.
+
 ### Aliases:
 
+* `tf.compat.v1.saved_model.build_signature_def`
+* `tf.compat.v1.saved_model.signature_def_utils.build_signature_def`
 * `tf.saved_model.build_signature_def`
 * `tf.saved_model.signature_def_utils.build_signature_def`
 
@@ -20,16 +24,18 @@ tf.saved_model.build_signature_def(
 
 
 
-Defined in [`tensorflow/python/saved_model/signature_def_utils_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/saved_model/signature_def_utils_impl.py).
+Defined in [`python/saved_model/signature_def_utils_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/signature_def_utils_impl.py).
 
-Utility function to build a SignatureDef protocol buffer.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`inputs`</b>: Inputs of the SignatureDef defined as a proto map of string to
-      tensor info.
+    tensor info.
 * <b>`outputs`</b>: Outputs of the SignatureDef defined as a proto map of string to
-      tensor info.
+    tensor info.
 * <b>`method_name`</b>: Method name of the SignatureDef as a string.
 
 

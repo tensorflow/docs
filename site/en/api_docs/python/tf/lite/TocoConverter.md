@@ -7,20 +7,22 @@ page_type: reference
 
 ## Class `TocoConverter`
 
+Convert a TensorFlow model into `output_format` using TOCO.
+
 
 
 ### Aliases:
 
-* Class `tf.contrib.lite.TocoConverter`
+* Class `tf.compat.v1.lite.TocoConverter`
 * Class `tf.lite.TocoConverter`
 
 
 
-Defined in [`tensorflow/lite/python/lite.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/lite/python/lite.py).
+Defined in [`lite/python/lite.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/lite.py).
 
-Convert a TensorFlow model into `output_format` using TOCO.
+<!-- Placeholder for "Used in" -->
 
-This class has been deprecated. Please use `lite.TFLiteConverter` instead.
+This class has been deprecated. Please use <a href="../../tf/lite/TFLiteConverter"><code>lite.TFLiteConverter</code></a> instead.
 
 ## Methods
 
@@ -41,7 +43,7 @@ Creates a TocoConverter class from a file containing a frozen graph. (deprecated
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `lite.TFLiteConverter.from_frozen_graph` instead.
+Use <a href="../../tf/lite/TFLiteConverter#from_frozen_graph"><code>lite.TFLiteConverter.from_frozen_graph</code></a> instead.
 
 <h3 id="from_keras_model_file"><code>from_keras_model_file</code></h3>
 
@@ -60,7 +62,7 @@ Creates a TocoConverter class from a tf.keras model file. (deprecated)
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `lite.TFLiteConverter.from_keras_model_file` instead.
+Use <a href="../../tf/lite/TFLiteConverter#from_keras_model_file"><code>lite.TFLiteConverter.from_keras_model_file</code></a> instead.
 
 <h3 id="from_saved_model"><code>from_saved_model</code></h3>
 
@@ -81,7 +83,7 @@ Creates a TocoConverter class from a SavedModel. (deprecated)
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `lite.TFLiteConverter.from_saved_model` instead.
+Use <a href="../../tf/lite/TFLiteConverter#from_saved_model"><code>lite.TFLiteConverter.from_saved_model</code></a> instead.
 
 <h3 id="from_session"><code>from_session</code></h3>
 
@@ -99,7 +101,7 @@ Creates a TocoConverter class from a TensorFlow Session. (deprecated)
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `lite.TFLiteConverter.from_session` instead.
+Use <a href="../../tf/lite/TFLiteConverter#from_session"><code>lite.TFLiteConverter.from_session</code></a> instead.
 
 
 

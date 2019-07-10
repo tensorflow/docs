@@ -7,13 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Generic entry point script.
-
-## Modules
-
-[`flags`](../tf/app/flags) module: Import router for absl.flags. See https://github.com/abseil/abseil-py.
 
 ## Functions
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.export_saved_model_for_mode
 
+Exports a single train/eval/predict graph as a SavedModel. (deprecated)
+
 ``` python
 tf.contrib.estimator.export_saved_model_for_mode(
     estimator,
@@ -13,17 +15,25 @@ tf.contrib.estimator.export_saved_model_for_mode(
     assets_extra=None,
     as_text=False,
     checkpoint_path=None,
-    strip_default_attrs=False,
     mode=model_fn_lib.ModeKeys.PREDICT
 )
 ```
 
-Exports a single train/eval/predict graph as a SavedModel.
+
+
+Defined in [`contrib/estimator/python/estimator/export.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/export.py).
+
+<!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-12-03.
+Instructions for updating:
+Use estimator.export_saved_model(*args, experimental_mode=...)
 
 For a detailed guide, see [Using SavedModel with Estimators](
 https://tensorflow.org/guide/saved_model#using_savedmodel_with_estimators).
 
-Sample usage:
+#### Sample usage:
+
 
 ```python
 classifier = tf.estimator.LinearClassifier(
@@ -63,19 +73,17 @@ exposed version of this function.
 
 #### Args:
 
+
 * <b>`estimator`</b>: an instance of tf.estimator.Estimator
 * <b>`export_dir_base`</b>: A string containing a directory in which to create
-    timestamped subdirectories containing exported SavedModels.
+  timestamped subdirectories containing exported SavedModels.
 * <b>`input_receiver_fn`</b>: a function that takes no argument and
-    returns the appropriate subclass of `InputReceiver`.
+  returns the appropriate subclass of `InputReceiver`.
 * <b>`assets_extra`</b>: A dict specifying how to populate the assets.extra directory
-    within the exported SavedModel, or `None` if no extra assets are needed.
+  within the exported SavedModel, or `None` if no extra assets are needed.
 * <b>`as_text`</b>: whether to write the SavedModel proto in text format.
 * <b>`checkpoint_path`</b>: The checkpoint path to export.  If `None` (the default),
-    the most recent checkpoint found within the model directory is chosen.
-* <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
-    removed from the NodeDefs. For a detailed guide, see
-    [Stripping Default-Valued Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
+  the most recent checkpoint found within the model directory is chosen.
 * <b>`mode`</b>: tf.estimator.ModeKeys value indicating with mode will be exported.
 
 
@@ -84,7 +92,9 @@ exposed version of this function.
 The string path to the exported directory.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if input_receiver_fn is None, no export_outputs
-    are provided, or no checkpoint can be found.
+  are provided, or no checkpoint can be found.

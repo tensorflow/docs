@@ -5,14 +5,16 @@ page_type: reference
 
 # Module: tf.contrib.learn
 
-
-
-Defined in [`tensorflow/contrib/learn/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/__init__.py).
-
 High level API for learning (DEPRECATED).
 
+
+
+Defined in [`contrib/learn/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 This module and all its submodules are deprecated. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.tensorflow.org/code/tensorflow/contrib/learn/README.md)
 for migration instructions.
 
 
@@ -87,7 +89,7 @@ for migration instructions.
 
 [`class ModelFnOps`](../../tf/contrib/learn/ModelFnOps): Ops returned from a model_fn.
 
-[`class NanLossDuringTrainingError`](../../tf/contrib/learn/NanLossDuringTrainingError): Unspecified run-time error.
+[`class NanLossDuringTrainingError`](../../tf/contrib/learn/NanLossDuringTrainingError)
 
 [`class NotFittedError`](../../tf/contrib/learn/NotFittedError): Exception class to raise if estimator is used before fitting.
 

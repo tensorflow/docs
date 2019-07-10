@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.crelu
 
+Computes Concatenated ReLU.
+
+### Aliases:
+
+* `tf.compat.v1.nn.crelu`
+* `tf.nn.crelu`
+
 ``` python
 tf.nn.crelu(
     features,
@@ -15,9 +22,9 @@ tf.nn.crelu(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Computes Concatenated ReLU.
+<!-- Placeholder for "Used in" -->
 
 Concatenates a ReLU which selects only the positive part of the activation
 with a ReLU which selects only the *negative* part of the activation.
@@ -28,8 +35,9 @@ al.](https://arxiv.org/abs/1603.05201)
 
 #### Args:
 
+
 * <b>`features`</b>: A `Tensor` with type `float`, `double`, `int32`, `int64`, `uint8`,
-    `int16`, or `int8`.
+  `int16`, or `int8`.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`axis`</b>: The axis that the output values are concatenated along. Default is -1.
 

@@ -11,7 +11,24 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/profiler/tfprof_output.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/profiler/tfprof_output.proto).
+### Aliases:
 
-A ProtocolMessage
+* Class `tf.compat.v1.profiler.AdviceProto.Checker`
+* Class `tf.profiler.AdviceProto.Checker`
+
+
+
+Defined in [`core/profiler/tfprof_output.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/profiler/tfprof_output.proto).
+
+<!-- Placeholder for "Used in" -->
+
+
+## Properties
+
+<h3 id="reports"><code>reports</code></h3>
+
+`repeated string reports`
+
+
+
 

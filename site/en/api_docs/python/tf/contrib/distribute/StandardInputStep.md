@@ -7,18 +7,22 @@ page_type: reference
 
 ## Class `StandardInputStep`
 
+Step with a standard implementation of input handling.
+
 Inherits From: [`Step`](../../../tf/contrib/distribute/Step)
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/step_fn.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distribute/python/step_fn.py).
+Defined in [`python/distribute/step_fn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/step_fn.py).
 
-Step with a standard implementation of input handling.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`dataset_fn`</b>: a function that returns a tf.data Dataset that produces the
-    input for the model.
+  input for the model.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -29,13 +33,15 @@ __init__(
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
 ## Properties
 
 <h3 id="distribution"><code>distribution</code></h3>
+
 
 
 
@@ -50,6 +56,16 @@ __call__()
 ```
 
 Perform one step of this training algorithm.
+
+
+<h3 id="initialize"><code>initialize</code></h3>
+
+``` python
+initialize()
+```
+
+
+
 
 
 

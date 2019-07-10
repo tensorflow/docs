@@ -11,7 +11,30 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/protobuf/cluster.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/protobuf/cluster.proto).
+### Aliases:
 
-A ProtocolMessage
+* Class `tf.compat.v1.train.JobDef.TasksEntry`
+* Class `tf.compat.v2.train.JobDef.TasksEntry`
+* Class `tf.train.JobDef.TasksEntry`
+
+
+
+Defined in [`core/protobuf/cluster.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/cluster.proto).
+
+<!-- Placeholder for "Used in" -->
+
+
+## Properties
+
+<h3 id="key"><code>key</code></h3>
+
+`int32 key`
+
+
+<h3 id="value"><code>value</code></h3>
+
+`string value`
+
+
+
 

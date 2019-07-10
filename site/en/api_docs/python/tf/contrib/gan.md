@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.gan
 
+TF-GAN is a lightweight library for training and evaluating GANs.
 
 
-Defined in [`tensorflow/contrib/gan/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/__init__.py).
 
-TFGAN is a lightweight library for training and evaluating GANs.
+Defined in [`contrib/gan/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 In addition to providing the infrastructure for easily training and evaluating
 GANS, this library contains modules for a TFGAN-backed Estimator,
@@ -18,9 +20,9 @@ Please see README.md for details and usage.
 
 ## Modules
 
-[`estimator`](../../tf/contrib/gan/estimator) module: TFGAN estimator module.
+[`estimator`](../../tf/contrib/gan/estimator) module: TF-GAN estimator module.
 
-[`eval`](../../tf/contrib/gan/eval) module: TFGAN evaluation module.
+[`eval`](../../tf/contrib/gan/eval) module: TF-GAN evaluation module.
 
 [`features`](../../tf/contrib/gan/features) module: TFGAN features module.
 

@@ -7,33 +7,23 @@ page_type: reference
 
 ## Class `GANTrainSteps`
 
-
-
-
-
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/namedtuples.py).
-
 Contains configuration for the GAN Training.
+
+
+
+
+
+Defined in [`contrib/gan/python/namedtuples.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/namedtuples.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`generator_train_steps`</b>: Number of generator steps to take in each GAN step.
 * <b>`discriminator_train_steps`</b>: Number of discriminator steps to take in each GAN
-    step.
-
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-__new__(
-    _cls,
-    generator_train_steps,
-    discriminator_train_steps
-)
-```
-
-Create new instance of GANTrainSteps(generator_train_steps, discriminator_train_steps)
-
-
+  step.
 
 ## Properties
 
@@ -41,7 +31,9 @@ Create new instance of GANTrainSteps(generator_train_steps, discriminator_train_
 
 
 
+
 <h3 id="discriminator_train_steps"><code>discriminator_train_steps</code></h3>
+
 
 
 

@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.sparse.segment_sqrt_n
 
+Computes the sum along sparse segments of a tensor divided by the sqrt(N).
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.segment_sqrt_n`
+* `tf.compat.v1.sparse_segment_sqrt_n`
 * `tf.sparse.segment_sqrt_n`
 * `tf.sparse_segment_sqrt_n`
 
@@ -22,22 +26,23 @@ tf.sparse.segment_sqrt_n(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Computes the sum along sparse segments of a tensor divided by the sqrt(N).
+<!-- Placeholder for "Used in" -->
 
 `N` is the size of the segment being reduced.
 
 #### Args:
 
+
 * <b>`data`</b>: A `Tensor` with data that will be assembled in the output.
 * <b>`indices`</b>: A 1-D `Tensor` with indices into `data`. Has same rank as
-    `segment_ids`.
-* <b>`segment_ids`</b>: A 1-D `Tensor` with indices into the output `Tensor`.
-    Values should be sorted and can be repeated.
+  `segment_ids`.
+* <b>`segment_ids`</b>: A 1-D `Tensor` with indices into the output `Tensor`. Values
+  should be sorted and can be repeated.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`num_segments`</b>: An optional int32 scalar. Indicates the size of the output
-    `Tensor`.
+  `Tensor`.
 
 
 #### Returns:

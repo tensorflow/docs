@@ -7,39 +7,27 @@ page_type: reference
 
 ## Class `DistributeConfig`
 
-
-
-
-
-Defined in [`tensorflow/python/distribute/distribute_config.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/distribute_config.py).
-
 A config tuple for distribution strategies.
+
+
+
+
+
+Defined in [`python/distribute/distribute_config.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/distribute_config.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 #### Attributes:
 
+
 * <b>`train_distribute`</b>: a `DistributionStrategy` object for training.
 * <b>`eval_distribute`</b>: an optional `DistributionStrategy` object for
-    evaluation.
+  evaluation.
 * <b>`remote_cluster`</b>: a dict, `ClusterDef` or `ClusterSpec` object specifying
-    the cluster configurations. If this is given, the `train_and_evaluate`
-    method will be running as a standalone client which connects to the
-    cluster for training.
-
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-@staticmethod
-__new__(
-    cls,
-    train_distribute=None,
-    eval_distribute=None,
-    remote_cluster=None
-)
-```
-
-Create new instance of DistributeConfig(train_distribute, eval_distribute, remote_cluster)
-
-
+  the cluster configurations. If this is given, the `train_and_evaluate`
+  method will be running as a standalone client which connects to the
+  cluster for training.
 
 ## Properties
 
@@ -47,11 +35,14 @@ Create new instance of DistributeConfig(train_distribute, eval_distribute, remot
 
 
 
+
 <h3 id="eval_distribute"><code>eval_distribute</code></h3>
 
 
 
+
 <h3 id="remote_cluster"><code>remote_cluster</code></h3>
+
 
 
 

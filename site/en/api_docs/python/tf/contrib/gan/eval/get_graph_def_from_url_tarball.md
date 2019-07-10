@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.get_graph_def_from_url_tarball
 
+Get a GraphDef proto from a tarball on the web.
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.classifier_metrics.get_graph_def_from_url_tarball`
@@ -20,11 +22,13 @@ tf.contrib.gan.eval.get_graph_def_from_url_tarball(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
-Get a GraphDef proto from a tarball on the web.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`url`</b>: Web address of tarball
 * <b>`filename`</b>: Filename of graph definition within tarball

@@ -7,9 +7,17 @@ page_type: reference
 
 
 
+### Aliases:
+
+* Module `tf.compat.v1.keras.callbacks`
+* Module `tf.keras.callbacks`
 
 
-Callbacks: utilities called at certain points during model training.
+
+Defined in [`python/keras/api/_v1/keras/callbacks/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/callbacks/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 
@@ -35,7 +43,7 @@ Callbacks: utilities called at certain points during model training.
 
 [`class RemoteMonitor`](../../tf/keras/callbacks/RemoteMonitor): Callback used to stream events to a server.
 
-[`class TensorBoard`](../../tf/keras/callbacks/TensorBoard): Tensorboard basic visualizations.
+[`class TensorBoard`](../../tf/keras/callbacks/TensorBoard): Enable visualizations for TensorBoard.
 
 [`class TerminateOnNaN`](../../tf/keras/callbacks/TerminateOnNaN): Callback that terminates training when a NaN loss is encountered.
 

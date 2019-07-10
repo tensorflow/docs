@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.train.queue_runner.start_queue_runners
 
+Starts all queue runners collected in the graph. (deprecated)
+
 ### Aliases:
 
+* `tf.compat.v1.train.queue_runner.start_queue_runners`
+* `tf.compat.v1.train.start_queue_runners`
 * `tf.train.queue_runner.start_queue_runners`
 * `tf.train.start_queue_runners`
 
@@ -22,9 +26,9 @@ tf.train.queue_runner.start_queue_runners(
 
 
 
-Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/queue_runner_impl.py).
+Defined in [`python/training/queue_runner_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/queue_runner_impl.py).
 
-Starts all queue runners collected in the graph. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -36,20 +40,22 @@ the list of all threads.
 
 #### Args:
 
+
 * <b>`sess`</b>: `Session` used to run the queue ops.  Defaults to the
-    default session.
+  default session.
 * <b>`coord`</b>: Optional `Coordinator` for coordinating the started threads.
 * <b>`daemon`</b>: Whether the threads should be marked as `daemons`, meaning
-    they don't block program exit.
+  they don't block program exit.
 * <b>`start`</b>: Set to `False` to only create the threads, not start them.
 * <b>`collection`</b>: A `GraphKey` specifying the graph collection to
-    get the queue runners from.  Defaults to `GraphKeys.QUEUE_RUNNERS`.
+  get the queue runners from.  Defaults to <a href="../../../tf/GraphKeys#QUEUE_RUNNERS"><code>GraphKeys.QUEUE_RUNNERS</code></a>.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `sess` is None and there isn't any default session.
-* <b>`TypeError`</b>: if `sess` is not a <a href="../../../tf/Session"><code>tf.Session</code></a> object.
+* <b>`TypeError`</b>: if `sess` is not a <a href="../../../tf/Session"><code>tf.compat.v1.Session</code></a> object.
 
 
 #### Returns:
@@ -57,10 +63,12 @@ the list of all threads.
 A list of threads.
 
 
+
 #### Raises:
 
+
 * <b>`RuntimeError`</b>: If called with eager execution enabled.
-* <b>`ValueError`</b>: If called without a default <a href="../../../tf/Session"><code>tf.Session</code></a> registered.
+* <b>`ValueError`</b>: If called without a default <a href="../../../tf/Session"><code>tf.compat.v1.Session</code></a> registered.
 
 
 

@@ -19,7 +19,7 @@ tfdbg.add_debug_tensor_watch(
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/lib/debug_utils.py).
+Defined in [`tensorflow/python/debug/lib/debug_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/lib/debug_utils.py).
 
 Add watch on a `Tensor` to `RunOptions`.
 

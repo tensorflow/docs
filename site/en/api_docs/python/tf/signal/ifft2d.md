@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.signal.ifft2d
 
+Inverse 2D fast Fourier transform.
+
 ### Aliases:
 
+* `tf.compat.v1.ifft2d`
+* `tf.compat.v1.signal.ifft2d`
+* `tf.compat.v1.spectral.ifft2d`
+* `tf.compat.v2.signal.ifft2d`
 * `tf.ifft2d`
 * `tf.signal.ifft2d`
 * `tf.spectral.ifft2d`
@@ -20,17 +26,18 @@ tf.signal.ifft2d(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_spectral_ops.py`.
+Defined in generated file: `python/ops/gen_spectral_ops.py`.
 
-Inverse 2D fast Fourier transform.
+<!-- Placeholder for "Used in" -->
 
 Computes the inverse 2-dimensional discrete Fourier transform over the
 inner-most 2 dimensions of `input`.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. Must be one of the following types: `complex64`, `complex128`.
-    A complex tensor.
+  A complex tensor.
 * <b>`name`</b>: A name for the operation (optional).
 
 

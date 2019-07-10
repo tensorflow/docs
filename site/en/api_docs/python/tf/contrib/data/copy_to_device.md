@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.data.copy_to_device
 
+A transformation that copies dataset elements to the given `target_device`. (deprecated)
+
 ``` python
 tf.contrib.data.copy_to_device(
     target_device,
@@ -14,15 +16,16 @@ tf.contrib.data.copy_to_device(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/prefetching_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/prefetching_ops.py).
+Defined in [`contrib/data/python/ops/prefetching_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/prefetching_ops.py).
 
-A transformation that copies dataset elements to the given `target_device`. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.experimental.copy_to_device(...)`.
+Use <a href="../../../tf/data/experimental/copy_to_device"><code>tf.data.experimental.copy_to_device(...)</code></a>.
 
 #### Args:
+
 
 * <b>`target_device`</b>: The name of a device to which elements will be copied.
 * <b>`source_device`</b>: The original device on which `input_dataset` will be placed.

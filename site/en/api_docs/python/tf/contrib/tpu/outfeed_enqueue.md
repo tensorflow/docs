@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.tpu.outfeed_enqueue
 
+Enqueue a Tensor on the computation outfeed.
+
 ``` python
 tf.contrib.tpu.outfeed_enqueue(
     input,
@@ -14,11 +16,13 @@ tf.contrib.tpu.outfeed_enqueue(
 
 
 
-Defined in generated file: `tensorflow/contrib/tpu/ops/gen_tpu_ops.py`.
+Defined in generated file: `python/ops/gen_tpu_ops.py`.
 
-An op which emits a single Tensor value from an XLA computation.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`input`</b>: A `Tensor`. A tensor that will be inserted into the outfeed queue.
 * <b>`name`</b>: A name for the operation (optional).

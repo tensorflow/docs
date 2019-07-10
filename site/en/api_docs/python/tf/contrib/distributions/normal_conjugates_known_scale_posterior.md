@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.distributions.normal_conjugates_known_scale_posterior
 
+Posterior Normal distribution with conjugate prior on the mean.
+
 ``` python
 tf.contrib.distributions.normal_conjugates_known_scale_posterior(
     prior,
@@ -16,9 +18,9 @@ tf.contrib.distributions.normal_conjugates_known_scale_posterior(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py).
+Defined in [`contrib/distributions/python/ops/normal_conjugate_posteriors.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py).
 
-Posterior Normal distribution with conjugate prior on the mean.
+<!-- Placeholder for "Used in" -->
 
 This model assumes that `n` observations (with sum `s`) come from a
 Normal with unknown mean `loc` (described by the Normal `prior`)
@@ -45,10 +47,11 @@ will broadcast in the case of multidimensional sets of parameters.
 
 #### Args:
 
+
 * <b>`prior`</b>: `Normal` object of type `dtype`:
-    the prior distribution having parameters `(loc0, scale0)`.
+  the prior distribution having parameters `(loc0, scale0)`.
 * <b>`scale`</b>: tensor of type `dtype`, taking values `scale > 0`.
-    The known stddev parameter(s).
+  The known stddev parameter(s).
 * <b>`s`</b>: Tensor of type `dtype`. The sum(s) of observations.
 * <b>`n`</b>: Tensor of type `int`. The number(s) of observations.
 
@@ -59,7 +62,9 @@ A new Normal posterior distribution object for the unknown observation
 mean `loc`.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: if dtype of `s` does not match `dtype`, or `prior` is not a
-    Normal object.
+  Normal object.

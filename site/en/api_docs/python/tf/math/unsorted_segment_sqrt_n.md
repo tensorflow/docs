@@ -6,8 +6,13 @@ page_type: reference
 
 # tf.math.unsorted_segment_sqrt_n
 
+Computes the sum along segments of a tensor divided by the sqrt(N).
+
 ### Aliases:
 
+* `tf.compat.v1.math.unsorted_segment_sqrt_n`
+* `tf.compat.v1.unsorted_segment_sqrt_n`
+* `tf.compat.v2.math.unsorted_segment_sqrt_n`
 * `tf.math.unsorted_segment_sqrt_n`
 * `tf.unsorted_segment_sqrt_n`
 
@@ -22,12 +27,12 @@ tf.math.unsorted_segment_sqrt_n(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Computes the sum along segments of a tensor divided by the sqrt(N).
+<!-- Placeholder for "Used in" -->
 
 Read [the section on
-segmentation](https://tensorflow.org/api_guides/python/math_ops#segmentation)
+segmentation](https://tensorflow.org/api_docs/python/tf/math#Segmentation)
 for an explanation of segments.
 
 This operator is similar to the unsorted segment sum operator found
@@ -49,10 +54,11 @@ be added to the sum of the segment.
 
 #### Args:
 
+
 * <b>`data`</b>: A `Tensor` with floating point or complex dtype.
 * <b>`segment_ids`</b>: An integer tensor whose shape is a prefix of `data.shape`.
-* <b>`num_segments`</b>: An integer scalar `Tensor`.  The number of distinct
-    segment IDs.
+* <b>`num_segments`</b>: An integer scalar `Tensor`.  The number of distinct segment
+  IDs.
 * <b>`name`</b>: A name for the operation (optional).
 
 

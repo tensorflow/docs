@@ -5,17 +5,27 @@ page_type: reference
 
 # tf.keras.datasets.reuters.get_word_index
 
+Retrieves the dictionary mapping word indices back to words.
+
+### Aliases:
+
+* `tf.compat.v1.keras.datasets.reuters.get_word_index`
+* `tf.compat.v2.keras.datasets.reuters.get_word_index`
+* `tf.keras.datasets.reuters.get_word_index`
+
 ``` python
 tf.keras.datasets.reuters.get_word_index(path='reuters_word_index.json')
 ```
 
 
 
-Defined in [`tensorflow/python/keras/datasets/reuters.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/datasets/reuters.py).
+Defined in [`python/keras/datasets/reuters.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/datasets/reuters.py).
 
-Retrieves the dictionary mapping word indices back to words.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`path`</b>: where to cache the data (relative to `~/.keras/dataset`).
 

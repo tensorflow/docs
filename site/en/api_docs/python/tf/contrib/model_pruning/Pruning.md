@@ -11,8 +11,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/model_pruning/python/pruning.py).
 
+
+Defined in [`contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/model_pruning/python/pruning.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
@@ -34,9 +37,10 @@ sparsity profiles externally and passing it to this pruning functions.
 
 #### Args:
 
+
 * <b>`spec`</b>: Pruning spec as defined in pruning.proto
 * <b>`global_step`</b>: A tensorflow variable that is used while setting up the
-    sparsity function
+  sparsity function
 * <b>`sparsity`</b>: A tensorflow scalar variable storing the sparsity
 
 
@@ -51,11 +55,13 @@ add_pruning_summaries()
 
 Adds summaries of weight sparsities and thresholds.
 
+
 <h3 id="conditional_mask_update_op"><code>conditional_mask_update_op</code></h3>
 
 ``` python
 conditional_mask_update_op()
 ```
+
 
 
 
@@ -67,11 +73,13 @@ mask_update_op()
 
 
 
+
 <h3 id="print_hparams"><code>print_hparams</code></h3>
 
 ``` python
 print_hparams()
 ```
+
 
 
 

@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.framework.get_variable_full_name
 
+Returns the full name of a variable.
+
 ``` python
 tf.contrib.framework.get_variable_full_name(var)
 ```
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
 
-Returns the full name of a variable.
+<!-- Placeholder for "Used in" -->
 
 For normal Variables, this is the same as the var.op.name.  For
 sliced or PartitionedVariables, this name is the same for all the
@@ -21,6 +23,7 @@ slices/partitions. In both cases, this is normally the name used in
 a checkpoint file.
 
 #### Args:
+
 
 * <b>`var`</b>: A `Variable` object.
 

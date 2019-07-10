@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.nn.depth_to_space
 
+DepthToSpace for tensors of type T.
+
 ### Aliases:
 
+* `tf.compat.v1.depth_to_space`
+* `tf.compat.v1.nn.depth_to_space`
 * `tf.depth_to_space`
 * `tf.nn.depth_to_space`
 
@@ -21,9 +25,9 @@ tf.nn.depth_to_space(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-DepthToSpace for tensors of type T.
+<!-- Placeholder for "Used in" -->
 
 Rearranges data from depth into blocks of spatial data.
 This is the reverse transformation of SpaceToDepth. More specifically,
@@ -117,9 +121,10 @@ x = [[[ [1],   [2],  [5],  [6]],
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`.
 * <b>`block_size`</b>: An `int` that is `>= 2`.
-    The size of the spatial block, same as in Space2Depth.
+  The size of the spatial block, same as in Space2Depth.
 * <b>`data_format`</b>: An optional `string` from: `"NHWC", "NCHW", "NCHW_VECT_C"`. Defaults to `"NHWC"`.
 * <b>`name`</b>: A name for the operation (optional).
 

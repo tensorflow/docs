@@ -11,19 +11,16 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/estimator/python/gan_estimator_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/estimator/python/gan_estimator_impl.py).
 
-An enumeration.
+
+Defined in [`contrib/gan/python/estimator/python/gan_estimator_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/estimator/python/gan_estimator_impl.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Class Members
 
-<h3 id="IMAGES"><code>IMAGES</code></h3>
-
-<h3 id="IMAGE_COMPARISON"><code>IMAGE_COMPARISON</code></h3>
-
-<h3 id="NONE"><code>NONE</code></h3>
-
-<h3 id="VARIABLES"><code>VARIABLES</code></h3>
-
-<h3 id="__members__"><code>__members__</code></h3>
-
+* `IMAGES = <SummaryType.IMAGES: 2>` <a id="IMAGES"></a>
+* `IMAGE_COMPARISON = <SummaryType.IMAGE_COMPARISON: 3>` <a id="IMAGE_COMPARISON"></a>
+* `NONE = <SummaryType.NONE: 0>` <a id="NONE"></a>
+* `VARIABLES = <SummaryType.VARIABLES: 1>` <a id="VARIABLES"></a>

@@ -7,9 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-System configuration library.
 
 ## Functions
 
@@ -23,7 +22,5 @@ System configuration library.
 
 ## Other Members
 
-<h3 id="CXX11_ABI_FLAG"><code>CXX11_ABI_FLAG</code></h3>
-
-<h3 id="MONOLITHIC_BUILD"><code>MONOLITHIC_BUILD</code></h3>
-
+* `CXX11_ABI_FLAG = 0` <a id="CXX11_ABI_FLAG"></a>
+* `MONOLITHIC_BUILD = 0` <a id="MONOLITHIC_BUILD"></a>

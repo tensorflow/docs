@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.linalg.global_norm
 
+Computes the global norm of multiple tensors.
+
 ### Aliases:
 
+* `tf.compat.v1.global_norm`
+* `tf.compat.v1.linalg.global_norm`
+* `tf.compat.v2.linalg.global_norm`
 * `tf.global_norm`
 * `tf.linalg.global_norm`
 
@@ -19,9 +24,9 @@ tf.linalg.global_norm(
 
 
 
-Defined in [`tensorflow/python/ops/clip_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/clip_ops.py).
+Defined in [`python/ops/clip_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/clip_ops.py).
 
-Computes the global norm of multiple tensors.
+<!-- Placeholder for "Used in" -->
 
 Given a tuple or list of tensors `t_list`, this operation returns the
 global norm of the elements in all tensors in `t_list`. The global norm is
@@ -33,6 +38,7 @@ Any entries in `t_list` that are of type None are ignored.
 
 #### Args:
 
+
 * <b>`t_list`</b>: A tuple or list of mixed `Tensors`, `IndexedSlices`, or None.
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -42,6 +48,8 @@ Any entries in `t_list` that are of type None are ignored.
 A 0-D (scalar) `Tensor` of type `float`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `t_list` is not a sequence.

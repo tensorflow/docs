@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.data.experimental.parallel_interleave
 
+A parallel version of the <a href="../../../tf/data/Dataset#interleave"><code>Dataset.interleave()</code></a> transformation. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.data.experimental.parallel_interleave`
+* `tf.compat.v2.data.experimental.parallel_interleave`
+* `tf.data.experimental.parallel_interleave`
+
 ``` python
 tf.data.experimental.parallel_interleave(
     map_func,
@@ -18,9 +26,13 @@ tf.data.experimental.parallel_interleave(
 
 
 
-Defined in [`tensorflow/python/data/experimental/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/experimental/ops/interleave_ops.py).
+Defined in [`python/data/experimental/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/interleave_ops.py).
 
-A parallel version of the `Dataset.interleave()` transformation.
+<!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use <a href="../../../tf/data/Dataset#interleave"><code>tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.experimental.AUTOTUNE)</code></a> instead. If sloppy execution is desired, use `tf.data.Options.experimental_determinstic`.
 
 `parallel_interleave()` maps `map_func` across its input to produce nested
 datasets, and outputs their elements interleaved. Unlike
@@ -31,7 +43,9 @@ improve performance, by relaxing the requirement that the outputs are produced
 in a deterministic order, and allowing the implementation to skip over nested
 datasets whose elements are not readily available when requested.
 
-Example usage:
+#### Example usage:
+
+
 
 ```python
 # Preprocess 4 files concurrently.
@@ -47,18 +61,19 @@ deterministic.
 
 #### Args:
 
+
 * <b>`map_func`</b>: A function mapping a nested structure of tensors to a `Dataset`.
 * <b>`cycle_length`</b>: The number of input `Dataset`s to interleave from in parallel.
 * <b>`block_length`</b>: The number of consecutive elements to pull from an input
-    `Dataset` before advancing to the next input `Dataset`.
+  `Dataset` before advancing to the next input `Dataset`.
 * <b>`sloppy`</b>: If false, elements are produced in deterministic order. Otherwise,
-    the implementation is allowed, for the sake of expediency, to produce
-    elements in a non-deterministic order.
+  the implementation is allowed, for the sake of expediency, to produce
+  elements in a non-deterministic order.
 * <b>`buffer_output_elements`</b>: The number of elements each iterator being
-    interleaved should buffer (similar to the `.prefetch()` transformation for
-    each interleaved iterator).
+  interleaved should buffer (similar to the `.prefetch()` transformation for
+  each interleaved iterator).
 * <b>`prefetch_input_elements`</b>: The number of input elements to transform to
-    iterators before they are needed for interleaving.
+  iterators before they are needed for interleaving.
 
 
 #### Returns:

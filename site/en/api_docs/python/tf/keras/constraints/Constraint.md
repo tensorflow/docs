@@ -11,8 +11,17 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/constraints.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/constraints.py).
+### Aliases:
 
+* Class `tf.compat.v1.keras.constraints.Constraint`
+* Class `tf.compat.v2.keras.constraints.Constraint`
+* Class `tf.keras.constraints.Constraint`
+
+
+
+Defined in [`python/keras/constraints.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/constraints.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 ## Methods
@@ -23,13 +32,15 @@ Defined in [`tensorflow/python/keras/constraints.py`](https://github.com/tensorf
 __call__(w)
 ```
 
-Call self as a function.
+
+
 
 <h3 id="get_config"><code>get_config</code></h3>
 
 ``` python
 get_config()
 ```
+
 
 
 

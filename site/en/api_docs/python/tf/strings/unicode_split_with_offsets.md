@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.strings.unicode_split_with_offsets
 
+Splits each string into a sequence of code points with start offsets.
+
+### Aliases:
+
+* `tf.compat.v1.strings.unicode_split_with_offsets`
+* `tf.compat.v2.strings.unicode_split_with_offsets`
+* `tf.strings.unicode_split_with_offsets`
+
 ``` python
 tf.strings.unicode_split_with_offsets(
     input,
@@ -17,9 +25,9 @@ tf.strings.unicode_split_with_offsets(
 
 
 
-Defined in [`tensorflow/python/ops/ragged/ragged_string_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/ragged/ragged_string_ops.py).
+Defined in [`python/ops/ragged/ragged_string_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_string_ops.py).
 
-Splits each string into a sequence of code points with start offsets.
+<!-- Placeholder for "Used in" -->
 
 This op is similar to `tf.strings.decode(...)`, but it also returns the
 start offset for each character in its respective string.  This information
@@ -34,29 +42,31 @@ Returns a tuple `(chars, start_offsets)` where:
 
 #### Args:
 
+
 * <b>`input`</b>: An `N` dimensional potentially ragged `string` tensor with shape
-    `[D1...DN]`.  `N` must be statically known.
+  `[D1...DN]`.  `N` must be statically known.
 * <b>`input_encoding`</b>: String name for the unicode encoding that should be used to
-    decode each string.
+  decode each string.
 * <b>`errors`</b>: Specifies the response when an input string can't be converted
-    using the indicated encoding. One of:
-    * `'strict'`: Raise an exception for any illegal substrings.
-    * `'replace'`: Replace illegal substrings with `replacement_char`.
-    * `'ignore'`: Skip illegal substrings.
+  using the indicated encoding. One of:
+  * `'strict'`: Raise an exception for any illegal substrings.
+  * `'replace'`: Replace illegal substrings with `replacement_char`.
+  * `'ignore'`: Skip illegal substrings.
 * <b>`replacement_char`</b>: The replacement codepoint to be used in place of invalid
-    substrings in `input` when `errors='replace'`.
+  substrings in `input` when `errors='replace'`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-  A tuple of `N+1` dimensional tensors `(codepoints, start_offsets)`.
+A tuple of `N+1` dimensional tensors `(codepoints, start_offsets)`.
 
-  * `codepoints` is an `int32` tensor with shape `[D1...DN, (num_chars)]`.
-  * `offsets` is an `int64` tensor with shape `[D1...DN, (num_chars)]`.
+* `codepoints` is an `int32` tensor with shape `[D1...DN, (num_chars)]`.
+* `offsets` is an `int64` tensor with shape `[D1...DN, (num_chars)]`.
 
-  The returned tensors are <a href="../../tf/Tensor"><code>tf.Tensor</code></a>s if `input` is a scalar, or
-  <a href="../../tf/RaggedTensor"><code>tf.RaggedTensor</code></a>s otherwise.
+The returned tensors are <a href="../../tf/Tensor"><code>tf.Tensor</code></a>s if `input` is a scalar, or
+<a href="../../tf/RaggedTensor"><code>tf.RaggedTensor</code></a>s otherwise.
+
 
 #### Example:
 >     >>> input = [s.encode('utf8') for s in (u'G\xf6\xf6dnight', u'\U0001f60a')]

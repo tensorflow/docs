@@ -11,17 +11,21 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py).
+### Aliases:
 
+* Class `tf.compat.v1.image.ResizeMethod`
+* Class `tf.image.ResizeMethod`
+
+
+
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 ## Class Members
 
-<h3 id="AREA"><code>AREA</code></h3>
-
-<h3 id="BICUBIC"><code>BICUBIC</code></h3>
-
-<h3 id="BILINEAR"><code>BILINEAR</code></h3>
-
-<h3 id="NEAREST_NEIGHBOR"><code>NEAREST_NEIGHBOR</code></h3>
-
+* `AREA = 3` <a id="AREA"></a>
+* `BICUBIC = 2` <a id="BICUBIC"></a>
+* `BILINEAR = 0` <a id="BILINEAR"></a>
+* `NEAREST_NEIGHBOR = 1` <a id="NEAREST_NEIGHBOR"></a>

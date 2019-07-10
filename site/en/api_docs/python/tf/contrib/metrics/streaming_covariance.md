@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.streaming_covariance
 
+Computes the unbiased sample covariance between `predictions` and `labels`.
+
 ``` python
 tf.contrib.metrics.streaming_covariance(
     predictions,
@@ -18,9 +20,9 @@ tf.contrib.metrics.streaming_covariance(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
-Computes the unbiased sample covariance between `predictions` and `labels`.
+<!-- Placeholder for "Used in" -->
 
 The `streaming_covariance` function creates four local variables,
 `comoment`, `mean_prediction`, `mean_label`, and `count`, which are used to
@@ -47,27 +49,30 @@ variables and returns the updated covariance.
 
 #### Args:
 
+
 * <b>`predictions`</b>: A `Tensor` of arbitrary size.
 * <b>`labels`</b>: A `Tensor` of the same size as `predictions`.
 * <b>`weights`</b>: Optional `Tensor` indicating the frequency with which an example is
-    sampled. Rank must be 0, or the same rank as `labels`, and must be
-    broadcastable to `labels` (i.e., all dimensions must be either `1`, or
-    the same as the corresponding `labels` dimension).
-* <b>`metrics_collections`</b>: An optional list of collections that the metric
-    value variable should be added to.
+  sampled. Rank must be 0, or the same rank as `labels`, and must be
+  broadcastable to `labels` (i.e., all dimensions must be either `1`, or the
+  same as the corresponding `labels` dimension).
+* <b>`metrics_collections`</b>: An optional list of collections that the metric value
+  variable should be added to.
 * <b>`updates_collections`</b>: An optional list of collections that the metric update
-    ops should be added to.
+  ops should be added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
 
+
 * <b>`covariance`</b>: A `Tensor` representing the current unbiased sample covariance,
-    `comoment` / (`count` - 1).
+  `comoment` / (`count` - 1).
 * <b>`update_op`</b>: An operation that updates the local variables appropriately.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If labels and predictions are of different sizes or if either
-    `metrics_collections` or `updates_collections` are not a list or tuple.
+  `metrics_collections` or `updates_collections` are not a list or tuple.

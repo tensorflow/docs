@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `Metric`
 
+A metric holds state for aggregating statistics over an evaluation run.
+
 Inherits From: [`CheckpointableBase`](../../../../tf/contrib/checkpoint/CheckpointableBase)
 
 
 
-Defined in [`tensorflow/contrib/eager/python/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/metrics_impl.py).
+Defined in [`contrib/eager/python/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/metrics_impl.py).
 
-A metric holds state for aggregating statistics over an evaluation run.
+<!-- Placeholder for "Used in" -->
 
 Example use with eager execution:
 
@@ -31,9 +33,9 @@ m = SomeMetric(...)
 inputs = ... # Some tensors to compute the metric on.
 m_update = m(inputs)
 # Variables defined in first call, so get the initialization op afterwards.
-m_init = m.init_variables()  # or tf.global_variables_initializer()
+m_init = m.init_variables()  # or tf.compat.v1.global_variables_initializer()
 m_result = m.result()
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
   sess.run(m_init)
   for input in ...:
     sess.run(m_update)
@@ -43,12 +45,12 @@ Example use with graph execution with placeholders and feed_dict:
 
 ```python
 m = SomeMetric(...)
-m_placeholder = tf.placeholder(...)
+m_placeholder = tf.compat.v1.placeholder(...)
 m_update = m(m_placeholder)
 # Variables defined in first call, so get the initialization op afterwards.
-m_init = m.init_variables()  # or tf.global_variables_initializer()
+m_init = m.init_variables()  # or tf.compat.v1.global_variables_initializer()
 m_result = m.result()
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
   sess.run(m_init)
   for input in ...:
     sess.run(m_update, feed_dict={m_placeholder: input})
@@ -79,7 +81,8 @@ __init__(
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -89,7 +92,9 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 
 
+
 <h3 id="variables"><code>variables</code></h3>
+
 
 
 
@@ -113,6 +118,7 @@ Returns a graph-mode function if graph execution is enabled.
 
 #### Args:
 
+
 * <b>`*args`</b>: * <b>`**kwargs`</b>: A mini-batch of inputs to the Metric, passed on to `call()`.
 
 <h3 id="add_variable"><code>add_variable</code></h3>
@@ -128,6 +134,7 @@ add_variable(
 
 ***Only for use by descendants of Metric***.
 
+
 <h3 id="aggregate"><code>aggregate</code></h3>
 
 ``` python
@@ -140,10 +147,12 @@ Default implementation sums all the metric variables.
 
 #### Args:
 
+
 * <b>`metrics`</b>: A list of metrics with the same type as `self`.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If metrics contains invalid data.
 
@@ -162,9 +171,10 @@ Called by `__call__()` before `call()` for the first time.
 
 #### Args:
 
+
 * <b>`*args`</b>: * <b>`**kwargs`</b>: The arguments to the first invocation of `__call__()`.
-   `build()` may use the shape and/or dtype of these arguments
-   when deciding how to create variables.
+ `build()` may use the shape and/or dtype of these arguments
+ when deciding how to create variables.
 
 <h3 id="call"><code>call</code></h3>
 
@@ -189,8 +199,9 @@ eager execution.
 
 #### Args:
 
+
 * <b>`*args`</b>: * <b>`**kwargs`</b>: A mini-batch of inputs to the Metric, as passed to
-    `__call__()`.
+  `__call__()`.
 
 <h3 id="init_variables"><code>init_variables</code></h3>
 
@@ -211,6 +222,7 @@ If using graph execution, this returns an op to perform the
 initialization. Under eager execution, the variables are reset to their
 initial values as a side effect and this function returns None.
 
+
 <h3 id="result"><code>result</code></h3>
 
 ``` python
@@ -219,6 +231,7 @@ result()
 
 Computes and returns a final value for the metric.
 
+
 <h3 id="value"><code>value</code></h3>
 
 ``` python
@@ -226,6 +239,7 @@ value()
 ```
 
 In graph mode returns the result Tensor while in eager the callable.
+
 
 
 

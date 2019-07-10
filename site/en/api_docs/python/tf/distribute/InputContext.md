@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `InputContext`
 
-
-
-
-
-Defined in [`tensorflow/python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/distribute_lib.py).
-
 A class wrapping information needed by an input function.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.distribute.InputContext`
+* Class `tf.compat.v2.distribute.InputContext`
+* Class `tf.distribute.InputContext`
+
+
+
+Defined in [`python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/distribute_lib.py).
+
+<!-- Placeholder for "Used in" -->
 
 This is a context class that is passed to the user's input fn and contains
 information about the compute replicas and input pipelines. The number of
@@ -34,11 +42,13 @@ __init__(
 
 Initializes an InputContext object.
 
+
 #### Args:
+
 
 * <b>`num_input_pipelines`</b>: the number of input pipelines in a cluster.
 * <b>`input_pipeline_id`</b>: the current input pipeline id, should be an int in
-    [0,`num_input_pipelines`).
+  [0,`num_input_pipelines`).
 * <b>`num_replicas_in_sync`</b>: the number of replicas that are in sync.
 
 
@@ -49,13 +59,16 @@ Initializes an InputContext object.
 
 Returns the input pipeline ID.
 
+
 <h3 id="num_input_pipelines"><code>num_input_pipelines</code></h3>
 
 Returns the number of input pipelines.
 
+
 <h3 id="num_replicas_in_sync"><code>num_replicas_in_sync</code></h3>
 
 Returns the number of compute replicas in sync.
+
 
 
 
@@ -69,10 +82,12 @@ get_per_replica_batch_size(global_batch_size)
 
 Returns the per-replica batch size.
 
+
 #### Args:
 
+
 * <b>`global_batch_size`</b>: the global batch size which should be divisible by
-    `num_replicas_in_sync`.
+  `num_replicas_in_sync`.
 
 
 #### Returns:
@@ -80,10 +95,12 @@ Returns the per-replica batch size.
 the per-replica batch size.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `global_batch_size` not divisible by
-    `num_replicas_in_sync`.
+  `num_replicas_in_sync`.
 
 
 

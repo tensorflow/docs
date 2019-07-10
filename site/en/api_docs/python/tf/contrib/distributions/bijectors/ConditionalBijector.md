@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `ConditionalBijector`
 
+Conditional Bijector is a Bijector that allows intrinsic conditioning.
+
 Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijector)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py).
+Defined in [`contrib/distributions/python/ops/bijectors/conditional_bijector.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py).
 
-Conditional Bijector is a Bijector that allows intrinsic conditioning.
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -33,7 +36,9 @@ Constructs Bijector.
 
 A `Bijector` transforms random variables into new random variables.
 
-Examples:
+#### Examples:
+
+
 
 ```python
 # Create the Y = g(X) = X transform.
@@ -47,27 +52,29 @@ See `Bijector` subclass docstring for more details and specific examples.
 
 #### Args:
 
+
 * <b>`graph_parents`</b>: Python list of graph prerequisites of this `Bijector`.
 * <b>`is_constant_jacobian`</b>: Python `bool` indicating that the Jacobian matrix is
-    not a function of the input.
+  not a function of the input.
 * <b>`validate_args`</b>: Python `bool`, default `False`. Whether to validate input
-    with asserts. If `validate_args` is `False`, and the inputs are invalid,
-    correct behavior is not guaranteed.
+  with asserts. If `validate_args` is `False`, and the inputs are invalid,
+  correct behavior is not guaranteed.
 * <b>`dtype`</b>: `tf.dtype` supported by this `Bijector`. `None` means dtype is not
-    enforced.
+  enforced.
 * <b>`forward_min_event_ndims`</b>: Python `integer` indicating the minimum number of
-    dimensions `forward` operates on.
+  dimensions `forward` operates on.
 * <b>`inverse_min_event_ndims`</b>: Python `integer` indicating the minimum number of
-    dimensions `inverse` operates on. Will be set to
-    `forward_min_event_ndims` by default, if no value is provided.
+  dimensions `inverse` operates on. Will be set to
+  `forward_min_event_ndims` by default, if no value is provided.
 * <b>`name`</b>: The name to give Ops created by the initializer.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>:  If neither `forward_min_event_ndims` and
-    `inverse_min_event_ndims` are specified, or if either of them is
-    negative.
+  `inverse_min_event_ndims` are specified, or if either of them is
+  negative.
 * <b>`ValueError`</b>:  If a member of `graph_parents` is not a `Tensor`.
 
 
@@ -78,17 +85,21 @@ See `Bijector` subclass docstring for more details and specific examples.
 
 dtype of `Tensor`s transformable by this distribution.
 
+
 <h3 id="forward_min_event_ndims"><code>forward_min_event_ndims</code></h3>
 
 Returns the minimal number of dimensions bijector.forward operates on.
+
 
 <h3 id="graph_parents"><code>graph_parents</code></h3>
 
 Returns this `Bijector`'s graph_parents as a Python list.
 
+
 <h3 id="inverse_min_event_ndims"><code>inverse_min_event_ndims</code></h3>
 
 Returns the minimal number of dimensions bijector.inverse operates on.
+
 
 <h3 id="is_constant_jacobian"><code>is_constant_jacobian</code></h3>
 
@@ -99,15 +110,18 @@ neither.
 
 #### Returns:
 
+
 * <b>`is_constant_jacobian`</b>: Python `bool`.
 
 <h3 id="name"><code>name</code></h3>
 
 Returns the string name of this `Bijector`.
 
+
 <h3 id="validate_args"><code>validate_args</code></h3>
 
 Returns True if Tensor arguments will be validated.
+
 
 
 
@@ -138,14 +152,16 @@ Same meaning as `forward_event_shape_tensor`. May be only partially defined.
 
 #### Args:
 
+
 * <b>`input_shape`</b>: `TensorShape` indicating event-portion shape passed into
-    `forward` function.
+  `forward` function.
 
 
 #### Returns:
 
+
 * <b>`forward_event_shape_tensor`</b>: `TensorShape` indicating event-portion shape
-    after applying `forward`. Possibly unknown.
+  after applying `forward`. Possibly unknown.
 
 <h3 id="forward_event_shape_tensor"><code>forward_event_shape_tensor</code></h3>
 
@@ -158,17 +174,20 @@ forward_event_shape_tensor(
 
 Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
 
+
 #### Args:
 
+
 * <b>`input_shape`</b>: `Tensor`, `int32` vector indicating event-portion shape
-    passed into `forward` function.
+  passed into `forward` function.
 * <b>`name`</b>: name to give to the op
 
 
 #### Returns:
 
+
 * <b>`forward_event_shape_tensor`</b>: `Tensor`, `int32` vector indicating
-    event-portion shape after applying `forward`.
+  event-portion shape after applying `forward`.
 
 <h3 id="forward_log_det_jacobian"><code>forward_log_det_jacobian</code></h3>
 
@@ -208,14 +227,16 @@ Same meaning as `inverse_event_shape_tensor`. May be only partially defined.
 
 #### Args:
 
+
 * <b>`output_shape`</b>: `TensorShape` indicating event-portion shape passed into
-    `inverse` function.
+  `inverse` function.
 
 
 #### Returns:
 
+
 * <b>`inverse_event_shape_tensor`</b>: `TensorShape` indicating event-portion shape
-    after applying `inverse`. Possibly unknown.
+  after applying `inverse`. Possibly unknown.
 
 <h3 id="inverse_event_shape_tensor"><code>inverse_event_shape_tensor</code></h3>
 
@@ -228,17 +249,20 @@ inverse_event_shape_tensor(
 
 Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
 
+
 #### Args:
 
+
 * <b>`output_shape`</b>: `Tensor`, `int32` vector indicating event-portion shape
-    passed into `inverse` function.
+  passed into `inverse` function.
 * <b>`name`</b>: name to give to the op
 
 
 #### Returns:
 
+
 * <b>`inverse_event_shape_tensor`</b>: `Tensor`, `int32` vector indicating
-    event-portion shape after applying `inverse`.
+  event-portion shape after applying `inverse`.
 
 <h3 id="inverse_log_det_jacobian"><code>inverse_log_det_jacobian</code></h3>
 

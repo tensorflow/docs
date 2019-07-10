@@ -11,7 +11,24 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/profiler/trace_events.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/tpu/profiler/trace_events.proto).
 
-A ProtocolMessage
+
+Defined in [`core/protobuf/trace_events.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/trace_events.proto).
+
+<!-- Placeholder for "Used in" -->
+
+
+## Properties
+
+<h3 id="key"><code>key</code></h3>
+
+`uint32 key`
+
+
+<h3 id="value"><code>value</code></h3>
+
+`Device value`
+
+
+
 

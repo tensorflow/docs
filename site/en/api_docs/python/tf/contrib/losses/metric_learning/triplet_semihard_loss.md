@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.losses.metric_learning.triplet_semihard_loss
 
+Computes the triplet loss with semi-hard negative mining.
+
 ``` python
 tf.contrib.losses.metric_learning.triplet_semihard_loss(
     labels,
@@ -15,9 +17,9 @@ tf.contrib.losses.metric_learning.triplet_semihard_loss(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
+Defined in [`contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
 
-Computes the triplet loss with semi-hard negative mining.
+<!-- Placeholder for "Used in" -->
 
 The loss encourages the positive distances (between a pair of embeddings with
 the same labels) to be smaller than the minimum negative distance among
@@ -28,13 +30,15 @@ See: https://arxiv.org/abs/1503.03832.
 
 #### Args:
 
+
 * <b>`labels`</b>: 1-D tf.int32 `Tensor` with shape [batch_size] of
-    multiclass integer labels.
+  multiclass integer labels.
 * <b>`embeddings`</b>: 2-D float `Tensor` of embedding vectors. Embeddings should
-    be l2 normalized.
+  be l2 normalized.
 * <b>`margin`</b>: Float, margin term in the loss definition.
 
 
 #### Returns:
+
 
 * <b>`triplet_loss`</b>: tf.float32 scalar.

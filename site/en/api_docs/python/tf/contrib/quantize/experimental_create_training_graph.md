@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.quantize.experimental_create_training_graph
 
+Rewrites a training input_graph in place for simulated quantization.
+
 ``` python
 tf.contrib.quantize.experimental_create_training_graph(
     input_graph=None,
@@ -19,9 +21,9 @@ tf.contrib.quantize.experimental_create_training_graph(
 
 
 
-Defined in [`tensorflow/contrib/quantize/python/quantize_graph.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/quantize/python/quantize_graph.py).
+Defined in [`contrib/quantize/python/quantize_graph.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/quantize/python/quantize_graph.py).
 
-Rewrites a training input_graph in place for simulated quantization.
+<!-- Placeholder for "Used in" -->
 
 This function must be invoked prior to insertion of gradient ops in a graph
 as quantization should be modeled in both forward and backward passes.
@@ -46,23 +48,25 @@ often fail.
 
 #### Args:
 
+
 * <b>`input_graph`</b>: The tf.Graph to be transformed, if None then defaults to the
-    default graph.
+  default graph.
 * <b>`weight_bits`</b>: Number of bits to use for quantizing weights.
 * <b>`activation_bits`</b>: Number of bits to use for quantizing activations.
 * <b>`symmetric`</b>: If true, use symmetric quantization limits instead of training
-    the minimum and maximum of each quantization range separately.
+  the minimum and maximum of each quantization range separately.
 * <b>`quant_delay`</b>: Number of steps after which weights and activations are
-    quantized during training.
+  quantized during training.
 * <b>`freeze_bn_delay`</b>: Number of steps after which moving mean and variance are
-    frozen and used instead of batch statistics during training.
-    freeze_bn_delay should be greater than quant_delay and should correspond
-    to when training has almost converged
+  frozen and used instead of batch statistics during training.
+  freeze_bn_delay should be greater than quant_delay and should correspond
+  to when training has almost converged
 * <b>`scope`</b>: The scope to be transformed. If it's not None, only the ops which
-    are in this scope will be transformed.
+  are in this scope will be transformed.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If elements contains an element that isn't a tf.Tensor or
-      tf.Operation.
+    tf.Operation.

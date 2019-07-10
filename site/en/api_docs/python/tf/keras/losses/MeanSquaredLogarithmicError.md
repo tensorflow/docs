@@ -7,18 +7,29 @@ page_type: reference
 
 ## Class `MeanSquaredLogarithmicError`
 
-
-
-
-
-Defined in [`tensorflow/python/keras/losses.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/losses.py).
-
 Computes the mean squared logarithmic error between `y_true` and `y_pred`.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.keras.losses.MeanSquaredLogarithmicError`
+* Class `tf.compat.v2.keras.losses.MeanSquaredLogarithmicError`
+* Class `tf.compat.v2.losses.MeanSquaredLogarithmicError`
+* Class `tf.keras.losses.MeanSquaredLogarithmicError`
+
+
+
+Defined in [`python/keras/losses.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/losses.py).
+
+<!-- Placeholder for "Used in" -->
 
 For example, if `y_true` is [0., 0., 1., 1.] and `y_pred` is [1., 1., 1., 0.]
 then the mean squared logarithmic error value is 0.36034.
 
-Usage:
+#### Usage:
+
+
 
 ```python
 msle = tf.keras.losses.MeanSquaredLogarithmicError()
@@ -29,7 +40,7 @@ print('Loss: ', loss.numpy())  # Loss: 0.36034
 Usage with tf.keras API:
 
 ```python
-model = keras.models.Model(inputs, outputs)
+model = tf.keras.Model(inputs, outputs)
 model.compile('sgd', loss=tf.keras.losses.MeanSquaredLogarithmicError())
 ```
 
@@ -37,12 +48,13 @@ model.compile('sgd', loss=tf.keras.losses.MeanSquaredLogarithmicError())
 
 ``` python
 __init__(
-    reduction=losses_impl.ReductionV2.SUM_OVER_BATCH_SIZE,
-    name=None
+    reduction=losses_utils.ReductionV2.AUTO,
+    name='mean_squared_logarithmic_error'
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -60,19 +72,21 @@ __call__(
 
 Invokes the `Loss` instance.
 
+
 #### Args:
+
 
 * <b>`y_true`</b>: Ground truth values.
 * <b>`y_pred`</b>: The predicted values.
 * <b>`sample_weight`</b>: Optional `Tensor` whose rank is either 0, or the same rank
-    as `y_true`, or is broadcastable to `y_true`. `sample_weight` acts as a
-    coefficient for the loss. If a scalar is provided, then the loss is
-    simply scaled by the given value. If `sample_weight` is a tensor of size
-    `[batch_size]`, then the total loss for each sample of the batch is
-    rescaled by the corresponding element in the `sample_weight` vector. If
-    the shape of `sample_weight` matches the shape of `y_pred`, then the
-    loss of each measurable element of `y_pred` is scaled by the
-    corresponding value of `sample_weight`.
+  as `y_true`, or is broadcastable to `y_true`. `sample_weight` acts as a
+  coefficient for the loss. If a scalar is provided, then the loss is
+  simply scaled by the given value. If `sample_weight` is a tensor of size
+  `[batch_size]`, then the total loss for each sample of the batch is
+  rescaled by the corresponding element in the `sample_weight` vector. If
+  the shape of `sample_weight` matches the shape of `y_pred`, then the
+  loss of each measurable element of `y_pred` is scaled by the
+  corresponding value of `sample_weight`.
 
 
 #### Returns:
@@ -81,30 +95,11 @@ Weighted loss float `Tensor`. If `reduction` is `NONE`, this has the same
   shape as `y_true`; otherwise, it is scalar.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the shape of `sample_weight` is invalid.
-
-<h3 id="call"><code>call</code></h3>
-
-``` python
-call(
-    y_true,
-    y_pred
-)
-```
-
-Invokes the `MeanSquaredLogarithmicError` instance.
-
-#### Args:
-
-* <b>`y_true`</b>: Ground truth values.
-* <b>`y_pred`</b>: The predicted values.
-
-
-#### Returns:
-
-Mean squared logarithmic error losses.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
@@ -117,7 +112,9 @@ from_config(
 
 Instantiates a `Loss` from its config (output of `get_config()`).
 
+
 #### Args:
+
 
 * <b>`config`</b>: Output of `get_config()`.
 
@@ -126,11 +123,13 @@ Instantiates a `Loss` from its config (output of `get_config()`).
 
 A `Loss` instance.
 
+
 <h3 id="get_config"><code>get_config</code></h3>
 
 ``` python
 get_config()
 ```
+
 
 
 

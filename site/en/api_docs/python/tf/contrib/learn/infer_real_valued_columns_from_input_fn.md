@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.learn.infer_real_valued_columns_from_input_fn
 
+Creates `FeatureColumn` objects for inputs defined by `input_fn`. (deprecated)
+
 ``` python
 tf.contrib.learn.infer_real_valued_columns_from_input_fn(input_fn)
 ```
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
+Defined in [`contrib/learn/python/learn/estimators/estimator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
 
-Creates `FeatureColumn` objects for inputs defined by `input_fn`. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -25,9 +27,10 @@ it.
 
 #### Args:
 
+
 * <b>`input_fn`</b>: Input function returning a tuple of:
-      features - Dictionary of string feature name to `Tensor` or `Tensor`.
-      labels - `Tensor` of label values.
+    features - Dictionary of string feature name to `Tensor` or `Tensor`.
+    labels - `Tensor` of label values.
 
 
 #### Returns:

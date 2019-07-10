@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.math.reduce_prod
 
+Computes the product of elements across dimensions of a tensor. (deprecated arguments)
+
 ### Aliases:
 
+* `tf.compat.v1.math.reduce_prod`
+* `tf.compat.v1.reduce_prod`
 * `tf.math.reduce_prod`
 * `tf.reduce_prod`
 
@@ -23,9 +27,9 @@ tf.math.reduce_prod(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Computes the product of elements across dimensions of a tensor. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(keep_dims)`. They will be removed in a future version.
 Instructions for updating:
@@ -41,10 +45,11 @@ tensor with a single element is returned.
 
 #### Args:
 
+
 * <b>`input_tensor`</b>: The tensor to reduce. Should have numeric type.
 * <b>`axis`</b>: The dimensions to reduce. If `None` (the default), reduces all
-    dimensions. Must be in the range `[-rank(input_tensor),
-    rank(input_tensor))`.
+  dimensions. Must be in the range `[-rank(input_tensor),
+  rank(input_tensor))`.
 * <b>`keepdims`</b>: If true, retains reduced dimensions with length 1.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`reduction_indices`</b>: The old (deprecated) name for axis.
@@ -54,6 +59,7 @@ tensor with a single element is returned.
 #### Returns:
 
 The reduced tensor.
+
 
 
 

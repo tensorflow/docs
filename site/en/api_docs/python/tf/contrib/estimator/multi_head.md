@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.multi_head
 
+Creates a `_Head` for multi-objective learning.
+
 ``` python
 tf.contrib.estimator.multi_head(
     heads,
@@ -12,10 +14,14 @@ tf.contrib.estimator.multi_head(
 )
 ```
 
-Creates a `_Head` for multi-objective learning.
 
-This class merges the output of multiple `_Head` objects.
-Specifically:
+
+Defined in [`contrib/estimator/python/estimator/multi_head.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/multi_head.py).
+
+<!-- Placeholder for "Used in" -->
+
+This class merges the output of multiple `_Head` objects. Specifically:
+
 * For training, sums losses of each head, calls `train_op_fn` with this
   final loss.
 * For eval, merges metrics by adding `head.name` suffix to the keys in eval
@@ -24,7 +30,9 @@ Specifically:
   2-tuple, `(head.name, prediction_key)`. Merges `export_outputs` such that
   by default the first head is served.
 
-Usage:
+#### Usage:
+
+
 
 ```python
 # In `input_fn` specify labels as a dict keyed by head name:
@@ -71,11 +79,12 @@ def model_fn(features, labels, mode):
 
 #### Args:
 
+
 * <b>`heads`</b>: List or tuple of `_Head` instances. All heads must have `name`
-    specified. The first head in the list is the default used at serving time.
+  specified. The first head in the list is the default used at serving time.
 * <b>`head_weights`</b>: Optional list of weights, same length as `heads`. Used when
-    merging losses to calculate the weighted sum of losses from each head. If
-    `None`, all losses are weighted equally.
+  merging losses to calculate the weighted sum of losses from each head. If
+  `None`, all losses are weighted equally.
 
 
 #### Returns:
@@ -83,7 +92,9 @@ def model_fn(features, labels, mode):
 A instance of `_Head` that merges multiple heads.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `heads` is empty.
 * <b>`ValueError`</b>: If any of the `heads` does not have `name` specified.

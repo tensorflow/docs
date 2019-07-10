@@ -5,15 +5,22 @@ page_type: reference
 
 # tf.layers.experimental.keras_style_scope
 
+Use Keras-style variable management.
+
+### Aliases:
+
+* `tf.compat.v1.layers.experimental.keras_style_scope`
+* `tf.layers.experimental.keras_style_scope`
+
 ``` python
 tf.layers.experimental.keras_style_scope()
 ```
 
 
 
-Defined in [`tensorflow/python/layers/base.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/layers/base.py).
+Defined in [`python/layers/base.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/base.py).
 
-Use Keras-style variable management.
+<!-- Placeholder for "Used in" -->
 
 All tf.layers and tf RNN cells created in this scope use Keras-style
 variable management.  Creating such layers with a scope= argument is
@@ -28,15 +35,17 @@ Models or Networks.  Because Keras models do not properly set variable
 scopes, users of RNNs may either accidentally share scopes between two
 different models, or get errors about variables that already exist.
 
-Example:
+#### Example:
+
+
 
 ```python
 class RNNModel(tf.keras.Model):
 
   def __init__(self, name):
     super(RNNModel, self.).__init__(name=name)
-    self.rnn = tf.nn.rnn_cell.MultiRNNCell(
-      [tf.nn.rnn_cell.LSTMCell(64) for _ in range(2)])
+    self.rnn = tf.compat.v1.nn.rnn_cell.MultiRNNCell(
+      [tf.compat.v1.nn.rnn_cell.LSTMCell(64) for _ in range(2)])
 
   def call(self, input, state):
     return self.rnn(input, state)

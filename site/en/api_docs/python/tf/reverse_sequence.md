@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.reverse_sequence
 
+Reverses variable length slices.
+
+### Aliases:
+
+* `tf.compat.v1.reverse_sequence`
+* `tf.reverse_sequence`
+
 ``` python
 tf.reverse_sequence(
     input,
@@ -19,9 +26,9 @@ tf.reverse_sequence(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Reverses variable length slices.
+<!-- Placeholder for "Used in" -->
 
 This op first slices `input` along the dimension `batch_axis`, and for each
 slice `i`, reverses the first `seq_lengths[i]` elements along
@@ -34,7 +41,9 @@ The output slice `i` along dimension `batch_axis` is then given by input
 slice `i`, with the first `seq_lengths[i]` slices along dimension
 `seq_axis` reversed.
 
-For example:
+#### For example:
+
+
 
 ```
 # Given this:
@@ -80,13 +89,14 @@ output[2:, :, 3, :, ...] = input[2:, :, 3, :, ...]
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. The input to reverse.
 * <b>`seq_lengths`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    1-D with length `input.dims(batch_dim)` and
-    `max(seq_lengths) <= input.dims(seq_dim)`
+  1-D with length `input.dims(batch_dim)` and
+  `max(seq_lengths) <= input.dims(seq_dim)`
 * <b>`seq_axis`</b>: An `int`. The dimension which is partially reversed.
 * <b>`batch_axis`</b>: An optional `int`. Defaults to `0`.
-    The dimension along which reversal is performed.
+  The dimension along which reversal is performed.
 * <b>`name`</b>: A name for the operation (optional).
 
 

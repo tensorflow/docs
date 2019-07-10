@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.strip_name_scope
 
+Removes name scope from a name.
+
 ``` python
 tf.contrib.framework.strip_name_scope(
     name,
@@ -14,11 +16,13 @@ tf.contrib.framework.strip_name_scope(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
-Removes name scope from a name.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`name`</b>: A `string` name.
 * <b>`export_scope`</b>: Optional `string`. Name scope to remove.

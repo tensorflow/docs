@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.quantization.quantize_and_dequantize
 
+Quantizes then dequantizes a tensor.
+
+### Aliases:
+
+* `tf.compat.v1.quantization.quantize_and_dequantize`
+* `tf.compat.v2.quantization.quantize_and_dequantize`
+* `tf.quantization.quantize_and_dequantize`
+
 ``` python
 tf.quantization.quantize_and_dequantize(
     input,
@@ -20,9 +28,9 @@ tf.quantization.quantize_and_dequantize(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Quantizes then dequantizes a tensor.
+<!-- Placeholder for "Used in" -->
 
 This op simulates the precision loss from the quantized forward pass by:
 
@@ -78,31 +86,32 @@ The above round function rounds the value based on the given round_mode.
 
 #### Args:
 
-* <b>`input`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`.
-    Tensor to quantize and then dequantize.
-* <b>`input_min`</b>: A `Tensor`. Must have the same type as `input`.
-    If `range_given == True`, this specifies the minimum input value that needs to
-    be represented, otherwise it is determined from the min value of the `input`
-    tensor.
-* <b>`input_max`</b>: A `Tensor`. Must have the same type as `input`.
-    If `range_given == True`, this specifies the maximum input value that needs to
-    be represented, otherwise it is determined from the max value of the `input`
-    tensor.
-* <b>`signed_input`</b>: An optional `bool`. Defaults to `True`.
-    Whether the quantization is signed or unsigned. (actually this parameter should
-    have been called <b>`signed_output`</b>)
-* <b>`num_bits`</b>: An optional `int`. Defaults to `8`.
-    The bitwidth of the quantization.
-* <b>`range_given`</b>: An optional `bool`. Defaults to `False`.
-    Whether the range is given or should be determined from the `input` tensor.
-* <b>`round_mode`</b>: An optional `string` from: `"HALF_TO_EVEN", "HALF_UP"`. Defaults to `"HALF_TO_EVEN"`.
-    The 'round_mode' attribute controls which rounding tie-breaking algorithm is
-    used when rounding float values to their quantized equivalents. The following
-    rounding modes are currently supported:
 
-    *   HALF_TO_EVEN: this is the default round_mode.
-    *   HALF_UP: round towards positive. In this mode 7.5 rounds up to 8 and -7.5
-        rounds up to -7.
+* <b>`input`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`.
+  Tensor to quantize and then dequantize.
+* <b>`input_min`</b>: A `Tensor`. Must have the same type as `input`.
+  If `range_given == True`, this specifies the minimum input value that needs to
+  be represented, otherwise it is determined from the min value of the `input`
+  tensor.
+* <b>`input_max`</b>: A `Tensor`. Must have the same type as `input`.
+  If `range_given == True`, this specifies the maximum input value that needs to
+  be represented, otherwise it is determined from the max value of the `input`
+  tensor.
+* <b>`signed_input`</b>: An optional `bool`. Defaults to `True`.
+  Whether the quantization is signed or unsigned. (actually this parameter should
+  have been called <b>`signed_output`</b>)
+* <b>`num_bits`</b>: An optional `int`. Defaults to `8`.
+  The bitwidth of the quantization.
+* <b>`range_given`</b>: An optional `bool`. Defaults to `False`.
+  Whether the range is given or should be determined from the `input` tensor.
+* <b>`round_mode`</b>: An optional `string` from: `"HALF_TO_EVEN", "HALF_UP"`. Defaults to `"HALF_TO_EVEN"`.
+  The 'round_mode' attribute controls which rounding tie-breaking algorithm is
+  used when rounding float values to their quantized equivalents. The following
+  rounding modes are currently supported:
+
+  *   HALF_TO_EVEN: this is the default round_mode.
+  *   HALF_UP: round towards positive. In this mode 7.5 rounds up to 8 and -7.5
+      rounds up to -7.
 * <b>`name`</b>: A name for the operation (optional).
 
 

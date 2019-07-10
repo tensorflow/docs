@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.linalg.slogdet
 
+Computes the sign and the log of the absolute value of the determinant of
+
+### Aliases:
+
+* `tf.compat.v1.linalg.slogdet`
+* `tf.compat.v2.linalg.slogdet`
+* `tf.linalg.slogdet`
+
 ``` python
 tf.linalg.slogdet(
     input,
@@ -14,9 +22,9 @@ tf.linalg.slogdet(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_linalg_ops.py`.
+Defined in generated file: `python/ops/gen_linalg_ops.py`.
 
-Computes the sign and the log of the absolute value of the determinant of
+<!-- Placeholder for "Used in" -->
 
 one or more square matrices.
 
@@ -30,14 +38,16 @@ permutation matrix.
 
 #### Args:
 
-* <b>`input`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`, `complex64`, `complex128`.
-    Shape is `[N, M, M]`.
+
+* <b>`input`</b>: A `Tensor`. Must be one of the following types: `half`, `float32`, `float64`, `complex64`, `complex128`.
+  Shape is `[N, M, M]`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A tuple of `Tensor` objects (sign, log_abs_determinant).
+
 
 * <b>`sign`</b>: A `Tensor`. Has the same type as `input`.
 * <b>`log_abs_determinant`</b>: A `Tensor`. Has the same type as `input`.

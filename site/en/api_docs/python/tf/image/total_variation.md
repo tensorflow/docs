@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.image.total_variation
 
+Calculate and return the total variation for one or more images.
+
+### Aliases:
+
+* `tf.compat.v1.image.total_variation`
+* `tf.compat.v2.image.total_variation`
+* `tf.image.total_variation`
+
 ``` python
 tf.image.total_variation(
     images,
@@ -14,9 +22,9 @@ tf.image.total_variation(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Calculate and return the total variation for one or more images.
+<!-- Placeholder for "Used in" -->
 
 The total variation is the sum of the absolute differences for neighboring
 pixel-values in the input images. This measures how much noise is in the
@@ -33,13 +41,14 @@ https://en.wikipedia.org/wiki/Total_variation_denoising
 
 #### Args:
 
-* <b>`images`</b>: 4-D Tensor of shape `[batch, height, width, channels]` or
-          3-D Tensor of shape `[height, width, channels]`.
 
+* <b>`images`</b>: 4-D Tensor of shape `[batch, height, width, channels]` or 3-D Tensor
+  of shape `[height, width, channels]`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if images.shape is not a 3-D or 4-D vector.
 

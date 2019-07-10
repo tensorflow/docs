@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.random.categorical
 
+Draws samples from a categorical distribution.
+
+### Aliases:
+
+* `tf.compat.v1.random.categorical`
+* `tf.compat.v2.random.categorical`
+* `tf.random.categorical`
+
 ``` python
 tf.random.categorical(
     logits,
@@ -17,26 +25,30 @@ tf.random.categorical(
 
 
 
-Defined in [`tensorflow/python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/random_ops.py).
+Defined in [`python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/random_ops.py).
 
-Draws samples from a categorical distribution.
+<!-- Placeholder for "Used in" -->
 
-Example:
+
+#### Example:
+
+
 
 ```python
 # samples has shape [1, 5], where each value is either 0 or 1 with equal
 # probability.
-samples = tf.random.categorical(tf.log([[10., 10.]]), 5)
+samples = tf.random.categorical(tf.math.log([[10., 10.]]), 5)
 ```
 
 #### Args:
 
+
 * <b>`logits`</b>: 2-D Tensor with shape `[batch_size, num_classes]`.  Each slice
-    `[i, :]` represents the unnormalized log-probabilities for all classes.
+  `[i, :]` represents the unnormalized log-probabilities for all classes.
 * <b>`num_samples`</b>: 0-D.  Number of independent samples to draw for each row slice.
 * <b>`dtype`</b>: integer type to use for the output. Defaults to int64.
 * <b>`seed`</b>: A Python integer. Used to create a random seed for the distribution.
-    See <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
+  See <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
 * <b>`name`</b>: Optional name for the operation.
 
 

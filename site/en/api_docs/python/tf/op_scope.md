@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.op_scope
 
+DEPRECATED. Same as name_scope above, just different argument order.
+
+### Aliases:
+
+* `tf.compat.v1.op_scope`
+* `tf.op_scope`
+
 ``` python
 tf.op_scope(
     values,
@@ -15,6 +22,6 @@ tf.op_scope(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
-DEPRECATED. Same as name_scope above, just different argument order.
+<!-- Placeholder for "Used in" -->

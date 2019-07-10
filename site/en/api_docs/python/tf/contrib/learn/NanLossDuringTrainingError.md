@@ -11,9 +11,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/monitors.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/monitors.py).
 
-Unspecified run-time error.
+
+Defined in [`contrib/learn/python/learn/monitors.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/monitors.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -24,17 +27,6 @@ __init__(
 )
 ```
 
-
-
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-__new__(
-    type,
-    *args,
-    **kwargs
-)
-```
 
 
 

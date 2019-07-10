@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.initializers.variables
 
+Returns an Op that initializes a list of variables.
+
 ### Aliases:
 
+* `tf.compat.v1.initializers.variables`
+* `tf.compat.v1.variables_initializer`
 * `tf.initializers.variables`
 * `tf.variables_initializer`
 
@@ -19,9 +23,9 @@ tf.initializers.variables(
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variables.py).
+Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
-Returns an Op that initializes a list of variables.
+<!-- Placeholder for "Used in" -->
 
 After you launch the graph in a session, you can run the returned Op to
 initialize all the variables in `var_list`. This Op runs all the
@@ -34,6 +38,7 @@ If `var_list` is empty, however, the function still returns an Op that can
 be run. That Op just has no effect.
 
 #### Args:
+
 
 * <b>`var_list`</b>: List of `Variable` objects to initialize.
 * <b>`name`</b>: Optional name for the returned operation.

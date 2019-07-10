@@ -5,18 +5,25 @@ page_type: reference
 
 # tf.add_check_numerics_ops
 
+Connect a <a href="../tf/debugging/check_numerics"><code>tf.debugging.check_numerics</code></a> to every floating point tensor.
+
+### Aliases:
+
+* `tf.add_check_numerics_ops`
+* `tf.compat.v1.add_check_numerics_ops`
+
 ``` python
 tf.add_check_numerics_ops()
 ```
 
 
 
-Defined in [`tensorflow/python/ops/numerics.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/numerics.py).
+Defined in [`python/ops/numerics.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/numerics.py).
 
-Connect a `check_numerics` to every floating point tensor.
+<!-- Placeholder for "Used in" -->
 
 `check_numerics` operations themselves are added for each `half`, `float`,
-or `double` tensor in the graph. For all ops in the graph, the
+or `double` tensor in the current default graph. For all ops in the graph, the
 `check_numerics` op for all of its (`half`, `float`, or `double`) inputs
 is guaranteed to run before the `check_numerics` op on any of its outputs.
 
@@ -29,14 +36,18 @@ in such a graph.
 A `group` op depending on all `check_numerics` ops added.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the graph contains any numeric operations in a control flow
-    structure.
+  structure.
 * <b>`RuntimeError`</b>: If called with eager execution enabled.
 
-@compatibility(eager)
+
+
+#### Eager Compatibility
 Not compatible with eager execution. To check for `Inf`s and `NaN`s under
-eager execution, call tfe.seterr(inf_or_nan='raise') once before executing
+eager execution, call `tfe.seterr(inf_or_nan='raise')` once before executing
 the checked operations.
-@enc_compatibility
+

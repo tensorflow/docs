@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.framework.assert_global_step
 
+DEPRECATED FUNCTION
+
 ``` python
 tf.contrib.framework.assert_global_step(global_step_tensor)
 ```
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
 
-DEPRECATED FUNCTION
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:

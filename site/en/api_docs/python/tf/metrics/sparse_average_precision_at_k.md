@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.metrics.sparse_average_precision_at_k
 
+Renamed to `average_precision_at_k`, please use that method instead. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.metrics.sparse_average_precision_at_k`
+* `tf.metrics.sparse_average_precision_at_k`
+
 ``` python
 tf.metrics.sparse_average_precision_at_k(
     labels,
@@ -19,9 +26,9 @@ tf.metrics.sparse_average_precision_at_k(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/metrics_impl.py).
+Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
-Renamed to `average_precision_at_k`, please use that method instead. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:

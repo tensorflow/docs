@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.image.matrices_to_flat_transforms
 
+Converts affine matrices to <a href="../../../tf/contrib/image"><code>tf.contrib.image</code></a> projective transforms.
+
 ``` python
 tf.contrib.image.matrices_to_flat_transforms(transform_matrices)
 ```
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`contrib/image/python/ops/image_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/image/python/ops/image_ops.py).
 
-Converts affine matrices to <a href="../../../tf/contrib/image"><code>tf.contrib.image</code></a> projective transforms.
+<!-- Placeholder for "Used in" -->
 
 Note that we expect matrices that map output coordinates to input coordinates.
 To convert forward transformation matrices, call <a href="../../../tf/linalg/inv"><code>tf.linalg.inv</code></a> on the
@@ -21,9 +23,10 @@ matrices and use the result here.
 
 #### Args:
 
+
 * <b>`transform_matrices`</b>: One or more affine transformation matrices, for the
-    reverse transformation in homogeneous coordinates. Shape `(3, 3)` or
-    `(N, 3, 3)`.
+  reverse transformation in homogeneous coordinates. Shape `(3, 3)` or
+  `(N, 3, 3)`.
 
 
 #### Returns:
@@ -32,6 +35,8 @@ matrices and use the result here.
   <a href="../../../tf/contrib/image/transform"><code>tf.contrib.image.transform</code></a>.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `transform_matrices` have an invalid shape.

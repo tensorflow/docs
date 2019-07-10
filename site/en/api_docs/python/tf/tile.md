@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.tile
 
+Constructs a tensor by tiling a given tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.manip.tile`
+* `tf.compat.v1.tile`
+* `tf.compat.v2.tile`
 * `tf.manip.tile`
 * `tf.tile`
 
@@ -20,9 +25,9 @@ tf.tile(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Constructs a tensor by tiling a given tensor.
+<!-- Placeholder for "Used in" -->
 
 This operation creates a new tensor by replicating `input` `multiples` times.
 The output tensor's i'th dimension has `input.dims(i) * multiples[i]` elements,
@@ -32,9 +37,10 @@ dimension. For example, tiling `[a b c d]` by `[2]` produces
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. 1-D or higher.
 * <b>`multiples`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    1-D. Length must be the same as the number of dimensions in `input`
+  1-D. Length must be the same as the number of dimensions in `input`
 * <b>`name`</b>: A name for the operation (optional).
 
 

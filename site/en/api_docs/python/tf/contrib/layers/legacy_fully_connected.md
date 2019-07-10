@@ -6,6 +6,8 @@ page_type: reference
 
 # tf.contrib.layers.legacy_fully_connected
 
+Adds the parameters for a fully connected layer and returns the output.
+
 ``` python
 tf.contrib.layers.legacy_fully_connected(
     x,
@@ -25,9 +27,9 @@ tf.contrib.layers.legacy_fully_connected(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
-Adds the parameters for a fully connected layer and returns the output.
+<!-- Placeholder for "Used in" -->
 
 A fully connected layer is generally defined as a matrix multiply:
 `y = f(w * x + b)` where `f` is given by `activation_fn`. If
@@ -48,8 +50,9 @@ before the matrix multiply and afterwards reshaping it to
 This op creates `w` and optionally `b`. Bias (`b`) can be disabled by setting
 `bias_init` to `None`.
 
-The variable creation is compatible with <a href="../../../tf/variable_scope"><code>tf.variable_scope</code></a> and so can be
-reused with <a href="../../../tf/variable_scope"><code>tf.variable_scope</code></a> or <a href="../../../tf/make_template"><code>tf.make_template</code></a>.
+The variable creation is compatible with <a href="../../../tf/variable_scope"><code>tf.compat.v1.variable_scope</code></a> and so
+can be
+reused with <a href="../../../tf/variable_scope"><code>tf.compat.v1.variable_scope</code></a> or <a href="../../../tf/make_template"><code>tf.compat.v1.make_template</code></a>.
 
 Most of the details of variable creation can be controlled by specifying the
 initializers (`weight_init` and `bias_init`) and in which collections to place
@@ -66,27 +69,28 @@ collection.
 
 #### Args:
 
+
 * <b>`x`</b>: The input `Tensor`.
 * <b>`num_output_units`</b>: The size of the output.
 * <b>`activation_fn`</b>: Activation function, default set to None to skip it and
-    maintain a linear activation.
+  maintain a linear activation.
 * <b>`weight_init`</b>: An optional weight initialization, defaults to
-    `xavier_initializer`.
+  `xavier_initializer`.
 * <b>`bias_init`</b>: An initializer for the bias, defaults to 0. Set to `None` in
-    order to disable bias.
+  order to disable bias.
 * <b>`name`</b>: The name for this operation is used to name operations and to find
-    variables. If specified it must be unique for this scope, otherwise a
-    unique name starting with "fully_connected" will be created.  See
-    <a href="../../../tf/variable_scope"><code>tf.variable_scope</code></a> for details.
+  variables. If specified it must be unique for this scope, otherwise a
+  unique name starting with "fully_connected" will be created.  See
+  <a href="../../../tf/variable_scope"><code>tf.compat.v1.variable_scope</code></a> for details.
 * <b>`weight_collections`</b>: List of graph collections to which weights are added.
 * <b>`bias_collections`</b>: List of graph collections to which biases are added.
 * <b>`output_collections`</b>: List of graph collections to which outputs are added.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-    `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
-* <b>`weight_regularizer`</b>: A regularizer like the result of
-    `l1_regularizer` or `l2_regularizer`. Used for weights.
-* <b>`bias_regularizer`</b>: A regularizer like the result of
-    `l1_regularizer` or `l2_regularizer`. Used for biases.
+  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+* <b>`weight_regularizer`</b>: A regularizer like the result of `l1_regularizer` or
+  `l2_regularizer`. Used for weights.
+* <b>`bias_regularizer`</b>: A regularizer like the result of `l1_regularizer` or
+  `l2_regularizer`. Used for biases.
 
 
 #### Returns:
@@ -94,6 +98,8 @@ collection.
 The output of the fully connected layer.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If x has rank less than 2 or if its last dimension is not set.

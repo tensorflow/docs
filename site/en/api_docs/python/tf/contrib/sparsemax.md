@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.sparsemax
 
-
-
-Defined in [`tensorflow/contrib/sparsemax/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/sparsemax/__init__.py).
-
 Module that implements sparsemax and sparsemax loss, see [1].
+
+
+
+Defined in [`contrib/sparsemax/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/sparsemax/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 [1]: https://arxiv.org/abs/1602.02068
 

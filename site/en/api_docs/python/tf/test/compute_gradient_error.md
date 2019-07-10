@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.test.compute_gradient_error
 
+Computes the gradient error.
+
+### Aliases:
+
+* `tf.compat.v1.test.compute_gradient_error`
+* `tf.test.compute_gradient_error`
+
 ``` python
 tf.test.compute_gradient_error(
     x,
@@ -20,9 +27,9 @@ tf.test.compute_gradient_error(
 
 
 
-Defined in [`tensorflow/python/ops/gradient_checker.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/gradient_checker.py).
+Defined in [`python/ops/gradient_checker.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/gradient_checker.py).
 
-Computes the gradient error.
+<!-- Placeholder for "Used in" -->
 
 Computes the maximum error for dy/dx between the computed Jacobian and the
 numerically estimated Jacobian.
@@ -37,19 +44,20 @@ function in the session constructor).
 
 #### Args:
 
+
 * <b>`x`</b>: a tensor or list of tensors
 * <b>`x_shape`</b>: the dimensions of x as a tuple or an array of ints. If x is a list,
-  then this is the list of shapes.
+then this is the list of shapes.
 * <b>`y`</b>: a tensor
 * <b>`y_shape`</b>: the dimensions of y as a tuple or an array of ints.
 * <b>`x_init_value`</b>: (optional) a numpy array of the same shape as "x"
-    representing the initial value of x. If x is a list, this should be a list
-    of numpy arrays.  If this is none, the function will pick a random tensor
-    as the initial value.
+  representing the initial value of x. If x is a list, this should be a list
+  of numpy arrays.  If this is none, the function will pick a random tensor
+  as the initial value.
 * <b>`delta`</b>: (optional) the amount of perturbation.
 * <b>`init_targets`</b>: list of targets to run to initialize model params.
 * <b>`extra_feed_dict`</b>: dict that allows fixing specified tensor values
-    during the Jacobian calculation.
+  during the Jacobian calculation.
 
 
 #### Returns:

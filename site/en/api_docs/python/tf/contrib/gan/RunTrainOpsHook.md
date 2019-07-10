@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `RunTrainOpsHook`
 
+A hook to run train ops a fixed number of times.
+
 Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/train.py).
+Defined in [`contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/train.py).
 
-A hook to run train ops a fixed number of times.
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -26,7 +29,9 @@ __init__(
 
 Run train ops a certain number of times.
 
+
 #### Args:
+
 
 * <b>`train_ops`</b>: A train op or iterable of train ops to run.
 * <b>`train_steps`</b>: The number of times to run the op(s).
@@ -56,6 +61,7 @@ has two essential differences with the situation in which `begin` is called:
 
 #### Args:
 
+
 * <b>`session`</b>: A TensorFlow Session that has been created.
 * <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
@@ -80,6 +86,7 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 
 #### Args:
 
+
 * <b>`run_context`</b>: A `SessionRunContext` object.
 * <b>`run_values`</b>: A SessionRunValues object.
 
@@ -89,28 +96,8 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 before_run(run_context)
 ```
 
-Called before each call to run().
-
-You can return from this call a `SessionRunArgs` object indicating ops or
-tensors to add to the upcoming `run()` call.  These ops/tensors will be run
-together with the ops/tensors originally passed to the original run() call.
-The run args you return can also contain feeds to be added to the run()
-call.
-
-The `run_context` argument is a `SessionRunContext` that provides
-information about the upcoming `run()` call: the originally requested
-op/tensors, the TensorFlow Session.
-
-At this point graph is finalized and you can not add ops.
-
-#### Args:
-
-* <b>`run_context`</b>: A `SessionRunContext` object.
 
 
-#### Returns:
-
-None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
@@ -144,6 +131,7 @@ Note the difference between `end()` and `after_run()` behavior when
 `end()` is called but `after_run()` is not called.
 
 #### Args:
+
 
 * <b>`session`</b>: A TensorFlow Session that will be soon closed.
 

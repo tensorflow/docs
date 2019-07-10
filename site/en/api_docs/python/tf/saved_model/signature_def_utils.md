@@ -7,11 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-SignatureDef utility functions.
-
-Utility functions for building and inspecting SignatureDef protos.
 
 ## Functions
 

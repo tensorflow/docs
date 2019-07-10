@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.bidirectional_dynamic_rnn
 
+Creates a dynamic version of bidirectional recurrent neural network. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.nn.bidirectional_dynamic_rnn`
+* `tf.nn.bidirectional_dynamic_rnn`
+
 ``` python
 tf.nn.bidirectional_dynamic_rnn(
     cell_fw,
@@ -23,9 +30,9 @@ tf.nn.bidirectional_dynamic_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/rnn.py).
+Defined in [`python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn.py).
 
-Creates a dynamic version of bidirectional recurrent neural network. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -40,70 +47,73 @@ given.
 
 #### Args:
 
+
 * <b>`cell_fw`</b>: An instance of RNNCell, to be used for forward direction.
 * <b>`cell_bw`</b>: An instance of RNNCell, to be used for backward direction.
 * <b>`inputs`</b>: The RNN inputs.
-    If time_major == False (default), this must be a tensor of shape:
-      `[batch_size, max_time, ...]`, or a nested tuple of such elements.
-    If time_major == True, this must be a tensor of shape:
-      `[max_time, batch_size, ...]`, or a nested tuple of such elements.
+  If time_major == False (default), this must be a tensor of shape:
+    `[batch_size, max_time, ...]`, or a nested tuple of such elements.
+  If time_major == True, this must be a tensor of shape: `[max_time,
+    batch_size, ...]`, or a nested tuple of such elements.
 * <b>`sequence_length`</b>: (optional) An int32/int64 vector, size `[batch_size]`,
-    containing the actual lengths for each of the sequences in the batch.
-    If not provided, all batch entries are assumed to be full sequences; and
-    time reversal is applied from time `0` to `max_time` for each sequence.
-* <b>`initial_state_fw`</b>: (optional) An initial state for the forward RNN.
-    This must be a tensor of appropriate type and shape
-    `[batch_size, cell_fw.state_size]`.
-    If `cell_fw.state_size` is a tuple, this should be a tuple of
-    tensors having shapes `[batch_size, s] for s in cell_fw.state_size`.
-* <b>`initial_state_bw`</b>: (optional) Same as for `initial_state_fw`, but using
-    the corresponding properties of `cell_bw`.
+  containing the actual lengths for each of the sequences in the batch. If
+  not provided, all batch entries are assumed to be full sequences; and time
+  reversal is applied from time `0` to `max_time` for each sequence.
+* <b>`initial_state_fw`</b>: (optional) An initial state for the forward RNN. This must
+  be a tensor of appropriate type and shape `[batch_size,
+  cell_fw.state_size]`. If `cell_fw.state_size` is a tuple, this should be a
+  tuple of tensors having shapes `[batch_size, s] for s in
+  cell_fw.state_size`.
+* <b>`initial_state_bw`</b>: (optional) Same as for `initial_state_fw`, but using the
+  corresponding properties of `cell_bw`.
 * <b>`dtype`</b>: (optional) The data type for the initial states and expected output.
-    Required if initial_states are not provided or RNN states have a
-    heterogeneous dtype.
+  Required if initial_states are not provided or RNN states have a
+  heterogeneous dtype.
 * <b>`parallel_iterations`</b>: (Default: 32).  The number of iterations to run in
-    parallel.  Those operations which do not have any temporal dependency
-    and can be run in parallel, will be.  This parameter trades off
-    time for space.  Values >> 1 use more memory but take less time,
-    while smaller values use less memory but computations take longer.
+  parallel.  Those operations which do not have any temporal dependency and
+  can be run in parallel, will be.  This parameter trades off time for
+  space.  Values >> 1 use more memory but take less time, while smaller
+  values use less memory but computations take longer.
 * <b>`swap_memory`</b>: Transparently swap the tensors produced in forward inference
-    but needed for back prop from GPU to CPU.  This allows training RNNs
-    which would typically not fit on a single GPU, with very minimal (or no)
-    performance penalty.
-* <b>`time_major`</b>: The shape format of the `inputs` and `outputs` Tensors.
-    If true, these `Tensors` must be shaped `[max_time, batch_size, depth]`.
-    If false, these `Tensors` must be shaped `[batch_size, max_time, depth]`.
-    Using `time_major = True` is a bit more efficient because it avoids
-    transposes at the beginning and end of the RNN calculation.  However,
-    most TensorFlow data is batch-major, so by default this function
-    accepts input and emits output in batch-major form.
+  but needed for back prop from GPU to CPU.  This allows training RNNs which
+  would typically not fit on a single GPU, with very minimal (or no)
+  performance penalty.
+* <b>`time_major`</b>: The shape format of the `inputs` and `outputs` Tensors. If true,
+  these `Tensors` must be shaped `[max_time, batch_size, depth]`. If false,
+  these `Tensors` must be shaped `[batch_size, max_time, depth]`. Using
+  `time_major = True` is a bit more efficient because it avoids transposes
+  at the beginning and end of the RNN calculation.  However, most TensorFlow
+  data is batch-major, so by default this function accepts input and emits
+  output in batch-major form.
 * <b>`scope`</b>: VariableScope for the created subgraph; defaults to
-    "bidirectional_rnn"
+  "bidirectional_rnn"
 
 
 #### Returns:
 
 A tuple (outputs, output_states) where:
-* <b>`outputs`</b>: A tuple (output_fw, output_bw) containing the forward and
-      the backward rnn output `Tensor`.
-      If time_major == False (default),
-        output_fw will be a `Tensor` shaped:
-        `[batch_size, max_time, cell_fw.output_size]`
-        and output_bw will be a `Tensor` shaped:
-        `[batch_size, max_time, cell_bw.output_size]`.
-      If time_major == True,
-        output_fw will be a `Tensor` shaped:
-        `[max_time, batch_size, cell_fw.output_size]`
-        and output_bw will be a `Tensor` shaped:
-        `[max_time, batch_size, cell_bw.output_size]`.
-      It returns a tuple instead of a single concatenated `Tensor`, unlike
-      in the `bidirectional_rnn`. If the concatenated one is preferred,
-      the forward and backward outputs can be concatenated as
-      `tf.concat(outputs, 2)`.
-* <b>`output_states`</b>: A tuple (output_state_fw, output_state_bw) containing
-      the forward and the backward final states of bidirectional rnn.
+  outputs: A tuple (output_fw, output_bw) containing the forward and
+    the backward rnn output `Tensor`.
+    If time_major == False (default),
+      output_fw will be a `Tensor` shaped:
+      `[batch_size, max_time, cell_fw.output_size]`
+      and output_bw will be a `Tensor` shaped:
+      `[batch_size, max_time, cell_bw.output_size]`.
+    If time_major == True,
+      output_fw will be a `Tensor` shaped:
+      `[max_time, batch_size, cell_fw.output_size]`
+      and output_bw will be a `Tensor` shaped:
+      `[max_time, batch_size, cell_bw.output_size]`.
+    It returns a tuple instead of a single concatenated `Tensor`, unlike
+    in the `bidirectional_rnn`. If the concatenated one is preferred,
+    the forward and backward outputs can be concatenated as
+    <a href="../../tf/concat"><code>tf.concat(outputs, 2)</code></a>.
+  output_states: A tuple (output_state_fw, output_state_bw) containing
+    the forward and the backward final states of bidirectional rnn.
+
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `cell_fw` or `cell_bw` is not an instance of `RNNCell`.

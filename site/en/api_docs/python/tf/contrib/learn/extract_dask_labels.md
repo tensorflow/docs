@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.learn.extract_dask_labels
 
+Extract data from dask.Series or dask.DataFrame for labels. (deprecated)
+
 ``` python
 tf.contrib.learn.extract_dask_labels(labels)
 ```
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_io/dask_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/learn_io/dask_io.py).
+Defined in [`contrib/learn/python/learn/learn_io/dask_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/learn_io/dask_io.py).
 
-Extract data from dask.Series or dask.DataFrame for labels. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -25,8 +27,9 @@ that can be iterated over.
 
 #### Args:
 
+
 * <b>`labels`</b>: A distributed dask.DataFrame or dask.Series with exactly one
-          column or name.
+        column or name.
 
 
 #### Returns:
@@ -36,8 +39,10 @@ If the supplied argument is neither a dask.DataFrame nor a dask.Series this
 operation returns it without modification.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the supplied dask.DataFrame contains more than one
-              column or the supplied dask.Series contains more than
-              one name.
+            column or the supplied dask.Series contains more than
+            one name.

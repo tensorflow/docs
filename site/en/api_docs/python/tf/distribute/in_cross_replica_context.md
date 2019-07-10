@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.distribute.in_cross_replica_context
 
+Returns True if in a cross-replica context.
+
 ### Aliases:
 
+* `tf.compat.v1.distribute.in_cross_replica_context`
+* `tf.compat.v2.distribute.in_cross_replica_context`
 * `tf.contrib.distribute.in_cross_replica_context`
 * `tf.distribute.in_cross_replica_context`
 
@@ -16,9 +20,9 @@ tf.distribute.in_cross_replica_context()
 
 
 
-Defined in [`tensorflow/python/distribute/distribution_strategy_context.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/distribution_strategy_context.py).
+Defined in [`python/distribute/distribution_strategy_context.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/distribution_strategy_context.py).
 
-Returns True if in a cross-replica context.
+<!-- Placeholder for "Used in" -->
 
 See <a href="../../tf/distribute/get_replica_context"><code>tf.distribute.get_replica_context</code></a> for details.
 

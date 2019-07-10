@@ -5,9 +5,12 @@ page_type: reference
 
 # Module: tf.contrib.graph_editor.edit
 
-
-
-Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/edit.py).
-
 Various function for graph editing.
+
+
+
+Defined in [`contrib/graph_editor/edit.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/edit.py).
+
+<!-- Placeholder for "Used in" -->
+
 

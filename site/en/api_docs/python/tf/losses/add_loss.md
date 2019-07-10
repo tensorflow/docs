@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.losses.add_loss
 
+Adds a externally defined loss to the collection of losses.
+
+### Aliases:
+
+* `tf.compat.v1.losses.add_loss`
+* `tf.losses.add_loss`
+
 ``` python
 tf.losses.add_loss(
     loss,
@@ -14,11 +21,13 @@ tf.losses.add_loss(
 
 
 
-Defined in [`tensorflow/python/ops/losses/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/losses/util.py).
+Defined in [`python/ops/losses/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/util.py).
 
-Adds a externally defined loss to the collection of losses.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`loss`</b>: A loss `Tensor`.
 * <b>`loss_collection`</b>: Optional collection to add the loss to.

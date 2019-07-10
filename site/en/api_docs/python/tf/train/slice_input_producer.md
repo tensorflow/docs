@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.slice_input_producer
 
+Produces a slice of each `Tensor` in `tensor_list`. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.train.slice_input_producer`
+* `tf.train.slice_input_producer`
+
 ``` python
 tf.train.slice_input_producer(
     tensor_list,
@@ -19,9 +26,9 @@ tf.train.slice_input_producer(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/input.py).
+Defined in [`python/training/input.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/input.py).
 
-Produces a slice of each `Tensor` in `tensor_list`. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -32,18 +39,19 @@ is added to the current `Graph`'s `QUEUE_RUNNER` collection.
 
 #### Args:
 
+
 * <b>`tensor_list`</b>: A list of `Tensor` objects. Every `Tensor` in
-    `tensor_list` must have the same size in the first dimension.
+  `tensor_list` must have the same size in the first dimension.
 * <b>`num_epochs`</b>: An integer (optional). If specified, `slice_input_producer`
-    produces each slice `num_epochs` times before generating
-    an `OutOfRange` error. If not specified, `slice_input_producer` can cycle
-    through the slices an unlimited number of times.
+  produces each slice `num_epochs` times before generating
+  an `OutOfRange` error. If not specified, `slice_input_producer` can cycle
+  through the slices an unlimited number of times.
 * <b>`shuffle`</b>: Boolean. If true, the integers are randomly shuffled within each
-    epoch.
+  epoch.
 * <b>`seed`</b>: An integer (optional). Seed used if shuffle == True.
 * <b>`capacity`</b>: An integer. Sets the queue capacity.
 * <b>`shared_name`</b>: (optional). If set, this queue will be shared under the given
-    name across multiple sessions.
+  name across multiple sessions.
 * <b>`name`</b>: A name for the operations (optional).
 
 
@@ -54,7 +62,9 @@ in `tensor_list` has shape `[N, a, b, .., z]`, then the corresponding output
 tensor will have shape `[a, b, ..., z]`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `slice_input_producer` produces nothing from `tensor_list`.
 

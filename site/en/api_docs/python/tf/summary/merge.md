@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.summary.merge
 
+Merges summaries.
+
+### Aliases:
+
+* `tf.compat.v1.summary.merge`
+* `tf.summary.merge`
+
 ``` python
 tf.summary.merge(
     inputs,
@@ -15,12 +22,12 @@ tf.summary.merge(
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/summary/summary.py).
+Defined in [`python/summary/summary.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/summary.py).
 
-Merges summaries.
+<!-- Placeholder for "Used in" -->
 
 This op creates a
-[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/framework/summary.proto)
+[`Summary`](https://www.tensorflow.org/code/tensorflow/core/framework/summary.proto)
 protocol buffer that contains the union of all the values in the input
 summaries.
 
@@ -29,10 +36,11 @@ in the summaries to merge use the same tag.
 
 #### Args:
 
+
 * <b>`inputs`</b>: A list of `string` `Tensor` objects containing serialized `Summary`
-    protocol buffers.
+  protocol buffers.
 * <b>`collections`</b>: Optional list of graph collections keys. The new summary op is
-    added to these collections. Defaults to `[]`.
+  added to these collections. Defaults to `[]`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -42,7 +50,9 @@ A scalar `Tensor` of type `string`. The serialized `Summary` protocol
 buffer resulting from the merging.
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: If called with eager mode enabled.
 

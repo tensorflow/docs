@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.integrate
 
-
-
-Defined in [`tensorflow/contrib/integrate/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/integrate/__init__.py).
-
 Integration and ODE solvers.
+
+
+
+Defined in [`contrib/integrate/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/integrate/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 See the
 [Contrib Integrate](https://tensorflow.org/api_guides/python/contrib.integrate)

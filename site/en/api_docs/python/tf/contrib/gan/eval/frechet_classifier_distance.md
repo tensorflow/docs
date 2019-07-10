@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.frechet_classifier_distance
 
+Classifier distance for evaluating a generative model.
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.classifier_metrics.frechet_classifier_distance`
@@ -21,9 +23,9 @@ tf.contrib.gan.eval.frechet_classifier_distance(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
-Classifier distance for evaluating a generative model.
+<!-- Placeholder for "Used in" -->
 
 This is based on the Frechet Inception distance, but for an arbitrary
 classifier.
@@ -53,13 +55,14 @@ frechet_clasifier_distance_from_activations(), which this method also uses.
 
 #### Args:
 
+
 * <b>`real_images`</b>: Real images to use to compute Frechet Inception distance.
 * <b>`generated_images`</b>: Generated images to use to compute Frechet Inception
-    distance.
+  distance.
 * <b>`classifier_fn`</b>: A function that takes images and produces activations
-    based on a classifier.
+  based on a classifier.
 * <b>`num_batches`</b>: Number of batches to split images in to in order to
-    efficiently run them through the classifier network.
+  efficiently run them through the classifier network.
 
 
 #### Returns:

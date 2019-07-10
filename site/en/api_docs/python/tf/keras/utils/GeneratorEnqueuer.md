@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `GeneratorEnqueuer`
 
+Builds a queue out of a data generator.
+
 Inherits From: [`SequenceEnqueuer`](../../../tf/keras/utils/SequenceEnqueuer)
 
+### Aliases:
+
+* Class `tf.compat.v1.keras.utils.GeneratorEnqueuer`
+* Class `tf.compat.v2.keras.utils.GeneratorEnqueuer`
+* Class `tf.keras.utils.GeneratorEnqueuer`
 
 
-Defined in [`tensorflow/python/keras/utils/data_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/utils/data_utils.py).
 
-Builds a queue out of a data generator.
+Defined in [`python/keras/utils/data_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/utils/data_utils.py).
+
+<!-- Placeholder for "Used in" -->
 
 The provided generator can be finite in which case the class will throw
 a `StopIteration` exception.
@@ -22,11 +30,12 @@ Used in `fit_generator`, `evaluate_generator`, `predict_generator`.
 
 #### Arguments:
 
+
 * <b>`generator`</b>: a generator function which yields data
 * <b>`use_multiprocessing`</b>: use multiprocessing if True, otherwise threading
 * <b>`wait_time`</b>: time to sleep in-between calls to `put()`
 * <b>`random_seed`</b>: Initial seed for workers,
-        will be incremented by one for each worker.
+    will be incremented by one for each worker.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -38,7 +47,8 @@ __init__(
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -60,11 +70,13 @@ The next element in the queue, i.e. a tuple
 `(inputs, targets)` or
 `(inputs, targets, sample_weights)`.
 
+
 <h3 id="is_running"><code>is_running</code></h3>
 
 ``` python
 is_running()
 ```
+
 
 
 
@@ -79,11 +91,13 @@ start(
 
 Starts the handler's workers.
 
+
 #### Arguments:
+
 
 * <b>`workers`</b>: Number of workers.
 * <b>`max_queue_size`</b>: queue size
-        (when full, workers could block on `put()`)
+    (when full, workers could block on `put()`)
 
 <h3 id="stop"><code>stop</code></h3>
 
@@ -96,6 +110,7 @@ Stops running threads and wait for them to exit, if necessary.
 Should be called by the same thread which called `start()`.
 
 #### Arguments:
+
 
 * <b>`timeout`</b>: maximum time to wait on `thread.join()`
 

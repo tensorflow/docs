@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.losses.wargs.wasserstein_gradient_penalty
 
+The gradient penalty for the Wasserstein discriminator loss.
+
 ``` python
 tf.contrib.gan.losses.wargs.wasserstein_gradient_penalty(
     real_data,
@@ -25,34 +27,35 @@ tf.contrib.gan.losses.wargs.wasserstein_gradient_penalty(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/losses/python/losses_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/losses/python/losses_impl.py).
+Defined in [`contrib/gan/python/losses/python/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/losses/python/losses_impl.py).
 
-The gradient penalty for the Wasserstein discriminator loss.
+<!-- Placeholder for "Used in" -->
 
 See `Improved Training of Wasserstein GANs`
 (https://arxiv.org/abs/1704.00028) for more details.
 
 #### Args:
 
+
 * <b>`real_data`</b>: Real data.
 * <b>`generated_data`</b>: Output of the generator.
-* <b>`generator_inputs`</b>: Exact argument to pass to the generator, which is used
-    as optional conditioning to the discriminator.
-* <b>`discriminator_fn`</b>: A discriminator function that conforms to TFGAN API.
+* <b>`generator_inputs`</b>: Exact argument to pass to the generator, which is used as
+  optional conditioning to the discriminator.
+* <b>`discriminator_fn`</b>: A discriminator function that conforms to TF-GAN API.
 * <b>`discriminator_scope`</b>: If not `None`, reuse discriminators from this scope.
 * <b>`epsilon`</b>: A small positive number added for numerical stability when
-    computing the gradient norm.
+  computing the gradient norm.
 * <b>`target`</b>: Optional Python number or `Tensor` indicating the target value of
-    gradient norm. Defaults to 1.0.
+  gradient norm. Defaults to 1.0.
 * <b>`one_sided`</b>: If `True`, penalty proposed in https://arxiv.org/abs/1709.08894
-    is used. Defaults to `False`.
+  is used. Defaults to `False`.
 * <b>`weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
-    `real_data` and `generated_data`, and must be broadcastable to
-    them (i.e., all dimensions must be either `1`, or the same as the
-    corresponding dimension).
+  `real_data` and `generated_data`, and must be broadcastable to them (i.e.,
+  all dimensions must be either `1`, or the same as the corresponding
+  dimension).
 * <b>`scope`</b>: The scope for the operations performed in computing the loss.
 * <b>`loss_collection`</b>: collection to which this loss will be added.
-* <b>`reduction`</b>: A <a href="../../../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> to apply to loss.
+* <b>`reduction`</b>: A <a href="../../../../../tf/losses/Reduction"><code>tf.compat.v1.losses.Reduction</code></a> to apply to loss.
 * <b>`add_summaries`</b>: Whether or not to add summaries for the loss.
 
 
@@ -61,6 +64,8 @@ See `Improved Training of Wasserstein GANs`
 A loss Tensor. The shape depends on `reduction`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the rank of data Tensors is unknown.

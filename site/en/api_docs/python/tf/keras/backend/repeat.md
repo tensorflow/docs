@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.repeat
 
+Repeats a 2D tensor.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.repeat`
+* `tf.compat.v2.keras.backend.repeat`
+* `tf.keras.backend.repeat`
+
 ``` python
 tf.keras.backend.repeat(
     x,
@@ -14,14 +22,15 @@ tf.keras.backend.repeat(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Repeats a 2D tensor.
+<!-- Placeholder for "Used in" -->
 
 if `x` has shape (samples, dim) and `n` is `2`,
 the output will have shape `(samples, 2, dim)`.
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable.
 * <b>`n`</b>: Python integer, number of times to repeat.

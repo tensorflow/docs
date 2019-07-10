@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.framework.nest.flatten_dict_items
 
+Returns a dictionary with flattened keys and values.
+
 ``` python
 tf.contrib.framework.nest.flatten_dict_items(dictionary)
 ```
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/util/nest.py).
+Defined in [`python/util/nest.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/nest.py).
 
-Returns a dictionary with flattened keys and values.
+<!-- Placeholder for "Used in" -->
 
 This function flattens the keys and values of a dictionary, which can be
 arbitrarily nested structures, and returns the flattened version of such
@@ -33,6 +35,7 @@ The input dictionary must satisfy two properties:
 
 #### Args:
 
+
 * <b>`dictionary`</b>: the dictionary to zip
 
 
@@ -41,8 +44,10 @@ The input dictionary must satisfy two properties:
 The zipped dictionary.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: If the input is not a dictionary.
-* <b>`ValueError`</b>: If any key and value have not the same structure, or if keys are
-    not unique.
+* <b>`ValueError`</b>: If any key and value do not have the same structure layout, or
+if keys are not unique.

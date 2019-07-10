@@ -22,7 +22,7 @@ tfdbg.watch_graph_with_blacklists(
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/lib/debug_utils.py).
+Defined in [`tensorflow/python/debug/lib/debug_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/lib/debug_utils.py).
 
 Add debug tensor watches, blacklisting nodes and op types.
 

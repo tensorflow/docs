@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.layers
 
-
-
-Defined in [`tensorflow/contrib/layers/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/__init__.py).
-
 Ops for building neural network layers, regularizers, summaries, etc.
+
+
+
+Defined in [`contrib/layers/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 
@@ -203,23 +205,13 @@ Ops for building neural network layers, regularizers, summaries, etc.
 
 ## Other Members
 
-<h3 id="OPTIMIZER_CLS_NAMES"><code>OPTIMIZER_CLS_NAMES</code></h3>
-
-<h3 id="OPTIMIZER_SUMMARIES"><code>OPTIMIZER_SUMMARIES</code></h3>
-
-<h3 id="SPARSE_FEATURE_CROSS_DEFAULT_HASH_KEY"><code>SPARSE_FEATURE_CROSS_DEFAULT_HASH_KEY</code></h3>
-
-<h3 id="elu"><code>elu</code></h3>
-
-<h3 id="legacy_linear"><code>legacy_linear</code></h3>
-
-<h3 id="legacy_relu"><code>legacy_relu</code></h3>
-
-<h3 id="linear"><code>linear</code></h3>
-
-<h3 id="relu"><code>relu</code></h3>
-
-<h3 id="relu6"><code>relu6</code></h3>
-
-<h3 id="scale_gradient"><code>scale_gradient</code></h3>
-
+* `OPTIMIZER_CLS_NAMES` <a id="OPTIMIZER_CLS_NAMES"></a>
+* `OPTIMIZER_SUMMARIES` <a id="OPTIMIZER_SUMMARIES"></a>
+* `SPARSE_FEATURE_CROSS_DEFAULT_HASH_KEY = 956888297470` <a id="SPARSE_FEATURE_CROSS_DEFAULT_HASH_KEY"></a>
+* `elu` <a id="elu"></a>
+* `legacy_linear` <a id="legacy_linear"></a>
+* `legacy_relu` <a id="legacy_relu"></a>
+* `linear` <a id="linear"></a>
+* `relu` <a id="relu"></a>
+* `relu6` <a id="relu6"></a>
+* `scale_gradient` <a id="scale_gradient"></a>

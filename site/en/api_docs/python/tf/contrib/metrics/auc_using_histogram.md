@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.auc_using_histogram
 
+AUC computed by maintaining histograms.
+
 ``` python
 tf.contrib.metrics.auc_using_histogram(
     boolean_labels,
@@ -19,9 +21,9 @@ tf.contrib.metrics.auc_using_histogram(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/histogram_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/histogram_ops.py).
+Defined in [`contrib/metrics/python/ops/histogram_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/histogram_ops.py).
 
-AUC computed by maintaining histograms.
+<!-- Placeholder for "Used in" -->
 
 Rather than computing AUC directly, this Op maintains Variables containing
 histograms of the scores associated with `True` and `False` labels.  By
@@ -36,22 +38,24 @@ numbers of bins and comparing results.
 
 #### Args:
 
+
 * <b>`boolean_labels`</b>:  1-D boolean `Tensor`.  Entry is `True` if the corresponding
-    record is in class.
+  record is in class.
 * <b>`scores`</b>:  1-D numeric `Tensor`, same shape as boolean_labels.
 * <b>`score_range`</b>:  `Tensor` of shape `[2]`, same dtype as `scores`.  The min/max
-    values of score that we expect.  Scores outside range will be clipped.
+  values of score that we expect.  Scores outside range will be clipped.
 * <b>`nbins`</b>:  Integer number of bins to use.  Accuracy strictly increases as the
-    number of bins increases.
+  number of bins increases.
 * <b>`collections`</b>: List of graph collections keys. Internal histogram Variables
-    are added to these collections. Defaults to `[GraphKeys.LOCAL_VARIABLES]`.
+  are added to these collections. Defaults to `[GraphKeys.LOCAL_VARIABLES]`.
 * <b>`check_shape`</b>:  Boolean.  If `True`, do a runtime shape check on the scores
-    and labels.
+  and labels.
 * <b>`name`</b>:  A name for this Op.  Defaults to "auc_using_histogram".
 
 
 #### Returns:
 
+
 * <b>`auc`</b>:  `float32` scalar `Tensor`.  Fetching this converts internal histograms
-    to auc value.
+  to auc value.
 * <b>`update_op`</b>:  `Op`, when run, updates internal histograms.

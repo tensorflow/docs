@@ -11,7 +11,7 @@ tfdbg.load_tensor_from_event_file(event_file_path)
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/lib/debug_data.py).
+Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/lib/debug_data.py).
 
 Load a tensor from an event file.
 

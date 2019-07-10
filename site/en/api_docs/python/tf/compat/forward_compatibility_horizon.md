@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.compat.forward_compatibility_horizon
 
+Context manager for testing forward compatibility of generated graphs.
+
+### Aliases:
+
+* `tf.compat.forward_compatibility_horizon`
+* `tf.compat.v1.compat.forward_compatibility_horizon`
+* `tf.compat.v2.compat.forward_compatibility_horizon`
+
 ``` python
 tf.compat.forward_compatibility_horizon(
     year,
@@ -15,9 +23,9 @@ tf.compat.forward_compatibility_horizon(
 
 
 
-Defined in [`tensorflow/python/compat/compat.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/compat/compat.py).
+Defined in [`python/compat/compat.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/compat/compat.py).
 
-Context manager for testing forward compatibility of generated graphs.
+<!-- Placeholder for "Used in" -->
 
 See [Version
 compatibility](https://tensorflow.org/guide/version_compat#backward_forward).
@@ -44,10 +52,14 @@ def testMyNewFeature(self):
      # Test that generate_graph_with_new_features() has an effect
 ```
 
-Args :
-  year:  A year (e.g. 2018).
-  month: A month (1 <= month <= 12) in year.
-  day:   A day (1 <= day <= 31, or 30, or 29, or 28) in month.
+#### Args:
+
+
+* <b>`year`</b>:  A year (e.g., 2018). Must be an `int`.
+* <b>`month`</b>: A month (1 <= month <= 12) in year. Must be an `int`.
+* <b>`day`</b>:   A day (1 <= day <= 31, or 30, or 29, or 28) in month. Must be an
+       `int`.
+
 
 #### Yields:
 

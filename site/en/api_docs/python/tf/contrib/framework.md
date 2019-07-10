@@ -5,12 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.framework
 
-
-
-Defined in [`tensorflow/contrib/framework/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/__init__.py).
-
 Framework utilities.
 
+
+
+Defined in [`contrib/framework/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 
@@ -30,8 +31,6 @@ Framework utilities.
 ## Classes
 
 [`class BoundedTensorSpec`](../../tf/contrib/framework/BoundedTensorSpec): A `TensorSpec` that specifies minimum and maximum values.
-
-[`class CriticalSection`](../../tf/contrib/framework/CriticalSection): Critical section.
 
 [`class RecordInput`](../../tf/contrib/framework/RecordInput): RecordInput asynchronously reads and randomly yields TFRecords.
 
@@ -65,9 +64,9 @@ Framework utilities.
 
 [`assert_same_float_dtype(...)`](../../tf/debugging/assert_same_float_dtype): Validate and return float type based on `tensors` and `dtype`.
 
-[`assert_scalar(...)`](../../tf/debugging/assert_scalar): Asserts that the given `tensor` is a scalar.
+[`assert_scalar(...)`](../../tf/debugging/assert_scalar): Asserts that the given `tensor` is a scalar (i.e. zero-dimensional).
 
-[`assert_scalar_int(...)`](../../tf/contrib/framework/assert_scalar_int): Assert `tensor` is 0-D, of type <a href="../../tf/dtypes#int32"><code>tf.int32</code></a> or <a href="../../tf/dtypes#int64"><code>tf.int64</code></a>.
+[`assert_scalar_int(...)`](../../tf/contrib/framework/assert_scalar_int): Assert `tensor` is 0-D, of type <a href="../../tf#int32"><code>tf.int32</code></a> or <a href="../../tf#int64"><code>tf.int64</code></a>.
 
 [`assign_from_checkpoint(...)`](../../tf/contrib/framework/assign_from_checkpoint): Creates an operation to assign specific variables from a checkpoint.
 
@@ -127,7 +126,7 @@ Framework utilities.
 
 [`init_from_checkpoint(...)`](../../tf/contrib/framework/init_from_checkpoint): Using assignment map initializes current variables with loaded tensors.
 
-[`is_tensor(...)`](../../tf/contrib/framework/is_tensor): Check whether `x` is of tensor type.
+[`is_tensor(...)`](../../tf/is_tensor): Checks whether `x` is a tensor or "tensor-like".
 
 [`list_variables(...)`](../../tf/contrib/framework/list_variables): Returns list of all variables in the latest checkpoint.
 

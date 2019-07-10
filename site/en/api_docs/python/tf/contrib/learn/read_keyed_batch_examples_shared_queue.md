@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.learn.read_keyed_batch_examples_shared_queue
 
+Adds operations to read, queue, batch `Example` protos. (deprecated)
+
 ``` python
 tf.contrib.learn.read_keyed_batch_examples_shared_queue(
     file_pattern,
@@ -23,9 +25,9 @@ tf.contrib.learn.read_keyed_batch_examples_shared_queue(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_io/graph_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py).
+Defined in [`contrib/learn/python/learn/learn_io/graph_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py).
 
-Adds operations to read, queue, batch `Example` protos. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -49,22 +51,23 @@ Use `parse_fn` if you need to do parsing / processing on single examples.
 
 #### Args:
 
+
 * <b>`file_pattern`</b>: List of files or patterns of file paths containing
-      `Example` records. See <a href="../../../tf/gfile/Glob"><code>tf.gfile.Glob</code></a> for pattern rules.
+    `Example` records. See <a href="../../../tf/io/gfile/glob"><code>tf.io.gfile.glob</code></a> for pattern rules.
 * <b>`batch_size`</b>: An int or scalar `Tensor` specifying the batch size to use.
 * <b>`reader`</b>: A function or class that returns an object with
-    `read` method, (filename tensor) -> (example tensor).
+  `read` method, (filename tensor) -> (example tensor).
 * <b>`randomize_input`</b>: Whether the input should be randomized.
 * <b>`num_epochs`</b>: Integer specifying the number of times to read through the
-    dataset. If `None`, cycles through the dataset forever.
-    NOTE - If specified, creates a variable that must be initialized, so call
-    `tf.local_variables_initializer()` and run the op in a session.
+  dataset. If `None`, cycles through the dataset forever.
+  NOTE - If specified, creates a variable that must be initialized, so call
+  <a href="../../../tf/initializers/local_variables"><code>tf.compat.v1.local_variables_initializer()</code></a> and run the op in a session.
 * <b>`queue_capacity`</b>: Capacity for input queue.
 * <b>`num_threads`</b>: The number of threads enqueuing examples.
 * <b>`read_batch_size`</b>: An int or scalar `Tensor` specifying the number of
-    records to read at once.
+  records to read at once.
 * <b>`parse_fn`</b>: Parsing function, takes `Example` Tensor returns parsed
-    representation. If `None`, no parsing is done.
+  representation. If `None`, no parsing is done.
 * <b>`name`</b>: Name of resulting op.
 * <b>`seed`</b>: An integer (optional). Seed used if randomize_input == True.
 
@@ -76,6 +79,8 @@ Returns tuple of:
 - String `Tensor` of batched `Example` proto.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: for invalid inputs.

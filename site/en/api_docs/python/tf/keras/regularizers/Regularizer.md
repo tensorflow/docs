@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `Regularizer`
 
-
-
-
-
-Defined in [`tensorflow/python/keras/regularizers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/regularizers.py).
-
 Regularizer base class.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.keras.regularizers.Regularizer`
+* Class `tf.compat.v2.keras.regularizers.Regularizer`
+* Class `tf.keras.regularizers.Regularizer`
+
+
+
+Defined in [`python/keras/regularizers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/regularizers.py).
+
+<!-- Placeholder for "Used in" -->
   
 
 ## Methods
@@ -24,7 +32,8 @@ Regularizer base class.
 __call__(x)
 ```
 
-Call self as a function.
+
+
 
 <h3 id="from_config"><code>from_config</code></h3>
 
@@ -35,6 +44,7 @@ from_config(
     config
 )
 ```
+
 
 
 

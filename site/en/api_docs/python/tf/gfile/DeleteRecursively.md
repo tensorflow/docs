@@ -5,21 +5,31 @@ page_type: reference
 
 # tf.gfile.DeleteRecursively
 
+Deletes everything under dirname recursively.
+
+### Aliases:
+
+* `tf.compat.v1.gfile.DeleteRecursively`
+* `tf.gfile.DeleteRecursively`
+
 ``` python
 tf.gfile.DeleteRecursively(dirname)
 ```
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/lib/io/file_io.py).
+Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
-Deletes everything under dirname recursively.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`dirname`</b>: string, a path to a directory
 
 
 #### Raises:
+
 
 * <b>`errors.OpError`</b>: If the operation fails.

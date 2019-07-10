@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `RegisterGradient`
 
-
-
-
-
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
-
 A decorator for registering the gradient function for an op type.
+
+
+
+### Aliases:
+
+* Class `tf.RegisterGradient`
+* Class `tf.compat.v1.RegisterGradient`
+* Class `tf.compat.v2.RegisterGradient`
+
+
+
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 This decorator is only used when defining a new op type. For an op
 with `m` inputs and `n` outputs, the gradient function is a function
@@ -44,10 +52,12 @@ __init__(op_type)
 
 Creates a new decorator with `op_type` as the Operation type.
 
+
 #### Args:
 
+
 * <b>`op_type`</b>: The string type of an operation. This corresponds to the
-    `OpDef.name` field for the proto that defines the operation.
+  `OpDef.name` field for the proto that defines the operation.
 
 
 
@@ -60,6 +70,7 @@ __call__(f)
 ```
 
 Registers the function `f` as gradient function for `op_type`.
+
 
 
 

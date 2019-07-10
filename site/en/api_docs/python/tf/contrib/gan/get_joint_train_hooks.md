@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.gan.get_joint_train_hooks
 
+Returns a hooks function for joint GAN training.
+
 ``` python
 tf.contrib.gan.get_joint_train_hooks(train_steps=namedtuples.GANTrainSteps(1, 1))
 ```
 
 
 
-Defined in [`tensorflow/contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/train.py).
+Defined in [`contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/train.py).
 
-Returns a hooks function for joint GAN training.
+<!-- Placeholder for "Used in" -->
 
 When using these train hooks, IT IS RECOMMENDED TO USE `use_locking=True` ON
 ALL OPTIMIZERS TO AVOID RACE CONDITIONS.
@@ -25,7 +27,8 @@ The order of steps taken is:
 
 **NOTE**: Unlike `get_sequential_train_hooks`, this method performs updates
 for the generator and discriminator simultaneously whenever possible. This
-reduces the number of <a href="../../../tf/Session"><code>tf.Session</code></a> calls, and can also change the training
+reduces the number of <a href="../../../tf/Session"><code>tf.compat.v1.Session</code></a> calls, and can also change the
+training
 semantics.
 
 To illustrate the difference look at the following example:
@@ -41,8 +44,9 @@ In contrast, `get_joint_train_steps` will make 5 session calls:
 
 #### Args:
 
-* <b>`train_steps`</b>: A `GANTrainSteps` tuple that determines how many generator
-    and discriminator training steps to take.
+
+* <b>`train_steps`</b>: A `GANTrainSteps` tuple that determines how many generator and
+  discriminator training steps to take.
 
 
 #### Returns:

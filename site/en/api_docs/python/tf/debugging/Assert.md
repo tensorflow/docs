@@ -5,9 +5,15 @@ page_type: reference
 
 # tf.debugging.Assert
 
+Asserts that the given condition is true.
+
 ### Aliases:
 
 * `tf.Assert`
+* `tf.compat.v1.Assert`
+* `tf.compat.v1.debugging.Assert`
+* `tf.compat.v2.Assert`
+* `tf.compat.v2.debugging.Assert`
 * `tf.debugging.Assert`
 
 ``` python
@@ -21,9 +27,9 @@ tf.debugging.Assert(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/control_flow_ops.py).
 
-Asserts that the given condition is true.
+<!-- Placeholder for "Used in" -->
 
 If `condition` evaluates to false, print the list of tensors in `data`.
 `summarize` determines how many entries of the tensors to print.
@@ -40,6 +46,7 @@ with tf.control_dependencies([assert_op]):
 
 #### Args:
 
+
 * <b>`condition`</b>: The condition to evaluate.
 * <b>`data`</b>: The tensors to print out when condition is false.
 * <b>`summarize`</b>: Print this many entries of each tensor.
@@ -48,15 +55,20 @@ with tf.control_dependencies([assert_op]):
 
 #### Returns:
 
+
 * <b>`assert_op`</b>: An `Operation` that, when executed, raises a
-  <a href="../../tf/errors/InvalidArgumentError"><code>tf.errors.InvalidArgumentError</code></a> if `condition` is not true.
-  @compatibility{eager} returns None.
+<a href="../../tf/errors/InvalidArgumentError"><code>tf.errors.InvalidArgumentError</code></a> if `condition` is not true.
+
 
 
 #### Raises:
 
-  @compatibility{eager} <a href="../../tf/errors/InvalidArgumentError"><code>tf.errors.InvalidArgumentError</code></a> if `condition`
-  is not true
+
+
 
 
 **NOTE** The output of this function should be used.  If it is not, a warning will be logged.  To mark the output as used, call its .mark_used() method.
+
+#### Eager Compatibility
+<a href="../../tf/errors/InvalidArgumentError"><code>tf.errors.InvalidArgumentError</code></a> if `condition` is not true
+

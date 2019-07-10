@@ -5,8 +5,11 @@ page_type: reference
 
 # tf.distributions.kl_divergence
 
+Get the KL-divergence KL(distribution_a || distribution_b). (deprecated)
+
 ### Aliases:
 
+* `tf.compat.v1.distributions.kl_divergence`
 * `tf.contrib.distributions.kl_divergence`
 * `tf.distributions.kl_divergence`
 
@@ -21,9 +24,9 @@ tf.distributions.kl_divergence(
 
 
 
-Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/distributions/kullback_leibler.py).
+Defined in [`python/ops/distributions/kullback_leibler.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/kullback_leibler.py).
 
-Get the KL-divergence KL(distribution_a || distribution_b). (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2019-01-01.
 Instructions for updating:
@@ -45,12 +48,13 @@ identified in the search is used (favoring a shorter MRO distance to
 
 #### Args:
 
+
 * <b>`distribution_a`</b>: The first distribution.
 * <b>`distribution_b`</b>: The second distribution.
 * <b>`allow_nan_stats`</b>: Python `bool`, default `True`. When `True`,
-    statistics (e.g., mean, mode, variance) use the value "`NaN`" to
-    indicate the result is undefined. When `False`, an exception is raised
-    if one or more of the statistic's batch members are undefined.
+  statistics (e.g., mean, mode, variance) use the value "`NaN`" to
+  indicate the result is undefined. When `False`, an exception is raised
+  if one or more of the statistic's batch members are undefined.
 * <b>`name`</b>: Python `str` name prefixed to Ops created by this class.
 
 
@@ -60,7 +64,9 @@ A Tensor with the batchwise KL-divergence between `distribution_a`
 and `distribution_b`.
 
 
+
 #### Raises:
 
+
 * <b>`NotImplementedError`</b>: If no KL method is defined for distribution types
-    of `distribution_a` and `distribution_b`.
+  of `distribution_a` and `distribution_b`.

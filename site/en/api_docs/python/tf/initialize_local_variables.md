@@ -5,15 +5,22 @@ page_type: reference
 
 # tf.initialize_local_variables
 
+See <a href="../tf/initializers/local_variables"><code>tf.compat.v1.local_variables_initializer</code></a>. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.initialize_local_variables`
+* `tf.initialize_local_variables`
+
 ``` python
 tf.initialize_local_variables()
 ```
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variables.py).
+Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
-See <a href="../tf/initializers/local_variables"><code>tf.local_variables_initializer</code></a>. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2017-03-02.
 Instructions for updating:

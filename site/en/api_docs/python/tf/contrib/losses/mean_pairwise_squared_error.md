@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.losses.mean_pairwise_squared_error
 
+Adds a pairwise-errors-squared loss to the training procedure. (deprecated)
+
 ``` python
 tf.contrib.losses.mean_pairwise_squared_error(
     predictions,
@@ -16,9 +18,9 @@ tf.contrib.losses.mean_pairwise_squared_error(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/losses/loss_ops.py).
+Defined in [`contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
-Adds a pairwise-errors-squared loss to the training procedure. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-12-30.
 Instructions for updating:
@@ -46,12 +48,13 @@ by the corresponding element in the `weights` vector.
 
 #### Args:
 
+
 * <b>`predictions`</b>: The predicted outputs, a tensor of size [batch_size, d0, .. dN]
-    where N+1 is the total number of dimensions in `predictions`.
+  where N+1 is the total number of dimensions in `predictions`.
 * <b>`labels`</b>: The ground truth output tensor, whose shape must match the shape of
-    the `predictions` tensor.
+  the `predictions` tensor.
 * <b>`weights`</b>: Coefficients for the loss a scalar, a tensor of shape [batch_size]
-    or a tensor whose shape matches `predictions`.
+  or a tensor whose shape matches `predictions`.
 * <b>`scope`</b>: The scope for the operations performed in computing the loss.
 
 
@@ -60,7 +63,9 @@ by the corresponding element in the `weights` vector.
 A scalar `Tensor` representing the loss value.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the shape of `predictions` doesn't match that of `labels` or
-    if the shape of `weights` is invalid.
+  if the shape of `weights` is invalid.

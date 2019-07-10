@@ -5,20 +5,23 @@ page_type: reference
 
 # tf.contrib.rnn.transpose_batch_time
 
+Transposes the batch and time dimensions of a Tensor.
+
 ``` python
 tf.contrib.rnn.transpose_batch_time(x)
 ```
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/rnn.py).
+Defined in [`python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn.py).
 
-Transposes the batch and time dimensions of a Tensor.
+<!-- Placeholder for "Used in" -->
 
 If the input tensor has rank < 2 it returns the original tensor. Retains as
 much of the static shape information as possible.
 
 #### Args:
+
 
 * <b>`x`</b>: A Tensor.
 

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.pool
 
+Performs an N-D pooling operation.
+
+### Aliases:
+
+* `tf.compat.v1.nn.pool`
+* `tf.nn.pool`
+
 ``` python
 tf.nn.pool(
     input,
@@ -14,15 +21,16 @@ tf.nn.pool(
     dilation_rate=None,
     strides=None,
     name=None,
-    data_format=None
+    data_format=None,
+    dilations=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Performs an N-D pooling operation.
+<!-- Placeholder for "Used in" -->
 
 In the case that `data_format` does not start with "NC", computes for
     0 <= b < batch_size,
@@ -56,28 +64,30 @@ simply transposed as follows:
 
 #### Args:
 
+
 * <b>`input`</b>: Tensor of rank N+2, of shape
-    `[batch_size] + input_spatial_shape + [num_channels]` if data_format does
-    not start with "NC" (default), or
-    `[batch_size, num_channels] + input_spatial_shape` if data_format starts
-    with "NC".  Pooling happens over the spatial dimensions only.
+  `[batch_size] + input_spatial_shape + [num_channels]` if data_format does
+  not start with "NC" (default), or
+  `[batch_size, num_channels] + input_spatial_shape` if data_format starts
+  with "NC".  Pooling happens over the spatial dimensions only.
 * <b>`window_shape`</b>: Sequence of N ints >= 1.
 * <b>`pooling_type`</b>: Specifies pooling operation, must be "AVG" or "MAX".
 * <b>`padding`</b>: The padding algorithm, must be "SAME" or "VALID".
-    See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
+  See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
 * <b>`dilation_rate`</b>: Optional.  Dilation rate.  List of N ints >= 1.
-    Defaults to [1]*N.  If any value of dilation_rate is > 1, then all values
-    of strides must be 1.
+  Defaults to [1]*N.  If any value of dilation_rate is > 1, then all values
+  of strides must be 1.
 * <b>`strides`</b>: Optional.  Sequence of N ints >= 1.  Defaults to [1]*N.
-    If any value of strides is > 1, then all values of dilation_rate must be
-    1.
+  If any value of strides is > 1, then all values of dilation_rate must be
+  1.
 * <b>`name`</b>: Optional. Name of the op.
 * <b>`data_format`</b>: A string or None.  Specifies whether the channel dimension of
-    the `input` and output is the last dimension (default, or if `data_format`
-    does not start with "NC"), or the second dimension (if `data_format`
-    starts with "NC").  For N=1, the valid values are "NWC" (default) and
-    "NCW".  For N=2, the valid values are "NHWC" (default) and "NCHW".
-    For N=3, the valid values are "NDHWC" (default) and "NCDHW".
+  the `input` and output is the last dimension (default, or if `data_format`
+  does not start with "NC"), or the second dimension (if `data_format`
+  starts with "NC").  For N=1, the valid values are "NWC" (default) and
+  "NCW".  For N=2, the valid values are "NHWC" (default) and "NCHW".
+  For N=3, the valid values are "NDHWC" (default) and "NCDHW".
+* <b>`dilations`</b>: Alias for dilation_rate
 
 
 #### Returns:
@@ -101,6 +111,8 @@ If padding = "VALID":
          / strides[i]).
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if arguments are invalid.

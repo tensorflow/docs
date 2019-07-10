@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.io.match_filenames_once
 
+Save the list of files matching pattern, so it is only computed once.
+
 ### Aliases:
 
+* `tf.compat.v1.io.match_filenames_once`
+* `tf.compat.v1.train.match_filenames_once`
+* `tf.compat.v2.io.match_filenames_once`
 * `tf.io.match_filenames_once`
 * `tf.train.match_filenames_once`
 
@@ -19,13 +24,14 @@ tf.io.match_filenames_once(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/input.py).
+Defined in [`python/training/input.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/input.py).
 
-Save the list of files matching pattern, so it is only computed once.
+<!-- Placeholder for "Used in" -->
 
 NOTE: The order of the files returned can be non-deterministic.
 
 #### Args:
+
 
 * <b>`pattern`</b>: A file pattern (glob), or 1D tensor of file patterns.
 * <b>`name`</b>: A name for the operations (optional).

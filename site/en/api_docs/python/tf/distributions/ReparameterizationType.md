@@ -7,18 +7,21 @@ page_type: reference
 
 ## Class `ReparameterizationType`
 
+Instances of this class represent how sampling is reparameterized.
+
 
 
 ### Aliases:
 
+* Class `tf.compat.v1.distributions.ReparameterizationType`
 * Class `tf.contrib.distributions.ReparameterizationType`
 * Class `tf.distributions.ReparameterizationType`
 
 
 
-Defined in [`tensorflow/python/ops/distributions/distribution.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/distributions/distribution.py).
+Defined in [`python/ops/distributions/distribution.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/distribution.py).
 
-Instances of this class represent how sampling is reparameterized.
+<!-- Placeholder for "Used in" -->
 
 Two static instances exist in the distributions library, signifying
 one of two possible properties for samples from a distribution:
@@ -62,12 +65,14 @@ instances, equality checks if two instances' id() values are equal.
 
 #### Args:
 
+
 * <b>`other`</b>: Object to compare against.
 
 
 #### Returns:
 
 `self is other`.
+
 
 
 

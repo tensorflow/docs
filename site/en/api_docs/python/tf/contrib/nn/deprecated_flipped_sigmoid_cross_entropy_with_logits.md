@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.nn.deprecated_flipped_sigmoid_cross_entropy_with_logits
 
+Computes sigmoid cross entropy given `logits`.
+
 ``` python
 tf.contrib.nn.deprecated_flipped_sigmoid_cross_entropy_with_logits(
     logits,
@@ -15,9 +17,9 @@ tf.contrib.nn.deprecated_flipped_sigmoid_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/cross_entropy.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/nn/python/ops/cross_entropy.py).
+Defined in [`contrib/nn/python/ops/cross_entropy.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/nn/python/ops/cross_entropy.py).
 
-Computes sigmoid cross entropy given `logits`.
+<!-- Placeholder for "Used in" -->
 
 This function diffs from tf.nn.sigmoid_cross_entropy_with_logits only in the
 argument order.
@@ -51,6 +53,7 @@ equivalent formulation
 
 #### Args:
 
+
 * <b>`logits`</b>: A `Tensor` of type `float32` or `float64`.
 * <b>`targets`</b>: A `Tensor` of the same type and shape as `logits`.
 * <b>`name`</b>: A name for the operation (optional).
@@ -62,6 +65,8 @@ A `Tensor` of the same shape as `logits` with the componentwise
 logistic losses.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `logits` and `targets` do not have the same shape.

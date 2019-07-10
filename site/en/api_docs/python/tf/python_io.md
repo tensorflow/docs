@@ -7,9 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Python functions for directly manipulating TFRecord-formatted files.
 
 ## Classes
 

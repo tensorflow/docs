@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.gradients
 
+Constructs symbolic derivatives of sum of `ys` w.r.t. x in `xs`.
+
+### Aliases:
+
+* `tf.compat.v1.gradients`
+* `tf.gradients`
+
 ``` python
 tf.gradients(
     ys,
@@ -21,9 +28,9 @@ tf.gradients(
 
 
 
-Defined in [`tensorflow/python/ops/gradients_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/gradients_impl.py).
+Defined in [`python/ops/gradients_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/gradients_impl.py).
 
-Constructs symbolic derivatives of sum of `ys` w.r.t. x in `xs`.
+<!-- Placeholder for "Used in" -->
 
 `ys` and `xs` are each a `Tensor` or a list of tensors.  `grad_ys`
 is a list of `Tensor`, holding the gradients received by the
@@ -76,7 +83,7 @@ they were included in `stop_gradients`.
 `unconnected_gradients` determines the value returned for each x in xs if it
 is unconnected in the graph to ys. By default this is None to safeguard
 against errors. MAthematically these gradients are zero which can be requested
-using the `'zero'` option. <a href="../tf/UnconnectedGradients"><code>tf.UnconnectedGradients</code></a> provides the
+using the `'zero'` option. `tf.UnconnectedGradients` provides the
 following options and behaviors:
 
 ```python
@@ -92,24 +99,25 @@ sess.run(g2)  # [array([[0., 0.]], dtype=float32)]
 
 #### Args:
 
+
 * <b>`ys`</b>: A `Tensor` or list of tensors to be differentiated.
 * <b>`xs`</b>: A `Tensor` or list of tensors to be used for differentiation.
 * <b>`grad_ys`</b>: Optional. A `Tensor` or list of tensors the same size as
-    `ys` and holding the gradients computed for each y in `ys`.
+  `ys` and holding the gradients computed for each y in `ys`.
 * <b>`name`</b>: Optional name to use for grouping all the gradient ops together.
-    defaults to 'gradients'.
+  defaults to 'gradients'.
 * <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with
-    the corresponding op.
+  the corresponding op.
 * <b>`gate_gradients`</b>: If True, add a tuple around the gradients returned
-    for an operations.  This avoids some race conditions.
+  for an operations.  This avoids some race conditions.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
-    Accepted values are constants defined in the class `AggregationMethod`.
+  Accepted values are constants defined in the class `AggregationMethod`.
 * <b>`stop_gradients`</b>: Optional. A `Tensor` or list of tensors not to differentiate
-    through.
+  through.
 * <b>`unconnected_gradients`</b>: Optional. Specifies the gradient value returned when
-    the given input tensors are unconnected. Accepted values are constants
-    defined in the class <a href="../tf/UnconnectedGradients"><code>tf.UnconnectedGradients</code></a> and the default value is
-    `none`.
+  the given input tensors are unconnected. Accepted values are constants
+  defined in the class <a href="../tf/UnconnectedGradients"><code>tf.UnconnectedGradients</code></a> and the default value is
+  `none`.
 
 
 #### Returns:
@@ -117,9 +125,11 @@ sess.run(g2)  # [array([[0., 0.]], dtype=float32)]
 A list of `sum(dy/dx)` for each x in `xs`.
 
 
+
 #### Raises:
 
+
 * <b>`LookupError`</b>: if one of the operations between `x` and `y` does not
-    have a registered gradient function.
+  have a registered gradient function.
 * <b>`ValueError`</b>: if the arguments are invalid.
 * <b>`RuntimeError`</b>: if called in Eager mode.

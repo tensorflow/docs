@@ -7,11 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Sparse Tensor Representation.
-
-See also <a href="../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
 
 ## Classes
 

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.image.adjust_contrast
 
+Adjust contrast of RGB or grayscale images.
+
+### Aliases:
+
+* `tf.compat.v1.image.adjust_contrast`
+* `tf.compat.v2.image.adjust_contrast`
+* `tf.image.adjust_contrast`
+
 ``` python
 tf.image.adjust_contrast(
     images,
@@ -14,13 +22,13 @@ tf.image.adjust_contrast(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Adjust contrast of RGB or grayscale images.
+<!-- Placeholder for "Used in" -->
 
-This is a convenience method that converts an RGB image to float
-representation, adjusts its contrast, and then converts it back to the
-original data type. If several adjustments are chained it is advisable to
+This is a convenience method that converts RGB images to float
+representation, adjusts their contrast, and then converts them back to the
+original data type. If several adjustments are chained, it is advisable to
 minimize the number of redundant conversions.
 
 `images` is a tensor of at least 3 dimensions.  The last 3 dimensions are
@@ -34,6 +42,7 @@ channel and then adjusts each component `x` of each pixel to
 `(x - mean) * contrast_factor + mean`.
 
 #### Args:
+
 
 * <b>`images`</b>: Images to adjust.  At least 3-D.
 * <b>`contrast_factor`</b>: A float multiplier for adjusting contrast.

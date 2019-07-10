@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.nn.scaled_softplus
 
+Returns `y = alpha * ln(1 + exp(x / alpha))` or `min(y, clip)`.
+
 ``` python
 tf.contrib.nn.scaled_softplus(
     x,
@@ -16,9 +18,9 @@ tf.contrib.nn.scaled_softplus(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/scaled_softplus.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/nn/python/ops/scaled_softplus.py).
+Defined in [`contrib/nn/python/ops/scaled_softplus.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/nn/python/ops/scaled_softplus.py).
 
-Returns `y = alpha * ln(1 + exp(x / alpha))` or `min(y, clip)`.
+<!-- Placeholder for "Used in" -->
 
 This can be seen as a softplus applied to the scaled input, with the output
 appropriately scaled. As `alpha` tends to 0, `scaled_softplus(x, alpha)` tends
@@ -30,9 +32,10 @@ inputs as well as the outputs of this operation.
 
 #### Args:
 
+
 * <b>`x`</b>: A `Tensor` of inputs.
 * <b>`alpha`</b>: A `Tensor`, indicating the amount of smoothness. The caller
-      must ensure that `alpha > 0`.
+    must ensure that `alpha > 0`.
 * <b>`clip`</b>: (optional) A `Tensor`, the upper bound to clip the values.
 * <b>`name`</b>: A name for the scope of the operations (optional).
 

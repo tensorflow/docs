@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.init_scope
 
+A context manager that lifts ops out of control-flow scopes and function-building graphs.
+
+### Aliases:
+
+* `tf.compat.v1.init_scope`
+* `tf.compat.v2.init_scope`
+* `tf.init_scope`
+
 ``` python
 tf.init_scope()
 ```
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
-A context manager that lifts ops out of control-flow scopes and function-building graphs.
+<!-- Placeholder for "Used in" -->
 
 There is often a need to lift variable initialization ops out of control-flow
 scopes, function-building graphs, and gradient tapes. Entering an
@@ -45,7 +53,7 @@ eager execution enabled even when defining graph functions via
 tf.contrib.eager.defun. For example:
 
 ```python
-tf.enable_eager_execution()
+tf.compat.v1.enable_eager_execution()
 
 @tf.contrib.eager.defun
 def func():
@@ -58,5 +66,6 @@ def func():
 ```
 
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: if graph state is incompatible with this initialization.

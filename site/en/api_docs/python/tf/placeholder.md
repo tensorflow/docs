@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.placeholder
 
+Inserts a placeholder for a tensor that will be always fed.
+
+### Aliases:
+
+* `tf.compat.v1.placeholder`
+* `tf.placeholder`
+
 ``` python
 tf.placeholder(
     dtype,
@@ -15,21 +22,23 @@ tf.placeholder(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Inserts a placeholder for a tensor that will be always fed.
+<!-- Placeholder for "Used in" -->
 
 **Important**: This tensor will produce an error if evaluated. Its value must
-be fed using the `feed_dict` optional argument to `Session.run()`,
-`Tensor.eval()`, or `Operation.run()`.
+be fed using the `feed_dict` optional argument to <a href="../tf/InteractiveSession#run"><code>Session.run()</code></a>,
+<a href="../tf/Tensor#eval"><code>Tensor.eval()</code></a>, or <a href="../tf/Operation#run"><code>Operation.run()</code></a>.
 
-For example:
+#### For example:
+
+
 
 ```python
-x = tf.placeholder(tf.float32, shape=(1024, 1024))
+x = tf.compat.v1.placeholder(tf.float32, shape=(1024, 1024))
 y = tf.matmul(x, x)
 
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
   print(sess.run(y))  # ERROR: will fail because x was not fed.
 
   rand_array = np.random.rand(1024, 1024)
@@ -40,9 +49,10 @@ with tf.Session() as sess:
 
 #### Args:
 
+
 * <b>`dtype`</b>: The type of elements in the tensor to be fed.
 * <b>`shape`</b>: The shape of the tensor to be fed (optional). If the shape is not
-    specified, you can feed a tensor of any shape.
+  specified, you can feed a tensor of any shape.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -52,7 +62,9 @@ A `Tensor` that may be used as a handle for feeding a value, but not
 evaluated directly.
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: if eager execution is enabled
 

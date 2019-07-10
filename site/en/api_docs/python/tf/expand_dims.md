@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.expand_dims
 
+Inserts a dimension of 1 into a tensor's shape. (deprecated arguments)
+
+### Aliases:
+
+* `tf.compat.v1.expand_dims`
+* `tf.expand_dims`
+
 ``` python
 tf.expand_dims(
     input,
@@ -16,9 +23,9 @@ tf.expand_dims(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Inserts a dimension of 1 into a tensor's shape. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(dim)`. They will be removed in a future version.
 Instructions for updating:
@@ -34,7 +41,9 @@ element. For example, if you have a single image of shape `[height, width,
 channels]`, you can make it a batch of 1 image with `expand_dims(image, 0)`,
 which will make the shape `[1, height, width, channels]`.
 
-Other examples:
+#### Other examples:
+
+
 
 ```python
 # 't' is a tensor of shape [2]
@@ -57,10 +66,10 @@ size 1.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`.
-* <b>`axis`</b>: 0-D (scalar). Specifies the dimension index at which to
-    expand the shape of `input`. Must be in the range
-    `[-rank(input) - 1, rank(input)]`.
+* <b>`axis`</b>: 0-D (scalar). Specifies the dimension index at which to expand the
+  shape of `input`. Must be in the range `[-rank(input) - 1, rank(input)]`.
 * <b>`name`</b>: The name of the output `Tensor` (optional).
 * <b>`dim`</b>: 0-D (scalar). Equivalent to `axis`, to be deprecated.
 
@@ -71,6 +80,8 @@ A `Tensor` with the same data as `input`, but its shape has an additional
 dimension of size 1 added.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if either both or neither of `dim` and `axis` are specified.

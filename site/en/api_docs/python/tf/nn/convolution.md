@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.convolution
 
+Computes sums of N-D convolutions (actually cross-correlation).
+
+### Aliases:
+
+* `tf.compat.v1.nn.convolution`
+* `tf.nn.convolution`
+
 ``` python
 tf.nn.convolution(
     input,
@@ -13,15 +20,17 @@ tf.nn.convolution(
     strides=None,
     dilation_rate=None,
     name=None,
-    data_format=None
+    data_format=None,
+    filters=None,
+    dilations=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Computes sums of N-D convolutions (actually cross-correlation).
+<!-- Placeholder for "Used in" -->
 
 This also supports either output striding via the optional `strides` parameter
 or atrous convolution (also known as convolution with holes or dilated
@@ -80,32 +89,35 @@ It is required that 1 <= N <= 3.
 
 #### Args:
 
+
 * <b>`input`</b>: An (N+2)-D `Tensor` of type `T`, of shape
-    `[batch_size] + input_spatial_shape + [in_channels]` if data_format does
-    not start with "NC" (default), or
-    `[batch_size, in_channels] + input_spatial_shape` if data_format starts
-    with "NC".
+  `[batch_size] + input_spatial_shape + [in_channels]` if data_format does
+  not start with "NC" (default), or
+  `[batch_size, in_channels] + input_spatial_shape` if data_format starts
+  with "NC".
 * <b>`filter`</b>: An (N+2)-D `Tensor` with the same type as `input` and shape
-    `spatial_filter_shape + [in_channels, out_channels]`.
+  `spatial_filter_shape + [in_channels, out_channels]`.
 * <b>`padding`</b>: A string, either `"VALID"` or `"SAME"`. The padding algorithm.
 * <b>`strides`</b>: Optional.  Sequence of N ints >= 1.  Specifies the output stride.
-    Defaults to [1]*N.  If any value of strides is > 1, then all values of
-    dilation_rate must be 1.
+  Defaults to [1]*N.  If any value of strides is > 1, then all values of
+  dilation_rate must be 1.
 * <b>`dilation_rate`</b>: Optional.  Sequence of N ints >= 1.  Specifies the filter
-    upsampling/input downsampling rate.  In the literature, the same parameter
-    is sometimes called `input stride` or `dilation`.  The effective filter
-    size used for the convolution will be `spatial_filter_shape +
-    (spatial_filter_shape - 1) * (rate - 1)`, obtained by inserting
-    (dilation_rate[i]-1) zeros between consecutive elements of the original
-    filter in each spatial dimension i.  If any value of dilation_rate is > 1,
-    then all values of strides must be 1.
+  upsampling/input downsampling rate.  In the literature, the same parameter
+  is sometimes called `input stride` or `dilation`.  The effective filter
+  size used for the convolution will be `spatial_filter_shape +
+  (spatial_filter_shape - 1) * (rate - 1)`, obtained by inserting
+  (dilation_rate[i]-1) zeros between consecutive elements of the original
+  filter in each spatial dimension i.  If any value of dilation_rate is > 1,
+  then all values of strides must be 1.
 * <b>`name`</b>: Optional name for the returned tensor.
 * <b>`data_format`</b>: A string or None.  Specifies whether the channel dimension of
-    the `input` and output is the last dimension (default, or if `data_format`
-    does not start with "NC"), or the second dimension (if `data_format`
-    starts with "NC").  For N=1, the valid values are "NWC" (default) and
-    "NCW".  For N=2, the valid values are "NHWC" (default) and "NCHW".
-    For N=3, the valid values are "NDHWC" (default) and "NCDHW".
+  the `input` and output is the last dimension (default, or if `data_format`
+  does not start with "NC"), or the second dimension (if `data_format`
+  starts with "NC").  For N=1, the valid values are "NWC" (default) and
+  "NCW".  For N=2, the valid values are "NHWC" (default) and "NCHW".
+  For N=3, the valid values are "NDHWC" (default) and "NCDHW".
+* <b>`filters`</b>: Alias of filter.
+* <b>`dilations`</b>: Alias of dilation_rate.
 
 
 #### Returns:
@@ -131,7 +143,9 @@ If padding == "VALID":
          / strides[i]).
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If input/output depth does not match `filter` shape, if padding
-    is other than `"VALID"` or `"SAME"`, or if data_format is invalid.
+  is other than `"VALID"` or `"SAME"`, or if data_format is invalid.

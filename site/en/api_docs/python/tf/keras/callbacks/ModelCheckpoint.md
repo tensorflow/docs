@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `ModelCheckpoint`
 
+Save the model after every epoch.
+
 Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
+### Aliases:
+
+* Class `tf.compat.v1.keras.callbacks.ModelCheckpoint`
+* Class `tf.compat.v2.keras.callbacks.ModelCheckpoint`
+* Class `tf.keras.callbacks.ModelCheckpoint`
 
 
-Defined in [`tensorflow/python/keras/callbacks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/callbacks.py).
 
-Save the model after every epoch.
+Defined in [`python/keras/callbacks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/callbacks.py).
+
+<!-- Placeholder for "Used in" -->
 
 `filepath` can contain named formatting options,
 which will be filled the value of `epoch` and
@@ -25,24 +33,38 @@ the validation loss in the filename.
 
 #### Arguments:
 
+
 * <b>`filepath`</b>: string, path to save the model file.
 * <b>`monitor`</b>: quantity to monitor.
 * <b>`verbose`</b>: verbosity mode, 0 or 1.
-* <b>`save_best_only`</b>: if `save_best_only=True`,
-        the latest best model according to
-        the quantity monitored will not be overwritten.
-* <b>`mode`</b>: one of {auto, min, max}.
-        If `save_best_only=True`, the decision
-        to overwrite the current save file is made
-        based on either the maximization or the
-        minimization of the monitored quantity. For `val_acc`,
-        this should be `max`, for `val_loss` this should
-        be `min`, etc. In `auto` mode, the direction is
-        automatically inferred from the name of the monitored quantity.
-* <b>`save_weights_only`</b>: if True, then only the model's weights will be
-        saved (`model.save_weights(filepath)`), else the full model
-        is saved (`model.save(filepath)`).
-* <b>`period`</b>: Interval (number of epochs) between checkpoints.
+* <b>`save_best_only`</b>: if `save_best_only=True`, the latest best model according
+  to the quantity monitored will not be overwritten.
+* <b>`mode`</b>: one of {auto, min, max}. If `save_best_only=True`, the decision to
+  overwrite the current save file is made based on either the maximization
+  or the minimization of the monitored quantity. For `val_acc`, this
+  should be `max`, for `val_loss` this should be `min`, etc. In `auto`
+  mode, the direction is automatically inferred from the name of the
+  monitored quantity.
+* <b>`save_weights_only`</b>: if True, then only the model's weights will be saved
+  (`model.save_weights(filepath)`), else the full model is saved
+  (`model.save(filepath)`).
+* <b>`save_freq`</b>: `'epoch'` or integer. When using `'epoch'`, the callback saves
+  the model after each epoch. When using integer, the callback saves the
+  model at end of a batch at which this many samples have been seen since
+  last saving. Note that if the saving isn't aligned to epochs, the
+  monitored metric may potentially be less reliable (it could reflect as
+  little as 1 batch, since the metrics get reset every epoch). Defaults to
+  `'epoch'`
+* <b>`load_weights_on_restart`</b>: Whether the training should restore the model. If
+  True, the model will attempt to load the checkpoint file from `filepath`
+  at the start of `model.fit()`. This saves the need of manually calling
+  `model.load_weights()` before `model.fit(). In multi-worker distributed
+  training, this provides fault-tolerance and loads the model
+  automatically upon recovery of workers. The callback gives up loading if
+  the filepath does not exist, and raises ValueError if format does not
+  match. Defaults to False.
+* <b>`**kwargs`</b>: Additional arguments for backwards compatibility. Possible key
+  is `period`.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -54,11 +76,14 @@ __init__(
     save_best_only=False,
     save_weights_only=False,
     mode='auto',
-    period=1
+    save_freq='epoch',
+    load_weights_on_restart=False,
+    **kwargs
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -75,6 +100,7 @@ on_batch_begin(
 
 A backwards compatibility alias for `on_train_batch_begin`.
 
+
 <h3 id="on_batch_end"><code>on_batch_end</code></h3>
 
 ``` python
@@ -84,28 +110,20 @@ on_batch_end(
 )
 ```
 
-A backwards compatibility alias for `on_train_batch_end`.
+
+
 
 <h3 id="on_epoch_begin"><code>on_epoch_begin</code></h3>
 
 ``` python
 on_epoch_begin(
     epoch,
-    logs=None,
-    mode='train'
+    logs=None
 )
 ```
 
-Called at the start of an epoch.
 
-Subclasses should override for any actions to run.
 
-#### Arguments:
-
-* <b>`epoch`</b>: integer, index of epoch.
-* <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
-* <b>`mode`</b>: One of 'train'/'test'/'predict'
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 
@@ -116,17 +134,8 @@ on_epoch_end(
 )
 ```
 
-Called at the end of an epoch.
 
-Subclasses should override for any actions to run.
 
-#### Arguments:
-
-* <b>`epoch`</b>: integer, index of epoch.
-* <b>`logs`</b>: dict, metric results for this training epoch, and for the
-      validation epoch if validation is performed. Validation result keys
-      are prefixed with `val_`.
-* <b>`mode`</b>: One of 'train'/'test'/'predict'
 
 <h3 id="on_predict_batch_begin"><code>on_predict_batch_begin</code></h3>
 
@@ -143,9 +152,10 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Has keys `batch` and `size` representing the current batch
-      number and the size of the batch.
+  number and the size of the batch.
 
 <h3 id="on_predict_batch_end"><code>on_predict_batch_end</code></h3>
 
@@ -162,6 +172,7 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Metric results for this batch.
 
@@ -177,8 +188,9 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
+  but that may change in the future.
 
 <h3 id="on_predict_end"><code>on_predict_end</code></h3>
 
@@ -192,8 +204,9 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
+  but that may change in the future.
 
 <h3 id="on_test_batch_begin"><code>on_test_batch_begin</code></h3>
 
@@ -213,9 +226,10 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Has keys `batch` and `size` representing the current batch
-      number and the size of the batch.
+  number and the size of the batch.
 
 <h3 id="on_test_batch_end"><code>on_test_batch_end</code></h3>
 
@@ -235,6 +249,7 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Metric results for this batch.
 
@@ -250,8 +265,9 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
+  but that may change in the future.
 
 <h3 id="on_test_end"><code>on_test_end</code></h3>
 
@@ -265,8 +281,9 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
+  but that may change in the future.
 
 <h3 id="on_train_batch_begin"><code>on_train_batch_begin</code></h3>
 
@@ -283,9 +300,10 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Has keys `batch` and `size` representing the current batch
-      number and the size of the batch.
+  number and the size of the batch.
 
 <h3 id="on_train_batch_end"><code>on_train_batch_end</code></h3>
 
@@ -302,6 +320,7 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Metric results for this batch.
 
@@ -311,14 +330,8 @@ Subclasses should override for any actions to run.
 on_train_begin(logs=None)
 ```
 
-Called at the beginning of training.
 
-Subclasses should override for any actions to run.
 
-#### Arguments:
-
-* <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
 
 <h3 id="on_train_end"><code>on_train_end</code></h3>
 
@@ -326,14 +339,8 @@ Subclasses should override for any actions to run.
 on_train_end(logs=None)
 ```
 
-Called at the end of training.
 
-Subclasses should override for any actions to run.
 
-#### Arguments:
-
-* <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
 
 <h3 id="set_model"><code>set_model</code></h3>
 
@@ -343,11 +350,13 @@ set_model(model)
 
 
 
+
 <h3 id="set_params"><code>set_params</code></h3>
 
 ``` python
 set_params(params)
 ```
+
 
 
 

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.constant
 
+Creates a constant tensor.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.constant`
+* `tf.compat.v2.keras.backend.constant`
+* `tf.keras.backend.constant`
+
 ``` python
 tf.keras.backend.constant(
     value,
@@ -16,11 +24,13 @@ tf.keras.backend.constant(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Creates a constant tensor.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`value`</b>: A constant value (or list)
 * <b>`dtype`</b>: The type of the elements of the resulting tensor.

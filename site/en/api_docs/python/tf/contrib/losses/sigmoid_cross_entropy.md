@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.losses.sigmoid_cross_entropy
 
+Creates a cross-entropy loss using tf.nn.sigmoid_cross_entropy_with_logits. (deprecated)
+
 ``` python
 tf.contrib.losses.sigmoid_cross_entropy(
     logits,
@@ -17,9 +19,9 @@ tf.contrib.losses.sigmoid_cross_entropy(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/losses/loss_ops.py).
+Defined in [`contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
-Creates a cross-entropy loss using tf.nn.sigmoid_cross_entropy_with_logits. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-12-30.
 Instructions for updating:
@@ -37,10 +39,11 @@ If `label_smoothing` is nonzero, smooth the labels towards 1/2:
 
 #### Args:
 
+
 * <b>`logits`</b>: [batch_size, num_classes] logits outputs of the network .
 * <b>`multi_class_labels`</b>: [batch_size, num_classes] labels in (0, 1).
 * <b>`weights`</b>: Coefficients for the loss. The tensor must be a scalar, a tensor of
-    shape [batch_size] or shape [batch_size, num_classes].
+  shape [batch_size] or shape [batch_size, num_classes].
 * <b>`label_smoothing`</b>: If greater than 0 then smooth the labels.
 * <b>`scope`</b>: The scope for the operations performed in computing the loss.
 
@@ -50,8 +53,10 @@ If `label_smoothing` is nonzero, smooth the labels towards 1/2:
 A scalar `Tensor` representing the loss value.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the shape of `logits` doesn't match that of
-    `multi_class_labels` or if the shape of `weights` is invalid, or if
-    `weights` is None.
+  `multi_class_labels` or if the shape of `weights` is invalid, or if
+  `weights` is None.

@@ -5,23 +5,32 @@ page_type: reference
 
 # tf.gfile.MakeDirs
 
+Creates a directory and all parent/intermediate directories.
+
+### Aliases:
+
+* `tf.compat.v1.gfile.MakeDirs`
+* `tf.gfile.MakeDirs`
+
 ``` python
 tf.gfile.MakeDirs(dirname)
 ```
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/lib/io/file_io.py).
+Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
-Creates a directory and all parent/intermediate directories.
+<!-- Placeholder for "Used in" -->
 
 It succeeds if dirname already exists and is writable.
 
 #### Args:
 
+
 * <b>`dirname`</b>: string, name of the directory to be created
 
 
 #### Raises:
+
 
 * <b>`errors.OpError`</b>: If the operation fails.

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.pad
 
+Pads a tensor.
+
+### Aliases:
+
+* `tf.compat.v1.pad`
+* `tf.pad`
+
 ``` python
 tf.pad(
     tensor,
@@ -17,9 +24,9 @@ tf.pad(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Pads a tensor.
+<!-- Placeholder for "Used in" -->
 
 This operation pads a `tensor` according to the `paddings` you specify.
 `paddings` is an integer tensor with shape `[n, 2]`, where n is the rank of
@@ -35,7 +42,9 @@ The padded size of each dimension D of the output is:
 
 `paddings[D, 0] + tensor.dim_size(D) + paddings[D, 1]`
 
-For example:
+#### For example:
+
+
 
 ```python
 t = tf.constant([[1, 2, 3], [4, 5, 6]])
@@ -60,12 +69,13 @@ tf.pad(t, paddings, "SYMMETRIC")  # [[2, 1, 1, 2, 3, 3, 2],
 
 #### Args:
 
+
 * <b>`tensor`</b>: A `Tensor`.
 * <b>`paddings`</b>: A `Tensor` of type `int32`.
 * <b>`mode`</b>: One of "CONSTANT", "REFLECT", or "SYMMETRIC" (case-insensitive)
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`constant_values`</b>: In "CONSTANT" mode, the scalar pad value to use. Must be
-    same type as `tensor`.
+  same type as `tensor`.
 
 
 #### Returns:
@@ -73,6 +83,8 @@ tf.pad(t, paddings, "SYMMETRIC")  # [[2, 1, 1, 2, 3, 3, 2],
 A `Tensor`. Has the same type as `tensor`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: When mode is not one of "CONSTANT", "REFLECT", or "SYMMETRIC".

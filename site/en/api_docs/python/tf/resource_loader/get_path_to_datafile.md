@@ -5,19 +5,27 @@ page_type: reference
 
 # tf.resource_loader.get_path_to_datafile
 
+Get the path to the specified file in the data dependencies.
+
+### Aliases:
+
+* `tf.compat.v1.resource_loader.get_path_to_datafile`
+* `tf.resource_loader.get_path_to_datafile`
+
 ``` python
 tf.resource_loader.get_path_to_datafile(path)
 ```
 
 
 
-Defined in [`tensorflow/python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/resource_loader.py).
+Defined in [`python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/resource_loader.py).
 
-Get the path to the specified file in the data dependencies.
+<!-- Placeholder for "Used in" -->
 
 The path is relative to tensorflow/
 
 #### Args:
+
 
 * <b>`path`</b>: a string resource path relative to tensorflow/
 
@@ -28,6 +36,8 @@ The path to the specified file present in the data attribute of py_test
 or py_binary.
 
 
+
 #### Raises:
+
 
 * <b>`IOError`</b>: If the path is not found, or the resource can't be opened.

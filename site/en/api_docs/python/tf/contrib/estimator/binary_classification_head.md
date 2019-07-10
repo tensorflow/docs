@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.binary_classification_head
 
+Creates a `_Head` for single label binary classification.
+
 ``` python
 tf.contrib.estimator.binary_classification_head(
     weight_column=None,
@@ -16,7 +18,11 @@ tf.contrib.estimator.binary_classification_head(
 )
 ```
 
-Creates a `_Head` for single label binary classification.
+
+
+Defined in [`contrib/estimator/python/estimator/head.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/head.py).
+
+<!-- Placeholder for "Used in" -->
 
 This head uses `sigmoid_cross_entropy_with_logits` loss.
 
@@ -45,7 +51,7 @@ The head can be used with a canned estimator. Example:
 
 ```python
 my_head = tf.contrib.estimator.binary_classification_head()
-my_estimator = tf.contrib.estimator.DNNEstimator(
+my_estimator = tf.estimator.DNNEstimator(
     head=my_head,
     hidden_units=...,
     feature_columns=...)
@@ -70,26 +76,27 @@ my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
 
 #### Args:
 
+
 * <b>`weight_column`</b>: A string or a `_NumericColumn` created by
-    <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
-    weights. It is used to down weight or boost examples during training. It
-    will be multiplied by the loss of the example.
+  <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
+  weights. It is used to down weight or boost examples during training. It
+  will be multiplied by the loss of the example.
 * <b>`thresholds`</b>: Iterable of floats in the range `(0, 1)`. For binary
-    classification metrics such as precision and recall, an eval metric is
-    generated for each threshold value. This threshold is applied to the
-    logistic values to determine the binary classification (i.e., above the
-    threshold is `true`, below is `false`.
+  classification metrics such as precision and recall, an eval metric is
+  generated for each threshold value. This threshold is applied to the
+  logistic values to determine the binary classification (i.e., above the
+  threshold is `true`, below is `false`.
 * <b>`label_vocabulary`</b>: A list or tuple of strings representing possible label
-    values. If it is not given, labels must be float with values within
-    [0, 1]. If given, labels must be string type and have any value in
-    `label_vocabulary`. Note that errors will be raised if `label_vocabulary`
-    is not provided but labels are strings.
+  values. If it is not given, labels must be float with values within
+  [0, 1]. If given, labels must be string type and have any value in
+  `label_vocabulary`. Note that errors will be raised if `label_vocabulary`
+  is not provided but labels are strings.
 * <b>`loss_reduction`</b>: One of <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Describes how to
-    reduce training loss over batch. Defaults to `SUM_OVER_BATCH_SIZE`, namely
-    weighted sum of losses divided by batch size. See <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a>.
+  reduce training loss over batch. Defaults to `SUM_OVER_BATCH_SIZE`, namely
+  weighted sum of losses divided by batch size. See <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a>.
 * <b>`loss_fn`</b>: Optional loss function.
 * <b>`name`</b>: name of the head. If provided, summary and metrics keys will be
-    suffixed by `"/" + name`. Also used as `name_scope` when creating ops.
+  suffixed by `"/" + name`. Also used as `name_scope` when creating ops.
 
 
 #### Returns:
@@ -97,7 +104,9 @@ my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
 An instance of `_Head` for binary classification.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `thresholds` contains a value outside of `(0, 1)`.
 * <b>`ValueError`</b>: If `loss_reduction` is invalid.

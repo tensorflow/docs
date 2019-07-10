@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.space_to_batch_nd
 
+SpaceToBatch for N-D tensors of type T.
+
 ### Aliases:
 
+* `tf.compat.v1.manip.space_to_batch_nd`
+* `tf.compat.v1.space_to_batch_nd`
+* `tf.compat.v2.space_to_batch_nd`
 * `tf.manip.space_to_batch_nd`
 * `tf.space_to_batch_nd`
 
@@ -21,9 +26,9 @@ tf.space_to_batch_nd(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-SpaceToBatch for N-D tensors of type T.
+<!-- Placeholder for "Used in" -->
 
 This operation divides "spatial" dimensions `[1, ..., M]` of the input into a
 grid of blocks of shape `block_shape`, and interleaves these blocks with the
@@ -36,120 +41,105 @@ precise description.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`.
-    N-D with shape `input_shape = [batch] + spatial_shape + remaining_shape`,
-    where spatial_shape has `M` dimensions.
+  N-D with shape `input_shape = [batch] + spatial_shape + remaining_shape`,
+  where spatial_shape has `M` dimensions.
 * <b>`block_shape`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    1-D with shape `[M]`, all values must be >= 1.
+  1-D with shape `[M]`, all values must be >= 1.
 * <b>`paddings`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    2-D with shape `[M, 2]`, all values must be >= 0.
-      `paddings[i] = [pad_start, pad_end]` specifies the padding for input dimension
-      `i + 1`, which corresponds to spatial dimension `i`.  It is required that
-      `block_shape[i]` divides `input_shape[i + 1] + pad_start + pad_end`.
+  2-D with shape `[M, 2]`, all values must be >= 0.
+    `paddings[i] = [pad_start, pad_end]` specifies the padding for input dimension
+    `i + 1`, which corresponds to spatial dimension `i`.  It is required that
+    `block_shape[i]` divides `input_shape[i + 1] + pad_start + pad_end`.
 
-    This operation is equivalent to the following steps:
+  This operation is equivalent to the following steps:
 
-    1. Zero-pad the start and end of dimensions `[1, ..., M]` of the
-       input according to `paddings` to produce `padded` of shape `padded_shape`.
+  1. Zero-pad the start and end of dimensions `[1, ..., M]` of the
+     input according to `paddings` to produce `padded` of shape `padded_shape`.
 
-    2. Reshape `padded` to `reshaped_padded` of shape:
+  2. Reshape `padded` to `reshaped_padded` of shape:
 
-         [batch] +
-         [padded_shape[1] / block_shape[0],
-           block_shape[0],
-          ...,
-          padded_shape[M] / block_shape[M-1],
-          block_shape[M-1]] +
-         remaining_shape
+       [batch] +
+       [padded_shape[1] / block_shape[0],
+         block_shape[0],
+        ...,
+        padded_shape[M] / block_shape[M-1],
+        block_shape[M-1]] +
+       remaining_shape
 
-    3. Permute dimensions of `reshaped_padded` to produce
-       `permuted_reshaped_padded` of shape:
+  3. Permute dimensions of `reshaped_padded` to produce
+     `permuted_reshaped_padded` of shape:
 
-         block_shape +
-         [batch] +
-         [padded_shape[1] / block_shape[0],
-          ...,
-          padded_shape[M] / block_shape[M-1]] +
-         remaining_shape
+       block_shape +
+       [batch] +
+       [padded_shape[1] / block_shape[0],
+        ...,
+        padded_shape[M] / block_shape[M-1]] +
+       remaining_shape
 
-    4. Reshape `permuted_reshaped_padded` to flatten `block_shape` into the batch
-       dimension, producing an output tensor of shape:
+  4. Reshape `permuted_reshaped_padded` to flatten `block_shape` into the batch
+     dimension, producing an output tensor of shape:
 
-         [batch * prod(block_shape)] +
-         [padded_shape[1] / block_shape[0],
-          ...,
-          padded_shape[M] / block_shape[M-1]] +
-         remaining_shape
+       [batch * prod(block_shape)] +
+       [padded_shape[1] / block_shape[0],
+        ...,
+        padded_shape[M] / block_shape[M-1]] +
+       remaining_shape
 
-    Some examples:
+  Some examples:
 
-    (1) For the following input of shape `[1, 2, 2, 1]`, `block_shape = [2, 2]`, and
-        `paddings = [[0, 0], [0, 0]]`:
+  (1) For the following input of shape `[1, 2, 2, 1]`, `block_shape = [2, 2]`, and
+      `paddings = [[0, 0], [0, 0]]`:
 
-    ```
-    x = [[[[1], [2]], [[3], [4]]]]
-    ```
+>     x = [[[[1], [2]], [[3], [4]]]]
 
-    The output tensor has shape `[4, 1, 1, 1]` and value:
+  The output tensor has shape `[4, 1, 1, 1]` and value:
 
-    ```
-    [[[[1]]], [[[2]]], [[[3]]], [[[4]]]]
-    ```
+>     [[[[1]]], [[[2]]], [[[3]]], [[[4]]]]
 
-    (2) For the following input of shape `[1, 2, 2, 3]`, `block_shape = [2, 2]`, and
-        `paddings = [[0, 0], [0, 0]]`:
+  (2) For the following input of shape `[1, 2, 2, 3]`, `block_shape = [2, 2]`, and
+      `paddings = [[0, 0], [0, 0]]`:
 
-    ```
-    x = [[[[1, 2, 3], [4, 5, 6]],
-          [[7, 8, 9], [10, 11, 12]]]]
-    ```
+>     x = [[[[1, 2, 3], [4, 5, 6]],
+>           [[7, 8, 9], [10, 11, 12]]]]
 
-    The output tensor has shape `[4, 1, 1, 3]` and value:
+  The output tensor has shape `[4, 1, 1, 3]` and value:
 
-    ```
-    [[[1, 2, 3]], [[4, 5, 6]], [[7, 8, 9]], [[10, 11, 12]]]
-    ```
+>     [[[[1, 2, 3]]], [[[4, 5, 6]]], [[[7, 8, 9]]], [[[10, 11, 12]]]]
 
-    (3) For the following input of shape `[1, 4, 4, 1]`, `block_shape = [2, 2]`, and
-        `paddings = [[0, 0], [0, 0]]`:
+  (3) For the following input of shape `[1, 4, 4, 1]`, `block_shape = [2, 2]`, and
+      `paddings = [[0, 0], [0, 0]]`:
 
-    ```
-    x = [[[[1],   [2],  [3],  [4]],
-          [[5],   [6],  [7],  [8]],
-          [[9],  [10], [11],  [12]],
-          [[13], [14], [15],  [16]]]]
-    ```
+>     x = [[[[1],   [2],  [3],  [4]],
+>           [[5],   [6],  [7],  [8]],
+>           [[9],  [10], [11],  [12]],
+>           [[13], [14], [15],  [16]]]]
 
-    The output tensor has shape `[4, 2, 2, 1]` and value:
+  The output tensor has shape `[4, 2, 2, 1]` and value:
 
-    ```
-    x = [[[[1], [3]], [[9], [11]]],
-         [[[2], [4]], [[10], [12]]],
-         [[[5], [7]], [[13], [15]]],
-         [[[6], [8]], [[14], [16]]]]
-    ```
+>     x = [[[[1], [3]], [[9], [11]]],
+>          [[[2], [4]], [[10], [12]]],
+>          [[[5], [7]], [[13], [15]]],
+>          [[[6], [8]], [[14], [16]]]]
 
-    (4) For the following input of shape `[2, 2, 4, 1]`, block_shape = `[2, 2]`, and
-        paddings = `[[0, 0], [2, 0]]`:
+  (4) For the following input of shape `[2, 2, 4, 1]`, block_shape = `[2, 2]`, and
+      paddings = `[[0, 0], [2, 0]]`:
 
-    ```
-    x = [[[[1],   [2],  [3],  [4]],
-          [[5],   [6],  [7],  [8]]],
-         [[[9],  [10], [11],  [12]],
-          [[13], [14], [15],  [16]]]]
-    ```
+>     x = [[[[1],   [2],  [3],  [4]],
+>           [[5],   [6],  [7],  [8]]],
+>          [[[9],  [10], [11],  [12]],
+>           [[13], [14], [15],  [16]]]]
 
-    The output tensor has shape `[8, 1, 3, 1]` and value:
+  The output tensor has shape `[8, 1, 3, 1]` and value:
 
-    ```
-    x = [[[[0], [1], [3]]], [[[0], [9], [11]]],
-         [[[0], [2], [4]]], [[[0], [10], [12]]],
-         [[[0], [5], [7]]], [[[0], [13], [15]]],
-         [[[0], [6], [8]]], [[[0], [14], [16]]]]
-    ```
+>     x = [[[[0], [1], [3]]], [[[0], [9], [11]]],
+>          [[[0], [2], [4]]], [[[0], [10], [12]]],
+>          [[[0], [5], [7]]], [[[0], [13], [15]]],
+>          [[[0], [6], [8]]], [[[0], [14], [16]]]]
 
-    Among others, this operation is useful for reducing atrous convolution into
-    regular convolution.
+  Among others, this operation is useful for reducing atrous convolution into
+  regular convolution.
 * <b>`name`</b>: A name for the operation (optional).
 
 

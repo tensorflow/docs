@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.image.connected_components
 
+Labels the connected components in a batch of images.
+
 ``` python
 tf.contrib.image.connected_components(images)
 ```
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`contrib/image/python/ops/image_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/image/python/ops/image_ops.py).
 
-Labels the connected components in a batch of images.
+<!-- Placeholder for "Used in" -->
 
 A component is a set of pixels in a single input image, which are all adjacent
 and all have the same non-zero value. The components using a squared
@@ -28,6 +30,7 @@ with the default structuring element (which is the connectivity used here).
 
 #### Args:
 
+
 * <b>`images`</b>: A 2D (H, W) or 3D (N, H, W) Tensor of boolean image(s).
 
 
@@ -37,6 +40,8 @@ Components with the same shape as `images`. False entries in `images` have
 value 0, and all True entries map to a component id > 0.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if `images` is not 2D or 3D.

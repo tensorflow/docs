@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.random.truncated_normal
 
+Outputs random values from a truncated normal distribution.
+
 ### Aliases:
 
+* `tf.compat.v1.random.truncated_normal`
+* `tf.compat.v1.truncated_normal`
+* `tf.compat.v2.random.truncated_normal`
 * `tf.random.truncated_normal`
 * `tf.truncated_normal`
 
@@ -23,9 +28,9 @@ tf.random.truncated_normal(
 
 
 
-Defined in [`tensorflow/python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/random_ops.py).
+Defined in [`python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/random_ops.py).
 
-Outputs random values from a truncated normal distribution.
+<!-- Placeholder for "Used in" -->
 
 The generated values follow a normal distribution with specified mean and
 standard deviation, except that values whose magnitude is more than 2 standard
@@ -33,16 +38,17 @@ deviations from the mean are dropped and re-picked.
 
 #### Args:
 
+
 * <b>`shape`</b>: A 1-D integer Tensor or Python array. The shape of the output tensor.
 * <b>`mean`</b>: A 0-D Tensor or Python value of type `dtype`. The mean of the
-    truncated normal distribution.
+  truncated normal distribution.
 * <b>`stddev`</b>: A 0-D Tensor or Python value of type `dtype`. The standard deviation
-    of the normal distribution, before truncation.
+  of the normal distribution, before truncation.
 * <b>`dtype`</b>: The type of the output.
 * <b>`seed`</b>: A Python integer. Used to create a random seed for the distribution.
-    See
-    <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>
-    for behavior.
+  See
+  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  for behavior.
 * <b>`name`</b>: A name for the operation (optional).
 
 

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.bias_add
 
+Adds a bias vector to a tensor.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.bias_add`
+* `tf.compat.v2.keras.backend.bias_add`
+* `tf.keras.backend.bias_add`
+
 ``` python
 tf.keras.backend.bias_add(
     x,
@@ -15,11 +23,13 @@ tf.keras.backend.bias_add(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Adds a bias vector to a tensor.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable.
 * <b>`bias`</b>: Bias tensor to add.
@@ -31,10 +41,12 @@ Adds a bias vector to a tensor.
 Output tensor.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: In one of the two cases below:
-                1. invalid `data_format` argument.
-                2. invalid bias shape.
-                   the bias should be either a vector or
-                   a tensor with ndim(x) - 1 dimension
+            1. invalid `data_format` argument.
+            2. invalid bias shape.
+               the bias should be either a vector or
+               a tensor with ndim(x) - 1 dimension

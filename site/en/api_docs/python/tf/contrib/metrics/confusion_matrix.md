@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.confusion_matrix
 
+Deprecated. Use tf.math.confusion_matrix instead.
+
 ``` python
 tf.contrib.metrics.confusion_matrix(
     labels,
@@ -18,6 +20,6 @@ tf.contrib.metrics.confusion_matrix(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/confusion_matrix_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/confusion_matrix_ops.py).
+Defined in [`contrib/metrics/python/ops/confusion_matrix_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/confusion_matrix_ops.py).
 
-Deprecated. Use tf.confusion_matrix instead.
+<!-- Placeholder for "Used in" -->

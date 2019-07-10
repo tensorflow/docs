@@ -6,8 +6,13 @@ page_type: reference
 
 # tf.linalg.svd
 
+Computes the singular value decompositions of one or more matrices.
+
 ### Aliases:
 
+* `tf.compat.v1.linalg.svd`
+* `tf.compat.v1.svd`
+* `tf.compat.v2.linalg.svd`
 * `tf.linalg.svd`
 * `tf.svd`
 
@@ -22,9 +27,9 @@ tf.linalg.svd(
 
 
 
-Defined in [`tensorflow/python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/linalg_ops.py).
+Defined in [`python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg_ops.py).
 
-Computes the singular value decompositions of one or more matrices.
+<!-- Placeholder for "Used in" -->
 
 Computes the SVD of each inner matrix in `tensor` such that
 `tensor[..., :, :] = u[..., :, :] * diag(s[..., :, :]) *
@@ -41,28 +46,30 @@ s = svd(a, compute_uv=False)
 
 #### Args:
 
+
 * <b>`tensor`</b>: `Tensor` of shape `[..., M, N]`. Let `P` be the minimum of `M` and
-    `N`.
+  `N`.
 * <b>`full_matrices`</b>: If true, compute full-sized `u` and `v`. If false
-    (the default), compute only the leading `P` singular vectors.
-    Ignored if `compute_uv` is `False`.
+  (the default), compute only the leading `P` singular vectors.
+  Ignored if `compute_uv` is `False`.
 * <b>`compute_uv`</b>: If `True` then left and right singular vectors will be
-    computed and returned in `u` and `v`, respectively. Otherwise, only the
-    singular values will be computed, which can be significantly faster.
+  computed and returned in `u` and `v`, respectively. Otherwise, only the
+  singular values will be computed, which can be significantly faster.
 * <b>`name`</b>: string, optional name of the operation.
 
 
 #### Returns:
 
+
 * <b>`s`</b>: Singular values. Shape is `[..., P]`. The values are sorted in reverse
-    order of magnitude, so s[..., 0] is the largest value, s[..., 1] is the
-    second largest, etc.
+  order of magnitude, so s[..., 0] is the largest value, s[..., 1] is the
+  second largest, etc.
 * <b>`u`</b>: Left singular vectors. If `full_matrices` is `False` (default) then
-    shape is `[..., M, P]`; if `full_matrices` is `True` then shape is
-    `[..., M, M]`. Not returned if `compute_uv` is `False`.
+  shape is `[..., M, P]`; if `full_matrices` is `True` then shape is
+  `[..., M, M]`. Not returned if `compute_uv` is `False`.
 * <b>`v`</b>: Right singular vectors. If `full_matrices` is `False` (default) then
-    shape is `[..., N, P]`. If `full_matrices` is `True` then shape is
-    `[..., N, N]`. Not returned if `compute_uv` is `False`.
+  shape is `[..., N, P]`. If `full_matrices` is `True` then shape is
+  `[..., N, N]`. Not returned if `compute_uv` is `False`.
 
 
 

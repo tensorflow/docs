@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.scatter_sub
 
+Subtracts sparse updates to a variable reference.
+
+### Aliases:
+
+* `tf.compat.v1.scatter_sub`
+* `tf.scatter_sub`
+
 ``` python
 tf.scatter_sub(
     ref,
@@ -17,9 +24,9 @@ tf.scatter_sub(
 
 
 
-Defined in [`tensorflow/python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/state_ops.py).
+Defined in [`python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/state_ops.py).
 
-Subtracts sparse updates to a variable reference.
+<!-- Placeholder for "Used in" -->
 
 ```python
     # Scalar indices
@@ -48,17 +55,18 @@ Requires `updates.shape = indices.shape + ref.shape[1:]` or
 
 #### Args:
 
+
 * <b>`ref`</b>: A mutable `Tensor`. Must be one of the following types: `float32`,
-    `float64`, `int32`, `uint8`, `int16`, `int8`, `complex64`, `int64`,
-    `qint8`, `quint8`, `qint32`, `bfloat16`, `uint16`, `complex128`, `half`,
-    `uint32`, `uint64`. Should be from a `Variable` node.
+  `float64`, `int32`, `uint8`, `int16`, `int8`, `complex64`, `int64`,
+  `qint8`, `quint8`, `qint32`, `bfloat16`, `uint16`, `complex128`, `half`,
+  `uint32`, `uint64`. Should be from a `Variable` node.
 * <b>`indices`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    A tensor of indices into the first dimension of `ref`.
+  A tensor of indices into the first dimension of `ref`.
 * <b>`updates`</b>: A `Tensor`. Must have the same type as `ref`.
-    A tensor of updated values to subtract from `ref`.
+  A tensor of updated values to subtract from `ref`.
 * <b>`use_locking`</b>: An optional `bool`. Defaults to `False`.
-    If True, the subtraction will be protected by a lock;
-    otherwise the behavior is undefined, but may exhibit less contention.
+  If True, the subtraction will be protected by a lock;
+  otherwise the behavior is undefined, but may exhibit less contention.
 * <b>`name`</b>: A name for the operation (optional).
 
 

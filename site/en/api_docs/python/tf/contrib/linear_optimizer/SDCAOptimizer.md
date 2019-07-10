@@ -7,18 +7,22 @@ page_type: reference
 
 ## Class `SDCAOptimizer`
 
-
-
-
-
-Defined in [`tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py).
-
 Wrapper class for SDCA optimizer.
+
+
+
+
+
+Defined in [`contrib/linear_optimizer/python/sdca_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py).
+
+<!-- Placeholder for "Used in" -->
 
 The wrapper is currently meant for use as an optimizer within a tf.learn
 Estimator.
 
-Example usage:
+#### Example usage:
+
+
 
 ```python
 real_feature_column = real_valued_column(...)
@@ -65,7 +69,8 @@ __init__(
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -75,7 +80,9 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 
 
+
 <h3 id="example_id_column"><code>example_id_column</code></h3>
+
 
 
 
@@ -83,7 +90,9 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 
 
+
 <h3 id="num_table_shards"><code>num_table_shards</code></h3>
+
 
 
 
@@ -91,11 +100,14 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 
 
+
 <h3 id="symmetric_l1_regularization"><code>symmetric_l1_regularization</code></h3>
 
 
 
+
 <h3 id="symmetric_l2_regularization"><code>symmetric_l2_regularization</code></h3>
+
 
 
 
@@ -108,6 +120,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 ``` python
 get_name()
 ```
+
 
 
 
@@ -125,6 +138,7 @@ get_train_step(
 ```
 
 Returns the training operation of an SdcaModel optimizer.
+
 
 
 

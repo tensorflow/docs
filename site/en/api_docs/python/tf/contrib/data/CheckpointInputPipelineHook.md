@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `CheckpointInputPipelineHook`
 
+Checkpoints input pipeline state every N steps or seconds.
+
 Inherits From: [`CheckpointInputPipelineHook`](../../../tf/data/experimental/CheckpointInputPipelineHook)
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/iterator_ops.py).
+Defined in [`contrib/data/python/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/iterator_ops.py).
 
-Checkpoints input pipeline state every N steps or seconds.
+<!-- Placeholder for "Used in" -->
 
 This hook saves the state of the iterators in the `Graph` so that when
 training is resumed the input pipeline continues from where it left off.
@@ -33,7 +35,7 @@ est = tf.estimator.Estimator(model_fn)
 while True:
   est.train(
       train_input_fn,
-      hooks=[tf.contrib.data.CheckpointInputPipelineHook(est)],
+      hooks=[tf.data.experimental.CheckpointInputPipelineHook(est)],
       steps=train_steps_per_eval)
   # Note: We do not pass the hook here.
   metrics = est.evaluate(eval_input_fn)
@@ -50,7 +52,7 @@ separate from the model checkpoint. Doing so may be useful for a few reasons:
    pipeline.
 
 For saving the input pipeline checkpoint alongside the model weights use
-<a href="../../../tf/contrib/data/make_saveable_from_iterator"><code>tf.contrib.data.make_saveable_from_iterator</code></a> directly to create a
+<a href="../../../tf/data/experimental/make_saveable_from_iterator"><code>tf.data.experimental.make_saveable_from_iterator</code></a> directly to create a
 `SaveableObject` and add to the `SAVEABLE_OBJECTS` collection. Note, however,
 that you will need to be careful not to restore the training iterator during
 eval. You can do that by not adding the iterator to the SAVEABLE_OBJECTS
@@ -66,7 +68,7 @@ DEPRECATED FUNCTION
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.experimental.CheckpointInputPipelineHook(...)`.
+Use <a href="../../../tf/data/experimental/CheckpointInputPipelineHook"><code>tf.data.experimental.CheckpointInputPipelineHook(...)</code></a>.
 
 
 
@@ -93,6 +95,7 @@ has two essential differences with the situation in which `begin` is called:
 
 #### Args:
 
+
 * <b>`session`</b>: A TensorFlow Session that has been created.
 * <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
@@ -105,20 +108,8 @@ after_run(
 )
 ```
 
-Called after each call to run().
 
-The `run_values` argument contains results of requested ops/tensors by
-`before_run()`.
 
-The `run_context` argument is the same one send to `before_run` call.
-`run_context.request_stop()` can be called to stop the iteration.
-
-If `session.run()` raises any exceptions then `after_run()` is not called.
-
-#### Args:
-
-* <b>`run_context`</b>: A `SessionRunContext` object.
-* <b>`run_values`</b>: A SessionRunValues object.
 
 <h3 id="before_run"><code>before_run</code></h3>
 
@@ -126,28 +117,8 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 before_run(run_context)
 ```
 
-Called before each call to run().
-
-You can return from this call a `SessionRunArgs` object indicating ops or
-tensors to add to the upcoming `run()` call.  These ops/tensors will be run
-together with the ops/tensors originally passed to the original run() call.
-The run args you return can also contain feeds to be added to the run()
-call.
-
-The `run_context` argument is a `SessionRunContext` that provides
-information about the upcoming `run()` call: the originally requested
-op/tensors, the TensorFlow Session.
-
-At this point graph is finalized and you can not add ops.
-
-#### Args:
-
-* <b>`run_context`</b>: A `SessionRunContext` object.
 
 
-#### Returns:
-
-None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
@@ -155,13 +126,8 @@ None or a `SessionRunArgs` object.
 begin()
 ```
 
-Called once before using the session.
 
-When called, the default graph is the one that will be launched in the
-session.  The hook can modify the graph by adding new operations to it.
-After the `begin()` call the graph will be finalized and the other callbacks
-can not modify the graph anymore. Second call of `begin()` on the same
-graph, should not change the graph.
+
 
 <h3 id="end"><code>end</code></h3>
 
@@ -169,20 +135,8 @@ graph, should not change the graph.
 end(session)
 ```
 
-Called at the end of session.
 
-The `session` argument can be used in case the hook wants to run final ops,
-such as saving a last checkpoint.
 
-If `session.run()` raises exception other than OutOfRangeError or
-StopIteration then `end()` is not called.
-Note the difference between `end()` and `after_run()` behavior when
-`session.run()` raises OutOfRangeError or StopIteration. In that case
-`end()` is called but `after_run()` is not called.
-
-#### Args:
-
-* <b>`session`</b>: A TensorFlow Session that will be soon closed.
 
 
 

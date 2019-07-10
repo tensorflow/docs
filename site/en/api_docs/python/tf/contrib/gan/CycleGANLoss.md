@@ -7,34 +7,23 @@ page_type: reference
 
 ## Class `CycleGANLoss`
 
-
-
-
-
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/namedtuples.py).
-
 CycleGANLoss contains the losses for `CycleGANModel`.
+
+
+
+
+
+Defined in [`contrib/gan/python/namedtuples.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/namedtuples.py).
+
+<!-- Placeholder for "Used in" -->
 
 See https://arxiv.org/abs/1703.10593 for more details.
 
 #### Args:
 
+
 * <b>`loss_x2y`</b>: A `GANLoss` namedtuple representing the loss of `model_x2y`.
 * <b>`loss_y2x`</b>: A `GANLoss` namedtuple representing the loss of `model_y2x`.
-
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-__new__(
-    _cls,
-    loss_x2y,
-    loss_y2x
-)
-```
-
-Create new instance of CycleGANLoss(loss_x2y, loss_y2x)
-
-
 
 ## Properties
 
@@ -42,7 +31,9 @@ Create new instance of CycleGANLoss(loss_x2y, loss_y2x)
 
 
 
+
 <h3 id="loss_y2x"><code>loss_y2x</code></h3>
+
 
 
 

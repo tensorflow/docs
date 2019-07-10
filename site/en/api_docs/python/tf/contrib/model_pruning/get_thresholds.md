@@ -5,11 +5,14 @@ page_type: reference
 
 # tf.contrib.model_pruning.get_thresholds
 
+
+
 ``` python
 tf.contrib.model_pruning.get_thresholds()
 ```
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/model_pruning/python/pruning.py).
+Defined in [`contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/model_pruning/python/pruning.py).
 
+<!-- Placeholder for "Used in" -->

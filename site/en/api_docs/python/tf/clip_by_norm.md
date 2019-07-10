@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.clip_by_norm
 
+Clips tensor values to a maximum L2-norm.
+
+### Aliases:
+
+* `tf.clip_by_norm`
+* `tf.compat.v1.clip_by_norm`
+* `tf.compat.v2.clip_by_norm`
+
 ``` python
 tf.clip_by_norm(
     t,
@@ -16,9 +24,9 @@ tf.clip_by_norm(
 
 
 
-Defined in [`tensorflow/python/ops/clip_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/clip_ops.py).
+Defined in [`python/ops/clip_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/clip_ops.py).
 
-Clips tensor values to a maximum L2-norm.
+<!-- Placeholder for "Used in" -->
 
 Given a tensor `t`, and a maximum clip value `clip_norm`, this operation
 normalizes `t` so that its L2-norm is less than or equal to `clip_norm`,
@@ -33,19 +41,20 @@ tensor of the same type and shape as `t` with its values set to:
 In this case, the L2-norm of the output tensor is `clip_norm`.
 
 As another example, if `t` is a matrix and `axes == [1]`, then each row
-of the output will have L2-norm equal to `clip_norm`. If `axes == [0]`
-instead, each column of the output will be clipped.
+of the output will have L2-norm less than or equal to `clip_norm`. If
+`axes == [0]` instead, each column of the output will be clipped.
 
 This operation is typically used to clip gradients before applying them with
 an optimizer.
 
 #### Args:
 
+
 * <b>`t`</b>: A `Tensor` or `IndexedSlices`.
 * <b>`clip_norm`</b>: A 0-D (scalar) `Tensor` > 0. A maximum clipping value.
 * <b>`axes`</b>: A 1-D (vector) `Tensor` of type int32 containing the dimensions
-    to use for computing the L2-norm. If `None` (the default), uses all
-    dimensions.
+  to use for computing the L2-norm. If `None` (the default), uses all
+  dimensions.
 * <b>`name`</b>: A name for the operation (optional).
 
 

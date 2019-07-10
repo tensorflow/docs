@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.unit_norm
 
+Normalizes the given input across the specified dimension to unit length.
+
 ``` python
 tf.contrib.layers.unit_norm(
     inputs,
@@ -16,13 +18,14 @@ tf.contrib.layers.unit_norm(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
-Normalizes the given input across the specified dimension to unit length.
+<!-- Placeholder for "Used in" -->
 
 Note that the rank of `input` must be known.
 
 #### Args:
+
 
 * <b>`inputs`</b>: A `Tensor` of arbitrary size.
 * <b>`dim`</b>: The dimension along which the input is normalized.
@@ -35,6 +38,8 @@ Note that the rank of `input` must be known.
 The normalized `Tensor`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If dim is smaller than the number of dimensions in 'inputs'.

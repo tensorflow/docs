@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.layers.minimum
 
+Functional interface to the `Minimum` layer.
+
+### Aliases:
+
+* `tf.compat.v1.keras.layers.minimum`
+* `tf.compat.v2.keras.layers.minimum`
+* `tf.keras.layers.minimum`
+
 ``` python
 tf.keras.layers.minimum(
     inputs,
@@ -14,11 +22,13 @@ tf.keras.layers.minimum(
 
 
 
-Defined in [`tensorflow/python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/layers/merge.py).
+Defined in [`python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/merge.py).
 
-Functional interface to the `Minimum` layer.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`inputs`</b>: A list of input tensors (at least 2).
 * <b>`**kwargs`</b>: Standard layer keyword arguments.

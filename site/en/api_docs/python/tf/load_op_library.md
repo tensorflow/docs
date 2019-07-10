@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.load_op_library
 
+Loads a TensorFlow plugin, containing custom ops and kernels.
+
+### Aliases:
+
+* `tf.compat.v1.load_op_library`
+* `tf.compat.v2.load_op_library`
+* `tf.load_op_library`
+
 ``` python
 tf.load_op_library(library_filename)
 ```
 
 
 
-Defined in [`tensorflow/python/framework/load_library.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/load_library.py).
+Defined in [`python/framework/load_library.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/load_library.py).
 
-Loads a TensorFlow plugin, containing custom ops and kernels.
+<!-- Placeholder for "Used in" -->
 
 Pass "library_filename" to a platform-specific mechanism for dynamically
 loading a library. The rules for determining the exact location of the
@@ -25,8 +33,9 @@ registered with the process.
 
 #### Args:
 
+
 * <b>`library_filename`</b>: Path to the plugin.
-    Relative or absolute filesystem path to a dynamic library file.
+  Relative or absolute filesystem path to a dynamic library file.
 
 
 #### Returns:
@@ -35,6 +44,8 @@ A python module containing the Python wrappers for Ops defined in
 the plugin.
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: when unable to load the library or get the python wrappers.

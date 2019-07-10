@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.add_regularization_loss_summaries
 
+Adds summaries for a regularization losses..
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.add_regularization_loss_summaries`
@@ -16,10 +18,12 @@ tf.contrib.gan.eval.add_regularization_loss_summaries(gan_model)
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/summaries_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/summaries_impl.py).
+Defined in [`contrib/gan/python/eval/python/summaries_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/summaries_impl.py).
 
-Adds summaries for a regularization losses..
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`gan_model`</b>: A GANModel tuple.

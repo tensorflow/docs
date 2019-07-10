@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.where
 
+Return the elements, either from `x` or `y`, depending on the `condition`. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.where`
+* `tf.where`
+
 ``` python
 tf.where(
     condition,
@@ -16,9 +23,13 @@ tf.where(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Return the elements, either from `x` or `y`, depending on the `condition`.
+<!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
 
 If both `x` and `y` are None, then this operation returns the coordinates of
 true elements of `condition`.  The coordinates are returned in a 2-D tensor
@@ -45,10 +56,11 @@ has the same shape as `x` and `y`, then it chooses which element to copy from
 
 #### Args:
 
+
 * <b>`condition`</b>: A `Tensor` of type `bool`
 * <b>`x`</b>: A Tensor which may have the same shape as `condition`. If `condition` is
-    rank 1, `x` may have higher rank, but its first dimension must match the
-    size of `condition`.
+  rank 1, `x` may have higher rank, but its first dimension must match the
+  size of `condition`.
 * <b>`y`</b>: A `tensor` with the same shape and type as `x`.
 * <b>`name`</b>: A name of the operation (optional)
 
@@ -56,9 +68,11 @@ has the same shape as `x` and `y`, then it chooses which element to copy from
 #### Returns:
 
 A `Tensor` with the same type and shape as `x`, `y` if they are non-None.
-A `Tensor` with shape `(num_true, dim_size(condition))`.
+Otherwise, a `Tensor` with shape `(num_true, rank(condition))`.
+
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: When exactly one of `x` or `y` is non-None.

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.squeeze
 
+Removes a 1-dimension from the tensor at index "axis".
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.squeeze`
+* `tf.compat.v2.keras.backend.squeeze`
+* `tf.keras.backend.squeeze`
+
 ``` python
 tf.keras.backend.squeeze(
     x,
@@ -14,11 +22,13 @@ tf.keras.backend.squeeze(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Removes a 1-dimension from the tensor at index "axis".
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: A tensor or variable.
 * <b>`axis`</b>: Axis to drop.

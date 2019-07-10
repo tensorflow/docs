@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.constrained_optimization.find_best_candidate_index
 
+Heuristically finds the best candidate solution to a constrained problem.
+
 ``` python
 tf.contrib.constrained_optimization.find_best_candidate_index(
     objective_vector,
@@ -15,9 +17,9 @@ tf.contrib.constrained_optimization.find_best_candidate_index(
 
 
 
-Defined in [`tensorflow/contrib/constrained_optimization/python/candidates.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/constrained_optimization/python/candidates.py).
+Defined in [`contrib/constrained_optimization/python/candidates.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/constrained_optimization/python/candidates.py).
 
-Heuristically finds the best candidate solution to a constrained problem.
+<!-- Placeholder for "Used in" -->
 
 This function deals with the constrained problem:
 
@@ -52,16 +54,17 @@ experiments of Section 5.2.
 
 #### Args:
 
+
 * <b>`objective_vector`</b>: numpy array of shape (n,), where n is the number of
-    "candidate solutions". Contains the objective function values.
+  "candidate solutions". Contains the objective function values.
 * <b>`constraints_matrix`</b>: numpy array of shape (m,n), where m is the number of
-    constraints and n is the number of "candidate solutions". Contains the
-    constraint violation magnitudes.
+  constraints and n is the number of "candidate solutions". Contains the
+  constraint violation magnitudes.
 * <b>`rank_objectives`</b>: bool, whether the objective function values should be
-    included in the initial ranking step. If True, both the objective and
-    constraints will be ranked. If False, only the constraints will be ranked.
-    In either case, the objective function values will be used for
-    tiebreaking.
+  included in the initial ranking step. If True, both the objective and
+  constraints will be ranked. If False, only the constraints will be ranked.
+  In either case, the objective function values will be used for
+  tiebreaking.
 
 
 #### Returns:
@@ -70,8 +73,10 @@ The index (in {0,1,...,n-1}) of the "best" model according to the above
   heuristic.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `objective_vector` and `constraints_matrix` have inconsistent
-    shapes.
+  shapes.
 * <b>`ImportError`</b>: If we're unable to import `scipy.stats`.

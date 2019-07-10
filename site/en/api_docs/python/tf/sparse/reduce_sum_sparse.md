@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.sparse.reduce_sum_sparse
 
+Computes the sum of elements across dimensions of a SparseTensor. (deprecated arguments)
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.reduce_sum_sparse`
+* `tf.compat.v1.sparse_reduce_sum_sparse`
 * `tf.sparse.reduce_sum_sparse`
 * `tf.sparse_reduce_sum_sparse`
 
@@ -22,16 +26,16 @@ tf.sparse.reduce_sum_sparse(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Computes the sum of elements across dimensions of a SparseTensor. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(keep_dims)`. They will be removed in a future version.
 Instructions for updating:
 keep_dims is deprecated, use keepdims instead
 
 This Op takes a SparseTensor and is the sparse counterpart to
-`tf.reduce_sum()`.  In contrast to SparseReduceSum, this Op returns a
+<a href="../../tf/math/reduce_sum"><code>tf.reduce_sum()</code></a>.  In contrast to SparseReduceSum, this Op returns a
 SparseTensor.
 
 Note: A gradient is not defined for this function, so it can't be used
@@ -48,9 +52,10 @@ which are interpreted according to the indexing rules in Python.
 
 #### Args:
 
+
 * <b>`sp_input`</b>: The SparseTensor to reduce. Should have numeric type.
 * <b>`axis`</b>: The dimensions to reduce; list or scalar. If `None` (the
-    default), reduces all dimensions.
+  default), reduces all dimensions.
 * <b>`keepdims`</b>: If true, retain reduced dimensions with length 1.
 * <b>`reduction_axes`</b>: Deprecated name of axis.
 * <b>`keep_dims`</b>: Deprecated alias for `keepdims`.

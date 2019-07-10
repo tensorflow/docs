@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.recurrent.Recurrent
 
+Compute a recurrent neural net.
+
 ``` python
 tf.contrib.recurrent.Recurrent(
     theta,
@@ -21,9 +23,9 @@ tf.contrib.recurrent.Recurrent(
 
 
 
-Defined in [`tensorflow/contrib/recurrent/python/ops/recurrent.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/recurrent/python/ops/recurrent.py).
+Defined in [`contrib/recurrent/python/ops/recurrent.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/recurrent/python/ops/recurrent.py).
 
-Compute a recurrent neural net.
+<!-- Placeholder for "Used in" -->
 
 Roughly, Recurrent() computes the following:
   state = state0
@@ -51,23 +53,24 @@ customized backward function of cell_fn.
 
 #### Args:
 
+
 * <b>`theta`</b>: weights. A structure of tensors.
 * <b>`state0`</b>: initial state. A structure of tensors.
 * <b>`inputs`</b>: inputs. A structure of tensors.
 * <b>`cell_fn`</b>: A python function, which computes:
-    state1, extras = cell_fn(theta, state0, inputs[t, :])
+  state1, extras = cell_fn(theta, state0, inputs[t, :])
 * <b>`cell_grad`</b>: A python function which computes:
-    dtheta, dstate0, dinputs[t, :] = cell_grad(
-      theta, state0, inputs[t, :], extras, dstate1)
+  dtheta, dstate0, dinputs[t, :] = cell_grad(
+    theta, state0, inputs[t, :], extras, dstate1)
 * <b>`extras`</b>: A structure of tensors. The 2nd return value of every
-    invocation of cell_fn is a structure of tensors with matching keys
-    and shapes of  this `extras`.
+  invocation of cell_fn is a structure of tensors with matching keys
+  and shapes of  this `extras`.
 * <b>`max_input_length`</b>: maximum length of effective input. This is used to
-    truncate the computation if the inputs have been allocated to a
-    larger size. A scalar tensor.
+  truncate the computation if the inputs have been allocated to a
+  larger size. A scalar tensor.
 * <b>`use_tpu`</b>: whether or not we are on TPU.
 * <b>`aligned_end`</b>: A boolean indicating whether the sequence is aligned at
-    the end.
+  the end.
 
 
 #### Returns:

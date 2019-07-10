@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.strings.to_hash_bucket_fast
 
+Converts each string in the input Tensor to its hash mod by a number of buckets.
+
 ### Aliases:
 
+* `tf.compat.v1.string_to_hash_bucket_fast`
+* `tf.compat.v1.strings.to_hash_bucket_fast`
+* `tf.compat.v2.strings.to_hash_bucket_fast`
 * `tf.string_to_hash_bucket_fast`
 * `tf.strings.to_hash_bucket_fast`
 
@@ -20,9 +25,9 @@ tf.strings.to_hash_bucket_fast(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_string_ops.py`.
+Defined in generated file: `python/ops/gen_string_ops.py`.
 
-Converts each string in the input Tensor to its hash mod by a number of buckets.
+<!-- Placeholder for "Used in" -->
 
 The hash function is deterministic on the content of the string within the
 process and will never change. However, it is not suitable for cryptography.
@@ -32,6 +37,7 @@ to the same bucket. To prevent this problem, use a strong hash function with
 <a href="../../tf/strings/to_hash_bucket_strong"><code>tf.string_to_hash_bucket_strong</code></a>.
 
 #### Args:
+
 
 * <b>`input`</b>: A `Tensor` of type `string`. The strings to assign a hash bucket.
 * <b>`num_buckets`</b>: An `int` that is `>= 1`. The number of buckets.

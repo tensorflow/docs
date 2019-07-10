@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.distributions.percentile
 
+Compute the `q`-th percentile of `x`.
+
 ``` python
 tf.contrib.distributions.percentile(
     x,
@@ -19,9 +21,9 @@ tf.contrib.distributions.percentile(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/sample_stats.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/sample_stats.py).
+Defined in [`contrib/distributions/python/ops/sample_stats.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/sample_stats.py).
 
-Compute the `q`-th percentile of `x`.
+<!-- Placeholder for "Used in" -->
 
 Given a vector `x`, the `q`-th percentile of `x` is the value `q / 100` of the
 way from the minimum to the maximum in a sorted copy of `x`.
@@ -63,23 +65,24 @@ Compare to `numpy.percentile`.
 
 #### Args:
 
+
 * <b>`x`</b>:  Floating point `N-D` `Tensor` with `N > 0`.  If `axis` is not `None`,
-    `x` must have statically known number of dimensions.
+  `x` must have statically known number of dimensions.
 * <b>`q`</b>:  Scalar `Tensor` in `[0, 100]`. The percentile.
 * <b>`axis`</b>:  Optional `0-D` or `1-D` integer `Tensor` with constant values.
-    The axis that hold independent samples over which to return the desired
-    percentile.  If `None` (the default), treat every dimension as a sample
-    dimension, returning a scalar.
-* <b>`interpolation `</b>: {"lower", "higher", "nearest"}.  Default: "nearest"
-    This optional parameter specifies the interpolation method to
-    use when the desired quantile lies between two data points `i < j`:
-      * lower: `i`.
-      * higher: `j`.
-      * nearest: `i` or `j`, whichever is nearest.
+  The axis that hold independent samples over which to return the desired
+  percentile.  If `None` (the default), treat every dimension as a sample
+  dimension, returning a scalar.
+* <b>`interpolation`</b>: {"lower", "higher", "nearest"}.  Default: "nearest"
+  This optional parameter specifies the interpolation method to
+  use when the desired quantile lies between two data points `i < j`:
+    * lower: `i`.
+    * higher: `j`.
+    * nearest: `i` or `j`, whichever is nearest.
 * <b>`keep_dims`</b>:  Python `bool`. If `True`, the last dimension is kept with size 1
-    If `False`, the last dimension is removed from the output shape.
+  If `False`, the last dimension is removed from the output shape.
 * <b>`validate_args`</b>:  Whether to add runtime checks of argument validity.
-    If False, and arguments are incorrect, correct behavior is not guaranteed.
+  If False, and arguments are incorrect, correct behavior is not guaranteed.
 * <b>`name`</b>:  A Python string name to give this `Op`.  Default is "percentile"
 
 
@@ -89,6 +92,8 @@ A `(N - len(axis))` dimensional `Tensor` of same dtype as `x`, or, if
   `axis` is `None`, a scalar.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>:  If argument 'interpolation' is not an allowed type.

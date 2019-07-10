@@ -6,9 +6,14 @@ page_type: reference
 
 # tf.math.betainc
 
+Compute the regularized incomplete beta integral \\(I_x(a, b)\\).
+
 ### Aliases:
 
 * `tf.betainc`
+* `tf.compat.v1.betainc`
+* `tf.compat.v1.math.betainc`
+* `tf.compat.v2.math.betainc`
 * `tf.math.betainc`
 
 ``` python
@@ -22,9 +27,9 @@ tf.math.betainc(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Compute the regularized incomplete beta integral \\(I_x(a, b)\\).
+<!-- Placeholder for "Used in" -->
 
 The regularized incomplete beta integral is defined as:
 
@@ -41,6 +46,7 @@ is the incomplete beta function and \\(B(a, b)\\) is the *complete*
 beta function.
 
 #### Args:
+
 
 * <b>`a`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`.
 * <b>`b`</b>: A `Tensor`. Must have the same type as `a`.

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.layer_norm
 
+Adds a Layer Normalization layer.
+
 ``` python
 tf.contrib.layers.layer_norm(
     inputs,
@@ -23,17 +25,20 @@ tf.contrib.layers.layer_norm(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
-Adds a Layer Normalization layer.
+<!-- Placeholder for "Used in" -->
 
-Based on the paper:
 
-  "Layer Normalization"
+#### Based on the paper:
 
-  Jimmy Lei Ba, Jamie Ryan Kiros, Geoffrey E. Hinton
 
-  https://arxiv.org/abs/1607.06450.
+"Layer Normalization"
+
+Jimmy Lei Ba, Jamie Ryan Kiros, Geoffrey E. Hinton
+
+https://arxiv.org/abs/1607.06450.
+
 
 Can be used as a normalizer function for conv2d and fully_connected.
 
@@ -53,27 +58,28 @@ and this part of the inputs' shape must be fully defined.
 
 #### Args:
 
-* <b>`inputs`</b>: A tensor having rank `R`. The normalization is performed over
-    axes `begin_norm_axis ... R - 1` and centering and scaling parameters
-    are calculated over `begin_params_axis ... R - 1`.
+
+* <b>`inputs`</b>: A tensor having rank `R`. The normalization is performed over axes
+  `begin_norm_axis ... R - 1` and centering and scaling parameters are
+  calculated over `begin_params_axis ... R - 1`.
 * <b>`center`</b>: If True, add offset of `beta` to normalized tensor. If False, `beta`
-    is ignored.
-* <b>`scale`</b>: If True, multiply by `gamma`. If False, `gamma` is
-    not used. When the next layer is linear (also e.g. `nn.relu`), this can be
-    disabled since the scaling can be done by the next layer.
+  is ignored.
+* <b>`scale`</b>: If True, multiply by `gamma`. If False, `gamma` is not used. When the
+  next layer is linear (also e.g. `nn.relu`), this can be disabled since the
+  scaling can be done by the next layer.
 * <b>`activation_fn`</b>: Activation function, default set to None to skip it and
-    maintain a linear activation.
+  maintain a linear activation.
 * <b>`reuse`</b>: Whether or not the layer and its variables should be reused. To be
-    able to reuse the layer scope must be given.
+  able to reuse the layer scope must be given.
 * <b>`variables_collections`</b>: Optional collections for the variables.
 * <b>`outputs_collections`</b>: Collections to add the outputs.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-    `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
 * <b>`begin_norm_axis`</b>: The first normalization dimension: normalization will be
-    performed along dimensions `begin_norm_axis : rank(inputs)`
-* <b>`begin_params_axis`</b>: The first parameter (beta, gamma) dimension: scale
-    and centering parameters will have dimensions
-    `begin_params_axis : rank(inputs)` and will be broadcast with the
+  performed along dimensions `begin_norm_axis : rank(inputs)`
+* <b>`begin_params_axis`</b>: The first parameter (beta, gamma) dimension: scale and
+  centering parameters will have dimensions
+  `begin_params_axis : rank(inputs)` and will be broadcast with the
     normalized inputs accordingly.
 * <b>`scope`</b>: Optional scope for `variable_scope`.
 
@@ -84,8 +90,10 @@ A `Tensor` representing the output of the operation, having the same
 shape and dtype as `inputs`.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the rank of `inputs` is not known at graph build time,
-    or if `inputs.shape[begin_params_axis:]` is not fully defined at
-    graph build time.
+  or if `inputs.shape[begin_params_axis:]` is not fully defined at
+  graph build time.

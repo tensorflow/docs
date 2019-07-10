@@ -6,6 +6,14 @@ page_type: reference
 
 # tf.nn.batch_normalization
 
+Batch normalization.
+
+### Aliases:
+
+* `tf.compat.v1.nn.batch_normalization`
+* `tf.compat.v2.nn.batch_normalization`
+* `tf.nn.batch_normalization`
+
 ``` python
 tf.nn.batch_normalization(
     x,
@@ -20,11 +28,10 @@ tf.nn.batch_normalization(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_impl.py).
+Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
-Batch normalization.
+<!-- Placeholder for "Used in" -->
 
-As described in http://arxiv.org/abs/1502.03167.
 Normalizes a tensor by `mean` and `variance`, and applies (optionally) a
 `scale` \\(\gamma\\) to it, as well as an `offset` \\(\beta\\):
 
@@ -38,7 +45,7 @@ shapes:
     normalized over (the 'depth' dimension(s)), and dimension 1 for the
     others which are being normalized over.
     `mean` and `variance` in this case would typically be the outputs of
-    `tf.nn.moments(..., keep_dims=True)` during training, or running averages
+    <a href="../../tf/nn/moments"><code>tf.nn.moments(..., keep_dims=True)</code></a> during training, or running averages
     thereof during inference.
   * In the common case where the 'depth' dimension is the last dimension in
     the input tensor `x`, they may be one dimensional tensors of the same
@@ -47,18 +54,23 @@ shapes:
     fully-connected layers, and `[batch, height, width, depth]` for
     convolutions.
     `mean` and `variance` in this case would typically be the outputs of
-    `tf.nn.moments(..., keep_dims=False)` during training, or running averages
+    <a href="../../tf/nn/moments"><code>tf.nn.moments(..., keep_dims=False)</code></a> during training, or running averages
     thereof during inference.
 
+See Source: [Batch Normalization: Accelerating Deep Network Training by
+Reducing Internal Covariate Shift; S. Ioffe, C. Szegedy]
+(http://arxiv.org/abs/1502.03167).
+
 #### Args:
+
 
 * <b>`x`</b>: Input `Tensor` of arbitrary dimensionality.
 * <b>`mean`</b>: A mean `Tensor`.
 * <b>`variance`</b>: A variance `Tensor`.
 * <b>`offset`</b>: An offset `Tensor`, often denoted \\(\beta\\) in equations, or
-    None. If present, will be added to the normalized tensor.
+  None. If present, will be added to the normalized tensor.
 * <b>`scale`</b>: A scale `Tensor`, often denoted \\(\gamma\\) in equations, or
-    `None`. If present, the scale is applied to the normalized tensor.
+  `None`. If present, the scale is applied to the normalized tensor.
 * <b>`variance_epsilon`</b>: A small float number to avoid dividing by 0.
 * <b>`name`</b>: A name for this operation (optional).
 

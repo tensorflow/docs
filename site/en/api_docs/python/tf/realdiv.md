@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.realdiv
 
+Returns x / y element-wise for real types.
+
+### Aliases:
+
+* `tf.compat.v1.realdiv`
+* `tf.compat.v2.realdiv`
+* `tf.realdiv`
+
 ``` python
 tf.realdiv(
     x,
@@ -15,9 +23,9 @@ tf.realdiv(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Returns x / y element-wise for real types.
+<!-- Placeholder for "Used in" -->
 
 If `x` and `y` are reals, this will return the floating-point division.
 
@@ -25,6 +33,7 @@ If `x` and `y` are reals, this will return the floating-point division.
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `uint8`, `int8`, `uint16`, `int16`, `int32`, `int64`, `complex64`, `complex128`.
 * <b>`y`</b>: A `Tensor`. Must have the same type as `x`.

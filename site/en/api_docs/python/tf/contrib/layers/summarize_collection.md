@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.summarize_collection
 
+Summarize a graph collection of tensors, possibly filtered by name.
+
 ``` python
 tf.contrib.layers.summarize_collection(
     collection,
@@ -15,6 +17,6 @@ tf.contrib.layers.summarize_collection(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/summaries.py).
+Defined in [`contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/summaries.py).
 
-Summarize a graph collection of tensors, possibly filtered by name.
+<!-- Placeholder for "Used in" -->

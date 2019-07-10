@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.distributions.moving_mean_variance
 
+Compute exponentially weighted moving {mean,variance} of a streaming value.
+
 ``` python
 tf.contrib.distributions.moving_mean_variance(
     value,
@@ -16,9 +18,9 @@ tf.contrib.distributions.moving_mean_variance(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/moving_stats.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/moving_stats.py).
+Defined in [`contrib/distributions/python/ops/moving_stats.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/moving_stats.py).
 
-Compute exponentially weighted moving {mean,variance} of a streaming value.
+<!-- Placeholder for "Used in" -->
 
 The exponentially-weighting moving `mean_var` and `variance_var` are updated
 by `value` according to the following recurrence:
@@ -38,24 +40,27 @@ variable creation.
 
 #### Args:
 
+
 * <b>`value`</b>: `float`-like `Tensor`. Same shape as `mean_var` and `variance_var`.
 * <b>`decay`</b>: A `float`-like `Tensor`. The moving mean decay. Typically close to
-    `1.`, e.g., `0.999`.
+  `1.`, e.g., `0.999`.
 * <b>`collections`</b>: Python list of graph-collections keys to which the internal
-    variables `mean_var` and `variance_var` are added.
-    Default value is `[GraphKeys.GLOBAL_VARIABLES]`.
+  variables `mean_var` and `variance_var` are added.
+  Default value is `[GraphKeys.GLOBAL_VARIABLES]`.
 * <b>`name`</b>: Optional name of the returned operation.
 
 
 #### Returns:
 
+
 * <b>`mean_var`</b>: `Variable` representing the `value`-updated exponentially weighted
-    moving mean.
+  moving mean.
 * <b>`variance_var`</b>: `Variable` representing the `value`-updated
-    exponentially weighted moving variance.
+  exponentially weighted moving variance.
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: if `value_var` does not have float type `dtype`.
 * <b>`TypeError`</b>: if `value`, `decay` have different `base_dtype`.

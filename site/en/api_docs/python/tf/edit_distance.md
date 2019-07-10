@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.edit_distance
 
+Computes the Levenshtein distance between sequences.
+
+### Aliases:
+
+* `tf.compat.v1.edit_distance`
+* `tf.compat.v2.edit_distance`
+* `tf.edit_distance`
+
 ``` python
 tf.edit_distance(
     hypothesis,
@@ -16,9 +24,9 @@ tf.edit_distance(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Computes the Levenshtein distance between sequences.
+<!-- Placeholder for "Used in" -->
 
 This operation takes variable-length sequences (`hypothesis` and `truth`),
 each provided as a `SparseTensor`, and computes the Levenshtein distance.
@@ -64,10 +72,11 @@ output ==> [[inf, 1.0],  # (0,0): no truth, (0,1): no hypothesis
 
 #### Args:
 
+
 * <b>`hypothesis`</b>: A `SparseTensor` containing hypothesis sequences.
 * <b>`truth`</b>: A `SparseTensor` containing truth sequences.
 * <b>`normalize`</b>: A `bool`. If `True`, normalizes the Levenshtein distance by
-    length of `truth.`
+  length of `truth.`
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -77,6 +86,8 @@ A dense `Tensor` with rank `R - 1`, where R is the rank of the
 `SparseTensor` inputs `hypothesis` and `truth`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If either `hypothesis` or `truth` are not a `SparseTensor`.

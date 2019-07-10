@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `variable_scope`
 
-
-
-
-
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variable_scope.py).
-
 A context manager for defining ops that creates variables (layers).
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.variable_scope`
+* Class `tf.variable_scope`
+
+
+
+Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
+
+<!-- Placeholder for "Used in" -->
 
 This context manager validates that the (optional) `values` are from the same
 graph, ensures that graph is the default graph, and pushes a name scope and a
@@ -32,24 +39,24 @@ we present only a few basic examples.
 Simple example of how to create a new variable:
 
 ```python
-with tf.variable_scope("foo"):
-    with tf.variable_scope("bar"):
-        v = tf.get_variable("v", [1])
+with tf.compat.v1.variable_scope("foo"):
+    with tf.compat.v1.variable_scope("bar"):
+        v = tf.compat.v1.get_variable("v", [1])
         assert v.name == "foo/bar/v:0"
 ```
 
 Simple example of how to reenter a premade variable scope safely:
 
 ```python
-with tf.variable_scope("foo") as vs:
+with tf.compat.v1.variable_scope("foo") as vs:
   pass
 
 # Re-enter the variable scope.
-with tf.variable_scope(vs,
+with tf.compat.v1.variable_scope(vs,
                        auxiliary_name_scope=False) as vs1:
   # Restore the original name_scope.
   with tf.name_scope(vs1.original_name_scope):
-      v = tf.get_variable("v", [1])
+      v = tf.compat.v1.get_variable("v", [1])
       assert v.name == "foo/v:0"
       c = tf.constant([1], name="c")
       assert c.name == "foo/c:0"
@@ -59,8 +66,8 @@ Basic example of sharing a variable AUTO_REUSE:
 
 ```python
 def foo():
-  with tf.variable_scope("foo", reuse=tf.AUTO_REUSE):
-    v = tf.get_variable("v", [1])
+  with tf.compat.v1.variable_scope("foo", reuse=tf.compat.v1.AUTO_REUSE):
+    v = tf.compat.v1.get_variable("v", [1])
   return v
 
 v1 = foo()  # Creates v.
@@ -71,20 +78,20 @@ assert v1 == v2
 Basic example of sharing a variable with reuse=True:
 
 ```python
-with tf.variable_scope("foo"):
-    v = tf.get_variable("v", [1])
-with tf.variable_scope("foo", reuse=True):
-    v1 = tf.get_variable("v", [1])
+with tf.compat.v1.variable_scope("foo"):
+    v = tf.compat.v1.get_variable("v", [1])
+with tf.compat.v1.variable_scope("foo", reuse=True):
+    v1 = tf.compat.v1.get_variable("v", [1])
 assert v1 == v
 ```
 
 Sharing a variable by capturing a scope and setting reuse:
 
 ```python
-with tf.variable_scope("foo") as scope:
-    v = tf.get_variable("v", [1])
+with tf.compat.v1.variable_scope("foo") as scope:
+    v = tf.compat.v1.get_variable("v", [1])
     scope.reuse_variables()
-    v1 = tf.get_variable("v", [1])
+    v1 = tf.compat.v1.get_variable("v", [1])
 assert v1 == v
 ```
 
@@ -92,9 +99,9 @@ To prevent accidental sharing of variables, we raise an exception when getting
 an existing variable in a non-reusing scope.
 
 ```python
-with tf.variable_scope("foo"):
-    v = tf.get_variable("v", [1])
-    v1 = tf.get_variable("v", [1])
+with tf.compat.v1.variable_scope("foo"):
+    v = tf.compat.v1.get_variable("v", [1])
+    v1 = tf.compat.v1.get_variable("v", [1])
     #  Raises ValueError("... v already exists ...").
 ```
 
@@ -102,8 +109,8 @@ Similarly, we raise an exception when trying to get a variable that does not
 exist in reuse mode.
 
 ```python
-with tf.variable_scope("foo", reuse=True):
-    v = tf.get_variable("v", [1])
+with tf.compat.v1.variable_scope("foo", reuse=True):
+    v = tf.compat.v1.get_variable("v", [1])
     #  Raises ValueError("... v does not exists ...").
 ```
 
@@ -167,41 +174,43 @@ __init__(
 
 Initialize the context manager.
 
+
 #### Args:
+
 
 * <b>`name_or_scope`</b>: `string` or `VariableScope`: the scope to open.
 * <b>`default_name`</b>: The default name to use if the `name_or_scope` argument is
-    `None`, this name will be uniquified. If name_or_scope is provided it
-    won't be used and therefore it is not required and can be None.
+  `None`, this name will be uniquified. If name_or_scope is provided it
+  won't be used and therefore it is not required and can be None.
 * <b>`values`</b>: The list of `Tensor` arguments that are passed to the op function.
 * <b>`initializer`</b>: default initializer for variables within this scope.
 * <b>`regularizer`</b>: default regularizer for variables within this scope.
 * <b>`caching_device`</b>: default caching device for variables within this scope.
 * <b>`partitioner`</b>: default partitioner for variables within this scope.
 * <b>`custom_getter`</b>: default custom getter for variables within this scope.
-* <b>`reuse`</b>: `True`, None, or tf.AUTO_REUSE; if `True`, we go into reuse mode
-    for this scope as well as all sub-scopes; if tf.AUTO_REUSE, we create
-    variables if they do not exist, and return them otherwise; if None, we
-    inherit the parent scope's reuse flag. When eager execution is enabled,
-    new variables are always created unless an EagerVariableStore or
-    template is currently active.
-* <b>`dtype`</b>: type of variables created in this scope (defaults to the type
-    in the passed scope, or inherited from parent scope).
+* <b>`reuse`</b>: `True`, None, or tf.compat.v1.AUTO_REUSE; if `True`, we go into
+  reuse mode for this scope as well as all sub-scopes; if
+  tf.compat.v1.AUTO_REUSE, we create variables if they do not exist, and
+  return them otherwise; if None, we inherit the parent scope's reuse
+  flag. When eager execution is enabled, new variables are always created
+  unless an EagerVariableStore or template is currently active.
+* <b>`dtype`</b>: type of variables created in this scope (defaults to the type in
+  the passed scope, or inherited from parent scope).
 * <b>`use_resource`</b>: If False, all variables will be regular Variables. If True,
-    experimental ResourceVariables with well-defined semantics will be used
-    instead. Defaults to False (will later change to True). When eager
-    execution is enabled this argument is always forced to be True.
+  experimental ResourceVariables with well-defined semantics will be used
+  instead. Defaults to False (will later change to True). When eager
+  execution is enabled this argument is always forced to be True.
 * <b>`constraint`</b>: An optional projection function to be applied to the variable
-    after being updated by an `Optimizer` (e.g. used to implement norm
-    constraints or value constraints for layer weights). The function must
-    take as input the unprojected Tensor representing the value of the
-    variable and return the Tensor for the projected value
-    (which must have the same shape). Constraints are not safe to
-    use when doing asynchronous distributed training.
+  after being updated by an `Optimizer` (e.g. used to implement norm
+  constraints or value constraints for layer weights). The function must
+  take as input the unprojected Tensor representing the value of the
+  variable and return the Tensor for the projected value (which must have
+  the same shape). Constraints are not safe to use when doing asynchronous
+  distributed training.
 * <b>`auxiliary_name_scope`</b>: If `True`, we create an auxiliary name scope with
-    the scope. If `False`, we don't create it. Note that the argument is
-    not inherited, and it only takes effect for once when creating. You
-    should only use it for re-entering a premade variable scope.
+  the scope. If `False`, we don't create it. Note that the argument is not
+  inherited, and it only takes effect for once when creating. You should
+  only use it for re-entering a premade variable scope.
 
 
 #### Returns:
@@ -209,10 +218,12 @@ Initialize the context manager.
 A scope that can be captured and reused.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: when trying to reuse within a create scope, or create within
-    a reuse scope.
+  a reuse scope.
 * <b>`TypeError`</b>: when the types of some arguments are not appropriate.
 
 
@@ -227,6 +238,7 @@ __enter__()
 
 
 
+
 <h3 id="__exit__"><code>__exit__</code></h3>
 
 ``` python
@@ -236,6 +248,7 @@ __exit__(
     traceback_arg
 )
 ```
+
 
 
 

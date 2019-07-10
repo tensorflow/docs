@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.zeros
 
+Instantiates an all-zeros variable and returns it.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.zeros`
+* `tf.compat.v2.keras.backend.zeros`
+* `tf.keras.backend.zeros`
+
 ``` python
 tf.keras.backend.zeros(
     shape,
@@ -15,11 +23,13 @@ tf.keras.backend.zeros(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Instantiates an all-zeros variable and returns it.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`shape`</b>: Tuple of integers, shape of returned Keras variable
 * <b>`dtype`</b>: String, data type of returned Keras variable
@@ -28,11 +38,15 @@ Instantiates an all-zeros variable and returns it.
 
 #### Returns:
 
-    A variable (including Keras metadata), filled with `0.0`.
-    Note that if `shape` was symbolic, we cannot return a variable,
-    and will return a dynamically-shaped tensor instead.
+A variable (including Keras metadata), filled with `0.0`.
+Note that if `shape` was symbolic, we cannot return a variable,
+and will return a dynamically-shaped tensor instead.
 
-Example:
+
+
+#### Example:
+
+
 ```python
     >>> from keras import backend as K
     >>> kvar = K.zeros((3,4))

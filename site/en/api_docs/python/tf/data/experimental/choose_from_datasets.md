@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.data.experimental.choose_from_datasets
 
+Creates a dataset that deterministically chooses elements from `datasets`.
+
+### Aliases:
+
+* `tf.compat.v1.data.experimental.choose_from_datasets`
+* `tf.data.experimental.choose_from_datasets`
+
 ``` python
 tf.data.experimental.choose_from_datasets(
     datasets,
@@ -14,9 +21,9 @@ tf.data.experimental.choose_from_datasets(
 
 
 
-Defined in [`tensorflow/python/data/experimental/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/experimental/ops/interleave_ops.py).
+Defined in [`python/data/experimental/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/interleave_ops.py).
 
-Creates a dataset that deterministically chooses elements from `datasets`.
+<!-- Placeholder for "Used in" -->
 
 For example, given the following datasets:
 
@@ -39,9 +46,10 @@ The elements of `result` will be:
 
 #### Args:
 
+
 * <b>`datasets`</b>: A list of <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> objects with compatible structure.
-* <b>`choice_dataset`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> of scalar <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> tensors between
-    `0` and `len(datasets) - 1`.
+* <b>`choice_dataset`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> of scalar <a href="../../../tf#int64"><code>tf.int64</code></a> tensors between
+  `0` and `len(datasets) - 1`.
 
 
 #### Returns:
@@ -50,7 +58,9 @@ A dataset that interleaves elements from `datasets` according to the values
 of `choice_dataset`.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: If the `datasets` or `choice_dataset` arguments have the wrong
-    type.
+  type.

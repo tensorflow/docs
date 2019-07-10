@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.init_from_checkpoint
 
+Using assignment map initializes current variables with loaded tensors.
+
 ``` python
 tf.contrib.framework.init_from_checkpoint(
     checkpoint_dir,
@@ -14,9 +16,9 @@ tf.contrib.framework.init_from_checkpoint(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
+Defined in [`contrib/framework/python/framework/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
 
-Using assignment map initializes current variables with loaded tensors.
+<!-- Placeholder for "Used in" -->
 
 Note: This overrides default initialization ops of specified variables and
 redefines dtype.
@@ -39,15 +41,17 @@ Assignment map supports following syntax:
 Supports loading into partitioned variables, which are represented as
 `'<variable>/part_<part #>'`.
 
-Example:
+#### Example:
+
+
 
 ```python
   # Create variables.
-  with tf.variable_scope('test'):
-    m = tf.get_variable('my_var')
-  with tf.variable_scope('test2'):
-    var2 = tf.get_variable('my_var')
-  var3 = tf.get_variable(name="my1", shape=[100, 100],
+  with tf.compat.v1.variable_scope('test'):
+    m = tf.compat.v1.get_variable('my_var')
+  with tf.compat.v1.variable_scope('test2'):
+    var2 = tf.compat.v1.get_variable('my_var')
+  var3 = tf.compat.v1.get_variable(name="my1", shape=[100, 100],
                          partitioner=lambda shape, dtype: [5, 1])
   ...
   # Specify which variables to initialize from checkpoint.
@@ -74,13 +78,15 @@ Example:
 
 #### Args:
 
+
 * <b>`checkpoint_dir`</b>: Directory with checkpoints file or path to checkpoint.
 * <b>`assignment_map`</b>: Dict, where keys are names of the variables in the
-    checkpoint and values are current variables or names of current variables
-    (in default graph).
+  checkpoint and values are current variables or names of current variables
+  (in default graph).
 
 
 #### Raises:
+
 
 * <b>`tf.errors.OpError`</b>: If missing checkpoints or tensors in checkpoints.
 * <b>`ValueError`</b>: If missing variables in current graph.

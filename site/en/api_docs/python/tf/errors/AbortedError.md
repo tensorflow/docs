@@ -7,18 +7,26 @@ page_type: reference
 
 ## Class `AbortedError`
 
-Inherits From: [`OpError`](../../tf/errors/OpError)
-
-
-
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/errors_impl.py).
-
 The operation was aborted, typically due to a concurrent action.
 
+Inherits From: [`OpError`](../../tf/errors/OpError)
+
+### Aliases:
+
+* Class `tf.compat.v1.errors.AbortedError`
+* Class `tf.compat.v2.errors.AbortedError`
+* Class `tf.errors.AbortedError`
+
+
+
+Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
+
+<!-- Placeholder for "Used in" -->
+
 For example, running a
-<a href="../../tf/io/QueueBase#enqueue"><code>tf.QueueBase.enqueue</code></a>
+<a href="../../tf/queue/QueueBase#enqueue"><code>tf.QueueBase.enqueue</code></a>
 operation may raise `AbortedError` if a
-<a href="../../tf/io/QueueBase#close"><code>tf.QueueBase.close</code></a> operation
+<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a> operation
 previously ran.
 
 
@@ -36,19 +44,23 @@ Creates an `AbortedError`.
 
 
 
+
 ## Properties
 
 <h3 id="error_code"><code>error_code</code></h3>
 
 The integer error code that describes the error.
 
+
 <h3 id="message"><code>message</code></h3>
 
 The error message that describes the error.
 
+
 <h3 id="node_def"><code>node_def</code></h3>
 
 The `NodeDef` proto representing the op that failed.
+
 
 <h3 id="op"><code>op</code></h3>
 
@@ -64,6 +76,7 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
+
 
 
 

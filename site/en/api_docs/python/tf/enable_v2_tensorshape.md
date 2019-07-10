@@ -5,22 +5,31 @@ page_type: reference
 
 # tf.enable_v2_tensorshape
 
+In TensorFlow 2.0, iterating over a TensorShape instance returns values.
+
+### Aliases:
+
+* `tf.compat.v1.enable_v2_tensorshape`
+* `tf.enable_v2_tensorshape`
+
 ``` python
 tf.enable_v2_tensorshape()
 ```
 
 
 
-Defined in [`tensorflow/python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/tensor_shape.py).
+Defined in [`python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_shape.py).
 
-In TensorFlow 2.0, iterating over a TensorShape instance returns values.
+<!-- Placeholder for "Used in" -->
 
 This enables the new behavior.
 
 Concretely, `tensor_shape[i]` returned a Dimension instance in V1, but
 it V2 it returns either an integer, or None.
 
-Examples:
+#### Examples:
+
+
 
 ```
 #######################

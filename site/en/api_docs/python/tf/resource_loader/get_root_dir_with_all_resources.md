@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.resource_loader.get_root_dir_with_all_resources
 
+Get a root directory containing all the data attributes in the build rule.
+
+### Aliases:
+
+* `tf.compat.v1.resource_loader.get_root_dir_with_all_resources`
+* `tf.resource_loader.get_root_dir_with_all_resources`
+
 ``` python
 tf.resource_loader.get_root_dir_with_all_resources()
 ```
 
 
 
-Defined in [`tensorflow/python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/resource_loader.py).
+Defined in [`python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/resource_loader.py).
 
-Get a root directory containing all the data attributes in the build rule.
+<!-- Placeholder for "Used in" -->
+
 
 #### Returns:
 

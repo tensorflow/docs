@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.io.decode_json_example
 
+Convert JSON-encoded Example records to binary protocol buffer strings.
+
 ### Aliases:
 
+* `tf.compat.v1.decode_json_example`
+* `tf.compat.v1.io.decode_json_example`
+* `tf.compat.v2.io.decode_json_example`
 * `tf.decode_json_example`
 * `tf.io.decode_json_example`
 
@@ -19,9 +24,9 @@ tf.io.decode_json_example(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_parsing_ops.py`.
+Defined in generated file: `python/ops/gen_parsing_ops.py`.
 
-Convert JSON-encoded Example records to binary protocol buffer strings.
+<!-- Placeholder for "Used in" -->
 
 This op translates a tensor containing Example records, encoded using
 the [standard JSON
@@ -32,9 +37,10 @@ Example-parsing ops.
 
 #### Args:
 
+
 * <b>`json_examples`</b>: A `Tensor` of type `string`.
-    Each string is a JSON object serialized according to the JSON
-    mapping of the Example proto.
+  Each string is a JSON object serialized according to the JSON
+  mapping of the Example proto.
 * <b>`name`</b>: A name for the operation (optional).
 
 

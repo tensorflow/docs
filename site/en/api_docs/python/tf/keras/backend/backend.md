@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.keras.backend.backend
 
+Publicly accessible method for determining the current backend.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.backend`
+* `tf.compat.v2.keras.backend.backend`
+* `tf.keras.backend.backend`
+
 ``` python
 tf.keras.backend.backend()
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Publicly accessible method for determining the current backend.
+<!-- Placeholder for "Used in" -->
 
 Only exists for API compatibility with multi-backend Keras.
 

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.profiler.profile
 
+Profile model.
+
+### Aliases:
+
+* `tf.compat.v1.profiler.profile`
+* `tf.profiler.profile`
+
 ``` python
 tf.profiler.profile(
     graph=None,
@@ -17,27 +24,28 @@ tf.profiler.profile(
 
 
 
-Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/profiler/model_analyzer.py).
+Defined in [`python/profiler/model_analyzer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/profiler/model_analyzer.py).
 
-Profile model.
+<!-- Placeholder for "Used in" -->
 
   Tutorials and examples can be found in:
   https://github.com/tensorflow/tensorflow/tree/master/tensorflow/core/profiler/README.md
 
 #### Args:
 
+
 * <b>`graph`</b>: tf.Graph. If None and eager execution is not enabled, use
-      default graph.
+    default graph.
 * <b>`run_meta`</b>: optional tensorflow.RunMetadata proto. It is necessary to
-      to support run time information profiling, such as time and memory.
+    to support run time information profiling, such as time and memory.
 * <b>`op_log`</b>: tensorflow.tfprof.OpLogProto proto. User can assign "types" to
-      graph nodes with op_log. "types" allow user to flexibly group and
-      account profiles using options['accounted_type_regexes'].
+    graph nodes with op_log. "types" allow user to flexibly group and
+    account profiles using options['accounted_type_regexes'].
 * <b>`cmd`</b>: string. Either 'op', 'scope', 'graph' or 'code'.
-      'op' view organizes profile using operation type. (e.g. MatMul)
-      'scope' view organizes profile using graph node name scope.
-      'graph' view organizes profile using graph node inputs/outputs.
-      'code' view organizes profile using Python call stack.
+    'op' view organizes profile using operation type. (e.g. MatMul)
+    'scope' view organizes profile using graph node name scope.
+    'graph' view organizes profile using graph node inputs/outputs.
+    'code' view organizes profile using Python call stack.
 * <b>`options`</b>: A dict of options. See core/profiler/g3doc/options.md.
 
 #### Returns:

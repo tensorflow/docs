@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.nn.sampled_sparse_softmax_loss
 
+Computes and returns the sampled sparse softmax training loss.
+
 ``` python
 tf.contrib.nn.sampled_sparse_softmax_loss(
     weights,
@@ -22,9 +24,9 @@ tf.contrib.nn.sampled_sparse_softmax_loss(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/sampling_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/nn/python/ops/sampling_ops.py).
+Defined in [`contrib/nn/python/ops/sampling_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/nn/python/ops/sampling_ops.py).
 
-Computes and returns the sampled sparse softmax training loss.
+<!-- Placeholder for "Used in" -->
 
 This is a faster way to train a softmax classifier over a huge number of
 classes.
@@ -61,27 +63,28 @@ Also see Section 3 of [Jean et al., 2014](http://arxiv.org/abs/1412.2007)
 
 #### Args:
 
+
 * <b>`weights`</b>: A `Tensor` of shape `[num_classes, dim]`, or a list of `Tensor`
-      objects whose concatenation along dimension 0 has shape
-      [num_classes, dim].  The (possibly-sharded) class embeddings.
+    objects whose concatenation along dimension 0 has shape
+    [num_classes, dim].  The (possibly-sharded) class embeddings.
 * <b>`biases`</b>: A `Tensor` of shape `[num_classes]`.  The class biases.
 * <b>`labels`</b>: A `Tensor` of type `int64` and shape `[batch_size, 1]`.
-      The index of the single target class for each row of logits.  Note that
-      this format differs from the `labels` argument of
-      `nn.sparse_softmax_cross_entropy_with_logits`.
+    The index of the single target class for each row of logits.  Note that
+    this format differs from the `labels` argument of
+    `nn.sparse_softmax_cross_entropy_with_logits`.
 * <b>`inputs`</b>: A `Tensor` of shape `[batch_size, dim]`.  The forward
-      activations of the input network.
+    activations of the input network.
 * <b>`num_sampled`</b>: An `int`.  The number of classes to randomly sample per batch.
 * <b>`num_classes`</b>: An `int`. The number of possible classes.
 * <b>`sampled_values`</b>: a tuple of (`sampled_candidates`, `true_expected_count`,
-      `sampled_expected_count`) returned by a `*_candidate_sampler` function.
-      (if None, we default to `log_uniform_candidate_sampler`)
+    `sampled_expected_count`) returned by a `*_candidate_sampler` function.
+    (if None, we default to `log_uniform_candidate_sampler`)
 * <b>`remove_accidental_hits`</b>:  A `bool`.  whether to remove "accidental hits"
-      where a sampled class equals one of the target classes.  Default is
-      True.
+    where a sampled class equals one of the target classes.  Default is
+    True.
 * <b>`partition_strategy`</b>: A string specifying the partitioning strategy, relevant
-      if `len(weights) > 1`. Currently `"div"` and `"mod"` are supported.
-      Default is `"mod"`. See <a href="../../../tf/nn/embedding_lookup"><code>tf.nn.embedding_lookup</code></a> for more details.
+    if `len(weights) > 1`. Currently `"div"` and `"mod"` are supported.
+    Default is `"mod"`. See `tf.nn.embedding_lookup` for more details.
 * <b>`name`</b>: A name for the operation (optional).
 
 

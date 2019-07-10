@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `ExponentialMovingAverage`
 
-
-
-
-
-Defined in [`tensorflow/python/training/moving_averages.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/moving_averages.py).
-
 Maintains moving averages of variables by employing an exponential decay.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.train.ExponentialMovingAverage`
+* Class `tf.compat.v2.train.ExponentialMovingAverage`
+* Class `tf.train.ExponentialMovingAverage`
+
+
+
+Defined in [`python/training/moving_averages.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/moving_averages.py).
+
+<!-- Placeholder for "Used in" -->
 
 When training a model, it is often beneficial to maintain moving averages of
 the trained parameters.  Evaluations that use averaged parameters sometimes
@@ -77,7 +85,7 @@ There are two ways to use the moving averages for evaluations:
    for a given variable.
 *  Build a model normally but load the checkpoint files to evaluate by using
    the shadow variable names.  For this use the `average_name()` method.  See
-   the <a href="../../tf/train/Saver"><code>tf.train.Saver</code></a> for more
+   the <a href="../../tf/train/Saver"><code>tf.compat.v1.train.Saver</code></a> for more
    information on restoring saved variables.
 
 Example of restoring the shadow variable values:
@@ -86,7 +94,8 @@ Example of restoring the shadow variable values:
 # Create a Saver that loads variables from their saved shadow values.
 shadow_var0_name = ema.average_name(var0)
 shadow_var1_name = ema.average_name(var1)
-saver = tf.train.Saver({shadow_var0_name: var0, shadow_var1_name: var1})
+saver = tf.compat.v1.train.Saver({shadow_var0_name: var0, shadow_var1_name:
+var1})
 saver.restore(...checkpoint filename...)
 # var0 and var1 now hold the moving average values
 ```
@@ -117,12 +126,13 @@ move faster.  If passed, the actual decay rate used is:
 
 #### Args:
 
+
 * <b>`decay`</b>: Float.  The decay to use.
 * <b>`num_updates`</b>: Optional count of number of updates applied to variables.
 * <b>`zero_debias`</b>: If `True`, zero debias moving-averages that are initialized
-    with tensors.
+  with tensors.
 * <b>`name`</b>: String. Optional prefix name to use for the name of ops added in
-    `apply()`.
+  `apply()`.
 
 
 
@@ -131,6 +141,7 @@ move faster.  If passed, the actual decay rate used is:
 <h3 id="name"><code>name</code></h3>
 
 The name of this ExponentialMovingAverage object.
+
 
 
 
@@ -147,13 +158,13 @@ Maintains moving averages of variables.
 `var_list` must be a list of `Variable` or `Tensor` objects.  This method
 creates shadow variables for all elements of `var_list`.  Shadow variables
 for `Variable` objects are initialized to the variable's initial value.
-They will be added to the `GraphKeys.MOVING_AVERAGE_VARIABLES` collection.
+They will be added to the <a href="../../tf/GraphKeys#MOVING_AVERAGE_VARIABLES"><code>GraphKeys.MOVING_AVERAGE_VARIABLES</code></a> collection.
 For `Tensor` objects, the shadow variables are initialized to 0 and zero
 debiased (see docstring in `assign_moving_average` for more details).
 
 shadow variables are created with `trainable=False` and added to the
 `GraphKeys.ALL_VARIABLES` collection.  They will be returned by calls to
-`tf.global_variables()`.
+<a href="../../tf/global_variables"><code>tf.compat.v1.global_variables()</code></a>.
 
 Returns an op that updates all shadow variables from the current value of
 their associated variables.
@@ -164,8 +175,9 @@ be called in a loop.
 
 #### Args:
 
-* <b>`var_list`</b>: A list of Variable or Tensor objects. The variables
-    and Tensors must be of types bfloat16, float16, float32, or float64.
+
+* <b>`var_list`</b>: A list of Variable or Tensor objects. The variables and Tensors
+  must be of types bfloat16, float16, float32, or float64.
 
 
 #### Returns:
@@ -173,7 +185,9 @@ be called in a loop.
 An Operation that updates the moving averages.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If the arguments are not an allowed type.
 
@@ -185,7 +199,9 @@ average(var)
 
 Returns the `Variable` holding the average of `var`.
 
+
 #### Args:
+
 
 * <b>`var`</b>: A `Variable` object.
 
@@ -194,6 +210,7 @@ Returns the `Variable` holding the average of `var`.
 
 A `Variable` object or `None` if the moving average of `var`
 is not maintained.
+
 
 <h3 id="average_name"><code>average_name</code></h3>
 
@@ -210,11 +227,12 @@ computed moving averages during evaluations.
 To restore variables, you have to know the name of the shadow variables.
 That name and the original variable can then be passed to a `Saver()` object
 to restore the variable from the moving average value with:
-  `saver = tf.train.Saver({ema.average_name(var): var})`
+  `saver = tf.compat.v1.train.Saver({ema.average_name(var): var})`
 
 `average_name()` can be called whether or not `apply()` has been called.
 
 #### Args:
+
 
 * <b>`var`</b>: A `Variable` object.
 
@@ -224,6 +242,7 @@ to restore the variable from the moving average value with:
 A string: The name of the variable that will be used or was used
 by the `ExponentialMovingAverage class` to hold the moving average of
 `var`.
+
 
 <h3 id="variables_to_restore"><code>variables_to_restore</code></h3>
 
@@ -240,7 +259,7 @@ For example,
 
 ```python
   variables_to_restore = ema.variables_to_restore()
-  saver = tf.train.Saver(variables_to_restore)
+  saver = tf.compat.v1.train.Saver(variables_to_restore)
 ```
 
 Below is an example of such mapping:
@@ -250,18 +269,21 @@ Below is an example of such mapping:
   conv_4/conv2d_params/ExponentialMovingAverage: conv_4/conv2d_params,
   global_step: global_step
 ```
+
 #### Args:
 
+
 * <b>`moving_avg_variables`</b>: a list of variables that require to use of the
-    moving variable name to be restored. If None, it will default to
-    variables.moving_average_variables() + variables.trainable_variables()
+  moving average variable name to be restored. If None, it will default to
+  variables.moving_average_variables() + variables.trainable_variables()
 
 
 #### Returns:
 
-A map from restore_names to variables. The restore_name can be the
-moving_average version of the variable name if it exist, or the original
-variable name.
+A map from restore_names to variables. The restore_name is either the
+original or the moving average version of the variable name, depending
+on whether the variable name is in the `moving_avg_variables`.
+
 
 
 

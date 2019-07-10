@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.embedding_lookup
 
+Looks up `ids` in a list of embedding tensors.
+
+### Aliases:
+
+* `tf.compat.v1.nn.embedding_lookup`
+* `tf.nn.embedding_lookup`
+
 ``` python
 tf.nn.embedding_lookup(
     params,
@@ -18,15 +25,16 @@ tf.nn.embedding_lookup(
 
 
 
-Defined in [`tensorflow/python/ops/embedding_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/embedding_ops.py).
+Defined in [`python/ops/embedding_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/embedding_ops.py).
 
-Looks up `ids` in a list of embedding tensors.
+<!-- Placeholder for "Used in" -->
 
 This function is used to perform parallel lookups on the list of
 tensors in `params`.  It is a generalization of
 <a href="../../tf/gather"><code>tf.gather</code></a>, where `params` is
 interpreted as a partitioning of a large embedding tensor.  `params` may be
-a `PartitionedVariable` as returned by using `tf.get_variable()` with a
+a `PartitionedVariable` as returned by using <a href="../../tf/get_variable"><code>tf.compat.v1.get_variable()</code></a>
+with a
 partitioner.
 
 If `len(params) > 1`, each element `id` of `ids` is partitioned between
@@ -49,23 +57,24 @@ tensor. The returned tensor has shape `shape(ids) + shape(params)[1:]`.
 
 #### Args:
 
-* <b>`params`</b>: A single tensor representing the complete embedding tensor,
-    or a list of P tensors all of same shape except for the first dimension,
-    representing sharded embedding tensors.  Alternatively, a
-    `PartitionedVariable`, created by partitioning along dimension 0. Each
-    element must be appropriately sized for the given `partition_strategy`.
+
+* <b>`params`</b>: A single tensor representing the complete embedding tensor, or a
+  list of P tensors all of same shape except for the first dimension,
+  representing sharded embedding tensors.  Alternatively, a
+  `PartitionedVariable`, created by partitioning along dimension 0. Each
+  element must be appropriately sized for the given `partition_strategy`.
 * <b>`ids`</b>: A `Tensor` with type `int32` or `int64` containing the ids to be looked
-    up in `params`.
+  up in `params`.
 * <b>`partition_strategy`</b>: A string specifying the partitioning strategy, relevant
-    if `len(params) > 1`. Currently `"div"` and `"mod"` are supported. Default
-    is `"mod"`.
+  if `len(params) > 1`. Currently `"div"` and `"mod"` are supported. Default
+  is `"mod"`.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`validate_indices`</b>: DEPRECATED. If this operation is assigned to CPU, values
-    in `indices` are always validated to be within range.  If assigned to GPU,
-    out-of-bound indices result in safe but unspecified behavior, which may
-    include raising an error.
-* <b>`max_norm`</b>: If not `None`, each embedding is clipped if its l2-norm is
-    larger than this value.
+  in `indices` are always validated to be within range.  If assigned to GPU,
+  out-of-bound indices result in safe but unspecified behavior, which may
+  include raising an error.
+* <b>`max_norm`</b>: If not `None`, each embedding is clipped if its l2-norm is larger
+  than this value.
 
 
 #### Returns:
@@ -73,6 +82,8 @@ tensor. The returned tensor has shape `shape(ids) + shape(params)[1:]`.
 A `Tensor` with the same type as the tensors in `params`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `params` is empty.

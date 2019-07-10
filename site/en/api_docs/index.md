@@ -24,7 +24,7 @@ We encourage the community to develop and maintain support for other languages
 with the [approach recommended by the TensorFlow maintainers](../extend/language_bindings).
 For example, see the bindings for:
 
-* [C#](https://github.com/migueldeicaza/TensorFlowSharp),
+* C#: [TensorFlowSharp](https://github.com/migueldeicaza/TensorFlowSharp) and [TensorFlow.NET](https://github.com/SciSharp/TensorFlow.NET),
 * [Haskell](https://github.com/tensorflow/haskell),
 * [Julia](https://github.com/malmaud/TensorFlow.jl),
 * [Ruby](https://github.com/somaticio/tensorflow.rb),

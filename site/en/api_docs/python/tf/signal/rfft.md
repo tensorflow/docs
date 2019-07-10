@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.signal.rfft
 
+Real-valued fast Fourier transform.
+
 ### Aliases:
 
+* `tf.compat.v1.signal.rfft`
+* `tf.compat.v1.spectral.rfft`
+* `tf.compat.v2.signal.rfft`
 * `tf.signal.rfft`
 * `tf.spectral.rfft`
 
@@ -20,9 +25,9 @@ tf.signal.rfft(
 
 
 
-Defined in [`tensorflow/python/ops/signal/fft_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/signal/fft_ops.py).
+Defined in [`python/ops/signal/fft_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/fft_ops.py).
 
-Real-valued fast Fourier transform.
+<!-- Placeholder for "Used in" -->
 
 Computes the 1-dimensional discrete Fourier transform of a real-valued signal
 over the inner-most dimension of `input`.
@@ -37,9 +42,10 @@ the dimension is padded with zeros.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor` of type `float32`. A float32 tensor.
 * <b>`fft_length`</b>: A `Tensor` of type `int32`.
-    An int32 tensor of shape [1]. The FFT length.
+  An int32 tensor of shape [1]. The FFT length.
 * <b>`name`</b>: A name for the operation (optional).
 
 

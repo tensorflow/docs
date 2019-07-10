@@ -5,12 +5,14 @@ page_type: reference
 
 # tf.contrib.graph_editor.can_be_regex
 
+Return True if obj can be turned into a regular expression.
+
 ``` python
 tf.contrib.graph_editor.can_be_regex(obj)
 ```
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/select.py).
+Defined in [`contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/select.py).
 
-Return True if obj can be turned into a regular expression.
+<!-- Placeholder for "Used in" -->

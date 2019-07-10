@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.kernel_classifier_distance
 
+Kernel "classifier" distance for evaluating a generative model.
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.classifier_metrics.kernel_classifier_distance`
@@ -23,9 +25,9 @@ tf.contrib.gan.eval.kernel_classifier_distance(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
-Kernel "classifier" distance for evaluating a generative model.
+<!-- Placeholder for "Used in" -->
 
 This is based on the Kernel Inception distance, but for an arbitrary
 embedding.
@@ -64,17 +66,18 @@ kernel_clasifier_distance_from_activations(), which this method also uses.
 
 #### Args:
 
+
 * <b>`real_images`</b>: Real images to use to compute Kernel Inception distance.
 * <b>`generated_images`</b>: Generated images to use to compute Kernel Inception
-    distance.
+  distance.
 * <b>`classifier_fn`</b>: A function that takes images and produces activations based
-    on a classifier.
+  on a classifier.
 * <b>`num_classifier_batches`</b>: Number of batches to split images in to in order to
-    efficiently run them through the classifier network.
-* <b>`max_estimator_block_size`</b>: integer, default 1024. The distance estimator
-    splits samples into blocks for computational efficiency. Larger values are
-    more computationally expensive but decrease the variance of the distance
-    estimate.
+  efficiently run them through the classifier network.
+* <b>`max_block_size`</b>: integer, default 1024. The distance estimator splits samples
+  into blocks for computational efficiency. Larger values are more
+  computationally expensive but decrease the variance of the distance
+  estimate.
 * <b>`dtype`</b>: if not None, coerce activations to this dtype before computations.
 
 

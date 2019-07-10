@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.image.rgb_to_hsv
 
+Converts one or more images from RGB to HSV.
+
+### Aliases:
+
+* `tf.compat.v1.image.rgb_to_hsv`
+* `tf.compat.v2.image.rgb_to_hsv`
+* `tf.image.rgb_to_hsv`
+
 ``` python
 tf.image.rgb_to_hsv(
     images,
@@ -14,9 +22,9 @@ tf.image.rgb_to_hsv(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_image_ops.py`.
+Defined in generated file: `python/ops/gen_image_ops.py`.
 
-Converts one or more images from RGB to HSV.
+<!-- Placeholder for "Used in" -->
 
 Outputs a tensor of the same shape as the `images` tensor, containing the HSV
 value of the pixels. The output is only well defined if the value in `images`
@@ -28,8 +36,9 @@ corresponds to pure red, hue 1/3 is pure green, and 2/3 is pure blue.
 
 #### Args:
 
+
 * <b>`images`</b>: A `Tensor`. Must be one of the following types: `half`, `bfloat16`, `float32`, `float64`.
-    1-D or higher rank. RGB data to convert. Last dimension must be size 3.
+  1-D or higher rank. RGB data to convert. Last dimension must be size 3.
 * <b>`name`</b>: A name for the operation (optional).
 
 

@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.gan.eval.summaries
 
+Common TF-GAN summaries.
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/summaries.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/summaries.py).
 
-Common TFGAN summaries.
+Defined in [`contrib/gan/python/eval/python/summaries.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/summaries.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Functions
 
@@ -24,8 +27,4 @@ Common TFGAN summaries.
 [`add_regularization_loss_summaries(...)`](../../../../tf/contrib/gan/eval/add_regularization_loss_summaries): Adds summaries for a regularization losses..
 
 [`add_stargan_image_summaries(...)`](../../../../tf/contrib/gan/eval/add_stargan_image_summaries): Adds image summaries to see StarGAN image results.
-
-## Other Members
-
-<h3 id="__all__"><code>__all__</code></h3>
 

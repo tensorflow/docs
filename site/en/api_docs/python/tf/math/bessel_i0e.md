@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.math.bessel_i0e
 
+Computes the Bessel i0e function of `x` element-wise.
+
+### Aliases:
+
+* `tf.compat.v1.math.bessel_i0e`
+* `tf.compat.v2.math.bessel_i0e`
+* `tf.math.bessel_i0e`
+
 ``` python
 tf.math.bessel_i0e(
     x,
@@ -14,9 +22,9 @@ tf.math.bessel_i0e(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Computes the Bessel i0e function of `x` element-wise.
+<!-- Placeholder for "Used in" -->
 
 Exponentially scaled modified Bessel function of order 0 defined as
 `bessel_i0e(x) = exp(-abs(x)) bessel_i0(x)`.
@@ -24,6 +32,7 @@ Exponentially scaled modified Bessel function of order 0 defined as
 This function is faster and numerically stabler than `bessel_i0(x)`.
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`.
 * <b>`name`</b>: A name for the operation (optional).

@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `VariableDeviceChooser`
 
-
-
-
-
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/variables.py).
-
 Device chooser for variables.
+
+
+
+
+
+Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
+
+<!-- Placeholder for "Used in" -->
 
 When using a parameter server it will assign them in a round-robin fashion.
 When not using a parameter server it allows GPU or CPU placement.
@@ -32,21 +34,26 @@ __init__(
 
 Initialize VariableDeviceChooser.
 
-Usage:
-  To use with 2 parameter servers:
-    VariableDeviceChooser(2)
 
-  To use without parameter servers:
-    VariableDeviceChooser()
-    VariableDeviceChooser(device_type='GPU') # For GPU placement
+#### Usage:
+
+To use with 2 parameter servers:
+  VariableDeviceChooser(2)
+
+To use without parameter servers:
+  VariableDeviceChooser()
+  VariableDeviceChooser(device_type='GPU') # For GPU placement
+
+
 
 #### Args:
+
 
 * <b>`num_tasks`</b>: number of tasks.
 * <b>`job_name`</b>: String, a name for the parameter server job.
 * <b>`device_type`</b>: Optional device type string (e.g. "CPU" or "GPU")
-* <b>`device_index`</b>: int.  Optional device index.  If left
-    unspecified, device represents 'any' device_index.
+* <b>`device_index`</b>: int.  Optional device index.  If left unspecified, device
+  represents 'any' device_index.
 
 
 
@@ -58,7 +65,8 @@ Usage:
 __call__(op)
 ```
 
-Call self as a function.
+
+
 
 
 

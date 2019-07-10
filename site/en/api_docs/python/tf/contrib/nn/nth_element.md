@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.nn.nth_element
 
+Finds values of the `n`-th smallest value for the last dimension.
+
 ``` python
 tf.contrib.nn.nth_element(
     input,
@@ -16,9 +18,11 @@ tf.contrib.nn.nth_element(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Finds values of the `n`-th order statistic for the last dmension.
+<!-- Placeholder for "Used in" -->
+
+Note that n is zero-indexed.
 
 If the input is a vector (rank-1), finds the entries which is the nth-smallest
 value in the vector and outputs their values as scalar tensor.
@@ -30,13 +34,14 @@ nth-smallest value in each row (resp. vector along the last dimension). Thus,
 
 #### Args:
 
+
 * <b>`input`</b>: 1-D or higher `Tensor` with last dimension at least `n+1`.
 * <b>`n`</b>: A `Tensor` of type `int32`.
-    0-D. Position of sorted vector to select along the last dimension (along
-    each row for matrices). Valid range of n is `[0, input.shape[:-1])`
+  0-D. Position of sorted vector to select along the last dimension (along
+  each row for matrices). Valid range of n is `[0, input.shape[:-1])`
 * <b>`reverse`</b>: An optional `bool`. Defaults to `False`.
-    When set to True, find the nth-largest value in the vector and vice
-    versa.
+  When set to True, find the nth-largest value in the vector and vice
+  versa.
 * <b>`name`</b>: A name for the operation (optional).
 
 

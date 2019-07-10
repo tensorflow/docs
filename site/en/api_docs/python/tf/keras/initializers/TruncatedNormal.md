@@ -7,18 +7,22 @@ page_type: reference
 
 ## Class `TruncatedNormal`
 
+Initializer that generates a truncated normal distribution.
+
 Inherits From: [`truncated_normal`](../../../tf/initializers/truncated_normal)
 
 ### Aliases:
 
+* Class `tf.compat.v1.keras.initializers.TruncatedNormal`
+* Class `tf.compat.v1.keras.initializers.truncated_normal`
 * Class `tf.keras.initializers.TruncatedNormal`
 * Class `tf.keras.initializers.truncated_normal`
 
 
 
-Defined in [`tensorflow/python/keras/initializers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/initializers.py).
+Defined in [`python/keras/initializers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/initializers.py).
 
-Initializer that generates a truncated normal distribution.
+<!-- Placeholder for "Used in" -->
 
 These values are similar to values from a `random_normal_initializer`
 except that values more than two standard deviations from the mean
@@ -27,13 +31,20 @@ neural network weights and filters.
 
 #### Args:
 
+
 * <b>`mean`</b>: a python scalar or a scalar tensor. Mean of the random values to
-    generate. Defaults to 0.
+  generate. Defaults to 0.
 * <b>`stddev`</b>: a python scalar or a scalar tensor. Standard deviation of the random
-    values to generate. Defaults to 0.05.
+  values to generate. Defaults to 0.05.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
+  <a href="../../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
 * <b>`dtype`</b>: The data type. Only floating point types are supported.
+
+
+#### Returns:
+
+A TruncatedNormal instance.
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -46,7 +57,8 @@ __init__(
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -62,15 +74,8 @@ __call__(
 )
 ```
 
-Returns a tensor object initialized as specified by the initializer.
 
-#### Args:
 
-* <b>`shape`</b>: Shape of the tensor.
-* <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
-    dtype.
-* <b>`partition_info`</b>: Optional information about the possible partitioning of a
-    tensor.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
@@ -83,7 +88,10 @@ from_config(
 
 Instantiates an initializer from a configuration dictionary.
 
-Example:
+
+#### Example:
+
+
 
 ```python
 initializer = RandomUniform(-1, 1)
@@ -93,13 +101,15 @@ initializer = RandomUniform.from_config(config)
 
 #### Args:
 
-* <b>`config`</b>: A Python dictionary.
-    It will typically be the output of `get_config`.
+
+* <b>`config`</b>: A Python dictionary. It will typically be the output of
+  `get_config`.
 
 
 #### Returns:
 
 An Initializer instance.
+
 
 <h3 id="get_config"><code>get_config</code></h3>
 
@@ -107,11 +117,8 @@ An Initializer instance.
 get_config()
 ```
 
-Returns the configuration of the initializer as a JSON-serializable dict.
 
-#### Returns:
 
-A JSON-serializable Python dict.
 
 
 

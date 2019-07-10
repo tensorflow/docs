@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.DNNRegressorWithLayerAnnotations
 
+A regressor for TensorFlow DNN models with layer annotations.
+
 ``` python
 tf.contrib.estimator.DNNRegressorWithLayerAnnotations(
     hidden_units,
@@ -22,9 +24,13 @@ tf.contrib.estimator.DNNRegressorWithLayerAnnotations(
 )
 ```
 
-A regressor for TensorFlow DNN models with layer annotations.
 
-This regressor is fuctionally identical to estimator.DNNRegressor as far as
+
+Defined in [`contrib/estimator/python/estimator/dnn_with_layer_annotations.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/dnn_with_layer_annotations.py).
+
+<!-- Placeholder for "Used in" -->
+
+This regressor is functionally identical to estimator.DNNRegressor as far as
 training and evaluating models is concerned. The key difference is that this
 classifier adds additional layer annotations, which can be used for computing
 Integrated Gradients.
@@ -61,41 +67,42 @@ estimator_with_annotations.export_saved_model(
 
 #### Args:
 
+
 * <b>`hidden_units`</b>: Iterable of number hidden units per layer. All layers are
-    fully connected. Ex. `[64, 32]` means first layer has 64 nodes and second
-    one has 32.
+  fully connected. Ex. `[64, 32]` means first layer has 64 nodes and second
+  one has 32.
 * <b>`feature_columns`</b>: An iterable containing all the feature columns used by the
-    model. All items in the set should be instances of classes derived from
-    `_FeatureColumn`.
+  model. All items in the set should be instances of classes derived from
+  `_FeatureColumn`.
 * <b>`model_dir`</b>: Directory to save model parameters, graph and etc. This can also
-    be used to load checkpoints from the directory into a estimator to
-    continue training a previously saved model.
+  be used to load checkpoints from the directory into a estimator to
+  continue training a previously saved model.
 * <b>`label_dimension`</b>: Number of regression targets per example. This is the size
-    of the last dimension of the labels and logits `Tensor` objects
-    (typically, these have shape `[batch_size, label_dimension]`).
+  of the last dimension of the labels and logits `Tensor` objects
+  (typically, these have shape `[batch_size, label_dimension]`).
 * <b>`weight_column`</b>: A string or a `_NumericColumn` created by
-    <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
-    weights. It is used to down weight or boost examples during training. It
-    will be multiplied by the loss of the example. If it is a string, it is
-    used as a key to fetch weight tensor from the `features`. If it is a
-    `_NumericColumn`, raw tensor is fetched by key `weight_column.key`, then
-    weight_column.normalizer_fn is applied on it to get weight tensor.
+  <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
+  weights. It is used to down weight or boost examples during training. It
+  will be multiplied by the loss of the example. If it is a string, it is
+  used as a key to fetch weight tensor from the `features`. If it is a
+  `_NumericColumn`, raw tensor is fetched by key `weight_column.key`, then
+  weight_column.normalizer_fn is applied on it to get weight tensor.
 * <b>`optimizer`</b>: An instance of `tf.Optimizer` used to train the model. Defaults
-    to Adagrad optimizer.
+  to Adagrad optimizer.
 * <b>`activation_fn`</b>: Activation function applied to each layer. If `None`, will
-    use <a href="../../../tf/nn/relu"><code>tf.nn.relu</code></a>.
+  use <a href="../../../tf/nn/relu"><code>tf.nn.relu</code></a>.
 * <b>`dropout`</b>: When not `None`, the probability we will drop out a given
-    coordinate.
+  coordinate.
 * <b>`input_layer_partitioner`</b>: Optional. Partitioner for input layer. Defaults to
-    `min_max_variable_partitioner` with `min_slice_size` 64 << 20.
+  `min_max_variable_partitioner` with `min_slice_size` 64 << 20.
 * <b>`config`</b>: `RunConfig` object to configure the runtime settings.
 * <b>`warm_start_from`</b>: A string filepath to a checkpoint to warm-start from, or a
-    `WarmStartSettings` object to fully configure warm-starting.  If the
-    string filepath is provided instead of a `WarmStartSettings`, then all
-    weights are warm-started, and it is assumed that vocabularies and Tensor
-    names are unchanged.
+  `WarmStartSettings` object to fully configure warm-starting.  If the
+  string filepath is provided instead of a `WarmStartSettings`, then all
+  weights are warm-started, and it is assumed that vocabularies and Tensor
+  names are unchanged.
 * <b>`loss_reduction`</b>: One of <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Describes how to
-    reduce training loss over batch. Defaults to `SUM`.
+  reduce training loss over batch. Defaults to `SUM`.
 
 
 #### Returns:

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.concatenate
 
+Concatenates a list of tensors alongside the specified axis.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.concatenate`
+* `tf.compat.v2.keras.backend.concatenate`
+* `tf.keras.backend.concatenate`
+
 ``` python
 tf.keras.backend.concatenate(
     tensors,
@@ -14,11 +22,13 @@ tf.keras.backend.concatenate(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Concatenates a list of tensors alongside the specified axis.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`tensors`</b>: list of tensors to concatenate.
 * <b>`axis`</b>: concatenation axis.

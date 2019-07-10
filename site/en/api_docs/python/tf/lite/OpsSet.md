@@ -7,26 +7,26 @@ page_type: reference
 
 ## Class `OpsSet`
 
+Enum class defining the sets of ops available to generate TFLite models.
+
 
 
 ### Aliases:
 
-* Class `tf.contrib.lite.OpsSet`
+* Class `tf.compat.v1.lite.OpsSet`
+* Class `tf.compat.v2.lite.OpsSet`
 * Class `tf.lite.OpsSet`
 
 
 
-Defined in [`tensorflow/lite/python/convert.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/lite/python/convert.py).
+Defined in [`lite/python/convert.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/convert.py).
 
-Enum class defining the sets of ops available to generate TFLite models.
+<!-- Placeholder for "Used in" -->
 
 WARNING: Experimental interface, subject to change.
 
 ## Class Members
 
-<h3 id="SELECT_TF_OPS"><code>SELECT_TF_OPS</code></h3>
-
-<h3 id="TFLITE_BUILTINS"><code>TFLITE_BUILTINS</code></h3>
-
-<h3 id="__members__"><code>__members__</code></h3>
-
+* `SELECT_TF_OPS` <a id="SELECT_TF_OPS"></a>
+* `TFLITE_BUILTINS` <a id="TFLITE_BUILTINS"></a>
+* `TFLITE_BUILTINS_INT8` <a id="TFLITE_BUILTINS_INT8"></a>

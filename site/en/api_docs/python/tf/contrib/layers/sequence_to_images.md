@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.sequence_to_images
 
+Convert a batch of sequences into a batch of images.
+
 ``` python
 tf.contrib.layers.sequence_to_images(
     inputs,
@@ -17,16 +19,18 @@ tf.contrib.layers.sequence_to_images(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
-Convert a batch of sequences into a batch of images.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`inputs`</b>: (num_steps, num_batches, depth) sequence tensor
 * <b>`height`</b>: the height of the images
-* <b>`output_data_format`</b>: Format of output tensor.
-    Currently supports `'channels_first'` and `'channels_last'`.
+* <b>`output_data_format`</b>: Format of output tensor. Currently supports
+  `'channels_first'` and `'channels_last'`.
 * <b>`outputs_collections`</b>: The collections to which the outputs are added.
 * <b>`scope`</b>: Optional scope for name_scope.
 

@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `TensorArray`
 
-
-
-
-
-Defined in [`tensorflow/python/ops/tensor_array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/tensor_array_ops.py).
-
 Class wrapping dynamic-sized, per-time-step, write-once Tensor arrays.
+
+
+
+### Aliases:
+
+* Class `tf.TensorArray`
+* Class `tf.compat.v1.TensorArray`
+* Class `tf.compat.v2.TensorArray`
+
+
+
+Defined in [`python/ops/tensor_array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/tensor_array_ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 This class is meant to be used with dynamic iteration primitives such as
 `while_loop` and `map_fn`.  It supports gradient back-propagation via special
@@ -48,35 +56,37 @@ is created within a `while_loop`.
 
 #### Args:
 
+
 * <b>`dtype`</b>: (required) data type of the TensorArray.
 * <b>`size`</b>: (optional) int32 scalar `Tensor`: the size of the TensorArray.
-    Required if handle is not provided.
+  Required if handle is not provided.
 * <b>`dynamic_size`</b>: (optional) Python bool: If true, writes to the TensorArray
-    can grow the TensorArray past its initial size.  Default: False.
+  can grow the TensorArray past its initial size.  Default: False.
 * <b>`clear_after_read`</b>: Boolean (optional, default: True).  If True, clear
-    TensorArray values after reading them.  This disables read-many
-    semantics, but allows early release of memory.
+  TensorArray values after reading them.  This disables read-many
+  semantics, but allows early release of memory.
 * <b>`tensor_array_name`</b>: (optional) Python string: the name of the TensorArray.
-    This is used when creating the TensorArray handle.  If this value is
-    set, handle should be None.
+  This is used when creating the TensorArray handle.  If this value is
+  set, handle should be None.
 * <b>`handle`</b>: (optional) A `Tensor` handle to an existing TensorArray.  If this
-    is set, tensor_array_name should be None. Only supported in graph mode.
+  is set, tensor_array_name should be None. Only supported in graph mode.
 * <b>`flow`</b>: (optional) A float `Tensor` scalar coming from an existing
-    `TensorArray.flow`. Only supported in graph mode.
+  <a href="../tf/TensorArray#flow"><code>TensorArray.flow</code></a>. Only supported in graph mode.
 * <b>`infer_shape`</b>: (optional, default: True) If True, shape inference
-    is enabled.  In this case, all elements must have the same shape.
+  is enabled.  In this case, all elements must have the same shape.
 * <b>`element_shape`</b>: (optional, default: None) A `TensorShape` object specifying
-    the shape constraints of each of the elements of the TensorArray.
-    Need not be fully defined.
+  the shape constraints of each of the elements of the TensorArray.
+  Need not be fully defined.
 * <b>`colocate_with_first_write_call`</b>: If `True`, the TensorArray will be
-    colocated on the same device as the Tensor used on its first write
-    (write operations include `write`, `unstack`, and `split`).  If `False`,
-    the TensorArray will be placed on the device determined by the
-    device context available during its initialization.
+  colocated on the same device as the Tensor used on its first write
+  (write operations include `write`, `unstack`, and `split`).  If `False`,
+  the TensorArray will be placed on the device determined by the
+  device context available during its initialization.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if both handle and tensor_array_name are provided.
 * <b>`TypeError`</b>: if handle is provided but is not a Tensor.
@@ -89,13 +99,26 @@ is created within a `while_loop`.
 
 The data type of this TensorArray.
 
+
+<h3 id="dynamic_size"><code>dynamic_size</code></h3>
+
+Python bool; if `True` the TensorArray can grow dynamically.
+
+
+<h3 id="element_shape"><code>element_shape</code></h3>
+
+The <a href="../tf/TensorShape"><code>tf.TensorShape</code></a> of elements in this TensorArray.
+
+
 <h3 id="flow"><code>flow</code></h3>
 
 The flow `Tensor` forcing ops leading to this TensorArray state.
 
+
 <h3 id="handle"><code>handle</code></h3>
 
 The reference to the TensorArray.
+
 
 
 
@@ -124,12 +147,14 @@ and their shapes must all match for all dimensions except the first.
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 All the tensors in the TensorArray concatenated into one tensor.
+
 
 <h3 id="gather"><code>gather</code></h3>
 
@@ -147,8 +172,9 @@ must all match.
 
 #### Args:
 
+
 * <b>`indices`</b>: A `1-D` `Tensor` taking values in `[0, max_value)`.  If
-    the `TensorArray` is not dynamic, `max_value=size()`.
+  the `TensorArray` is not dynamic, `max_value=size()`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -156,6 +182,7 @@ must all match.
 
 The tensors in the `TensorArray` selected by `indices`, packed into one
 tensor.
+
 
 <h3 id="grad"><code>grad</code></h3>
 
@@ -169,6 +196,7 @@ grad(
 
 
 
+
 <h3 id="identity"><code>identity</code></h3>
 
 ``` python
@@ -177,11 +205,13 @@ identity()
 
 Returns a TensorArray with the same content and properties.
 
+
 #### Returns:
 
 A new TensorArray object with flow that ensures the control dependencies
 from the contexts will become control dependencies for writes, reads, etc.
 Use this object all for subsequent operations.
+
 
 <h3 id="read"><code>read</code></h3>
 
@@ -194,7 +224,9 @@ read(
 
 Read the value at location `index` in the TensorArray.
 
+
 #### Args:
+
 
 * <b>`index`</b>: 0-D.  int32 tensor with the index to read from.
 * <b>`name`</b>: A name for the operation (optional).
@@ -203,6 +235,7 @@ Read the value at location `index` in the TensorArray.
 #### Returns:
 
 The tensor at index `index`.
+
 
 <h3 id="scatter"><code>scatter</code></h3>
 
@@ -239,6 +272,7 @@ size(name=None)
 ```
 
 Return the size of the TensorArray.
+
 
 <h3 id="split"><code>split</code></h3>
 
@@ -281,12 +315,14 @@ If input shapes have rank-`R`, then output shape will have rank-`(R+1)`.
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 All the tensors in the TensorArray stacked into one tensor.
+
 
 <h3 id="unstack"><code>unstack</code></h3>
 
@@ -328,20 +364,26 @@ write(
 
 Write `value` into index `index` of the TensorArray.
 
-  Args:
-    index: 0-D.  int32 scalar with the index to write to.
-    value: N-D.  Tensor of type `dtype`.  The Tensor to write to this index.
-    name: A name for the operation (optional).
 
-  Returns:
-    A new TensorArray object with flow that ensures the write occurs.
-    Use this object all for subsequent operations.
+#### Args:
 
-  Raises:
-    ValueError: if there are more writers than specified.
-  
 
-**NOTE** The output of this function should be used.  If it is not, a warning will be logged.  To mark the output as used, call its .mark_used() method.
+* <b>`index`</b>: 0-D.  int32 scalar with the index to write to.
+* <b>`value`</b>: N-D.  Tensor of type `dtype`.  The Tensor to write to this index.
+* <b>`name`</b>: A name for the operation (optional).
+
+
+#### Returns:
+
+A new TensorArray object with flow that ensures the write occurs.
+Use this object all for subsequent operations.
+
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: if there are more writers than specified.
 
 
 

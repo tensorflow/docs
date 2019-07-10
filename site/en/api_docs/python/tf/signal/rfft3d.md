@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.signal.rfft3d
 
+3D real-valued fast Fourier transform.
+
 ### Aliases:
 
+* `tf.compat.v1.signal.rfft3d`
+* `tf.compat.v1.spectral.rfft3d`
+* `tf.compat.v2.signal.rfft3d`
 * `tf.signal.rfft3d`
 * `tf.spectral.rfft3d`
 
@@ -20,9 +25,9 @@ tf.signal.rfft3d(
 
 
 
-Defined in [`tensorflow/python/ops/signal/fft_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/signal/fft_ops.py).
+Defined in [`python/ops/signal/fft_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/fft_ops.py).
 
-3D real-valued fast Fourier transform.
+<!-- Placeholder for "Used in" -->
 
 Computes the 3-dimensional discrete Fourier transform of a real-valued signal
 over the inner-most 3 dimensions of `input`.
@@ -38,9 +43,10 @@ the dimension is padded with zeros.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor` of type `float32`. A float32 tensor.
 * <b>`fft_length`</b>: A `Tensor` of type `int32`.
-    An int32 tensor of shape [3]. The FFT length for each dimension.
+  An int32 tensor of shape [3]. The FFT length for each dimension.
 * <b>`name`</b>: A name for the operation (optional).
 
 

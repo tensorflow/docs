@@ -7,19 +7,29 @@ page_type: reference
 
 ## Class `LoggingTensorHook`
 
+Prints the given tensors every N local steps, every N seconds, or at end.
+
 Inherits From: [`SessionRunHook`](../../tf/train/SessionRunHook)
 
+### Aliases:
+
+* Class `tf.compat.v1.estimator.LoggingTensorHook`
+* Class `tf.compat.v1.train.LoggingTensorHook`
+* Class `tf.compat.v2.estimator.LoggingTensorHook`
+* Class `tf.estimator.LoggingTensorHook`
+* Class `tf.train.LoggingTensorHook`
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/basic_session_run_hooks.py).
 
-Prints the given tensors every N local steps, every N seconds, or at end.
+Defined in [`python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/basic_session_run_hooks.py).
+
+<!-- Placeholder for "Used in" -->
 
 The tensors will be printed to the log, with `INFO` severity. If you are not
 seeing the logs, you might want to add the following line after your imports:
 
 ```python
-  tf.logging.set_verbosity(tf.logging.INFO)
+  tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.INFO)
 ```
 
 Note that if `at_end` is True, `tensors` should not include any tensor
@@ -39,22 +49,25 @@ __init__(
 
 Initializes a `LoggingTensorHook`.
 
+
 #### Args:
 
-* <b>`tensors`</b>: `dict` that maps string-valued tags to tensors/tensor names,
-      or `iterable` of tensors/tensor names.
+
+* <b>`tensors`</b>: `dict` that maps string-valued tags to tensors/tensor names, or
+  `iterable` of tensors/tensor names.
 * <b>`every_n_iter`</b>: `int`, print the values of `tensors` once every N local
-      steps taken on the current worker.
+  steps taken on the current worker.
 * <b>`every_n_secs`</b>: `int` or `float`, print the values of `tensors` once every N
-      seconds. Exactly one of `every_n_iter` and `every_n_secs` should be
-      provided.
+  seconds. Exactly one of `every_n_iter` and `every_n_secs` should be
+  provided.
 * <b>`at_end`</b>: `bool` specifying whether to print the values of `tensors` at the
-      end of the run.
+  end of the run.
 * <b>`formatter`</b>: function, takes dict of `tag`->`Tensor` and returns a string.
-      If `None` uses default printing all tensors.
+  If `None` uses default printing all tensors.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `every_n_iter` is non-positive.
 
@@ -83,6 +96,7 @@ has two essential differences with the situation in which `begin` is called:
 
 #### Args:
 
+
 * <b>`session`</b>: A TensorFlow Session that has been created.
 * <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
@@ -95,20 +109,8 @@ after_run(
 )
 ```
 
-Called after each call to run().
 
-The `run_values` argument contains results of requested ops/tensors by
-`before_run()`.
 
-The `run_context` argument is the same one send to `before_run` call.
-`run_context.request_stop()` can be called to stop the iteration.
-
-If `session.run()` raises any exceptions then `after_run()` is not called.
-
-#### Args:
-
-* <b>`run_context`</b>: A `SessionRunContext` object.
-* <b>`run_values`</b>: A SessionRunValues object.
 
 <h3 id="before_run"><code>before_run</code></h3>
 
@@ -116,28 +118,8 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 before_run(run_context)
 ```
 
-Called before each call to run().
-
-You can return from this call a `SessionRunArgs` object indicating ops or
-tensors to add to the upcoming `run()` call.  These ops/tensors will be run
-together with the ops/tensors originally passed to the original run() call.
-The run args you return can also contain feeds to be added to the run()
-call.
-
-The `run_context` argument is a `SessionRunContext` that provides
-information about the upcoming `run()` call: the originally requested
-op/tensors, the TensorFlow Session.
-
-At this point graph is finalized and you can not add ops.
-
-#### Args:
-
-* <b>`run_context`</b>: A `SessionRunContext` object.
 
 
-#### Returns:
-
-None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
@@ -145,13 +127,8 @@ None or a `SessionRunArgs` object.
 begin()
 ```
 
-Called once before using the session.
 
-When called, the default graph is the one that will be launched in the
-session.  The hook can modify the graph by adding new operations to it.
-After the `begin()` call the graph will be finalized and the other callbacks
-can not modify the graph anymore. Second call of `begin()` on the same
-graph, should not change the graph.
+
 
 <h3 id="end"><code>end</code></h3>
 
@@ -159,20 +136,8 @@ graph, should not change the graph.
 end(session)
 ```
 
-Called at the end of session.
 
-The `session` argument can be used in case the hook wants to run final ops,
-such as saving a last checkpoint.
 
-If `session.run()` raises exception other than OutOfRangeError or
-StopIteration then `end()` is not called.
-Note the difference between `end()` and `after_run()` behavior when
-`session.run()` raises OutOfRangeError or StopIteration. In that case
-`end()` is called but `after_run()` is not called.
-
-#### Args:
-
-* <b>`session`</b>: A TensorFlow Session that will be soon closed.
 
 
 

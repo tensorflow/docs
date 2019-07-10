@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.dynamic_stitch
 
+Interleave the values from the `data` tensors into a single tensor.
+
+### Aliases:
+
+* `tf.compat.v1.dynamic_stitch`
+* `tf.compat.v2.dynamic_stitch`
+* `tf.dynamic_stitch`
+
 ``` python
 tf.dynamic_stitch(
     indices,
@@ -15,9 +23,9 @@ tf.dynamic_stitch(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_data_flow_ops.py`.
+Defined in generated file: `python/ops/gen_data_flow_ops.py`.
 
-Interleave the values from the `data` tensors into a single tensor.
+<!-- Placeholder for "Used in" -->
 
 Builds a merged tensor such that
 
@@ -47,7 +55,9 @@ Values are merged in order, so if an index appears in both `indices[m][i]` and
 merged result. If you do not need this guarantee, ParallelDynamicStitch might
 perform better on some devices.
 
-For example:
+#### For example:
+
+
 
 ```python
     indices[0] = 6
@@ -83,6 +93,7 @@ as illustrated on the following example:
 </div>
 
 #### Args:
+
 
 * <b>`indices`</b>: A list of at least 1 `Tensor` objects with type `int32`.
 * <b>`data`</b>: A list with the same length as `indices` of `Tensor` objects with the same type.

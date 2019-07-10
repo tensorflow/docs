@@ -7,11 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-SavedModel utility functions.
-
-Utility functions to assist with setup and construction of the SavedModel proto.
 
 ## Functions
 

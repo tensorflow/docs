@@ -6,6 +6,8 @@ page_type: reference
 
 # tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler
 
+Monte Carlo estimate of \\(E_p[f(Z)] = E_q[f(Z) p(Z) / q(Z)]\\).
+
 ``` python
 tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler(
     f,
@@ -20,9 +22,9 @@ tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
+Defined in [`contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
 
-Monte Carlo estimate of \\(E_p[f(Z)] = E_q[f(Z) p(Z) / q(Z)]\\).
+<!-- Placeholder for "Used in" -->
 
 With \\(p(z) := exp^{log_p(z)}\\), this `Op` returns
 
@@ -40,16 +42,17 @@ User supplies either `Tensor` of samples `z`, or number of samples to draw `n`
 
 #### Args:
 
+
 * <b>`f`</b>: Callable mapping samples from `sampling_dist_q` to `Tensors` with shape
-    broadcastable to `q.batch_shape`.
-    For example, `f` works "just like" `q.log_prob`.
+  broadcastable to `q.batch_shape`.
+  For example, `f` works "just like" `q.log_prob`.
 * <b>`log_p`</b>:  Callable mapping samples from `sampling_dist_q` to `Tensors` with
-    shape broadcastable to `q.batch_shape`.
-    For example, `log_p` works "just like" `sampling_dist_q.log_prob`.
+  shape broadcastable to `q.batch_shape`.
+  For example, `log_p` works "just like" `sampling_dist_q.log_prob`.
 * <b>`sampling_dist_q`</b>:  The sampling distribution.
-    `tfp.distributions.Distribution`.
-    `float64` `dtype` recommended.
-    `log_p` and `q` should be supported on the same set.
+  `tfp.distributions.Distribution`.
+  `float64` `dtype` recommended.
+  `log_p` and `q` should be supported on the same set.
 * <b>`z`</b>:  `Tensor` of samples from `q`, produced by `q.sample` for some `n`.
 * <b>`n`</b>:  Integer `Tensor`.  Number of samples to generate if `z` is not provided.
 * <b>`seed`</b>:  Python integer to seed the random number generator.

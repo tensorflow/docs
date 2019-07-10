@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.linalg.diag
 
+Returns a batched diagonal tensor with a given batched diagonal values.
+
 ### Aliases:
 
+* `tf.compat.v1.linalg.diag`
+* `tf.compat.v1.matrix_diag`
+* `tf.compat.v2.linalg.diag`
 * `tf.linalg.diag`
 * `tf.matrix_diag`
 
@@ -19,9 +24,9 @@ tf.linalg.diag(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Returns a batched diagonal tensor with a given batched diagonal values.
+<!-- Placeholder for "Used in" -->
 
 Given a `diagonal`, this operation returns a tensor with the `diagonal` and
 everything else padded with zeros. The diagonal is computed as follows:
@@ -31,7 +36,9 @@ tensor of rank `k+1` with dimensions [I, J, K, ..., N, N]` where:
 
 `output[i, j, k, ..., m, n] = 1{m=n} * diagonal[i, j, k, ..., n]`.
 
-For example:
+#### For example:
+
+
 
 ```
 # 'diagonal' is [[1, 2, 3, 4], [5, 6, 7, 8]]
@@ -51,6 +58,7 @@ which has shape (2, 4, 4)
 ```
 
 #### Args:
+
 
 * <b>`diagonal`</b>: A `Tensor`. Rank `k`, where `k >= 1`.
 * <b>`name`</b>: A name for the operation (optional).

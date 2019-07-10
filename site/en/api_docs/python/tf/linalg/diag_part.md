@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.linalg.diag_part
 
+Returns the batched diagonal part of a batched tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.linalg.diag_part`
+* `tf.compat.v1.matrix_diag_part`
+* `tf.compat.v2.linalg.diag_part`
 * `tf.linalg.diag_part`
 * `tf.matrix_diag_part`
 
@@ -19,9 +24,9 @@ tf.linalg.diag_part(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Returns the batched diagonal part of a batched tensor.
+<!-- Placeholder for "Used in" -->
 
 This operation returns a tensor with the `diagonal` part
 of the batched `input`. The `diagonal` part is computed as follows:
@@ -33,7 +38,9 @@ tensor of rank `k - 1` with dimensions `[I, J, K, ..., min(M, N)]` where:
 
 The input must be at least a matrix.
 
-For example:
+#### For example:
+
+
 
 ```
 # 'input' is [[[1, 0, 0, 0]
@@ -53,6 +60,7 @@ which has shape (2, 4)
 ```
 
 #### Args:
+
 
 * <b>`input`</b>: A `Tensor`. Rank `k` tensor where `k >= 2`.
 * <b>`name`</b>: A name for the operation (optional).

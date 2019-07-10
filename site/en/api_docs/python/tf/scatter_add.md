@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.scatter_add
 
+Adds sparse updates to the variable referenced by `resource`.
+
+### Aliases:
+
+* `tf.compat.v1.scatter_add`
+* `tf.scatter_add`
+
 ``` python
 tf.scatter_add(
     ref,
@@ -17,9 +24,9 @@ tf.scatter_add(
 
 
 
-Defined in [`tensorflow/python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/state_ops.py).
+Defined in [`python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/state_ops.py).
 
-Adds sparse updates to the variable referenced by `resource`.
+<!-- Placeholder for "Used in" -->
 
 This operation computes
 
@@ -47,14 +54,15 @@ Requires `updates.shape = indices.shape + ref.shape[1:]`.
 
 #### Args:
 
+
 * <b>`ref`</b>: A `Variable`.
 * <b>`indices`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    A tensor of indices into the first dimension of `ref`.
+  A tensor of indices into the first dimension of `ref`.
 * <b>`updates`</b>: A `Tensor`. Must have the same type as `ref`.
-    A tensor of updated values to store in `ref`.
+  A tensor of updated values to store in `ref`.
 * <b>`use_locking`</b>: An optional `bool`. Defaults to `False`.
-    If True, the assignment will be protected by a lock;
-    otherwise the behavior is undefined, but may exhibit less contention.
+  If True, the assignment will be protected by a lock;
+  otherwise the behavior is undefined, but may exhibit less contention.
 * <b>`name`</b>: A name for the operation (optional).
 
 

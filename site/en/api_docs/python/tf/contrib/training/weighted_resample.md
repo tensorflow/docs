@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.training.weighted_resample
 
+Performs an approximate weighted resampling of `inputs`.
+
 ``` python
 tf.contrib.training.weighted_resample(
     inputs,
@@ -18,9 +20,9 @@ tf.contrib.training.weighted_resample(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/resample.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/resample.py).
+Defined in [`contrib/training/python/training/resample.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/resample.py).
 
-Performs an approximate weighted resampling of `inputs`.
+<!-- Placeholder for "Used in" -->
 
 This method chooses elements from `inputs` where each item's rate of
 selection is proportional to its value in `weights`, and the average
@@ -28,6 +30,7 @@ rate of selection across all inputs (and many invocations!) is
 `overall_rate`.
 
 #### Args:
+
 
 * <b>`inputs`</b>: A list of tensors whose first dimension is `batch_size`.
 * <b>`weights`</b>: A `[batch_size]`-shaped tensor with each batch member's weight.

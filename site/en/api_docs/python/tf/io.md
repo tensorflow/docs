@@ -7,13 +7,12 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.io namespace.
 
 ## Modules
 
-[`gfile`](../tf/io/gfile) module: Public API for tf.io.gfile namespace.
+[`gfile`](../tf/io/gfile) module
 
 ## Classes
 
@@ -51,9 +50,9 @@ Public API for tf.io namespace.
 
 [`decode_csv(...)`](../tf/io/decode_csv): Convert CSV records to tensors. Each column maps to one tensor.
 
-[`decode_gif(...)`](../tf/io/decode_gif): Decode the first frame of a GIF-encoded image to a uint8 tensor.
+[`decode_gif(...)`](../tf/io/decode_gif): Decode the frame(s) of a GIF-encoded image to a uint8 tensor.
 
-[`decode_image(...)`](../tf/io/decode_image): Convenience function for `decode_bmp`, `decode_gif`, `decode_jpeg`,
+[`decode_image(...)`](../tf/io/decode_image): Function for `decode_bmp`, `decode_gif`, `decode_jpeg`, and `decode_png`.
 
 [`decode_jpeg(...)`](../tf/io/decode_jpeg): Decode a JPEG-encoded image to a uint8 tensor.
 
@@ -61,13 +60,17 @@ Public API for tf.io namespace.
 
 [`decode_png(...)`](../tf/io/decode_png): Decode a PNG-encoded image to a uint8 or uint16 tensor.
 
-[`decode_raw(...)`](../tf/io/decode_raw): Reinterpret the bytes of a string as a vector of numbers.
+[`decode_proto(...)`](../tf/io/decode_proto): The op extracts fields from a serialized protocol buffers message into tensors.
+
+[`decode_raw(...)`](../tf/decode_raw): Convert raw byte strings into tensors. (deprecated arguments)
 
 [`deserialize_many_sparse(...)`](../tf/io/deserialize_many_sparse): Deserialize and concatenate `SparseTensors` from a serialized minibatch.
 
 [`encode_base64(...)`](../tf/io/encode_base64): Encode strings into web-safe base64 format.
 
 [`encode_jpeg(...)`](../tf/io/encode_jpeg): JPEG-encode an image.
+
+[`encode_proto(...)`](../tf/io/encode_proto): The op serializes protobuf messages provided in the input tensors.
 
 [`extract_jpeg_shape(...)`](../tf/io/extract_jpeg_shape): Extract the shape information of a JPEG-encoded image.
 

@@ -7,6 +7,8 @@ page_type: reference
 
 ## Class `Checkpointable`
 
+Manages dependencies on other objects.
+
 Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/CheckpointableBase)
 
 ### Aliases:
@@ -16,11 +18,11 @@ Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/Checkpointa
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/tracking.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/checkpointable/tracking.py).
+Defined in [`python/training/tracking/tracking.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/tracking.py).
 
-Manages dependencies on other objects.
+<!-- Placeholder for "Used in" -->
 
-`Checkpointable` objects may have dependencies: other `Checkpointable` objects
+`Trackable` objects may have dependencies: other `Trackable` objects
 which should be saved if the object declaring the dependency is saved. A
 correctly saveable program has a dependency graph such that if changing a
 global variable affects an object (e.g. changes the behavior of any of its
@@ -28,34 +30,19 @@ methods) then there is a chain of dependencies from the influenced object to
 the variable.
 
 Dependency edges have names, and are created implicitly when a
-`Checkpointable` object is assigned to an attribute of another
-`Checkpointable` object. For example:
+`Trackable` object is assigned to an attribute of another
+`Trackable` object. For example:
 
 ```
-obj = Checkpointable()
+obj = Trackable()
 obj.v = ResourceVariable(0.)
 ```
 
-The `Checkpointable` object `obj` now has a dependency named "v" on a
+The `Trackable` object `obj` now has a dependency named "v" on a
 variable.
 
-`Checkpointable` objects may specify `Tensor`s to be saved and restored
+`Trackable` objects may specify `Tensor`s to be saved and restored
 directly (e.g. a `Variable` indicating how to save itself) rather than through
 dependencies on other objects. See
-`Checkpointable._gather_saveables_for_checkpoint` for details.
-
-## Methods
-
-<h3 id="__setattr__"><code>__setattr__</code></h3>
-
-``` python
-__setattr__(
-    name,
-    value
-)
-```
-
-Support self.foo = checkpointable syntax.
-
-
+`Trackable._gather_saveables_for_checkpoint` for details.
 

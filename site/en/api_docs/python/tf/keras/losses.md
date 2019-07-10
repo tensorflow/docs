@@ -7,15 +7,37 @@ page_type: reference
 
 
 
+### Aliases:
+
+* Module `tf.compat.v1.keras.losses`
+* Module `tf.keras.losses`
 
 
-Built-in loss functions.
+
+Defined in [`python/keras/api/_v1/keras/losses/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/losses/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 
-[`class BinaryCrossentropy`](../../tf/keras/losses/BinaryCrossentropy): Computes the binary cross entropy loss between the labels and predictions.
+[`class BinaryCrossentropy`](../../tf/keras/losses/BinaryCrossentropy): Computes the cross-entropy loss between true labels and predicted labels.
 
-[`class CategoricalCrossentropy`](../../tf/keras/losses/CategoricalCrossentropy): Computes categorical cross entropy loss between the `y_true` and `y_pred`.
+[`class CategoricalCrossentropy`](../../tf/keras/losses/CategoricalCrossentropy): Computes the crossentropy loss between the labels and predictions.
+
+[`class CategoricalHinge`](../../tf/keras/losses/CategoricalHinge): Computes the categorical hinge loss between `y_true` and `y_pred`.
+
+[`class CosineSimilarity`](../../tf/keras/losses/CosineSimilarity): Computes the cosine similarity between `y_true` and `y_pred`.
+
+[`class Hinge`](../../tf/keras/losses/Hinge): Computes the hinge loss between `y_true` and `y_pred`.
+
+[`class Huber`](../../tf/keras/losses/Huber): Computes the Huber loss between `y_true` and `y_pred`.
+
+[`class KLDivergence`](../../tf/keras/losses/KLDivergence): Computes Kullback Leibler divergence loss between `y_true` and `y_pred`.
+
+[`class LogCosh`](../../tf/keras/losses/LogCosh): Computes the logarithm of the hyperbolic cosine of the prediction error.
+
+[`class Loss`](../../tf/keras/losses/Loss): Loss base class.
 
 [`class MeanAbsoluteError`](../../tf/keras/losses/MeanAbsoluteError): Computes the mean of absolute difference between labels and predictions.
 
@@ -25,61 +47,69 @@ Built-in loss functions.
 
 [`class MeanSquaredLogarithmicError`](../../tf/keras/losses/MeanSquaredLogarithmicError): Computes the mean squared logarithmic error between `y_true` and `y_pred`.
 
+[`class Poisson`](../../tf/keras/losses/Poisson): Computes the Poisson loss between `y_true` and `y_pred`.
+
+[`class SparseCategoricalCrossentropy`](../../tf/keras/losses/SparseCategoricalCrossentropy): Computes the crossentropy loss between the labels and predictions.
+
+[`class SquaredHinge`](../../tf/keras/losses/SquaredHinge): Computes the squared hinge loss between `y_true` and `y_pred`.
+
 ## Functions
 
-[`KLD(...)`](../../tf/keras/metrics/kullback_leibler_divergence)
+[`KLD(...)`](../../tf/keras/losses/KLD)
 
-[`MAE(...)`](../../tf/keras/metrics/mean_absolute_error)
+[`MAE(...)`](../../tf/keras/losses/MAE)
 
-[`MAPE(...)`](../../tf/keras/metrics/mean_absolute_percentage_error)
+[`MAPE(...)`](../../tf/keras/losses/MAPE)
 
-[`MSE(...)`](../../tf/keras/metrics/mean_squared_error)
+[`MSE(...)`](../../tf/keras/losses/MSE)
 
-[`MSLE(...)`](../../tf/keras/metrics/mean_squared_logarithmic_error)
+[`MSLE(...)`](../../tf/keras/losses/MSLE)
 
-[`binary_crossentropy(...)`](../../tf/keras/metrics/binary_crossentropy)
+[`binary_crossentropy(...)`](../../tf/keras/losses/binary_crossentropy)
 
-[`categorical_crossentropy(...)`](../../tf/keras/metrics/categorical_crossentropy)
+[`categorical_crossentropy(...)`](../../tf/keras/losses/categorical_crossentropy): Computes the categorical crossentropy loss.
 
 [`categorical_hinge(...)`](../../tf/keras/losses/categorical_hinge)
 
-[`cosine(...)`](../../tf/keras/metrics/cosine_proximity)
+[`cosine(...)`](../../tf/keras/losses/cosine): Computes the cosine similarity between labels and predictions.
 
-[`cosine_proximity(...)`](../../tf/keras/metrics/cosine_proximity)
+[`cosine_proximity(...)`](../../tf/keras/losses/cosine): Computes the cosine similarity between labels and predictions.
+
+[`cosine_similarity(...)`](../../tf/keras/losses/cosine): Computes the cosine similarity between labels and predictions.
 
 [`deserialize(...)`](../../tf/keras/losses/deserialize)
 
 [`get(...)`](../../tf/keras/losses/get)
 
-[`hinge(...)`](../../tf/keras/metrics/hinge)
+[`hinge(...)`](../../tf/keras/losses/hinge): Computes the hinge loss between `y_true` and `y_pred`.
 
-[`kld(...)`](../../tf/keras/metrics/kullback_leibler_divergence)
+[`kld(...)`](../../tf/keras/losses/KLD)
 
-[`kullback_leibler_divergence(...)`](../../tf/keras/metrics/kullback_leibler_divergence)
+[`kullback_leibler_divergence(...)`](../../tf/keras/losses/KLD)
 
 [`logcosh(...)`](../../tf/keras/losses/logcosh): Logarithm of the hyperbolic cosine of the prediction error.
 
-[`mae(...)`](../../tf/keras/metrics/mean_absolute_error)
+[`mae(...)`](../../tf/keras/losses/MAE)
 
-[`mape(...)`](../../tf/keras/metrics/mean_absolute_percentage_error)
+[`mape(...)`](../../tf/keras/losses/MAPE)
 
-[`mean_absolute_error(...)`](../../tf/keras/metrics/mean_absolute_error)
+[`mean_absolute_error(...)`](../../tf/keras/losses/MAE)
 
-[`mean_absolute_percentage_error(...)`](../../tf/keras/metrics/mean_absolute_percentage_error)
+[`mean_absolute_percentage_error(...)`](../../tf/keras/losses/MAPE)
 
-[`mean_squared_error(...)`](../../tf/keras/metrics/mean_squared_error)
+[`mean_squared_error(...)`](../../tf/keras/losses/MSE)
 
-[`mean_squared_logarithmic_error(...)`](../../tf/keras/metrics/mean_squared_logarithmic_error)
+[`mean_squared_logarithmic_error(...)`](../../tf/keras/losses/MSLE)
 
-[`mse(...)`](../../tf/keras/metrics/mean_squared_error)
+[`mse(...)`](../../tf/keras/losses/MSE)
 
-[`msle(...)`](../../tf/keras/metrics/mean_squared_logarithmic_error)
+[`msle(...)`](../../tf/keras/losses/MSLE)
 
-[`poisson(...)`](../../tf/keras/metrics/poisson)
+[`poisson(...)`](../../tf/keras/losses/poisson)
 
 [`serialize(...)`](../../tf/keras/losses/serialize)
 
-[`sparse_categorical_crossentropy(...)`](../../tf/keras/metrics/sparse_categorical_crossentropy)
+[`sparse_categorical_crossentropy(...)`](../../tf/keras/losses/sparse_categorical_crossentropy)
 
-[`squared_hinge(...)`](../../tf/keras/metrics/squared_hinge)
+[`squared_hinge(...)`](../../tf/keras/losses/squared_hinge): Computes the squared hinge loss between `y_true` and `y_pred`.
 

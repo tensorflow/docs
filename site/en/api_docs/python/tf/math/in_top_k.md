@@ -6,8 +6,12 @@ page_type: reference
 
 # tf.math.in_top_k
 
+Says whether the targets are in the top `K` predictions.
+
 ### Aliases:
 
+* `tf.compat.v1.math.in_top_k`
+* `tf.compat.v1.nn.in_top_k`
 * `tf.math.in_top_k`
 * `tf.nn.in_top_k`
 
@@ -22,16 +26,16 @@ tf.math.in_top_k(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Says whether the targets are in the top `K` predictions.
+<!-- Placeholder for "Used in" -->
 
 This outputs a `batch_size` bool array, an entry `out[i]` is `true` if the
-prediction for the target class is among the top `k` predictions among
-all predictions for example `i`. Note that the behavior of `InTopK` differs
-from the `TopK` op in its handling of ties; if multiple classes have the
-same prediction value and straddle the top-`k` boundary, all of those
-classes are considered to be in the top `k`.
+prediction for the target class is finite (not inf, -inf, or nan) and among
+the top `k` predictions among all predictions for example `i`. Note that the
+behavior of `InTopK` differs from the `TopK` op in its handling of ties; if
+multiple classes have the same prediction value and straddle the top-`k`
+boundary, all of those classes are considered to be in the top `k`.
 
 More formally, let
 
@@ -43,10 +47,11 @@ More formally, let
 
 #### Args:
 
+
 * <b>`predictions`</b>: A `Tensor` of type `float32`.
-    A `batch_size` x `classes` tensor.
+  A `batch_size` x `classes` tensor.
 * <b>`targets`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    A `batch_size` vector of class ids.
+  A `batch_size` vector of class ids.
 * <b>`k`</b>: An `int`. Number of top elements to look at for computing precision.
 * <b>`name`</b>: A name for the operation (optional).
 

@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.sparse.merge
 
+Combines a batch of feature ids and values into a single `SparseTensor`. (deprecated)
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.merge`
+* `tf.compat.v1.sparse_merge`
 * `tf.sparse.merge`
 * `tf.sparse_merge`
 
@@ -22,9 +26,9 @@ tf.sparse.merge(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Combines a batch of feature ids and values into a single `SparseTensor`. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -97,17 +101,18 @@ In this case the resulting `SparseTensor` has the following properties:
 
 #### Args:
 
+
 * <b>`sp_ids`</b>: A single `SparseTensor` with `values` property of type `int32`
-    or `int64` or a Python list of such `SparseTensor`s or a list thereof.
+  or `int64` or a Python list of such `SparseTensor`s or a list thereof.
 * <b>`sp_values`</b>: A `SparseTensor` of any type.
 * <b>`vocab_size`</b>: A scalar `int64` Tensor (or Python int) containing the new size
-    of the last dimension, `all(0 <= sp_ids.values < vocab_size)`.
-    Or a list thereof with `all(0 <= sp_ids[i].values < vocab_size[i])` for
-    all `i`.
+  of the last dimension, `all(0 <= sp_ids.values < vocab_size)`.
+  Or a list thereof with `all(0 <= sp_ids[i].values < vocab_size[i])` for
+  all `i`.
 * <b>`name`</b>: A name prefix for the returned tensors (optional)
 * <b>`already_sorted`</b>: A boolean to specify whether the per-batch values in
-   `sp_values` are already sorted. If so skip sorting, False by default
-   (optional).
+ `sp_values` are already sorted. If so skip sorting, False by default
+ (optional).
 
 
 #### Returns:
@@ -116,10 +121,12 @@ A `SparseTensor` compactly representing a batch of feature ids and values,
 useful for passing to functions that expect such a `SparseTensor`.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: If `sp_values` is not a `SparseTensor`. Or if `sp_ids` is neither
-    a `SparseTensor` nor a list thereof. Or if `vocab_size` is not a
-    `Tensor` or a Python int and `sp_ids` is a `SparseTensor`. Or if
-    `vocab_size` is not a or list thereof and `sp_ids` is a list.
+  a `SparseTensor` nor a list thereof. Or if `vocab_size` is not a
+  `Tensor` or a Python int and `sp_ids` is a `SparseTensor`. Or if
+  `vocab_size` is not a or list thereof and `sp_ids` is a list.
 * <b>`ValueError`</b>: If `sp_ids` and `vocab_size` are lists of different lengths.

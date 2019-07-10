@@ -7,27 +7,17 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Constants for SavedModel save and restore operations.
 
 ## Other Members
 
-<h3 id="ASSETS_DIRECTORY"><code>ASSETS_DIRECTORY</code></h3>
-
-<h3 id="ASSETS_KEY"><code>ASSETS_KEY</code></h3>
-
-<h3 id="LEGACY_INIT_OP_KEY"><code>LEGACY_INIT_OP_KEY</code></h3>
-
-<h3 id="MAIN_OP_KEY"><code>MAIN_OP_KEY</code></h3>
-
-<h3 id="SAVED_MODEL_FILENAME_PB"><code>SAVED_MODEL_FILENAME_PB</code></h3>
-
-<h3 id="SAVED_MODEL_FILENAME_PBTXT"><code>SAVED_MODEL_FILENAME_PBTXT</code></h3>
-
-<h3 id="SAVED_MODEL_SCHEMA_VERSION"><code>SAVED_MODEL_SCHEMA_VERSION</code></h3>
-
-<h3 id="VARIABLES_DIRECTORY"><code>VARIABLES_DIRECTORY</code></h3>
-
-<h3 id="VARIABLES_FILENAME"><code>VARIABLES_FILENAME</code></h3>
-
+* `ASSETS_DIRECTORY = 'assets'` <a id="ASSETS_DIRECTORY"></a>
+* `ASSETS_KEY = 'saved_model_assets'` <a id="ASSETS_KEY"></a>
+* `LEGACY_INIT_OP_KEY = 'legacy_init_op'` <a id="LEGACY_INIT_OP_KEY"></a>
+* `MAIN_OP_KEY = 'saved_model_main_op'` <a id="MAIN_OP_KEY"></a>
+* `SAVED_MODEL_FILENAME_PB = 'saved_model.pb'` <a id="SAVED_MODEL_FILENAME_PB"></a>
+* `SAVED_MODEL_FILENAME_PBTXT = 'saved_model.pbtxt'` <a id="SAVED_MODEL_FILENAME_PBTXT"></a>
+* `SAVED_MODEL_SCHEMA_VERSION = 1` <a id="SAVED_MODEL_SCHEMA_VERSION"></a>
+* `VARIABLES_DIRECTORY = 'variables'` <a id="VARIABLES_DIRECTORY"></a>
+* `VARIABLES_FILENAME = 'variables'` <a id="VARIABLES_FILENAME"></a>

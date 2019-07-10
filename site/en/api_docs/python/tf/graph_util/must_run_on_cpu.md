@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.graph_util.must_run_on_cpu
 
+Returns True if the given node_def must run on CPU, otherwise False. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.graph_util.must_run_on_cpu`
+* `tf.graph_util.must_run_on_cpu`
+
 ``` python
 tf.graph_util.must_run_on_cpu(
     node,
@@ -14,20 +21,21 @@ tf.graph_util.must_run_on_cpu(
 
 
 
-Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/graph_util_impl.py).
+Defined in [`python/framework/graph_util_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/graph_util_impl.py).
 
-Returns True if the given node_def must run on CPU, otherwise False. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use tf.compat.v1.graph_util.must_run_on_cpu
+Use <a href="../../tf/graph_util/must_run_on_cpu"><code>tf.compat.v1.graph_util.must_run_on_cpu</code></a>
 
 #### Args:
 
+
 * <b>`node`</b>: The node to be assigned to a device. Could be either an ops.Operation
-    or NodeDef.
+  or NodeDef.
 * <b>`pin_variables_on_cpu`</b>: If True, this function will return False if node_def
-    represents a variable-related op.
+  represents a variable-related op.
 
 
 #### Returns:

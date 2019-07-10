@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.images_to_sequence
 
+Convert a batch of images into a batch of sequences.
+
 ``` python
 tf.contrib.layers.images_to_sequence(
     inputs,
@@ -16,11 +18,13 @@ tf.contrib.layers.images_to_sequence(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
-Convert a batch of images into a batch of sequences.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`inputs`</b>: a (num_images, height, width, depth) tensor
 * <b>`data_format`</b>: A string. `NHWC` (default) and `NCHW` are supported.
@@ -29,6 +33,7 @@ Convert a batch of images into a batch of sequences.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `data_format` is not either NCHW or NHWC.
 

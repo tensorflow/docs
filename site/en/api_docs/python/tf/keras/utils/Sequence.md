@@ -7,26 +7,38 @@ page_type: reference
 
 ## Class `Sequence`
 
-
-
-
-
-Defined in [`tensorflow/python/keras/utils/data_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/utils/data_utils.py).
-
 Base object for fitting to a sequence of data, such as a dataset.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.keras.utils.Sequence`
+* Class `tf.compat.v2.keras.utils.Sequence`
+* Class `tf.keras.utils.Sequence`
+
+
+
+Defined in [`python/keras/utils/data_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/utils/data_utils.py).
+
+<!-- Placeholder for "Used in" -->
 
 Every `Sequence` must implement the `__getitem__` and the `__len__` methods.
 If you want to modify your dataset between epochs you may implement
 `on_epoch_end`.
 The method `__getitem__` should return a complete batch.
 
-Notes:
+#### Notes:
+
+
 
 `Sequence` are a safer way to do multiprocessing. This structure guarantees
 that the network will only train once
  on each sample per epoch which is not the case with generators.
 
-Examples:
+#### Examples:
+
+
 
 ```python
     from skimage.io import imread
@@ -67,7 +79,9 @@ __getitem__(index)
 
 Gets batch at position `index`.
 
+
 #### Arguments:
+
 
 * <b>`index`</b>: position of the batch in the Sequence.
 
@@ -75,6 +89,7 @@ Gets batch at position `index`.
 #### Returns:
 
 A batch
+
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
@@ -84,6 +99,7 @@ __iter__()
 
 Create a generator that iterate over the Sequence.
 
+
 <h3 id="__len__"><code>__len__</code></h3>
 
 ``` python
@@ -92,9 +108,11 @@ __len__()
 
 Number of batch in the Sequence.
 
+
 #### Returns:
 
 The number of batches in the Sequence.
+
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 

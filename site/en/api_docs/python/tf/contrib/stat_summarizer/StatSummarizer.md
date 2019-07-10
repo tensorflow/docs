@@ -11,8 +11,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/pywrap_tensorflow_internal.py).
 
+
+Defined in [`python/pywrap_tensorflow_internal.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/pywrap_tensorflow_internal.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
@@ -21,7 +24,8 @@ Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://github.co
 __init__(*args)
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -35,11 +39,13 @@ GetOutputString()
 
 
 
+
 <h3 id="PrintStepStats"><code>PrintStepStats</code></h3>
 
 ``` python
 PrintStepStats()
 ```
+
 
 
 
@@ -51,6 +57,7 @@ ProcessStepStats(step_stats)
 
 
 
+
 <h3 id="ProcessStepStatsStr"><code>ProcessStepStatsStr</code></h3>
 
 ``` python
@@ -59,30 +66,6 @@ ProcessStepStatsStr(step_stats_str)
 
 
 
-<h3 id="__getattr__"><code>__getattr__</code></h3>
-
-``` python
-__getattr__(name)
-```
 
 
-
-<h3 id="__setattr__"><code>__setattr__</code></h3>
-
-``` python
-__setattr__(
-    name,
-    value
-)
-```
-
-
-
-
-
-## Class Members
-
-<h3 id="__swig_getmethods__"><code>__swig_getmethods__</code></h3>
-
-<h3 id="__swig_setmethods__"><code>__swig_setmethods__</code></h3>
 

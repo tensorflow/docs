@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.layers.dot
 
+Functional interface to the `Dot` layer.
+
+### Aliases:
+
+* `tf.compat.v1.keras.layers.dot`
+* `tf.compat.v2.keras.layers.dot`
+* `tf.keras.layers.dot`
+
 ``` python
 tf.keras.layers.dot(
     inputs,
@@ -16,19 +24,21 @@ tf.keras.layers.dot(
 
 
 
-Defined in [`tensorflow/python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/layers/merge.py).
+Defined in [`python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/merge.py).
 
-Functional interface to the `Dot` layer.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
 
+
 * <b>`inputs`</b>: A list of input tensors (at least 2).
 * <b>`axes`</b>: Integer or tuple of integers,
-        axis or axes along which to take the dot product.
+    axis or axes along which to take the dot product.
 * <b>`normalize`</b>: Whether to L2-normalize samples along the
-        dot product axis before taking the dot product.
-        If set to True, then the output of the dot product
-        is the cosine proximity between the two samples.
+    dot product axis before taking the dot product.
+    If set to True, then the output of the dot product
+    is the cosine proximity between the two samples.
 * <b>`**kwargs`</b>: Standard layer keyword arguments.
 
 

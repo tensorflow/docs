@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.linalg.tensor_diag
 
+Returns a diagonal tensor with a given diagonal values.
+
 ### Aliases:
 
+* `tf.compat.v1.diag`
+* `tf.compat.v1.linalg.tensor_diag`
+* `tf.compat.v2.linalg.tensor_diag`
 * `tf.diag`
 * `tf.linalg.tensor_diag`
 
@@ -19,9 +24,9 @@ tf.linalg.tensor_diag(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Returns a diagonal tensor with a given diagonal values.
+<!-- Placeholder for "Used in" -->
 
 Given a `diagonal`, this operation returns a tensor with the `diagonal` and
 everything else padded with zeros. The diagonal is computed as follows:
@@ -31,7 +36,9 @@ rank 2k with dimensions [D1,..., Dk, D1,..., Dk] where:
 
 `output[i1,..., ik, i1,..., ik] = diagonal[i1, ..., ik]` and 0 everywhere else.
 
-For example:
+#### For example:
+
+
 
 ```
 # 'diagonal' is [1, 2, 3, 4]
@@ -43,8 +50,9 @@ tf.diag(diagonal) ==> [[1, 0, 0, 0]
 
 #### Args:
 
+
 * <b>`diagonal`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `int32`, `int64`, `complex64`, `complex128`.
-    Rank k tensor where k is at most 1.
+  Rank k tensor where k is at most 1.
 * <b>`name`</b>: A name for the operation (optional).
 
 

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.one_hot
 
+Returns a one-hot tensor.
+
+### Aliases:
+
+* `tf.compat.v1.one_hot`
+* `tf.compat.v2.one_hot`
+* `tf.one_hot`
+
 ``` python
 tf.one_hot(
     indices,
@@ -19,9 +27,9 @@ tf.one_hot(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Returns a one-hot tensor.
+<!-- Placeholder for "Used in" -->
 
 The locations represented by indices in `indices` take value `on_value`,
 while all other locations take value `off_value`.
@@ -60,12 +68,14 @@ shape will be:
 If `dtype` is not provided, it will attempt to assume the data type of
 `on_value` or `off_value`, if one or both are passed in. If none of
 `on_value`, `off_value`, or `dtype` are provided, `dtype` will default to the
-value <a href="../tf/dtypes#float32"><code>tf.float32</code></a>.
+value <a href="../tf#float32"><code>tf.float32</code></a>.
 
-Note: If a non-numeric data type output is desired (<a href="../tf/dtypes#string"><code>tf.string</code></a>, <a href="../tf/dtypes#bool"><code>tf.bool</code></a>,
+Note: If a non-numeric data type output is desired (<a href="../tf#string"><code>tf.string</code></a>, <a href="../tf#bool"><code>tf.bool</code></a>,
 etc.), both `on_value` and `off_value` _must_ be provided to `one_hot`.
 
-For example:
+#### For example:
+
+
 
 ```python
 indices = [0, 1, 2]
@@ -98,12 +108,13 @@ tf.one_hot(indices, depth,
 
 #### Args:
 
+
 * <b>`indices`</b>: A `Tensor` of indices.
 * <b>`depth`</b>: A scalar defining the depth of the one hot dimension.
 * <b>`on_value`</b>: A scalar defining the value to fill in output when `indices[j]
-    = i`. (default: 1)
+  = i`. (default: 1)
 * <b>`off_value`</b>: A scalar defining the value to fill in output when `indices[j]
-    != i`. (default: 0)
+  != i`. (default: 0)
 * <b>`axis`</b>: The axis to fill (default: -1, a new inner-most axis).
 * <b>`dtype`</b>: The data type of the output tensor.
 * <b>`name`</b>: A name for the operation (optional).
@@ -111,10 +122,12 @@ tf.one_hot(indices, depth,
 
 #### Returns:
 
+
 * <b>`output`</b>: The one-hot tensor.
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: If dtype of either `on_value` or `off_value` don't match `dtype`
 * <b>`TypeError`</b>: If dtype of `on_value` and `off_value` don't match one another

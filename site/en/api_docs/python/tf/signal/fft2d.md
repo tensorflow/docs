@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.signal.fft2d
 
+2D fast Fourier transform.
+
 ### Aliases:
 
+* `tf.compat.v1.fft2d`
+* `tf.compat.v1.signal.fft2d`
+* `tf.compat.v1.spectral.fft2d`
+* `tf.compat.v2.signal.fft2d`
 * `tf.fft2d`
 * `tf.signal.fft2d`
 * `tf.spectral.fft2d`
@@ -20,17 +26,18 @@ tf.signal.fft2d(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_spectral_ops.py`.
+Defined in generated file: `python/ops/gen_spectral_ops.py`.
 
-2D fast Fourier transform.
+<!-- Placeholder for "Used in" -->
 
 Computes the 2-dimensional discrete Fourier transform over the inner-most
 2 dimensions of `input`.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. Must be one of the following types: `complex64`, `complex128`.
-    A complex tensor.
+  A complex tensor.
 * <b>`name`</b>: A name for the operation (optional).
 
 

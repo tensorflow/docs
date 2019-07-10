@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `SdcaModel`
 
-
-
-
-
-Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py).
-
 Stochastic dual coordinate ascent solver for linear models.
+
+
+
+
+
+Defined in [`contrib/linear_optimizer/python/ops/sdca_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 Loss functions supported:
 
@@ -99,10 +101,12 @@ approximate_duality_gap()
 
 Add operations to compute the approximate duality gap.
 
+
 #### Returns:
 
 An Operation that computes the approximate duality gap over all
 examples.
+
 
 <h3 id="minimize"><code>minimize</code></h3>
 
@@ -115,16 +119,19 @@ minimize(
 
 Add operations to train a linear model by minimizing the loss function.
 
+
 #### Args:
 
+
 * <b>`global_step`</b>: Optional `Variable` to increment by one after the
-    variables have been updated.
+  variables have been updated.
 * <b>`name`</b>: Optional name for the returned operation.
 
 
 #### Returns:
 
 An Operation that updates the variables passed in the constructor.
+
 
 <h3 id="predictions"><code>predictions</code></h3>
 
@@ -140,6 +147,7 @@ Otherwise, (raw) linear predictions (w*x) are returned.
 
 #### Args:
 
+
 * <b>`examples`</b>: Examples to compute predictions on.
 
 
@@ -148,7 +156,9 @@ Otherwise, (raw) linear predictions (w*x) are returned.
 An Operation that computes the predictions for examples.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if examples are not well defined.
 
@@ -160,7 +170,9 @@ regularized_loss(examples)
 
 Add operations to compute the loss with regularization loss included.
 
+
 #### Args:
+
 
 * <b>`examples`</b>: Examples to compute loss on.
 
@@ -170,7 +182,9 @@ Add operations to compute the loss with regularization loss included.
 An Operation that computes mean (regularized) loss for given set of
 examples.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if examples are not well defined.
 
@@ -182,7 +196,9 @@ unregularized_loss(examples)
 
 Add operations to compute the loss (without the regularization loss).
 
+
 #### Args:
+
 
 * <b>`examples`</b>: Examples to compute unregularized loss on.
 
@@ -193,7 +209,9 @@ An Operation that computes mean (unregularized) loss for given set of
 examples.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if examples are not well defined.
 
@@ -211,12 +229,14 @@ speed up training.
 
 #### Args:
 
+
 * <b>`train_op`</b>: The operation returned by the `minimize` call.
 
 
 #### Returns:
 
 An Operation that updates the model weights.
+
 
 
 

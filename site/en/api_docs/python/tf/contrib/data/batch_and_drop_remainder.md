@@ -5,19 +5,21 @@ page_type: reference
 
 # tf.contrib.data.batch_and_drop_remainder
 
+A batching transformation that omits the final small batch (if present). (deprecated)
+
 ``` python
 tf.contrib.data.batch_and_drop_remainder(batch_size)
 ```
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/batching.py).
+Defined in [`contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/batching.py).
 
-A batching transformation that omits the final small batch (if present). (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.Dataset.batch(..., drop_remainder=True)`.
+Use <a href="../../../tf/data/Dataset#batch"><code>tf.data.Dataset.batch(..., drop_remainder=True)</code></a>.
 
 Like <a href="../../../tf/data/Dataset#batch"><code>tf.data.Dataset.batch</code></a>, this transformation combines
 consecutive elements of this dataset into batches. However, if the batch
@@ -29,7 +31,8 @@ transformation and `Dataset.batch()`:
 
 ```python
 dataset = tf.data.Dataset.range(200)
-batched = dataset.apply(tf.contrib.data.batch_and_drop_remainder(128))
+batched =
+dataset.apply(tf.contrib.data.batch_and_drop_remainder(128))
 print(batched.output_shapes)  # ==> "(128,)" (the batch dimension is known)
 ```
 
@@ -39,8 +42,9 @@ known.
 
 #### Args:
 
-* <b>`batch_size`</b>: A <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
-      consecutive elements of this dataset to combine in a single batch.
+
+* <b>`batch_size`</b>: A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
+  consecutive elements of this dataset to combine in a single batch.
 
 
 #### Returns:

@@ -7,13 +7,14 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.autograph.experimental namespace.
 
 ## Classes
 
 [`class Feature`](../../tf/autograph/experimental/Feature): Represents conversion options that can be toggled on or off.
 
-[`class Verbosity`](../../tf/autograph/experimental/Verbosity): Represents conversion verbosity levels.
+## Functions
+
+[`set_loop_options(...)`](../../tf/autograph/experimental/set_loop_options): Specifies additional arguments to be passed to the enclosing while_loop.
 

@@ -5,15 +5,22 @@ page_type: reference
 
 # tf.disable_resource_variables
 
+Opts out of resource variables. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.disable_resource_variables`
+* `tf.disable_resource_variables`
+
 ``` python
 tf.disable_resource_variables()
 ```
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variable_scope.py).
+Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
-Opts out of resource variables. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.fuse_op
 
+Fuse subgraph between input_nodes and output_nodes into a single custom op.
+
 ``` python
 tf.contrib.framework.fuse_op(
     graph_def,
@@ -19,11 +21,13 @@ tf.contrib.framework.fuse_op(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/graph_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/framework/graph_util.py).
+Defined in [`contrib/framework/python/framework/graph_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/framework/graph_util.py).
 
-Fuse subgraph between input_nodes and output_nodes into a single custom op.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`graph_def`</b>: A graph_pb2.GraphDef proto.
 * <b>`input_nodes`</b>: input nodes to the subgraph to be fused.
@@ -38,6 +42,8 @@ Fuse subgraph between input_nodes and output_nodes into a single custom op.
 The GraphDef of the new graph.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If 'graph_def' is not a graph_pb2.GraphDef proto.

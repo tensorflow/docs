@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.streaming_false_negatives_at_thresholds
 
+
+
 ``` python
 tf.contrib.metrics.streaming_false_negatives_at_thresholds(
     predictions,
@@ -16,5 +18,6 @@ tf.contrib.metrics.streaming_false_negatives_at_thresholds(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
+<!-- Placeholder for "Used in" -->

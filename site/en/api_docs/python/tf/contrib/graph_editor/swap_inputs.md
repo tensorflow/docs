@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.swap_inputs
 
+Swap all the inputs of sgv0 and sgv1 (see reroute_inputs).
+
 ``` python
 tf.contrib.graph_editor.swap_inputs(
     sgv0,
@@ -14,6 +16,6 @@ tf.contrib.graph_editor.swap_inputs(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/reroute.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/reroute.py).
+Defined in [`contrib/graph_editor/reroute.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/reroute.py).
 
-Swap all the inputs of sgv0 and sgv1 (see reroute_inputs).
+<!-- Placeholder for "Used in" -->

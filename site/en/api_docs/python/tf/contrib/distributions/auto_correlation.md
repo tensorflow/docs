@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.distributions.auto_correlation
 
+Auto correlation along one axis.
+
 ``` python
 tf.contrib.distributions.auto_correlation(
     x,
@@ -18,9 +20,9 @@ tf.contrib.distributions.auto_correlation(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/sample_stats.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/sample_stats.py).
+Defined in [`contrib/distributions/python/ops/sample_stats.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/sample_stats.py).
 
-Auto correlation along one axis.
+<!-- Placeholder for "Used in" -->
 
 Given a `1-D` wide sense stationary (WSS) sequence `X`, the auto correlation
 `RXX` may be defined as  (with `E` expectation and `Conj` complex conjugate)
@@ -55,16 +57,17 @@ contains a slight bias, which goes to zero as `len(x) - m --> infinity`.
 
 #### Args:
 
+
 * <b>`x`</b>:  `float32` or `complex64` `Tensor`.
 * <b>`axis`</b>:  Python `int`. The axis number along which to compute correlation.
-    Other dimensions index different batch members.
+  Other dimensions index different batch members.
 * <b>`max_lags`</b>:  Positive `int` tensor.  The maximum value of `m` to consider
-    (in equation above).  If `max_lags >= x.shape[axis]`, we effectively
-    re-set `max_lags` to `x.shape[axis] - 1`.
+  (in equation above).  If `max_lags >= x.shape[axis]`, we effectively
+  re-set `max_lags` to `x.shape[axis] - 1`.
 * <b>`center`</b>:  Python `bool`.  If `False`, do not subtract the mean estimate `mu`
-    from `x[n]` when forming `w[n]`.
+  from `x[n]` when forming `w[n]`.
 * <b>`normalize`</b>:  Python `bool`.  If `False`, do not divide by the variance
-    estimate `s**2` when forming `w[n]`.
+  estimate `s**2` when forming `w[n]`.
 * <b>`name`</b>:  `String` name to prepend to created ops.
 
 
@@ -74,6 +77,8 @@ contains a slight bias, which goes to zero as `len(x) - m --> infinity`.
   `i != axis`, and `rxx.shape[axis] = max_lags + 1`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>:  If `x` is not a supported type.

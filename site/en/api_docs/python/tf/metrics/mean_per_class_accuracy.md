@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.metrics.mean_per_class_accuracy
 
+Calculates the mean of the per-class accuracies.
+
+### Aliases:
+
+* `tf.compat.v1.metrics.mean_per_class_accuracy`
+* `tf.metrics.mean_per_class_accuracy`
+
 ``` python
 tf.metrics.mean_per_class_accuracy(
     labels,
@@ -19,9 +26,9 @@ tf.metrics.mean_per_class_accuracy(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/metrics_impl.py).
+Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
-Calculates the mean of the per-class accuracies.
+<!-- Placeholder for "Used in" -->
 
 Calculates the accuracy for each class, then takes the mean of that.
 
@@ -33,26 +40,28 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`labels`</b>: A `Tensor` of ground truth labels with shape [batch size] and of
-    type `int32` or `int64`. The tensor will be flattened if its rank > 1.
+  type `int32` or `int64`. The tensor will be flattened if its rank > 1.
 * <b>`predictions`</b>: A `Tensor` of prediction results for semantic labels, whose
-    shape is [batch size] and type `int32` or `int64`. The tensor will be
-    flattened if its rank > 1.
+  shape is [batch size] and type `int32` or `int64`. The tensor will be
+  flattened if its rank > 1.
 * <b>`num_classes`</b>: The possible number of labels the prediction task can
-    have. This value must be provided, since two variables with shape =
-    [num_classes] will be allocated.
+  have. This value must be provided, since two variables with shape =
+  [num_classes] will be allocated.
 * <b>`weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
-    `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
-    be either `1`, or the same as the corresponding `labels` dimension).
+  `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
+  be either `1`, or the same as the corresponding `labels` dimension).
 * <b>`metrics_collections`</b>: An optional list of collections that
-    `mean_per_class_accuracy'
-    should be added to.
+  `mean_per_class_accuracy'
+  should be added to.
 * <b>`updates_collections`</b>: An optional list of collections `update_op` should be
-    added to.
+  added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
+
 
 * <b>`mean_accuracy`</b>: A `Tensor` representing the mean per class accuracy.
 * <b>`update_op`</b>: An operation that updates the accuracy tensor.
@@ -60,8 +69,9 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `predictions` and `labels` have mismatched shapes, or if
-    `weights` is not `None` and its shape doesn't match `predictions`, or if
-    either `metrics_collections` or `updates_collections` are not a list or
-    tuple.
+  `weights` is not `None` and its shape doesn't match `predictions`, or if
+  either `metrics_collections` or `updates_collections` are not a list or
+  tuple.
 * <b>`RuntimeError`</b>: If eager execution is enabled.

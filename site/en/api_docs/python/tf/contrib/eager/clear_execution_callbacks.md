@@ -5,12 +5,14 @@ page_type: reference
 
 # tf.contrib.eager.clear_execution_callbacks
 
+Clear all execution callbacks from the default eager context.
+
 ``` python
 tf.contrib.eager.clear_execution_callbacks()
 ```
 
 
 
-Defined in [`tensorflow/python/eager/execution_callbacks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/eager/execution_callbacks.py).
+Defined in [`python/eager/execution_callbacks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/execution_callbacks.py).
 
-Clear all execution callbacks from the default eager context.
+<!-- Placeholder for "Used in" -->

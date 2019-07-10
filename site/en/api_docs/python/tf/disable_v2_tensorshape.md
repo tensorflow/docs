@@ -5,14 +5,21 @@ page_type: reference
 
 # tf.disable_v2_tensorshape
 
+Disables the V2 TensorShape behavior and reverts to V1 behavior.
+
+### Aliases:
+
+* `tf.compat.v1.disable_v2_tensorshape`
+* `tf.disable_v2_tensorshape`
+
 ``` python
 tf.disable_v2_tensorshape()
 ```
 
 
 
-Defined in [`tensorflow/python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/tensor_shape.py).
+Defined in [`python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_shape.py).
 
-Disables the V2 TensorShape behavior and reverts to V1 behavior.
+<!-- Placeholder for "Used in" -->
 
 See docstring for `enable_v2_tensorshape` for details about the new behavior.

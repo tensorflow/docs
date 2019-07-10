@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `SequenceQueueingStateSaver`
 
-
-
-
-
-Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
-
 SequenceQueueingStateSaver provides access to stateful values from input.
+
+
+
+
+
+Defined in [`contrib/training/python/training/sequence_queueing_state_saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
+
+<!-- Placeholder for "Used in" -->
 
 This class is meant to be used instead of, e.g., a `Queue`, for splitting
 variable-length sequence inputs into segments of sequences with fixed length
@@ -65,13 +67,15 @@ data, including the following, see `NextQueuedSequenceBatch` for details:
 *  `state` (to access the states of the current segments of these entries)
 *  `save_state` (to save the states for the next segments of these entries)
 
-Example usage:
+#### Example usage:
+
+
 
 ```python
 batch_size = 32
 num_unroll = 20
 lstm_size = 8
-cell = tf.contrib.rnn.BasicLSTMCell(num_units=lstm_size)
+cell = tf.compat.v1.nn.rnn_cell.BasicLSTMCell(num_units=lstm_size)
 initial_state_values = tf.zeros(cell.state_size, dtype=tf.float32)
 
 raw_data = get_single_input_from_input_reader()
@@ -100,12 +104,12 @@ lstm_output, _ = tf.contrib.rnn.static_state_saving_rnn(
   state_name="lstm_state")
 
 # Start a prefetcher in the background
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 num_threads = 3
-queue_runner = tf.train.QueueRunner(
+queue_runner = tf.compat.v1.train.QueueRunner(
     stateful_reader, [stateful_reader.prefetch_op] * num_threads)
-tf.train.add_queue_runner(queue_runner)
-tf.train.start_queue_runners(sess=session)
+tf.compat.v1.train.add_queue_runner(queue_runner)
+tf.compat.v1.train.start_queue_runners(sess=session)
 
 while True:
   # Step through batches, perform training or inference...
@@ -141,63 +145,66 @@ __init__(
 
 Creates the SequenceQueueingStateSaver.
 
+
 #### Args:
 
+
 * <b>`batch_size`</b>: int or int32 scalar `Tensor`, how large minibatches should
-    be when accessing the `state()` method and `context`, `sequences`, etc,
-    properties.
+  be when accessing the `state()` method and `context`, `sequences`, etc,
+  properties.
 * <b>`num_unroll`</b>: Python integer, how many time steps to unroll at a time.
-    The input sequences of length `k` are then split into `k / num_unroll`
-    many segments.
+  The input sequences of length `k` are then split into `k / num_unroll`
+  many segments.
 * <b>`input_length`</b>: An int32 scalar `Tensor`, the length of the sequence prior
-    to padding.  This value may be at most `padded_length` for any given
-    input (see below for the definition of `padded_length`).
-    Batched and total lengths of the current iteration are made accessible
-    via the `length` and `total_length` properties.  The shape of
-    input_length (scalar) must be fully specified.
+  to padding.  This value may be at most `padded_length` for any given
+  input (see below for the definition of `padded_length`).
+  Batched and total lengths of the current iteration are made accessible
+  via the `length` and `total_length` properties.  The shape of
+  input_length (scalar) must be fully specified.
 * <b>`input_key`</b>: A string scalar `Tensor`, the **unique** key for the given
-    input.  This is used to keep track of the split minibatch elements
-    of this input.  Batched keys of the current iteration are made
-    accessible via the `key` property.  The shape of `input_key` (scalar)
-    must be fully specified.
+  input.  This is used to keep track of the split minibatch elements
+  of this input.  Batched keys of the current iteration are made
+  accessible via the `key` property.  The shape of `input_key` (scalar)
+  must be fully specified.
 * <b>`input_sequences`</b>: A dict mapping string names to `Tensor` values.  The
-    values must all have matching first dimension, called `padded_length`.
-    The `SequenceQueueingStateSaver` will split these tensors along
-    this first dimension into minibatch elements of dimension
-    `num_unroll`. Batched and segmented sequences of the current iteration
-    are made accessible via the `sequences` property.
+  values must all have matching first dimension, called `padded_length`.
+  The `SequenceQueueingStateSaver` will split these tensors along
+  this first dimension into minibatch elements of dimension
+  `num_unroll`. Batched and segmented sequences of the current iteration
+  are made accessible via the `sequences` property.
 
-    **Note**: `padded_length` may be dynamic, and may vary from input
-    to input, but must always be a multiple of `num_unroll`.  The remainder
-    of the shape (other than the first dimension) must be fully specified.
+  **Note**: `padded_length` may be dynamic, and may vary from input
+  to input, but must always be a multiple of `num_unroll`.  The remainder
+  of the shape (other than the first dimension) must be fully specified.
 * <b>`input_context`</b>: A dict mapping string names to `Tensor` values.  The values
-    are treated as "global" across all time splits of the given input,
-    and will be copied across for all minibatch elements accordingly.
-    Batched and copied context of the current iteration are made
-    accessible via the `context` property.
+  are treated as "global" across all time splits of the given input,
+  and will be copied across for all minibatch elements accordingly.
+  Batched and copied context of the current iteration are made
+  accessible via the `context` property.
 
-    **Note**: All input_context values must have fully defined shapes.
+  **Note**: All input_context values must have fully defined shapes.
 * <b>`initial_states`</b>: A dict mapping string state names to multi-dimensional
-    values (e.g. constants or tensors).  This input defines the set of
-    states that will be kept track of during computing iterations, and
-    which can be accessed via the `state` and `save_state` methods.
+  values (e.g. constants or tensors).  This input defines the set of
+  states that will be kept track of during computing iterations, and
+  which can be accessed via the `state` and `save_state` methods.
 
-    **Note**: All initial_state values must have fully defined shapes.
+  **Note**: All initial_state values must have fully defined shapes.
 * <b>`capacity`</b>: The max capacity of the SQSS in number of examples. Needs to be
-    at least `batch_size`. Defaults to unbounded.
+  at least `batch_size`. Defaults to unbounded.
 * <b>`allow_small_batch`</b>: If true, the SQSS will return smaller batches when
-    there aren't enough input examples to fill a whole batch and the end of
-    the input has been reached (i.e., the underlying barrier has been
-    closed).
+  there aren't enough input examples to fill a whole batch and the end of
+  the input has been reached (i.e., the underlying barrier has been
+  closed).
 * <b>`name`</b>: An op name string (optional).
 
 
 #### Raises:
 
+
 * <b>`TypeError`</b>: if any of the inputs is not an expected type.
 * <b>`ValueError`</b>: if any of the input values is inconsistent, e.g. if
-  not enough shape information is available from inputs to build
-  the state saver.
+not enough shape information is available from inputs to build
+the state saver.
 
 
 
@@ -207,11 +214,14 @@ Creates the SequenceQueueingStateSaver.
 
 
 
+
 <h3 id="batch_size"><code>batch_size</code></h3>
 
 
 
+
 <h3 id="name"><code>name</code></h3>
+
 
 
 
@@ -235,7 +245,9 @@ will not run.
 
 A cached `NextQueuedSequenceBatch` instance.
 
+
 <h3 id="num_unroll"><code>num_unroll</code></h3>
+
 
 
 
@@ -252,6 +264,7 @@ It should be run in a separate thread via e.g. a `QueueRunner`.
 #### Returns:
 
 An `Operation` that performs prefetching.
+
 
 
 
@@ -276,15 +289,17 @@ immediately.
 
 #### Args:
 
+
 * <b>`cancel_pending_enqueues`</b>: (Optional.) A boolean, defaulting to
-    `False`. If `True`, all pending enqueues to the underlying queues will
-    be cancelled, and completing already started sequences is not possible.
+  `False`. If `True`, all pending enqueues to the underlying queues will
+  be cancelled, and completing already started sequences is not possible.
 * <b>`name`</b>: Optional name for the op.
 
 
 #### Returns:
 
 The operation that closes the barrier and the FIFOQueue.
+
 
 
 

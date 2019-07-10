@@ -8,13 +8,15 @@ page_type: reference
 
 ## Class `WALSModel`
 
-
-
-
-
-Defined in [`tensorflow/contrib/factorization/python/ops/factorization_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/factorization/python/ops/factorization_ops.py).
-
 A model for Weighted Alternating Least Squares matrix factorization.
+
+
+
+
+
+Defined in [`contrib/factorization/python/ops/factorization_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/factorization/python/ops/factorization_ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 It minimizes the following loss function over U, V:
 <div> $$
@@ -100,7 +102,7 @@ A typical usage example (pseudocode):
 
     # model_init_op is passed to Supervisor. Chief trainer runs it. Other
     # trainers wait.
-    sv = tf.train.Supervisor(is_chief=is_chief,
+    sv = tf.compat.v1.train.Supervisor(is_chief=is_chief,
                        ...,
                        init_op=tf.group(..., model_init_op, ...), ...)
     ...
@@ -172,48 +174,50 @@ __init__(
 
 Creates model for WALS matrix factorization.
 
+
 #### Args:
+
 
 * <b>`input_rows`</b>: total number of rows for input matrix.
 * <b>`input_cols`</b>: total number of cols for input matrix.
 * <b>`n_components`</b>: number of dimensions to use for the factors.
 * <b>`unobserved_weight`</b>: weight given to unobserved entries of matrix.
 * <b>`regularization`</b>: weight of L2 regularization term. If None, no
-    regularization is done.
+  regularization is done.
 * <b>`row_init`</b>: initializer for row factor. Can be a tensor or numpy constant.
-    If set to "random", the value is initialized randomly.
+  If set to "random", the value is initialized randomly.
 * <b>`col_init`</b>: initializer for column factor. See row_init for details.
 * <b>`num_row_shards`</b>: number of shards to use for row factors.
 * <b>`num_col_shards`</b>: number of shards to use for column factors.
 * <b>`row_weights`</b>: Must be in one of the following three formats: None, a list
-    of lists of non-negative real numbers (or equivalent iterables) or a
-    single non-negative real number.
-    - When set to None, w_ij = unobserved_weight, which simplifies to ALS.
-    Note that col_weights must also be set to "None" in this case.
-    - If it is a list of lists of non-negative real numbers, it needs to be
-    in the form of [[w_0, w_1, ...], [w_k, ... ], [...]], with the number of
-    inner lists matching the number of row factor shards and the elements in
-    each inner list are the weights for the rows of the corresponding row
-    factor shard. In this case,  w_ij = unobserved_weight +
-                                        row_weights[i] * col_weights[j].
-    - If this is a single non-negative real number, this value is used for
-    all row weights and \(w_ij\) = unobserved_weight + row_weights *
-                               col_weights[j].
-    Note that it is allowed to have row_weights as a list while col_weights
-    a single number or vice versa.
+  of lists of non-negative real numbers (or equivalent iterables) or a
+  single non-negative real number.
+  - When set to None, w_ij = unobserved_weight, which simplifies to ALS.
+  Note that col_weights must also be set to "None" in this case.
+  - If it is a list of lists of non-negative real numbers, it needs to be
+  in the form of [[w_0, w_1, ...], [w_k, ... ], [...]], with the number of
+  inner lists matching the number of row factor shards and the elements in
+  each inner list are the weights for the rows of the corresponding row
+  factor shard. In this case,  w_ij = unobserved_weight +
+                                      row_weights[i] * col_weights[j].
+  - If this is a single non-negative real number, this value is used for
+  all row weights and \(w_ij\) = unobserved_weight + row_weights *
+                             col_weights[j].
+  Note that it is allowed to have row_weights as a list while col_weights
+  a single number or vice versa.
 * <b>`col_weights`</b>: See row_weights.
 * <b>`use_factors_weights_cache`</b>: When True, the factors and weights will be
-    cached on the workers before the updates start. Defaults to True. Note
-    that the weights cache is initialized through `worker_init`, and the
-    row/col factors cache is initialized through
-    `initialize_{col/row}_update_op`. In the case where the weights are
-    computed outside and set before the training iterations start, it is
-    important to ensure the `worker_init` op is run afterwards for the
-    weights cache to take effect.
+  cached on the workers before the updates start. Defaults to True. Note
+  that the weights cache is initialized through `worker_init`, and the
+  row/col factors cache is initialized through
+  `initialize_{col/row}_update_op`. In the case where the weights are
+  computed outside and set before the training iterations start, it is
+  important to ensure the `worker_init` op is run afterwards for the
+  weights cache to take effect.
 * <b>`use_gramian_cache`</b>: When True, the Gramians will be cached on the workers
-    before the updates start. Defaults to True.
+  before the updates start. Defaults to True.
 * <b>`use_scoped_vars`</b>: When True, the factor and weight vars will also be nested
-    in a tf.name_scope.
+  in a tf.name_scope.
 
 
 
@@ -222,6 +226,7 @@ Creates model for WALS matrix factorization.
 <h3 id="col_factors"><code>col_factors</code></h3>
 
 Returns a list of tensors corresponding to column factor shards.
+
 
 <h3 id="col_update_prep_gramian_op"><code>col_update_prep_gramian_op</code></h3>
 
@@ -234,25 +239,31 @@ trainer (usually the chief) when doing distributed training.
 
 Op to form the gramian.
 
+
 <h3 id="col_weights"><code>col_weights</code></h3>
 
 Returns a list of tensors corresponding to col weight shards.
+
 
 <h3 id="initialize_col_update_op"><code>initialize_col_update_op</code></h3>
 
 Op to initialize worker state before starting column updates.
 
+
 <h3 id="initialize_op"><code>initialize_op</code></h3>
 
 Returns an op for initializing tensorflow variables.
+
 
 <h3 id="initialize_row_update_op"><code>initialize_row_update_op</code></h3>
 
 Op to initialize worker state before starting row updates.
 
+
 <h3 id="row_factors"><code>row_factors</code></h3>
 
 Returns a list of tensors corresponding to row factor shards.
+
 
 <h3 id="row_update_prep_gramian_op"><code>row_update_prep_gramian_op</code></h3>
 
@@ -265,9 +276,11 @@ trainer (usually the chief) when doing distributed training.
 
 Op to form the gramian.
 
+
 <h3 id="row_weights"><code>row_weights</code></h3>
 
 Returns a list of tensors corresponding to row weight shards.
+
 
 <h3 id="worker_init"><code>worker_init</code></h3>
 
@@ -300,22 +313,24 @@ This computes the column embedding \(v_j\) for an observed column
 
 #### Args:
 
+
 * <b>`sp_input`</b>: A SparseTensor representing a set of columns. Please note that
-    the row indices of this SparseTensor must match the model row feature
-    indexing while the column indices are ignored. The returned results will
-    be in the same ordering as the input columns.
+  the row indices of this SparseTensor must match the model row feature
+  indexing while the column indices are ignored. The returned results will
+  be in the same ordering as the input columns.
 * <b>`transpose_input`</b>: If true, the input will be logically transposed and the
-    columns corresponding to the transposed input are projected.
+  columns corresponding to the transposed input are projected.
 * <b>`projection_weights`</b>: The column weights to be used for the projection. If
-    None then 1.0 is used. This can be either a scaler or a rank-1 tensor
-    with the number of elements matching the number of columns to be
-    projected. Note that the row weights will be determined by the
-    underlying WALS model.
+  None then 1.0 is used. This can be either a scaler or a rank-1 tensor
+  with the number of elements matching the number of columns to be
+  projected. Note that the row weights will be determined by the
+  underlying WALS model.
 
 
 #### Returns:
 
 Projected column factors.
+
 
 <h3 id="project_row_factors"><code>project_row_factors</code></h3>
 
@@ -334,22 +349,24 @@ solving one iteration of the update equations.
 
 #### Args:
 
+
 * <b>`sp_input`</b>: A SparseTensor representing a set of rows. Please note that the
-    column indices of this SparseTensor must match the model column feature
-    indexing while the row indices are ignored. The returned results will be
-    in the same ordering as the input rows.
+  column indices of this SparseTensor must match the model column feature
+  indexing while the row indices are ignored. The returned results will be
+  in the same ordering as the input rows.
 * <b>`transpose_input`</b>: If true, the input will be logically transposed and the
-    rows corresponding to the transposed input are projected.
+  rows corresponding to the transposed input are projected.
 * <b>`projection_weights`</b>: The row weights to be used for the projection. If None
-    then 1.0 is used. This can be either a scaler or a rank-1 tensor with
-    the number of elements matching the number of rows to be projected.
-    Note that the column weights will be determined by the underlying WALS
-    model.
+  then 1.0 is used. This can be either a scaler or a rank-1 tensor with
+  the number of elements matching the number of rows to be projected.
+  Note that the column weights will be determined by the underlying WALS
+  model.
 
 
 #### Returns:
 
 Projected row factors.
+
 
 <h3 id="scatter_update"><code>scatter_update</code></h3>
 
@@ -367,6 +384,7 @@ scatter_update(
 
 Helper function for doing sharded scatter update.
 
+
 <h3 id="update_col_factors"><code>update_col_factors</code></h3>
 
 ``` python
@@ -378,35 +396,38 @@ update_col_factors(
 
 Updates the column factors.
 
+
 #### Args:
 
+
 * <b>`sp_input`</b>: A SparseTensor representing a subset of columns of the full
-    input. Please refer to comments for update_row_factors for
-    restrictions.
+  input. Please refer to comments for update_row_factors for
+  restrictions.
 * <b>`transpose_input`</b>: If true, the input will be logically transposed and the
-    columns corresponding to the transposed input are updated.
+  columns corresponding to the transposed input are updated.
 
 
 #### Returns:
 
 A tuple consisting of the following elements:
+
 * <b>`new_values`</b>: New values for the column factors.
 * <b>`update_op`</b>: An op that assigns the newly computed values to the column
-    factors.
+  factors.
 * <b>`unregularized_loss`</b>: A tensor (scalar) that contains the normalized
-    minibatch loss corresponding to sp_input, without the regularization
-    term. If sp_input contains the columns \\({A_{:, j}, j \in J}\\), and
-    the input matrix A has m total columns, then the unregularized loss is:
-    \\(\|\sqrt W_J \odot (A_J - U V_J^T)\|_F^2 * m / |I|\\)
-    The total loss is unregularized_loss + regularization.
+  minibatch loss corresponding to sp_input, without the regularization
+  term. If sp_input contains the columns \\({A_{:, j}, j \in J}\\), and
+  the input matrix A has m total columns, then the unregularized loss is:
+  \\(\|\sqrt W_J \odot (A_J - U V_J^T)\|_F^2 * m / |I|\\)
+  The total loss is unregularized_loss + regularization.
 * <b>`regularization`</b>: A tensor (scalar) that contains the normalized
-    regularization term for the minibatch loss corresponding to sp_input.
-    If sp_input contains the columns \\({A_{:, j}, j \in J}\\), and the
-    input matrix A has m total columns, then the regularization term is:
-    \\(\lambda \|V_J\|_F^2) * m / |J| + \lambda \|U\|_F^2\\).
+  regularization term for the minibatch loss corresponding to sp_input.
+  If sp_input contains the columns \\({A_{:, j}, j \in J}\\), and the
+  input matrix A has m total columns, then the regularization term is:
+  \\(\lambda \|V_J\|_F^2) * m / |J| + \lambda \|U\|_F^2\\).
 * <b>`sum_weights`</b>: The sum of the weights W_J corresponding to sp_input,
-    normalized by a factor of \\(m / |J|\\). The root weighted squared
-    error is: \sqrt(unregularized_loss / sum_weights).
+  normalized by a factor of \\(m / |J|\\). The root weighted squared
+  error is: \sqrt(unregularized_loss / sum_weights).
 
 <h3 id="update_row_factors"><code>update_row_factors</code></h3>
 
@@ -419,35 +440,38 @@ update_row_factors(
 
 Updates the row factors.
 
+
 #### Args:
 
+
 * <b>`sp_input`</b>: A SparseTensor representing a subset of rows of the full input
-    in any order. Please note that this SparseTensor must retain the
-    indexing as the original input.
+  in any order. Please note that this SparseTensor must retain the
+  indexing as the original input.
 * <b>`transpose_input`</b>: If true, the input will be logically transposed and the
-    rows corresponding to the transposed input are updated.
+  rows corresponding to the transposed input are updated.
 
 
 #### Returns:
 
 A tuple consisting of the following elements:
+
 * <b>`new_values`</b>: New values for the row factors.
 * <b>`update_op`</b>: An op that assigns the newly computed values to the row
-    factors.
+  factors.
 * <b>`unregularized_loss`</b>: A tensor (scalar) that contains the normalized
-    minibatch loss corresponding to sp_input, without the regularization
-    term. If sp_input contains the rows \\({A_{i, :}, i \in I}\\), and the
-    input matrix A has n total rows, then the unregularized loss is:
-    \\(\|\sqrt W_I \odot (A_I - U_I V^T)\|_F^2 * n / |I|\\)
-    The total loss is unregularized_loss + regularization.
+  minibatch loss corresponding to sp_input, without the regularization
+  term. If sp_input contains the rows \\({A_{i, :}, i \in I}\\), and the
+  input matrix A has n total rows, then the unregularized loss is:
+  \\(\|\sqrt W_I \odot (A_I - U_I V^T)\|_F^2 * n / |I|\\)
+  The total loss is unregularized_loss + regularization.
 * <b>`regularization`</b>: A tensor (scalar) that contains the normalized
-    regularization term for the minibatch loss corresponding to sp_input.
-    If sp_input contains the rows \\({A_{i, :}, i \in I}\\), and the input
-    matrix A has n total rows, then the regularization term is:
-    \\(\lambda \|U_I\|_F^2) * n / |I| + \lambda \|V\|_F^2\\).
+  regularization term for the minibatch loss corresponding to sp_input.
+  If sp_input contains the rows \\({A_{i, :}, i \in I}\\), and the input
+  matrix A has n total rows, then the regularization term is:
+  \\(\lambda \|U_I\|_F^2) * n / |I| + \lambda \|V\|_F^2\\).
 * <b>`sum_weights`</b>: The sum of the weights W_I corresponding to sp_input,
-    normalized by a factor of \\(n / |I|\\). The root weighted squared
-    error is: \sqrt(unregularized_loss / sum_weights).
+  normalized by a factor of \\(n / |I|\\). The root weighted squared
+  error is: \sqrt(unregularized_loss / sum_weights).
 
 
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.nn.deprecated_flipped_softmax_cross_entropy_with_logits
 
+Computes softmax cross entropy between `logits` and `labels`.
+
 ``` python
 tf.contrib.nn.deprecated_flipped_softmax_cross_entropy_with_logits(
     logits,
@@ -16,9 +18,9 @@ tf.contrib.nn.deprecated_flipped_softmax_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/cross_entropy.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/nn/python/ops/cross_entropy.py).
+Defined in [`contrib/nn/python/ops/cross_entropy.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/nn/python/ops/cross_entropy.py).
 
-Computes softmax cross entropy between `logits` and `labels`.
+<!-- Placeholder for "Used in" -->
 
 This function diffs from tf.nn.softmax_cross_entropy_with_logits only in the
 argument order.
@@ -44,6 +46,7 @@ output of `softmax`, as it will produce incorrect results.
 and the same dtype (either `float16`, `float32`, or `float64`).
 
 #### Args:
+
 
 * <b>`logits`</b>: Unscaled log probabilities.
 * <b>`labels`</b>: Each row `labels[i]` must be a valid probability distribution.

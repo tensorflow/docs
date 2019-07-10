@@ -5,19 +5,21 @@ page_type: reference
 
 # tf.contrib.data.enumerate_dataset
 
+A transformation that enumerate the elements of a dataset. (deprecated)
+
 ``` python
 tf.contrib.data.enumerate_dataset(start=0)
 ```
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/enumerate_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/enumerate_ops.py).
+Defined in [`contrib/data/python/ops/enumerate_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/enumerate_ops.py).
 
-A transformation that enumerate the elements of a dataset. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.experimental.enumerate_dataset(...)`.
+Use <a href="../../../tf/data/experimental/enumerate_dataset"><code>tf.data.experimental.enumerate_dataset(...)</code></a>.
 
 It is Similar to python's `enumerate`.
 For example:
@@ -36,8 +38,9 @@ b.apply(tf.contrib.data.enumerate()) == { (0, (7, 8)), (1, (9, 10)) }
 
 #### Args:
 
-* <b>`start`</b>: A <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the start
-    value for enumeration.
+
+* <b>`start`</b>: A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the start
+  value for enumeration.
 
 
 #### Returns:

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.batch
 
+Creates batches of tensors in `tensors`. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.train.batch`
+* `tf.train.batch`
+
 ``` python
 tf.train.batch(
     tensors,
@@ -22,13 +29,13 @@ tf.train.batch(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/input.py).
+Defined in [`python/training/input.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/input.py).
 
-Creates batches of tensors in `tensors`. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Queue-based input pipelines have been replaced by <a href="../../tf/data"><code>tf.data</code></a>. Use `tf.data.Dataset.batch(batch_size)` (or `padded_batch(...)` if `dynamic_pad=True`).
+Queue-based input pipelines have been replaced by <a href="../../tf/data"><code>tf.data</code></a>. Use <a href="../../tf/data/Dataset#batch"><code>tf.data.Dataset.batch(batch_size)</code></a> (or `padded_batch(...)` if `dynamic_pad=True`).
 
 The argument `tensors` can be a list or a dictionary of tensors.
 The value returned by the function will be of the same type
@@ -76,21 +83,22 @@ operations that depend on fixed batch_size would fail.
 
 #### Args:
 
+
 * <b>`tensors`</b>: The list or dictionary of tensors to enqueue.
 * <b>`batch_size`</b>: The new batch size pulled from the queue.
 * <b>`num_threads`</b>: The number of threads enqueuing `tensors`.  The batching will
-    be nondeterministic if `num_threads > 1`.
+  be nondeterministic if `num_threads > 1`.
 * <b>`capacity`</b>: An integer. The maximum number of elements in the queue.
 * <b>`enqueue_many`</b>: Whether each tensor in `tensors` is a single example.
 * <b>`shapes`</b>: (Optional) The shapes for each example.  Defaults to the
-    inferred shapes for `tensors`.
+  inferred shapes for `tensors`.
 * <b>`dynamic_pad`</b>: Boolean.  Allow variable dimensions in input shapes.
-    The given dimensions are padded upon dequeue so that tensors within a
-    batch have the same shapes.
+  The given dimensions are padded upon dequeue so that tensors within a
+  batch have the same shapes.
 * <b>`allow_smaller_final_batch`</b>: (Optional) Boolean. If `True`, allow the final
-    batch to be smaller if there are insufficient items left in the queue.
+  batch to be smaller if there are insufficient items left in the queue.
 * <b>`shared_name`</b>: (Optional). If set, this queue will be shared under the given
-    name across multiple sessions.
+  name across multiple sessions.
 * <b>`name`</b>: (Optional) A name for the operations.
 
 
@@ -100,10 +108,12 @@ A list or dictionary of tensors with the same types as `tensors` (except if
 the input is a list of one element, then it returns a tensor, not a list).
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the `shapes` are not specified, and cannot be
-    inferred from the elements of `tensors`.
+  inferred from the elements of `tensors`.
 
 
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.losses.metric_learning.cluster_loss
 
+Computes the clustering loss.
+
 ``` python
 tf.contrib.losses.metric_learning.cluster_loss(
     labels,
@@ -18,9 +20,9 @@ tf.contrib.losses.metric_learning.cluster_loss(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
+Defined in [`contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
 
-Computes the clustering loss.
+<!-- Placeholder for "Used in" -->
 
 The following structured margins are supported:
   nmi: normalized mutual information
@@ -31,24 +33,26 @@ The following structured margins are supported:
 
 #### Args:
 
+
 * <b>`labels`</b>: 2-D Tensor of labels of shape [batch size, 1]
 * <b>`embeddings`</b>: 2-D Tensor of embeddings of shape
-    [batch size, embedding dimension]. Embeddings should be l2 normalized.
+  [batch size, embedding dimension]. Embeddings should be l2 normalized.
 * <b>`margin_multiplier`</b>: float32 scalar. multiplier on the structured margin term
-    See section 3.2 of paper for discussion.
+  See section 3.2 of paper for discussion.
 * <b>`enable_pam_finetuning`</b>: Boolean, Whether to run local pam refinement.
-    See section 3.4 of paper for discussion.
+  See section 3.4 of paper for discussion.
 * <b>`margin_type`</b>: Type of structured margin to use. See section 3.2 of
-    paper for discussion. Can be 'nmi', 'ami', 'ari', 'vmeasure', 'const'.
+  paper for discussion. Can be 'nmi', 'ami', 'ari', 'vmeasure', 'const'.
 * <b>`print_losses`</b>: Boolean. Option to print the loss.
 
 Paper: https://arxiv.org/abs/1612.01213.
 
-
 #### Returns:
+
 
 * <b>`clustering_loss`</b>: A float32 scalar `Tensor`.
 
 #### Raises:
+
 
 * <b>`ImportError`</b>: If sklearn dependency is not installed.

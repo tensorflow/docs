@@ -7,9 +7,17 @@ page_type: reference
 
 
 
+### Aliases:
+
+* Module `tf.compat.v1.keras.activations`
+* Module `tf.keras.activations`
 
 
-Built-in activation functions.
+
+Defined in [`python/keras/api/_v1/keras/activations/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/activations/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Functions
 
@@ -17,13 +25,13 @@ Built-in activation functions.
 
 [`elu(...)`](../../tf/keras/activations/elu): Exponential linear unit.
 
-[`exponential(...)`](../../tf/keras/activations/exponential)
+[`exponential(...)`](../../tf/keras/activations/exponential): Exponential activation function.
 
 [`get(...)`](../../tf/keras/activations/get)
 
 [`hard_sigmoid(...)`](../../tf/keras/activations/hard_sigmoid): Hard sigmoid activation function.
 
-[`linear(...)`](../../tf/keras/activations/linear)
+[`linear(...)`](../../tf/keras/activations/linear): Linear activation function.
 
 [`relu(...)`](../../tf/keras/activations/relu): Rectified Linear Unit.
 
@@ -31,13 +39,13 @@ Built-in activation functions.
 
 [`serialize(...)`](../../tf/keras/activations/serialize)
 
-[`sigmoid(...)`](../../tf/keras/activations/sigmoid)
+[`sigmoid(...)`](../../tf/keras/activations/sigmoid): Sigmoid.
 
-[`softmax(...)`](../../tf/keras/activations/softmax): Softmax activation function.
+[`softmax(...)`](../../tf/keras/activations/softmax): The softmax activation function transforms the outputs so that all values are in
 
 [`softplus(...)`](../../tf/keras/activations/softplus): Softplus activation function.
 
 [`softsign(...)`](../../tf/keras/activations/softsign): Softsign activation function.
 
-[`tanh(...)`](../../tf/keras/activations/tanh)
+[`tanh(...)`](../../tf/keras/activations/tanh): Hyperbolic Tangent activation function.
 

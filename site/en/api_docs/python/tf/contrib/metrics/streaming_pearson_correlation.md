@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.streaming_pearson_correlation
 
+Computes Pearson correlation coefficient between `predictions`, `labels`.
+
 ``` python
 tf.contrib.metrics.streaming_pearson_correlation(
     predictions,
@@ -18,9 +20,9 @@ tf.contrib.metrics.streaming_pearson_correlation(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
-Computes Pearson correlation coefficient between `predictions`, `labels`.
+<!-- Placeholder for "Used in" -->
 
 The `streaming_pearson_correlation` function delegates to
 `streaming_covariance` the tracking of three [co]variances:
@@ -42,29 +44,32 @@ https://wikipedia.org/wiki/Weighted_arithmetic_mean#Weighted_sample_variance
 
 #### Args:
 
+
 * <b>`predictions`</b>: A `Tensor` of arbitrary size.
 * <b>`labels`</b>: A `Tensor` of the same size as predictions.
 * <b>`weights`</b>: Optional `Tensor` indicating the frequency with which an example is
-    sampled. Rank must be 0, or the same rank as `labels`, and must be
-    broadcastable to `labels` (i.e., all dimensions must be either `1`, or
-    the same as the corresponding `labels` dimension).
-* <b>`metrics_collections`</b>: An optional list of collections that the metric
-    value variable should be added to.
+  sampled. Rank must be 0, or the same rank as `labels`, and must be
+  broadcastable to `labels` (i.e., all dimensions must be either `1`, or the
+  same as the corresponding `labels` dimension).
+* <b>`metrics_collections`</b>: An optional list of collections that the metric value
+  variable should be added to.
 * <b>`updates_collections`</b>: An optional list of collections that the metric update
-    ops should be added to.
+  ops should be added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
 
+
 * <b>`pearson_r`</b>: A `Tensor` representing the current Pearson product-moment
-    correlation coefficient, the value of
-    `cov(predictions, labels) / sqrt(var(predictions) * var(labels))`.
+  correlation coefficient, the value of
+  `cov(predictions, labels) / sqrt(var(predictions) * var(labels))`.
 * <b>`update_op`</b>: An operation that updates the underlying variables appropriately.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `labels` and `predictions` are of different sizes, or if
-    `weights` is the wrong size, or if either `metrics_collections` or
-    `updates_collections` are not a `list` or `tuple`.
+  `weights` is the wrong size, or if either `metrics_collections` or
+  `updates_collections` are not a `list` or `tuple`.

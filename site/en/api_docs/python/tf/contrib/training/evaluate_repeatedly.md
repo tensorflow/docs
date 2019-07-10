@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.training.evaluate_repeatedly
 
+Repeatedly searches for a checkpoint in `checkpoint_dir` and evaluates it.
+
 ``` python
 tf.contrib.training.evaluate_repeatedly(
     checkpoint_dir,
@@ -25,9 +27,9 @@ tf.contrib.training.evaluate_repeatedly(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/evaluation.py).
+Defined in [`contrib/training/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/evaluation.py).
 
-Repeatedly searches for a checkpoint in `checkpoint_dir` and evaluates it.
+<!-- Placeholder for "Used in" -->
 
 During a single evaluation, the `eval_ops` is run until the session is
 interrupted or requested to finish. This is typically requested via a
@@ -51,31 +53,32 @@ caller should ensure that the local init op also initializes the eval step.
 
 #### Args:
 
+
 * <b>`checkpoint_dir`</b>: The directory where checkpoints are stored.
 * <b>`master`</b>: The address of the TensorFlow master.
-* <b>`scaffold`</b>: An tf.train.Scaffold instance for initializing variables and
-    restoring variables. Note that `scaffold.init_fn` is used by the function
-    to restore the checkpoint. If you supply a custom init_fn, then it must
-    also take care of restoring the model from its checkpoint.
-* <b>`eval_ops`</b>: A single `Tensor`, a list of `Tensors` or a dictionary of names
-    to `Tensors`, which is run until the session is requested to stop,
-    commonly done by a <a href="../../../tf/contrib/training/StopAfterNEvalsHook"><code>tf.contrib.training.StopAfterNEvalsHook</code></a>.
+* <b>`scaffold`</b>: An tf.compat.v1.train.Scaffold instance for initializing variables
+  and restoring variables. Note that `scaffold.init_fn` is used by the
+  function to restore the checkpoint. If you supply a custom init_fn, then
+  it must also take care of restoring the model from its checkpoint.
+* <b>`eval_ops`</b>: A single `Tensor`, a list of `Tensors` or a dictionary of names to
+  `Tensors`, which is run until the session is requested to stop, commonly
+  done by a <a href="../../../tf/contrib/training/StopAfterNEvalsHook"><code>tf.contrib.training.StopAfterNEvalsHook</code></a>.
 * <b>`feed_dict`</b>: The feed dictionary to use when executing the `eval_ops`.
 * <b>`final_ops`</b>: A single `Tensor`, a list of `Tensors` or a dictionary of names
-    to `Tensors`.
+  to `Tensors`.
 * <b>`final_ops_feed_dict`</b>: A feed dictionary to use when evaluating `final_ops`.
 * <b>`eval_interval_secs`</b>: The minimum number of seconds between evaluations.
-* <b>`hooks`</b>: List of <a href="../../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> callbacks which are run inside the
-    evaluation loop.
-* <b>`config`</b>: An instance of <a href="../../../tf/ConfigProto"><code>tf.ConfigProto</code></a> that will be used to
-    configure the `Session`. If left as `None`, the default will be used.
+* <b>`hooks`</b>: List of <a href="../../../tf/train/SessionRunHook"><code>tf.estimator.SessionRunHook</code></a> callbacks which are run inside
+  the evaluation loop.
+* <b>`config`</b>: An instance of <a href="../../../tf/ConfigProto"><code>tf.compat.v1.ConfigProto</code></a> that will be used to
+  configure the `Session`. If left as `None`, the default will be used.
 * <b>`max_number_of_evaluations`</b>: The maximum times to run the evaluation. If left
-    as `None`, then evaluation runs indefinitely.
-* <b>`timeout`</b>: The maximum amount of time to wait between checkpoints. If left as
-    `None`, then the process will wait indefinitely.
+  as `None`, then evaluation runs indefinitely.
+* <b>`timeout`</b>: The maximum number of seconds to wait between checkpoints. If left
+  as `None`, then the process will wait indefinitely.
 * <b>`timeout_fn`</b>: Optional function to call after a timeout.  If the function
-    returns True, then it means that no new checkpoints will be generated and
-    the iterator will exit.  The function is called with no arguments.
+  returns True, then it means that no new checkpoints will be generated and
+  the iterator will exit.  The function is called with no arguments.
 
 
 #### Returns:

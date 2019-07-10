@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.losses.softmax_cross_entropy
 
+Creates a cross-entropy loss using tf.nn.softmax_cross_entropy_with_logits_v2.
+
+### Aliases:
+
+* `tf.compat.v1.losses.softmax_cross_entropy`
+* `tf.losses.softmax_cross_entropy`
+
 ``` python
 tf.losses.softmax_cross_entropy(
     onehot_labels,
@@ -19,9 +26,9 @@ tf.losses.softmax_cross_entropy(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/losses_impl.py).
 
-Creates a cross-entropy loss using tf.nn.softmax_cross_entropy_with_logits_v2.
+<!-- Placeholder for "Used in" -->
 
 `weights` acts as a coefficient for the loss. If a scalar is provided,
 then the loss is simply scaled by the given value. If `weights` is a
@@ -40,6 +47,7 @@ a `Tensor` of shape `[batch_size]`.
 
 #### Args:
 
+
 * <b>`onehot_labels`</b>: One-hot-encoded labels.
 * <b>`logits`</b>: Logits outputs of the network.
 * <b>`weights`</b>: Optional `Tensor` that is broadcastable to loss.
@@ -55,15 +63,17 @@ Weighted loss `Tensor` of the same type as `logits`. If `reduction` is
 `NONE`, this has shape `[batch_size]`; otherwise, it is scalar.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the shape of `logits` doesn't match that of `onehot_labels`
-    or if the shape of `weights` is invalid or if `weights` is None.  Also if
-    `onehot_labels` or `logits` is None.
+  or if the shape of `weights` is invalid or if `weights` is None.  Also if
+  `onehot_labels` or `logits` is None.
 
 
 
 #### Eager Compatibility
 The `loss_collection` argument is ignored when executing eagerly. Consider
-holding on to the return value or collecting losses via a <a href="../../tf/keras/models/Model"><code>tf.keras.Model</code></a>.
+holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
 

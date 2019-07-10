@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.hessians
 
+Constructs the Hessian of sum of `ys` with respect to `x` in `xs`.
+
+### Aliases:
+
+* `tf.compat.v1.hessians`
+* `tf.hessians`
+
 ``` python
 tf.hessians(
     ys,
@@ -18,9 +25,9 @@ tf.hessians(
 
 
 
-Defined in [`tensorflow/python/ops/gradients_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/gradients_impl.py).
+Defined in [`python/ops/gradients_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/gradients_impl.py).
 
-Constructs the Hessian of sum of `ys` with respect to `x` in `xs`.
+<!-- Placeholder for "Used in" -->
 
 `hessians()` adds ops to the graph to output the Hessian matrix of `ys`
 with respect to `xs`.  It returns a list of `Tensor` of length `len(xs)`
@@ -31,10 +38,11 @@ tensor (see https://en.wikipedia.org/wiki/Hessian_matrix for more details).
 
 #### Args:
 
+
 * <b>`ys`</b>: A `Tensor` or list of tensors to be differentiated.
 * <b>`xs`</b>: A `Tensor` or list of tensors to be used for differentiation.
 * <b>`name`</b>: Optional name to use for grouping all the gradient ops together.
-    defaults to 'hessians'.
+  defaults to 'hessians'.
 * <b>`colocate_gradients_with_ops`</b>: See `gradients()` documentation for details.
 * <b>`gate_gradients`</b>: See `gradients()` documentation for details.
 * <b>`aggregation_method`</b>: See `gradients()` documentation for details.
@@ -45,7 +53,9 @@ tensor (see https://en.wikipedia.org/wiki/Hessian_matrix for more details).
 A list of Hessian matrices of `sum(ys)` for each `x` in `xs`.
 
 
+
 #### Raises:
 
+
 * <b>`LookupError`</b>: if one of the operations between `xs` and `ys` does not
-    have a registered gradient function.
+  have a registered gradient function.

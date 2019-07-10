@@ -5,17 +5,21 @@ page_type: reference
 
 # tf.contrib.framework.nest.is_sequence
 
+Returns true if its input is a collections.Sequence (except strings).
+
 ``` python
 tf.contrib.framework.nest.is_sequence(o)
 ```
 
 
 
-Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/pywrap_tensorflow_internal.py).
+Defined in [`python/pywrap_tensorflow_internal.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/pywrap_tensorflow_internal.py).
 
-Returns a true if its input is a collections.Sequence (except strings).
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`seq`</b>: an input sequence.
 

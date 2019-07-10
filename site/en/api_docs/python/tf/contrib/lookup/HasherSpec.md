@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `HasherSpec`
 
-
-
-
-
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/lookup_ops.py).
-
 A structure for the spec of the hashing function to use for hash buckets.
+
+
+
+
+
+Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 `hasher` is the name of the hashing function to use (eg. "fasthash",
 "stronghash").
@@ -22,22 +24,9 @@ supported, currently only used by a strong hash.
 
 #### Fields:
 
+
 * <b>`hasher`</b>: The hasher name to use.
 * <b>`key`</b>: The key to be used by the hashing function, if required.
-
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-__new__(
-    _cls,
-    hasher,
-    key
-)
-```
-
-Create new instance of HasherSpec(hasher, key)
-
-
 
 ## Properties
 
@@ -45,7 +34,9 @@ Create new instance of HasherSpec(hasher, key)
 
 
 
+
 <h3 id="key"><code>key</code></h3>
+
 
 
 

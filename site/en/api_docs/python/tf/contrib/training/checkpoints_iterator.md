@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.training.checkpoints_iterator
 
+Continuously yield new checkpoint files as they appear.
+
 ``` python
 tf.contrib.training.checkpoints_iterator(
     checkpoint_dir,
@@ -16,9 +18,9 @@ tf.contrib.training.checkpoints_iterator(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/evaluation.py).
+Defined in [`contrib/training/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/evaluation.py).
 
-Continuously yield new checkpoint files as they appear.
+<!-- Placeholder for "Used in" -->
 
 The iterator only checks for new checkpoints when control flow has been
 reverted to it. This means it can miss checkpoints if your code takes longer
@@ -45,14 +47,15 @@ they return `False` instead.
 
 #### Args:
 
+
 * <b>`checkpoint_dir`</b>: The directory in which checkpoints are saved.
 * <b>`min_interval_secs`</b>: The minimum number of seconds between yielding
-    checkpoints.
-* <b>`timeout`</b>: The maximum amount of time to wait between checkpoints. If left as
-    `None`, then the process will wait indefinitely.
+  checkpoints.
+* <b>`timeout`</b>: The maximum number of seconds to wait between checkpoints. If left
+  as `None`, then the process will wait indefinitely.
 * <b>`timeout_fn`</b>: Optional function to call after a timeout.  If the function
-    returns True, then it means that no new checkpoints will be generated and
-    the iterator will exit.  The function is called with no arguments.
+  returns True, then it means that no new checkpoints will be generated and
+  the iterator will exit.  The function is called with no arguments.
 
 
 #### Yields:

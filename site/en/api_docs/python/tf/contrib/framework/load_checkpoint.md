@@ -5,17 +5,21 @@ page_type: reference
 
 # tf.contrib.framework.load_checkpoint
 
+Returns CheckpointReader for latest checkpoint.
+
 ``` python
 tf.contrib.framework.load_checkpoint(filepattern)
 ```
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
+Defined in [`contrib/framework/python/framework/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
 
-Returns CheckpointReader for latest checkpoint.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`filepattern`</b>: Directory with checkpoints file or path to checkpoint.
 
@@ -25,6 +29,8 @@ Returns CheckpointReader for latest checkpoint.
 `CheckpointReader` object.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if checkpoint_dir doesn't have 'checkpoint' file or checkpoints.

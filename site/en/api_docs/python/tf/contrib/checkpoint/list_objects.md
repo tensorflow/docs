@@ -5,25 +5,28 @@ page_type: reference
 
 # tf.contrib.checkpoint.list_objects
 
+Traverse the object graph and list all accessible objects.
+
 ``` python
-tf.contrib.checkpoint.list_objects(root_checkpointable)
+tf.contrib.checkpoint.list_objects(root_trackable)
 ```
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/checkpointable/util.py).
+Defined in [`python/training/tracking/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/util.py).
 
-Traverse the object graph and list all accessible objects.
+<!-- Placeholder for "Used in" -->
 
-Looks for `Checkpointable` objects which are dependencies of
-`root_checkpointable`. Includes slot variables only if the variable they are
-slotting for and the optimizer are dependencies of `root_checkpointable`
+Looks for `Trackable` objects which are dependencies of
+`root_trackable`. Includes slot variables only if the variable they are
+slotting for and the optimizer are dependencies of `root_trackable`
 (i.e. if they would be saved with a checkpoint).
 
 #### Args:
 
-* <b>`root_checkpointable`</b>: A `Checkpointable` object whose dependencies should be
-    flattened.
+
+* <b>`root_trackable`</b>: A `Trackable` object whose dependencies should be flattened.
+
 
 #### Returns:
 

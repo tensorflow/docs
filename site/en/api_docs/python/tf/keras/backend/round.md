@@ -5,19 +5,28 @@ page_type: reference
 
 # tf.keras.backend.round
 
+Element-wise rounding to the closest integer.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.round`
+* `tf.compat.v2.keras.backend.round`
+* `tf.keras.backend.round`
+
 ``` python
 tf.keras.backend.round(x)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Element-wise rounding to the closest integer.
+<!-- Placeholder for "Used in" -->
 
 In case of tie, the rounding mode used is "half to even".
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable.
 

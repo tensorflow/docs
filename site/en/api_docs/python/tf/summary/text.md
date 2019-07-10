@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.summary.text
 
+Summarizes textual data.
+
+### Aliases:
+
+* `tf.compat.v1.summary.text`
+* `tf.summary.text`
+
 ``` python
 tf.summary.text(
     name,
@@ -15,9 +22,9 @@ tf.summary.text(
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/summary/summary.py).
+Defined in [`python/summary/summary.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/summary.py).
 
-Summarizes textual data.
+<!-- Placeholder for "Used in" -->
 
 Text data summarized via this plugin will be visible in the Text Dashboard
 in TensorBoard. The standard TensorBoard Text Dashboard will render markdown
@@ -29,11 +36,12 @@ plugin.)
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the generated node. Will also serve as a series name in
-    TensorBoard.
+  TensorBoard.
 * <b>`tensor`</b>: a string-type Tensor to summarize.
 * <b>`collections`</b>: Optional list of ops.GraphKeys.  The collections to add the
-    summary to.  Defaults to [_ops.GraphKeys.SUMMARIES]
+  summary to.  Defaults to [_ops.GraphKeys.SUMMARIES]
 
 
 #### Returns:
@@ -43,6 +51,8 @@ that it contains textual data. The TensorSummary is a scalar `Tensor` of
 type `string` which contains `Summary` protobufs.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If tensor has the wrong type.

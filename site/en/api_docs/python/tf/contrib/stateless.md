@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.stateless
 
-
-
-Defined in [`tensorflow/contrib/stateless/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/stateless/__init__.py).
-
 Stateless random ops which take seed as a tensor input.
+
+
+
+Defined in [`contrib/stateless/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/stateless/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 DEPRECATED: Use <a href="../../tf/random/stateless_uniform"><code>tf.random.stateless_uniform</code></a> rather than
 <a href="../../tf/random/stateless_uniform"><code>tf.contrib.stateless.stateless_random_uniform</code></a>, and similarly for the other

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.cohen_kappa
 
+Calculates Cohen's kappa.
+
 ``` python
 tf.contrib.metrics.cohen_kappa(
     labels,
@@ -19,9 +21,9 @@ tf.contrib.metrics.cohen_kappa(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
-Calculates Cohen's kappa.
+<!-- Placeholder for "Used in" -->
 
 [Cohen's kappa](https://en.wikipedia.org/wiki/Cohen's_kappa) is a statistic
 that measures inter-annotator agreement.
@@ -50,30 +52,33 @@ doesn't support weighted matrix yet.
 
 #### Args:
 
+
 * <b>`labels`</b>: 1-D `Tensor` of real labels for the classification task. Must be
-    one of the following types: int16, int32, int64.
+  one of the following types: int16, int32, int64.
 * <b>`predictions_idx`</b>: 1-D `Tensor` of predicted class indices for a given
-    classification. Must have the same type as `labels`.
+  classification. Must have the same type as `labels`.
 * <b>`num_classes`</b>: The possible number of labels.
 * <b>`weights`</b>: Optional `Tensor` whose shape matches `predictions`.
-* <b>`metrics_collections`</b>: An optional list of collections that `kappa` should
-    be added to.
+* <b>`metrics_collections`</b>: An optional list of collections that `kappa` should be
+  added to.
 * <b>`updates_collections`</b>: An optional list of collections that `update_op` should
-    be added to.
+  be added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
 
+
 * <b>`kappa`</b>: Scalar float `Tensor` representing the current Cohen's kappa.
 * <b>`update_op`</b>: `Operation` that increments `po`, `pe_row` and `pe_col`
-    variables appropriately and whose value matches `kappa`.
+  variables appropriately and whose value matches `kappa`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `num_classes` is less than 2, or `predictions` and `labels`
-    have mismatched shapes, or if `weights` is not `None` and its shape
-    doesn't match `predictions`, or if either `metrics_collections` or
-    `updates_collections` are not a list or tuple.
+  have mismatched shapes, or if `weights` is not `None` and its shape
+  doesn't match `predictions`, or if either `metrics_collections` or
+  `updates_collections` are not a list or tuple.
 * <b>`RuntimeError`</b>: If eager execution is enabled.

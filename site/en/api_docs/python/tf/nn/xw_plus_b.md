@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.xw_plus_b
 
+Computes matmul(x, weights) + biases.
+
+### Aliases:
+
+* `tf.compat.v1.nn.xw_plus_b`
+* `tf.nn.xw_plus_b`
+
 ``` python
 tf.nn.xw_plus_b(
     x,
@@ -16,17 +23,19 @@ tf.nn.xw_plus_b(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Computes matmul(x, weights) + biases.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`x`</b>: a 2D tensor.  Dimensions typically: batch, in_units
 * <b>`weights`</b>: a 2D tensor.  Dimensions typically: in_units, out_units
 * <b>`biases`</b>: a 1D tensor.  Dimensions: out_units
 * <b>`name`</b>: A name for the operation (optional).  If not specified
-    "xw_plus_b" is used.
+  "xw_plus_b" is used.
 
 
 #### Returns:

@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `Step`
 
-
-
-
-
-Defined in [`tensorflow/contrib/distribute/python/step_fn.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distribute/python/step_fn.py).
-
 Interface for performing each step of a training algorithm.
+
+
+
+
+
+Defined in [`python/distribute/step_fn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/step_fn.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -21,13 +24,15 @@ Interface for performing each step of a training algorithm.
 __init__(distribution)
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
 ## Properties
 
 <h3 id="distribution"><code>distribution</code></h3>
+
 
 
 
@@ -42,6 +47,16 @@ __call__()
 ```
 
 Perform one step of this training algorithm.
+
+
+<h3 id="initialize"><code>initialize</code></h3>
+
+``` python
+initialize()
+```
+
+
+
 
 
 

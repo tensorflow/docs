@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.constrained_optimization.find_best_candidate_distribution
 
+Finds a distribution minimizing an objective subject to constraints.
+
 ``` python
 tf.contrib.constrained_optimization.find_best_candidate_distribution(
     objective_vector,
@@ -15,9 +17,9 @@ tf.contrib.constrained_optimization.find_best_candidate_distribution(
 
 
 
-Defined in [`tensorflow/contrib/constrained_optimization/python/candidates.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/constrained_optimization/python/candidates.py).
+Defined in [`contrib/constrained_optimization/python/candidates.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/constrained_optimization/python/candidates.py).
 
-Finds a distribution minimizing an objective subject to constraints.
+<!-- Placeholder for "Used in" -->
 
 This function deals with the constrained problem:
 
@@ -48,14 +50,15 @@ This function implements the approach described in Lemma 3.
 
 #### Args:
 
+
 * <b>`objective_vector`</b>: numpy array of shape (n,), where n is the number of
-    "candidate solutions". Contains the objective function values.
+  "candidate solutions". Contains the objective function values.
 * <b>`constraints_matrix`</b>: numpy array of shape (m,n), where m is the number of
-    constraints and n is the number of "candidate solutions". Contains the
-    constraint violation magnitudes.
+  constraints and n is the number of "candidate solutions". Contains the
+  constraint violation magnitudes.
 * <b>`epsilon`</b>: nonnegative float, the threshold at which to terminate the binary
-    search while searching for the minimal expected constraint violation
-    magnitude.
+  search while searching for the minimal expected constraint violation
+  magnitude.
 
 
 #### Returns:
@@ -63,8 +66,10 @@ This function implements the approach described in Lemma 3.
 The optimal distribution, as a numpy array of shape (n,).
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `objective_vector` and `constraints_matrix` have inconsistent
-    shapes, or if `epsilon` is negative.
+  shapes, or if `epsilon` is negative.
 * <b>`ImportError`</b>: If we're unable to import `scipy.optimize`.

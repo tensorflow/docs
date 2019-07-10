@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.relu
 
+Rectified linear unit.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.relu`
+* `tf.compat.v2.keras.backend.relu`
+* `tf.keras.backend.relu`
+
 ``` python
 tf.keras.backend.relu(
     x,
@@ -16,9 +24,9 @@ tf.keras.backend.relu(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Rectified linear unit.
+<!-- Placeholder for "Used in" -->
 
 With default values, it returns element-wise `max(x, 0)`.
 
@@ -28,6 +36,7 @@ Otherwise, it follows:
 `f(x) = alpha * (x - threshold)` otherwise.
 
 #### Arguments:
+
 
 * <b>`x`</b>: A tensor or variable.
 * <b>`alpha`</b>: A scalar, slope of negative section (default=`0.`).

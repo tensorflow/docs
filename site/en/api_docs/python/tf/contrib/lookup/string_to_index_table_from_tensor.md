@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.lookup.string_to_index_table_from_tensor
 
+DEPRECATED FUNCTION
+
 ``` python
 tf.contrib.lookup.string_to_index_table_from_tensor(
     mapping,
@@ -17,9 +19,9 @@ tf.contrib.lookup.string_to_index_table_from_tensor(
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`contrib/lookup/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/lookup/lookup_ops.py).
 
-DEPRECATED FUNCTION
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2017-04-10.
 Instructions for updating:

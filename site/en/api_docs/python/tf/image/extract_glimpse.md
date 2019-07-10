@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.image.extract_glimpse
 
+Extracts a glimpse from the input tensor.
+
+### Aliases:
+
+* `tf.compat.v1.image.extract_glimpse`
+* `tf.image.extract_glimpse`
+
 ``` python
 tf.image.extract_glimpse(
     input,
@@ -19,9 +26,9 @@ tf.image.extract_glimpse(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_image_ops.py`.
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Extracts a glimpse from the input tensor.
+<!-- Placeholder for "Used in" -->
 
 Returns a set of windows called glimpses extracted at location
 `offsets` from the input tensor. If the windows only partially
@@ -47,25 +54,24 @@ The argument `normalized` and `centered` controls how the windows are built:
 
 #### Args:
 
-* <b>`input`</b>: A `Tensor` of type `float32`.
-    A 4-D float tensor of shape `[batch_size, height, width, channels]`.
-* <b>`size`</b>: A `Tensor` of type `int32`.
-    A 1-D tensor of 2 elements containing the size of the glimpses
-    to extract.  The glimpse height must be specified first, following
-    by the glimpse width.
-* <b>`offsets`</b>: A `Tensor` of type `float32`.
-    A 2-D integer tensor of shape `[batch_size, 2]` containing
-    the y, x locations of the center of each window.
-* <b>`centered`</b>: An optional `bool`. Defaults to `True`.
-    indicates if the offset coordinates are centered relative to
-    the image, in which case the (0, 0) offset is relative to the center
-    of the input images. If false, the (0,0) offset corresponds to the
-    upper left corner of the input images.
-* <b>`normalized`</b>: An optional `bool`. Defaults to `True`.
-    indicates if the offset coordinates are normalized.
-* <b>`uniform_noise`</b>: An optional `bool`. Defaults to `True`.
-    indicates if the noise should be generated using a
-    uniform distribution or a Gaussian distribution.
+
+* <b>`input`</b>: A `Tensor` of type `float32`. A 4-D float tensor of shape
+  `[batch_size, height, width, channels]`.
+* <b>`size`</b>: A `Tensor` of type `int32`. A 1-D tensor of 2 elements containing the
+  size of the glimpses to extract.  The glimpse height must be specified
+  first, following by the glimpse width.
+* <b>`offsets`</b>: A `Tensor` of type `float32`. A 2-D integer tensor of shape
+  `[batch_size, 2]` containing the y, x locations of the center of each
+  window.
+* <b>`centered`</b>: An optional `bool`. Defaults to `True`. indicates if the offset
+  coordinates are centered relative to the image, in which case the (0, 0)
+  offset is relative to the center of the input images. If false, the (0,0)
+  offset corresponds to the upper left corner of the input images.
+* <b>`normalized`</b>: An optional `bool`. Defaults to `True`. indicates if the offset
+  coordinates are normalized.
+* <b>`uniform_noise`</b>: An optional `bool`. Defaults to `True`. indicates if the
+  noise should be generated using a uniform distribution or a Gaussian
+  distribution.
 * <b>`name`</b>: A name for the operation (optional).
 
 

@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.memory_stats
 
-
-
-Defined in [`tensorflow/contrib/memory_stats/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/memory_stats/__init__.py).
-
 Ops for memory statistics.
+
+
+
+Defined in [`contrib/memory_stats/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/memory_stats/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 ## Functions

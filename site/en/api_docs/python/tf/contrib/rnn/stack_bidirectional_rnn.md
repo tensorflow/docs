@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.rnn.stack_bidirectional_rnn
 
+Creates a bidirectional recurrent neural network.
+
 ``` python
 tf.contrib.rnn.stack_bidirectional_rnn(
     cells_fw,
@@ -20,9 +22,9 @@ tf.contrib.rnn.stack_bidirectional_rnn(
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/rnn/python/ops/rnn.py).
+Defined in [`contrib/rnn/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/rnn/python/ops/rnn.py).
 
-Creates a bidirectional recurrent neural network.
+<!-- Placeholder for "Used in" -->
 
 Stacks several bidirectional rnn layers. The combined forward and backward
 layer outputs are used as input of the next layer. tf.bidirectional_rnn
@@ -35,22 +37,23 @@ As described in https://arxiv.org/abs/1303.5778
 
 #### Args:
 
+
 * <b>`cells_fw`</b>: List of instances of RNNCell, one per layer,
-    to be used for forward direction.
+  to be used for forward direction.
 * <b>`cells_bw`</b>: List of instances of RNNCell, one per layer,
-    to be used for backward direction.
+  to be used for backward direction.
 * <b>`inputs`</b>: A length T list of inputs, each a tensor of shape
-    [batch_size, input_size], or a nested tuple of such elements.
+  [batch_size, input_size], or a nested tuple of such elements.
 * <b>`initial_states_fw`</b>: (optional) A list of the initial states (one per layer)
-    for the forward RNN.
-    Each tensor must has an appropriate type and shape
-    `[batch_size, cell_fw.state_size]`.
+  for the forward RNN.
+  Each tensor must has an appropriate type and shape
+  `[batch_size, cell_fw.state_size]`.
 * <b>`initial_states_bw`</b>: (optional) Same as for `initial_states_fw`, but using
-    the corresponding properties of `cells_bw`.
+  the corresponding properties of `cells_bw`.
 * <b>`dtype`</b>: (optional) The data type for the initial state.  Required if
-    either of the initial states are not provided.
+  either of the initial states are not provided.
 * <b>`sequence_length`</b>: (optional) An int32/int64 vector, size `[batch_size]`,
-    containing the actual lengths for each of the sequences.
+  containing the actual lengths for each of the sequences.
 * <b>`scope`</b>: VariableScope for the created subgraph; defaults to None.
 
 
@@ -65,7 +68,9 @@ A tuple (outputs, output_state_fw, output_state_bw) where:
     of the backward rnn.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `cell_fw` or `cell_bw` is not an instance of `RNNCell`.
 * <b>`ValueError`</b>: If inputs is None, not a list or an empty list.

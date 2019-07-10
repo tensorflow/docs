@@ -7,21 +7,14 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.version namespace.
 
 ## Other Members
 
-<h3 id="COMPILER_VERSION"><code>COMPILER_VERSION</code></h3>
-
-<h3 id="GIT_VERSION"><code>GIT_VERSION</code></h3>
-
-<h3 id="GRAPH_DEF_VERSION"><code>GRAPH_DEF_VERSION</code></h3>
-
-<h3 id="GRAPH_DEF_VERSION_MIN_CONSUMER"><code>GRAPH_DEF_VERSION_MIN_CONSUMER</code></h3>
-
-<h3 id="GRAPH_DEF_VERSION_MIN_PRODUCER"><code>GRAPH_DEF_VERSION_MIN_PRODUCER</code></h3>
-
-<h3 id="VERSION"><code>VERSION</code></h3>
-
+* `COMPILER_VERSION = '4.8.5'` <a id="COMPILER_VERSION"></a>
+* `GIT_VERSION = 'v1.14.0-rc1-22-gaf24dc91b5'` <a id="GIT_VERSION"></a>
+* `GRAPH_DEF_VERSION = 38` <a id="GRAPH_DEF_VERSION"></a>
+* `GRAPH_DEF_VERSION_MIN_CONSUMER = 0` <a id="GRAPH_DEF_VERSION_MIN_CONSUMER"></a>
+* `GRAPH_DEF_VERSION_MIN_PRODUCER = 0` <a id="GRAPH_DEF_VERSION_MIN_PRODUCER"></a>
+* `VERSION = '1.14.0'` <a id="VERSION"></a>

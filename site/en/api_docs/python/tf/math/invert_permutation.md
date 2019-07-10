@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.math.invert_permutation
 
+Computes the inverse permutation of a tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.invert_permutation`
+* `tf.compat.v1.math.invert_permutation`
+* `tf.compat.v2.math.invert_permutation`
 * `tf.invert_permutation`
 * `tf.math.invert_permutation`
 
@@ -19,9 +24,9 @@ tf.math.invert_permutation(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Computes the inverse permutation of a tensor.
+<!-- Placeholder for "Used in" -->
 
 This operation computes the inverse of an index permutation. It takes a 1-D
 integer tensor `x`, which represents the indices of a zero-based array, and
@@ -32,7 +37,9 @@ swaps each value with its index position. In other words, for an output tensor
 
 The values must include 0. There can be no duplicate values or negative values.
 
-For example:
+#### For example:
+
+
 
 ```
 # tensor `x` is [3, 4, 0, 2, 1]
@@ -40,6 +47,7 @@ invert_permutation(x) ==> [2, 4, 3, 0, 1]
 ```
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`. 1-D.
 * <b>`name`</b>: A name for the operation (optional).

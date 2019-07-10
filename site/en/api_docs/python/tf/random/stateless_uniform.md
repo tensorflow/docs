@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.random.stateless_uniform
 
+Outputs deterministic pseudorandom values from a uniform distribution.
+
 ### Aliases:
 
+* `tf.compat.v1.random.stateless_uniform`
+* `tf.compat.v2.random.stateless_uniform`
 * `tf.contrib.stateless.stateless_random_uniform`
 * `tf.random.stateless_uniform`
 
@@ -23,11 +27,11 @@ tf.random.stateless_uniform(
 
 
 
-Defined in [`tensorflow/python/ops/stateless_random_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/stateless_random_ops.py).
+Defined in [`python/ops/stateless_random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/stateless_random_ops.py).
 
-Outputs deterministic pseudorandom values from a uniform distribution.
+<!-- Placeholder for "Used in" -->
 
-This is a stateless version of <a href="../../tf/random/uniform"><code>tf.random_uniform</code></a>: if run twice with the
+This is a stateless version of <a href="../../tf/random/uniform"><code>tf.random.uniform</code></a>: if run twice with the
 same seeds, it will produce the same pseudorandom numbers.  The output is
 consistent across multiple runs on the same hardware (and between CPU
 and GPU), but may change between versions of TensorFlow or on non-CPU/GPU
@@ -47,15 +51,16 @@ In the integer case, the random integers are slightly biased unless
 
 #### Args:
 
+
 * <b>`shape`</b>: A 1-D integer Tensor or Python array. The shape of the output tensor.
 * <b>`seed`</b>: A shape [2] integer Tensor of seeds to the random number generator.
 * <b>`minval`</b>: A 0-D Tensor or Python value of type `dtype`. The lower bound on the
-    range of random values to generate.  Defaults to 0.
+  range of random values to generate.  Defaults to 0.
 * <b>`maxval`</b>: A 0-D Tensor or Python value of type `dtype`. The upper bound on the
-    range of random values to generate.  Defaults to 1 if `dtype` is floating
-    point.
+  range of random values to generate.  Defaults to 1 if `dtype` is floating
+  point.
 * <b>`dtype`</b>: The type of the output: `float16`, `float32`, `float64`, `int32`, or
-    `int64`.
+  `int64`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -64,6 +69,8 @@ In the integer case, the random integers are slightly biased unless
 A tensor of the specified shape filled with random uniform values.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `dtype` is integral and `maxval` is not specified.

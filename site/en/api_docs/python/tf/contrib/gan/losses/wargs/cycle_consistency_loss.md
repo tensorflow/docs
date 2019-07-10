@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.losses.wargs.cycle_consistency_loss
 
+Defines the cycle consistency loss.
+
 ``` python
 tf.contrib.gan.losses.wargs.cycle_consistency_loss(
     data_x,
@@ -18,9 +20,9 @@ tf.contrib.gan.losses.wargs.cycle_consistency_loss(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/losses/python/losses_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/losses/python/losses_impl.py).
+Defined in [`contrib/gan/python/losses/python/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/losses/python/losses_impl.py).
 
-Defines the cycle consistency loss.
+<!-- Placeholder for "Used in" -->
 
 The cyclegan model has two partial models where `model_x2y` generator F maps
 data set X to Y, `model_y2x` generator G maps data set Y to X. For a `data_x`
@@ -45,14 +47,15 @@ See https://arxiv.org/abs/1703.10593 for more details.
 
 #### Args:
 
+
 * <b>`data_x`</b>: A `Tensor` of data X.
 * <b>`reconstructed_data_x`</b>: A `Tensor` of reconstructed data X.
 * <b>`data_y`</b>: A `Tensor` of data Y.
 * <b>`reconstructed_data_y`</b>: A `Tensor` of reconstructed data Y.
 * <b>`scope`</b>: The scope for the operations performed in computing the loss.
-    Defaults to None.
+  Defaults to None.
 * <b>`add_summaries`</b>: Whether or not to add detailed summaries for the loss.
-    Defaults to False.
+  Defaults to False.
 
 
 #### Returns:

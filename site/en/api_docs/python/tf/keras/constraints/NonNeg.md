@@ -7,18 +7,24 @@ page_type: reference
 
 ## Class `NonNeg`
 
+Constrains the weights to be non-negative.
+
 Inherits From: [`Constraint`](../../../tf/keras/constraints/Constraint)
 
 ### Aliases:
 
+* Class `tf.compat.v1.keras.constraints.NonNeg`
+* Class `tf.compat.v1.keras.constraints.non_neg`
+* Class `tf.compat.v2.keras.constraints.NonNeg`
+* Class `tf.compat.v2.keras.constraints.non_neg`
 * Class `tf.keras.constraints.NonNeg`
 * Class `tf.keras.constraints.non_neg`
 
 
 
-Defined in [`tensorflow/python/keras/constraints.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/constraints.py).
+Defined in [`python/keras/constraints.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/constraints.py).
 
-Constrains the weights to be non-negative.
+<!-- Placeholder for "Used in" -->
   
 
 ## Methods
@@ -29,13 +35,15 @@ Constrains the weights to be non-negative.
 __call__(w)
 ```
 
-Call self as a function.
+
+
 
 <h3 id="get_config"><code>get_config</code></h3>
 
 ``` python
 get_config()
 ```
+
 
 
 

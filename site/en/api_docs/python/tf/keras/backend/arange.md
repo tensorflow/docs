@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.arange
 
+Creates a 1D tensor containing a sequence of integers.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.arange`
+* `tf.compat.v2.keras.backend.arange`
+* `tf.keras.backend.arange`
+
 ``` python
 tf.keras.backend.arange(
     start,
@@ -16,9 +24,9 @@ tf.keras.backend.arange(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Creates a 1D tensor containing a sequence of integers.
+<!-- Placeholder for "Used in" -->
 
 The function arguments use the same convention as
 Theano's arange: if only one argument is provided,
@@ -28,6 +36,7 @@ The default type of the returned tensor is `'int32'` to
 match TensorFlow's default.
 
 #### Arguments:
+
 
 * <b>`start`</b>: Start value.
 * <b>`stop`</b>: Stop value.

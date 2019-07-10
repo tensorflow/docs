@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.math.is_inf
 
+Returns which elements of x are Inf.
+
 ### Aliases:
 
+* `tf.compat.v1.debugging.is_inf`
+* `tf.compat.v1.is_inf`
+* `tf.compat.v1.math.is_inf`
+* `tf.compat.v2.math.is_inf`
 * `tf.debugging.is_inf`
 * `tf.is_inf`
 * `tf.math.is_inf`
@@ -20,13 +26,14 @@ tf.math.is_inf(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Returns which elements of x are Inf.
+<!-- Placeholder for "Used in" -->
 
 
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`.
 * <b>`name`</b>: A name for the operation (optional).
@@ -35,6 +42,7 @@ Returns which elements of x are Inf.
 #### Returns:
 
 A `Tensor` of type `bool`.
+
 
 #### Numpy Compatibility
 Equivalent to np.isinf

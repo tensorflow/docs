@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `InfeedQueue`
 
-
-
-
-
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_feed.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/tpu/python/tpu/tpu_feed.py).
-
 A helper object to build a device infeed queue.
+
+
+
+
+
+Defined in [`python/tpu/tpu_feed.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/tpu_feed.py).
+
+<!-- Placeholder for "Used in" -->
 
 The InfeedQueue builds the host-side and device-side Ops to enqueue and
 dequeue elements, respectively, and ensures that their types and
@@ -39,26 +41,28 @@ explicitly or infer them from the shapes of inputs.
 
 #### Args:
 
+
 * <b>`number_of_tuple_elements`</b>: the number of Tensors fed atomically through the
-    queue, must be present unless it can be inferred from other arguments.
+  queue, must be present unless it can be inferred from other arguments.
 * <b>`tuple_types`</b>: if not None, a list of types of the elements of the queue.
 * <b>`tuple_shapes`</b>: if not None, a list of shapes of the elements of the queue.
 * <b>`shard_dimensions`</b>: if not None, a list of dimensions on which the
-    elements of the queue should be sharded during automatic
-    parallelization.
+  elements of the queue should be sharded during automatic
+  parallelization.
 * <b>`name`</b>: the name of the queue.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if number_of_tuple_elements <= 0; or
-    number_of_tuple_arguments, tuple_types, tuple_shapes, and
-    shard_dimensions are all None; or the length of tuple_types,
-    tuple_shapes, or shard_dimensions is not equal to
-    number_of_tuple_elements; or any element of shard_dimensions
-    can't be converted to a Dimension.
+  number_of_tuple_arguments, tuple_types, tuple_shapes, and
+  shard_dimensions are all None; or the length of tuple_types,
+  tuple_shapes, or shard_dimensions is not equal to
+  number_of_tuple_elements; or any element of shard_dimensions
+  can't be converted to a Dimension.
 * <b>`TypeError`</b>: if any element of tuple_types or tuple_shapes can't
-    be converted to a dtype or TensorShape, respectively.
+  be converted to a dtype or TensorShape, respectively.
 
 
 
@@ -68,17 +72,21 @@ explicitly or infer them from the shapes of inputs.
 
 Gets the number of shards to use for the InfeedQueue.
 
+
 #### Returns:
 
 Number of shards or None if the number of shards has not been set.
+
 
 <h3 id="number_of_tuple_elements"><code>number_of_tuple_elements</code></h3>
 
 Returns the number of InfeedQueue tuple elements.
 
+
 <h3 id="shard_dimensions"><code>shard_dimensions</code></h3>
 
 Gets the shard dimension of each tuple element.
+
 
 #### Returns:
 
@@ -86,17 +94,21 @@ A list of length number_of_tuple_elements, where each list entry
 is the shard dimension of that tuple element or None if the
 shard dimension has not been set.
 
+
 <h3 id="sharding_policies"><code>sharding_policies</code></h3>
 
 Returns the sharding policies of the InfeedQueue tuple elements.
+
 
 <h3 id="tuple_shapes"><code>tuple_shapes</code></h3>
 
 Returns the shapes of the InfeedQueue tuple elements.
 
+
 <h3 id="tuple_types"><code>tuple_types</code></h3>
 
 Returns the types of the InfeedQueue tuple elements.
+
 
 
 
@@ -116,8 +128,9 @@ until the types and shapes of the tuple elements have been set.
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if the types or shapes of the tuple elements have not been
-  set.
+set.
 
 <h3 id="generate_dequeue_op"><code>generate_dequeue_op</code></h3>
 
@@ -133,11 +146,12 @@ been fully specified.
 
 #### Args:
 
+
 * <b>`tpu_device`</b>: The TPU device ordinal where the infeed instruction should be
-    placed. If None, no explicit placement will be performed, and it is up
-    to the user to call this API from within a proper TPU device scope.
-    The XLA code will fail if the TPU dequeue instruction is not bound to
-    any device.
+  placed. If None, no explicit placement will be performed, and it is up
+  to the user to call this API from within a proper TPU device scope.
+  The XLA code will fail if the TPU dequeue instruction is not bound to
+  any device.
 
 
 #### Returns:
@@ -146,10 +160,12 @@ A list of Outputs corresponding to a shard of infeed dequeued
 into XLA, suitable for use within a replicated block.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if the types or shapes of the tuple elements have not been
-  set; or if a dequeue op has already been generated.
+set; or if a dequeue op has already been generated.
 
 <h3 id="generate_enqueue_ops"><code>generate_enqueue_ops</code></h3>
 
@@ -176,16 +192,17 @@ will be raised.
 
 #### Args:
 
+
 * <b>`sharded_inputs`</b>: a list of lists of Tensors. The length of the outer list
-    determines the number of shards. Each inner list indicates the types
-    and shapes of the tuples in the corresponding shard.
+  determines the number of shards. Each inner list indicates the types
+  and shapes of the tuples in the corresponding shard.
 * <b>`tpu_ordinal_function`</b>: if not None, a function that takes the
-    shard index as input and returns the ordinal of the TPU device
-    the shard's infeed should be placed on. tpu_ordinal_function must be
-    set if the inputs are placed on CPU devices.
+  shard index as input and returns the ordinal of the TPU device
+  the shard's infeed should be placed on. tpu_ordinal_function must be
+  set if the inputs are placed on CPU devices.
 * <b>`placement_function`</b>: if not None, a function that takes the shard index as
-    input and returns the host device where the enqueue op should be placed
-    on.
+  input and returns the host device where the enqueue op should be placed
+  on.
 
 
 #### Returns:
@@ -194,17 +211,19 @@ A list of host-side Ops, one for each shard, that when executed together
 will enqueue a full-size element of infeed.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if the queue configuration has previously been frozen and the
-    shapes of the elements of sharded_inputs are not compatible with the
-    frozen configuration; or if the shapes of the elements of sharded_inputs
-    don't form a consistent unsharded tuple; or if the elements of a tuple
-    have different device constraints.
+  shapes of the elements of sharded_inputs are not compatible with the
+  frozen configuration; or if the shapes of the elements of sharded_inputs
+  don't form a consistent unsharded tuple; or if the elements of a tuple
+  have different device constraints.
 * <b>`TypeError`</b>: if the queue configuration has previously been frozen and the
-    types of the elements of sharded_inputs are not compatible with the
-    frozen configuration; or if the types of the elements of sharded_inputs
-    don't form a consistent unsharded tuple.
+  types of the elements of sharded_inputs are not compatible with the
+  frozen configuration; or if the types of the elements of sharded_inputs
+  don't form a consistent unsharded tuple.
 
 <h3 id="set_configuration_from_input_tensors"><code>set_configuration_from_input_tensors</code></h3>
 
@@ -219,14 +238,16 @@ to set the queue configuration.
 
 #### Args:
 
+
 * <b>`input_tensors`</b>: list of Tensors of the same types and shapes as
-    the desired queue Tuple.
+  the desired queue Tuple.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if input_tensors is not a list of length
-    self.number_of_tuple_elements
+  self.number_of_tuple_elements
 
 <h3 id="set_configuration_from_sharded_input_tensors"><code>set_configuration_from_sharded_input_tensors</code></h3>
 
@@ -244,16 +265,18 @@ depends on the shard dimension, and calling it freezes the shard policy.
 
 #### Args:
 
+
 * <b>`input_tensors`</b>: list of lists of Tensors. The outer list length corresponds
-    to the desired number of shards, and each inner list is the size
-    and shape of the desired configuration of the corresponding shard.
+  to the desired number of shards, and each inner list is the size
+  and shape of the desired configuration of the corresponding shard.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if any inner list is not a list of length
-    self.number_of_tuple_elements; or the inner lists do not combine to
-    form a consistent unsharded shape.
+  self.number_of_tuple_elements; or the inner lists do not combine to
+  form a consistent unsharded shape.
 * <b>`TypeError`</b>: if the types of the Tensors in the inner lists do not match.
 
 <h3 id="set_number_of_shards"><code>set_number_of_shards</code></h3>
@@ -264,16 +287,19 @@ set_number_of_shards(number_of_shards)
 
 Sets the number of shards to use for the InfeedQueue.
 
+
 #### Args:
+
 
 * <b>`number_of_shards`</b>: number of ways to shard the InfeedQueue.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if number_of_shards is not > 0; or the policies have
-    been frozen and number_of_shards was already set to something
-    else.
+  been frozen and number_of_shards was already set to something
+  else.
 
 <h3 id="set_shard_dimensions"><code>set_shard_dimensions</code></h3>
 
@@ -289,16 +315,18 @@ convertible to a Dimension compatible with self.tuple_shapes.
 
 #### Args:
 
+
 * <b>`shard_dimensions`</b>: the dimensions of each queue element.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if shard_dimensions is not of length
-    self.number_of_tuple_elements; or an element of
-    shard_dimensions cannot be converted to a Dimension; or an
-    element of shard_dimensions is a Dimension that is out of
-    range for the corresponding tuple element shape.
+  self.number_of_tuple_elements; or an element of
+  shard_dimensions cannot be converted to a Dimension; or an
+  element of shard_dimensions is a Dimension that is out of
+  range for the corresponding tuple element shape.
 
 <h3 id="set_tuple_shapes"><code>set_tuple_shapes</code></h3>
 
@@ -314,15 +342,17 @@ convertible to a TensorShape.
 
 #### Args:
 
+
 * <b>`tuple_shapes`</b>: the shapes of each queue element.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if tuple_shapes is not of length
-    self.number_of_tuple_elements.
+  self.number_of_tuple_elements.
 * <b>`TypeError`</b>: if an element of tuple_shapes cannot be converted to
-    a TensorShape.
+  a TensorShape.
 
 <h3 id="set_tuple_types"><code>set_tuple_types</code></h3>
 
@@ -338,15 +368,17 @@ convertible to a dtype.
 
 #### Args:
 
+
 * <b>`tuple_types`</b>: the types of each queue element.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if tuple_types is not of length
-    self.number_of_tuple_elements.
+  self.number_of_tuple_elements.
 * <b>`TypeError`</b>: if an element of tuple_types cannot be converted to a
-    dtype.
+  dtype.
 
 <h3 id="split_inputs_and_generate_enqueue_ops"><code>split_inputs_and_generate_enqueue_ops</code></h3>
 
@@ -378,24 +410,25 @@ will be raised.
 
 #### Args:
 
-* <b>`inputs`</b>: a list of Tensors which indicates the types and shapes of the
-    queue tuple.
- device_assignment: if not `None`, a TPU `DeviceAssignment`. If
-    device_assignment is not `None`, but `placement_function` and
-    `ordinal_function` are None, then `device_assignment` will be used to
-    place infeeds on the first k TPU shards, where k is the number of shards
-    in the queue. If all three are `None`, then default placement and
-    ordinal functions are used.
-* <b>`placement_function`</b>: if not None, a function that takes the shard
-    index as input and returns a device string indicating which
-    device the shard's infeed should be placed on. If placement_function
-    and tpu_ordinal_function are None, inputs are sharded round-robin
-    across the devices in the system.
-* <b>`tpu_ordinal_function`</b>: if not None, a function that takes the
-    shard index as input and returns the ordinal of the TPU device
-    the shard's infeed should be placed on. If placement_function
-    and tpu_ordinal_function are None, inputs are sharded round-robin
-    across the devices in the system.
+inputs: a list of Tensors which indicates the types and shapes of the
+  queue tuple.
+
+* <b>`device_assignment`</b>: if not `None`, a TPU `DeviceAssignment`. If
+   device_assignment is not `None`, but `placement_function` and
+   `ordinal_function` are None, then `device_assignment` will be used to
+   place infeeds on the first k TPU shards, where k is the number of shards
+   in the queue. If all three are `None`, then default placement and
+   ordinal functions are used.
+ placement_function: if not None, a function that takes the shard
+   index as input and returns a device string indicating which
+   device the shard's infeed should be placed on. If placement_function
+   and tpu_ordinal_function are None, inputs are sharded round-robin
+   across the devices in the system.
+ tpu_ordinal_function: if not None, a function that takes the
+   shard index as input and returns the ordinal of the TPU device
+   the shard's infeed should be placed on. If placement_function
+   and tpu_ordinal_function are None, inputs are sharded round-robin
+   across the devices in the system.
 
 
 #### Returns:
@@ -404,14 +437,16 @@ A list of host-side Ops, one for each shard, that when executed together
 will enqueue a full-size element of infeed.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if the queue configuration has previously been frozen and the
-    shapes of the elements of inputs are not compatible with the frozen
-    configuration.
+  shapes of the elements of inputs are not compatible with the frozen
+  configuration.
 * <b>`TypeError`</b>: if the queue configuration has previously been frozen and the
-    types of the elements of inputs are not compatible with the frozen
-    configuration.
+  types of the elements of inputs are not compatible with the frozen
+  configuration.
 
 
 

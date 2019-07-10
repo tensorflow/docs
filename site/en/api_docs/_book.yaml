@@ -2,15 +2,15 @@ upper_tabs:
 - include: /_upper_tabs_left.yaml
 
 - name: API
-  path: /api_docs/python/tf
+  path: /api
   menu:
   - include: /api_docs/_menu_toc.yaml
   lower_tabs:
     other:
-    - name: More…
+    - name: Overview
       contents:
       - title: Overview
-        path: /versions/r1.13/api_docs/
+        path: /versions/r1.14/api_docs/
 
       - heading: Implementations
       - title: "TensorFlow.js"
@@ -49,14 +49,13 @@ upper_tabs:
         path: /tfx/serving/api_docs/cc
       - title: TFX
         path: /tfx/api_docs/
-
     - name: Python
       skip_translation: true
       contents:
-      - title: Python r1.13
-      - include: /versions/r1.13/api_docs/python/_toc.yaml
+      - title: Python r1.14
+      - include: /versions/r1.14/api_docs/python/_toc.yaml
       - title: All Symbols
-        path: /versions/r1.13/api_docs/python/
+        path: /versions/r1.14/api_docs/python/
 
     - name: JavaScript
       contents:
@@ -67,16 +66,15 @@ upper_tabs:
       skip_translation: true
       contents:
       - title: C++
-        path: /versions/r1.13/api_docs/cc/
-      - include: /versions/r1.13/api_docs/cc/_doxygen.yaml
+        path: /versions/r1.14/api_docs/cc/
+      - include: /versions/r1.14/api_docs/cc/_doxygen.yaml
 
     - name: Java
       skip_translation: true
       contents:
       - title: Java
-        path: /versions/r1.13/api_docs/java/reference/org/tensorflow/package-summary.html
-      - include: /versions/r1.13/api_docs/java/reference/_toc.yaml
-
+        path: /versions/r1.14/api_docs/java/reference/org/tensorflow/package-summary.html
+      - include: /versions/r1.14/api_docs/java/reference/_toc.yaml
 
 - include: /resources/_upper_tabs_resources.yaml
 - include: /_upper_tabs_right.yaml

@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.math.reduce_mean
 
+Computes the mean of elements across dimensions of a tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.math.reduce_mean`
+* `tf.compat.v1.reduce_mean`
 * `tf.math.reduce_mean`
 * `tf.reduce_mean`
 
@@ -23,9 +27,9 @@ tf.math.reduce_mean(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Computes the mean of elements across dimensions of a tensor.
+<!-- Placeholder for "Used in" -->
 
 Reduces `input_tensor` along the dimensions given in `axis`.
 Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
@@ -35,7 +39,9 @@ are retained with length 1.
 If `axis` is None, all dimensions are reduced, and a
 tensor with a single element is returned.
 
-For example:
+#### For example:
+
+
 
 ```python
 x = tf.constant([[1., 1.], [2., 2.]])
@@ -46,10 +52,11 @@ tf.reduce_mean(x, 1)  # [1.,  2.]
 
 #### Args:
 
+
 * <b>`input_tensor`</b>: The tensor to reduce. Should have numeric type.
-* <b>`axis`</b>: The dimensions to reduce. If `None` (the default),
-    reduces all dimensions. Must be in the range
-    `[-rank(input_tensor), rank(input_tensor))`.
+* <b>`axis`</b>: The dimensions to reduce. If `None` (the default), reduces all
+  dimensions. Must be in the range `[-rank(input_tensor),
+  rank(input_tensor))`.
 * <b>`keepdims`</b>: If true, retains reduced dimensions with length 1.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`reduction_indices`</b>: The old (deprecated) name for axis.
@@ -59,6 +66,7 @@ tf.reduce_mean(x, 1)  # [1.,  2.]
 #### Returns:
 
 The reduced tensor.
+
 
 
 

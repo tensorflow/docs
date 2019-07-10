@@ -7,20 +7,24 @@ page_type: reference
 
 ## Class `SparseConditionalAccumulator`
 
+A conditional accumulator for aggregating sparse gradients.
+
 Inherits From: [`ConditionalAccumulatorBase`](../../tf/ConditionalAccumulatorBase)
 
 ### Aliases:
 
 * Class `tf.SparseConditionalAccumulator`
+* Class `tf.compat.v1.SparseConditionalAccumulator`
+* Class `tf.compat.v1.sparse.SparseConditionalAccumulator`
 * Class `tf.sparse.SparseConditionalAccumulator`
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
 
-A conditional accumulator for aggregating sparse gradients.
+<!-- Placeholder for "Used in" -->
 
-Sparse gradients are represented by IndexedSlices.
+Sparse gradients are represented by `IndexedSlices`.
 
 Up-to-date gradients (i.e., time step at which gradient was computed is
 equal to the accumulator's time step) are added to the accumulator.
@@ -30,10 +34,11 @@ gradients has been accumulated.
 
 #### Args:
 
+
 * <b>`dtype`</b>: Datatype of the accumulated gradients.
 * <b>`shape`</b>: Shape of the accumulated gradients.
 * <b>`shared_name`</b>: Optional. If non-empty, this accumulator will be shared under
-    the given name across multiple sessions.
+  the given name across multiple sessions.
 * <b>`name`</b>: Optional name for the accumulator.
 * <b>`reduction_type`</b>: Reduction type to use when taking the gradient.
 
@@ -49,14 +54,8 @@ __init__(
 )
 ```
 
-Creates a new ConditionalAccumulator.
 
-#### Args:
 
-* <b>`dtype`</b>: Datatype of the accumulated gradients.
-* <b>`shape`</b>: Shape of the accumulated gradients.
-* <b>`accumulator_ref`</b>: A handle to the conditional accumulator, created by sub-
-    classes
 
 
 
@@ -66,13 +65,16 @@ Creates a new ConditionalAccumulator.
 
 The underlying accumulator reference.
 
+
 <h3 id="dtype"><code>dtype</code></h3>
 
 The datatype of the gradients accumulated by this accumulator.
 
+
 <h3 id="name"><code>name</code></h3>
 
 The name of the underlying accumulator.
+
 
 
 
@@ -92,7 +94,7 @@ apply_grad(
 
 Attempts to apply a sparse gradient to the accumulator.
 
-The attempt is silently dropped if the gradient is stale, i.e., local_step
+The attempt is silently dropped if the gradient is stale, i.e., `local_step`
 is less than the accumulator's global time step.
 
 A sparse gradient is represented by its indices, values and possibly empty
@@ -102,13 +104,17 @@ gradient, and must have the same first dimension as indices, i.e., the nnz
 represented by indices and values must be consistent. Shape, if not empty or
 None, must be consistent with the accumulator's shape (if also provided).
 
-Example:
-  A tensor [[0, 0], [0. 1], [2, 3]] can be represented
-    indices: [1,2]
-    values: [[0,1],[2,3]]
-    shape: [3, 2]
+#### Example:
+
+A tensor [[0, 0], [0, 1], [2, 3]] can be represented
+  indices: [1,2]
+  values: [[0,1],[2,3]]
+  shape: [3, 2]
+
+
 
 #### Args:
+
 
 * <b>`grad_indices`</b>: Indices of the sparse gradient to be applied.
 * <b>`grad_values`</b>: Values of the sparse gradient to be applied.
@@ -122,7 +128,9 @@ Example:
 The operation that (conditionally) applies a gradient to the accumulator.
 
 
+
 #### Raises:
+
 
 * <b>`InvalidArgumentError`</b>: If grad is of the wrong shape
 
@@ -138,12 +146,13 @@ apply_indexed_slices_grad(
 
 Attempts to apply a gradient to the accumulator.
 
-The attempt is silently dropped if the gradient is stale, i.e., local_step
+The attempt is silently dropped if the gradient is stale, i.e., `local_step`
 is less than the accumulator's global time step.
 
 #### Args:
 
-* <b>`grad`</b>: The gradient IndexedSlices to be applied.
+
+* <b>`grad`</b>: The gradient `IndexedSlices` to be applied.
 * <b>`local_step`</b>: Time step at which the gradient was computed.
 * <b>`name`</b>: Optional name for the operation.
 
@@ -153,7 +162,9 @@ is less than the accumulator's global time step.
 The operation that (conditionally) applies a gradient to the accumulator.
 
 
+
 #### Raises:
+
 
 * <b>`InvalidArgumentError`</b>: If grad is of the wrong shape
 
@@ -165,7 +176,9 @@ num_accumulated(name=None)
 
 Number of gradients that have currently been aggregated in accumulator.
 
+
 #### Args:
+
 
 * <b>`name`</b>: Optional name for the operation.
 
@@ -173,6 +186,7 @@ Number of gradients that have currently been aggregated in accumulator.
 #### Returns:
 
 Number of accumulated gradients currently in accumulator.
+
 
 <h3 id="set_global_step"><code>set_global_step</code></h3>
 
@@ -190,6 +204,7 @@ lower than the accumulator's own time step.
 
 #### Args:
 
+
 * <b>`new_global_step`</b>: Value of new time step. Can be a variable or a constant
 * <b>`name`</b>: Optional name for the operation.
 
@@ -197,6 +212,7 @@ lower than the accumulator's own time step.
 #### Returns:
 
 Operation that sets the accumulator's time step.
+
 
 <h3 id="take_grad"><code>take_grad</code></h3>
 
@@ -219,6 +235,7 @@ Once successful, the following actions are also triggered:
 
 #### Args:
 
+
 * <b>`num_required`</b>: Number of gradients that needs to have been aggregated
 * <b>`name`</b>: Optional name for the operation
 
@@ -228,9 +245,11 @@ Once successful, the following actions are also triggered:
 A tuple of indices, values, and shape representing the average gradient.
 
 
+
 #### Raises:
 
-* <b>`InvalidArgumentError`</b>: If num_required < 1
+
+* <b>`InvalidArgumentError`</b>: If `num_required` < 1
 
 <h3 id="take_indexed_slices_grad"><code>take_indexed_slices_grad</code></h3>
 
@@ -253,18 +272,21 @@ Once successful, the following actions are also triggered:
 
 #### Args:
 
+
 * <b>`num_required`</b>: Number of gradients that needs to have been aggregated
 * <b>`name`</b>: Optional name for the operation
 
 
 #### Returns:
 
-An IndexedSlices holding the value of the average gradient.
+An `IndexedSlices` holding the value of the average gradient.
+
 
 
 #### Raises:
 
-* <b>`InvalidArgumentError`</b>: If num_required < 1
+
+* <b>`InvalidArgumentError`</b>: If `num_required` < 1
 
 
 

@@ -7,18 +7,24 @@ page_type: reference
 
 ## Class `TFRecordOptions`
 
+Options used for manipulating TFRecord files.
+
 
 
 ### Aliases:
 
+* Class `tf.compat.v1.io.TFRecordOptions`
+* Class `tf.compat.v1.python_io.TFRecordOptions`
+* Class `tf.compat.v2.io.TFRecordOptions`
 * Class `tf.io.TFRecordOptions`
 * Class `tf.python_io.TFRecordOptions`
 
 
 
-Defined in [`tensorflow/python/lib/io/tf_record.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/lib/io/tf_record.py).
+Defined in [`python/lib/io/tf_record.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/tf_record.py).
 
-Options used for manipulating TFRecord files.
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -40,13 +46,14 @@ Creates a `TFRecordOptions` instance.
 
 Options only effect TFRecordWriter when compression_type is not `None`.
 Documentation, details, and defaults can be found in
-[`zlib_compression_options.h`](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/lib/io/zlib_compression_options.h)
+[`zlib_compression_options.h`](https://www.tensorflow.org/code/tensorflow/core/lib/io/zlib_compression_options.h)
 and in the [zlib manual](http://www.zlib.net/manual.html).
 Leaving an option as `None` allows C++ to set a reasonable default.
 
 #### Args:
 
-* <b>`compression_type`</b>: `TFRecordCompressionType` or `None`.
+
+* <b>`compression_type`</b>: `"GZIP"`, `"ZLIB"`, or `""` (no compression).
 * <b>`flush_mode`</b>: flush mode or `None`, Default: Z_NO_FLUSH.
 * <b>`input_buffer_size`</b>: int or `None`.
 * <b>`output_buffer_size`</b>: int or `None`.
@@ -62,7 +69,9 @@ Leaving an option as `None` allows C++ to set a reasonable default.
 A `TFRecordOptions` object.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If compression_type is invalid.
 
@@ -82,7 +91,9 @@ get_compression_type_string(
 
 Convert various option types to a unified string.
 
+
 #### Args:
+
 
 * <b>`options`</b>: `TFRecordOption`, `TFRecordCompressionType`, or string.
 
@@ -92,7 +103,9 @@ Convert various option types to a unified string.
 Compression type as string (e.g. `'ZLIB'`, `'GZIP'`, or `''`).
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If compression_type is invalid.
 
@@ -100,5 +113,4 @@ Compression type as string (e.g. `'ZLIB'`, `'GZIP'`, or `''`).
 
 ## Class Members
 
-<h3 id="compression_type_map"><code>compression_type_map</code></h3>
-
+* `compression_type_map` <a id="compression_type_map"></a>

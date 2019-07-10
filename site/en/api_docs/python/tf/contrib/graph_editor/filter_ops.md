@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.filter_ops
 
+Get the ops passing the given filter.
+
 ``` python
 tf.contrib.graph_editor.filter_ops(
     ops,
@@ -14,20 +16,24 @@ tf.contrib.graph_editor.filter_ops(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/select.py).
+Defined in [`contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/select.py).
 
-Get the ops passing the given filter.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`ops`</b>: an object convertible to a list of tf.Operation.
 * <b>`positive_filter`</b>: a function deciding where to keep an operation or not.
-    If True, all the operations are returned.
+  If True, all the operations are returned.
 
 #### Returns:
 
 A list of selected tf.Operation.
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if ops cannot be converted to a list of tf.Operation.

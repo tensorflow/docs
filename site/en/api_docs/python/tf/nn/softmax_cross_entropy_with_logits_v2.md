@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.softmax_cross_entropy_with_logits_v2
 
+Computes softmax cross entropy between `logits` and `labels`. (deprecated arguments)
+
+### Aliases:
+
+* `tf.compat.v1.nn.softmax_cross_entropy_with_logits_v2`
+* `tf.nn.softmax_cross_entropy_with_logits_v2`
+
 ``` python
 tf.nn.softmax_cross_entropy_with_logits_v2(
     labels,
@@ -17,9 +24,9 @@ tf.nn.softmax_cross_entropy_with_logits_v2(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Computes softmax cross entropy between `logits` and `labels`. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(dim)`. They will be removed in a future version.
 Instructions for updating:
@@ -58,10 +65,11 @@ this function.**
 
 #### Args:
 
+
 * <b>`labels`</b>: Each vector along the class dimension should hold a valid
-    probability distribution e.g. for the case in which labels are of shape
-    `[batch_size, num_classes]`, each row of `labels[i]` must be a valid
-    probability distribution.
+  probability distribution e.g. for the case in which labels are of shape
+  `[batch_size, num_classes]`, each row of `labels[i]` must be a valid
+  probability distribution.
 * <b>`logits`</b>: Unscaled log probabilities.
 * <b>`axis`</b>: The class dimension. Defaulted to -1 which is the last dimension.
 * <b>`name`</b>: A name for the operation (optional).

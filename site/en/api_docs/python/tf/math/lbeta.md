@@ -6,8 +6,13 @@ page_type: reference
 
 # tf.math.lbeta
 
+Computes \\(ln(|Beta(x)|)\\), reducing along the last dimension.
+
 ### Aliases:
 
+* `tf.compat.v1.lbeta`
+* `tf.compat.v1.math.lbeta`
+* `tf.compat.v2.math.lbeta`
 * `tf.lbeta`
 * `tf.math.lbeta`
 
@@ -20,9 +25,9 @@ tf.math.lbeta(
 
 
 
-Defined in [`tensorflow/python/ops/special_math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/special_math_ops.py).
+Defined in [`python/ops/special_math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/special_math_ops.py).
 
-Computes \\(ln(|Beta(x)|)\\), reducing along the last dimension.
+<!-- Placeholder for "Used in" -->
 
 Given one-dimensional `z = [z_0,...,z_{K-1}]`, we define
 
@@ -41,6 +46,7 @@ If the last dimension is empty, we follow the convention that the sum over
 the empty set is zero, and the product is one.
 
 #### Args:
+
 
 * <b>`x`</b>: A rank `n + 1` `Tensor`, `n >= 0` with type `float`, or `double`.
 * <b>`name`</b>: A name for the operation (optional).

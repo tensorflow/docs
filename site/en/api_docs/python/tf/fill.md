@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.fill
 
+Creates a tensor filled with a scalar value.
+
+### Aliases:
+
+* `tf.compat.v1.fill`
+* `tf.compat.v2.fill`
+* `tf.fill`
+
 ``` python
 tf.fill(
     dims,
@@ -15,13 +23,15 @@ tf.fill(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Creates a tensor filled with a scalar value.
+<!-- Placeholder for "Used in" -->
 
 This operation creates a tensor of shape `dims` and fills it with `value`.
 
-For example:
+#### For example:
+
+
 
 ```
 # Output tensor has shape [2, 3].
@@ -41,8 +51,9 @@ fill([2, 3], 9) ==> [[9, 9, 9]
 
 #### Args:
 
+
 * <b>`dims`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    1-D. Represents the shape of the output tensor.
+  1-D. Represents the shape of the output tensor.
 * <b>`value`</b>: A `Tensor`. 0-D (scalar). Value to fill the returned tensor.
 
 
@@ -52,6 +63,7 @@ fill([2, 3], 9) ==> [[9, 9, 9]
 #### Returns:
 
 A `Tensor`. Has the same type as `value`.
+
 
 #### Numpy Compatibility
 Equivalent to np.full

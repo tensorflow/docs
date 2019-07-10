@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `Mean`
 
+Computes the (weighted) mean of the given values.
+
 Inherits From: [`Metric`](../../../../tf/contrib/eager/metrics/Metric)
 
 
 
-Defined in [`tensorflow/contrib/eager/python/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/metrics_impl.py).
+Defined in [`contrib/eager/python/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/metrics_impl.py).
 
-Computes the (weighted) mean of the given values.
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -25,7 +28,8 @@ __init__(
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -35,7 +39,9 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 
 
+
 <h3 id="variables"><code>variables</code></h3>
+
 
 
 
@@ -59,6 +65,7 @@ Returns a graph-mode function if graph execution is enabled.
 
 #### Args:
 
+
 * <b>`*args`</b>: * <b>`**kwargs`</b>: A mini-batch of inputs to the Metric, passed on to `call()`.
 
 <h3 id="add_variable"><code>add_variable</code></h3>
@@ -74,6 +81,7 @@ add_variable(
 
 ***Only for use by descendants of Metric***.
 
+
 <h3 id="aggregate"><code>aggregate</code></h3>
 
 ``` python
@@ -86,10 +94,12 @@ Default implementation sums all the metric variables.
 
 #### Args:
 
+
 * <b>`metrics`</b>: A list of metrics with the same type as `self`.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If metrics contains invalid data.
 
@@ -102,15 +112,8 @@ build(
 )
 ```
 
-Method to create variables.
 
-Called by `__call__()` before `call()` for the first time.
 
-#### Args:
-
-* <b>`*args`</b>: * <b>`**kwargs`</b>: The arguments to the first invocation of `__call__()`.
-   `build()` may use the shape and/or dtype of these arguments
-   when deciding how to create variables.
 
 <h3 id="call"><code>call</code></h3>
 
@@ -128,6 +131,7 @@ If the weights were specified as [1, 1, 0, 0] then the mean would be 2.
 
 #### Args:
 
+
 * <b>`values`</b>: Tensor with the per-example value.
 * <b>`weights`</b>: Optional weighting of each example. Defaults to 1.
 
@@ -135,6 +139,7 @@ If the weights were specified as [1, 1, 0, 0] then the mean would be 2.
 #### Returns:
 
 The arguments, for easy chaining.
+
 
 <h3 id="init_variables"><code>init_variables</code></h3>
 
@@ -155,6 +160,7 @@ If using graph execution, this returns an op to perform the
 initialization. Under eager execution, the variables are reset to their
 initial values as a side effect and this function returns None.
 
+
 <h3 id="result"><code>result</code></h3>
 
 ``` python
@@ -163,16 +169,20 @@ result(write_summary=True)
 
 Returns the result of the Metric.
 
+
 #### Args:
 
+
 * <b>`write_summary`</b>: bool indicating whether to feed the result to the summary
-    before returning.
+  before returning.
 
 #### Returns:
 
 aggregated metric as float.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if the optional argument is not bool
 
@@ -183,6 +193,7 @@ value()
 ```
 
 In graph mode returns the result Tensor while in eager the callable.
+
 
 
 

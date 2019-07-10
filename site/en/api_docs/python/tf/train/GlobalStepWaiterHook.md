@@ -7,13 +7,23 @@ page_type: reference
 
 ## Class `GlobalStepWaiterHook`
 
+Delays execution until global step reaches `wait_until_step`.
+
 Inherits From: [`SessionRunHook`](../../tf/train/SessionRunHook)
 
+### Aliases:
+
+* Class `tf.compat.v1.estimator.GlobalStepWaiterHook`
+* Class `tf.compat.v1.train.GlobalStepWaiterHook`
+* Class `tf.compat.v2.estimator.GlobalStepWaiterHook`
+* Class `tf.estimator.GlobalStepWaiterHook`
+* Class `tf.train.GlobalStepWaiterHook`
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/basic_session_run_hooks.py).
 
-Delays execution until global step reaches `wait_until_step`.
+Defined in [`python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/basic_session_run_hooks.py).
+
+<!-- Placeholder for "Used in" -->
 
 This hook delays execution until global step reaches to `wait_until_step`. It
 is used to gradually start workers in distributed settings. One example usage
@@ -28,7 +38,9 @@ __init__(wait_until_step)
 
 Initializes a `GlobalStepWaiterHook`.
 
+
 #### Args:
+
 
 * <b>`wait_until_step`</b>: an `int` shows until which global step should we wait.
 
@@ -57,6 +69,7 @@ has two essential differences with the situation in which `begin` is called:
 
 #### Args:
 
+
 * <b>`session`</b>: A TensorFlow Session that has been created.
 * <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
@@ -81,6 +94,7 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 
 #### Args:
 
+
 * <b>`run_context`</b>: A `SessionRunContext` object.
 * <b>`run_values`</b>: A SessionRunValues object.
 
@@ -90,28 +104,8 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 before_run(run_context)
 ```
 
-Called before each call to run().
-
-You can return from this call a `SessionRunArgs` object indicating ops or
-tensors to add to the upcoming `run()` call.  These ops/tensors will be run
-together with the ops/tensors originally passed to the original run() call.
-The run args you return can also contain feeds to be added to the run()
-call.
-
-The `run_context` argument is a `SessionRunContext` that provides
-information about the upcoming `run()` call: the originally requested
-op/tensors, the TensorFlow Session.
-
-At this point graph is finalized and you can not add ops.
-
-#### Args:
-
-* <b>`run_context`</b>: A `SessionRunContext` object.
 
 
-#### Returns:
-
-None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
@@ -119,13 +113,8 @@ None or a `SessionRunArgs` object.
 begin()
 ```
 
-Called once before using the session.
 
-When called, the default graph is the one that will be launched in the
-session.  The hook can modify the graph by adding new operations to it.
-After the `begin()` call the graph will be finalized and the other callbacks
-can not modify the graph anymore. Second call of `begin()` on the same
-graph, should not change the graph.
+
 
 <h3 id="end"><code>end</code></h3>
 
@@ -145,6 +134,7 @@ Note the difference between `end()` and `after_run()` behavior when
 `end()` is called but `after_run()` is not called.
 
 #### Args:
+
 
 * <b>`session`</b>: A TensorFlow Session that will be soon closed.
 

@@ -5,9 +5,12 @@ page_type: reference
 
 # Module: tf.contrib.graph_editor.subgraph
 
-
-
-Defined in [`tensorflow/contrib/graph_editor/subgraph.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/subgraph.py).
-
 SubGraphView: a subgraph view on an existing tf.Graph.
+
+
+
+Defined in [`contrib/graph_editor/subgraph.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/subgraph.py).
+
+<!-- Placeholder for "Used in" -->
+
 

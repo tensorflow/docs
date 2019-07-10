@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `ARModel`
 
-
-
-
-
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/ar_model.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/timeseries/python/timeseries/ar_model.py).
-
 Auto-regressive model, both linear and non-linear.
+
+
+
+
+
+Defined in [`contrib/timeseries/python/timeseries/ar_model.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/ar_model.py).
+
+<!-- Placeholder for "Used in" -->
 
 Features to the model include time and values of input_window_size timesteps,
 and times for output_window_size timesteps. These are passed through a
@@ -77,58 +79,60 @@ __init__(
 
 Constructs an auto-regressive model.
 
+
 #### Args:
 
+
 * <b>`periodicities`</b>: periodicities of the input data, in the same units as the
-    time feature (for example 24 if feeding hourly data with a daily
-    periodicity, or 60 * 24 if feeding minute-level data with daily
-    periodicity). Note this can be a single value or a list of values for
-    multiple periodicities.
+  time feature (for example 24 if feeding hourly data with a daily
+  periodicity, or 60 * 24 if feeding minute-level data with daily
+  periodicity). Note this can be a single value or a list of values for
+  multiple periodicities.
 * <b>`input_window_size`</b>: Number of past time steps of data to look at when doing
-    the regression.
+  the regression.
 * <b>`output_window_size`</b>: Number of future time steps to predict. Note that
-    setting it to > 1 empirically seems to give a better fit.
+  setting it to > 1 empirically seems to give a better fit.
 * <b>`num_features`</b>: number of input features per time step.
 * <b>`prediction_model_factory`</b>: A callable taking arguments `num_features`,
-    `input_window_size`, and `output_window_size` and returning a
-    <a href="../../../tf/keras/models/Model"><code>tf.keras.Model</code></a>. The `Model`'s `call()` takes two arguments: an input
-    window and an output window, and returns a dictionary of predictions.
-    See `FlatPredictionModel` for an example. Example usage:
+  `input_window_size`, and `output_window_size` and returning a
+  <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a>. The `Model`'s `call()` takes two arguments: an input
+  window and an output window, and returns a dictionary of predictions.
+  See `FlatPredictionModel` for an example. Example usage:
 
-    ```python model = ar_model.ARModel( periodicities=2, num_features=3,
-    prediction_model_factory=functools.partial( FlatPredictionModel,
-    hidden_layer_sizes=[10, 10])) ```
-
-    The default model computes predictions as a linear function of flattened
-    input and output windows.
-* <b>`num_time_buckets`</b>: Number of buckets into which to divide (time %
-    periodicity). This value multiplied by the number of periodicities is
-    the number of time features added to the model.
-* <b>`loss`</b>: Loss function to use for training. Currently supported values are
-    SQUARED_LOSS and NORMAL_LIKELIHOOD_LOSS. Note that for
-    NORMAL_LIKELIHOOD_LOSS, we train the covariance term as well. For
-    SQUARED_LOSS, the evaluation loss is reported based on un-scaled
-    observations and predictions, while the training loss is computed on
-    normalized data (if input statistics are available).
-* <b>`exogenous_feature_columns`</b>: A list of <a href="../../../tf/feature_column"><code>tf.feature_column</code></a>s (for example
-    <a href="../../../tf/feature_column/embedding_column"><code>tf.feature_column.embedding_column</code></a>) corresponding to
-    features which provide extra information to the model but are not part
-    of the series to be predicted.
-
-
-
-## Properties
-
-<h3 id="exogenous_feature_columns"><code>exogenous_feature_columns</code></h3>
-
-`tf.feature_colum`s for features which are not predicted.
-
-
-
-## Methods
-
-<h3 id="define_loss"><code>define_loss</code></h3>
-
+>     prediction_model_factory=functools.partial( FlatPredictionModel,
+>     hidden_layer_sizes=[10, 10])) ```
+>     
+>     The default model computes predictions as a linear function of flattened
+>     input and output windows.
+>     <b>`num_time_buckets`</b>: Number of buckets into which to divide (time %
+>     periodicity). This value multiplied by the number of periodicities is
+>     the number of time features added to the model.
+>     <b>`loss`</b>: Loss function to use for training. Currently supported values are
+>     SQUARED_LOSS and NORMAL_LIKELIHOOD_LOSS. Note that for
+>     NORMAL_LIKELIHOOD_LOSS, we train the covariance term as well. For
+>     SQUARED_LOSS, the evaluation loss is reported based on un-scaled
+>     observations and predictions, while the training loss is computed on
+>     normalized data (if input statistics are available).
+>     <b>`exogenous_feature_columns`</b>: A list of <a href="../../../tf/feature_column"><code>tf.feature_column</code></a>s (for example
+>     <a href="../../../tf/feature_column/embedding_column"><code>tf.feature_column.embedding_column</code></a>) corresponding to
+>     features which provide extra information to the model but are not part
+>     of the series to be predicted.
+>     
+>     
+>     
+>      Properties
+>     
+>     3 id="exogenous_feature_columns"><code>exogenous_feature_columns</code></h3>
+>     
+>     f.feature_colum`s for features which are not predicted.
+>     
+>     
+>     
+>     
+>      Methods
+>     
+>     3 id="define_loss"><code>define_loss</code></h3>
+>     
 ``` python
 define_loss(
     features,
@@ -149,21 +153,23 @@ get_batch_loss() directly.
 
 #### Args:
 
+
 * <b>`features`</b>: A dictionary (such as is produced by a chunker) with at minimum
-    the following key/value pairs (others corresponding to the
-    `exogenous_feature_columns` argument to `__init__` may be included
-    representing exogenous regressors):
-* <b>`TrainEvalFeatures.TIMES`</b>: A [batch size x window size] integer Tensor
-        with times for each observation. If there is no artificial chunking,
-        the window size is simply the length of the time series.
-* <b>`TrainEvalFeatures.VALUES`</b>: A [batch size x window size x num features]
-        Tensor with values for each observation.
+  the following key/value pairs (others corresponding to the
+  `exogenous_feature_columns` argument to `__init__` may be included
+  representing exogenous regressors):
+  TrainEvalFeatures.TIMES: A [batch size x window size] integer Tensor
+      with times for each observation. If there is no artificial chunking,
+      the window size is simply the length of the time series.
+  TrainEvalFeatures.VALUES: A [batch size x window size x num features]
+      Tensor with values for each observation.
 * <b>`mode`</b>: The tf.estimator.ModeKeys mode to use (TRAIN, EVAL). For INFER,
-    see predict().
+  see predict().
 
 #### Returns:
 
 A ModelOutputs object.
+
 
 <h3 id="generate"><code>generate</code></h3>
 
@@ -176,30 +182,8 @@ generate(
 )
 ```
 
-Sample synthetic data from model parameters, with optional substitutions.
 
-Returns `number_of_series` possible sequences of future values, sampled from
-the generative model with each conditioned on the previous. Samples are
-based on trained parameters, except for those parameters explicitly
-overridden in `model_parameters`.
 
-For distributions over future observations, see predict().
-
-#### Args:
-
-* <b>`number_of_series`</b>: Number of time series to create.
-* <b>`series_length`</b>: Length of each time series.
-* <b>`model_parameters`</b>: A dictionary mapping model parameters to values, which
-      replace trained parameters when generating data.
-* <b>`seed`</b>: If specified, return deterministic time series according to this
-      value.
-
-#### Returns:
-
-A dictionary with keys TrainEvalFeatures.TIMES (mapping to an array with
-shape [number_of_series, series_length]) and TrainEvalFeatures.VALUES
-(mapping to an array with shape [number_of_series, series_length,
-num_features]).
 
 <h3 id="get_batch_loss"><code>get_batch_loss</code></h3>
 
@@ -213,24 +197,26 @@ get_batch_loss(
 
 Computes predictions and a loss.
 
+
 #### Args:
 
+
 * <b>`features`</b>: A dictionary (such as is produced by a chunker) with the
-    following key/value pairs (shapes are given as required for training):
-      TrainEvalFeatures.TIMES: A [batch size, self.window_size] integer
-        Tensor with times for each observation. To train on longer
-        sequences, the data should first be chunked.
-      TrainEvalFeatures.VALUES: A [batch size, self.window_size,
-        self.num_features] Tensor with values for each observation.
-    When evaluating, `TIMES` and `VALUES` must have a window size of at
-    least self.window_size, but it may be longer, in which case the last
-    window_size - self.input_window_size times (or fewer if this is not
-    divisible by self.output_window_size) will be evaluated on with
-    non-overlapping output windows (and will have associated
-    predictions). This is primarily to support qualitative
-    evaluation/plotting, and is not a recommended way to compute evaluation
-    losses (since there is no overlap in the output windows, which for
-    window-based models is an undesirable bias).
+  following key/value pairs (shapes are given as required for training):
+    TrainEvalFeatures.TIMES: A [batch size, self.window_size] integer
+      Tensor with times for each observation. To train on longer
+      sequences, the data should first be chunked.
+    TrainEvalFeatures.VALUES: A [batch size, self.window_size,
+      self.num_features] Tensor with values for each observation.
+  When evaluating, `TIMES` and `VALUES` must have a window size of at
+  least self.window_size, but it may be longer, in which case the last
+  window_size - self.input_window_size times (or fewer if this is not
+  divisible by self.output_window_size) will be evaluated on with
+  non-overlapping output windows (and will have associated
+  predictions). This is primarily to support qualitative
+  evaluation/plotting, and is not a recommended way to compute evaluation
+  losses (since there is no overlap in the output windows, which for
+  window-based models is an undesirable bias).
 * <b>`mode`</b>: The tf.estimator.ModeKeys mode to use (TRAIN or EVAL).
 * <b>`state`</b>: Unused
 
@@ -238,10 +224,12 @@ Computes predictions and a loss.
 
 A model.ModelOutputs object.
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `mode` is not TRAIN or EVAL, or if static shape information
-  is incorrect.
+is incorrect.
 
 <h3 id="get_start_state"><code>get_start_state</code></h3>
 
@@ -249,11 +237,8 @@ A model.ModelOutputs object.
 get_start_state()
 ```
 
-Returns a tuple of state for the start of the time series.
 
-For example, a mean and covariance. State should not have a batch
-dimension, and will often be TensorFlow Variables to be learned along with
-the rest of the model parameters.
+
 
 <h3 id="initialize_graph"><code>initialize_graph</code></h3>
 
@@ -261,13 +246,8 @@ the rest of the model parameters.
 initialize_graph(input_statistics=None)
 ```
 
-Define ops for the model, not depending on any previously defined ops.
 
-#### Args:
 
-* <b>`input_statistics`</b>: A math_utils.InputStatistics object containing input
-      statistics. If None, data-independent defaults are used, which may
-      result in longer or unstable training.
 
 <h3 id="loss_op"><code>loss_op</code></h3>
 
@@ -280,6 +260,7 @@ loss_op(
 
 Create loss_op.
 
+
 <h3 id="predict"><code>predict</code></h3>
 
 ``` python
@@ -288,25 +269,28 @@ predict(features)
 
 Computes predictions multiple steps into the future.
 
+
 #### Args:
 
+
 * <b>`features`</b>: A dictionary with the following key/value pairs:
-* <b>`PredictionFeatures.TIMES`</b>: A [batch size, predict window size]
-      integer Tensor of times, after the window of data indicated by
-      `STATE_TUPLE`, to make predictions for.
-* <b>`PredictionFeatures.STATE_TUPLE`</b>: A tuple of (times, values), times with
-      shape [batch size, self.input_window_size], values with shape [batch
-      size, self.input_window_size, self.num_features] representing a
-      segment of the time series before `TIMES`. This data is used
-      to start of the autoregressive computation. This should have data for
-      at least self.input_window_size timesteps.
-    And any exogenous features, with shapes prefixed by shape of `TIMES`.
+  PredictionFeatures.TIMES: A [batch size, predict window size]
+    integer Tensor of times, after the window of data indicated by
+    `STATE_TUPLE`, to make predictions for.
+  PredictionFeatures.STATE_TUPLE: A tuple of (times, values), times with
+    shape [batch size, self.input_window_size], values with shape [batch
+    size, self.input_window_size, self.num_features] representing a
+    segment of the time series before `TIMES`. This data is used
+    to start of the autoregressive computation. This should have data for
+    at least self.input_window_size timesteps.
+  And any exogenous features, with shapes prefixed by shape of `TIMES`.
 
 #### Returns:
 
 A dictionary with keys, "mean", "covariance". The
 values are Tensors of shape [batch_size, predict window size,
 num_features] and correspond to the values passed in `TIMES`.
+
 
 <h3 id="prediction_ops"><code>prediction_ops</code></h3>
 
@@ -320,22 +304,25 @@ prediction_ops(
 
 Compute model predictions given input data.
 
+
 #### Args:
 
+
 * <b>`times`</b>: A [batch size, self.window_size] integer Tensor, the first
-      self.input_window_size times in each part of the batch indicating
-      input features, and the last self.output_window_size times indicating
-      prediction times.
+    self.input_window_size times in each part of the batch indicating
+    input features, and the last self.output_window_size times indicating
+    prediction times.
 * <b>`values`</b>: A [batch size, self.input_window_size, self.num_features] Tensor
-      with input features.
+    with input features.
 * <b>`exogenous_regressors`</b>: A [batch size, self.window_size,
-      self.exogenous_size] Tensor with exogenous features.
+    self.exogenous_size] Tensor with exogenous features.
 
 #### Returns:
 
 Tuple (predicted_mean, predicted_covariance), where each element is a
 Tensor with shape [batch size, self.output_window_size,
 self.num_features].
+
 
 <h3 id="random_model_parameters"><code>random_model_parameters</code></h3>
 
@@ -347,9 +334,8 @@ random_model_parameters(seed=None)
 
 
 
+
 ## Class Members
 
-<h3 id="NORMAL_LIKELIHOOD_LOSS"><code>NORMAL_LIKELIHOOD_LOSS</code></h3>
-
-<h3 id="SQUARED_LOSS"><code>SQUARED_LOSS</code></h3>
-
+* `NORMAL_LIKELIHOOD_LOSS = 'normal_likelihood_loss'` <a id="NORMAL_LIKELIHOOD_LOSS"></a>
+* `SQUARED_LOSS = 'squared_loss'` <a id="SQUARED_LOSS"></a>

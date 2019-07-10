@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.map_fn
 
+Map the function fn over the elements elems and return the outputs.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.map_fn`
+* `tf.compat.v2.keras.backend.map_fn`
+* `tf.keras.backend.map_fn`
+
 ``` python
 tf.keras.backend.map_fn(
     fn,
@@ -16,11 +24,13 @@ tf.keras.backend.map_fn(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Map the function fn over the elements elems and return the outputs.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`fn`</b>: Callable that will be called upon each element in elems
 * <b>`elems`</b>: tensor

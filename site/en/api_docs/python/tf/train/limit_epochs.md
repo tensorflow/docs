@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.limit_epochs
 
+Returns tensor `num_epochs` times and then raises an `OutOfRange` error. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.train.limit_epochs`
+* `tf.train.limit_epochs`
+
 ``` python
 tf.train.limit_epochs(
     tensor,
@@ -15,9 +22,9 @@ tf.train.limit_epochs(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/input.py).
+Defined in [`python/training/input.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/input.py).
 
-Returns tensor `num_epochs` times and then raises an `OutOfRange` error. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -28,9 +35,10 @@ initialize local variables.
 
 #### Args:
 
+
 * <b>`tensor`</b>: Any `Tensor`.
 * <b>`num_epochs`</b>: A positive integer (optional).  If specified, limits the number
-    of steps the output tensor may be evaluated.
+  of steps the output tensor may be evaluated.
 * <b>`name`</b>: A name for the operations (optional).
 
 
@@ -39,6 +47,8 @@ initialize local variables.
 tensor or `OutOfRange`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `num_epochs` is invalid.

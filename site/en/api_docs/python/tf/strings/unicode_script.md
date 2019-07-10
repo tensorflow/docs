@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.strings.unicode_script
 
+Determine the script codes of a given tensor of Unicode integer code points.
+
+### Aliases:
+
+* `tf.compat.v1.strings.unicode_script`
+* `tf.compat.v2.strings.unicode_script`
+* `tf.strings.unicode_script`
+
 ``` python
 tf.strings.unicode_script(
     input,
@@ -14,9 +22,9 @@ tf.strings.unicode_script(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_string_ops.py`.
+Defined in generated file: `python/ops/gen_string_ops.py`.
 
-Determine the script codes of a given tensor of Unicode integer code points.
+<!-- Placeholder for "Used in" -->
 
 This operation converts Unicode code points to script codes corresponding to
 each code point. Script codes correspond to International Components for
@@ -25,6 +33,7 @@ Returns -1 (USCRIPT_INVALID_CODE) for invalid codepoints. Output shape will
 match input shape.
 
 #### Args:
+
 
 * <b>`input`</b>: A `Tensor` of type `int32`. A Tensor of int32 Unicode code points.
 * <b>`name`</b>: A name for the operation (optional).

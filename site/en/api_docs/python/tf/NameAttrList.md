@@ -11,10 +11,32 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/framework/attr_value.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/framework/attr_value.proto).
+### Aliases:
 
-A ProtocolMessage
+* Class `tf.NameAttrList`
+* Class `tf.compat.v1.NameAttrList`
+
+
+
+Defined in [`core/framework/attr_value.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/attr_value.proto).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Child Classes
 [`class AttrEntry`](../tf/NameAttrList/AttrEntry)
+
+## Properties
+
+<h3 id="attr"><code>attr</code></h3>
+
+`repeated AttrEntry attr`
+
+
+<h3 id="name"><code>name</code></h3>
+
+`string name`
+
+
+
 

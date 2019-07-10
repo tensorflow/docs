@@ -11,9 +11,20 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/basic_session_run_hooks.py).
+### Aliases:
 
-Unspecified run-time error.
+* Class `tf.compat.v1.estimator.NanLossDuringTrainingError`
+* Class `tf.compat.v1.train.NanLossDuringTrainingError`
+* Class `tf.compat.v2.estimator.NanLossDuringTrainingError`
+* Class `tf.estimator.NanLossDuringTrainingError`
+* Class `tf.train.NanLossDuringTrainingError`
+
+
+
+Defined in [`python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/basic_session_run_hooks.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -24,17 +35,6 @@ __init__(
 )
 ```
 
-
-
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-__new__(
-    type,
-    *args,
-    **kwargs
-)
-```
 
 
 

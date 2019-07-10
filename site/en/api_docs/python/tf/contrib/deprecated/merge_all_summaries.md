@@ -5,27 +5,31 @@ page_type: reference
 
 # tf.contrib.deprecated.merge_all_summaries
 
+Merges all summaries collected in the default graph. (deprecated)
+
 ``` python
 tf.contrib.deprecated.merge_all_summaries(key=tf.GraphKeys.SUMMARIES)
 ```
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/logging_ops.py).
+Defined in [`python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/logging_ops.py).
 
-Merges all summaries collected in the default graph. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-11-30.
 Instructions for updating:
 Please switch to tf.summary.merge_all.
 
-This op is deprecated. Please switch to tf.summary.merge_all, which has
+This op is deprecated. Please switch to tf.compat.v1.summary.merge_all, which
+has
 identical behavior.
 
 #### Args:
 
+
 * <b>`key`</b>: `GraphKey` used to collect the summaries.  Defaults to
-    `GraphKeys.SUMMARIES`.
+  `GraphKeys.SUMMARIES`.
 
 
 #### Returns:

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.variance_scaling_initializer
 
+Returns an initializer that generates tensors without scaling variance.
+
 ``` python
 tf.contrib.layers.variance_scaling_initializer(
     factor=2.0,
@@ -17,9 +19,9 @@ tf.contrib.layers.variance_scaling_initializer(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/initializers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/initializers.py).
+Defined in [`contrib/layers/python/layers/initializers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/initializers.py).
 
-Returns an initializer that generates tensors without scaling variance.
+<!-- Placeholder for "Used in" -->
 
 When initializing a deep network, it is in principle advantageous to keep
 the scale of the input variance constant, so it does not explode or diminish
@@ -53,11 +55,12 @@ by reaching the final layer. This initializer use the following formula:
 
 #### Args:
 
+
 * <b>`factor`</b>: Float.  A multiplicative factor.
 * <b>`mode`</b>: String.  'FAN_IN', 'FAN_OUT', 'FAN_AVG'.
 * <b>`uniform`</b>: Whether to use uniform or normal distributed random initialization.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-        <a href="../../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
+      <a href="../../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
 * <b>`dtype`</b>: The data type. Only floating point types are supported.
 
 
@@ -66,7 +69,9 @@ by reaching the final layer. This initializer use the following formula:
 An initializer that generates tensors with unit variance.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `dtype` is not a floating point type.
 * <b>`TypeError`</b>: if `mode` is not in ['FAN_IN', 'FAN_OUT', 'FAN_AVG'].

@@ -5,17 +5,27 @@ page_type: reference
 
 # tf.keras.backend.get_value
 
+Returns the value of a variable.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.get_value`
+* `tf.compat.v2.keras.backend.get_value`
+* `tf.keras.backend.get_value`
+
 ``` python
 tf.keras.backend.get_value(x)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Returns the value of a variable.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: input variable.
 
@@ -23,8 +33,3 @@ Returns the value of a variable.
 #### Returns:
 
 A Numpy array.
-
-
-#### Raises:
-
-* <b>`RuntimeError`</b>: If this method is called inside defun.

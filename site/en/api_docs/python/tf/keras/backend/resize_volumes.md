@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.resize_volumes
 
+Resizes the volume contained in a 5D tensor.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.resize_volumes`
+* `tf.compat.v2.keras.backend.resize_volumes`
+* `tf.keras.backend.resize_volumes`
+
 ``` python
 tf.keras.backend.resize_volumes(
     x,
@@ -17,11 +25,13 @@ tf.keras.backend.resize_volumes(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Resizes the volume contained in a 5D tensor.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable to resize.
 * <b>`depth_factor`</b>: Positive integer.
@@ -35,7 +45,9 @@ Resizes the volume contained in a 5D tensor.
 A tensor.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `data_format` is neither
-        `channels_last` or `channels_first`.
+    `channels_last` or `channels_first`.

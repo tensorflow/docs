@@ -7,17 +7,28 @@ page_type: reference
 
 ## Class `InputReplicationMode`
 
-
-
-
-
-Defined in [`tensorflow/python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/distribute_lib.py).
-
 Replication mode for input function.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.distribute.InputReplicationMode`
+* Class `tf.compat.v2.distribute.InputReplicationMode`
+* Class `tf.distribute.InputReplicationMode`
+
+
+
+Defined in [`python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/distribute_lib.py).
+
+<!-- Placeholder for "Used in" -->
+
+* `PER_WORKER`: The input function will be called on each worker
+  independently, creating as many input pipelines as number of workers.
+  Replicas will dequeue from the local Dataset on their worker.
+  <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> doesn't manage any state sharing between such
+  separate input pipelines.
 
 ## Class Members
 
-<h3 id="PER_WORKER"><code>PER_WORKER</code></h3>
-
-<h3 id="__members__"><code>__members__</code></h3>
-
+* `PER_WORKER` <a id="PER_WORKER"></a>

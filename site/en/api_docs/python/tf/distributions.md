@@ -7,9 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Core module for TensorFlow distribution objects and helpers.
 
 ## Classes
 
@@ -49,7 +48,5 @@ Core module for TensorFlow distribution objects and helpers.
 
 ## Other Members
 
-<h3 id="FULLY_REPARAMETERIZED"><code>FULLY_REPARAMETERIZED</code></h3>
-
-<h3 id="NOT_REPARAMETERIZED"><code>NOT_REPARAMETERIZED</code></h3>
-
+* `FULLY_REPARAMETERIZED` <a id="FULLY_REPARAMETERIZED"></a>
+* `NOT_REPARAMETERIZED` <a id="NOT_REPARAMETERIZED"></a>

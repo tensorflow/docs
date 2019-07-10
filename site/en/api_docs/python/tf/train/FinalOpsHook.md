@@ -7,13 +7,24 @@ page_type: reference
 
 ## Class `FinalOpsHook`
 
+A hook which evaluates `Tensors` at the end of a session.
+
 Inherits From: [`SessionRunHook`](../../tf/train/SessionRunHook)
 
+### Aliases:
+
+* Class `tf.compat.v1.estimator.FinalOpsHook`
+* Class `tf.compat.v1.train.FinalOpsHook`
+* Class `tf.compat.v2.estimator.FinalOpsHook`
+* Class `tf.estimator.FinalOpsHook`
+* Class `tf.train.FinalOpsHook`
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/basic_session_run_hooks.py).
 
-A hook which evaluates `Tensors` at the end of a session.
+Defined in [`python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/basic_session_run_hooks.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -26,18 +37,21 @@ __init__(
 
 Initializes `FinalOpHook` with ops to run at the end of the session.
 
+
 #### Args:
 
-* <b>`final_ops`</b>: A single `Tensor`, a list of `Tensors` or a dictionary of
-    names to `Tensors`.
+
+* <b>`final_ops`</b>: A single `Tensor`, a list of `Tensors` or a dictionary of names
+  to `Tensors`.
 * <b>`final_ops_feed_dict`</b>: A feed dictionary to use when running
-    `final_ops_dict`.
+  `final_ops_dict`.
 
 
 
 ## Properties
 
 <h3 id="final_ops_values"><code>final_ops_values</code></h3>
+
 
 
 
@@ -66,6 +80,7 @@ has two essential differences with the situation in which `begin` is called:
 
 #### Args:
 
+
 * <b>`session`</b>: A TensorFlow Session that has been created.
 * <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
@@ -89,6 +104,7 @@ The `run_context` argument is the same one send to `before_run` call.
 If `session.run()` raises any exceptions then `after_run()` is not called.
 
 #### Args:
+
 
 * <b>`run_context`</b>: A `SessionRunContext` object.
 * <b>`run_values`</b>: A SessionRunValues object.
@@ -115,12 +131,14 @@ At this point graph is finalized and you can not add ops.
 
 #### Args:
 
+
 * <b>`run_context`</b>: A `SessionRunContext` object.
 
 
 #### Returns:
 
 None or a `SessionRunArgs` object.
+
 
 <h3 id="begin"><code>begin</code></h3>
 
@@ -142,20 +160,8 @@ graph, should not change the graph.
 end(session)
 ```
 
-Called at the end of session.
 
-The `session` argument can be used in case the hook wants to run final ops,
-such as saving a last checkpoint.
 
-If `session.run()` raises exception other than OutOfRangeError or
-StopIteration then `end()` is not called.
-Note the difference between `end()` and `after_run()` behavior when
-`session.run()` raises OutOfRangeError or StopIteration. In that case
-`end()` is called but `after_run()` is not called.
-
-#### Args:
-
-* <b>`session`</b>: A TensorFlow Session that will be soon closed.
 
 
 

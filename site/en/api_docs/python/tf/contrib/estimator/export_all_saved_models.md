@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.export_all_saved_models
 
+Exports requested train/eval/predict graphs as separate SavedModels. (deprecated)
+
 ``` python
 tf.contrib.estimator.export_all_saved_models(
     estimator,
@@ -12,12 +14,19 @@ tf.contrib.estimator.export_all_saved_models(
     input_receiver_fn_map,
     assets_extra=None,
     as_text=False,
-    checkpoint_path=None,
-    strip_default_attrs=False
+    checkpoint_path=None
 )
 ```
 
-Exports requested train/eval/predict graphs as separate SavedModels.
+
+
+Defined in [`contrib/estimator/python/estimator/export.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/export.py).
+
+<!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-12-03.
+Instructions for updating:
+Use estimator.experimental_export_all_saved_models
 
 See tf.contrib.estimator.export_all_saved_models for the currently
 exposed version of this function.
@@ -53,7 +62,8 @@ corresponding value gives the full path of the source file to be copied.
 For example, the simple case of copying a single file without renaming it
 is specified as `{'my_asset_file.txt': '/path/to/my_asset_file.txt'}`.
 
-Sample usage:
+#### Sample usage:
+
 
 ```python
 classifier = tf.estimator.LinearClassifier(
@@ -82,8 +92,8 @@ export_dir = tf.contrib.estimator.export_all_saved_models(
     export_dir_base='my_model/',
     input_receiver_fn_map=rcvr_fn_map)
 
-# export_dirs is a dict of directories with SavedModels, which
-# can be used for serving, analysis with TFMA, or directly loaded in.
+# export_dir is a directory with SavedModels, which can be used for serving,
+# analysis with TFMA, or directly loaded in.
 with ops.Graph().as_default() as graph:
   with session.Session(graph=graph) as sess:
     loader.load(sess, [tag_constants.TRAINING], export_dir)
@@ -93,29 +103,28 @@ with ops.Graph().as_default() as graph:
 
 #### Args:
 
+
 * <b>`estimator`</b>: an instance of tf.estimator.Estimator
 * <b>`export_dir_base`</b>: A string containing a directory in which to create
-    timestamped subdirectories containing exported SavedModels.
+  timestamped subdirectories containing exported SavedModels.
 * <b>`input_receiver_fn_map`</b>: dict of tf.estimator.ModeKeys to input_receiver_fn
-    mappings, where the input_receiver_fn is a function that takes no
-    argument and returns the appropriate subclass of `InputReceiver`.
+  mappings, where the input_receiver_fn is a function that takes no
+  argument and returns the appropriate subclass of `InputReceiver`.
 * <b>`assets_extra`</b>: A dict specifying how to populate the assets.extra directory
-    within the exported SavedModel, or `None` if no extra assets are needed.
+  within the exported SavedModel, or `None` if no extra assets are needed.
 * <b>`as_text`</b>: whether to write the SavedModel proto in text format.
 * <b>`checkpoint_path`</b>: The checkpoint path to export.  If `None` (the default),
-    the most recent checkpoint found within the model directory is chosen.
-* <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
-    removed from the NodeDefs. For a detailed guide, see
-    [Stripping Default-Valued Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
+  the most recent checkpoint found within the model directory is chosen.
 
 
 #### Returns:
 
-A dict of tf.estimator.ModeKeys value to string path for each exported
-directory.
+The string path to the exported directory.
+
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if any input_receiver_fn is None, no export_outputs
-    are provided, or no checkpoint can be found.
+  are provided, or no checkpoint can be found.

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.io.gfile.walk
 
+Recursive directory tree generator for directories.
+
+### Aliases:
+
+* `tf.compat.v1.io.gfile.walk`
+* `tf.compat.v2.io.gfile.walk`
+* `tf.io.gfile.walk`
+
 ``` python
 tf.io.gfile.walk(
     top,
@@ -15,18 +23,19 @@ tf.io.gfile.walk(
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/lib/io/file_io.py).
+Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
-Recursive directory tree generator for directories.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`top`</b>: string, a Directory name
 * <b>`topdown`</b>: bool, Traverse pre order if True, post order if False.
 * <b>`onerror`</b>: optional handler for errors. Should be a function, it will be
-    called with the error as argument. Rethrowing the error aborts the walk.
-
-Errors that happen while listing directories are ignored.
+  called with the error as argument. Rethrowing the error aborts the walk.
+  Errors that happen while listing directories are ignored.
 
 
 #### Yields:

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/local_cli_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/wrappers/local_cli_wrapper.py).
+Defined in [`tensorflow/python/debug/wrappers/local_cli_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/wrappers/local_cli_wrapper.py).
 
 Concrete subclass of BaseDebugWrapperSession implementing a local CLI.
 
@@ -59,7 +59,7 @@ Constructor of LocalCLIDebugWrapperSession.
 
 <h3 id="graph"><code>graph</code></h3>
 
-The underlying TensorFlow graph, to be used in building Operations.
+
 
 <h3 id="graph_def"><code>graph_def</code></h3>
 
@@ -71,7 +71,7 @@ The underlying TensorFlow graph, to be used in building Operations.
 
 <h3 id="sess_str"><code>sess_str</code></h3>
 
-The TensorFlow process to which this session will connect.
+
 
 <h3 id="session"><code>session</code></h3>
 
@@ -142,31 +142,6 @@ increment_run_call_count()
 
 
 
-<h3 id="invoke_node_stepper"><code>invoke_node_stepper</code></h3>
-
-``` python
-invoke_node_stepper(
-    node_stepper,
-    restore_variable_values_on_exit=True
-)
-```
-
-Overrides method in base class to implement interactive node stepper.
-
-#### Args:
-
-* <b>`node_stepper`</b>: (`stepper.NodeStepper`) The underlying NodeStepper API
-    object.
-* <b>`restore_variable_values_on_exit`</b>: (`bool`) Whether any variables whose
-    values have been altered during this node-stepper invocation should be
-    restored to their old values when this invocation ends.
-
-
-#### Returns:
-
-The same return values as the `Session.run()` call on the same fetches as
-  the NodeStepper.
-
 <h3 id="list_devices"><code>list_devices</code></h3>
 
 ``` python
@@ -219,9 +194,6 @@ on_run_start(request)
 
 Overrides on-run-start callback.
 
-Invoke the CLI to let user choose what action to take:
-  `run` / `invoke_stepper`.
-
 #### Args:
 
 * <b>`request`</b>: An instance of `OnRunStartRequest`.
@@ -258,7 +230,7 @@ partial_run(
 )
 ```
 
-Continues the execution with additional feeds and fetches.
+
 
 <h3 id="partial_run_setup"><code>partial_run_setup</code></h3>
 

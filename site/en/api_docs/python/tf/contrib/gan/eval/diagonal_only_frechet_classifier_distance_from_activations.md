@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.diagonal_only_frechet_classifier_distance_from_activations
 
+Classifier distance for evaluating a generative model.
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.classifier_metrics.diagonal_only_frechet_classifier_distance_from_activations`
@@ -19,9 +21,9 @@ tf.contrib.gan.eval.diagonal_only_frechet_classifier_distance_from_activations(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
-Classifier distance for evaluating a generative model.
+<!-- Placeholder for "Used in" -->
 
 This is based on the Frechet Inception distance, but for an arbitrary
 classifier.
@@ -48,9 +50,10 @@ generative models.
 
 #### Args:
 
+
 * <b>`real_activations`</b>: Real images to use to compute Frechet Inception distance.
 * <b>`generated_activations`</b>: Generated images to use to compute Frechet Inception
-    distance.
+  distance.
 
 
 #### Returns:
@@ -59,6 +62,8 @@ The diagonal-only Frechet Inception distance. A floating-point scalar of
 the same type as the output of the activations.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the shape of the variance and mean vectors are not equal.

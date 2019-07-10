@@ -7,11 +7,21 @@ page_type: reference
 
 
 
+### Aliases:
+
+* Module `tf.compat.v1.keras.layers`
+* Module `tf.keras.layers`
 
 
-Keras layers API.
+
+Defined in [`python/keras/api/_v1/keras/layers/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/layers/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
+
+[`class AbstractRNNCell`](../../tf/keras/layers/AbstractRNNCell): Abstract object representing an RNN cell.
 
 [`class Activation`](../../tf/keras/layers/Activation): Applies an activation function to an output.
 
@@ -19,7 +29,11 @@ Keras layers API.
 
 [`class Add`](../../tf/keras/layers/Add): Layer that adds a list of inputs.
 
+[`class AdditiveAttention`](../../tf/keras/layers/AdditiveAttention): Additive attention layer, a.k.a. Bahdanau-style attention.
+
 [`class AlphaDropout`](../../tf/keras/layers/AlphaDropout): Applies Alpha Dropout to the input.
+
+[`class Attention`](../../tf/keras/layers/Attention): Dot-product attention layer, a.k.a. Luong-style attention.
 
 [`class Average`](../../tf/keras/layers/Average): Layer that averages a list of inputs.
 
@@ -35,7 +49,7 @@ Keras layers API.
 
 [`class AvgPool3D`](../../tf/keras/layers/AveragePooling3D): Average pooling operation for 3D data (spatial or spatio-temporal).
 
-[`class BatchNormalization`](../../tf/keras/layers/BatchNormalization): Batch normalization layer (Ioffe and Szegedy, 2014).
+[`class BatchNormalization`](../../tf/keras/layers/BatchNormalization): Base class of Batch normalization layer (Ioffe and Szegedy, 2014).
 
 [`class Bidirectional`](../../tf/keras/layers/Bidirectional): Bidirectional wrapper for RNNs.
 
@@ -67,13 +81,15 @@ Keras layers API.
 
 [`class Cropping2D`](../../tf/keras/layers/Cropping2D): Cropping layer for 2D input (e.g. picture).
 
-[`class Cropping3D`](../../tf/keras/layers/Cropping3D): Cropping layer for 3D data (e.g.
+[`class Cropping3D`](../../tf/keras/layers/Cropping3D): Cropping layer for 3D data (e.g. spatial or spatio-temporal).
 
 [`class CuDNNGRU`](../../tf/keras/layers/CuDNNGRU): Fast GRU implementation backed by cuDNN.
 
 [`class CuDNNLSTM`](../../tf/keras/layers/CuDNNLSTM): Fast LSTM implementation backed by cuDNN.
 
 [`class Dense`](../../tf/keras/layers/Dense): Just your regular densely-connected NN layer.
+
+[`class DenseFeatures`](../../tf/keras/layers/DenseFeatures): A layer that produces a dense `Tensor` based on given `feature_columns`.
 
 [`class DepthwiseConv2D`](../../tf/keras/layers/DepthwiseConv2D): Depthwise separable 2D convolution.
 
@@ -121,15 +137,17 @@ Keras layers API.
 
 [`class InputLayer`](../../tf/keras/layers/InputLayer): Layer to be used as an entry point into a Network (a graph of layers).
 
-[`class InputSpec`](../../tf/keras/layers/InputSpec): Specifies the ndim, dtype and shape of every input to a layer.
+[`class InputSpec`](../../tf/layers/InputSpec): Specifies the ndim, dtype and shape of every input to a layer.
 
 [`class LSTM`](../../tf/keras/layers/LSTM): Long Short-Term Memory layer - Hochreiter 1997.
 
 [`class LSTMCell`](../../tf/keras/layers/LSTMCell): Cell class for the LSTM layer.
 
-[`class Lambda`](../../tf/keras/layers/Lambda): Wraps arbitrary expression as a `Layer` object.
+[`class Lambda`](../../tf/keras/layers/Lambda): Wraps arbitrary expressions as a `Layer` object.
 
 [`class Layer`](../../tf/keras/layers/Layer): Base layer class.
+
+[`class LayerNormalization`](../../tf/keras/layers/LayerNormalization): Layer normalization layer (Ba et al., 2016).
 
 [`class LeakyReLU`](../../tf/keras/layers/LeakyReLU): Leaky version of a Rectified Linear Unit.
 
@@ -213,13 +231,15 @@ Keras layers API.
 
 ## Functions
 
-[`Input(...)`](../../tf/keras/layers/Input): `Input()` is used to instantiate a Keras tensor.
+[`Input(...)`](../../tf/keras/Input): `Input()` is used to instantiate a Keras tensor.
 
 [`add(...)`](../../tf/keras/layers/add): Functional interface to the `Add` layer.
 
 [`average(...)`](../../tf/keras/layers/average): Functional interface to the `Average` layer.
 
 [`concatenate(...)`](../../tf/keras/layers/concatenate): Functional interface to the `Concatenate` layer.
+
+[`deserialize(...)`](../../tf/keras/layers/deserialize): Instantiates a layer from a config dictionary.
 
 [`dot(...)`](../../tf/keras/layers/dot): Functional interface to the `Dot` layer.
 
@@ -228,6 +248,8 @@ Keras layers API.
 [`minimum(...)`](../../tf/keras/layers/minimum): Functional interface to the `Minimum` layer.
 
 [`multiply(...)`](../../tf/keras/layers/multiply): Functional interface to the `Multiply` layer.
+
+[`serialize(...)`](../../tf/keras/layers/serialize)
 
 [`subtract(...)`](../../tf/keras/layers/subtract): Functional interface to the `Subtract` layer.
 

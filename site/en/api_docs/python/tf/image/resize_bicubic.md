@@ -5,35 +5,25 @@ page_type: reference
 
 # tf.image.resize_bicubic
 
+
+
+### Aliases:
+
+* `tf.compat.v1.image.resize_bicubic`
+* `tf.image.resize_bicubic`
+
 ``` python
 tf.image.resize_bicubic(
     images,
     size,
     align_corners=False,
-    name=None
+    name=None,
+    half_pixel_centers=False
 )
 ```
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_image_ops.py`.
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Resize `images` to `size` using bicubic interpolation.
-
-Input images can be of different types but output images are always float.
-
-#### Args:
-
-* <b>`images`</b>: A `Tensor`. Must be one of the following types: `int8`, `uint8`, `int16`, `uint16`, `int32`, `int64`, `half`, `float32`, `float64`.
-    4-D with shape `[batch, height, width, channels]`.
-* <b>`size`</b>:  A 1-D int32 Tensor of 2 elements: `new_height, new_width`.  The
-    new size for the images.
-* <b>`align_corners`</b>: An optional `bool`. Defaults to `False`.
-    If true, the centers of the 4 corner pixels of the input and output tensors are
-    aligned, preserving the values at the corner pixels. Defaults to false.
-* <b>`name`</b>: A name for the operation (optional).
-
-
-#### Returns:
-
-A `Tensor` of type `float32`.
+<!-- Placeholder for "Used in" -->

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.tuple
 
+Group tensors together.
+
+### Aliases:
+
+* `tf.compat.v1.tuple`
+* `tf.tuple`
+
 ``` python
 tf.tuple(
     tensors,
@@ -15,9 +22,9 @@ tf.tuple(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/control_flow_ops.py).
 
-Group tensors together.
+<!-- Placeholder for "Used in" -->
 
 This creates a tuple of tensors with the same values as the `tensors`
 argument, except that the value of each tensor is only returned after the
@@ -36,6 +43,7 @@ See also <a href="../tf/group"><code>tf.group</code></a> and
 
 #### Args:
 
+
 * <b>`tensors`</b>: A list of `Tensor`s or `IndexedSlices`, some entries can be `None`.
 * <b>`name`</b>: (optional) A name to use as a `name_scope` for the operation.
 * <b>`control_inputs`</b>: List of additional ops to finish before returning.
@@ -46,8 +54,10 @@ See also <a href="../tf/group"><code>tf.group</code></a> and
 Same as `tensors`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `tensors` does not contain any `Tensor` or `IndexedSlices`.
 * <b>`TypeError`</b>: If `control_inputs` is not a list of `Operation` or `Tensor`
-    objects.
+  objects.

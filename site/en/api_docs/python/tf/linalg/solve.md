@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.linalg.solve
 
+Solves systems of linear equations.
+
 ### Aliases:
 
+* `tf.compat.v1.linalg.solve`
+* `tf.compat.v1.matrix_solve`
+* `tf.compat.v2.linalg.solve`
 * `tf.linalg.solve`
 * `tf.matrix_solve`
 
@@ -21,9 +26,9 @@ tf.linalg.solve(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_linalg_ops.py`.
+Defined in generated file: `python/ops/gen_linalg_ops.py`.
 
-Solves systems of linear equations.
+<!-- Placeholder for "Used in" -->
 
 `Matrix` is a tensor of shape `[..., M, M]` whose inner-most 2 dimensions
 form square matrices. `Rhs` is a tensor of shape `[..., M, K]`. The `output` is
@@ -34,13 +39,14 @@ If `adjoint` is `True` then each output matrix satisfies
 
 #### Args:
 
-* <b>`matrix`</b>: A `Tensor`. Must be one of the following types: `float64`, `float32`, `complex64`, `complex128`.
-    Shape is `[..., M, M]`.
+
+* <b>`matrix`</b>: A `Tensor`. Must be one of the following types: `float64`, `float32`, `half`, `complex64`, `complex128`.
+  Shape is `[..., M, M]`.
 * <b>`rhs`</b>: A `Tensor`. Must have the same type as `matrix`.
-    Shape is `[..., M, K]`.
+  Shape is `[..., M, K]`.
 * <b>`adjoint`</b>: An optional `bool`. Defaults to `False`.
-    Boolean indicating whether to solve with `matrix` or its (block-wise)
-    adjoint.
+  Boolean indicating whether to solve with `matrix` or its (block-wise)
+  adjoint.
 * <b>`name`</b>: A name for the operation (optional).
 
 

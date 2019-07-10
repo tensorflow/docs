@@ -5,16 +5,18 @@ page_type: reference
 
 # Module: tf.contrib.proto
 
-
-
-Defined in [`tensorflow/contrib/proto/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/proto/__init__.py).
-
 Ops and modules related to proto.
+
+
+
+Defined in [`contrib/proto/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/proto/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 ## Functions
 
-[`decode_proto(...)`](../../tf/contrib/proto/decode_proto): TODO: add doc.
+[`decode_proto(...)`](../../tf/io/decode_proto): The op extracts fields from a serialized protocol buffers message into tensors.
 
-[`encode_proto(...)`](../../tf/contrib/proto/encode_proto): TODO: add doc.
+[`encode_proto(...)`](../../tf/io/encode_proto): The op serializes protobuf messages provided in the input tensors.
 

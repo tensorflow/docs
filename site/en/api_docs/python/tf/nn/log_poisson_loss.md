@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.nn.log_poisson_loss
 
+Computes log Poisson loss given `log_input`.
+
+### Aliases:
+
+* `tf.compat.v1.nn.log_poisson_loss`
+* `tf.compat.v2.nn.log_poisson_loss`
+* `tf.nn.log_poisson_loss`
+
 ``` python
 tf.nn.log_poisson_loss(
     targets,
@@ -16,9 +24,9 @@ tf.nn.log_poisson_loss(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_impl.py).
+Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
-Computes log Poisson loss given `log_input`.
+<!-- Placeholder for "Used in" -->
 
 Gives the log-likelihood loss between the prediction and the target under the
 assumption that the target has a Poisson distribution.
@@ -43,10 +51,11 @@ loss is
 
 #### Args:
 
+
 * <b>`targets`</b>: A `Tensor` of the same type and shape as `log_input`.
 * <b>`log_input`</b>: A `Tensor` of type `float32` or `float64`.
 * <b>`compute_full_loss`</b>: whether to compute the full loss. If false, a constant
-    term is dropped in favor of more efficient optimization.
+  term is dropped in favor of more efficient optimization.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -56,6 +65,8 @@ A `Tensor` of the same shape as `log_input` with the componentwise
 logistic losses.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `log_input` and `targets` do not have the same shape.

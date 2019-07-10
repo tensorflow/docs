@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.filter_variables
 
+Filter a list of variables using regular expressions.
+
 ``` python
 tf.contrib.framework.filter_variables(
     var_list,
@@ -16,9 +18,9 @@ tf.contrib.framework.filter_variables(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
 
-Filter a list of variables using regular expressions.
+<!-- Placeholder for "Used in" -->
 
 First includes variables according to the list of include_patterns.
 Afterwards, eliminates variables according to the list of exclude_patterns.
@@ -36,17 +38,18 @@ conv_weight_variables = tf.contrib.framework.filter_variables(
 
 #### Args:
 
+
 * <b>`var_list`</b>: list of variables.
 * <b>`include_patterns`</b>: list of regular expressions to include. Defaults to None,
-      which means all variables are selected according to the include rules.
-      A variable is included if it matches any of the include_patterns.
+  which means all variables are selected according to the include rules. A
+  variable is included if it matches any of the include_patterns.
 * <b>`exclude_patterns`</b>: list of regular expressions to exclude. Defaults to None,
-      which means all variables are selected according to the exclude rules.
-      A variable is excluded if it matches any of the exclude_patterns.
+  which means all variables are selected according to the exclude rules. A
+  variable is excluded if it matches any of the exclude_patterns.
 * <b>`reg_search`</b>: boolean. If True (default), performs re.search to find matches
-      (i.e. pattern can match any substring of the variable name). If False,
-      performs re.match (i.e. regexp should match from the beginning of the
-      variable name).
+  (i.e. pattern can match any substring of the variable name). If False,
+  performs re.match (i.e. regexp should match from the beginning of the
+  variable name).
 
 
 #### Returns:

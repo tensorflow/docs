@@ -5,11 +5,14 @@ page_type: reference
 
 # tf.contrib.framework.current_arg_scope
 
+
+
 ``` python
 tf.contrib.framework.current_arg_scope()
 ```
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/arg_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/arg_scope.py).
+Defined in [`contrib/framework/python/ops/arg_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/arg_scope.py).
 
+<!-- Placeholder for "Used in" -->

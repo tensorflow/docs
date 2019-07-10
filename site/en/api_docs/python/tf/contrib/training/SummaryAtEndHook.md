@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `SummaryAtEndHook`
 
+A run hook that saves a summary with the results of evaluation.
+
 Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/evaluation.py).
+Defined in [`contrib/training/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/evaluation.py).
 
-A run hook that saves a summary with the results of evaluation.
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -28,18 +31,22 @@ __init__(
 
 Constructs the Summary Hook.
 
+
 #### Args:
 
+
 * <b>`log_dir`</b>: The directory where the summary events are saved to.  Used only
-    when `summary_writer` is not specified.
-* <b>`summary_writer`</b>: A <a href="../../../tf/summary/FileWriter"><code>tf.summary.FileWriter</code></a> to write summary events with.
+  when `summary_writer` is not specified.
+* <b>`summary_writer`</b>: A <a href="../../../tf/summary/FileWriter"><code>tf.compat.v1.summary.FileWriter</code></a> to write summary
+  events with.
 * <b>`summary_op`</b>: The summary op to run. If left as `None`, then all summaries
-    in the tf.GraphKeys.SUMMARIES collection are used.
+  in the tf.GraphKeys.SUMMARIES collection are used.
 * <b>`feed_dict`</b>: An optional feed dictionary to use when evaluating the
-    summaries.
+  summaries.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If both `log_dir` and `summary_writer` are `None`.
 
@@ -56,20 +63,8 @@ after_create_session(
 )
 ```
 
-Called when new TensorFlow session is created.
 
-This is called to signal the hooks that a new session has been created. This
-has two essential differences with the situation in which `begin` is called:
 
-* When this is called, the graph is finalized and ops can no longer be added
-    to the graph.
-* This method will also be called as a result of recovering a wrapped
-    session, not only at the beginning of the overall session.
-
-#### Args:
-
-* <b>`session`</b>: A TensorFlow Session that has been created.
-* <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
 <h3 id="after_run"><code>after_run</code></h3>
 
@@ -91,6 +86,7 @@ The `run_context` argument is the same one send to `before_run` call.
 If `session.run()` raises any exceptions then `after_run()` is not called.
 
 #### Args:
+
 
 * <b>`run_context`</b>: A `SessionRunContext` object.
 * <b>`run_values`</b>: A SessionRunValues object.
@@ -117,6 +113,7 @@ At this point graph is finalized and you can not add ops.
 
 #### Args:
 
+
 * <b>`run_context`</b>: A `SessionRunContext` object.
 
 
@@ -124,19 +121,15 @@ At this point graph is finalized and you can not add ops.
 
 None or a `SessionRunArgs` object.
 
+
 <h3 id="begin"><code>begin</code></h3>
 
 ``` python
 begin()
 ```
 
-Called once before using the session.
 
-When called, the default graph is the one that will be launched in the
-session.  The hook can modify the graph by adding new operations to it.
-After the `begin()` call the graph will be finalized and the other callbacks
-can not modify the graph anymore. Second call of `begin()` on the same
-graph, should not change the graph.
+
 
 <h3 id="end"><code>end</code></h3>
 
@@ -144,20 +137,8 @@ graph, should not change the graph.
 end(session)
 ```
 
-Called at the end of session.
 
-The `session` argument can be used in case the hook wants to run final ops,
-such as saving a last checkpoint.
 
-If `session.run()` raises exception other than OutOfRangeError or
-StopIteration then `end()` is not called.
-Note the difference between `end()` and `after_run()` behavior when
-`session.run()` raises OutOfRangeError or StopIteration. In that case
-`end()` is called but `after_run()` is not called.
-
-#### Args:
-
-* <b>`session`</b>: A TensorFlow Session that will be soon closed.
 
 
 

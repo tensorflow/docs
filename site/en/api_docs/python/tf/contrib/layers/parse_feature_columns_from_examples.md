@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.parse_feature_columns_from_examples
 
+Parses tf.Examples to extract tensors for given feature_columns.
+
 ``` python
 tf.contrib.layers.parse_feature_columns_from_examples(
     serialized,
@@ -16,13 +18,15 @@ tf.contrib.layers.parse_feature_columns_from_examples(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
+Defined in [`contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
-Parses tf.Examples to extract tensors for given feature_columns.
+<!-- Placeholder for "Used in" -->
 
-This is a wrapper of 'tf.parse_example'.
+This is a wrapper of 'tf.io.parse_example'.
 
-Example:
+#### Example:
+
+
 
 ```python
 columns_to_tensor = parse_feature_columns_from_examples(
@@ -55,13 +59,14 @@ my_features = [embedding_feature_b, real_feature_buckets, embedding_feature_a]
 
 #### Args:
 
+
 * <b>`serialized`</b>: A vector (1-D Tensor) of strings, a batch of binary
-    serialized `Example` protos.
+  serialized `Example` protos.
 * <b>`feature_columns`</b>: An iterable containing all the feature columns. All items
-    should be instances of classes derived from _FeatureColumn.
+  should be instances of classes derived from _FeatureColumn.
 * <b>`name`</b>: A name for this operation (optional).
 * <b>`example_names`</b>: A vector (1-D Tensor) of strings (optional), the names of
-    the serialized protos in the batch.
+  the serialized protos in the batch.
 
 
 #### Returns:

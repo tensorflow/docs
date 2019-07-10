@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.io.parse_sequence_example
 
+Parses a batch of `SequenceExample` protos.
+
+### Aliases:
+
+* `tf.compat.v1.io.parse_sequence_example`
+* `tf.compat.v2.io.parse_sequence_example`
+* `tf.io.parse_sequence_example`
+
 ``` python
 tf.io.parse_sequence_example(
     serialized,
@@ -17,12 +25,12 @@ tf.io.parse_sequence_example(
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/parsing_ops.py).
+Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
-Parses a batch of `SequenceExample` protos.
+<!-- Placeholder for "Used in" -->
 
 Parses a vector of serialized
-[`SequenceExample`](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/example/example.proto)
+[`SequenceExample`](https://www.tensorflow.org/code/tensorflow/core/example/example.proto)
 protos given in `serialized`.
 
 This op parses serialized sequence examples into a tuple of dictionaries
@@ -83,17 +91,18 @@ output. If not `None`, `example_name` must be a scalar.
 
 #### Args:
 
+
 * <b>`serialized`</b>: A vector (1-D Tensor) of type string containing binary
-    serialized `SequenceExample` protos.
+  serialized `SequenceExample` protos.
 * <b>`context_features`</b>: A `dict` mapping feature keys to `FixedLenFeature` or
-    `VarLenFeature` values. These features are associated with a
-    `SequenceExample` as a whole.
+  `VarLenFeature` values. These features are associated with a
+  `SequenceExample` as a whole.
 * <b>`sequence_features`</b>: A `dict` mapping feature keys to
-    `FixedLenSequenceFeature` or `VarLenFeature` values. These features are
-    associated with data within the `FeatureList` section of the
-    `SequenceExample` proto.
+  `FixedLenSequenceFeature` or `VarLenFeature` values. These features are
+  associated with data within the `FeatureList` section of the
+  `SequenceExample` proto.
 * <b>`example_names`</b>: A vector (1-D Tensor) of strings (optional), the name of the
-    serialized protos.
+  serialized protos.
 * <b>`name`</b>: A name for this operation (optional).
 
 
@@ -105,6 +114,8 @@ the second dict contains the feature_list key/values, and the final dict
 contains the lengths of any dense feature_list features.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if any feature is invalid.

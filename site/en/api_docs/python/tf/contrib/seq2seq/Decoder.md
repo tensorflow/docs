@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `Decoder`
 
-
-
-
-
-Defined in [`tensorflow/contrib/seq2seq/python/ops/decoder.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/seq2seq/python/ops/decoder.py).
-
 An RNN Decoder abstract interface object.
+
+
+
+
+
+Defined in [`contrib/seq2seq/python/ops/decoder.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/decoder.py).
+
+<!-- Placeholder for "Used in" -->
 
 Concepts used by this interface:
 - `inputs`: (structure of) tensors and TensorArrays that is passed as input to
@@ -31,13 +33,16 @@ Concepts used by this interface:
 
 The batch size of input values.
 
+
 <h3 id="output_dtype"><code>output_dtype</code></h3>
 
 A (possibly nested tuple of...) dtype[s].
 
+
 <h3 id="output_size"><code>output_size</code></h3>
 
 A (possibly nested tuple of...) integer[s] or `TensorShape` object[s].
+
 
 <h3 id="tracks_own_finished"><code>tracks_own_finished</code></h3>
 
@@ -60,6 +65,7 @@ Python bool.
 
 
 
+
 ## Methods
 
 <h3 id="finalize"><code>finalize</code></h3>
@@ -71,6 +77,7 @@ finalize(
     sequence_lengths
 )
 ```
+
 
 
 
@@ -86,6 +93,7 @@ This methods must compute initial input values and initial state.
 
 #### Args:
 
+
 * <b>`name`</b>: Name scope for any created operations.
 
 
@@ -93,6 +101,7 @@ This methods must compute initial input values and initial state.
 
 `(finished, initial_inputs, initial_state)`: initial values of
 'finished' flags, inputs and state.
+
 
 <h3 id="step"><code>step</code></h3>
 
@@ -107,13 +116,15 @@ step(
 
 Called per step of decoding (but only once for dynamic decoding).
 
+
 #### Args:
+
 
 * <b>`time`</b>: Scalar `int32` tensor. Current step number.
 * <b>`inputs`</b>: RNNCell input (possibly nested tuple of) tensor[s] for this time
-    step.
+  step.
 * <b>`state`</b>: RNNCell state (possibly nested tuple of) tensor[s] from previous
-    time step.
+  time step.
 * <b>`name`</b>: Name scope for any created operations.
 
 
@@ -124,6 +135,7 @@ containing the decoder output, `next_state` is a (structure of) state
 tensors and TensorArrays, `next_inputs` is the tensor that should be used
 as input for the next step, `finished` is a boolean tensor telling whether
 the sequence is complete, for each sequence in the batch.
+
 
 
 

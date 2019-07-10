@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.remote_fused_graph.remote_fused_graph_execute
 
+A wrapper for remote_fused_graph_execute.
+
 ``` python
 tf.contrib.remote_fused_graph.remote_fused_graph_execute(
     inputs,
@@ -21,6 +23,6 @@ tf.contrib.remote_fused_graph.remote_fused_graph_execute(
 
 
 
-Defined in [`tensorflow/contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py).
+Defined in [`contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/remote_fused_graph/pylib/python/ops/remote_fused_graph_ops.py).
 
-A wrapper for remote_fused_graph_execute.
+<!-- Placeholder for "Used in" -->

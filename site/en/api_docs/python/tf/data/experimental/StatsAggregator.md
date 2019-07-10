@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `StatsAggregator`
 
-
-
-
-
-Defined in [`tensorflow/python/data/experimental/ops/stats_aggregator.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/experimental/ops/stats_aggregator.py).
-
 A stateful resource that aggregates statistics from one or more iterators.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.data.experimental.StatsAggregator`
+* Class `tf.data.experimental.StatsAggregator`
+
+
+
+Defined in [`python/data/experimental/ops/stats_aggregator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/stats_aggregator.py).
+
+<!-- Placeholder for "Used in" -->
 
 To record statistics, use one of the custom transformation functions defined
 in this module when defining your <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>. All statistics will be
@@ -34,13 +41,13 @@ aggregator = tf.data.experimental.StatsAggregator()
 dataset = ...
 
 # Apply `StatsOptions` to associate `dataset` with `aggregator`.
-options = dataset_ops.Options()
-options.experimental_stats = tf.data.experimental.StatsOptions(aggregator)
+options = tf.data.Options()
+options.experimental_stats.aggregator = aggregator
 dataset = dataset.with_options(options)
 ```
 
 To get a protocol buffer summary of the currently aggregated statistics,
-use the `StatsAggregator.get_summary()` tensor. The easiest way to do this
+use the <a href="../../../tf/data/experimental/StatsAggregator#get_summary"><code>StatsAggregator.get_summary()</code></a> tensor. The easiest way to do this
 is to add the returned tensor to the <a href="../../../tf/GraphKeys#SUMMARIES"><code>tf.GraphKeys.SUMMARIES</code></a> collection,
 so that the summaries will be included with any existing summaries.
 
@@ -48,7 +55,7 @@ so that the summaries will be included with any existing summaries.
 aggregator = tf.data.experimental.StatsAggregator()
 # ...
 stats_summary = aggregator.get_summary()
-tf.add_to_collection(tf.GraphKeys.SUMMARIES, stats_summary)
+tf.compat.v1.add_to_collection(tf.GraphKeys.SUMMARIES, stats_summary)
 ```
 
 Note: This interface is experimental and expected to change. In particular,
@@ -65,6 +72,7 @@ Creates a `StatsAggregator`.
 
 
 
+
 ## Methods
 
 <h3 id="get_summary"><code>get_summary</code></h3>
@@ -75,12 +83,14 @@ get_summary()
 
 Returns a string <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> that summarizes the aggregated statistics.
 
-The returned tensor will contain a serialized <a href="../../../tf/Summary"><code>tf.summary.Summary</code></a> protocol
+The returned tensor will contain a serialized <a href="../../../tf/Summary"><code>tf.compat.v1.summary.Summary</code></a>
+protocol
 buffer, which can be used with the standard TensorBoard logging facilities.
 
 #### Returns:
 
 A scalar string <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> that summarizes the aggregated statistics.
+
 
 
 

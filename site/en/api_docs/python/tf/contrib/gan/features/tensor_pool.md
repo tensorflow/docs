@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.features.tensor_pool
 
+Queue storing input values and returning random previously stored ones.
+
 ``` python
 tf.contrib.gan.features.tensor_pool(
     input_values,
@@ -16,9 +18,9 @@ tf.contrib.gan.features.tensor_pool(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py).
+Defined in [`contrib/gan/python/features/python/random_tensor_pool_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py).
 
-Queue storing input values and returning random previously stored ones.
+<!-- Placeholder for "Used in" -->
 
 Every time the returned `output_value` is evaluated, `input_value` is
 evaluated and its value either directly returned (with
@@ -30,12 +32,13 @@ pool. Note during inference / testing, it may be appropriate to set
 
 #### Args:
 
+
 * <b>`input_values`</b>: An arbitrarily nested structure of `tf.Tensors`, from which to
-    read values to be pooled.
+  read values to be pooled.
 * <b>`pool_size`</b>: An integer specifying the maximum size of the pool. Defaults to
-    50.
+  50.
 * <b>`pooling_probability`</b>: A float `Tensor` specifying the probability of getting
-    a value from the pool, as opposed to just the current input.
+  a value from the pool, as opposed to just the current input.
 * <b>`name`</b>: A string prefix for the name scope for all tensorflow ops.
 
 
@@ -47,6 +50,8 @@ same as in `input_values` or a randomly chosen sample that was previously
 inserted in the pool.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `pool_size` is negative.

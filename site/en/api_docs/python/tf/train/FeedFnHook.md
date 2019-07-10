@@ -7,13 +7,24 @@ page_type: reference
 
 ## Class `FeedFnHook`
 
+Runs `feed_fn` and sets the `feed_dict` accordingly.
+
 Inherits From: [`SessionRunHook`](../../tf/train/SessionRunHook)
 
+### Aliases:
+
+* Class `tf.compat.v1.estimator.FeedFnHook`
+* Class `tf.compat.v1.train.FeedFnHook`
+* Class `tf.compat.v2.estimator.FeedFnHook`
+* Class `tf.estimator.FeedFnHook`
+* Class `tf.train.FeedFnHook`
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/basic_session_run_hooks.py).
 
-Runs `feed_fn` and sets the `feed_dict` accordingly.
+Defined in [`python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/basic_session_run_hooks.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -23,10 +34,12 @@ __init__(feed_fn)
 
 Initializes a `FeedFnHook`.
 
+
 #### Args:
 
+
 * <b>`feed_fn`</b>: function that takes no arguments and returns `dict` of `Tensor`
-    to feed.
+  to feed.
 
 
 
@@ -53,6 +66,7 @@ has two essential differences with the situation in which `begin` is called:
 
 #### Args:
 
+
 * <b>`session`</b>: A TensorFlow Session that has been created.
 * <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
@@ -77,6 +91,7 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 
 #### Args:
 
+
 * <b>`run_context`</b>: A `SessionRunContext` object.
 * <b>`run_values`</b>: A SessionRunValues object.
 
@@ -86,28 +101,8 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 before_run(run_context)
 ```
 
-Called before each call to run().
-
-You can return from this call a `SessionRunArgs` object indicating ops or
-tensors to add to the upcoming `run()` call.  These ops/tensors will be run
-together with the ops/tensors originally passed to the original run() call.
-The run args you return can also contain feeds to be added to the run()
-call.
-
-The `run_context` argument is a `SessionRunContext` that provides
-information about the upcoming `run()` call: the originally requested
-op/tensors, the TensorFlow Session.
-
-At this point graph is finalized and you can not add ops.
-
-#### Args:
-
-* <b>`run_context`</b>: A `SessionRunContext` object.
 
 
-#### Returns:
-
-None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
@@ -141,6 +136,7 @@ Note the difference between `end()` and `after_run()` behavior when
 `end()` is called but `after_run()` is not called.
 
 #### Args:
+
 
 * <b>`session`</b>: A TensorFlow Session that will be soon closed.
 

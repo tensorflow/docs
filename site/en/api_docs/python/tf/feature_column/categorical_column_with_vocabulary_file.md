@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.feature_column.categorical_column_with_vocabulary_file
 
+A `CategoricalColumn` with a vocabulary file.
+
+### Aliases:
+
+* `tf.compat.v1.feature_column.categorical_column_with_vocabulary_file`
+* `tf.feature_column.categorical_column_with_vocabulary_file`
+
 ``` python
 tf.feature_column.categorical_column_with_vocabulary_file(
     key,
@@ -18,9 +25,9 @@ tf.feature_column.categorical_column_with_vocabulary_file(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/feature_column/feature_column_v2.py).
+Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
-A `CategoricalColumn` with a vocabulary file.
+<!-- Placeholder for "Used in" -->
 
 Use this when your inputs are in string or integer format, and you have a
 vocabulary file that maps each value to an integer ID. By default,
@@ -43,7 +50,7 @@ states = categorical_column_with_vocabulary_file(
     key='states', vocabulary_file='/us/states.txt', vocabulary_size=50,
     num_oov_buckets=5)
 columns = [states, ...]
-features = tf.parse_example(..., features=make_parse_example_spec(columns))
+features = tf.io.parse_example(..., features=make_parse_example_spec(columns))
 linear_prediction = linear_model(features, columns)
 ```
 
@@ -58,7 +65,7 @@ states = categorical_column_with_vocabulary_file(
     key='states', vocabulary_file='/us/states.txt', vocabulary_size=51,
     default_value=0)
 columns = [states, ...]
-features = tf.parse_example(..., features=make_parse_example_spec(columns))
+features = tf.io.parse_example(..., features=make_parse_example_spec(columns))
 linear_prediction, _, _ = linear_model(features, columns)
 ```
 
@@ -66,27 +73,28 @@ And to make an embedding with either:
 
 ```python
 columns = [embedding_column(states, 3),...]
-features = tf.parse_example(..., features=make_parse_example_spec(columns))
+features = tf.io.parse_example(..., features=make_parse_example_spec(columns))
 dense_tensor = input_layer(features, columns)
 ```
 
 #### Args:
 
+
 * <b>`key`</b>: A unique string identifying the input feature. It is used as the
-    column name and the dictionary key for feature parsing configs, feature
-    `Tensor` objects, and feature columns.
+  column name and the dictionary key for feature parsing configs, feature
+  `Tensor` objects, and feature columns.
 * <b>`vocabulary_file`</b>: The vocabulary file name.
 * <b>`vocabulary_size`</b>: Number of the elements in the vocabulary. This must be no
-    greater than length of `vocabulary_file`, if less than length, later
-    values are ignored. If None, it is set to the length of `vocabulary_file`.
+  greater than length of `vocabulary_file`, if less than length, later
+  values are ignored. If None, it is set to the length of `vocabulary_file`.
 * <b>`num_oov_buckets`</b>: Non-negative integer, the number of out-of-vocabulary
-    buckets. All out-of-vocabulary inputs will be assigned IDs in the range
-    `[vocabulary_size, vocabulary_size+num_oov_buckets)` based on a hash of
-    the input value. A positive `num_oov_buckets` can not be specified with
-    `default_value`.
+  buckets. All out-of-vocabulary inputs will be assigned IDs in the range
+  `[vocabulary_size, vocabulary_size+num_oov_buckets)` based on a hash of
+  the input value. A positive `num_oov_buckets` can not be specified with
+  `default_value`.
 * <b>`default_value`</b>: The integer ID value to return for out-of-vocabulary feature
-    values, defaults to `-1`. This can not be specified with a positive
-    `num_oov_buckets`.
+  values, defaults to `-1`. This can not be specified with a positive
+  `num_oov_buckets`.
 * <b>`dtype`</b>: The type of features. Only string and integer types are supported.
 
 
@@ -95,7 +103,9 @@ dense_tensor = input_layer(features, columns)
 A `CategoricalColumn` with a vocabulary file.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: `vocabulary_file` is missing or cannot be opened.
 * <b>`ValueError`</b>: `vocabulary_size` is missing or < 1.

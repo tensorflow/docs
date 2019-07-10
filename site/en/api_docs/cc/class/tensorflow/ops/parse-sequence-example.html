@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ParseSequenceExample Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ParseSequenceExample</h1>
+  <code>#include &lt;parsing_ops.h&gt;</code>
+  <p>Transforms a vector of brain.SequenceExample protos (as strings) into typed tensors. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>serialized: A vector containing binary serialized SequenceExample protos.</li>
+      <li>debug_name: A vector containing the names of the serialized protos. May contain, for example, table key (descriptive) name for the corresponding serialized proto. This is purely useful for debugging purposes, and the presence of values here has no effect on the output. May also be an empty vector if no name is available.</li>
+      <li>context_dense_defaults: A list of Ncontext_dense Tensors (some may be empty). context_dense_defaults[j] provides default values when the SequenceExample's context map lacks context_dense_key[j]. If an empty <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> is provided for context_dense_defaults[j], then the Feature context_dense_keys[j] is required. The input type is inferred from context_dense_defaults[j], even when it's empty. If context_dense_defaults[j] is not empty, its shape must match context_dense_shapes[j].</li>
+      <li>feature_list_dense_missing_assumed_empty: A vector listing the FeatureList keys which may be missing from the SequenceExamples. If the associated FeatureList is missing, it is treated as empty. By default, any FeatureList not listed in this vector must exist in the SequenceExamples.</li>
+      <li>context_sparse_keys: A list of Ncontext_sparse string Tensors (scalars). The keys expected in the Examples' features associated with context_sparse values.</li>
+      <li>context_dense_keys: A list of Ncontext_dense string Tensors (scalars). The keys expected in the SequenceExamples' context features associated with dense values.</li>
+      <li>feature_list_sparse_keys: A list of Nfeature_list_sparse string Tensors (scalars). The keys expected in the FeatureLists associated with sparse values.</li>
+      <li>feature_list_dense_keys: A list of Nfeature_list_dense string Tensors (scalars). The keys expected in the SequenceExamples' feature_lists associated with lists of dense values.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>):<ul>
+      <li>context_sparse_types: A list of Ncontext_sparse types; the data types of data in each context Feature given in context_sparse_keys. Currently the <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/parse-single-sequence-example.html#classtensorflow_1_1ops_1_1_parse_single_sequence_example">ParseSingleSequenceExample</a> supports DT_FLOAT (FloatList), DT_INT64 (Int64List), and DT_STRING (BytesList).</li>
+      <li>context_dense_shapes: A list of Ncontext_dense shapes; the shapes of data in each context Feature given in context_dense_keys. The number of elements in the Feature corresponding to context_dense_key[j] must always equal context_dense_shapes[j].NumEntries(). The shape of context_dense_values[j] will match context_dense_shapes[j].</li>
+      <li>feature_list_sparse_types: A list of Nfeature_list_sparse types; the data types of data in each FeatureList given in feature_list_sparse_keys. Currently the <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/parse-single-sequence-example.html#classtensorflow_1_1ops_1_1_parse_single_sequence_example">ParseSingleSequenceExample</a> supports DT_FLOAT (FloatList), DT_INT64 (Int64List), and DT_STRING (BytesList).</li>
+      <li>feature_list_dense_shapes: A list of Nfeature_list_dense shapes; the shapes of data in each FeatureList given in feature_list_dense_keys. The shape of each Feature in the FeatureList corresponding to feature_list_dense_key[j] must always equal feature_list_dense_shapes[j].NumEntries().</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code>OutputList</code> context_sparse_indices</li>
+      <li><code>OutputList</code> context_sparse_values</li>
+      <li><code>OutputList</code> context_sparse_shapes</li>
+      <li><code>OutputList</code> context_dense_values</li>
+      <li><code>OutputList</code> feature_list_sparse_indices</li>
+      <li><code>OutputList</code> feature_list_sparse_values</li>
+      <li><code>OutputList</code> feature_list_sparse_shapes</li>
+      <li><code>OutputList</code> feature_list_dense_values</li>
+      <li><code>OutputList</code> feature_list_dense_lengths </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1af60e41ceb4b048044d795ca20e97dce3">ParseSequenceExample</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> debug_name, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> context_dense_defaults, const gtl::ArraySlice< string > & feature_list_dense_missing_assumed_empty, const gtl::ArraySlice< string > & context_sparse_keys, const gtl::ArraySlice< string > & context_dense_keys, const gtl::ArraySlice< string > & feature_list_sparse_keys, const gtl::ArraySlice< string > & feature_list_dense_keys)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a72488e3638c0b60e1a90a9c8e1a27a6c">ParseSequenceExample</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> debug_name, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> context_dense_defaults, const gtl::ArraySlice< string > & feature_list_dense_missing_assumed_empty, const gtl::ArraySlice< string > & context_sparse_keys, const gtl::ArraySlice< string > & context_dense_keys, const gtl::ArraySlice< string > & feature_list_sparse_keys, const gtl::ArraySlice< string > & feature_list_dense_keys, const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">ParseSequenceExample::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a0af6123fa9fbdc95e0b5a7de2e6b0bbb">context_dense_values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a71a30646c669754f9905119da48e8320">context_sparse_indices</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a9049c964a1785775559556fb021e6416">context_sparse_shapes</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a08fece57b10752996ebc0acc6bcd4e18">context_sparse_values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a4b024e7f1b4e67986f14c1f36eb9df12">feature_list_dense_lengths</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a6817f62272e24f27c76da794078e6ffb">feature_list_dense_values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a7d385ae594813d143bb4aca04b23c88b">feature_list_sparse_indices</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a3a05c64abbcfbaef37fdf08ef65a5258">feature_list_sparse_shapes</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1afc2b8f497dc3901ee8de8bfa5e17adc0">feature_list_sparse_values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1ad8a2ed886ed82472d224bd766b4df868">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a10bf1bf283d2f5275224a0265f767760">ContextDenseShapes</a>(const gtl::ArraySlice< PartialTensorShape > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a586ecb54f4006e2528c9fe14052d94d4">ContextSparseTypes</a>(const DataTypeSlice & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1ae005f36c01bcf9c16da4a2f4c4cff0c0">FeatureListDenseShapes</a>(const gtl::ArraySlice< PartialTensorShape > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1ac2e81ff7ef5d15819b9ef566dfafeba4">FeatureListDenseTypes</a>(const DataTypeSlice & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1ae97c9d413d1c2cb43c56787de6eca31e">FeatureListSparseTypes</a>(const DataTypeSlice & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1ac59b24777fb0fe09f2c4b5c5438ace2f">NcontextDense</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1a1397b974fe179a84e6e660eefce7fdcd">NcontextSparse</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1aeb8664c54334bbdc392b6de9b78c0ed7">NfeatureListDense</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parse_sequence_example_1afd6d16b8c0740baa2a311d15df1a38c8">NfeatureListSparse</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs">tensorflow::<wbr/>ops::<wbr/>ParseSequenceExample::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/parse-sequence-example.html#classtensorflow_1_1ops_1_1_parse_sequence_example">ParseSequenceExample</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a0af6123fa9fbdc95e0b5a7de2e6b0bbb">
+    <h3>context_dense_values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> context_dense_values</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a71a30646c669754f9905119da48e8320">
+    <h3>context_sparse_indices</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> context_sparse_indices</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a9049c964a1785775559556fb021e6416">
+    <h3>context_sparse_shapes</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> context_sparse_shapes</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a08fece57b10752996ebc0acc6bcd4e18">
+    <h3>context_sparse_values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> context_sparse_values</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a4b024e7f1b4e67986f14c1f36eb9df12">
+    <h3>feature_list_dense_lengths</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> feature_list_dense_lengths</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a6817f62272e24f27c76da794078e6ffb">
+    <h3>feature_list_dense_values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> feature_list_dense_values</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a7d385ae594813d143bb4aca04b23c88b">
+    <h3>feature_list_sparse_indices</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> feature_list_sparse_indices</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a3a05c64abbcfbaef37fdf08ef65a5258">
+    <h3>feature_list_sparse_shapes</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> feature_list_sparse_shapes</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1afc2b8f497dc3901ee8de8bfa5e17adc0">
+    <h3>feature_list_sparse_values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> feature_list_sparse_values</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1ad8a2ed886ed82472d224bd766b4df868">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1af60e41ceb4b048044d795ca20e97dce3">
+    <h3>ParseSequenceExample</h3>
+    <pre class="prettyprint"> ParseSequenceExample(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> debug_name,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> context_dense_defaults,
+  const gtl::ArraySlice< string > & feature_list_dense_missing_assumed_empty,
+  const gtl::ArraySlice< string > & context_sparse_keys,
+  const gtl::ArraySlice< string > & context_dense_keys,
+  const gtl::ArraySlice< string > & feature_list_sparse_keys,
+  const gtl::ArraySlice< string > & feature_list_dense_keys
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a72488e3638c0b60e1a90a9c8e1a27a6c">
+    <h3>ParseSequenceExample</h3>
+    <pre class="prettyprint"> ParseSequenceExample(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> debug_name,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> context_dense_defaults,
+  const gtl::ArraySlice< string > & feature_list_dense_missing_assumed_empty,
+  const gtl::ArraySlice< string > & context_sparse_keys,
+  const gtl::ArraySlice< string > & context_dense_keys,
+  const gtl::ArraySlice< string > & feature_list_sparse_keys,
+  const gtl::ArraySlice< string > & feature_list_dense_keys,
+  const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">ParseSequenceExample::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a10bf1bf283d2f5275224a0265f767760">
+    <h3>ContextDenseShapes</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> ContextDenseShapes(
+  const gtl::ArraySlice< PartialTensorShape > & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a586ecb54f4006e2528c9fe14052d94d4">
+    <h3>ContextSparseTypes</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> ContextSparseTypes(
+  const DataTypeSlice & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1ae005f36c01bcf9c16da4a2f4c4cff0c0">
+    <h3>FeatureListDenseShapes</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> FeatureListDenseShapes(
+  const gtl::ArraySlice< PartialTensorShape > & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1ac2e81ff7ef5d15819b9ef566dfafeba4">
+    <h3>FeatureListDenseTypes</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> FeatureListDenseTypes(
+  const DataTypeSlice & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1ae97c9d413d1c2cb43c56787de6eca31e">
+    <h3>FeatureListSparseTypes</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> FeatureListSparseTypes(
+  const DataTypeSlice & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1ac59b24777fb0fe09f2c4b5c5438ace2f">
+    <h3>NcontextDense</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> NcontextDense(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1a1397b974fe179a84e6e660eefce7fdcd">
+    <h3>NcontextSparse</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> NcontextSparse(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1aeb8664c54334bbdc392b6de9b78c0ed7">
+    <h3>NfeatureListDense</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> NfeatureListDense(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_parse_sequence_example_1afd6d16b8c0740baa2a311d15df1a38c8">
+    <h3>NfeatureListSparse</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> NfeatureListSparse(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

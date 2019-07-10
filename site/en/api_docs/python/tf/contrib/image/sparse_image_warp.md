@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.image.sparse_image_warp
 
+Image warping using correspondences between sparse control points.
+
 ``` python
 tf.contrib.image.sparse_image_warp(
     image,
@@ -19,9 +21,9 @@ tf.contrib.image.sparse_image_warp(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/sparse_image_warp.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/image/python/ops/sparse_image_warp.py).
+Defined in [`contrib/image/python/ops/sparse_image_warp.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/image/python/ops/sparse_image_warp.py).
 
-Image warping using correspondences between sparse control points.
+<!-- Placeholder for "Used in" -->
 
 Apply a non-linear warp to the image, where the warp is specified by
 the source and destination locations of a (potentially small) number of
@@ -46,29 +48,31 @@ interpolation_order and regularization_weight arguments.
 
 #### Args:
 
+
 * <b>`image`</b>: `[batch, height, width, channels]` float `Tensor`
 * <b>`source_control_point_locations`</b>: `[batch, num_control_points, 2]` float
-    `Tensor`
+  `Tensor`
 * <b>`dest_control_point_locations`</b>: `[batch, num_control_points, 2]` float
-    `Tensor`
+  `Tensor`
 * <b>`interpolation_order`</b>: polynomial order used by the spline interpolation
 * <b>`regularization_weight`</b>: weight on smoothness regularizer in interpolation
 * <b>`num_boundary_points`</b>: How many zero-flow boundary points to include at
-    each image edge.Usage:
-      num_boundary_points=0: don't add zero-flow points
-      num_boundary_points=1: 4 corners of the image
-      num_boundary_points=2: 4 corners and one in the middle of each edge
-        (8 points total)
-      num_boundary_points=n: 4 corners and n-1 along each edge
+  each image edge.Usage:
+    num_boundary_points=0: don't add zero-flow points
+    num_boundary_points=1: 4 corners of the image
+    num_boundary_points=2: 4 corners and one in the middle of each edge
+      (8 points total)
+    num_boundary_points=n: 4 corners and n-1 along each edge
 * <b>`name`</b>: A name for the operation (optional).
 
-  Note that image and offsets can be of type tf.half, tf.float32, or
-  tf.float64, and do not necessarily have to be the same type.
+Note that image and offsets can be of type tf.half, tf.float32, or
+tf.float64, and do not necessarily have to be the same type.
 
 
 #### Returns:
 
+
 * <b>`warped_image`</b>: `[batch, height, width, channels]` float `Tensor` with same
-    type as input image.
+  type as input image.
 * <b>`flow_field`</b>: `[batch, height, width, 2]` float `Tensor` containing the dense
-    flow field produced by the interpolation.
+  flow field produced by the interpolation.

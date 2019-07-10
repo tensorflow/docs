@@ -5,12 +5,19 @@ page_type: reference
 
 # tf.get_variable_scope
 
+Returns the current variable scope.
+
+### Aliases:
+
+* `tf.compat.v1.get_variable_scope`
+* `tf.get_variable_scope`
+
 ``` python
 tf.get_variable_scope()
 ```
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variable_scope.py).
+Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
-Returns the current variable scope.
+<!-- Placeholder for "Used in" -->

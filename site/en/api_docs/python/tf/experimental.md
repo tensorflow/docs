@@ -7,11 +7,10 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.experimental namespace.
 
 ## Functions
 
-[`function_executor_type(...)`](../tf/experimental/function_executor_type): Context manager for setting the executor of eagar defined functions.
+[`function_executor_type(...)`](../tf/experimental/function_executor_type): Context manager for setting the executor of eager defined functions.
 

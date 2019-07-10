@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.learn.learn_runner.run
 
+Make and run an experiment. (deprecated)
+
 ``` python
 tf.contrib.learn.learn_runner.run(
     experiment_fn,
@@ -17,9 +19,9 @@ tf.contrib.learn.learn_runner.run(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_runner.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/learn_runner.py).
+Defined in [`contrib/learn/python/learn/learn_runner.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/learn_runner.py).
 
-Make and run an experiment. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -81,9 +83,8 @@ Example with `output_dir` (deprecated):
     output_dir="some/output/dir",
     schedule="train")
 ```
-#### Args:
-
-* <b>`experiment_fn`</b>: A function that creates an `Experiment`. It could be one of
+Args:
+  experiment_fn: A function that creates an `Experiment`. It could be one of
     the two following signatures:
     1) [Deprecated] It accepts an argument `output_dir` which should be used
     to create the `Estimator` (passed as `model_dir` to its constructor). It
@@ -93,23 +94,24 @@ Example with `output_dir` (deprecated):
     used to create the `Estimator` (`run_config` passed as `config` to its
     constructor; `hparams` used as the hyper-parameters of the model).
     It must return an `Experiment`. For this case, `output_dir` must be None.
-* <b>`output_dir`</b>: Base output directory [Deprecated].
-* <b>`schedule`</b>: The name of the method in the `Experiment` to run.
-* <b>`run_config`</b>: `RunConfig` instance. The `run_config.model_dir` must be
+  output_dir: Base output directory [Deprecated].
+  schedule: The name of the method in the `Experiment` to run.
+  run_config: `RunConfig` instance. The `run_config.model_dir` must be
     non-empty. If `run_config` is set, `output_dir` must be None.
-* <b>`hparams`</b>: `HParams` instance. The default hyper-parameters, which will be
+  hparams: `HParams` instance. The default hyper-parameters, which will be
     passed to the `experiment_fn` if `run_config` is not None.
-
 
 #### Returns:
 
 The return value of function `schedule`.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If both `output_dir` and `run_config` are empty or set,
-    `schedule` is None but no task type is set in the built experiment's
-    config, the task type has no default, `run_config.model_dir` is empty or
-    `schedule` doesn't reference a member of `Experiment`.
+  `schedule` is None but no task type is set in the built experiment's
+  config, the task type has no default, `run_config.model_dir` is empty or
+  `schedule` doesn't reference a member of `Experiment`.
 * <b>`TypeError`</b>: `schedule` references non-callable member.

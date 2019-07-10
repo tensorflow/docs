@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.random.fixed_unigram_candidate_sampler
 
+Samples a set of classes using the provided (fixed) base distribution.
+
 ### Aliases:
 
+* `tf.compat.v1.nn.fixed_unigram_candidate_sampler`
+* `tf.compat.v1.random.fixed_unigram_candidate_sampler`
+* `tf.compat.v2.nn.fixed_unigram_candidate_sampler`
+* `tf.compat.v2.random.fixed_unigram_candidate_sampler`
 * `tf.nn.fixed_unigram_candidate_sampler`
 * `tf.random.fixed_unigram_candidate_sampler`
 
@@ -30,9 +36,9 @@ tf.random.fixed_unigram_candidate_sampler(
 
 
 
-Defined in [`tensorflow/python/ops/candidate_sampling_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/candidate_sampling_ops.py).
+Defined in [`python/ops/candidate_sampling_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/candidate_sampling_ops.py).
 
-Samples a set of classes using the provided (fixed) base distribution.
+<!-- Placeholder for "Used in" -->
 
 This operation randomly samples a tensor of sampled classes
 (`sampled_candidates`) from the range of integers `[0, range_max)`.
@@ -57,49 +63,51 @@ compute them approximately.
 
 #### Args:
 
+
 * <b>`true_classes`</b>: A `Tensor` of type `int64` and shape `[batch_size,
-    num_true]`. The target classes.
+  num_true]`. The target classes.
 * <b>`num_true`</b>: An `int`.  The number of target classes per training example.
 * <b>`num_sampled`</b>: An `int`.  The number of classes to randomly sample.
 * <b>`unique`</b>: A `bool`. Determines whether all sampled classes in a batch are
-    unique.
+  unique.
 * <b>`range_max`</b>: An `int`. The number of possible classes.
 * <b>`vocab_file`</b>: Each valid line in this file (which should have a CSV-like
-    format) corresponds to a valid word ID. IDs are in sequential order,
-    starting from num_reserved_ids. The last entry in each line is expected
-    to be a value corresponding to the count or relative probability. Exactly
-    one of `vocab_file` and `unigrams` needs to be passed to this operation.
+  format) corresponds to a valid word ID. IDs are in sequential order,
+  starting from num_reserved_ids. The last entry in each line is expected
+  to be a value corresponding to the count or relative probability. Exactly
+  one of `vocab_file` and `unigrams` needs to be passed to this operation.
 * <b>`distortion`</b>: The distortion is used to skew the unigram probability
-    distribution.  Each weight is first raised to the distortion's power
-    before adding to the internal unigram distribution. As a result,
-    `distortion = 1.0` gives regular unigram sampling (as defined by the vocab
-    file), and `distortion = 0.0` gives a uniform distribution.
+  distribution.  Each weight is first raised to the distortion's power
+  before adding to the internal unigram distribution. As a result,
+  `distortion = 1.0` gives regular unigram sampling (as defined by the vocab
+  file), and `distortion = 0.0` gives a uniform distribution.
 * <b>`num_reserved_ids`</b>: Optionally some reserved IDs can be added in the range
-    `[0, num_reserved_ids)` by the users. One use case is that a special
-    unknown word token is used as ID 0. These IDs will have a sampling
-    probability of 0.
+  `[0, num_reserved_ids)` by the users. One use case is that a special
+  unknown word token is used as ID 0. These IDs will have a sampling
+  probability of 0.
 * <b>`num_shards`</b>: A sampler can be used to sample from a subset of the original
-    range in order to speed up the whole computation through parallelism. This
-    parameter (together with `shard`) indicates the number of partitions that
-    are being used in the overall computation.
+  range in order to speed up the whole computation through parallelism. This
+  parameter (together with `shard`) indicates the number of partitions that
+  are being used in the overall computation.
 * <b>`shard`</b>: A sampler can be used to sample from a subset of the original range
-    in order to speed up the whole computation through parallelism. This
-    parameter (together with `num_shards`) indicates the particular partition
-    number of the operation, when partitioning is being used.
+  in order to speed up the whole computation through parallelism. This
+  parameter (together with `num_shards`) indicates the particular partition
+  number of the operation, when partitioning is being used.
 * <b>`unigrams`</b>: A list of unigram counts or probabilities, one per ID in
-    sequential order. Exactly one of `vocab_file` and `unigrams` should be
-    passed to this operation.
+  sequential order. Exactly one of `vocab_file` and `unigrams` should be
+  passed to this operation.
 * <b>`seed`</b>: An `int`. An operation-specific seed. Default is 0.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
+
 * <b>`sampled_candidates`</b>: A tensor of type `int64` and shape `[num_sampled]`.
-    The sampled classes.
+  The sampled classes.
 * <b>`true_expected_count`</b>: A tensor of type `float`.  Same shape as
-    `true_classes`. The expected counts under the sampling distribution
-    of each of `true_classes`.
+  `true_classes`. The expected counts under the sampling distribution
+  of each of `true_classes`.
 * <b>`sampled_expected_count`</b>: A tensor of type `float`. Same shape as
-    `sampled_candidates`. The expected counts under the sampling distribution
-    of each of `sampled_candidates`.
+  `sampled_candidates`. The expected counts under the sampling distribution
+  of each of `sampled_candidates`.

@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `StatsOptions`
 
-
-
-
-
-Defined in [`tensorflow/python/data/experimental/ops/stats_options.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/experimental/ops/stats_options.py).
-
 Represents options for collecting dataset stats using `StatsAggregator`.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.data.experimental.StatsOptions`
+* Class `tf.compat.v2.data.experimental.StatsOptions`
+* Class `tf.data.experimental.StatsOptions`
+
+
+
+Defined in [`python/data/experimental/ops/stats_options.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/stats_options.py).
+
+<!-- Placeholder for "Used in" -->
 
 You can set the stats options of a dataset through the `experimental_stats`
 property of <a href="../../../tf/data/Options"><code>tf.data.Options</code></a>; the property is an instance of
@@ -35,7 +43,8 @@ dataset = dataset.with_options(options)
 __init__()
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -45,17 +54,21 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 Associates the given statistics aggregator with the dataset pipeline.
 
+
 <h3 id="counter_prefix"><code>counter_prefix</code></h3>
 
 Prefix for the statistics recorded as counter.
+
 
 <h3 id="latency_all_edges"><code>latency_all_edges</code></h3>
 
 Whether to add latency measurements on all edges. Defaults to False.
 
+
 <h3 id="prefix"><code>prefix</code></h3>
 
 Prefix to prepend all statistics recorded for the input `dataset` with.
+
 
 
 
@@ -67,7 +80,8 @@ Prefix to prepend all statistics recorded for the input `dataset` with.
 __eq__(other)
 ```
 
-Return self==value.
+
+
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
@@ -75,18 +89,8 @@ Return self==value.
 __ne__(other)
 ```
 
-Return self!=value.
 
-<h3 id="__setattr__"><code>__setattr__</code></h3>
 
-``` python
-__setattr__(
-    name,
-    value
-)
-```
-
-Implement setattr(self, name, value).
 
 
 

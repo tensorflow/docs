@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.eager.gradients_function
 
+Returns a function which differentiates f with respect to params.
+
 ``` python
 tf.contrib.eager.gradients_function(
     f,
@@ -14,11 +16,13 @@ tf.contrib.eager.gradients_function(
 
 
 
-Defined in [`tensorflow/python/eager/backprop.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/eager/backprop.py).
+Defined in [`python/eager/backprop.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/backprop.py).
 
-Returns a function which differentiates f with respect to params.
+<!-- Placeholder for "Used in" -->
 
-Example:
+
+#### Example:
+
 
 ```python
 # f(x, y) = (x ^ 3) * y - x * (y ^ 2)
@@ -61,15 +65,16 @@ Note that only tensors with real or complex dtypes are differentiable.
 
 #### Args:
 
+
 * <b>`f`</b>: function to be differentiated. If `f` returns a scalar, this scalar will
-    be differentiated. If `f` returns a tensor or list of tensors, by default
-    a scalar will be computed by adding all their values to produce a single
-    scalar. If desired, the tensors can be elementwise multiplied by the
-    tensors passed as the `dy` keyword argument to the returned gradient
-    function.
+  be differentiated. If `f` returns a tensor or list of tensors, by default
+  a scalar will be computed by adding all their values to produce a single
+  scalar. If desired, the tensors can be elementwise multiplied by the
+  tensors passed as the `dy` keyword argument to the returned gradient
+  function.
 * <b>`params`</b>: list of parameter names of f or list of integers indexing the
-    parameters with respect to which we'll differentiate. Passing None
-    differentiates with respect to all parameters.
+  parameters with respect to which we'll differentiate. Passing None
+  differentiates with respect to all parameters.
 
 
 #### Returns:
@@ -80,6 +85,8 @@ keyword argument `dy`. Setting it allows computation of vector jacobian
 products for vectors other than the vector of ones.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if the params are not all strings or all integers.

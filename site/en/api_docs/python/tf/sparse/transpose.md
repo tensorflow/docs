@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.sparse.transpose
 
+Transposes a `SparseTensor`
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.transpose`
+* `tf.compat.v1.sparse_transpose`
+* `tf.compat.v2.sparse.transpose`
 * `tf.sparse.transpose`
 * `tf.sparse_transpose`
 
@@ -20,9 +25,9 @@ tf.sparse.transpose(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Transposes a `SparseTensor`
+<!-- Placeholder for "Used in" -->
 
 The returned tensor's dimension i will correspond to the input dimension
 `perm[i]`. If `perm` is not given, it is set to (n-1...0), where n is
@@ -46,6 +51,7 @@ then the output will be a `SparseTensor` of shape `[5, 4]` and
 
 #### Args:
 
+
 * <b>`sp_input`</b>: The input `SparseTensor`.
 * <b>`perm`</b>: A permutation of the dimensions of `sp_input`.
 * <b>`name`</b>: A name prefix for the returned tensors (optional)
@@ -55,6 +61,8 @@ then the output will be a `SparseTensor` of shape `[5, 4]` and
 A transposed `SparseTensor`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `sp_input` is not a `SparseTensor`.

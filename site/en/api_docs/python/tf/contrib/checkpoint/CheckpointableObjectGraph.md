@@ -11,10 +11,22 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/protobuf/checkpointable_object_graph.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/protobuf/checkpointable_object_graph.proto).
 
-A ProtocolMessage
+
+Defined in [`core/protobuf/trackable_object_graph.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/trackable_object_graph.proto).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Child Classes
-[`class CheckpointableObject`](../../../tf/contrib/checkpoint/CheckpointableObjectGraph/CheckpointableObject)
+[`class TrackableObject`](../../../tf/contrib/checkpoint/CheckpointableObjectGraph/TrackableObject)
+
+## Properties
+
+<h3 id="nodes"><code>nodes</code></h3>
+
+`repeated TrackableObject nodes`
+
+
+
 

@@ -5,17 +5,27 @@ page_type: reference
 
 # tf.image.sobel_edges
 
+Returns a tensor holding Sobel edge maps.
+
+### Aliases:
+
+* `tf.compat.v1.image.sobel_edges`
+* `tf.compat.v2.image.sobel_edges`
+* `tf.image.sobel_edges`
+
 ``` python
 tf.image.sobel_edges(image)
 ```
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Returns a tensor holding Sobel edge maps.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`image`</b>: Image tensor with shape [batch_size, h, w, d] and type float32 or
   float64.  The image(s) must be 2x2 or larger.

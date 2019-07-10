@@ -5,8 +5,11 @@ page_type: reference
 
 # tf.nn.static_rnn
 
+Creates a recurrent neural network specified by RNNCell `cell`. (deprecated)
+
 ### Aliases:
 
+* `tf.compat.v1.nn.static_rnn`
 * `tf.contrib.rnn.static_rnn`
 * `tf.nn.static_rnn`
 
@@ -23,13 +26,13 @@ tf.nn.static_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/rnn.py).
+Defined in [`python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn.py).
 
-Creates a recurrent neural network specified by RNNCell `cell`. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Please use `keras.layers.RNN(cell, unroll=True)`, which is equivalent to this API
+Please use <a href="../../tf/keras/layers/RNN"><code>keras.layers.RNN(cell, unroll=True)</code></a>, which is equivalent to this API
 
 The simplest form of RNN network generated is:
 
@@ -61,19 +64,20 @@ The dynamic calculation performed is, at time `t` for batch row `b`,
 
 #### Args:
 
+
 * <b>`cell`</b>: An instance of RNNCell.
-* <b>`inputs`</b>: A length T list of inputs, each a `Tensor` of shape
-    `[batch_size, input_size]`, or a nested tuple of such elements.
-* <b>`initial_state`</b>: (optional) An initial state for the RNN.
-    If `cell.state_size` is an integer, this must be
-    a `Tensor` of appropriate type and shape `[batch_size, cell.state_size]`.
-    If `cell.state_size` is a tuple, this should be a tuple of
-    tensors having shapes `[batch_size, s] for s in cell.state_size`.
+* <b>`inputs`</b>: A length T list of inputs, each a `Tensor` of shape `[batch_size,
+  input_size]`, or a nested tuple of such elements.
+* <b>`initial_state`</b>: (optional) An initial state for the RNN. If `cell.state_size`
+  is an integer, this must be a `Tensor` of appropriate type and shape
+  `[batch_size, cell.state_size]`. If `cell.state_size` is a tuple, this
+  should be a tuple of tensors having shapes `[batch_size, s] for s in
+  cell.state_size`.
 * <b>`dtype`</b>: (optional) The data type for the initial state and expected output.
-    Required if initial_state is not provided or RNN state has a heterogeneous
-    dtype.
-* <b>`sequence_length`</b>: Specifies the length of each sequence in inputs.
-    An int32 or int64 vector (tensor) size `[batch_size]`, values in `[0, T)`.
+  Required if initial_state is not provided or RNN state has a heterogeneous
+  dtype.
+* <b>`sequence_length`</b>: Specifies the length of each sequence in inputs. An int32
+  or int64 vector (tensor) size `[batch_size]`, values in `[0, T)`.
 * <b>`scope`</b>: VariableScope for the created subgraph; defaults to "rnn".
 
 
@@ -86,8 +90,10 @@ A pair (outputs, state) where:
 - state is the final state
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `cell` is not an instance of RNNCell.
 * <b>`ValueError`</b>: If `inputs` is `None` or an empty list, or if the input depth
-    (column size) cannot be inferred from inputs via shape inference.
+  (column size) cannot be inferred from inputs via shape inference.

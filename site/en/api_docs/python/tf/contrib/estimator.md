@@ -5,26 +5,30 @@ page_type: reference
 
 # Module: tf.contrib.estimator
 
-
-
-Defined in [`tensorflow/contrib/estimator/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/estimator/__init__.py).
-
 estimator python module.
+
+
+
+Defined in [`contrib/estimator/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/estimator/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 Importing from tensorflow.python.estimator
 is unsupported and will soon break!
 
 ## Classes
 
-[`class InMemoryEvaluatorHook`](../../tf/contrib/estimator/InMemoryEvaluatorHook): Hook to run evaluation in training without a checkpoint.
-
 [`class RNNClassifier`](../../tf/contrib/estimator/RNNClassifier): A classifier for TensorFlow RNN models.
 
 [`class RNNEstimator`](../../tf/contrib/estimator/RNNEstimator): An Estimator for TensorFlow RNN models with user-specified head.
 
+[`class SavedModelEstimator`](../../tf/contrib/estimator/SavedModelEstimator): Create an Estimator from a SavedModel.
+
 [`class TowerOptimizer`](../../tf/contrib/estimator/TowerOptimizer): Gathers gradients from all towers and reduces them in the last one.
 
 ## Functions
+
+[`DNNClassifierWithLayerAnnotations(...)`](../../tf/contrib/estimator/DNNClassifierWithLayerAnnotations): A classifier for TensorFlow DNN models with layer annotations.
 
 [`DNNRegressorWithLayerAnnotations(...)`](../../tf/contrib/estimator/DNNRegressorWithLayerAnnotations): A regressor for TensorFlow DNN models with layer annotations.
 
@@ -46,19 +50,15 @@ is unsupported and will soon break!
 
 [`dnn_logit_fn_builder(...)`](../../tf/contrib/estimator/dnn_logit_fn_builder): Function builder for a dnn logit_fn.
 
-[`export_all_saved_models(...)`](../../tf/contrib/estimator/export_all_saved_models): Exports requested train/eval/predict graphs as separate SavedModels.
+[`export_all_saved_models(...)`](../../tf/contrib/estimator/export_all_saved_models): Exports requested train/eval/predict graphs as separate SavedModels. (deprecated)
 
-[`export_saved_model_for_mode(...)`](../../tf/contrib/estimator/export_saved_model_for_mode): Exports a single train/eval/predict graph as a SavedModel.
+[`export_saved_model_for_mode(...)`](../../tf/contrib/estimator/export_saved_model_for_mode): Exports a single train/eval/predict graph as a SavedModel. (deprecated)
 
 [`forward_features(...)`](../../tf/contrib/estimator/forward_features): Forward features to predictions dictionary.
 
 [`linear_logit_fn_builder(...)`](../../tf/contrib/estimator/linear_logit_fn_builder): Function builder for a linear logit_fn.
 
 [`logistic_regression_head(...)`](../../tf/contrib/estimator/logistic_regression_head): Creates a `_Head` for logistic regression.
-
-[`make_early_stopping_hook(...)`](../../tf/contrib/estimator/make_early_stopping_hook): Creates early-stopping hook.
-
-[`make_stop_at_checkpoint_step_hook(...)`](../../tf/contrib/estimator/make_stop_at_checkpoint_step_hook): Creates a proper StopAtCheckpointStepHook based on chief status.
 
 [`multi_class_head(...)`](../../tf/contrib/estimator/multi_class_head): Creates a `_Head` for multi class classification.
 
@@ -68,17 +68,7 @@ is unsupported and will soon break!
 
 [`poisson_regression_head(...)`](../../tf/contrib/estimator/poisson_regression_head): Creates a `_Head` for poisson regression using <a href="../../tf/nn/log_poisson_loss"><code>tf.nn.log_poisson_loss</code></a>.
 
-[`read_eval_metrics(...)`](../../tf/contrib/estimator/read_eval_metrics): Helper to read eval metrics from eval summary files.
-
 [`regression_head(...)`](../../tf/contrib/estimator/regression_head): Creates a `_Head` for regression using the `mean_squared_error` loss.
 
 [`replicate_model_fn(...)`](../../tf/contrib/estimator/replicate_model_fn): Replicate `Estimator.model_fn` over GPUs. (deprecated)
-
-[`stop_if_higher_hook(...)`](../../tf/contrib/estimator/stop_if_higher_hook): Creates hook to stop if the given metric is higher than the threshold.
-
-[`stop_if_lower_hook(...)`](../../tf/contrib/estimator/stop_if_lower_hook): Creates hook to stop if the given metric is lower than the threshold.
-
-[`stop_if_no_decrease_hook(...)`](../../tf/contrib/estimator/stop_if_no_decrease_hook): Creates hook to stop if metric does not decrease within given max steps.
-
-[`stop_if_no_increase_hook(...)`](../../tf/contrib/estimator/stop_if_no_increase_hook): Creates hook to stop if metric does not increase within given max steps.
 

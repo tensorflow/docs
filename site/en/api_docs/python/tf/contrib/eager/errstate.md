@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.eager.errstate
 
+Context manager setting error state.
+
 ``` python
 tf.contrib.eager.errstate(
     *args,
@@ -12,22 +14,25 @@ tf.contrib.eager.errstate(
 )
 ```
 
-Context manager setting error state.
+<!-- Placeholder for "Used in" -->
 
-Example:
+
+#### Example:
+
 
 ```
-c = tf.log(0.)  # -inf
+c = tf.math.log(0.)  # -inf
 
 with errstate(inf_or_nan=ExecutionCallback.RAISE):
-  tf.log(0.)  # <-- Raises InfOrNanError.
+  tf.math.log(0.)  # <-- Raises InfOrNanError.
 ```
 
 #### Args:
 
+
 * <b>`inf_or_nan`</b>: An `ExecutionCallback` determining the action for infinity
-    (`inf`) and NaN (`nan`) values. A value of `None` leads to no change in
-    the action of the condition.
+  (`inf`) and NaN (`nan`) values. A value of `None` leads to no change in
+  the action of the condition.
 
 
 #### Yields:
@@ -35,6 +40,8 @@ with errstate(inf_or_nan=ExecutionCallback.RAISE):
 None.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the value of any keyword arguments is invalid.

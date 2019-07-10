@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.graph_editor
 
-
-
-Defined in [`tensorflow/contrib/graph_editor/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/__init__.py).
-
 TensorFlow Graph Editor.
+
+
+
+Defined in [`contrib/graph_editor/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 See the
 [Graph Editor](https://tensorflow.org/api_guides/python/contrib.graph_editor)
@@ -107,9 +109,9 @@ guide.
 
 [`make_list_of_t(...)`](../../tf/contrib/graph_editor/make_list_of_t): Convert ts to a list of <a href="../../tf/Tensor"><code>tf.Tensor</code></a>.
 
-[`make_placeholder_from_dtype_and_shape(...)`](../../tf/contrib/graph_editor/make_placeholder_from_dtype_and_shape): Create a tf.placeholder for the Graph Editor.
+[`make_placeholder_from_dtype_and_shape(...)`](../../tf/contrib/graph_editor/make_placeholder_from_dtype_and_shape): Create a tf.compat.v1.placeholder for the Graph Editor.
 
-[`make_placeholder_from_tensor(...)`](../../tf/contrib/graph_editor/make_placeholder_from_tensor): Create a <a href="../../tf/placeholder"><code>tf.placeholder</code></a> for the Graph Editor.
+[`make_placeholder_from_tensor(...)`](../../tf/contrib/graph_editor/make_placeholder_from_tensor): Create a <a href="../../tf/placeholder"><code>tf.compat.v1.placeholder</code></a> for the Graph Editor.
 
 [`make_regex(...)`](../../tf/contrib/graph_editor/make_regex): Return a compiled regular expression.
 
@@ -117,7 +119,7 @@ guide.
 
 [`make_view_from_scope(...)`](../../tf/contrib/graph_editor/make_view_from_scope): Make a subgraph from a name scope.
 
-[`ph(...)`](../../tf/contrib/graph_editor/make_placeholder_from_dtype_and_shape): Create a tf.placeholder for the Graph Editor.
+[`ph(...)`](../../tf/contrib/graph_editor/make_placeholder_from_dtype_and_shape): Create a tf.compat.v1.placeholder for the Graph Editor.
 
 [`placeholder_name(...)`](../../tf/contrib/graph_editor/placeholder_name): Create placeholder name for the graph editor.
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.forward_features
 
+Forward features to predictions dictionary.
+
 ``` python
 tf.contrib.estimator.forward_features(
     estimator,
@@ -13,7 +15,11 @@ tf.contrib.estimator.forward_features(
 )
 ```
 
-Forward features to predictions dictionary.
+
+
+Defined in [`contrib/estimator/python/estimator/extenders.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/extenders.py).
+
+<!-- Placeholder for "Used in" -->
 
 In some cases, user wants to see some of the features in estimators prediction
 output. As an example, consider a batch prediction service: The service simply
@@ -33,26 +39,26 @@ Example:
   estimator.train(...)
   assert 'unique_example_id' in estimator.predict(...)
 ```
-#### Args:
-
-* <b>`estimator`</b>: A <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> object.
-* <b>`keys`</b>: A `string` or a `list` of `string`. If it is `None`, all of the
+Args:
+  estimator: A <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> object.
+  keys: A `string` or a `list` of `string`. If it is `None`, all of the
     `features` in `dict` is forwarded to the `predictions`. If it is a
     `string`, only given key is forwarded. If it is a `list` of strings, all
     the given `keys` are forwarded.
-* <b>`sparse_default_values`</b>: A dict of `str` keys mapping the name of the sparse
+  sparse_default_values: A dict of `str` keys mapping the name of the sparse
     features to be converted to dense, to the default value to use. Only
     sparse features indicated in the dictionary are converted to dense and the
     provided default value is used.
-
 
 #### Returns:
 
 A new <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> which forwards features to predictions.
 
+
 #### Raises:
 
-* <b>`ValueError`</b>:     * if `keys` is already part of `predictions`. We don't allow
-      override.
-    * if 'keys' does not exist in `features`.
+
+* <b>`ValueError`</b>:   * if `keys` is already part of `predictions`. We don't allow
+    override.
+  * if 'keys' does not exist in `features`.
 * <b>`TypeError`</b>: if `keys` type is not one of `string` or list/tuple of `string`.

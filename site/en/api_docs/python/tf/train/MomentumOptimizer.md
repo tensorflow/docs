@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `MomentumOptimizer`
 
+Optimizer that implements the Momentum algorithm.
+
 Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
+### Aliases:
+
+* Class `tf.compat.v1.train.MomentumOptimizer`
+* Class `tf.train.MomentumOptimizer`
 
 
-Defined in [`tensorflow/python/training/momentum.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/momentum.py).
 
-Optimizer that implements the Momentum algorithm.
+Defined in [`python/training/momentum.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/momentum.py).
+
+<!-- Placeholder for "Used in" -->
 
 Computes (if `use_nesterov = False`):
 
@@ -42,24 +49,26 @@ __init__(
 
 Construct a new Momentum optimizer.
 
+
 #### Args:
+
 
 * <b>`learning_rate`</b>: A `Tensor` or a floating point value.  The learning rate.
 * <b>`momentum`</b>: A `Tensor` or a floating point value.  The momentum.
 * <b>`use_locking`</b>: If `True` use locks for update operations.
 * <b>`name`</b>: Optional name prefix for the operations created when applying
-    gradients.  Defaults to "Momentum".
+  gradients.  Defaults to "Momentum".
 * <b>`use_nesterov`</b>: If `True` use Nesterov Momentum.
-    See [Sutskever et al., 2013](
-    http://jmlr.org/proceedings/papers/v28/sutskever13.pdf).
-    This implementation always computes gradients at the value of the
-    variable(s) passed to the optimizer. Using Nesterov Momentum makes the
-    variable(s) track the values called `theta_t + mu*v_t` in the paper.
-    This implementation is an approximation of the original formula, valid 
-    for high values of momentum. It will compute the "adjusted gradient" 
-    in NAG by assuming that the new gradient will be estimated by the 
-    current average gradient plus the product of momentum and the change 
-    in the average gradient.
+  See [Sutskever et al., 2013](
+  http://jmlr.org/proceedings/papers/v28/sutskever13.pdf).
+  This implementation always computes gradients at the value of the
+  variable(s) passed to the optimizer. Using Nesterov Momentum makes the
+  variable(s) track the values called `theta_t + mu*v_t` in the paper.
+  This implementation is an approximation of the original formula, valid 
+  for high values of momentum. It will compute the "adjusted gradient" 
+  in NAG by assuming that the new gradient will be estimated by the 
+  current average gradient plus the product of momentum and the change 
+  in the average gradient.
 
 
 
@@ -92,12 +101,13 @@ applies gradients.
 
 #### Args:
 
+
 * <b>`grads_and_vars`</b>: List of (gradient, variable) pairs as returned by
-    `compute_gradients()`.
+  `compute_gradients()`.
 * <b>`global_step`</b>: Optional `Variable` to increment by one after the
-    variables have been updated.
+  variables have been updated.
 * <b>`name`</b>: Optional name for the returned operation.  Default to the
-    name passed to the `Optimizer` constructor.
+  name passed to the `Optimizer` constructor.
 
 
 #### Returns:
@@ -106,7 +116,9 @@ An `Operation` that applies the specified gradients. If `global_step`
 was not None, that operation also increments `global_step`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `grads_and_vars` is malformed.
 * <b>`ValueError`</b>: If none of the variables have gradients.
@@ -135,18 +147,19 @@ given variable.
 
 #### Args:
 
+
 * <b>`loss`</b>: A Tensor containing the value to minimize or a callable taking
-    no arguments which returns the value to minimize. When eager execution
-    is enabled it must be a callable.
+  no arguments which returns the value to minimize. When eager execution
+  is enabled it must be a callable.
 * <b>`var_list`</b>: Optional list or tuple of <a href="../../tf/Variable"><code>tf.Variable</code></a> to update to minimize
-    `loss`.  Defaults to the list of variables collected in the graph
-    under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  `loss`.  Defaults to the list of variables collected in the graph
+  under the key <a href="../../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
-    `GATE_NONE`, `GATE_OP`, or `GATE_GRAPH`.
+  `GATE_NONE`, `GATE_OP`, or `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
-    Valid values are defined in the class `AggregationMethod`.
+  Valid values are defined in the class `AggregationMethod`.
 * <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with
-    the corresponding op.
+  the corresponding op.
 * <b>`grad_loss`</b>: Optional. A `Tensor` holding the gradient computed for `loss`.
 
 
@@ -156,12 +169,14 @@ A list of (gradient, variable) pairs. Variable is always present, but
 gradient can be `None`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `var_list` contains anything else than `Variable` objects.
 * <b>`ValueError`</b>: If some arguments are invalid.
 * <b>`RuntimeError`</b>: If called with eager execution enabled and `loss` is
-    not callable.
+  not callable.
 
 
 
@@ -176,6 +191,7 @@ and `colocate_gradients_with_ops` are ignored.
 ``` python
 get_name()
 ```
+
 
 
 
@@ -199,6 +215,7 @@ Use `get_slot_names()` to get the list of slot names created by the
 
 #### Args:
 
+
 * <b>`var`</b>: A variable passed to `minimize()` or `apply_gradients()`.
 * <b>`name`</b>: A string.
 
@@ -206,6 +223,7 @@ Use `get_slot_names()` to get the list of slot names created by the
 #### Returns:
 
 The `Variable` for the slot if it was created, `None` otherwise.
+
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
@@ -220,6 +238,7 @@ See `get_slot()`.
 #### Returns:
 
 A list of strings.
+
 
 <h3 id="minimize"><code>minimize</code></h3>
 
@@ -245,18 +264,19 @@ of using this function.
 
 #### Args:
 
+
 * <b>`loss`</b>: A `Tensor` containing the value to minimize.
 * <b>`global_step`</b>: Optional `Variable` to increment by one after the
-    variables have been updated.
+  variables have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
-    minimize `loss`.  Defaults to the list of variables collected in
-    the graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  minimize `loss`.  Defaults to the list of variables collected in
+  the graph under the key <a href="../../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
-    `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
+  `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
-    Valid values are defined in the class `AggregationMethod`.
+  Valid values are defined in the class `AggregationMethod`.
 * <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with
-    the corresponding op.
+  the corresponding op.
 * <b>`name`</b>: Optional name for the returned operation.
 * <b>`grad_loss`</b>: Optional. A `Tensor` holding the gradient computed for `loss`.
 
@@ -267,7 +287,9 @@ An Operation that updates the variables in `var_list`.  If `global_step`
 was not `None`, that operation also increments `global_step`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If some of the variables are not `Variable` objects.
 
@@ -301,11 +323,9 @@ A list of variables.
 
 
 
+
 ## Class Members
 
-<h3 id="GATE_GRAPH"><code>GATE_GRAPH</code></h3>
-
-<h3 id="GATE_NONE"><code>GATE_NONE</code></h3>
-
-<h3 id="GATE_OP"><code>GATE_OP</code></h3>
-
+* `GATE_GRAPH = 2` <a id="GATE_GRAPH"></a>
+* `GATE_NONE = 0` <a id="GATE_NONE"></a>
+* `GATE_OP = 1` <a id="GATE_OP"></a>

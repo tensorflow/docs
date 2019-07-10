@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `VBN`
 
-
-
-
-
-Defined in [`tensorflow/contrib/gan/python/features/python/virtual_batchnorm_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/features/python/virtual_batchnorm_impl.py).
-
 A class to perform virtual batch normalization.
+
+
+
+
+
+Defined in [`contrib/gan/python/features/python/virtual_batchnorm_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/features/python/virtual_batchnorm_impl.py).
+
+<!-- Placeholder for "Used in" -->
 
 This technique was first introduced in `Improved Techniques for Training GANs`
 (Salimans et al, https://arxiv.org/abs/1606.03498). Instead of using batch
@@ -27,7 +29,8 @@ since it is linear.
 Note that if `center` or `scale` variables are created, they are shared
 between all calls to this object.
 
-The `__init__` API is intended to mimic <a href="../../../../tf/layers/batch_normalization"><code>tf.layers.batch_normalization</code></a> as
+The `__init__` API is intended to mimic
+<a href="../../../../tf/layers/batch_normalization"><code>tf.compat.v1.layers.batch_normalization</code></a> as
 closely as possible.
 
 <h2 id="__init__"><code>__init__</code></h2>
@@ -60,33 +63,35 @@ can be easily adjusted on a per-example basis.
 
 #### Args:
 
+
 * <b>`reference_batch`</b>: A minibatch tensors. This will form the reference data
-    from which the normalization statistics are calculated. See
-    https://arxiv.org/abs/1606.03498 for more details.
+  from which the normalization statistics are calculated. See
+  https://arxiv.org/abs/1606.03498 for more details.
 * <b>`axis`</b>: Integer, the axis that should be normalized (typically the features
-    axis). For instance, after a `Convolution2D` layer with
-    `data_format="channels_first"`, set `axis=1` in `BatchNormalization`.
+  axis). For instance, after a `Convolution2D` layer with
+  `data_format="channels_first"`, set `axis=1` in `BatchNormalization`.
 * <b>`epsilon`</b>: Small float added to variance to avoid dividing by zero.
 * <b>`center`</b>: If True, add offset of `beta` to normalized tensor. If False,
-    `beta` is ignored.
-* <b>`scale`</b>: If True, multiply by `gamma`. If False, `gamma` is
-    not used. When the next layer is linear (also e.g. `nn.relu`), this can
-    be disabled since the scaling can be done by the next layer.
+  `beta` is ignored.
+* <b>`scale`</b>: If True, multiply by `gamma`. If False, `gamma` is not used. When
+  the next layer is linear (also e.g. `nn.relu`), this can be disabled
+  since the scaling can be done by the next layer.
 * <b>`beta_initializer`</b>: Initializer for the beta weight.
 * <b>`gamma_initializer`</b>: Initializer for the gamma weight.
 * <b>`beta_regularizer`</b>: Optional regularizer for the beta weight.
 * <b>`gamma_regularizer`</b>: Optional regularizer for the gamma weight.
 * <b>`trainable`</b>: Boolean, if `True` also add variables to the graph collection
-    `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
 * <b>`name`</b>: String, the name of the ops.
 * <b>`batch_axis`</b>: The axis of the batch dimension. This dimension is treated
-    differently in `virtual batch normalization` vs `batch normalization`.
+  differently in `virtual batch normalization` vs `batch normalization`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `reference_batch` has unknown dimensions at graph
-    construction.
+  construction.
 * <b>`ValueError`</b>: If `batch_axis` is the same as `axis`.
 
 
@@ -101,7 +106,9 @@ __call__(inputs)
 
 Run virtual batch normalization on inputs.
 
+
 #### Args:
+
 
 * <b>`inputs`</b>: Tensor input.
 
@@ -111,7 +118,9 @@ Run virtual batch normalization on inputs.
 A virtual batch normalized version of `inputs`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `inputs` shape isn't compatible with the reference batch.
 
@@ -122,6 +131,7 @@ reference_batch_normalization()
 ```
 
 Return the reference batch, but batch normalized.
+
 
 
 

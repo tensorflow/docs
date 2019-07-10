@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.clip_by_value
 
+Clips tensor values to a specified min and max.
+
+### Aliases:
+
+* `tf.clip_by_value`
+* `tf.compat.v1.clip_by_value`
+* `tf.compat.v2.clip_by_value`
+
 ``` python
 tf.clip_by_value(
     t,
@@ -16,9 +24,9 @@ tf.clip_by_value(
 
 
 
-Defined in [`tensorflow/python/ops/clip_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/clip_ops.py).
+Defined in [`python/ops/clip_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/clip_ops.py).
 
-Clips tensor values to a specified min and max.
+<!-- Placeholder for "Used in" -->
 
 Given a tensor `t`, this operation returns a tensor of the same type and
 shape as `t` with its values clipped to `clip_value_min` and `clip_value_max`.
@@ -30,20 +38,23 @@ correct results.
 
 #### Args:
 
-* <b>`t`</b>: A `Tensor`.
+
+* <b>`t`</b>: A `Tensor` or `IndexedSlices`.
 * <b>`clip_value_min`</b>: A 0-D (scalar) `Tensor`, or a `Tensor` with the same shape
-    as `t`. The minimum value to clip by.
+  as `t`. The minimum value to clip by.
 * <b>`clip_value_max`</b>: A 0-D (scalar) `Tensor`, or a `Tensor` with the same shape
-    as `t`. The maximum value to clip by.
+  as `t`. The maximum value to clip by.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
-A clipped `Tensor`.
+A clipped `Tensor` or `IndexedSlices`.
+
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the clip tensors would trigger array broadcasting
-    that would make the returned tensor larger than the input.
+  that would make the returned tensor larger than the input.

@@ -6,8 +6,13 @@ page_type: reference
 
 # tf.math.polygamma
 
+Compute the polygamma function \\(\psi^{(n)} (x)\\).
+
 ### Aliases:
 
+* `tf.compat.v1.math.polygamma`
+* `tf.compat.v1.polygamma`
+* `tf.compat.v2.math.polygamma`
 * `tf.math.polygamma`
 * `tf.polygamma`
 
@@ -21,18 +26,20 @@ tf.math.polygamma(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Compute the polygamma function \\(\psi^{(n)} (x)\\).
+<!-- Placeholder for "Used in" -->
 
 The polygamma function is defined as:
 
 
-\\(\psi^{(n)} (x) = \frac{d^n}{dx^n} \psi(x)\\)
+\\(\psi^{(a)} (x) = \frac{d^a}{dx^a} \psi(x)\\)
 
 where \\(\psi(x)\\) is the digamma function.
+The polygamma function is defined only for non-negative integer orders \\a\\.
 
 #### Args:
+
 
 * <b>`a`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`.
 * <b>`x`</b>: A `Tensor`. Must have the same type as `a`.

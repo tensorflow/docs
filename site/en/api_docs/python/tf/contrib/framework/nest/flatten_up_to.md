@@ -5,18 +5,23 @@ page_type: reference
 
 # tf.contrib.framework.nest.flatten_up_to
 
+Flattens `input_tree` up to `shallow_tree`.
+
 ``` python
 tf.contrib.framework.nest.flatten_up_to(
     shallow_tree,
-    input_tree
+    input_tree,
+    check_types=True,
+    expand_composites=False,
+    check_subtrees_length=True
 )
 ```
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/util/nest.py).
+Defined in [`python/util/nest.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/nest.py).
 
-Flattens `input_tree` up to `shallow_tree`.
+<!-- Placeholder for "Used in" -->
 
 Any further depth in structure in `input_tree` is retained as elements in the
 partially flatten output.
@@ -24,16 +29,20 @@ partially flatten output.
 If `shallow_tree` and `input_tree` are not sequences, this returns a
 single-element list: `[input_tree]`.
 
-Use Case:
+#### Use Case:
+
+
 
 Sometimes we may wish to partially flatten a nested sequence, retaining some
 of the nested structure. We achieve this by specifying a shallow structure,
 `shallow_tree`, we wish to flatten up to.
 
-The input, `input_tree`, can be thought of as having the same structure as
-`shallow_tree`, but with leaf nodes that are themselves tree structures.
+The input, `input_tree`, can be thought of as having the same structure layout
+as `shallow_tree`, but with leaf nodes that are themselves tree structures.
 
-Examples:
+#### Examples:
+
+
 
 ```python
 input_tree = [[[2, 2], [3, 3]], [[4, 9], [5, 5]]]
@@ -68,11 +77,32 @@ flatten_up_to([0, 1, 2], 0)  # Output: TypeError
 flatten_up_to([0, 1, 2], [0, 1, 2])  # Output: [0, 1, 2]
 ```
 
+Non-Full-Subtree case:
+
+```python
+  shallow_tree = ["a", "b"]
+  input_tree = ["c", ["d", "e"], "f"]
+  flattened = flatten_up_to(shallow_tree, input_tree,
+    check_subtrees_length=False)
+
+  # Output is:
+  # ["c", ["d", "e"]]
+```
+
 #### Args:
+
 
 * <b>`shallow_tree`</b>: a possibly pruned structure of input_tree.
 * <b>`input_tree`</b>: an arbitrarily nested structure or a scalar object.
-    Note, numpy arrays are considered scalars.
+  Note, numpy arrays are considered scalars.
+* <b>`check_types`</b>: bool. If True, check that each node in shallow_tree has the
+  same type as the corresponding node in input_tree.
+* <b>`expand_composites`</b>: If true, then composite tensors such as tf.SparseTensor
+   and tf.RaggedTensor are expanded into their component tensors.
+* <b>`check_subtrees_length`</b>: if `True` (default) the subtrees `shallow_tree` and
+  `input_tree` have to be the same length. If `False` sequences are treated
+  as key-value like mappings allowing them to be considered as valid
+  subtrees. Note that this may drop parts of the `input_tree`.
 
 
 #### Returns:
@@ -81,10 +111,12 @@ A Python list, the partially flattened version of `input_tree` according to
 the structure of `shallow_tree`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `shallow_tree` is a sequence but `input_tree` is not.
 * <b>`TypeError`</b>: If the sequence types of `shallow_tree` are different from
-    `input_tree`.
+  `input_tree`.
 * <b>`ValueError`</b>: If the sequence lengths of `shallow_tree` are different from
-    `input_tree`.
+  `input_tree`.

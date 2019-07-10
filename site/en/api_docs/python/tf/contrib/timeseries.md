@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.timeseries
 
-
-
-Defined in [`tensorflow/contrib/timeseries/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/timeseries/__init__.py).
-
 A time series library in TensorFlow (TFTS).
+
+
+
+Defined in [`contrib/timeseries/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 

@@ -7,14 +7,19 @@ page_type: reference
 
 ## Class `Accuracy`
 
+Calculates how often `predictions` matches `labels`.
+
 Inherits From: [`Mean`](../../../../tf/contrib/eager/metrics/Mean)
 
 
 
-Defined in [`tensorflow/contrib/eager/python/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/metrics_impl.py).
+Defined in [`contrib/eager/python/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/metrics_impl.py).
 
-Calculates how often `predictions` matches `labels`.
+<!-- Placeholder for "Used in" -->
+
+
 #### Attributes:
+
 
 * <b>`name`</b>: name of the accuracy object
 * <b>`dtype`</b>: data type of the tensor
@@ -32,13 +37,16 @@ Inits Accuracy class with name and dtype.
 
 
 
+
 ## Properties
 
 <h3 id="name"><code>name</code></h3>
 
 
 
+
 <h3 id="variables"><code>variables</code></h3>
+
 
 
 
@@ -62,6 +70,7 @@ Returns a graph-mode function if graph execution is enabled.
 
 #### Args:
 
+
 * <b>`*args`</b>: * <b>`**kwargs`</b>: A mini-batch of inputs to the Metric, passed on to `call()`.
 
 <h3 id="add_variable"><code>add_variable</code></h3>
@@ -77,6 +86,7 @@ add_variable(
 
 ***Only for use by descendants of Metric***.
 
+
 <h3 id="aggregate"><code>aggregate</code></h3>
 
 ``` python
@@ -89,10 +99,12 @@ Default implementation sums all the metric variables.
 
 #### Args:
 
+
 * <b>`metrics`</b>: A list of metrics with the same type as `self`.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If metrics contains invalid data.
 
@@ -105,15 +117,8 @@ build(
 )
 ```
 
-Method to create variables.
 
-Called by `__call__()` before `call()` for the first time.
 
-#### Args:
-
-* <b>`*args`</b>: * <b>`**kwargs`</b>: The arguments to the first invocation of `__call__()`.
-   `build()` may use the shape and/or dtype of these arguments
-   when deciding how to create variables.
 
 <h3 id="call"><code>call</code></h3>
 
@@ -135,8 +140,9 @@ then the accuracy is 3/4 or .75.  If the weights were specified as
 
 #### Args:
 
+
 * <b>`labels`</b>: Tensor with the true labels for each example.  One example
-    per element of the Tensor.
+  per element of the Tensor.
 * <b>`predictions`</b>: Tensor with the predicted label for each example.
 * <b>`weights`</b>: Optional weighting of each example. Defaults to 1.
 
@@ -144,6 +150,7 @@ then the accuracy is 3/4 or .75.  If the weights were specified as
 #### Returns:
 
 The arguments, for easy chaining.
+
 
 <h3 id="init_variables"><code>init_variables</code></h3>
 
@@ -164,6 +171,7 @@ If using graph execution, this returns an op to perform the
 initialization. Under eager execution, the variables are reset to their
 initial values as a side effect and this function returns None.
 
+
 <h3 id="result"><code>result</code></h3>
 
 ``` python
@@ -172,16 +180,20 @@ result(write_summary=True)
 
 Returns the result of the Metric.
 
+
 #### Args:
 
+
 * <b>`write_summary`</b>: bool indicating whether to feed the result to the summary
-    before returning.
+  before returning.
 
 #### Returns:
 
 aggregated metric as float.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if the optional argument is not bool
 
@@ -192,6 +204,7 @@ value()
 ```
 
 In graph mode returns the result Tensor while in eager the callable.
+
 
 
 

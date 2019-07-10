@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `ConditionalAccumulator`
 
+A conditional accumulator for aggregating gradients.
+
 Inherits From: [`ConditionalAccumulatorBase`](../tf/ConditionalAccumulatorBase)
 
+### Aliases:
+
+* Class `tf.ConditionalAccumulator`
+* Class `tf.compat.v1.ConditionalAccumulator`
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/data_flow_ops.py).
 
-A conditional accumulator for aggregating gradients.
+Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 Up-to-date gradients (i.e., time step at which gradient was computed is
 equal to the accumulator's time step) are added to the accumulator.
@@ -35,12 +42,14 @@ __init__(
 
 Creates a new ConditionalAccumulator.
 
+
 #### Args:
+
 
 * <b>`dtype`</b>: Datatype of the accumulated gradients.
 * <b>`shape`</b>: Shape of the accumulated gradients.
 * <b>`shared_name`</b>: Optional. If non-empty, this accumulator will be shared under
-    the given name across multiple sessions.
+  the given name across multiple sessions.
 * <b>`name`</b>: Optional name for the accumulator.
 * <b>`reduction_type`</b>: Reduction type to use when taking the gradient.
 
@@ -52,13 +61,16 @@ Creates a new ConditionalAccumulator.
 
 The underlying accumulator reference.
 
+
 <h3 id="dtype"><code>dtype</code></h3>
 
 The datatype of the gradients accumulated by this accumulator.
 
+
 <h3 id="name"><code>name</code></h3>
 
 The name of the underlying accumulator.
+
 
 
 
@@ -81,6 +93,7 @@ is less than the accumulator's global time step.
 
 #### Args:
 
+
 * <b>`grad`</b>: The gradient tensor to be applied.
 * <b>`local_step`</b>: Time step at which the gradient was computed.
 * <b>`name`</b>: Optional name for the operation.
@@ -91,7 +104,9 @@ is less than the accumulator's global time step.
 The operation that (conditionally) applies a gradient to the accumulator.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If grad is of the wrong shape
 
@@ -103,7 +118,9 @@ num_accumulated(name=None)
 
 Number of gradients that have currently been aggregated in accumulator.
 
+
 #### Args:
+
 
 * <b>`name`</b>: Optional name for the operation.
 
@@ -111,6 +128,7 @@ Number of gradients that have currently been aggregated in accumulator.
 #### Returns:
 
 Number of accumulated gradients currently in accumulator.
+
 
 <h3 id="set_global_step"><code>set_global_step</code></h3>
 
@@ -128,6 +146,7 @@ lower than the accumulator's own time step.
 
 #### Args:
 
+
 * <b>`new_global_step`</b>: Value of new time step. Can be a variable or a constant
 * <b>`name`</b>: Optional name for the operation.
 
@@ -135,6 +154,7 @@ lower than the accumulator's own time step.
 #### Returns:
 
 Operation that sets the accumulator's time step.
+
 
 <h3 id="take_grad"><code>take_grad</code></h3>
 
@@ -158,6 +178,7 @@ Once successful, the following actions are also triggered:
 
 #### Args:
 
+
 * <b>`num_required`</b>: Number of gradients that needs to have been aggregated
 * <b>`name`</b>: Optional name for the operation
 
@@ -167,7 +188,9 @@ Once successful, the following actions are also triggered:
 A tensor holding the value of the average gradient.
 
 
+
 #### Raises:
+
 
 * <b>`InvalidArgumentError`</b>: If num_required < 1
 

@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.rnn
 
-
-
-Defined in [`tensorflow/contrib/rnn/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/rnn/__init__.py).
-
 RNN Cells and additional RNN operations.
+
+
+
+Defined in [`contrib/rnn/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/rnn/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 <!--From core-->
 
@@ -27,7 +29,7 @@ RNN Cells and additional RNN operations.
 
 [`class AttentionCellWrapper`](../../tf/contrib/rnn/AttentionCellWrapper): Basic attention cell wrapper.
 
-[`class BasicLSTMCell`](../../tf/nn/rnn_cell/BasicLSTMCell): DEPRECATED: Please use <a href="../../tf/nn/rnn_cell/LSTMCell"><code>tf.nn.rnn_cell.LSTMCell</code></a> instead.
+[`class BasicLSTMCell`](../../tf/nn/rnn_cell/BasicLSTMCell): DEPRECATED: Please use <a href="../../tf/nn/rnn_cell/LSTMCell"><code>tf.compat.v1.nn.rnn_cell.LSTMCell</code></a> instead.
 
 [`class BasicRNNCell`](../../tf/nn/rnn_cell/BasicRNNCell): The most basic RNN cell.
 
@@ -45,7 +47,7 @@ RNN Cells and additional RNN operations.
 
 [`class CoupledInputForgetGateLSTMCell`](../../tf/contrib/rnn/CoupledInputForgetGateLSTMCell): Long short-term memory unit (LSTM) recurrent network cell.
 
-[`class DeviceWrapper`](../../tf/nn/rnn_cell/DeviceWrapper): Operator that ensures an RNNCell runs on a particular device.
+[`class DeviceWrapper`](../../tf/nn/rnn_cell/DeviceWrapper)
 
 [`class DropoutWrapper`](../../tf/nn/rnn_cell/DropoutWrapper): Operator adding dropout to inputs and outputs of the given cell.
 
@@ -61,7 +63,7 @@ RNN Cells and additional RNN operations.
 
 [`class GRUBlockCellV2`](../../tf/contrib/rnn/GRUBlockCellV2): Temporary GRUBlockCell impl with a different variable naming scheme.
 
-[`class GRUCell`](../../tf/nn/rnn_cell/GRUCell): Gated Recurrent Unit cell (cf. http://arxiv.org/abs/1406.1078).
+[`class GRUCell`](../../tf/nn/rnn_cell/GRUCell): Gated Recurrent Unit cell (cf.
 
 [`class GridLSTMCell`](../../tf/contrib/rnn/GridLSTMCell): Grid Long short-term memory unit (LSTM) recurrent network cell.
 
@@ -123,7 +125,7 @@ RNN Cells and additional RNN operations.
 
 [`static_rnn(...)`](../../tf/nn/static_rnn): Creates a recurrent neural network specified by RNNCell `cell`. (deprecated)
 
-[`static_state_saving_rnn(...)`](../../tf/nn/static_state_saving_rnn): RNN that accepts a state saver for time-truncated RNN calculation.
+[`static_state_saving_rnn(...)`](../../tf/nn/static_state_saving_rnn): RNN that accepts a state saver for time-truncated RNN calculation. (deprecated)
 
 [`transpose_batch_time(...)`](../../tf/contrib/rnn/transpose_batch_time): Transposes the batch and time dimensions of a Tensor.
 

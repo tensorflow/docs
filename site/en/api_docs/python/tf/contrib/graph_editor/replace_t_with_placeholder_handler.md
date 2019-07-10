@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.replace_t_with_placeholder_handler
 
+Transform a tensor into a placeholder tensor.
+
 ``` python
 tf.contrib.graph_editor.replace_t_with_placeholder_handler(
     info,
@@ -14,14 +16,15 @@ tf.contrib.graph_editor.replace_t_with_placeholder_handler(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/transform.py).
+Defined in [`contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/transform.py).
 
-Transform a tensor into a placeholder tensor.
+<!-- Placeholder for "Used in" -->
 
 This handler is typically used to transform a subgraph input tensor into a
 placeholder.
 
 #### Args:
+
 
 * <b>`info`</b>: Transform._TmpInfo instance.
 * <b>`t`</b>: tensor whose input must be transformed into a place holder.

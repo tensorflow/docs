@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.data.dense_to_sparse_batch
 
+A transformation that batches ragged elements into <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>s. (deprecated)
+
 ``` python
 tf.contrib.data.dense_to_sparse_batch(
     batch_size,
@@ -14,13 +16,13 @@ tf.contrib.data.dense_to_sparse_batch(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/batching.py).
+Defined in [`contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/batching.py).
 
-A transformation that batches ragged elements into <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>s. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.experimental.dense_to_sparse_batch(...)`.
+Use <a href="../../../tf/data/experimental/dense_to_sparse_batch"><code>tf.data.experimental.dense_to_sparse_batch(...)</code></a>.
 
 Like `Dataset.padded_batch()`, this transformation combines multiple
 consecutive elements of the dataset, which might have different
@@ -36,7 +38,8 @@ prepended. For example:
 # contents of a dataset.
 a = { ['a', 'b', 'c'], ['a', 'b'], ['a', 'b', 'c', 'd'] }
 
-a.apply(tf.contrib.data.dense_to_sparse_batch(batch_size=2, row_shape=[6])) ==
+a.apply(tf.data.experimental.dense_to_sparse_batch(batch_size=2,
+row_shape=[6])) ==
 {
     ([[0, 0], [0, 1], [0, 2], [1, 0], [1, 1]],  # indices
      ['a', 'b', 'c', 'a', 'b'],                 # values
@@ -49,14 +52,14 @@ a.apply(tf.contrib.data.dense_to_sparse_batch(batch_size=2, row_shape=[6])) ==
 
 #### Args:
 
-* <b>`batch_size`</b>: A <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
-    number of consecutive elements of this dataset to combine in a
-    single batch.
-* <b>`row_shape`</b>: A <a href="../../../tf/TensorShape"><code>tf.TensorShape</code></a> or <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> vector tensor-like
-    object representing the equivalent dense shape of a row in the
-    resulting <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>. Each element of this dataset must
-    have the same rank as `row_shape`, and must have size less
-    than or equal to `row_shape` in each dimension.
+
+* <b>`batch_size`</b>: A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
+  consecutive elements of this dataset to combine in a single batch.
+* <b>`row_shape`</b>: A <a href="../../../tf/TensorShape"><code>tf.TensorShape</code></a> or <a href="../../../tf#int64"><code>tf.int64</code></a> vector tensor-like object
+  representing the equivalent dense shape of a row in the resulting
+  <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>. Each element of this dataset must have the same rank as
+  `row_shape`, and must have size less than or equal to `row_shape` in each
+  dimension.
 
 
 #### Returns:

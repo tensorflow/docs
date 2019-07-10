@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.linalg.band_part
 
+Copy a tensor setting everything outside a central band in each innermost matrix
+
 ### Aliases:
 
+* `tf.compat.v1.linalg.band_part`
+* `tf.compat.v1.matrix_band_part`
+* `tf.compat.v2.linalg.band_part`
 * `tf.linalg.band_part`
 * `tf.matrix_band_part`
 
@@ -21,9 +26,9 @@ tf.linalg.band_part(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Copy a tensor setting everything outside a central band in each innermost matrix
+<!-- Placeholder for "Used in" -->
 
 to zero.
 
@@ -38,7 +43,9 @@ The indicator function
 `in_band(m, n) = (num_lower < 0 || (m-n) <= num_lower)) &&
                  (num_upper < 0 || (n-m) <= num_upper)`.
 
-For example:
+#### For example:
+
+
 
 ```
 # if 'input' is [[ 0,  1,  2, 3]
@@ -57,7 +64,9 @@ tf.matrix_band_part(input, 2, 1) ==> [[ 0,  1,  0, 0]
                                       [ 0, -2, -1, 0]]
 ```
 
-Useful special cases:
+#### Useful special cases:
+
+
 
 ```
  tf.matrix_band_part(input, 0, -1) ==> Upper triangular part.
@@ -67,13 +76,14 @@ Useful special cases:
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. Rank `k` tensor.
 * <b>`num_lower`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    0-D tensor. Number of subdiagonals to keep. If negative, keep entire
-    lower triangle.
+  0-D tensor. Number of subdiagonals to keep. If negative, keep entire
+  lower triangle.
 * <b>`num_upper`</b>: A `Tensor`. Must have the same type as `num_lower`.
-    0-D tensor. Number of superdiagonals to keep. If negative, keep
-    entire upper triangle.
+  0-D tensor. Number of superdiagonals to keep. If negative, keep
+  entire upper triangle.
 * <b>`name`</b>: A name for the operation (optional).
 
 

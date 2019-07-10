@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.reroute_ios
 
+Re-route the inputs and outputs of sgv0 to sgv1 (see _reroute_sgv).
+
 ``` python
 tf.contrib.graph_editor.reroute_ios(
     sgv0,
@@ -14,6 +16,6 @@ tf.contrib.graph_editor.reroute_ios(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/reroute.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/reroute.py).
+Defined in [`contrib/graph_editor/reroute.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/reroute.py).
 
-Re-route the inputs and outputs of sgv0 to sgv1 (see _reroute_sgv).
+<!-- Placeholder for "Used in" -->

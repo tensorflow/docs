@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `TFRecordWriter`
 
+Writes data to a TFRecord file.
+
 Inherits From: [`TFRecordWriter`](../../../tf/data/experimental/TFRecordWriter)
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/writers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/writers.py).
+Defined in [`contrib/data/python/ops/writers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/writers.py).
 
-Writes data to a TFRecord file.
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -28,7 +31,7 @@ DEPRECATED FUNCTION
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.experimental.TFRecordWriter(...)`.
+Use <a href="../../../tf/data/experimental/TFRecordWriter"><code>tf.data.experimental.TFRecordWriter(...)</code></a>.
 
 
 
@@ -42,7 +45,9 @@ write(dataset)
 
 Returns a <a href="../../../tf/Operation"><code>tf.Operation</code></a> to write a dataset to a file.
 
+
 #### Args:
+
 
 * <b>`dataset`</b>: a <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> whose elements are to be written to a file
 
@@ -50,6 +55,7 @@ Returns a <a href="../../../tf/Operation"><code>tf.Operation</code></a> to write
 #### Returns:
 
 A <a href="../../../tf/Operation"><code>tf.Operation</code></a> that, when run, writes contents of `dataset` to a file.
+
 
 
 

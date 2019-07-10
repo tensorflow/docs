@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `ChiefSessionCreator`
 
+Creates a tf.compat.v1.Session for a chief.
+
 Inherits From: [`SessionCreator`](../../tf/train/SessionCreator)
 
+### Aliases:
+
+* Class `tf.compat.v1.train.ChiefSessionCreator`
+* Class `tf.train.ChiefSessionCreator`
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/monitored_session.py).
 
-Creates a tf.Session for a chief.
+Defined in [`python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/monitored_session.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -29,14 +37,16 @@ __init__(
 
 Initializes a chief session creator.
 
+
 #### Args:
 
+
 * <b>`scaffold`</b>: A `Scaffold` used for gathering or building supportive ops. If
-    not specified a default one is created. It's used to finalize the graph.
+  not specified a default one is created. It's used to finalize the graph.
 * <b>`master`</b>: `String` representation of the TensorFlow master to use.
 * <b>`config`</b>: `ConfigProto` proto used to configure the session.
 * <b>`checkpoint_dir`</b>: A string.  Optional path to a directory where to restore
-    variables.
+  variables.
 * <b>`checkpoint_filename_with_path`</b>: Full file name path to the checkpoint file.
 
 
@@ -48,6 +58,7 @@ Initializes a chief session creator.
 ``` python
 create_session()
 ```
+
 
 
 

@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.distributions
 
-
-
-Defined in [`tensorflow/contrib/distributions/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/__init__.py).
-
 Classes representing statistical distributions and ops for working with them.
+
+
+
+Defined in [`contrib/distributions/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 Use [tfp.distributions](/probability/api_docs/python/tfp/distributions) instead.
 
@@ -185,7 +187,5 @@ Use [tfp.distributions](/probability/api_docs/python/tfp/distributions) instead.
 
 ## Other Members
 
-<h3 id="FULLY_REPARAMETERIZED"><code>FULLY_REPARAMETERIZED</code></h3>
-
-<h3 id="NOT_REPARAMETERIZED"><code>NOT_REPARAMETERIZED</code></h3>
-
+* `FULLY_REPARAMETERIZED` <a id="FULLY_REPARAMETERIZED"></a>
+* `NOT_REPARAMETERIZED` <a id="NOT_REPARAMETERIZED"></a>

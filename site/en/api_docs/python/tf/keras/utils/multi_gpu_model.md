@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.utils.multi_gpu_model
 
+Replicates a model on different GPUs.
+
+### Aliases:
+
+* `tf.compat.v1.keras.utils.multi_gpu_model`
+* `tf.compat.v2.keras.utils.multi_gpu_model`
+* `tf.keras.utils.multi_gpu_model`
+
 ``` python
 tf.keras.utils.multi_gpu_model(
     model,
@@ -16,9 +24,9 @@ tf.keras.utils.multi_gpu_model(
 
 
 
-Defined in [`tensorflow/python/keras/utils/multi_gpu_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/utils/multi_gpu_utils.py).
+Defined in [`python/keras/utils/multi_gpu_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/utils/multi_gpu_utils.py).
 
-Replicates a model on different GPUs.
+<!-- Placeholder for "Used in" -->
 
 Specifically, this function implements single-machine
 multi-GPU data parallelism. It works in the following way:
@@ -40,23 +48,25 @@ for the time being.
 
 #### Arguments:
 
+
 * <b>`model`</b>: A Keras model instance. To avoid OOM errors,
-        this model could have been built on CPU, for instance
-        (see usage example below).
+    this model could have been built on CPU, for instance
+    (see usage example below).
 * <b>`gpus`</b>: Integer >= 2, number of on GPUs on which to create
-        model replicas.
+    model replicas.
 * <b>`cpu_merge`</b>: A boolean value to identify whether to force
-        merging model weights under the scope of the CPU or not.
+    merging model weights under the scope of the CPU or not.
 * <b>`cpu_relocation`</b>: A boolean value to identify whether to
-        create the model's weights under the scope of the CPU.
-        If the model is not defined under any preceding device
-        scope, you can still rescue it by activating this option.
+    create the model's weights under the scope of the CPU.
+    If the model is not defined under any preceding device
+    scope, you can still rescue it by activating this option.
 
 
 #### Returns:
 
-    A Keras `Model` instance which can be used just like the initial
-    `model` argument, but which distributes its workload on multiple GPUs.
+A Keras `Model` instance which can be used just like the initial
+`model` argument, but which distributes its workload on multiple GPUs.
+
 
 Example 1: Training models with weights merge on CPU
 
@@ -132,7 +142,7 @@ Example 3: Training models with weights merge on GPU (recommended for NV-link)
      ..
 ```
 
-
 #### Raises:
+
 
 * <b>`ValueError`</b>: if the `gpus` argument does not match available devices.

@@ -5,15 +5,22 @@ page_type: reference
 
 # tf.saved_model.main_op.main_op
 
+Returns a main op to init variables and tables. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.saved_model.main_op.main_op`
+* `tf.saved_model.main_op.main_op`
+
 ``` python
 tf.saved_model.main_op.main_op()
 ```
 
 
 
-Defined in [`tensorflow/python/saved_model/main_op_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/saved_model/main_op_impl.py).
+Defined in [`python/saved_model/main_op_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/main_op_impl.py).
 
-Returns a main op to init variables and tables. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:

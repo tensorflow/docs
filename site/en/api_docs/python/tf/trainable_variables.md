@@ -5,28 +5,36 @@ page_type: reference
 
 # tf.trainable_variables
 
+Returns all variables created with `trainable=True`.
+
+### Aliases:
+
+* `tf.compat.v1.trainable_variables`
+* `tf.trainable_variables`
+
 ``` python
 tf.trainable_variables(scope=None)
 ```
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variables.py).
+Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
-Returns all variables created with `trainable=True`.
+<!-- Placeholder for "Used in" -->
 
 When passed `trainable=True`, the `Variable()` constructor automatically
 adds new variables to the graph collection
-`GraphKeys.TRAINABLE_VARIABLES`. This convenience function returns the
+<a href="../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>. This convenience function returns the
 contents of that collection.
 
 #### Args:
 
+
 * <b>`scope`</b>: (Optional.) A string. If supplied, the resulting list is filtered
-    to include only items whose `name` attribute matches `scope` using
-    `re.match`. Items without a `name` attribute are never returned if a
-    scope is supplied. The choice of `re.match` means that a `scope` without
-    special tokens filters by prefix.
+  to include only items whose `name` attribute matches `scope` using
+  `re.match`. Items without a `name` attribute are never returned if a
+  scope is supplied. The choice of `re.match` means that a `scope` without
+  special tokens filters by prefix.
 
 
 #### Returns:

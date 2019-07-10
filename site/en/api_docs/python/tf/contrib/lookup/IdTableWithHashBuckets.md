@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `IdTableWithHashBuckets`
 
+String to Id table wrapper that assigns out-of-vocabulary keys to buckets.
+
 Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/lookup_ops.py).
+Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
-String to Id table wrapper that assigns out-of-vocabulary keys to buckets.
+<!-- Placeholder for "Used in" -->
 
 For example, if an instance of `IdTableWithHashBuckets` is initialized with a
 string-to-id table that maps:
@@ -36,13 +38,16 @@ the lookup result is `[0, 1, 2, 4, 7]`.
 
 If `table` is None, only out-of-vocabulary buckets are used.
 
-Example usage:
+#### Example usage:
+
+
 
 ```python
 num_oov_buckets = 3
 input_tensor = tf.constant(["emerson", "lake", "palmer", "king", "crimnson"])
 table = tf.IdTableWithHashBuckets(
-    tf.HashTable(tf.TextFileIdTableInitializer(filename), default_value),
+    tf.StaticHashTable(tf.TextFileIdTableInitializer(filename),
+                       default_value),
     num_oov_buckets)
 out = table.lookup(input_tensor).
 table.init.run()
@@ -66,19 +71,22 @@ __init__(
 
 Construct a `IdTableWithHashBuckets` object.
 
+
 #### Args:
 
-* <b>`table`</b>: Table that maps <a href="../../../tf/dtypes#string"><code>tf.string</code></a> or <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> keys to <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> ids.
+
+* <b>`table`</b>: Table that maps <a href="../../../tf#string"><code>tf.string</code></a> or <a href="../../../tf#int64"><code>tf.int64</code></a> keys to <a href="../../../tf#int64"><code>tf.int64</code></a> ids.
 * <b>`num_oov_buckets`</b>: Number of buckets to use for out-of-vocabulary keys.
 * <b>`hasher_spec`</b>: A `HasherSpec` to specify the hash function to use for
-    assignation of out-of-vocabulary buckets  (optional).
+  assignation of out-of-vocabulary buckets  (optional).
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`key_dtype`</b>: Data type of keys passed to `lookup`. Defaults to
-    `table.key_dtype` if `table` is specified, otherwise <a href="../../../tf/dtypes#string"><code>tf.string</code></a>.
-    Must be string or integer, and must be castable to `table.key_dtype`.
+  `table.key_dtype` if `table` is specified, otherwise <a href="../../../tf#string"><code>tf.string</code></a>. Must
+  be string or integer, and must be castable to `table.key_dtype`.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: when `table` in None and `num_oov_buckets` is not positive.
 * <b>`TypeError`</b>: when `hasher_spec` is invalid.
@@ -99,17 +107,21 @@ Use `initializer` instead.
 
 
 
+
 <h3 id="key_dtype"><code>key_dtype</code></h3>
 
 The table key dtype.
 
+
 <h3 id="name"><code>name</code></h3>
 
-The name of the table.
+
+
 
 <h3 id="resource_handle"><code>resource_handle</code></h3>
 
-Returns the resource handle associated with this Resource.
+
+
 
 <h3 id="value_dtype"><code>value_dtype</code></h3>
 
@@ -117,23 +129,8 @@ The table value dtype.
 
 
 
+
 ## Methods
-
-<h3 id="create_resource"><code>create_resource</code></h3>
-
-``` python
-create_resource()
-```
-
-A function that creates a resource handle.
-
-<h3 id="initialize"><code>initialize</code></h3>
-
-``` python
-initialize()
-```
-
-A function that initializes the resource. Optional.
 
 <h3 id="lookup"><code>lookup</code></h3>
 
@@ -150,6 +147,7 @@ It assigns out-of-vocabulary keys to buckets based in their hashes.
 
 #### Args:
 
+
 * <b>`keys`</b>: Keys to look up. May be either a `SparseTensor` or dense `Tensor`.
 * <b>`name`</b>: Optional name for the op.
 
@@ -159,7 +157,9 @@ It assigns out-of-vocabulary keys to buckets based in their hashes.
 A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: when `keys` doesn't match the table key data type.
 
@@ -170,6 +170,7 @@ size(name=None)
 ```
 
 Compute the number of elements in this table.
+
 
 
 

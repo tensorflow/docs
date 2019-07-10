@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.transform_features
 
+Returns transformed features based on features columns passed in.
+
 ``` python
 tf.contrib.layers.transform_features(
     features,
@@ -14,11 +16,14 @@ tf.contrib.layers.transform_features(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
+Defined in [`contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
-Returns transformed features based on features columns passed in.
+<!-- Placeholder for "Used in" -->
 
-Example:
+
+#### Example:
+
+
 
 ```python
 columns_to_tensor = transform_features(features=features,
@@ -52,9 +57,10 @@ feature_columns = [embedding_feature_b,
 
 #### Args:
 
+
 * <b>`features`</b>: A dictionary of features.
 * <b>`feature_columns`</b>: An iterable containing all the feature columns. All items
-    should be instances of classes derived from _FeatureColumn.
+  should be instances of classes derived from _FeatureColumn.
 
 
 #### Returns:

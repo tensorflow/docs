@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.concat
 
+Concatenates tensors along one dimension.
+
+### Aliases:
+
+* `tf.compat.v1.concat`
+* `tf.compat.v2.concat`
+* `tf.concat`
+
 ``` python
 tf.concat(
     values,
@@ -15,9 +23,9 @@ tf.concat(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Concatenates tensors along one dimension.
+<!-- Placeholder for "Used in" -->
 
 Concatenates the list of tensors `values` along dimension `axis`.  If
 `values[i].shape = [D0, D1, ... Daxis(i), ...Dn]`, the concatenated
@@ -35,7 +43,9 @@ dimension.
 The number of dimensions of the input tensors must match, and all dimensions
 except `axis` must be equal.
 
-For example:
+#### For example:
+
+
 
 ```python
 t1 = [[1, 2, 3], [4, 5, 6]]
@@ -52,7 +62,9 @@ As in Python, the `axis` could also be negative numbers. Negative `axis`
 are interpreted as counting from the end of the rank, i.e.,
  `axis + rank(values)`-th dimension.
 
-For example:
+#### For example:
+
+
 
 ```python
 t1 = [[[1, 2], [2, 3]], [[4, 4], [5, 3]]]
@@ -85,12 +97,13 @@ tf.stack(tensors, axis=axis)
 
 #### Args:
 
+
 * <b>`values`</b>: A list of `Tensor` objects or a single `Tensor`.
 * <b>`axis`</b>: 0-D `int32` `Tensor`.  Dimension along which to concatenate. Must be
-    in the range `[-rank(values), rank(values))`. As in Python, indexing
-    for axis is 0-based. Positive axis in the rage of
-    `[0, rank(values))` refers to `axis`-th dimension. And negative axis
-    refers to `axis + rank(values)`-th dimension.
+  in the range `[-rank(values), rank(values))`. As in Python, indexing for
+  axis is 0-based. Positive axis in the rage of `[0, rank(values))` refers
+  to `axis`-th dimension. And negative axis refers to `axis +
+  rank(values)`-th dimension.
 * <b>`name`</b>: A name for the operation (optional).
 
 

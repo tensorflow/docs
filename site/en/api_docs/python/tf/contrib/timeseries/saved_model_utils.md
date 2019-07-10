@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.timeseries.saved_model_utils
 
-
-
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
-
 Convenience functions for working with time series saved_models.
+
+
+
+Defined in [`contrib/timeseries/python/timeseries/saved_model_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 ## Functions

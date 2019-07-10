@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.sparse_softmax_cross_entropy_with_logits
 
+Computes sparse softmax cross entropy between `logits` and `labels`.
+
+### Aliases:
+
+* `tf.compat.v1.nn.sparse_softmax_cross_entropy_with_logits`
+* `tf.nn.sparse_softmax_cross_entropy_with_logits`
+
 ``` python
 tf.nn.sparse_softmax_cross_entropy_with_logits(
     _sentinel=None,
@@ -16,9 +23,9 @@ tf.nn.sparse_softmax_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Computes sparse softmax cross entropy between `logits` and `labels`.
+<!-- Placeholder for "Used in" -->
 
 Measures the probability error in discrete classification tasks in which the
 classes are mutually exclusive (each entry is in exactly one class).  For
@@ -48,15 +55,17 @@ this function.**
 
 #### Args:
 
+
 * <b>`_sentinel`</b>: Used to prevent positional parameters. Internal, do not use.
 * <b>`labels`</b>: `Tensor` of shape `[d_0, d_1, ..., d_{r-1}]` (where `r` is rank of
-    `labels` and result) and dtype `int32` or `int64`. Each entry in `labels`
-    must be an index in `[0, num_classes)`. Other values will raise an
-    exception when this op is run on CPU, and return `NaN` for corresponding
-    loss and gradient rows on GPU.
-* <b>`logits`</b>: Unscaled log probabilities of shape
-    `[d_0, d_1, ..., d_{r-1}, num_classes]` and dtype `float16`, `float32`, or
-    `float64`.
+  `labels` and result) and dtype `int32` or `int64`. Each entry in `labels`
+  must be an index in `[0, num_classes)`. Other values will raise an
+  exception when this op is run on CPU, and return `NaN` for corresponding
+  loss and gradient rows on GPU.
+* <b>`logits`</b>: Per-label activations (typically a linear output) of shape
+  `[d_0, d_1, ..., d_{r-1}, num_classes]` and dtype `float16`, `float32`, or
+  `float64`. These activation energies are interpreted as unnormalized log
+  probabilities.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -66,7 +75,9 @@ A `Tensor` of the same shape as `labels` and of the same type as `logits`
 with the softmax cross entropy loss.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If logits are scalars (need to have rank >= 1) or if the rank
-    of the labels is not equal to the rank of the logits minus one.
+  of the labels is not equal to the rank of the logits minus one.

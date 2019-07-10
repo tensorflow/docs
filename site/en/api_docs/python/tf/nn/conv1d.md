@@ -6,23 +6,32 @@ page_type: reference
 
 # tf.nn.conv1d
 
+Computes a 1-D convolution given 3-D input and filter tensors. (deprecated argument values) (deprecated argument values)
+
+### Aliases:
+
+* `tf.compat.v1.nn.conv1d`
+* `tf.nn.conv1d`
+
 ``` python
 tf.nn.conv1d(
-    value,
-    filters,
-    stride,
-    padding,
+    value=None,
+    filters=None,
+    stride=None,
+    padding=None,
     use_cudnn_on_gpu=None,
     data_format=None,
-    name=None
+    name=None,
+    input=None,
+    dilations=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Computes a 1-D convolution given 3-D input and filter tensors. (deprecated argument values) (deprecated argument values)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENT VALUES ARE DEPRECATED: `(data_format='NCHW')`. They will be removed in a future version.
 Instructions for updating:
@@ -56,17 +65,22 @@ returned to the caller.
 
 #### Args:
 
+
 * <b>`value`</b>: A 3D `Tensor`.  Must be of type `float16`, `float32`, or `float64`.
 * <b>`filters`</b>: A 3D `Tensor`.  Must have the same type as `value`.
-* <b>`stride`</b>: An `integer`.  The number of entries by which
-    the filter is moved right at each step.
+* <b>`stride`</b>: An int or list of `ints` that has length `1` or `3`.  The number of
+  entries by which the filter is moved right at each step.
 * <b>`padding`</b>: 'SAME' or 'VALID'
 * <b>`use_cudnn_on_gpu`</b>: An optional `bool`.  Defaults to `True`.
-* <b>`data_format`</b>: An optional `string` from `"NWC", "NCW"`.  Defaults
-    to `"NWC"`, the data is stored in the order of
-    [batch, in_width, in_channels].  The `"NCW"` format stores
-    data as [batch, in_channels, in_width].
+* <b>`data_format`</b>: An optional `string` from `"NWC", "NCW"`.  Defaults to `"NWC"`,
+  the data is stored in the order of [batch, in_width, in_channels].  The
+  `"NCW"` format stores data as [batch, in_channels, in_width].
 * <b>`name`</b>: A name for the operation (optional).
+* <b>`input`</b>: Alias for value.
+* <b>`dilations`</b>: An int or list of `ints` that has length `1` or `3` which
+  defaults to 1. The dilation factor for each dimension of input. If set to
+  k > 1, there will be k-1 skipped cells between each filter element on that
+  dimension. Dilations in the batch and depth dimensions must be 1.
 
 
 #### Returns:
@@ -74,6 +88,8 @@ returned to the caller.
 A `Tensor`.  Has the same type as input.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `data_format` is invalid.

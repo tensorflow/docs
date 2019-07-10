@@ -5,9 +5,12 @@ page_type: reference
 
 # Module: tf.contrib.graph_editor.transform
 
-
-
-Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/transform.py).
-
 Class to transform an subgraph into another.
+
+
+
+Defined in [`contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/transform.py).
+
+<!-- Placeholder for "Used in" -->
+
 

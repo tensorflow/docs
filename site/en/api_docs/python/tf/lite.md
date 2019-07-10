@@ -5,30 +5,32 @@ page_type: reference
 
 # Module: tf.lite
 
-### Aliases:
-
-* Module `tf.contrib.lite`
-* Module `tf.lite`
 
 
+<!-- Placeholder for "Used in" -->
 
-
-
-Public API for tf.lite namespace.
 
 ## Modules
 
-[`constants`](../tf/lite/constants) module: Public API for tf.lite.constants namespace.
+[`constants`](../tf/lite/constants) module
+
+[`experimental`](../tf/lite/experimental) module
 
 ## Classes
 
-[`class Interpreter`](../tf/lite/Interpreter): Interpreter inferace for TF-Lite Models.
+[`class Interpreter`](../tf/lite/Interpreter): Interpreter interface for TensorFlow Lite Models.
 
 [`class OpHint`](../tf/lite/OpHint): A class that helps build tflite function invocations.
 
 [`class OpsSet`](../tf/lite/OpsSet): Enum class defining the sets of ops available to generate TFLite models.
 
-[`class TFLiteConverter`](../tf/lite/TFLiteConverter): Convert a TensorFlow model into `output_format` using TOCO.
+[`class Optimize`](../tf/lite/Optimize): Enum defining the optimizations to apply when generating tflite graphs.
+
+[`class RepresentativeDataset`](../tf/lite/RepresentativeDataset): Representative dataset to evaluate optimizations.
+
+[`class TFLiteConverter`](../tf/lite/TFLiteConverter): Convert a TensorFlow model into `output_format`.
+
+[`class TargetSpec`](../tf/lite/TargetSpec): Specification of target device.
 
 [`class TocoConverter`](../tf/lite/TocoConverter): Convert a TensorFlow model into `output_format` using TOCO.
 

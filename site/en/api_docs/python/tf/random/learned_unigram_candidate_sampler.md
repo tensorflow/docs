@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.random.learned_unigram_candidate_sampler
 
+Samples a set of classes from a distribution learned during training.
+
 ### Aliases:
 
+* `tf.compat.v1.nn.learned_unigram_candidate_sampler`
+* `tf.compat.v1.random.learned_unigram_candidate_sampler`
+* `tf.compat.v2.nn.learned_unigram_candidate_sampler`
+* `tf.compat.v2.random.learned_unigram_candidate_sampler`
 * `tf.nn.learned_unigram_candidate_sampler`
 * `tf.random.learned_unigram_candidate_sampler`
 
@@ -24,9 +30,9 @@ tf.random.learned_unigram_candidate_sampler(
 
 
 
-Defined in [`tensorflow/python/ops/candidate_sampling_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/candidate_sampling_ops.py).
+Defined in [`python/ops/candidate_sampling_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/candidate_sampling_ops.py).
 
-Samples a set of classes from a distribution learned during training.
+<!-- Placeholder for "Used in" -->
 
 This operation randomly samples a tensor of sampled classes
 (`sampled_candidates`) from the range of integers `[0, range_max)`.
@@ -54,12 +60,13 @@ compute them approximately.
 
 #### Args:
 
+
 * <b>`true_classes`</b>: A `Tensor` of type `int64` and shape `[batch_size,
-    num_true]`. The target classes.
+  num_true]`. The target classes.
 * <b>`num_true`</b>: An `int`.  The number of target classes per training example.
 * <b>`num_sampled`</b>: An `int`.  The number of classes to randomly sample.
 * <b>`unique`</b>: A `bool`. Determines whether all sampled classes in a batch are
-    unique.
+  unique.
 * <b>`range_max`</b>: An `int`. The number of possible classes.
 * <b>`seed`</b>: An `int`. An operation-specific seed. Default is 0.
 * <b>`name`</b>: A name for the operation (optional).
@@ -67,11 +74,12 @@ compute them approximately.
 
 #### Returns:
 
+
 * <b>`sampled_candidates`</b>: A tensor of type `int64` and shape `[num_sampled]`.
-    The sampled classes.
+  The sampled classes.
 * <b>`true_expected_count`</b>: A tensor of type `float`.  Same shape as
-    `true_classes`. The expected counts under the sampling distribution
-    of each of `true_classes`.
+  `true_classes`. The expected counts under the sampling distribution
+  of each of `true_classes`.
 * <b>`sampled_expected_count`</b>: A tensor of type `float`. Same shape as
-    `sampled_candidates`. The expected counts under the sampling distribution
-    of each of `sampled_candidates`.
+  `sampled_candidates`. The expected counts under the sampling distribution
+  of each of `sampled_candidates`.

@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.solvers
 
-
-
-Defined in [`tensorflow/contrib/solvers/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/solvers/__init__.py).
-
 Ops for representing Bayesian computation.
+
+
+
+Defined in [`contrib/solvers/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/solvers/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 ## This package provides classes for Bayesian computation with TensorFlow.
 

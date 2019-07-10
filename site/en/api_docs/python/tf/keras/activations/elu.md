@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.activations.elu
 
+Exponential linear unit.
+
+### Aliases:
+
+* `tf.compat.v1.keras.activations.elu`
+* `tf.compat.v2.keras.activations.elu`
+* `tf.keras.activations.elu`
+
 ``` python
 tf.keras.activations.elu(
     x,
@@ -14,11 +22,13 @@ tf.keras.activations.elu(
 
 
 
-Defined in [`tensorflow/python/keras/activations.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/activations.py).
+Defined in [`python/keras/activations.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/activations.py).
 
-Exponential linear unit.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Input tensor.
 * <b>`alpha`</b>: A scalar, slope of negative section.
@@ -26,9 +36,12 @@ Exponential linear unit.
 
 #### Returns:
 
-    The exponential linear activation: `x` if `x > 0` and
-      `alpha * (exp(x)-1)` if `x < 0`.
+The exponential linear activation: `x` if `x > 0` and
+  `alpha * (exp(x)-1)` if `x < 0`.
 
-Reference:
-    - [Fast and Accurate Deep Network Learning by Exponential
-      Linear Units (ELUs)](https://arxiv.org/abs/1511.07289)
+
+
+#### Reference:
+
+- [Fast and Accurate Deep Network Learning by Exponential
+  Linear Units (ELUs)](https://arxiv.org/abs/1511.07289)

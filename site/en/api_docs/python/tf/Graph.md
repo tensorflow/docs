@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `Graph`
 
-
-
-
-
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
-
 A TensorFlow computation, represented as a dataflow graph.
+
+
+
+### Aliases:
+
+* Class `tf.Graph`
+* Class `tf.compat.v1.Graph`
+* Class `tf.compat.v2.Graph`
+
+
+
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 A `Graph` contains a set of
 <a href="../tf/Operation"><code>tf.Operation</code></a> objects,
@@ -22,13 +30,13 @@ which represent units of computation; and
 the units of data that flow between operations.
 
 A default `Graph` is always registered, and accessible by calling
-<a href="../tf/get_default_graph"><code>tf.get_default_graph</code></a>.
+<a href="../tf/get_default_graph"><code>tf.compat.v1.get_default_graph</code></a>.
 To add an operation to the default graph, simply call one of the functions
 that defines a new `Operation`:
 
 ```python
 c = tf.constant(4.0)
-assert c.graph is tf.get_default_graph()
+assert c.graph is tf.compat.v1.get_default_graph()
 ```
 
 Another typical usage involves the
@@ -67,34 +75,40 @@ Creates a new, empty Graph.
 
 
 
+
 ## Properties
 
 <h3 id="building_function"><code>building_function</code></h3>
 
 Returns True iff this graph represents a function.
 
+
 <h3 id="collections"><code>collections</code></h3>
 
 Returns the names of the collections known to this graph.
 
+
 <h3 id="finalized"><code>finalized</code></h3>
 
 True if this graph has been finalized.
+
 
 <h3 id="graph_def_versions"><code>graph_def_versions</code></h3>
 
 The GraphDef version information of this graph.
 
 For details on the meaning of each version, see
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/framework/graph.proto).
+[`GraphDef`](https://www.tensorflow.org/code/tensorflow/core/framework/graph.proto).
 
 #### Returns:
 
 A `VersionDef`.
 
+
 <h3 id="seed"><code>seed</code></h3>
 
 The graph-level random seed of this graph.
+
 
 <h3 id="version"><code>version</code></h3>
 
@@ -106,6 +120,7 @@ Note that this is unrelated to the
 #### Returns:
 
 An integer version that increases as ops are added to the graph.
+
 
 
 
@@ -127,8 +142,9 @@ a collection several times.
 
 #### Args:
 
-* <b>`name`</b>: The key for the collection. The `GraphKeys` class
-    contains many standard names for collections.
+
+* <b>`name`</b>: The key for the collection. The `GraphKeys` class contains many
+  standard names for collections.
 * <b>`value`</b>: The value to add to the collection.
 
 <h3 id="add_to_collections"><code>add_to_collections</code></h3>
@@ -152,8 +168,9 @@ single collection name.
 
 #### Args:
 
+
 * <b>`names`</b>: The keys for the collections to add to. The `GraphKeys` class
-    contains many standard names for collections.
+  contains many standard names for collections.
 * <b>`value`</b>: The value to add to the collections.
 
 <h3 id="as_default"><code>as_default</code></h3>
@@ -202,6 +219,7 @@ added to the graph instead of executed eagerly.
 
 A context manager for using this graph as the default graph.
 
+
 <h3 id="as_graph_def"><code>as_graph_def</code></h3>
 
 ``` python
@@ -221,21 +239,24 @@ This method is thread-safe.
 
 #### Args:
 
-* <b>`from_version`</b>: Optional.  If this is set, returns a `GraphDef`
-    containing only the nodes that were added to this graph since
-    its `version` property had the given value.
-* <b>`add_shapes`</b>: If true, adds an "_output_shapes" list attr to each
-    node with the inferred shapes of each of its outputs.
+
+* <b>`from_version`</b>: Optional.  If this is set, returns a `GraphDef` containing
+  only the nodes that were added to this graph since its `version`
+  property had the given value.
+* <b>`add_shapes`</b>: If true, adds an "_output_shapes" list attr to each node with
+  the inferred shapes of each of its outputs.
 
 
 #### Returns:
 
 A
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/framework/graph.proto)
+[`GraphDef`](https://www.tensorflow.org/code/tensorflow/core/framework/graph.proto)
 protocol buffer.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the `graph_def` would be too large.
 
@@ -262,9 +283,10 @@ This method may be called concurrently from multiple threads.
 
 #### Args:
 
-* <b>`obj`</b>: A `Tensor`, an `Operation`, or the name of a tensor or operation.
-    Can also be any object with an `_as_graph_element()` method that returns
-    a value of one of these types.
+
+* <b>`obj`</b>: A `Tensor`, an `Operation`, or the name of a tensor or operation. Can
+  also be any object with an `_as_graph_element()` method that returns a
+  value of one of these types.
 * <b>`allow_tensor`</b>: If true, `obj` may refer to a `Tensor`.
 * <b>`allow_operation`</b>: If true, `obj` may refer to an `Operation`.
 
@@ -274,12 +296,14 @@ This method may be called concurrently from multiple threads.
 The `Tensor` or `Operation` in the Graph corresponding to `obj`.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: If `obj` is not a type we support attempting to convert
-    to types.
+  to types.
 * <b>`ValueError`</b>: If `obj` is of an appropriate type but invalid. For
-    example, an invalid string.
+  example, an invalid string.
 * <b>`KeyError`</b>: If `obj` is not an object in the graph.
 
 <h3 id="clear_collection"><code>clear_collection</code></h3>
@@ -290,10 +314,12 @@ clear_collection(name)
 
 Clears all values in a collection.
 
+
 #### Args:
 
+
 * <b>`name`</b>: The key for the collection. The `GraphKeys` class contains many
-    standard names for collections.
+  standard names for collections.
 
 <h3 id="colocate_with"><code>colocate_with</code></h3>
 
@@ -308,7 +334,9 @@ Returns a context manager that specifies an op to colocate with.
 
 Note: this function is not for public use, only for internal libraries.
 
-For example:
+#### For example:
+
+
 
 ```python
 a = tf.Variable([1.0])
@@ -327,13 +355,15 @@ scope resets all colocation and device constraints.
 
 #### Args:
 
+
 * <b>`op`</b>: The op to colocate all created ops with, or `None`.
-* <b>`ignore_existing`</b>: If true, only applies colocation of this op within
-    the context, rather than applying all colocation properties
-    on the stack.  If `op` is `None`, this value must be `True`.
+* <b>`ignore_existing`</b>: If true, only applies colocation of this op within the
+  context, rather than applying all colocation properties on the stack.
+  If `op` is `None`, this value must be `True`.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if op is None but ignore_existing is False.
 
@@ -342,6 +372,7 @@ scope resets all colocation and device constraints.
 
 A context manager that specifies the op with which to colocate
 newly created ops.
+
 
 <h3 id="container"><code>container</code></h3>
 
@@ -355,9 +386,11 @@ Stateful operations, such as variables and queues, can maintain their
 states on devices so that they can be shared by multiple processes.
 A resource container is a string name under which these stateful
 operations are tracked. These resources can be released or cleared
-with `tf.Session.reset()`.
+with <a href="../tf/Session#reset"><code>tf.Session.reset()</code></a>.
 
-For example:
+#### For example:
+
+
 
 ```python
 with g.container('experiment0'):
@@ -369,16 +402,16 @@ with g.container('experiment0'):
     # All stateful Operations constructed in this context will be
     # placed in resource container "experiment1".
     v3 = tf.Variable([3.0])
-    q1 = tf.FIFOQueue(10, tf.float32)
+    q1 = tf.queue.FIFOQueue(10, tf.float32)
   # All stateful Operations constructed in this context will be
   # be created in the "experiment0".
   v4 = tf.Variable([4.0])
-  q1 = tf.FIFOQueue(20, tf.float32)
+  q1 = tf.queue.FIFOQueue(20, tf.float32)
   with g.container(""):
     # All stateful Operations constructed in this context will be
     # be placed in the default resource container.
     v5 = tf.Variable([5.0])
-    q3 = tf.FIFOQueue(30, tf.float32)
+    q3 = tf.queue.FIFOQueue(30, tf.float32)
 
 # Resets container "experiment0", after which the state of v1, v2, v4, q1
 # will become undefined (such as uninitialized).
@@ -387,6 +420,7 @@ tf.Session.reset(target, ["experiment0"])
 
 #### Args:
 
+
 * <b>`container_name`</b>: container name string.
 
 
@@ -394,6 +428,7 @@ tf.Session.reset(target, ["experiment0"])
 
 A context manager for defining resource containers for stateful ops,
   yields the container name.
+
 
 <h3 id="control_dependencies"><code>control_dependencies</code></h3>
 
@@ -477,10 +512,10 @@ the constant(1) op created in the forward pass.
 
 #### Args:
 
-* <b>`control_inputs`</b>: A list of `Operation` or `Tensor` objects which
-    must be executed or computed before running the operations
-    defined in the context.  Can also be `None` to clear the control
-    dependencies.
+
+* <b>`control_inputs`</b>: A list of `Operation` or `Tensor` objects which must be
+  executed or computed before running the operations defined in the
+  context.  Can also be `None` to clear the control dependencies.
 
 
 #### Returns:
@@ -489,10 +524,12 @@ A context manager that specifies control dependencies for all
 operations constructed within the context.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: If `control_inputs` is not a list of `Operation` or
-    `Tensor` objects.
+  `Tensor` objects.
 
 <h3 id="create_op"><code>create_op</code></h3>
 
@@ -500,7 +537,7 @@ operations constructed within the context.
 create_op(
     op_type,
     inputs,
-    dtypes,
+    dtypes=None,
     input_types=None,
     name=None,
     attrs=None,
@@ -518,35 +555,37 @@ Shapes are always computed; don't use the compute_shapes as it has no effect.
 
 This is a low-level interface for creating an `Operation`. Most
 programs will not call this method directly, and instead use the
-Python op constructors, such as `tf.constant()`, which add ops to
+Python op constructors, such as <a href="../tf/constant"><code>tf.constant()</code></a>, which add ops to
 the default graph.
 
 #### Args:
 
+
 * <b>`op_type`</b>: The `Operation` type to create. This corresponds to the
-    `OpDef.name` field for the proto that defines the operation.
+  `OpDef.name` field for the proto that defines the operation.
 * <b>`inputs`</b>: A list of `Tensor` objects that will be inputs to the `Operation`.
-* <b>`dtypes`</b>: A list of `DType` objects that will be the types of the tensors
-    that the operation produces.
-* <b>`input_types`</b>: (Optional.) A list of `DType`s that will be the types of
-    the tensors that the operation consumes. By default, uses the base
-    `DType` of each input in `inputs`. Operations that expect
-    reference-typed inputs must specify `input_types` explicitly.
+* <b>`dtypes`</b>: (Optional) A list of `DType` objects that will be the types of the
+  tensors that the operation produces.
+* <b>`input_types`</b>: (Optional.) A list of `DType`s that will be the types of the
+  tensors that the operation consumes. By default, uses the base `DType`
+  of each input in `inputs`. Operations that expect reference-typed inputs
+  must specify `input_types` explicitly.
 * <b>`name`</b>: (Optional.) A string name for the operation. If not specified, a
-    name is generated based on `op_type`.
+  name is generated based on `op_type`.
 * <b>`attrs`</b>: (Optional.) A dictionary where the key is the attribute name (a
-    string) and the value is the respective `attr` attribute of the
-    `NodeDef` proto that will represent the operation (an `AttrValue`
-    proto).
+  string) and the value is the respective `attr` attribute of the
+  `NodeDef` proto that will represent the operation (an `AttrValue`
+  proto).
 * <b>`op_def`</b>: (Optional.) The `OpDef` proto that describes the `op_type` that
-    the operation will have.
+  the operation will have.
 * <b>`compute_shapes`</b>: (Optional.) Deprecated. Has no effect (shapes are always
-    computed).
-* <b>`compute_device`</b>: (Optional.) If True, device functions will be executed
-    to compute the device property of the Operation.
+  computed).
+* <b>`compute_device`</b>: (Optional.) If True, device functions will be executed to
+  compute the device property of the Operation.
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: if any of the inputs is not a `Tensor`.
 * <b>`ValueError`</b>: if colocation conflicts with existing device assignment.
@@ -555,6 +594,7 @@ the default graph.
 #### Returns:
 
 An `Operation` object.
+
 
 <h3 id="device"><code>device</code></h3>
 
@@ -579,9 +619,11 @@ string, a device function, or None:
 
 For information about the valid syntax of device name strings, see
 the documentation in
-[`DeviceNameUtils`](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/util/device_name_utils.h).
+[`DeviceNameUtils`](https://www.tensorflow.org/code/tensorflow/core/util/device_name_utils.h).
 
-For example:
+#### For example:
+
+
 
 ```python
 with g.device('/device:GPU:0'):
@@ -611,14 +653,22 @@ incompatible device scopes will be ignored.
 
 #### Args:
 
-* <b>`device_name_or_function`</b>: The device name or function to use in
-    the context.
+
+* <b>`device_name_or_function`</b>: The device name or function to use in the
+  context.
 
 
 #### Yields:
 
 A context manager that specifies the default device to use for newly
 created ops.
+
+
+
+#### Raises:
+
+
+* <b>`RuntimeError`</b>: If device scopes are not properly nested.
 
 <h3 id="finalize"><code>finalize</code></h3>
 
@@ -631,7 +681,7 @@ Finalizes this graph, making it read-only.
 After calling `g.finalize()`, no new operations can be added to
 `g`.  This method is used to ensure that no operations are added
 to a graph when it is shared between multiple threads, for example
-when using a <a href="../tf/train/queue_runner/QueueRunner"><code>tf.train.QueueRunner</code></a>.
+when using a <a href="../tf/train/queue_runner/QueueRunner"><code>tf.compat.v1.train.QueueRunner</code></a>.
 
 <h3 id="get_all_collection_keys"><code>get_all_collection_keys</code></h3>
 
@@ -640,6 +690,7 @@ get_all_collection_keys()
 ```
 
 Returns a list of collections used in this graph.
+
 
 <h3 id="get_collection"><code>get_collection</code></h3>
 
@@ -658,13 +709,14 @@ it is called.
 
 #### Args:
 
+
 * <b>`name`</b>: The key for the collection. For example, the `GraphKeys` class
-    contains many standard names for collections.
+  contains many standard names for collections.
 * <b>`scope`</b>: (Optional.) A string. If supplied, the resulting list is filtered
-    to include only items whose `name` attribute matches `scope` using
-    `re.match`. Items without a `name` attribute are never returned if a
-    scope is supplied. The choice of `re.match` means that a `scope` without
-    special tokens filters by prefix.
+  to include only items whose `name` attribute matches `scope` using
+  `re.match`. Items without a `name` attribute are never returned if a
+  scope is supplied. The choice of `re.match` means that a `scope` without
+  special tokens filters by prefix.
 
 
 #### Returns:
@@ -673,6 +725,7 @@ The list of values in the collection with the given `name`, or
 an empty list if no value has been added to that collection. The
 list contains the values in the order under which they were
 collected.
+
 
 <h3 id="get_collection_ref"><code>get_collection_ref</code></h3>
 
@@ -691,14 +744,16 @@ the collection list if it exists and never creates an empty collection.
 
 #### Args:
 
+
 * <b>`name`</b>: The key for the collection. For example, the `GraphKeys` class
-    contains many standard names for collections.
+  contains many standard names for collections.
 
 
 #### Returns:
 
 The list of values in the collection with the given `name`, or an empty
 list if no value has been added to that collection.
+
 
 <h3 id="get_name_scope"><code>get_name_scope</code></h3>
 
@@ -708,18 +763,22 @@ get_name_scope()
 
 Returns the current name scope.
 
-For example:
+
+#### For example:
+
+
 
 ```python
 with tf.name_scope('scope1'):
   with tf.name_scope('scope2'):
-    print(tf.get_default_graph().get_name_scope())
+    print(tf.compat.v1.get_default_graph().get_name_scope())
 ```
 would print the string `scope1/scope2`.
 
 #### Returns:
 
 A string representing the current name scope.
+
 
 <h3 id="get_operation_by_name"><code>get_operation_by_name</code></h3>
 
@@ -733,6 +792,7 @@ This method may be called concurrently from multiple threads.
 
 #### Args:
 
+
 * <b>`name`</b>: The name of the `Operation` to return.
 
 
@@ -741,7 +801,9 @@ This method may be called concurrently from multiple threads.
 The `Operation` with the given `name`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `name` is not a string.
 * <b>`KeyError`</b>: If `name` does not correspond to an operation in this graph.
@@ -764,6 +826,7 @@ This method may be called concurrently from multiple threads.
 
 A list of Operations.
 
+
 <h3 id="get_tensor_by_name"><code>get_tensor_by_name</code></h3>
 
 ``` python
@@ -776,6 +839,7 @@ This method may be called concurrently from multiple threads.
 
 #### Args:
 
+
 * <b>`name`</b>: The name of the `Tensor` to return.
 
 
@@ -784,7 +848,9 @@ This method may be called concurrently from multiple threads.
 The `Tensor` with the given `name`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `name` is not a string.
 * <b>`KeyError`</b>: If `name` does not correspond to a tensor in this graph.
@@ -800,7 +866,9 @@ EXPERIMENTAL: A context manager for overriding gradient functions.
 This context manager can be used to override the gradient function
 that will be used for ops within the scope of the context.
 
-For example:
+#### For example:
+
+
 
 ```python
 @tf.RegisterGradient("CustomSquare")
@@ -817,8 +885,9 @@ with tf.Graph().as_default() as g:
 
 #### Args:
 
-* <b>`op_type_map`</b>: A dictionary mapping op type strings to alternative op
-    type strings.
+
+* <b>`op_type_map`</b>: A dictionary mapping op type strings to alternative op type
+  strings.
 
 
 #### Returns:
@@ -827,10 +896,12 @@ A context manager that sets the alternative op type to be used for one
 or more ops created in that context.
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: If `op_type_map` is not a dictionary mapping strings to
-    strings.
+  strings.
 
 <h3 id="is_feedable"><code>is_feedable</code></h3>
 
@@ -840,6 +911,7 @@ is_feedable(tensor)
 
 Returns `True` if and only if `tensor` is feedable.
 
+
 <h3 id="is_fetchable"><code>is_fetchable</code></h3>
 
 ``` python
@@ -847,6 +919,7 @@ is_fetchable(tensor_or_op)
 ```
 
 Returns `True` if and only if `tensor_or_op` is fetchable.
+
 
 <h3 id="name_scope"><code>name_scope</code></h3>
 
@@ -871,7 +944,9 @@ The `name` argument will be interpreted as follows:
 * A value of `None` or the empty string will reset the current name scope
   to the top-level (empty) name scope.
 
-For example:
+#### For example:
+
+
 
 ```python
 with tf.Graph().as_default() as g:
@@ -924,10 +999,11 @@ with g.name_scope('my_layer') as scope:
 NOTE: This constructor validates the given `name`. Valid scope
 names match one of the following regular expressions:
 
-    [A-Za-z0-9.][A-Za-z0-9_.\\-/]* (for scopes at the root)
-    [A-Za-z0-9_.\\-/]* (for other scopes)
+    [A-Za-z0-9.][A-Za-z0-9_.\-/]* (for scopes at the root)
+    [A-Za-z0-9_.\-/]* (for other scopes)
 
 #### Args:
+
 
 * <b>`name`</b>: A name for the scope.
 
@@ -937,10 +1013,12 @@ names match one of the following regular expressions:
 A context manager that installs `name` as a new name scope.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `name` is not a valid scope name, according to the rules
-    above.
+  above.
 
 <h3 id="prevent_feeding"><code>prevent_feeding</code></h3>
 
@@ -950,6 +1028,7 @@ prevent_feeding(tensor)
 
 Marks the given `tensor` as unfeedable in this graph.
 
+
 <h3 id="prevent_fetching"><code>prevent_fetching</code></h3>
 
 ``` python
@@ -957,6 +1036,7 @@ prevent_fetching(op)
 ```
 
 Marks the given `op` as unfetchable in this graph.
+
 
 <h3 id="switch_to_thread_local"><code>switch_to_thread_local</code></h3>
 
@@ -1006,6 +1086,7 @@ to be created will be.
 
 #### Args:
 
+
 * <b>`name`</b>: The name for an operation.
 * <b>`mark_as_used`</b>: Whether to mark this name as being used.
 
@@ -1014,6 +1095,7 @@ to be created will be.
 
 A string to be passed to `create_op()` that will be used
 to name the operation being created.
+
 
 
 

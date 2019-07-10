@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.estimator.multi_class_head
 
+Creates a `_Head` for multi class classification.
+
 ``` python
 tf.contrib.estimator.multi_class_head(
     n_classes,
@@ -16,7 +18,11 @@ tf.contrib.estimator.multi_class_head(
 )
 ```
 
-Creates a `_Head` for multi class classification.
+
+
+Defined in [`contrib/estimator/python/estimator/head.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/head.py).
+
+<!-- Placeholder for "Used in" -->
 
 Uses `sparse_softmax_cross_entropy` loss.
 
@@ -45,7 +51,7 @@ The head can be used with a canned estimator. Example:
 
 ```python
 my_head = tf.contrib.estimator.multi_class_head(n_classes=3)
-my_estimator = tf.contrib.estimator.DNNEstimator(
+my_estimator = tf.estimator.DNNEstimator(
     head=my_head,
     hidden_units=...,
     feature_columns=...)
@@ -70,23 +76,24 @@ my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
 
 #### Args:
 
+
 * <b>`n_classes`</b>: Number of classes, must be greater than 2 (for 2 classes, use
-    `binary_classification_head`).
+  `binary_classification_head`).
 * <b>`weight_column`</b>: A string or a `_NumericColumn` created by
-    <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
-    weights. It is used to down weight or boost examples during training. It
-    will be multiplied by the loss of the example.
+  <a href="../../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
+  weights. It is used to down weight or boost examples during training. It
+  will be multiplied by the loss of the example.
 * <b>`label_vocabulary`</b>: A list or tuple of strings representing possible label
-    values. If it is not given, that means labels are already encoded as an
-    integer within [0, n_classes). If given, labels must be of string type and
-    have any value in `label_vocabulary`. Note that errors will be raised if
-    `label_vocabulary` is not provided but labels are strings.
+  values. If it is not given, that means labels are already encoded as an
+  integer within [0, n_classes). If given, labels must be of string type and
+  have any value in `label_vocabulary`. Note that errors will be raised if
+  `label_vocabulary` is not provided but labels are strings.
 * <b>`loss_reduction`</b>: One of <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Describes how to
-    reduce training loss over batch. Defaults to `SUM_OVER_BATCH_SIZE`, namely
-    weighted sum of losses divided by batch size. See <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a>.
+  reduce training loss over batch. Defaults to `SUM_OVER_BATCH_SIZE`, namely
+  weighted sum of losses divided by batch size. See <a href="../../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a>.
 * <b>`loss_fn`</b>: Optional loss function.
 * <b>`name`</b>: name of the head. If provided, summary and metrics keys will be
-    suffixed by `"/" + name`. Also used as `name_scope` when creating ops.
+  suffixed by `"/" + name`. Also used as `name_scope` when creating ops.
 
 
 #### Returns:
@@ -94,7 +101,9 @@ my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
 An instance of `_Head` for multi class classification.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: if `n_classes`, `label_vocabulary` or `loss_reduction` is
-    invalid.
+  invalid.

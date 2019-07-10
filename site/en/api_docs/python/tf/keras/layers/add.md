@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.layers.add
 
+Functional interface to the `Add` layer.
+
+### Aliases:
+
+* `tf.compat.v1.keras.layers.add`
+* `tf.compat.v2.keras.layers.add`
+* `tf.keras.layers.add`
+
 ``` python
 tf.keras.layers.add(
     inputs,
@@ -14,11 +22,13 @@ tf.keras.layers.add(
 
 
 
-Defined in [`tensorflow/python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/layers/merge.py).
+Defined in [`python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/merge.py).
 
-Functional interface to the `Add` layer.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`inputs`</b>: A list of input tensors (at least 2).
 * <b>`**kwargs`</b>: Standard layer keyword arguments.
@@ -26,9 +36,13 @@ Functional interface to the `Add` layer.
 
 #### Returns:
 
-    A tensor, the sum of the inputs.
+A tensor, the sum of the inputs.
 
-Examples:
+
+
+#### Examples:
+
+
 
 ```python
     import keras

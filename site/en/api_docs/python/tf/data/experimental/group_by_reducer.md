@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.data.experimental.group_by_reducer
 
+A transformation that groups elements and performs a reduction.
+
+### Aliases:
+
+* `tf.compat.v1.data.experimental.group_by_reducer`
+* `tf.compat.v2.data.experimental.group_by_reducer`
+* `tf.data.experimental.group_by_reducer`
+
 ``` python
 tf.data.experimental.group_by_reducer(
     key_func,
@@ -14,9 +22,9 @@ tf.data.experimental.group_by_reducer(
 
 
 
-Defined in [`tensorflow/python/data/experimental/ops/grouping.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/experimental/ops/grouping.py).
+Defined in [`python/data/experimental/ops/grouping.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/grouping.py).
 
-A transformation that groups elements and performs a reduction.
+<!-- Placeholder for "Used in" -->
 
 This transformation maps element of a dataset to a key using `key_func` and
 groups the elements by key. The `reducer` is used to process each group; its
@@ -27,11 +35,12 @@ an output value.
 
 #### Args:
 
+
 * <b>`key_func`</b>: A function mapping a nested structure of tensors
-    (having shapes and types defined by `self.output_shapes` and
-    `self.output_types`) to a scalar <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> tensor.
+  (having shapes and types defined by `self.output_shapes` and
+  `self.output_types`) to a scalar <a href="../../../tf#int64"><code>tf.int64</code></a> tensor.
 * <b>`reducer`</b>: An instance of `Reducer`, which captures the reduction logic using
-    the `init_func`, `reduce_func`, and `finalize_func` functions.
+  the `init_func`, `reduce_func`, and `finalize_func` functions.
 
 
 #### Returns:

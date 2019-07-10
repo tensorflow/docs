@@ -5,18 +5,25 @@ page_type: reference
 
 # tf.get_default_graph
 
+Returns the default graph for the current thread.
+
+### Aliases:
+
+* `tf.compat.v1.get_default_graph`
+* `tf.get_default_graph`
+
 ``` python
 tf.get_default_graph()
 ```
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
-Returns the default graph for the current thread.
+<!-- Placeholder for "Used in" -->
 
 The returned graph will be the innermost graph on which a
-`Graph.as_default()` context has been entered, or a global default
+<a href="../tf/Graph#as_default"><code>Graph.as_default()</code></a> context has been entered, or a global default
 graph if none has been explicitly created.
 
 NOTE: The default graph is a property of the current thread. If you

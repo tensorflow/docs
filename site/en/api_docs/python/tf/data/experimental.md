@@ -7,19 +7,7 @@ page_type: reference
 
 
 
-
-
-Experimental API for building input pipelines.
-
-This module contains experimental `Dataset` sources and transformations that can
-be used in conjunction with the <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> API. Note that the
-<a href="../../tf/data/experimental"><code>tf.data.experimental</code></a> API is not subject to the same backwards compatibility
-guarantees as <a href="../../tf/data"><code>tf.data</code></a>, but we will provide deprecation advice in advance of
-removing existing functionality.
-
-See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
-
-
+<!-- Placeholder for "Used in" -->
 
 
 ## Classes
@@ -30,6 +18,10 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`class DatasetStructure`](../../tf/data/experimental/DatasetStructure): Represents a `Dataset` of structured values.
 
+[`class DistributeOptions`](../../tf/data/experimental/DistributeOptions): Represents options for distributed data processing.
+
+[`class MapVectorizationOptions`](../../tf/data/experimental/MapVectorizationOptions): Represents options for the MapVectorization optimization.
+
 [`class NestedStructure`](../../tf/data/experimental/NestedStructure): Represents a nested structure in which each leaf is a `Structure`.
 
 [`class OptimizationOptions`](../../tf/data/experimental/OptimizationOptions): Represents options for dataset optimizations.
@@ -37,6 +29,8 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 [`class Optional`](../../tf/data/experimental/Optional): Wraps a nested structure of tensors that may/may not be present at runtime.
 
 [`class OptionalStructure`](../../tf/data/experimental/OptionalStructure): Represents an optional potentially containing a structured value.
+
+[`class RaggedTensorStructure`](../../tf/data/experimental/RaggedTensorStructure): Represents structural information about a <a href="../../tf/RaggedTensor"><code>tf.RaggedTensor</code></a>.
 
 [`class RandomDataset`](../../tf/data/experimental/RandomDataset): A `Dataset` of pseudorandom values.
 
@@ -54,6 +48,8 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`class TFRecordWriter`](../../tf/data/experimental/TFRecordWriter): Writes data to a TFRecord file.
 
+[`class TensorArrayStructure`](../../tf/data/experimental/TensorArrayStructure): Represents structural information about a <a href="../../tf/TensorArray"><code>tf.TensorArray</code></a>.
+
 [`class TensorStructure`](../../tf/data/experimental/TensorStructure): Represents structural information about a <a href="../../tf/Tensor"><code>tf.Tensor</code></a>.
 
 [`class ThreadingOptions`](../../tf/data/experimental/ThreadingOptions): Represents options for dataset threading.
@@ -64,6 +60,8 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`bucket_by_sequence_length(...)`](../../tf/data/experimental/bucket_by_sequence_length): A transformation that buckets elements in a `Dataset` by length.
 
+[`bytes_produced_stats(...)`](../../tf/data/experimental/bytes_produced_stats): Records the number of bytes produced by each element of the input dataset.
+
 [`cardinality(...)`](../../tf/data/experimental/cardinality): Returns the cardinality of `dataset`, if known.
 
 [`choose_from_datasets(...)`](../../tf/data/experimental/choose_from_datasets): Creates a dataset that deterministically chooses elements from `datasets`.
@@ -72,13 +70,15 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`dense_to_sparse_batch(...)`](../../tf/data/experimental/dense_to_sparse_batch): A transformation that batches ragged elements into <a href="../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>s.
 
-[`enumerate_dataset(...)`](../../tf/data/experimental/enumerate_dataset): A transformation that enumerates the elements of a dataset.
+[`enumerate_dataset(...)`](../../tf/data/experimental/enumerate_dataset): A transformation that enumerates the elements of a dataset. (deprecated)
 
-[`filter_for_shard(...)`](../../tf/data/experimental/filter_for_shard): Creates a `Dataset` that includes only 1/`num_shards` of this dataset.
+[`from_variant(...)`](../../tf/data/experimental/from_variant): Constructs a dataset from the given variant and structure.
 
 [`get_next_as_optional(...)`](../../tf/data/experimental/get_next_as_optional): Returns an `Optional` that contains the next value from the iterator.
 
 [`get_single_element(...)`](../../tf/data/experimental/get_single_element): Returns the single element in `dataset` as a nested structure of tensors.
+
+[`get_structure(...)`](../../tf/data/experimental/get_structure): Returns the <a href="../../tf/data/experimental/Structure"><code>tf.data.experimental.Structure</code></a> of a `Dataset` or `Iterator`.
 
 [`group_by_reducer(...)`](../../tf/data/experimental/group_by_reducer): A transformation that groups elements and performs a reduction.
 
@@ -94,9 +94,11 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`make_saveable_from_iterator(...)`](../../tf/data/experimental/make_saveable_from_iterator): Returns a SaveableObject for saving/restore iterator state using Saver.
 
-[`map_and_batch(...)`](../../tf/data/experimental/map_and_batch): Fused implementation of `map` and `batch`.
+[`map_and_batch(...)`](../../tf/data/experimental/map_and_batch): Fused implementation of `map` and `batch`. (deprecated)
 
-[`parallel_interleave(...)`](../../tf/data/experimental/parallel_interleave): A parallel version of the `Dataset.interleave()` transformation.
+[`map_and_batch_with_legacy_function(...)`](../../tf/data/experimental/map_and_batch_with_legacy_function): Fused implementation of `map` and `batch`. (deprecated)
+
+[`parallel_interleave(...)`](../../tf/data/experimental/parallel_interleave): A parallel version of the <a href="../../tf/data/Dataset#interleave"><code>Dataset.interleave()</code></a> transformation. (deprecated)
 
 [`parse_example_dataset(...)`](../../tf/data/experimental/parse_example_dataset): A transformation that parses `Example` protos into a `dict` of tensors.
 
@@ -108,7 +110,11 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`scan(...)`](../../tf/data/experimental/scan): A transformation that scans a function across an input dataset.
 
-[`shuffle_and_repeat(...)`](../../tf/data/experimental/shuffle_and_repeat): Shuffles and repeats a Dataset returning a new permutation for each epoch.
+[`shuffle_and_repeat(...)`](../../tf/data/experimental/shuffle_and_repeat): Shuffles and repeats a Dataset returning a new permutation for each epoch. (deprecated)
+
+[`take_while(...)`](../../tf/data/experimental/take_while): A transformation that stops dataset iteration based on a `predicate`.
+
+[`to_variant(...)`](../../tf/data/experimental/to_variant): Returns a variant representing the given dataset.
 
 [`unbatch(...)`](../../tf/data/experimental/unbatch): Splits elements of a dataset into multiple elements on the batch dimension.
 
@@ -116,9 +122,6 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 ## Other Members
 
-<h3 id="AUTOTUNE"><code>AUTOTUNE</code></h3>
-
-<h3 id="INFINITE_CARDINALITY"><code>INFINITE_CARDINALITY</code></h3>
-
-<h3 id="UNKNOWN_CARDINALITY"><code>UNKNOWN_CARDINALITY</code></h3>
-
+* `AUTOTUNE = -1` <a id="AUTOTUNE"></a>
+* `INFINITE_CARDINALITY = -1` <a id="INFINITE_CARDINALITY"></a>
+* `UNKNOWN_CARDINALITY = -2` <a id="UNKNOWN_CARDINALITY"></a>

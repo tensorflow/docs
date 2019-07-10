@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.data.group_by_reducer
 
+A transformation that groups elements and performs a reduction. (deprecated)
+
 ``` python
 tf.contrib.data.group_by_reducer(
     key_func,
@@ -14,13 +16,13 @@ tf.contrib.data.group_by_reducer(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/grouping.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/grouping.py).
+Defined in [`contrib/data/python/ops/grouping.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/grouping.py).
 
-A transformation that groups elements and performs a reduction. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.experimental.group_by_reducer(...)`.
+Use <a href="../../../tf/data/experimental/group_by_reducer"><code>tf.data.experimental.group_by_reducer(...)</code></a>.
 
 This transformation maps element of a dataset to a key using `key_func` and
 groups the elements by key. The `reducer` is used to process each group; its
@@ -31,11 +33,12 @@ an output value.
 
 #### Args:
 
+
 * <b>`key_func`</b>: A function mapping a nested structure of tensors
-    (having shapes and types defined by `self.output_shapes` and
-    `self.output_types`) to a scalar <a href="../../../tf/dtypes#int64"><code>tf.int64</code></a> tensor.
+  (having shapes and types defined by `self.output_shapes` and
+  `self.output_types`) to a scalar <a href="../../../tf#int64"><code>tf.int64</code></a> tensor.
 * <b>`reducer`</b>: An instance of `Reducer`, which captures the reduction logic using
-    the `init_func`, `reduce_func`, and `finalize_func` functions.
+  the `init_func`, `reduce_func`, and `finalize_func` functions.
 
 
 #### Returns:

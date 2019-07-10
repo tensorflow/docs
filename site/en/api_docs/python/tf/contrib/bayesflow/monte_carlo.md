@@ -6,11 +6,13 @@ page_type: reference
 
 # Module: tf.contrib.bayesflow.monte_carlo
 
-
-
-Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/bayesflow/python/ops/monte_carlo.py).
-
 Monte Carlo integration and helpers.
+
+
+
+Defined in [`contrib/bayesflow/python/ops/monte_carlo.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/bayesflow/python/ops/monte_carlo.py).
+
+<!-- Placeholder for "Used in" -->
 
 Use [tfp.monte_carlo](/probability/api_docs/python/tfp/monte_carlo) instead.
 

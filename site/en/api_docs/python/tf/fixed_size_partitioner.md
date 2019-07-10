@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.fixed_size_partitioner
 
+Partitioner to specify a fixed number of shards along given axis.
+
+### Aliases:
+
+* `tf.compat.v1.fixed_size_partitioner`
+* `tf.fixed_size_partitioner`
+
 ``` python
 tf.fixed_size_partitioner(
     num_shards,
@@ -14,11 +21,13 @@ tf.fixed_size_partitioner(
 
 
 
-Defined in [`tensorflow/python/ops/partitioned_variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/partitioned_variables.py).
+Defined in [`python/ops/partitioned_variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/partitioned_variables.py).
 
-Partitioner to specify a fixed number of shards along given axis.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`num_shards`</b>: `int`, number of shards to partition variable.
 * <b>`axis`</b>: `int`, axis to partition on.

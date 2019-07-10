@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.detach
 
+Detach both the inputs and the outputs of a subgraph view.
+
 ``` python
 tf.contrib.graph_editor.detach(
     sgv,
@@ -16,22 +18,24 @@ tf.contrib.graph_editor.detach(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/edit.py).
+Defined in [`contrib/graph_editor/edit.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/edit.py).
 
-Detach both the inputs and the outputs of a subgraph view.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`sgv`</b>: the subgraph view to be detached. This argument is converted to a
-    subgraph using the same rules as the function subgraph.make_view.
-    Note that sgv is modified in place.
+  subgraph using the same rules as the function subgraph.make_view.
+  Note that sgv is modified in place.
 * <b>`control_inputs`</b>: A boolean indicating whether control inputs are enabled.
 * <b>`control_outputs`</b>: An instance of util.ControlOutputs or None. If not None,
-    control outputs are enabled.
+  control outputs are enabled.
 * <b>`control_ios`</b>:  An instance of util.ControlOutputs or None. If not None, both
-    control inputs and control outputs are enabled. This is equivalent to set
-    control_inputs to True and control_outputs to the util.ControlOutputs
-    instance.
+  control inputs and control outputs are enabled. This is equivalent to set
+  control_inputs to True and control_outputs to the util.ControlOutputs
+  instance.
 
 #### Returns:
 
@@ -40,7 +44,9 @@ A tuple `(sgv, detached_inputs, detached_outputs)` where:
 `detach_inputs` is a list of the created input placeholders;
 `detach_outputs` is a list of the created output placeholders.
 
+
 #### Raises:
 
+
 * <b>`StandardError`</b>: if sgv cannot be converted to a SubGraphView using
-    the same rules than the function subgraph.make_view.
+  the same rules than the function subgraph.make_view.

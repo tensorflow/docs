@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.rpc.rpc
 
+TODO: add doc.
+
 ``` python
 tf.contrib.rpc.rpc(
     address,
@@ -19,11 +21,13 @@ tf.contrib.rpc.rpc(
 
 
 
-Defined in generated file: `tensorflow/contrib/rpc/python/ops/gen_rpc_op.py`.
+Defined in generated file: `contrib/rpc/python/ops/gen_rpc_op.py`.
 
-TODO: add doc.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`address`</b>: A `Tensor` of type `string`.
 * <b>`method`</b>: A `Tensor` of type `string`.

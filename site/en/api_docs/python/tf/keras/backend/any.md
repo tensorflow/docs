@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.any
 
+Bitwise reduction (logical OR).
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.any`
+* `tf.compat.v2.keras.backend.any`
+* `tf.keras.backend.any`
+
 ``` python
 tf.keras.backend.any(
     x,
@@ -15,11 +23,13 @@ tf.keras.backend.any(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Bitwise reduction (logical OR).
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable.
 * <b>`axis`</b>: axis along which to perform the reduction.

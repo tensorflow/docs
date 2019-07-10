@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `ExponentialUpdateLossScaleManager`
 
+Loss scale manager uses an exponential update strategy.
+
 Inherits From: [`LossScaleManager`](../../../tf/contrib/mixed_precision/LossScaleManager)
 
 
 
-Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_manager.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py).
+Defined in [`contrib/mixed_precision/python/loss_scale_manager.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py).
 
-Loss scale manager uses an exponential update strategy.
+<!-- Placeholder for "Used in" -->
 
 In general, the strategy increases loss scale by a greater-than-one factor
 after encountering a consecutive series of steps with finite gradients;
@@ -39,16 +41,18 @@ __init__(
 
 Constructor of exponential-update loss scale manager.
 
+
 #### Args:
+
 
 * <b>`init_loss_scale`</b>: A Python float.  The loss scale to use at the beginning.
 * <b>`incr_every_n_steps`</b>: Increases loss scale every n consecutive steps with
-    finite gradients.
+  finite gradients.
 * <b>`decr_every_n_nan_or_inf`</b>: Decreases loss scale every n accumulated steps
-    with nan or inf gradients.
+  with nan or inf gradients.
 * <b>`incr_ratio`</b>: The multiplier to use when increasing the loss scale.
 * <b>`decr_ratio`</b>: The less-than-one-multiplier to use when decreasing the loss
-    scale.
+  scale.
 
 
 
@@ -62,6 +66,7 @@ get_loss_scale()
 
 Returns the loss scale.
 
+
 <h3 id="update_loss_scale"><code>update_loss_scale</code></h3>
 
 ``` python
@@ -69,6 +74,7 @@ update_loss_scale(finite_grads)
 ```
 
 Updates loss scale based on if gradients are finite in current step.
+
 
 
 

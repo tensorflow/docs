@@ -5,9 +5,15 @@ page_type: reference
 
 # tf.math.atanh
 
+Computes inverse hyperbolic tangent of x element-wise.
+
 ### Aliases:
 
 * `tf.atanh`
+* `tf.compat.v1.atanh`
+* `tf.compat.v1.math.atanh`
+* `tf.compat.v2.atanh`
+* `tf.compat.v2.math.atanh`
 * `tf.math.atanh`
 
 ``` python
@@ -19,11 +25,13 @@ tf.math.atanh(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Computes inverse hyperbolic tangent of x element-wise.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `complex64`, `complex128`.
 * <b>`name`</b>: A name for the operation (optional).

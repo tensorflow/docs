@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.get_session_handle
 
+Return the handle of `data`.
+
+### Aliases:
+
+* `tf.compat.v1.get_session_handle`
+* `tf.get_session_handle`
+
 ``` python
 tf.get_session_handle(
     data,
@@ -14,9 +21,9 @@ tf.get_session_handle(
 
 
 
-Defined in [`tensorflow/python/ops/session_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/session_ops.py).
+Defined in [`python/ops/session_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/session_ops.py).
 
-Return the handle of `data`.
+<!-- Placeholder for "Used in" -->
 
 This is EXPERIMENTAL and subject to change.
 
@@ -28,6 +35,7 @@ one run call in place, and use it as the input in a future run call.
 
 #### Args:
 
+
 * <b>`data`</b>: A tensor to be stored in the session.
 * <b>`name`</b>: Optional name prefix for the return tensor.
 
@@ -37,18 +45,23 @@ one run call in place, and use it as the input in a future run call.
 A scalar string tensor representing a unique handle for `data`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if `data` is not a Tensor.
 
-Example:
+
+#### Example:
+
+
 
 ```python
 c = tf.multiply(a, b)
-h = tf.get_session_handle(c)
+h = tf.compat.v1.get_session_handle(c)
 h = sess.run(h)
 
-p, a = tf.get_session_tensor(h.handle, tf.float32)
+p, a = tf.compat.v1.get_session_tensor(h.handle, tf.float32)
 b = tf.multiply(a, 10)
 c = sess.run(b, feed_dict={p: h.handle})
 ```

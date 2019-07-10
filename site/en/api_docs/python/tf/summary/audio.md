@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.summary.audio
 
+Outputs a `Summary` protocol buffer with audio.
+
+### Aliases:
+
+* `tf.compat.v1.summary.audio`
+* `tf.summary.audio`
+
 ``` python
 tf.summary.audio(
     name,
@@ -18,9 +25,9 @@ tf.summary.audio(
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/summary/summary.py).
+Defined in [`python/summary/summary.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/summary.py).
 
-Outputs a `Summary` protocol buffer with audio.
+<!-- Placeholder for "Used in" -->
 
 The summary has up to `max_outputs` summary values containing audio. The
 audio is built from `tensor` which must be 3-D with shape `[batch_size,
@@ -37,17 +44,18 @@ name, with a suffix depending on the max_outputs setting:
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the generated node. Will also serve as a series name in
-    TensorBoard.
+  TensorBoard.
 * <b>`tensor`</b>: A 3-D `float32` `Tensor` of shape `[batch_size, frames, channels]`
-    or a 2-D `float32` `Tensor` of shape `[batch_size, frames]`.
+  or a 2-D `float32` `Tensor` of shape `[batch_size, frames]`.
 * <b>`sample_rate`</b>: A Scalar `float32` `Tensor` indicating the sample rate of the
-    signal in hertz.
+  signal in hertz.
 * <b>`max_outputs`</b>: Max number of batch elements to generate audio for.
 * <b>`collections`</b>: Optional list of ops.GraphKeys.  The collections to add the
-    summary to.  Defaults to [_ops.GraphKeys.SUMMARIES]
+  summary to.  Defaults to [_ops.GraphKeys.SUMMARIES]
 * <b>`family`</b>: Optional; if provided, used as the prefix of the summary tag name,
-    which controls the tab name used for display on Tensorboard.
+  which controls the tab name used for display on Tensorboard.
 
 
 #### Returns:

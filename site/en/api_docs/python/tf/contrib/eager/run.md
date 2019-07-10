@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.eager.run
 
+Runs the program with an optional main function and argv list.
+
 ``` python
 tf.contrib.eager.run(
     main=None,
@@ -14,13 +16,14 @@ tf.contrib.eager.run(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
-Runs the program with an optional main function and argv list.
+<!-- Placeholder for "Used in" -->
 
 The program will run with eager execution enabled.
 
-Example:
+#### Example:
+
 
 ```python
 import tensorflow as tf
@@ -37,6 +40,7 @@ if __name__ == "__main__":
 ```
 
 #### Args:
+
 
 * <b>`main`</b>: the main function to run.
 * <b>`argv`</b>: the arguments to pass to it.

@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `WholeFileReader`
 
+A Reader that outputs the entire contents of a file as a value.
+
 Inherits From: [`ReaderBase`](../tf/ReaderBase)
 
+### Aliases:
+
+* Class `tf.WholeFileReader`
+* Class `tf.compat.v1.WholeFileReader`
 
 
-Defined in [`tensorflow/python/ops/io_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/io_ops.py).
 
-A Reader that outputs the entire contents of a file as a value.
+Defined in [`python/ops/io_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/io_ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 To use, enqueue filenames in a Queue.  The output of Read will
 be a filename (key) and the contents of that file (value).
@@ -38,9 +45,10 @@ Create a WholeFileReader. (deprecated)
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Queue-based input pipelines have been replaced by <a href="../tf/data"><code>tf.data</code></a>. Use `tf.data.Dataset.map(tf.read_file)`.
+Queue-based input pipelines have been replaced by <a href="../tf/data"><code>tf.data</code></a>. Use <a href="../tf/data/Dataset#map"><code>tf.data.Dataset.map(tf.read_file)</code></a>.
 
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -52,9 +60,11 @@ Queue-based input pipelines have been replaced by <a href="../tf/data"><code>tf.
 
 Op that implements the reader.
 
+
 <h3 id="supports_serialize"><code>supports_serialize</code></h3>
 
 Whether the Reader implementation can serialize its state.
+
 
 
 
@@ -73,12 +83,14 @@ succeeded.
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 An int64 Tensor.
+
 
 <h3 id="num_work_units_completed"><code>num_work_units_completed</code></h3>
 
@@ -88,7 +100,9 @@ num_work_units_completed(name=None)
 
 Returns the number of work units this reader has finished processing.
 
+
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -96,6 +110,7 @@ Returns the number of work units this reader has finished processing.
 #### Returns:
 
 An int64 Tensor.
+
 
 <h3 id="read"><code>read</code></h3>
 
@@ -114,14 +129,16 @@ finished with the previous file).
 
 #### Args:
 
+
 * <b>`queue`</b>: A Queue or a mutable string Tensor representing a handle
-    to a Queue, with string work items.
+  to a Queue, with string work items.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A tuple of Tensors (key, value).
+
 * <b>`key`</b>: A string scalar Tensor.
 * <b>`value`</b>: A string scalar Tensor.
 
@@ -144,8 +161,9 @@ It may return less than num_records even before the last batch.
 
 #### Args:
 
+
 * <b>`queue`</b>: A Queue or a mutable string Tensor representing a handle
-    to a Queue, with string work items.
+  to a Queue, with string work items.
 * <b>`num_records`</b>: Number of records to read.
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -153,6 +171,7 @@ It may return less than num_records even before the last batch.
 #### Returns:
 
 A tuple of Tensors (keys, values).
+
 * <b>`keys`</b>: A 1-D string Tensor.
 * <b>`values`</b>: A 1-D string Tensor.
 
@@ -164,7 +183,9 @@ reset(name=None)
 
 Restore a reader to its initial clean state.
 
+
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional).
 
@@ -172,6 +193,7 @@ Restore a reader to its initial clean state.
 #### Returns:
 
 The created Operation.
+
 
 <h3 id="restore_state"><code>restore_state</code></h3>
 
@@ -189,14 +211,16 @@ Unimplemented error.
 
 #### Args:
 
+
 * <b>`state`</b>: A string Tensor.
-    Result of a SerializeState of a Reader with matching type.
+  Result of a SerializeState of a Reader with matching type.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 The created Operation.
+
 
 <h3 id="serialize_state"><code>serialize_state</code></h3>
 
@@ -211,12 +235,14 @@ Unimplemented error.
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A string Tensor.
+
 
 
 

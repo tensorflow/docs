@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.cosine_decay
 
+Applies cosine decay to the learning rate.
+
+### Aliases:
+
+* `tf.compat.v1.train.cosine_decay`
+* `tf.train.cosine_decay`
+
 ``` python
 tf.train.cosine_decay(
     learning_rate,
@@ -17,9 +24,9 @@ tf.train.cosine_decay(
 
 
 
-Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/learning_rate_decay.py).
+Defined in [`python/training/learning_rate_decay.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/learning_rate_decay.py).
 
-Applies cosine decay to the learning rate.
+<!-- Placeholder for "Used in" -->
 
 See [Loshchilov & Hutter, ICLR2016], SGDR: Stochastic Gradient Descent
 with Warm Restarts. https://arxiv.org/abs/1608.03983
@@ -39,7 +46,8 @@ decayed = (1 - alpha) * cosine_decay + alpha
 decayed_learning_rate = learning_rate * decayed
 ```
 
-Example usage:
+#### Example usage:
+
 
 ```python
 decay_steps = 1000
@@ -48,22 +56,26 @@ lr_decayed = cosine_decay(learning_rate, global_step, decay_steps)
 
 #### Args:
 
+
 * <b>`learning_rate`</b>: A scalar `float32` or `float64` Tensor or a Python number.
-    The initial learning rate.
-* <b>`global_step`</b>: A scalar `int32` or `int64` `Tensor` or a Python number.
-    Global step to use for the decay computation.
-* <b>`decay_steps`</b>: A scalar `int32` or `int64` `Tensor` or a Python number.
-    Number of steps to decay over.
-* <b>`alpha`</b>: A scalar `float32` or `float64` Tensor or a Python number.
-    Minimum learning rate value as a fraction of learning_rate.
+  The initial learning rate.
+* <b>`global_step`</b>: A scalar `int32` or `int64` `Tensor` or a Python number. Global
+  step to use for the decay computation.
+* <b>`decay_steps`</b>: A scalar `int32` or `int64` `Tensor` or a Python number. Number
+  of steps to decay over.
+* <b>`alpha`</b>: A scalar `float32` or `float64` Tensor or a Python number. Minimum
+  learning rate value as a fraction of learning_rate.
 * <b>`name`</b>: String. Optional name of the operation.  Defaults to 'CosineDecay'.
+
 
 #### Returns:
 
 A scalar `Tensor` of the same type as `learning_rate`.  The decayed
 learning rate.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `global_step` is not supplied.
 

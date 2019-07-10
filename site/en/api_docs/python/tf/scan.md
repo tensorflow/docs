@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.scan
 
+scan on the list of tensors unpacked from `elems` on dimension 0.
+
+### Aliases:
+
+* `tf.compat.v1.scan`
+* `tf.compat.v2.scan`
+* `tf.scan`
+
 ``` python
 tf.scan(
     fn,
@@ -21,9 +29,9 @@ tf.scan(
 
 
 
-Defined in [`tensorflow/python/ops/functional_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/functional_ops.py).
+Defined in [`python/ops/functional_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/functional_ops.py).
 
-scan on the list of tensors unpacked from `elems` on dimension 0.
+<!-- Placeholder for "Used in" -->
 
 The simplest version of `scan` repeatedly applies the callable `fn` to a
 sequence of elements from first to last. The elements are made of the tensors
@@ -58,24 +66,25 @@ For example, if `elems` is `(t1, [t2, t3])` and `initializer` is
 
 #### Args:
 
-* <b>`fn`</b>: The callable to be performed.  It accepts two arguments.  The first
-    will have the same structure as `initializer` if one is provided,
-    otherwise it will have the same structure as `elems`.  The second
-    will have the same (possibly nested) structure as `elems`.  Its output
-    must have the same structure as `initializer` if one is provided,
-    otherwise it must have the same structure as `elems`.
-* <b>`elems`</b>: A tensor or (possibly nested) sequence of tensors, each of which
-    will be unpacked along their first dimension.  The nested sequence
-    of the resulting slices will be the first argument to `fn`.
+
+* <b>`fn`</b>: The callable to be performed.  It accepts two arguments.  The first will
+  have the same structure as `initializer` if one is provided, otherwise it
+  will have the same structure as `elems`.  The second will have the same
+  (possibly nested) structure as `elems`.  Its output must have the same
+  structure as `initializer` if one is provided, otherwise it must have the
+  same structure as `elems`.
+* <b>`elems`</b>: A tensor or (possibly nested) sequence of tensors, each of which will
+  be unpacked along their first dimension.  The nested sequence of the
+  resulting slices will be the first argument to `fn`.
 * <b>`initializer`</b>: (optional) A tensor or (possibly nested) sequence of tensors,
-    initial value for the accumulator, and the expected output type of `fn`.
-* <b>`parallel_iterations`</b>: (optional) The number of iterations allowed to run
-    in parallel.
+  initial value for the accumulator, and the expected output type of `fn`.
+* <b>`parallel_iterations`</b>: (optional) The number of iterations allowed to run in
+  parallel.
 * <b>`back_prop`</b>: (optional) True enables support for back propagation.
 * <b>`swap_memory`</b>: (optional) True enables GPU-CPU memory swapping.
 * <b>`infer_shape`</b>: (optional) False disables tests for consistent output shapes.
-* <b>`reverse`</b>: (optional) True scans the tensor last to first (instead of first
-    to last).
+* <b>`reverse`</b>: (optional) True scans the tensor last to first (instead of first to
+  last).
 * <b>`name`</b>: (optional) Name prefix for the returned tensors.
 
 
@@ -87,28 +96,37 @@ dimension, and the previous accumulator value(s), from first to last (or
 last to first, if `reverse=True`).
 
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: if `fn` is not callable or the structure of the output of
-    `fn` and `initializer` do not match.
+  `fn` and `initializer` do not match.
 * <b>`ValueError`</b>: if the lengths of the output of `fn` and `initializer`
-    do not match.
+  do not match.
 
-Examples:
 
->     elems = np.array([1, 2, 3, 4, 5, 6])
->     sum = scan(lambda a, x: a + x, elems)
->     # sum == [1, 3, 6, 10, 15, 21]
->     sum = scan(lambda a, x: a + x, elems, reverse=True)
->     # sum == [22, 21, 18, 15, 11, 6]
+#### Examples:
 
->     elems = np.array([1, 2, 3, 4, 5, 6])
->     initializer = np.array(0)
->     sum_one = scan(
->         lambda a, x: x[0] - x[1] + a, (elems + 1, elems), initializer)
->     # sum_one == [1, 2, 3, 4, 5, 6]
+```python
+elems = np.array([1, 2, 3, 4, 5, 6])
+sum = scan(lambda a, x: a + x, elems)
+# sum == [1, 3, 6, 10, 15, 21]
+sum = scan(lambda a, x: a + x, elems, reverse=True)
+# sum == [21, 20, 18, 15, 11, 6]
+```
 
->     elems = np.array([1, 0, 0, 0, 0, 0])
->     initializer = (np.array(0), np.array(1))
->     fibonaccis = scan(lambda a, _: (a[1], a[0] + a[1]), elems, initializer)
->     # fibonaccis == ([1, 1, 2, 3, 5, 8], [1, 2, 3, 5, 8, 13])
+```python
+elems = np.array([1, 2, 3, 4, 5, 6])
+initializer = np.array(0)
+sum_one = scan(
+    lambda a, x: x[0] - x[1] + a, (elems + 1, elems), initializer)
+# sum_one == [1, 2, 3, 4, 5, 6]
+```
+
+```python
+elems = np.array([1, 0, 0, 0, 0, 0])
+initializer = (np.array(0), np.array(1))
+fibonaccis = scan(lambda a, _: (a[1], a[0] + a[1]), elems, initializer)
+# fibonaccis == ([1, 1, 2, 3, 5, 8], [1, 2, 3, 5, 8, 13])
+```

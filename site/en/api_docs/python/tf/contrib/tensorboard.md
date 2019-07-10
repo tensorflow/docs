@@ -5,9 +5,12 @@ page_type: reference
 
 # Module: tf.contrib.tensorboard
 
-
-
-Defined in [`tensorflow/contrib/tensorboard/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/tensorboard/__init__.py).
-
 tensorboard module containing volatile or experimental code.
+
+
+
+Defined in [`contrib/tensorboard/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/tensorboard/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 

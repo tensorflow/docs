@@ -8,11 +8,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Basic arithmetic operators.
-
-See the [python/math_ops](python/math_ops) guide.
 
 ## Functions
 
@@ -34,11 +31,11 @@ See the [python/math_ops](python/math_ops) guide.
 
 [`argmin(...)`](../tf/math/argmin): Returns the index with the smallest value across axes of a tensor. (deprecated arguments)
 
-[`asin(...)`](../tf/math/asin): Computes asin of x element-wise.
+[`asin(...)`](../tf/math/asin): Computes the trignometric inverse sine of x element-wise.
 
 [`asinh(...)`](../tf/math/asinh): Computes inverse hyperbolic sine of x element-wise.
 
-[`atan(...)`](../tf/math/atan): Computes atan of x element-wise.
+[`atan(...)`](../tf/math/atan): Computes the trignometric inverse tangent of x element-wise.
 
 [`atan2(...)`](../tf/math/atan2): Computes arctangent of `y/x` element-wise, respecting signs of the arguments.
 
@@ -66,7 +63,7 @@ See the [python/math_ops](python/math_ops) guide.
 
 [`cosh(...)`](../tf/math/cosh): Computes hyperbolic cosine of x element-wise.
 
-[`count_nonzero(...)`](../tf/math/count_nonzero): Computes number of nonzero elements across dimensions of a tensor. (deprecated arguments)
+[`count_nonzero(...)`](../tf/math/count_nonzero): Computes number of nonzero elements across dimensions of a tensor. (deprecated arguments) (deprecated arguments)
 
 [`cumprod(...)`](../tf/math/cumprod): Compute the cumulative product of the tensor `x` along `axis`.
 
@@ -75,6 +72,8 @@ See the [python/math_ops](python/math_ops) guide.
 [`digamma(...)`](../tf/math/digamma): Computes Psi, the derivative of Lgamma (the log of the absolute value of
 
 [`divide(...)`](../tf/math/divide): Computes Python style division of `x` by `y`.
+
+[`divide_no_nan(...)`](../tf/math/divide_no_nan): Computes an unsafe divide which returns 0 if the y is zero.
 
 [`equal(...)`](../tf/math/equal): Returns the truth value of (x == y) element-wise.
 
@@ -89,6 +88,8 @@ See the [python/math_ops](python/math_ops) guide.
 [`floor(...)`](../tf/math/floor): Returns element-wise largest integer not greater than x.
 
 [`floordiv(...)`](../tf/math/floordiv): Divides `x / y` elementwise, rounding toward the most negative integer.
+
+[`floormod(...)`](../tf/math/floormod): Returns element-wise remainder of division. When `x < 0` xor `y < 0` is
 
 [`greater(...)`](../tf/math/greater): Returns the truth value of (x > y) element-wise.
 
@@ -138,15 +139,21 @@ See the [python/math_ops](python/math_ops) guide.
 
 [`logical_or(...)`](../tf/math/logical_or): Returns the truth value of x OR y element-wise.
 
-[`logical_xor(...)`](../tf/math/logical_xor): x ^ y = (x | y) & ~(x & y).
+[`logical_xor(...)`](../tf/math/logical_xor): Logical XOR function.
 
 [`maximum(...)`](../tf/math/maximum): Returns the max of x and y (i.e. x > y ? x : y) element-wise.
 
 [`minimum(...)`](../tf/math/minimum): Returns the min of x and y (i.e. x < y ? x : y) element-wise.
 
+[`mod(...)`](../tf/math/floormod): Returns element-wise remainder of division. When `x < 0` xor `y < 0` is
+
 [`multiply(...)`](../tf/math/multiply): Returns x * y element-wise.
 
+[`multiply_no_nan(...)`](../tf/math/multiply_no_nan): Computes the product of x and y and returns 0 if the y is zero, even if x is NaN or infinite.
+
 [`negative(...)`](../tf/math/negative): Computes numerical negative value element-wise.
+
+[`nextafter(...)`](../tf/math/nextafter): Returns the next representable value of `x1` in the direction of `x2`, element-wise.
 
 [`not_equal(...)`](../tf/math/not_equal): Returns the truth value of (x != y) element-wise.
 
@@ -163,6 +170,8 @@ See the [python/math_ops](python/math_ops) guide.
 [`reduce_all(...)`](../tf/math/reduce_all): Computes the "logical and" of elements across dimensions of a tensor. (deprecated arguments)
 
 [`reduce_any(...)`](../tf/math/reduce_any): Computes the "logical or" of elements across dimensions of a tensor. (deprecated arguments)
+
+[`reduce_euclidean_norm(...)`](../tf/math/reduce_euclidean_norm): Computes the Euclidean norm of elements across dimensions of a tensor.
 
 [`reduce_logsumexp(...)`](../tf/math/reduce_logsumexp): Computes log(sum(exp(elements across dimensions of a tensor))). (deprecated arguments)
 

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.add_gan_model_image_summaries
 
+Adds image summaries for real and fake images.
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.add_gan_model_image_summaries`
@@ -20,11 +22,13 @@ tf.contrib.gan.eval.add_gan_model_image_summaries(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/summaries_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/summaries_impl.py).
+Defined in [`contrib/gan/python/eval/python/summaries_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/summaries_impl.py).
 
-Adds image summaries for real and fake images.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`gan_model`</b>: A GANModel tuple.
 * <b>`grid_size`</b>: The size of an image grid.
@@ -32,5 +36,6 @@ Adds image summaries for real and fake images.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If real and generated data aren't images.

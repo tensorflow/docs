@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.app.run
 
+Runs the program with an optional 'main' function and 'argv' list.
+
+### Aliases:
+
+* `tf.app.run`
+* `tf.compat.v1.app.run`
+
 ``` python
 tf.app.run(
     main=None,
@@ -14,6 +21,6 @@ tf.app.run(
 
 
 
-Defined in [`tensorflow/python/platform/app.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/app.py).
+Defined in [`python/platform/app.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/app.py).
 
-Runs the program with an optional 'main' function and 'argv' list.
+<!-- Placeholder for "Used in" -->

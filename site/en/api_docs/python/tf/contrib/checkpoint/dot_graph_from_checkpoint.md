@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.checkpoint.dot_graph_from_checkpoint
 
+Visualizes an object-based checkpoint (from <a href="../../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a>).
+
 ``` python
 tf.contrib.checkpoint.dot_graph_from_checkpoint(save_path)
 ```
 
 
 
-Defined in [`tensorflow/contrib/checkpoint/python/visualize.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/checkpoint/python/visualize.py).
+Defined in [`contrib/checkpoint/python/visualize.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/checkpoint/python/visualize.py).
 
-Visualizes an object-based checkpoint (from <a href="../../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a>).
+<!-- Placeholder for "Used in" -->
 
 Useful for inspecting checkpoints and debugging loading issues.
 
@@ -38,8 +40,9 @@ python -c "import tensorflow as tf;\
 
 #### Args:
 
+
 * <b>`save_path`</b>: The checkpoint prefix, as returned by <a href="../../../tf/train/Checkpoint#save"><code>tf.train.Checkpoint.save</code></a>
-    or <a href="../../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint</code></a>.
+  or <a href="../../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint</code></a>.
 
 #### Returns:
 

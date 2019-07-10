@@ -7,21 +7,20 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Import router for file_io.
 
 ## Classes
 
 [`class FastGFile`](../tf/gfile/FastGFile): File I/O wrappers without thread locking.
 
-[`class GFile`](../tf/gfile/GFile): File I/O wrappers without thread locking.
+[`class GFile`](../tf/io/gfile/GFile): File I/O wrappers without thread locking.
 
-[`class Open`](../tf/gfile/GFile): File I/O wrappers without thread locking.
+[`class Open`](../tf/io/gfile/GFile): File I/O wrappers without thread locking.
 
 ## Functions
 
-[`Copy(...)`](../tf/gfile/Copy): Copies data from oldpath to newpath.
+[`Copy(...)`](../tf/gfile/Copy): Copies data from `oldpath` to `newpath`.
 
 [`DeleteRecursively(...)`](../tf/gfile/DeleteRecursively): Deletes everything under dirname recursively.
 

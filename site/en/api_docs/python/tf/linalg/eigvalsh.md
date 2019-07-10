@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.linalg.eigvalsh
 
+Computes the eigenvalues of one or more self-adjoint matrices.
+
 ### Aliases:
 
+* `tf.compat.v1.linalg.eigvalsh`
+* `tf.compat.v1.self_adjoint_eigvals`
+* `tf.compat.v2.linalg.eigvalsh`
 * `tf.linalg.eigvalsh`
 * `tf.self_adjoint_eigvals`
 
@@ -19,17 +24,18 @@ tf.linalg.eigvalsh(
 
 
 
-Defined in [`tensorflow/python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/linalg_ops.py).
+Defined in [`python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg_ops.py).
 
-Computes the eigenvalues of one or more self-adjoint matrices.
+<!-- Placeholder for "Used in" -->
 
 Note: If your program backpropagates through this function, you should replace
-it with a call to tf.linalg.eigvalsh (possibly ignoring the second output) to
+it with a call to tf.linalg.eigh (possibly ignoring the second output) to
 avoid computing the eigen decomposition twice. This is because the
 eigenvectors are used to compute the gradient w.r.t. the eigenvalues. See
 _SelfAdjointEigV2Grad in linalg_grad.py.
 
 #### Args:
+
 
 * <b>`tensor`</b>: `Tensor` of shape `[..., N, N]`.
 * <b>`name`</b>: string, optional name of the operation.
@@ -37,5 +43,6 @@ _SelfAdjointEigV2Grad in linalg_grad.py.
 
 #### Returns:
 
+
 * <b>`e`</b>: Eigenvalues. Shape is `[..., N]`. The vector `e[..., :]` contains the `N`
-    eigenvalues of `tensor[..., :, :]`.
+  eigenvalues of `tensor[..., :, :]`.

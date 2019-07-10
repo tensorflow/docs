@@ -7,9 +7,21 @@ page_type: reference
 
 ## Class `PredictOutput`
 
+Represents the output of a generic prediction head.
+
 Inherits From: [`ExportOutput`](../../../tf/estimator/export/ExportOutput)
 
-Represents the output of a generic prediction head.
+### Aliases:
+
+* Class `tf.compat.v1.estimator.export.PredictOutput`
+* Class `tf.compat.v2.estimator.export.PredictOutput`
+* Class `tf.estimator.export.PredictOutput`
+
+
+
+Defined in [`python/saved_model/model_utils/export_output.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/model_utils/export_output.py).
+
+<!-- Placeholder for "Used in" -->
 
 A generic prediction need not be either a classification or a regression.
 
@@ -23,22 +35,26 @@ __init__(outputs)
 
 Constructor for PredictOutput.
 
+
 #### Args:
 
+
 * <b>`outputs`</b>: A `Tensor` or a dict of string to `Tensor` representing the
-    predictions.
+  predictions.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: if the outputs is not dict, or any of its keys are not
-      strings, or any of its values are not `Tensor`s.
+    strings, or any of its values are not `Tensor`s.
 
 
 
 ## Properties
 
 <h3 id="outputs"><code>outputs</code></h3>
+
 
 
 
@@ -52,15 +68,8 @@ Constructor for PredictOutput.
 as_signature_def(receiver_tensors)
 ```
 
-Generate a SignatureDef proto for inclusion in a MetaGraphDef.
 
-The SignatureDef will specify outputs as described in this ExportOutput,
-and will use the provided receiver_tensors as inputs.
 
-#### Args:
-
-* <b>`receiver_tensors`</b>: a `Tensor`, or a dict of string to `Tensor`, specifying
-    input nodes that will be fed.
 
 
 

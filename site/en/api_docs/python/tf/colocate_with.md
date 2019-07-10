@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.colocate_with
 
+DEPRECATED FUNCTION
+
+### Aliases:
+
+* `tf.colocate_with`
+* `tf.compat.v1.colocate_with`
+
 ``` python
 tf.colocate_with(
     op,
@@ -14,9 +21,9 @@ tf.colocate_with(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
-DEPRECATED FUNCTION
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:

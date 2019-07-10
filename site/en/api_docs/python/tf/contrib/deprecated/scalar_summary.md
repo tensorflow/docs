@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.deprecated.scalar_summary
 
+Outputs a `Summary` protocol buffer with scalar values. (deprecated)
+
 ``` python
 tf.contrib.deprecated.scalar_summary(
     tags,
@@ -16,9 +18,9 @@ tf.contrib.deprecated.scalar_summary(
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/logging_ops.py).
+Defined in [`python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/logging_ops.py).
 
-Outputs a `Summary` protocol buffer with scalar values. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-11-30.
 Instructions for updating:
@@ -26,17 +28,19 @@ Please switch to tf.summary.scalar. Note that tf.summary.scalar uses the node na
 
 This ops is deprecated. Please switch to tf.summary.scalar.
 For an explanation of why this op was deprecated, and information on how to
-migrate, look ['here'](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/deprecated/__init__.py)
+migrate, look
+['here'](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/deprecated/__init__.py)
 
 The input `tags` and `values` must have the same shape.  The generated
 summary has a summary value for each tag-value pair in `tags` and `values`.
 
 #### Args:
 
+
 * <b>`tags`</b>: A `string` `Tensor`.  Tags for the summaries.
 * <b>`values`</b>: A real numeric Tensor.  Values for the summaries.
 * <b>`collections`</b>: Optional list of graph collections keys. The new summary op is
-    added to these collections. Defaults to `[GraphKeys.SUMMARIES]`.
+  added to these collections. Defaults to `[GraphKeys.SUMMARIES]`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

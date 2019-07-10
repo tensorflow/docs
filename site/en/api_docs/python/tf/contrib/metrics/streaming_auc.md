@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.streaming_auc
 
+Computes the approximate AUC via a Riemann sum. (deprecated)
+
 ``` python
 tf.contrib.metrics.streaming_auc(
     predictions,
@@ -20,9 +22,9 @@ tf.contrib.metrics.streaming_auc(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
-Computes the approximate AUC via a Riemann sum. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -54,18 +56,19 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`predictions`</b>: A floating point `Tensor` of arbitrary shape and whose values
-    are in the range `[0, 1]`.
+  are in the range `[0, 1]`.
 * <b>`labels`</b>: A `bool` `Tensor` whose shape matches `predictions`.
 * <b>`weights`</b>: `Tensor` whose rank is either 0, or the same rank as `labels`, and
-    must be broadcastable to `labels` (i.e., all dimensions must be either
-    `1`, or the same as the corresponding `labels` dimension).
+  must be broadcastable to `labels` (i.e., all dimensions must be either
+  `1`, or the same as the corresponding `labels` dimension).
 * <b>`num_thresholds`</b>: The number of thresholds to use when discretizing the roc
-    curve.
+  curve.
 * <b>`metrics_collections`</b>: An optional list of collections that `auc` should be
-    added to.
+  added to.
 * <b>`updates_collections`</b>: An optional list of collections that `update_op` should
-    be added to.
+  be added to.
 * <b>`curve`</b>: Specifies the name of the curve to be computed, 'ROC' [default] or
   'PR' for the Precision-Recall-curve.
 * <b>`name`</b>: An optional variable_scope name.
@@ -73,15 +76,17 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Returns:
 
+
 * <b>`auc`</b>: A scalar `Tensor` representing the current area-under-curve.
 * <b>`update_op`</b>: An operation that increments the `true_positives`,
-    `true_negatives`, `false_positives` and `false_negatives` variables
-    appropriately and whose value matches `auc`.
+  `true_negatives`, `false_positives` and `false_negatives` variables
+  appropriately and whose value matches `auc`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `predictions` and `labels` have mismatched shapes, or if
-    `weights` is not `None` and its shape doesn't match `predictions`, or if
-    either `metrics_collections` or `updates_collections` are not a list or
-    tuple.
+  `weights` is not `None` and its shape doesn't match `predictions`, or if
+  either `metrics_collections` or `updates_collections` are not a list or
+  tuple.

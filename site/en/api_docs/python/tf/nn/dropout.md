@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.dropout
 
+Computes dropout. (deprecated arguments)
+
+### Aliases:
+
+* `tf.compat.v1.nn.dropout`
+* `tf.nn.dropout`
+
 ``` python
 tf.nn.dropout(
     x,
@@ -18,9 +25,9 @@ tf.nn.dropout(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Computes dropout. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(keep_prob)`. They will be removed in a future version.
 Instructions for updating:
@@ -40,15 +47,16 @@ kept independently and each row and column will be kept or not kept together.
 
 #### Args:
 
+
 * <b>`x`</b>: A floating point tensor.
 * <b>`keep_prob`</b>: (deprecated) A deprecated alias for `(1-rate)`.
 * <b>`noise_shape`</b>: A 1-D `Tensor` of type `int32`, representing the
-    shape for randomly generated keep/drop flags.
+  shape for randomly generated keep/drop flags.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
+  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
 * <b>`name`</b>: A name for this operation (optional).
 * <b>`rate`</b>: A scalar `Tensor` with the same type as `x`. The probability that each
-    element of `x` is discarded.
+  element of `x` is discarded.
 
 
 #### Returns:
@@ -56,7 +64,9 @@ kept independently and each row and column will be kept or not kept together.
 A Tensor of the same shape of `x`.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `rate` is not in `[0, 1)` or if `x` is not a floating
-    point tensor.
+  point tensor.

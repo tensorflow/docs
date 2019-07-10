@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.regularizers.deserialize
 
+
+
+### Aliases:
+
+* `tf.compat.v1.keras.regularizers.deserialize`
+* `tf.compat.v2.keras.regularizers.deserialize`
+* `tf.keras.regularizers.deserialize`
+
 ``` python
 tf.keras.regularizers.deserialize(
     config,
@@ -14,5 +22,6 @@ tf.keras.regularizers.deserialize(
 
 
 
-Defined in [`tensorflow/python/keras/regularizers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/regularizers.py).
+Defined in [`python/keras/regularizers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/regularizers.py).
 
+<!-- Placeholder for "Used in" -->

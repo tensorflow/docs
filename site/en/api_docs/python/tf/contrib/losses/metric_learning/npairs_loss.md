@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.losses.metric_learning.npairs_loss
 
+Computes the npairs loss.
+
 ``` python
 tf.contrib.losses.metric_learning.npairs_loss(
     labels,
@@ -17,9 +19,9 @@ tf.contrib.losses.metric_learning.npairs_loss(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
+Defined in [`contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
 
-Computes the npairs loss.
+<!-- Placeholder for "Used in" -->
 
 Npairs loss expects paired data where a pair is composed of samples from the
 same labels and each pairs in the minibatch have different labels. The loss
@@ -32,17 +34,19 @@ See: http://www.nec-labs.com/uploads/images/Department-Images/MediaAnalytics/pap
 
 #### Args:
 
+
 * <b>`labels`</b>: 1-D tf.int32 `Tensor` of shape [batch_size/2].
 * <b>`embeddings_anchor`</b>: 2-D Tensor of shape [batch_size/2, embedding_dim] for the
-    embedding vectors for the anchor images. Embeddings should not be
-    l2 normalized.
+  embedding vectors for the anchor images. Embeddings should not be
+  l2 normalized.
 * <b>`embeddings_positive`</b>: 2-D Tensor of shape [batch_size/2, embedding_dim] for the
-    embedding vectors for the positive images. Embeddings should not be
-    l2 normalized.
+  embedding vectors for the positive images. Embeddings should not be
+  l2 normalized.
 * <b>`reg_lambda`</b>: Float. L2 regularization term on the embedding vectors.
 * <b>`print_losses`</b>: Boolean. Option to print the xent and l2loss.
 
 
 #### Returns:
+
 
 * <b>`npairs_loss`</b>: tf.float32 scalar.

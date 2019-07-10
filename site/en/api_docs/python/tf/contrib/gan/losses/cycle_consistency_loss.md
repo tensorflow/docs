@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.losses.cycle_consistency_loss
 
+Defines the cycle consistency loss.
+
 ``` python
 tf.contrib.gan.losses.cycle_consistency_loss(
     cyclegan_model,
@@ -15,20 +17,21 @@ tf.contrib.gan.losses.cycle_consistency_loss(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/losses/python/tuple_losses_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/losses/python/tuple_losses_impl.py).
+Defined in [`contrib/gan/python/losses/python/tuple_losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/losses/python/tuple_losses_impl.py).
 
-Defines the cycle consistency loss.
+<!-- Placeholder for "Used in" -->
 
 Uses `cycle_consistency_loss` to compute the cycle consistency loss for a
 `cyclegan_model`.
 
 #### Args:
 
+
 * <b>`cyclegan_model`</b>: A `CycleGANModel` namedtuple.
 * <b>`scope`</b>: The scope for the operations performed in computing the loss.
-    Defaults to None.
+  Defaults to None.
 * <b>`add_summaries`</b>: Whether or not to add detailed summaries for the loss.
-    Defaults to False.
+  Defaults to False.
 
 
 #### Returns:
@@ -36,6 +39,8 @@ Uses `cycle_consistency_loss` to compute the cycle consistency loss for a
 A scalar `Tensor` of cycle consistency loss.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `cyclegan_model` is not a `CycleGANModel` namedtuple.

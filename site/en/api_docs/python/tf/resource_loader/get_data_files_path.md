@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.resource_loader.get_data_files_path
 
+Get a direct path to the data files colocated with the script.
+
+### Aliases:
+
+* `tf.compat.v1.resource_loader.get_data_files_path`
+* `tf.resource_loader.get_data_files_path`
+
 ``` python
 tf.resource_loader.get_data_files_path()
 ```
 
 
 
-Defined in [`tensorflow/python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/resource_loader.py).
+Defined in [`python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/resource_loader.py).
 
-Get a direct path to the data files colocated with the script.
+<!-- Placeholder for "Used in" -->
+
 
 #### Returns:
 

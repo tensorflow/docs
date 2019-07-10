@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.data.experimental.make_batched_features_dataset
 
+
+
+### Aliases:
+
+* `tf.compat.v1.data.experimental.make_batched_features_dataset`
+* `tf.data.experimental.make_batched_features_dataset`
+
 ``` python
 tf.data.experimental.make_batched_features_dataset(
     file_pattern,
@@ -27,5 +34,6 @@ tf.data.experimental.make_batched_features_dataset(
 
 
 
-Defined in [`tensorflow/python/data/experimental/ops/readers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/experimental/ops/readers.py).
+Defined in [`python/data/experimental/ops/readers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/readers.py).
 
+<!-- Placeholder for "Used in" -->

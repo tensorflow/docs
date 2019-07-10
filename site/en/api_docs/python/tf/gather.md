@@ -5,21 +5,29 @@ page_type: reference
 
 # tf.gather
 
+Gather slices from `params` axis `axis` according to `indices`.
+
+### Aliases:
+
+* `tf.compat.v1.gather`
+* `tf.gather`
+
 ``` python
 tf.gather(
     params,
     indices,
     validate_indices=None,
     name=None,
-    axis=0
+    axis=None,
+    batch_dims=0
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Gather slices from `params` axis `axis` according to `indices`.
+<!-- Placeholder for "Used in" -->
 
 `indices` must be an integer tensor of any dimension (usually 0-D or 1-D).
 Produces an output tensor with shape `params.shape[:axis] + indices.shape +
@@ -51,14 +59,16 @@ See also <a href="../tf/batch_gather"><code>tf.batch_gather</code></a> and <a hr
 
 #### Args:
 
+
 * <b>`params`</b>: A `Tensor`.
-    The tensor from which to gather values. Must be at least rank
-    `axis + 1`.
+  The tensor from which to gather values. Must be at least rank
+  `axis + 1`.
 * <b>`indices`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    Index tensor. Must be in range `[0, params.shape[axis])`.
+  Index tensor. Must be in range `[0, params.shape[axis])`.
 * <b>`axis`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    The axis in `params` to gather `indices` from. Defaults to the first
-    dimension. Supports negative indexes.
+  The axis in `params` to gather `indices` from. Defaults to the first
+  dimension. Supports negative indexes.
+* <b>`batch_dims`</b>: An optional `int`. Defaults to `0`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

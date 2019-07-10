@@ -5,17 +5,21 @@ page_type: reference
 
 # tf.contrib.graph_editor.make_regex
 
+Return a compiled regular expression.
+
 ``` python
 tf.contrib.graph_editor.make_regex(obj)
 ```
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/select.py).
+Defined in [`contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/select.py).
 
-Return a compiled regular expression.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`obj`</b>: a string or a regular expression.
 
@@ -23,6 +27,8 @@ Return a compiled regular expression.
 
 A compiled regular expression.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if obj could not be converted to a regular expression.

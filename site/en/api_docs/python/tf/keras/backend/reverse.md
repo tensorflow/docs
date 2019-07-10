@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.reverse
 
+Reverse a tensor along the specified axes.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.reverse`
+* `tf.compat.v2.keras.backend.reverse`
+* `tf.keras.backend.reverse`
+
 ``` python
 tf.keras.backend.reverse(
     x,
@@ -14,15 +22,17 @@ tf.keras.backend.reverse(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Reverse a tensor along the specified axes.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
 
+
 * <b>`x`</b>: Tensor to reverse.
 * <b>`axes`</b>: Integer or iterable of integers.
-        Axes to reverse.
+    Axes to reverse.
 
 
 #### Returns:

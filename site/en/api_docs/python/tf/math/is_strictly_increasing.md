@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.math.is_strictly_increasing
 
+Returns `True` if `x` is strictly increasing.
+
 ### Aliases:
 
+* `tf.compat.v1.debugging.is_strictly_increasing`
+* `tf.compat.v1.is_strictly_increasing`
+* `tf.compat.v1.math.is_strictly_increasing`
+* `tf.compat.v2.math.is_strictly_increasing`
 * `tf.debugging.is_strictly_increasing`
 * `tf.is_strictly_increasing`
 * `tf.math.is_strictly_increasing`
@@ -20,9 +26,9 @@ tf.math.is_strictly_increasing(
 
 
 
-Defined in [`tensorflow/python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/check_ops.py).
+Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
 
-Returns `True` if `x` is strictly increasing.
+<!-- Placeholder for "Used in" -->
 
 Elements of `x` are compared in row-major order.  The tensor `[x[0],...]`
 is strictly increasing if for every adjacent pair we have `x[i] < x[i+1]`.
@@ -32,9 +38,10 @@ See also:  `is_non_decreasing`
 
 #### Args:
 
+
 * <b>`x`</b>: Numeric `Tensor`.
 * <b>`name`</b>: A name for this operation (optional).
-    Defaults to "is_strictly_increasing"
+  Defaults to "is_strictly_increasing"
 
 
 #### Returns:
@@ -42,6 +49,8 @@ See also:  `is_non_decreasing`
 Boolean `Tensor`, equal to `True` iff `x` is strictly increasing.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if `x` is not a numeric tensor.

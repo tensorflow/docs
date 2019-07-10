@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.math.scalar_mul
 
+Multiplies a scalar times a `Tensor` or `IndexedSlices` object.
+
 ### Aliases:
 
+* `tf.compat.v1.math.scalar_mul`
+* `tf.compat.v1.scalar_mul`
 * `tf.math.scalar_mul`
 * `tf.scalar_mul`
 
@@ -20,15 +24,16 @@ tf.math.scalar_mul(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Multiplies a scalar times a `Tensor` or `IndexedSlices` object.
+<!-- Placeholder for "Used in" -->
 
 Intended for use in gradient code which might deal with `IndexedSlices`
 objects, which are easy to multiply by a scalar but more expensive to
 multiply with arbitrary tensors.
 
 #### Args:
+
 
 * <b>`scalar`</b>: A 0-D scalar `Tensor`. Must have known shape.
 * <b>`x`</b>: A `Tensor` or `IndexedSlices` to be scaled.
@@ -40,6 +45,8 @@ multiply with arbitrary tensors.
 `scalar * x` of the same type (`Tensor` or `IndexedSlices`) as `x`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if scalar is not a 0-D `scalar`.

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.batch_scatter_update
 
+Generalization of <a href="../tf/scatter_update"><code>tf.compat.v1.scatter_update</code></a> to axis different than 0. (deprecated)
+
+### Aliases:
+
+* `tf.batch_scatter_update`
+* `tf.compat.v1.batch_scatter_update`
+
 ``` python
 tf.batch_scatter_update(
     ref,
@@ -17,9 +24,9 @@ tf.batch_scatter_update(
 
 
 
-Defined in [`tensorflow/python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/state_ops.py).
+Defined in [`python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/state_ops.py).
 
-Generalization of <a href="../tf/scatter_update"><code>tf.scatter_update</code></a> to axis different than 0. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-11-29.
 Instructions for updating:
@@ -45,20 +52,22 @@ And the operation performed can be expressed as:
 `var[i_1, ..., i_n, indices[i_1, ..., i_n, j]] = updates[i_1, ..., i_n, j]`
 
 When indices is a 1D tensor, this operation is equivalent to
-<a href="../tf/scatter_update"><code>tf.scatter_update</code></a>.
+<a href="../tf/scatter_update"><code>tf.compat.v1.scatter_update</code></a>.
 
 To avoid this operation there would be 2 alternatives:
 1) Reshaping the variable by merging the first `ndims` dimensions. However,
    this is not possible because <a href="../tf/reshape"><code>tf.reshape</code></a> returns a Tensor, which we
-   cannot use <a href="../tf/scatter_update"><code>tf.scatter_update</code></a> on.
+   cannot use <a href="../tf/scatter_update"><code>tf.compat.v1.scatter_update</code></a> on.
 2) Looping over the first `ndims` of the variable and using
-   <a href="../tf/scatter_update"><code>tf.scatter_update</code></a> on the subtensors that result of slicing the first
+   <a href="../tf/scatter_update"><code>tf.compat.v1.scatter_update</code></a> on the subtensors that result of slicing the
+   first
    dimension. This is a valid option for `ndims = 1`, but less efficient than
    this implementation.
 
-See also <a href="../tf/scatter_update"><code>tf.scatter_update</code></a> and <a href="../tf/scatter_nd_update"><code>tf.scatter_nd_update</code></a>.
+See also <a href="../tf/scatter_update"><code>tf.compat.v1.scatter_update</code></a> and <a href="../tf/scatter_nd_update"><code>tf.compat.v1.scatter_nd_update</code></a>.
 
 #### Args:
+
 
 * <b>`ref`</b>: `Variable` to scatter onto.
 * <b>`indices`</b>: Tensor containing indices as described above.
@@ -72,7 +81,9 @@ See also <a href="../tf/scatter_update"><code>tf.scatter_update</code></a> and <
 Ref to `variable` after it has been modified.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the initial `ndims` of `ref`, `indices`, and `updates` are
-      not the same.
+    not the same.

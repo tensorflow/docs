@@ -5,7 +5,19 @@ page_type: reference
 
 # Module: tf.estimator.export
 
-Utility methods for exporting Estimator.
+
+
+### Aliases:
+
+* Module `tf.compat.v1.estimator.export`
+* Module `tf.estimator.export`
+
+
+
+Defined in [`python/estimator/api/_v1/estimator/export/__init__.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/api/_v1/estimator/export/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 

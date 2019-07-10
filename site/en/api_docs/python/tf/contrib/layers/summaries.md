@@ -5,9 +5,12 @@ page_type: reference
 
 # Module: tf.contrib.layers.summaries
 
-
-
-Defined in [`tensorflow/contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/summaries.py).
-
 Utility functions for summary creation.
+
+
+
+Defined in [`contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/summaries.py).
+
+<!-- Placeholder for "Used in" -->
+
 

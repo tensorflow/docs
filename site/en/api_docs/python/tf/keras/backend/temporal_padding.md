@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.temporal_padding
 
+Pads the middle dimension of a 3D tensor.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.temporal_padding`
+* `tf.compat.v2.keras.backend.temporal_padding`
+* `tf.keras.backend.temporal_padding`
+
 ``` python
 tf.keras.backend.temporal_padding(
     x,
@@ -14,15 +22,17 @@ tf.keras.backend.temporal_padding(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Pads the middle dimension of a 3D tensor.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
 
+
 * <b>`x`</b>: Tensor or variable.
 * <b>`padding`</b>: Tuple of 2 integers, how many zeros to
-        add at the start and end of dim 1.
+    add at the start and end of dim 1.
 
 
 #### Returns:

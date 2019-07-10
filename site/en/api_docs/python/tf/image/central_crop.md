@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.image.central_crop
 
+Crop the central region of the image(s).
+
+### Aliases:
+
+* `tf.compat.v1.image.central_crop`
+* `tf.compat.v2.image.central_crop`
+* `tf.image.central_crop`
+
 ``` python
 tf.image.central_crop(
     image,
@@ -14,9 +22,9 @@ tf.image.central_crop(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Crop the central region of the image(s).
+<!-- Placeholder for "Used in" -->
 
 Remove the outer parts of an image but retain the central region of the image
 along each dimension. If we specify central_fraction = 0.5, this function
@@ -34,12 +42,14 @@ batch of images (`image` is a 4-D Tensor).
 
 #### Args:
 
+
 * <b>`image`</b>: Either a 3-D float Tensor of shape [height, width, depth], or a 4-D
-    Tensor of shape [batch_size, height, width, depth].
+  Tensor of shape [batch_size, height, width, depth].
 * <b>`central_fraction`</b>: float (0, 1], fraction of size to crop
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if central_crop_fraction is not within (0, 1].
 

@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.layers.feature_column
 
-
-
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/feature_column.py).
-
 This API defines FeatureColumn abstraction.
+
+
+
+Defined in [`contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column.py).
+
+<!-- Placeholder for "Used in" -->
 
 FeatureColumns provide a high level abstraction for ingesting and representing
 features in `Estimator` models.

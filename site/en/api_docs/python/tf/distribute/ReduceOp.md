@@ -7,26 +7,26 @@ page_type: reference
 
 ## Class `ReduceOp`
 
-
-
-
-
-Defined in [`tensorflow/python/distribute/reduce_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/reduce_util.py).
-
 Indicates how a set of values should be reduced.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.distribute.ReduceOp`
+* Class `tf.compat.v2.distribute.ReduceOp`
+* Class `tf.distribute.ReduceOp`
+
+
+
+Defined in [`python/distribute/reduce_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/reduce_util.py).
+
+<!-- Placeholder for "Used in" -->
 
 * `SUM`: Add all the values.
 * `MEAN`: Take the arithmetic mean ("average") of the values.
 
-TODO(priyag): Add the following types:
-* `MIN`: Return the minimum of all values.
-* `MAX`: Return the maximum of all values.
-
 ## Class Members
 
-<h3 id="MEAN"><code>MEAN</code></h3>
-
-<h3 id="SUM"><code>SUM</code></h3>
-
-<h3 id="__members__"><code>__members__</code></h3>
-
+* `MEAN` <a id="MEAN"></a>
+* `SUM` <a id="SUM"></a>

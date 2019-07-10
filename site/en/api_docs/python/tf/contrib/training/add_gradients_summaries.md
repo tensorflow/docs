@@ -5,17 +5,21 @@ page_type: reference
 
 # tf.contrib.training.add_gradients_summaries
 
+Add summaries to gradients.
+
 ``` python
 tf.contrib.training.add_gradients_summaries(grads_and_vars)
 ```
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/training.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/training.py).
+Defined in [`contrib/training/python/training/training.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/training.py).
 
-Add summaries to gradients.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`grads_and_vars`</b>: A list of gradient to variable pairs (tuples).
 

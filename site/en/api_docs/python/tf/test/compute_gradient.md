@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.test.compute_gradient
 
+Computes and returns the theoretical and numerical Jacobian.
+
+### Aliases:
+
+* `tf.compat.v1.test.compute_gradient`
+* `tf.test.compute_gradient`
+
 ``` python
 tf.test.compute_gradient(
     x,
@@ -20,9 +27,9 @@ tf.test.compute_gradient(
 
 
 
-Defined in [`tensorflow/python/ops/gradient_checker.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/gradient_checker.py).
+Defined in [`python/ops/gradient_checker.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/gradient_checker.py).
 
-Computes and returns the theoretical and numerical Jacobian.
+<!-- Placeholder for "Used in" -->
 
 If `x` or `y` is complex, the Jacobian will still be real but the
 corresponding Jacobian dimension(s) will be twice as large.  This is required
@@ -31,26 +38,27 @@ necessarily holomorphic, and may have gradients not expressible as complex
 numbers.  For example, if `x` is complex with shape `[m]` and `y` is complex
 with shape `[n]`, each Jacobian `J` will have shape `[m * 2, n * 2]` with
 
-    J[::2, ::2] = d(Re y)/d(Re x)
-    J[::2, 1::2] = d(Im y)/d(Re x)
-    J[1::2, ::2] = d(Re y)/d(Im x)
-    J[1::2, 1::2] = d(Im y)/d(Im x)
+    J[:m, :n] = d(Re y)/d(Re x)
+    J[:m, n:] = d(Im y)/d(Re x)
+    J[m:, :n] = d(Re y)/d(Im x)
+    J[m:, n:] = d(Im y)/d(Im x)
 
 #### Args:
 
+
 * <b>`x`</b>: a tensor or list of tensors
 * <b>`x_shape`</b>: the dimensions of x as a tuple or an array of ints. If x is a list,
-  then this is the list of shapes.
+then this is the list of shapes.
 * <b>`y`</b>: a tensor
 * <b>`y_shape`</b>: the dimensions of y as a tuple or an array of ints.
 * <b>`x_init_value`</b>: (optional) a numpy array of the same shape as "x"
-    representing the initial value of x. If x is a list, this should be a list
-    of numpy arrays.  If this is none, the function will pick a random tensor
-    as the initial value.
+  representing the initial value of x. If x is a list, this should be a list
+  of numpy arrays.  If this is none, the function will pick a random tensor
+  as the initial value.
 * <b>`delta`</b>: (optional) the amount of perturbation.
 * <b>`init_targets`</b>: list of targets to run to initialize model params.
 * <b>`extra_feed_dict`</b>: dict that allows fixing specified tensor values
-    during the Jacobian calculation.
+  during the Jacobian calculation.
 
 
 #### Returns:

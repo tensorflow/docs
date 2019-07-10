@@ -5,26 +5,40 @@ page_type: reference
 
 # tf.keras.backend.shape
 
+Returns the symbolic shape of a tensor or variable.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.shape`
+* `tf.compat.v2.keras.backend.shape`
+* `tf.keras.backend.shape`
+
 ``` python
 tf.keras.backend.shape(x)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Returns the symbolic shape of a tensor or variable.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: A tensor or variable.
 
 
 #### Returns:
 
-    A symbolic shape (which is itself a tensor).
+A symbolic shape (which is itself a tensor).
 
-Examples:
+
+
+#### Examples:
+
+
 
 ```python
     # TensorFlow example

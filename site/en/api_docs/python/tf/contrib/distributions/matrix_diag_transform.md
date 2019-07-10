@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.distributions.matrix_diag_transform
 
+Transform diagonal of [batch-]matrix, leave rest of matrix unchanged.
+
 ``` python
 tf.contrib.distributions.matrix_diag_transform(
     matrix,
@@ -15,9 +17,9 @@ tf.contrib.distributions.matrix_diag_transform(
 
 
 
-Defined in [`tensorflow/python/ops/distributions/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/distributions/util.py).
+Defined in [`python/ops/distributions/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/util.py).
 
-Transform diagonal of [batch-]matrix, leave rest of matrix unchanged.
+<!-- Placeholder for "Used in" -->
 
 Create a trainable covariance defined by a Cholesky factor:
 
@@ -57,13 +59,13 @@ loss = -1 * tf.reduce_mean(dist.log_prob(labels))
 
 #### Args:
 
+
 * <b>`matrix`</b>:  Rank `R` `Tensor`, `R >= 2`, where the last two dimensions are
-    equal.
-* <b>`transform`</b>:  Element-wise function mapping `Tensors` to `Tensors`. To
-    be applied to the diagonal of `matrix`. If `None`, `matrix` is returned
-    unchanged. Defaults to `None`.
-* <b>`name`</b>:  A name to give created ops.
-    Defaults to "matrix_diag_transform".
+  equal.
+* <b>`transform`</b>:  Element-wise function mapping `Tensors` to `Tensors`. To be
+  applied to the diagonal of `matrix`. If `None`, `matrix` is returned
+  unchanged. Defaults to `None`.
+* <b>`name`</b>:  A name to give created ops. Defaults to "matrix_diag_transform".
 
 
 #### Returns:

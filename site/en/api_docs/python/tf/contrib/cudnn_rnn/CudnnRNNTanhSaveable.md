@@ -7,13 +7,16 @@ page_type: reference
 
 ## Class `CudnnRNNTanhSaveable`
 
+
+
 Inherits From: [`CudnnLSTMSaveable`](../../../tf/contrib/cudnn_rnn/CudnnLSTMSaveable)
 
 
 
-Defined in [`tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py).
+Defined in [`contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py).
 
-SaveableObject implementation handling Cudnn LSTM opaque params.
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -58,22 +61,23 @@ Creates a CudnnOpaqueParamsSaveable object.
 
 #### Args:
 
+
 * <b>`opaque_params`</b>: a variable, Cudnn RNN opaque params.
 * <b>`num_layers`</b>: the number of layers for the RNN model.
 * <b>`num_units`</b>: the number of units within the RNN model.
 * <b>`input_size`</b>: the size of the input, it could be different from the
-    num_units.
+  num_units.
 * <b>`input_mode`</b>: indicate whether there is a linear projection between the
-    input and the actual computation before the first layer. It could be
-    'linear_input', 'skip_input' or 'auto_select'. 'linear_input' (default)
-    always applies a linear projection of input onto RNN hidden state.
-    (standard RNN behavior). 'skip_input' is only allowed when input_size ==
-    num_units; 'auto_select' implies 'skip_input' when input_size ==
-    num_units; otherwise, it implies 'linear_input'.
+  input and the actual computation before the first layer. It could be
+  'linear_input', 'skip_input' or 'auto_select'. 'linear_input' (default)
+  always applies a linear projection of input onto RNN hidden state.
+  (standard RNN behavior). 'skip_input' is only allowed when input_size ==
+  num_units; 'auto_select' implies 'skip_input' when input_size ==
+  num_units; otherwise, it implies 'linear_input'.
 * <b>`direction`</b>: the direction model that the model operates. Could be either
-    'unidirectional' or 'bidirectional'
+  'unidirectional' or 'bidirectional'
 * <b>`scope`</b>: string of VariableScope, the scope of equivalent subgraph
-    consisting only platform-independent tf RNN cells.
+  consisting only platform-independent tf RNN cells.
 * <b>`name`</b>: the name of the CudnnOpaqueParamsSaveable object.
 
 
@@ -84,8 +88,15 @@ Creates a CudnnOpaqueParamsSaveable object.
 
 The device for SaveSpec Tensors.
 
+
 <h3 id="format_converter"><code>format_converter</code></h3>
 
+
+
+
+<h3 id="optional_restore"><code>optional_restore</code></h3>
+
+A hint to restore assertions that this object is optional.
 
 
 
@@ -101,24 +112,8 @@ restore(
 )
 ```
 
-Restores this object from 'restored_tensors'.
-
-#### Args:
-
-* <b>`restored_tensors`</b>: the tensors that were loaded from a checkpoint
-* <b>`restored_shapes`</b>: the shapes this object should conform to after
-    restore, or None.
 
 
-#### Returns:
-
-An operation that restores the state of the object.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: If the object cannot be restored using the provided
-    parameters.
 
 
 

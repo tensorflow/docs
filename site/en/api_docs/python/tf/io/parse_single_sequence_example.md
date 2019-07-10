@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.io.parse_single_sequence_example
 
+Parses a single `SequenceExample` proto.
+
 ### Aliases:
 
+* `tf.compat.v1.io.parse_single_sequence_example`
+* `tf.compat.v1.parse_single_sequence_example`
+* `tf.compat.v2.io.parse_single_sequence_example`
 * `tf.io.parse_single_sequence_example`
 * `tf.parse_single_sequence_example`
 
@@ -22,11 +27,11 @@ tf.io.parse_single_sequence_example(
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/parsing_ops.py).
+Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
-Parses a single `SequenceExample` proto.
+<!-- Placeholder for "Used in" -->
 
-Parses a single serialized [`SequenceExample`](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/example/example.proto)
+Parses a single serialized [`SequenceExample`](https://www.tensorflow.org/code/tensorflow/core/example/example.proto)
 proto given in `serialized`.
 
 This op parses a serialized sequence example into a tuple of dictionaries
@@ -75,17 +80,18 @@ output. If not `None`, `example_name` must be a scalar.
 
 #### Args:
 
+
 * <b>`serialized`</b>: A scalar (0-D Tensor) of type string, a single binary
-    serialized `SequenceExample` proto.
+  serialized `SequenceExample` proto.
 * <b>`context_features`</b>: A `dict` mapping feature keys to `FixedLenFeature` or
-    `VarLenFeature` values. These features are associated with a
-    `SequenceExample` as a whole.
+  `VarLenFeature` values. These features are associated with a
+  `SequenceExample` as a whole.
 * <b>`sequence_features`</b>: A `dict` mapping feature keys to
-    `FixedLenSequenceFeature` or `VarLenFeature` values. These features are
-    associated with data within the `FeatureList` section of the
-    `SequenceExample` proto.
+  `FixedLenSequenceFeature` or `VarLenFeature` values. These features are
+  associated with data within the `FeatureList` section of the
+  `SequenceExample` proto.
 * <b>`example_name`</b>: A scalar (0-D Tensor) of strings (optional), the name of
-    the serialized proto.
+  the serialized proto.
 * <b>`name`</b>: A name for this operation (optional).
 
 
@@ -96,6 +102,8 @@ The first dict contains the context key/values.
 The second dict contains the feature_list key/values.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if any feature is invalid.

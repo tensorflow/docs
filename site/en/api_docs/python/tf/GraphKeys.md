@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `GraphKeys`
 
-
-
-
-
-Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/ops.py).
-
 Standard names to use for graph collections.
+
+
+
+### Aliases:
+
+* Class `tf.GraphKeys`
+* Class `tf.compat.v1.GraphKeys`
+
+
+
+Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 The standard library uses various well-known names to collect and
 retrieve values associated with a graph. For example, the
@@ -26,7 +33,7 @@ The following standard keys are defined:
 
 * `GLOBAL_VARIABLES`: the default collection of `Variable` objects, shared
   across distributed environment (model variables are subset of these). See
-  <a href="../tf/global_variables"><code>tf.global_variables</code></a>
+  <a href="../tf/global_variables"><code>tf.compat.v1.global_variables</code></a>
   for more details.
   Commonly, all `TRAINABLE_VARIABLES` variables will be in `MODEL_VARIABLES`,
   and all `MODEL_VARIABLES` variables will be in `GLOBAL_VARIABLES`.
@@ -38,19 +45,19 @@ The following standard keys are defined:
   <a href="../tf/contrib/framework/model_variable"><code>tf.contrib.framework.model_variable</code></a> to add to this collection.
 * `TRAINABLE_VARIABLES`: the subset of `Variable` objects that will
   be trained by an optimizer. See
-  <a href="../tf/trainable_variables"><code>tf.trainable_variables</code></a>
+  <a href="../tf/trainable_variables"><code>tf.compat.v1.trainable_variables</code></a>
   for more details.
 * `SUMMARIES`: the summary `Tensor` objects that have been created in the
   graph. See
-  <a href="../tf/summary/merge_all"><code>tf.summary.merge_all</code></a>
+  <a href="../tf/summary/merge_all"><code>tf.compat.v1.summary.merge_all</code></a>
   for more details.
 * `QUEUE_RUNNERS`: the `QueueRunner` objects that are used to
   produce input for a computation. See
-  <a href="../tf/train/queue_runner/start_queue_runners"><code>tf.train.start_queue_runners</code></a>
+  <a href="../tf/train/queue_runner/start_queue_runners"><code>tf.compat.v1.train.start_queue_runners</code></a>
   for more details.
 * `MOVING_AVERAGE_VARIABLES`: the subset of `Variable` objects that will also
   keep moving averages.  See
-  <a href="../tf/moving_average_variables"><code>tf.moving_average_variables</code></a>
+  <a href="../tf/moving_average_variables"><code>tf.compat.v1.moving_average_variables</code></a>
   for more details.
 * `REGULARIZATION_LOSSES`: regularization losses collected during graph
   construction.
@@ -64,69 +71,36 @@ automatically populated as many of the others are:
 
 ## Class Members
 
-<h3 id="ACTIVATIONS"><code>ACTIVATIONS</code></h3>
-
-<h3 id="ASSET_FILEPATHS"><code>ASSET_FILEPATHS</code></h3>
-
-<h3 id="BIASES"><code>BIASES</code></h3>
-
-<h3 id="CONCATENATED_VARIABLES"><code>CONCATENATED_VARIABLES</code></h3>
-
-<h3 id="COND_CONTEXT"><code>COND_CONTEXT</code></h3>
-
-<h3 id="EVAL_STEP"><code>EVAL_STEP</code></h3>
-
-<h3 id="GLOBAL_STEP"><code>GLOBAL_STEP</code></h3>
-
-<h3 id="GLOBAL_VARIABLES"><code>GLOBAL_VARIABLES</code></h3>
-
-<h3 id="INIT_OP"><code>INIT_OP</code></h3>
-
-<h3 id="LOCAL_INIT_OP"><code>LOCAL_INIT_OP</code></h3>
-
-<h3 id="LOCAL_RESOURCES"><code>LOCAL_RESOURCES</code></h3>
-
-<h3 id="LOCAL_VARIABLES"><code>LOCAL_VARIABLES</code></h3>
-
-<h3 id="LOSSES"><code>LOSSES</code></h3>
-
-<h3 id="METRIC_VARIABLES"><code>METRIC_VARIABLES</code></h3>
-
-<h3 id="MODEL_VARIABLES"><code>MODEL_VARIABLES</code></h3>
-
-<h3 id="MOVING_AVERAGE_VARIABLES"><code>MOVING_AVERAGE_VARIABLES</code></h3>
-
-<h3 id="QUEUE_RUNNERS"><code>QUEUE_RUNNERS</code></h3>
-
-<h3 id="READY_FOR_LOCAL_INIT_OP"><code>READY_FOR_LOCAL_INIT_OP</code></h3>
-
-<h3 id="READY_OP"><code>READY_OP</code></h3>
-
-<h3 id="REGULARIZATION_LOSSES"><code>REGULARIZATION_LOSSES</code></h3>
-
-<h3 id="RESOURCES"><code>RESOURCES</code></h3>
-
-<h3 id="SAVEABLE_OBJECTS"><code>SAVEABLE_OBJECTS</code></h3>
-
-<h3 id="SAVERS"><code>SAVERS</code></h3>
-
-<h3 id="SUMMARIES"><code>SUMMARIES</code></h3>
-
-<h3 id="SUMMARY_OP"><code>SUMMARY_OP</code></h3>
-
-<h3 id="TABLE_INITIALIZERS"><code>TABLE_INITIALIZERS</code></h3>
-
-<h3 id="TRAINABLE_RESOURCE_VARIABLES"><code>TRAINABLE_RESOURCE_VARIABLES</code></h3>
-
-<h3 id="TRAINABLE_VARIABLES"><code>TRAINABLE_VARIABLES</code></h3>
-
-<h3 id="TRAIN_OP"><code>TRAIN_OP</code></h3>
-
-<h3 id="UPDATE_OPS"><code>UPDATE_OPS</code></h3>
-
-<h3 id="VARIABLES"><code>VARIABLES</code></h3>
-
-<h3 id="WEIGHTS"><code>WEIGHTS</code></h3>
-
-<h3 id="WHILE_CONTEXT"><code>WHILE_CONTEXT</code></h3>
-
+* `ACTIVATIONS = 'activations'` <a id="ACTIVATIONS"></a>
+* `ASSET_FILEPATHS = 'asset_filepaths'` <a id="ASSET_FILEPATHS"></a>
+* `BIASES = 'biases'` <a id="BIASES"></a>
+* `CONCATENATED_VARIABLES = 'concatenated_variables'` <a id="CONCATENATED_VARIABLES"></a>
+* `COND_CONTEXT = 'cond_context'` <a id="COND_CONTEXT"></a>
+* `EVAL_STEP = 'eval_step'` <a id="EVAL_STEP"></a>
+* `GLOBAL_STEP = 'global_step'` <a id="GLOBAL_STEP"></a>
+* `GLOBAL_VARIABLES = 'variables'` <a id="GLOBAL_VARIABLES"></a>
+* `INIT_OP = 'init_op'` <a id="INIT_OP"></a>
+* `LOCAL_INIT_OP = 'local_init_op'` <a id="LOCAL_INIT_OP"></a>
+* `LOCAL_RESOURCES = 'local_resources'` <a id="LOCAL_RESOURCES"></a>
+* `LOCAL_VARIABLES = 'local_variables'` <a id="LOCAL_VARIABLES"></a>
+* `LOSSES = 'losses'` <a id="LOSSES"></a>
+* `METRIC_VARIABLES = 'metric_variables'` <a id="METRIC_VARIABLES"></a>
+* `MODEL_VARIABLES = 'model_variables'` <a id="MODEL_VARIABLES"></a>
+* `MOVING_AVERAGE_VARIABLES = 'moving_average_variables'` <a id="MOVING_AVERAGE_VARIABLES"></a>
+* `QUEUE_RUNNERS = 'queue_runners'` <a id="QUEUE_RUNNERS"></a>
+* `READY_FOR_LOCAL_INIT_OP = 'ready_for_local_init_op'` <a id="READY_FOR_LOCAL_INIT_OP"></a>
+* `READY_OP = 'ready_op'` <a id="READY_OP"></a>
+* `REGULARIZATION_LOSSES = 'regularization_losses'` <a id="REGULARIZATION_LOSSES"></a>
+* `RESOURCES = 'resources'` <a id="RESOURCES"></a>
+* `SAVEABLE_OBJECTS = 'saveable_objects'` <a id="SAVEABLE_OBJECTS"></a>
+* `SAVERS = 'savers'` <a id="SAVERS"></a>
+* `SUMMARIES = 'summaries'` <a id="SUMMARIES"></a>
+* `SUMMARY_OP = 'summary_op'` <a id="SUMMARY_OP"></a>
+* `TABLE_INITIALIZERS = 'table_initializer'` <a id="TABLE_INITIALIZERS"></a>
+* `TRAINABLE_RESOURCE_VARIABLES = 'trainable_resource_variables'` <a id="TRAINABLE_RESOURCE_VARIABLES"></a>
+* `TRAINABLE_VARIABLES = 'trainable_variables'` <a id="TRAINABLE_VARIABLES"></a>
+* `TRAIN_OP = 'train_op'` <a id="TRAIN_OP"></a>
+* `UPDATE_OPS = 'update_ops'` <a id="UPDATE_OPS"></a>
+* `VARIABLES = 'variables'` <a id="VARIABLES"></a>
+* `WEIGHTS = 'weights'` <a id="WEIGHTS"></a>
+* `WHILE_CONTEXT = 'while_context'` <a id="WHILE_CONTEXT"></a>

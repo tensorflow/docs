@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.sort
 
+Sorts a tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.sort`
+* `tf.compat.v2.sort`
 * `tf.contrib.framework.sort`
 * `tf.sort`
 
@@ -21,17 +25,31 @@ tf.sort(
 
 
 
-Defined in [`tensorflow/python/ops/sort_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sort_ops.py).
+Defined in [`python/ops/sort_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sort_ops.py).
 
-Sorts a tensor.
+<!-- Placeholder for "Used in" -->
+
+
+#### Usage:
+
+
+
+```python
+import tensorflow as tf
+a = [1, 10, 26.9, 2.8, 166.32, 62.3]
+b = tf.sort(a,axis=-1,direction='ASCENDING',name=None)
+c = tf.keras.backend.eval(b)
+# Here, c = [  1.     2.8   10.    26.9   62.3  166.32]
+```
 
 #### Args:
 
+
 * <b>`values`</b>: 1-D or higher numeric `Tensor`.
 * <b>`axis`</b>: The axis along which to sort. The default is -1, which sorts the last
-    axis.
+  axis.
 * <b>`direction`</b>: The direction in which to sort the values (`'ASCENDING'` or
-    `'DESCENDING'`).
+  `'DESCENDING'`).
 * <b>`name`</b>: Optional name for the operation.
 
 
@@ -41,6 +59,8 @@ A `Tensor` with the same dtype and shape as `values`, with the elements
     sorted along the given `axis`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If axis is not a constant scalar, or the direction is invalid.

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.f1_score
 
+Computes the approximately best F1-score across different thresholds.
+
 ``` python
 tf.contrib.metrics.f1_score(
     labels,
@@ -19,9 +21,9 @@ tf.contrib.metrics.f1_score(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/metrics/classification.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/metrics/classification.py).
+Defined in [`contrib/metrics/python/metrics/classification.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/metrics/classification.py).
 
-Computes the approximately best F1-score across different thresholds.
+<!-- Placeholder for "Used in" -->
 
 The f1_score function applies a range of thresholds to the predictions to
 convert them from [0, 1] to bool. Precision and recall are computed by
@@ -67,34 +69,37 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`labels`</b>: A `Tensor` whose shape matches `predictions`. Will be cast to
-    `bool`.
+  `bool`.
 * <b>`predictions`</b>: A floating point `Tensor` of arbitrary shape and whose values
-    are in the range `[0, 1]`.
+  are in the range `[0, 1]`.
 * <b>`weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
-    `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
-    be either `1`, or the same as the corresponding `labels` dimension).
+  `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
+  be either `1`, or the same as the corresponding `labels` dimension).
 * <b>`num_thresholds`</b>: The number of thresholds to use when discretizing the roc
-    curve.
+  curve.
 * <b>`metrics_collections`</b>: An optional list of collections that `f1_score` should
-    be added to.
+  be added to.
 * <b>`updates_collections`</b>: An optional list of collections that `update_op` should
-    be added to.
+  be added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
 
+
 * <b>`f1_score`</b>: A scalar `Tensor` representing the current best f1-score across
-    different thresholds.
+  different thresholds.
 * <b>`update_op`</b>: An operation that increments the `true_positives`,
-    `true_negatives`, `false_positives` and `false_negatives` variables
-    appropriately and whose value matches the `f1_score`.
+  `true_negatives`, `false_positives` and `false_negatives` variables
+  appropriately and whose value matches the `f1_score`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `predictions` and `labels` have mismatched shapes, or if
-    `weights` is not `None` and its shape doesn't match `predictions`, or if
-    either `metrics_collections` or `updates_collections` are not a list or
-    tuple.
+  `weights` is not `None` and its shape doesn't match `predictions`, or if
+  either `metrics_collections` or `updates_collections` are not a list or
+  tuple.

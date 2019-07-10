@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.summarize_activations
 
+Summarize activations, using `summarize_activation` to summarize.
+
 ``` python
 tf.contrib.layers.summarize_activations(
     name_filter=None,
@@ -14,6 +16,6 @@ tf.contrib.layers.summarize_activations(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/summaries.py).
+Defined in [`contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/summaries.py).
 
-Summarize activations, using `summarize_activation` to summarize.
+<!-- Placeholder for "Used in" -->

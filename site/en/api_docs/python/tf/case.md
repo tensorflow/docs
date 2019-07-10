@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.case
 
+Create a case operation.
+
+### Aliases:
+
+* `tf.case`
+* `tf.compat.v1.case`
+* `tf.compat.v2.case`
+
 ``` python
 tf.case(
     pred_fn_pairs,
@@ -17,9 +25,11 @@ tf.case(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/control_flow_ops.py).
+Defined in [`python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/control_flow_ops.py).
 
-Create a case operation.
+<!-- Placeholder for "Used in" -->
+
+See also <a href="../tf/switch_case"><code>tf.switch_case</code></a>.
 
 The `pred_fn_pairs` parameter is a dict or list of pairs of size N.
 Each pair contains a boolean scalar tensor and a python callable that
@@ -47,22 +57,23 @@ conditional tests is not guaranteed. However, the order is guaranteed to be
 deterministic, so that variables created in conditional branches are created
 in fixed order across runs.
 
-@compatibility{eager}
-Unordered dictionaries are not supported in eager mode when `exclusive=False`.
-Use a list of tuples instead.
-@end_compatibility
+
 
 
 **Example 1:**
 
-Pseudocode:
+#### Pseudocode:
+
+
 
 ```
 if (x < y) return 17;
 else return 23;
 ```
 
-Expressions:
+#### Expressions:
+
+
 
 ```python
 f1 = lambda: tf.constant(17)
@@ -72,7 +83,9 @@ r = tf.case([(tf.less(x, y), f1)], default=f2)
 
 **Example 2:**
 
-Pseudocode:
+#### Pseudocode:
+
+
 
 ```
 if (x < y && x > z) raise OpError("Only one predicate may evaluate to True");
@@ -81,7 +94,9 @@ else if (x > z) return 23;
 else return -1;
 ```
 
-Expressions:
+#### Expressions:
+
+
 
 ```python
 def f1(): return tf.constant(17)
@@ -93,8 +108,9 @@ r = tf.case({tf.less(x, y): f1, tf.greater(x, z): f2},
 
 #### Args:
 
+
 * <b>`pred_fn_pairs`</b>: Dict or list of pairs of a boolean scalar tensor and a
-    callable which returns a list of tensors.
+  callable which returns a list of tensors.
 * <b>`default`</b>: Optional callable that returns a list of tensors.
 * <b>`exclusive`</b>: True iff at most one predicate is allowed to evaluate to `True`.
 * <b>`strict`</b>: A boolean that enables/disables 'strict' mode; see above.
@@ -107,9 +123,16 @@ The tensors returned by the first pair whose predicate evaluated to True, or
 those returned by `default` if none does.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `pred_fn_pairs` is not a list/dictionary.
 * <b>`TypeError`</b>: If `pred_fn_pairs` is a list but does not contain 2-tuples.
 * <b>`TypeError`</b>: If `fns[i]` is not callable for any i, or `default` is not
-             callable.
+           callable.
+
+#### Eager Compatibility
+Unordered dictionaries are not supported in eager mode when `exclusive=False`.
+Use a list of tuples instead.
+

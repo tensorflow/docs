@@ -7,18 +7,21 @@ page_type: reference
 
 ## Class `ConstrainedOptimizer`
 
-
-
-
-
-Defined in [`tensorflow/contrib/constrained_optimization/python/constrained_optimizer.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/constrained_optimization/python/constrained_optimizer.py).
-
 Base class representing a constrained optimizer.
 
-A ConstrainedOptimizer wraps a tf.train.Optimizer (or more than one), and
-applies it to a ConstrainedMinimizationProblem. Unlike a tf.train.Optimizer,
-which takes a tensor to minimize as a parameter to its minimize() method, a
-constrained optimizer instead takes a ConstrainedMinimizationProblem.
+
+
+
+
+Defined in [`contrib/constrained_optimization/python/constrained_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/constrained_optimization/python/constrained_optimizer.py).
+
+<!-- Placeholder for "Used in" -->
+
+A ConstrainedOptimizer wraps a tf.compat.v1.train.Optimizer (or more than
+one), and applies it to a ConstrainedMinimizationProblem. Unlike a
+tf.compat.v1.train.Optimizer, which takes a tensor to minimize as a parameter
+to its minimize() method, a constrained optimizer instead takes a
+ConstrainedMinimizationProblem.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -28,10 +31,12 @@ __init__(optimizer)
 
 Constructs a new `ConstrainedOptimizer`.
 
+
 #### Args:
 
-* <b>`optimizer`</b>: tf.train.Optimizer, used to optimize the
-    ConstraintedMinimizationProblem.
+
+* <b>`optimizer`</b>: tf.compat.v1.train.Optimizer, used to optimize the
+  ConstraintedMinimizationProblem.
 
 
 #### Returns:
@@ -40,11 +45,13 @@ A new `ConstrainedOptimizer`.
 
 
 
+
 ## Properties
 
 <h3 id="optimizer"><code>optimizer</code></h3>
 
-Returns the <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a> used for optimization.
+Returns the <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a> used for optimization.
+
 
 
 
@@ -79,18 +86,20 @@ problem.
 
 #### Args:
 
+
 * <b>`minimization_problem`</b>: ConstrainedMinimizationProblem, the problem to
-    optimize.
+  optimize.
 * <b>`unconstrained_steps`</b>: int, number of steps for which we should perform
-    unconstrained updates, before transitioning to constrained updates.
-* <b>`global_step`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`var_list`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`gate_gradients`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`aggregation_method`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`colocate_gradients_with_ops`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize`
-    method.
-* <b>`name`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`grad_loss`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
+  unconstrained updates, before transitioning to constrained updates.
+* <b>`global_step`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`var_list`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`gate_gradients`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`aggregation_method`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize`
+  method.
+* <b>`colocate_gradients_with_ops`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s
+  `minimize` method.
+* <b>`name`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`grad_loss`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
 
 
 #### Returns:
@@ -98,7 +107,9 @@ problem.
 `Operation`, the train_op.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If unconstrained_steps is provided, but global_step is not.
 
@@ -125,21 +136,24 @@ satisfying the `constraints` portion.
 
 #### Args:
 
+
 * <b>`minimization_problem`</b>: ConstrainedMinimizationProblem, the problem to
-    optimize.
-* <b>`global_step`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`var_list`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`gate_gradients`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`aggregation_method`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`colocate_gradients_with_ops`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize`
-    method.
-* <b>`name`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`grad_loss`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
+  optimize.
+* <b>`global_step`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`var_list`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`gate_gradients`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`aggregation_method`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize`
+  method.
+* <b>`colocate_gradients_with_ops`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s
+  `minimize` method.
+* <b>`name`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`grad_loss`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
 
 
 #### Returns:
 
 `Operation`, the train_op.
+
 
 <h3 id="minimize_unconstrained"><code>minimize_unconstrained</code></h3>
 
@@ -164,21 +178,24 @@ minimizes `objective`.
 
 #### Args:
 
+
 * <b>`minimization_problem`</b>: ConstrainedMinimizationProblem, the problem to
-    optimize.
-* <b>`global_step`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`var_list`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`gate_gradients`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`aggregation_method`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`colocate_gradients_with_ops`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize`
-    method.
-* <b>`name`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
-* <b>`grad_loss`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>'s `minimize` method.
+  optimize.
+* <b>`global_step`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`var_list`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`gate_gradients`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`aggregation_method`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize`
+  method.
+* <b>`colocate_gradients_with_ops`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s
+  `minimize` method.
+* <b>`name`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
+* <b>`grad_loss`</b>: as in <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>'s `minimize` method.
 
 
 #### Returns:
 
 `Operation`, the train_op.
+
 
 
 

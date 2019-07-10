@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.losses.sparse_softmax_cross_entropy
 
+Cross-entropy loss using <a href="../../tf/nn/sparse_softmax_cross_entropy_with_logits"><code>tf.nn.sparse_softmax_cross_entropy_with_logits</code></a>.
+
+### Aliases:
+
+* `tf.compat.v1.losses.sparse_softmax_cross_entropy`
+* `tf.losses.sparse_softmax_cross_entropy`
+
 ``` python
 tf.losses.sparse_softmax_cross_entropy(
     labels,
@@ -18,9 +25,9 @@ tf.losses.sparse_softmax_cross_entropy(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/losses_impl.py).
 
-Cross-entropy loss using <a href="../../tf/nn/sparse_softmax_cross_entropy_with_logits"><code>tf.nn.sparse_softmax_cross_entropy_with_logits</code></a>.
+<!-- Placeholder for "Used in" -->
 
 `weights` acts as a coefficient for the loss. If a scalar is provided,
 then the loss is simply scaled by the given value. If `weights` is a
@@ -29,16 +36,17 @@ corresponding sample.
 
 #### Args:
 
+
 * <b>`labels`</b>: `Tensor` of shape `[d_0, d_1, ..., d_{r-1}]` (where `r` is rank of
-    `labels` and result) and dtype `int32` or `int64`. Each entry in `labels`
-    must be an index in `[0, num_classes)`. Other values will raise an
-    exception when this op is run on CPU, and return `NaN` for corresponding
-    loss and gradient rows on GPU.
+  `labels` and result) and dtype `int32` or `int64`. Each entry in `labels`
+  must be an index in `[0, num_classes)`. Other values will raise an
+  exception when this op is run on CPU, and return `NaN` for corresponding
+  loss and gradient rows on GPU.
 * <b>`logits`</b>: Unscaled log probabilities of shape
-    `[d_0, d_1, ..., d_{r-1}, num_classes]` and dtype `float16`, `float32` or
-    `float64`.
+  `[d_0, d_1, ..., d_{r-1}, num_classes]` and dtype `float16`, `float32` or
+  `float64`.
 * <b>`weights`</b>: Coefficients for the loss. This must be scalar or broadcastable to
-    `labels` (i.e. same rank and each dimension is either 1 or the same).
+  `labels` (i.e. same rank and each dimension is either 1 or the same).
 * <b>`scope`</b>: the scope for the operations performed in computing the loss.
 * <b>`loss_collection`</b>: collection to which the loss will be added.
 * <b>`reduction`</b>: Type of reduction to apply to loss.
@@ -50,14 +58,16 @@ Weighted loss `Tensor` of the same type as `logits`. If `reduction` is
 `NONE`, this has the same shape as `labels`; otherwise, it is scalar.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the shapes of `logits`, `labels`, and `weights` are
-    incompatible, or if any of them are None.
+  incompatible, or if any of them are None.
 
 
 
 #### Eager Compatibility
 The `loss_collection` argument is ignored when executing eagerly. Consider
-holding on to the return value or collecting losses via a <a href="../../tf/keras/models/Model"><code>tf.keras.Model</code></a>.
+holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
 

@@ -5,9 +5,13 @@ page_type: reference
 
 # tf.math.bincount
 
+Counts the number of occurrences of each value in an integer array.
+
 ### Aliases:
 
 * `tf.bincount`
+* `tf.compat.v1.bincount`
+* `tf.compat.v1.math.bincount`
 * `tf.math.bincount`
 
 ``` python
@@ -22,9 +26,9 @@ tf.math.bincount(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Counts the number of occurrences of each value in an integer array.
+<!-- Placeholder for "Used in" -->
 
 If `minlength` and `maxlength` are not given, returns a vector with length
 `tf.reduce_max(arr) + 1` if `arr` is non-empty, and length 0 otherwise.
@@ -34,14 +38,15 @@ value in `weights` at each index where the corresponding value in `arr` is
 
 #### Args:
 
+
 * <b>`arr`</b>: An int32 tensor of non-negative values.
 * <b>`weights`</b>: If non-None, must be the same shape as arr. For each value in
-    `arr`, the bin will be incremented by the corresponding weight instead of
-    1.
+  `arr`, the bin will be incremented by the corresponding weight instead of
+  1.
 * <b>`minlength`</b>: If given, ensures the output has length at least `minlength`,
-    padding with zeros at the end if necessary.
+  padding with zeros at the end if necessary.
 * <b>`maxlength`</b>: If given, skips values in `arr` that are equal or greater than
-    `maxlength`, ensuring that the output has length at most `maxlength`.
+  `maxlength`, ensuring that the output has length at most `maxlength`.
 * <b>`dtype`</b>: If `weights` is None, determines the type of the output bins.
 
 

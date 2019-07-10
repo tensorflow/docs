@@ -7,9 +7,16 @@ page_type: reference
 
 ## Class `FeedingQueueRunner`
 
+A queue runner that allows the feeding of values such as numpy arrays.
+
 Inherits From: [`QueueRunner`](../../../tf/train/queue_runner/QueueRunner)
 
-A queue runner that allows the feeding of values such as numpy arrays.
+
+
+Defined in [`python/estimator/inputs/queues/feeding_queue_runner.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/inputs/queues/feeding_queue_runner.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -32,22 +39,24 @@ serialization to protobuffer.
 
 #### Args:
 
+
 * <b>`queue`</b>: A `Queue`.
 * <b>`enqueue_ops`</b>: List of enqueue ops to run in threads later.
 * <b>`close_op`</b>: Op to close the queue. Pending enqueue ops are preserved.
 * <b>`cancel_op`</b>: Op to close the queue and cancel pending enqueue ops.
 * <b>`feed_fns`</b>: a list of functions that return a dictionary mapping fed
-    `Tensor`s to values. Must be the same length as `enqueue_ops`.
+  `Tensor`s to values. Must be the same length as `enqueue_ops`.
 * <b>`queue_closed_exception_types`</b>: Optional tuple of Exception types that
-    indicate that the queue has been closed when raised during an enqueue
-    operation.  Defaults to
-    `(tf.errors.OutOfRangeError, tf.errors.CancelledError)`.
+  indicate that the queue has been closed when raised during an enqueue
+  operation.  Defaults to
+  `(tf.errors.OutOfRangeError, tf.errors.CancelledError)`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: `feed_fns` is not `None` and has different length than
-    `enqueue_ops`.
+  `enqueue_ops`.
 
 
 
@@ -57,11 +66,14 @@ serialization to protobuffer.
 
 
 
+
 <h3 id="close_op"><code>close_op</code></h3>
 
 
 
+
 <h3 id="enqueue_ops"><code>enqueue_ops</code></h3>
+
 
 
 
@@ -83,15 +95,19 @@ depending on whether or not a `Coordinator` was passed to
 A list of Python `Exception` objects.  The list is empty if no exception
 was captured.  (No exceptions are captured when using a Coordinator.)
 
+
 <h3 id="name"><code>name</code></h3>
 
 The string name of the underlying Queue.
+
 
 <h3 id="queue"><code>queue</code></h3>
 
 
 
+
 <h3 id="queue_closed_exception_types"><code>queue_closed_exception_types</code></h3>
+
 
 
 
@@ -126,17 +142,19 @@ new threads will be created.
 
 #### Args:
 
+
 * <b>`sess`</b>: A `Session`.
 * <b>`coord`</b>: Optional `Coordinator` object for reporting errors and checking
-    stop conditions.
+  stop conditions.
 * <b>`daemon`</b>: Boolean.  If `True` make the threads daemon threads.
 * <b>`start`</b>: Boolean.  If `True` starts the threads.  If `False` the
-    caller must call the `start()` method of the returned threads.
+  caller must call the `start()` method of the returned threads.
 
 
 #### Returns:
 
 A list of threads.
+
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
@@ -149,23 +167,15 @@ from_proto(
 
 Returns a `QueueRunner` object created from `queue_runner_def`.
 
+
 <h3 id="to_proto"><code>to_proto</code></h3>
 
 ``` python
 to_proto()
 ```
 
-Converts this `QueueRunner` to a `QueueRunnerDef` protocol buffer.
-
-#### Args:
-
-* <b>`export_scope`</b>: Optional `string`. Name scope to remove.
 
 
-#### Returns:
-
-A `QueueRunnerDef` protocol buffer, or `None` if the `Variable` is not in
-the specified name scope.
 
 
 

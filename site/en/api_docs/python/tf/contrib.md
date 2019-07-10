@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib
 
-
-
-Defined in [`tensorflow/contrib/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/__init__.py).
-
 contrib module containing volatile or experimental code.
+
+
+
+Defined in [`contrib/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Modules
 
@@ -26,8 +29,6 @@ contrib module containing volatile or experimental code.
 [`cloud`](../tf/contrib/cloud) module: Module for cloud ops.
 
 [`cluster_resolver`](../tf/contrib/cluster_resolver) module: Standard imports for Cluster Resolvers.
-
-[`coder`](../tf/contrib/coder) module: Data compression ops.
 
 [`compiler`](../tf/contrib/compiler) module: A module for controlling the Tensorflow/XLA JIT compiler.
 
@@ -61,7 +62,7 @@ contrib module containing volatile or experimental code.
 
 [`framework`](../tf/contrib/framework) module: Framework utilities.
 
-[`gan`](../tf/contrib/gan) module: TFGAN is a lightweight library for training and evaluating GANs.
+[`gan`](../tf/contrib/gan) module: TF-GAN is a lightweight library for training and evaluating GANs.
 
 [`graph_editor`](../tf/contrib/graph_editor) module: TensorFlow Graph Editor.
 
@@ -86,8 +87,6 @@ contrib module containing volatile or experimental code.
 [`legacy_seq2seq`](../tf/contrib/legacy_seq2seq) module: Deprecated library for creating sequence-to-sequence models in TensorFlow.
 
 [`linear_optimizer`](../tf/contrib/linear_optimizer) module: Ops for training linear models.
-
-[`lite`](../tf/lite) module: Public API for tf.lite namespace.
 
 [`lookup`](../tf/contrib/lookup) module: Ops for lookup operations.
 

@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `Profiler`
 
-
-
-
-
-Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/profiler/model_analyzer.py).
-
 TensorFlow multi-step profiler.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.profiler.Profiler`
+* Class `tf.profiler.Profiler`
+
+
+
+Defined in [`python/profiler/model_analyzer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/profiler/model_analyzer.py).
+
+<!-- Placeholder for "Used in" -->
 
 https://github.com/tensorflow/tensorflow/tree/master/tensorflow/core/profiler/README.md
 
@@ -24,9 +31,9 @@ Typical use case:
 
   for i in xrange(total_steps):
     if i % 10000 == 0:
-      run_meta = tf.RunMetadata()
+      run_meta = tf.compat.v1.RunMetadata()
       _ = sess.run(...,
-                   options=tf.RunOptions(
+                   options=tf.compat.v1.RunOptions(
                        trace_level=tf.RunOptions.FULL_TRACE),
                    run_metadata=run_meta)
       profiler.add_step(i, run_meta)
@@ -62,12 +69,14 @@ __init__(
 
 Constructor.
 
+
 #### Args:
 
+
 * <b>`graph`</b>: tf.Graph. If None and eager execution is not enabled, use
-      default graph.
+    default graph.
 * <b>`op_log`</b>: optional. tensorflow::tfprof::OpLogProto proto. Used to define
-      extra op types.
+    extra op types.
 
 
 
@@ -84,11 +93,13 @@ add_step(
 
 Add statistics of a step.
 
+
 #### Args:
 
+
 * <b>`step`</b>: int, An id used to group one or more different `run_meta` together.
-      When profiling with the profile_xxx APIs, user can use the `step`
-      id in the `options` to profile these `run_meta` together.
+    When profiling with the profile_xxx APIs, user can use the `step`
+    id in the `options` to profile these `run_meta` together.
 * <b>`run_meta`</b>: RunMetadata proto that contains statistics of a session run.
 
 <h3 id="advise"><code>advise</code></h3>
@@ -99,13 +110,16 @@ advise(options)
 
 Automatically detect problems and generate reports.
 
+
 #### Args:
+
 
 * <b>`options`</b>: A dict of options. See ALL_ADVICE example above.
 
 #### Returns:
 
 A Advise proto that conains the reports from all checkers.
+
 
 <h3 id="profile_graph"><code>profile_graph</code></h3>
 
@@ -115,13 +129,16 @@ profile_graph(options)
 
 Profile the statistics of graph nodes, organized by dataflow graph.
 
+
 #### Args:
+
 
 * <b>`options`</b>: A dict of options. See core/profiler/g3doc/options.md.
 
 #### Returns:
 
 a GraphNodeProto that records the results.
+
 
 <h3 id="profile_name_scope"><code>profile_name_scope</code></h3>
 
@@ -131,13 +148,16 @@ profile_name_scope(options)
 
 Profile the statistics of graph nodes, organized by name scope.
 
+
 #### Args:
+
 
 * <b>`options`</b>: A dict of options. See core/profiler/g3doc/options.md.
 
 #### Returns:
 
 a GraphNodeProto that records the results.
+
 
 <h3 id="profile_operations"><code>profile_operations</code></h3>
 
@@ -147,13 +167,16 @@ profile_operations(options)
 
 Profile the statistics of the Operation types (e.g. MatMul, Conv2D).
 
+
 #### Args:
+
 
 * <b>`options`</b>: A dict of options. See core/profiler/g3doc/options.md.
 
 #### Returns:
 
 a MultiGraphNodeProto that records the results.
+
 
 <h3 id="profile_python"><code>profile_python</code></h3>
 
@@ -169,11 +192,13 @@ Profile the statistics of the Python codes.
 
 #### Args:
 
+
 * <b>`options`</b>: A dict of options. See core/profiler/g3doc/options.md.
 
 #### Returns:
 
 a MultiGraphNodeProto that records the results.
+
 
 <h3 id="serialize_to_string"><code>serialize_to_string</code></h3>
 
@@ -189,6 +214,7 @@ Serialize the ProfileProto to a binary string.
 #### Returns:
 
 ProfileProto binary string.
+
 
 
 

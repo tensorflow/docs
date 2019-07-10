@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.signal
 
-
-
-Defined in [`tensorflow/contrib/signal/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/signal/__init__.py).
-
 Signal processing operations.
+
+
+
+Defined in [`contrib/signal/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/signal/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 <a href="../../tf/contrib/signal"><code>tf.contrib.signal</code></a> has been renamed to <a href="../../tf/signal"><code>tf.signal</code></a>. <a href="../../tf/contrib/signal"><code>tf.contrib.signal</code></a> will be
 removed in TensorFlow 2.0.

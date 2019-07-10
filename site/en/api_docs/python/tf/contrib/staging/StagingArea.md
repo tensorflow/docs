@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `StagingArea`
 
-
-
-
-
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/data_flow_ops.py).
-
 Class for staging inputs. No ordering guarantees.
+
+
+
+
+
+Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 A `StagingArea` is a TensorFlow data structure that stores tensors across
 multiple steps, and exposes operations that can put and get tensors.
@@ -70,26 +72,28 @@ placed according to the device scope when `get` is called.
 
 #### Args:
 
+
 * <b>`dtypes`</b>:  A list of types.  The length of dtypes must equal the number
-    of tensors in each element.
+  of tensors in each element.
 * <b>`shapes`</b>: (Optional.) Constraints on the shapes of tensors in an element.
-    A list of shape tuples or None. This list is the same length
-    as dtypes.  If the shape of any tensors in the element are constrained,
-    all must be; shapes can be None if the shapes should not be constrained.
+  A list of shape tuples or None. This list is the same length
+  as dtypes.  If the shape of any tensors in the element are constrained,
+  all must be; shapes can be None if the shapes should not be constrained.
 * <b>`names`</b>: (Optional.) If provided, the `get()` and
-    `put()` methods will use dictionaries with these names as keys.
-    Must be None or a list or tuple of the same length as `dtypes`.
+  `put()` methods will use dictionaries with these names as keys.
+  Must be None or a list or tuple of the same length as `dtypes`.
 * <b>`shared_name`</b>: (Optional.) A name to be used for the shared object. By
-    passing the same name to two different python objects they will share
-    the underlying staging area. Must be a string.
+  passing the same name to two different python objects they will share
+  the underlying staging area. Must be a string.
 * <b>`capacity`</b>: (Optional.) Maximum number of elements.
-    An integer. If zero, the Staging Area is unbounded
+  An integer. If zero, the Staging Area is unbounded
 * <b>`memory_limit`</b>: (Optional.) Maximum number of bytes of all tensors
-    in the Staging Area.
-    An integer. If zero, the Staging Area is unbounded
+  in the Staging Area.
+  An integer. If zero, the Staging Area is unbounded
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If one of the arguments is invalid.
 
@@ -101,25 +105,31 @@ placed according to the device scope when `get` is called.
 
 The maximum number of elements of this staging area.
 
+
 <h3 id="dtypes"><code>dtypes</code></h3>
 
 The list of dtypes for each component of a staging area element.
+
 
 <h3 id="memory_limit"><code>memory_limit</code></h3>
 
 The maximum number of bytes of this staging area.
 
+
 <h3 id="name"><code>name</code></h3>
 
 The name of the staging area.
+
 
 <h3 id="names"><code>names</code></h3>
 
 The list of names for each component of a staging area element.
 
+
 <h3 id="shapes"><code>shapes</code></h3>
 
 The list of shapes for each component of a staging area element.
+
 
 
 
@@ -133,7 +143,9 @@ clear(name=None)
 
 Clears the staging area.
 
+
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional)
 
@@ -141,6 +153,7 @@ Clears the staging area.
 #### Returns:
 
 The created op
+
 
 <h3 id="get"><code>get</code></h3>
 
@@ -165,12 +178,14 @@ device scope when this function is called.
 
 #### Args:
 
+
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 The tuple of tensors that was gotten.
+
 
 <h3 id="peek"><code>peek</code></h3>
 
@@ -192,14 +207,16 @@ the current device scope when this function is called.
 
 #### Args:
 
+
 * <b>`index`</b>: The index of the tensor within the staging area
-          to look up.
+        to look up.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 The tuple of tensors that was gotten.
+
 
 <h3 id="put"><code>put</code></h3>
 
@@ -217,9 +234,10 @@ its capacity.
 
 #### Args:
 
+
 * <b>`values`</b>: A single tensor, a list or tuple of tensors, or a dictionary with
-    tensor values. The number of elements must match the length of the
-    list provided to the dtypes argument when creating the StagingArea.
+  tensor values. The number of elements must match the length of the
+  list provided to the dtypes argument when creating the StagingArea.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -228,7 +246,9 @@ its capacity.
 The created op.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the number or type of inputs don't match the staging area.
 
@@ -240,7 +260,9 @@ size(name=None)
 
 Returns the number of elements in the staging area.
 
+
 #### Args:
+
 
 * <b>`name`</b>: A name for the operation (optional)
 
@@ -248,6 +270,7 @@ Returns the number of elements in the staging area.
 #### Returns:
 
 The created op
+
 
 
 

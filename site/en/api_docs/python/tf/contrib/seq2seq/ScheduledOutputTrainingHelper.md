@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `ScheduledOutputTrainingHelper`
 
+A training helper that adds scheduled sampling directly to outputs.
+
 Inherits From: [`TrainingHelper`](../../../tf/contrib/seq2seq/TrainingHelper)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/seq2seq/python/ops/helper.py).
+Defined in [`contrib/seq2seq/python/ops/helper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/helper.py).
 
-A training helper that adds scheduled sampling directly to outputs.
+<!-- Placeholder for "Used in" -->
 
 Returns False for sample_ids where no sampling took place; True elsewhere.
 
@@ -34,26 +36,29 @@ __init__(
 
 Initializer.
 
+
 #### Args:
+
 
 * <b>`inputs`</b>: A (structure) of input tensors.
 * <b>`sequence_length`</b>: An int32 vector tensor.
 * <b>`sampling_probability`</b>: A 0D `float32` tensor: the probability of sampling
-    from the outputs instead of reading directly from the inputs.
+  from the outputs instead of reading directly from the inputs.
 * <b>`time_major`</b>: Python bool.  Whether the tensors in `inputs` are time major.
-    If `False` (default), they are assumed to be batch major.
+  If `False` (default), they are assumed to be batch major.
 * <b>`seed`</b>: The sampling seed.
 * <b>`next_inputs_fn`</b>: (Optional) callable to apply to the RNN outputs to create
-    the next input when sampling. If `None` (default), the RNN outputs will
-    be used as the next inputs.
+  the next input when sampling. If `None` (default), the RNN outputs will
+  be used as the next inputs.
 * <b>`auxiliary_inputs`</b>: An optional (structure of) auxiliary input tensors with
-    a shape that matches `inputs` in all but (potentially) the final
-    dimension. These tensors will be concatenated to the sampled output or
-    the `inputs` when not sampling for use as the next input.
+  a shape that matches `inputs` in all but (potentially) the final
+  dimension. These tensors will be concatenated to the sampled output or
+  the `inputs` when not sampling for use as the next input.
 * <b>`name`</b>: Name scope for any created operations.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `sampling_probability` is not a scalar or vector.
 
@@ -63,27 +68,26 @@ Initializer.
 
 <h3 id="batch_size"><code>batch_size</code></h3>
 
-Batch size of tensor returned by `sample`.
 
-Returns a scalar int32 tensor.
+
 
 <h3 id="inputs"><code>inputs</code></h3>
 
 
 
+
 <h3 id="sample_ids_dtype"><code>sample_ids_dtype</code></h3>
 
-DType of tensor returned by `sample`.
 
-Returns a DType.
+
 
 <h3 id="sample_ids_shape"><code>sample_ids_shape</code></h3>
 
-Shape of tensor returned by `sample`, excluding the batch dimension.
 
-Returns a `TensorShape`.
+
 
 <h3 id="sequence_length"><code>sequence_length</code></h3>
+
 
 
 
@@ -97,7 +101,8 @@ Returns a `TensorShape`.
 initialize(name=None)
 ```
 
-Returns `(initial_finished, initial_inputs)`.
+
+
 
 <h3 id="next_inputs"><code>next_inputs</code></h3>
 
@@ -111,7 +116,8 @@ next_inputs(
 )
 ```
 
-next_inputs_fn for TrainingHelper.
+
+
 
 <h3 id="sample"><code>sample</code></h3>
 
@@ -124,7 +130,8 @@ sample(
 )
 ```
 
-Returns `sample_ids`.
+
+
 
 
 

@@ -5,26 +5,40 @@ page_type: reference
 
 # tf.keras.backend.dtype
 
+Returns the dtype of a Keras tensor or variable, as a string.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.dtype`
+* `tf.compat.v2.keras.backend.dtype`
+* `tf.keras.backend.dtype`
+
 ``` python
 tf.keras.backend.dtype(x)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Returns the dtype of a Keras tensor or variable, as a string.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable.
 
 
 #### Returns:
 
-    String, dtype of `x`.
+String, dtype of `x`.
 
-Examples:
+
+
+#### Examples:
+
+
 ```python
     >>> from keras import backend as K
     >>> K.dtype(K.placeholder(shape=(2,4,5)))
@@ -36,8 +50,8 @@ Examples:
     # Keras variable
     >>> kvar = K.variable(np.array([[1, 2], [3, 4]]))
     >>> K.dtype(kvar)
-    'float32_ref'
+    'float32'
     >>> kvar = K.variable(np.array([[1, 2], [3, 4]]), dtype='float32')
     >>> K.dtype(kvar)
-    'float32_ref'
+    'float32'
 ```

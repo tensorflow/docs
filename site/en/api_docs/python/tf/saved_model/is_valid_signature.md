@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.saved_model.is_valid_signature
 
+Determine whether a SignatureDef can be served by TensorFlow Serving.
+
 ### Aliases:
 
+* `tf.compat.v1.saved_model.is_valid_signature`
+* `tf.compat.v1.saved_model.signature_def_utils.is_valid_signature`
 * `tf.saved_model.is_valid_signature`
 * `tf.saved_model.signature_def_utils.is_valid_signature`
 
@@ -16,6 +20,6 @@ tf.saved_model.is_valid_signature(signature_def)
 
 
 
-Defined in [`tensorflow/python/saved_model/signature_def_utils_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/saved_model/signature_def_utils_impl.py).
+Defined in [`python/saved_model/signature_def_utils_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/signature_def_utils_impl.py).
 
-Determine whether a SignatureDef can be served by TensorFlow Serving.
+<!-- Placeholder for "Used in" -->

@@ -6,8 +6,13 @@ page_type: reference
 
 # tf.linalg.lstsq
 
+Solves one or more linear least-squares problems.
+
 ### Aliases:
 
+* `tf.compat.v1.linalg.lstsq`
+* `tf.compat.v1.matrix_solve_ls`
+* `tf.compat.v2.linalg.lstsq`
 * `tf.linalg.lstsq`
 * `tf.matrix_solve_ls`
 
@@ -23,9 +28,9 @@ tf.linalg.lstsq(
 
 
 
-Defined in [`tensorflow/python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/linalg_ops.py).
+Defined in [`python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg_ops.py).
 
-Solves one or more linear least-squares problems.
+<!-- Placeholder for "Used in" -->
 
 `matrix` is a tensor of shape `[..., M, N]` whose inner-most 2 dimensions
 form `M`-by-`N` matrices. Rhs is a tensor of shape `[..., M, K]` whose
@@ -64,6 +69,7 @@ typically 6-7 times slower than the fast path. If `fast` is `False` then
 
 #### Args:
 
+
 * <b>`matrix`</b>: `Tensor` of shape `[..., M, N]`.
 * <b>`rhs`</b>: `Tensor` of shape `[..., M, K]`.
 * <b>`l2_regularizer`</b>: 0-D `double` `Tensor`. Ignored if `fast=False`.
@@ -73,13 +79,15 @@ typically 6-7 times slower than the fast path. If `fast` is `False` then
 
 #### Returns:
 
+
 * <b>`output`</b>: `Tensor` of shape `[..., N, K]` whose inner-most 2 dimensions form
-    `M`-by-`K` matrices that solve the equations
-    `matrix[..., :, :] * output[..., :, :] = rhs[..., :, :]` in the least
-    squares sense.
+  `M`-by-`K` matrices that solve the equations
+  `matrix[..., :, :] * output[..., :, :] = rhs[..., :, :]` in the least
+  squares sense.
 
 
 #### Raises:
 
+
 * <b>`NotImplementedError`</b>: linalg.lstsq is currently disabled for complex128
-  and l2_regularizer != 0 due to poor accuracy.
+and l2_regularizer != 0 due to poor accuracy.

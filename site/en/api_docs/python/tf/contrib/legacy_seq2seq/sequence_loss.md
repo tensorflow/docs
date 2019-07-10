@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.legacy_seq2seq.sequence_loss
 
+Weighted cross-entropy loss for a sequence of logits, batch-collapsed.
+
 ``` python
 tf.contrib.legacy_seq2seq.sequence_loss(
     logits,
@@ -19,22 +21,24 @@ tf.contrib.legacy_seq2seq.sequence_loss(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
-Weighted cross-entropy loss for a sequence of logits, batch-collapsed.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`logits`</b>: List of 2D Tensors of shape [batch_size x num_decoder_symbols].
 * <b>`targets`</b>: List of 1D batch-sized int32 Tensors of the same length as logits.
 * <b>`weights`</b>: List of 1D batch-sized float-Tensors of the same length as logits.
 * <b>`average_across_timesteps`</b>: If set, divide the returned cost by the total
-    label weight.
+  label weight.
 * <b>`average_across_batch`</b>: If set, divide the returned cost by the batch size.
-* <b>`softmax_loss_function`</b>: Function (labels, logits) -> loss-batch
-    to be used instead of the standard softmax (the default if this is None).
-    **Note that to avoid confusion, it is required for the function to accept
-    named arguments.**
+* <b>`softmax_loss_function`</b>: Function (labels, logits) -> loss-batch to be used
+  instead of the standard softmax (the default if this is None). **Note that
+  to avoid confusion, it is required for the function to accept named
+  arguments.**
 * <b>`name`</b>: Optional name for this operation, defaults to "sequence_loss".
 
 
@@ -43,6 +47,8 @@ Weighted cross-entropy loss for a sequence of logits, batch-collapsed.
 A scalar float Tensor: The average log-perplexity per symbol (weighted).
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If len(logits) is different from len(targets) or len(weights).

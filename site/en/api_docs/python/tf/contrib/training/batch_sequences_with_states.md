@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.training.batch_sequences_with_states
 
+Creates batches of segments of sequential input.
+
 ``` python
 tf.contrib.training.batch_sequences_with_states(
     input_key,
@@ -26,9 +28,9 @@ tf.contrib.training.batch_sequences_with_states(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
+Defined in [`contrib/training/python/training/sequence_queueing_state_saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
 
-Creates batches of segments of sequential input.
+<!-- Placeholder for "Used in" -->
 
 This method creates a `SequenceQueueingStateSaver` (SQSS) and adds it to
 the queuerunners. It returns a `NextQueuedSequenceBatch`.
@@ -63,14 +65,16 @@ is contained has initial_states as entry of the `state`. If save_state is
 called then the next segment will have the updated entry of the `state`.
 See `NextQueuedSequenceBatch` for a complete list of properties and methods.
 
-Example usage:
+#### Example usage:
+
+
 
 ```python
 batch_size = 32
 num_unroll = 20
 num_enqueue_threads = 3
 lstm_size = 8
-cell = tf.contrib.rnn.BasicLSTMCell(num_units=lstm_size)
+cell = tf.compat.v1.nn.rnn_cell.BasicLSTMCell(num_units=lstm_size)
 
 key, sequences, context = my_parser(raw_data)
 initial_state_values = tf.zeros((state_size,), dtype=tf.float32)
@@ -99,9 +103,9 @@ lstm_output, _ = tf.contrib.rnn.static_state_saving_rnn(
   state_name="lstm_state")
 
 # Start a prefetcher in the background
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 
-tf.train.start_queue_runners(sess=session)
+tf.compat.v1.train.start_queue_runners(sess=session)
 
 while True:
   # Step through batches, perform training or inference...
@@ -110,70 +114,71 @@ while True:
 
 #### Args:
 
+
 * <b>`input_key`</b>: A string scalar `Tensor`, the **unique** key for the given
-    input example.  This is used to keep track of the split minibatch elements
-    of this input.  Batched keys of the current iteration are made
-    accessible via the `key` property.  The shape of `input_key` (scalar) must
-    be fully specified.  Consider setting `make_keys_unique` to True when
-    iterating over the same input multiple times.
+  input example.  This is used to keep track of the split minibatch elements
+  of this input.  Batched keys of the current iteration are made
+  accessible via the `key` property.  The shape of `input_key` (scalar) must
+  be fully specified.  Consider setting `make_keys_unique` to True when
+  iterating over the same input multiple times.
 
-    **Note**: if `make_keys_unique=False` then `input_key`s must be unique.
+  **Note**: if `make_keys_unique=False` then `input_key`s must be unique.
 * <b>`input_sequences`</b>: A dict mapping string names to `Tensor` values.  The values
-    must all have matching first dimension, called `value_length`. They may
-    vary from input to input. The remainder of the shape (other than the first
-    dimension) must be fully specified.
-    The `SequenceQueueingStateSaver` will split these tensors along
-    this first dimension into minibatch elements of dimension `num_unrolled`.
-    Batched and segmented sequences of the current iteration are made
-    accessible via the `sequences` property.
+  must all have matching first dimension, called `value_length`. They may
+  vary from input to input. The remainder of the shape (other than the first
+  dimension) must be fully specified.
+  The `SequenceQueueingStateSaver` will split these tensors along
+  this first dimension into minibatch elements of dimension `num_unrolled`.
+  Batched and segmented sequences of the current iteration are made
+  accessible via the `sequences` property.
 
-    **Note**: if `pad=False`, then `value_length` must always be a multiple
-      of `num_unroll`.
+  **Note**: if `pad=False`, then `value_length` must always be a multiple
+    of `num_unroll`.
 * <b>`input_context`</b>: A dict mapping string names to `Tensor` values.  The values
-    are treated as "global" across all time splits of the given input example,
-    and will be copied across for all minibatch elements accordingly.
-    Batched and copied context of the current iteration are made
-    accessible via the `context` property.
+  are treated as "global" across all time splits of the given input example,
+  and will be copied across for all minibatch elements accordingly.
+  Batched and copied context of the current iteration are made
+  accessible via the `context` property.
 
-    **Note**: All input_context values must have fully defined shapes.
+  **Note**: All input_context values must have fully defined shapes.
 * <b>`input_length`</b>: None or an int32 scalar `Tensor`, the length of the sequence
-    prior to padding. If `input_length=None` and `pad=True` then the length
-    will be inferred and will be equal to `value_length`. If `pad=False` then
-    `input_length` cannot be `None`: `input_length` must be specified. Its
-    shape of `input_length` (scalar) must be fully specified. Its value may be
-    at most `value_length` for any given input (see above for the definition
-    of `value_length`). Batched and total lengths of the current iteration are
-    made accessible via the `length` and `total_length` properties.
+  prior to padding. If `input_length=None` and `pad=True` then the length
+  will be inferred and will be equal to `value_length`. If `pad=False` then
+  `input_length` cannot be `None`: `input_length` must be specified. Its
+  shape of `input_length` (scalar) must be fully specified. Its value may be
+  at most `value_length` for any given input (see above for the definition
+  of `value_length`). Batched and total lengths of the current iteration are
+  made accessible via the `length` and `total_length` properties.
 * <b>`initial_states`</b>: A dict mapping string state names to multi-dimensional
-    values (e.g. constants or tensors).  This input defines the set of
-    states that will be kept track of during computing iterations, and
-    which can be accessed via the `state` and `save_state` methods.
+  values (e.g. constants or tensors).  This input defines the set of
+  states that will be kept track of during computing iterations, and
+  which can be accessed via the `state` and `save_state` methods.
 
-    **Note**: All initial_state values must have fully defined shapes.
+  **Note**: All initial_state values must have fully defined shapes.
 * <b>`num_unroll`</b>: Python integer, how many time steps to unroll at a time.
-    The input sequences of length k are then split into k / num_unroll many
-    segments.
+  The input sequences of length k are then split into k / num_unroll many
+  segments.
 * <b>`batch_size`</b>: int or int32 scalar `Tensor`, how large minibatches should
-    be when accessing the `state()` method and `context`, `sequences`, etc,
-    properties.
+  be when accessing the `state()` method and `context`, `sequences`, etc,
+  properties.
 * <b>`num_threads`</b>: The int number of threads enqueuing input examples into a
-    queue.
+  queue.
 * <b>`capacity`</b>: The max capacity of the queue in number of examples. Needs to be
-    at least `batch_size`. Defaults to 1000. When iterating over the same
-    input example multiple times reusing their keys the `capacity` must be
-    smaller than the number of examples.
+  at least `batch_size`. Defaults to 1000. When iterating over the same
+  input example multiple times reusing their keys the `capacity` must be
+  smaller than the number of examples.
 * <b>`allow_small_batch`</b>: If true, the queue will return smaller batches when
-    there aren't enough input examples to fill a whole batch and the end of
-    the input has been reached.
+  there aren't enough input examples to fill a whole batch and the end of
+  the input has been reached.
 * <b>`pad`</b>: If `True`, `input_sequences` will be padded to multiple of
-    `num_unroll`. In that case `input_length` may be `None` and is assumed to
-    be the length of first dimension of values in `input_sequences`
-    (i.e. `value_length`).
+  `num_unroll`. In that case `input_length` may be `None` and is assumed to
+  be the length of first dimension of values in `input_sequences`
+  (i.e. `value_length`).
 * <b>`make_keys_unique`</b>: Whether to append a random integer to the `input_key` in
-    an effort to make it unique. The seed can be set via
-    `make_keys_unique_seed`.
+  an effort to make it unique. The seed can be set via
+  `make_keys_unique_seed`.
 * <b>`make_keys_unique_seed`</b>: If `make_keys_unique=True` this fixes the seed with
-    which a random postfix is generated.
+  which a random postfix is generated.
 * <b>`name`</b>: An op name string (optional).
 
 
@@ -183,9 +188,11 @@ A NextQueuedSequenceBatch with segmented and batched inputs and their
 states.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if any of the inputs is not an expected type.
 * <b>`ValueError`</b>: if any of the input values is inconsistent, e.g. if
-    not enough shape information is available from inputs to build
-    the state saver.
+  not enough shape information is available from inputs to build
+  the state saver.

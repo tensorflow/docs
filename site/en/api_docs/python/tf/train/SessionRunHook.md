@@ -7,13 +7,24 @@ page_type: reference
 
 ## Class `SessionRunHook`
 
-
-
-
-
-Defined in [`tensorflow/python/training/session_run_hook.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/session_run_hook.py).
-
 Hook to extend calls to MonitoredSession.run().
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.estimator.SessionRunHook`
+* Class `tf.compat.v1.train.SessionRunHook`
+* Class `tf.compat.v2.estimator.SessionRunHook`
+* Class `tf.estimator.SessionRunHook`
+* Class `tf.train.SessionRunHook`
+
+
+
+Defined in [`python/training/session_run_hook.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/session_run_hook.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Methods
 
@@ -38,6 +49,7 @@ has two essential differences with the situation in which `begin` is called:
 
 #### Args:
 
+
 * <b>`session`</b>: A TensorFlow Session that has been created.
 * <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
@@ -61,6 +73,7 @@ The `run_context` argument is the same one send to `before_run` call.
 If `session.run()` raises any exceptions then `after_run()` is not called.
 
 #### Args:
+
 
 * <b>`run_context`</b>: A `SessionRunContext` object.
 * <b>`run_values`</b>: A SessionRunValues object.
@@ -87,12 +100,14 @@ At this point graph is finalized and you can not add ops.
 
 #### Args:
 
+
 * <b>`run_context`</b>: A `SessionRunContext` object.
 
 
 #### Returns:
 
 None or a `SessionRunArgs` object.
+
 
 <h3 id="begin"><code>begin</code></h3>
 
@@ -126,6 +141,7 @@ Note the difference between `end()` and `after_run()` behavior when
 `end()` is called but `after_run()` is not called.
 
 #### Args:
+
 
 * <b>`session`</b>: A TensorFlow Session that will be soon closed.
 

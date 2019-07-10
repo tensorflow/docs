@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.sigmoid_cross_entropy_with_logits
 
+Computes sigmoid cross entropy given `logits`.
+
+### Aliases:
+
+* `tf.compat.v1.nn.sigmoid_cross_entropy_with_logits`
+* `tf.nn.sigmoid_cross_entropy_with_logits`
+
 ``` python
 tf.nn.sigmoid_cross_entropy_with_logits(
     _sentinel=None,
@@ -16,9 +23,9 @@ tf.nn.sigmoid_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_impl.py).
+Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
-Computes sigmoid cross entropy given `logits`.
+<!-- Placeholder for "Used in" -->
 
 Measures the probability error in discrete classification tasks in which each
 class is independent and not mutually exclusive.  For instance, one could
@@ -49,6 +56,7 @@ equivalent formulation
 
 #### Args:
 
+
 * <b>`_sentinel`</b>: Used to prevent positional parameters. Internal, do not use.
 * <b>`labels`</b>: A `Tensor` of the same type and shape as `logits`.
 * <b>`logits`</b>: A `Tensor` of type `float32` or `float64`.
@@ -61,6 +69,8 @@ A `Tensor` of the same shape as `logits` with the componentwise
 logistic losses.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `logits` and `labels` do not have the same shape.

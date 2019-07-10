@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/lib/debug_data.py).
+Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/lib/debug_data.py).
 
 Data set from a debug-dump directory on filesystem.
 
@@ -675,7 +675,8 @@ non-debugger-decorated) partition graphs except in the following respects:
 
 #### Returns:
 
-A dict mapping device names (`str`s) to reconstructed <a href="../tf/GraphDef"><code>tf.GraphDef</code></a>s.
+A dict mapping device names (`str`s) to reconstructed
+`tf.compat.v1.GraphDef`s.
 
 <h3 id="set_python_graph"><code>set_python_graph</code></h3>
 

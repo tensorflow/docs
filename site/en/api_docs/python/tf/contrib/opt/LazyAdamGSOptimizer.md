@@ -8,13 +8,15 @@ page_type: reference
 
 ## Class `LazyAdamGSOptimizer`
 
+Variant of the Adam optimizer that handles sparse updates more efficiently.
+
 Inherits From: [`AdamGSOptimizer`](../../../tf/contrib/opt/AdamGSOptimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/lazy_adam_gs_optimizer.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/opt/python/training/lazy_adam_gs_optimizer.py).
+Defined in [`contrib/opt/python/training/lazy_adam_gs_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/lazy_adam_gs_optimizer.py).
 
-Variant of the Adam optimizer that handles sparse updates more efficiently.
+<!-- Placeholder for "Used in" -->
 
 Branched from tf.contrib.opt.LazyAdamGSOptimizer. The only difference is to
 pass global step for computing beta1 and beta2 accumulators, instead of having
@@ -52,17 +54,19 @@ global step for computing beta1 and beta2 accumulators, instead of having
 optimizer keep its own independent beta1 and beta2 accumulators as non-slot
 variables.
 
-Initialization:
+#### Initialization:
 
-<div> $$m_0 := 0  ext{(Initialize initial 1st moment vector)}$$ </div>
-<div> $$v_0 := 0  ext{(Initialize initial 2nd moment vector)}$$ </div>
-<div> $$t := 0    ext{(Initialize timestep)}$$ </div>
+
+
+<div> $$m_0 := 0 \text{(Initialize initial 1st moment vector)}$$ </div>
+<div> $$v_0 := 0 \text{(Initialize initial 2nd moment vector)}$$ </div>
+<div> $$t := 0 \text{(Initialize timestep)}$$ </div>
 
 The update rule for `variable` with gradient `g` uses an optimization
 described at the end of section2 of the paper:
 
 <div> $$t := t + 1$$ </div>
-<div> $$lr_t :=   ext{learning\_rate} * \sqrt{1 - beta_2^t} / (1 - beta_1^t)$$ </div>
+<div> $$lr_t := \text{learning\_rate} * \sqrt{1 - beta_2^t} / (1 - beta_1^t)$$ </div>
 
 <div> $$m_t := beta_1 * m_{t-1} + (1 - beta_1) * g$$ </div>
 <div> $$v_t := beta_2 * v_{t-1} + (1 - beta_2) * g * g$$ </div>
@@ -86,28 +90,23 @@ unless a variable slice was actually used).
 
 #### Args:
 
+
 * <b>`global_step`</b>: tensorflow variable indicating the step.
 * <b>`learning_rate`</b>: A Tensor or a floating point value.  The learning rate.
-* <b>`beta1`</b>: A float value or a constant float tensor.
-    The exponential decay rate for the 1st moment estimates.
-* <b>`beta2`</b>: A float value or a constant float tensor.
-    The exponential decay rate for the 2nd moment estimates.
+* <b>`beta1`</b>: A float value or a constant float tensor. The exponential decay
+  rate for the 1st moment estimates.
+* <b>`beta2`</b>: A float value or a constant float tensor. The exponential decay
+  rate for the 2nd moment estimates.
 * <b>`epsilon`</b>: A small constant for numerical stability. This epsilon is
-    "epsilon hat" in the Kingma and Ba paper (in the formula just before
-    Section 2.1), not the epsilon in Algorithm 1 of the paper.
+  "epsilon hat" in the Kingma and Ba paper (in the formula just before
+  Section 2.1), not the epsilon in Algorithm 1 of the paper.
 * <b>`use_locking`</b>: If True use locks for update operations.
 * <b>`name`</b>: Optional name for the operations created when applying gradients.
-    Defaults to "Adam".
-
-
-
-#### Eager Compatibility
-When eager execution is enabled, `learning_rate`, `beta1`, `beta2`, and
-`epsilon` can each be a callable that takes no arguments and returns the
-actual value to use. This can be useful for changing these values across
-different invocations of optimizer functions.
-
-
+  Defaults to "Adam".  @compatibility(eager) When eager execution is
+  enabled, `learning_rate`, `beta1`, `beta2`, and `epsilon` can each be a
+  callable that takes no arguments and returns the actual value to use.
+  This can be useful for changing these values across different
+  invocations of optimizer functions. @end_compatibility
 
 
 
@@ -130,12 +129,13 @@ applies gradients.
 
 #### Args:
 
+
 * <b>`grads_and_vars`</b>: List of (gradient, variable) pairs as returned by
-    `compute_gradients()`.
+  `compute_gradients()`.
 * <b>`global_step`</b>: Optional `Variable` to increment by one after the
-    variables have been updated.
+  variables have been updated.
 * <b>`name`</b>: Optional name for the returned operation.  Default to the
-    name passed to the `Optimizer` constructor.
+  name passed to the `Optimizer` constructor.
 
 
 #### Returns:
@@ -144,7 +144,9 @@ An `Operation` that applies the specified gradients. If `global_step`
 was not None, that operation also increments `global_step`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `grads_and_vars` is malformed.
 * <b>`ValueError`</b>: If none of the variables have gradients.
@@ -173,18 +175,19 @@ given variable.
 
 #### Args:
 
+
 * <b>`loss`</b>: A Tensor containing the value to minimize or a callable taking
-    no arguments which returns the value to minimize. When eager execution
-    is enabled it must be a callable.
+  no arguments which returns the value to minimize. When eager execution
+  is enabled it must be a callable.
 * <b>`var_list`</b>: Optional list or tuple of <a href="../../../tf/Variable"><code>tf.Variable</code></a> to update to minimize
-    `loss`.  Defaults to the list of variables collected in the graph
-    under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  `loss`.  Defaults to the list of variables collected in the graph
+  under the key `GraphKeys.TRAINABLE_VARIABLES`.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
-    `GATE_NONE`, `GATE_OP`, or `GATE_GRAPH`.
+  `GATE_NONE`, `GATE_OP`, or `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
-    Valid values are defined in the class `AggregationMethod`.
+  Valid values are defined in the class `AggregationMethod`.
 * <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with
-    the corresponding op.
+  the corresponding op.
 * <b>`grad_loss`</b>: Optional. A `Tensor` holding the gradient computed for `loss`.
 
 
@@ -194,12 +197,14 @@ A list of (gradient, variable) pairs. Variable is always present, but
 gradient can be `None`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `var_list` contains anything else than `Variable` objects.
 * <b>`ValueError`</b>: If some arguments are invalid.
 * <b>`RuntimeError`</b>: If called with eager execution enabled and `loss` is
-    not callable.
+  not callable.
 
 
 
@@ -214,6 +219,7 @@ and `colocate_gradients_with_ops` are ignored.
 ``` python
 get_name()
 ```
+
 
 
 
@@ -237,6 +243,7 @@ Use `get_slot_names()` to get the list of slot names created by the
 
 #### Args:
 
+
 * <b>`var`</b>: A variable passed to `minimize()` or `apply_gradients()`.
 * <b>`name`</b>: A string.
 
@@ -244,6 +251,7 @@ Use `get_slot_names()` to get the list of slot names created by the
 #### Returns:
 
 The `Variable` for the slot if it was created, `None` otherwise.
+
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
@@ -258,6 +266,7 @@ See `get_slot()`.
 #### Returns:
 
 A list of strings.
+
 
 <h3 id="minimize"><code>minimize</code></h3>
 
@@ -283,18 +292,19 @@ of using this function.
 
 #### Args:
 
+
 * <b>`loss`</b>: A `Tensor` containing the value to minimize.
 * <b>`global_step`</b>: Optional `Variable` to increment by one after the
-    variables have been updated.
+  variables have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
-    minimize `loss`.  Defaults to the list of variables collected in
-    the graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  minimize `loss`.  Defaults to the list of variables collected in
+  the graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
-    `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
+  `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
-    Valid values are defined in the class `AggregationMethod`.
+  Valid values are defined in the class `AggregationMethod`.
 * <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with
-    the corresponding op.
+  the corresponding op.
 * <b>`name`</b>: Optional name for the returned operation.
 * <b>`grad_loss`</b>: Optional. A `Tensor` holding the gradient computed for `loss`.
 
@@ -305,7 +315,9 @@ An Operation that updates the variables in `var_list`.  If `global_step`
 was not `None`, that operation also increments `global_step`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If some of the variables are not `Variable` objects.
 
@@ -339,11 +351,9 @@ A list of variables.
 
 
 
+
 ## Class Members
 
-<h3 id="GATE_GRAPH"><code>GATE_GRAPH</code></h3>
-
-<h3 id="GATE_NONE"><code>GATE_NONE</code></h3>
-
-<h3 id="GATE_OP"><code>GATE_OP</code></h3>
-
+* `GATE_GRAPH = 2` <a id="GATE_GRAPH"></a>
+* `GATE_NONE = 0` <a id="GATE_NONE"></a>
+* `GATE_OP = 1` <a id="GATE_OP"></a>

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.nn.separable_conv2d
 
+2-D convolution with separable filters.
+
+### Aliases:
+
+* `tf.compat.v1.nn.separable_conv2d`
+* `tf.nn.separable_conv2d`
+
 ``` python
 tf.nn.separable_conv2d(
     input,
@@ -14,22 +21,23 @@ tf.nn.separable_conv2d(
     padding,
     rate=None,
     name=None,
-    data_format=None
+    data_format=None,
+    dilations=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_impl.py).
+Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
-2-D convolution with separable filters.
+<!-- Placeholder for "Used in" -->
 
 Performs a depthwise convolution that acts separately on channels followed by
 a pointwise convolution that mixes channels.  Note that this is separability
 between dimensions `[1, 2]` and `3`, not spatial separability between
 dimensions `1` and `2`.
 
-In detail,
+In detail, with the default NHWC format,
 
     output[b, i, j, k] = sum_{di, dj, q, r}
         input[b, strides[1] * i + di, strides[2] * j + dj, q] *
@@ -46,22 +54,24 @@ to 1.
 
 #### Args:
 
+
 * <b>`input`</b>: 4-D `Tensor` with shape according to `data_format`.
 * <b>`depthwise_filter`</b>: 4-D `Tensor` with shape
-    `[filter_height, filter_width, in_channels, channel_multiplier]`.
-    Contains `in_channels` convolutional filters of depth 1.
+  `[filter_height, filter_width, in_channels, channel_multiplier]`.
+  Contains `in_channels` convolutional filters of depth 1.
 * <b>`pointwise_filter`</b>: 4-D `Tensor` with shape
-    `[1, 1, channel_multiplier * in_channels, out_channels]`.  Pointwise
-    filter to mix channels after `depthwise_filter` has convolved spatially.
+  `[1, 1, channel_multiplier * in_channels, out_channels]`.  Pointwise
+  filter to mix channels after `depthwise_filter` has convolved spatially.
 * <b>`strides`</b>: 1-D of size 4.  The strides for the depthwise convolution for
-    each dimension of `input`.
+  each dimension of `input`.
 * <b>`padding`</b>: A string, either `'VALID'` or `'SAME'`.  The padding algorithm.
-    See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
+  See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
 * <b>`rate`</b>: 1-D of size 2. The dilation rate in which we sample input values
-    across the `height` and `width` dimensions in atrous convolution. If it is
-    greater than 1, then all values of strides must be 1.
+  across the `height` and `width` dimensions in atrous convolution. If it is
+  greater than 1, then all values of strides must be 1.
 * <b>`name`</b>: A name for this operation (optional).
 * <b>`data_format`</b>: The data format for input. Either "NHWC" (default) or "NCHW".
+* <b>`dilations`</b>: Alias of rate.
 
 
 #### Returns:

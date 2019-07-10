@@ -11,7 +11,24 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/framework/node_def.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/framework/node_def.proto).
+### Aliases:
 
-A ProtocolMessage
+* Class `tf.NodeDef.ExperimentalDebugInfo`
+* Class `tf.compat.v1.NodeDef.ExperimentalDebugInfo`
+
+
+
+Defined in [`core/framework/node_def.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/node_def.proto).
+
+<!-- Placeholder for "Used in" -->
+
+
+## Properties
+
+<h3 id="original_node_names"><code>original_node_names</code></h3>
+
+`repeated string original_node_names`
+
+
+
 

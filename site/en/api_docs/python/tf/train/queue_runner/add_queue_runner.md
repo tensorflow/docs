@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.train.queue_runner.add_queue_runner
 
+Adds a `QueueRunner` to a collection in the graph. (deprecated)
+
 ### Aliases:
 
+* `tf.compat.v1.train.add_queue_runner`
+* `tf.compat.v1.train.queue_runner.add_queue_runner`
 * `tf.train.add_queue_runner`
 * `tf.train.queue_runner.add_queue_runner`
 
@@ -19,9 +23,9 @@ tf.train.queue_runner.add_queue_runner(
 
 
 
-Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/queue_runner_impl.py).
+Defined in [`python/training/queue_runner_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/queue_runner_impl.py).
 
-Adds a `QueueRunner` to a collection in the graph. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -36,6 +40,7 @@ all the collected queue runners.
 
 #### Args:
 
+
 * <b>`qr`</b>: A `QueueRunner`.
 * <b>`collection`</b>: A `GraphKey` specifying the graph collection to add
-    the queue runner to.  Defaults to `GraphKeys.QUEUE_RUNNERS`.
+  the queue runner to.  Defaults to <a href="../../../tf/GraphKeys#QUEUE_RUNNERS"><code>GraphKeys.QUEUE_RUNNERS</code></a>.

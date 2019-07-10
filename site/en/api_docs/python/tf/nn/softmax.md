@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.nn.softmax
 
+Computes softmax activations. (deprecated arguments)
+
 ### Aliases:
 
+* `tf.compat.v1.math.softmax`
+* `tf.compat.v1.nn.softmax`
 * `tf.math.softmax`
 * `tf.nn.softmax`
 
@@ -21,9 +25,9 @@ tf.nn.softmax(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/nn_ops.py).
+Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
-Computes softmax activations. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(dim)`. They will be removed in a future version.
 Instructions for updating:
@@ -35,10 +39,11 @@ This function performs the equivalent of
 
 #### Args:
 
+
 * <b>`logits`</b>: A non-empty `Tensor`. Must be one of the following types: `half`,
-    `float32`, `float64`.
+  `float32`, `float64`.
 * <b>`axis`</b>: The dimension softmax would be performed on. The default is -1 which
-    indicates the last dimension.
+  indicates the last dimension.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`dim`</b>: Deprecated alias for `axis`.
 
@@ -48,7 +53,9 @@ This function performs the equivalent of
 A `Tensor`. Has the same type and shape as `logits`.
 
 
+
 #### Raises:
 
+
 * <b>`InvalidArgumentError`</b>: if `logits` is empty or `axis` is beyond the last
-    dimension of `logits`.
+  dimension of `logits`.

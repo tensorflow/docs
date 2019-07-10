@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.gfile.ListDirectory
 
+Returns a list of entries contained within a directory.
+
+### Aliases:
+
+* `tf.compat.v1.gfile.ListDirectory`
+* `tf.gfile.ListDirectory`
+
 ``` python
 tf.gfile.ListDirectory(dirname)
 ```
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/lib/io/file_io.py).
+Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
-Returns a list of entries contained within a directory.
+<!-- Placeholder for "Used in" -->
 
 The list is in arbitrary order. It does not contain the special entries "."
 and "..".
 
 #### Args:
+
 
 * <b>`dirname`</b>: string, path to a directory
 
@@ -26,6 +34,7 @@ and "..".
 #### Returns:
 
 [filename1, filename2, ... filenameN] as strings
+
 
 
 #### Raises:

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.compat.forward_compatible
 
+Return true if the forward compatibility window has expired.
+
+### Aliases:
+
+* `tf.compat.forward_compatible`
+* `tf.compat.v1.compat.forward_compatible`
+* `tf.compat.v2.compat.forward_compatible`
+
 ``` python
 tf.compat.forward_compatible(
     year,
@@ -15,9 +23,9 @@ tf.compat.forward_compatible(
 
 
 
-Defined in [`tensorflow/python/compat/compat.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/compat/compat.py).
+Defined in [`python/compat/compat.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/compat/compat.py).
 
-Return true if the forward compatibility window has expired.
+<!-- Placeholder for "Used in" -->
 
 See [Version
 compatibility](https://tensorflow.org/guide/version_compat#backward_forward).
@@ -62,9 +70,11 @@ the code that adds the new operation is committed.
 
 #### Args:
 
-* <b>`year`</b>:  A year (e.g., 2018).
-* <b>`month`</b>: A month (1 <= month <= 12) in year.
-* <b>`day`</b>:   A day (1 <= day <= 31, or 30, or 29, or 28) in month.
+
+* <b>`year`</b>:  A year (e.g., 2018). Must be an `int`.
+* <b>`month`</b>: A month (1 <= month <= 12) in year. Must be an `int`.
+* <b>`day`</b>:   A day (1 <= day <= 31, or 30, or 29, or 28) in month. Must be an
+       `int`.
 
 
 #### Returns:

@@ -47,8 +47,8 @@
 <html devsite>
   <head>
     <title>Graph</title>
-    <meta name="book_path" value="/versions/r1.13/api_docs/_book.yaml" />
-    <meta name="project_path" value="/versions/r1.13/api_docs/_project.yaml" />
+    <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+    <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
 
@@ -57,6 +57,13 @@
     <div id="api-info-block">
 
     
+    
+      
+       
+      
+      
+      
+      
     
       
        
@@ -137,6 +144,31 @@
     
     <section id="xml-attributes">
 
+    
+    
+    <!-- ======== NESTED CLASS SUMMARY ======== -->
+    <section>
+      <h3>Nested Classes</h3>
+      <table id="nestedclasses" class="jd-sumtable">
+        
+    
+      
+        <tr>
+          <td class="jd-typecol">
+            
+            
+            
+            
+            interface</td>
+          <td class="jd-linkcol" colspan="2"><a href="/api_docs/java/reference/org/tensorflow/Graph.WhileSubgraphBuilder.html">Graph.WhileSubgraphBuilder</a></td>
+          <td class="jd-descrcol" width="100%">Used to instantiate an abstract class which overrides the buildSubgraph method to build a
+ conditional or body subgraph for a while loop.&nbsp;</td>
+        </tr>
+        
+        
+    
+      </table>
+    </section>
     
 
     
@@ -325,7 +357,7 @@
                 
                 
                 
-                <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
+                <a href="/api_docs/java/reference/org/tensorflow/GraphOperationBuilder.html">GraphOperationBuilder</a>
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
@@ -346,7 +378,7 @@
                 
                 
                 
-                <a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a>
+                <a href="/api_docs/java/reference/org/tensorflow/GraphOperation.html">GraphOperation</a>
           </td>
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
@@ -395,6 +427,27 @@
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Graph.html#toGraphDef()">toGraphDef</a></span>()
                 
                   <div class="jd-descrdiv">Generate a serialized representation of the Graph.</div>
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                
+                
+                
+                
+                
+                <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt;
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Graph.html#whileLoop(org.tensorflow.Output<?>[], org.tensorflow.Graph.WhileSubgraphBuilder, org.tensorflow.Graph.WhileSubgraphBuilder, java.lang.String)">whileLoop</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; inputs, <a href="/api_docs/java/reference/org/tensorflow/Graph.WhileSubgraphBuilder.html">Graph.WhileSubgraphBuilder</a> cgBuilder, <a href="/api_docs/java/reference/org/tensorflow/Graph.WhileSubgraphBuilder.html">Graph.WhileSubgraphBuilder</a> bgBuilder, String name)
+                
+                  <div class="jd-descrdiv">Builds a while loop.</div>
                 
               </div>
           </td>
@@ -595,6 +648,49 @@
           <td class="jd-linkcol" width="100%">
               <div class="jd-hang">
                 <span class="sympad">wait</span>()
+                
+              </div>
+          </td>
+        </tr>
+    
+    
+    
+              </table>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="expandable">
+          <span class="showalways">
+            From interface
+            <a href="/api_docs/java/reference/org/tensorflow/ExecutionEnvironment.html">org.tensorflow.ExecutionEnvironment</a>
+          </span>
+          <div id="inherited-methods-org.tensorflow.ExecutionEnvironment">
+            <div id="inherited-methods-org.tensorflow.ExecutionEnvironment-list"
+                  class="jd-inheritedLinks">
+            </div>
+            <div id="inherited-methods-org.tensorflow.ExecutionEnvironment-summary">
+              <table class="jd-sumtable-expando">
+              
+    
+    
+        
+        <tr>
+          <td class="jd-typecol">
+                abstract
+                
+                
+                
+                
+                <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
+          </td>
+          <td class="jd-linkcol" width="100%">
+              <div class="jd-hang">
+                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/ExecutionEnvironment.html#opBuilder(java.lang.String, java.lang.String)">opBuilder</a></span>(String type, String name)
+                
+                  <div class="jd-descrdiv">Returns a builder to create a new <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>.</div>
                 
               </div>
           </td>
@@ -1006,7 +1102,7 @@
             
             
             
-            <a href="/api_docs/java/reference/org/tensorflow/OperationBuilder.html">OperationBuilder</a>
+            <a href="/api_docs/java/reference/org/tensorflow/GraphOperationBuilder.html">GraphOperationBuilder</a>
           </span>
           <span class="sympad"><strong>opBuilder</strong></span>
           <span class="params">(String type, String name)</span>
@@ -1054,7 +1150,7 @@
             
             
             
-            <a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a>
+            <a href="/api_docs/java/reference/org/tensorflow/GraphOperation.html">GraphOperation</a>
           </span>
           <span class="sympad"><strong>operation</strong></span>
           <span class="params">(String name)</span>
@@ -1146,6 +1242,61 @@
       <h5 class="jd-tagtitle">See Also</h5>
       <ul class="nolist"><li><code><a href="/api_docs/java/reference/org/tensorflow/Graph.html#importGraphDef(byte[])">importGraphDef(byte[])</a></code></li><li><code><a href="/api_docs/java/reference/org/tensorflow/Graph.html#importGraphDef(byte[], java.lang.String)">importGraphDef(byte[], String)</a></code></li>
       </ul>
+  </div>
+
+        </div>
+    </div>
+    
+    
+    <A NAME="whileLoop(org.tensorflow.Output<?>[], org.tensorflow.Graph.WhileSubgraphBuilder, org.tensorflow.Graph.WhileSubgraphBuilder, java.lang.String)"></A>
+    
+    <div class="jd-details">
+        <h4 class="jd-details-title">
+          <span class="normal">
+            public
+            
+            
+            
+            
+            <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt;
+          </span>
+          <span class="sympad"><strong>whileLoop</strong></span>
+          <span class="params">(<a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt; inputs, <a href="/api_docs/java/reference/org/tensorflow/Graph.WhileSubgraphBuilder.html">Graph.WhileSubgraphBuilder</a> cgBuilder, <a href="/api_docs/java/reference/org/tensorflow/Graph.WhileSubgraphBuilder.html">Graph.WhileSubgraphBuilder</a> bgBuilder, String name)</span>
+        </h4>
+          <div class="api-level">
+            <div></div>
+            
+  
+
+          </div>
+        <div class="jd-details-descr">
+          
+  <div class="jd-tagdata jd-tagdescr"><p>Builds a while loop.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>inputs</th>
+          <td>the loop inputs</td>
+        </tr>
+        <tr>
+          <th>cgBuilder</th>
+          <td>WhileSubgraphBuilder to build the conditional subgraph</td>
+        </tr>
+        <tr>
+          <th>bgBuilder</th>
+          <td>WhileSubgraphBuilder to build the body subgraph</td>
+        </tr>
+        <tr>
+          <th>name</th>
+          <td>name for the loop</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>list of loop outputs, of the same length as <code>inputs</code>
+</li></ul>
   </div>
 
         </div>

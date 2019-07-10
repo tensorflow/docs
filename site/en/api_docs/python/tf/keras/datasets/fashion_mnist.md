@@ -7,9 +7,17 @@ page_type: reference
 
 
 
+### Aliases:
+
+* Module `tf.compat.v1.keras.datasets.fashion_mnist`
+* Module `tf.keras.datasets.fashion_mnist`
 
 
-Fashion-MNIST dataset.
+
+Defined in [`python/keras/api/_v1/keras/datasets/fashion_mnist/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/datasets/fashion_mnist/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Functions
 

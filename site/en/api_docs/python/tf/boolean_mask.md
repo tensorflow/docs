@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.boolean_mask
 
+Apply boolean mask to tensor.
+
+### Aliases:
+
+* `tf.boolean_mask`
+* `tf.compat.v1.boolean_mask`
+
 ``` python
 tf.boolean_mask(
     tensor,
@@ -16,9 +23,11 @@ tf.boolean_mask(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Apply boolean mask to tensor.  Numpy equivalent is `tensor[mask]`.
+<!-- Placeholder for "Used in" -->
+
+Numpy equivalent is `tensor[mask]`.
 
 ```python
 # 1-D example
@@ -35,14 +44,19 @@ The `axis` could be used with `mask` to indicate the axis to mask from.
 In that case, `axis + dim(mask) <= dim(tensor)` and `mask`'s shape must match
 the first `axis + dim(mask)` dimensions of `tensor`'s shape.
 
+See also: <a href="../tf/ragged/boolean_mask"><code>tf.ragged.boolean_mask</code></a>, which can be applied to both dense and
+ragged tensors, and can be used if you need to preserve the masked dimensions
+of `tensor` (rather than flattening them, as <a href="../tf/boolean_mask"><code>tf.boolean_mask</code></a> does).
+
 #### Args:
+
 
 * <b>`tensor`</b>:  N-D tensor.
 * <b>`mask`</b>:  K-D boolean tensor, K <= N and K must be known statically.
 * <b>`name`</b>:  A name for this operation (optional).
-* <b>`axis`</b>:  A 0-D int Tensor representing the axis in `tensor` to mask from.
-    By default, axis is 0 which will mask from the first dimension. Otherwise
-    K + axis <= N.
+* <b>`axis`</b>:  A 0-D int Tensor representing the axis in `tensor` to mask from. By
+  default, axis is 0 which will mask from the first dimension. Otherwise K +
+  axis <= N.
 
 
 #### Returns:
@@ -51,11 +65,16 @@ the first `axis + dim(mask)` dimensions of `tensor`'s shape.
 to `True` values in `mask`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>:  If shapes do not conform.
 
-Examples:
+
+#### Examples:
+
+
 
 ```python
 # 2-D example

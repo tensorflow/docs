@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.dot
 
+Multiplies 2 tensors (and/or variables) and returns a *tensor*.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.dot`
+* `tf.compat.v2.keras.backend.dot`
+* `tf.keras.backend.dot`
+
 ``` python
 tf.keras.backend.dot(
     x,
@@ -14,9 +22,9 @@ tf.keras.backend.dot(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Multiplies 2 tensors (and/or variables) and returns a *tensor*.
+<!-- Placeholder for "Used in" -->
 
 When attempting to multiply a nD tensor
 with a nD tensor, it reproduces the Theano behavior.
@@ -24,15 +32,19 @@ with a nD tensor, it reproduces the Theano behavior.
 
 #### Arguments:
 
+
 * <b>`x`</b>: Tensor or variable.
 * <b>`y`</b>: Tensor or variable.
 
 
 #### Returns:
 
-    A tensor, dot product of `x` and `y`.
+A tensor, dot product of `x` and `y`.
 
-Examples:
+
+
+#### Examples:
+
 
 ```python
     # dot product between tensors

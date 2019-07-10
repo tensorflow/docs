@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.inverse_time_decay
 
+Applies inverse time decay to the initial learning rate.
+
+### Aliases:
+
+* `tf.compat.v1.train.inverse_time_decay`
+* `tf.train.inverse_time_decay`
+
 ``` python
 tf.train.inverse_time_decay(
     learning_rate,
@@ -18,9 +25,9 @@ tf.train.inverse_time_decay(
 
 
 
-Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/learning_rate_decay.py).
+Defined in [`python/training/learning_rate_decay.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/learning_rate_decay.py).
 
-Applies inverse time decay to the initial learning rate.
+<!-- Placeholder for "Used in" -->
 
 When training a model, it is often recommended to lower the learning rate as
 the training progresses.  This function applies an inverse decay function
@@ -50,28 +57,30 @@ global_step = tf.Variable(0, trainable=False)
 learning_rate = 0.1
 decay_steps = 1.0
 decay_rate = 0.5
-learning_rate = tf.train.inverse_time_decay(learning_rate, global_step,
+learning_rate = tf.compat.v1.train.inverse_time_decay(learning_rate,
+global_step,
 decay_steps, decay_rate)
 
 # Passing global_step to minimize() will increment it at each step.
 learning_step = (
-    tf.train.GradientDescentOptimizer(learning_rate)
+    tf.compat.v1.train.GradientDescentOptimizer(learning_rate)
     .minimize(...my loss..., global_step=global_step)
 )
 ```
 
 #### Args:
 
-* <b>`learning_rate`</b>: A scalar `float32` or `float64` `Tensor` or a
-    Python number.  The initial learning rate.
-* <b>`global_step`</b>: A Python number.
-    Global step to use for the decay computation.  Must not be negative.
+
+* <b>`learning_rate`</b>: A scalar `float32` or `float64` `Tensor` or a Python number.
+  The initial learning rate.
+* <b>`global_step`</b>: A Python number. Global step to use for the decay computation.
+  Must not be negative.
 * <b>`decay_steps`</b>: How often to apply decay.
 * <b>`decay_rate`</b>: A Python number.  The decay rate.
 * <b>`staircase`</b>: Whether to apply decay in a discrete staircase, as opposed to
-    continuous, fashion.
+  continuous, fashion.
 * <b>`name`</b>: String.  Optional name of the operation.  Defaults to
-    'InverseTimeDecay'.
+  'InverseTimeDecay'.
 
 
 #### Returns:
@@ -80,7 +89,9 @@ A scalar `Tensor` of the same type as `learning_rate`.  The decayed
 learning rate.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `global_step` is not supplied.
 

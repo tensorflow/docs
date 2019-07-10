@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.linalg.sqrtm
 
+Computes the matrix square root of one or more square matrices:
+
 ### Aliases:
 
+* `tf.compat.v1.linalg.sqrtm`
+* `tf.compat.v1.matrix_square_root`
+* `tf.compat.v2.linalg.sqrtm`
+* `tf.compat.v2.matrix_square_root`
 * `tf.linalg.sqrtm`
 * `tf.matrix_square_root`
 
@@ -19,9 +25,9 @@ tf.linalg.sqrtm(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_linalg_ops.py`.
+Defined in generated file: `python/ops/gen_linalg_ops.py`.
 
-Computes the matrix square root of one or more square matrices:
+<!-- Placeholder for "Used in" -->
 
 matmul(sqrtm(A), sqrtm(A)) = A
 
@@ -41,8 +47,9 @@ containing the matrix square root for all input submatrices `[..., :, :]`.
 
 #### Args:
 
-* <b>`input`</b>: A `Tensor`. Must be one of the following types: `float64`, `float32`, `complex64`, `complex128`.
-    Shape is `[..., M, M]`.
+
+* <b>`input`</b>: A `Tensor`. Must be one of the following types: `float64`, `float32`, `half`, `complex64`, `complex128`.
+  Shape is `[..., M, M]`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

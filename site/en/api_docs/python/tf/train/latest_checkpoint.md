@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.train.latest_checkpoint
 
+Finds the filename of latest saved checkpoint file.
+
+### Aliases:
+
+* `tf.compat.v1.train.latest_checkpoint`
+* `tf.compat.v2.train.latest_checkpoint`
+* `tf.train.latest_checkpoint`
+
 ``` python
 tf.train.latest_checkpoint(
     checkpoint_dir,
@@ -14,16 +22,18 @@ tf.train.latest_checkpoint(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/checkpoint_management.py).
+Defined in [`python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_management.py).
 
-Finds the filename of latest saved checkpoint file.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`checkpoint_dir`</b>: Directory where the variables were saved.
 * <b>`latest_filename`</b>: Optional name for the protocol buffer file that
-    contains the list of most recent checkpoint filenames.
-    See the corresponding argument to `Saver.save()`.
+  contains the list of most recent checkpoint filenames.
+  See the corresponding argument to <a href="../../tf/train/Saver#save"><code>Saver.save()</code></a>.
 
 
 #### Returns:

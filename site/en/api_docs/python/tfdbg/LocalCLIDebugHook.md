@@ -11,12 +11,12 @@ Inherits From: [`SessionRunHook`](../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/wrappers/hooks.py).
+Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/wrappers/hooks.py).
 
 Command-line-interface debugger hook.
 
-Can be used as a hook for <a href="../tf/train/MonitoredSession"><code>tf.train.MonitoredSession</code></a>s and
-<a href="../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a>s. Provides a substitute for
+Can be used as a hook for `tf.compat.v1.train.MonitoredSession`s and
+`tf.estimator.Estimator`s. Provides a substitute for
 <a href="../tfdbg/LocalCLIDebugWrapperSession"><code>tfdbg.LocalCLIDebugWrapperSession</code></a> in cases where the session is not directly
 available.
 
@@ -105,20 +105,7 @@ after_run(
 )
 ```
 
-Called after each call to run().
 
-The `run_values` argument contains results of requested ops/tensors by
-`before_run()`.
-
-The `run_context` argument is the same one send to `before_run` call.
-`run_context.request_stop()` can be called to stop the iteration.
-
-If `session.run()` raises any exceptions then `after_run()` is not called.
-
-#### Args:
-
-* <b>`run_context`</b>: A `SessionRunContext` object.
-* <b>`run_values`</b>: A SessionRunValues object.
 
 <h3 id="before_run"><code>before_run</code></h3>
 
@@ -126,28 +113,7 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 before_run(run_context)
 ```
 
-Called before each call to run().
 
-You can return from this call a `SessionRunArgs` object indicating ops or
-tensors to add to the upcoming `run()` call.  These ops/tensors will be run
-together with the ops/tensors originally passed to the original run() call.
-The run args you return can also contain feeds to be added to the run()
-call.
-
-The `run_context` argument is a `SessionRunContext` that provides
-information about the upcoming `run()` call: the originally requested
-op/tensors, the TensorFlow Session.
-
-At this point graph is finalized and you can not add ops.
-
-#### Args:
-
-* <b>`run_context`</b>: A `SessionRunContext` object.
-
-
-#### Returns:
-
-None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
@@ -155,13 +121,7 @@ None or a `SessionRunArgs` object.
 begin()
 ```
 
-Called once before using the session.
 
-When called, the default graph is the one that will be launched in the
-session.  The hook can modify the graph by adding new operations to it.
-After the `begin()` call the graph will be finalized and the other callbacks
-can not modify the graph anymore. Second call of `begin()` on the same
-graph, should not change the graph.
 
 <h3 id="end"><code>end</code></h3>
 

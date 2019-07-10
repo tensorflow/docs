@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.graph_editor.compute_boundary_ts
 
+Compute the tensors at the boundary of a set of ops.
+
 ``` python
 tf.contrib.graph_editor.compute_boundary_ts(ops)
 ```
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/select.py).
+Defined in [`contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/select.py).
 
-Compute the tensors at the boundary of a set of ops.
+<!-- Placeholder for "Used in" -->
 
 This function looks at all the tensors connected to the given ops (in/out)
 and classify them into three categories:
@@ -26,6 +28,7 @@ consumed by operations both outside and inside of `ops`.
 
 #### Args:
 
+
 * <b>`ops`</b>: an object convertible to a list of tf.Operation.
 
 #### Returns:
@@ -37,6 +40,8 @@ A tuple `(outside_input_ts, outside_output_ts, inside_ts)` where:
 Since a tensor can be both an inside tensor and an output tensor,
 `outside_output_ts` and `inside_ts` might intersect.
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if ops cannot be converted to a list of tf.Operation.

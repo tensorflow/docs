@@ -6,8 +6,13 @@ page_type: reference
 
 # tf.math.log1p
 
+Computes natural logarithm of (1 + x) element-wise.
+
 ### Aliases:
 
+* `tf.compat.v1.log1p`
+* `tf.compat.v1.math.log1p`
+* `tf.compat.v2.math.log1p`
 * `tf.log1p`
 * `tf.math.log1p`
 
@@ -20,13 +25,14 @@ tf.math.log1p(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Computes natural logarithm of (1 + x) element-wise.
+<!-- Placeholder for "Used in" -->
 
 I.e., \\(y = \log_e (1 + x)\\).
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `complex64`, `complex128`.
 * <b>`name`</b>: A name for the operation (optional).

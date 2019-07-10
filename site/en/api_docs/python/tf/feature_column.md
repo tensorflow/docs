@@ -7,9 +7,8 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.feature_column namespace.
 
 ## Functions
 
@@ -36,6 +35,16 @@ Public API for tf.feature_column namespace.
 [`make_parse_example_spec(...)`](../tf/feature_column/make_parse_example_spec): Creates parsing spec dictionary from input feature_columns.
 
 [`numeric_column(...)`](../tf/feature_column/numeric_column): Represents real valued or numerical features.
+
+[`sequence_categorical_column_with_hash_bucket(...)`](../tf/feature_column/sequence_categorical_column_with_hash_bucket): A sequence of categorical terms where ids are set by hashing.
+
+[`sequence_categorical_column_with_identity(...)`](../tf/feature_column/sequence_categorical_column_with_identity): Returns a feature column that represents sequences of integers.
+
+[`sequence_categorical_column_with_vocabulary_file(...)`](../tf/feature_column/sequence_categorical_column_with_vocabulary_file): A sequence of categorical terms where ids use a vocabulary file.
+
+[`sequence_categorical_column_with_vocabulary_list(...)`](../tf/feature_column/sequence_categorical_column_with_vocabulary_list): A sequence of categorical terms where ids use an in-memory list.
+
+[`sequence_numeric_column(...)`](../tf/feature_column/sequence_numeric_column): Returns a feature column that represents sequences of numeric data.
 
 [`shared_embedding_columns(...)`](../tf/feature_column/shared_embedding_columns): List of dense columns that convert from sparse, categorical input.
 

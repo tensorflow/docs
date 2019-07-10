@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.model_pruning.get_pruning_hparams
 
+Get a tf.HParams object with the default values for the hyperparameters.
+
 ``` python
 tf.contrib.model_pruning.get_pruning_hparams()
 ```
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/model_pruning/python/pruning.py).
+Defined in [`contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/model_pruning/python/pruning.py).
 
-Get a tf.HParams object with the default values for the hyperparameters.
+<!-- Placeholder for "Used in" -->
 
   name: string
     name of the pruning specification. Used for adding summaries and ops under
@@ -66,6 +68,7 @@ Get a tf.HParams object with the default values for the hyperparameters.
 #### Args:
 
 None
+
 
 
 #### Returns:

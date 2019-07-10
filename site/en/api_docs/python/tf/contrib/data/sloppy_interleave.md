@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.data.sloppy_interleave
 
+A non-deterministic version of the `Dataset.interleave()` transformation. (deprecated)
+
 ``` python
 tf.contrib.data.sloppy_interleave(
     map_func,
@@ -15,13 +17,13 @@ tf.contrib.data.sloppy_interleave(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/interleave_ops.py).
+Defined in [`contrib/data/python/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/interleave_ops.py).
 
-A non-deterministic version of the `Dataset.interleave()` transformation. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.contrib.data.parallel_interleave(..., sloppy=True)`.
+Use <a href="../../../tf/contrib/data/parallel_interleave"><code>tf.contrib.data.parallel_interleave(..., sloppy=True)</code></a>.
 
 `sloppy_interleave()` maps `map_func` across `dataset`, and
 non-deterministically interleaves the results.
@@ -40,7 +42,9 @@ However, if an underlying dataset would block the consumer,
 strictly obeys), producing an element from a different underlying
 dataset instead.
 
-Example usage:
+#### Example usage:
+
+
 
 ```python
 # Preprocess 4 files concurrently.
@@ -57,14 +61,15 @@ deterministic order.
 
 #### Args:
 
+
 * <b>`map_func`</b>: A function mapping a nested structure of tensors (having shapes
-    and types defined by `self.output_shapes` and `self.output_types`) to a
-    `Dataset`.
+  and types defined by `self.output_shapes` and `self.output_types`) to a
+  `Dataset`.
 * <b>`cycle_length`</b>: The number of input `Dataset`s to interleave from in parallel.
 * <b>`block_length`</b>: The number of consecutive elements to pull from an input
-    `Dataset` before advancing to the next input `Dataset`. Note:
-    `sloppy_interleave` will skip the remainder of elements in the
-    `block_length` in order to avoid blocking.
+  `Dataset` before advancing to the next input `Dataset`. Note:
+  `sloppy_interleave` will skip the remainder of elements in the
+  `block_length` in order to avoid blocking.
 
 
 #### Returns:

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.linalg.matvec
 
+Multiplies matrix `a` by vector `b`, producing `a` * `b`.
+
+### Aliases:
+
+* `tf.compat.v1.linalg.matvec`
+* `tf.compat.v2.linalg.matvec`
+* `tf.linalg.matvec`
+
 ``` python
 tf.linalg.matvec(
     a,
@@ -19,9 +27,9 @@ tf.linalg.matvec(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/math_ops.py).
+Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
-Multiplies matrix `a` by vector `b`, producing `a` * `b`.
+<!-- Placeholder for "Used in" -->
 
 The matrix `a` must, following any transpositions, be a tensor of rank >= 2,
 and we must have `shape(b) = shape(a)[:-2] + [shape(a)[-1]]`.
@@ -39,7 +47,9 @@ multiplication algorithm can be used by setting the corresponding
 This optimization is only available for plain matrices/vectors (rank-2/1
 tensors) with datatypes `bfloat16` or `float32`.
 
-For example:
+#### For example:
+
+
 
 ```python
 # 2-D tensor `a`
@@ -78,12 +88,13 @@ c = tf.matvec(a, b)
 
 #### Args:
 
+
 * <b>`a`</b>: `Tensor` of type `float16`, `float32`, `float64`, `int32`, `complex64`,
-    `complex128` and rank > 1.
+  `complex128` and rank > 1.
 * <b>`b`</b>: `Tensor` with same type and rank = `rank(a) - 1`.
 * <b>`transpose_a`</b>: If `True`, `a` is transposed before multiplication.
 * <b>`adjoint_a`</b>: If `True`, `a` is conjugated and transposed before
-    multiplication.
+  multiplication.
 * <b>`a_is_sparse`</b>: If `True`, `a` is treated as a sparse matrix.
 * <b>`b_is_sparse`</b>: If `True`, `b` is treated as a sparse matrix.
 * <b>`name`</b>: Name for the operation (optional).
@@ -97,10 +108,12 @@ all transpose or adjoint attributes are `False`:
 
 `output`[..., i] = sum_k (`a`[..., i, k] * `b`[..., k]), for all indices i.
 
+
 * <b>`Note`</b>: This is matrix-vector product, not element-wise product.
 
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If transpose_a and adjoint_a are both set to True.

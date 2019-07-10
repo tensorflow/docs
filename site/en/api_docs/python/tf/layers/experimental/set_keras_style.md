@@ -5,15 +5,22 @@ page_type: reference
 
 # tf.layers.experimental.set_keras_style
 
+Use Keras-style variable management.
+
+### Aliases:
+
+* `tf.compat.v1.layers.experimental.set_keras_style`
+* `tf.layers.experimental.set_keras_style`
+
 ``` python
 tf.layers.experimental.set_keras_style()
 ```
 
 
 
-Defined in [`tensorflow/python/layers/base.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/layers/base.py).
+Defined in [`python/layers/base.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/base.py).
 
-Use Keras-style variable management.
+<!-- Placeholder for "Used in" -->
 
 All tf.layers and tf RNN cells created after keras style ha been enabled
 use Keras-style variable management.  Creating such layers with a
@@ -28,7 +35,9 @@ For more details, see the documentation for `keras_style_scope`.
 Note, once keras style has been set, it is set globally for the entire
 program and cannot be unset.
 
-Example:
+#### Example:
+
+
 
 ```python
 set_keras_style()

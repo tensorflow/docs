@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.keras.backend.stop_gradient
 
+Returns `variables` but with zero gradient w.r.t. every other variable.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.stop_gradient`
+* `tf.compat.v2.keras.backend.stop_gradient`
+* `tf.keras.backend.stop_gradient`
+
 ``` python
 tf.keras.backend.stop_gradient(variables)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Returns `variables` but with zero gradient w.r.t. every other variable.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
 
+
 * <b>`variables`</b>: Tensor or list of tensors to consider constant with respect
-      to any other variable.
+  to any other variable.
 
 
 

@@ -7,27 +7,28 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.summary namespace.
 
 ## Classes
 
-[`class Event`](../tf/Event): A ProtocolMessage
+[`class Event`](../tf/Event)
 
 [`class FileWriter`](../tf/summary/FileWriter): Writes `Summary` protocol buffers to event files.
 
 [`class FileWriterCache`](../tf/summary/FileWriterCache): Cache for file writers.
 
-[`class SessionLog`](../tf/SessionLog): A ProtocolMessage
+[`class SessionLog`](../tf/SessionLog)
 
-[`class Summary`](../tf/Summary): A ProtocolMessage
+[`class Summary`](../tf/Summary)
 
-[`class SummaryDescription`](../tf/summary/SummaryDescription): A ProtocolMessage
+[`class SummaryDescription`](../tf/summary/SummaryDescription)
 
-[`class TaggedRunMetadata`](../tf/summary/TaggedRunMetadata): A ProtocolMessage
+[`class TaggedRunMetadata`](../tf/summary/TaggedRunMetadata)
 
 ## Functions
+
+[`all_v2_summary_ops(...)`](../tf/summary/all_v2_summary_ops): Returns all V2-style summary ops defined in the current default graph.
 
 [`audio(...)`](../tf/summary/audio): Outputs a `Summary` protocol buffer with audio.
 
@@ -36,6 +37,8 @@ Public API for tf.summary namespace.
 [`histogram(...)`](../tf/summary/histogram): Outputs a `Summary` protocol buffer with a histogram.
 
 [`image(...)`](../tf/summary/image): Outputs a `Summary` protocol buffer with images.
+
+[`initialize(...)`](../tf/summary/initialize): Initializes summary writing for graph execution mode.
 
 [`merge(...)`](../tf/summary/merge): Merges summaries.
 

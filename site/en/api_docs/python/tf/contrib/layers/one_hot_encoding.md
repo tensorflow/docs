@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.one_hot_encoding
 
+Transform numeric labels into onehot_labels using <a href="../../../tf/one_hot"><code>tf.one_hot</code></a>.
+
 ``` python
 tf.contrib.layers.one_hot_encoding(
     labels,
@@ -18,11 +20,13 @@ tf.contrib.layers.one_hot_encoding(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
-Transform numeric labels into onehot_labels using <a href="../../../tf/one_hot"><code>tf.one_hot</code></a>.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`labels`</b>: [batch_size] target labels.
 * <b>`num_classes`</b>: Total number of classes.

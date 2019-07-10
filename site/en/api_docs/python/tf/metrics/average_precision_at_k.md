@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.metrics.average_precision_at_k
 
+Computes average precision@k of predictions with respect to sparse labels.
+
+### Aliases:
+
+* `tf.compat.v1.metrics.average_precision_at_k`
+* `tf.metrics.average_precision_at_k`
+
 ``` python
 tf.metrics.average_precision_at_k(
     labels,
@@ -19,9 +26,9 @@ tf.metrics.average_precision_at_k(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/metrics_impl.py).
+Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
-Computes average precision@k of predictions with respect to sparse labels.
+<!-- Placeholder for "Used in" -->
 
 `average_precision_at_k` creates two local variables,
 `average_precision_at_<k>/total` and `average_precision_at_<k>/max`, that
@@ -41,39 +48,42 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`labels`</b>: `int64` `Tensor` or `SparseTensor` with shape
-    [D1, ... DN, num_labels] or [D1, ... DN], where the latter implies
-    num_labels=1. N >= 1 and num_labels is the number of target classes for
-    the associated prediction. Commonly, N=1 and `labels` has shape
-    [batch_size, num_labels]. [D1, ... DN] must match `predictions`. Values
-    should be in range [0, num_classes), where num_classes is the last
-    dimension of `predictions`. Values outside this range are ignored.
+  [D1, ... DN, num_labels] or [D1, ... DN], where the latter implies
+  num_labels=1. N >= 1 and num_labels is the number of target classes for
+  the associated prediction. Commonly, N=1 and `labels` has shape
+  [batch_size, num_labels]. [D1, ... DN] must match `predictions`. Values
+  should be in range [0, num_classes), where num_classes is the last
+  dimension of `predictions`. Values outside this range are ignored.
 * <b>`predictions`</b>: Float `Tensor` with shape [D1, ... DN, num_classes] where
-    N >= 1. Commonly, N=1 and `predictions` has shape
-    [batch size, num_classes]. The final dimension contains the logit values
-    for each class. [D1, ... DN] must match `labels`.
+  N >= 1. Commonly, N=1 and `predictions` has shape
+  [batch size, num_classes]. The final dimension contains the logit values
+  for each class. [D1, ... DN] must match `labels`.
 * <b>`k`</b>: Integer, k for @k metric. This will calculate an average precision for
-    range `[1,k]`, as documented above.
+  range `[1,k]`, as documented above.
 * <b>`weights`</b>: `Tensor` whose rank is either 0, or n-1, where n is the rank of
-    `labels`. If the latter, it must be broadcastable to `labels` (i.e., all
-    dimensions must be either `1`, or the same as the corresponding `labels`
-    dimension).
+  `labels`. If the latter, it must be broadcastable to `labels` (i.e., all
+  dimensions must be either `1`, or the same as the corresponding `labels`
+  dimension).
 * <b>`metrics_collections`</b>: An optional list of collections that values should
-    be added to.
+  be added to.
 * <b>`updates_collections`</b>: An optional list of collections that updates should
-    be added to.
+  be added to.
 * <b>`name`</b>: Name of new update operation, and namespace for other dependent ops.
 
 
 #### Returns:
 
+
 * <b>`mean_average_precision`</b>: Scalar `float64` `Tensor` with the mean average
-    precision values.
+  precision values.
 * <b>`update`</b>: `Operation` that increments variables appropriately, and whose
-    value matches `metric`.
+  value matches `metric`.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if k is invalid.
 * <b>`RuntimeError`</b>: If eager execution is enabled.

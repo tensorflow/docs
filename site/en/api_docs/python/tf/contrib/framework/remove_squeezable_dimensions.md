@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.framework.remove_squeezable_dimensions
 
+Squeeze last dim if ranks of `predictions` and `labels` differ by 1. (deprecated)
+
 ``` python
 tf.contrib.framework.remove_squeezable_dimensions(
     predictions,
@@ -15,9 +17,9 @@ tf.contrib.framework.remove_squeezable_dimensions(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/framework/tensor_util.py).
+Defined in [`contrib/framework/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/framework/tensor_util.py).
 
-Squeeze last dim if ranks of `predictions` and `labels` differ by 1. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -27,6 +29,7 @@ This will use static shape if available. Otherwise, it will add graph
 operations, which could result in a performance hit.
 
 #### Args:
+
 
 * <b>`predictions`</b>: Predicted values, a `Tensor` of arbitrary dimensions.
 * <b>`labels`</b>: Label values, a `Tensor` whose dimensions match `predictions`.

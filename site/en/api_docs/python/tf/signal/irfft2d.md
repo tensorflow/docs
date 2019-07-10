@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.signal.irfft2d
 
+Inverse 2D real-valued fast Fourier transform.
+
 ### Aliases:
 
+* `tf.compat.v1.signal.irfft2d`
+* `tf.compat.v1.spectral.irfft2d`
+* `tf.compat.v2.signal.irfft2d`
 * `tf.signal.irfft2d`
 * `tf.spectral.irfft2d`
 
@@ -20,9 +25,9 @@ tf.signal.irfft2d(
 
 
 
-Defined in [`tensorflow/python/ops/signal/fft_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/signal/fft_ops.py).
+Defined in [`python/ops/signal/fft_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/fft_ops.py).
 
-Inverse 2D real-valued fast Fourier transform.
+<!-- Placeholder for "Used in" -->
 
 Computes the inverse 2-dimensional discrete Fourier transform of a real-valued
 signal over the inner-most 2 dimensions of `input`.
@@ -41,9 +46,10 @@ the dimension is padded with zeros.
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor` of type `complex64`. A complex64 tensor.
 * <b>`fft_length`</b>: A `Tensor` of type `int32`.
-    An int32 tensor of shape [2]. The FFT length for each dimension.
+  An int32 tensor of shape [2]. The FFT length for each dimension.
 * <b>`name`</b>: A name for the operation (optional).
 
 

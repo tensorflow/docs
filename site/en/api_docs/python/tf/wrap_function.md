@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.wrap_function
 
+Wraps the TF 1.x function fn into a graph function.
+
+### Aliases:
+
+* `tf.compat.v1.wrap_function`
+* `tf.wrap_function`
+
 ``` python
 tf.wrap_function(
     fn,
@@ -15,9 +22,9 @@ tf.wrap_function(
 
 
 
-Defined in [`tensorflow/python/eager/wrap_function.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/eager/wrap_function.py).
+Defined in [`python/eager/wrap_function.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/wrap_function.py).
 
-Wraps the TF 1.x function fn into a graph function.
+<!-- Placeholder for "Used in" -->
 
 The python function `fn` will be called once with symbolic arguments specified
 in the `signature`, traced, and turned into a graph function. Any variables
@@ -48,15 +55,15 @@ assert float(f_sub(1.0)) == 4.0
 assert float(f_sub(1.0)) == 3.0
 ```
 
-Both `tf.compat.v1.wrap_function` and `tf.function` create a callable
-TensorFlow graph. But while `tf.function` runs all stateful operations
+Both <a href="../tf/wrap_function"><code>tf.compat.v1.wrap_function</code></a> and <a href="../tf/function"><code>tf.function</code></a> create a callable
+TensorFlow graph. But while <a href="../tf/function"><code>tf.function</code></a> runs all stateful operations
 (e.g. <a href="../tf/print"><code>tf.print</code></a>) and sequences operations to provide the same semantics as
 eager execution, `wrap_function` is closer to the behavior of `session.run` in
 TensorFlow 1.x. It will not run any operations unless they are required to
 compute the function's outputs, either through a data dependency or a control
 dependency. Nor will it sequence operations.
 
-Unlike `tf.function`, `wrap_function` will only trace the Python function
+Unlike <a href="../tf/function"><code>tf.function</code></a>, `wrap_function` will only trace the Python function
 once. As with placeholders in TF 1.x, shapes and dtypes must be provided to
 `wrap_function`'s `signature` argument.
 
@@ -65,9 +72,10 @@ function and owned by the function wrapper object.
 
 #### Args:
 
+
 * <b>`fn`</b>: python function to be wrapped
-* <b>`signature`</b>: the placeholder and python arguments to be passed to the
-    wrapped function
+* <b>`signature`</b>: the placeholder and python arguments to be passed to the wrapped
+  function
 * <b>`name`</b>: Optional. The name of the function.
 
 

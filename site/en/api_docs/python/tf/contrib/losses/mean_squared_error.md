@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.losses.mean_squared_error
 
+Adds a Sum-of-Squares loss to the training procedure. (deprecated)
+
 ``` python
 tf.contrib.losses.mean_squared_error(
     predictions,
@@ -16,9 +18,9 @@ tf.contrib.losses.mean_squared_error(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/losses/loss_ops.py).
+Defined in [`contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
-Adds a Sum-of-Squares loss to the training procedure. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-12-30.
 Instructions for updating:
@@ -34,10 +36,11 @@ measurable element of `predictions` is scaled by the corresponding value of
 
 #### Args:
 
+
 * <b>`predictions`</b>: The predicted outputs.
 * <b>`labels`</b>: The ground truth output tensor, same dimensions as 'predictions'.
 * <b>`weights`</b>: Coefficients for the loss a scalar, a tensor of shape
-    [batch_size] or a tensor whose shape matches `predictions`.
+  [batch_size] or a tensor whose shape matches `predictions`.
 * <b>`scope`</b>: The scope for the operations performed in computing the loss.
 
 
@@ -46,7 +49,9 @@ measurable element of `predictions` is scaled by the corresponding value of
 A scalar `Tensor` representing the loss value.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the shape of `predictions` doesn't match that of `labels` or
-    if the shape of `weights` is invalid.
+  if the shape of `weights` is invalid.

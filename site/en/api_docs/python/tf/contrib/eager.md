@@ -5,15 +5,17 @@ page_type: reference
 
 # Module: tf.contrib.eager
 
-
-
-Defined in [`tensorflow/contrib/eager/python/tfe.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/tfe.py).
-
 TensorFlow Eager execution prototype.
+
+
+
+Defined in [`contrib/eager/python/tfe.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/tfe.py).
+
+<!-- Placeholder for "Used in" -->
 
 EXPERIMENTAL: APIs here are unstable and likely to change without notice.
 
-To use, at program startup, call `tf.enable_eager_execution()`.
+To use, at program startup, call <a href="../../tf/enable_eager_execution"><code>tf.compat.v1.enable_eager_execution()</code></a>.
 
 
 
@@ -35,11 +37,9 @@ To use, at program startup, call `tf.enable_eager_execution()`.
 
 ## Classes
 
-[`class Checkpoint`](../../tf/train/Checkpoint): Groups checkpointable objects, saving and restoring them.
+[`class Checkpoint`](../../tf/train/Checkpoint): Groups trackable objects, saving and restoring them.
 
 [`class Checkpointable`](../../tf/contrib/checkpoint/Checkpointable): Manages dependencies on other objects.
-
-[`class CheckpointableSaver`](../../tf/contrib/eager/CheckpointableSaver): Saves and restores a `Checkpointable` object and its dependencies.
 
 [`class EagerVariableStore`](../../tf/contrib/eager/EagerVariableStore): Wrapper allowing functional layers to be used with eager execution.
 
@@ -51,7 +51,7 @@ To use, at program startup, call `tf.enable_eager_execution()`.
 
 [`class Network`](../../tf/contrib/eager/Network): Represents the composition of a set of Layers.
 
-[`class Saver`](../../tf/contrib/eager/Saver): A tf.train.Saver adapter for use when eager execution is enabled.
+[`class Saver`](../../tf/contrib/eager/Saver): A tf.compat.v1.train.Saver adapter for use when eager execution is enabled.
 
 [`class Sequential`](../../tf/contrib/eager/Sequential): Represents a linear sequence of Layers or functions.
 
@@ -69,7 +69,7 @@ To use, at program startup, call `tf.enable_eager_execution()`.
 
 [`clear_execution_callbacks(...)`](../../tf/contrib/eager/clear_execution_callbacks): Clear all execution callbacks from the default eager context.
 
-[`connect_to_remote_host(...)`](../../tf/contrib/eager/connect_to_remote_host): Connects to a single machine to enable remote execution on it.
+[`connect_to_remote_host(...)`](../../tf/config/experimental_connect_to_host): Connects to a single machine to enable remote execution on it.
 
 [`custom_gradient(...)`](../../tf/custom_gradient): Decorator to define a function with a custom gradient.
 
@@ -85,9 +85,9 @@ To use, at program startup, call `tf.enable_eager_execution()`.
 
 [`execution_mode(...)`](../../tf/contrib/eager/execution_mode): Context manager for setting execution mode for current thread.
 
-[`function(...)`](../../tf/contrib/eager/function): Creates a callable TensorFlow graph from a Python function.
+[`function(...)`](../../tf/function): Creates a callable TensorFlow graph from a Python function.
 
-[`get_optimizer_variables(...)`](../../tf/contrib/eager/get_optimizer_variables): Returns a list of variables for the given <a href="../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a>.
+[`get_optimizer_variables(...)`](../../tf/contrib/eager/get_optimizer_variables): Returns a list of variables for the given <a href="../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>.
 
 [`gradients_function(...)`](../../tf/contrib/eager/gradients_function): Returns a function which differentiates f with respect to params.
 
@@ -101,7 +101,7 @@ To use, at program startup, call `tf.enable_eager_execution()`.
 
 [`inf_nan_callback(...)`](../../tf/contrib/eager/inf_nan_callback): An execution callback that checks for `inf`s and `nan`s in output tensors.
 
-[`list_devices(...)`](../../tf/contrib/eager/list_devices): List the names of the available devices.
+[`list_devices(...)`](../../tf/config/experimental_list_devices): List the names of the available devices.
 
 [`make_template(...)`](../../tf/contrib/eager/make_template): Make a template, optionally compiling func_ into a graph function.
 
@@ -133,13 +133,8 @@ To use, at program startup, call `tf.enable_eager_execution()`.
 
 ## Other Members
 
-<h3 id="ASYNC"><code>ASYNC</code></h3>
-
-<h3 id="DEVICE_PLACEMENT_EXPLICIT"><code>DEVICE_PLACEMENT_EXPLICIT</code></h3>
-
-<h3 id="DEVICE_PLACEMENT_SILENT"><code>DEVICE_PLACEMENT_SILENT</code></h3>
-
-<h3 id="DEVICE_PLACEMENT_WARN"><code>DEVICE_PLACEMENT_WARN</code></h3>
-
-<h3 id="SYNC"><code>SYNC</code></h3>
-
+* `ASYNC = 1` <a id="ASYNC"></a>
+* `DEVICE_PLACEMENT_EXPLICIT = 0` <a id="DEVICE_PLACEMENT_EXPLICIT"></a>
+* `DEVICE_PLACEMENT_SILENT = 2` <a id="DEVICE_PLACEMENT_SILENT"></a>
+* `DEVICE_PLACEMENT_WARN = 1` <a id="DEVICE_PLACEMENT_WARN"></a>
+* `SYNC = 0` <a id="SYNC"></a>

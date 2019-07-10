@@ -5,19 +5,21 @@ page_type: reference
 
 # tf.contrib.data.unbatch
 
+Splits elements of a dataset into multiple elements on the batch dimension. (deprecated)
+
 ``` python
 tf.contrib.data.unbatch()
 ```
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/batching.py).
+Defined in [`contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/batching.py).
 
-Splits elements of a dataset into multiple elements on the batch dimension. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.experimental.unbatch()`.
+Use <a href="../../../tf/data/experimental/unbatch"><code>tf.data.experimental.unbatch()</code></a>.
 
 For example, if elements of the dataset are shaped `[B, a0, a1, ...]`,
 where `B` may vary for each input element, then for each element in the
@@ -29,7 +31,7 @@ of shape `[a0, a1, ...]`.
 # of a dataset.
 a = { ['a', 'b', 'c'], ['a', 'b'], ['a', 'b', 'c', 'd'] }
 
-a.apply(tf.contrib.data.unbatch()) == {
+a.apply(tf.data.experimental.unbatch()) == {
     'a', 'b', 'c', 'a', 'b', 'a', 'b', 'c', 'd'}
 ```
 

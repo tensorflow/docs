@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.ensure_shape
 
+Updates the shape of a tensor and checks at runtime that the shape holds.
+
+### Aliases:
+
+* `tf.compat.v1.ensure_shape`
+* `tf.compat.v2.ensure_shape`
+* `tf.ensure_shape`
+
 ``` python
 tf.ensure_shape(
     x,
@@ -15,14 +23,16 @@ tf.ensure_shape(
 
 
 
-Defined in [`tensorflow/python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/check_ops.py).
+Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
 
-Updates the shape of a tensor and checks at runtime that the shape holds.
+<!-- Placeholder for "Used in" -->
 
-For example:
+
+#### For example:
+
 
 ```python
-x = tf.placeholder(tf.int32)
+x = tf.compat.v1.placeholder(tf.int32)
 print(x.shape)
 ==> TensorShape(None)
 y = x * 2
@@ -33,25 +43,26 @@ y = tf.ensure_shape(y, (None, 3, 3))
 print(y.shape)
 ==> TensorShape([Dimension(None), Dimension(3), Dimension(3)])
 
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
   # Raises tf.errors.InvalidArgumentError, because the shape (3,) is not
   # compatible with the shape (None, 3, 3)
   sess.run(y, feed_dict={x: [1, 2, 3]})
 
 ```
 
-NOTE: This differs from `Tensor.set_shape` in that it sets the static shape
+NOTE: This differs from <a href="../tf/Tensor#set_shape"><code>Tensor.set_shape</code></a> in that it sets the static shape
 of the resulting tensor and enforces it at runtime, raising an error if the
 tensor's runtime shape is incompatible with the specified shape.
-`Tensor.set_shape` sets the static shape of the tensor without enforcing it
+<a href="../tf/Tensor#set_shape"><code>Tensor.set_shape</code></a> sets the static shape of the tensor without enforcing it
 at runtime, which may result in inconsistencies between the statically-known
 shape of tensors and the runtime value of tensors.
 
 #### Args:
 
+
 * <b>`x`</b>: A `Tensor`.
 * <b>`shape`</b>: A `TensorShape` representing the shape of this tensor, a
-    `TensorShapeProto`, a list, a tuple, or None.
+  `TensorShapeProto`, a list, a tuple, or None.
 * <b>`name`</b>: A name for this operation (optional). Defaults to "EnsureShape".
 
 

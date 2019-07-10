@@ -5,23 +5,32 @@ page_type: reference
 
 # tf.data.experimental.latency_stats
 
+Records the latency of producing each element of the input dataset.
+
+### Aliases:
+
+* `tf.compat.v1.data.experimental.latency_stats`
+* `tf.compat.v2.data.experimental.latency_stats`
+* `tf.data.experimental.latency_stats`
+
 ``` python
 tf.data.experimental.latency_stats(tag)
 ```
 
 
 
-Defined in [`tensorflow/python/data/experimental/ops/stats_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/experimental/ops/stats_ops.py).
+Defined in [`python/data/experimental/ops/stats_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/stats_ops.py).
 
-Records the latency of producing each element of the input dataset.
+<!-- Placeholder for "Used in" -->
 
 To consume the statistics, associate a `StatsAggregator` with the output
 dataset.
 
 #### Args:
 
+
 * <b>`tag`</b>: String. All statistics recorded by the returned transformation will
-    be associated with the given `tag`.
+  be associated with the given `tag`.
 
 
 #### Returns:

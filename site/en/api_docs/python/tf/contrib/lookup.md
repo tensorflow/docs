@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.lookup
 
-
-
-Defined in [`tensorflow/contrib/lookup/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/lookup/__init__.py).
-
 Ops for lookup operations.
+
+
+
+Defined in [`contrib/lookup/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/lookup/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 
 
@@ -23,11 +25,11 @@ Ops for lookup operations.
 
 [`class InitializableLookupTableBase`](../../tf/contrib/lookup/InitializableLookupTableBase): Initializable lookup table interface.
 
-[`class KeyValueTensorInitializer`](../../tf/contrib/lookup/KeyValueTensorInitializer): Table initializers given `keys` and `values` tensors.
+[`class KeyValueTensorInitializer`](../../tf/lookup/KeyValueTensorInitializer): Table initializers given `keys` and `values` tensors.
 
 [`class LookupInterface`](../../tf/contrib/lookup/LookupInterface): Represent a lookup table that persists across different steps.
 
-[`class MutableDenseHashTable`](../../tf/contrib/lookup/MutableDenseHashTable): A generic mutable hash table implementation using tensors as backing store.
+[`class MutableDenseHashTable`](../../tf/lookup/experimental/DenseHashTable): A generic mutable hash table implementation using tensors as backing store.
 
 [`class MutableHashTable`](../../tf/contrib/lookup/MutableHashTable): A generic mutable hash table implementation.
 
@@ -37,9 +39,9 @@ Ops for lookup operations.
 
 [`class TextFileIdTableInitializer`](../../tf/contrib/lookup/TextFileIdTableInitializer): Table initializer for string to `int64` IDs tables from a text file.
 
-[`class TextFileIndex`](../../tf/contrib/lookup/TextFileIndex)
+[`class TextFileIndex`](../../tf/lookup/TextFileIndex): The key and value content to get from each line.
 
-[`class TextFileInitializer`](../../tf/contrib/lookup/TextFileInitializer): Table initializers from a text file.
+[`class TextFileInitializer`](../../tf/lookup/TextFileInitializer): Table initializers from a text file.
 
 [`class TextFileStringTableInitializer`](../../tf/contrib/lookup/TextFileStringTableInitializer): Table initializer for `int64` IDs to string tables from a text file.
 
@@ -63,5 +65,4 @@ Ops for lookup operations.
 
 ## Other Members
 
-<h3 id="FastHashSpec"><code>FastHashSpec</code></h3>
-
+* `FastHashSpec` <a id="FastHashSpec"></a>

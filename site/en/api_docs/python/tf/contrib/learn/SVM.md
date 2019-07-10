@@ -7,16 +7,18 @@ page_type: reference
 
 ## Class `SVM`
 
+Support Vector Machine (SVM) model for binary classification.
+
 Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/svm.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/svm.py).
+Defined in [`contrib/learn/python/learn/estimators/svm.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/svm.py).
 
-Support Vector Machine (SVM) model for binary classification.
+<!-- Placeholder for "Used in" -->
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.tensorflow.org/code/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Currently, only linear SVMs are supported. For the underlying optimization
@@ -30,7 +32,9 @@ loss but convergence is not guaranteed. The recommended value in an
 `Estimator` (where there is one process per worker) is the number of workers
 running the train steps. It defaults to 1 (single machine).
 
-Example:
+#### Example:
+
+
 
 ```python
 real_feature_column = real_valued_column(...)
@@ -83,35 +87,38 @@ __init__(
 
 Constructs an `SVM` estimator object.
 
+
 #### Args:
 
+
 * <b>`example_id_column`</b>: A string defining the feature column name representing
-    example ids. Used to initialize the underlying optimizer.
+  example ids. Used to initialize the underlying optimizer.
 * <b>`feature_columns`</b>: An iterable containing all the feature columns used by
-    the model. All items in the set should be instances of classes derived
-    from `FeatureColumn`.
+  the model. All items in the set should be instances of classes derived
+  from `FeatureColumn`.
 * <b>`weight_column_name`</b>: A string defining feature column name representing
-    weights. It is used to down weight or boost examples during training. It
-    will be multiplied by the loss of the example.
+  weights. It is used to down weight or boost examples during training. It
+  will be multiplied by the loss of the example.
 * <b>`model_dir`</b>: Directory to save model parameters, graph and etc. This can
-    also be used to load checkpoints from the directory into a estimator to
-    continue training a previously saved model.
+  also be used to load checkpoints from the directory into a estimator to
+  continue training a previously saved model.
 * <b>`l1_regularization`</b>: L1-regularization parameter. Refers to global L1
-    regularization (across all examples).
+  regularization (across all examples).
 * <b>`l2_regularization`</b>: L2-regularization parameter. Refers to global L2
-    regularization (across all examples).
+  regularization (across all examples).
 * <b>`num_loss_partitions`</b>: number of partitions of the (global) loss function
-    optimized by the underlying optimizer (SDCAOptimizer).
+  optimized by the underlying optimizer (SDCAOptimizer).
 * <b>`kernels`</b>: A list of kernels for the SVM. Currently, no kernels are
-    supported. Reserved for future use for non-linear SVMs.
+  supported. Reserved for future use for non-linear SVMs.
 * <b>`config`</b>: RunConfig object to configure the runtime settings.
 * <b>`feature_engineering_fn`</b>: Feature engineering function. Takes features and
-                    labels which are the output of `input_fn` and
-                    returns features and labels which will be fed
-                    into the model.
+                  labels which are the output of `input_fn` and
+                  returns features and labels which will be fed
+                  into the model.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: if kernels passed is not None.
 
@@ -123,18 +130,22 @@ Constructs an `SVM` estimator object.
 
 
 
+
 <h3 id="model_dir"><code>model_dir</code></h3>
 
-Returns a path in which the eval process will look for checkpoints.
+
+
 
 <h3 id="model_fn"><code>model_fn</code></h3>
 
 Returns the model_fn which is bound to self.params.
 
+
 #### Returns:
 
 The model_fn with the following signature:
   `def model_fn(features, labels, mode, metrics)`
+
 
 
 
@@ -170,9 +181,10 @@ Example conversion:
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If at least one of `x` or `y` is provided, and at least one of
-      `input_fn` or `feed_fn` is provided.
-      Or if `metrics` is not `None` or `dict`.
+    `input_fn` or `feed_fn` is provided.
+    Or if `metrics` is not `None` or `dict`.
 
 <h3 id="export"><code>export</code></h3>
 
@@ -209,32 +221,34 @@ export_savedmodel(
 
 Exports inference graph as a SavedModel into given dir.
 
+
 #### Args:
 
+
 * <b>`export_dir_base`</b>: A string containing a directory to write the exported
-    graph and checkpoints.
+  graph and checkpoints.
 * <b>`serving_input_fn`</b>: A function that takes no argument and
-    returns an `InputFnOps`.
+  returns an `InputFnOps`.
 * <b>`default_output_alternative_key`</b>: the name of the head to serve when none is
-    specified.  Not needed for single-headed models.
+  specified.  Not needed for single-headed models.
 * <b>`assets_extra`</b>: A dict specifying how to populate the assets.extra directory
-    within the exported SavedModel.  Each key should give the destination
-    path (including the filename) relative to the assets.extra directory.
-    The corresponding value gives the full path of the source file to be
-    copied.  For example, the simple case of copying a single file without
-    renaming it is specified as
-    `{'my_asset_file.txt': '/path/to/my_asset_file.txt'}`.
+  within the exported SavedModel.  Each key should give the destination
+  path (including the filename) relative to the assets.extra directory.
+  The corresponding value gives the full path of the source file to be
+  copied.  For example, the simple case of copying a single file without
+  renaming it is specified as
+  `{'my_asset_file.txt': '/path/to/my_asset_file.txt'}`.
 * <b>`as_text`</b>: whether to write the SavedModel proto in text format.
 * <b>`checkpoint_path`</b>: The checkpoint path to export.  If None (the default),
-    the most recent checkpoint found within the model directory is chosen.
+  the most recent checkpoint found within the model directory is chosen.
 * <b>`graph_rewrite_specs`</b>: an iterable of `GraphRewriteSpec`.  Each element will
-    produce a separate MetaGraphDef within the exported SavedModel, tagged
-    and rewritten as specified.  Defaults to a single entry using the
-    default serving tag ("serve") and no rewriting.
+  produce a separate MetaGraphDef within the exported SavedModel, tagged
+  and rewritten as specified.  Defaults to a single entry using the
+  default serving tag ("serve") and no rewriting.
 * <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
-    removed from the NodeDefs. For a detailed guide, see
-    [Stripping Default-Valued
-      Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
+  removed from the NodeDefs. For a detailed guide, see
+  [Stripping Default-Valued
+    Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
 
 
 #### Returns:
@@ -242,7 +256,9 @@ Exports inference graph as a SavedModel into given dir.
 The string path to the exported directory.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if an unrecognized export_type is requested.
 
@@ -290,6 +306,7 @@ Example conversion:
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `x` or `y` are not `None` while `input_fn` is not `None`.
 * <b>`ValueError`</b>: If both `steps` and `max_steps` are not `None`.
 
@@ -301,18 +318,21 @@ get_params(deep=True)
 
 Get parameters for this estimator.
 
+
 #### Args:
+
 
 * <b>`deep`</b>: boolean, optional
 
-    If `True`, will return the parameters for this estimator and
-    contained subobjects that are estimators.
+  If `True`, will return the parameters for this estimator and
+  contained subobjects that are estimators.
 
 
 #### Returns:
 
-* <b>`params `</b>: mapping of string to any
-  Parameter names mapped to their values.
+
+* <b>`params`</b>: mapping of string to any
+Parameter names mapped to their values.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
 
@@ -322,9 +342,11 @@ get_variable_names()
 
 Returns list of all variable names in this model.
 
+
 #### Returns:
 
 List of names.
+
 
 <h3 id="get_variable_value"><code>get_variable_value</code></h3>
 
@@ -334,7 +356,9 @@ get_variable_value(name)
 
 Returns value of the variable given by name.
 
+
 #### Args:
+
 
 * <b>`name`</b>: string, name of the tensor.
 
@@ -342,6 +366,7 @@ Returns value of the variable given by name.
 #### Returns:
 
 Numpy array - value of the tensor.
+
 
 <h3 id="partial_fit"><code>partial_fit</code></h3>
 
@@ -376,20 +401,21 @@ to converge, and you want to split up training into subparts.
 
 #### Args:
 
+
 * <b>`x`</b>: Matrix of shape [n_samples, n_features...]. Can be iterator that
-     returns arrays of features. The training input samples for fitting the
-     model. If set, `input_fn` must be `None`.
+   returns arrays of features. The training input samples for fitting the
+   model. If set, `input_fn` must be `None`.
 * <b>`y`</b>: Vector or matrix [n_samples] or [n_samples, n_outputs]. Can be
-     iterator that returns array of labels. The training label values
-     (class labels in classification, real numbers in regression). If set,
-     `input_fn` must be `None`.
+   iterator that returns array of labels. The training label values
+   (class labels in classification, real numbers in regression). If set,
+   `input_fn` must be `None`.
 * <b>`input_fn`</b>: Input function. If set, `x`, `y`, and `batch_size` must be
-    `None`.
+  `None`.
 * <b>`steps`</b>: Number of steps for which to train model. If `None`, train forever.
 * <b>`batch_size`</b>: minibatch size to use on the input, defaults to first
-    dimension of `x`. Must be `None` if `input_fn` is provided.
+  dimension of `x`. Must be `None` if `input_fn` is provided.
 * <b>`monitors`</b>: List of `BaseMonitor` subclass instances. Used for callbacks
-    inside the training loop.
+  inside the training loop.
 
 
 #### Returns:
@@ -397,10 +423,12 @@ to converge, and you want to split up training into subparts.
 `self`, for chaining.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If at least one of `x` and `y` is provided, and `input_fn` is
-      provided.
+    provided.
 
 <h3 id="predict"><code>predict</code></h3>
 
@@ -427,21 +455,22 @@ Example conversion:
 
 #### Args:
 
+
 * <b>`x`</b>: Matrix of shape [n_samples, n_features...]. Can be iterator that
-     returns arrays of features. The training input samples for fitting the
-     model. If set, `input_fn` must be `None`.
+   returns arrays of features. The training input samples for fitting the
+   model. If set, `input_fn` must be `None`.
 * <b>`input_fn`</b>: Input function. If set, `x` and 'batch_size' must be `None`.
 * <b>`batch_size`</b>: Override default batch size. If set, 'input_fn' must be
-    'None'.
+  'None'.
 * <b>`outputs`</b>: list of `str`, name of the output to predict.
-    If `None`, returns all.
+  If `None`, returns all.
 * <b>`as_iterable`</b>: If True, return an iterable which keeps yielding predictions
-    for each example until inputs are exhausted. Note: The inputs must
-    terminate if you want the iterable to terminate (e.g. be sure to pass
-    num_epochs=1 if you are using something like read_batch_features).
+  for each example until inputs are exhausted. Note: The inputs must
+  terminate if you want the iterable to terminate (e.g. be sure to pass
+  num_epochs=1 if you are using something like read_batch_features).
 * <b>`iterate_batches`</b>: If True, yield the whole batch at once instead of
-    decomposing the batch into individual samples. Only relevant when
-    as_iterable is True.
+  decomposing the batch into individual samples. Only relevant when
+  as_iterable is True.
 
 
 #### Returns:
@@ -452,7 +481,9 @@ of numpy arrays if `model_fn` returns a `dict`. Returns an iterable of
 predictions if as_iterable is True.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If x and input_fn are both provided or both `None`.
 
@@ -510,6 +541,7 @@ component of a nested object.
 
 #### Args:
 
+
 * <b>`**params`</b>: Parameters.
 
 
@@ -518,7 +550,9 @@ component of a nested object.
 self
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If params contain invalid names.
 

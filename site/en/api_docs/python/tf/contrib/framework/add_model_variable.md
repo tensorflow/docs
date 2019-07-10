@@ -5,16 +5,20 @@ page_type: reference
 
 # tf.contrib.framework.add_model_variable
 
+Adds a variable to the `GraphKeys.MODEL_VARIABLES` collection.
+
 ``` python
 tf.contrib.framework.add_model_variable(var)
 ```
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
 
-Adds a variable to the `GraphKeys.MODEL_VARIABLES` collection.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`var`</b>: a variable.

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.losses.get_total_loss
 
+Returns a tensor whose value represents the total loss. (deprecated)
+
 ``` python
 tf.contrib.losses.get_total_loss(
     add_regularization_losses=True,
@@ -14,9 +16,9 @@ tf.contrib.losses.get_total_loss(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/losses/loss_ops.py).
+Defined in [`contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
-Returns a tensor whose value represents the total loss. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-12-30.
 Instructions for updating:
@@ -26,8 +28,9 @@ Notice that the function adds the given losses to the regularization losses.
 
 #### Args:
 
+
 * <b>`add_regularization_losses`</b>: A boolean indicating whether or not to use the
-    regularization losses in the sum.
+  regularization losses in the sum.
 * <b>`name`</b>: The name of the returned tensor.
 
 
@@ -36,6 +39,8 @@ Notice that the function adds the given losses to the regularization losses.
 A `Tensor` whose value represents the total loss.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `losses` is not iterable.

@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.distributions.bijectors
 
-
-
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/bijectors/__init__.py).
-
 Bijector Ops.
+
+
+
+Defined in [`contrib/distributions/python/ops/bijectors/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/bijectors/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 Use [tfp.bijectors](/probability/api_docs/python/tfp/bijectors) instead.
 
@@ -25,7 +27,7 @@ Use [tfp.bijectors](/probability/api_docs/python/tfp/bijectors) instead.
 
 [`class AffineScalar`](../../../tf/contrib/distributions/bijectors/AffineScalar): Compute `Y = g(X; shift, scale) = scale * X + shift`.
 
-[`class BatchNormalization`](../../../tf/contrib/distributions/bijectors/BatchNormalization): Compute `Y = g(X) s.t. X = g^-1(Y) = (Y - mean(Y)) / std(Y)`.
+[`class BatchNormalization`](../../../tf/contrib/distributions/bijectors/BatchNormalization): Compute `Y = g(X) s.t.
 
 [`class Bijector`](../../../tf/contrib/distributions/bijectors/Bijector): Interface for transformations of a `Distribution` sample.
 
@@ -83,7 +85,7 @@ Use [tfp.bijectors](/probability/api_docs/python/tfp/bijectors) instead.
 
 [`masked_autoregressive_default_template(...)`](../../../tf/contrib/distributions/bijectors/masked_autoregressive_default_template): Build the Masked Autoregressive Density Estimator (Germain et al., 2015). (deprecated)
 
-[`masked_dense(...)`](../../../tf/contrib/distributions/bijectors/masked_dense): A autoregressively masked dense layer. Analogous to <a href="../../../tf/layers/dense"><code>tf.layers.dense</code></a>. (deprecated)
+[`masked_dense(...)`](../../../tf/contrib/distributions/bijectors/masked_dense): A autoregressively masked dense layer. (deprecated)
 
 [`real_nvp_default_template(...)`](../../../tf/contrib/distributions/bijectors/real_nvp_default_template): Build a scale-and-shift function using a multi-layer neural network. (deprecated)
 

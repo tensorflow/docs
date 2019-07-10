@@ -5,15 +5,24 @@ page_type: reference
 
 # tf.keras.datasets.cifar10.load_data
 
+Loads CIFAR10 dataset.
+
+### Aliases:
+
+* `tf.compat.v1.keras.datasets.cifar10.load_data`
+* `tf.compat.v2.keras.datasets.cifar10.load_data`
+* `tf.keras.datasets.cifar10.load_data`
+
 ``` python
 tf.keras.datasets.cifar10.load_data()
 ```
 
 
 
-Defined in [`tensorflow/python/keras/datasets/cifar10.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/datasets/cifar10.py).
+Defined in [`python/keras/datasets/cifar10.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/datasets/cifar10.py).
 
-Loads CIFAR10 dataset.
+<!-- Placeholder for "Used in" -->
+
 
 #### Returns:
 

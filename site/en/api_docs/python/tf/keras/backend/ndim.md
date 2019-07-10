@@ -5,26 +5,40 @@ page_type: reference
 
 # tf.keras.backend.ndim
 
+Returns the number of axes in a tensor, as an integer.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.ndim`
+* `tf.compat.v2.keras.backend.ndim`
+* `tf.keras.backend.ndim`
+
 ``` python
 tf.keras.backend.ndim(x)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Returns the number of axes in a tensor, as an integer.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable.
 
 
 #### Returns:
 
-    Integer (scalar), number of axes.
+Integer (scalar), number of axes.
 
-Examples:
+
+
+#### Examples:
+
+
 ```python
     >>> from keras import backend as K
     >>> input = K.placeholder(shape=(2, 4, 5))

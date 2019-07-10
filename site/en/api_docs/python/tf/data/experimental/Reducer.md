@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `Reducer`
 
-
-
-
-
-Defined in [`tensorflow/python/data/experimental/ops/grouping.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/experimental/ops/grouping.py).
-
 A reducer is used for reducing a set of elements.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.data.experimental.Reducer`
+* Class `tf.compat.v2.data.experimental.Reducer`
+* Class `tf.data.experimental.Reducer`
+
+
+
+Defined in [`python/data/experimental/ops/grouping.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/grouping.py).
+
+<!-- Placeholder for "Used in" -->
 
 A reducer is represented as a tuple of the three functions:
   1) initialization function: key => initial state
@@ -30,7 +38,8 @@ __init__(
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -40,11 +49,14 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 
 
+
 <h3 id="init_func"><code>init_func</code></h3>
 
 
 
+
 <h3 id="reduce_func"><code>reduce_func</code></h3>
+
 
 
 

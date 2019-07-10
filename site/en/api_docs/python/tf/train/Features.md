@@ -11,10 +11,28 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/example/feature.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/example/feature.proto).
+### Aliases:
 
-A ProtocolMessage
+* Class `tf.compat.v1.train.Features`
+* Class `tf.compat.v2.train.Features`
+* Class `tf.train.Features`
+
+
+
+Defined in [`core/example/feature.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/example/feature.proto).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Child Classes
 [`class FeatureEntry`](../../tf/train/Features/FeatureEntry)
+
+## Properties
+
+<h3 id="feature"><code>feature</code></h3>
+
+`repeated FeatureEntry feature`
+
+
+
 

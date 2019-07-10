@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.losses.get_losses
 
+Gets the list of losses from the loss_collection.
+
+### Aliases:
+
+* `tf.compat.v1.losses.get_losses`
+* `tf.losses.get_losses`
+
 ``` python
 tf.losses.get_losses(
     scope=None,
@@ -14,11 +21,13 @@ tf.losses.get_losses(
 
 
 
-Defined in [`tensorflow/python/ops/losses/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/losses/util.py).
+Defined in [`python/ops/losses/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/util.py).
 
-Gets the list of losses from the loss_collection.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`scope`</b>: An optional scope name for filtering the losses to return.
 * <b>`loss_collection`</b>: Optional losses collection.

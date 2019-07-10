@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `ConditionalAccumulatorBase`
 
-
-
-
-
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/data_flow_ops.py).
-
 A conditional accumulator for aggregating gradients.
+
+
+
+### Aliases:
+
+* Class `tf.ConditionalAccumulatorBase`
+* Class `tf.compat.v1.ConditionalAccumulatorBase`
+
+
+
+Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
+
+<!-- Placeholder for "Used in" -->
 
 Up-to-date gradients (i.e., time step at which gradient was computed is
 equal to the accumulator's time step) are added to the accumulator.
@@ -33,12 +40,14 @@ __init__(
 
 Creates a new ConditionalAccumulator.
 
+
 #### Args:
+
 
 * <b>`dtype`</b>: Datatype of the accumulated gradients.
 * <b>`shape`</b>: Shape of the accumulated gradients.
 * <b>`accumulator_ref`</b>: A handle to the conditional accumulator, created by sub-
-    classes
+  classes
 
 
 
@@ -48,13 +57,16 @@ Creates a new ConditionalAccumulator.
 
 The underlying accumulator reference.
 
+
 <h3 id="dtype"><code>dtype</code></h3>
 
 The datatype of the gradients accumulated by this accumulator.
 
+
 <h3 id="name"><code>name</code></h3>
 
 The name of the underlying accumulator.
+
 
 
 
@@ -68,7 +80,9 @@ num_accumulated(name=None)
 
 Number of gradients that have currently been aggregated in accumulator.
 
+
 #### Args:
+
 
 * <b>`name`</b>: Optional name for the operation.
 
@@ -76,6 +90,7 @@ Number of gradients that have currently been aggregated in accumulator.
 #### Returns:
 
 Number of accumulated gradients currently in accumulator.
+
 
 <h3 id="set_global_step"><code>set_global_step</code></h3>
 
@@ -93,6 +108,7 @@ lower than the accumulator's own time step.
 
 #### Args:
 
+
 * <b>`new_global_step`</b>: Value of new time step. Can be a variable or a constant
 * <b>`name`</b>: Optional name for the operation.
 
@@ -100,6 +116,7 @@ lower than the accumulator's own time step.
 #### Returns:
 
 Operation that sets the accumulator's time step.
+
 
 
 

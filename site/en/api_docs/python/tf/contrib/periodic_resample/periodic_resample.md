@@ -6,6 +6,8 @@ page_type: reference
 
 # tf.contrib.periodic_resample.periodic_resample
 
+Periodically resample elements of a tensor to conform to `shape`.
+
 ``` python
 tf.contrib.periodic_resample.periodic_resample(
     values,
@@ -16,9 +18,9 @@ tf.contrib.periodic_resample.periodic_resample(
 
 
 
-Defined in generated file: `tensorflow/contrib/periodic_resample/python/ops/gen_periodic_resample_op.py`.
+Defined in generated file: `contrib/periodic_resample/python/ops/gen_periodic_resample_op.py`.
 
-Periodically resample elements of a tensor to conform to `shape`.
+<!-- Placeholder for "Used in" -->
 
 This function implements a slightly more generic version of the subpixel
 convolutions found in this [paper](https://arxiv.org/abs/1609.05158).
@@ -64,7 +66,9 @@ less than integer multiples of the input dimensions, many of the tensor elements
 are repeated in an inefficient way. This is resolved by specifying that all
 desired dimensions are integer multiples of the input tensor.
 
-For example:
+#### For example:
+
+
 
 ```prettyprint
 `input` is [[ 0  1  2  3]
@@ -81,14 +85,15 @@ tf.periodic_resample(input, [6, None]) ==> [[ 0  1]
 
 #### Args:
 
+
 * <b>`values`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`, `int32`, `uint8`, `int16`, `int8`, `complex64`, `int64`, `qint8`, `quint8`, `qint32`, `bfloat16`, `uint16`, `complex128`, `half`, `uint32`, `uint64`.
-    The tensor of rank `R` to periodic_resample
+  The tensor of rank `R` to periodic_resample
 * <b>`shape`</b>: A <a href="../../../tf/TensorShape"><code>tf.TensorShape</code></a> or list of `ints`.
-    A 1-D tensor representing the desired shape of the output tensor.
-    Exactly one element of this tensor must have the value `None` which represents
-    that this dimension of `values` can be adjusted downward in order to
-    accommodate increases in other dimensions. The specified sizes of the
-    non-adjustable dimensions must by at least as large as in the `values` tensor.
+  A 1-D tensor representing the desired shape of the output tensor.
+  Exactly one element of this tensor must have the value `None` which represents
+  that this dimension of `values` can be adjusted downward in order to
+  accommodate increases in other dimensions. The specified sizes of the
+  non-adjustable dimensions must by at least as large as in the `values` tensor.
 * <b>`name`</b>: A name for the operation (optional).
 
 

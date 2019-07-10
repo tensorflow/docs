@@ -5,20 +5,24 @@ page_type: reference
 
 # tf.contrib.gan.get_sequential_train_hooks
 
+Returns a hooks function for sequential GAN training.
+
 ``` python
 tf.contrib.gan.get_sequential_train_hooks(train_steps=namedtuples.GANTrainSteps(1, 1))
 ```
 
 
 
-Defined in [`tensorflow/contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/train.py).
+Defined in [`contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/train.py).
 
-Returns a hooks function for sequential GAN training.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
-* <b>`train_steps`</b>: A `GANTrainSteps` tuple that determines how many generator
-    and discriminator training steps to take.
+
+* <b>`train_steps`</b>: A `GANTrainSteps` tuple that determines how many generator and
+  discriminator training steps to take.
 
 
 #### Returns:

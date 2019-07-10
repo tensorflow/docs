@@ -9,16 +9,21 @@ page_type: reference
 
 
 
+
+
 ### Aliases:
 
 * Class `tf.Summary`
+* Class `tf.compat.v1.Summary`
+* Class `tf.compat.v1.summary.Summary`
 * Class `tf.summary.Summary`
 
 
 
-Defined in [`tensorflow/core/framework/summary.proto`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/framework/summary.proto).
+Defined in [`core/framework/summary.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/summary.proto).
 
-A ProtocolMessage
+<!-- Placeholder for "Used in" -->
+
 
 ## Child Classes
 [`class Audio`](../tf/summary/Summary/Audio)
@@ -26,4 +31,13 @@ A ProtocolMessage
 [`class Image`](../tf/summary/Summary/Image)
 
 [`class Value`](../tf/summary/Summary/Value)
+
+## Properties
+
+<h3 id="value"><code>value</code></h3>
+
+`repeated Value value`
+
+
+
 

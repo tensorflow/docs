@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.image.resize_area
 
+Resize `images` to `size` using area interpolation.
+
+### Aliases:
+
+* `tf.compat.v1.image.resize_area`
+* `tf.image.resize_area`
+
 ``` python
 tf.image.resize_area(
     images,
@@ -16,9 +23,9 @@ tf.image.resize_area(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_image_ops.py`.
+Defined in generated file: `python/ops/gen_image_ops.py`.
 
-Resize `images` to `size` using area interpolation.
+<!-- Placeholder for "Used in" -->
 
 Input images can be of different types but output images are always float.
 
@@ -34,13 +41,14 @@ area that intersects the footprint.  This is the same as OpenCV's INTER_AREA.
 
 #### Args:
 
+
 * <b>`images`</b>: A `Tensor`. Must be one of the following types: `int8`, `uint8`, `int16`, `uint16`, `int32`, `int64`, `half`, `float32`, `float64`.
-    4-D with shape `[batch, height, width, channels]`.
+  4-D with shape `[batch, height, width, channels]`.
 * <b>`size`</b>:  A 1-D int32 Tensor of 2 elements: `new_height, new_width`.  The
-    new size for the images.
+  new size for the images.
 * <b>`align_corners`</b>: An optional `bool`. Defaults to `False`.
-    If true, the centers of the 4 corner pixels of the input and output tensors are
-    aligned, preserving the values at the corner pixels. Defaults to false.
+  If true, the centers of the 4 corner pixels of the input and output tensors are
+  aligned, preserving the values at the corner pixels. Defaults to false.
 * <b>`name`</b>: A name for the operation (optional).
 
 

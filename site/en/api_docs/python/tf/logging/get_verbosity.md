@@ -5,12 +5,19 @@ page_type: reference
 
 # tf.logging.get_verbosity
 
+Return how much logging output will be produced.
+
+### Aliases:
+
+* `tf.compat.v1.logging.get_verbosity`
+* `tf.logging.get_verbosity`
+
 ``` python
 tf.logging.get_verbosity()
 ```
 
 
 
-Defined in [`tensorflow/python/platform/tf_logging.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/tf_logging.py).
+Defined in [`python/platform/tf_logging.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/tf_logging.py).
 
-Return how much logging output will be produced.
+<!-- Placeholder for "Used in" -->

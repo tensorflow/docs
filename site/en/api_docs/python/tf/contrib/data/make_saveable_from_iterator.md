@@ -5,36 +5,42 @@ page_type: reference
 
 # tf.contrib.data.make_saveable_from_iterator
 
+Returns a SaveableObject for saving/restore iterator state using Saver. (deprecated)
+
 ``` python
 tf.contrib.data.make_saveable_from_iterator(iterator)
 ```
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/data/python/ops/iterator_ops.py).
+Defined in [`contrib/data/python/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/iterator_ops.py).
 
-Returns a SaveableObject for saving/restore iterator state using Saver. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `tf.data.experimental.make_saveable_from_iterator(...)`.
+Use <a href="../../../tf/data/experimental/make_saveable_from_iterator"><code>tf.data.experimental.make_saveable_from_iterator(...)</code></a>.
 
 #### Args:
 
+
 * <b>`iterator`</b>: Iterator.
 
-For example:
+
+#### For example:
+
+
 
 ```python
 with tf.Graph().as_default():
   ds = tf.data.Dataset.range(10)
   iterator = ds.make_initializable_iterator()
   # Build the iterator SaveableObject.
-  saveable_obj = tf.contrib.data.make_saveable_from_iterator(iterator)
+  saveable_obj = tf.data.experimental.make_saveable_from_iterator(iterator)
   # Add the SaveableObject to the SAVEABLE_OBJECTS collection so
   # it can be automatically saved using Saver.
-  tf.add_to_collection(tf.GraphKeys.SAVEABLE_OBJECTS, saveable_obj)
-  saver = tf.train.Saver()
+  tf.compat.v1.add_to_collection(tf.GraphKeys.SAVEABLE_OBJECTS, saveable_obj)
+  saver = tf.compat.v1.train.Saver()
 
   while continue_training:
     ... Perform training ...

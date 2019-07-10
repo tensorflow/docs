@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.sparse.expand_dims
 
+Inserts a dimension of 1 into a tensor's shape.
+
+### Aliases:
+
+* `tf.compat.v1.sparse.expand_dims`
+* `tf.compat.v2.sparse.expand_dims`
+* `tf.sparse.expand_dims`
+
 ``` python
 tf.sparse.expand_dims(
     sp_input,
@@ -15,9 +23,9 @@ tf.sparse.expand_dims(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Inserts a dimension of 1 into a tensor's shape.
+<!-- Placeholder for "Used in" -->
 
 Given a tensor `sp_input`, this operation inserts a dimension of 1 at the
 dimension index `axis` of `sp_input`'s shape. The dimension index `axis`
@@ -26,10 +34,11 @@ backwards from the end.
 
 #### Args:
 
+
 * <b>`sp_input`</b>: A `SparseTensor`.
 * <b>`axis`</b>: 0-D (scalar). Specifies the dimension index at which to expand the
-    shape of `input`. Must be in the range `[-rank(sp_input) - 1,
-    rank(sp_input)]`.
+  shape of `input`. Must be in the range `[-rank(sp_input) - 1,
+  rank(sp_input)]`.
 * <b>`name`</b>: The name of the output `SparseTensor`.
 
 

@@ -7,20 +7,30 @@ page_type: reference
 
 ## Class `ReduceLROnPlateau`
 
+Reduce learning rate when a metric has stopped improving.
+
 Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
+### Aliases:
+
+* Class `tf.compat.v1.keras.callbacks.ReduceLROnPlateau`
+* Class `tf.compat.v2.keras.callbacks.ReduceLROnPlateau`
+* Class `tf.keras.callbacks.ReduceLROnPlateau`
 
 
-Defined in [`tensorflow/python/keras/callbacks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/callbacks.py).
 
-Reduce learning rate when a metric has stopped improving.
+Defined in [`python/keras/callbacks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/callbacks.py).
+
+<!-- Placeholder for "Used in" -->
 
 Models often benefit from reducing the learning rate by a factor
 of 2-10 once learning stagnates. This callback monitors a
 quantity and if no improvement is seen for a 'patience' number
 of epochs, the learning rate is reduced.
 
-Example:
+#### Example:
+
+
 
 ```python
 reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2,
@@ -30,23 +40,22 @@ model.fit(X_train, Y_train, callbacks=[reduce_lr])
 
 #### Arguments:
 
+
 * <b>`monitor`</b>: quantity to be monitored.
-* <b>`factor`</b>: factor by which the learning rate will
-        be reduced. new_lr = lr * factor
-* <b>`patience`</b>: number of epochs with no improvement
-        after which learning rate will be reduced.
+* <b>`factor`</b>: factor by which the learning rate will be reduced. new_lr = lr *
+  factor
+* <b>`patience`</b>: number of epochs with no improvement after which learning rate
+  will be reduced.
 * <b>`verbose`</b>: int. 0: quiet, 1: update messages.
-* <b>`mode`</b>: one of {auto, min, max}. In `min` mode,
-        lr will be reduced when the quantity
-        monitored has stopped decreasing; in `max`
-        mode it will be reduced when the quantity
-        monitored has stopped increasing; in `auto`
-        mode, the direction is automatically inferred
-        from the name of the monitored quantity.
-* <b>`min_delta`</b>: threshold for measuring the new optimum,
-        to only focus on significant changes.
-* <b>`cooldown`</b>: number of epochs to wait before resuming
-        normal operation after lr has been reduced.
+* <b>`mode`</b>: one of {auto, min, max}. In `min` mode, lr will be reduced when the
+  quantity monitored has stopped decreasing; in `max` mode it will be
+  reduced when the quantity monitored has stopped increasing; in `auto`
+  mode, the direction is automatically inferred from the name of the
+  monitored quantity.
+* <b>`min_delta`</b>: threshold for measuring the new optimum, to only focus on
+  significant changes.
+* <b>`cooldown`</b>: number of epochs to wait before resuming normal operation after
+  lr has been reduced.
 * <b>`min_lr`</b>: lower bound on the learning rate.
 
 <h2 id="__init__"><code>__init__</code></h2>
@@ -65,7 +74,8 @@ __init__(
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -76,6 +86,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 ``` python
 in_cooldown()
 ```
+
 
 
 
@@ -90,6 +101,7 @@ on_batch_begin(
 
 A backwards compatibility alias for `on_train_batch_begin`.
 
+
 <h3 id="on_batch_end"><code>on_batch_end</code></h3>
 
 ``` python
@@ -101,26 +113,27 @@ on_batch_end(
 
 A backwards compatibility alias for `on_train_batch_end`.
 
+
 <h3 id="on_epoch_begin"><code>on_epoch_begin</code></h3>
 
 ``` python
 on_epoch_begin(
     epoch,
-    logs=None,
-    mode='train'
+    logs=None
 )
 ```
 
 Called at the start of an epoch.
 
-Subclasses should override for any actions to run.
+Subclasses should override for any actions to run. This function should only
+be called during TRAIN mode.
 
 #### Arguments:
 
+
 * <b>`epoch`</b>: integer, index of epoch.
 * <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
-* <b>`mode`</b>: One of 'train'/'test'/'predict'
+  but that may change in the future.
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 
@@ -131,17 +144,8 @@ on_epoch_end(
 )
 ```
 
-Called at the end of an epoch.
 
-Subclasses should override for any actions to run.
 
-#### Arguments:
-
-* <b>`epoch`</b>: integer, index of epoch.
-* <b>`logs`</b>: dict, metric results for this training epoch, and for the
-      validation epoch if validation is performed. Validation result keys
-      are prefixed with `val_`.
-* <b>`mode`</b>: One of 'train'/'test'/'predict'
 
 <h3 id="on_predict_batch_begin"><code>on_predict_batch_begin</code></h3>
 
@@ -158,9 +162,10 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Has keys `batch` and `size` representing the current batch
-      number and the size of the batch.
+  number and the size of the batch.
 
 <h3 id="on_predict_batch_end"><code>on_predict_batch_end</code></h3>
 
@@ -177,6 +182,7 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Metric results for this batch.
 
@@ -192,8 +198,9 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
+  but that may change in the future.
 
 <h3 id="on_predict_end"><code>on_predict_end</code></h3>
 
@@ -207,8 +214,9 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
+  but that may change in the future.
 
 <h3 id="on_test_batch_begin"><code>on_test_batch_begin</code></h3>
 
@@ -228,9 +236,10 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Has keys `batch` and `size` representing the current batch
-      number and the size of the batch.
+  number and the size of the batch.
 
 <h3 id="on_test_batch_end"><code>on_test_batch_end</code></h3>
 
@@ -250,6 +259,7 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Metric results for this batch.
 
@@ -265,8 +275,9 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
+  but that may change in the future.
 
 <h3 id="on_test_end"><code>on_test_end</code></h3>
 
@@ -280,8 +291,9 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
+  but that may change in the future.
 
 <h3 id="on_train_batch_begin"><code>on_train_batch_begin</code></h3>
 
@@ -298,9 +310,10 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Has keys `batch` and `size` representing the current batch
-      number and the size of the batch.
+  number and the size of the batch.
 
 <h3 id="on_train_batch_end"><code>on_train_batch_end</code></h3>
 
@@ -317,6 +330,7 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`batch`</b>: integer, index of batch within the current epoch.
 * <b>`logs`</b>: dict. Metric results for this batch.
 
@@ -326,14 +340,8 @@ Subclasses should override for any actions to run.
 on_train_begin(logs=None)
 ```
 
-Called at the beginning of training.
 
-Subclasses should override for any actions to run.
 
-#### Arguments:
-
-* <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
 
 <h3 id="on_train_end"><code>on_train_end</code></h3>
 
@@ -347,8 +355,9 @@ Subclasses should override for any actions to run.
 
 #### Arguments:
 
+
 * <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
-      but that may change in the future.
+  but that may change in the future.
 
 <h3 id="set_model"><code>set_model</code></h3>
 
@@ -358,11 +367,13 @@ set_model(model)
 
 
 
+
 <h3 id="set_params"><code>set_params</code></h3>
 
 ``` python
 set_params(params)
 ```
+
 
 
 

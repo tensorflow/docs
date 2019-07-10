@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.bigtable
 
-
-
-Defined in [`tensorflow/contrib/bigtable/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/bigtable/__init__.py).
-
 Cloud Bigtable Client for TensorFlow.
+
+
+
+Defined in [`contrib/bigtable/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/bigtable/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 This contrib package allows TensorFlow to interface directly with Cloud Bigtable
 for high-speed data loading.

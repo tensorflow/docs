@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.substr
 
+Return substrings from `Tensor` of strings.
+
+### Aliases:
+
+* `tf.compat.v1.substr`
+* `tf.substr`
+
 ``` python
 tf.substr(
     input,
@@ -17,9 +24,9 @@ tf.substr(
 
 
 
-Defined in [`tensorflow/python/ops/string_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/string_ops.py).
+Defined in [`python/ops/string_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/string_ops.py).
 
-Return substrings from `Tensor` of strings.
+<!-- Placeholder for "Used in" -->
 
 For each string in the input `Tensor`, creates a substring starting at index
 `pos` with a total length of `len`.
@@ -99,17 +106,18 @@ output = [b'hir', b'ee', b'n']
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor` of type `string`. Tensor of strings
 * <b>`pos`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-    Scalar defining the position of first character in each substring
+  Scalar defining the position of first character in each substring
 * <b>`len`</b>: A `Tensor`. Must have the same type as `pos`.
-    Scalar defining the number of characters to include in each substring
+  Scalar defining the number of characters to include in each substring
 * <b>`unit`</b>: An optional `string` from: `"BYTE", "UTF8_CHAR"`. Defaults to `"BYTE"`.
-    The unit that is used to create the substring.  One of: `"BYTE"` (for
-    defining position and length by bytes) or `"UTF8_CHAR"` (for the UTF-8
-    encoded Unicode code points).  The default is `"BYTE"`. Results are undefined if
-    `unit=UTF8_CHAR` and the `input` strings do not contain structurally valid
-    UTF-8.
+  The unit that is used to create the substring.  One of: `"BYTE"` (for
+  defining position and length by bytes) or `"UTF8_CHAR"` (for the UTF-8
+  encoded Unicode code points).  The default is `"BYTE"`. Results are undefined if
+  `unit=UTF8_CHAR` and the `input` strings do not contain structurally valid
+  UTF-8.
 * <b>`name`</b>: A name for the operation (optional).
 
 

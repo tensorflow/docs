@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.metrics.streaming_recall_at_k
 
+Computes the recall@k of the predictions with respect to dense labels. (deprecated)
+
 ``` python
 tf.contrib.metrics.streaming_recall_at_k(
     predictions,
@@ -19,9 +21,9 @@ tf.contrib.metrics.streaming_recall_at_k(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
-Computes the recall@k of the predictions with respect to dense labels. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-11-08.
 Instructions for updating:
@@ -44,31 +46,34 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`predictions`</b>: A float `Tensor` of dimension [batch_size, num_classes].
 * <b>`labels`</b>: A `Tensor` of dimension [batch_size] whose type is in `int32`,
-    `int64`.
+  `int64`.
 * <b>`k`</b>: The number of top elements to look at for computing recall.
 * <b>`weights`</b>: `Tensor` whose rank is either 0, or the same rank as `labels`, and
-    must be broadcastable to `labels` (i.e., all dimensions must be either
-    `1`, or the same as the corresponding `labels` dimension).
+  must be broadcastable to `labels` (i.e., all dimensions must be either
+  `1`, or the same as the corresponding `labels` dimension).
 * <b>`metrics_collections`</b>: An optional list of collections that `recall_at_k`
-    should be added to.
+  should be added to.
 * <b>`updates_collections`</b>: An optional list of collections `update_op` should be
-    added to.
+  added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
 
+
 * <b>`recall_at_k`</b>: A `Tensor` representing the recall@k, the fraction of labels
-    which fall into the top `k` predictions.
+  which fall into the top `k` predictions.
 * <b>`update_op`</b>: An operation that increments the `total` and `count` variables
-    appropriately and whose value matches `recall_at_k`.
+  appropriately and whose value matches `recall_at_k`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `predictions` and `labels` have mismatched shapes, or if
-    `weights` is not `None` and its shape doesn't match `predictions`, or if
-    either `metrics_collections` or `updates_collections` are not a list or
-    tuple.
+  `weights` is not `None` and its shape doesn't match `predictions`, or if
+  either `metrics_collections` or `updates_collections` are not a list or
+  tuple.

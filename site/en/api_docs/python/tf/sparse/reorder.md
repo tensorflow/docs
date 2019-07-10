@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.sparse.reorder
 
+Reorders a `SparseTensor` into the canonical, row-major ordering.
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.reorder`
+* `tf.compat.v1.sparse_reorder`
+* `tf.compat.v2.sparse.reorder`
 * `tf.sparse.reorder`
 * `tf.sparse_reorder`
 
@@ -19,9 +24,9 @@ tf.sparse.reorder(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Reorders a `SparseTensor` into the canonical, row-major ordering.
+<!-- Placeholder for "Used in" -->
 
 Note that by convention, all sparse ops preserve the canonical ordering
 along increasing dimension number. The only time ordering can be violated
@@ -46,6 +51,7 @@ then the output will be a `SparseTensor` of shape `[4, 5]` and
 
 #### Args:
 
+
 * <b>`sp_input`</b>: The input `SparseTensor`.
 * <b>`name`</b>: A name prefix for the returned tensors (optional)
 
@@ -56,6 +62,8 @@ A `SparseTensor` with the same shape and non-empty values, but in
 canonical ordering.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `sp_input` is not a `SparseTensor`.

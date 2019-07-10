@@ -6,10 +6,22 @@ page_type: reference
 
 # tf.math.negative
 
+Computes numerical negative value element-wise.
+
 ### Aliases:
 
-* `tf.Variable.__neg__`
-* `tf.contrib.eager.Variable.__neg__`
+* `tf.RaggedTensor.__neg__`
+* `tf.Tensor.__neg__`
+* `tf.compat.v1.RaggedTensor.__neg__`
+* `tf.compat.v1.Tensor.__neg__`
+* `tf.compat.v1.math.negative`
+* `tf.compat.v1.negative`
+* `tf.compat.v2.RaggedTensor.__neg__`
+* `tf.compat.v2.Tensor.__neg__`
+* `tf.compat.v2.math.negative`
+* `tf.compat.v2.negative`
+* `tf.math.negative`
+* `tf.negative`
 
 ``` python
 tf.math.negative(
@@ -20,13 +32,14 @@ tf.math.negative(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Computes numerical negative value element-wise.
+<!-- Placeholder for "Used in" -->
 
 I.e., \\(y = -x\\).
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `int32`, `int64`, `complex64`, `complex128`.
 * <b>`name`</b>: A name for the operation (optional).

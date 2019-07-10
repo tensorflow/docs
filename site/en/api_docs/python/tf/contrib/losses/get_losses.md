@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.losses.get_losses
 
+Gets the list of losses from the loss_collection. (deprecated)
+
 ``` python
 tf.contrib.losses.get_losses(
     scope=None,
@@ -14,15 +16,16 @@ tf.contrib.losses.get_losses(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/losses/loss_ops.py).
+Defined in [`contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
-Gets the list of losses from the loss_collection. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-12-30.
 Instructions for updating:
 Use tf.losses.get_losses instead.
 
 #### Args:
+
 
 * <b>`scope`</b>: an optional scope for filtering the losses to return.
 * <b>`loss_collection`</b>: Optional losses collection.

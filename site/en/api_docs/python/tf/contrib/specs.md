@@ -5,9 +5,12 @@ page_type: reference
 
 # Module: tf.contrib.specs
 
-
-
-Defined in [`tensorflow/contrib/specs/python/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/specs/python/__init__.py).
-
 Init file, giving convenient access to all specs ops.
+
+
+
+Defined in [`contrib/specs/python/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/specs/python/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 

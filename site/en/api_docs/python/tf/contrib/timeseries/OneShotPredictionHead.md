@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `OneShotPredictionHead`
 
-
-
-
-
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/head.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/timeseries/python/timeseries/head.py).
-
 A time series head which exports a single stateless serving signature.
+
+
+
+
+
+Defined in [`contrib/timeseries/python/timeseries/head.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/head.py).
+
+<!-- Placeholder for "Used in" -->
 
 The serving default signature exported by this head expects `times`, `values`,
 and any exogenous features, but no state. `values` has shape `[batch_size,
@@ -42,7 +44,9 @@ __init__(
 
 Creates a `_Head` for time series regression.
 
+
 #### Args:
+
 
 * <b>`model`</b>: A model for time series regression.
 * <b>`state_manager`</b>: A state manager.
@@ -58,13 +62,11 @@ Creates a `_Head` for time series regression.
 
 See `_Head`.
 
+
 <h3 id="name"><code>name</code></h3>
 
-The name of this head.
 
-#### Returns:
 
-A string.
 
 
 
@@ -82,6 +84,7 @@ create_estimator_spec(
 
 Performs basic error checking and returns an EstimatorSpec.
 
+
 <h3 id="create_loss"><code>create_loss</code></h3>
 
 ``` python
@@ -94,6 +97,7 @@ create_loss(
 ```
 
 See `_Head`.
+
 
 
 

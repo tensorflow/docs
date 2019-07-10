@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.gan.eval.classifier_metrics
 
+Model evaluation tools for TF-GAN.
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/classifier_metrics.py).
 
-Model evaluation tools for TFGAN.
+Defined in [`contrib/gan/python/eval/python/classifier_metrics.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/classifier_metrics.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Functions
 
@@ -47,15 +50,8 @@ Model evaluation tools for TFGAN.
 
 ## Other Members
 
-<h3 id="INCEPTION_DEFAULT_IMAGE_SIZE"><code>INCEPTION_DEFAULT_IMAGE_SIZE</code></h3>
-
-<h3 id="__all__"><code>__all__</code></h3>
-
-<h3 id="frechet_inception_distance"><code>frechet_inception_distance</code></h3>
-
-<h3 id="inception_score"><code>inception_score</code></h3>
-
-<h3 id="kernel_inception_distance"><code>kernel_inception_distance</code></h3>
-
-<h3 id="kernel_inception_distance_and_std"><code>kernel_inception_distance_and_std</code></h3>
-
+* `INCEPTION_DEFAULT_IMAGE_SIZE = 299` <a id="INCEPTION_DEFAULT_IMAGE_SIZE"></a>
+* `frechet_inception_distance` <a id="frechet_inception_distance"></a>
+* `inception_score` <a id="inception_score"></a>
+* `kernel_inception_distance` <a id="kernel_inception_distance"></a>
+* `kernel_inception_distance_and_std` <a id="kernel_inception_distance_and_std"></a>

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.truncated_normal
 
+Returns a tensor with truncated random normal distribution of values.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.truncated_normal`
+* `tf.compat.v2.keras.backend.truncated_normal`
+* `tf.keras.backend.truncated_normal`
+
 ``` python
 tf.keras.backend.truncated_normal(
     shape,
@@ -17,9 +25,9 @@ tf.keras.backend.truncated_normal(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Returns a tensor with truncated random normal distribution of values.
+<!-- Placeholder for "Used in" -->
 
 The generated values follow a normal distribution
 with specified mean and standard deviation,
@@ -27,6 +35,7 @@ except that values whose magnitude is more than
 two standard deviations from the mean are dropped and re-picked.
 
 #### Arguments:
+
 
 * <b>`shape`</b>: A tuple of integers, the shape of tensor to create.
 * <b>`mean`</b>: Mean of the values.

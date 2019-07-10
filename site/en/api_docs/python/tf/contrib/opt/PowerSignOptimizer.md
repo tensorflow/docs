@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `PowerSignOptimizer`
 
+Optimizer that implements the PowerSign update.
+
 Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/powersign.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/opt/python/training/powersign.py).
+Defined in [`contrib/opt/python/training/powersign.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/powersign.py).
 
-Optimizer that implements the PowerSign update.
+<!-- Placeholder for "Used in" -->
 
 See [Bello et al., ICML2017],
 [Neural Optimizer Search with RL](https://arxiv.org/abs/1709.07417).
@@ -33,14 +35,19 @@ __init__(
 
 Constructs a new PowerSignOptimizer object.
 
-Initialization:
+
+#### Initialization:
+
+
 
 ```
 m_0 <- 0 (Initialize initial 1st moment vector)
 t <- 0 (Initialize timestep)
 ```
 
-Update:
+#### Update:
+
+
 
 ```
 t <- t + 1
@@ -60,14 +67,15 @@ opt = PowerSignOptimizer(learning_rate=0.1, sign_decay_fn=linear_decay_fn)
 
 #### Args:
 
+
 * <b>`learning_rate`</b>: learning_rate used when taking a step.
 * <b>`base`</b>: base used in optimizer.
 * <b>`beta`</b>: decay used for computing the moving average m.
 * <b>`sign_decay_fn`</b>: decay function applied to the sign(g) sign(m) quantity.
-      Takes global_step as an argument. See sign_decay.py for some examples.
+    Takes global_step as an argument. See sign_decay.py for some examples.
 * <b>`use_locking`</b>: If True, use locks for update operations.
 * <b>`name`</b>: Optional name for the operations created iwhen applying gradients.
-    Defaults to "PowerSignOptimizer".
+  Defaults to "PowerSignOptimizer".
 
 
 
@@ -83,32 +91,8 @@ apply_gradients(
 )
 ```
 
-Apply gradients to variables.
-
-This is the second part of `minimize()`. It returns an `Operation` that
-applies gradients.
-
-#### Args:
-
-* <b>`grads_and_vars`</b>: List of (gradient, variable) pairs as returned by
-    `compute_gradients()`.
-* <b>`global_step`</b>: Optional `Variable` to increment by one after the
-    variables have been updated.
-* <b>`name`</b>: Optional name for the returned operation.  Default to the
-    name passed to the `Optimizer` constructor.
 
 
-#### Returns:
-
-An `Operation` that applies the specified gradients. If `global_step`
-was not None, that operation also increments `global_step`.
-
-
-#### Raises:
-
-* <b>`TypeError`</b>: If `grads_and_vars` is malformed.
-* <b>`ValueError`</b>: If none of the variables have gradients.
-* <b>`RuntimeError`</b>: If you should use `_distributed_apply()` instead.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
 
@@ -133,18 +117,19 @@ given variable.
 
 #### Args:
 
+
 * <b>`loss`</b>: A Tensor containing the value to minimize or a callable taking
-    no arguments which returns the value to minimize. When eager execution
-    is enabled it must be a callable.
+  no arguments which returns the value to minimize. When eager execution
+  is enabled it must be a callable.
 * <b>`var_list`</b>: Optional list or tuple of <a href="../../../tf/Variable"><code>tf.Variable</code></a> to update to minimize
-    `loss`.  Defaults to the list of variables collected in the graph
-    under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  `loss`.  Defaults to the list of variables collected in the graph
+  under the key `GraphKeys.TRAINABLE_VARIABLES`.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
-    `GATE_NONE`, `GATE_OP`, or `GATE_GRAPH`.
+  `GATE_NONE`, `GATE_OP`, or `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
-    Valid values are defined in the class `AggregationMethod`.
+  Valid values are defined in the class `AggregationMethod`.
 * <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with
-    the corresponding op.
+  the corresponding op.
 * <b>`grad_loss`</b>: Optional. A `Tensor` holding the gradient computed for `loss`.
 
 
@@ -154,12 +139,14 @@ A list of (gradient, variable) pairs. Variable is always present, but
 gradient can be `None`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `var_list` contains anything else than `Variable` objects.
 * <b>`ValueError`</b>: If some arguments are invalid.
 * <b>`RuntimeError`</b>: If called with eager execution enabled and `loss` is
-    not callable.
+  not callable.
 
 
 
@@ -174,6 +161,7 @@ and `colocate_gradients_with_ops` are ignored.
 ``` python
 get_name()
 ```
+
 
 
 
@@ -197,6 +185,7 @@ Use `get_slot_names()` to get the list of slot names created by the
 
 #### Args:
 
+
 * <b>`var`</b>: A variable passed to `minimize()` or `apply_gradients()`.
 * <b>`name`</b>: A string.
 
@@ -204,6 +193,7 @@ Use `get_slot_names()` to get the list of slot names created by the
 #### Returns:
 
 The `Variable` for the slot if it was created, `None` otherwise.
+
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
@@ -218,6 +208,7 @@ See `get_slot()`.
 #### Returns:
 
 A list of strings.
+
 
 <h3 id="minimize"><code>minimize</code></h3>
 
@@ -243,18 +234,19 @@ of using this function.
 
 #### Args:
 
+
 * <b>`loss`</b>: A `Tensor` containing the value to minimize.
 * <b>`global_step`</b>: Optional `Variable` to increment by one after the
-    variables have been updated.
+  variables have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
-    minimize `loss`.  Defaults to the list of variables collected in
-    the graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  minimize `loss`.  Defaults to the list of variables collected in
+  the graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
-    `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
+  `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
-    Valid values are defined in the class `AggregationMethod`.
+  Valid values are defined in the class `AggregationMethod`.
 * <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with
-    the corresponding op.
+  the corresponding op.
 * <b>`name`</b>: Optional name for the returned operation.
 * <b>`grad_loss`</b>: Optional. A `Tensor` holding the gradient computed for `loss`.
 
@@ -265,7 +257,9 @@ An Operation that updates the variables in `var_list`.  If `global_step`
 was not `None`, that operation also increments `global_step`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If some of the variables are not `Variable` objects.
 
@@ -299,11 +293,9 @@ A list of variables.
 
 
 
+
 ## Class Members
 
-<h3 id="GATE_GRAPH"><code>GATE_GRAPH</code></h3>
-
-<h3 id="GATE_NONE"><code>GATE_NONE</code></h3>
-
-<h3 id="GATE_OP"><code>GATE_OP</code></h3>
-
+* `GATE_GRAPH = 2` <a id="GATE_GRAPH"></a>
+* `GATE_NONE = 0` <a id="GATE_NONE"></a>
+* `GATE_OP = 1` <a id="GATE_OP"></a>

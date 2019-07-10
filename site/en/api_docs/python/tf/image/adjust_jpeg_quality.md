@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.image.adjust_jpeg_quality
 
+Adjust jpeg encoding quality of an RGB image.
+
+### Aliases:
+
+* `tf.compat.v1.image.adjust_jpeg_quality`
+* `tf.compat.v2.image.adjust_jpeg_quality`
+* `tf.image.adjust_jpeg_quality`
+
 ``` python
 tf.image.adjust_jpeg_quality(
     image,
@@ -15,9 +23,9 @@ tf.image.adjust_jpeg_quality(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
-Adjust jpeg encoding quality of an RGB image.
+<!-- Placeholder for "Used in" -->
 
 This is a convenience method that adjusts jpeg encoding quality of an
 RGB image.
@@ -28,8 +36,9 @@ to `jpeg_quality`.
 
 #### Args:
 
+
 * <b>`image`</b>: RGB image or images. Size of the last dimension must be 3.
-* <b>`jpeg_quality`</b>: int.  jpeg encoding quality.
+* <b>`jpeg_quality`</b>: Python int or Tensor of type int32.  jpeg encoding quality.
 * <b>`name`</b>: A name for this operation (optional).
 
 

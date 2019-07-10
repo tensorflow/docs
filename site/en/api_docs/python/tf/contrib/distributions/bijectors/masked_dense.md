@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.distributions.bijectors.masked_dense
 
+A autoregressively masked dense layer. (deprecated)
+
 ``` python
 tf.contrib.distributions.bijectors.masked_dense(
     inputs,
@@ -21,33 +23,36 @@ tf.contrib.distributions.bijectors.masked_dense(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
+Defined in [`contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
 
-A autoregressively masked dense layer. Analogous to <a href="../../../../tf/layers/dense"><code>tf.layers.dense</code></a>. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
 Instructions for updating:
 The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
 
+Analogous to <a href="../../../../tf/layers/dense"><code>tf.compat.v1.layers.dense</code></a>.
+
 See [Germain et al. (2015)][1] for detailed explanation.
 
 #### Arguments:
 
+
 * <b>`inputs`</b>: Tensor input.
 * <b>`units`</b>: Python `int` scalar representing the dimensionality of the output
-    space.
+  space.
 * <b>`num_blocks`</b>: Python `int` scalar representing the number of blocks for the
-    MADE masks.
+  MADE masks.
 * <b>`exclusive`</b>: Python `bool` scalar representing whether to zero the diagonal of
-    the mask, used for the first layer of a MADE.
-* <b>`kernel_initializer`</b>: Initializer function for the weight matrix.
-    If `None` (default), weights are initialized using the
-    `tf.glorot_random_initializer`.
+  the mask, used for the first layer of a MADE.
+* <b>`kernel_initializer`</b>: Initializer function for the weight matrix. If `None`
+  (default), weights are initialized using the
+  `tf.glorot_random_initializer`.
 * <b>`reuse`</b>: Python `bool` scalar representing whether to reuse the weights of a
-    previous layer by the same name.
+  previous layer by the same name.
 * <b>`name`</b>: Python `str` used to describe ops managed by this function.
-* <b>`*args`</b>: <a href="../../../../tf/layers/dense"><code>tf.layers.dense</code></a> arguments.
-* <b>`**kwargs`</b>: <a href="../../../../tf/layers/dense"><code>tf.layers.dense</code></a> keyword arguments.
+* <b>`*args`</b>: <a href="../../../../tf/layers/dense"><code>tf.compat.v1.layers.dense</code></a> arguments.
+* <b>`**kwargs`</b>: <a href="../../../../tf/layers/dense"><code>tf.compat.v1.layers.dense</code></a> keyword arguments.
 
 
 #### Returns:
@@ -55,10 +60,12 @@ See [Germain et al. (2015)][1] for detailed explanation.
 Output tensor.
 
 
+
 #### Raises:
 
+
 * <b>`NotImplementedError`</b>: if rightmost dimension of `inputs` is unknown prior to
-    graph execution.
+  graph execution.
 
 #### References
 

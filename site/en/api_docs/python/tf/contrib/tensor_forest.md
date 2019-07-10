@@ -5,9 +5,12 @@ page_type: reference
 
 # Module: tf.contrib.tensor_forest
 
-
-
-Defined in [`tensorflow/contrib/tensor_forest/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/tensor_forest/__init__.py).
-
 Random forest implementation in tensorflow.
+
+
+
+Defined in [`contrib/tensor_forest/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/tensor_forest/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 

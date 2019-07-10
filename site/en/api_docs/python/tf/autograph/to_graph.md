@@ -5,10 +5,12 @@ page_type: reference
 
 # tf.autograph.to_graph
 
+Converts a Python entity into a TensorFlow graph.
+
 ### Aliases:
 
 * `tf.autograph.to_graph`
-* `tf.contrib.autograph.to_graph`
+* `tf.compat.v1.autograph.to_graph`
 
 ``` python
 tf.autograph.to_graph(
@@ -16,27 +18,24 @@ tf.autograph.to_graph(
     recursive=True,
     arg_values=None,
     arg_types=None,
-    experimental_optional_features=tf.autograph.experimental.Feature.ALL,
-    experimental_strip_decorators=None,
-    experimental_verbose=converter.Verbosity.BRIEF,
-    experimental_partial_types=None
+    experimental_optional_features=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/autograph/impl/api.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/autograph/impl/api.py).
+Defined in [`python/autograph/impl/api.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/autograph/impl/api.py).
 
-Converts a Python entity into a TensorFlow graph.
+<!-- Placeholder for "Used in" -->
 
-Also see: <a href="../../tf/autograph/to_code"><code>tf.autograph.to_code</code></a>, `tf.function`.
+Also see: <a href="../../tf/autograph/to_code"><code>tf.autograph.to_code</code></a>, <a href="../../tf/function"><code>tf.function</code></a>.
 
-Unlike `tf.function`, `to_graph` is a low-level transpiler that converts
+Unlike <a href="../../tf/function"><code>tf.function</code></a>, `to_graph` is a low-level transpiler that converts
 Python code to TensorFlow graph code. It does not implement any caching,
 variable management or create any actual ops, and is best used where greater
 control over the generated TensorFlow graph is desired. Another difference
-from `tf.function` is that `to_graph` will not wrap the graph into a
-TensorFlow function or a Python callable. Internally, `tf.function` uses
+from <a href="../../tf/function"><code>tf.function</code></a> is that `to_graph` will not wrap the graph into a
+TensorFlow function or a Python callable. Internally, <a href="../../tf/function"><code>tf.function</code></a> uses
 `to_graph`.
 
 _Example Usage_
@@ -71,26 +70,15 @@ argument called `self`.
 
 #### Args:
 
+
 * <b>`entity`</b>: Python callable or class to convert.
-* <b>`recursive`</b>: Whether to recursively convert any functions that the
-    converted function may call.
-* <b>`arg_values`</b>: Optional dict of value hints for symbols including
-    function arguments mapping string names to actual values. For example,
-    `arg_values={'a': 1}` will map the variable `a` to the value `1`.
-* <b>`arg_types`</b>: Optional dict of type hints for symbols including function
-    arguments. Type hints allow specifying just the type of a variable, rather
-    than a specific value.
+* <b>`recursive`</b>: Whether to recursively convert any functions that the converted
+  function may call.
+* <b>`arg_values`</b>: Deprecated.
+* <b>`arg_types`</b>: Deprecated.
 * <b>`experimental_optional_features`</b>: `None`, a tuple of, or a single
-    <a href="../../tf/autograph/experimental/Feature"><code>tf.autograph.experimental.Feature</code></a> value. Controls the use of
-    optional features in the conversion process.
-* <b>`experimental_strip_decorators`</b>: A tuple specifying decorators that should be
-    excluded from the compiled output. By default, when converting a function
-    before the decorators are applied, the compiled output will include those
-    decorators.
-* <b>`experimental_verbose`</b>: The level of printing verbosity to use, as a
-    <a href="../../tf/autograph/experimental/Verbosity"><code>tf.autograph.experimental.Verbosity</code></a> value.
-* <b>`experimental_partial_types`</b>: A `set` of `type` values, reserved for internal
-    use.
+  <a href="../../tf/autograph/experimental/Feature"><code>tf.autograph.experimental.Feature</code></a> value. Controls the use of optional
+  features in the conversion process.
 
 
 #### Returns:
@@ -98,6 +86,8 @@ argument called `self`.
 Same as `entity`, the converted Python function or class.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the entity could not be converted.

@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.model_pruning.apply_mask
 
+Apply mask to a given weight tensor.
+
 ``` python
 tf.contrib.model_pruning.apply_mask(
     x,
@@ -14,11 +16,13 @@ tf.contrib.model_pruning.apply_mask(
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/model_pruning/python/pruning.py).
+Defined in [`contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/model_pruning/python/pruning.py).
 
-Apply mask to a given weight tensor.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`x`</b>: Input weight tensor
 * <b>`scope`</b>: The current variable scope. Defaults to "".

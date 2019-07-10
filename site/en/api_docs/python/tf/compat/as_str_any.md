@@ -5,17 +5,29 @@ page_type: reference
 
 # tf.compat.as_str_any
 
+Converts input to `str` type.
+
+### Aliases:
+
+* `tf.compat.as_str_any`
+* `tf.compat.v1.compat.as_str_any`
+* `tf.compat.v2.compat.as_str_any`
+
 ``` python
 tf.compat.as_str_any(value)
 ```
 
 
 
-Defined in [`tensorflow/python/util/compat.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/util/compat.py).
+Defined in [`python/util/compat.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/compat.py).
 
-Converts to `str` as `str(value)`, but use `as_str` for `bytes`.
+<!-- Placeholder for "Used in" -->
+
+   Uses `str(value)`, except for `bytes` typed inputs, which are converted
+   using `as_str`.
 
 #### Args:
+
 
 * <b>`value`</b>: A object that can be converted to `str`.
 

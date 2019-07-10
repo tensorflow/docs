@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.test.main
 
+Runs all unit tests.
+
+### Aliases:
+
+* `tf.compat.v1.test.main`
+* `tf.compat.v2.test.main`
+* `tf.test.main`
+
 ``` python
 tf.test.main(argv=None)
 ```
 
 
 
-Defined in [`tensorflow/python/platform/test.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/test.py).
+Defined in [`python/platform/test.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/test.py).
 
-Runs all unit tests.
+<!-- Placeholder for "Used in" -->

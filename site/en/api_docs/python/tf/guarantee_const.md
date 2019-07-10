@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.guarantee_const
 
+Gives a guarantee to the TF runtime that the input tensor is a constant.
+
+### Aliases:
+
+* `tf.compat.v1.guarantee_const`
+* `tf.compat.v2.guarantee_const`
+* `tf.guarantee_const`
+
 ``` python
 tf.guarantee_const(
     input,
@@ -14,9 +22,9 @@ tf.guarantee_const(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Gives a guarantee to the TF runtime that the input tensor is a constant.
+<!-- Placeholder for "Used in" -->
 
 The runtime is then free to make optimizations based on this.
 
@@ -26,6 +34,7 @@ as input.
 Returns the input tensor without modification.
 
 #### Args:
+
 
 * <b>`input`</b>: A `Tensor`.
 * <b>`name`</b>: A name for the operation (optional).

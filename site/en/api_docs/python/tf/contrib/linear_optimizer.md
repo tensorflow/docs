@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.linear_optimizer
 
-
-
-Defined in [`tensorflow/contrib/linear_optimizer/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/linear_optimizer/__init__.py).
-
 Ops for training linear models.
+
+
+
+Defined in [`contrib/linear_optimizer/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/linear_optimizer/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 ## This package provides optimizers to train linear models.
 

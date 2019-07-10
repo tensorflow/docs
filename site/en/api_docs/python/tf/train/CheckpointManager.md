@@ -7,20 +7,27 @@ page_type: reference
 
 ## Class `CheckpointManager`
 
+Deletes old checkpoints.
+
 
 
 ### Aliases:
 
+* Class `tf.compat.v1.train.CheckpointManager`
+* Class `tf.compat.v2.train.CheckpointManager`
 * Class `tf.contrib.checkpoint.CheckpointManager`
 * Class `tf.train.CheckpointManager`
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/checkpoint_management.py).
+Defined in [`python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_management.py).
 
-Deletes old checkpoints.
+<!-- Placeholder for "Used in" -->
 
-Example usage:
+
+#### Example usage:
+
+
 
 ```python
 import tensorflow as tf
@@ -44,7 +51,8 @@ __init__(
     checkpoint,
     directory,
     max_to_keep,
-    keep_checkpoint_every_n_hours=None
+    keep_checkpoint_every_n_hours=None,
+    checkpoint_name='ckpt'
 )
 ```
 
@@ -70,26 +78,29 @@ active set may be deleted by this `CheckpointManager` or a future
 
 #### Args:
 
+
 * <b>`checkpoint`</b>: The <a href="../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a> instance to save and manage
-    checkpoints for.
+  checkpoints for.
 * <b>`directory`</b>: The path to a directory in which to write checkpoints. A
-    special file named "checkpoint" is also written to this directory (in a
-    human-readable text format) which contains the state of the
-    `CheckpointManager`.
+  special file named "checkpoint" is also written to this directory (in a
+  human-readable text format) which contains the state of the
+  `CheckpointManager`.
 * <b>`max_to_keep`</b>: An integer, the number of checkpoints to keep. Unless
-    preserved by `keep_checkpoint_every_n_hours`, checkpoints will be
-    deleted from the active set, oldest first, until only `max_to_keep`
-    checkpoints remain. If `None`, no checkpoints are deleted and everything
-    stays in the active set. Note that `max_to_keep=None` will keep all
-    checkpoint paths in memory and in the checkpoint state protocol buffer
-    on disk.
+  preserved by `keep_checkpoint_every_n_hours`, checkpoints will be
+  deleted from the active set, oldest first, until only `max_to_keep`
+  checkpoints remain. If `None`, no checkpoints are deleted and everything
+  stays in the active set. Note that `max_to_keep=None` will keep all
+  checkpoint paths in memory and in the checkpoint state protocol buffer
+  on disk.
 * <b>`keep_checkpoint_every_n_hours`</b>: Upon removal from the active set, a
-    checkpoint will be preserved if it has been at least
-    `keep_checkpoint_every_n_hours` since the last preserved checkpoint. The
-    default setting of `None` does not preserve any checkpoints in this way.
+  checkpoint will be preserved if it has been at least
+  `keep_checkpoint_every_n_hours` since the last preserved checkpoint. The
+  default setting of `None` does not preserve any checkpoints in this way.
+* <b>`checkpoint_name`</b>: Custom name for the checkpoint file.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `max_to_keep` is not a positive integer.
 
@@ -108,11 +119,12 @@ show up in this list (to avoid ever-growing filename lists).
 
 A list of filenames, sorted from oldest to newest.
 
+
 <h3 id="latest_checkpoint"><code>latest_checkpoint</code></h3>
 
 The prefix of the most recent checkpoint in `directory`.
 
-Equivalent to `tf.train.latest_checkpoint(directory)` where `directory` is
+Equivalent to <a href="../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint(directory)</code></a> where `directory` is
 the constructor argument to `CheckpointManager`.
 
 Suitable for passing to <a href="../../tf/train/Checkpoint#restore"><code>tf.train.Checkpoint.restore</code></a> to resume training.
@@ -120,6 +132,7 @@ Suitable for passing to <a href="../../tf/train/Checkpoint#restore"><code>tf.tra
 #### Returns:
 
 The checkpoint prefix. If there are no checkpoints, returns `None`.
+
 
 
 
@@ -133,20 +146,23 @@ save(checkpoint_number=None)
 
 Creates a new checkpoint and manages it.
 
+
 #### Args:
 
+
 * <b>`checkpoint_number`</b>: An optional integer, or an integer-dtype `Variable` or
-    `Tensor`, used to number the checkpoint. If `None` (default),
-    checkpoints are numbered using `checkpoint.save_counter`. Even if
-    `checkpoint_number` is provided, `save_counter` is still incremented. A
-    user-provided `checkpoint_number` is not incremented even if it is a
-    `Variable`.
+  `Tensor`, used to number the checkpoint. If `None` (default),
+  checkpoints are numbered using `checkpoint.save_counter`. Even if
+  `checkpoint_number` is provided, `save_counter` is still incremented. A
+  user-provided `checkpoint_number` is not incremented even if it is a
+  `Variable`.
 
 
 #### Returns:
 
 The path to the new checkpoint. It is also recorded in the `checkpoints`
-and `latest_checkpoint` properies.
+and `latest_checkpoint` properties.
+
 
 
 

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.do_quantize_training_on_graphdef
 
+A general quantization scheme is being developed in <a href="../../tf/contrib/quantize"><code>tf.contrib.quantize</code></a>. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.train.do_quantize_training_on_graphdef`
+* `tf.train.do_quantize_training_on_graphdef`
+
 ``` python
 tf.train.do_quantize_training_on_graphdef(
     input_graph,
@@ -14,9 +21,9 @@ tf.train.do_quantize_training_on_graphdef(
 
 
 
-Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/pywrap_tensorflow_internal.py).
+Defined in [`python/pywrap_tensorflow_internal.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/pywrap_tensorflow_internal.py).
 
-A general quantization scheme is being developed in <a href="../../tf/contrib/quantize"><code>tf.contrib.quantize</code></a>. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:

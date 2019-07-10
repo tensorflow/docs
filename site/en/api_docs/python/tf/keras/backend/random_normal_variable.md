@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.random_normal_variable
 
+Instantiates a variable with values drawn from a normal distribution.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.random_normal_variable`
+* `tf.compat.v2.keras.backend.random_normal_variable`
+* `tf.keras.backend.random_normal_variable`
+
 ``` python
 tf.keras.backend.random_normal_variable(
     shape,
@@ -18,11 +26,13 @@ tf.keras.backend.random_normal_variable(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Instantiates a variable with values drawn from a normal distribution.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`shape`</b>: Tuple of integers, shape of returned Keras variable.
 * <b>`mean`</b>: Float, mean of the normal distribution.
@@ -34,9 +44,13 @@ Instantiates a variable with values drawn from a normal distribution.
 
 #### Returns:
 
-    A Keras variable, filled with drawn samples.
+A Keras variable, filled with drawn samples.
 
-Example:
+
+
+#### Example:
+
+
 ```python
     # TensorFlow example
     >>> kvar = K.random_normal_variable((2,3), 0, 1)

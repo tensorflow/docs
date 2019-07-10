@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.setdiff1d
 
+Computes the difference between two lists of numbers or strings.
+
+### Aliases:
+
+* `tf.compat.v1.setdiff1d`
+* `tf.setdiff1d`
+
 ``` python
 tf.setdiff1d(
     x,
@@ -16,9 +23,9 @@ tf.setdiff1d(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Computes the difference between two lists of numbers or strings.
+<!-- Placeholder for "Used in" -->
 
 Given a list `x` and a list `y`, this operation returns a list `out` that
 represents all values that are in `x` but not in `y`. The returned list `out`
@@ -44,15 +51,17 @@ idx ==> [1, 3, 5]
 
 #### Args:
 
+
 * <b>`x`</b>: A `Tensor`. 1-D. Values to keep.
 * <b>`y`</b>: A `Tensor`. Must have the same type as `x`. 1-D. Values to remove.
-* <b>`out_idx`</b>: An optional <a href="../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf/dtypes#int32"><code>tf.int32</code></a>.
+* <b>`out_idx`</b>: An optional <a href="../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf#int32"><code>tf.int32</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A tuple of `Tensor` objects (out, idx).
+
 
 * <b>`out`</b>: A `Tensor`. Has the same type as `x`.
 * <b>`idx`</b>: A `Tensor` of type `out_idx`.

@@ -7,16 +7,18 @@ page_type: reference
 
 ## Class `BaseEstimator`
 
+Abstract BaseEstimator class to train and evaluate TensorFlow models.
+
 Inherits From: [`Evaluable`](../../../tf/contrib/learn/Evaluable), [`Trainable`](../../../tf/contrib/learn/Trainable)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
+Defined in [`contrib/learn/python/learn/estimators/estimator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
 
-Abstract BaseEstimator class to train and evaluate TensorFlow models.
+<!-- Placeholder for "Used in" -->
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.tensorflow.org/code/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Users should not instantiate or subclass this class. Instead, use an
@@ -39,10 +41,11 @@ Please replace uses of any Estimator from tf.contrib.learn with an Estimator fro
 
 #### Args:
 
+
 * <b>`model_dir`</b>: Directory to save model parameters, graph and etc. This can
-    also be used to load checkpoints from the directory into a estimator to
-    continue training a previously saved model. If `None`, the model_dir in
-    `config` will be used if set. If both are set, they must be same.
+  also be used to load checkpoints from the directory into a estimator to
+  continue training a previously saved model. If `None`, the model_dir in
+  `config` will be used if set. If both are set, they must be same.
 * <b>`config`</b>: A RunConfig instance.
 
 
@@ -53,18 +56,22 @@ Please replace uses of any Estimator from tf.contrib.learn with an Estimator fro
 
 
 
+
 <h3 id="model_dir"><code>model_dir</code></h3>
 
-Returns a path in which the eval process will look for checkpoints.
+
+
 
 <h3 id="model_fn"><code>model_fn</code></h3>
 
 Returns the model_fn which is bound to self.params.
 
+
 #### Returns:
 
 The model_fn with the following signature:
   `def model_fn(features, labels, mode, metrics)`
+
 
 
 
@@ -100,9 +107,10 @@ Example conversion:
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If at least one of `x` or `y` is provided, and at least one of
-      `input_fn` or `feed_fn` is provided.
-      Or if `metrics` is not `None` or `dict`.
+    `input_fn` or `feed_fn` is provided.
+    Or if `metrics` is not `None` or `dict`.
 
 <h3 id="export"><code>export</code></h3>
 
@@ -128,32 +136,33 @@ Please use Estimator.export_savedmodel() instead.
 
 #### Args:
 
+
 * <b>`export_dir`</b>: A string containing a directory to write the exported graph
-    and checkpoints.
+  and checkpoints.
 * <b>`input_fn`</b>: If `use_deprecated_input_fn` is true, then a function that given
-    `Tensor` of `Example` strings, parses it into features that are then
-    passed to the model. Otherwise, a function that takes no argument and
-    returns a tuple of (features, labels), where features is a dict of
-    string key to `Tensor` and labels is a `Tensor` that's currently not
-    used (and so can be `None`).
+  `Tensor` of `Example` strings, parses it into features that are then
+  passed to the model. Otherwise, a function that takes no argument and
+  returns a tuple of (features, labels), where features is a dict of
+  string key to `Tensor` and labels is a `Tensor` that's currently not
+  used (and so can be `None`).
 * <b>`input_feature_key`</b>: Only used if `use_deprecated_input_fn` is false. String
-    key into the features dict returned by `input_fn` that corresponds to a
-    the raw `Example` strings `Tensor` that the exported model will take as
-    input. Can only be `None` if you're using a custom `signature_fn` that
-    does not use the first arg (examples).
+  key into the features dict returned by `input_fn` that corresponds to a
+  the raw `Example` strings `Tensor` that the exported model will take as
+  input. Can only be `None` if you're using a custom `signature_fn` that
+  does not use the first arg (examples).
 * <b>`use_deprecated_input_fn`</b>: Determines the signature format of `input_fn`.
 * <b>`signature_fn`</b>: Function that returns a default signature and a named
-    signature map, given `Tensor` of `Example` strings, `dict` of `Tensor`s
-    for features and `Tensor` or `dict` of `Tensor`s for predictions.
+  signature map, given `Tensor` of `Example` strings, `dict` of `Tensor`s
+  for features and `Tensor` or `dict` of `Tensor`s for predictions.
 * <b>`prediction_key`</b>: The key for a tensor in the `predictions` dict (output
-    from the `model_fn`) to use as the `predictions` input to the
-    `signature_fn`. Optional. If `None`, predictions will pass to
-    `signature_fn` without filtering.
+  from the `model_fn`) to use as the `predictions` input to the
+  `signature_fn`. Optional. If `None`, predictions will pass to
+  `signature_fn` without filtering.
 * <b>`default_batch_size`</b>: Default batch size of the `Example` placeholder.
 * <b>`exports_to_keep`</b>: Number of exports to keep.
 * <b>`checkpoint_path`</b>: the checkpoint path of the model to be exported. If it is
-      `None` (which is default), will use the latest checkpoint in
-      export_dir.
+    `None` (which is default), will use the latest checkpoint in
+    export_dir.
 
 
 #### Returns:
@@ -162,6 +171,7 @@ The string path to the exported directory. NB: this functionality was
 added ca. 2016/09/25; clients that depend on the return value may need
 to handle the case where this function returns None because subclasses
 are not returning a value.
+
 
 <h3 id="fit"><code>fit</code></h3>
 
@@ -189,6 +199,7 @@ Example conversion:
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `x` or `y` are not `None` while `input_fn` is not `None`.
 * <b>`ValueError`</b>: If both `steps` and `max_steps` are not `None`.
 
@@ -200,18 +211,21 @@ get_params(deep=True)
 
 Get parameters for this estimator.
 
+
 #### Args:
+
 
 * <b>`deep`</b>: boolean, optional
 
-    If `True`, will return the parameters for this estimator and
-    contained subobjects that are estimators.
+  If `True`, will return the parameters for this estimator and
+  contained subobjects that are estimators.
 
 
 #### Returns:
 
-* <b>`params `</b>: mapping of string to any
-  Parameter names mapped to their values.
+
+* <b>`params`</b>: mapping of string to any
+Parameter names mapped to their values.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
 
@@ -221,9 +235,11 @@ get_variable_names()
 
 Returns list of all variable names in this model.
 
+
 #### Returns:
 
 List of names.
+
 
 <h3 id="get_variable_value"><code>get_variable_value</code></h3>
 
@@ -233,7 +249,9 @@ get_variable_value(name)
 
 Returns value of the variable given by name.
 
+
 #### Args:
+
 
 * <b>`name`</b>: string, name of the tensor.
 
@@ -241,6 +259,7 @@ Returns value of the variable given by name.
 #### Returns:
 
 Numpy array - value of the tensor.
+
 
 <h3 id="partial_fit"><code>partial_fit</code></h3>
 
@@ -275,20 +294,21 @@ to converge, and you want to split up training into subparts.
 
 #### Args:
 
+
 * <b>`x`</b>: Matrix of shape [n_samples, n_features...]. Can be iterator that
-     returns arrays of features. The training input samples for fitting the
-     model. If set, `input_fn` must be `None`.
+   returns arrays of features. The training input samples for fitting the
+   model. If set, `input_fn` must be `None`.
 * <b>`y`</b>: Vector or matrix [n_samples] or [n_samples, n_outputs]. Can be
-     iterator that returns array of labels. The training label values
-     (class labels in classification, real numbers in regression). If set,
-     `input_fn` must be `None`.
+   iterator that returns array of labels. The training label values
+   (class labels in classification, real numbers in regression). If set,
+   `input_fn` must be `None`.
 * <b>`input_fn`</b>: Input function. If set, `x`, `y`, and `batch_size` must be
-    `None`.
+  `None`.
 * <b>`steps`</b>: Number of steps for which to train model. If `None`, train forever.
 * <b>`batch_size`</b>: minibatch size to use on the input, defaults to first
-    dimension of `x`. Must be `None` if `input_fn` is provided.
+  dimension of `x`. Must be `None` if `input_fn` is provided.
 * <b>`monitors`</b>: List of `BaseMonitor` subclass instances. Used for callbacks
-    inside the training loop.
+  inside the training loop.
 
 
 #### Returns:
@@ -296,10 +316,12 @@ to converge, and you want to split up training into subparts.
 `self`, for chaining.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If at least one of `x` and `y` is provided, and `input_fn` is
-      provided.
+    provided.
 
 <h3 id="predict"><code>predict</code></h3>
 
@@ -326,21 +348,22 @@ Example conversion:
 
 #### Args:
 
+
 * <b>`x`</b>: Matrix of shape [n_samples, n_features...]. Can be iterator that
-     returns arrays of features. The training input samples for fitting the
-     model. If set, `input_fn` must be `None`.
+   returns arrays of features. The training input samples for fitting the
+   model. If set, `input_fn` must be `None`.
 * <b>`input_fn`</b>: Input function. If set, `x` and 'batch_size' must be `None`.
 * <b>`batch_size`</b>: Override default batch size. If set, 'input_fn' must be
-    'None'.
+  'None'.
 * <b>`outputs`</b>: list of `str`, name of the output to predict.
-    If `None`, returns all.
+  If `None`, returns all.
 * <b>`as_iterable`</b>: If True, return an iterable which keeps yielding predictions
-    for each example until inputs are exhausted. Note: The inputs must
-    terminate if you want the iterable to terminate (e.g. be sure to pass
-    num_epochs=1 if you are using something like read_batch_features).
+  for each example until inputs are exhausted. Note: The inputs must
+  terminate if you want the iterable to terminate (e.g. be sure to pass
+  num_epochs=1 if you are using something like read_batch_features).
 * <b>`iterate_batches`</b>: If True, yield the whole batch at once instead of
-    decomposing the batch into individual samples. Only relevant when
-    as_iterable is True.
+  decomposing the batch into individual samples. Only relevant when
+  as_iterable is True.
 
 
 #### Returns:
@@ -351,7 +374,9 @@ of numpy arrays if `model_fn` returns a `dict`. Returns an iterable of
 predictions if as_iterable is True.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If x and input_fn are both provided or both `None`.
 
@@ -370,6 +395,7 @@ component of a nested object.
 
 #### Args:
 
+
 * <b>`**params`</b>: Parameters.
 
 
@@ -378,7 +404,9 @@ component of a nested object.
 self
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If params contain invalid names.
 

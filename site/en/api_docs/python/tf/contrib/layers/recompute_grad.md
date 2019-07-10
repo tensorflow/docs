@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.recompute_grad
 
+Decorator that recomputes the function on the backwards pass.
+
 ``` python
 tf.contrib.layers.recompute_grad(
     *args,
@@ -14,9 +16,9 @@ tf.contrib.layers.recompute_grad(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/rev_block_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
+Defined in [`contrib/layers/python/layers/rev_block_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
 
-Decorator that recomputes the function on the backwards pass.
+<!-- Placeholder for "Used in" -->
 
 To use this function, you must use `ResourceVariable`s (i.e.
 `variable_scope(name, use_resource=True), which are the default in Eager mode
@@ -33,17 +35,18 @@ normalization).
 
 #### Args:
 
+
 * <b>`fn`</b>: a function that takes Tensors (all as positional arguments) and returns
-    a tuple of Tensors. Note that `fn` should not close over any other
-    Tensors or Variables.
+  a tuple of Tensors. Note that `fn` should not close over any other
+  Tensors or Variables.
 * <b>`use_data_dep`</b>: `bool`, if `True` will use a dummy data dependency to force
-    the recompute to happen. If `False` will use a control dependency. By
-    default will be `True` if in an XLA context and `False` otherwise. XLA
-    ignores control dependencies and so this data dependency is necessary.
+  the recompute to happen. If `False` will use a control dependency. By
+  default will be `True` if in an XLA context and `False` otherwise. XLA
+  ignores control dependencies and so this data dependency is necessary.
 * <b>`tupleize_grads`</b>: `bool`, if `True` will use control dependencies to ensure
-    that all gradients are produced before any are consumed by downstream ops.
-    If `use_data_dep` is also `True`, will use a data dependency instead of
-    a control dependency.
+  that all gradients are produced before any are consumed by downstream ops.
+  If `use_data_dep` is also `True`, will use a data dependency instead of
+  a control dependency.
 
 
 #### Returns:
@@ -53,6 +56,8 @@ be discarded and recomputed on the backwards pass (i.e. on a call to
 tf.gradients).
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `fn` closes over any Tensors or Variables.

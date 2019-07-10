@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.input_from_feature_columns
 
+A tf.contrib.layers style input layer builder based on FeatureColumns.
+
 ``` python
 tf.contrib.layers.input_from_feature_columns(
     columns_to_tensors,
@@ -18,9 +20,9 @@ tf.contrib.layers.input_from_feature_columns(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
+Defined in [`contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
-A tf.contrib.layers style input layer builder based on FeatureColumns.
+<!-- Placeholder for "Used in" -->
 
 Generally a single example in training data is described with feature columns.
 At the first layer of the model, this column oriented data should be converted
@@ -28,11 +30,13 @@ to a single tensor. Each feature column needs a different kind of operation
 during this conversion. For example sparse features need a totally different
 handling than continuous features.
 
-Example:
+#### Example:
+
+
 
 ```python
   # Building model for training
-  columns_to_tensor = tf.parse_example(...)
+  columns_to_tensor = tf.io.parse_example(...)
   first_layer = input_from_feature_columns(
       columns_to_tensors=columns_to_tensor,
       feature_columns=feature_columns)
@@ -55,18 +59,19 @@ where feature_columns can be defined as follows:
 
 #### Args:
 
+
 * <b>`columns_to_tensors`</b>: A mapping from feature column to tensors. 'string' key
-    means a base feature (not-transformed). It can have FeatureColumn as a
-    key too. That means that FeatureColumn is already transformed by input
-    pipeline.
+  means a base feature (not-transformed). It can have FeatureColumn as a
+  key too. That means that FeatureColumn is already transformed by input
+  pipeline.
 * <b>`feature_columns`</b>: A set containing all the feature columns. All items in the
-    set should be instances of classes derived by FeatureColumn.
+  set should be instances of classes derived by FeatureColumn.
 * <b>`weight_collections`</b>: List of graph collections to which weights are added.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-    `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
 * <b>`scope`</b>: Optional scope for variable_scope.
 * <b>`cols_to_outs`</b>: Optional dict from feature column to output tensor,
-    which is concatenated into the returned tensor.
+  which is concatenated into the returned tensor.
 
 
 #### Returns:
@@ -74,6 +79,8 @@ where feature_columns can be defined as follows:
 A Tensor which can be consumed by hidden layers in the neural network.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if FeatureColumn cannot be consumed by a neural network.

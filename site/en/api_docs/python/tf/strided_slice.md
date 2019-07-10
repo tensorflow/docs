@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.strided_slice
 
+Extracts a strided slice of a tensor (generalized python array indexing).
+
+### Aliases:
+
+* `tf.compat.v1.strided_slice`
+* `tf.compat.v2.strided_slice`
+* `tf.strided_slice`
+
 ``` python
 tf.strided_slice(
     input_,
@@ -23,9 +31,9 @@ tf.strided_slice(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Extracts a strided slice of a tensor (generalized python array indexing).
+<!-- Placeholder for "Used in" -->
 
 **Instead of calling this op directly most users will want to use the
 NumPy-style slicing syntax (e.g. `tensor[..., 3:4:-1, tf.newaxis, 3]`), which
@@ -93,6 +101,7 @@ tf.strided_slice(t, [1, -1, 0], [2, -3, 3], [1, -1, 1])  # [[[4, 4, 4],
 ```
 
 #### Args:
+
 
 * <b>`input_`</b>: A `Tensor`.
 * <b>`begin`</b>: An `int32` or `int64` `Tensor`.

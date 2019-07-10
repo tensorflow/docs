@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `SessionCreator`
 
-
-
-
-
-Defined in [`tensorflow/python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/monitored_session.py).
-
 A factory for tf.Session.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.train.SessionCreator`
+* Class `tf.train.SessionCreator`
+
+
+
+Defined in [`python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/monitored_session.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Methods
 
@@ -22,6 +30,7 @@ A factory for tf.Session.
 ``` python
 create_session()
 ```
+
 
 
 

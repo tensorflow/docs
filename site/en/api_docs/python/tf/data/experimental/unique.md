@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.data.experimental.unique
 
+Creates a `Dataset` from another `Dataset`, discarding duplicates.
+
+### Aliases:
+
+* `tf.compat.v1.data.experimental.unique`
+* `tf.compat.v2.data.experimental.unique`
+* `tf.data.experimental.unique`
+
 ``` python
 tf.data.experimental.unique()
 ```
 
 
 
-Defined in [`tensorflow/python/data/experimental/ops/unique.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/data/experimental/ops/unique.py).
+Defined in [`python/data/experimental/ops/unique.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/unique.py).
 
-Creates a `Dataset` from another `Dataset`, discarding duplicates.
+<!-- Placeholder for "Used in" -->
 
 Use this transformation to produce a dataset that contains one instance of
 each unique element in the input. For example:

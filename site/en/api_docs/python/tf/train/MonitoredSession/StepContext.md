@@ -7,18 +7,22 @@ page_type: reference
 
 ## Class `StepContext`
 
+Control flow instrument for the `step_fn` from `run_step_fn()`.
+
 
 
 ### Aliases:
 
+* Class `tf.compat.v1.train.MonitoredSession.StepContext`
+* Class `tf.compat.v1.train.SingularMonitoredSession.StepContext`
 * Class `tf.train.MonitoredSession.StepContext`
 * Class `tf.train.SingularMonitoredSession.StepContext`
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/monitored_session.py).
+Defined in [`python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/monitored_session.py).
 
-Control flow instrument for the `step_fn` from `run_step_fn()`.
+<!-- Placeholder for "Used in" -->
 
 Users of `step_fn` may perform `run()` calls without running hooks
 by accessing the `session`.  A `run()` call with hooks may be performed
@@ -36,9 +40,11 @@ __init__(
 
 Initializes the `step_context` argument for a `step_fn` invocation.
 
+
 #### Args:
 
-* <b>`session`</b>: An instance of <a href="../../../tf/Session"><code>tf.Session</code></a>.
+
+* <b>`session`</b>: An instance of <a href="../../../tf/Session"><code>tf.compat.v1.Session</code></a>.
 * <b>`run_with_hooks_fn`</b>: A function for running fetches and hooks.
 
 
@@ -46,6 +52,7 @@ Initializes the `step_context` argument for a `step_fn` invocation.
 ## Properties
 
 <h3 id="session"><code>session</code></h3>
+
 
 
 
@@ -67,6 +74,7 @@ Exit the training loop by causing `should_stop()` to return `True`.
 
 StopIteration
 
+
 <h3 id="run_with_hooks"><code>run_with_hooks</code></h3>
 
 ``` python
@@ -76,7 +84,8 @@ run_with_hooks(
 )
 ```
 
-Same as `MonitoredSession.run`. Accepts the same arguments.
+Same as <a href="../../../tf/train/MonitoredSession#run"><code>MonitoredSession.run</code></a>. Accepts the same arguments.
+
 
 
 

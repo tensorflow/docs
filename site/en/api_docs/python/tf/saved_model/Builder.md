@@ -7,18 +7,22 @@ page_type: reference
 
 ## Class `Builder`
 
+Builds the `SavedModel` protocol buffer and saves variables and assets.
+
 
 
 ### Aliases:
 
+* Class `tf.compat.v1.saved_model.Builder`
+* Class `tf.compat.v1.saved_model.builder.SavedModelBuilder`
 * Class `tf.saved_model.Builder`
 * Class `tf.saved_model.builder.SavedModelBuilder`
 
 
 
-Defined in [`tensorflow/python/saved_model/builder_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/saved_model/builder_impl.py).
+Defined in [`python/saved_model/builder_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/builder_impl.py).
 
-Builds the `SavedModel` protocol buffer and saves variables and assets.
+<!-- Placeholder for "Used in" -->
 
 The `SavedModelBuilder` class provides functionality to build a `SavedModel`
 protocol buffer. Specifically, this allows multiple meta graphs to be saved as
@@ -39,9 +43,9 @@ Typical usage for the `SavedModelBuilder`:
 
 ```python
 ...
-builder = tf.saved_model.Builder(export_dir)
+builder = tf.compat.v1.saved_model.Builder(export_dir)
 
-with tf.Session(graph=tf.Graph()) as sess:
+with tf.compat.v1.Session(graph=tf.Graph()) as sess:
   ...
   builder.add_meta_graph_and_variables(sess,
                                   ["foo-tag"],
@@ -49,7 +53,7 @@ with tf.Session(graph=tf.Graph()) as sess:
                                   assets_collection=foo_assets)
 ...
 
-with tf.Session(graph=tf.Graph()) as sess:
+with tf.compat.v1.Session(graph=tf.Graph()) as sess:
   ...
   builder.add_meta_graph(["bar-tag", "baz-tag"])
 ...
@@ -68,7 +72,8 @@ object-based method of creating SavedModels.
 __init__(export_dir)
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -97,29 +102,31 @@ API to have been invoked before.
 
 #### Args:
 
+
 * <b>`tags`</b>: The set of tags to annotate the meta graph def with.
 * <b>`signature_def_map`</b>: The map of signature defs to be added to the meta graph
-      def.
+    def.
 * <b>`assets_collection`</b>: Assets to be saved with SavedModel. Note
-      that this list should be a subset of the assets saved as part of
-      the first meta graph in the SavedModel.
+    that this list should be a subset of the assets saved as part of
+    the first meta graph in the SavedModel.
 * <b>`clear_devices`</b>: Set to true if the device info on the default graph should
-      be cleared.
+    be cleared.
 * <b>`init_op`</b>: Op or group of ops to execute when the graph is loaded. Note
-      that when the init_op is specified it is run after the restore op at
-      load-time.
+    that when the init_op is specified it is run after the restore op at
+    load-time.
 * <b>`train_op`</b>: Op or group of opts that trains the model when run. This will
-    not be run automatically when the graph is loaded, instead saved in
-    a SignatureDef accessible through the exported MetaGraph.
-* <b>`saver`</b>: An instance of tf.train.Saver that will be used to export the
-    metagraph. If None, a sharded Saver that restores all variables will
-    be used.
+  not be run automatically when the graph is loaded, instead saved in
+  a SignatureDef accessible through the exported MetaGraph.
+* <b>`saver`</b>: An instance of tf.compat.v1.train.Saver that will be used to export
+  the metagraph. If None, a sharded Saver that restores all variables will
+  be used.
 
 
 #### Raises:
 
+
 * <b>`AssertionError`</b>: If the variables for the SavedModel have not been saved
-      yet, or if the graph already contains one or more legacy init ops.
+    yet, or if the graph already contains one or more legacy init ops.
 
 <h3 id="add_meta_graph_and_variables"><code>add_meta_graph_and_variables</code></h3>
 
@@ -147,26 +154,27 @@ meta graph defs to be added, the `add_meta_graph()` API must be used.
 
 #### Args:
 
+
 * <b>`sess`</b>: The TensorFlow session from which to save the meta graph and
-    variables.
+  variables.
 * <b>`tags`</b>: The set of tags with which to save the meta graph.
 * <b>`signature_def_map`</b>: The map of signature def map to add to the meta graph
-    def.
+  def.
 * <b>`assets_collection`</b>: Assets to be saved with SavedModel.
 * <b>`clear_devices`</b>: Set to true if the device info on the default graph should
-      be cleared.
+    be cleared.
 * <b>`init_op`</b>: Op or group of ops to execute when the graph is loaded. Note
-      that when the init_op is specified it is run after the restore op at
-      load-time.
+    that when the init_op is specified it is run after the restore op at
+    load-time.
 * <b>`train_op`</b>: Op or group of ops that trains the model when run. This will
-    not be run automatically when the graph is loaded, instead saved in
-    a SignatureDef accessible through the exported MetaGraph.
+  not be run automatically when the graph is loaded, instead saved in
+  a SignatureDef accessible through the exported MetaGraph.
 * <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
-    removed from the NodeDefs. For a detailed guide, see
-    [Stripping Default-Valued Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
-* <b>`saver`</b>: An instance of tf.train.Saver that will be used to export the
-    metagraph and save variables. If None, a sharded Saver that restores
-    all variables will be used.
+  removed from the NodeDefs. For a detailed guide, see
+  [Stripping Default-Valued Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
+* <b>`saver`</b>: An instance of tf.compat.v1.train.Saver that will be used to export the
+  metagraph and save variables. If None, a sharded Saver that restores
+  all variables will be used.
 
 <h3 id="save"><code>save</code></h3>
 
@@ -181,12 +189,19 @@ in serialized format.
 
 #### Args:
 
-* <b>`as_text`</b>: Writes the SavedModel protocol buffer in text format to disk.
+
+* <b>`as_text`</b>: Writes the SavedModel protocol buffer in text format to
+  disk. Protocol buffers in text format are useful for debugging, but
+  parsing fails when it encounters an unknown field and so is not forward
+  compatible. This means changes to TensorFlow may prevent deployment of
+  new text format SavedModels to existing serving binaries. Do not deploy
+  `as_text` SavedModels to production.
 
 
 #### Returns:
 
 The path to which the SavedModel protocol buffer was written.
+
 
 
 

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.squeeze
 
+Removes dimensions of size 1 from the shape of a tensor. (deprecated arguments)
+
+### Aliases:
+
+* `tf.compat.v1.squeeze`
+* `tf.squeeze`
+
 ``` python
 tf.squeeze(
     input,
@@ -16,9 +23,9 @@ tf.squeeze(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Removes dimensions of size 1 from the shape of a tensor. (deprecated arguments)
+<!-- Placeholder for "Used in" -->
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(squeeze_dims)`. They will be removed in a future version.
 Instructions for updating:
@@ -29,7 +36,9 @@ all dimensions of size 1 removed. If you don't want to remove all size 1
 dimensions, you can remove specific size 1 dimensions by specifying
 `axis`.
 
-For example:
+#### For example:
+
+
 
 ```python
 # 't' is a tensor of shape [1, 2, 1, 3, 1, 1]
@@ -43,13 +52,18 @@ Or, to remove specific size 1 dimensions:
 tf.shape(tf.squeeze(t, [2, 4]))  # [1, 2, 3, 1]
 ```
 
+Note: if `input` is a <a href="../tf/RaggedTensor"><code>tf.RaggedTensor</code></a>, then this operation takes `O(N)`
+time, where `N` is the number of elements in the squeezed dimensions.
+
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. The `input` to squeeze.
-* <b>`axis`</b>: An optional list of `ints`. Defaults to `[]`.
-    If specified, only squeezes the dimensions listed. The dimension
-    index starts at 0. It is an error to squeeze a dimension that is not 1.
-    Must be in the range `[-rank(input), rank(input))`.
+* <b>`axis`</b>: An optional list of `ints`. Defaults to `[]`. If specified, only
+  squeezes the dimensions listed. The dimension index starts at 0. It is an
+  error to squeeze a dimension that is not 1. Must be in the range
+  `[-rank(input), rank(input))`.
+  Must be specified if `input` is a `RaggedTensor`.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`squeeze_dims`</b>: Deprecated keyword argument that is now axis.
 
@@ -61,6 +75,8 @@ Contains the same data as `input`, but has one or more dimensions of
 size 1 removed.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: When both `squeeze_dims` and `axis` are specified.

@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `Scaffold`
 
-
-
-
-
-Defined in [`tensorflow/python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/monitored_session.py).
-
 Structure to create or gather pieces commonly needed to train a model.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.train.Scaffold`
+* Class `tf.train.Scaffold`
+
+
+
+Defined in [`python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/monitored_session.py).
+
+<!-- Placeholder for "Used in" -->
 
 When you build a model for training you usually need ops to initialize
 variables, a `Saver` to checkpoint them, an op to collect summaries for
@@ -33,7 +40,8 @@ added to the graph collections.
 The following pieces are directly accessible as attributes of the `Scaffold`
 object:
 
-* `saver`: A <a href="../../tf/train/Saver"><code>tf.train.Saver</code></a> object taking care of saving the variables.
+* `saver`: A <a href="../../tf/train/Saver"><code>tf.compat.v1.train.Saver</code></a> object taking care of saving the
+variables.
   Picked from and stored into the `SAVERS` collection in the graph by default.
 * `init_op`: An op to run to initialize the variables.  Picked from and
   stored into the `INIT_OP` collection in the graph by default.
@@ -48,8 +56,6 @@ object:
   from and stored into the `LOCAL_INIT_OP` collection in the graph by default.
 * `summary_op`: An op to run and merge the summaries in the graph.  Picked
   from and stored into the `SUMMARY_OP` collection in the graph by default.
-* `global_step`: A tensor containing the global step counter.  Picked
-  from and stored into the `GLOBAL_STEP` collection in the graph by default.
 
 You can also pass the following additional pieces to the constructor:
 
@@ -77,29 +83,39 @@ __init__(
 
 Create a scaffold.
 
+
 #### Args:
+
 
 * <b>`init_op`</b>: Optional op for initializing variables.
 * <b>`init_feed_dict`</b>: Optional session feed dictionary to use when running the
-    init_op.
+  init_op.
 * <b>`init_fn`</b>: Optional function to use to initialize the model after running
-    the init_op.  Will be called as `init_fn(scaffold, session)`.
+  the init_op.  Will be called as `init_fn(scaffold, session)`.
 * <b>`ready_op`</b>: Optional op to verify that the variables are initialized.  Must
-    return an empty 1D string tensor when the variables are initialized, or
-    a non-empty 1D string tensor listing the names of the non-initialized
-    variables.
+  return an empty 1D string tensor when the variables are initialized, or
+  a non-empty 1D string tensor listing the names of the non-initialized
+  variables.
 * <b>`ready_for_local_init_op`</b>: Optional op to verify that the global variables
-    are initialized and `local_init_op` can be run. Must return an empty
-    1D string tensor when the global variables are initialized, or a
-    non-empty 1D string tensor listing the names of the non-initialized
-    global variables.
+  are initialized and `local_init_op` can be run. Must return an empty 1D
+  string tensor when the global variables are initialized, or a non-empty
+  1D string tensor listing the names of the non-initialized global
+  variables.
 * <b>`local_init_op`</b>: Optional op to initialize local variables.
 * <b>`summary_op`</b>: Optional op to gather all summaries.  Must return a scalar
-    string tensor containing a serialized `Summary` proto.
-* <b>`saver`</b>: Optional <a href="../../tf/train/Saver"><code>tf.train.Saver</code></a> object to use to save and restore
-    variables.
+  string tensor containing a serialized `Summary` proto.
+* <b>`saver`</b>: Optional <a href="../../tf/train/Saver"><code>tf.compat.v1.train.Saver</code></a> object to use to save and
+  restore variables.  May also be a <a href="../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a> object, in which
+  case object-based checkpoints are saved. This will also load some
+  object-based checkpoints saved from elsewhere, but that loading may be
+  fragile since it uses fixed keys rather than performing a full
+  graph-based match. For example if a variable has two paths from the
+  `Checkpoint` object because two `Model` objects share the `Layer` object
+  that owns it, removing one `Model` may change the keys and break
+  checkpoint loading through this API, whereas a graph-based match would
+  match the variable through the other `Model`.
 * <b>`copy_from_scaffold`</b>: Optional scaffold object to copy fields from. Its
-    fields will be overwritten by the provided fields in this function.
+  fields will be overwritten by the provided fields in this function.
 
 
 
@@ -109,7 +125,9 @@ Create a scaffold.
 
 
 
+
 <h3 id="init_fn"><code>init_fn</code></h3>
+
 
 
 
@@ -117,7 +135,9 @@ Create a scaffold.
 
 
 
+
 <h3 id="local_init_op"><code>local_init_op</code></h3>
+
 
 
 
@@ -125,7 +145,9 @@ Create a scaffold.
 
 
 
+
 <h3 id="ready_op"><code>ready_op</code></h3>
+
 
 
 
@@ -133,7 +155,9 @@ Create a scaffold.
 
 
 
+
 <h3 id="summary_op"><code>summary_op</code></h3>
+
 
 
 
@@ -152,12 +176,14 @@ Returns an op that groups the default local init ops.
 
 This op is used during session initialization when a Scaffold is
 initialized without specifying the local_init_op arg. It includes
-<a href="../../tf/initializers/local_variables"><code>tf.local_variables_initializer</code></a>, <a href="../../tf/initializers/tables_initializer"><code>tf.tables_initializer</code></a>, and also
+<a href="../../tf/initializers/local_variables"><code>tf.compat.v1.local_variables_initializer</code></a>,
+<a href="../../tf/initializers/tables_initializer"><code>tf.compat.v1.tables_initializer</code></a>, and also
 initializes local session resources.
 
 #### Returns:
 
 The default Scaffold local init op.
+
 
 <h3 id="finalize"><code>finalize</code></h3>
 
@@ -166,6 +192,7 @@ finalize()
 ```
 
 Creates operations if needed and finalizes the graph.
+
 
 <h3 id="get_or_default"><code>get_or_default</code></h3>
 
@@ -179,6 +206,7 @@ get_or_default(
 ```
 
 Get from cache or create a default operation.
+
 
 
 

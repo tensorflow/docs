@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.learn.build_parsing_serving_input_fn
 
+Build an input_fn appropriate for serving, expecting fed tf.Examples. (deprecated)
+
 ``` python
 tf.contrib.learn.build_parsing_serving_input_fn(
     feature_spec,
@@ -14,9 +16,9 @@ tf.contrib.learn.build_parsing_serving_input_fn(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
+Defined in [`contrib/learn/python/learn/utils/input_fn_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
 
-Build an input_fn appropriate for serving, expecting fed tf.Examples. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -29,9 +31,10 @@ for use at serving time, so the labels return value is always None.
 
 #### Args:
 
+
 * <b>`feature_spec`</b>: a dict of string to `VarLenFeature`/`FixedLenFeature`.
 * <b>`default_batch_size`</b>: the number of query examples expected per batch.
-      Leave unset for variable batch size (recommended).
+    Leave unset for variable batch size (recommended).
 
 
 #### Returns:

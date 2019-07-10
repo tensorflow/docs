@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.linalg.set_diag
 
+Returns a batched matrix tensor with new batched diagonal values.
+
 ### Aliases:
 
+* `tf.compat.v1.linalg.set_diag`
+* `tf.compat.v1.matrix_set_diag`
+* `tf.compat.v2.linalg.set_diag`
 * `tf.linalg.set_diag`
 * `tf.matrix_set_diag`
 
@@ -20,9 +25,9 @@ tf.linalg.set_diag(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
+Defined in generated file: `python/ops/gen_array_ops.py`.
 
-Returns a batched matrix tensor with new batched diagonal values.
+<!-- Placeholder for "Used in" -->
 
 Given `input` and `diagonal`, this operation returns a tensor with the
 same shape and values as `input`, except for the main diagonal of the
@@ -39,9 +44,10 @@ tensor of rank `k+1` with dimensions `[I, J, K, ..., M, N]` where:
 
 #### Args:
 
+
 * <b>`input`</b>: A `Tensor`. Rank `k+1`, where `k >= 1`.
 * <b>`diagonal`</b>: A `Tensor`. Must have the same type as `input`.
-    Rank `k`, where `k >= 1`.
+  Rank `k`, where `k >= 1`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

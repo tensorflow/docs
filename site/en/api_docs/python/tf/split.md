@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.split
 
+Splits a tensor into sub tensors.
+
+### Aliases:
+
+* `tf.compat.v1.split`
+* `tf.compat.v2.split`
+* `tf.split`
+
 ``` python
 tf.split(
     value,
@@ -17,20 +25,22 @@ tf.split(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Splits a tensor into sub tensors.
+<!-- Placeholder for "Used in" -->
 
-If `num_or_size_splits` is an integer type, then `value` is split
-along dimension `axis` into `num_split` smaller tensors.
-Requires that `num_split` evenly divides `value.shape[axis]`.
+If `num_or_size_splits` is an integer, then `value` is split along dimension
+`axis` into `num_split` smaller tensors. This requires that `num_split` evenly
+divides `value.shape[axis]`.
 
-If `num_or_size_splits` is not an integer type, it is presumed to be a Tensor
-`size_splits`, then splits `value` into `len(size_splits)` pieces. The shape
-of the `i`-th piece has the same size as the `value` except along dimension
-`axis` where the size is `size_splits[i]`.
+If `num_or_size_splits` is a 1-D Tensor (or list), we call it `size_splits`
+and `value` is split into `len(size_splits)` elements. The shape of the `i`-th
+element has the same size as the `value` except along dimension `axis` where
+the size is `size_splits[i]`.
 
-For example:
+#### For example:
+
+
 
 ```python
 # 'value' is a tensor with shape [5, 30]
@@ -46,16 +56,17 @@ tf.shape(split0)  # [5, 10]
 
 #### Args:
 
+
 * <b>`value`</b>: The `Tensor` to split.
-* <b>`num_or_size_splits`</b>: Either a 0-D integer `Tensor` indicating the number of
-    splits along split_dim or a 1-D integer `Tensor` containing
-    the sizes of each output tensor along split_dim. If a scalar then it must
-    evenly divide `value.shape[axis]`; otherwise the sum of sizes along the
-    split dimension must match that of the `value`.
-* <b>`axis`</b>: A 0-D `int32` `Tensor`. The dimension along which to split.
-    Must be in the range `[-rank(value), rank(value))`. Defaults to 0.
+* <b>`num_or_size_splits`</b>: Either an integer indicating the number of splits along
+  split_dim or a 1-D integer `Tensor` or Python list containing the sizes of
+  each output tensor along split_dim. If a scalar then it must evenly divide
+  `value.shape[axis]`; otherwise the sum of sizes along the split dimension
+  must match that of the `value`.
+* <b>`axis`</b>: An integer or scalar `int32` `Tensor`. The dimension along which to
+  split. Must be in the range `[-rank(value), rank(value))`. Defaults to 0.
 * <b>`num`</b>: Optional, used to specify the number of outputs when it cannot be
-    inferred from the shape of `size_splits`.
+  inferred from the shape of `size_splits`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -67,6 +78,8 @@ objects; if `num_or_size_splits` is a 1-D Tensor returns
 `value`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If `num` is unspecified and cannot be inferred.

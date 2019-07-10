@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `NumpyReader`
 
-
-
-
-
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
-
 A time series parser for feeding Numpy arrays to a `TimeSeriesInputFn`.
+
+
+
+
+
+Defined in [`contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+
+<!-- Placeholder for "Used in" -->
 
 Avoids embedding data in the graph as constants.
 
@@ -28,19 +30,20 @@ __init__(
 
 Numpy array input for a `TimeSeriesInputFn`.
 
+
 #### Args:
 
+
 * <b>`data`</b>: A dictionary mapping feature names to Numpy arrays, with two
-    possible shapes (requires keys `TrainEvalFeatures.TIMES` and
-    `TrainEvalFeatures.VALUES`):
-      Univariate; `TIMES` and `VALUES` are both vectors of shape [series
-        length]
-      Multivariate; `TIMES` is a vector of shape [series length], `VALUES`
-        has shape [series length x number of features].
-    In any case, `VALUES` and any exogenous features must have their shapes
-    prefixed by the shape of the value corresponding to the `TIMES` key.
+  possible shapes (requires keys `TrainEvalFeatures.TIMES` and
+  `TrainEvalFeatures.VALUES`): Univariate; `TIMES` and `VALUES` are both
+    vectors of shape [series length] Multivariate; `TIMES` is a vector of
+    shape [series length], `VALUES` has shape [series length x number of
+    features]. In any case, `VALUES` and any exogenous features must have
+    their shapes prefixed by the shape of the value corresponding to the
+    `TIMES` key.
 * <b>`read_num_records_hint`</b>: The maximum number of samples to read at one time,
-    for efficiency.
+  for efficiency.
 
 
 
@@ -54,6 +57,7 @@ check_dataset_size(minimum_dataset_size)
 
 Raise an error if the dataset is too small.
 
+
 <h3 id="read"><code>read</code></h3>
 
 ``` python
@@ -62,6 +66,7 @@ read()
 
 Returns a large chunk of the Numpy arrays for later re-chunking.
 
+
 <h3 id="read_full"><code>read_full</code></h3>
 
 ``` python
@@ -69,6 +74,7 @@ read_full()
 ```
 
 Returns `Tensor` versions of the full Numpy arrays.
+
 
 
 

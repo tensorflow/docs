@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `Transformer`
 
-
-
-
-
-Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/transform.py).
-
 Transform a subgraph into another one.
+
+
+
+
+
+Defined in [`contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/transform.py).
+
+<!-- Placeholder for "Used in" -->
 
 By default, the constructor create a transform which copy a subgraph and
 replaces inputs with placeholders. This behavior can be modified by changing
@@ -63,18 +65,20 @@ __call__(
 
 Execute the transformation.
 
+
 #### Args:
+
 
 * <b>`sgv`</b>: the source subgraph-view.
 * <b>`dst_graph`</b>: the destination graph.
 * <b>`dst_scope`</b>: the destination scope.
 * <b>`src_scope`</b>: the source scope, which specify the path from which the
-    relative path of the transformed nodes are computed. For instance, if
-    src_scope is a/ and dst_scoped is b/, then the node a/x/y will have a
-    relative path of x/y and will be transformed into b/x/y.
+  relative path of the transformed nodes are computed. For instance, if
+  src_scope is a/ and dst_scoped is b/, then the node a/x/y will have a
+  relative path of x/y and will be transformed into b/x/y.
 * <b>`reuse_dst_scope`</b>: if True the dst_scope is re-used if it already exists.
-    Otherwise, the scope is given a unique name based on the one given
-    by appending an underscore followed by a digit (default).
+  Otherwise, the scope is given a unique name based on the one given
+  by appending an underscore followed by a digit (default).
 
 #### Returns:
 
@@ -84,7 +88,9 @@ A tuple `(sgv, info)` where:
   information about the transform, including mapping between
   original and transformed tensors and operations.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if the arguments are invalid.
 

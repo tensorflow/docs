@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.activations.relu
 
+Rectified Linear Unit.
+
+### Aliases:
+
+* `tf.compat.v1.keras.activations.relu`
+* `tf.compat.v2.keras.activations.relu`
+* `tf.keras.activations.relu`
+
 ``` python
 tf.keras.activations.relu(
     x,
@@ -16,9 +24,9 @@ tf.keras.activations.relu(
 
 
 
-Defined in [`tensorflow/python/keras/activations.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/activations.py).
+Defined in [`python/keras/activations.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/activations.py).
 
-Rectified Linear Unit.
+<!-- Placeholder for "Used in" -->
 
 With default values, it returns element-wise `max(x, 0)`.
 
@@ -28,6 +36,7 @@ Otherwise, it follows:
 `f(x) = alpha * (x - threshold)` otherwise.
 
 #### Arguments:
+
 
 * <b>`x`</b>: A tensor or variable.
 * <b>`alpha`</b>: A scalar, slope of negative section (default=`0.`).

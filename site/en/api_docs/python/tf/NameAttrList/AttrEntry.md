@@ -11,7 +11,29 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/framework/attr_value.proto`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/framework/attr_value.proto).
+### Aliases:
 
-A ProtocolMessage
+* Class `tf.NameAttrList.AttrEntry`
+* Class `tf.compat.v1.NameAttrList.AttrEntry`
+
+
+
+Defined in [`core/framework/attr_value.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/attr_value.proto).
+
+<!-- Placeholder for "Used in" -->
+
+
+## Properties
+
+<h3 id="key"><code>key</code></h3>
+
+`string key`
+
+
+<h3 id="value"><code>value</code></h3>
+
+`AttrValue value`
+
+
+
 

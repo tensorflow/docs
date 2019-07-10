@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.model_pruning.strip_pruning_vars_fn
 
+Removes mask variable from the graph.
+
 ``` python
 tf.contrib.model_pruning.strip_pruning_vars_fn(
     input_graph_def,
@@ -14,18 +16,19 @@ tf.contrib.model_pruning.strip_pruning_vars_fn(
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/strip_pruning_vars_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/model_pruning/python/strip_pruning_vars_lib.py).
+Defined in [`contrib/model_pruning/python/strip_pruning_vars_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/model_pruning/python/strip_pruning_vars_lib.py).
 
-Removes mask variable from the graph.
+<!-- Placeholder for "Used in" -->
 
 Replaces the masked_weight tensor with element-wise multiplication of mask
 and the corresponding weight variable.
 
 #### Args:
 
+
 * <b>`input_graph_def`</b>: A GraphDef in which the variables have been converted to
-    constants. This is typically the output of
-    tf.graph_util.convert_variables_to_constant()
+  constants. This is typically the output of
+  tf.graph_util.convert_variables_to_constant()
 * <b>`output_node_names`</b>: List of name strings for the result nodes of the graph
 
 

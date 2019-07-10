@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.io.parse_single_example
 
+Parses a single `Example` proto.
+
 ### Aliases:
 
+* `tf.compat.v1.io.parse_single_example`
+* `tf.compat.v1.parse_single_example`
 * `tf.io.parse_single_example`
 * `tf.parse_single_example`
 
@@ -21,9 +25,9 @@ tf.io.parse_single_example(
 
 
 
-Defined in [`tensorflow/python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/parsing_ops.py).
+Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
-Parses a single `Example` proto.
+<!-- Placeholder for "Used in" -->
 
 Similar to `parse_example`, except:
 
@@ -41,13 +45,14 @@ One might see performance advantages by batching `Example` protos with
 
 #### Args:
 
+
 * <b>`serialized`</b>: A scalar string Tensor, a single serialized Example.
-    See `_parse_single_example_raw` documentation for more details.
+  See `_parse_single_example_raw` documentation for more details.
 * <b>`features`</b>: A `dict` mapping feature keys to `FixedLenFeature` or
-    `VarLenFeature` values.
+  `VarLenFeature` values.
 * <b>`name`</b>: A name for this operation (optional).
 * <b>`example_names`</b>: (Optional) A scalar string Tensor, the associated name.
-    See `_parse_single_example_raw` documentation for more details.
+  See `_parse_single_example_raw` documentation for more details.
 
 
 #### Returns:
@@ -55,6 +60,8 @@ One might see performance advantages by batching `Example` protos with
 A `dict` mapping feature keys to `Tensor` and `SparseTensor` values.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if any feature is invalid.

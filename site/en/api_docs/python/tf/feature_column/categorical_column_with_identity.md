@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.feature_column.categorical_column_with_identity
 
+A `CategoricalColumn` that returns identity values.
+
+### Aliases:
+
+* `tf.compat.v1.feature_column.categorical_column_with_identity`
+* `tf.compat.v2.feature_column.categorical_column_with_identity`
+* `tf.feature_column.categorical_column_with_identity`
+
 ``` python
 tf.feature_column.categorical_column_with_identity(
     key,
@@ -15,9 +23,9 @@ tf.feature_column.categorical_column_with_identity(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/feature_column/feature_column_v2.py).
+Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
-A `CategoricalColumn` that returns identity values.
+<!-- Placeholder for "Used in" -->
 
 Use this when your inputs are integers in the range `[0, num_buckets)`, and
 you want to use the input value itself as the categorical ID. Values outside
@@ -36,13 +44,15 @@ In the following examples, each input in the range `[0, 1000000)` is assigned
 the same value. All other inputs are assigned `default_value` 0. Note that a
 literal 0 in inputs will result in the same default ID.
 
-Linear model:
+#### Linear model:
+
+
 
 ```python
 video_id = categorical_column_with_identity(
     key='video_id', num_buckets=1000000, default_value=0)
 columns = [video_id, ...]
-features = tf.parse_example(..., features=make_parse_example_spec(columns))
+features = tf.io.parse_example(..., features=make_parse_example_spec(columns))
 linear_prediction, _, _ = linear_model(features, columns)
 ```
 
@@ -50,19 +60,20 @@ Embedding for a DNN model:
 
 ```python
 columns = [embedding_column(video_id, 9),...]
-features = tf.parse_example(..., features=make_parse_example_spec(columns))
+features = tf.io.parse_example(..., features=make_parse_example_spec(columns))
 dense_tensor = input_layer(features, columns)
 ```
 
 #### Args:
 
+
 * <b>`key`</b>: A unique string identifying the input feature. It is used as the
-    column name and the dictionary key for feature parsing configs, feature
-    `Tensor` objects, and feature columns.
+  column name and the dictionary key for feature parsing configs, feature
+  `Tensor` objects, and feature columns.
 * <b>`num_buckets`</b>: Range of inputs and outputs is `[0, num_buckets)`.
 * <b>`default_value`</b>: If `None`, this column's graph operations will fail for
-    out-of-range inputs. Otherwise, this value must be in the range
-    `[0, num_buckets)`, and will replace inputs in that range.
+  out-of-range inputs. Otherwise, this value must be in the range
+  `[0, num_buckets)`, and will replace inputs in that range.
 
 
 #### Returns:
@@ -70,7 +81,9 @@ dense_tensor = input_layer(features, columns)
 A `CategoricalColumn` that returns identity values.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `num_buckets` is less than one.
 * <b>`ValueError`</b>: if `default_value` is not in range `[0, num_buckets)`.

@@ -5,15 +5,17 @@ page_type: reference
 
 # tf.contrib.eager.implicit_gradients
 
+Returns a function which differentiates f with respect to variables.
+
 ``` python
 tf.contrib.eager.implicit_gradients(f)
 ```
 
 
 
-Defined in [`tensorflow/python/eager/backprop.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/eager/backprop.py).
+Defined in [`python/eager/backprop.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/backprop.py).
 
-Returns a function which differentiates f with respect to variables.
+<!-- Placeholder for "Used in" -->
 
 The wrapped function returns the gradient of f when called with the same
 arguments. The gradient is with respect to all trainable TFE variables
@@ -22,10 +24,12 @@ accessed by `f`.
 This function is useful when the exact set of variables to differentiate with
 is not known ahead of time.
 
-Example:
+#### Example:
+
+
 
 ```python
-dense_layer = tf.layers.Dense(1)
+dense_layer = tf.compat.v1.layers.Dense(1)
 def loss(x, y):
   return tf.reduce_sum(tf.square(dense_layer(x) - y))
 
@@ -38,16 +42,17 @@ y = tf.constant([[10.0], [20.0]])
 grads_and_vars = grad_fn(x, y)
 
 # Apply the gradients to Variables.
-optimizer = tf.train.GradientDescentOptimizer(0.1)
+optimizer = tf.compat.v1.train.GradientDescentOptimizer(0.1)
 optimizer.apply_gradients(grads_and_vars)
 ```
 
 #### Args:
 
+
 * <b>`f`</b>: function to be differentiated. If `f` returns a scalar, this scalar will
-    be differentiated. If `f` returns a tensor or list of tensors, by default
-    a scalar will be computed by adding all their values to produce a single
-    scalar.
+  be differentiated. If `f` returns a tensor or list of tensors, by default
+  a scalar will be computed by adding all their values to produce a single
+  scalar.
 
 
 #### Returns:

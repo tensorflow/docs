@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.variable_axis_size_partitioner
 
+Get a partitioner for VariableScope to keep shards below `max_shard_bytes`.
+
+### Aliases:
+
+* `tf.compat.v1.variable_axis_size_partitioner`
+* `tf.variable_axis_size_partitioner`
+
 ``` python
 tf.variable_axis_size_partitioner(
     max_shard_bytes,
@@ -16,9 +23,9 @@ tf.variable_axis_size_partitioner(
 
 
 
-Defined in [`tensorflow/python/ops/partitioned_variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/partitioned_variables.py).
+Defined in [`python/ops/partitioned_variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/partitioned_variables.py).
 
-Get a partitioner for VariableScope to keep shards below `max_shard_bytes`.
+<!-- Placeholder for "Used in" -->
 
 This partitioner will shard a Variable along one axis, attempting to keep
 the maximum shard size below `max_shard_bytes`.  In practice, this is not
@@ -35,12 +42,13 @@ One reasonable value for `max_shard_bytes` is `(64 << 20) - 1`, or almost
 
 #### Args:
 
+
 * <b>`max_shard_bytes`</b>: The maximum size any given shard is allowed to be.
 * <b>`axis`</b>: The axis to partition along.  Default: outermost axis.
 * <b>`bytes_per_string_element`</b>: If the `Variable` is of type string, this provides
-    an estimate of how large each scalar in the `Variable` is.
+  an estimate of how large each scalar in the `Variable` is.
 * <b>`max_shards`</b>: The maximum number of shards in int created taking precedence
-    over `max_shard_bytes`.
+  over `max_shard_bytes`.
 
 
 #### Returns:
@@ -49,6 +57,8 @@ A partition function usable as the `partitioner` argument to
 `variable_scope` and `get_variable`.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If any of the byte counts are non-positive.

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.layers.maximum
 
+Functional interface to the `Maximum` layer.
+
+### Aliases:
+
+* `tf.compat.v1.keras.layers.maximum`
+* `tf.compat.v2.keras.layers.maximum`
+* `tf.keras.layers.maximum`
+
 ``` python
 tf.keras.layers.maximum(
     inputs,
@@ -14,11 +22,13 @@ tf.keras.layers.maximum(
 
 
 
-Defined in [`tensorflow/python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/layers/merge.py).
+Defined in [`python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/merge.py).
 
-Functional interface to the `Maximum` layer.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`inputs`</b>: A list of input tensors (at least 2).
 * <b>`**kwargs`</b>: Standard layer keyword arguments.

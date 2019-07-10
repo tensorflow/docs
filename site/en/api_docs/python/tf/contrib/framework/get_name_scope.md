@@ -5,22 +5,30 @@ page_type: reference
 
 # tf.contrib.framework.get_name_scope
 
+Returns the current name scope of the default graph.
+
 ``` python
 tf.contrib.framework.get_name_scope()
 ```
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/framework/python/ops/ops.py).
+Defined in [`contrib/framework/python/ops/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/ops.py).
 
-Returns the current name scope of the default graph.
+<!-- Placeholder for "Used in" -->
 
-For example:
 
->     with tf.name_scope('scope1'):
->       with tf.name_scope('scope2'):
->         print(tf.contrib.framework.get_name_scope())
-  would print the string `scope1/scope2`.
+#### For example:
+
+
+```python
+with tf.name_scope('scope1'):
+  with tf.name_scope('scope2'):
+    print(tf.contrib.framework.get_name_scope())
+```
+would print the string `scope1/scope2`.
+
+
 
 #### Returns:
 

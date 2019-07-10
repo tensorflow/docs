@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `FileWriterCache`
 
-
-
-
-
-Defined in [`tensorflow/python/summary/writer/writer_cache.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/summary/writer/writer_cache.py).
-
 Cache for file writers.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.summary.FileWriterCache`
+* Class `tf.summary.FileWriterCache`
+
+
+
+Defined in [`python/summary/writer/writer_cache.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/writer/writer_cache.py).
+
+<!-- Placeholder for "Used in" -->
 
 This class caches file writers, one per directory.
 
@@ -28,6 +35,7 @@ clear()
 
 Clear cached summary writers. Currently only used for unit tests.
 
+
 <h3 id="get"><code>get</code></h3>
 
 ``` python
@@ -37,7 +45,9 @@ get(logdir)
 
 Returns the FileWriter for the specified directory.
 
+
 #### Args:
+
 
 * <b>`logdir`</b>: str, name of the directory.
 
@@ -45,6 +55,7 @@ Returns the FileWriter for the specified directory.
 #### Returns:
 
 A `FileWriter`.
+
 
 
 

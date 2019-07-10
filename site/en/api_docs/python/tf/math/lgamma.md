@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.math.lgamma
 
+Computes the log of the absolute value of `Gamma(x)` element-wise.
+
 ### Aliases:
 
+* `tf.compat.v1.lgamma`
+* `tf.compat.v1.math.lgamma`
+* `tf.compat.v2.math.lgamma`
 * `tf.lgamma`
 * `tf.math.lgamma`
 
@@ -19,11 +24,13 @@ tf.math.lgamma(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
+Defined in generated file: `python/ops/gen_math_ops.py`.
 
-Computes the log of the absolute value of `Gamma(x)` element-wise.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`.
 * <b>`name`</b>: A name for the operation (optional).

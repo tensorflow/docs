@@ -5,11 +5,14 @@ page_type: reference
 
 # Module: tf.contrib.mixed_precision
 
-
-
-Defined in [`tensorflow/contrib/mixed_precision/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/mixed_precision/__init__.py).
-
 Library for mixed precision training.
+
+
+
+Defined in [`contrib/mixed_precision/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/mixed_precision/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
 

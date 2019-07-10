@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `FileWriter`
 
-
-
-
-
-Defined in [`tensorflow/python/summary/writer/writer.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/summary/writer/writer.py).
-
 Writes `Summary` protocol buffers to event files.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.summary.FileWriter`
+* Class `tf.summary.FileWriter`
+
+
+
+Defined in [`python/summary/writer/writer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/writer/writer.py).
+
+<!-- Placeholder for "Used in" -->
 
 The `FileWriter` class provides a mechanism to create an event file in a
 given directory and add summaries and events to it. The class updates the
@@ -21,10 +28,10 @@ file contents asynchronously. This allows a training program to call methods
 to add data to the file directly from the training loop, without slowing down
 training.
 
-When constructed with a <a href="../../tf/Session"><code>tf.Session</code></a> parameter, a `FileWriter` instead forms
-a compatibility layer over new graph-based summaries (<a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a>)
-to facilitate the use of new summary writing with pre-existing code that
-expects a `FileWriter` instance.
+When constructed with a <a href="../../tf/Session"><code>tf.compat.v1.Session</code></a> parameter, a `FileWriter`
+instead forms a compatibility layer over new graph-based summaries
+(<a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a>) to facilitate the use of new summary writing with
+pre-existing code that expects a `FileWriter` instance.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -57,16 +64,16 @@ the graph from the session in which you launched it:
 ```python
 ...create a graph...
 # Launch the graph in a session.
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 # Create a summary writer, add the 'graph' to the event file.
-writer = tf.summary.FileWriter(<some-directory>, sess.graph)
+writer = tf.compat.v1.summary.FileWriter(<some-directory>, sess.graph)
 ```
 
 The `session` argument to the constructor makes the returned `FileWriter` a
 compatibility layer over new graph-based summaries (<a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a>).
 Crucially, this means the underlying writer resource and events file will
 be shared with any other `FileWriter` using the same `session` and `logdir`,
-and with any <a href="../../tf/contrib/summary/SummaryWriter"><code>tf.contrib.summary.SummaryWriter</code></a> in this session using the
+and with any <a href="../../tf/compat/v2/summary/SummaryWriter"><code>tf.contrib.summary.SummaryWriter</code></a> in this session using the
 the same shared resource name (which by default scoped to the logdir). If
 no such resource exists, one will be created using the remaining arguments
 to this constructor, but if one already exists those arguments are ignored.
@@ -75,18 +82,20 @@ underlying file writer resource. See <a href="../../tf/contrib/summary"><code>tf
 
 #### Args:
 
+
 * <b>`logdir`</b>: A string. Directory where event file will be written.
 * <b>`graph`</b>: A `Graph` object, such as `sess.graph`.
 * <b>`max_queue`</b>: Integer. Size of the queue for pending events and summaries.
 * <b>`flush_secs`</b>: Number. How often, in seconds, to flush the
-    pending events and summaries to disk.
+  pending events and summaries to disk.
 * <b>`graph_def`</b>: DEPRECATED: Use the `graph` argument instead.
 * <b>`filename_suffix`</b>: A string. Every event file's name is suffixed with
-    `suffix`.
-* <b>`session`</b>: A <a href="../../tf/Session"><code>tf.Session</code></a> object. See details above.
+  `suffix`.
+* <b>`session`</b>: A <a href="../../tf/Session"><code>tf.compat.v1.Session</code></a> object. See details above.
 
 
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: If called with eager execution enabled.
 
@@ -110,6 +119,7 @@ __enter__()
 
 Make usable with "with" statement.
 
+
 <h3 id="__exit__"><code>__exit__</code></h3>
 
 ``` python
@@ -122,6 +132,7 @@ __exit__(
 
 Make usable with "with" statement.
 
+
 <h3 id="add_event"><code>add_event</code></h3>
 
 ``` python
@@ -130,7 +141,9 @@ add_event(event)
 
 Adds an event to the event file.
 
+
 #### Args:
+
 
 * <b>`event`</b>: An `Event` protocol buffer.
 
@@ -151,13 +164,15 @@ TensorBoard. Most users pass a graph in the constructor instead.
 
 #### Args:
 
+
 * <b>`graph`</b>: A `Graph` object, such as `sess.graph`.
 * <b>`global_step`</b>: Number. Optional global step counter to record with the
-    graph.
+  graph.
 * <b>`graph_def`</b>: DEPRECATED. Use the `graph` parameter instead.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If both graph and graph_def are passed to the method.
 
@@ -177,13 +192,15 @@ The `MetaGraphDef` allows running the given graph via
 
 #### Args:
 
+
 * <b>`meta_graph_def`</b>: A `MetaGraphDef` object, often as returned by
-    `saver.export_meta_graph()`.
+  `saver.export_meta_graph()`.
 * <b>`global_step`</b>: Number. Optional global step counter to record with the
-    graph.
+  graph.
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: If both `meta_graph_def` is not an instance of `MetaGraphDef`.
 
@@ -199,15 +216,18 @@ add_run_metadata(
 
 Adds a metadata information for a single session.run() call.
 
+
 #### Args:
+
 
 * <b>`run_metadata`</b>: A `RunMetadata` protobuf object.
 * <b>`tag`</b>: The tag name for this metadata.
 * <b>`global_step`</b>: Number. Optional global step counter to record with the
-    StepStats.
+  StepStats.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the provided tag was already used for this type of event.
 
@@ -227,9 +247,10 @@ and adds it to the event file.
 
 #### Args:
 
+
 * <b>`session_log`</b>: A `SessionLog` protocol buffer.
 * <b>`global_step`</b>: Number. Optional global step value to record with the
-    summary.
+  summary.
 
 <h3 id="add_summary"><code>add_summary</code></h3>
 
@@ -246,17 +267,18 @@ This method wraps the provided summary in an `Event` protocol buffer
 and adds it to the event file.
 
 You can pass the result of evaluating any summary op, using
-<a href="../../tf/InteractiveSession#run"><code>tf.Session.run</code></a> or
+<a href="../../tf/Session#run"><code>tf.Session.run</code></a> or
 <a href="../../tf/Tensor#eval"><code>tf.Tensor.eval</code></a>, to this
-function. Alternatively, you can pass a <a href="../../tf/Summary"><code>tf.Summary</code></a> protocol
+function. Alternatively, you can pass a <a href="../../tf/Summary"><code>tf.compat.v1.Summary</code></a> protocol
 buffer that you populate with your own data. The latter is
 commonly done to report evaluation results in event files.
 
 #### Args:
 
+
 * <b>`summary`</b>: A `Summary` protocol buffer, optionally serialized as a string.
 * <b>`global_step`</b>: Number. Optional global step value to record with the
-    summary.
+  summary.
 
 <h3 id="close"><code>close</code></h3>
 
@@ -286,6 +308,7 @@ get_logdir()
 ```
 
 Returns the directory where event file will be written.
+
 
 <h3 id="reopen"><code>reopen</code></h3>
 

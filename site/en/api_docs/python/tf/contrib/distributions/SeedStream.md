@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `SeedStream`
 
-
-
-
-
-Defined in [`tensorflow/contrib/distributions/python/ops/seed_stream.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/seed_stream.py).
-
 Local PRNG for amplifying seed entropy into seeds for base operations.
+
+
+
+
+
+Defined in [`contrib/distributions/python/ops/seed_stream.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/seed_stream.py).
+
+<!-- Placeholder for "Used in" -->
 
 Writing sampling code which correctly sets the pseudo-random number
 generator (PRNG) seed is surprisingly difficult.  This class serves as
@@ -29,8 +31,8 @@ surprisingly common error:
 
 ```python
 def broken_beta(shape, alpha, beta, seed):
-  x = tf.random_gamma(shape, alpha, seed=seed)
-  y = tf.random_gamma(shape, beta, seed=seed)
+  x = tf.random.gamma(shape, alpha, seed=seed)
+  y = tf.random.gamma(shape, beta, seed=seed)
   return x / (x + y)
 ```
 
@@ -74,8 +76,8 @@ this code style are:
 ```python
 def random_beta(shape, alpha, beta, seed):        # (a)
   seed = SeedStream(seed, salt="random_beta")     # (b)
-  x = tf.random_gamma(shape, alpha, seed=seed())  # (c)
-  y = tf.random_gamma(shape, beta, seed=seed())   # (c)
+  x = tf.random.gamma(shape, alpha, seed=seed())  # (c)
+  y = tf.random.gamma(shape, beta, seed=seed())   # (c)
   return x / (x + y)
 ```
 
@@ -114,12 +116,12 @@ that might arise without salting:
 ```python
 def tfp_foo(seed):
   seed = SeedStream(seed, salt="")
-  foo_stuff = tf.random_normal(seed=seed())
+  foo_stuff = tf.random.normal(seed=seed())
   ...
 
 def tfp_bar(seed):
   seed = SeedStream(seed, salt="")
-  bar_stuff = tf.random_normal(seed=seed())
+  bar_stuff = tf.random.normal(seed=seed())
   ...
 
 def client_baz(seed):
@@ -157,16 +159,18 @@ __init__(
 
 Initializes a `SeedStream`.
 
+
 #### Args:
 
+
 * <b>`seed`</b>: Any Python object convertible to string, supplying the
-    initial entropy.  If `None`, operations seeded with seeds
-    drawn from this `SeedStream` will follow TensorFlow semantics
-    for not being seeded.
+  initial entropy.  If `None`, operations seeded with seeds
+  drawn from this `SeedStream` will follow TensorFlow semantics
+  for not being seeded.
 * <b>`salt`</b>: Any Python object convertible to string, supplying
-    auxiliary entropy.  Must be unique across the Distributions
-    and TensorFlow Probability code base.  See class docstring for
-    rationale.
+  auxiliary entropy.  Must be unique across the Distributions
+  and TensorFlow Probability code base.  See class docstring for
+  rationale.
 
 
 
@@ -176,7 +180,9 @@ Initializes a `SeedStream`.
 
 
 
+
 <h3 id="salt"><code>salt</code></h3>
+
 
 
 
@@ -205,8 +211,9 @@ the given seed modulo `2**31 - 1` (see
 
 #### Returns:
 
+
 * <b>`seed`</b>: A fresh integer usable as a seed in downstream operations,
-    or `None`.
+  or `None`.
 
 
 

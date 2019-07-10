@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `VariableSynchronization`
 
-
-
-
-
-Defined in [`tensorflow/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/variables.py).
-
 Indicates when a distributed variable will be synced.
+
+
+
+### Aliases:
+
+* Class `tf.VariableSynchronization`
+* Class `tf.compat.v1.VariableSynchronization`
+* Class `tf.compat.v2.VariableSynchronization`
+
+
+
+Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
+
+<!-- Placeholder for "Used in" -->
 
 * `AUTO`: Indicates that the synchronization will be determined by the current
   `DistributionStrategy` (eg. With `MirroredStrategy` this would be
@@ -28,13 +36,7 @@ Indicates when a distributed variable will be synced.
 
 ## Class Members
 
-<h3 id="AUTO"><code>AUTO</code></h3>
-
-<h3 id="NONE"><code>NONE</code></h3>
-
-<h3 id="ON_READ"><code>ON_READ</code></h3>
-
-<h3 id="ON_WRITE"><code>ON_WRITE</code></h3>
-
-<h3 id="__members__"><code>__members__</code></h3>
-
+* `AUTO` <a id="AUTO"></a>
+* `NONE` <a id="NONE"></a>
+* `ON_READ` <a id="ON_READ"></a>
+* `ON_WRITE` <a id="ON_WRITE"></a>

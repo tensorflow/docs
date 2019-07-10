@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.linalg.eigh
 
+Computes the eigen decomposition of a batch of self-adjoint matrices.
+
 ### Aliases:
 
+* `tf.compat.v1.linalg.eigh`
+* `tf.compat.v1.self_adjoint_eig`
+* `tf.compat.v2.linalg.eigh`
 * `tf.linalg.eigh`
 * `tf.self_adjoint_eig`
 
@@ -19,9 +24,9 @@ tf.linalg.eigh(
 
 
 
-Defined in [`tensorflow/python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/linalg_ops.py).
+Defined in [`python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg_ops.py).
 
-Computes the eigen decomposition of a batch of self-adjoint matrices.
+<!-- Placeholder for "Used in" -->
 
 Computes the eigenvalues and eigenvectors of the innermost N-by-N matrices
 in `tensor` such that
@@ -29,13 +34,15 @@ in `tensor` such that
 
 #### Args:
 
+
 * <b>`tensor`</b>: `Tensor` of shape `[..., N, N]`. Only the lower triangular part of
-    each inner inner matrix is referenced.
+  each inner inner matrix is referenced.
 * <b>`name`</b>: string, optional name of the operation.
 
 
 #### Returns:
 
+
 * <b>`e`</b>: Eigenvalues. Shape is `[..., N]`. Sorted in non-decreasing order.
 * <b>`v`</b>: Eigenvectors. Shape is `[..., N, N]`. The columns of the inner most
-    matrices contain eigenvectors of the corresponding matrices in `tensor`
+  matrices contain eigenvectors of the corresponding matrices in `tensor`

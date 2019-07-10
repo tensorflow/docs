@@ -5,15 +5,24 @@ page_type: reference
 
 # tf.test.benchmark_config
 
+Returns a tf.compat.v1.ConfigProto for disabling the dependency optimizer.
+
+### Aliases:
+
+* `tf.compat.v1.test.benchmark_config`
+* `tf.compat.v2.test.benchmark_config`
+* `tf.test.benchmark_config`
+
 ``` python
 tf.test.benchmark_config()
 ```
 
 
 
-Defined in [`tensorflow/python/platform/benchmark.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/benchmark.py).
+Defined in [`python/platform/benchmark.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/benchmark.py).
 
-Returns a tf.ConfigProto for disabling the dependency optimizer.
+<!-- Placeholder for "Used in" -->
+
 
 #### Returns:
 

@@ -7,13 +7,15 @@ page_type: reference
 
 ## Class `BeamSearchDecoder`
 
+BeamSearch sampling decoder.
+
 Inherits From: [`Decoder`](../../../tf/contrib/seq2seq/Decoder)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+Defined in [`contrib/seq2seq/python/ops/beam_search_decoder.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
 
-BeamSearch sampling decoder.
+<!-- Placeholder for "Used in" -->
 
 **NOTE** If you are using the `BeamSearchDecoder` with a cell wrapped in
 `AttentionWrapper`, then you must ensure that:
@@ -26,7 +28,9 @@ BeamSearch sampling decoder.
   `cell_state` value containing properly tiled final state from the
   encoder.
 
-An example:
+#### An example:
+
+
 
 ```
 tiled_encoder_outputs = tf.contrib.seq2seq.tile_batch(
@@ -47,8 +51,8 @@ decoder_initial_state = decoder_initial_state.clone(
 ```
 
 Meanwhile, with `AttentionWrapper`, coverage penalty is suggested to use
-when computing scores(https://arxiv.org/pdf/1609.08144.pdf). It encourages
-the translation to cover all inputs.
+when computing scores (https://arxiv.org/pdf/1609.08144.pdf). It encourages
+the decoder to cover all inputs.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -69,35 +73,38 @@ __init__(
 
 Initialize the BeamSearchDecoder.
 
+
 #### Args:
+
 
 * <b>`cell`</b>: An `RNNCell` instance.
 * <b>`embedding`</b>: A callable that takes a vector tensor of `ids` (argmax ids),
-    or the `params` argument for `embedding_lookup`.
+  or the `params` argument for `embedding_lookup`.
 * <b>`start_tokens`</b>: `int32` vector shaped `[batch_size]`, the start tokens.
 * <b>`end_token`</b>: `int32` scalar, the token that marks end of decoding.
 * <b>`initial_state`</b>: A (possibly nested tuple of...) tensors and TensorArrays.
 * <b>`beam_width`</b>:  Python integer, the number of beams.
-* <b>`output_layer`</b>: (Optional) An instance of <a href="../../../tf/layers/Layer"><code>tf.layers.Layer</code></a>, i.e.,
-    <a href="../../../tf/layers/Dense"><code>tf.layers.Dense</code></a>.  Optional layer to apply to the RNN output prior
-    to storing the result or sampling.
+* <b>`output_layer`</b>: (Optional) An instance of <a href="../../../tf/keras/layers/Layer"><code>tf.keras.layers.Layer</code></a>, i.e.,
+  <a href="../../../tf/keras/layers/Dense"><code>tf.keras.layers.Dense</code></a>.  Optional layer to apply to the RNN output
+  prior to storing the result or sampling.
 * <b>`length_penalty_weight`</b>: Float weight to penalize length. Disabled with 0.0.
 * <b>`coverage_penalty_weight`</b>: Float weight to penalize the coverage of source
-    sentence. Disabled with 0.0.
+  sentence. Disabled with 0.0.
 * <b>`reorder_tensor_arrays`</b>: If `True`, `TensorArray`s' elements within the cell
-    state will be reordered according to the beam search path. If the
-    `TensorArray` can be reordered, the stacked form will be returned.
-    Otherwise, the `TensorArray` will be returned as is. Set this flag to
-    `False` if the cell state contains `TensorArray`s that are not amenable
-    to reordering.
+  state will be reordered according to the beam search path. If the
+  `TensorArray` can be reordered, the stacked form will be returned.
+  Otherwise, the `TensorArray` will be returned as is. Set this flag to
+  `False` if the cell state contains `TensorArray`s that are not amenable
+  to reordering.
 
 
 #### Raises:
 
+
 * <b>`TypeError`</b>: if `cell` is not an instance of `RNNCell`,
-    or `output_layer` is not an instance of <a href="../../../tf/layers/Layer"><code>tf.layers.Layer</code></a>.
+  or `output_layer` is not an instance of <a href="../../../tf/keras/layers/Layer"><code>tf.keras.layers.Layer</code></a>.
 * <b>`ValueError`</b>: If `start_tokens` is not a vector or
-    `end_token` is not a scalar.
+  `end_token` is not a scalar.
 
 
 
@@ -105,15 +112,18 @@ Initialize the BeamSearchDecoder.
 
 <h3 id="batch_size"><code>batch_size</code></h3>
 
-The batch size of input values.
+
+
 
 <h3 id="output_dtype"><code>output_dtype</code></h3>
 
-A (possibly nested tuple of...) dtype[s].
+
+
 
 <h3 id="output_size"><code>output_size</code></h3>
 
-A (possibly nested tuple of...) integer[s] or `TensorShape` object[s].
+
+
 
 <h3 id="tracks_own_finished"><code>tracks_own_finished</code></h3>
 
@@ -127,6 +137,7 @@ in `dynamic_decode`.
 #### Returns:
 
 `True`.
+
 
 
 
@@ -144,21 +155,24 @@ finalize(
 
 Finalize and return the predicted_ids.
 
+
 #### Args:
+
 
 * <b>`outputs`</b>: An instance of BeamSearchDecoderOutput.
 * <b>`final_state`</b>: An instance of BeamSearchDecoderState. Passed through to the
-    output.
+  output.
 * <b>`sequence_lengths`</b>: An `int64` tensor shaped `[batch_size, beam_width]`.
-    The sequence lengths determined for each beam during decode.
-    **NOTE** These are ignored; the updated sequence lengths are stored in
-    `final_state.lengths`.
+  The sequence lengths determined for each beam during decode.
+  **NOTE** These are ignored; the updated sequence lengths are stored in
+  `final_state.lengths`.
 
 
 #### Returns:
 
+
 * <b>`outputs`</b>: An instance of `FinalBeamSearchDecoderOutput` where the
-    predicted_ids are the result of calling _gather_tree.
+  predicted_ids are the result of calling _gather_tree.
 * <b>`final_state`</b>: The same input instance of `BeamSearchDecoderState`.
 
 <h3 id="initialize"><code>initialize</code></h3>
@@ -169,7 +183,9 @@ initialize(name=None)
 
 Initialize the decoder.
 
+
 #### Args:
+
 
 * <b>`name`</b>: Name scope for any created operations.
 
@@ -177,6 +193,7 @@ Initialize the decoder.
 #### Returns:
 
 `(finished, start_inputs, initial_state)`.
+
 
 <h3 id="step"><code>step</code></h3>
 
@@ -191,7 +208,9 @@ step(
 
 Perform a decoding step.
 
+
 #### Args:
+
 
 * <b>`time`</b>: scalar `int32` tensor.
 * <b>`inputs`</b>: A (structure of) input tensors.
@@ -202,6 +221,7 @@ Perform a decoding step.
 #### Returns:
 
 `(outputs, next_state, next_inputs, finished)`.
+
 
 
 

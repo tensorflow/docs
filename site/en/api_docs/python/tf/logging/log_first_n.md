@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.logging.log_first_n
 
+Log 'msg % args' at level 'level' only first 'n' times.
+
+### Aliases:
+
+* `tf.compat.v1.logging.log_first_n`
+* `tf.logging.log_first_n`
+
 ``` python
 tf.logging.log_first_n(
     level,
@@ -16,13 +23,14 @@ tf.logging.log_first_n(
 
 
 
-Defined in [`tensorflow/python/platform/tf_logging.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/platform/tf_logging.py).
+Defined in [`python/platform/tf_logging.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/tf_logging.py).
 
-Log 'msg % args' at level 'level' only first 'n' times.
+<!-- Placeholder for "Used in" -->
 
 Not threadsafe.
 
 #### Args:
+
 
 * <b>`level`</b>: The level at which to log.
 * <b>`msg`</b>: The message to be logged.

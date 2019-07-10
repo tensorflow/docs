@@ -7,33 +7,87 @@ page_type: reference
 
 
 
+### Aliases:
+
+* Module `tf.compat.v1.keras.metrics`
+* Module `tf.keras.metrics`
 
 
-Built-in metrics.
+
+Defined in [`python/keras/api/_v1/keras/metrics/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/metrics/__init__.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 ## Classes
+
+[`class AUC`](../../tf/keras/metrics/AUC): Computes the approximate AUC (Area under the curve) via a Riemann sum.
 
 [`class Accuracy`](../../tf/keras/metrics/Accuracy): Calculates how often predictions matches labels.
 
 [`class BinaryAccuracy`](../../tf/keras/metrics/BinaryAccuracy): Calculates how often predictions matches labels.
 
+[`class BinaryCrossentropy`](../../tf/keras/metrics/BinaryCrossentropy): Computes the crossentropy metric between the labels and predictions.
+
 [`class CategoricalAccuracy`](../../tf/keras/metrics/CategoricalAccuracy): Calculates how often predictions matches labels.
+
+[`class CategoricalCrossentropy`](../../tf/keras/metrics/CategoricalCrossentropy): Computes the crossentropy metric between the labels and predictions.
+
+[`class CategoricalHinge`](../../tf/keras/metrics/CategoricalHinge): Computes the categorical hinge metric between `y_true` and `y_pred`.
+
+[`class CosineSimilarity`](../../tf/keras/metrics/CosineSimilarity): Computes the cosine similarity between the labels and predictions.
 
 [`class FalseNegatives`](../../tf/keras/metrics/FalseNegatives): Calculates the number of false negatives.
 
 [`class FalsePositives`](../../tf/keras/metrics/FalsePositives): Calculates the number of false positives.
 
+[`class Hinge`](../../tf/keras/metrics/Hinge): Computes the hinge metric between `y_true` and `y_pred`.
+
+[`class KLDivergence`](../../tf/keras/metrics/KLDivergence): Computes Kullback-Leibler divergence metric between `y_true` and `y_pred`.
+
+[`class LogCoshError`](../../tf/keras/metrics/LogCoshError): Computes the logarithm of the hyperbolic cosine of the prediction error.
+
 [`class Mean`](../../tf/keras/metrics/Mean): Computes the (weighted) mean of the given values.
+
+[`class MeanAbsoluteError`](../../tf/keras/metrics/MeanAbsoluteError): Computes the mean absolute error between the labels and predictions.
+
+[`class MeanAbsolutePercentageError`](../../tf/keras/metrics/MeanAbsolutePercentageError): Computes the mean absolute percentage error between `y_true` and `y_pred`.
+
+[`class MeanIoU`](../../tf/keras/metrics/MeanIoU): Computes the mean Intersection-Over-Union metric.
+
+[`class MeanRelativeError`](../../tf/keras/metrics/MeanRelativeError): Computes the mean relative error by normalizing with the given values.
+
+[`class MeanSquaredError`](../../tf/keras/metrics/MeanSquaredError): Computes the mean squared error between `y_true` and `y_pred`.
+
+[`class MeanSquaredLogarithmicError`](../../tf/keras/metrics/MeanSquaredLogarithmicError): Computes the mean squared logarithmic error between `y_true` and `y_pred`.
+
+[`class MeanTensor`](../../tf/keras/metrics/MeanTensor): Computes the element-wise (weighted) mean of the given tensors.
+
+[`class Metric`](../../tf/keras/metrics/Metric): Encapsulates metric logic and state.
+
+[`class Poisson`](../../tf/keras/metrics/Poisson): Computes the Poisson metric between `y_true` and `y_pred`.
 
 [`class Precision`](../../tf/keras/metrics/Precision): Computes the precision of the predictions with respect to the labels.
 
 [`class Recall`](../../tf/keras/metrics/Recall): Computes the recall of the predictions with respect to the labels.
 
+[`class RootMeanSquaredError`](../../tf/keras/metrics/RootMeanSquaredError): Computes root mean squared error metric between `y_true` and `y_pred`.
+
 [`class SensitivityAtSpecificity`](../../tf/keras/metrics/SensitivityAtSpecificity): Computes the sensitivity at a given specificity.
 
 [`class SparseCategoricalAccuracy`](../../tf/keras/metrics/SparseCategoricalAccuracy): Calculates how often predictions matches integer labels.
 
+[`class SparseCategoricalCrossentropy`](../../tf/keras/metrics/SparseCategoricalCrossentropy): Computes the crossentropy metric between the labels and predictions.
+
+[`class SparseTopKCategoricalAccuracy`](../../tf/keras/metrics/SparseTopKCategoricalAccuracy): Computes how often integer targets are in the top `K` predictions.
+
 [`class SpecificityAtSensitivity`](../../tf/keras/metrics/SpecificityAtSensitivity): Computes the specificity at a given sensitivity.
+
+[`class SquaredHinge`](../../tf/keras/metrics/SquaredHinge): Computes the squared hinge metric between `y_true` and `y_pred`.
+
+[`class Sum`](../../tf/keras/metrics/Sum): Computes the (weighted) sum of the given values.
+
+[`class TopKCategoricalAccuracy`](../../tf/keras/metrics/TopKCategoricalAccuracy): Computes how often targets are in the top `K` predictions.
 
 [`class TrueNegatives`](../../tf/keras/metrics/TrueNegatives): Calculates the number of true negatives.
 
@@ -41,65 +95,65 @@ Built-in metrics.
 
 ## Functions
 
-[`KLD(...)`](../../tf/keras/metrics/kullback_leibler_divergence)
+[`KLD(...)`](../../tf/keras/losses/KLD)
 
-[`MAE(...)`](../../tf/keras/metrics/mean_absolute_error)
+[`MAE(...)`](../../tf/keras/losses/MAE)
 
-[`MAPE(...)`](../../tf/keras/metrics/mean_absolute_percentage_error)
+[`MAPE(...)`](../../tf/keras/losses/MAPE)
 
-[`MSE(...)`](../../tf/keras/metrics/mean_squared_error)
+[`MSE(...)`](../../tf/keras/losses/MSE)
 
-[`MSLE(...)`](../../tf/keras/metrics/mean_squared_logarithmic_error)
+[`MSLE(...)`](../../tf/keras/losses/MSLE)
 
 [`binary_accuracy(...)`](../../tf/keras/metrics/binary_accuracy)
 
-[`binary_crossentropy(...)`](../../tf/keras/metrics/binary_crossentropy)
+[`binary_crossentropy(...)`](../../tf/keras/losses/binary_crossentropy)
 
 [`categorical_accuracy(...)`](../../tf/keras/metrics/categorical_accuracy)
 
-[`categorical_crossentropy(...)`](../../tf/keras/metrics/categorical_crossentropy)
+[`categorical_crossentropy(...)`](../../tf/keras/losses/categorical_crossentropy): Computes the categorical crossentropy loss.
 
-[`cosine(...)`](../../tf/keras/metrics/cosine_proximity)
+[`cosine(...)`](../../tf/keras/losses/cosine): Computes the cosine similarity between labels and predictions.
 
-[`cosine_proximity(...)`](../../tf/keras/metrics/cosine_proximity)
+[`cosine_proximity(...)`](../../tf/keras/losses/cosine): Computes the cosine similarity between labels and predictions.
 
 [`deserialize(...)`](../../tf/keras/metrics/deserialize)
 
 [`get(...)`](../../tf/keras/metrics/get)
 
-[`hinge(...)`](../../tf/keras/metrics/hinge)
+[`hinge(...)`](../../tf/keras/losses/hinge): Computes the hinge loss between `y_true` and `y_pred`.
 
-[`kld(...)`](../../tf/keras/metrics/kullback_leibler_divergence)
+[`kld(...)`](../../tf/keras/losses/KLD)
 
-[`kullback_leibler_divergence(...)`](../../tf/keras/metrics/kullback_leibler_divergence)
+[`kullback_leibler_divergence(...)`](../../tf/keras/losses/KLD)
 
-[`mae(...)`](../../tf/keras/metrics/mean_absolute_error)
+[`mae(...)`](../../tf/keras/losses/MAE)
 
-[`mape(...)`](../../tf/keras/metrics/mean_absolute_percentage_error)
+[`mape(...)`](../../tf/keras/losses/MAPE)
 
-[`mean_absolute_error(...)`](../../tf/keras/metrics/mean_absolute_error)
+[`mean_absolute_error(...)`](../../tf/keras/losses/MAE)
 
-[`mean_absolute_percentage_error(...)`](../../tf/keras/metrics/mean_absolute_percentage_error)
+[`mean_absolute_percentage_error(...)`](../../tf/keras/losses/MAPE)
 
-[`mean_squared_error(...)`](../../tf/keras/metrics/mean_squared_error)
+[`mean_squared_error(...)`](../../tf/keras/losses/MSE)
 
-[`mean_squared_logarithmic_error(...)`](../../tf/keras/metrics/mean_squared_logarithmic_error)
+[`mean_squared_logarithmic_error(...)`](../../tf/keras/losses/MSLE)
 
-[`mse(...)`](../../tf/keras/metrics/mean_squared_error)
+[`mse(...)`](../../tf/keras/losses/MSE)
 
-[`msle(...)`](../../tf/keras/metrics/mean_squared_logarithmic_error)
+[`msle(...)`](../../tf/keras/losses/MSLE)
 
-[`poisson(...)`](../../tf/keras/metrics/poisson)
+[`poisson(...)`](../../tf/keras/losses/poisson)
 
 [`serialize(...)`](../../tf/keras/metrics/serialize)
 
 [`sparse_categorical_accuracy(...)`](../../tf/keras/metrics/sparse_categorical_accuracy)
 
-[`sparse_categorical_crossentropy(...)`](../../tf/keras/metrics/sparse_categorical_crossentropy)
+[`sparse_categorical_crossentropy(...)`](../../tf/keras/losses/sparse_categorical_crossentropy)
 
 [`sparse_top_k_categorical_accuracy(...)`](../../tf/keras/metrics/sparse_top_k_categorical_accuracy)
 
-[`squared_hinge(...)`](../../tf/keras/metrics/squared_hinge)
+[`squared_hinge(...)`](../../tf/keras/losses/squared_hinge): Computes the squared hinge loss between `y_true` and `y_pred`.
 
 [`top_k_categorical_accuracy(...)`](../../tf/keras/metrics/top_k_categorical_accuracy)
 

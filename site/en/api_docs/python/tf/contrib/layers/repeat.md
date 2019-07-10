@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.layers.repeat
 
+Applies the same layer with the same arguments repeatedly.
+
 ``` python
 tf.contrib.layers.repeat(
     inputs,
@@ -17,9 +19,9 @@ tf.contrib.layers.repeat(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
-Applies the same layer with the same arguments repeatedly.
+<!-- Placeholder for "Used in" -->
 
 ```python
   y = repeat(x, 3, conv2d, 64, [3, 3], scope='conv1')
@@ -37,6 +39,7 @@ layers are called with `scope='stack'`.
 
 #### Args:
 
+
 * <b>`inputs`</b>: A `Tensor` suitable for layer.
 * <b>`repetitions`</b>: Int, number of repetitions.
 * <b>`layer`</b>: A layer with arguments `(inputs, *args, **kwargs)`
@@ -48,6 +51,8 @@ layers are called with `scope='stack'`.
 
 A tensor result of applying the layer, repetitions times.
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If the op is unknown or wrong.

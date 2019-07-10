@@ -7,29 +7,42 @@ page_type: reference
 
 ## Class `RandomUniform`
 
-Inherits From: [`random_uniform`](../../../tf/initializers/random_uniform)
+Initializer that generates tensors with a uniform distribution.
+
+Inherits From: [`random_uniform_initializer`](../../../tf/random_uniform_initializer)
 
 ### Aliases:
 
+* Class `tf.compat.v1.keras.initializers.RandomUniform`
+* Class `tf.compat.v1.keras.initializers.random_uniform`
+* Class `tf.compat.v1.keras.initializers.uniform`
 * Class `tf.keras.initializers.RandomUniform`
 * Class `tf.keras.initializers.random_uniform`
 * Class `tf.keras.initializers.uniform`
 
 
 
-Defined in [`tensorflow/python/keras/initializers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/initializers.py).
+Defined in [`python/keras/initializers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/initializers.py).
 
-Initializer that generates tensors with a uniform distribution.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`minval`</b>: A python scalar or a scalar tensor. Lower bound of the range of
-    random values to generate. Defaults to -0.05.
+  random values to generate. Defaults to -0.05.
 * <b>`maxval`</b>: A python scalar or a scalar tensor. Upper bound of the range of
-    random values to generate. Defaults to 0.05.
+  random values to generate. Defaults to 0.05.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
+  <a href="../../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
 * <b>`dtype`</b>: The data type.
+
+
+#### Returns:
+
+A RandomUniform instance.
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -42,7 +55,8 @@ __init__(
 )
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -58,15 +72,8 @@ __call__(
 )
 ```
 
-Returns a tensor object initialized as specified by the initializer.
 
-#### Args:
 
-* <b>`shape`</b>: Shape of the tensor.
-* <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
-    dtype.
-* <b>`partition_info`</b>: Optional information about the possible partitioning of a
-    tensor.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
@@ -79,7 +86,10 @@ from_config(
 
 Instantiates an initializer from a configuration dictionary.
 
-Example:
+
+#### Example:
+
+
 
 ```python
 initializer = RandomUniform(-1, 1)
@@ -89,13 +99,15 @@ initializer = RandomUniform.from_config(config)
 
 #### Args:
 
-* <b>`config`</b>: A Python dictionary.
-    It will typically be the output of `get_config`.
+
+* <b>`config`</b>: A Python dictionary. It will typically be the output of
+  `get_config`.
 
 
 #### Returns:
 
 An Initializer instance.
+
 
 <h3 id="get_config"><code>get_config</code></h3>
 
@@ -103,11 +115,8 @@ An Initializer instance.
 get_config()
 ```
 
-Returns the configuration of the initializer as a JSON-serializable dict.
 
-#### Returns:
 
-A JSON-serializable Python dict.
 
 
 

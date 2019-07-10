@@ -7,13 +7,21 @@ page_type: reference
 
 ## Class `UnconnectedGradients`
 
-
-
-
-
-Defined in [`tensorflow/python/ops/unconnected_gradients.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/unconnected_gradients.py).
-
 Controls how gradient computation behaves when y does not depend on x.
+
+
+
+### Aliases:
+
+* Class `tf.UnconnectedGradients`
+* Class `tf.compat.v1.UnconnectedGradients`
+* Class `tf.compat.v2.UnconnectedGradients`
+
+
+
+Defined in [`python/ops/unconnected_gradients.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/unconnected_gradients.py).
+
+<!-- Placeholder for "Used in" -->
 
 The gradient of y with respect to x can be zero in two different ways: there
 could be no differentiable path in the graph connecting x to y (and so we can
@@ -29,9 +37,5 @@ there is no path in the graph from x to y:
 
 ## Class Members
 
-<h3 id="NONE"><code>NONE</code></h3>
-
-<h3 id="ZERO"><code>ZERO</code></h3>
-
-<h3 id="__members__"><code>__members__</code></h3>
-
+* `NONE` <a id="NONE"></a>
+* `ZERO` <a id="ZERO"></a>

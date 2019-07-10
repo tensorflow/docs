@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.quantize_v2
 
+Please use <a href="../tf/quantization/quantize"><code>tf.quantization.quantize</code></a> instead.
+
+### Aliases:
+
+* `tf.compat.v1.quantize_v2`
+* `tf.quantize_v2`
+
 ``` python
 tf.quantize_v2(
     input,
@@ -19,6 +26,6 @@ tf.quantize_v2(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Please use <a href="../tf/quantization/quantize"><code>tf.quantization.quantize</code></a> instead.
+<!-- Placeholder for "Used in" -->

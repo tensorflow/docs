@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.graph_editor.make_list_of_t
 
+Convert ts to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
+
 ``` python
 tf.contrib.graph_editor.make_list_of_t(
     ts,
@@ -16,11 +18,13 @@ tf.contrib.graph_editor.make_list_of_t(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/graph_editor/util.py).
+Defined in [`contrib/graph_editor/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/util.py).
 
-Convert ts to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`ts`</b>: can be an iterable of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, a <a href="../../../tf/Graph"><code>tf.Graph</code></a> or a single tensor.
 * <b>`check_graph`</b>: if `True` check if all the tensors belong to the same graph.
@@ -31,7 +35,9 @@ Convert ts to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
 
 A newly created list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
 
+
 #### Raises:
 
+
 * <b>`TypeError`</b>: if `ts` cannot be converted to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> or,
-   if `check_graph` is `True`, if all the ops do not belong to the same graph.
+ if `check_graph` is `True`, if all the ops do not belong to the same graph.

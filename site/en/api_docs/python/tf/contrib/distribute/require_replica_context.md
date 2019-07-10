@@ -5,12 +5,14 @@ page_type: reference
 
 # tf.contrib.distribute.require_replica_context
 
+Verify in `replica_ctx` replica context.
+
 ``` python
 tf.contrib.distribute.require_replica_context(replica_ctx)
 ```
 
 
 
-Defined in [`tensorflow/python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/distribute/distribute_lib.py).
+Defined in [`python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/distribute_lib.py).
 
-Verify in `replica_ctx` replica context.
+<!-- Placeholder for "Used in" -->

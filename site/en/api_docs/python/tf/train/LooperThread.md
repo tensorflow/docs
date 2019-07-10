@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `LooperThread`
 
-
-
-
-
-Defined in [`tensorflow/python/training/coordinator.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/coordinator.py).
-
 A thread that runs code repeatedly, optionally on a timer.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.train.LooperThread`
+* Class `tf.train.LooperThread`
+
+
+
+Defined in [`python/training/coordinator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/coordinator.py).
+
+<!-- Placeholder for "Used in" -->
 
 This thread class is intended to be used with a `Coordinator`.  It repeatedly
 runs code specified either as `target` and `args` or by the `run_loop()`
@@ -42,17 +49,20 @@ __init__(
 
 Create a LooperThread.
 
+
 #### Args:
+
 
 * <b>`coord`</b>: A Coordinator.
 * <b>`timer_interval_secs`</b>: Time boundaries at which to call Run(), or None
-    if it should be called back to back.
+  if it should be called back to back.
 * <b>`target`</b>: Optional callable object that will be executed in the thread.
 * <b>`args`</b>: Optional arguments to pass to `target` when calling it.
 * <b>`kwargs`</b>: Optional keyword arguments to pass to `target` when calling it.
 
 
 #### Raises:
+
 
 * <b>`ValueError`</b>: If one of the arguments is invalid.
 
@@ -76,7 +86,7 @@ left.
 
 Thread identifier of this thread or None if it has not been started.
 
-This is a nonzero integer. See the get_ident() function. Thread
+This is a nonzero integer. See the thread.get_ident() function. Thread
 identifiers may be recycled when a thread exits and another thread is
 created. The identifier is available even after the thread has exited.
 
@@ -99,6 +109,7 @@ getName()
 
 
 
+
 <h3 id="isAlive"><code>isAlive</code></h3>
 
 ``` python
@@ -116,6 +127,7 @@ returns a list of all alive threads.
 ``` python
 isDaemon()
 ```
+
 
 
 
@@ -181,6 +193,7 @@ requested.
 
 #### Args:
 
+
 * <b>`coord`</b>: A Coordinator.
 * <b>`timer_interval_secs`</b>: Number. Time boundaries at which to call `target`.
 * <b>`target`</b>: A callable object.
@@ -192,18 +205,15 @@ requested.
 
 The started thread.
 
+
 <h3 id="run"><code>run</code></h3>
 
 ``` python
 run()
 ```
 
-Method representing the thread's activity.
 
-You may override this method in a subclass. The standard run() method
-invokes the callable object passed to the object's constructor as the
-target argument, if any, with sequential and keyword arguments taken
-from the args and kwargs arguments, respectively.
+
 
 <h3 id="run_loop"><code>run_loop</code></h3>
 
@@ -213,6 +223,7 @@ run_loop()
 
 Called at 'timer_interval_secs' boundaries.
 
+
 <h3 id="setDaemon"><code>setDaemon</code></h3>
 
 ``` python
@@ -221,11 +232,13 @@ setDaemon(daemonic)
 
 
 
+
 <h3 id="setName"><code>setName</code></h3>
 
 ``` python
 setName(name)
 ```
+
 
 
 
@@ -251,6 +264,7 @@ start_loop()
 
 Called when the thread starts.
 
+
 <h3 id="stop_loop"><code>stop_loop</code></h3>
 
 ``` python
@@ -258,6 +272,7 @@ stop_loop()
 ```
 
 Called when the thread stops.
+
 
 
 

@@ -5,8 +5,14 @@ page_type: reference
 
 # tf.einsum
 
+A generalized contraction between tensors of arbitrary dimension.
+
 ### Aliases:
 
+* `tf.compat.v1.einsum`
+* `tf.compat.v1.linalg.einsum`
+* `tf.compat.v2.einsum`
+* `tf.compat.v2.linalg.einsum`
 * `tf.einsum`
 * `tf.linalg.einsum`
 
@@ -20,9 +26,9 @@ tf.einsum(
 
 
 
-Defined in [`tensorflow/python/ops/special_math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/special_math_ops.py).
+Defined in [`python/ops/special_math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/special_math_ops.py).
 
-A generalized contraction between tensors of arbitrary dimension.
+<!-- Placeholder for "Used in" -->
 
 This function returns a tensor whose elements are defined by `equation`,
 which is written in a shorthand form inspired by the Einstein summation
@@ -61,22 +67,32 @@ Many common operations can be expressed in this way.  For example:
 # Transpose
 >>> einsum('ij->ji', m)  # output[j,i] = m[i,j]
 
+# Trace
+>>> einsum('ii', m)  # output[j,i] = trace(m) = sum_i m[i, i]
+
 # Batch matrix multiplication
 >>> einsum('aij,ajk->aik', s, t)  # out[a,i,k] = sum_j s[a,i,j] * t[a, j, k]
 ```
 
+To enable and control broadcasting, use an ellipsis.  For example, to do
+batch matrix multiplication, you could use:
+
+```python
+>>> einsum('...ij,...jk->...ik', u, v)
+```
+
 This function behaves like `numpy.einsum`, but does not support:
 
-* Ellipses (subscripts like `ij...,jk...->ik...`)
 * Subscripts where an axis appears more than once for a single input
-  (e.g. `ijj,k->ik`).
+  (e.g. `ijj,k->ik`) unless it is a trace (e.g. `ijji`).
 
 #### Args:
 
+
 * <b>`equation`</b>: a `str` describing the contraction, in the same format as
-    `numpy.einsum`.
+  `numpy.einsum`.
 * <b>`*inputs`</b>: the inputs to contract (each one a `Tensor`), whose shapes should
-    be consistent with `equation`.
+  be consistent with `equation`.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -85,12 +101,14 @@ This function behaves like `numpy.einsum`, but does not support:
 The contracted `Tensor`, with shape determined by `equation`.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If
-    - the format of `equation` is incorrect,
-    - the number of inputs implied by `equation` does not match `len(inputs)`,
-    - an axis appears in the output subscripts but not in any of the inputs,
-    - the number of dimensions of an input differs from the number of
-      indices in its subscript, or
-    - the input shapes are inconsistent along a particular axis.
+  - the format of `equation` is incorrect,
+  - the number of inputs implied by `equation` does not match `len(inputs)`,
+  - an axis appears in the output subscripts but not in any of the inputs,
+  - the number of dimensions of an input differs from the number of
+    indices in its subscript, or
+  - the input shapes are inconsistent along a particular axis.

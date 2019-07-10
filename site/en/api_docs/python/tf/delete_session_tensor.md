@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.delete_session_tensor
 
+Delete the tensor for the given tensor handle.
+
+### Aliases:
+
+* `tf.compat.v1.delete_session_tensor`
+* `tf.delete_session_tensor`
+
 ``` python
 tf.delete_session_tensor(
     handle,
@@ -14,9 +21,9 @@ tf.delete_session_tensor(
 
 
 
-Defined in [`tensorflow/python/ops/session_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/session_ops.py).
+Defined in [`python/ops/session_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/session_ops.py).
 
-Delete the tensor for the given tensor handle.
+<!-- Placeholder for "Used in" -->
 
 This is EXPERIMENTAL and subject to change.
 
@@ -24,6 +31,7 @@ Delete the tensor of a given tensor handle. The tensor is produced
 in a previous run() and stored in the state of the session.
 
 #### Args:
+
 
 * <b>`handle`</b>: The string representation of a persistent tensor handle.
 * <b>`name`</b>: Optional name prefix for the return tensor.

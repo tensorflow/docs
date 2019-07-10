@@ -11,7 +11,7 @@ Inherits From: [`GrpcDebugHook`](../tfdbg/GrpcDebugHook)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/debug/wrappers/hooks.py).
+Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/debug/wrappers/hooks.py).
 
 A tfdbg hook that can be used with TensorBoard Debugger Plugin.
 
@@ -105,17 +105,7 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 before_run(run_context)
 ```
 
-Called right before a session is run.
 
-#### Args:
-
-* <b>`run_context`</b>: A session_run_hook.SessionRunContext. Encapsulates
-    information on the run.
-
-
-#### Returns:
-
-A session_run_hook.SessionRunArgs object.
 
 <h3 id="begin"><code>begin</code></h3>
 

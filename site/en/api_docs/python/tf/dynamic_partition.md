@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.dynamic_partition
 
+Partitions `data` into `num_partitions` tensors using indices from `partitions`.
+
+### Aliases:
+
+* `tf.compat.v1.dynamic_partition`
+* `tf.compat.v2.dynamic_partition`
+* `tf.dynamic_partition`
+
 ``` python
 tf.dynamic_partition(
     data,
@@ -16,9 +24,9 @@ tf.dynamic_partition(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_data_flow_ops.py`.
+Defined in generated file: `python/ops/gen_data_flow_ops.py`.
 
-Partitions `data` into `num_partitions` tensors using indices from `partitions`.
+<!-- Placeholder for "Used in" -->
 
 For each index tuple `js` of size `partitions.ndim`, the slice `data[js, ...]`
 becomes part of `outputs[partitions[js]]`.  The slices with `partitions[js] = i`
@@ -34,7 +42,9 @@ In detail,
 
 `data.shape` must start with `partitions.shape`.
 
-For example:
+#### For example:
+
+
 
 ```python
     # Scalar partitions.
@@ -60,11 +70,12 @@ See `dynamic_stitch` for an example on how to merge partitions back.
 
 #### Args:
 
+
 * <b>`data`</b>: A `Tensor`.
 * <b>`partitions`</b>: A `Tensor` of type `int32`.
-    Any shape.  Indices in the range `[0, num_partitions)`.
+  Any shape.  Indices in the range `[0, num_partitions)`.
 * <b>`num_partitions`</b>: An `int` that is `>= 1`.
-    The number of partitions to output.
+  The number of partitions to output.
 * <b>`name`</b>: A name for the operation (optional).
 
 

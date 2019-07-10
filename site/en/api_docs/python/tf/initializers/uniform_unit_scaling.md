@@ -7,18 +7,22 @@ page_type: reference
 
 ## Class `uniform_unit_scaling`
 
+Initializer that generates tensors without scaling variance.
+
 Inherits From: [`Initializer`](../../tf/keras/initializers/Initializer)
 
 ### Aliases:
 
+* Class `tf.compat.v1.initializers.uniform_unit_scaling`
+* Class `tf.compat.v1.uniform_unit_scaling_initializer`
 * Class `tf.initializers.uniform_unit_scaling`
 * Class `tf.uniform_unit_scaling_initializer`
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/init_ops.py).
+Defined in [`python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops.py).
 
-Initializer that generates tensors without scaling variance.
+<!-- Placeholder for "Used in" -->
 
 When initializing a deep network, it is in principle advantageous to keep
 the scale of the input variance constant, so it does not explode or diminish
@@ -37,16 +41,18 @@ numerically computed: for a linear layer it's 1.0, relu: ~1.43, tanh: ~1.15.
 
 #### Args:
 
+
 * <b>`factor`</b>: Float.  A multiplicative factor by which the values will be scaled.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>
-    for behavior.
+  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
 * <b>`dtype`</b>: Default data type, used if no `dtype` argument is provided when
-    calling the initializer. Only floating point types are supported.
+  calling the initializer. Only floating point types are supported.
 
-References:
-    [Sussillo et al., 2014](https://arxiv.org/abs/1412.6558)
-    ([pdf](http://arxiv.org/pdf/1412.6558.pdf))
+#### References:
+
+[Sussillo et al., 2014](https://arxiv.org/abs/1412.6558)
+([pdf](http://arxiv.org/pdf/1412.6558.pdf))
+
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -58,7 +64,11 @@ __init__(
 )
 ```
 
-DEPRECATED FUNCTION
+DEPRECATED FUNCTION (deprecated arguments)
+
+Warning: SOME ARGUMENTS ARE DEPRECATED: `(dtype)`. They will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -78,15 +88,8 @@ __call__(
 )
 ```
 
-Returns a tensor object initialized as specified by the initializer.
 
-#### Args:
 
-* <b>`shape`</b>: Shape of the tensor.
-* <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
-    dtype.
-* <b>`partition_info`</b>: Optional information about the possible partitioning of a
-    tensor.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
@@ -99,7 +102,10 @@ from_config(
 
 Instantiates an initializer from a configuration dictionary.
 
-Example:
+
+#### Example:
+
+
 
 ```python
 initializer = RandomUniform(-1, 1)
@@ -109,13 +115,15 @@ initializer = RandomUniform.from_config(config)
 
 #### Args:
 
-* <b>`config`</b>: A Python dictionary.
-    It will typically be the output of `get_config`.
+
+* <b>`config`</b>: A Python dictionary. It will typically be the output of
+  `get_config`.
 
 
 #### Returns:
 
 An Initializer instance.
+
 
 <h3 id="get_config"><code>get_config</code></h3>
 
@@ -123,11 +131,8 @@ An Initializer instance.
 get_config()
 ```
 
-Returns the configuration of the initializer as a JSON-serializable dict.
 
-#### Returns:
 
-A JSON-serializable Python dict.
 
 
 

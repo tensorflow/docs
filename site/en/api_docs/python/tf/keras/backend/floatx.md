@@ -5,24 +5,35 @@ page_type: reference
 
 # tf.keras.backend.floatx
 
+Returns the default float type, as a string.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.floatx`
+* `tf.compat.v2.keras.backend.floatx`
+* `tf.keras.backend.floatx`
+
 ``` python
 tf.keras.backend.floatx()
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend_config.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend_config.py).
 
-Returns the default float type, as a string.
+<!-- Placeholder for "Used in" -->
 
 E.g. 'float16', 'float32', 'float64'.
 
 #### Returns:
 
-    String, the current default float type.
+String, the current default float type.
 
-Example:
+
+
+#### Example:
+
+
 ```python
-    >>> keras.backend.floatx()
-    'float32'
+keras.backend.floatx() >>> 'float32'
 ```

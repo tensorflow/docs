@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.nn.deprecated_flipped_sparse_softmax_cross_entropy_with_logits
 
+Computes sparse softmax cross entropy between `logits` and `labels`.
+
 ``` python
 tf.contrib.nn.deprecated_flipped_sparse_softmax_cross_entropy_with_logits(
     logits,
@@ -15,9 +17,9 @@ tf.contrib.nn.deprecated_flipped_sparse_softmax_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/cross_entropy.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/nn/python/ops/cross_entropy.py).
+Defined in [`contrib/nn/python/ops/cross_entropy.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/nn/python/ops/cross_entropy.py).
 
-Computes sparse softmax cross entropy between `logits` and `labels`.
+<!-- Placeholder for "Used in" -->
 
 This function diffs from tf.nn.sparse_softmax_cross_entropy_with_logits only
 in the argument order.
@@ -44,13 +46,14 @@ labels of shape `[batch_size]`. But higher dimensions are supported.
 #### Args:
 
 
+
 * <b>`logits`</b>: Unscaled log probabilities of rank `r` and shape
-    `[d_0, d_1, ..., d_{r-2}, num_classes]` and dtype `float32` or `float64`.
+  `[d_0, d_1, ..., d_{r-2}, num_classes]` and dtype `float32` or `float64`.
 * <b>`labels`</b>: `Tensor` of shape `[d_0, d_1, ..., d_{r-2}]` and dtype `int32` or
-    `int64`. Each entry in `labels` must be an index in `[0, num_classes)`.
-    Other values will raise an exception when this op is run on CPU, and
-    return `NaN` for corresponding corresponding loss and gradient rows
-    on GPU.
+  `int64`. Each entry in `labels` must be an index in `[0, num_classes)`.
+  Other values will raise an exception when this op is run on CPU, and
+  return `NaN` for corresponding corresponding loss and gradient rows
+  on GPU.
 * <b>`name`</b>: A name for the operation (optional).
 
 
@@ -60,7 +63,9 @@ A `Tensor` of the same shape as `labels` and of the same type as `logits`
 with the softmax cross entropy loss.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If logits are scalars (need to have rank >= 1) or if the rank
-    of the labels is not equal to the rank of the logits minus one.
+  of the labels is not equal to the rank of the logits minus one.

@@ -5,17 +5,27 @@ page_type: reference
 
 # tf.keras.backend.batch_set_value
 
+Sets the values of many tensor variables at once.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.batch_set_value`
+* `tf.compat.v2.keras.backend.batch_set_value`
+* `tf.keras.backend.batch_set_value`
+
 ``` python
 tf.keras.backend.batch_set_value(tuples)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Sets the values of many tensor variables at once.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
 
+
 * <b>`tuples`</b>: a list of tuples `(tensor, value)`.
-        `value` should be a Numpy array.
+    `value` should be a Numpy array.

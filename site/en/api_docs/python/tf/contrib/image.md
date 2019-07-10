@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.contrib.image
 
-
-
-Defined in [`tensorflow/contrib/image/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/image/__init__.py).
-
 Ops for image manipulation.
+
+
+
+Defined in [`contrib/image/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/image/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 ### API
 

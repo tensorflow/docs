@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.distributions.bijectors.real_nvp_default_template
 
+Build a scale-and-shift function using a multi-layer neural network. (deprecated)
+
 ``` python
 tf.contrib.distributions.bijectors.real_nvp_default_template(
     hidden_layers,
@@ -18,9 +20,9 @@ tf.contrib.distributions.bijectors.real_nvp_default_template(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py).
+Defined in [`contrib/distributions/python/ops/bijectors/real_nvp.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py).
 
-Build a scale-and-shift function using a multi-layer neural network. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
 Instructions for updating:
@@ -32,30 +34,33 @@ dimensional outputs `loc` ("mu") and `log_scale` ("alpha").
 
 #### Arguments:
 
+
 * <b>`hidden_layers`</b>: Python `list`-like of non-negative integer, scalars
-    indicating the number of units in each hidden layer. Default: `[512, 512].
+  indicating the number of units in each hidden layer. Default: `[512, 512].
 * <b>`shift_only`</b>: Python `bool` indicating if only the `shift` term shall be
-    computed (i.e. NICE bijector). Default: `False`.
+  computed (i.e. NICE bijector). Default: `False`.
 * <b>`activation`</b>: Activation function (callable). Explicitly setting to `None`
-    implies a linear activation.
+  implies a linear activation.
 * <b>`name`</b>: A name for ops managed by this function. Default:
-    "real_nvp_default_template".
-* <b>`*args`</b>: <a href="../../../../tf/layers/dense"><code>tf.layers.dense</code></a> arguments.
-* <b>`**kwargs`</b>: <a href="../../../../tf/layers/dense"><code>tf.layers.dense</code></a> keyword arguments.
+  "real_nvp_default_template".
+* <b>`*args`</b>: <a href="../../../../tf/layers/dense"><code>tf.compat.v1.layers.dense</code></a> arguments.
+* <b>`**kwargs`</b>: <a href="../../../../tf/layers/dense"><code>tf.compat.v1.layers.dense</code></a> keyword arguments.
 
 
 #### Returns:
 
+
 * <b>`shift`</b>: `Float`-like `Tensor` of shift terms ("mu" in
-    [Papamakarios et al.  (2016)][1]).
+  [Papamakarios et al.  (2016)][1]).
 * <b>`log_scale`</b>: `Float`-like `Tensor` of log(scale) terms ("alpha" in
-    [Papamakarios et al. (2016)][1]).
+  [Papamakarios et al. (2016)][1]).
 
 
 #### Raises:
 
+
 * <b>`NotImplementedError`</b>: if rightmost dimension of `inputs` is unknown prior to
-    graph execution.
+  graph execution.
 
 #### References
 

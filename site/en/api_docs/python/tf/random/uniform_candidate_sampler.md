@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.random.uniform_candidate_sampler
 
+Samples a set of classes using a uniform base distribution.
+
 ### Aliases:
 
+* `tf.compat.v1.nn.uniform_candidate_sampler`
+* `tf.compat.v1.random.uniform_candidate_sampler`
+* `tf.compat.v2.random.uniform_candidate_sampler`
 * `tf.nn.uniform_candidate_sampler`
 * `tf.random.uniform_candidate_sampler`
 
@@ -24,9 +29,9 @@ tf.random.uniform_candidate_sampler(
 
 
 
-Defined in [`tensorflow/python/ops/candidate_sampling_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/candidate_sampling_ops.py).
+Defined in [`python/ops/candidate_sampling_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/candidate_sampling_ops.py).
 
-Samples a set of classes using a uniform base distribution.
+<!-- Placeholder for "Used in" -->
 
 This operation randomly samples a tensor of sampled classes
 (`sampled_candidates`) from the range of integers `[0, range_max)`.
@@ -50,14 +55,15 @@ compute them approximately.
 
 #### Args:
 
+
 * <b>`true_classes`</b>: A `Tensor` of type `int64` and shape `[batch_size,
-    num_true]`. The target classes.
+  num_true]`. The target classes.
 * <b>`num_true`</b>: An `int`.  The number of target classes per training example.
 * <b>`num_sampled`</b>: An `int`.  The number of classes to randomly sample. The
-    `sampled_candidates` return value will have shape `[num_sampled]`. If
-    `unique=True`, `num_sampled` must be less than or equal to `range_max`.
+  `sampled_candidates` return value will have shape `[num_sampled]`. If
+  `unique=True`, `num_sampled` must be less than or equal to `range_max`.
 * <b>`unique`</b>: A `bool`. Determines whether all sampled classes in a batch are
-    unique.
+  unique.
 * <b>`range_max`</b>: An `int`. The number of possible classes.
 * <b>`seed`</b>: An `int`. An operation-specific seed. Default is 0.
 * <b>`name`</b>: A name for the operation (optional).
@@ -65,13 +71,14 @@ compute them approximately.
 
 #### Returns:
 
+
 * <b>`sampled_candidates`</b>: A tensor of type `int64` and shape `[num_sampled]`.  The
-    sampled classes, either with possible duplicates (`unique=False`) or all
-    unique (`unique=True`). In either case, `sampled_candidates` is
-    independent of the true classes.
+  sampled classes, either with possible duplicates (`unique=False`) or all
+  unique (`unique=True`). In either case, `sampled_candidates` is
+  independent of the true classes.
 * <b>`true_expected_count`</b>: A tensor of type `float`.  Same shape as
-    `true_classes`. The expected counts under the sampling distribution
-    of each of `true_classes`.
+  `true_classes`. The expected counts under the sampling distribution
+  of each of `true_classes`.
 * <b>`sampled_expected_count`</b>: A tensor of type `float`. Same shape as
-    `sampled_candidates`. The expected counts under the sampling distribution
-    of each of `sampled_candidates`.
+  `sampled_candidates`. The expected counts under the sampling distribution
+  of each of `sampled_candidates`.

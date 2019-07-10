@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.random.poisson
 
+Draws `shape` samples from each of the given Poisson distribution(s).
+
 ### Aliases:
 
+* `tf.compat.v1.random.poisson`
+* `tf.compat.v1.random_poisson`
 * `tf.random.poisson`
 * `tf.random_poisson`
 
@@ -22,41 +26,45 @@ tf.random.poisson(
 
 
 
-Defined in [`tensorflow/python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/random_ops.py).
+Defined in [`python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/random_ops.py).
 
-Draws `shape` samples from each of the given Poisson distribution(s).
+<!-- Placeholder for "Used in" -->
 
 `lam` is the rate parameter describing the distribution(s).
 
-Example:
+#### Example:
+
+
 
 ```python
-samples = tf.random_poisson([0.5, 1.5], [10])
+samples = tf.random.poisson([0.5, 1.5], [10])
 # samples has shape [10, 2], where each slice [:, 0] and [:, 1] represents
 # the samples drawn from each distribution
 
-samples = tf.random_poisson([12.2, 3.3], [7, 5])
+samples = tf.random.poisson([12.2, 3.3], [7, 5])
 # samples has shape [7, 5, 2], where each slice [:, :, 0] and [:, :, 1]
 # represents the 7x5 samples drawn from each of the two distributions
 ```
 
 #### Args:
 
+
 * <b>`lam`</b>: A Tensor or Python value or N-D array of type `dtype`.
-    `lam` provides the rate parameter(s) describing the poisson
-    distribution(s) to sample.
+  `lam` provides the rate parameter(s) describing the poisson
+  distribution(s) to sample.
 * <b>`shape`</b>: A 1-D integer Tensor or Python array. The shape of the output samples
-    to be drawn per "rate"-parameterized distribution.
+  to be drawn per "rate"-parameterized distribution.
 * <b>`dtype`</b>: The type of the output: `float16`, `float32`, `float64`, `int32` or
-    `int64`.
+  `int64`.
 * <b>`seed`</b>: A Python integer. Used to create a random seed for the distributions.
-    See
-    <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>
-    for behavior.
+  See
+  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  for behavior.
 * <b>`name`</b>: Optional name for the operation.
 
 
 #### Returns:
 
+
 * <b>`samples`</b>: a `Tensor` of shape `tf.concat([shape, tf.shape(lam)], axis=0)`
-    with values of type `dtype`.
+  with values of type `dtype`.

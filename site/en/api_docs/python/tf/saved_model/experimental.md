@@ -7,11 +7,10 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Public API for tf.saved_model.experimental namespace.
 
 ## Functions
 
-[`save(...)`](../../tf/saved_model/experimental/save): Exports the Checkpointable object `obj` to [SavedModel format](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md).
+[`save(...)`](../../tf/saved_model/save): Exports the Trackable object `obj` to [SavedModel format](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md).
 

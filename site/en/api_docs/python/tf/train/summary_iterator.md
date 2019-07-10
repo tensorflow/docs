@@ -5,15 +5,22 @@ page_type: reference
 
 # tf.train.summary_iterator
 
+An iterator for reading `Event` protocol buffers from an event file.
+
+### Aliases:
+
+* `tf.compat.v1.train.summary_iterator`
+* `tf.train.summary_iterator`
+
 ``` python
 tf.train.summary_iterator(path)
 ```
 
 
 
-Defined in [`tensorflow/python/summary/summary_iterator.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/summary/summary_iterator.py).
+Defined in [`python/summary/summary_iterator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/summary_iterator.py).
 
-An iterator for reading `Event` protocol buffers from an event file.
+<!-- Placeholder for "Used in" -->
 
 You can use this function to read events written to an event file. It returns
 a Python iterator that yields `Event` protocol buffers.
@@ -21,7 +28,7 @@ a Python iterator that yields `Event` protocol buffers.
 Example: Print the contents of an events file.
 
 ```python
-for e in tf.train.summary_iterator(path to events file):
+for e in tf.compat.v1.train.summary_iterator(path to events file):
     print(e)
 ```
 
@@ -31,20 +38,21 @@ Example: Print selected summary values.
 # This example supposes that the events file contains summaries with a
 # summary value tag 'loss'.  These could have been added by calling
 # `add_summary()`, passing the output of a scalar summary op created with
-# with: `tf.summary.scalar('loss', loss_tensor)`.
-for e in tf.train.summary_iterator(path to events file):
+# with: `tf.compat.v1.summary.scalar('loss', loss_tensor)`.
+for e in tf.compat.v1.train.summary_iterator(path to events file):
     for v in e.summary.value:
         if v.tag == 'loss':
             print(v.simple_value)
 ```
 
 See the protocol buffer definitions of
-[Event](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/util/event.proto)
+[Event](https://www.tensorflow.org/code/tensorflow/core/util/event.proto)
 and
-[Summary](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/core/framework/summary.proto)
+[Summary](https://www.tensorflow.org/code/tensorflow/core/framework/summary.proto)
 for more information about their attributes.
 
 #### Args:
+
 
 * <b>`path`</b>: The path to an event file created by a `SummaryWriter`.
 

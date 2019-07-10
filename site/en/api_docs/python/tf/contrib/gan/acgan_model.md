@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.acgan_model
 
+Returns an ACGANModel contains all the pieces needed for ACGAN training.
+
 ``` python
 tf.contrib.gan.acgan_model(
     generator_fn,
@@ -20,9 +22,9 @@ tf.contrib.gan.acgan_model(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/train.py).
+Defined in [`contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/train.py).
 
-Returns an ACGANModel contains all the pieces needed for ACGAN training.
+<!-- Placeholder for "Used in" -->
 
 The `acgan_model` is the same as the `gan_model` with the only difference
 being that the discriminator additionally outputs logits to classify the input
@@ -35,24 +37,25 @@ See https://arxiv.org/abs/1610.09585 for more details.
 
 #### Args:
 
+
 * <b>`generator_fn`</b>: A python lambda that takes `generator_inputs` as inputs and
-    returns the outputs of the GAN generator.
+  returns the outputs of the GAN generator.
 * <b>`discriminator_fn`</b>: A python lambda that takes `real_data`/`generated data`
-    and `generator_inputs`. Outputs a tuple consisting of two Tensors:
-      (1) real/fake logits in the range [-inf, inf]
-      (2) classification logits in the range [-inf, inf]
+  and `generator_inputs`. Outputs a tuple consisting of two Tensors: (1)
+    real/fake logits in the range [-inf, inf] (2) classification logits in
+    the range [-inf, inf]
 * <b>`real_data`</b>: A Tensor representing the real data.
 * <b>`generator_inputs`</b>: A Tensor or list of Tensors to the generator. In the
-    vanilla GAN case, this might be a single noise Tensor. In the conditional
-    GAN case, this might be the generator's conditioning.
+  vanilla GAN case, this might be a single noise Tensor. In the conditional
+  GAN case, this might be the generator's conditioning.
 * <b>`one_hot_labels`</b>: A Tensor holding one-hot-labels for the batch. Needed by
-    acgan_loss.
+  acgan_loss.
 * <b>`generator_scope`</b>: Optional generator variable scope. Useful if you want to
-    reuse a subgraph that has already been created.
+  reuse a subgraph that has already been created.
 * <b>`discriminator_scope`</b>: Optional discriminator variable scope. Useful if you
-    want to reuse a subgraph that has already been created.
+  want to reuse a subgraph that has already been created.
 * <b>`check_shapes`</b>: If `True`, check that generator produces Tensors that are the
-    same shape as real data. Otherwise, skip this check.
+  same shape as real data. Otherwise, skip this check.
 
 
 #### Returns:
@@ -60,9 +63,11 @@ See https://arxiv.org/abs/1610.09585 for more details.
 A ACGANModel namedtuple.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the generator outputs a Tensor that isn't the same shape as
-    `real_data`.
+  `real_data`.
 * <b>`TypeError`</b>: If the discriminator does not output a tuple consisting of
-  (discrimination logits, classification logits).
+(discrimination logits, classification logits).

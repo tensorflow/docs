@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.random.shuffle
 
+Randomly shuffles a tensor along its first dimension.
+
 ### Aliases:
 
+* `tf.compat.v1.random.shuffle`
+* `tf.compat.v1.random_shuffle`
+* `tf.compat.v2.random.shuffle`
 * `tf.random.shuffle`
 * `tf.random_shuffle`
 
@@ -20,9 +25,9 @@ tf.random.shuffle(
 
 
 
-Defined in [`tensorflow/python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/random_ops.py).
+Defined in [`python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/random_ops.py).
 
-Randomly shuffles a tensor along its first dimension.
+<!-- Placeholder for "Used in" -->
 
 The tensor is shuffled along dimension 0, such that each `value[j]` is mapped
 to one and only one `output[i]`. For example, a mapping that might occur for a
@@ -36,11 +41,12 @@ to one and only one `output[i]`. For example, a mapping that might occur for a
 
 #### Args:
 
+
 * <b>`value`</b>: A Tensor to be shuffled.
 * <b>`seed`</b>: A Python integer. Used to create a random seed for the distribution.
-    See
-    <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>
-    for behavior.
+  See
+  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  for behavior.
 * <b>`name`</b>: A name for the operation (optional).
 
 

@@ -7,16 +7,18 @@ page_type: reference
 
 ## Class `Evaluable`
 
-
-
-
-
-Defined in [`tensorflow/contrib/learn/python/learn/evaluable.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/python/learn/evaluable.py).
-
 Interface for objects that are evaluatable by, e.g., `Experiment`.
 
+
+
+
+
+Defined in [`contrib/learn/python/learn/evaluable.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/evaluable.py).
+
+<!-- Placeholder for "Used in" -->
+
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.tensorflow.org/code/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 ## Properties
@@ -24,6 +26,7 @@ for general migration instructions.
 <h3 id="model_dir"><code>model_dir</code></h3>
 
 Returns a path in which the eval process will look for checkpoints.
+
 
 
 
@@ -62,54 +65,56 @@ for which this evaluation was performed.
 
 #### Args:
 
+
 * <b>`x`</b>: Matrix of shape [n_samples, n_features...] or dictionary of many
-    matrices
-    containing the input samples for fitting the model. Can be iterator that
-      returns
-    arrays of features or dictionary of array of features. If set,
-      `input_fn` must
-    be `None`.
+  matrices
+  containing the input samples for fitting the model. Can be iterator that
+    returns
+  arrays of features or dictionary of array of features. If set,
+    `input_fn` must
+  be `None`.
 * <b>`y`</b>: Vector or matrix [n_samples] or [n_samples, n_outputs] containing the
-    label values (class labels in classification, real numbers in
-    regression) or dictionary of multiple vectors/matrices. Can be iterator
-    that returns array of targets or dictionary of array of targets. If set,
-    `input_fn` must be `None`. Note: For classification, label values must
-    be integers representing the class index (i.e. values from 0 to
-    n_classes-1).
+  label values (class labels in classification, real numbers in
+  regression) or dictionary of multiple vectors/matrices. Can be iterator
+  that returns array of targets or dictionary of array of targets. If set,
+  `input_fn` must be `None`. Note: For classification, label values must
+  be integers representing the class index (i.e. values from 0 to
+  n_classes-1).
 * <b>`input_fn`</b>: Input function returning a tuple of:
-    features - Dictionary of string feature name to `Tensor` or `Tensor`.
-    labels - `Tensor` or dictionary of `Tensor` with labels.
-    If input_fn is set, `x`, `y`, and `batch_size` must be `None`. If
-    `steps` is not provided, this should raise `OutOfRangeError` or
-    `StopIteration` after the desired amount of data (e.g., one epoch) has
-    been provided. See "Stop conditions" above for specifics.
+  features - Dictionary of string feature name to `Tensor` or `Tensor`.
+  labels - `Tensor` or dictionary of `Tensor` with labels.
+  If input_fn is set, `x`, `y`, and `batch_size` must be `None`. If
+  `steps` is not provided, this should raise `OutOfRangeError` or
+  `StopIteration` after the desired amount of data (e.g., one epoch) has
+  been provided. See "Stop conditions" above for specifics.
 * <b>`feed_fn`</b>: Function creating a feed dict every time it is called. Called
-    once per iteration. Must be `None` if `input_fn` is provided.
+  once per iteration. Must be `None` if `input_fn` is provided.
 * <b>`batch_size`</b>: minibatch size to use on the input, defaults to first
-    dimension of `x`, if specified. Must be `None` if `input_fn` is
-    provided.
+  dimension of `x`, if specified. Must be `None` if `input_fn` is
+  provided.
 * <b>`steps`</b>: Number of steps for which to evaluate model. If `None`, evaluate
-    until `x` is consumed or `input_fn` raises an end-of-input exception.
-    See "Stop conditions" above for specifics.
+  until `x` is consumed or `input_fn` raises an end-of-input exception.
+  See "Stop conditions" above for specifics.
 * <b>`metrics`</b>: Dict of metrics to run. If None, the default metric functions
-    are used; if {}, no metrics are used. Otherwise, `metrics` should map
-    friendly names for the metric to a `MetricSpec` object defining which
-    model outputs to evaluate against which labels with which metric
-    function.
-    Metric ops should support streaming, e.g., returning `update_op` and
-    `value` tensors. For example, see the options defined in
-    `../../../metrics/python/ops/metrics_ops.py`.
+  are used; if {}, no metrics are used. Otherwise, `metrics` should map
+  friendly names for the metric to a `MetricSpec` object defining which
+  model outputs to evaluate against which labels with which metric
+  function.
+  Metric ops should support streaming, e.g., returning `update_op` and
+  `value` tensors. For example, see the options defined in
+  `../../../metrics/python/ops/metrics_ops.py`.
 * <b>`name`</b>: Name of the evaluation if user needs to run multiple evaluations on
-    different data sets, such as on training data vs test data.
+  different data sets, such as on training data vs test data.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to evaluate. If `None`, the
-    latest checkpoint in `model_dir` is used.
+  latest checkpoint in `model_dir` is used.
 * <b>`hooks`</b>: List of `SessionRunHook` subclass instances. Used for callbacks
-    inside the evaluation call.
+  inside the evaluation call.
 
 
 #### Returns:
 
 Returns `dict` with evaluation results.
+
 
 
 

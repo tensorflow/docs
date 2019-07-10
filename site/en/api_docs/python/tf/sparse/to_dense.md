@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.sparse.to_dense
 
+Converts a `SparseTensor` into a dense tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.to_dense`
+* `tf.compat.v1.sparse_tensor_to_dense`
+* `tf.compat.v2.sparse.to_dense`
 * `tf.sparse.to_dense`
 * `tf.sparse_tensor_to_dense`
 
@@ -21,9 +26,9 @@ tf.sparse.to_dense(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Converts a `SparseTensor` into a dense tensor.
+<!-- Placeholder for "Used in" -->
 
 This op is a convenience wrapper around `sparse_to_dense` for `SparseTensor`s.
 
@@ -41,15 +46,16 @@ string tensor with values:
      [c x x x x]]
 
 Indices must be without repeats.  This is only
-tested if validate_indices is True.
+tested if `validate_indices` is `True`.
 
 #### Args:
 
+
 * <b>`sp_input`</b>: The input `SparseTensor`.
 * <b>`default_value`</b>: Scalar value to set for indices not specified in
-    `sp_input`.  Defaults to zero.
+  `sp_input`.  Defaults to zero.
 * <b>`validate_indices`</b>: A boolean value.  If `True`, indices are checked to make
-    sure they are sorted in lexicographic order and that there are no repeats.
+  sure they are sorted in lexicographic order and that there are no repeats.
 * <b>`name`</b>: A name prefix for the returned tensors (optional).
 
 
@@ -60,6 +66,8 @@ the non-empty values in `sp_input`. Indices not in `sp_input` are assigned
 `default_value`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `sp_input` is not a `SparseTensor`.

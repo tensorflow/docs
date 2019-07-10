@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.make_ndarray
 
+Create a numpy ndarray from a tensor.
+
 ### Aliases:
 
+* `tf.compat.v1.make_ndarray`
+* `tf.compat.v2.make_ndarray`
 * `tf.contrib.util.make_ndarray`
 * `tf.make_ndarray`
 
@@ -16,13 +20,14 @@ tf.make_ndarray(tensor)
 
 
 
-Defined in [`tensorflow/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/framework/tensor_util.py).
+Defined in [`python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_util.py).
 
-Create a numpy ndarray from a tensor.
+<!-- Placeholder for "Used in" -->
 
 Create a numpy ndarray with the same shape and data as the tensor.
 
 #### Args:
+
 
 * <b>`tensor`</b>: A TensorProto.
 
@@ -32,6 +37,8 @@ Create a numpy ndarray with the same shape and data as the tensor.
 A numpy array with the tensor contents.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: if tensor has unsupported type.

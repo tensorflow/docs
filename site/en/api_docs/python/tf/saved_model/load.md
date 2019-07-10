@@ -5,8 +5,12 @@ page_type: reference
 
 # tf.saved_model.load
 
+Loads the model from a SavedModel as specified by tags. (deprecated)
+
 ### Aliases:
 
+* `tf.compat.v1.saved_model.load`
+* `tf.compat.v1.saved_model.loader.load`
 * `tf.saved_model.load`
 * `tf.saved_model.loader.load`
 
@@ -22,9 +26,9 @@ tf.saved_model.load(
 
 
 
-Defined in [`tensorflow/python/saved_model/loader_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/saved_model/loader_impl.py).
+Defined in [`python/saved_model/loader_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/loader_impl.py).
 
-Loads the model from a SavedModel as specified by tags. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -32,16 +36,17 @@ This function will only be available through the v1 compatibility library as tf.
 
 #### Args:
 
+
 * <b>`sess`</b>: The TensorFlow session to restore the variables.
 * <b>`tags`</b>: Set of string tags to identify the required MetaGraphDef. These should
-      correspond to the tags used when saving the variables using the
-      SavedModel `save()` API.
+    correspond to the tags used when saving the variables using the
+    SavedModel `save()` API.
 * <b>`export_dir`</b>: Directory in which the SavedModel protocol buffer and variables
-      to be loaded are located.
+    to be loaded are located.
 * <b>`import_scope`</b>: Optional `string` -- if specified, prepend this string
-      followed by '/' to all loaded tensor names. This scope is applied to
-      tensor instances loaded into the passed session, but it is *not* written
-      through to the static `MetaGraphDef` protocol buffer that is returned.
+    followed by '/' to all loaded tensor names. This scope is applied to
+    tensor instances loaded into the passed session, but it is *not* written
+    through to the static `MetaGraphDef` protocol buffer that is returned.
 * <b>`**saver_kwargs`</b>: Optional keyword arguments passed through to Saver.
 
 
@@ -51,6 +56,8 @@ The `MetaGraphDef` protocol buffer loaded in the provided session. This
 can be used to further extract signature-defs, collection-defs, etc.
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: MetaGraphDef associated with the tags cannot be found.

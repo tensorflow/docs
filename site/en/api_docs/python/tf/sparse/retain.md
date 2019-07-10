@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.sparse.retain
 
+Retains specified non-empty values within a `SparseTensor`.
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.retain`
+* `tf.compat.v1.sparse_retain`
+* `tf.compat.v2.sparse.retain`
 * `tf.sparse.retain`
 * `tf.sparse_retain`
 
@@ -19,9 +24,9 @@ tf.sparse.retain(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Retains specified non-empty values within a `SparseTensor`.
+<!-- Placeholder for "Used in" -->
 
 For example, if `sp_input` has shape `[4, 5]` and 4 non-empty string values:
 
@@ -38,6 +43,7 @@ be a `SparseTensor` of shape `[4, 5]` with 2 non-empty values:
 
 #### Args:
 
+
 * <b>`sp_input`</b>: The input `SparseTensor` with `N` non-empty elements.
 * <b>`to_retain`</b>: A bool vector of length `N` with `M` true values.
 
@@ -48,6 +54,8 @@ A `SparseTensor` with the same shape as the input and `M` non-empty
 elements corresponding to the true positions in `to_retain`.
 
 
+
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `sp_input` is not a `SparseTensor`.

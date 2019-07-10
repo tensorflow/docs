@@ -5,26 +5,40 @@ page_type: reference
 
 # tf.keras.backend.int_shape
 
+Returns the shape of tensor or variable as a tuple of int or None entries.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.int_shape`
+* `tf.compat.v2.keras.backend.int_shape`
+* `tf.keras.backend.int_shape`
+
 ``` python
 tf.keras.backend.int_shape(x)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Returns the shape of tensor or variable as a tuple of int or None entries.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`x`</b>: Tensor or variable.
 
 
 #### Returns:
 
-    A tuple of integers (or None entries).
+A tuple of integers (or None entries).
 
-Examples:
+
+
+#### Examples:
+
+
 ```python
     >>> from keras import backend as K
     >>> input = K.placeholder(shape=(2, 4, 5))

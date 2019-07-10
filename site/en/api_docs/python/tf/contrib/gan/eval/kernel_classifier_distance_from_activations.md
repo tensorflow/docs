@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.kernel_classifier_distance_from_activations
 
+Kernel "classifier" distance for evaluating a generative model.
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.classifier_metrics.kernel_classifier_distance_from_activations`
@@ -21,9 +23,9 @@ tf.contrib.gan.eval.kernel_classifier_distance_from_activations(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
-Kernel "classifier" distance for evaluating a generative model.
+<!-- Placeholder for "Used in" -->
 
 This methods computes the kernel classifier distance from activations of
 real images and generated images. This can be used independently of the
@@ -60,15 +62,16 @@ meaningful order, the estimator will behave poorly.
 
 #### Args:
 
+
 * <b>`real_activations`</b>: 2D Tensor containing activations of real data. Shape is
-    [batch_size, activation_size].
+  [batch_size, activation_size].
 * <b>`generated_activations`</b>: 2D Tensor containing activations of generated data.
-    Shape is [batch_size, activation_size].
+  Shape is [batch_size, activation_size].
 * <b>`max_block_size`</b>: integer, default 1024. The distance estimator splits samples
-    into blocks for computational efficiency. Larger values are more
-    computationally expensive but decrease the variance of the distance
-    estimate.
-* <b>`dtype`</b>: if not None, coerce activations to this dtype before computations.
+  into blocks for computational efficiency. Larger values are more
+  computationally expensive but decrease the variance of the distance
+  estimate.
+* <b>`dtype`</b>: If not None, coerce activations to this dtype before computations.
 
 
 #### Returns:

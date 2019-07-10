@@ -7,32 +7,22 @@ page_type: reference
 
 ## Class `GANLoss`
 
-
-
-
-
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/namedtuples.py).
-
 GANLoss contains the generator and discriminator losses.
+
+
+
+
+
+Defined in [`contrib/gan/python/namedtuples.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/namedtuples.py).
+
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
+
 * <b>`generator_loss`</b>: A tensor for the generator loss.
 * <b>`discriminator_loss`</b>: A tensor for the discriminator loss.
-
-<h2 id="__new__"><code>__new__</code></h2>
-
-``` python
-__new__(
-    _cls,
-    generator_loss,
-    discriminator_loss
-)
-```
-
-Create new instance of GANLoss(generator_loss, discriminator_loss)
-
-
 
 ## Properties
 
@@ -40,7 +30,9 @@ Create new instance of GANLoss(generator_loss, discriminator_loss)
 
 
 
+
 <h3 id="discriminator_loss"><code>discriminator_loss</code></h3>
+
 
 
 

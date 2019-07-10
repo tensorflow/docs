@@ -5,26 +5,40 @@ page_type: reference
 
 # tf.keras.backend.is_sparse
 
+Returns whether a tensor is a sparse tensor.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.is_sparse`
+* `tf.compat.v2.keras.backend.is_sparse`
+* `tf.keras.backend.is_sparse`
+
 ``` python
 tf.keras.backend.is_sparse(tensor)
 ```
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Returns whether a tensor is a sparse tensor.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`tensor`</b>: A tensor instance.
 
 
 #### Returns:
 
-    A boolean.
+A boolean.
 
-Example:
+
+
+#### Example:
+
+
 ```python
     >>> from keras import backend as K
     >>> a = K.placeholder((2, 2), sparse=False)

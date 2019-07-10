@@ -7,17 +7,20 @@ page_type: reference
 
 ## Class `UniqueNameTracker`
 
+Adds dependencies on trackable objects with name hints.
 
 
 
 
-Defined in [`tensorflow/contrib/checkpoint/python/containers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/checkpoint/python/containers.py).
 
-Adds dependencies on checkpointable objects with name hints.
+Defined in [`contrib/checkpoint/python/containers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/checkpoint/python/containers.py).
+
+<!-- Placeholder for "Used in" -->
 
 Useful for creating dependencies with locally unique names.
 
-Example usage:
+#### Example usage:
+
 
 ```python
 class SlotManager(tf.contrib.checkpoint.Checkpointable):
@@ -38,7 +41,8 @@ class SlotManager(tf.contrib.checkpoint.Checkpointable):
 __init__()
 ```
 
-Initialize self.  See help(type(self)) for accurate signature.
+
+
 
 
 
@@ -48,11 +52,14 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 
 
+
 <h3 id="losses"><code>losses</code></h3>
 
 Aggregate losses from any `Layer` instances.
 
+
 <h3 id="non_trainable_variables"><code>non_trainable_variables</code></h3>
+
 
 
 
@@ -60,7 +67,14 @@ Aggregate losses from any `Layer` instances.
 
 
 
+
+<h3 id="trainable"><code>trainable</code></h3>
+
+
+
+
 <h3 id="trainable_variables"><code>trainable_variables</code></h3>
+
 
 
 
@@ -68,15 +82,19 @@ Aggregate losses from any `Layer` instances.
 
 
 
+
 <h3 id="updates"><code>updates</code></h3>
 
 Aggregate updates from any `Layer` instances.
+
 
 <h3 id="variables"><code>variables</code></h3>
 
 
 
+
 <h3 id="weights"><code>weights</code></h3>
+
 
 
 
@@ -90,32 +108,37 @@ Aggregate updates from any `Layer` instances.
 __eq__(other)
 ```
 
-Return self==value.
+
+
 
 <h3 id="track"><code>track</code></h3>
 
 ``` python
 track(
-    checkpointable,
+    trackable,
     base_name
 )
 ```
 
-Add a dependency on `checkpointable`.
+Add a dependency on `trackable`.
+
 
 #### Args:
 
-* <b>`checkpointable`</b>: An object to add a checkpoint dependency on.
+
+* <b>`trackable`</b>: An object to add a checkpoint dependency on.
 * <b>`base_name`</b>: A name hint, which is uniquified to determine the dependency
-    name.
+  name.
 
 #### Returns:
 
-`checkpointable`, for chaining.
+`trackable`, for chaining.
+
 
 #### Raises:
 
-* <b>`ValueError`</b>: If `checkpointable` is not a checkpointable object.
+
+* <b>`ValueError`</b>: If `trackable` is not a trackable object.
 
 
 

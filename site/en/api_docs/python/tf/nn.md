@@ -7,13 +7,12 @@ page_type: reference
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-Wrappers for primitive Neural Net (NN) Operations.
 
 ## Modules
 
-[`rnn_cell`](../tf/nn/rnn_cell) module: Module for constructing RNN Cells.
+[`rnn_cell`](../tf/nn/rnn_cell) module
 
 ## Functions
 
@@ -25,7 +24,13 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`avg_pool(...)`](../tf/nn/avg_pool): Performs the average pooling on the input.
 
-[`avg_pool3d(...)`](../tf/nn/avg_pool3d): Performs 3D average pooling on the input.
+[`avg_pool1d(...)`](../tf/nn/avg_pool1d): Performs the average pooling on the input.
+
+[`avg_pool2d(...)`](../tf/nn/avg_pool): Performs the average pooling on the input.
+
+[`avg_pool3d(...)`](../tf/nn/avg_pool3d): Performs the average pooling on the input.
+
+[`avg_pool_v2(...)`](../tf/nn/avg_pool_v2): Performs the avg pooling on the input.
 
 [`batch_norm_with_global_normalization(...)`](../tf/nn/batch_norm_with_global_normalization): Batch normalization.
 
@@ -40,6 +45,8 @@ Wrappers for primitive Neural Net (NN) Operations.
 [`compute_accidental_hits(...)`](../tf/nn/compute_accidental_hits): Compute the position ids in `sampled_candidates` matching `true_classes`.
 
 [`conv1d(...)`](../tf/nn/conv1d): Computes a 1-D convolution given 3-D input and filter tensors. (deprecated argument values) (deprecated argument values)
+
+[`conv1d_transpose(...)`](../tf/nn/conv1d_transpose): The transpose of `conv1d`.
 
 [`conv2d(...)`](../tf/nn/conv2d): Computes a 2-D convolution given 4-D `input` and `filter` tensors.
 
@@ -57,6 +64,8 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`conv3d_transpose(...)`](../tf/nn/conv3d_transpose): The transpose of `conv3d`.
 
+[`conv_transpose(...)`](../tf/nn/conv_transpose): The transpose of `convolution`.
+
 [`convolution(...)`](../tf/nn/convolution): Computes sums of N-D convolutions (actually cross-correlation).
 
 [`crelu(...)`](../tf/nn/crelu): Computes Concatenated ReLU.
@@ -71,7 +80,7 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`ctc_loss_v2(...)`](../tf/nn/ctc_loss_v2): Computes CTC (Connectionist Temporal Classification) loss.
 
-[`ctc_unique_labels(...)`](../tf/nn/ctc_unique_labels): Get unique labels and indices for batched labels for tf.nn.ctc_loss.
+[`ctc_unique_labels(...)`](../tf/nn/ctc_unique_labels): Get unique labels and indices for batched labels for <a href="../tf/nn/ctc_loss"><code>tf.nn.ctc_loss</code></a>.
 
 [`depth_to_space(...)`](../tf/nn/depth_to_space): DepthToSpace for tensors of type T.
 
@@ -131,7 +140,13 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`max_pool(...)`](../tf/nn/max_pool): Performs the max pooling on the input.
 
-[`max_pool3d(...)`](../tf/nn/max_pool3d): Performs 3D max pooling on the input.
+[`max_pool1d(...)`](../tf/nn/max_pool1d): Performs the max pooling on the input.
+
+[`max_pool2d(...)`](../tf/nn/max_pool2d): Performs the max pooling on the input.
+
+[`max_pool3d(...)`](../tf/nn/max_pool3d): Performs the max pooling on the input.
+
+[`max_pool_v2(...)`](../tf/nn/max_pool_v2): Performs the max pooling on the input.
 
 [`max_pool_with_argmax(...)`](../tf/nn/max_pool_with_argmax): Performs max pooling on the input and outputs both max values and indices.
 
@@ -191,7 +206,7 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`static_rnn(...)`](../tf/nn/static_rnn): Creates a recurrent neural network specified by RNNCell `cell`. (deprecated)
 
-[`static_state_saving_rnn(...)`](../tf/nn/static_state_saving_rnn): RNN that accepts a state saver for time-truncated RNN calculation.
+[`static_state_saving_rnn(...)`](../tf/nn/static_state_saving_rnn): RNN that accepts a state saver for time-truncated RNN calculation. (deprecated)
 
 [`sufficient_statistics(...)`](../tf/nn/sufficient_statistics): Calculate the sufficient statistics for the mean and variance of `x`.
 
@@ -201,7 +216,7 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`uniform_candidate_sampler(...)`](../tf/random/uniform_candidate_sampler): Samples a set of classes using a uniform base distribution.
 
-[`weighted_cross_entropy_with_logits(...)`](../tf/nn/weighted_cross_entropy_with_logits): Computes a weighted cross entropy.
+[`weighted_cross_entropy_with_logits(...)`](../tf/nn/weighted_cross_entropy_with_logits): Computes a weighted cross entropy. (deprecated arguments)
 
 [`weighted_moments(...)`](../tf/nn/weighted_moments): Returns the frequency-weighted mean and variance of `x`.
 
@@ -213,5 +228,4 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 ## Other Members
 
-<h3 id="swish"><code>swish</code></h3>
-
+* `swish` <a id="swish"></a>

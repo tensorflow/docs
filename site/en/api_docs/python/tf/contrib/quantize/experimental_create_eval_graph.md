@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.quantize.experimental_create_eval_graph
 
+Rewrites an eval input_graph in place for simulated quantization.
+
 ``` python
 tf.contrib.quantize.experimental_create_eval_graph(
     input_graph=None,
@@ -18,9 +20,9 @@ tf.contrib.quantize.experimental_create_eval_graph(
 
 
 
-Defined in [`tensorflow/contrib/quantize/python/quantize_graph.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/quantize/python/quantize_graph.py).
+Defined in [`contrib/quantize/python/quantize_graph.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/quantize/python/quantize_graph.py).
 
-Rewrites an eval input_graph in place for simulated quantization.
+<!-- Placeholder for "Used in" -->
 
 Variables added by the rewrite get added to the global variables collection.
 
@@ -34,19 +36,21 @@ change.
 
 #### Args:
 
+
 * <b>`input_graph`</b>: The tf.Graph to be transformed, if None then defaults to the
-    default graph.
+  default graph.
 * <b>`weight_bits`</b>: Number of bits to use for quantizing weights.
 * <b>`activation_bits`</b>: Number of bits to use for quantizing activations.
 * <b>`symmetric`</b>: If true, use symmetric quantization limits instead of training
-    the minimum and maximum of each quantization range separately.
+  the minimum and maximum of each quantization range separately.
 * <b>`quant_delay`</b>: Number of steps after which weights and activations are
-    quantized during eval.
+  quantized during eval.
 * <b>`scope`</b>: The scope to be transformed. If it's not None, only the ops which
-    are in this scope will be transformed.
+  are in this scope will be transformed.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If elements contains an element that isn't a tf.Tensor or
-    tf.Operation.
+  tf.Operation.

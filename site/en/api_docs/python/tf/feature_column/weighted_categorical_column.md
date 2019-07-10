@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.feature_column.weighted_categorical_column
 
+Applies weight values to a `CategoricalColumn`.
+
+### Aliases:
+
+* `tf.compat.v1.feature_column.weighted_categorical_column`
+* `tf.compat.v2.feature_column.weighted_categorical_column`
+* `tf.feature_column.weighted_categorical_column`
+
 ``` python
 tf.feature_column.weighted_categorical_column(
     categorical_column,
@@ -15,16 +23,18 @@ tf.feature_column.weighted_categorical_column(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/feature_column/feature_column_v2.py).
+Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
-Applies weight values to a `CategoricalColumn`.
+<!-- Placeholder for "Used in" -->
 
 Use this when each of your sparse inputs has both an ID and a value. For
 example, if you're representing text documents as a collection of word
 frequencies, you can provide 2 parallel sparse input features ('terms' and
 'frequencies' below).
 
-Example:
+#### Example:
+
+
 
 Input `tf.Example` objects:
 
@@ -59,7 +69,7 @@ categorical_column = categorical_column_with_hash_bucket(
 weighted_column = weighted_categorical_column(
     categorical_column=categorical_column, weight_feature_key='frequencies')
 columns = [weighted_column, ...]
-features = tf.parse_example(..., features=make_parse_example_spec(columns))
+features = tf.io.parse_example(..., features=make_parse_example_spec(columns))
 linear_prediction, _, _ = linear_model(features, columns)
 ```
 
@@ -69,11 +79,12 @@ the same indices and dense shape.
 
 #### Args:
 
+
 * <b>`categorical_column`</b>: A `CategoricalColumn` created by
-    `categorical_column_with_*` functions.
+  `categorical_column_with_*` functions.
 * <b>`weight_feature_key`</b>: String key for weight values.
-* <b>`dtype`</b>: Type of weights, such as <a href="../../tf/dtypes#float32"><code>tf.float32</code></a>. Only float and integer weights
-    are supported.
+* <b>`dtype`</b>: Type of weights, such as <a href="../../tf#float32"><code>tf.float32</code></a>. Only float and integer weights
+  are supported.
 
 
 #### Returns:
@@ -82,6 +93,8 @@ A `CategoricalColumn` composed of two sparse features: one represents id,
 the other represents weight (value) of the id feature in that example.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: if `dtype` is not convertible to float.

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.datasets.boston_housing.load_data
 
+Loads the Boston Housing dataset.
+
+### Aliases:
+
+* `tf.compat.v1.keras.datasets.boston_housing.load_data`
+* `tf.compat.v2.keras.datasets.boston_housing.load_data`
+* `tf.keras.datasets.boston_housing.load_data`
+
 ``` python
 tf.keras.datasets.boston_housing.load_data(
     path='boston_housing.npz',
@@ -15,17 +23,19 @@ tf.keras.datasets.boston_housing.load_data(
 
 
 
-Defined in [`tensorflow/python/keras/datasets/boston_housing.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/datasets/boston_housing.py).
+Defined in [`python/keras/datasets/boston_housing.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/datasets/boston_housing.py).
 
-Loads the Boston Housing dataset.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
 
+
 * <b>`path`</b>: path where to cache the dataset locally
-        (relative to ~/.keras/datasets).
+    (relative to ~/.keras/datasets).
 * <b>`test_split`</b>: fraction of the data to reserve as test set.
 * <b>`seed`</b>: Random seed for shuffling the data
-        before computing the test split.
+    before computing the test split.
 
 
 #### Returns:

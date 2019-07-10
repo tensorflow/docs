@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.broadcast_dynamic_shape
 
+Computes the shape of a broadcast given symbolic shapes.
+
+### Aliases:
+
+* `tf.broadcast_dynamic_shape`
+* `tf.compat.v1.broadcast_dynamic_shape`
+* `tf.compat.v2.broadcast_dynamic_shape`
+
 ``` python
 tf.broadcast_dynamic_shape(
     shape_x,
@@ -14,9 +22,9 @@ tf.broadcast_dynamic_shape(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/array_ops.py).
+Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
-Computes the shape of a broadcast given symbolic shapes.
+<!-- Placeholder for "Used in" -->
 
 When shape_x and shape_y are Tensors representing shapes (i.e. the result of
 calling tf.shape on another Tensor) this computes a Tensor which is the shape
@@ -30,6 +38,7 @@ This is useful when validating the result of a broadcasting operation when the
 tensors do not have statically known shapes.
 
 #### Args:
+
 
 * <b>`shape_x`</b>: A rank 1 integer `Tensor`, representing the shape of x.
 * <b>`shape_y`</b>: A rank 1 integer `Tensor`, representing the shape of y.

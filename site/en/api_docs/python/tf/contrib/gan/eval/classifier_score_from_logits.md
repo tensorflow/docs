@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.gan.eval.classifier_score_from_logits
 
+Classifier score for evaluating a generative model from logits.
+
 ### Aliases:
 
 * `tf.contrib.gan.eval.classifier_metrics.classifier_score_from_logits`
@@ -16,9 +18,9 @@ tf.contrib.gan.eval.classifier_score_from_logits(logits)
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
-Classifier score for evaluating a generative model from logits.
+<!-- Placeholder for "Used in" -->
 
 This method computes the classifier score for a set of logits. This can be
 used independently of the classifier_score() method, especially in the case
@@ -35,8 +37,9 @@ the prior distribution over classes.
 
 #### Args:
 
+
 * <b>`logits`</b>: Precomputed 2D tensor of logits that will be used to
-    compute the classifier score.
+  compute the classifier score.
 
 
 #### Returns:

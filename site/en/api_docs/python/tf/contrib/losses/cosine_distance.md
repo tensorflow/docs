@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.losses.cosine_distance
 
+Adds a cosine-distance loss to the training procedure. (deprecated arguments) (deprecated)
+
 ``` python
 tf.contrib.losses.cosine_distance(
     predictions,
@@ -18,9 +20,9 @@ tf.contrib.losses.cosine_distance(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/losses/python/losses/loss_ops.py).
+Defined in [`contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
-Adds a cosine-distance loss to the training procedure. (deprecated arguments) (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2016-12-30.
 Instructions for updating:
@@ -35,11 +37,12 @@ unit-normalized.
 
 #### Args:
 
+
 * <b>`predictions`</b>: An arbitrary matrix.
 * <b>`labels`</b>: A `Tensor` whose shape matches 'predictions'
 * <b>`axis`</b>: The dimension along which the cosine distance is computed.
 * <b>`weights`</b>: Coefficients for the loss a scalar, a tensor of shape
-    [batch_size] or a tensor whose shape matches `predictions`.
+  [batch_size] or a tensor whose shape matches `predictions`.
 * <b>`scope`</b>: The scope for the operations performed in computing the loss.
 * <b>`dim`</b>: The old (deprecated) name for `axis`.
 
@@ -49,7 +52,9 @@ unit-normalized.
 A scalar `Tensor` representing the loss value.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `predictions` shape doesn't match `labels` shape, or
-    `weights` is `None`.
+  `weights` is `None`.

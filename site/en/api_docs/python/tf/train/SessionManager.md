@@ -7,13 +7,20 @@ page_type: reference
 
 ## Class `SessionManager`
 
-
-
-
-
-Defined in [`tensorflow/python/training/session_manager.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/session_manager.py).
-
 Training helper that restores from checkpoint and creates session.
+
+
+
+### Aliases:
+
+* Class `tf.compat.v1.train.SessionManager`
+* Class `tf.train.SessionManager`
+
+
+
+Defined in [`python/training/session_manager.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/session_manager.py).
+
+<!-- Placeholder for "Used in" -->
 
 This class is a small wrapper that takes care of session creation and
 checkpoint recovery. It also provides functions that to facilitate
@@ -92,21 +99,23 @@ be initialized or restored.  Defaults to 30 seconds.
 
 #### Args:
 
+
 * <b>`local_init_op`</b>: An `Operation` run immediately after session creation.
-     Usually used to initialize tables and local variables.
+   Usually used to initialize tables and local variables.
 * <b>`ready_op`</b>: An `Operation` to check if the model is initialized.
 * <b>`ready_for_local_init_op`</b>: An `Operation` to check if the model is ready
-     to run local_init_op.
+   to run local_init_op.
 * <b>`graph`</b>: The `Graph` that the model will use.
 * <b>`recovery_wait_secs`</b>: Seconds between checks for the model to be ready.
 * <b>`local_init_run_options`</b>: RunOptions to be passed to session.run when
-    executing the local_init_op.
+  executing the local_init_op.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If ready_for_local_init_op is not None but local_init_op is
-    None
+  None
 
 
 
@@ -153,21 +162,22 @@ or `init_fn` or `local_init_op` are passed.
 
 #### Args:
 
+
 * <b>`master`</b>: `String` representation of the TensorFlow master to use.
 * <b>`init_op`</b>: Optional `Operation` used to initialize the model.
 * <b>`saver`</b>: A `Saver` object used to restore a model.
 * <b>`checkpoint_dir`</b>: Path to the checkpoint files. The latest checkpoint in the
-    dir will be used to restore.
+  dir will be used to restore.
 * <b>`checkpoint_filename_with_path`</b>: Full file name path to the checkpoint file.
 * <b>`wait_for_checkpoint`</b>: Whether to wait for checkpoint to become available.
 * <b>`max_wait_secs`</b>: Maximum time to wait for checkpoints to become available.
 * <b>`config`</b>: Optional `ConfigProto` proto used to configure the session.
 * <b>`init_feed_dict`</b>: Optional dictionary that maps `Tensor` objects to feed
-    values.  This feed dictionary is passed to the session `run()` call when
-    running the init op.
+  values.  This feed dictionary is passed to the session `run()` call when
+  running the init op.
 * <b>`init_fn`</b>: Optional callable used to initialize the model. Called after the
-    optional `init_op` is called.  The callable must accept one argument,
-    the session being initialized.
+  optional `init_op` is called.  The callable must accept one argument,
+  the session being initialized.
 
 
 #### Returns:
@@ -175,11 +185,13 @@ or `init_fn` or `local_init_op` are passed.
 A `Session` object that can be used to drive the model.
 
 
+
 #### Raises:
+
 
 * <b>`RuntimeError`</b>: If the model cannot be initialized or recovered.
 * <b>`ValueError`</b>: If both checkpoint_dir and checkpoint_filename_with_path are
-    set.
+  set.
 
 <h3 id="recover_session"><code>recover_session</code></h3>
 
@@ -202,10 +214,11 @@ and can be recovered from a checkpoint, recover it.
 
 #### Args:
 
+
 * <b>`master`</b>: `String` representation of the TensorFlow master to use.
 * <b>`saver`</b>: A `Saver` object used to restore a model.
 * <b>`checkpoint_dir`</b>: Path to the checkpoint files. The latest checkpoint in the
-    dir will be used to restore.
+  dir will be used to restore.
 * <b>`checkpoint_filename_with_path`</b>: Full file name path to the checkpoint file.
 * <b>`wait_for_checkpoint`</b>: Whether to wait for checkpoint to become available.
 * <b>`max_wait_secs`</b>: Maximum time to wait for checkpoints to become available.
@@ -218,10 +231,12 @@ A pair (sess, initialized) where 'initialized' is `True` if
 the session could be recovered and initialized, `False` otherwise.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If both checkpoint_dir and checkpoint_filename_with_path are
-    set.
+  set.
 
 <h3 id="wait_for_session"><code>wait_for_session</code></h3>
 
@@ -247,6 +262,7 @@ by max_wait_secs. By default, this function will wait indefinitely.
 
 #### Args:
 
+
 * <b>`master`</b>: `String` representation of the TensorFlow master to use.
 * <b>`config`</b>: Optional ConfigProto proto used to configure the session.
 * <b>`max_wait_secs`</b>: Maximum time to wait for the session to become available.
@@ -258,10 +274,12 @@ A `Session`. May be None if the operation exceeds the timeout
 specified by config.operation_timeout_in_ms.
 
 
+
 #### Raises:
 
+
 * <b>`tf.DeadlineExceededError`</b>: if the session is not available after
-    max_wait_secs.
+  max_wait_secs.
 
 
 

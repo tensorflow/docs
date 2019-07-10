@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.distributions.bijectors.masked_autoregressive_default_template
 
+Build the Masked Autoregressive Density Estimator (Germain et al., 2015). (deprecated)
+
 ``` python
 tf.contrib.distributions.bijectors.masked_autoregressive_default_template(
     hidden_layers,
@@ -21,9 +23,9 @@ tf.contrib.distributions.bijectors.masked_autoregressive_default_template(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
+Defined in [`contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
 
-Build the Masked Autoregressive Density Estimator (Germain et al., 2015). (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
 Instructions for updating:
@@ -36,7 +38,7 @@ the MADE network.
 
 Warning: This function uses `masked_dense` to create randomly initialized
 `tf.Variables`. It is presumed that these will be fit, just as you would any
-other neural architecture which uses <a href="../../../../tf/layers/dense"><code>tf.layers.dense</code></a>.
+other neural architecture which uses <a href="../../../../tf/layers/dense"><code>tf.compat.v1.layers.dense</code></a>.
 
 #### About Hidden Layers
 
@@ -59,36 +61,39 @@ information (for fitting) yet solves the numerical stability problem. I.e.,
 
 #### Args:
 
+
 * <b>`hidden_layers`</b>: Python `list`-like of non-negative integer, scalars
-    indicating the number of units in each hidden layer. Default: `[512, 512].
+  indicating the number of units in each hidden layer. Default: `[512, 512].
 * <b>`shift_only`</b>: Python `bool` indicating if only the `shift` term shall be
-    computed. Default: `False`.
+  computed. Default: `False`.
 * <b>`activation`</b>: Activation function (callable). Explicitly setting to `None`
-    implies a linear activation.
+  implies a linear activation.
 * <b>`log_scale_min_clip`</b>: `float`-like scalar `Tensor`, or a `Tensor` with the
-    same shape as `log_scale`. The minimum value to clip by. Default: -5.
+  same shape as `log_scale`. The minimum value to clip by. Default: -5.
 * <b>`log_scale_max_clip`</b>: `float`-like scalar `Tensor`, or a `Tensor` with the
-    same shape as `log_scale`. The maximum value to clip by. Default: 3.
+  same shape as `log_scale`. The maximum value to clip by. Default: 3.
 * <b>`log_scale_clip_gradient`</b>: Python `bool` indicating that the gradient of
-    <a href="../../../../tf/clip_by_value"><code>tf.clip_by_value</code></a> should be preserved. Default: `False`.
+  <a href="../../../../tf/clip_by_value"><code>tf.clip_by_value</code></a> should be preserved. Default: `False`.
 * <b>`name`</b>: A name for ops managed by this function. Default:
-    "masked_autoregressive_default_template".
-* <b>`*args`</b>: <a href="../../../../tf/layers/dense"><code>tf.layers.dense</code></a> arguments.
-* <b>`**kwargs`</b>: <a href="../../../../tf/layers/dense"><code>tf.layers.dense</code></a> keyword arguments.
+  "masked_autoregressive_default_template".
+* <b>`*args`</b>: <a href="../../../../tf/layers/dense"><code>tf.compat.v1.layers.dense</code></a> arguments.
+* <b>`**kwargs`</b>: <a href="../../../../tf/layers/dense"><code>tf.compat.v1.layers.dense</code></a> keyword arguments.
 
 
 #### Returns:
 
+
 * <b>`shift`</b>: `Float`-like `Tensor` of shift terms (the "mu" in
-    [Germain et al.  (2015)][1]).
+  [Germain et al.  (2015)][1]).
 * <b>`log_scale`</b>: `Float`-like `Tensor` of log(scale) terms (the "alpha" in
-    [Germain et al. (2015)][1]).
+  [Germain et al. (2015)][1]).
 
 
 #### Raises:
 
+
 * <b>`NotImplementedError`</b>: if rightmost dimension of `inputs` is unknown prior to
-    graph execution.
+  graph execution.
 
 #### References
 

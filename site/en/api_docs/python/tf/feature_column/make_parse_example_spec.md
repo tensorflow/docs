@@ -5,19 +5,29 @@ page_type: reference
 
 # tf.feature_column.make_parse_example_spec
 
+Creates parsing spec dictionary from input feature_columns.
+
+### Aliases:
+
+* `tf.compat.v1.feature_column.make_parse_example_spec`
+* `tf.feature_column.make_parse_example_spec`
+
 ``` python
 tf.feature_column.make_parse_example_spec(feature_columns)
 ```
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/feature_column/feature_column.py).
+Defined in [`python/feature_column/feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column.py).
 
-Creates parsing spec dictionary from input feature_columns.
+<!-- Placeholder for "Used in" -->
 
-The returned dictionary can be used as arg 'features' in <a href="../../tf/io/parse_example"><code>tf.parse_example</code></a>.
+The returned dictionary can be used as arg 'features' in
+<a href="../../tf/io/parse_example"><code>tf.io.parse_example</code></a>.
 
-Typical usage example:
+#### Typical usage example:
+
+
 
 ```python
 # Define features and transformations
@@ -29,7 +39,7 @@ feature_a_x_feature_c = crossed_column(
 
 feature_columns = set(
     [feature_b, feature_c_bucketized, feature_a_x_feature_c])
-features = tf.parse_example(
+features = tf.io.parse_example(
     serialized=serialized_examples,
     features=make_parse_example_spec(feature_columns))
 ```
@@ -46,8 +56,9 @@ For the above example, make_parse_example_spec would return the dict:
 
 #### Args:
 
+
 * <b>`feature_columns`</b>: An iterable containing all feature columns. All items
-    should be instances of classes derived from `_FeatureColumn`.
+  should be instances of classes derived from `_FeatureColumn`.
 
 
 #### Returns:
@@ -56,7 +67,9 @@ A dict mapping each feature key to a `FixedLenFeature` or `VarLenFeature`
 value.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If any of the given `feature_columns` is not a `_FeatureColumn`
-    instance.
+  instance.

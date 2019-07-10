@@ -5,19 +5,25 @@ page_type: reference
 
 # Module: tf.contrib.checkpoint
 
-
-
-Defined in [`tensorflow/contrib/checkpoint/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/checkpoint/__init__.py).
-
 Tools for working with object-based checkpoints.
+
+
+
+Defined in [`contrib/checkpoint/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/checkpoint/__init__.py).
+
+<!-- Placeholder for "Used in" -->
 
 Visualization and inspection:
 
-Managing dependencies:
+#### Managing dependencies:
 
-Checkpointable data structures:
 
-Checkpoint management:
+
+Trackable data structures:
+
+#### Checkpoint management:
+
+
 
 Saving and restoring Python state:
 
@@ -27,21 +33,21 @@ Saving and restoring Python state:
 
 [`class Checkpointable`](../../tf/contrib/checkpoint/Checkpointable): Manages dependencies on other objects.
 
-[`class CheckpointableBase`](../../tf/contrib/checkpoint/CheckpointableBase): Base class for `Checkpointable` objects without automatic dependencies.
+[`class CheckpointableBase`](../../tf/contrib/checkpoint/CheckpointableBase): Base class for `Trackable` objects without automatic dependencies.
 
-[`class CheckpointableObjectGraph`](../../tf/contrib/checkpoint/CheckpointableObjectGraph): A ProtocolMessage
+[`class CheckpointableObjectGraph`](../../tf/contrib/checkpoint/CheckpointableObjectGraph)
 
-[`class List`](../../tf/contrib/checkpoint/List): An append-only sequence type which is checkpointable.
+[`class List`](../../tf/contrib/checkpoint/List): An append-only sequence type which is trackable.
 
-[`class Mapping`](../../tf/contrib/checkpoint/Mapping): An append-only checkpointable mapping data structure with string keys.
+[`class Mapping`](../../tf/contrib/checkpoint/Mapping): An append-only trackable mapping data structure with string keys.
 
-[`class NoDependency`](../../tf/contrib/checkpoint/NoDependency): Allows attribute assignment to `Checkpointable` objects with no dependency.
+[`class NoDependency`](../../tf/contrib/checkpoint/NoDependency): Allows attribute assignment to `Trackable` objects with no dependency.
 
-[`class NumpyState`](../../tf/contrib/checkpoint/NumpyState): A checkpointable object whose NumPy array attributes are saved/restored.
+[`class NumpyState`](../../tf/contrib/checkpoint/NumpyState): A trackable object whose NumPy array attributes are saved/restored.
 
-[`class PythonStateWrapper`](../../tf/contrib/checkpoint/PythonStateWrapper): Wraps a Python object for storage in an object-based checkpoint.
+[`class PythonStateWrapper`](../../tf/train/experimental/PythonState): A mixin for putting Python state in an object-based checkpoint.
 
-[`class UniqueNameTracker`](../../tf/contrib/checkpoint/UniqueNameTracker): Adds dependencies on checkpointable objects with name hints.
+[`class UniqueNameTracker`](../../tf/contrib/checkpoint/UniqueNameTracker): Adds dependencies on trackable objects with name hints.
 
 ## Functions
 

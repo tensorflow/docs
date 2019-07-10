@@ -5,17 +5,26 @@ page_type: reference
 
 # tf.losses.get_regularization_losses
 
+Gets the list of regularization losses.
+
+### Aliases:
+
+* `tf.compat.v1.losses.get_regularization_losses`
+* `tf.losses.get_regularization_losses`
+
 ``` python
 tf.losses.get_regularization_losses(scope=None)
 ```
 
 
 
-Defined in [`tensorflow/python/ops/losses/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/losses/util.py).
+Defined in [`python/ops/losses/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/util.py).
 
-Gets the list of regularization losses.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`scope`</b>: An optional scope name for filtering the losses to return.
 

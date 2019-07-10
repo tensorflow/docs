@@ -5,8 +5,13 @@ page_type: reference
 
 # tf.sparse.fill_empty_rows
 
+Fills empty rows in the input 2-D `SparseTensor` with a default value.
+
 ### Aliases:
 
+* `tf.compat.v1.sparse.fill_empty_rows`
+* `tf.compat.v1.sparse_fill_empty_rows`
+* `tf.compat.v2.sparse.fill_empty_rows`
 * `tf.sparse.fill_empty_rows`
 * `tf.sparse_fill_empty_rows`
 
@@ -20,9 +25,9 @@ tf.sparse.fill_empty_rows(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Fills empty rows in the input 2-D `SparseTensor` with a default value.
+<!-- Placeholder for "Used in" -->
 
 This op adds entries with the specified `default_value` at index
 `[row, 0]` for any row in the input that does not already have a value.
@@ -55,20 +60,23 @@ This op also returns an indicator vector such that
 
 #### Args:
 
+
 * <b>`sp_input`</b>: A `SparseTensor` with shape `[N, M]`.
 * <b>`default_value`</b>: The value to fill for empty rows, with the same type as
-    `sp_input.`
+  `sp_input.`
 * <b>`name`</b>: A name prefix for the returned tensors (optional)
 
 
 #### Returns:
 
+
 * <b>`sp_ordered_output`</b>: A `SparseTensor` with shape `[N, M]`, and with all empty
-    rows filled in with `default_value`.
+  rows filled in with `default_value`.
 * <b>`empty_row_indicator`</b>: A bool vector of length `N` indicating whether each
-    input row was empty.
+  input row was empty.
 
 
 #### Raises:
+
 
 * <b>`TypeError`</b>: If `sp_input` is not a `SparseTensor`.

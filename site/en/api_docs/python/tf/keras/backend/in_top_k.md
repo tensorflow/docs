@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.in_top_k
 
+Returns whether the `targets` are in the top `k` `predictions`.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.in_top_k`
+* `tf.compat.v2.keras.backend.in_top_k`
+* `tf.keras.backend.in_top_k`
+
 ``` python
 tf.keras.backend.in_top_k(
     predictions,
@@ -15,11 +23,13 @@ tf.keras.backend.in_top_k(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Returns whether the `targets` are in the top `k` `predictions`.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`predictions`</b>: A tensor of shape `(batch_size, classes)` and type `float32`.
 * <b>`targets`</b>: A 1D tensor of length `batch_size` and type `int32` or `int64`.

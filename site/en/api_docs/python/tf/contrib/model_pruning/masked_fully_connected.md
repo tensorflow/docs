@@ -5,6 +5,8 @@ page_type: reference
 
 # tf.contrib.model_pruning.masked_fully_connected
 
+Adds a sparse fully connected layer. The weight matrix is masked.
+
 ``` python
 tf.contrib.model_pruning.masked_fully_connected(
     inputs,
@@ -26,9 +28,9 @@ tf.contrib.model_pruning.masked_fully_connected(
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/model_pruning/python/layers/layers.py).
+Defined in [`contrib/model_pruning/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/model_pruning/python/layers/layers.py).
 
-Adds a sparse fully connected layer. The weight matrix is masked.
+<!-- Placeholder for "Used in" -->
 
 `fully_connected` creates a variable called `weights`, representing a fully
 connected weight matrix, which is multiplied by the `inputs` to produce a
@@ -43,27 +45,28 @@ prior to the initial matrix multiply by `weights`.
 
 #### Args:
 
+
 * <b>`inputs`</b>: A tensor of at least rank 2 and static value for the last dimension;
-    i.e. `[batch_size, depth]`, `[None, None, None, channels]`.
+  i.e. `[batch_size, depth]`, `[None, None, None, channels]`.
 * <b>`num_outputs`</b>: Integer or long, the number of output units in the layer.
 * <b>`activation_fn`</b>: Activation function. The default value is a ReLU function.
-    Explicitly set it to None to skip it and maintain a linear activation.
+  Explicitly set it to None to skip it and maintain a linear activation.
 * <b>`normalizer_fn`</b>: Normalization function to use instead of `biases`. If
-    `normalizer_fn` is provided then `biases_initializer` and
-    `biases_regularizer` are ignored and `biases` are not created nor added.
-    default set to None for no normalizer function
+  `normalizer_fn` is provided then `biases_initializer` and
+  `biases_regularizer` are ignored and `biases` are not created nor added.
+  default set to None for no normalizer function
 * <b>`normalizer_params`</b>: Normalization function parameters.
 * <b>`weights_initializer`</b>: An initializer for the weights.
 * <b>`weights_regularizer`</b>: Optional regularizer for the weights.
 * <b>`biases_initializer`</b>: An initializer for the biases. If None skip biases.
 * <b>`biases_regularizer`</b>: Optional regularizer for the biases.
 * <b>`reuse`</b>: Whether or not the layer and its variables should be reused. To be
-    able to reuse the layer scope must be given.
+  able to reuse the layer scope must be given.
 * <b>`variables_collections`</b>: Optional list of collections for all the variables or
-    a dictionary containing a different list of collections per variable.
+  a dictionary containing a different list of collections per variable.
 * <b>`outputs_collections`</b>: Collection to add the outputs.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-    `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
 * <b>`scope`</b>: Optional scope for variable_scope.
 
 
@@ -72,6 +75,8 @@ prior to the initial matrix multiply by `weights`.
 The tensor variable representing the result of the series of operations.
 
 
+
 #### Raises:
+
 
 * <b>`ValueError`</b>: If x has rank less than 2 or if its last dimension is not set.

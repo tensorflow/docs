@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.losses.mean_squared_error
 
+Adds a Sum-of-Squares loss to the training procedure.
+
+### Aliases:
+
+* `tf.compat.v1.losses.mean_squared_error`
+* `tf.losses.mean_squared_error`
+
 ``` python
 tf.losses.mean_squared_error(
     labels,
@@ -18,9 +25,9 @@ tf.losses.mean_squared_error(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/losses_impl.py).
 
-Adds a Sum-of-Squares loss to the training procedure.
+<!-- Placeholder for "Used in" -->
 
 `weights` acts as a coefficient for the loss. If a scalar is provided, then
 the loss is simply scaled by the given value. If `weights` is a tensor of size
@@ -32,11 +39,12 @@ measurable element of `predictions` is scaled by the corresponding value of
 
 #### Args:
 
+
 * <b>`labels`</b>: The ground truth output tensor, same dimensions as 'predictions'.
 * <b>`predictions`</b>: The predicted outputs.
 * <b>`weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
-    `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
-    be either `1`, or the same as the corresponding `losses` dimension).
+  `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
+  be either `1`, or the same as the corresponding `losses` dimension).
 * <b>`scope`</b>: The scope for the operations performed in computing the loss.
 * <b>`loss_collection`</b>: collection to which the loss will be added.
 * <b>`reduction`</b>: Type of reduction to apply to loss.
@@ -48,15 +56,17 @@ Weighted loss float `Tensor`. If `reduction` is `NONE`, this has the same
 shape as `labels`; otherwise, it is scalar.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If the shape of `predictions` doesn't match that of `labels` or
-    if the shape of `weights` is invalid.  Also if `labels` or `predictions`
-    is None.
+  if the shape of `weights` is invalid.  Also if `labels` or `predictions`
+  is None.
 
 
 
 #### Eager Compatibility
 The `loss_collection` argument is ignored when executing eagerly. Consider
-holding on to the return value or collecting losses via a <a href="../../tf/keras/models/Model"><code>tf.keras.Model</code></a>.
+holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
 

@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.metrics.recall
 
+Computes the recall of the predictions with respect to the labels.
+
+### Aliases:
+
+* `tf.compat.v1.metrics.recall`
+* `tf.metrics.recall`
+
 ``` python
 tf.metrics.recall(
     labels,
@@ -18,9 +25,9 @@ tf.metrics.recall(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/metrics_impl.py).
+Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
-Computes the recall of the predictions with respect to the labels.
+<!-- Placeholder for "Used in" -->
 
 The `recall` function creates two local variables, `true_positives`
 and `false_negatives`, that are used to compute the recall. This value is
@@ -35,33 +42,36 @@ If `weights` is `None`, weights default to 1. Use weights of 0 to mask values.
 
 #### Args:
 
+
 * <b>`labels`</b>: The ground truth values, a `Tensor` whose dimensions must match
-    `predictions`. Will be cast to `bool`.
+  `predictions`. Will be cast to `bool`.
 * <b>`predictions`</b>: The predicted values, a `Tensor` of arbitrary dimensions. Will
-    be cast to `bool`.
+  be cast to `bool`.
 * <b>`weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
-    `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
-    be either `1`, or the same as the corresponding `labels` dimension).
+  `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
+  be either `1`, or the same as the corresponding `labels` dimension).
 * <b>`metrics_collections`</b>: An optional list of collections that `recall` should
-    be added to.
+  be added to.
 * <b>`updates_collections`</b>: An optional list of collections that `update_op` should
-    be added to.
+  be added to.
 * <b>`name`</b>: An optional variable_scope name.
 
 
 #### Returns:
 
+
 * <b>`recall`</b>: Scalar float `Tensor` with the value of `true_positives` divided
-    by the sum of `true_positives` and `false_negatives`.
+  by the sum of `true_positives` and `false_negatives`.
 * <b>`update_op`</b>: `Operation` that increments `true_positives` and
-    `false_negatives` variables appropriately and whose value matches
-    `recall`.
+  `false_negatives` variables appropriately and whose value matches
+  `recall`.
 
 
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `predictions` and `labels` have mismatched shapes, or if
-    `weights` is not `None` and its shape doesn't match `predictions`, or if
-    either `metrics_collections` or `updates_collections` are not a list or
-    tuple.
+  `weights` is not `None` and its shape doesn't match `predictions`, or if
+  either `metrics_collections` or `updates_collections` are not a list or
+  tuple.
 * <b>`RuntimeError`</b>: If eager execution is enabled.

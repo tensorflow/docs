@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.train.generate_checkpoint_state_proto
 
+Generates a checkpoint state proto.
+
+### Aliases:
+
+* `tf.compat.v1.train.generate_checkpoint_state_proto`
+* `tf.train.generate_checkpoint_state_proto`
+
 ``` python
 tf.train.generate_checkpoint_state_proto(
     save_dir,
@@ -17,24 +24,26 @@ tf.train.generate_checkpoint_state_proto(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/checkpoint_management.py).
+Defined in [`python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_management.py).
 
-Generates a checkpoint state proto.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
+
 
 * <b>`save_dir`</b>: Directory where the model was saved.
 * <b>`model_checkpoint_path`</b>: The checkpoint file.
 * <b>`all_model_checkpoint_paths`</b>: List of strings.  Paths to all not-yet-deleted
-    checkpoints, sorted from oldest to newest.  If this is a non-empty list,
-    the last element must be equal to model_checkpoint_path.  These paths
-    are also saved in the CheckpointState proto.
+  checkpoints, sorted from oldest to newest.  If this is a non-empty list,
+  the last element must be equal to model_checkpoint_path.  These paths
+  are also saved in the CheckpointState proto.
 * <b>`all_model_checkpoint_timestamps`</b>: A list of floats, indicating the number of
-    seconds since the Epoch when each checkpoint was generated.
+  seconds since the Epoch when each checkpoint was generated.
 * <b>`last_preserved_timestamp`</b>: A float, indicating the number of seconds since
-    the Epoch when the last preserved checkpoint was written, e.g. due to a
-    `keep_checkpoint_every_n_hours` parameter (see
-    <a href="../../tf/train/CheckpointManager"><code>tf.contrib.checkpoint.CheckpointManager</code></a> for an implementation).
+  the Epoch when the last preserved checkpoint was written, e.g. due to a
+  `keep_checkpoint_every_n_hours` parameter (see
+  <a href="../../tf/train/CheckpointManager"><code>tf.contrib.checkpoint.CheckpointManager</code></a> for an implementation).
 
 #### Returns:
 
@@ -43,7 +52,9 @@ all_model_checkpoint_paths updated to either absolute paths or
 relative paths to the current save_dir.
 
 
+
 #### Raises:
 
+
 * <b>`ValueError`</b>: If `all_model_checkpoint_timestamps` was provided but its length
-    does not match `all_model_checkpoint_paths`.
+  does not match `all_model_checkpoint_paths`.

@@ -11,22 +11,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/basic_decoder.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
 
-BasicDecoderOutput(rnn_output, sample_id)
 
-<h2 id="__new__"><code>__new__</code></h2>
+Defined in [`contrib/seq2seq/python/ops/basic_decoder.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
 
-``` python
-__new__(
-    _cls,
-    rnn_output,
-    sample_id
-)
-```
-
-Create new instance of BasicDecoderOutput(rnn_output, sample_id)
-
+<!-- Placeholder for "Used in" -->
 
 
 ## Properties
@@ -35,7 +24,9 @@ Create new instance of BasicDecoderOutput(rnn_output, sample_id)
 
 
 
+
 <h3 id="sample_id"><code>sample_id</code></h3>
+
 
 
 

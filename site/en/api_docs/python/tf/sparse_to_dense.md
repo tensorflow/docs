@@ -5,6 +5,13 @@ page_type: reference
 
 # tf.sparse_to_dense
 
+Converts a sparse representation into a dense tensor. (deprecated)
+
+### Aliases:
+
+* `tf.compat.v1.sparse_to_dense`
+* `tf.sparse_to_dense`
+
 ``` python
 tf.sparse_to_dense(
     sparse_indices,
@@ -18,9 +25,9 @@ tf.sparse_to_dense(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/sparse_ops.py).
+Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
-Converts a sparse representation into a dense tensor. (deprecated)
+<!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
@@ -48,17 +55,18 @@ are checked during execution.
 
 #### Args:
 
+
 * <b>`sparse_indices`</b>: A 0-D, 1-D, or 2-D `Tensor` of type `int32` or `int64`.
-    `sparse_indices[i]` contains the complete index where `sparse_values[i]`
-    will be placed.
+  `sparse_indices[i]` contains the complete index where `sparse_values[i]`
+  will be placed.
 * <b>`output_shape`</b>: A 1-D `Tensor` of the same type as `sparse_indices`.  Shape
-    of the dense output tensor.
+  of the dense output tensor.
 * <b>`sparse_values`</b>: A 0-D or 1-D `Tensor`.  Values corresponding to each row of
-    `sparse_indices`, or a scalar value to be used for all sparse indices.
+  `sparse_indices`, or a scalar value to be used for all sparse indices.
 * <b>`default_value`</b>: A 0-D `Tensor` of the same type as `sparse_values`.  Value
-    to set for indices not specified in `sparse_indices`.  Defaults to zero.
+  to set for indices not specified in `sparse_indices`.  Defaults to zero.
 * <b>`validate_indices`</b>: A boolean value.  If True, indices are checked to make
-    sure they are sorted in lexicographic order and that there are no repeats.
+  sure they are sorted in lexicographic order and that there are no repeats.
 * <b>`name`</b>: A name for the operation (optional).
 
 

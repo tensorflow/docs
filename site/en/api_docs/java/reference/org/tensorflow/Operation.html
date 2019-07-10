@@ -47,8 +47,8 @@
 <html devsite>
   <head>
     <title>Operation</title>
-    <meta name="book_path" value="/versions/r1.13/api_docs/_book.yaml" />
-    <meta name="project_path" value="/versions/r1.13/api_docs/_project.yaml" />
+    <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+    <meta name="project_path" value="/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
 
@@ -57,13 +57,6 @@
     <div id="api-info-block">
 
     
-    
-      
-       
-      
-      
-      
-      
     
 
     <div class="api-level">
@@ -80,7 +73,7 @@
 
     
     <div id="jd-header">
-      public  final   class
+      public     interface
       <b>Operation</b>
     </div><!-- end jd-header -->
     
@@ -94,20 +87,41 @@
     
 
     
+    <table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="3" style="border:none;margin:0;padding:0;font-size:85%;">
+    Known Indirect Subclasses
+    
+  <div id="subclasses-indirect">
+      <div id="subclasses-indirect-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+              <a href="/api_docs/java/reference/org/tensorflow/GraphOperation.html">GraphOperation</a>
+            
+          
+      </div>
+      <div id="subclasses-indirect-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="/api_docs/java/reference/org/tensorflow/GraphOperation.html">GraphOperation</a></td>
+              <td class="jd-descrcol" width="100%">Implementation for an <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code> added as a node to a <code><a href="/api_docs/java/reference/org/tensorflow/Graph.html">Graph</a></code>.&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+    </td></tr></table>
+    
 
     <div class="jd-descr">
     
     
-    <p>A Graph node that performs computation on Tensors.
+    <p>Performs computation on Tensors.
 
- <p>An Operation is a node in a <code><a href="/api_docs/java/reference/org/tensorflow/Graph.html">Graph</a></code> that takes zero or more <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s (produced by
- other Operations in the Graph) as input, and produces zero or more <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s as output.
-
- <p>Operation instances are valid only as long as the Graph they are a part of is valid. Thus, if
- <code><a href="/api_docs/java/reference/org/tensorflow/Graph.html#close()">close()</a></code> has been invoked, then methods on the Operation instance may fail with an
- <code>IllegalStateException</code>.
-
- <p>Operation instances are immutable and thread-safe.
+ <p>An Operation takes zero or more <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s (produced by other Operations) as input, and
+ produces zero or more <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s as output.
 </p>
     
     
@@ -171,45 +185,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
-                
-                
-                
-                
-                boolean
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Operation.html#equals(java.lang.Object)">equals</a></span>(Object o)
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                
-                
-                
-                int
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Operation.html#hashCode()">hashCode</a></span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -230,7 +206,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -251,7 +227,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -272,7 +248,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -293,7 +269,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -314,7 +290,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -335,26 +311,7 @@
         
         <tr>
           <td class="jd-typecol">
-                
-                
-                
-                
-                
-                String
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Operation.html#toString()">toString</a></span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
+                abstract
                 
                 
                 
@@ -381,206 +338,6 @@
     
 
     
-    
-    
-    <!-- =========== METHOD SUMMARY ============ -->
-    <section id="inhmethods">
-      <h3>Inherited Methods</h3>
-      
-        
-        <div class="expandable">
-          <span class="showalways">
-            From class
-            java.lang.Object
-          </span>
-          <div id="inherited-methods-java.lang.Object">
-            <div id="inherited-methods-java.lang.Object-list"
-                  class="jd-inheritedLinks">
-            </div>
-            <div id="inherited-methods-java.lang.Object-summary">
-              <table class="jd-sumtable-expando">
-              
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                
-                
-                
-                boolean
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">equals</span>(Object arg0)
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                Class&lt;?&gt;
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">getClass</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                
-                
-                
-                int
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">hashCode</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                void
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">notify</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                void
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">notifyAll</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                
-                
-                
-                String
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">toString</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                void
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">wait</span>(long arg0, int arg1)
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                void
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">wait</span>(long arg0)
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-        
-        <tr>
-          <td class="jd-typecol">
-                
-                
-                final
-                
-                
-                void
-          </td>
-          <td class="jd-linkcol" width="100%">
-              <div class="jd-hang">
-                <span class="sympad">wait</span>()
-                
-              </div>
-          </td>
-        </tr>
-    
-    
-    
-              </table>
-            </div>
-          </div>
-        </div>
-        
-      
-      </section>
     
 
     </section><!--xml-attributes-->
@@ -626,73 +383,6 @@
       
     
     
-    <A NAME="equals(java.lang.Object)"></A>
-    
-    <div class="jd-details">
-        <h4 class="jd-details-title">
-          <span class="normal">
-            public
-            
-            
-            
-            
-            boolean
-          </span>
-          <span class="sympad"><strong>equals</strong></span>
-          <span class="params">(Object o)</span>
-        </h4>
-          <div class="api-level">
-            <div></div>
-            
-  
-
-          </div>
-        <div class="jd-details-descr">
-          
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>o</th>
-          <td><!-- no parameter comment --></td>
-        </tr>
-      </table>
-  </div>
-
-        </div>
-    </div>
-    
-    
-    <A NAME="hashCode()"></A>
-    
-    <div class="jd-details">
-        <h4 class="jd-details-title">
-          <span class="normal">
-            public
-            
-            
-            
-            
-            int
-          </span>
-          <span class="sympad"><strong>hashCode</strong></span>
-          <span class="params">()</span>
-        </h4>
-          <div class="api-level">
-            <div></div>
-            
-  
-
-          </div>
-        <div class="jd-details-descr">
-          
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-        </div>
-    </div>
-    
-    
     <A NAME="inputListLength(java.lang.String)"></A>
     
     <div class="jd-details">
@@ -701,7 +391,7 @@
             public
             
             
-            
+            abstract
             
             int
           </span>
@@ -758,7 +448,7 @@
             public
             
             
-            
+            abstract
             
             String
           </span>
@@ -787,7 +477,7 @@
             public
             
             
-            
+            abstract
             
             int
           </span>
@@ -816,7 +506,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output</a>&lt;T&gt;
           </span>
@@ -858,7 +548,7 @@
             public
             
             
-            
+            abstract
             
             <a href="/api_docs/java/reference/org/tensorflow/Output.html">Output[]</a>&lt;?&gt;
           </span>
@@ -905,7 +595,7 @@
             public
             
             
-            
+            abstract
             
             int
           </span>
@@ -954,35 +644,6 @@
     </div>
     
     
-    <A NAME="toString()"></A>
-    
-    <div class="jd-details">
-        <h4 class="jd-details-title">
-          <span class="normal">
-            public
-            
-            
-            
-            
-            String
-          </span>
-          <span class="sympad"><strong>toString</strong></span>
-          <span class="params">()</span>
-        </h4>
-          <div class="api-level">
-            <div></div>
-            
-  
-
-          </div>
-        <div class="jd-details-descr">
-          
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-        </div>
-    </div>
-    
-    
     <A NAME="type()"></A>
     
     <div class="jd-details">
@@ -991,7 +652,7 @@
             public
             
             
-            
+            abstract
             
             String
           </span>

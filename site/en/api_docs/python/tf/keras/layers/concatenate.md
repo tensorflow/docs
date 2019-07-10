@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.layers.concatenate
 
+Functional interface to the `Concatenate` layer.
+
+### Aliases:
+
+* `tf.compat.v1.keras.layers.concatenate`
+* `tf.compat.v2.keras.layers.concatenate`
+* `tf.keras.layers.concatenate`
+
 ``` python
 tf.keras.layers.concatenate(
     inputs,
@@ -15,11 +23,13 @@ tf.keras.layers.concatenate(
 
 
 
-Defined in [`tensorflow/python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/layers/merge.py).
+Defined in [`python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/merge.py).
 
-Functional interface to the `Concatenate` layer.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
+
 
 * <b>`inputs`</b>: A list of input tensors (at least 2).
 * <b>`axis`</b>: Concatenation axis.

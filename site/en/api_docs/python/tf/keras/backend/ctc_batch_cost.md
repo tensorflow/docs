@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.keras.backend.ctc_batch_cost
 
+Runs CTC loss algorithm on each batch element.
+
+### Aliases:
+
+* `tf.compat.v1.keras.backend.ctc_batch_cost`
+* `tf.compat.v2.keras.backend.ctc_batch_cost`
+* `tf.keras.backend.ctc_batch_cost`
+
 ``` python
 tf.keras.backend.ctc_batch_cost(
     y_true,
@@ -16,20 +24,22 @@ tf.keras.backend.ctc_batch_cost(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/keras/backend.py).
+Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
-Runs CTC loss algorithm on each batch element.
+<!-- Placeholder for "Used in" -->
+
 
 #### Arguments:
 
+
 * <b>`y_true`</b>: tensor `(samples, max_string_length)`
-        containing the truth labels.
+    containing the truth labels.
 * <b>`y_pred`</b>: tensor `(samples, time_steps, num_categories)`
-        containing the prediction, or output of the softmax.
+    containing the prediction, or output of the softmax.
 * <b>`input_length`</b>: tensor `(samples, 1)` containing the sequence length for
-        each batch item in `y_pred`.
+    each batch item in `y_pred`.
 * <b>`label_length`</b>: tensor `(samples, 1)` containing the sequence length for
-        each batch item in `y_true`.
+    each batch item in `y_true`.
 
 
 #### Returns:

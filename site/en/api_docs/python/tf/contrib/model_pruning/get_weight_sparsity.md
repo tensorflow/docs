@@ -5,19 +5,23 @@ page_type: reference
 
 # tf.contrib.model_pruning.get_weight_sparsity
 
+Get sparsity of the weights.
+
 ``` python
 tf.contrib.model_pruning.get_weight_sparsity()
 ```
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/model_pruning/python/pruning.py).
+Defined in [`contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/model_pruning/python/pruning.py).
 
-Get sparsity of the weights.
+<!-- Placeholder for "Used in" -->
+
 
 #### Args:
 
 None
+
 
 
 #### Returns:

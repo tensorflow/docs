@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.enable_v2_behavior
 
+Enables TensorFlow 2.x behaviors.
+
+### Aliases:
+
+* `tf.compat.v1.enable_v2_behavior`
+* `tf.compat.v2.enable_v2_behavior`
+* `tf.enable_v2_behavior`
+
 ``` python
 tf.enable_v2_behavior()
 ```
 
 
 
-Defined in [`tensorflow/python/compat/compat.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/compat/compat.py).
+Defined in [`python/compat/v2_compat.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/compat/v2_compat.py).
 
-Enables TensorFlow 2.x behaviors.
+<!-- Placeholder for "Used in" -->
 
 This function can be called at the beginning of the program (before `Tensors`,
 `Graphs` or other structures have been created, and before devices have been
