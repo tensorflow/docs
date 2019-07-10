@@ -1,3 +1,7 @@
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 # API Documentation
 
 TensorFlow has APIs available in several languages both for constructing and
@@ -20,7 +24,7 @@ We encourage the community to develop and maintain support for other languages
 with the [approach recommended by the TensorFlow maintainers](../extend/language_bindings).
 For example, see the bindings for:
 
-* C#: [TensorFlowSharp](https://github.com/migueldeicaza/TensorFlowSharp) and [TensorFlow.NET](https://github.com/SciSharp/TensorFlow.NET),
+* [C#](https://github.com/migueldeicaza/TensorFlowSharp),
 * [Haskell](https://github.com/tensorflow/haskell),
 * [Julia](https://github.com/malmaud/TensorFlow.jl),
 * [Ruby](https://github.com/somaticio/tensorflow.rb),

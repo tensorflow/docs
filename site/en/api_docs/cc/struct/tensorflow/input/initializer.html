@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::Input::Initializer Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.13/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.13/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>Input::<wbr/>Initializer</h1>
+  <code>#include &lt;ops.h&gt;</code>
+  <p><a href="/versions/r1.13/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Initializer</a> enables constructing an <a href="/versions/r1.13/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> object from various kinds of C++ constants such as simple primitive constants and nested initializer lists representing a multi-dimensional array. </p>
+  <h2>Summary</h2>
+  <p><a href="/versions/r1.13/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Initializer</a> constructors are all templates, so the aforementioned kinds of C++ constants can be used to construct an <a href="/versions/r1.13/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Initializer</a>. <a href="/versions/r1.13/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Initializer</a> stores the value it got constructed with in a <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> object. </p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#structtensorflow_1_1_input_1_1_initializer_1ade60a4fdcfa9a530604fbf39d3b5be12">Initializer</a>(const T & v)</code>
+        <br />
+        <div>Construct from a scalar value of an arithmetic type or a type that can be converted to a string (eg. </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#structtensorflow_1_1_input_1_1_initializer_1a9314222b3303dcf97314a4bcbcaa94ad">Initializer</a>(const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> & t)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#structtensorflow_1_1_input_1_1_initializer_1ab77d0712180868a7311936ca9a034835">Initializer</a>(const T & v, const TensorShape & shape)</code>
+        <br />
+        <div>Construct from a scalar value and an explicit shape. </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#structtensorflow_1_1_input_1_1_initializer_1a91bd52431434dc5358ae8aa39070fe5f">Initializer</a>(const std::initializer_list< T > & v)</code>
+        <br />
+        <div>Construct from a initializer list of scalars (a one-dimensional tensor). </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#structtensorflow_1_1_input_1_1_initializer_1a3f572c2835a2310e2d5c28138e69ae76">Initializer</a>(const std::initializer_list< T > & v, const TensorShape & shape)</code>
+        <br />
+        <div>Construct from a initializer list of scalars and an explicit shape. </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#structtensorflow_1_1_input_1_1_initializer_1a8099f954da757c77ac7d8e1c32df88ce">Initializer</a>(const std::initializer_list< <a href="/versions/r1.13/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Initializer</a> > & v)</code>
+        <br />
+        <div>Construct a multi-dimensional tensor from a nested initializer list. </div>
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1_input_1_1_initializer_1af0ab9526e575fd7d4b9d5f7dbabcb7e4">status</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1_input_1_1_initializer_1a7b520438780dc80f0162a480a3cadb74">tensor</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1_input_1_1_initializer_1a6b1e360b983fec2140b756971fe7699d">AsTensorProto</a>()</code>
+      </td>
+      <td>
+        <div>
+          <code>TensorProto</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1_input_1_1_initializer_1af0ab9526e575fd7d4b9d5f7dbabcb7e4">
+    <h3>status</h3>
+    <pre class="prettyprint"><a href="/versions/r1.13/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> tensorflow::Input::Initializer::status</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1_input_1_1_initializer_1a7b520438780dc80f0162a480a3cadb74">
+    <h3>tensor</h3>
+    <pre class="prettyprint"><a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> tensorflow::Input::Initializer::tensor</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1_input_1_1_initializer_1a6b1e360b983fec2140b756971fe7699d">
+    <h3>AsTensorProto</h3>
+    <pre class="prettyprint">TensorProto tensorflow::Input::Initializer::AsTensorProto()</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1_input_1_1_initializer_1ade60a4fdcfa9a530604fbf39d3b5be12">
+    <h3>Initializer</h3>
+    <pre class="prettyprint"> tensorflow::Input::Initializer::Initializer(
+  const T & v
+)</pre>
+    <div>
+      <p>Construct from a scalar value of an arithmetic type or a type that can be converted to a string (eg. </p>
+      <p>a string literal). </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1_input_1_1_initializer_1a9314222b3303dcf97314a4bcbcaa94ad">
+    <h3>Initializer</h3>
+    <pre class="prettyprint"> tensorflow::Input::Initializer::Initializer(
+  const <a href="/versions/r1.13/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> & t
+)</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1_input_1_1_initializer_1ab77d0712180868a7311936ca9a034835">
+    <h3>Initializer</h3>
+    <pre class="prettyprint"> tensorflow::Input::Initializer::Initializer(
+  const T & v,
+  const TensorShape & shape
+)</pre>
+    <div>
+      <p>Construct from a scalar value and an explicit shape. </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1_input_1_1_initializer_1a91bd52431434dc5358ae8aa39070fe5f">
+    <h3>Initializer</h3>
+    <pre class="prettyprint"> tensorflow::Input::Initializer::Initializer(
+  const std::initializer_list< T > & v
+)</pre>
+    <div>
+      <p>Construct from a initializer list of scalars (a one-dimensional tensor). </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1_input_1_1_initializer_1a3f572c2835a2310e2d5c28138e69ae76">
+    <h3>Initializer</h3>
+    <pre class="prettyprint"> tensorflow::Input::Initializer::Initializer(
+  const std::initializer_list< T > & v,
+  const TensorShape & shape
+)</pre>
+    <div>
+      <p>Construct from a initializer list of scalars and an explicit shape. </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1_input_1_1_initializer_1a8099f954da757c77ac7d8e1c32df88ce">
+    <h3>Initializer</h3>
+    <pre class="prettyprint"> tensorflow::Input::Initializer::Initializer(
+  const std::initializer_list< <a href="/versions/r1.13/api_docs/cc/struct/tensorflow/input/initializer.html#structtensorflow_1_1_input_1_1_initializer">Initializer</a> > & v
+)</pre>
+    <div>
+      <p>Construct a multi-dimensional tensor from a nested initializer list. </p>
+      <p>Note that C++ syntax allows nesting of arbitrarily typed initializer lists, so such invalid initializers cannot be disallowed at compile time. This function performs checks to make sure that the nested initializer list is indeed a valid multi-dimensional tensor. </p>
+    </div>
+  </div>
+</body>
+</html>
