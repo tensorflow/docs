@@ -1,0 +1,31 @@
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+# tf.io.gfile.exists
+
+``` python
+tf.io.gfile.exists(path)
+```
+
+
+
+Defined in [`tensorflow/python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/lib/io/file_io.py).
+
+Determines whether a path exists or not.
+
+#### Args:
+
+* <b>`path`</b>: string, a path
+
+
+#### Returns:
+
+True if the path exists, whether its a file or a directory.
+False if the path does not exist and there are no filesystem errors.
+
+
+#### Raises:
+
+* <b>`errors.OpError`</b>: Propagates any errors reported by the FileSystem API.

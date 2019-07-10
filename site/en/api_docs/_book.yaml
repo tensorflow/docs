@@ -1,43 +1,16 @@
 upper_tabs:
 - include: /_upper_tabs_left.yaml
 
-- name: API {VERSION}
+- name: API
   path: /api_docs/python/tf
   menu:
   - include: /api_docs/_menu_toc.yaml
   lower_tabs:
     other:
-    - name: Python
-      skip_translation: true
-      contents:
-      - title: Python {VERSION}
-      - include: {VERSION_ROOT}/api_docs/python/_toc.yaml
-      - title: All Symbols
-        path: {VERSION_ROOT}/api_docs/python/
-
-    - name: JavaScript
-      contents:
-      - title: JavaScript
-        path: https://js.tensorflow.org/api/latest/
-
-    - name: C++
-      skip_translation: true
-      contents:
-      - title: C++
-        path: {VERSION_ROOT}/api_docs/cc/
-      - include: {VERSION_ROOT}/api_docs/cc/_doxygen.yaml
-
-    - name: Java
-      skip_translation: true
-      contents:
-      - title: Java
-        path: {VERSION_ROOT}/api_docs/java/reference/org/tensorflow/package-summary.html
-      - include: {VERSION_ROOT}/api_docs/java/reference/_toc.yaml
-
     - name: More…
       contents:
       - title: Overview
-        path: {VERSION_ROOT}/api_docs/
+        path: /versions/r1.13/api_docs/
 
       - heading: Implementations
       - title: "TensorFlow.js"
@@ -76,6 +49,34 @@ upper_tabs:
         path: /tfx/serving/api_docs/cc
       - title: TFX
         path: /tfx/api_docs/
+
+    - name: Python
+      skip_translation: true
+      contents:
+      - title: Python r1.13
+      - include: /versions/r1.13/api_docs/python/_toc.yaml
+      - title: All Symbols
+        path: /versions/r1.13/api_docs/python/
+
+    - name: JavaScript
+      contents:
+      - title: JavaScript
+        path: https://js.tensorflow.org/api/latest/
+
+    - name: C++
+      skip_translation: true
+      contents:
+      - title: C++
+        path: /versions/r1.13/api_docs/cc/
+      - include: /versions/r1.13/api_docs/cc/_doxygen.yaml
+
+    - name: Java
+      skip_translation: true
+      contents:
+      - title: Java
+        path: /versions/r1.13/api_docs/java/reference/org/tensorflow/package-summary.html
+      - include: /versions/r1.13/api_docs/java/reference/_toc.yaml
+
 
 - include: /resources/_upper_tabs_resources.yaml
 - include: /_upper_tabs_right.yaml
