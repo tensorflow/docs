@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::QueueClose Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>QueueClose</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Closes the given queue. </p>
+  <h2>Summary</h2>
+  <p>This operation signals that no more elements will be enqueued in the given queue. Subsequent Enqueue(Many) operations will fail. Subsequent Dequeue(Many) operations will continue to succeed if sufficient elements remain in the queue. Subsequent Dequeue(Many) operations that would block will fail immediately.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to a queue.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/queue-close/attrs.html#structtensorflow_1_1ops_1_1_queue_close_1_1_attrs">Attrs</a></code>):<ul>
+      <li>cancel_pending_enqueues: If true, all pending enqueue requests that are blocked on the given queue will be canceled.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li>the created <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_close_1affd5807480aae31db63bf500e84c49f6">QueueClose</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_close_1af1fb16eb680ceab18ea2d05dbaa832d6">QueueClose</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/queue-close/attrs.html#structtensorflow_1_1ops_1_1_queue_close_1_1_attrs">QueueClose::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_close_1a7ef071ecc6a259c462a9df52160077e6">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_close_1af4c0fa38ce928f7ba0f4511436335b4f">operator::tensorflow::Operation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_queue_close_1a2df82e84083c2b54cccfad5f0d91ebcf">CancelPendingEnqueues</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/queue-close/attrs.html#structtensorflow_1_1ops_1_1_queue_close_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/queue-close/attrs">tensorflow::<wbr/>ops::<wbr/>QueueClose::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/queue-close.html#classtensorflow_1_1ops_1_1_queue_close">QueueClose</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_queue_close_1a7ef071ecc6a259c462a9df52160077e6">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_queue_close_1affd5807480aae31db63bf500e84c49f6">
+    <h3>QueueClose</h3>
+    <pre class="prettyprint"> QueueClose(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_queue_close_1af1fb16eb680ceab18ea2d05dbaa832d6">
+    <h3>QueueClose</h3>
+    <pre class="prettyprint"> QueueClose(
+  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/queue-close/attrs.html#structtensorflow_1_1ops_1_1_queue_close_1_1_attrs">QueueClose::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_queue_close_1af4c0fa38ce928f7ba0f4511436335b4f">
+    <h3>operator::tensorflow::Operation</h3>
+    <pre class="prettyprint"> operator::tensorflow::Operation() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_queue_close_1a2df82e84083c2b54cccfad5f0d91ebcf">
+    <h3>CancelPendingEnqueues</h3>
+    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/queue-close/attrs.html#structtensorflow_1_1ops_1_1_queue_close_1_1_attrs">Attrs</a> CancelPendingEnqueues(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
