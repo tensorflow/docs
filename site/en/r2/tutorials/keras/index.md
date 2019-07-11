@@ -1,7 +1,7 @@
 # Learn and use machine learning
 
 This notebook collection is inspired by the book
-*[Deep Learning with Python](https://books.google.com/books?id=Yo3CAQAACAAJ)*.
+[Deep Learning with Python](https://books.google.com/books?id=Yo3CAQAACAAJ).
 These tutorials use `tf.keras`, TensorFlow's high-level Python API for building
 and training deep learning models. To learn more about using Keras with
 TensorFlow, see the [TensorFlow Keras Guide](../../guide/keras.ipynb).
@@ -13,7 +13,6 @@ understanding through intuitive explanations and practical examples.
 
 To learn about machine learning fundamentals and concepts, consider taking the
 [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/).
-Additional TensorFlow and machine learning resources are listed in [next steps](../next_steps).
 
 1. [Basic classification](./basic_classification.ipynb)
 2. [Text classification](./basic_text_classification.ipynb)

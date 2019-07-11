@@ -30,10 +30,13 @@ file under `REQUIRED_PACKAGES`.
 
 ### Install Bazel
 
-[Install Bazel](https://docs.bazel.build/versions/master/install-windows.html){:.external},
-the build tool used to compile TensorFlow. Set up Bazel to [build C++](https://docs.bazel.build/versions/master/windows.html#build-c){:.external}.
+[Install Bazel 0.24.1](https://docs.bazel.build/versions/master/install-windows.html){:.external},
+the build tool used to compile TensorFlow. Set up Bazel to
+[build C++](https://docs.bazel.build/versions/master/windows.html#build-c){:.external}.
 
 Add the location of the Bazel executable to your `%PATH%` environment variable.
+
+Ensure you install Bazel 0.23.0 or lower.
 
 ### Install MSYS2
 
@@ -46,18 +49,19 @@ run:
 pacman -S git patch unzip
 </pre>
 
-### Install Visual C++ Build Tools 2015
+### Install Visual C++ Build Tools 2017
 
-Install the *Visual C++ build tools 2015*. This comes with *Visual Studio 2015*
+Install the *Visual C++ build tools 2017*. This comes with *Visual Studio 2017*
 but can be installed separately:
 
-1. Go to the [Visual Studio downloads](https://visualstudio.microsoft.com/vs/older-downloads/){:.external},
-2. Select *Redistributables and Build Tools*,
-3. Download and install:
-   - *Microsoft Visual C++ 2015 Redistributable Update 3*
-   - *Microsoft Build Tools 2015 Update 3*
+1.  Go to the
+    [Visual Studio downloads](https://visualstudio.microsoft.com/vs/older-downloads/){:.external},
+2.  Select *Redistributables and Build Tools*,
+3.  Download and install:
+    -   *Microsoft Visual C++ 2017 Redistributable*
+    -   *Microsoft Build Tools 2017*
 
-Note: TensorFlow is tested against the *Visual Studio 2015 Update 3*.
+Note: TensorFlow is tested against the *Visual Studio 2017*.
 
 ### Install GPU support (optional)
 
@@ -179,8 +183,12 @@ https://github.com/tensorflow/tensorflow/issues/22390
 --define=no_tensorflow_py_deps=true
 </pre>
 
+See the Bazel [command-line reference](https://docs.bazel.build/versions/master/command-line-reference.html)
+for
+[build options](https://docs.bazel.build/versions/master/command-line-reference.html#build-options).
+
 Building TensorFlow from source can use a lot of RAM. If your system is
-memory-constrained, limit Bazel's RAM usage with: `--local_resources 2048,.5,1.0`.
+memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
 
 If building with GPU support, add `--copt=-nvcc_options=disable-warnings`
 to suppress nvcc warning messages.
@@ -255,9 +263,10 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
-<tr><td>tensorflow-1.13.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Cmake v3.6.3</td></tr>
-<tr><td>tensorflow-1.12.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Cmake v3.6.3</td></tr>
-<tr><td>tensorflow-1.11.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Cmake v3.6.3</td></tr>
+<tr><td>tensorflow-1.14.0</td><td>3.5-3.7</td><td>MSVC 2017</td><td>Bazel 0.24.1-0.25.2</td></tr>
+<tr><td>tensorflow-1.13.0</td><td>3.5-3.7</td><td>MSVC 2015 update 3</td><td>Bazel 0.19.0-0.21.0</td></tr>
+<tr><td>tensorflow-1.12.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Bazel 0.15.0</td></tr>
+<tr><td>tensorflow-1.11.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.10.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Cmake v3.6.3</td></tr>
 <tr><td>tensorflow-1.9.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Cmake v3.6.3</td></tr>
 <tr><td>tensorflow-1.8.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Cmake v3.6.3</td></tr>
@@ -275,7 +284,8 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
-<tr><td>tensorflow_gpu-1.13.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
+<tr><td>tensorflow_gpu-1.14.0</td><td>3.5-3.7</td><td>MSVC 2017</td><td>Bazel 0.24.1-0.25.2</td><td>7.4</td><td>10</td></tr>
+<tr><td>tensorflow_gpu-1.13.0</td><td>3.5-3.7</td><td>MSVC 2015 update 3</td><td>Bazel 0.19.0-0.21.0</td><td>7.4</td><td>10</td></tr>
 <tr><td>tensorflow_gpu-1.12.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.11.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.10.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Cmake v3.6.3</td><td>7</td><td>9</td></tr>

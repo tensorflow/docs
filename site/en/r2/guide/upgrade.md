@@ -18,7 +18,8 @@ To convert your code from TensorFlow 1.x to TensorFlow 2.x, follow these instruc
 
 ### Run the script from the pip package
 
-First, `pip install` the `tensorflow==2.0.0-alpha0` or `tensorflow-gpu==2.0.0-alpha0` package.
+First, `pip install` the `tensorflow==2.0.0-beta1` or
+`tensorflow-gpu==2.0.0-beta1` package.
 
 Note: `tf_upgrade_v2` is installed automatically for TensorFlow 1.13 and later (including the nightly TF 2.0 builds).
 

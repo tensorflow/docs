@@ -37,7 +37,7 @@ Install the TensorFlow *pip* package dependencies (if using a virtual environmen
 omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install -U --user pip six numpy wheel setuptools mock</code>
+<code class="devsite-terminal">pip install -U --user pip six numpy wheel setuptools mock future>=0.17.1</code>
 <code class="devsite-terminal">pip install -U --user keras_applications==1.0.6 --no-deps</code>
 <code class="devsite-terminal">pip install -U --user keras_preprocessing==1.0.5 --no-deps</code>
 </pre>
@@ -193,6 +193,7 @@ There are some preconfigured build configs available that can be added to the
 
 * `--config=mkl` —Support for the [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
 * `--config=monolithic` —Configuration for a mostly static, monolithic build.
+* `--config=v2` —Build TensorFlow 2.x instead of 1.x.
 
 Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
 run on older CPUs.
@@ -220,8 +221,12 @@ bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_
 
 #### Bazel build options
 
+See the Bazel [command-line reference](https://docs.bazel.build/versions/master/command-line-reference.html)
+for
+[build options](https://docs.bazel.build/versions/master/command-line-reference.html#build-options).
+
 Building TensorFlow from source can use a lot of RAM. If your system is
-memory-constrained, limit Bazel's RAM usage with: `--local_resources 2048,.5,1.0`.
+memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
 
 The [official TensorFlow packages](./pip.md) are built with GCC 4 and use the
 older ABI. For GCC 5 and later, make your build compatible with the older ABI
@@ -385,7 +390,8 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
-<tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.19.2</td></tr>
+<tr><td>tensorflow-1.14.0</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.24.1</td></tr>
+<tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.19.2</td></tr>
 <tr><td>tensorflow-1.12.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.11.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.10.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
@@ -403,7 +409,8 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
-<tr><td>tensorflow_gpu-1.13.1</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.19.2</td><td>7.4</td><td>10.0</td></tr>
+<tr><td>tensorflow_gpu-1.14.0</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.24.1</td><td>7.4</td><td>10.0</td></tr>
+<tr><td>tensorflow_gpu-1.13.1</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.19.2</td><td>7.4</td><td>10.0</td></tr>
 <tr><td>tensorflow_gpu-1.12.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.11.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.10.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
@@ -425,7 +432,8 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
-<tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.19.2</td></tr>
+<tr><td>tensorflow-1.14.0</td><td>2.7, 3.3-3.7</td><td>Clang from xcode</td><td>Bazel 0.24.1</td></tr>
+<tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.7</td><td>Clang from xcode</td><td>Bazel 0.19.2/td></tr>
 <tr><td>tensorflow-1.12.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.11.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.10.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>

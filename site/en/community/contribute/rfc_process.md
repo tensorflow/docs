@@ -57,7 +57,7 @@ experts, and communicating design changes broadly.
     the GitHub handles of co-authors, reviewers, and sponsors.
 
     At the top of the PR identify how long the comment period will be. This
-    should be a _minimum of two weeks_ from posting the PR. \
+    should be a _minimum of two weeks_ from posting the PR.
 
 5.  Email the developer mailing list with a brief description, a link to the PR
     and a request for review. Follow the format of previous mailings, as you can
@@ -146,7 +146,7 @@ If you are working on new code to implement an RFC:
     documentation.
 *   Follow any other guidelines laid out in the `CONTRIBUTING.md` file in the
     project repo you're contributing to.
-*   Run Unit Tests before submitting your code.
+*   Run unit tests before submitting your code.
 *   Work with the RFC sponsor to successfully land the new code.
 
 ## Keeping the bar high

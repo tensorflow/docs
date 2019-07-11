@@ -22,8 +22,12 @@ import collections
 import functools
 import os
 import tempfile
+import textwrap
+import unittest
 
 from absl.testing import absltest
+from absl.testing import parameterized
+import six
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
@@ -84,6 +88,28 @@ class DummyVisitor(object):
   def __init__(self, index, duplicate_of):
     self.index = index
     self.duplicate_of = duplicate_of
+
+
+class ConcreteMutableMapping(collections.MutableMapping):
+  """MutableMapping subclass to repro tf_inspect.getsource() IndexError."""
+
+  def __init__(self):
+    self._map = {}
+
+  def __getitem__(self, key):
+    return self._map[key]
+
+  def __setitem__(self, key, value):
+    self._map[key] = value
+
+  def __delitem__(self, key):
+    del self._map[key]
+
+  def __iter__(self):
+    return self._map.__iter__()
+
+  def __len__(self):
+    return len(self._map)
 
 
 class ParserTest(absltest.TestCase):
@@ -172,7 +198,8 @@ class ParserTest(absltest.TestCase):
     self.assertIs(TestClass.ChildClass, page_info.classes[0].obj)
 
     # Make sure this file is contained as the definition location.
-    self.assertEqual(os.path.relpath(__file__, '/'), page_info.defined_in.path)
+    self.assertEqual(
+        os.path.relpath(__file__, '/'), page_info.defined_in.rel_path)
 
   def test_namedtuple_field_order(self):
     namedtupleclass = collections.namedtuple('namedtupleclass',
@@ -366,7 +393,8 @@ class ParserTest(absltest.TestCase):
 
     # Make sure the module's file is contained as the definition location.
     self.assertEqual(
-        os.path.relpath(test_module.__file__, '/'), page_info.defined_in.path)
+        os.path.relpath(test_module.__file__.rstrip('c'), '/'),
+        page_info.defined_in.rel_path)
 
   def test_docs_for_function(self):
     index = {
@@ -405,7 +433,8 @@ class ParserTest(absltest.TestCase):
                      page_info.signature)
 
     # Make sure this file is contained as the definition location.
-    self.assertEqual(os.path.relpath(__file__, '/'), page_info.defined_in.path)
+    self.assertEqual(
+        os.path.relpath(__file__, '/'), page_info.defined_in.rel_path)
 
   def test_docs_for_function_with_kwargs(self):
     index = {
@@ -495,14 +524,24 @@ class ParserTest(absltest.TestCase):
     reference_resolver = parser.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
-    doc_info = parser._parse_md_docstring(test_function_with_fancy_docstring,
-                                          '../..', reference_resolver)
+    doc_info = parser._parse_md_docstring(
+        test_function_with_fancy_docstring,
+        relative_path_to_root='../..',
+        full_name=None,
+        reference_resolver=reference_resolver)
 
-    self.assertNotIn('@', doc_info.docstring)
-    self.assertNotIn('compatibility', doc_info.docstring)
-    self.assertNotIn('Raises:', doc_info.docstring)
+    freeform_docstring = '\n'.join(
+        part for part in doc_info.docstring_parts if isinstance(part, str))
+    self.assertNotIn('@', freeform_docstring)
+    self.assertNotIn('compatibility', freeform_docstring)
+    self.assertNotIn('Raises:', freeform_docstring)
 
-    self.assertLen(doc_info.function_details, 3)
+    title_blocks = [
+        part for part in doc_info.docstring_parts if not isinstance(part, str)
+    ]
+
+    self.assertLen(title_blocks, 3)
+
     self.assertCountEqual(doc_info.compatibility.keys(), {'numpy', 'theano'})
 
     self.assertEqual(doc_info.compatibility['numpy'],
@@ -678,11 +717,133 @@ class ParserTest(absltest.TestCase):
     partial = functools.partial(test_function_for_partial2, a=1, b=2, c=3)
     self.assertEqual(expected, tf_inspect.getfullargspec(partial))
 
+  def test_getsource_indexerror_resilience(self):
+    """Validates that parser gracefully handles IndexErrors.
+
+    tf_inspect.getsource() can raise an IndexError in some cases. It's unclear
+    why this happens, but it consistently repros on the `get` method of
+    collections.MutableMapping subclasses.
+    """
+
+    # This isn't the full set of APIs from MutableMapping, but sufficient for
+    # testing.
+    index = {
+        'ConcreteMutableMapping':
+            ConcreteMutableMapping,
+        'ConcreteMutableMapping.__init__':
+            ConcreteMutableMapping.__init__,
+        'ConcreteMutableMapping.__getitem__':
+            ConcreteMutableMapping.__getitem__,
+        'ConcreteMutableMapping.__setitem__':
+            ConcreteMutableMapping.__setitem__,
+        'ConcreteMutableMapping.values':
+            ConcreteMutableMapping.values,
+        'ConcreteMutableMapping.get':
+            ConcreteMutableMapping.get
+    }
+    visitor = DummyVisitor(index=index, duplicate_of={})
+    reference_resolver = parser.ReferenceResolver.from_visitor(
+        visitor=visitor, py_module_names=['tf'])
+
+    tree = {
+        'ConcreteMutableMapping': [
+            '__init__', '__getitem__', '__setitem__', 'values', 'get'
+        ]
+    }
+    parser_config = parser.ParserConfig(
+        reference_resolver=reference_resolver,
+        duplicates={},
+        duplicate_of={},
+        tree=tree,
+        index=index,
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    page_info = parser.docs_for_object(
+        full_name='ConcreteMutableMapping',
+        py_object=ConcreteMutableMapping,
+        parser_config=parser_config)
+
+    self.assertIn(ConcreteMutableMapping.get,
+                  [m.obj for m in page_info.methods])
+
+  @unittest.skipIf(six.PY2, "Haven't found a repro for this under PY2.")
+  def test_strips_default_arg_memory_address(self):
+    """Validates that parser strips memory addresses out out default argspecs.
+
+     argspec.defaults can contain object memory addresses, which can change
+     between invocations. It's desirable to strip these out to reduce churn.
+
+     See: `help(collections.MutableMapping.pop)`
+    """
+    index = {
+        'ConcreteMutableMapping': ConcreteMutableMapping,
+        'ConcreteMutableMapping.pop': ConcreteMutableMapping.pop
+    }
+    visitor = DummyVisitor(index=index, duplicate_of={})
+    reference_resolver = parser.ReferenceResolver.from_visitor(
+        visitor=visitor, py_module_names=['tf'])
+
+    tree = {'ConcreteMutableMapping': ['pop']}
+    parser_config = parser.ParserConfig(
+        reference_resolver=reference_resolver,
+        duplicates={},
+        duplicate_of={},
+        tree=tree,
+        index=index,
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    page_info = parser.docs_for_object(
+        full_name='ConcreteMutableMapping',
+        py_object=ConcreteMutableMapping,
+        parser_config=parser_config)
+
+    pop_default_arg = page_info.methods[0].signature[1]
+    self.assertNotIn('object at 0x', pop_default_arg)
+    self.assertIn('<object>', pop_default_arg)
+
+  def test_builtins_defined_in(self):
+    """Validates that the parser omits the defined_in location for built-ins.
+
+    Without special handling, the defined-in URL ends up like:
+      http://prefix/<embedded stdlib>/_collections_abc.py
+    """
+
+    visitor = DummyVisitor(index={}, duplicate_of={})
+    reference_resolver = parser.ReferenceResolver.from_visitor(
+        visitor=visitor, py_module_names=['tf'])
+
+    tree = {
+        'ConcreteMutableMapping': [
+            '__contains__'
+        ]
+    }
+    parser_config = parser.ParserConfig(
+        reference_resolver=reference_resolver,
+        duplicates={},
+        duplicate_of={},
+        tree=tree,
+        index={},
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    function_info = parser.docs_for_object(
+        full_name='ConcreteMutableMapping.__contains__',
+        py_object=ConcreteMutableMapping.__contains__,
+        parser_config=parser_config)
+
+    self.assertIsNone(function_info.defined_in)
+
 
 class TestReferenceResolver(absltest.TestCase):
   _BASE_DIR = tempfile.mkdtemp()
 
   def setUp(self):
+    super(TestReferenceResolver, self).setUp()
     self.workdir = os.path.join(self._BASE_DIR, self.id())
     os.makedirs(self.workdir)
 
@@ -764,41 +925,173 @@ class TestReferenceResolver(absltest.TestCase):
 
 RELU_DOC = """Computes rectified linear: `max(features, 0)`
 
+RELU is an activation
+
 Args:
   features: A `Tensor`. Must be one of the following types: `float32`,
     `float64`, `int32`, `int64`, `uint8`, `int16`, `int8`, `uint16`,
     `half`.
   name: A name for the operation (optional)
+    Note: this is a note, not another parameter.
+
+Examples:
+
+  ```
+  a+b=c
+  ```
 
 Returns:
-  A `Tensor`. Has the same type as `features`
+  Some tensors, with the same type as the input.
+  first: is the something
+  second: is the something else
 """
 
 
-class TestParseFunctionDetails(absltest.TestCase):
+class TestParseDocstring(absltest.TestCase):
 
-  def test_parse_function_details(self):
-    docstring, function_details = parser._parse_function_details(RELU_DOC)
+  def test_split_title_blocks(self):
+    docstring_parts = parser.TitleBlock.split_string(RELU_DOC)
 
-    self.assertLen(function_details, 2)
-    args = function_details[0]
-    self.assertEqual(args.keyword, 'Args')
-    self.assertEmpty(args.header, 0)
+    self.assertLen(docstring_parts, 7)
+
+    args = docstring_parts[1]
+    self.assertEqual(args.title, 'Args')
+    self.assertEqual(args.text, '\n')
     self.assertLen(args.items, 2)
     self.assertEqual(args.items[0][0], 'features')
-    self.assertEqual(args.items[1][0], 'name')
-    self.assertEqual(args.items[1][1],
-                     'A name for the operation (optional)\n\n')
-    returns = function_details[1]
-    self.assertEqual(returns.keyword, 'Returns')
-
-    relu_doc_lines = RELU_DOC.split('\n')
-    self.assertEqual(docstring, relu_doc_lines[0] + '\n\n')
-    self.assertEqual(returns.header, relu_doc_lines[-2] + '\n')
-
     self.assertEqual(
-        RELU_DOC,
-        docstring + ''.join(str(detail) for detail in function_details))
+        args.items[0][1],
+        'A `Tensor`. Must be one of the following types: `float32`,\n'
+        '  `float64`, `int32`, `int64`, `uint8`, `int16`, `int8`, `uint16`,\n'
+        '  `half`.\n')
+    self.assertEqual(args.items[1][0], 'name')
+    self.assertEqual(
+        args.items[1][1], 'A name for the operation (optional)\n'
+        '  Note: this is a note, not another parameter.\n')
+
+    returns = [item for item in docstring_parts if not isinstance(item, str)
+              ][-1]
+    self.assertEqual(returns.title, 'Returns')
+    self.assertEqual(returns.text,
+                     '\nSome tensors, with the same type as the input.\n')
+    self.assertLen(returns.items, 2)
+
+
+class TestPartialSymbolAutoRef(parameterized.TestCase):
+  REF_TEMPLATE = '<a href="{link}"><code>{text}</code></a>'
+
+  @parameterized.named_parameters(
+      ('basic1', 'keras.Model.fit', '../tf/keras/Model.md#fit'),
+      ('duplicate_object', 'layers.Conv2D', '../tf/keras/layers/Conv2D.md'),
+      ('parens', 'Model.fit(x, y, epochs=5)', '../tf/keras/Model.md#fit'),
+      ('duplicate_name', 'tf.matmul', '../tf/linalg/matmul.md'),
+      ('full_name', 'tf.concat', '../tf/concat.md'),
+      ('normal_and_compat', 'linalg.matmul', '../tf/linalg/matmul.md'),
+      ('compat_only', 'math.deprecated', None),
+      ('contrib_only', 'y.z', None),
+  )
+  def test_partial_symbol_references(self, string, link):
+    duplicate_of = {
+        'tf.matmul': 'tf.linalg.matmul',
+        'tf.layers.Conv2d': 'tf.keras.layers.Conv2D',
+    }
+
+    is_fragment = {
+        'tf.keras.Model.fit': True,
+        'tf.concat': False,
+        'tf.keras.layers.Conv2D': False,
+        'tf.linalg.matmul': False,
+        'tf.compat.v1.math.deprecated': False,
+        'tf.compat.v1.linalg.matmul': False,
+        'tf.contrib.y.z': False,
+    }
+
+    py_module_names = ['tf']
+
+    resolver = parser.ReferenceResolver(duplicate_of, is_fragment,
+                                        py_module_names)
+    input_string = string.join('``')
+    ref_string = resolver.replace_references(input_string, '..')
+
+    if link is None:
+      expected = input_string
+    else:
+      expected = self.REF_TEMPLATE.format(link=link, text=string)
+
+    self.assertEqual(expected, ref_string)
+
+
+class TestIgnoreLineInBlock(parameterized.TestCase):
+
+  @parameterized.named_parameters(
+      ('ignore_backticks',
+       ['```'],
+       ['```'],
+       '```\nFiller\n```\n```Same line```\n```python\nDowner\n```'),
+
+      ('ignore_code_cell_output',
+       ['<pre>{% html %}'],
+       ['{% endhtml %}</pre>'],
+       '<pre>{% html %}\nOutput\nmultiline{% endhtml %}</pre>'),
+
+      ('ignore_backticks_and_cell_output',
+       ['<pre>{% html %}', '```'],
+       ['{% endhtml %}</pre>', '```'],
+       ('```\nFiller\n```\n```Same line```\n<pre>{% html %}\nOutput\nmultiline'
+        '{% endhtml %}</pre>\n```python\nDowner\n```'))
+      )
+  def test_ignore_lines(self, block_start, block_end, expected_ignored_lines):
+
+    text = textwrap.dedent('''\
+    ```
+    Filler
+    ```
+
+    ```Same line```
+
+    <pre>{% html %}
+    Output
+    multiline{% endhtml %}</pre>
+
+    ```python
+    Downer
+    ```
+    ''')
+
+    filters = [parser.IgnoreLineInBlock(start, end)
+               for start, end in zip(block_start, block_end)]
+
+    ignored_lines = []
+    for line in text.splitlines():
+      if any(filter_block(line) for filter_block in filters):
+        ignored_lines.append(line)
+
+    self.assertEqual('\n'.join(ignored_lines), expected_ignored_lines)
+
+  def test_clean_text(self):
+    text = textwrap.dedent('''\
+    ```
+    Ignore lines here.
+    ```
+    Useful information.
+    Don't ignore.
+    ```python
+    Ignore here too.
+    ```
+    Stuff.
+    ```Not useful.```
+    ''')
+
+    filters = [parser.IgnoreLineInBlock('```', '```')]
+
+    clean_text = []
+    for line in text.splitlines():
+      if not any(filter_block(line) for filter_block in filters):
+        clean_text.append(line)
+
+    expected_clean_text = 'Useful information.\nDon\'t ignore.\nStuff.'
+
+    self.assertEqual('\n'.join(clean_text), expected_clean_text)
 
 
 class TestGenerateSignature(absltest.TestCase):

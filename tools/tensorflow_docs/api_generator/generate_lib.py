@@ -35,6 +35,8 @@ from tensorflow_docs.api_generator import py_guide_parser
 from tensorflow_docs.api_generator import tf_inspect
 from tensorflow_docs.api_generator import traverse
 
+import yaml
+
 
 def write_docs(output_dir,
                parser_config,
@@ -85,8 +87,6 @@ def write_docs(output_dir,
 
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
   for full_name, py_object in six.iteritems(parser_config.index):
-    parser_config.reference_resolver.current_doc_full_name = full_name
-
     if full_name in parser_config.duplicate_of:
       continue
 
@@ -153,19 +153,19 @@ def write_docs(output_dir,
                                dup.replace('.', '/'))
       to_path = os.path.join(site_path, 'api_docs/python',
                              full_name.replace('.', '/'))
-      redirects.append((
-          os.path.join('/', from_path),
-          os.path.join('/', to_path)))
+      redirects.append({
+          'from': os.path.join('/', from_path),
+          'to': os.path.join('/', to_path)
+      })
 
   if redirects:
-    redirects = sorted(redirects)
-    template = ('- from: {}\n'
-                '  to: {}\n')
-    redirects = [template.format(f, t) for f, t in redirects]
+    redirects = {
+        'redirects': sorted(redirects, key=lambda redirect: redirect['from'])
+    }
+
     api_redirects_path = os.path.join(output_dir, '_redirects.yaml')
     with open(api_redirects_path, 'w') as redirect_file:
-      redirect_file.write('redirects:\n')
-      redirect_file.write(''.join(redirects))
+      yaml.dump(redirects, redirect_file, default_flow_style=False)
 
   if yaml_toc:
     # Generate table of contents
@@ -269,7 +269,11 @@ def extract(py_modules,
       private_map=private_map)
 
   accumulator = visitor_cls()
-  visitors = [api_filter] + callbacks + [accumulator]
+
+  # The objects found during traversal, and their children are passed to each
+  # of these visitors in sequence. Each visitor returns the list of children
+  # to be passed to the next visitor.
+  visitors = [api_filter, public_api.ignore_typing] + callbacks + [accumulator]
 
   traverse.traverse(py_module, visitors, short_name)
 
@@ -333,9 +337,6 @@ def replace_refs(src_dir,
         continue
       full_in_path = os.path.join(dirpath, base_name)
 
-      # Set the `current_doc_full_name` so bad files can be reported on errors.
-      reference_resolver.current_doc_full_name = full_in_path
-
       suffix = os.path.relpath(path=full_in_path, start=src_dir)
       full_out_path = os.path.join(output_dir, suffix)
       # Copy files that do not match the file_pattern, unmodified.
@@ -359,9 +360,9 @@ class DocGenerator(object):
   def __init__(self,
                root_title,
                py_modules,
-               base_dir,
-               code_url_prefix,
-               search_hints=False,
+               base_dir=None,
+               code_url_prefix=(),
+               search_hints=True,
                site_path='',
                private_map=None,
                do_not_descend_map=None,
@@ -381,7 +382,7 @@ class DocGenerator(object):
         `defined_in` path for each file. The defined in link for
         `{base_dir}/path/to/file` is set to `{code_url_prefix}/path/to/file`.
       search_hints: Bool. Include metadata search hints at the top of each file.
-      site_path:
+      site_path: Path prefix in the "_toc.yaml"
       private_map: A {"module.path.to.object": ["names"]} dictionary. Specific
         aliases that should not be shown in the resulting docs.
       do_not_descend_map: A {"module.path.to.object": ["names"]} dictionary.
@@ -400,6 +401,8 @@ class DocGenerator(object):
     self._short_name = py_modules[0][0]
     self._py_module = py_modules[0][1]
 
+    if base_dir is None:
+      base_dir = os.path.dirname(self._py_module.__file__)
     if isinstance(base_dir, str):
       base_dir = (base_dir,)
     self._base_dir = tuple(base_dir)
@@ -408,7 +411,13 @@ class DocGenerator(object):
     if isinstance(code_url_prefix, str):
       code_url_prefix = (code_url_prefix,)
     self._code_url_prefix = tuple(code_url_prefix)
-    assert self._code_url_prefix, '`code_url_prefix` cannot be empty'
+    if not self._code_url_prefix:
+      raise ValueError('`code_url_prefix` cannot be empty')
+
+    if len(self._code_url_prefix) != len(base_dir):
+      raise ValueError('The `base_dir` list should have the same number of '
+                       'elements as the `code_url_prefix` list (they get '
+                       'zipped together).')
 
     self._search_hints = search_hints
     self._site_path = site_path

@@ -1,0 +1,11 @@
+name: TensorFlow Core {VERSION}
+home_url:  {VERSION_ROOT}/api_docs
+parent_project_metadata_path: /_project.yaml
+description: >
+  An open source machine learning library for research and production.
+use_site_branding: true
+hide_from_products_list: true
+content_license: cc3-apache2
+buganizer_id: 162698
+include: /_project_included.yaml
+
