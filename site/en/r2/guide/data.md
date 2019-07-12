@@ -84,12 +84,12 @@ which apply a function to each element, the element structure determines the
 arguments of the function:
 
 ```python
-dataset1 = tf.data.Dataset.from_tensor_slices(tf.random_uniform([4, 10]))
+dataset1 = tf.data.Dataset.from_tensor_slices(tf.random.uniform([4, 10]))
 dataset1 = dataset1.map(lambda x: ...)
 
 dataset2 = tf.data.Dataset.from_tensor_slices(
-   (tf.random_uniform([4]),
-    tf.random_uniform([4, 100], maxval=100, dtype=tf.int32)))
+   (tf.random.uniform([4]),
+    tf.random.uniform([4, 100], maxval=100, dtype=tf.int32)))
 dataset2 = dataset2.flat_map(lambda x, y: ...)
 
 # Note: Argument destructuring is not available in Python 3.
