@@ -19,8 +19,6 @@ initial places to look. For more information, see
 
 These projects inside the TensorFlow GitHub organization have lists dedicated to their communities:
 
-*   [TensorFlow Extended](https://groups.google.com/a/tensorflow.org/forum/#!forum/tfx) -
-    Discussion and collaboration around [TFX](https://www.tensorflow.org/tfx/).
 *   [hub](https://groups.google.com/a/tensorflow.org/d/forum/hub) - Discussion
     and collaboration around
     [TensorFlow Hub](https://github.com/tensorflow/hub).
@@ -37,6 +35,8 @@ These projects inside the TensorFlow GitHub organization have lists dedicated to
     Discussion and peer support for TensorFlow Lite.
 *   [tfprobability](https://groups.google.com/a/tensorflow.org/d/forum/tfprobability) -
     Discussion and peer support for TensorFlow Probability.
+*   [tfx](https://groups.google.com/a/tensorflow.org/forum/#!forum/tfx) -
+    Discussion and collaboration around [TensorFlow Extended (TFX)](https://www.tensorflow.org/tfx/).
 *   [tpu-users](https://groups.google.com/a/tensorflow.org/d/forum/tpu-users) -
     Community discussion and support for TPU users.
 *   [xla-dev](https://groups.google.com/forum/#!forum/xla-dev) - Discussion for
