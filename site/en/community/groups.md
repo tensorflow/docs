@@ -20,27 +20,29 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 
 ## Asia
 
+### China
+
 * [TensorFlow China community](https://www.tensorflowers.cn)
 * [TensorFlow User Group Beijing](https://mp.weixin.qq.com/s/IftQLGI9qHM5zvlxSD756Q)
-* [TensorFlow User Group Shanghai](https://mp.weixin.qq.com/s/9iQ0vzYjZdZXyi3LGN5fRQ)
-* [TensorFlow User Group Guangzhou](https://mp.weixin.qq.com/s/JD-_RlBcXpx83NmNnJvnNA)
-* [TensorFlow User Group Shenzhen](https://mp.weixin.qq.com/s/cHDNye-WOmMU60iqO88OYw)
-* [TensorFlow User Group Hangzhou](https://mp.weixin.qq.com/s/EIyGkk5ctE-gVsdYoqVEww)
 * [TensorFlow User Group Chengdu](https://mp.weixin.qq.com/s/4V_eZN7--waIDb3T19hqpA)
+* [TensorFlow User Group Guangzhou](https://mp.weixin.qq.com/s/JD-_RlBcXpx83NmNnJvnNA)
+* [TensorFlow User Group Hangzhou](https://mp.weixin.qq.com/s/EIyGkk5ctE-gVsdYoqVEww)
+* [TensorFlow User Group Shanghai](https://mp.weixin.qq.com/s/9iQ0vzYjZdZXyi3LGN5fRQ)
+* [TensorFlow User Group Shenzhen](https://mp.weixin.qq.com/s/cHDNye-WOmMU60iqO88OYw)
 * [TensorFlow User Group Xiamen](https://mp.weixin.qq.com/s/fzhRDGIVKaUdoD-Iic_Nag)
 * [TensorFlow User Group Xi'an](https://mp.weixin.qq.com/s/RodhwlExnpYZmgWRWIIjSQ)
 * [TensorFlow User Group Zhuhai](https://mp.weixin.qq.com/s/cqdQSksbzAqkID6iF2vnxA)
-* [TensorFlow Korea (TF-KR) User Group](https://www.facebook.com/groups/TensorFlowKR/)
+* [TensorFlow Hong Kong](https://fb.me/tensorflowhk)
 * [TensorFlow User Group Tokyo](https://tfug-tokyo.connpass.com/)
-* [Soleil Data Dojo](https://soleildatadojo.connpass.com/)
 * [TensorFlow User Group Utsunomiya](https://tfug-utsunomiya.connpass.com/)
+* [Soleil Data Dojo](https://soleildatadojo.connpass.com/)
+* [TensorFlow Korea (TF-KR) User Group](https://www.facebook.com/groups/TensorFlowKR/)
 * [TensorFlow Philippines Community](https://www.facebook.com/groups/TensorFlowPH/)
 * [TensorFlow and Deep Learning Singapore](https://www.meetup.com/TensorFlow-and-Deep-Learning-Singapore/)
 * [TensorFlow India](https://www.facebook.com/tensorflowindia)
 * [Tensorflow Community Sri Lanka](https://www.facebook.com/groups/150363118841298/)
 * [TensorFlow Việt Nam](https://www.facebook.com/gdgtensorflowvietnam)
 * [TF Nepal](https://www.facebook.com/groups/tfnepal/)
-* [TensorFlow Hong Kong](https://fb.me/tensorflowhk)
 
 ## Europe
 
