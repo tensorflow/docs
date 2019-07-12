@@ -1599,6 +1599,8 @@ def _get_defined_in(py_object, parser_config):
   # Never include links outside this code base.
   if re.search(r'\b_api\b', rel_path):
     return None
+  if '<embedded stdlib>' in rel_path:
+    return None
 
   if re.match(r'.*/gen_[^/]*\.py$', rel_path):
     return _FileLocation(rel_path)

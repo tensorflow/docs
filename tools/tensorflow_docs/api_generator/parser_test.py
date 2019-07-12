@@ -805,6 +805,39 @@ class ParserTest(absltest.TestCase):
     self.assertNotIn('object at 0x', pop_default_arg)
     self.assertIn('<object>', pop_default_arg)
 
+  def test_builtins_defined_in(self):
+    """Validates that the parser omits the defined_in location for built-ins.
+
+    Without special handling, the defined-in URL ends up like:
+      http://prefix/<embedded stdlib>/_collections_abc.py
+    """
+
+    visitor = DummyVisitor(index={}, duplicate_of={})
+    reference_resolver = parser.ReferenceResolver.from_visitor(
+        visitor=visitor, py_module_names=['tf'])
+
+    tree = {
+        'ConcreteMutableMapping': [
+            '__contains__'
+        ]
+    }
+    parser_config = parser.ParserConfig(
+        reference_resolver=reference_resolver,
+        duplicates={},
+        duplicate_of={},
+        tree=tree,
+        index={},
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    function_info = parser.docs_for_object(
+        full_name='ConcreteMutableMapping.__contains__',
+        py_object=ConcreteMutableMapping.__contains__,
+        parser_config=parser_config)
+
+    self.assertIsNone(function_info.defined_in)
+
 
 class TestReferenceResolver(absltest.TestCase):
   _BASE_DIR = tempfile.mkdtemp()
