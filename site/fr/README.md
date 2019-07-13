@@ -2,16 +2,15 @@
 
 Notre communauté `TensorFlow` a traduit ces documents. 
 Étant donné que les traductions effectuées dans la communauté sont plus optimales, 
-rien ne garantit qu'il s'agit d'un reflet exact et à jour de la documentation anglaise 
-ielle. 
+rien ne garantit qu'il s'agit d'un reflet exact et à jour de la documentation anglaise officielle. 
 Si vous avez des suggestions pour améliorer cette traduction, 
 veuillez envoyer une demande d'extraction ou `pull request`) à [tensorflow/docs](https://github.com/tensorflow/docs). 
 Pour vous porter volontaire pour écrire ou réviser les traductions de la communauté, 
 contactez la [liste docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
-Remarque : concentrez vos efforts de traduction sur TensorFlow 2.0 Beta dans 
+Remarque : concentrez vos efforts de traduction de TensorFlow 2.0 Beta dans 
 le répertoire [site/en/r2](https://github.com/tensorflow/docs/tree/master/site/en/r2). 
-Les documents de la communauté TF 1.x ne seront plus mis à jour lors de la préparation de la version 2.0. Voir l'annonce.
+Les documents de la communauté TF 1.x ne seront plus mis à jour lors de la préparation de la version 2.0. Voir [l'annonce](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).
 
 
 # Community translations
