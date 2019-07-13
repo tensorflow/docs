@@ -115,6 +115,41 @@ def _get_raw_docstring(py_object):
   else:
     return ''
 
+
+class IgnoreLineInBlock(object):
+  """Ignores the lines in a block.
+
+  Attributes:
+    block_start: Contains the start string of a block to ignore.
+    block_end: Contains the end string of a block to ignore.
+  """
+
+  def __init__(self, block_start, block_end):
+    self._block_start = block_start
+    self._block_end = block_end
+    self._in_block = False
+
+    self._start_end_regex = re.escape(self._block_start) + r'.*?' + re.escape(
+        self._block_end)
+
+  def __call__(self, line):
+    # If start and end block are on the same line, return True.
+    if re.match(self._start_end_regex, line):
+      return True
+
+    if not self._in_block:
+      if self._block_start in line:
+        self._in_block = True
+
+    elif self._block_end in line:
+      self._in_block = False
+      # True is being returned here because the last line in the block should
+      # also be ignored.
+      return True
+
+    return self._in_block
+
+
 AUTO_REFERENCE_RE = re.compile(r'`([\w\(\[\)\]\{\}.,=\s]+?)`')
 
 
@@ -166,32 +201,32 @@ class ReferenceResolver(object):
     with open(filepath) as f:
       json_dict = json.load(f)
 
-    json_dict.pop('current_doc_full_name', None)
-
     return cls(**json_dict)
 
   def _partial_symbols(self, symbol):
     """Finds the partial symbols given the true symbol.
 
     For example, symbol: `tf.keras.layers.Conv2D`, then the partial dictionary
-    returned will be
-    par_dict = {"keras.layers.Conv2D": "tf.keras.layers.Conv2D",
-                "layers.Conv2D": "tf.keras.layers.Conv2D"}
+    returned will be:
 
-    There should atleast be one '.' in the partial symbol generated so as to
+    partials = ["tf.keras.layers.Conv2D","keras.layers.Conv2D","layers.Conv2D"]
+
+    There should at least be one '.' in the partial symbol generated so as to
     avoid guessing for the true symbol.
 
     Args:
       symbol: String, representing the true symbol.
 
     Returns:
-      A dictionary mapping {partial_symbol: real_symbol}
+      A list of partial symbol names
     """
 
     split_symbol = symbol.split('.')
-    par_dict = {'.'.join(split_symbol[i:]): symbol
-                for i in range(1, len(split_symbol) - 1)}
-    return par_dict
+    partials = [
+        '.'.join(split_symbol[i:])
+        for i in range(1, len(split_symbol) - 1)
+    ]
+    return partials
 
   def _create_partial_symbols_dict(self):
     """Creates a partial symbols dictionary for all the symbols in TensorFlow.
@@ -199,13 +234,28 @@ class ReferenceResolver(object):
     Returns:
       A dictionary mapping {partial_symbol: real_symbol}
     """
+    partial_symbols_dict = collections.defaultdict(list)
 
-    all_partial_names_dict = {}
-    for name in self._all_names:
-      partial_dict = self._partial_symbols(name)
-      all_partial_names_dict.update(partial_dict)
+    for name in sorted(self._all_names):
+      if 'tf.compat.v' in name or 'tf.contrib' in name:
+        continue
+      partials = self._partial_symbols(name)
+      for partial in partials:
+        partial_symbols_dict[partial].append(name)
 
-    return all_partial_names_dict
+    new_partial_dict = {}
+    for partial, full_names in partial_symbols_dict.items():
+      if not full_names:
+        continue
+
+      full_names = [
+          self._duplicate_of.get(full_name, full_name)
+          for full_name in full_names
+      ]
+
+      new_partial_dict[partial] = full_names[0]
+
+    return new_partial_dict
 
   def to_json_file(self, filepath):
     """Converts the RefenceResolver to json and writes it to the specified file.
@@ -232,7 +282,7 @@ class ReferenceResolver(object):
     with open(filepath, 'w') as f:
       json.dump(json_dict, f, indent=2, sort_keys=True)
 
-  def replace_references(self, string, relative_path_to_root):
+  def replace_references(self, string, relative_path_to_root, full_name=None):
     """Replace `tf.symbol` references with links to symbol's documentation page.
 
     This function finds all occurrences of "`tf.symbol`" in `string`
@@ -251,21 +301,27 @@ class ReferenceResolver(object):
       string: A string in which "`tf.symbol`" references should be replaced.
       relative_path_to_root: The relative path from the containing document to
         the root of the API documentation that is being linked to.
+      full_name: (optional) The full name of current object, so replacements
+        can depend on context.
 
     Returns:
       `string`, with "`tf.symbol`" references replaced by Markdown links.
     """
 
-    def sloppy_one_ref(match):
-      try:
-        return self._one_ref(match, relative_path_to_root)
-      except TFDocsError:
-        return match.group(0)
+    def one_ref(match):
+      return self._one_ref(match, relative_path_to_root, full_name)
 
     fixed_lines = []
+
+    filters = [
+        IgnoreLineInBlock('<pre class="tfo-notebook-code-cell-output">',
+                          '{% endhtmlescape %}</pre>'),
+        IgnoreLineInBlock('```', '```')
+    ]
+
     for line in string.splitlines():
-      if not line.strip().startswith('# '):
-        line = re.sub(AUTO_REFERENCE_RE, sloppy_one_ref, line)
+      if not any(filter_block(line) for filter_block in filters):
+        line = re.sub(AUTO_REFERENCE_RE, one_ref, line)
       fixed_lines.append(line)
 
     return '\n'.join(fixed_lines)
@@ -350,7 +406,7 @@ class ReferenceResolver(object):
     ref_path = documentation_path(master_name, self._is_fragment[master_name])
     return os.path.join(relative_path_to_root, ref_path)
 
-  def _one_ref(self, match, relative_path_to_root):
+  def _one_ref(self, match, relative_path_to_root, full_name=None):
     """Return a link for a single "`tf.symbol`" reference."""
     string = match.group(1)
 
@@ -358,25 +414,31 @@ class ReferenceResolver(object):
 
     string = re.sub(r'(.*)[\(\[].*', r'\1', string)
 
-    string = self._partial_symbols_dict.get(string, string)
+    if string.startswith('compat.v1') or string.startswith('compat.v2'):
+      string = 'tf.' + string
+    elif full_name is None or ('tf.compat.v' not in full_name and
+                               'tf.contrib' not in full_name):
+      string = self._partial_symbols_dict.get(string, string)
 
-    if string.startswith('tensorflow::'):
-      # C++ symbol
-      return self._cc_link(string, link_text, relative_path_to_root)
+    try:
 
-    is_python = False
-    for py_module_name in self._py_module_names:
-      if string == py_module_name or string.startswith(py_module_name + '.'):
-        is_python = True
-        break
+      if string.startswith('tensorflow::'):
+        # C++ symbol
+        return self._cc_link(string, link_text, relative_path_to_root)
 
-    if is_python:  # Python symbol
-      return self.python_link(
-          link_text, string, relative_path_to_root, code_ref=True)
+      is_python = False
+      for py_module_name in self._py_module_names:
+        if string == py_module_name or string.startswith(py_module_name + '.'):
+          is_python = True
+          break
 
-    # Error!
-    raise TFDocsError('Did not understand "%s"' % match.group(0),
-                      'BROKEN_LINK')
+      if is_python:  # Python symbol
+        return self.python_link(
+            link_text, string, relative_path_to_root, code_ref=True)
+    except TFDocsError:
+      pass
+
+    return match.group(0)
 
   def _cc_link(self, string, link_text, relative_path_to_root):
     """Generate a link for a `tensorflow::...` reference."""
@@ -451,7 +513,7 @@ class TitleBlock(object):
   The expected format is:
 
   ```
-  Arguments:
+  Title:
     Freeform text
     arg1: value1
     arg2: value1
@@ -582,7 +644,8 @@ _DocstringInfo = collections.namedtuple(
     '_DocstringInfo', ['brief', 'docstring_parts', 'compatibility'])
 
 
-def _parse_md_docstring(py_object, relative_path_to_root, reference_resolver):
+def _parse_md_docstring(py_object, relative_path_to_root, full_name,
+                        reference_resolver):
   """Parse the object's docstring and return a `_DocstringInfo`.
 
   This function clears @@'s from the docstring, and replaces `` references
@@ -602,6 +665,8 @@ def _parse_md_docstring(py_object, relative_path_to_root, reference_resolver):
     relative_path_to_root: The relative path from the location of the current
       document to the root of the Python API documentation. This is used to
       compute links for "`tf.symbol`" references.
+    full_name: (optional) The api path to the current object, so replacements
+        can depend on context.
     reference_resolver: An instance of ReferenceResolver.
 
   Returns:
@@ -610,8 +675,9 @@ def _parse_md_docstring(py_object, relative_path_to_root, reference_resolver):
   # TODO(wicke): If this is a partial, use the .func docstring and add a note.
   raw_docstring = _get_raw_docstring(py_object)
 
-  raw_docstring = reference_resolver.replace_references(
-      raw_docstring, relative_path_to_root)
+  raw_docstring = reference_resolver.replace_references(raw_docstring,
+                                                        relative_path_to_root,
+                                                        full_name)
 
   atat_re = re.compile(r' *@@[a-zA-Z_.0-9]+ *$')
   raw_docstring = '\n'.join(
@@ -782,7 +848,13 @@ _PropertyInfo = collections.namedtuple(
     '_PropertyInfo', ['short_name', 'full_name', 'obj', 'doc'])
 
 _MethodInfo = collections.namedtuple('_MethodInfo', [
-    'short_name', 'full_name', 'obj', 'doc', 'signature', 'decorators'
+    'short_name',
+    'full_name',
+    'obj',
+    'doc',
+    'signature',
+    'decorators',
+    'defined_in',
 ])
 
 
@@ -886,6 +958,7 @@ class _ClassPageInfo(object):
       classes.
     other_members: A list of `_OtherMemberInfo` objects documenting any other
       object's defined inside the class object (mostly enum style fields).
+    namedtuplefields: a list of the namedtuple fields in the class.
   """
 
   def __init__(self, full_name):
@@ -994,7 +1067,7 @@ class _ClassPageInfo(object):
       base_full_name = parser_config.reverse_index.get(id(base), None)
       if base_full_name is None:
         continue
-      base_doc = _parse_md_docstring(base, relative_path,
+      base_doc = _parse_md_docstring(base, relative_path, self.full_name,
                                      parser_config.reference_resolver)
       base_url = parser_config.reference_resolver.reference_to_url(
           base_full_name, relative_path)
@@ -1039,7 +1112,8 @@ class _ClassPageInfo(object):
     """Returns a list of `_MethodInfo` describing the class' methods."""
     return self._methods
 
-  def _add_method(self, short_name, full_name, obj, doc, signature, decorators):
+  def _add_method(self, short_name, full_name, obj, doc, signature, decorators,
+                  defined_in):
     """Adds a `_MethodInfo` entry to the `methods` list.
 
     Args:
@@ -1050,11 +1124,10 @@ class _ClassPageInfo(object):
       signature: The method's parsed signature (see: `_generate_signature`)
       decorators: A list of strings describing the decorators that should be
         mentioned on the object's docs page.
+      defined_in: A `_FileLocation` object pointing to the object source.
     """
-
     method_info = _MethodInfo(short_name, full_name, obj, doc, signature,
-                              decorators)
-
+                              decorators, defined_in)
     self._methods.append(method_info)
 
   @property
@@ -1130,12 +1203,11 @@ class _ClassPageInfo(object):
       if (defining_class and
           defining_class.__name__ in ['CMessage', 'Message', 'MessageMeta']):
         continue
-      # TODO(markdaoust): Add a note in child docs showing the defining class.
 
       if doc_controls.should_skip_class_attr(py_class, short_name):
         continue
 
-      child_doc = _parse_md_docstring(child, relative_path,
+      child_doc = _parse_md_docstring(child, relative_path, self.full_name,
                                       parser_config.reference_resolver)
 
       if isinstance(child, property):
@@ -1189,8 +1261,9 @@ class _ClassPageInfo(object):
         except KeyError:
           pass
 
+        defined_in = _get_defined_in(child, parser_config)
         self._add_method(short_name, child_name, child, child_doc,
-                         child_signature, child_decorators)
+                         child_signature, child_decorators, defined_in)
       else:
         # Exclude members defined by protobuf that are useless
         if issubclass(py_class, ProtoMessage):
@@ -1320,7 +1393,7 @@ class _ModulePageInfo(object):
       member_full_name = self.full_name + '.' + name if self.full_name else name
       member = parser_config.py_name_to_object(member_full_name)
 
-      member_doc = _parse_md_docstring(member, relative_path,
+      member_doc = _parse_md_docstring(member, relative_path, self.full_name,
                                        parser_config.reference_resolver)
 
       url = parser_config.reference_resolver.reference_to_url(
@@ -1431,8 +1504,9 @@ def docs_for_object(full_name, py_object, parser_config):
   relative_path = os.path.relpath(
       path='.', start=os.path.dirname(documentation_path(full_name)) or '.')
 
-  page_info.set_doc(_parse_md_docstring(
-      py_object, relative_path, parser_config.reference_resolver))
+  page_info.set_doc(
+      _parse_md_docstring(py_object, relative_path, full_name,
+                          parser_config.reference_resolver))
 
   page_info.set_aliases(duplicate_names)
 
@@ -1441,49 +1515,28 @@ def docs_for_object(full_name, py_object, parser_config):
   return page_info
 
 
-class _PythonFile(object):
-  """This class indicates that the object is defined in a regular python file.
+class _FileLocation(object):
+  """This class indicates that the object is defined in a regular file.
 
   This can be used for the `defined_in` slot of the `PageInfo` objects.
   """
+  GITHUB_LINE_NUMBER_TEMPLATE = '#L{start_line:d}-L{end_line:d}'
 
-  def __init__(self, path, code_url_prefix):
-    self.path = path
-    self.code_url_prefix = code_url_prefix
+  def __init__(self, rel_path, url=None, start_line=None, end_line=None):
+    self.rel_path = rel_path
+    self.url = url
+    self.start_line = start_line
+    self.end_line = end_line
 
-  def __str__(self):
-    return 'Defined in [`{path}`]({url}).\n\n'.format(
-        path=self.path, url=os.path.join(self.code_url_prefix, self.path))
+    github_master_re = 'github.com.*?(blob|tree)/master'
+    suffix = ''
+    # Only attach a line number for github URLs that are not using "master"
+    if self.start_line and not re.search(github_master_re, self.url):
+      if 'github.com' in self.url:
+        suffix = self.GITHUB_LINE_NUMBER_TEMPLATE.format(
+            start_line=self.start_line, end_line=self.end_line)
 
-
-class _ProtoFile(object):
-  """This class indicates that the object is defined in a .proto file.
-
-  This can be used for the `defined_in` slot of the `PageInfo` objects.
-  """
-
-  def __init__(self, path, code_url_prefix):
-    self.path = path
-    self.code_url_prefix = code_url_prefix
-
-  def __str__(self):
-    return 'Defined in [`{path}`]({url}).\n\n'.format(
-        path=self.path, url=os.path.join(self.code_url_prefix, self.path))
-
-
-class _GeneratedFile(object):
-  """This class indicates that the object is defined in a generated python file.
-
-  Generated files should not be linked to directly.
-
-  This can be used for the `defined_in` slot of the `PageInfo` objects.
-  """
-
-  def __init__(self, path):
-    self.path = path
-
-  def __str__(self):
-    return 'Defined in generated file: `{}`.\n\n'.format(self.path)
+        self.url = self.url + suffix
 
 
 def _get_defined_in(py_object, parser_config):
@@ -1494,7 +1547,7 @@ def _get_defined_in(py_object, parser_config):
     parser_config: A ParserConfig object.
 
   Returns:
-    Either a `_PythonFile`, `_ProtoFile`, or a `_GeneratedFile`
+    A `_FileLocation`
   """
   # Every page gets a note about where this object is defined
   base_dirs_and_prefixes = zip(parser_config.base_dir,
@@ -1516,6 +1569,21 @@ def _get_defined_in(py_object, parser_config):
       code_url_prefix = temp_prefix
       break
 
+  try:
+    lines, start_line = tf_inspect.getsourcelines(py_object)
+    end_line = start_line + len(lines) - 1
+  except IOError:
+    # The source is not available.
+    start_line = None
+    end_line = None
+  except TypeError:
+    # This is a builtin, with no python-source.
+    start_line = None
+    end_line = None
+  except IndexError:
+    start_line = None
+    end_line = None
+
   # No link if the file was not found in a `base_dir`, or the prefix is None.
   if code_url_prefix is None:
     return None
@@ -1531,16 +1599,25 @@ def _get_defined_in(py_object, parser_config):
   # Never include links outside this code base.
   if re.search(r'\b_api\b', rel_path):
     return None
+  if '<embedded stdlib>' in rel_path:
+    return None
 
   if re.match(r'.*/gen_[^/]*\.py$', rel_path):
-    return _GeneratedFile(rel_path)
+    return _FileLocation(rel_path)
   if 'genfiles' in rel_path:
-    return _GeneratedFile(rel_path)
+    return _FileLocation(rel_path)
   elif re.match(r'.*_pb2\.py$', rel_path):
     # The _pb2.py files all appear right next to their defining .proto file.
-    return _ProtoFile(rel_path[:-7] + '.proto', code_url_prefix)  # pylint: disable=undefined-loop-variable
+
+    rel_path = rel_path[:-7] + '.proto'
+    return _FileLocation(
+        rel_path=rel_path, url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
   else:
-    return _PythonFile(rel_path, code_url_prefix)  # pylint: disable=undefined-loop-variable
+    return _FileLocation(
+        rel_path=rel_path,
+        url=os.path.join(code_url_prefix, rel_path),
+        start_line=start_line,
+        end_line=end_line)  # pylint: disable=undefined-loop-variable
 
 
 # TODO(markdaoust): This should just parse, pretty_docs should generate the md.

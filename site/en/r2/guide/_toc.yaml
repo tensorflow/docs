@@ -20,6 +20,8 @@ toc:
   path: /beta/guide/keras/custom_layers_and_models
 - title: "Save and serialize models"
   path: /beta/guide/keras/saving_and_serializing
+- title: "Recurrent neural network API"
+  path: /beta/guide/keras/rnn
 - title: "Write custom callbacks"
   path: /beta/guide/keras/custom_callback
 
@@ -40,6 +42,10 @@ toc:
   path: /beta/guide/checkpoints
 - title: "Saved models"
   path: /beta/guide/saved_model
+
+- heading: Low Level APIs
+- title: "Ragged tensors"
+  path : /beta/guide/ragged_tensors
 
 - heading: "Misc"
 - title: "Version compatibility"

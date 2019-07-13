@@ -1,7 +1,7 @@
 # 機械学習の学習と実践
 
 この一連のノートブックは、書籍
-*[Deep Learning with Python](https://books.google.com/books?id=Yo3CAQAACAAJ)*
+[Deep Learning with Python](https://books.google.com/books?id=Yo3CAQAACAAJ)
 （邦訳
 「[PythonとKerasによるディープラーニング](https://book.mynavi.jp/ec/products/detail/id=90124)」）
 に触発された ものです。 これらのチュートリアルでは、TensorFlowでディープラーニングモデルの 構築と訓練を行うためのハイレベルなPython

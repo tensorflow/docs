@@ -1,5 +1,5 @@
 book_path: /overview/_book.yaml
-project_path: /overview/_project.yaml
+project_path: /beta/_project.yaml
 description: <!--no description-->
 landing_page:
   nav: left
