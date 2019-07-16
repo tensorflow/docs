@@ -16,7 +16,7 @@ TensorFlow.js提供了保存和加载模型的功能，这些模型可以是使�
 同时提供了函数 [`model.save`](https://js.tensorflow.org/api/0.14.2/#tf.Model.save) 允许您保存一个模型的
 _topology_ 和 _weights_ .
 
--  Topology: 这是一个描述模型结构的文件（例如 它使用的了哪些operations）。它包含对存储在外部的模型权重的引用。
+-  拓扑结构(Topology): 这是一个描述模型结构的文件（例如它使用的了哪些操作）。它包含对存储在外部的模型权重的引用。
 
 -  权重(Weights): 这些是以有效格式存储给定模型权重的二进制文件。它们通常存储在与拓扑结构相同的文件夹中。
 
