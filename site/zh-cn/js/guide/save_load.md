@@ -122,7 +122,7 @@ await model.save('file:///path/to/my-model');
 
 ## 加载 tf.Model
 
-给定一个使用上述方法之一保存的模型，我们可以使用 `tf.loadLayersModel`api加载它。
+给定一个使用上述方法之一保存的模型，我们可以使用 `tf.loadLayersModel` API来加载它。
 
 让我们看一下加载模型的代码是什么样子的
 
