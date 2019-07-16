@@ -1,37 +1,30 @@
-# Converter Python API guide
+# Python API 指南
 
-This page provides examples on how to use the TensorFlow Lite Converter and the
-TensorFlow Lite interpreter using the Python API.
+本页提供了一些案例来说明如何通过Python API调用TensorFlow Lite 转换器和解释器。
 
-Note: These docs describe the converter in the TensorFlow nightly release,
-installed using `pip install tf-nightly`. For docs describing older versions
-reference ["Converting models from TensorFlow 1.12"](#pre_tensorflow_1.12).
+Note: 本文介绍的是Tensorflow nightly版本的转换器， 运行`pip install tf-nightly`安装此版本。
+旧版文档请参考["转换TensorFlow 1.12及之前版本的模型"](#pre_tensorflow_1.12)。
 
 [TOC]
 
 
-## High-level overview
+## 概述
 
-While the TensorFlow Lite Converter can be used from the command line, it is
-often convenient to use in a Python script as part of the model development
-pipeline. This allows you to know early that you are designing a model that can
-be targeted to devices with mobile.
+虽然也可以在命令行中调用TensorFlow Lite转换器, 但用Python脚本调用API的方式可以作为开发流水线的一环，通常会更加便捷，
+它可以使您尽快知道您正在设计的模型，能否针对移动设备。
 
 ## API
 
-The API for converting TensorFlow models to TensorFlow Lite is
-`tf.lite.TFLiteConverter`. The API for calling the Python interpreter is
-`tf.lite.Interpreter`.
+用于将TensorFlow模型转换为TensorFlow Lite的API是`tf.lite.TFLiteConverter`。 
+用于调用Python解释器的API是`tf.lite.Interpreter`。
 
-`TFLiteConverter` provides class methods based on the original format of the
-model. `TFLiteConverter.from_session()` is available for GraphDefs.
-`TFLiteConverter.from_saved_model()` is available for SavedModels.
-`TFLiteConverter.from_keras_model_file()` is available for `tf.Keras` files.
-Example usages for simple float-point models are shown in
-[Basic Examples](#basic). Examples usages for more complex models is shown in
-[Complex Examples](#complex).
+根据模型原始格式，`TFLiteConverter` 提供了一系列类方法用于转换。
+`TFLiteConverter.from_session()` 用于 GraphDefs。
+`TFLiteConverter.from_saved_model()` 用于 SavedModels。
+`TFLiteConverter.from_keras_model_file()` 用于`tf.Keras`文件。
+[基本案例](#basic)中展示了简单浮点模型的用法。[复杂示例](#complex)展示了复杂点的模型用法。
 
-## Basic examples <a name="basic"></a>
+## 基本案例 <a name="basic"></a>
 
 The following section shows examples of how to convert a basic float-point model
 from each of the supported data formats into a TensorFlow Lite FlatBuffers.
