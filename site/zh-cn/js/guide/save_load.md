@@ -190,7 +190,7 @@ const model = await tf.loadLayersModel('file://path/to/my-model/model.json');
 
 # 使用自定义的 IOHandlers 保存或加载模型
 
-如果上述方案没有满足你的保存和加载模型的需求，你可以通过执行`IOHandler`以执行客制化序列行为。
+如果上述方案没有满足您的保存和加载模型的需求，您可以通过执行`IOHandler`以执行自定义的序列化行为。
 
 `IOHandler`是一个含有`save` 和 `load`方法的对象。
 
