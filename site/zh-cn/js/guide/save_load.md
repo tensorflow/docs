@@ -188,7 +188,7 @@ const model = await tf.loadLayersModel('file://path/to/my-model/model.json');
 
 如果上述方案没有满足您的需求，您可以使用`IOHandler`执行自定义的加载行为。Tensorflow.js的`IOHandler`提供了[`tf.io.browserFiles`](https://js.tensorflow.org/api/latest/#io.browserFiles) ，运行浏览器用户在浏览器中上传文件。您可以在 [文档](https://js.tensorflow.org/api/latest/#io.browserFiles)中查看更多信息。
 
-# 保存和加载模型使用客制化IOHandlers
+# 使用自定义的 IOHandlers 保存或加载模型
 
 如果上述方案没有满足你的保存和加载模型的需求，你可以通过执行`IOHandler`以执行客制化序列行为。
 
