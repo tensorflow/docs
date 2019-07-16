@@ -1,6 +1,6 @@
 # 智能回复
 
-<img src="../images/smart_reply.png" class="attempt-right" />
+<img src="https://github.com/tensorflow/tensorflow/raw/master/tensorflow/lite/g3doc/models/images/smart_reply.png" class="attempt-right" />
 
 ## 开始
 
@@ -31,7 +31,7 @@
 
 ## 例子展示
 
-<img alt="Animation showing smart reply" src="images/smart_reply.gif" />
+<img alt="Animation showing smart reply" src="https://github.com/tensorflow/tensorflow/raw/master/tensorflow/lite/g3doc/models/smart_reply/images/smart_reply.gif" />
 
 ## 了解更多
 
