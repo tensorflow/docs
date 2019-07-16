@@ -171,7 +171,7 @@ const model = await tf.loadLayersModel('http://model-server.domain/download/mode
 ```
 这将从HTTP端点加载模型。加载`json` 文件后，函数将请求对应的`json` 文件引用的`.bin`文件。
 
-> 注意：这个工具依赖于[`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)方法。如果你的环境没有提供原生的fetch方法，你可以提供全局方法名称[`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)从而满足接口要求或是使用类似于(`node-fetch`)[https://www.npmjs.com/package/node-fetch]的库。
+> 注意：这个工具依赖于[`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)方法。如果您的环境没有提供原生的fetch方法，您可以提供全局方法名称[`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)从而满足接口要求或是使用类似于(`node-fetch`)[https://www.npmjs.com/package/node-fetch]的库。
 
 
 ### 本机文件系统 (仅限于Node.js)
