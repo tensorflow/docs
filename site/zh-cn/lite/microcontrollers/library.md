@@ -10,7 +10,7 @@
 的概览。
 
 在
-[README.md](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/README.md#how-to-port-tensorflow-lite-micro-to-a-new-platform)
+[README.md](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/README.md#如何将用于微控制器的TensorFlow-Lite写入一个新的平台)
 中包含更多关于所有这些话题的更多深入信息。
 
 ## 文件结构
