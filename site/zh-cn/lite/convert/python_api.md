@@ -49,15 +49,10 @@ with tf.Session() as sess:
 
 ### 使用文件转换GraphDef <a name="basic_graphdef_file"></a>
 
-The following example shows how to convert a TensorFlow GraphDef into a
-TensorFlow Lite FlatBuffer when the GraphDef is stored in a file. Both `.pb` and
-`.pbtxt` files are accepted.
-以下示例
+以下示例展示了当GraphDef被存成文件时，如何转换成TensorFlow Lite FlatBuffer，文件格式支持`.pb` 和`.pbtxt`。
 
-The example uses
-[Mobilenet_1.0_224](https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_1.0_224_frozen.tgz).
-The function only supports GraphDefs frozen using
-[freeze_graph.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/freeze_graph.py).
+示例中用到的文件下载包：[Mobilenet_1.0_224](https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_1.0_224_frozen.tgz)。
+该函数只支持用[freeze_graph.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/freeze_graph.py)冻结的GraphDef。
 
 ```python
 import tensorflow as tf
@@ -72,10 +67,9 @@ tflite_model = converter.convert()
 open("converted_model.tflite", "wb").write(tflite_model)
 ```
 
-### Exporting a SavedModel <a name="basic_savedmodel"></a>
+### 转换SavedModel <a name="basic_savedmodel"></a>
 
-The following example shows how to convert a SavedModel into a TensorFlow Lite
-FlatBuffer.
+以下示例展示了如何把SavedModel转换成TensorFlow Lite FlatBuffer。
 
 ```python
 import tensorflow as tf
@@ -89,12 +83,16 @@ For more complex SavedModels, the optional parameters that can be passed into
 `TFLiteConverter.from_saved_model()` are `input_arrays`, `input_shapes`,
 `output_arrays`, `tag_set` and `signature_key`. Details of each parameter are
 available by running `help(tf.lite.TFLiteConverter)`.
+对于更复杂的SavedModel, 可以往 `TFLiteConverter.from_saved_model()` 函数中传递可选参数：
+`input_arrays`，`input_shapes`， `output_arrays`， `tag_set` `signature_key`。
+运行 `help(tf.lite.TFLiteConverter)` 查看参数详情。
 
-### Exporting a tf.keras File <a name="basic_keras_file"></a>
+### 转换tf.keras文件 <a name="basic_keras_file"></a>
 
 The following example shows how to convert a `tf.keras` model into a TensorFlow
 Lite FlatBuffer. This example requires
 [`h5py`](http://docs.h5py.org/en/latest/build.html) to be installed.
+以下示例展示如何把`tf.keras`模型转换成TensorFlow Lite FlatBuffer。示例需要先安装[`h5py`](http://docs.h5py.org/en/latest/build.html)
 
 ```python
 import tensorflow as tf
@@ -104,14 +102,13 @@ tflite_model = converter.convert()
 open("converted_model.tflite", "wb").write(tflite_model)
 ```
 
-The `tf.keras` file must contain both the model and the weights. A comprehensive
-example including model construction can be seen below.
+`tf.keras`文件必须包含模型和权重。一个全面的包括模型构造在内的示例如下所示：
 
 ```python
 import numpy as np
 import tensorflow as tf
 
-# Generate tf.keras model.
+# 生成 tf.keras 模型.
 model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Dense(2, input_shape=(3,)))
 model.add(tf.keras.layers.RepeatVector(3))
@@ -126,11 +123,11 @@ y = np.random.random((1, 3, 3))
 model.train_on_batch(x, y)
 model.predict(x)
 
-# Save tf.keras model in HDF5 format.
+# 将tf.keras模型保存成HDF5格式.
 keras_file = "keras_model.h5"
 tf.keras.models.save_model(model, keras_file)
 
-# Convert to TensorFlow Lite model.
+# 转换成TensorFlow Lite模型.
 converter = tf.lite.TFLiteConverter.from_keras_model_file(keras_file)
 tflite_model = converter.convert()
 open("converted_model.tflite", "wb").write(tflite_model)
