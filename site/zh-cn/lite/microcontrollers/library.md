@@ -35,7 +35,7 @@
 -   [`micro_interpreter.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/micro_interpreter.h)
     包含控制和运行模型的代码
 
-参阅 [开始使用微控制器](get_started.md) 
+在 [开始使用微控制器](get_started.md) 可以找到
 以练习典型的用途。
 
 构建系统提供某些文件在特定平台的实现。
