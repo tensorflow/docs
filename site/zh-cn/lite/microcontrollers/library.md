@@ -19,7 +19,7 @@
 [`micro`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro)
 根目录中有一个相对简单的结构。然而，因为它位于巨大的 TensorFlow 仓库中，
 所以我们创建了一些脚本和预生成的项目文件，
-这些项目文件中分别提供了多种嵌入式开发环境
+为多种嵌入式开发环境
 （如 Arduino, Keil, Make 和 Mbed）
 提供分离的相关源文件。
 
