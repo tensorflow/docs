@@ -1,38 +1,36 @@
 # Python API 指南
 
-本页提供了一些案例来说明如何通过Python API调用TensorFlow Lite 转换器和解释器。
+本页提供了一些示例来说明如何通过Python API调用TensorFlow Lite转换器，以及解释器。
 
 Note: 本文介绍的是Tensorflow nightly版本的转换器， 运行`pip install tf-nightly`安装此版本。
 旧版文档请参考["转换TensorFlow 1.12及之前版本的模型"](#pre_tensorflow_1.12)。
 
 [TOC]
 
-
+  
 ## 概述
 
-虽然也可以在命令行中调用TensorFlow Lite转换器, 但用Python脚本调用API的方式可以作为开发流水线的一环，通常会更加便捷，
-它可以使您尽快知道您正在设计的模型，能否针对移动设备。
+虽然也可以在命令行中调用TensorFlow Lite转换器, 但用Python脚本调用API的方式可以作为模型开发流水线的一环，通常会更加便捷，
+它可以让您尽快知道您正在设计的模型能否可以针对移动设备。
 
 ## API
 
-用于将TensorFlow模型转换为TensorFlow Lite的API是`tf.lite.TFLiteConverter`。 
-用于调用Python解释器的API是`tf.lite.Interpreter`。
+`tf.lite.TFLiteConverter`：用于将TensorFlow模型转换为TensorFlow Lite的API。 
+`tf.lite.Interpreter`：用于调用Python解释器的API。
 
-根据模型原始格式，`TFLiteConverter` 提供了一系列类方法用于转换。
+针对不同的模型原始格式，`TFLiteConverter` 提供了多种用于转换的类方法。
 `TFLiteConverter.from_session()` 用于 GraphDefs。
 `TFLiteConverter.from_saved_model()` 用于 SavedModels。
 `TFLiteConverter.from_keras_model_file()` 用于`tf.Keras`文件。
-[基本案例](#basic)中展示了简单浮点模型的用法。[复杂示例](#complex)展示了复杂点的模型用法。
+[基本示例](#basic)中展示了简单浮点模型的用法。[复杂示例](#complex)展示了复杂点的模型用法。
 
-## 基本案例 <a name="basic"></a>
+## 基本示例 <a name="basic"></a>
 
-The following section shows examples of how to convert a basic float-point model
-from each of the supported data formats into a TensorFlow Lite FlatBuffers.
+以下部分显示了如何把基本浮点模型从各种原始数据格式转换成TensorFlow Lite FlatBuffers。
 
-### Exporting a GraphDef from tf.Session <a name="basic_graphdef_sess"></a>
+### 使用tf.Session转换GraphDef <a name="basic_graphdef_sess"></a>
 
-The following example shows how to convert a TensorFlow GraphDef into a
-TensorFlow Lite FlatBuffer from a `tf.Session` object.
+以下示例展示了如何使用`tf.Session`对象把TensorFlow GraphDef转换成TensorFlow Lite FlatBuffer。
 
 ```python
 import tensorflow as tf
@@ -49,11 +47,12 @@ with tf.Session() as sess:
   open("converted_model.tflite", "wb").write(tflite_model)
 ```
 
-### Exporting a GraphDef from file <a name="basic_graphdef_file"></a>
+### 使用文件转换GraphDef <a name="basic_graphdef_file"></a>
 
 The following example shows how to convert a TensorFlow GraphDef into a
 TensorFlow Lite FlatBuffer when the GraphDef is stored in a file. Both `.pb` and
 `.pbtxt` files are accepted.
+以下示例
 
 The example uses
 [Mobilenet_1.0_224](https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_1.0_224_frozen.tgz).
