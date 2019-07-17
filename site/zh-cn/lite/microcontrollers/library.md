@@ -107,5 +107,5 @@ make -f tensorflow/lite/experimental/micro/tools/make/Makefile generate_projects
 
 把微控制器版 TensorFlow Lite 写入新平台和设备的指南，
 可在
-[README.md](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro#how-to-port-tensorflow-lite-micro-to-a-new-platform)
+[README.md](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro#如何将用于微控制器的TensorFlow-Lite写入一个新的平台)
 中查看。
