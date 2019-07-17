@@ -90,7 +90,7 @@ make -f tensorflow/lite/experimental/micro/tools/make/Makefile generate_projects
     git clone --depth 1 https://github.com/tensorflow/tensorflow.git
     ```
 
-2.  进入上一步创建的目录中。
+2.  进入上一步创建的目录。
 
     ```bash
     cd tensorflow
