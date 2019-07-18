@@ -104,7 +104,7 @@ TensorFlow Lite 当前支持[一部分（limited subset）](ops_compatibility.md
 
 [TensorFlow Lite 解释器（interpreter）](inference.md)是一个库（library），它接收一个模型文件（model file），执行模型文件在输入数据（input data）上定义的运算符（operations），并提供对输出（output）的访问。
 
-该解释器（interpreter）适用于多个平台，提供了一个简单的 API，用于从 Java, Swift, Objective-C, C++ 和 Python 运行 TensorFlow Lite 模型。
+该解释器（interpreter）适用于多个平台，提供了一个简单的 API，用于从 Java、Swift、Objective-C、C++ 和 Python 运行 TensorFlow Lite 模型。
 
 下面的代码显示了从 Java 调用解释器的方式:
 
