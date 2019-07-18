@@ -116,7 +116,7 @@ try (Interpreter interpreter = new Interpreter(tensorflow_lite_model_file)) {
 
 ### GPU 加速和委托
 
-一些设备为机器学习运算符提供硬件加速（hardware acceleration）。例如，大多数移动电话有 GPUs，GPU 可以比 CPU 执行更快的浮点矩阵运算（floating point matrix operations）。
+一些设备为机器学习运算符提供硬件加速（hardware acceleration）。例如，大多数手机有 GPU，这些 GPU 可以比 CPU 执行更快的浮点矩阵运算（floating point matrix operations）。
 
 速度提升（speed-up）能有显著（substantial）效果。例如，当使用 GPU 加速时，MobileNet v1 图像分类模型在 Pixel 3 手机上的运行速度提高了 5.5 倍。
 
