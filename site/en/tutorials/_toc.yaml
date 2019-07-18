@@ -68,7 +68,7 @@ toc:
   - title: Training loops
     path: /tutorials/distribute/training_loops
   - title: TPU
-    path: /tutorials/distribute/tpu/custom_training
+    path: /tutorials/distribute/tpu_custom_training
 
 - title: Images
   style: accordion

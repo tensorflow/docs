@@ -22,6 +22,8 @@ toc:
   path: /beta/guide/keras/saving_and_serializing
 - title: "Recurrent neural network API"
   path: /beta/guide/keras/rnn
+- title: "Masking and padding"
+  path: /beta/guide/keras/masking_and_padding
 - title: "Write custom callbacks"
   path: /beta/guide/keras/custom_callback
 

@@ -98,6 +98,8 @@ toc:
   section:
   - title: "Style transfer"
     path: /beta/tutorials/generative/style_transfer
+  - title: "DeepDream"
+    path: /beta/tutorials/generative/deepdream
   - title: "DCGAN"
     path: /beta/tutorials/generative/dcgan
   - title: "Pix2Pix"
