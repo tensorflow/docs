@@ -127,7 +127,6 @@ translate the following words:
 *   node
 *   nueron
 *   target
-*   import
 *   checkpoint
 *   compile
 *   dropout
