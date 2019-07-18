@@ -2,15 +2,16 @@
 
 本文档列出了在一些Android和iOS设备上运行常见模型时TensorFlow Lite的跑分。
 
-这些跑分数据由[Android TFLite benchmark binary](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark)及 [iOS benchmark app](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark/ios) 产生。
+这些跑分数据由 [Android TFLite benchmark binary](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark) 及 [iOS benchmark app](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark/ios) 产生。
 
 # 安卓环境的跑分
 
-对于安卓环境的跑分, 为了减少设备间的差异性，CPU亲和性被设置为使用大核跑分。 (查看 [详情](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark#reducing-variance-between-runs-on-android)).
+对于安卓环境的跑分, 为了减少设备间的差异性，CPU亲和性被设置为使用大核跑分。 (查看[详情](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark#reducing-variance-between-runs-on-android))
 
-假设模型被下载并解压缩到
-`/data/local/tmp/tflite_models` 路径。 用于跑分的二进制文件使用 [这些命令构建](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark#on-android)
-此外，我们假设该文件位于 `/data/local/tmp` 目录.
+假设模型被下载并解压缩到 `/data/local/tmp/tflite_models` 路径。用于跑分的二进制文件
+
+使用 [这些命令构建](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark#on-android)。
+此外，我们假设该文件位于 `/data/local/tmp` 目录。
 
 使用以下语句运行跑分:
 
@@ -23,7 +24,7 @@ adb shell taskset ${CPU_MASK} /data/local/tmp/benchmark_model \
   --use_nnapi=false
 ```
 
-在这里, `${GRAPH}是模型的名字， `${CPU_MASK}` 是CPU亲和度设置，
+在这里, `${GRAPH}`是模型的名字， `${CPU_MASK}` 是CPU亲和度设置。
 请从下表中选择:
 
 Device | CPU_MASK |
@@ -111,7 +112,9 @@ Pixel xl | 0c |
 
 # iOS 跑分
 
-要运行 iOS 跑分,  [跑分应用程序](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark/ios)应含有合适的模型，且benchmark_params.json` 中的 `num_threads` 被设置为 1.
+要运行 iOS 跑分,  [跑分应用程序](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark/ios)应含有合适的模型，且benchmark_params.json` 中` 
+
+ `的 `num_threads` 被设置为 1。
 
 <table>
   <thead>
