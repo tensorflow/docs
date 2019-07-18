@@ -2,7 +2,7 @@
 
 本页提供了一些示例来说明如何通过Python API调用TensorFlow Lite转换器，以及解释器。
 
-Note: 本文介绍的是Tensorflow nightly版本的转换器， 运行`pip install tf-nightly`安装此版本。
+注意: 本文介绍的是Tensorflow nightly版本的转换器， 运行`pip install tf-nightly`安装此版本。
 旧版文档请参考["转换TensorFlow 1.12及之前版本的模型"](#pre_tensorflow_1.12)。
 
 [TOC]
@@ -133,21 +133,17 @@ tflite_model = converter.convert()
 open("converted_model.tflite", "wb").write(tflite_model)
 ```
 
-## Complex examples <a name="complex"></a>
+## 复杂示例 <a name="complex"></a>
 
-For models where the default value of the attributes is not sufficient, the
-attribute's values should be set before calling `convert()`. In order to call
-any constants use `tf.lite.constants.<CONSTANT_NAME>` as seen below with
-`QUANTIZED_UINT8`. Run `help(tf.lite.TFLiteConverter)` in the Python
-terminal for detailed documentation on the attributes.
+对于属性默认值不足的模型，在调用`convert()`之前应该设置属性值。
+例如设置任何常量都需要使用`tf.lite.constants.<CONSTANT_NAME>`，以下示例中使用了常量`QUANTIZED_UINT8`。
+您可以在Python终端中运行`help（tf.lite.TFLiteConverter）`获取有关属性的详细文档。
 
-Although the examples are demonstrated on GraphDefs containing only constants.
-The same logic can be applied irrespective of the input data format.
+尽管示例中只演示了包含常量的GraphDefs，但不管什么输入数据格式都可以使用同样的逻辑。
 
-### Exporting a quantized GraphDef <a name="complex_quant"></a>
+### 转换量化GraphDef <a name="complex_quant"></a>
 
-The following example shows how to convert a quantized model into a TensorFlow
-Lite FlatBuffer.
+以下示例展示了如何把量化模型转换成TensorFlow Lite FlatBuffer。
 
 ```python
 import tensorflow as tf
