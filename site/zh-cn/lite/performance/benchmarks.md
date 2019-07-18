@@ -1,12 +1,12 @@
 # 性能跑分
 
-本文档列出了在一些Android和iOS设备上运行常见模型时TensorFlow Lite的跑分。
+本文档列出了在一些 Android 和 iOS 设备上运行常见模型时 TensorFlow Lite 的跑分。
 
 这些跑分数据由 [Android TFLite benchmark binary](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark) 及 [iOS benchmark app](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark/ios) 产生。
 
 # 安卓环境的跑分
 
-对于安卓环境的跑分, 为了减少设备间的差异性，CPU亲和性被设置为使用大核跑分。 (查看[详情](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark#reducing-variance-between-runs-on-android))
+对于安卓环境的跑分, 为了减少设备间的差异性，CPU 亲和性被设置为使用大核跑分。 (查看[详情](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark#reducing-variance-between-runs-on-android))
 
 假设模型被下载并解压缩到 `/data/local/tmp/tflite_models` 路径。用于跑分的二进制文件
 
@@ -112,7 +112,7 @@ Pixel xl | 0c |
 
 # iOS 跑分
 
-要运行 iOS 跑分,  [跑分应用程序](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark/ios)应含有合适的模型，且benchmark_params.json` 中` 
+要运行 iOS 跑分,  [跑分应用程序](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark/ios)应含有合适的模型，且 benchmark_params.json` 中` 
 
  `的 `num_threads` 被设置为 1。
 
