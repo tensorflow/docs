@@ -10,9 +10,10 @@ Note: これらのドキュメントは私たちTensorFlowコミュニティが�
 
 ## ブラウザの準備
 
-ブラウザベースのプロジェクトでTensorFlow.jsを利用する方法は主に2つあります。 -
-[scriptタグ](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_JavaScript_within_a_webpage)を使用する -
-[NPM](https://www.npmjs.com)からインストールし、[Parcel](https://parceljs.org/)や[WebPack](https://webpack.js.org/)、[Rollup](https://rollupjs.org/guide/en)などのビルドツールを使用する
+ブラウザベースのプロジェクトでTensorFlow.jsを利用する方法は主に2つあります。 
+
+- [scriptタグ](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_JavaScript_within_a_webpage)を使用する 
+- [NPM](https://www.npmjs.com)からインストールし、[Parcel](https://parceljs.org/)や[WebPack](https://webpack.js.org/)、[Rollup](https://rollupjs.org/guide/en)などのビルドツールを使用する
 
 ウェブ開発に馴染みがなかったり、webpackやparcelなどのツールについて聞いたことがなければ、_scriptタグを使用することをおすすめします。_経験が豊富だったり、より大きなプログラムを書こうとしている場合には、ビルドツールの利用を試みる価値があるでしょう。
 

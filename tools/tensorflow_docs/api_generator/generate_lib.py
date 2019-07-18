@@ -273,7 +273,7 @@ def extract(py_modules,
   # The objects found during traversal, and their children are passed to each
   # of these visitors in sequence. Each visitor returns the list of children
   # to be passed to the next visitor.
-  visitors = [api_filter] + callbacks + [accumulator]
+  visitors = [api_filter, public_api.ignore_typing] + callbacks + [accumulator]
 
   traverse.traverse(py_module, visitors, short_name)
 
@@ -500,8 +500,5 @@ class DocGenerator(object):
       if e.strerror != 'File exists':
         raise
 
-    cmd = ['rsync', '--recursive', '--quiet', '--delete']
-    cmd.extend(str(path) for path in work_py_dir.glob('*'))
-    cmd.append(output_dir)
-
-    subprocess.check_call(cmd)
+    subprocess.check_call(['rsync', '--recursive', '--quiet', '--delete',
+                           '{}/'.format(work_py_dir), output_dir])

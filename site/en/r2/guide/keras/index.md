@@ -16,5 +16,7 @@ need to know as a TensorFlow Keras power user:
 -   [Guide to the Keras functional API](./functional.ipynb)
 -   [Guide to training & evaluation](./training_and_evaluation.ipynb)
 -   [Guide to writing layers and models from scratch with subclassing](./custom_layers_and_models.ipynb)
+-   [Guide to the recurrent neural network API](./rnn.ipynb)
+-   [Guide to masking and padding](./masking_and_padding.ipynb)
 -   [Guide to saving and serializing models](./saving_and_serializing.ipynb)
 -   [Guide to writing custom callbacks](./custom_callback.ipynb)

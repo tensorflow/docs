@@ -3,9 +3,9 @@ toc:
   - heading: API r1
     links:
     - label: r1.14 (stable)
-      path: /api
+      path: /api/stable
     - label: r1.13
-      path: /versions/r1.12/api_docs/python/tf
+      path: /versions/r1.13/api_docs/python/tf
     - label: r1.12
       path: /versions/r1.12/api_docs/python/tf
     - label: r1.11
@@ -19,5 +19,5 @@ toc:
 - column:
   - heading: API r2
     links:
-    - label: r2.0 (preview)
+    - label: r2.0 (beta)
       path: /versions/r2.0/api_docs/python/tf

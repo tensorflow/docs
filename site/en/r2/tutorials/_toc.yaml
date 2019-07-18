@@ -96,21 +96,19 @@ toc:
 - title: "Image generation"
   style: accordion
   section:
-  - heading: Image Optimization
   - title: "Style transfer"
     path: /beta/tutorials/generative/style_transfer
-  - heading: GANs
+  - title: "DeepDream"
+    path: /beta/tutorials/generative/deepdream
   - title: "DCGAN"
     path: /beta/tutorials/generative/dcgan
   - title: "Pix2Pix"
     path: /beta/tutorials/generative/pix2pix
   - title: "CycleGAN"
     path: /beta/tutorials/generative/cyclegan
-  - heading: Autoencoders
-  - title: "VAE"
+  - title: "Variational autoencoder"
     path: /beta/tutorials/generative/cvae
-  - heading: Adversarial Attack
-  - title: "Fast gradient sign method"
+  - title: "Adversarial FGSM"
     path: /beta/tutorials/generative/adversarial_fgsm
 
 - title: "Load and preprocess data"

@@ -20,7 +20,36 @@ from __future__ import print_function
 
 import inspect
 
+
 from tensorflow_docs.api_generator import doc_controls
+
+try:
+  import typing  # pylint: disable=g-import-not-at-top
+  _TYPING = {id(value) for value in typing.__dict__.values()}
+  del typing
+except ImportError:
+  _TYPING = {}
+
+
+def ignore_typing(path, parent, children):
+  """Removes all children that are members of the typing module.
+
+  Arguments:
+    path: A tuple or name parts forming the attribute-lookup path to this
+      object. For `tf.keras.layers.Dense` path is:
+        ("tf","keras","layers","Dense")
+    parent: The parent object.
+    children: A list of (name, value) pairs. The attributes of the patent.
+
+  Returns:
+    A filtered list of children `(name, value)` pairs.
+  """
+  del path
+  del parent
+  children = [
+      (name, value) for (name, value) in children if id(value) not in _TYPING
+  ]
+  return children
 
 
 def local_definitions_filter(path, parent, children):
@@ -120,7 +149,7 @@ class PublicAPIFilter(object):
     self._do_not_descend_map = do_not_descend_map or {}
     self._private_map = private_map or {}
 
-  ALLOWED_DUNDERS = frozenset([
+  ALLOWED_PRIVATES = frozenset([
       '__abs__', '__add__', '__and__', '__bool__', '__call__', '__concat__',
       '__contains__', '__div__', '__enter__', '__eq__', '__exit__',
       '__floordiv__', '__ge__', '__getitem__', '__gt__', '__init__',
@@ -149,11 +178,7 @@ class PublicAPIFilter(object):
       return True
 
     # Skip "_" hidden attributes
-    is_dunder = name.startswith('__') and name.endswith('__')
-    if name.startswith('_') and not is_dunder:
-      return True
-
-    if is_dunder and name not in self.ALLOWED_DUNDERS:
+    if name.startswith('_') and name not in self.ALLOWED_PRIVATES:
       return True
 
     return False
