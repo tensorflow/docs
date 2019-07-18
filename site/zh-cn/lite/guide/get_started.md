@@ -135,7 +135,7 @@ try {
 
 要添加对新硬件加速器的支持，您可以[定义您自己的委托](../performance/delegates.md#how_to_add_a_delegate)。
 
-### Android and iOS
+### Android 和 iOS
 
 TensorFlow Lite 解释器很容易在两个主要移动平台上使用。要入门，请浏览[ Android 快速入门](android.md)和[ iOS 快速入门](iOS.md)指南。对这两个平台，都有[示例应用程序](https://www.tensorflow.org/lite/examples)。
 
