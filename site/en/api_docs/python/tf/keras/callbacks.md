@@ -14,7 +14,7 @@ page_type: reference
 
 
 
-Defined in [`python/keras/api/_v1/keras/callbacks/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/callbacks/__init__.py).
+Defined in [`python/keras/keras/callbacks.py`](https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/python/keras/callbacks.py).
 
 <!-- Placeholder for "Used in" -->
 
