@@ -160,7 +160,7 @@ with tf.Session() as sess:
 ### 从模型文件调用解释器 <a name="interpreter_file"></a>
 
 以下示例展示有了 TensorFlow Lite FlatBuffer 文件后，如何使用 TensorFlow Lite Python 解释器。
-该示例还演示了如何对随机输入数据进行推理。您可以在 Python 终端中运行 `help（tf.lite.Interpreter` 获取解释器的详细文档。
+该示例还演示了如何对随机输入数据进行推理。您可以在 Python 终端中运行 `help(tf.lite.Interpreter)` 获取解释器的详细文档。
 
 ```python
 import numpy as np
