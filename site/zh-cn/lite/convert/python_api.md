@@ -22,7 +22,7 @@
 `TFLiteConverter.from_session()` 用于 GraphDefs。
 `TFLiteConverter.from_saved_model()` 用于 SavedModels。
 `TFLiteConverter.from_keras_model_file()` 用于 `tf.Keras` 文件。
-[基本示例](#basic) 中展示了简单浮点模型的用法。[复杂示例](#complex) 展示了复杂点的模型用法。
+[基本示例](#basic) 展示简单浮点模型的用法。[复杂示例](#complex) 展示更复杂的模型用法。
 
 ## 基本示例 <a name="basic"></a>
 
@@ -52,7 +52,7 @@ with tf.Session() as sess:
 以下示例展示了当 GraphDef 被存成文件时，如何转换成 TensorFlow Lite FlatBuffer，文件格式支持 `.pb` 和 `.pbtxt`。
 
 示例中用到的文件下载包：[Mobilenet_1.0_224](https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_1.0_224_frozen.tgz)。
-该函数只支持用[freeze_graph.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/freeze_graph.py) 冻结的 GraphDef。
+该函数只支持用 [freeze_graph.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/freeze_graph.py) 冻结的 GraphDef。
 
 ```python
 import tensorflow as tf
@@ -79,8 +79,8 @@ tflite_model = converter.convert()
 open("converted_model.tflite", "wb").write(tflite_model)
 ```
 
-对于更复杂的 SavedModel, 可以往 `TFLiteConverter.from_saved_model()` 函数中传递可选参数：
-`input_arrays`，`input_shapes`， `output_arrays`， `tag_set` `signature_key`。
+对于更复杂的 SavedModel, 可以给 `TFLiteConverter.from_saved_model()` 函数传递可选参数：
+`input_arrays`，`input_shapes`，`output_arrays`，`tag_set`，`signature_key`。
 运行 `help(tf.lite.TFLiteConverter)` 查看参数详情。
 
 ### 转换 tf.keras 文件 <a name="basic_keras_file"></a>
@@ -215,8 +215,8 @@ interpreter.allocate_tensors()
 ### 源码构建 <a name="latest_package"></a>
 
 为了运行最新版本的 TensorFlow Lite Converter Python API，您可以选择一种方式安装 nightly 版本：
-[pip](https://www.tensorflow.org/install/pip)（推荐）。
-[Docker](https://www.tensorflow.org/install/docker)。
+[pip](https://www.tensorflow.org/install/pip)（推荐），
+[Docker](https://www.tensorflow.org/install/docker)，
 [从源代码构建 pip 包](https://www.tensorflow.org/install/source)。
 
 ### 转换 TensorFlow 1.12 及之前版本的模型 <a name="pre_tensorflow_1.12"></a>
