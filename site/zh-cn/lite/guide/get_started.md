@@ -1,6 +1,6 @@
 # 开始使用 TensorFlow Lite
 
-TensorFlow Lite 提供了转换 TensorFlow 模型，并在移动端（mobile）、嵌入式（embeded）和物联网（IoT）设备上运行 TensorFlow 模型所需的所有工具。以下指南将逐步介绍开发人员各环节的工作流程，并给出了指向更多说明的链接。
+TensorFlow Lite 提供了转换 TensorFlow 模型，并在移动端（mobile）、嵌入式（embeded）和物联网（IoT）设备上运行 TensorFlow 模型所需的所有工具。以下指南介绍了开发人员工作流程的每个步骤，并提供了进一步说明的链接。
 
 ## 1. 选择一个模型
 
