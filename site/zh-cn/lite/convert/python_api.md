@@ -159,7 +159,7 @@ with tf.Session() as sess:
 
 ### 从模型文件调用解释器 <a name="interpreter_file"></a>
 
-以下示例展示有了TensorFlow Lite FlatBuffer 文件后，如何使用 TensorFlow Lite Python 解释器。
+以下示例展示有了 TensorFlow Lite FlatBuffer 文件后，如何使用 TensorFlow Lite Python 解释器。
 该示例还演示了如何对随机输入数据进行推理。您可以在 Python 终端中运行 `help（tf.lite.Interpreter` 获取解释器的详细文档。
 
 ```python
@@ -214,17 +214,17 @@ interpreter.allocate_tensors()
 
 ### 源码构建 <a name="latest_package"></a>
 
-为了运行最新版本的TensorFlow Lite Converter Python API，您可以选择以下一种方式安装 nightly 版本：
+为了运行最新版本的 TensorFlow Lite Converter Python API，您可以选择以下一种方式安装 nightly 版本：
 [pip]（https://www.tensorflow.org/install/pip）（推荐）。
 [Docker]（https://www.tensorflow.org/install/docker）。
-[从源代码构建pip包]（https://www.tensorflow.org/install/source）。
+[从源代码构建 pip 包]（https://www.tensorflow.org/install/source）。
 
 ### 转换 TensorFlow 1.12 及之前版本的模型 <a name="pre_tensorflow_1.12"></a>
 
 Reference the following table to convert TensorFlow models to TensorFlow Lite in
 and before TensorFlow 1.12. Run `help()` to get details of each API.
 参考下表，TensorFlow 1.12 及之前版本，将 TensorFlow 模型转换为 TensorFlow Lite。
-运行 `help()` 获取每种API的详情。 
+运行 `help()` 获取每种 API 的详情。 
 
 TensorFlow 版本 | Python API
 ------------------ | ---------------------------------
