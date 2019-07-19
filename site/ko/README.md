@@ -131,3 +131,7 @@ translate the following words:
 *   compile
 *   dropout
 *   penalty
+
+If you have any suggestion about translation guide, feel free to contact
+[Korean TensorFlow Documentation Translation Glossary](http://bit.ly/tf-docs-translation-glossary)
+spreadsheet.
