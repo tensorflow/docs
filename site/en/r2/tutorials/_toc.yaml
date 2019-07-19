@@ -142,3 +142,5 @@ toc:
     path: /beta/tutorials/distribute/multi_worker_with_estimator
   - title: "Multi worker training with Keras"
     path: /beta/tutorials/distribute/multi_worker_with_keras
+  - title: "Save and restore models"
+    path: /beta/tutorials/distribute/save_and_load
