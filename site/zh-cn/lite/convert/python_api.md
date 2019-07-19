@@ -10,7 +10,7 @@
   
 ## 概述
 
-虽然也可以在命令行中调用 TensorFlow Lite 转换器，但用 Python 脚本调用 API 的方式可以作为模型开发流水线的一环，通常会更加便捷，
+虽然也可以在命令行中调用 TensorFlow Lite 转换器，但用 Python 脚本调用 API 的方式可以作为模型开发流水线 (model development pipeline)的一环，通常会更加便捷，
 它可以让您尽快知道您正在设计的模型能否可以针对移动设备。
 
 ## API
@@ -132,7 +132,7 @@ open("converted_model.tflite", "wb").write(tflite_model)
 例如设置任何常量都需要使用 `tf.lite.constants.<CONSTANT_NAME>`，以下示例中使用了常量 `QUANTIZED_UINT8`。
 您可以在 Python 终端中运行 `help(tf.lite.TFLiteConverter)` 获取有关属性的详细文档。
 
-尽管示例中只演示了包含常量的 GraphDefs，但不管什么输入数据格式都可以使用同样的逻辑。
+尽管示例中只演示了包含常量的 GraphDefs，同样的逻辑可以应用于每一种输入数据格式。
 
 ### 转换量化 GraphDef <a name="complex_quant"></a>
 
@@ -159,8 +159,8 @@ with tf.Session() as sess:
 
 ### 从模型文件调用解释器 <a name="interpreter_file"></a>
 
-以下示例展示有了 TensorFlow Lite FlatBuffer 文件后，如何使用 TensorFlow Lite Python 解释器。
-该示例还演示了如何对随机输入数据进行推理。您可以在 Python 终端中运行 `help(tf.lite.Interpreter)` 获取解释器的详细文档。
+以下示例展示了获得 TensorFlow Lite FlatBuffer 文件后，如何使用 TensorFlow Lite Python 解释器。
+此代码还演示了如何对随机输入数据进行推理。您可以在 Python 终端中运行 `help(tf.lite.Interpreter)` 获取解释器的详细文档。
 
 ```python
 import numpy as np
@@ -221,8 +221,6 @@ interpreter.allocate_tensors()
 
 ### 转换 TensorFlow 1.12 及之前版本的模型 <a name="pre_tensorflow_1.12"></a>
 
-Reference the following table to convert TensorFlow models to TensorFlow Lite in
-and before TensorFlow 1.12. Run `help()` to get details of each API.
 参考下表，TensorFlow 1.12 及之前版本，将 TensorFlow 模型转换为 TensorFlow Lite。
 运行 `help()` 获取每种 API 的详情。 
 
