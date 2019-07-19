@@ -130,7 +130,7 @@ open("converted_model.tflite", "wb").write(tflite_model)
 
 对于属性默认值不足的模型，在调用 `convert()` 之前应该设置属性值。
 例如设置任何常量都需要使用 `tf.lite.constants.<CONSTANT_NAME>`，以下示例中使用了常量 `QUANTIZED_UINT8`。
-您可以在 Python 终端中运行 `help（tf.lite.TFLiteConverter）` 获取有关属性的详细文档。
+您可以在 Python 终端中运行 `help(tf.lite.TFLiteConverter)` 获取有关属性的详细文档。
 
 尽管示例中只演示了包含常量的 GraphDefs，但不管什么输入数据格式都可以使用同样的逻辑。
 
@@ -214,10 +214,10 @@ interpreter.allocate_tensors()
 
 ### 源码构建 <a name="latest_package"></a>
 
-为了运行最新版本的 TensorFlow Lite Converter Python API，您可以选择以下一种方式安装 nightly 版本：
-[pip]（https://www.tensorflow.org/install/pip）（推荐）。
-[Docker]（https://www.tensorflow.org/install/docker）。
-[从源代码构建 pip 包]（https://www.tensorflow.org/install/source）。
+为了运行最新版本的 TensorFlow Lite Converter Python API，您可以选择一种方式安装 nightly 版本：
+[pip](https://www.tensorflow.org/install/pip)（推荐）。
+[Docker](https://www.tensorflow.org/install/docker)。
+[从源代码构建 pip 包](https://www.tensorflow.org/install/source)。
 
 ### 转换 TensorFlow 1.12 及之前版本的模型 <a name="pre_tensorflow_1.12"></a>
 
