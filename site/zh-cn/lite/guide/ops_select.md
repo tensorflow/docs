@@ -6,13 +6,15 @@ TensorFlow Lite 已经内置了很多运算符，并且还在不断扩展，但�
 
 这篇文档简单介绍了怎样在 TensorFlow Lite 使用 TensorFlow 运算符。*注意，这只是一个实验性的功能，并且还在开发中。* 在使用该功能的时候，请记住这些[已知的局限性](#已知的局限性)，并且请将使用中遇到的问题反馈至 tflite@tensorflow.org。
 
-TensorFlow Lite 会继续为移动设备和嵌入式设备优化[内置的运算符](ops_compatibility.md)。但是现在，当 TensorFlow Lite 内置的运算符不够的时候，TensorFlow Lite 模型可以使用部分 TensorFlow 的运算符。TensorFlow Lite 解释器在处理转换后的包含 TensorFlow 运算符的模型的时候，会比处理只包含 TensorFlow Lite 内置运算符的模型占用更多的空间。并且，TensorFlow Lite 模型中包含的任何 TensorFlow 运算符，性能都不会被优化。
+TensorFlow Lite 会继续为移动设备和嵌入式设备优化[内置的运算符](ops_compatibility.md)。但是现在，当 TensorFlow Lite 内置的运算符不够的时候，TensorFlow Lite 模型可以使用部分 TensorFlow 的运算符。
 
-这篇文档简单介绍了怎样针对不同的平台[转换](#转换模型)和[运行](#运行模型)包含 TensorFlow 运算符的 TensorFlow Lite 模型。并且讨论了该功能[已知的局限性](#已知的局限性)、[未来的计划](#未来的计划)以及[性能和空间指标](#性能和空间指标)。
+TensorFlow Lite 解释器在处理转换后的包含 TensorFlow 运算符的模型的时候，会比处理只包含 TensorFlow Lite 内置运算符的模型占用更多的空间。并且，TensorFlow Lite 模型中包含的任何 TensorFlow 运算符，性能都不会被优化。
+
+这篇文档简单介绍了怎样针对不同的平台[转换](#转换模型)和[运行](#运行模型)包含 TensorFlow 运算符的 TensorFlow Lite 模型。并且讨论了一些[已知的局限性](#已知的局限性)、为此功能制定的[未来的计划](#未来的计划)以及基本的[性能和空间指标](#性能和空间指标)。
 
 ## 转换模型
 
-为了能够转换包含 TensorFlow 运算符的 TensorFlow Lite 模型，需要在[TensorFlow Lite 转换器](../convert/)中使用 `target_spec.supported_ops` 参数。`target_spec.supported_ops` 的可选值如下：
+为了能够转换包含 TensorFlow 运算符的 TensorFlow Lite 模型，可使用位于 [TensorFlow Lite 转换器](../convert/) 中的 `target_spec.supported_ops` 参数。`target_spec.supported_ops` 的可选值如下：
 
 *   `TFLITE_BUILTINS` - 使用 TensorFlow Lite 内置运算符转换模型。
 *   `SELECT_TF_OPS` - 使用 TensorFlow 运算符转换模型。已经支持的 TensorFlow 运算符的完整列表可以在白名单 `lite/toco/tflite/whitelisted_flex_ops.cc` 中查看。
@@ -57,12 +59,12 @@ bazel run --define=with_select_tf_ops=true tflite_convert -- \
 
 ## 运行模型
 
-如果 TensorFlow Lite 模型在转换的时候支持从 TensorFlow 选择运算符，那么在使用的时候 Tensorflow Lite 运行时必须包含 TensorFlow 运算符的库。
+如果 TensorFlow Lite 模型在转换的时候支持 TensorFlow select 运算符，那么在使用的时候 Tensorflow Lite 运行时必须包含 TensorFlow 运算符的库。
 
 ### Android AAR
 
-为了便于使用，现在已经提供了一个支持从 TensorFlow 选择运算符的 Android AAR 目标。如果已经有了<a href="android.md">可用的 TensorFlow Lite
-编译环境</a>，可以按照下面的方式编译支持从 TensorFlow 中选择运算符的 Android AAR：
+为了便于使用，新增了一个支持 TensorFlow select 运算符的Android AAR。如果已经有了<a href="android.md">可用的 TensorFlow Lite
+编译环境</a>，可以按照下面的方式编译支持使用 TensorFlow select 运算符的 Android AAR：
 
 ```sh
 bazel build --cxxopt='--std=c++11' -c opt             \
@@ -79,7 +81,7 @@ mvn install:install-file \
   -DartifactId=tensorflow-lite-with-select-tf-ops -Dversion=0.1.100 -Dpackaging=aar
 ```
 
-最后，在应用的 `build.gradle` 文件中需要保证有 `mavenLocal()` 依赖，并且需要用支持从 TensorFlow 选择运算符的 TensorFlow Lite 依赖去替换标准的 TensorFlow Lite 依赖：
+最后，在应用的 `build.gradle` 文件中需要保证有 `mavenLocal()` 依赖，并且需要用支持 TensorFlow select 运算符的 TensorFlow Lite 依赖去替换标准的 TensorFlow Lite 依赖：
 
 ```
 allprojects {
@@ -96,7 +98,7 @@ dependencies {
 
 ### iOS
 
-如果安装了 XCode 命令行工具，可以用下面的命令编译支持从 TensorFlow 选择运算符的 TensorFlow Lite：
+如果安装了 XCode 命令行工具，可以用下面的命令编译支持 TensorFlow select 运算符的 TensorFlow Lite：
 
 ```sh
 tensorflow/contrib/makefile/build_all_ios_with_tflite.sh
@@ -104,7 +106,7 @@ tensorflow/contrib/makefile/build_all_ios_with_tflite.sh
 
 这条命令会在 `tensorflow/contrib/makefile/gen/lib/` 目录下生成所需要的静态链接库。
 
-TensorFlow Lite 的相机示例应用可以用来进行测试。一个新的支持从 TensorFlow 选择运算符的 TensorFlow Lite XCode 项目已经添加在 `tensorflow/lite/examples/ios/camera/tflite_camera_example_with_select_tf_ops.xcodeproj` 中。
+TensorFlow Lite 的相机示例应用可以用来进行测试。一个新的支持 TensorFlow select 运算符的 TensorFlow Lite XCode 项目已经添加在 `tensorflow/lite/examples/ios/camera/tflite_camera_example_with_select_tf_ops.xcodeproj` 中。
 
 如果想要在自己的项目中使用这个功能，你可以克隆示例项目，也可以按照下面的方式对项目进行设置：
 
@@ -119,7 +121,7 @@ TensorFlow Lite 的相机示例应用可以用来进行测试。一个新的支�
 *   在 Build Settings -> Other Linker Flags 中，添加 `-force_load
     tensorflow/contrib/makefile/gen/lib/libtensorflow-lite.a`。
     
-未来还会发布支持从 TensorFlow 中选择运算符的 CocoaPod 。
+未来还会发布支持 TensorFlow select 运算符的 CocoaPod 。
 
 ### C++
 
@@ -140,7 +142,7 @@ TensorFlow Lite 的相机示例应用可以用来进行测试。一个新的支�
 
 ### 性能
 
-如果 TensorFlow Lite 模型是同时混合使用内置运算符和从 TensorFlow 中选择的运算符进行转换的，那么模型依然可以使用针对 TensorFlow Lite 的优化以及内置的优化内核。
+如果 TensorFlow Lite 模型是同时混合使用内置运算符和 TensorFlow select 运算符进行转换的，那么模型依然可以使用针对 TensorFlow Lite 的优化以及内置的优化内核。
 
 下表列出了在 Pixel 2 上 MobileNet 的平均推断时间。表中的时间是 100 次运行的平均时间。在对 Android 平台编译的时候添加了 `--config=android_arm64 -c opt` 标记。
 
@@ -165,7 +167,7 @@ Built-in ops + TF ops | 23.0 MB         | 8.0 MB
 *   目前还不支持控制流运算符。
 *   目前还不支持 TensorFlow 运算符的 [`post_training_quantization`](https://www.tensorflow.org/performance/post_training_quantization) 标记，所以不会对任何 TensorFlow 运算符进行权重量化。如果模型中既包含 TensorFlow Lite 运算符又包含 TensorFlow 运算符，那么 TensorFlow Lite 内置的运算符的权重是可以被量化的。
 *   目前还不支持像 HashTableV2 这种需要显式用资源进行初始化的运算符。
-*   有些 TensorFlow 运算符虽然支持，但是可能只支持部分输入/输出类型。
+*   某些 TensorFlow 操作可能不支持 TensorFlow 库中整套常规可用输入/输出操作。
 
 ## 未来的计划
 
