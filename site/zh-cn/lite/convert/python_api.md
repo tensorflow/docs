@@ -29,7 +29,7 @@
 
 ### 使用 tf.Session 导出 GraphDef <a name="basic_graphdef_sess"></a>
 
-以下示例展示了如何用 `tf.Session` 对象将 TensorFlow GraphDef 转换成 TensorFlow Lite FlatBuffer。
+以下示例展示了如何从 `tf.Session` 对象转换一个 TensorFlow GraphDef 成 TensorFlow Lite FlatBuffer。
 
 ```python
 import tensorflow as tf
