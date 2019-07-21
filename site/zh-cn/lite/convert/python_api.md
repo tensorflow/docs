@@ -20,7 +20,7 @@
 `TFLiteConverter` API， 该API只包含了
 [`from_concrete_function`](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/lite/TFLiteConverter#from_concrete_function).
 本文中用到的的新版本API可以通过pip安装
-[`tf-nightly-2.0-preview`](#installing_the_tensorflow_20_nightly_)。
+[`tf-nightly-2.0-preview`](#2.0-nightly)。
 
 本文展示了API的 [示例用法](#examples)，不同 TensorFlow 版本的API详细列表请看 [1.X 版本到 2.0 版本 API 的改变](#differences)，和
 [版本说明](#versioning) 来安装和使用。
