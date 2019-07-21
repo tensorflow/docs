@@ -13,7 +13,6 @@
 在Android上，演示TensorFlow Lite智能回复模型的示例
 
 <a class="button button-primary" href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/models/smartreply">查看Android示例应用</a>
-
 阅读该
 [GitHub 页面](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/models/smartreply/g3doc)
 以了解该应用的工作原理。
@@ -46,5 +45,5 @@
   <li><a href="https://www.blog.google/products/gmail/save-time-with-smart-reply-in-gmail/">Gmail</a></li>
   <li><a href="https://www.blog.google/products/gmail/computer-respond-to-this-email/">Inbox</a></li>
   <li><a href="https://blog.google/products/allo/google-allo-smarter-messaging-app/">Allo</a></li>
-  <li><a href="https://research.googleblog.com/2017/02/on-device-machine-intelligence.html">Smart Replies on Android Wear</a></li>
+  <li><a href="https://research.googleblog.com/2017/02/on-device-machine-intelligence.html">智能回复在上 Android Wear 的应用</a></li>
 </ul>
