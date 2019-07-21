@@ -44,7 +44,7 @@ TensorFlow Lite 在GPU上支持16位和32位浮点精度中的以下操作：
 
 ### Android (Java)
 
-使用`TfLiteDelegate`在GPU上运行TensorFlow Lite，在Java中，您可以通过 `Interpreter.Options`来指定GpuDelegate。
+使用`TfLiteDelegate`在GPU上运行TensorFlow Lite，在Java中，您可以通过`Interpreter.Options`来指定GpuDelegate。
 
 ```java
 // NEW: Prepare GPU delegate.
@@ -105,7 +105,7 @@ bazel build -c opt --config android_arm64 tensorflow/lite/delegates/gpu:libtenso
 
 ### iOS(ObjC++)
 
-要在GPU上运行TensorFlow Lite，需要通过`NewGpuDelegate()`对GPU委托（delegate），然后将其传递给`Interpreter::ModifyGraphWithDelegate()`（ 而不是调用`Interpreter::AllocateTensors()`）
+要在GPU上运行TensorFlow Lite，需要通过`NewGpuDelegate()`对GPU委托（delegate），然后将其传递给`Interpreter::ModifyGraphWithDelegate()`（而不是调用`Interpreter::AllocateTensors()`）
 
 ```c++
 // Set up interpreter.
@@ -134,13 +134,13 @@ ReadFromOutputTensor(interpreter->typed_output_tensor<float>(0));
 DeleteGpuDelegate(delegate);
 ```
 
-注意：调用`Interpreter::ModifyGraphWithDelegate()`或`Interpreter::Invoke()`时，调用者必须在当前线程中有一个 `EGLContext`，并且从同一个 `EGLContext`中调用 `Interpreter::Invoke()`。如果`EGLContext` 不存在，委托（delegate）将在内部创建一个，但是开发人员必须确保始终从调用`Interpreter::Invoke()`的同一个线程调用`Interpreter::ModifyGraphWithDelegate()`。
+注意：调用`Interpreter::ModifyGraphWithDelegate()`或`Interpreter::Invoke()`时，调用者必须在当前线程中有一个`EGLContext`，并且从同一个`EGLContext`中调用`Interpreter::Invoke()`。如果`EGLContext`不存在，委托（delegate）将在内部创建一个，但是开发人员必须确保始终从调用`Interpreter::Invoke()`的同一个线程调用`Interpreter::ModifyGraphWithDelegate()`。
 
 ## 高级用法
 
 ### 委托（Delegate）iOS 选项
 
-`NewGpuDelegate()` 接受一个 `struct` 选项。
+`NewGpuDelegate()`接受一个 `struct` 选项。
 
 ```c++
 struct GpuDelegateOptions {
@@ -161,7 +161,7 @@ struct GpuDelegateOptions {
 };
 ```
 
-将`nullptr`传递给 `NewGpuDelegate()`，并设置默认选项即在上面的基本用法示例中阐述）。
+将`nullptr`传递给`NewGpuDelegate()`，并设置默认选项（即在上面的基本用法示例中阐述）。
 
 ```c++
 // THIS:
@@ -176,7 +176,7 @@ auto* delegate = NewGpuDelegate(options);
 auto* delegate = NewGpuDelegate(nullptr);
 ```
 
-虽然使用 `nullptr`很方便，但我们建议您指定设置选项，以避免在以后更改默认值时出现任何异常情况。
+虽然使用`nullptr`很方便，但我们建议您指定设置选项，以避免在以后更改默认值时出现任何异常情况。
 
 ### 输入/输出缓冲器
 
@@ -188,7 +188,7 @@ auto* delegate = NewGpuDelegate(nullptr);
 
 #### Android
 
-假设图像送入在GPU存储器中，则必须首先将其转换为OpenGL着色器存储缓冲区对象（SSBO）。 您可以使用`Interpreter.bindGlBufferToTensor()`将TfLiteTensor与用户准备的SSBO相关联。注意：`Interpreter.bindGlBufferToTensor()` 必须在`Interpreter.modifyGraphWithDelegate()`之前调用。
+假设图像送入在GPU存储器中，则必须首先将其转换为OpenGL着色器存储缓冲区对象（SSBO）。您可以使用`Interpreter.bindGlBufferToTensor()`将TfLiteTensor与用户准备的SSBO相关联。注意：`Interpreter.bindGlBufferToTensor()`必须在`Interpreter.modifyGraphWithDelegate()`之前调用。
 
 ```java
 // Ensure a valid EGL rendering context.
@@ -249,7 +249,7 @@ renderOutputSsbo(outputSsboId);
 
 #### iOS
 
-假设图像送入在GPU存储器中，则必须首先将其转换为Metal的`MTLBuffer`对象。您可以将TfLiteTensor与用户准备的`MTLBuffer`和`BindMetalBufferToTensor（）`相关联。注意：必须在 `Interpreter::ModifyGraphWithDelegate()`之前调用`BindMetalBufferToTensor()` 。此外，默认情况下，推断（inference）结果的输出，会从GPU内存复制到CPU内存。在初始化期间调用`Interpreter::SetAllowBufferHandleOutput(true)`可以关闭该操作。
+假设图像送入在GPU存储器中，则必须首先将其转换为Metal的`MTLBuffer`对象。您可以将TfLiteTensor与用户准备的`MTLBuffer`和`BindMetalBufferToTensor()`相关联。注意：必须在`Interpreter::ModifyGraphWithDelegate()`之前调用`BindMetalBufferToTensor()`。此外，默认情况下，推断（inference）结果的输出，会从GPU内存复制到CPU内存。在初始化期间调用`Interpreter::SetAllowBufferHandleOutput(true)`可以关闭该操作。
 
 ```c++
 // Prepare GPU delegate.
@@ -263,11 +263,11 @@ if (interpreter->ModifyGraphWithDelegate(delegate) != kTfLiteOk) return false;
 if (interpreter->Invoke() != kTfLiteOk) return false;
 ```
 
-注意：一旦关闭从GPU内存复制到CPU内存的操作后，将推断（inference）结果输出从GPU内存复制到CPU内存需要为每个输出张量显式调用`Interpreter::EnsureTensorDataIsReadable()` 。
+注意：一旦关闭从GPU内存复制到CPU内存的操作后，将推断（inference）结果输出从GPU内存复制到CPU内存需要为每个输出张量显式调用`Interpreter::EnsureTensorDataIsReadable()`。
 
 ## 提示与技巧
 
-* 在CPU上执行一些微不足道的操作可能需要非常高的代价，譬如各种形式的reshape操作（包括`BATCH_TO_SPACE`, `SPACE_TO_BATCH`, `SPACE_TO_DEPTH`和其他类似的操作）。如果不需要这些操作（比如使用这些操作是为了帮助理解网络架构和了解整个系统但不会影响输出），那么值得删除它们以提高性能。
+* 在CPU上执行一些微不足道的操作可能需要非常高的代价，譬如各种形式的reshape操作（包括`BATCH_TO_SPACE`，`SPACE_TO_BATCH`，`SPACE_TO_DEPTH`和其他类似的操作）。如果不需要这些操作（比如使用这些操作是为了帮助理解网络架构和了解整个系统但不会影响输出），那么值得删除它们以提高性能。
 * 在GPU上，张量（tensor）数据被划分为4个通道（channel）。因此对形状为`[B, H, W, 5]` 的张量（tensor）的计算量大致与`[B, H, W, 8]`相同，但明显比`[B, H, W, 4]`要大。
   * 比如：如果相机的硬件支持RGBA，那么传输4通道（channel）数据的速度要快得多，因为可以避免内存复制（从3通道RGB到4通道RGBX）。
 * 为了获得最佳性能，请不要犹豫使用移动优化过（mobile-optimized）的网络架构重新训练您的分类器。 这是设备推断（inference）优化的重要部分。
