@@ -27,7 +27,7 @@ adb shell taskset ${CPU_MASK} /data/local/tmp/benchmark_model \
 在这里, `${GRAPH}`是模型的名字， `${CPU_MASK}` 是CPU亲和度设置。
 请从下表中选择:
 
-| Device   | CPU_MASK |      |
+|   设备   | CPU_MASK |      |
 | -------- | -------- | ---- |
 | Pixel 2  | f0       |      |
 | Pixel xl | 0c       |      |
@@ -113,9 +113,7 @@ adb shell taskset ${CPU_MASK} /data/local/tmp/benchmark_model \
 
 # iOS 跑分
 
-要运行 iOS 跑分,  [跑分应用程序](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark/ios)应含有合适的模型，且 benchmark_params.json` 中` 
-
- `的 `num_threads` 被设置为 1。
+要运行 iOS 跑分,  [跑分应用程序](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark/ios)应含有合适的模型，且 `benchmark_params.json` 中的 `num_threads` 被设置为 1。
 
 <table>
   <thead>
