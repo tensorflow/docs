@@ -2,11 +2,11 @@
 
 TensorFlow Lite for Microcontrollers 是 TensorFlow Lite 的一个实验性移植版本，它适用于微控制器和其他一些仅有数千字节内存的设备。
 
-它可以直接在“裸机”上运行，不需要操作系统支持、任何 C/C++ 库和动态内存分配。核心运行时可以在具有 16KB ROM 的 Cortex M3 上运行，加上足以用来运行语音关键字检测模型的运算符，也只占据 22KB 的空间。
+它可以直接在“裸机”上运行，不需要操作系统支持、任何标准 C/C++ 库和动态内存分配。核心运行时(core runtime)在 Cortex M3 上运行时仅需 16KB，加上足以用来运行语音关键字检测模型的操作，也只需 22KB 的空间。
 
 ## 开始
 
-要快速开始运行 TensorFlow Lite for Microcontrollers，请阅读[微控制器入门](get_started.md)。
+要快速入门并运行 TensorFlow Lite for Microcontrollers，请阅读[微控制器入门](get_started.md)。
 
 ## 为什么微控制器很重要
 
@@ -14,14 +14,14 @@ TensorFlow Lite for Microcontrollers 是 TensorFlow Lite 的一个实验性移�
 
 微控制器通常针对低能耗和小尺寸进行优化，但代价是降低了处理能力、内存和存储。一些微控制器具有用来优化机器学习任务性能的功能。
 
-通过在微控制器上运行机器学习推断，开发人员可以在不依赖于网络连接的情况下将 AI 添加到各种各样的硬件设备中，这经常用来克服带宽、功率和高延迟的结果带来的约束。在设备上运行推断也可以帮助保护隐私，因为没有数据必须要从设备中发送出去。
+通过在微控制器上运行机器学习推断，开发人员可以在不依赖于网络连接的情况下将 AI 添加到各种各样的硬件设备中，这经常用来克服带宽、功率以及由它们所导致的高延迟而造成的约束。在设备上运行推断也可以帮助保护隐私，因为没有数据从设备中发送出去。
 
 ## 功能和组件
 
-* C++ API，带有在 Cortex M3 上不超过 16KB 的运行时
-* 使用标准 TensorFlow Lite [FlatBuffer](https://google.github.io/flatbuffers/) 架构
-* 为较为流行的嵌入式开发平台预先生成的项目文件，例如 Arduino、Keil 和 Mbed
-* 针对一些嵌入式平台的优化
+* C++ API，其运行时(runtime)在 Cortex M3 上仅需 16KB
+* 使用标准的 TensorFlow Lite [FlatBuffer](https://google.github.io/flatbuffers/) 架构(schema)
+* 为 Arduino、Keil 和 Mbed 等较为流行的嵌入式开发平台预生成的项目文件
+* 针对多个嵌入式平台优化
 * 演示口语热词检测的[示例代码](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro/examples/micro_speech)
 
 ## 开发工作流程
@@ -40,7 +40,7 @@ TensorFlow Lite for Microcontrollers 是 TensorFlow Lite 的一个实验性移�
 
     模型保存在只读程序存储器中，并以简单的 C 文件的形式提供。标准工具可用于[将 FlatBuffer 转换为 C 数组](build_convert.md#转换为-C-数组)。
 
-4. **集成 TensorFlow Lite for Microcontrollers C++ 库**
+4. **集成 TensorFlow Lite for Microcontrollers 的 C++ 库**
 
     编写微控制器代码以使用 [C++ 库](library.md)执行推断。
 
