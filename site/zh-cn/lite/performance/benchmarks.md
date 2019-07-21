@@ -27,10 +27,10 @@ adb shell taskset ${CPU_MASK} /data/local/tmp/benchmark_model \
 在这里, `${GRAPH}`是模型的名字， `${CPU_MASK}` 是CPU亲和度设置。
 请从下表中选择:
 
-|   设备   | CPU_MASK |      |
-| -------- | -------- | ---- |
-| Pixel 2  | f0       |      |
-| Pixel xl | 0c       |      |
+|   设备   | CPU_MASK |
+| -------- | -------- |
+| Pixel 2  | f0       | 
+| Pixel xl | 0c       | 
 
 <table>
   <thead>
