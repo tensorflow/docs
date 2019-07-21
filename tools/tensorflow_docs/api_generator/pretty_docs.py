@@ -352,7 +352,7 @@ def _big_source_link(location):
   """Retrns a source link with Github image."""
   template = textwrap.dedent("""
     <table class="tfo-github-link" align="left">
-    <a target="_blank" href={url}>
+    <a target="_blank" href="{url}">
       <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
       View source on GitHub
     </a>
@@ -369,7 +369,7 @@ def _big_source_link(location):
 
 def _small_source_link(location):
   """Returns a small source link."""
-  template = '<a target="_blank" href={url}>View source</a>\n\n'
+  template = '<a target="_blank" href="{url}">View source</a>\n\n'
 
   if not location.url:
     return GENERATED_FILE_TEMPLATE.format(path=location.rel_path)
