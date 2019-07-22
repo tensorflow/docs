@@ -1,17 +1,16 @@
-# Pose estimation
+# 姿势预测
 
 <img src="../images/pose.png" class="attempt-right" />
 
 ## 开始使用
 
-_PoseNet_ is a vision model that can be used to estimate the pose of a person in
-an image or video by estimating where key body joints are.
+_PoseNet_ 能够通过预测图像或视频中人体的关节位置进行姿势的预测。
 
 <a class="button button-primary" href="https://storage.googleapis.com/download.tensorflow.org/models/tflite/gpu/multi_person_mobilenet_v1_075_float.tflite">下载此模块</a>
 
 Android 和 iOS 设备上的一对一课程即将面世. 与此同时，如果您想要在web浏览器中体验此模块，可以访问
 <a href="https://github.com/tensorflow/tfjs-models/tree/master/posenet">TensorFlow.js
-GitHub </a>.
+GitHub 代码仓库</a>.
 
 ## 工作原理
 
@@ -19,8 +18,7 @@ Pose estimation refers to computer vision techniques that detect human figures
 in images and videos, so that one could determine, for example, where someone’s
 elbow shows up in an image.
 
-To be clear, this technology is not recognizing who is in an image. The
-algorithm is simply estimating where key body joints are.
+为了达到清晰的目的，该算法只是对图像中的人简单的预测身体关键的关节位置所在，而不会去辨别此人是谁。
 
 The key points detected are indexed by "Part ID", with a confidence score
 between 0.0 and 1.0, 1.0 being the highest.
@@ -110,8 +108,7 @@ between 0.0 and 1.0, 1.0 being the highest.
 
 ## 模块性能
 
-Performance varies based on your device and output stride (heatmaps and offset
-vectors). The PoseNet model is image size invariant, which means it can predict
+性能很大程度取决于您的设备性能以及输出的幅度(热点图和偏移向量). The PoseNet model is image size invariant, which means it can predict
 pose positions in the same scale as the original image regardless of whether the
 image is downscaled. This means PoseNet can be configured to have a higher
 accuracy at the expense of performance.
