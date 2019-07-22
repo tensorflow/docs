@@ -1,6 +1,6 @@
 # 理解 C++ 库
 
-微控制器的 TensorFlow Lite C++ 库是
+微控制器版 TensorFlow Lite C++ 库是
 [TensorFlow 仓库](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro)
 的一部分。它可读、易修改，测试结果良好，易整合，并且与标准 TensorFlow Lite 兼容。
 
@@ -18,7 +18,7 @@
 
 ### 关键文件
 
-使用微控制器的 TensorFlow Lite 解释器时最重要的文件在项目的根目录中，并附带测试：
+使用微控制器版 TensorFlow Lite 解释器时最重要的文件在项目的根目录中，并附带测试：
 
 -   [`all_ops_resolver.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/kernels/all_ops_resolver.h)
     提供解释器运行模型的运算符。
