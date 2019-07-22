@@ -1,27 +1,27 @@
 # 模型优化
 
-Tensorflow Lite和[Tensorflow Model Optimization Toolkit](https://www.tensorflow.org/model_optimization)(Tensorflow模型优化工具包)提供了最小优化推理复杂性的工具。
+Tensorflow Lite 和 [Tensorflow Model Optimization Toolkit](https://www.tensorflow.org/model_optimization) (Tensorflow模型优化工具包)提供了最小优化推理复杂性的工具。
 
-对于移动和物联网(IoT)等边缘设备,推理效率尤其重要。这些设备在处理，内存，能耗和模型存储方面有许多限制。
-此外，模型优化解锁了定点硬件(fixed-point hardware)和下一代硬件加速器的处理能力。
+对于移动和物联网 (IoT) 等边缘设备,推理效率尤其重要。这些设备在处理，内存，能耗和模型存储方面有许多限制。
+此外，模型优化解锁了定点硬件 (fixed-point hardware) 和下一代硬件加速器的处理能力。
 
 ## 模型量化
 
 量化的深度神经网络所使用的技术，它们允许用于降低精度权重的表示，并可选地降低存储和计算的激活值。
 量化提供如下的好处:
 
-* 对现有CPU平台的支持。
+* 对现有 CPU 平台的支持。
 * 激活值得的量化减少了用于读取和存储中间激活的存储器访问成本。
-* 许多CPU和硬件加速器实现提供SIMD指令功能，这对量化特别有益。
+* 许多 CPU 和硬件加速器实现提供 SIMD 指令功能，这对量化特别有益。
 
 TensorFlow Lite 对量化提供了多种级别的对量化支持。
 
-* Tensorflow Lite [post-training quantization](post_training_quantization.md)量化 使权重和激活值的Post training更简单。
-* [Quantization-aware training](https://github.com/tensorflow/tensorflow/tree/r1.13/tensorflow/contrib/quantize){:.external} 可以以最小精度下降来训练网络； 这仅适用于卷积神经网络的一个子集。
+* Tensorflow Lite [post-training quantization](post_training_quantization.md) 量化使权重和激活值的 Post training 更简单。
+* [Quantization-aware training](https://github.com/tensorflow/tensorflow/tree/r1.13/tensorflow/contrib/quantize){:.external} 可以以最小精度下降来训练网络；这仅适用于卷积神经网络的一个子集。
 
 ### 延时和准确性结果
 
-下面是一些模型post-training量化和延时和精确性结果。所有延迟数都是在使用单个大内核的Pixel 2设备上测量的。随着工具包的改进，这里的数字也会随之提高:
+以下是一些模型经过 post-training quantization 和 quantization-aware training 后的延迟和准确性结果。所有延迟数都是在使用单个大内核的 Pixel 2 设备上测量的。随着工具包的改进，这些数字也会随之提高:
 
 <figure>
   <table>
@@ -51,7 +51,8 @@ TensorFlow Lite 对量化提供了多种级别的对量化支持。
 
 ## 工具选择
 
-首先，检查[hosted models](../guide/hosted_models.md)中的模型是否适合您的应用程序。如果没有，我们建议用户[post-training quantization tool](post_training_quantization.md)开始，因为这是广泛适用的，且无需训练的数据。
-对于精度和延迟目标没有达到，或者需要硬件加速器支持情况，[quantization-aware training](https://github.com/tensorflow/tensorflow/tree/r1.13/tensorflow/contrib/quantize){:.external}是更好的选择。参见Tensorflow模型优化工具包[Tensorflow Model Optimization Toolkit](https://www.tensorflow.org/model_optimization).中的的其他优化技术。
+首先，检查 [hosted models](../guide/hosted_models.md) 中的模型是否适合您的应用程序。如果没有，我们建议用户从 [post-training quantization tool](post_training_quantization.md) 开始，因为它广泛适用的，且无需训练数据。
 
-注意:Quantization-aware training支持卷积神经网络体系结构的子集。
+对于精度和延迟目标没有达到，或者需要硬件加速器支持情况， [quantization-aware training](https://github.com/tensorflow/tensorflow/tree/r1.13/tensorflow/contrib/quantize) {:.external} 是更好的选择。参见 Tensorflow 模型优化工具包[Tensorflow Model Optimization Toolkit](https://www.tensorflow.org/model_optimization) 中的的其他优化技术。
+
+注意: Quantization-aware training 支持卷积神经网络体系结构的子集。
