@@ -105,23 +105,13 @@ GitHub 代码仓库</a>.
 
 ## 模块性能
 
-性能很大程度取决于您的设备性能以及输出的幅度(热点图和偏移向量). The PoseNet model is image size invariant, which means it can predict
-pose positions in the same scale as the original image regardless of whether the
-image is downscaled. This means PoseNet can be configured to have a higher
-accuracy at the expense of performance.
+性能很大程度取决于您的设备性能以及输出的幅度(热点图和偏移向量)。PoseNet 对于不同尺寸的图片是不变式，也就是说在原始图像和缩小后图像中预测姿势位置是一样的。这也意味着PostNet能精确配置性能消耗。
 
-The output stride determines how much we’re scaling down the output relative to
-the input image size. It affects the size of the layers and the model outputs.
-The higher the output stride, the smaller the resolution of layers in the
-network and the outputs, and correspondingly their accuracy. In this
-implementation, the output stride can have values of 8, 16, or 32. In other
-words, an output stride of 32 will result in the fastest performance but lowest
-accuracy, while 8 will result in the highest accuracy but slowest performance.
-We recommend starting with 16.
+输出幅度决定了缩小后的和输入的图片尺寸的相关程度。输出幅度同样影响到了图层的尺寸和输出的模型。更高的输出幅度决定了更小的网络和输出的图层分辨率，和更小的可信度。
 
-The following image shows how the output stride determines how much we’re
-scaling down the output relative to the input image size. A higher output stride
-is faster but results in lower accuracy.
+在此示例中，输出幅度可以为8，16，或32。换句话说，当输出幅度为32，则会拥有最高性能和最差的可信度；当输出幅度为8，则会有用最高的可信度和最低的性能。我们给出的建议是16.
+
+下图展示了输出幅度的程度决定缩放后的输出和输入的图像的相关度。更高的输出幅度速度更快，但也会导致更低的可信度。
 
 <img alt="Output stride and heatmap resolution" src="../images/output_stride.png" >
 
