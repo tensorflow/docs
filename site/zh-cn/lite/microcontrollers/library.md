@@ -2,8 +2,7 @@
 
 微控制器的 TensorFlow Lite C++ 库是
 [TensorFlow 仓库](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro)
-的一部分。
-它可读、易修改，测试结果良好，易整合，并且与标准 TensorFlow Lite 兼容。
+的一部分。它可读、易修改，测试结果良好，易整合，并且与标准 TensorFlow Lite 兼容。
 
 下面的文档列出了 C++ 库的基本结构，提供了编译所需的命令，并给出了将程序写入新设备的概览。
 
