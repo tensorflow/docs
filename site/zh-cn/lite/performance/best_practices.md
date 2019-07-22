@@ -6,9 +6,9 @@
 
 根据任务的不同，你会需要在模型复杂度和大小之间做取舍。如果你的任务需要高准确率，那么你可能需要一个大而复杂的模型。对于精确度不高的任务，就最好使用小一点的模型，因为小的模型不仅占用更少的磁盘和内存，也一般更快更高效。比如，下图展示了常见的图像分类模型中准确率和延迟对模型大小的影响。
 
-![Graph of model size vs accuracy](../images/performance/model_size_vs_accuracy.png "Model Size vs Accuracy")
+![模型大小和准确度的关系图](../images/performance/model_size_vs_accuracy.png "模型大小和准确度")
 
-![Graph of model size vs latency](../images/performance/model_size_vs_latency.png "Model Size vs Latency")
+![模型大小和延迟时间的关系图](../images/performance/model_size_vs_latency.png "模型大小和延迟时间")
 
 一个针对移动设备优化的示例模型就是 [MobileNets](https://arxiv.org/abs/1704.04861)，该模型是为了移动端视觉应用而优化的。我们的 [模型列表](../models/hosted.md) 列出了另外几种专为移动和嵌入式设备优化的模型。
 
@@ -40,7 +40,7 @@ TensorFlow Lite 支持针对多运算符使用多线程内核。你可以增加�
 
 ## 清除冗余副本
 
-如果你的应用没有被很好地设计，在输入模型和读取模型输出时可能会有冗余副本。应确保清除冗余副本。如果你在使用高层 API，如 Java，请确保仔细阅读性能注意事项。比如，如果使用 ByteBuffers 作为 [输入](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/java/src/main/java/org/tensorflow/lite/Interpreter.java#L175)，Java API 会快得多。
+如果你的应用没有被很好地设计，在输入模型和读取模型输出时可能会有冗余副本。应确保清除冗余副本。如果你在使用高层 API，如 Java，请确保仔细阅读性能注意事项。比如，如果使用 ByteBuffers 作为[输入](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/java/src/main/java/org/tensorflow/lite/Interpreter.java#L175)，Java API 会快得多。
 
 ## 用平台特定工具测试你的应用
 
