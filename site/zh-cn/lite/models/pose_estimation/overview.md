@@ -4,7 +4,7 @@
 
 ## 开始使用
 
-_PoseNet_ 能够通过预测图像或视频中人体的关节位置进行姿势的预测。
+_PoseNet_ 能够通过预测图像或视频中人体的关键位置进行姿势的预测。
 
 <a class="button button-primary" href="https://storage.googleapis.com/download.tensorflow.org/models/tflite/gpu/multi_person_mobilenet_v1_075_float.tflite">下载此模块</a>
 
@@ -14,90 +14,87 @@ GitHub 代码仓库</a>.
 
 ## 工作原理
 
-Pose estimation refers to computer vision techniques that detect human figures
-in images and videos, so that one could determine, for example, where someone’s
-elbow shows up in an image.
+姿势检测通过使用计算机图形技术来对图片和视频中的人进行检测和判断，如图片中的人露出了肘臂。
 
-为了达到清晰的目的，该算法只是对图像中的人简单的预测身体关键的关节位置所在，而不会去辨别此人是谁。
+为了达到清晰的目的，该算法只是对图像中的人简单的预测身体关键位置所在，而不会去辨别此人是谁。
 
-The key points detected are indexed by "Part ID", with a confidence score
-between 0.0 and 1.0, 1.0 being the highest.
+关键点检测使用“编号 部位”的格式进行索引，并对部位的探测结果伴随一个信任值。信任值取值范围在0.0至1.0，1.0为最高信任值。
 
 <table style="width: 30%;">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Part</th>
+      <th>编号</th>
+      <th>部位</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>0</td>
-      <td>nose</td>
+      <td>鼻子</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>leftEye</td>
+      <td>左眼</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>rightEye</td>
+      <td>右眼</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>leftEar</td>
+      <td>左耳</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>rightEar</td>
+      <td>右耳</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>leftShoulder</td>
+      <td>左肩</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>rightShoulder</td>
+      <td>右肩</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>leftElbow</td>
+      <td>左肘</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>rightElbow</td>
+      <td>右肘</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>leftWrist</td>
+      <td>左腕</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>rightWrist</td>
+      <td>右腕</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>leftHip</td>
+      <td>左髋</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>rightHip</td>
+      <td>右髋</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>leftKnee</td>
+      <td>左膝</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>rightKnee</td>
+      <td>右膝</td>
     </tr>
     <tr>
       <td>15</td>
-      <td>leftAnkle</td>
+      <td>左踝</td>
     </tr>
     <tr>
       <td>16</td>
-      <td>rightAnkle</td>
+      <td>右踝</td>
     </tr>
   </tbody>
 </table>
