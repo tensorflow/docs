@@ -7,11 +7,10 @@ Tensorflow Lite 和 [Tensorflow Model Optimization Toolkit](https://www.tensorfl
 
 ## 模型量化
 
-量化的深度神经网络所使用的技术，它们允许用于降低精度权重的表示，并可选地降低存储和计算的激活值。
-量化提供如下的好处:
+深度神经网络的量化使用了一些技术，这些技术可以降低权重的精确表示，并且可选的降低存储和计算的激活值。量化的好处有:
 
 * 对现有 CPU 平台的支持。
-* 激活值得的量化减少了用于读取和存储中间激活的存储器访问成本。
+* 激活值得的量化降低了用于读取和存储中间激活值的存储器访问成本。
 * 许多 CPU 和硬件加速器实现提供 SIMD 指令功能，这对量化特别有益。
 
 TensorFlow Lite 对量化提供了多种级别的对量化支持。
@@ -45,7 +44,7 @@ TensorFlow Lite 对量化提供了多种级别的对量化支持。
       <td>3973</td><td>2868</td><td>N/A</td><td>178.3</td><td>44.9</td></tr>
  </table>
   <figcaption>
-    <b>Table 1</b> Benefits of model quantization for select CNN models 模型量化对选择CNN模型的好处
+    <b>Table 1</b> 模型量化对选择CNN模型的好处
   </figcaption>
 </figure>
 
