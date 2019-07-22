@@ -30,9 +30,9 @@ TensorFlow Lite 对量化提供了多种级别的对量化支持。
       <th>Top-1 精确性(初始) </th> 
       <th>Top-1 精确性(Post Training量化) </th>
       <th>Top-1 精确性 (Quantization Aware Training) </th>
-      <th>Latency (初始) (ms) </th> 
-      <th>Latency (Post Training量化) (ms) </th>
-      <th>Latency (Quantization Aware) (ms) </th>
+      <th>延迟 (初始) (ms) </th> 
+      <th>延迟 (Post Training量化) (ms) </th>
+      <th>延迟 (Quantization Aware) (ms) </th>
       <th> 大小 (初始) (MB)</th>
       <th> 大小 (优化后) (MB)</th>
     </tr> <tr><td>Mobilenet-v1-1-224</td><td>0.709</td><td>0.657</td><td>0.70</td>
