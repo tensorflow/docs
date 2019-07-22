@@ -7,15 +7,13 @@
 _PoseNet_ is a vision model that can be used to estimate the pose of a person in
 an image or video by estimating where key body joints are.
 
-<a class="button button-primary" href="https://storage.googleapis.com/download.tensorflow.org/models/tflite/gpu/multi_person_mobilenet_v1_075_float.tflite">Download
-starter model</a>
+<a class="button button-primary" href="https://storage.googleapis.com/download.tensorflow.org/models/tflite/gpu/multi_person_mobilenet_v1_075_float.tflite">下载此模块</a>
 
-Android and iOS end-to-end tutorials are coming soon. In the meantime, if you
-want to experiment this on a web browser, check out the
+Android 和 iOS 设备上的一对一课程即将面世. 与此同时，如果您想要在web浏览器中体验此模块，可以访问
 <a href="https://github.com/tensorflow/tfjs-models/tree/master/posenet">TensorFlow.js
-GitHub repository</a>.
+GitHub </a>.
 
-## How it works
+## 工作原理
 
 Pose estimation refers to computer vision techniques that detect human figures
 in images and videos, so that one could determine, for example, where someone’s
@@ -106,11 +104,11 @@ between 0.0 and 1.0, 1.0 being the highest.
   </tbody>
 </table>
 
-## Example output
+## 示例输出
 
 <img alt="Animation showing pose estimation" src="https://www.tensorflow.org/images/lite/models/pose_estimation.gif"/>
 
-## How it performs
+## 模块性能
 
 Performance varies based on your device and output stride (heatmaps and offset
 vectors). The PoseNet model is image size invariant, which means it can predict
@@ -133,14 +131,14 @@ is faster but results in lower accuracy.
 
 <img alt="Output stride and heatmap resolution" src="../images/output_stride.png" >
 
-## Read more about pose estimation
+## 关于此模块的更多内容
 
 <ul>
   <li><a href="https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5">Blog post: Real-time Human Pose Estimation in the Browser with TensorFlow.js</a></li>
   <li><a href="https://github.com/tensorflow/tfjs-models/tree/master/posenet">TF.js GitHub: Pose Detection in the Browser: PoseNet Model</a></li>
 </ul>
 
-### Use cases
+### 使用案例
 
 <ul>
   <li><a href="https://vimeo.com/128375543">‘PomPom Mirror’</a></li>
