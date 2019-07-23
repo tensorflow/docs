@@ -58,7 +58,7 @@ World 示例</a>
 
 ### 微视觉示例
 
-本示例展示了如何使用 Tensorflow Lite 运行一个250千字节的神经网络来识别由摄像机拍摄的图像中的人。该示例被设计成可以在具有少量内存的系统上运行，如微控制器和 DSP。
+本示例展示了如何使用 Tensorflow Lite 运行一个 25 万字节的神经网络来识别由摄像机拍摄的图像中的人。该示例被设计成可以在具有少量内存的系统上运行，如微控制器和 DSP。
 
 <a class="button button-primary" href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro/examples/micro_vision">微视觉示例</a>
 
@@ -245,4 +245,4 @@ if (invoke_status != kTfLiteOk) {
 创建并运行示例后，请阅读以下文档：
 
 *   在[“构建与转换模型”](build_convert.md)中了解如何使用模型。
-*   在[“了解C++库”](library.md)中了解更多关于C++库的内容。
+*   在[“了解C++库”](library.md)中了解更多关于 C++ 库的内容。
