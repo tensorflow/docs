@@ -91,8 +91,8 @@ World 示例</a>
 -   [`micro_interpreter.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/micro_interpreter.h)
     包含处理和运行模型的代码。
 -   [`schema_generated.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/schema/schema_generated.h)
-    包含TensorFlow Lite的架构。
-    [`FlatBuffer`](https://google.github.io/flatbuffers/) 模型文件格式。
+    包含TensorFlow Lite
+    [`FlatBuffer`](https://google.github.io/flatbuffers/) 模型文件格式的模式。
 -   [`version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/version.h)
     提供Tensorflow Lite架构的版本信息。
 
@@ -216,11 +216,11 @@ if (invoke_status != kTfLiteOk) {
 }
 ```
 
-我们可以检查返回值`TfLiteStatus`以确定运行是否成功。在[`c_api_internal.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api_internal.h)中定义的`TfLiteStatus`的可能值是 `kTfLiteOk`和`kTfLiteError`。
+我们可以检查返回值`TfLiteStatus`以确定运行是否成功。在[`c_api_internal.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api_internal.h)中定义的`TfLiteStatus`的可能值有 `kTfLiteOk`和`kTfLiteError`。
 
 ### 获取输出
 
-模型的输出张量可以通过在`tflite::MicroIntepreter`上调用`output(0)`获得，其中代表第一个（也是唯一一个）输出张量。
+模型的输出张量可以通过在`tflite::MicroIntepreter`上调用`output(0)`获得，其中`0`代表第一个（也是唯一一个）输出张量。
 
 在示例中，输出是一个数组，表示输入属于不同类别（“是”（yes）、“否”（no）、“未知”（unknown）以及“静默”（silence））的概率。由于它们是按照集合顺序排列的，我们可以使用简单的逻辑来确定概率最高的类别：
 
