@@ -99,7 +99,7 @@ mymatC = tf.Variable([[7],[11]], tf.int32)
 
 Higher-rank Tensors, similarly, consist of an n-dimensional array. For example,
 during image processing, many tensors of rank 4 are used, with dimensions
-corresponding to example-in-batch, image width, image height, and color channel.
+corresponding to example-in-batch, image height, image width, and color channel.
 
 ``` python
 my_image = tf.zeros([10, 299, 299, 3])  # batch x height x width x color
