@@ -108,9 +108,9 @@ concrete_func = root.f.get_concrete_function(input_data)
 
 # 转换模型。
 #
-# `from_concrete_function` takes in a list of concrete functions, however,
-# currently only supports converting one function at a time. Converting multiple
-# functions is under development.
+# `from_concrete_function` 的传入参数被设计为一个一个 concrete function 的列表，然而
+# 现阶段仅支持每次调用时仅接受一个concrete function。
+# 同时转换多个concrete function的功能正在开发中。
 converter = tf.lite.TFLiteConverter.from_concrete_functions([concrete_func])
 tflite_model = converter.convert()
 ```
