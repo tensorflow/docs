@@ -1,7 +1,7 @@
 # 模型转换器（Converter）的 Python API 指南
 
 此页面提供了一个关于在 TensorFlow 2.0 中如何使用 
-[TensorFlow Lite 转换器（TensorFlow Lite converter）](index.md) Python API 的示例
+[TensorFlow Lite 转换器（TensorFlow Lite converter）](index.md) Python API 的示例。
 
 [TOC]
 
@@ -9,54 +9,52 @@
 
 在 TensorFlow 2.0 中，用来将原始的 TensorFlow 模型格式转换为 TensorFlow Lite 的 Python API 是 `tf.lite.TFLiteConverter`。在 `TFLiteConverter` 中有以下的类方法（classmethod）：
 
-*   `TFLiteConverter.from_saved_model()`: 用来转换
+*   `TFLiteConverter.from_saved_model()`：用来转换
     [SavedModel 格式模型](https://www.tensorflow.org/alpha/guide/saved_model)。
-*   `TFLiteConverter.from_keras_model()`: 用来转换
+*   `TFLiteConverter.from_keras_model()`：用来转换
     [`tf.keras` 模型](https://www.tensorflow.org/alpha/guide/keras/overview)。
-*   `TFLiteConverter.from_concrete_functions()`: 用来转换
+*   `TFLiteConverter.from_concrete_functions()`：用来转换
     [concrete functions](concrete_function.md)。
 
 注意: 在 TensorFlow Lite 2.0 alpha 中有一个不同版本的
 `TFLiteConverter` API， 该API只包含了
-[`from_concrete_function`](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/lite/TFLiteConverter#from_concrete_function).
+[`from_concrete_function`](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/lite/TFLiteConverter#from_concrete_function)。
 本文中用到的的新版本API可以通过pip安装
 [`tf-nightly-2.0-preview`](#2.0-nightly)。
 
 本文展示了API的 [示例用法](#examples)，不同 TensorFlow 版本的API详细列表请看 [1.X 版本到 2.0 版本 API 的改变](#differences)，和
 [版本说明](#versioning) 来安装和使用。
 
-## Examples <a name="examples"></a>
+## 示例 <a name="examples"></a>
 
-### Converting a SavedModel <a name="saved_model"></a>
+### 转换 SavedModel 格式模型 <a name="saved_model"></a>
 
-The following example shows how to convert a
-[SavedModel](https://www.tensorflow.org/alpha/guide/saved_model) into a
-TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/).
+以下示例展示了如何将一个
+[SavedModel](https://www.tensorflow.org/alpha/guide/saved_model) 转换为
+TensorFlow Lite 中的 [`FlatBuffer`](https://google.github.io/flatbuffers/)格式。
 
 ```python
 import tensorflow as tf
 
-# Construct a basic model.
+# 建立一个简单的模型。
 root = tf.train.Checkpoint()
 root.v1 = tf.Variable(3.)
 root.v2 = tf.Variable(2.)
 root.f = tf.function(lambda x: root.v1 * root.v2 * x)
 
-# Save the model.
+# 保存模型。
 export_dir = "/tmp/test_saved_model"
 input_data = tf.constant(1., shape=[1, 1])
 to_save = root.f.get_concrete_function(input_data)
 tf.saved_model.save(root, export_dir, to_save)
 
-# Convert the model.
+# 转换模型。
 converter = tf.lite.TFLiteConverter.from_saved_model(export_dir)
 tflite_model = converter.convert()
 ```
 
-This API does not have the option of specifying the input shape of any input
-arrays. If your model requires specifying the input shape, use the
-[`from_concrete_functions`](#concrete_function) classmethod instead. The code
-looks similar to the following:
+此 API 不支持指定输入向量的维度。 如果您的模型需要指定输入向量的维度，请使用
+[`from_concrete_functions`](#concrete_function) 来完成。 示例：
 
 ```python
 model = tf.saved_model.load(export_dir)
@@ -66,16 +64,16 @@ concrete_func.inputs[0].set_shape([1, 256, 256, 3])
 converter = TFLiteConverter.from_concrete_functions([concrete_func])
 ```
 
-### Converting a Keras model <a name="keras"></a>
+### 转换 Keras 模型 <a name="keras"></a>
 
-The following example shows how to convert a
-[`tf.keras` model](https://www.tensorflow.org/alpha/guide/keras/overview) into a
-TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/).
+以下示例展示了如何将一个
+[tf.keras 模型](https://www.tensorflow.org/alpha/guide/keras/overview) 转换为
+TensorFlow Lite 中的 [`FlatBuffer`](https://google.github.io/flatbuffers/) 格式。
 
 ```python
 import tensorflow as tf
 
-# Create a simple Keras model.
+# 创建一个简单的 Keras 模型。
 x = [-1, 0, 1, 2, 3, 4]
 y = [-3, -1, 1, 3, 5, 7]
 
@@ -84,31 +82,31 @@ model = tf.keras.models.Sequential(
 model.compile(optimizer='sgd', loss='mean_squared_error')
 model.fit(x, y, epochs=50)
 
-# Convert the model.
+# 转换模型。
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
 tflite_model = converter.convert()
 ```
 
-### Converting a concrete function <a name="concrete_function"></a>
+### 转换 concrete function <a name="concrete_function"></a>
 
-The following example shows how to convert a TensorFlow
-[concrete function](concrete_function.md) into a TensorFlow Lite
-[`FlatBuffer`](https://google.github.io/flatbuffers/).
+以下示例展示了如何将 TensorFlow 中的
+[concrete function](concrete_function.md) into a 转换为TensorFlow Lite 中的
+[`FlatBuffer`](https://google.github.io/flatbuffers/) 格式。
 
 ```python
 import tensorflow as tf
 
-# Construct a basic model.
+# 建立一个模型。
 root = tf.train.Checkpoint()
 root.v1 = tf.Variable(3.)
 root.v2 = tf.Variable(2.)
 root.f = tf.function(lambda x: root.v1 * root.v2 * x)
 
-# Create the concrete function.
+# 生成 concrete function。
 input_data = tf.constant(1., shape=[1, 1])
 concrete_func = root.f.get_concrete_function(input_data)
 
-# Convert the model.
+# 转换模型。
 #
 # `from_concrete_function` takes in a list of concrete functions, however,
 # currently only supports converting one function at a time. Converting multiple
