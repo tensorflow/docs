@@ -48,7 +48,7 @@ dependencies {
 如果需要一个分步教程, 请观看
 [适用于 iOS 的实验性 GPU 代理](https://youtu.be/Xkhgre8r5G0) 的视频。
 
-注意：这需要XCode 10.1或者更高版本
+注意：这需要 XCode 10.1 或者更高版本
 
 #### 第一步. 获取演示应用程序的源码并确保它已被编译
 
@@ -56,8 +56,8 @@ dependencies {
 
 #### 第二部. 修改 Podfile 文件来使用 TensorFlow Lite GPU CocoaPod
 
-我们构建了一个包含GPU代理的二进制CocoaPod文件。如果需要切换到工程并使用它，修改
-`tensorflow/tensorflow/lite/examples/ios/camera/Podfile` 文件来使用  `TensorFlowLiteGpuExperimental` 的 pod 替代 `TensorFlowLite`.
+我们构建了一个包含 GPU 代理的二进制 CocoaPod 文件。如果需要切换到工程并使用它，修改
+`tensorflow/tensorflow/lite/examples/ios/camera/Podfile` 文件来使用  `TensorFlowLiteGpuExperimental` 的 pod 替代 `TensorFlowLite`。
 
 ```
 target 'YourProjectName'
@@ -65,10 +65,10 @@ target 'YourProjectName'
   pod 'TensorFlowLiteGpuExperimental'
 ```
 
-#### 第三步. 启用GPU代理
+#### 第三步. 启用 GPU 代理
 
-为了确保代码会使用GPU代理，你需要将 `CameraExampleViewController.h` 的
-`TFLITE_USE_GPU_DELEGATE` 从0修改为1 .
+为了确保代码会使用 GPU 代理，你需要将 `CameraExampleViewController.h` 的
+`TFLITE_USE_GPU_DELEGATE` 从 0 修改为 1 。
 
 ```c
 #define TFLITE_USE_GPU_DELEGATE 1
@@ -80,16 +80,16 @@ target 'YourProjectName'
 
 #### 第五步. 发布模式
 
-你在第四步是在调试模式下运行的应用程序，为了获得更好的性能表现，你应该使用适当的最佳  Metal 设置将应用程序改为发布版本。特别需要注意的是，需要修改这些设置 `Product > Scheme > Edit
+你在第四步是在调试模式下运行的应用程序，为了获得更好的性能表现，你应该使用适当的最佳 Metal 设置将应用程序改为发布版本。特别需要注意的是，需要修改这些设置 `Product > Scheme > Edit
 Scheme...`，选择 ` Run `，在 ` Info ` 一栏，修改 ` Build Configuration `，从 `Debug ` 改为 ` Release `，取消选择 ` Debug executable`。
 
 ![设置发布](images/iosdebug.png)
 
 然后点击 `Options` 栏然后将 `GPU Frame Capture` 修改成 `Disabled`，并将 `Metal API Validation` 修改成 `Disabled`。
 
-![设置metal选项](images/iosmetal.png)
+![设置 metal 选项](images/iosmetal.png)
 
-最后需要确保发布版本只能在64位系统上构建。在 `Project
+最后需要确保发布版本只能在 64 位系统上构建。在 `Project
 navigator -> tflite_camera_example -> PROJECT -> tflite_camera_example -> Build
 Settings` 上将 `Build Active Architecture Only > Release`选择为 Yes。
 
@@ -146,9 +146,9 @@ interpreter = nullptr;
 DeleteGpuDelegate(delegate);
 ```
 
-## 支持的模型和Ops
+## 支持的模型和 Ops
 
-在GPU代理发布后，我们提供了少数可以在后端运行的模型：
+在 GPU 代理发布后，我们提供了少数可以在后端运行的模型：
 
 * [MobileNet v1 (224x224)图像分类](https://ai.googleblog.com/2017/06/mobilenets-open-source-models-for.html) [[下载]](https://storage.googleapis.com/download.tensorflow.org/models/tflite/gpu/mobilenet_v1_1.0_224.tflite)
 <br /><i>(为移动和嵌入式视觉应用设计的图像分类模型)</i>
@@ -161,9 +161,9 @@ DeleteGpuDelegate(delegate);
 
 如果需要完整的支持的 Ops 的列表，请看[进阶文档](gpu_advanced.md)。
 
-## 不支持的模型和ops
+## 不支持的模型和 ops
 
-如果一些 ops 并不支持 GPU 代理，框架只会在 GPU 上运行图形的一部分，剩下的部分会在 CPU 上运行。因为这会导致 CPU/GPU 同时出现很高的使用率，像这样的分开执行模式会导致运行起来比整个网络在CPU上运行要慢。在这种情况下，用户会收到一个像这样的警告：
+如果一些 ops 并不支持 GPU 代理，框架只会在 GPU 上运行图形的一部分，剩下的部分会在 CPU 上运行。因为这会导致 CPU/GPU 同时出现很高的使用率，像这样的分开执行模式会导致运行起来比整个网络在 CPU 上运行要慢。在这种情况下，用户会收到一个像这样的警告：
 
 ```
 WARNING: op code #42 cannot be handled by this delegate.
