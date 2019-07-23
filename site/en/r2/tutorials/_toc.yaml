@@ -42,6 +42,8 @@ toc:
     path: /beta/tutorials/images/hub_with_keras
   - title: "Transfer learning with pretrained CNNs"
     path: /beta/tutorials/images/transfer_learning
+  - title: "Image segmentation"
+    path: /beta/tutorials/images/segmentation
 
 - title: "Text and sequences"
   style: accordion
