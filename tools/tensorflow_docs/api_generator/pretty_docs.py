@@ -61,19 +61,19 @@ def _build_function_page(page_info):
   """Given a FunctionPageInfo object Return the page as an md string."""
   parts = ['# %s\n\n' % page_info.full_name]
 
+  parts.append(_top_source_link(page_info.defined_in))
+  parts.append('\n\n')
+
   parts.append(page_info.doc.brief + '\n\n')
 
   if len(page_info.aliases) > 1:
     parts.append('### Aliases:\n\n')
     parts.extend('* `%s`\n' % name for name in page_info.aliases)
-    parts.append('\n')
+    parts.append('\n\n')
 
   if page_info.signature is not None:
     parts.append(_build_signature(page_info))
-
-  if page_info.defined_in:
     parts.append('\n\n')
-    parts.append(_big_source_link(page_info.defined_in))
 
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
@@ -87,6 +87,9 @@ def _build_function_page(page_info):
 def _build_class_page(page_info):
   """Given a ClassPageInfo object Return the page as an md string."""
   parts = ['# {page_info.full_name}\n\n'.format(page_info=page_info)]
+
+  parts.append(_top_source_link(page_info.defined_in))
+  parts.append('\n\n')
 
   parts.append('## Class `%s`\n\n' % page_info.full_name.split('.')[-1])
 
@@ -113,11 +116,8 @@ def _build_class_page(page_info):
   if len(page_info.aliases) > 1:
     parts.append('### Aliases:\n\n')
     parts.extend('* Class `%s`\n' % name for name in page_info.aliases)
-    parts.append('\n')
-
-  if page_info.defined_in is not None:
     parts.append('\n\n')
-    parts.append(_big_source_link(page_info.defined_in))
+
 
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
@@ -232,17 +232,18 @@ def _build_module_page(page_info):
   """Given a ClassPageInfo object Return the page as an md string."""
   parts = ['# Module: {full_name}\n\n'.format(full_name=page_info.full_name)]
 
+  parts.append(_top_source_link(page_info.defined_in))
+  parts.append('\n\n')
+
   # First line of the docstring i.e. a brief introduction about the symbol.
   parts.append(page_info.doc.brief + '\n\n')
 
   if len(page_info.aliases) > 1:
     parts.append('### Aliases:\n\n')
     parts.extend('* Module `%s`\n' % name for name in page_info.aliases)
-    parts.append('\n')
-
-  if page_info.defined_in is not None:
     parts.append('\n\n')
-    parts.append(_big_source_link(page_info.defined_in))
+
+
 
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
@@ -348,23 +349,39 @@ def _build_compatibility(compatibility):
 GENERATED_FILE_TEMPLATE = 'Defined in generated file: `{path}`\n\n'
 
 
-def _big_source_link(location):
-  """Retrns a source link with Github image."""
-  template = textwrap.dedent("""
-    <table class="tfo-github-link" align="left">
-    <a target="_blank" href="{url}">
-      <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
-      View source on GitHub
-    </a>
-    </table>
+def _top_source_link(location):
+  """Retrns a source link with Github image, like the notebook butons."""
+  table_template = textwrap.dedent("""
+    <table class="tfo-notebook-buttons tfo-api" align="left">
+    {}</table>
 
     """)
-  if not location.url:
-    return GENERATED_FILE_TEMPLATE.format(path=location.rel_path)
-  if 'github.com' not in location.url:
-    return _small_source_link(location)
 
-  return template.format(url=location.url)
+  link_template = textwrap.dedent("""
+    <td>
+      <a target="_blank" href="{url}">
+        <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+        View source on GitHub
+      </a>
+    </td>""")
+
+  if location is None:
+    return table_template.format('')
+
+  if not location.url:
+    return (
+        table_template.format('')+
+        GENERATED_FILE_TEMPLATE.format(path=location.rel_path)
+    )
+
+  if 'github.com' not in location.url:
+    return (
+        table_template.format('')+
+        _small_source_link(location))
+
+  link = link_template.format(url=location.url)
+  table = table_template.format(link)
+  return table
 
 
 def _small_source_link(location):
