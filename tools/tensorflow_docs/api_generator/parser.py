@@ -281,6 +281,7 @@ class ReferenceResolver(object):
 
     with open(filepath, 'w') as f:
       json.dump(json_dict, f, indent=2, sort_keys=True)
+      f.write('\n')
 
   def replace_references(self, string, relative_path_to_root, full_name=None):
     """Replace `tf.symbol` references with links to symbol's documentation page.
