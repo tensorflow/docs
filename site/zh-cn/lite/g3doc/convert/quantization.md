@@ -4,7 +4,7 @@
 # 训练后：针对特定 CPU 型号的量化模型
 创建小模型的最简单方法是在推理期间将权重量化为 8 位并“在运行中”量化输入/激活。这具有延迟优势，但优先考虑减小尺寸。
 
-在转换期间，将optimizations标志设置为针对大小进行优化：
+在转换期间，将 optimizations 标志设置为针对大小进行优化：
 ```
 converter = tf.lite.TFLiteConverter.from_saved_model(saved_model_dir)
 converter.optimizations = [tf.lite.Optimize.OPTIMIZE_FOR_SIZE]
