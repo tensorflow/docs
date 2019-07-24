@@ -115,70 +115,67 @@ converter = tf.lite.TFLiteConverter.from_concrete_functions([concrete_func])
 tflite_model = converter.convert()
 ```
 
-### End-to-end MobileNet conversion <a name="mobilenet"></a>
+### 端到端 MobileNet 转换 <a name="mobilenet"></a>
 
-The following example shows how to convert and run inference on a pre-trained
-`tf.keras` MobileNet model to TensorFlow Lite. It compares the results of the
-TensorFlow and TensorFlow Lite model on random data. In order to load the model
-from file, use `model_path` instead of `model_content`.
+以下示例展示了如何将将一个提前训练好的 
+`tf.keras` MobileNet 模型转换为 TensorFlow Lite 支持的类型并运行推断 （inference）。 随机数据分别在
+TensorFlow 和 TensorFlow Lite 模型中运行的结果将被比较。如果是从文件加载模型，请使用 `model_path` 来代替 `model_content`。
 
 ```python
 import numpy as np
 import tensorflow as tf
 
-# Load the MobileNet tf.keras model.
+# 加载 MobileNet tf.keras 模型。
 model = tf.keras.applications.MobileNetV2(
     weights="imagenet", input_shape=(224, 224, 3))
 
-# Convert the model.
+# 转换模型。
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
 tflite_model = converter.convert()
 
-# Load TFLite model and allocate tensors.
+# 加载 TFLite 模型并分配张量（tensor）。
 interpreter = tf.lite.Interpreter(model_content=tflite_model)
 interpreter.allocate_tensors()
 
-# Get input and output tensors.
+# 获取输入和输出张量。
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
-# Test the TensorFlow Lite model on random input data.
+# 使用随机数据作为输入测试 TensorFlow Lite 模型。
 input_shape = input_details[0]['shape']
 input_data = np.array(np.random.random_sample(input_shape), dtype=np.float32)
 interpreter.set_tensor(input_details[0]['index'], input_data)
 
 interpreter.invoke()
 
-# The function `get_tensor()` returns a copy of the tensor data.
-# Use `tensor()` in order to get a pointer to the tensor.
+# 函数 `get_tensor()` 会返回一份张量的拷贝。
+# 使用 `tensor()` 获取指向张量的指针。
 tflite_results = interpreter.get_tensor(output_details[0]['index'])
 
-# Test the TensorFlow model on random input data.
+# T使用随机数据作为输入测试 TensorFlow 模型。
 tf_results = model(tf.constant(input_data))
 
-# Compare the result.
+# 对比结果。
 for tf_result, tflite_result in zip(tf_results, tflite_results):
   np.testing.assert_almost_equal(tf_result, tflite_result, decimal=5)
 ```
 
-## Summary of changes in Python API between 1.X and 2.0 <a name="differences"></a>
+## 总结 1.X 版本到 2.0 版本 API 的改变 <a name="differences"></a>
 
-The following section summarizes the changes in the Python API from 1.X to 2.0.
-If any of the changes raise concerns, please file a
+本节总结了从 1.X to 2.0 版本 Python API 的改变。
+如果对某些改动有异议, 请提交
 [GitHub issue](https://github.com/tensorflow/tensorflow/issues).
 
-### Formats supported by `TFLiteConverter`
+### `TFLite转换器` 支持的格式类型
 
-`TFLiteConverter` in 2.0 supports SavedModels and Keras model files generated in
-both 1.X and 2.0. However, the conversion process no longer supports frozen
-`GraphDefs` generated in 1.X. Users who want to convert frozen `GraphDefs` to
-TensorFlow Lite should use `tf.compat.v1.TFLiteConverter`.
+`TFLite转换器` 在 2.0 版本中支持由 1.X 版本和 2.0 版本生成的 SavedModels 和 Keras 模型。但是，转换过程不再支持由 1.X 版本冻结的 `GraphDefs`。 开发者可通过调用 `tf.compat.v1.TFLiteConverter` 来把冻结的 `GraphDefs` 转换到
+TensorFlow Lite 版本。
 
-### Quantization-aware training
+### 量化感知训练（Quantization-aware training）
 
-The following attributes and methods associated with
-[quantization-aware training](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/quantize)
-have been removed from `TFLiteConverter` in TensorFlow 2.0:
+以下与
+[量化感知训练（Quantization-aware training）](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/quantize)
+有关的属性和方法在 TensorFlow 2.0 中从`TFLiteConverter` 中被移除。
 
 *   `inference_type`
 *   `inference_input_type`
@@ -186,7 +183,7 @@ have been removed from `TFLiteConverter` in TensorFlow 2.0:
 *   `default_ranges_stats`
 *   `reorder_across_fake_quant`
 *   `change_concat_input_ranges`
-*   `post_training_quantize` - Deprecated in the 1.X API
+*   `post_training_quantize` - 在 1.X API 中被弃用
 *   `get_input_arrays()`
 
 The rewriter function that supports quantization-aware training does not support
