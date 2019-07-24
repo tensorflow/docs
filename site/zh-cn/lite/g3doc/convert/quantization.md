@@ -24,6 +24,6 @@ tflite_model = converter.convert()
 ```
 对于全整数模型，输入为 uint8。mean 和 std_dev values 指定在训练模型时这些 UINT8 的值是如何值映射到输入的浮点值。
 
-mean 是0到255之间的整数值，映射到浮点数 0.0f。std_dev = 255 /（float_max - float_min）
+mean 是 0 到 255 之间的整数值，映射到浮点数 0.0f。std_dev = 255 /（float_max - float_min）
 
 对于大多数用户，我们建议使用训练后量化。我们正在研究用于后期训练和训练量化的新工具，我们希望这将简化生成量化模型。
