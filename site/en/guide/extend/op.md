@@ -210,7 +210,7 @@ struct ExampleFunctor {
 
 ```c++
 // kernel_example.cc
-#include "example.h"
+#include "kernel_example.h"
 #include "tensorflow/core/framework/op_kernel.h"
 
 using namespace tensorflow;
