@@ -1,5 +1,5 @@
 # 转换量化模型
-本文提供有关如何转换量化 TensorFlow Lite 模型的信息。详细信息，请参阅 [模型优化](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/g3doc/performance/model_optimization.md)。
+本文提供有关如何转换量化 TensorFlow Lite 模型的信息。详细信息，请参阅[模型优化](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/g3doc/performance/model_optimization.md)。
 
 # 训练后：针对特定 CPU 型号的量化模型
 创建小模型的最简单方法是在推理期间将权重量化为 8 位并“在运行中”量化输入/激活。这具有延迟优势，但优先考虑减小尺寸。
