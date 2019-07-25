@@ -169,6 +169,10 @@ DeleteGpuDelegate(delegate);
 WARNING: op code #42 cannot be handled by this delegate.
 ```
 
+```
+警告：此代理无法处理#42操作码
+```
+
 我们没有为这种失败提供回调，因为这不是真的运行错误，但是这个错误是开发者可以注意到的，他们可以尝试将整个网络在代理上运行。
 
 ## 优化建议
