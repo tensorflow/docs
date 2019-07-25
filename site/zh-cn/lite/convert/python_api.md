@@ -152,7 +152,7 @@ interpreter.invoke()
 # 使用 `tensor()` 获取指向张量的指针。
 tflite_results = interpreter.get_tensor(output_details[0]['index'])
 
-# T使用随机数据作为输入测试 TensorFlow 模型。
+# 使用随机数据作为输入测试 TensorFlow 模型。
 tf_results = model(tf.constant(input_data))
 
 # 对比结果。
