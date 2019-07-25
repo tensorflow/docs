@@ -25,7 +25,7 @@ starter model and labels</a>
 For more information about the starter model, see
 <a href="#starter_model">Starter model</a>.
 
-## What is object detection?
+## 什么是物体检测?
 
 Given an image or a video stream, an object detection model can identify which
 of a known set of objects might be present and provide information about their
@@ -47,7 +47,7 @@ When we subsequently provide an image to the model, it will output a list of the
 objects it detects, the location of a bounding box that contains each object,
 and a score that indicates the confidence that detection was correct.
 
-### Model output
+### 模型输出
 
 Imagine a model has been trained to detect apples, bananas, and strawberries.
 When we pass it an image, it will output a set number of detection results - in
