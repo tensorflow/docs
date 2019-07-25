@@ -17,12 +17,12 @@
     [concrete functions](concrete_function.md)。
 
 注意: 在 TensorFlow Lite 2.0 alpha 中有一个不同版本的
-`TFLiteConverter` API， 该API只包含了
+`TFLiteConverter` API， 该 API 只包含了
 [`from_concrete_function`](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/lite/TFLiteConverter#from_concrete_function)。
-本文中用到的的新版本API可以通过pip安装
+本文中用到的的新版本 API 可以通过 pip 安装
 [`tf-nightly-2.0-preview`](#2.0-nightly)。
 
-本文展示了API的 [示例用法](#examples)，不同 TensorFlow 版本的API详细列表请看 [1.X 版本到 2.0 版本 API 的改变](#differences)，和
+本文展示了 API 的 [示例用法](#examples)，不同 TensorFlow 版本的 API 详细列表请看 [1.X 版本到 2.0 版本 API 的改变](#differences)，和
 [安装 TensorFlow](#versioning) 来安装和使用。
 
 ## 示例 <a name="examples"></a>
@@ -90,7 +90,7 @@ tflite_model = converter.convert()
 ### 转换 concrete function <a name="concrete_function"></a>
 
 以下示例展示了如何将 TensorFlow 中的
-[concrete function](concrete_function.md) into a 转换为TensorFlow Lite 中的
+[concrete function](concrete_function.md) 转换为TensorFlow Lite 中的
 [`FlatBuffer`](https://google.github.io/flatbuffers/) 格式。
 
 ```python
@@ -227,7 +227,7 @@ TensorFlow Lite 版本。
 
 #### `lite.OpHint`
 
-由于 API `OpHint` 与 2.0 的API 不兼容，故暂不可用。 此 API可用于转换基于 LSTM 的模型。 在 2.0 中对
+由于 API `OpHint` 与 2.0 的 API 不兼容，故暂不可用。 此 API可用于转换基于 LSTM 的模型。 在 2.0 中对
 LSTMs 的支持正在被探究。所有与 `lite.experimental` 有关的 API 都因此被移除。
 
 ## 安装 TensorFlow <a name="versioning"></a>
