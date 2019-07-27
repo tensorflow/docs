@@ -362,19 +362,15 @@ TFX は 3 つのクラスのデプロイメントターゲットをサポート�
 
 ![Component Flow](diag_all.svg)
 
-### Inference: TensorFlow Serving
+### 推論: TensorFlow Serving
 
-[TensorFlow Serving (TFS)](serving.md) is a flexible, high-performance serving
-system for machine learning models, designed for production environments. It
-consumes a SavedModel and will accept inference requests over either REST or
-gRPC interfaces. It runs as a set of processes on one more more network
-servers, using one of several advanced architectures to handle synchronization
-and distributed computation. See the [TFS documentation](serving.md) for more
-information on developing and deploying TFS solutions.
+[TensorFlow Serving (TFS)](serving.md) はプロダクション環境向けに設計された、柔軟でハイパフォーマンスな機械学習モデルのサービングシステムです。
+これは SavedModel を読み込むと、REST や gRPC インターフェースでの推論リクエストを受け付けるようになります。
+また、複数のプロセスを同期・分散処理のためのいくつかの高度なアーキテクチャ上を用いて、1つないしは複数のネットワークサーバー上で走らせます。
+TFSの開発やデプロイに関する詳細については [TFS のドキュメント](serving.md)を参照してください。
 
-In a typical pipeline a [Pusher](pusher.md) component will consume SavedModels which
-have been trained in a Trainer component and deploy them to your TFS infrastructure.
-This includes handling multiple versions and model updates.
+典型的なパイプラインでは [Pusher](pusher.md) コンポーネントが Trainer コンポーネントで訓練された SavedModel を読み込み、TFS のインフラストラクチャにデプロイします。
+これは複数のバージョンの操作やモデルのアップデートを含みます。
 
 ### Inference in Native Mobile and IoT Applications: TensorFlow Lite
 
