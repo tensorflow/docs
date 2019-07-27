@@ -397,13 +397,12 @@ export SLUGIFY_USES_TEXT_UNIDECODE=yes
 pip install apache-airflow
 ```
 
-### Creating a DAG
+### DAGの作成
 
-You create a TFX pipeline by developing Python which defines a function that is
-decorated with the `tfx.runtimes.tfx_airflow.PipelineDecorator` and creates your
-pipeline components, linking them together in the sequence that the pipeline needs.
-In the global context of the file you then call `create_pipeline()`. For
-example, a typical pipeline might look like:
+Python を用いて TFX パイプラインを作成するためには、`tfx.runtimes.tfx_airflow.PipelineDecorator` でデコレートされた関数を定義して、
+パイプラインで利用するコンポーネントを作成し、パイプラインに合わせてそれらをつなぎ合わせる必要があります。
+その後、ファイルのグローバルコンテキストで `create_pipeline()` を呼び出します。
+例えば、典型的なパイプラインは次のようになるでしょう :
 
 ```python
 @PipelineDecorator(
