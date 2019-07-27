@@ -42,6 +42,8 @@ toc:
     path: /beta/tutorials/images/hub_with_keras
   - title: "Transfer learning with pretrained CNNs"
     path: /beta/tutorials/images/transfer_learning
+  - title: "Image segmentation"
+    path: /beta/tutorials/images/segmentation
 
 - title: "Text and sequences"
   style: accordion
@@ -60,6 +62,11 @@ toc:
     path: /beta/tutorials/estimators/premade_estimators
   - title: "Linear models"
     path: /beta/tutorials/estimators/linear
+  - title: "Boosted trees"
+    path: /beta/tutorials/estimators/boosted_trees
+  - title: "Boosted trees model understanding"
+    path: /beta/tutorials/estimators/boosted_trees_model_understanding
+
 - heading: "Advanced tutorials"
   style: divider
 
@@ -119,7 +126,7 @@ toc:
   - title: "Numpy"
     path: /beta/tutorials/load_data/numpy
   - title: "Pandas"
-    path: /alpha/tutorials/load_data/pandas
+    path: /beta/tutorials/load_data/pandas
   - title: "Images"
     path: /beta/tutorials/load_data/images
   - title: "Text"
@@ -142,3 +149,5 @@ toc:
     path: /beta/tutorials/distribute/multi_worker_with_estimator
   - title: "Multi worker training with Keras"
     path: /beta/tutorials/distribute/multi_worker_with_keras
+  - title: "Save and restore models"
+    path: /beta/tutorials/distribute/save_and_load
