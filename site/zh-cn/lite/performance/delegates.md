@@ -14,26 +14,26 @@ TensorFlow Lite 代理是一种将部分或全部的图形运算委托予另一�
 
 为了避免加重 CPU（中央处理器）的负担，一些设备具有诸如 GPU（图形处理器）或 DSP（数字信号处理器）等的硬件加速器以求获取更佳的性能与更高的能效。
 
-## 使用 GPU（图形处理器）代理
+## 使用 GPU 代理
 
-TensorFlow Lite 为具备 GPU（图形处理器）的设备提供了一个 GPU 代理用以模型计算的加速。
+TensorFlow Lite 为具备 GPU 的设备提供了一个 GPU 代理用以模型计算的加速。
 
 有关 GPU 代理的概述，请查看
-[TensorFlow Lite on GPU](https://www.tensorflow.org/lite/performance/gpu_advanced) 。
+[TensorFlow Lite 在 GPU 环境下](https://www.tensorflow.org/lite/performance/gpu_advanced) 。
 有关在 Android 和 iOS 设备上使用 GPU 代理的步骤教程，请查看
-[TensorFlow Lite GPU Delegate Tutorial](https://www.tensorflow.org/lite/performance/gpu) 。
+[TensorFlow Lite GPU 代理](https://www.tensorflow.org/lite/performance/gpu) 。
 
 ## 代理是如何运作的？
 
 假设我们将一个简化的图形样本进行如下图所示的操作：
 
-![Original graph](../images/performance/tflite_delegate_graph_1.png "原生图形样本")
+![原生图形样本](../images/performance/tflite_delegate_graph_1.png "原生图形样本")
 
 如果把一个代理用于进行具体操作，那么 TensorFlow Lite 会将图形分割为多个交由代理进行处理的子图块。
 
 若使用一个拥有高效处理 Conv2D（卷积层）和计算 Mean（平均值）操作的能力且名为“MyDelegate”的代理，那么它将导致主图变更为进行如下图所示的操作。
 
-![Graph with delegate](../images/performance/tflite_delegate_graph_2.png "使用代理的图形样本")
+![使用代理的图形样本](../images/performance/tflite_delegate_graph_2.png "使用代理的图形样本")
 
 在返回值中，每个交由代理进行处理的子图将会被更替为评估该子图的节点。
 
@@ -49,9 +49,9 @@ _请注意以下所采用的 API 仍处于试验阶段并将随时进行调整�
 
 
 1.  定义一个用于负责评估代理子图的核心节点
-2.  创建一个用于负责注册该核心节点以及说明代理可用节点的实例 [TfLiteDelegate](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api_internal.h#L545)
+2.  创建一个用于负责注册该核心节点以及说明代理可用节点的实例 [TensorFlow Lite 代理](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api_internal.h#L545)
 
-为了使用代码进行说明，让我们定义一个可快速执行 Conv2D（卷积层）和计算 Mean（平均值）操作的代理并将其命名为“MyDelegate”。
+为了使用代码进行说明，让我们定义一个可快速执行 Conv2D 和计算 Mean 操作的代理并将其命名为“MyDelegate”。
 
 ```
 // 这是执行操作或整个图形的开始。
@@ -162,7 +162,7 @@ TfLiteStatus CopyFromBufferHandle(TfLiteContext* context,
                                   TfLiteDelegate* delegate,
                                   TfLiteBufferHandle buffer_handle,
                                   TfLiteTensor* tensor) {
-  // 从代理的缓冲区存入数据至 tensor（张量）的原始内存区域。
+  // 从代理的缓冲区存入数据至 tensor 的原始内存区域。
   return kTfLiteOk;
 }
 
