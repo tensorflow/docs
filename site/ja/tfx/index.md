@@ -354,13 +354,11 @@ Evaluator コンポーネントは保存した EvalSavedModel を入力として
 可視化用 API には [tfma.load_eval_results()](https://www.tensorflow.org/tfx/model_analysis/api_docs/python/tfma/load_eval_results)や [tfma.view.render_slicing_metrics()](`tfma/view/render_slicing_metrics`) が含まれます。
 可視化を行うことでモデルの特徴についてより良い理解を得ることができ、もし必要ならば、修正することもできるようになるでしょう。
 
-## Deployment Targets
+## デプロイメントターゲット
 
-Once you have developed and trained a model that you're happy with, it's now
-time to deploy it to one or more deployment target(s) where it will receive
-inference requests. TFX supports deployment to three classes of deployment
-targets. Trained models which have been exported as SavedModels can be deployed
-to any or all of these deployment targets.
+モデルの開発と学習を終えてその結果に満足しているなら、推論リクエストを受け付ける場所である、1 つまたは複数のデプロイメントターゲットにモデルをデプロイするタイミングです。
+TFX は 3 つのクラスのデプロイメントターゲットをサポートしています。
+学習済みモデルを SavedModel としてエクスポートすると、これら 3 つのうちのどれか、またはすべてのデプロイメントターゲットにモデルをデプロイできます。
 
 ![Component Flow](diag_all.svg)
 
