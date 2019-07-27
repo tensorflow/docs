@@ -67,7 +67,7 @@ toc:
     path: /tutorials/distribute/keras
   - title: Training loops
     path: /tutorials/distribute/training_loops
-  - title: TPU
+  - title: TPU custom training
     path: /tutorials/distribute/tpu_custom_training
 
 - title: Images
