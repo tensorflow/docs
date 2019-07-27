@@ -454,12 +454,10 @@ def create_pipeline():
 pipeline = TfxRunner().run(create_pipeline())
 ```
 
-### Initializing Your TFX Pipeline With Airflow
+### Airflow を用いる場合の TFX パイプラインの初期化
 
-When you install [Apache Airflow](orchestra.md) it will initialize your
-`$AIRFLOW_HOME` (`~/airflow` by default) directory where you will create
-pipelines. You then need to create the directories that will hold your
-pipeline code:
+[Apache Airflow](orchestra.md) のインストールの際に、パイプラインが作成される `$AIRFLOW_HOME` ディレクトリ (デフォルトでは `~/airflow`) が初期化されます。
+完了後、パイプラインのコードを保持するためのディレクトリを作成する必要があります:
 
 ```bash
 mkdir -p ~/airflow/dags     # or $AIRFLOW_HOME/dags
@@ -467,28 +465,21 @@ mkdir -p ~/airflow/data     # or $AIRFLOW_HOME/data
 mkdir -p ~/airflow/plugins  # or $AIRFLOW_HOME/plugins
 ```
 
-#### Pipeline Config
+#### パイプラインの設定
 
-The only real requirement in structuring your code is that the Python file
-which includes your `create_pipeline()` function (your "pipeline config") must
-be placed in your `dags` folder. We recommend that the Python file containing
-your DAG be named to match the DAG name, so if your DAG is named `taxi` then
-that file should be named `taxi.py`.
+実際のコードの構造に対する唯一の要件は、`create_pipeline()` 関数 (これは "パイプラインの設定" そのものです) が記された Python ファイルには `dags` フォルダ配下に置かれていなければいけない、というものです。
+Python ファイルの名前は DAG の名前と一致させることを推奨します。DAG が `taxi` という名前のときには、そのファイル名も `taxi` とすべきです。
 
-The `create_pipeline()` function in your pipeline config is decorated with a
-`PipelineDecorator` which is where you set your `pipeline_name`,
-among other things. These are important for recognizing your pipeline by name
-in the Airflow web UI, and locating the log files for your pipeline.
+パイプラインの設定中の `create_pipeline()` 関数は `PipelineDecorator` でデコレートされ、そこでは他の事柄とともに `pipeline_name` が設定されます。
+これらは Airflow の web UI を用いてパイプラインを名前で識別する際や、パイプラインのログファイルを配置する際に重要となります。 
 
-#### Deploying Your Pipeline Code
+#### パイプラインのコードのデプロイ
 
-You deploy and name your pipeline config as described in the previous section.
+上記のセクションで記述しているようにパイプラインの設定ファイルを配置し、ファイル名を変更します。
 
-You deploy the remainder of your pipeline code by creating folders under `data`
-and `plugins` to hold your pipeline code. A good practice is to name these
-folders to match the name of your pipeline when naming your
-output_dir (which you set in your `PipelineDecorator`), so if your pipeline is
-named `taxi`, you might name your output_dir:
+`data` フォルダーと `plugins` フォルダー配下に新しくフォルダーを作成しパイプラインのコードを配置することで、パイプラインコードのリマインダーをデプロイします。
+これらの出力先フォルダーの名前をパイプラインで設定した名前 (`PipelineDecorator` で設定したもの) と一致させることはグッドプラクティスです。
+たとえば、パイプラインの名前が `taxi` のとき、出力フォルダーの名前は次のようになります:
 
 ```bash
 mkdir -p ~/airflow/data/taxi     # or $AIRFLOW_HOME/data/taxi
