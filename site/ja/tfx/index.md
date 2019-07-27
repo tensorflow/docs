@@ -378,13 +378,11 @@ TFSの開発やデプロイに関する詳細については [TFS のドキュ�
 TensorFlow Serving と同様に、これは SavedModel を読み込み、量子化や枝刈りのような最適化手法を用いて、モバイルや IoT デバイスで動作するようにサイズとパフォーマンスの最適化を試みます。
 TensorFlow Lite の利用についての詳細は TensorFlow Lite のドキュメントを参照してください。
 
-### Inference in JavaScript: TensorFlow JS
+### JavaScriptでの推論: TensorFlow JS
 
-[TensorFlow JS](https://js.tensorflow.org/) is a JavaScript library for training
-and deploying ML models in the browser and on Node.js. It consumes the same
-SavedModels as TensorFlow Serving and TensorFlow Lite, and converts them to the
-TensorFlow.js Web format. See the TensorFlow JS documentation for more details
-on using TensorFlow JS.
+[TensorFlow JS](https://js.tensorflow.org/) は機械学習モデルの学習とデプロイをブラウザや Node.js 上で行う JavaScript ライブラリです。
+これは TensorFlow Serving や TensorFlow Lite と同様に SavedModel を読み込み、それを TensorFlow.js Web フォーマットに変換します。
+TensorFlow JS の利用についての詳細は TensorFlow JS のドキュメントを参照してください。
 
 ## Creating a TFX Pipeline With Airflow
 
