@@ -536,18 +536,14 @@ airflow scheduler
 
 ## トラブルシューティング
 
-### Finding Errors In Log Files
+### Log ファイル中のエラーの見つけ方
 
-TFX will generate log entries in the location defined by the LoggerConfig, set
-as an additional argument in the PipelineDecorator. The default is
-`/var/tmp/tfx/logs/tfx.log`. In addition, the orchestrator (e.g. Airflow,
-Kubeflow) will also generate log files. When trying to diagnose errors in your
-pipeline, these log files are very valuable. For a pipeline named `taxi` with no
-LoggerConfig specified in your pipeline, the TFX logs will be written to
-`/var/tmp/tfx/logs/tfx.log`. This is customizable by creating a
-[logging_utils.LoggerConfig](https://github.com/tensorflow/tfx/blob/master/tfx/utils/logging_utils.py)
-object and adding it as an additional parameter called `logger_args` in your
-pipeline configuration:
+TFX はログを PipelineDecotator の追加の引数である LoggerConfig で設定された場所に出力します。
+デフォルトは `/var/tmp/tfx/logs/tfx.log` です。
+加えて、オーケストレーター (例えば Airflow や Kubeflow) もまたログファイルを出力します。
+パイプラインのエラーの分析を試みるときには、これらのログファイルがとても有効です。
+`taxi` という名前のパイプラインで特に LoggerConfig が設定されていない場合、TFX のログは `/var/tmp/tfx/logs/tfx.log` に出力されます。
+これは [logging_utils.LoggerConfig](https://github.com/tensorflow/tfx/blob/master/tfx/utils/logging_utils.py) オブジェクトを生成し、パイプラインの設定の `logger_args` と呼ばれるパラメーターに与えることで、設定の変更が可能です。
 
 ```python
 @PipelineDecorator(
@@ -561,12 +557,10 @@ pipeline configuration:
     pipeline_root=pipeline_root)
 ```
 
-Note: if you are running the executors remotely via Docker or Kubeflow, the
-executor logs will be written onto the remote worker.
+Note: Docker や Kubeflow のリモート環境上で Executor を動かしている場合、Executor のログはリモートワーカー上に出力されます。
 
-If you are using Airflow, the log entries will also be written to the Airflow
-logs. The default for the Airflow logs is `$AIRFLOW_HOME/logs` and will contain
-the following files:
+Airflow を利用している場合、ログは Airflow の出力するログにも記録されます。
+デフォルトの Airflow のログの出力先は `$AIRFLOW_HOME/logs` で、次のファイルが含まれます:
 
 ```
 $AIRFLOW_HOME/logs/scheduler/{DATE}/taxi.py.log
@@ -575,9 +569,9 @@ $AIRFLOW_HOME/logs/taxi
 $AIRFLOW_HOME/logs/taxi.COMPONENT_NAME
 ```
 
-### Pipeline is listed, but when triggering Airflow cannot find
+### パイプラインは表示されているが、実行しようとすると Airflow が見つけられない
 
-Try restarting the webserver and scheduler.
+ウェブサーバーとスケジューラーを再起動してみてください。
 
 ## Creating a TFX Pipeline With Kubeflow
 
