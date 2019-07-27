@@ -384,11 +384,11 @@ TensorFlow Lite の利用についての詳細は TensorFlow Lite のドキュ�
 これは TensorFlow Serving や TensorFlow Lite と同様に SavedModel を読み込み、それを TensorFlow.js Web フォーマットに変換します。
 TensorFlow JS の利用についての詳細は TensorFlow JS のドキュメントを参照してください。
 
-## Creating a TFX Pipeline With Airflow
+## Airflow を用いた TFX パイプラインの作成
 
-### Install
+### インストール
 
-Airflow can be installed from PyPi:
+Airflow は PyPIからインストールできます:
 
 ```python
 # Airflow
