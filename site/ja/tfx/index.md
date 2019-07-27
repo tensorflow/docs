@@ -470,7 +470,7 @@ mkdir -p ~/airflow/plugins  # or $AIRFLOW_HOME/plugins
 実際のコードの構造に対する唯一の要件は、`create_pipeline()` 関数 (これは "パイプラインの設定" そのものです) が記された Python ファイルには `dags` フォルダ配下に置かれていなければいけない、というものです。
 Python ファイルの名前は DAG の名前と一致させることを推奨します。DAG が `taxi` という名前のときには、そのファイル名も `taxi` とすべきです。
 
-パイプラインの設定中の `create_pipeline()` 関数は `PipelineDecorator` でデコレートされ、そこでは他の事柄とともに `pipeline_name` が設定されます。
+パイプラインの設定ファイル中の `create_pipeline()` 関数は `PipelineDecorator` でデコレートされ、そこでは他の事柄とともに `pipeline_name` が設定されます。
 これらは Airflow の web UI を用いてパイプラインを名前で識別する際や、パイプラインのログファイルを配置する際に重要となります。 
 
 #### パイプラインのコードのデプロイ
@@ -500,15 +500,12 @@ data files into your `data` folder:
 cp data.csv ~/airflow/data/taxi     # or $AIRFLOW_HOME/data/taxi
 ```
 
-### Example Code
+### サンプルコード
 
-By convention your pipeline config should contain only the code necessary to
-configure your pipeline, as in
-[this example](https://github.com/tensorflow/tfx/blob/master/tfx/examples/chicago_taxi_pipeline/taxi_pipeline_simple.py).
+慣習的に、パイプラインの設定の記述にはパイプラインの設定に必要な最小限のコードのみを含むべきです。[これはそのようなコードのサンプルです](https://github.com/tensorflow/tfx/blob/master/tfx/examples/chicago_taxi_pipeline/taxi_pipeline_simple.py)。
 
-The supporting code, such as your TensorFlow model and your Transform
-`preprocessing_fn`, should all go in a single file, as in
-[this example](https://github.com/tensorflow/tfx/blob/master/tfx/examples/chicago_taxi_pipeline/taxi_utils.py).
+コードで呼び出している、TensorFlow のモデルや Transform の `preprocessing_fn` などの処理の記述はすべて単一のファイルに含めるべきです。
+[これはそのようなコードのサンプルです](https://github.com/tensorflow/tfx/blob/master/tfx/examples/chicago_taxi_pipeline/taxi_utils.py)。
 
 ## Deploying and Operating a TFX Pipeline
 
