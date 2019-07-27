@@ -372,15 +372,11 @@ TFSの開発やデプロイに関する詳細については [TFS のドキュ�
 典型的なパイプラインでは [Pusher](pusher.md) コンポーネントが Trainer コンポーネントで訓練された SavedModel を読み込み、TFS のインフラストラクチャにデプロイします。
 これは複数のバージョンの操作やモデルのアップデートを含みます。
 
-### Inference in Native Mobile and IoT Applications: TensorFlow Lite
+### モバイルネイティブやIoTアプリケーションでの推論: TensorFlow Lite
 
-[TensorFlow Lite](https://www.tensorflow.org/lite) is a suite of tools which is
-dedicated to help developers use their trained TensorFlow Models in native
-mobile and IoT applications. It consumes the same SavedModels as TensorFlow
-Serving, and applies optimizations such as quantization and pruning to optimize
-the size and performance of the resulting models for the challenges of running
-on mobile and IoT devices. See the TensorFlow Lite documentation for more
-information on using TensorFlow Lite.
+[TensorFlow Lite](https://www.tensorflow.org/lite) は学習済みの TensorFlow モデルをネイティブモバイルやIoTアプリケーションで使うためのツール一式をデベロッパーに提供します。
+TensorFlow Serving と同様に、これは SavedModel を読み込み、量子化や枝刈りのような最適化手法を用いて、モバイルや IoT デバイスで動作するようにサイズとパフォーマンスの最適化を試みます。
+TensorFlow Lite の利用についての詳細は TensorFlow Lite のドキュメントを参照してください。
 
 ### Inference in JavaScript: TensorFlow JS
 
