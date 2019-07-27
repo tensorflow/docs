@@ -507,39 +507,32 @@ cp data.csv ~/airflow/data/taxi     # or $AIRFLOW_HOME/data/taxi
 コードで呼び出している、TensorFlow のモデルや Transform の `preprocessing_fn` などの処理の記述はすべて単一のファイルに含めるべきです。
 [これはそのようなコードのサンプルです](https://github.com/tensorflow/tfx/blob/master/tfx/examples/chicago_taxi_pipeline/taxi_utils.py)。
 
-## Deploying and Operating a TFX Pipeline
+## TFX パイプラインのデプロイとオペレーション
 
-New pipelines must then be enabled in the Airflow web UI in order to start them
-running. In many cases they will also need to be triggered in the web UI. When
-you want to stop running a pipeline you can disable it, also in the Airflow web
-UI. You can also examine the current state and history of your pipeline in the
-Airflow web UI, including logs.
+新しいパイプラインの処理を開始させるためには Airflow の web UI でパイプラインを有効にしなければいけません。
+多くの場合、web UI から処理を開始する操作も必要になるでしょう。
+もし実行を止めたい場合は、パイプラインを無効にすることも web UI から可能です。
+また、パイプラインの現在の状態や、過去の履歴の確認、ログの閲覧も web UI で可能です。
 
-### Starting and Updating Your Pipeline
+### パイプラインの開始と更新
 
-If your pipeline is not already running, you will need to start Airflow from the
-command line:
+もしパイプラインをまだ実行していない場合、 Airflow をコマンドラインから実行する必要があります:
 
 ```bash
 airflow webserver -p 8080
 airflow scheduler
 ```
 
-#### Updating your code
+#### コードの更新
 
-You can make changes to your pipeline code after deployment. When you make a
-change you will need to wait for the next Airflow refresh (default is 1 minute)
-and then refresh the Airflow web UI page in your browser to see your changes.
-If you change the `pipeline_name` of your pipeline, the old name will still
-be displayed but will show as missing.
+パイプラインのデプロイを行ったあとでも、パイプラインのコードに変更を加えることができます。
+変更を加えた場合、 Airflow がリフレッシュを行う次のタイミング (デフォルトは 1 分です) まで待ち、Airflow の web UI ページを更新して変更を確認する必要があります。
+パイプラインの `pipeline_name` を変更した場合には、古い名前が残るかもしれませんが、そのうち "missing" (行方不明) と表示されるようになります。
 
-#### Using Notebooks for Visualization
+#### ノートブックを用いた可視化
 
-Jupyter style notebooks are very useful for inspecting the inputs and outputs
-of TFX components in your pipeline, and comparing results between executions.
-In addition, both TFDV and TFMA include powerful visualization support that
-developers can use to explore their dataset and analyze their modeling results
-in detail.
+パイプラインに含まれるTFXのコンポーネントの入力と出力を調べ、実行結果の比較を行うために、Jupyter スタイルのノートブックはとても有用なツールです。
+加えて、TFDV と TFMA はどちらも強力な可視化のサポートを備えており、開発者がデータセットを探索し、モデルの出力結果を詳細に解析できるようになっています。
 
 ## トラブルシューティング
 
