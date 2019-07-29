@@ -2,11 +2,9 @@
 
 _说明：Delegate API 仍处于试验阶段并将随时进行调整。_
 
-
 ## 什么是 TensorFlow Lite 代理？
 
 TensorFlow Lite 代理是一种将部分或全部的图形运算委托予另一线程执行的方法。
-
 
 ## 你为什么应该使用代理？
 
@@ -39,14 +37,11 @@ TensorFlow Lite 为具备 GPU 的设备提供了一个 GPU 代理用以模型计
 
 根据不同的模型，末图可以一个节点终结，这意味着所有的图将被代理或以多个节点的子图进行处理。一般而言，当你每次从代理切换至主图而不希望采用由代理处理的混合子图时，将会造成由子图转换为主图的损耗。毕竟，内存交换并非总是安全的。
 
-
 ## 如何添置一个代理
 
 _请注意以下所采用的 API 仍处于试验阶段并将随时进行调整。_
 
 基于上节所述，添置一个代理需要完成以下步骤：
-
-
 
 1.  定义一个用于负责评估代理子图的核心节点
 2.  创建一个用于负责注册该核心节点以及说明代理可用节点的实例 [TensorFlow Lite 代理](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api_internal.h#L545)
@@ -183,7 +178,6 @@ TfLiteDelegate* CreateMyDelegate() {
   return delegate;
 }
 
-
 // 添加你所需调用的代理
 
 auto* my_delegate = CreateMyDelegate();
@@ -196,6 +190,4 @@ if (interpreter->ModifyGraphWithDelegate(my_delegate) !=
 ...
 // 最后千万要记住注销代理。
 delete my_delegate;
-
-
 ```
