@@ -573,18 +573,15 @@ $AIRFLOW_HOME/logs/taxi.COMPONENT_NAME
 
 ウェブサーバーとスケジューラーを再起動してみてください。
 
-## Creating a TFX Pipeline With Kubeflow
+## Kubeflow そ用いた TFX パイプラインの作成
 
-### Setup
+### セットアップ
 
-Kubeflow requires a Kubernetes cluster to run the pipelines at scale.
-See the Kubeflow deployment guideline that guide through the options for
-[deplopying the Kubeflow cluster.](https://www.kubeflow.org/docs/started/getting-started-gke/)
+Kubeflow はパイプラインを大規模に実行するために Kubernetes クラスタを必要とします。
+Kubeflow のデプロイを行うための一連の手引については次のデプロイメントガイドラインを参照してください ([deplopying the Kubeflow cluster.](https://www.kubeflow.org/docs/started/getting-started-gke/))
 
-### Configure and run TFX pipeline
+### TFX パイプラインの設定と実行
 
-Please follow the Kubeflow Pipelines [instructions](https://github.com/kubeflow/pipelines/tree/master/samples/tfx-oss)
-to run the TFX example pipeline on Kubeflow.
-TFX components have been containerized to compose the Kubeflow pipeline and
-the sample illustrates the ability to configure the pipeline to read large
-public dataset and execute training and data processing steps at scale in the cloud.
+Kubeflow 上で TFX のサンプルパイプラインを実行するためには Kubeflow パイプラインの[手順書](https://github.com/kubeflow/pipelines/tree/master/samples/tfx-oss)にしたがってください。
+TFX コンポーネントは Kubeflow pipeline を構築するためにコンテナ化されています。
+また、サンプルは大規模なパブリックのデータセットを読み込み、学習を行って、クラウド上で大規模にデータを処理するステップを解説しています。
