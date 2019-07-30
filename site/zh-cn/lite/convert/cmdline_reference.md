@@ -1,10 +1,10 @@
 
-## 转换器命令行参考
+# 转换器命令行参考
 
 本页为 TensorFlow 1.9 至 TensorFlow 最新版本中 TensorFlow Lite 转换器命令行使用的命令行参数提供全面参考。
 
 
-### 高级命令行参数
+## 高级命令行参数
 
 下列高级命令行参数指明输入文件和输出文件的细节。命令行参数 `--output_file` 总是需要指明。此外，`--graph_def_file`，`--saved_model_dir` 和 `--keras_model_file` 至少需要指明一个。
 
@@ -35,7 +35,7 @@
 
 * `--saved_model_signature_key`：类型: 字符串。缺省值：`tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`。指明识别包含输入和输出的 SignatureDef 的键。
 
-### 模型命令行参数
+## 模型命令行参数
 
 模型命令行参数提供有关储存在输入文件中的模型的额外信息。
 
@@ -63,7 +63,7 @@
 
     * 当进行量化推断 （`--inference_type=QUANTIZED_UINT8`） 时，推断代码不会进行反量化。然而，所有数组的量化函数参数，包括输入数组通过 `mean_value` 和 `std_dev_value` 指明的量化函数参数，决定了量化推断代码中使用的不动点乘数。`mean_value` 在进行量化推断时必须是整数。
 
-### 变换命令行参数
+## 变换命令行参数
 
 变换命令行参数指明应用在图上的可选变换，即它们指明输出文件应具有哪些属性。
 
@@ -95,7 +95,7 @@
 
 * `--post_training_quantize`。类型：布尔型。 缺省值：False。指明是否量化被转换的浮点模型的权重。模型将变小，延迟将改善（以准确率降低为代价）。
 
-### 日志命令行参数
+## 日志命令行参数
 
 下列命令行参数在图变换过程中的多个时间点生成 [GraphViz](https://www.graphviz.org/) `.dot` 文件的图可视化。
 
