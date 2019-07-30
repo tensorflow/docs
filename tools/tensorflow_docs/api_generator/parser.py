@@ -1488,7 +1488,9 @@ def docs_for_object(full_name, py_object, parser_config):
 
   # Which other aliases exist for the object referenced by full_name?
   master_name = parser_config.reference_resolver.py_master_name(full_name)
-  duplicate_names = parser_config.duplicates.get(master_name, [full_name])
+  duplicate_names = parser_config.duplicates.get(master_name, [])
+  if master_name in duplicate_names:
+    duplicate_names.remove(master_name)
 
   # TODO(wicke): Once other pieces are ready, enable this also for partials.
   if (tf_inspect.ismethod(py_object) or tf_inspect.isfunction(py_object) or
