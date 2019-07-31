@@ -149,8 +149,16 @@ class IgnoreLineInBlock(object):
 
     return self._in_block
 
-
-AUTO_REFERENCE_RE = re.compile(r'`([\w\(\[\)\]\{\}.,=\s]+?)`')
+# ?P<...> helps to find the match by entering the group name instead of the
+# index. For example, instead of doing match.group(1) we can do
+# match.group('brackets')
+AUTO_REFERENCE_RE = re.compile(
+    r"""
+    (?P<brackets>\[.*?\])                    # find characters inside '[]'
+    |
+    `(?P<backticks>[\w\(\[\)\]\{\}.,=\s]+?)` # or find characters inside '``'
+    """,
+    flags=re.VERBOSE)
 
 
 class ReferenceResolver(object):
@@ -416,7 +424,13 @@ class ReferenceResolver(object):
 
   def _one_ref(self, match, relative_path_to_root, full_name=None):
     """Return a link for a single "`tf.symbol`" reference."""
-    string = match.group(1)
+
+    if match.group(1):
+      # Found a '[]' group, return it unmodified.
+      return match.group('brackets')
+
+    # Found a '``' group.
+    string = match.group('backticks')
 
     link_text = string
 
@@ -429,7 +443,6 @@ class ReferenceResolver(object):
       string = self._partial_symbols_dict.get(string, string)
 
     try:
-
       if string.startswith('tensorflow::'):
         # C++ symbol
         return self._cc_link(string, link_text, relative_path_to_root)
