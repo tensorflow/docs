@@ -438,6 +438,9 @@ class ReferenceResolver(object):
 
     if string.startswith('compat.v1') or string.startswith('compat.v2'):
       string = 'tf.' + string
+    elif string.startswith('v1') or string.startswith('v2'):
+      string = 'tf.compat.' + string
+
     elif full_name is None or ('tf.compat.v' not in full_name and
                                'tf.contrib' not in full_name):
       string = self._partial_symbols_dict.get(string, string)
