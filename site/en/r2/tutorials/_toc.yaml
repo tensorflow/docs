@@ -111,6 +111,8 @@ toc:
 - title: "Text and sequences"
   style: accordion
   section:
+  - title: "Time series forecasting"
+    path: /beta/tutorials/text/time_series
   - title: "Generate text with an RNN"
     path: /beta/tutorials/text/text_generation
   - title: "Translation with attention"
