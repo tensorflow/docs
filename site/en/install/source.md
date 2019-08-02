@@ -42,7 +42,9 @@ omit the `--user` argument):
 <code class="devsite-terminal">pip install -U --user keras_preprocessing==1.0.5 --no-deps</code>
 </pre>
 
-The dependencies are listed in the
+
+Note: A `pip` version >19.0 is required to install the TensorFlow 2.0 `.whl`
+package. Additional required dependencies are listed in the
 <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
 file under `REQUIRED_PACKAGES`.
 
@@ -83,16 +85,27 @@ git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
 
 ## Configure the build
 
-Configure your system build by running the following at the root of your
-TensorFlow source tree:
+Configure your system build by running the `./configure` at the root of your
+TensorFlow source tree. This script prompts you for the location of TensorFlow
+dependencies and asks for additional build configuration options (compiler
+flags, for example).
+
+### Configure TensorFlow 2
+
+<pre class="devsite-terminal devsite-click-to-copy">
+./configure --config=v2
+</pre>
+
+### Configure TensorFlow 1.x
 
 <pre class="devsite-terminal devsite-click-to-copy">
 ./configure
 </pre>
 
-This script prompts you for the location of TensorFlow dependencies and asks for
-additional build configuration options (compiler flags, for example). The
-following shows a sample run of `./configure` (your session may differ):
+### Sample session
+
+The `./configure` script The following shows a sample run of `./configure` (your
+session may differ):
 
 <section class="expandable">
 <h4 class="showalways">View sample configuration session</h4>
