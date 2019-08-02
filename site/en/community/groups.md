@@ -40,7 +40,6 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 * [TensorFlow Hong Kong](https://fb.me/tensorflowhk)
 * [TensorFlow User Group Tokyo](https://tfug-tokyo.connpass.com/)
 * [TensorFlow User Group Utsunomiya](https://tfug-utsunomiya.connpass.com/)
-* [Soleil Data Dojo](https://soleildatadojo.connpass.com/)
 * [TensorFlow Korea (TF-KR) User Group](https://www.facebook.com/groups/TensorFlowKR/)
 * [TensorFlow Philippines Community](https://www.facebook.com/groups/TensorFlowPH/)
 * [TensorFlow and Deep Learning Singapore](https://www.meetup.com/TensorFlow-and-Deep-Learning-Singapore/)

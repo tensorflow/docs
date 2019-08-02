@@ -33,6 +33,26 @@ toc:
   - title: "Save and restore models"
     path: /beta/tutorials/keras/save_and_restore_models
 
+- title: "Load and preprocess data"
+  style: accordion
+  section:
+  - title: "CSV"
+    path: /beta/tutorials/load_data/csv
+  - title: "Numpy"
+    path: /beta/tutorials/load_data/numpy
+  - title: "Pandas"
+    path: /beta/tutorials/load_data/pandas
+  - title: "Images"
+    path: /beta/tutorials/load_data/images
+  - title: "Text"
+    path: /beta/tutorials/load_data/text
+  - title: "TFRecords"
+    path: /beta/tutorials/load_data/tf_records
+  - title: "Unicode"
+    path: /beta/tutorials/text/unicode
+  - title: "TF.Text"
+    path: /beta/tutorials/tensorflow_text/intro
+
 - title: "Images"
   style: accordion
   section:
@@ -91,6 +111,8 @@ toc:
 - title: "Text and sequences"
   style: accordion
   section:
+  - title: "Time series forecasting"
+    path: /beta/tutorials/text/time_series
   - title: "Generate text with an RNN"
     path: /beta/tutorials/text/text_generation
   - title: "Translation with attention"
@@ -117,26 +139,6 @@ toc:
     path: /beta/tutorials/generative/cvae
   - title: "Adversarial FGSM"
     path: /beta/tutorials/generative/adversarial_fgsm
-
-- title: "Load and preprocess data"
-  style: accordion
-  section:
-  - title: "CSV"
-    path: /beta/tutorials/load_data/csv
-  - title: "Numpy"
-    path: /beta/tutorials/load_data/numpy
-  - title: "Pandas"
-    path: /beta/tutorials/load_data/pandas
-  - title: "Images"
-    path: /beta/tutorials/load_data/images
-  - title: "Text"
-    path: /beta/tutorials/load_data/text
-  - title: "TFRecords"
-    path: /beta/tutorials/load_data/tf_records
-  - title: "Unicode"
-    path: /beta/tutorials/text/unicode
-  - title: "TF.Text"
-    path: /beta/tutorials/tensorflow_text/intro
 
 - title: "Distributed training"
   style: accordion

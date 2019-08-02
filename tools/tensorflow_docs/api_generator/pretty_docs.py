@@ -66,7 +66,7 @@ def _build_function_page(page_info):
 
   parts.append(page_info.doc.brief + '\n\n')
 
-  if len(page_info.aliases) > 1:
+  if page_info.aliases:
     parts.append('### Aliases:\n\n')
     parts.extend('* `%s`\n' % name for name in page_info.aliases)
     parts.append('\n\n')
@@ -113,11 +113,10 @@ def _build_class_page(page_info):
       method for method in page_info.methods
       if method.short_name not in constructor_names)
 
-  if len(page_info.aliases) > 1:
+  if page_info.aliases:
     parts.append('### Aliases:\n\n')
     parts.extend('* Class `%s`\n' % name for name in page_info.aliases)
     parts.append('\n\n')
-
 
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
@@ -238,12 +237,10 @@ def _build_module_page(page_info):
   # First line of the docstring i.e. a brief introduction about the symbol.
   parts.append(page_info.doc.brief + '\n\n')
 
-  if len(page_info.aliases) > 1:
+  if page_info.aliases:
     parts.append('### Aliases:\n\n')
     parts.extend('* Module `%s`\n' % name for name in page_info.aliases)
     parts.append('\n\n')
-
-
 
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
