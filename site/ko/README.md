@@ -36,7 +36,9 @@ Note: Please focus translation efforts on
 [site/en/r2](https://github.com/tensorflow/docs/tree/master/site/en/r2)
 directory. TF 1.x community docs will no longer be updated as we prepare for the
 2.0 release. See
-[the announcement](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ). Also Please do not translate the install/ section or yaml files, index.md files. See [the announcement](https://groups.google.com/a/tensorflow.org/forum/#!msg/docs-zh-cn/mhLp-egzNyE/EhGSeIBqAQAJ).
+[the announcement](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).
+Also, please do not translate the `install/` section, any `*.yaml` files, or `index.md` files.
+See [the announcement](https://groups.google.com/a/tensorflow.org/forum/#!msg/docs-zh-cn/mhLp-egzNyE/EhGSeIBqAQAJ).
 
 Note: The
 [site/ko/swift](https://github.com/tensorflow/docs/tree/master/site/ko/swift)
