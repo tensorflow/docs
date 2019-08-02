@@ -2,38 +2,27 @@
 
 <img src="../images/detection.png" class="attempt-right">
 
-Detect multiple objects within an image, with bounding boxes. 可以辨别出80多种不同种类的物体。
+使用矩形框识别图片中的多个对象。可以辨别出80多种不同种类的物体。
 
-## Get started
+## 开始使用
 
-If you are new to TensorFlow Lite and are working with Android or iOS, we
-recommend exploring the following example applications that can help you get
-started.
+如果你是 TensorFlow Lite 新手并且使用 Android 或 iOS 进行工作，我们推进您使用如下的应用实例帮助您进行探索。
 
-<a class="button button-primary" href="https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/android">Android
+<a class="button button-primary" href="https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/android"> Android 
 示例</a>
-<a class="button button-primary" href="https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/ios">iOS
+<a class="button button-primary" href="https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/ios"> iOS 
 示例</a>
 
-If you are using a platform other than Android or iOS, or you are already
-familiar with the <a href="https://www.tensorflow.org/api_docs/python/tf/lite">TensorFlow Lite APIs</a>, you can
-download our starter object detection model and the accompanying labels.
+如果您使用的不是 Android 或 iOS 平台，或者您对于 <a href="https://www.tensorflow.org/api_docs/python/tf/lite">TensorFlow Lite APIs</a> 较为熟悉, 您可以下载我们的初始对象检测模块以及对应的标签。
 
-<a class="button button-primary" href="http://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip">Download
-starter model and labels</a>
+<a class="button button-primary" href="http://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip">下载初始模块和标签</a>
 
-For more information about the starter model, see
-<a href="#starter_model">Starter model</a>.
+更多关于初始模块的内容，请参考
+<a href="#starter_model">初始模块</a>.
 
-## 什么是物体检测?
+## 何为物体检测?
 
-Given an image or a video stream, an object detection model can identify which
-of a known set of objects might be present and provide information about their
-positions within the image.
-
-For example, this screenshot of our <a href="#get_started">example
-application</a> shows how two objects have been recognized and their positions
-annotated:
+对于给定的图片或者视频流，对象检测模块可以识别出已知的物体和该物体在图片中的位置。例如，如下的<a href="#get_started">示例应用</a>屏幕截图中展示了如何辨识物体以及标注对应的坐标:
 
 <img src="images/android_apple_banana.png" alt="Screenshot of Android example" width="30%">
 
@@ -47,50 +36,48 @@ When we subsequently provide an image to the model, it will output a list of the
 objects it detects, the location of a bounding box that contains each object,
 and a score that indicates the confidence that detection was correct.
 
-### 模型输出
+### 模块输出
 
-Imagine a model has been trained to detect apples, bananas, and strawberries.
-When we pass it an image, it will output a set number of detection results - in
-this example, 5.
+想象一下一个模块被训练用于检测苹果，香蕉和草莓。当我们输入一幅图片后，模块将会返回给我们一组本示例的检测结果。
 
 <table style="width: 60%;">
   <thead>
     <tr>
-      <th>Class</th>
-      <th>Score</th>
-      <th>Location</th>
+      <th>类别</th>
+      <th>分数</th>
+      <th>坐标</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Apple</td>
+      <td>苹果</td>
       <td>0.92</td>
       <td>[18, 21, 57, 63]</td>
     </tr>
     <tr>
-      <td>Banana</td>
+      <td>香蕉</td>
       <td>0.88</td>
       <td>[100, 30, 180, 150]</td>
     </tr>
     <tr>
-      <td>Strawberry</td>
+      <td>草莓</td>
       <td>0.87</td>
       <td>[7, 82, 89, 163] </td>
     </tr>
     <tr>
-      <td>Banana</td>
+      <td>香蕉</td>
       <td>0.23</td>
       <td>[42, 66, 57, 83]</td>
     </tr>
     <tr>
-      <td>Apple</td>
+      <td>苹果</td>
       <td>0.11</td>
       <td>[6, 42, 31, 58]</td>
     </tr>
   </tbody>
 </table>
 
-### Confidence score
+### 信任分数
 
 To interpret these results, we can look at the score and the location for each
 detected object. The score is a number between 0 and 1 that indicates confidence
@@ -106,24 +93,24 @@ those confidence scores are below 0.5:
 <table style="width: 60%;">
   <thead>
     <tr>
-      <th>Class</th>
-      <th>Score</th>
-      <th>Location</th>
+      <th>类型</th>
+      <th>分数</th>
+      <th>坐标</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Apple</td>
+      <td>苹果</td>
       <td>0.92</td>
       <td>[18, 21, 57, 63]</td>
     </tr>
     <tr>
-      <td>Banana</td>
+      <td>香蕉</td>
       <td>0.88</td>
       <td>[100, 30, 180, 150]</td>
     </tr>
     <tr>
-      <td>Strawberry</td>
+      <td>草莓</td>
       <td>0.87</td>
       <td>[7, 82, 89, 163] </td>
     </tr>
@@ -153,12 +140,9 @@ positive.
 
 <img src="images/false_positive.png" alt="Screenshot of Android example showing a false positive" width="30%">
 
-### Location
+### 坐标
 
-For each detected object, the model will return an array of four numbers
-representing a bounding rectangle that surrounds its position. For the starter
-model we provide, the numbers are ordered as follows:
-
+针对每个被检测的物体，模块将会返回一个由四个数字组成的数组，该四个数字代表了围绕物体的一个矩形框。在我们提供的示例模块中，返回的数组中的元素按照如下顺序：
 <table style="width: 50%; margin: 0 auto;">
   <tbody>
     <tr style="border-top: none;">
@@ -172,14 +156,11 @@ model we provide, the numbers are ordered as follows:
   </tbody>
 </table>
 
-The top value represents the distance of the rectangle’s top edge from the top
-of the image, in pixels. The left value represents the left edge’s distance from
-the left of the input image. The other values represent the bottom and right
-edges in a similar manner.
-
+top 的值代表了矩形框的顶部距离图片上部的距离，单位为像素。 left 的值代表了矩形框的左边距离图片左边的距离。bottom 和 right 值的表示方法同理。
+注意：
 Note: Object detection models accept input images of a specific size. This is likely to be different from the size of the raw image captured by your device’s camera, and you will have to write code to crop and scale your raw image to fit the model’s input size (there are examples of this in our <a href="#get_started">example applications</a>).<br /><br />The pixel values output by the model refer to the position in the cropped and scaled image, so you must scale them to fit the raw image in order to interpret them correctly.
 
-## Starter model
+## 初始模块
 
 We recommend starting with this pre-trained quantized COCO SSD MobileNet v1
 model.
