@@ -198,7 +198,8 @@ class ParserTest(absltest.TestCase):
     self.assertIs(TestClass.ChildClass, page_info.classes[0].obj)
 
     # Make sure this file is contained as the definition location.
-    self.assertEqual(os.path.relpath(__file__, '/'), page_info.defined_in.path)
+    self.assertEqual(
+        os.path.relpath(__file__, '/'), page_info.defined_in.rel_path)
 
   def test_namedtuple_field_order(self):
     namedtupleclass = collections.namedtuple('namedtupleclass',
@@ -393,7 +394,7 @@ class ParserTest(absltest.TestCase):
     # Make sure the module's file is contained as the definition location.
     self.assertEqual(
         os.path.relpath(test_module.__file__.rstrip('c'), '/'),
-        page_info.defined_in.path)
+        page_info.defined_in.rel_path)
 
   def test_docs_for_function(self):
     index = {
@@ -432,7 +433,8 @@ class ParserTest(absltest.TestCase):
                      page_info.signature)
 
     # Make sure this file is contained as the definition location.
-    self.assertEqual(os.path.relpath(__file__, '/'), page_info.defined_in.path)
+    self.assertEqual(
+        os.path.relpath(__file__, '/'), page_info.defined_in.rel_path)
 
   def test_docs_for_function_with_kwargs(self):
     index = {
@@ -802,6 +804,39 @@ class ParserTest(absltest.TestCase):
     pop_default_arg = page_info.methods[0].signature[1]
     self.assertNotIn('object at 0x', pop_default_arg)
     self.assertIn('<object>', pop_default_arg)
+
+  def test_builtins_defined_in(self):
+    """Validates that the parser omits the defined_in location for built-ins.
+
+    Without special handling, the defined-in URL ends up like:
+      http://prefix/<embedded stdlib>/_collections_abc.py
+    """
+
+    visitor = DummyVisitor(index={}, duplicate_of={})
+    reference_resolver = parser.ReferenceResolver.from_visitor(
+        visitor=visitor, py_module_names=['tf'])
+
+    tree = {
+        'ConcreteMutableMapping': [
+            '__contains__'
+        ]
+    }
+    parser_config = parser.ParserConfig(
+        reference_resolver=reference_resolver,
+        duplicates={},
+        duplicate_of={},
+        tree=tree,
+        index={},
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    function_info = parser.docs_for_object(
+        full_name='ConcreteMutableMapping.__contains__',
+        py_object=ConcreteMutableMapping.__contains__,
+        parser_config=parser_config)
+
+    self.assertIsNone(function_info.defined_in)
 
 
 class TestReferenceResolver(absltest.TestCase):

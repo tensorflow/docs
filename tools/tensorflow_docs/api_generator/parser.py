@@ -149,8 +149,16 @@ class IgnoreLineInBlock(object):
 
     return self._in_block
 
-
-AUTO_REFERENCE_RE = re.compile(r'`([\w\(\[\)\]\{\}.,=\s]+?)`')
+# ?P<...> helps to find the match by entering the group name instead of the
+# index. For example, instead of doing match.group(1) we can do
+# match.group('brackets')
+AUTO_REFERENCE_RE = re.compile(
+    r"""
+    (?P<brackets>\[.*?\])                    # find characters inside '[]'
+    |
+    `(?P<backticks>[\w\(\[\)\]\{\}.,=\s]+?)` # or find characters inside '``'
+    """,
+    flags=re.VERBOSE)
 
 
 class ReferenceResolver(object):
@@ -198,8 +206,15 @@ class ReferenceResolver(object):
 
   @classmethod
   def from_json_file(cls, filepath):
+    """Initialize the reference resolver via _api_cache.json."""
     with open(filepath) as f:
       json_dict = json.load(f)
+
+    # tensorflow_model_optimization still has "current_doc_full_name" as a key
+    # in its _api_cache.json. Hence, popping that key because its not being used
+    # anywhere.
+    if 'current_doc_full_name' in json_dict:
+      json_dict.pop('current_doc_full_name')
 
     return cls(**json_dict)
 
@@ -281,6 +296,7 @@ class ReferenceResolver(object):
 
     with open(filepath, 'w') as f:
       json.dump(json_dict, f, indent=2, sort_keys=True)
+      f.write('\n')
 
   def replace_references(self, string, relative_path_to_root, full_name=None):
     """Replace `tf.symbol` references with links to symbol's documentation page.
@@ -408,7 +424,13 @@ class ReferenceResolver(object):
 
   def _one_ref(self, match, relative_path_to_root, full_name=None):
     """Return a link for a single "`tf.symbol`" reference."""
-    string = match.group(1)
+
+    if match.group(1):
+      # Found a '[]' group, return it unmodified.
+      return match.group('brackets')
+
+    # Found a '``' group.
+    string = match.group('backticks')
 
     link_text = string
 
@@ -416,12 +438,14 @@ class ReferenceResolver(object):
 
     if string.startswith('compat.v1') or string.startswith('compat.v2'):
       string = 'tf.' + string
+    elif string.startswith('v1') or string.startswith('v2'):
+      string = 'tf.compat.' + string
+
     elif full_name is None or ('tf.compat.v' not in full_name and
                                'tf.contrib' not in full_name):
       string = self._partial_symbols_dict.get(string, string)
 
     try:
-
       if string.startswith('tensorflow::'):
         # C++ symbol
         return self._cc_link(string, link_text, relative_path_to_root)
@@ -848,7 +872,13 @@ _PropertyInfo = collections.namedtuple(
     '_PropertyInfo', ['short_name', 'full_name', 'obj', 'doc'])
 
 _MethodInfo = collections.namedtuple('_MethodInfo', [
-    'short_name', 'full_name', 'obj', 'doc', 'signature', 'decorators'
+    'short_name',
+    'full_name',
+    'obj',
+    'doc',
+    'signature',
+    'decorators',
+    'defined_in',
 ])
 
 
@@ -928,7 +958,7 @@ class _FunctionPageInfo(object):
     self._decorators.append(dec)
 
   def get_metadata_html(self):
-    return _Metadata(self.full_name).build_html()
+    return Metadata(self.full_name).build_html()
 
 
 class _ClassPageInfo(object):
@@ -1106,7 +1136,8 @@ class _ClassPageInfo(object):
     """Returns a list of `_MethodInfo` describing the class' methods."""
     return self._methods
 
-  def _add_method(self, short_name, full_name, obj, doc, signature, decorators):
+  def _add_method(self, short_name, full_name, obj, doc, signature, decorators,
+                  defined_in):
     """Adds a `_MethodInfo` entry to the `methods` list.
 
     Args:
@@ -1117,11 +1148,10 @@ class _ClassPageInfo(object):
       signature: The method's parsed signature (see: `_generate_signature`)
       decorators: A list of strings describing the decorators that should be
         mentioned on the object's docs page.
+      defined_in: A `_FileLocation` object pointing to the object source.
     """
-
     method_info = _MethodInfo(short_name, full_name, obj, doc, signature,
-                              decorators)
-
+                              decorators, defined_in)
     self._methods.append(method_info)
 
   @property
@@ -1130,7 +1160,7 @@ class _ClassPageInfo(object):
     return self._classes
 
   def get_metadata_html(self):
-    meta_data = _Metadata(self.full_name)
+    meta_data = Metadata(self.full_name)
     for item in itertools.chain(self.classes, self.properties, self.methods,
                                 self.other_members):
       meta_data.append(item)
@@ -1197,7 +1227,6 @@ class _ClassPageInfo(object):
       if (defining_class and
           defining_class.__name__ in ['CMessage', 'Message', 'MessageMeta']):
         continue
-      # TODO(markdaoust): Add a note in child docs showing the defining class.
 
       if doc_controls.should_skip_class_attr(py_class, short_name):
         continue
@@ -1256,8 +1285,9 @@ class _ClassPageInfo(object):
         except KeyError:
           pass
 
+        defined_in = _get_defined_in(child, parser_config)
         self._add_method(short_name, child_name, child, child_doc,
-                         child_signature, child_decorators)
+                         child_signature, child_decorators, defined_in)
       else:
         # Exclude members defined by protobuf that are useless
         if issubclass(py_class, ProtoMessage):
@@ -1354,7 +1384,7 @@ class _ModulePageInfo(object):
         _OtherMemberInfo(short_name, full_name, obj, doc))
 
   def get_metadata_html(self):
-    meta_data = _Metadata(self.full_name)
+    meta_data = Metadata(self.full_name)
 
     # Objects with their own pages are not added to the metadata list for the
     # module, the module only has a link to the object page. No docs.
@@ -1474,7 +1504,9 @@ def docs_for_object(full_name, py_object, parser_config):
 
   # Which other aliases exist for the object referenced by full_name?
   master_name = parser_config.reference_resolver.py_master_name(full_name)
-  duplicate_names = parser_config.duplicates.get(master_name, [full_name])
+  duplicate_names = parser_config.duplicates.get(master_name, [])
+  if master_name in duplicate_names:
+    duplicate_names.remove(master_name)
 
   # TODO(wicke): Once other pieces are ready, enable this also for partials.
   if (tf_inspect.ismethod(py_object) or tf_inspect.isfunction(py_object) or
@@ -1509,49 +1541,28 @@ def docs_for_object(full_name, py_object, parser_config):
   return page_info
 
 
-class _PythonFile(object):
-  """This class indicates that the object is defined in a regular python file.
+class _FileLocation(object):
+  """This class indicates that the object is defined in a regular file.
 
   This can be used for the `defined_in` slot of the `PageInfo` objects.
   """
+  GITHUB_LINE_NUMBER_TEMPLATE = '#L{start_line:d}-L{end_line:d}'
 
-  def __init__(self, path, code_url_prefix):
-    self.path = path
-    self.code_url_prefix = code_url_prefix
+  def __init__(self, rel_path, url=None, start_line=None, end_line=None):
+    self.rel_path = rel_path
+    self.url = url
+    self.start_line = start_line
+    self.end_line = end_line
 
-  def __str__(self):
-    return 'Defined in [`{path}`]({url}).\n\n'.format(
-        path=self.path, url=os.path.join(self.code_url_prefix, self.path))
+    github_master_re = 'github.com.*?(blob|tree)/master'
+    suffix = ''
+    # Only attach a line number for github URLs that are not using "master"
+    if self.start_line and not re.search(github_master_re, self.url):
+      if 'github.com' in self.url:
+        suffix = self.GITHUB_LINE_NUMBER_TEMPLATE.format(
+            start_line=self.start_line, end_line=self.end_line)
 
-
-class _ProtoFile(object):
-  """This class indicates that the object is defined in a .proto file.
-
-  This can be used for the `defined_in` slot of the `PageInfo` objects.
-  """
-
-  def __init__(self, path, code_url_prefix):
-    self.path = path
-    self.code_url_prefix = code_url_prefix
-
-  def __str__(self):
-    return 'Defined in [`{path}`]({url}).\n\n'.format(
-        path=self.path, url=os.path.join(self.code_url_prefix, self.path))
-
-
-class _GeneratedFile(object):
-  """This class indicates that the object is defined in a generated python file.
-
-  Generated files should not be linked to directly.
-
-  This can be used for the `defined_in` slot of the `PageInfo` objects.
-  """
-
-  def __init__(self, path):
-    self.path = path
-
-  def __str__(self):
-    return 'Defined in generated file: `{}`.\n\n'.format(self.path)
+        self.url = self.url + suffix
 
 
 def _get_defined_in(py_object, parser_config):
@@ -1562,7 +1573,7 @@ def _get_defined_in(py_object, parser_config):
     parser_config: A ParserConfig object.
 
   Returns:
-    Either a `_PythonFile`, `_ProtoFile`, or a `_GeneratedFile`
+    A `_FileLocation`
   """
   # Every page gets a note about where this object is defined
   base_dirs_and_prefixes = zip(parser_config.base_dir,
@@ -1584,6 +1595,21 @@ def _get_defined_in(py_object, parser_config):
       code_url_prefix = temp_prefix
       break
 
+  try:
+    lines, start_line = tf_inspect.getsourcelines(py_object)
+    end_line = start_line + len(lines) - 1
+  except IOError:
+    # The source is not available.
+    start_line = None
+    end_line = None
+  except TypeError:
+    # This is a builtin, with no python-source.
+    start_line = None
+    end_line = None
+  except IndexError:
+    start_line = None
+    end_line = None
+
   # No link if the file was not found in a `base_dir`, or the prefix is None.
   if code_url_prefix is None:
     return None
@@ -1599,16 +1625,25 @@ def _get_defined_in(py_object, parser_config):
   # Never include links outside this code base.
   if re.search(r'\b_api\b', rel_path):
     return None
+  if '<embedded stdlib>' in rel_path:
+    return None
 
   if re.match(r'.*/gen_[^/]*\.py$', rel_path):
-    return _GeneratedFile(rel_path)
+    return _FileLocation(rel_path)
   if 'genfiles' in rel_path:
-    return _GeneratedFile(rel_path)
+    return _FileLocation(rel_path)
   elif re.match(r'.*_pb2\.py$', rel_path):
     # The _pb2.py files all appear right next to their defining .proto file.
-    return _ProtoFile(rel_path[:-7] + '.proto', code_url_prefix)  # pylint: disable=undefined-loop-variable
+
+    rel_path = rel_path[:-7] + '.proto'
+    return _FileLocation(
+        rel_path=rel_path, url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
   else:
-    return _PythonFile(rel_path, code_url_prefix)  # pylint: disable=undefined-loop-variable
+    return _FileLocation(
+        rel_path=rel_path,
+        url=os.path.join(code_url_prefix, rel_path),
+        start_line=start_line,
+        end_line=end_line)  # pylint: disable=undefined-loop-variable
 
 
 # TODO(markdaoust): This should just parse, pretty_docs should generate the md.
@@ -1650,7 +1685,7 @@ def generate_global_index(library_name, index, reference_resolver):
   return '\n'.join(lines)
 
 
-class _Metadata(object):
+class Metadata(object):
   """A class for building a page's Metadata block.
 
   Attributes:
@@ -1658,16 +1693,24 @@ class _Metadata(object):
     version: The source version.
   """
 
-  def __init__(self, name, version='Stable'):
+  def __init__(self, name, version=None, content=None):
     """Creates a Metadata builder.
 
     Args:
       name: The name of the page being described by the Metadata block.
       version: The source version.
+      content: Content to create the metadata from.
     """
+
     self.name = name
+
     self.version = version
-    self._content = []
+    if self.version is None:
+      self.version = 'Stable'
+
+    self._content = content
+    if self._content is None:
+      self._content = []
 
   def append(self, item):
     """Adds an item from the page to the Metadata block.

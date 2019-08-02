@@ -103,8 +103,9 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
-<code class="devsite-terminal">sudo apt-get update && \        
-        && sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.1.5-1+cuda10.0
+<code class="devsite-terminal">sudo apt-get update \
+    && sudo apt-get install -y --no-install-recommends libnvinfer5=5.1.5-1+cuda10.0 \
+    && sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.1.5-1+cuda10.0
 </code>
 </pre>
 

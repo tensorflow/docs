@@ -65,8 +65,10 @@ toc:
   section:
   - title: Keras
     path: /tutorials/distribute/keras
-  - title: Training Loops
+  - title: Training loops
     path: /tutorials/distribute/training_loops
+  - title: TPU custom training
+    path: /tutorials/distribute/tpu_custom_training
 
 - title: Images
   style: accordion

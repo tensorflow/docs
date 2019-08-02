@@ -13,7 +13,12 @@
 [공지](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ)를
 참고하세요. 또한 install 폴더의 내용과 yaml 파일, index.md 파일은 번역하지 않습니다. 이에 대한 자세한 지침은 이 [공지](https://groups.google.com/a/tensorflow.org/forum/#!msg/docs-zh-cn/mhLp-egzNyE/EhGSeIBqAQAJ)를 참고하세요.
 
-노트: [Swift for TensorFlow](https://www.tensorflow.org/swift)(S4TF)를 위한 번역 홈 디렉토리는 [site/ko/swift](https://github.com/tensorflow/docs/tree/master/site/ko/swift) 입니다. 영문 파일의 위치는 tensorflow/swift 레파지토리의 [docs/site](https://github.com/tensorflow/swift/tree/master/docs/site) 디렉토리입니다. S4TF 노트북은 꼭 출력 결과가 포함되어야 합니다.
+노트: [Swift for TensorFlow](https://www.tensorflow.org/swift)(S4TF)를 위한 번역
+홈 디렉토리는
+[site/ko/swift](https://github.com/tensorflow/docs/tree/master/site/ko/swift)
+입니다. 영문 파일의 위치는 tensorflow/swift 레파지토리의
+[docs/site](https://github.com/tensorflow/swift/tree/master/docs/site)
+디렉토리입니다. S4TF 노트북은 꼭 출력 결과가 포함되어야 합니다.
 
 # Community translations
 
@@ -33,7 +38,13 @@ directory. TF 1.x community docs will no longer be updated as we prepare for the
 2.0 release. See
 [the announcement](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ). Also Please do not translate the install/ section or yaml files, index.md files. See [the announcement](https://groups.google.com/a/tensorflow.org/forum/#!msg/docs-zh-cn/mhLp-egzNyE/EhGSeIBqAQAJ).
 
-Note: [site/ko/swift](https://github.com/tensorflow/docs/tree/master/site/ko/swift) is a home directory for translation of [Swift for TensorFlow](https://www.tensorflow.org/swift)(S4TF). Original files are in [docs/site](https://github.com/tensorflow/swift/tree/master/docs/site) directory of tensorflow/swift repository. S4TF notebooks must have the outputs.
+Note: The
+[site/ko/swift](https://github.com/tensorflow/docs/tree/master/site/ko/swift)
+directory is the home for
+[Swift for TensorFlow](https://www.tensorflow.org/swift)(S4TF) translations.
+Original files are in the
+[docs/site](https://github.com/tensorflow/swift/tree/master/docs/site) directory
+of the tensorflow/swift repository. S4TF notebooks must have the outputs saved.
 
 # 처음 참여하는 사람들에게
 
@@ -116,8 +127,11 @@ translate the following words:
 *   node
 *   nueron
 *   target
-*   import
 *   checkpoint
 *   compile
 *   dropout
 *   penalty
+
+If you have any suggestion about translation guide, feel free to contact
+[Korean TensorFlow Documentation Translation Glossary](http://bit.ly/tf-docs-translation-glossary)
+spreadsheet.
