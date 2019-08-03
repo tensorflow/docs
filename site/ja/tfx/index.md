@@ -16,10 +16,9 @@ pip install tensorflow
 pip install tfx
 ```
 
-Note: オプションのコンポーネントである [TensorFlow Serving](https://www.tensorflow.org/serving/),
+Note: [TensorFlow Serving](https://www.tensorflow.org/serving/),
 [TensorFlow JS](https://js.tensorflow.org/),
-[TensorFlow Lite](https://www.tensorflow.org/lite) のインストールについては、
-これらのドキュメントを確認してください。
+[TensorFlow Lite](https://www.tensorflow.org/lite) オプションのコンポーネントです。これらのインストールについては、それぞれのドキュメントを確認してください。
 
 Note: このコマンドは [Apache Beam](beam.md) を Direct runner と同時にインストールします。
 別途、[Flink](https://flink.apache.org/)のようなストリーミングランナーをインストールする必要があります。
@@ -41,25 +40,25 @@ TFX パイプラインは一連のコンポーネントを連結したもので�
 
 TFX パイプラインには典型的には次のコンポーネントが含まれます :
 
-* [**ExampleGen**](examplegen.md) はパイプラインの先頭に来るコンポーネントで、
+- [**ExampleGen**](examplegen.md) はパイプラインの先頭に来るコンポーネントで、
   データセットの取り込みと、必要な場合には分割を行います。
 
-* [**StatisticsGen**](statsgen.md) はデータセットの統計量を計算します。
+- [**StatisticsGen**](statsgen.md) はデータセットの統計量を計算します。
 
-* [**SchemaGen**](schemagen.md) は統計量を確認し、データのスキーマを生成します。
+- [**SchemaGen**](schemagen.md) は統計量を確認し、データのスキーマを生成します。
 
-* [**ExampleValidator**](exampleval.md) はデータセットに異常値や欠損値が含まれないかを検査します。
+- [**ExampleValidator**](exampleval.md) はデータセットに異常値や欠損値が含まれないかを検査します。
 
-* [**Transform**](transform.md) はデータセットに対して特徴量エンジニアリングを行います。
+- [**Transform**](transform.md) はデータセットに対して特徴量エンジニアリングを行います。
 
-* [**Trainer**](trainer.md) はモデルを訓練します。
+- [**Trainer**](trainer.md) はモデルを訓練します。
 
-* [**Evaluator**](evaluator.md) は訓練させた結果について深く分析を行います。
+- [**Evaluator**](evaluator.md) は訓練させた結果について深く分析を行います。
 
-* [**ModelValidator**](modelval.md) は出力されたモデルのバリデーションを手助けし、
+- [**ModelValidator**](modelval.md) は出力されたモデルのバリデーションを手助けし、
   プロダクション環境に適用するのに「十分良さそう」であることを保証します。
 
-* [**Pusher**](pusher.md) はサービスを提供するインフラストラクチャにモデルをデプロイします。
+- [**Pusher**](pusher.md) はサービスを提供するインフラストラクチャにモデルをデプロイします。
 
 次の図はこれらのコンポーネント間でのデータのやり取りをあらわしています。
 
@@ -67,11 +66,11 @@ TFX パイプラインには典型的には次のコンポーネントが含ま�
 
 ### コンポーネントの内部構造
 
-TFX のコンポーネントは次の3つの主要な部分から成り立ちます。
+TFX のコンポーネントは次の 3 つの主要な部分から成り立ちます。
 
-* Driver
-* Executor
-* Publisher
+- Driver
+- Executor
+- Publisher
 
 <img src="images/component.svg" alt="Component Anatomy" style="width:40%" />
 
@@ -86,7 +85,7 @@ Driver はメタデータストアに対してクエリを発行し、 Executor 
 
 Executor はコンポーネントが処理を行う箇所です。
 開発者はそれぞれのコンポーネントを実装しているクラスの仕様に従ったコードを記述することで、Executor の内部で実行される処理を記述できます。
-例えば [Transform コンポーネント](transform.md) を利用する場合、 `preprocessing_fn` を実装する必要が生じるでしょう。
+たとえば [Transform コンポーネント](transform.md) を利用する場合、 `preprocessing_fn` を実装する必要が生じるでしょう。
 
 ## TFX ライブラリ
 
@@ -99,7 +98,7 @@ TFX はパイプラインのコンポーネントを作成するために必要�
 
 TFX のライブラリは次のものを含んでいます:
 
-* [**TensorFlow Data Validation (TFDV)**](tfdv.md) は機械学習で用いるデータの解析や検証のためのライブラリです。
+- [**TensorFlow Data Validation (TFDV)**](tfdv.md) は機械学習で用いるデータの解析や検証のためのライブラリです。
   これは高いスケーラビリティを持ち、 TensorFlow 及び TFX とうまく連携できるように設計されています。
   TFDV は次の内容を含みます:
 
@@ -110,32 +109,32 @@ TFX のライブラリは次のものを含んでいます:
       * 欠損値、値域を超えた値、誤った特徴量の型といった異常値を特定するための異常値検知
       * どの特徴量で異常値が生じたのか確認し、それを修正するのに必要な知見を得るための異常値ビューワー
 
-* [**TensorFlow Transform (TFT)**](tft.md) は TensorFlow でデータの前処理を行うためのライブラリです。
-  TensorFlow Transform はデータセット全体を通じた処理が必要な特徴量の算出に役立ちます。例えば次のような処理です:
+- [**TensorFlow Transform (TFT)**](tft.md) は TensorFlow でデータの前処理を行うためのライブラリです。
+  TensorFlow Transform はデータセット全体を通じた処理が必要な特徴量の算出に役立ちます。たとえば次のような処理です:
 
       * 平均と標準偏差を用いた入力値の正規化
       * すべての入力値から語彙を生成し、文字列を整数に変換
       * 観測されたデータの分布をもとにして区間を設定し、実数値 (float) を それぞれの区間を表す整数値に変換
 
-* [**TensorFlow**](train.md) は TFX のモデルを学習させるために利用されます。
+- [**TensorFlow**](train.md) は TFX のモデルを学習させるために利用されます。
   これは学習データとモデルのコードを入力すると、 SaveModel を出力します。
   また、TFT で作成された特徴量エンジニアリングのパイプラインを用いて、入力値の前処理を行うこともできます。
 
-* [**TensorFlow Model Analysis (TFMA)**](tfma.md) は TensorFlow のモデルを評価するためのライブラリです。
+- [**TensorFlow Model Analysis (TFMA)**](tfma.md) は TensorFlow のモデルを評価するためのライブラリです。
   これは TensorFlow と同時に利用することで EvalSavedModel を生成することもできます。これは TFMA の分析の基本になります。
-  TFMA を用いることで、作成したモデルを大量のデータに対して分散処理を行い、学習時に定義したのと同じ指標で評価することができます。
+  TFMA を用いることで、作成したモデルを大量のデータに対して分散処理を行い、学習時に定義したものとおなじ指標で評価することができます。
   これらの指標をデータの異なるスライスに対して計算し、Jupyter notebook を用いて可視化できます。
 
-* [**TensorFlow Metadata (TFMD)**](https://github.com/tensorflow/metadata) は
+- [**TensorFlow Metadata (TFMD)**](https://github.com/tensorflow/metadata) は
   機械学習モデルを TensorFlow で学習させるときに役立つメタデータについての標準的な表現形式を提供します。
   メタデータは手動で作成することも、入力データの解析を通じて自動的に生成されることもあるでしょう。
   また、データの検証、探索、変形に使われるかもしれません。
   メタデータのシリアライズ形式は次ののものを含みます。
 
-      * 表敬式のデータに対するスキーマの記述 (例えば tf. Example)
+      * 表敬式のデータに対するスキーマの記述 (たとえば tf.Example)
       * データセット全体に対する要約統計量の一式
 
-* [**ML Metadata (MLMD)**](mlmd.md) は機械学習デベロッパーとデータサイエンティストのワークフローに関係するメタデータを記録・検索するためのライブラリです。
+- [**ML Metadata (MLMD)**](mlmd.md) は機械学習デベロッパーとデータサイエンティストのワークフローに関係するメタデータを記録・検索するためのライブラリです。
   大概の場合、メタデータは TFMD の表現を利用します。
   MLMD は [SQL-Lite](https://www.sqlite.org/index.html) や [MySQL](https://www.mysql.com/)、その他の類似した永続的なデータストアの管理を行います。
 
@@ -143,7 +142,7 @@ TFX のライブラリは次のものを含んでいます:
 
 #### 必須なもの
 
-* [**Apache Beam**](beam.md) はオープンソースで、バッチ処理とストリーミング処理の両方に対し統一的なデータ並列処理パイプラインのモデルとなるものです。
+- [**Apache Beam**](beam.md) はオープンソースで、バッチ処理とストリーミング処理の両方に対し統一的なデータ並列処理パイプラインのモデルとなるものです。
   TFX は Beam をデータ並列なパイプラインを実装するために利用しています。
   パイプラインは Beam がサポートする分散処理基盤をバックエンドに利用して動作します。
   サポートする分散処理基盤には Apache Flink, Google Cloud Dataflow などが含まれます。
@@ -152,23 +151,23 @@ TFX のライブラリは次のものを含んでいます:
 
 Apache Airflow, Kubeflow のようなオーケストレーターは機械学習パイプラインの設定、オペレーション、監視、メンテナンスをより簡易にします。
 
-* [**Apache Airflow**](orchestra.md) はワークフローをプログラムで記述し、ワークフローのスケジューリング、監視を行うプラットフォームです。
+- [**Apache Airflow**](orchestra.md) はワークフローをプログラムで記述し、ワークフローのスケジューリング、監視を行うプラットフォームです。
   TFX は Airflow をワークフローをタスクの有向非巡回グラフ (directed acyclic graphs: DAGs) で書き表すために利用しています。
   Airflow のスケジューラーは指定された依存関係にしたがってワーカーを順に実行します。
   豊富なコマンドラインユーティリティは DAG の複雑な "手術" を簡単に実行できるようにします。
   リッチなユーザーインターフェイスはパイプラインのプロダクション環境での実行状況の可視化、進行状況の監視、また問題が発生したときのトラブルシューティングを容易にします。
-  ワークフローがコードで定義されている場合、保守やバージョン管理、テスト、コラボレーションがより良いものになるでしょう。
+  ワークフローがコードで定義されている場合、保守やバージョン管理、テスト、コラボレーションがよりよいものになるでしょう。
 
-* [**Kubeflow**](https://www.kubeflow.org/) はシンプルでポータブルかつスケーラブルであり、
+- [**Kubeflow**](https://www.kubeflow.org/) はシンプルでポータブルかつスケーラブルであり、
   Kubernetes 上での機械学習ワークフローの作成に特化しています。
-  Kubeflow の目的は他のサービスを再作成することなく、オープンソースのベスト・オブ・ブリードな
+  Kubeflow の目的はほかのサービスを再作成することなく、オープンソースのベスト・オブ・ブリードな
   機械学習システムを多様なインフラストラクチャ上で展開するための、単純な方法を提供することです。
   [Kubeflow Pipelines](https://www.kubeflow.org/docs/pipelines/pipelines-overview/)
   は Kubeflow 上で再現性のあるワークフローを実験や Notebook ベースの経験と統合された形で
   構築・実行することを可能にします。
   Kubernetes 上に構築された Kubeflow Pipeline にはホスティングされたメタデータストア、
   コンテナベースのオーケストレーションエンジン、ノートブックサーバー、そしてユーザーが複雑なパイプラインを
-  開発、実行、管理する助けとなる UI が含まれています。
+  開発、実行、管理するのを助ける UI が含まれています。
   Kubeflow Pipeline SDK はコンポーネントの作成や共有、パイプラインの構築をプログラムで実行できるようにします。
 
 ### オーケストレーションとポータビリティ
@@ -190,24 +189,24 @@ TFX と TensorFlow において、「モデル」はある時点で学習され�
 
 「モデル」は予測がどのように行われるか書き表した TensorFlow のコンピュテーショングラフの定義
 (別の言い方をすると Python ファイル) を指す場合もあることに注意してください。
-この2つの意味のどちらを指すかは文脈に応じて変わります。
+この 2 つの意味のどちらを指すかは文脈に応じて変わります。
 
 #### SavedModel
 
-* **[SavedModel](https://www.tensorflow.org/api_docs/python/tf/saved_model)とは**
+- **[SavedModel](https://www.tensorflow.org/api_docs/python/tf/saved_model)とは**
   普遍的で、言語に依存しない、密閉された、元の状態に回復可能な TensorFlow モデルのシリアライゼーションです。
-* **なぜ重要なのか** : SavedModel は高水準なシステムで単一の抽象を利用して、
+- **なぜ重要なのか** : SavedModel は高水準なシステムで単一の抽象を利用して、
   TensorFlow のモデルを作成し、変形し、利用することを可能にするためです。
 
-SavedModel は TensorFlow のモデルをプロダクション環境でサービス提供する、または訓練したモデルを
-ネイティブモバイルや JavaScript で利用するため場合に、推奨されるシリアライゼーション形式です。
-例えば、モデルから推論結果を提供する REST サービスを作成する場合、モデルを SavedModel に
-シリアライズし、 TensorFlow Serving でサービス提供することができます。詳細は [Serving a TensorFlow
+SavedModel は TensorFlow のモデルのシリアライゼーション形式です。
+これはモデルをプロダクション環境でサービス提供する、または訓練したモデルをネイティブモバイルや JavaScript で利用する場合に推奨されます。
+たとえば、モデルから推論結果を提供する REST サービスを作成する場合、モデルを SavedModel に
+シリアライズし、 TensorFlow Serving でサービス提供できます。詳細は [Serving a TensorFlow
 Model](https://www.tensorflow.org/serving/tutorials/Serving_REST_simple) をご確認ください。
 
 ### スキーマ
 
-TFX のコンポーネントのうちのいくつかは、*スキーマ* と呼ばれる入力データについての記述を扱います。
+TFX のコンポーネントのうちのいくつかは、_スキーマ_ と呼ばれる入力データについての記述を扱います。
 スキーマは [schema.proto](https://github.com/tensorflow/metadata/tree/master/tensorflow_metadata/proto/v0) のインスタンスです。
 スキーマは [protocol buffer](https://developers.google.com/protocol-buffers/) 、より一般には "protobuf" として知られているものの一種です。
 スキーマは特徴量のデータ型、その特徴量が必ず含まれなければならないかどうか、入力値の許される範囲、などの事柄を指定できます。
@@ -247,11 +246,11 @@ feature {
 
 スキーマを利用しているコンポーネントを次に示します :
 
-* TensorFlow Data Validation
-* TensorFlow Transform
+- TensorFlow Data Validation
+- TensorFlow Transform
 
 典型的な TFX のパイプラインでは TensorFlow Data Validation がスキーマを生成し、
-他のコンポーネントがそれを利用します。
+ほかのコンポーネントはそれを利用します。
 
 Note: 自動生成されたスキーマは「ベストエフォート」のものであり、単にデータの基本的な特徴の推測を試みるものです。
 生成されたスキーマについては、開発者が確認し、必要な場合は修正を加えることが期待されています。
@@ -259,7 +258,7 @@ Note: 自動生成されたスキーマは「ベストエフォート」のも�
 ## TFX を使った開発
 
 TFX は機械学習のプロジェクトやリサーチ、実験、ローカルのマシン上での開発、デプロイを行うまでのすべてのフェーズにおいて、強力なプラットフォームを提供します。
-コードの重複を避け、[トレーニング/サービング skew](#training-serving-skew-detection) の可能性を排除するために、
+コードの重複を避け、[学習時とサービス提供時の歪み](#training-serving-skew-detection) の可能性を排除するために、
 学習時と学習済みモデルのデプロイ時の両方で TFX のパイプラインを実装し、[TensorFlow Transform](tft.md) ライブラリを
 を活用するために [Transform](transform.md) コンポーネントを学習時と推論時の両方で利用することを強く推奨します。
 このようにすることで、前処理や解析を行う同一のコードを一貫して利用することができ、
@@ -273,7 +272,7 @@ TFX は機械学習のプロジェクトやリサーチ、実験、ローカル�
 TFX パイプラインは典型的には [ExampleGen](examplegen.md) コンポーネントから始まります。
 ExampleGen コンポーネントは入力されたデータを受け付け、 tf.Examples の形式に整形します。
 これはデータセットが学習用と評価用に分割されたあとで実行されることもよくあるため、学習用と評価用に、
-2つの ExampleGen コンポーネントのコピーが存在する場合もあります。
+2 つの ExampleGen コンポーネントのコピーが存在する場合もあります。
 また、一般的には次に [StatisticsGen](statsgen.md) コンポーネントと [SchemaGen](schemagen.md)
 コンポーネントが続きます。
 これらのコンポーネントはデータを確認し、データのスキーマと統計量を推定します。
@@ -293,13 +292,12 @@ TFDV はデータを確認してデータの型、カテゴリ、値域を推定
 
 ### データの可視化
 
-パイプラインのうち、TFDV を利用するコンポーネント (典型的には StatisticsGen, SchemaGen, ExampleValidator) を一度データが通過したあと、その結果を Jupyter notebook で可視化できます。
-何度も実行して結果を比較し、データがモデルやアプリケーションに最適化されるまで調整を行うこともできます。
+パイプラインのうち、TFDV を利用するコンポーネント (典型的には StatisticsGen, SchemaGen, ExampleValidator) では、データを処理した結果を Jupyter notebook で可視化できます。
+データがモデルやアプリケーションに最適化されるまで何度も実行して結果を比較し、調整を行うことも可能です。
 
-これらのコンポーネントの処理の出力結果を [**ML Metadata (MLMD)**](mlmd.md) に保存するために
-クエリを発行したあと、 notebook で可視化を行うために TFDV の可視化をサポートする API を利用できます。
+これらのコンポーネントの出力結果を [**ML Metadata (MLMD)**](mlmd.md) にクエリを発行して保存したあと notebook で可視化するために、 TFDV の可視化をサポートする API を利用できます。
 これには [tfdv.load_statistics()](`tfdv.load_statistics`) や [tfdv.visualize_statistics()](`tfdv.visualize_statistics`) が含まれます。
-これらの可視化を利用することで、データセットの特徴についてより良い理解を得ることや、もし必要なら要求に従って修正することもできます。
+これらの可視化を利用することで、データセットの特徴についてよりよい理解を得ることや、もし必要な場合は要求にそって修正することもできます。
 
 ### モデルの開発と学習
 
@@ -316,10 +314,10 @@ TensorFlow のコードを TFX で学習させるよう設計するときには[
 Transform コンポーネントは SavedModel を生成します。
 これは [Trainer](trainer.md) コンポーネントの中で TensorFlow にインポートされ、モデルを記述するコードで利用されます。
 この SavedModel には Transform コンポーネントの作成した、データエンジニアリングで行う変換がすべて含まれています。
-このため、学習時と推論時でまったく同じコードを用いた同一の変換がなされます。
+このため、学習時と推論時でまったくおなじコードを用いた同一の変換がなされます。
 Transform コンポーネントで生成された SavedModel を含む、モデルを記述するコードを利用することで、学習用と評価用、両方のデータを利用し、モデルの訓練ができるようになります。
 
-モデルを記述するコードの最後のセクションで、モデルを SavedModel と SavedEvalModel の両方の形式で保存すべきです。 EvalSavelModel を保存するためには Trainer コンポーネントで [TensorFlow Model Analysis (TFMA)](tfma.md) ライブラリをインポートして適用することが要求されます。
+モデルを記述するコードの最後のセクションで、モデルを SavedModel と EvalSavedModel の両方の形式で保存すべきです。 EvalSavelModel 形式で保存するためには Trainer コンポーネントで [TensorFlow Model Analysis (TFMA)](tfma.md) ライブラリをインポートして適用することが必要になるでしょう。
 
 ```python
 import tensorflow_model_analysis as tfma
@@ -341,18 +339,19 @@ tfma.export.export_eval_savedmodel(
 Evaluator コンポーネントは保存した EvalSavedModel を入力として受け付けます。また、モデルの振る舞いを可視化し分析する際に利用する `SliceSpecs` のリストを指定できます。
 それぞれの SliceSpec は学習データ中の、カテゴリカルな特徴量における特定のカテゴリ、数値的な特徴量における特定の値域といった、確認したい学習データの切り口を定義します。
 
-例えば、年間購入金額や地域データ、年齢層、性別といった異なるセグメントの顧客に対するモデルの振る舞いを理解しようと試みることは重要になりえるでしょう。
+たとえば、年間購入金額や地域データ、年齢層、性別といった異なるセグメントの顧客に対するモデルの振る舞いを理解しようと試みることは重要になりえるでしょう。
 特にデータセットがロングテールな分布をしていて、多数派であるグループに対する振る舞いが、小さいけれど重要なグループに対する容認できない振る舞いを覆い隠してしまう場合に、これは特に重要になりえます。
-例えば、モデルが平均的な従業員に対してはうまく機能するものの、企業の幹部に対しては本当にひどい過ちを犯すような場合、それを知っておくことは重要になるかもしれません。
+たとえば、モデルが平均的な従業員に対してはうまく機能するものの、企業の幹部に対しては本当にひどい過ちを犯すような場合、それを知っておくことは重要になるかもしれません。
 
 ### モデルの分析と可視化
 
-モデルの学習を終え、学習結果を [Evaluator](evaluator.md) コンポーネント (これは [TFMA](tfma.md) を活用しています) に入力して処理が完了したあと、結果を Jupyter スタイルのノートブックで可視化できます。 
-2回目以降であれば、これまでの結果を比較して、結果がモデルとアプリケーションにとって最適化されるまで何度も調整できます。
+モデルの学習を終え、学習結果を [Evaluator](evaluator.md) コンポーネント (これは [TFMA](tfma.md) を活用しています) に入力して処理が完了したあと、結果を Jupyter スタイルのノートブックで可視化できます。
+2 回目以降であれば、これまでの結果を比較して、結果がモデルとアプリケーションにとって最適化されるまで何度も調整できます。
 
-これらのコンポーネント群の実行結果を保存するために、まず [**ML Metadata (MLMD)**](mlmd.md) にクエリを発行し、それから TFMA の可視化用 API を利用すると、ノートブック上で可視化ができます。
+ノートブック上で可視化を行うためには、まず[**ML Metadata (MLMD)**](mlmd.md) にクエリを発行し、コンポーネント群の実行結果を保存します。
+次に、 TFMA の可視化用 API を利用すると結果の可視化ができます。
 可視化用 API には [tfma.load_eval_results()](https://www.tensorflow.org/tfx/model_analysis/api_docs/python/tfma/load_eval_results)や [tfma.view.render_slicing_metrics()](`tfma/view/render_slicing_metrics`) が含まれます。
-可視化を行うことでモデルの特徴についてより良い理解を得ることができ、もし必要ならば、修正することもできるようになるでしょう。
+可視化を行うことでモデルの特徴についてよりよい理解を得ることができ、必要な場合には修正もできるようになるでしょう。
 
 ## デプロイメントターゲット
 
@@ -366,19 +365,19 @@ TFX は 3 つのクラスのデプロイメントターゲットをサポート�
 
 [TensorFlow Serving (TFS)](serving.md) はプロダクション環境向けに設計された、柔軟でハイパフォーマンスな機械学習モデルのサービングシステムです。
 これは SavedModel を読み込むと、REST や gRPC インターフェースでの推論リクエストを受け付けるようになります。
-また、複数のプロセスを同期・分散処理のためのいくつかの高度なアーキテクチャ上を用いて、1つないしは複数のネットワークサーバー上で走らせます。
-TFSの開発やデプロイに関する詳細については [TFS のドキュメント](serving.md)を参照してください。
+また、複数のプロセスを同期・分散処理のためのいくつかの高度なアーキテクチャ上を用いて、1 つないしは複数のネットワークサーバー上で走らせます。
+TFS の開発やデプロイに関する詳細については [TFS のドキュメント](serving.md)を参照してください。
 
 典型的なパイプラインでは [Pusher](pusher.md) コンポーネントが Trainer コンポーネントで訓練された SavedModel を読み込み、TFS のインフラストラクチャにデプロイします。
-これは複数のバージョンの操作やモデルのアップデートを含みます。
+これは複数のバージョンやモデルのアップデートの処理を含みます。
 
-### モバイルネイティブやIoTアプリケーションでの推論: TensorFlow Lite
+### モバイルネイティブや IoT アプリケーションでの推論: TensorFlow Lite
 
-[TensorFlow Lite](https://www.tensorflow.org/lite) は学習済みの TensorFlow モデルをネイティブモバイルやIoTアプリケーションで使うためのツール一式をデベロッパーに提供します。
+[TensorFlow Lite](https://www.tensorflow.org/lite) は学習済みの TensorFlow モデルをネイティブモバイルや IoT アプリケーションで使うためのツール一式をデベロッパーに提供します。
 TensorFlow Serving と同様に、これは SavedModel を読み込み、量子化や枝刈りのような最適化手法を用いて、モバイルや IoT デバイスで動作するようにサイズとパフォーマンスの最適化を試みます。
 TensorFlow Lite の利用についての詳細は TensorFlow Lite のドキュメントを参照してください。
 
-### JavaScriptでの推論: TensorFlow JS
+### JavaScript での推論: TensorFlow JS
 
 [TensorFlow JS](https://js.tensorflow.org/) は機械学習モデルの学習とデプロイをブラウザや Node.js 上で行う JavaScript ライブラリです。
 これは TensorFlow Serving や TensorFlow Lite と同様に SavedModel を読み込み、それを TensorFlow.js Web フォーマットに変換します。
@@ -388,7 +387,7 @@ TensorFlow JS の利用についての詳細は TensorFlow JS のドキュメン
 
 ### インストール
 
-Airflow は PyPIからインストールできます:
+Airflow は PyPI からインストールできます:
 
 ```python
 # Airflow
@@ -397,12 +396,12 @@ export SLUGIFY_USES_TEXT_UNIDECODE=yes
 pip install apache-airflow
 ```
 
-### DAGの作成
+### DAG の作成
 
 Python を用いて TFX パイプラインを作成するためには、`tfx.runtimes.tfx_airflow.PipelineDecorator` でデコレートされた関数を定義して、
 パイプラインで利用するコンポーネントを作成し、パイプラインに合わせてそれらをつなぎ合わせる必要があります。
 その後、ファイルのグローバルコンテキストで `create_pipeline()` を呼び出します。
-例えば、典型的なパイプラインは次のようになるでしょう :
+たとえば、典型的なパイプラインは次のようになるでしょう :
 
 ```python
 @PipelineDecorator(
@@ -467,11 +466,11 @@ mkdir -p ~/airflow/plugins  # or $AIRFLOW_HOME/plugins
 
 #### パイプラインの設定
 
-実際のコードの構造に対する唯一の要件は、`create_pipeline()` 関数 (これは "パイプラインの設定" そのものです) が記された Python ファイルには `dags` フォルダ配下に置かれていなければいけない、というものです。
+実際のコードの構造に対する唯一の要件は、`create_pipeline()` 関数 (これは "パイプラインの設定" そのものです) が記された Python ファイルは `dags` フォルダ配下に置かれていなければいけない、というものです。
 Python ファイルの名前は DAG の名前と一致させることを推奨します。DAG が `taxi` という名前のときには、そのファイル名も `taxi` とすべきです。
 
-パイプラインの設定ファイル中の `create_pipeline()` 関数は `PipelineDecorator` でデコレートされ、そこでは他の事柄とともに `pipeline_name` が設定されます。
-これらは Airflow の web UI を用いてパイプラインを名前で識別する際や、パイプラインのログファイルを配置する際に重要となります。 
+パイプラインの設定ファイル中の `create_pipeline()` 関数は `PipelineDecorator` でデコレートされ、`pipeline_name` などの値が設定されます。
+これらは Airflow の web UI を用いてパイプラインを名前で識別する際や、パイプラインのログファイルを配置する際に重要となります。
 
 #### パイプラインのコードのデプロイ
 
@@ -493,8 +492,7 @@ base_dir = os.path.join(home_dir, 'data/taxi/')
 output_dir = os.path.join(base_dir, 'pipelines/')
 ```
 
-If you are planning to use files to hold your dataset(s), you should copy your
-data files into your `data` folder:
+データセットをファイルとして保存し利用する場合、 `data` フォルダー配下にファイルをコピーすべきです:
 
 ```bash
 cp data.csv ~/airflow/data/taxi     # or $AIRFLOW_HOME/data/taxi
@@ -510,7 +508,7 @@ cp data.csv ~/airflow/data/taxi     # or $AIRFLOW_HOME/data/taxi
 ## TFX パイプラインのデプロイとオペレーション
 
 新しいパイプラインの処理を開始させるためには Airflow の web UI でパイプラインを有効にしなければいけません。
-多くの場合、web UI から処理を開始する操作も必要になるでしょう。
+多くの場合、web UI から処理を開始する必要もあるでしょう。
 もし実行を止めたい場合は、パイプラインを無効にすることも web UI から可能です。
 また、パイプラインの現在の状態や、過去の履歴の確認、ログの閲覧も web UI で可能です。
 
@@ -531,19 +529,19 @@ airflow scheduler
 
 #### ノートブックを用いた可視化
 
-パイプラインに含まれるTFXのコンポーネントの入力と出力を調べ、実行結果の比較を行うために、Jupyter スタイルのノートブックはとても有用なツールです。
+パイプラインに含まれる TFX のコンポーネントの入力と出力を調べ、実行結果の比較を行うために、Jupyter スタイルのノートブックはとても有用なツールです。
 加えて、TFDV と TFMA はどちらも強力な可視化のサポートを備えており、開発者がデータセットを探索し、モデルの出力結果を詳細に解析できるようになっています。
 
 ## トラブルシューティング
 
-### Log ファイル中のエラーの見つけ方
+### Log ファイル中のエラーの探し方
 
 TFX はログを PipelineDecotator の追加の引数である LoggerConfig で設定された場所に出力します。
 デフォルトは `/var/tmp/tfx/logs/tfx.log` です。
-加えて、オーケストレーター (例えば Airflow や Kubeflow) もまたログファイルを出力します。
+加えて、オーケストレーター (たとえば Airflow や Kubeflow) もまたログファイルを出力します。
 パイプラインのエラーの分析を試みるときには、これらのログファイルがとても有効です。
 `taxi` という名前のパイプラインで特に LoggerConfig が設定されていない場合、TFX のログは `/var/tmp/tfx/logs/tfx.log` に出力されます。
-これは [logging_utils.LoggerConfig](https://github.com/tensorflow/tfx/blob/master/tfx/utils/logging_utils.py) オブジェクトを生成し、パイプラインの設定の `logger_args` と呼ばれるパラメーターに与えることで、設定の変更が可能です。
+これは [logging_utils.LoggerConfig](https://github.com/tensorflow/tfx/blob/master/tfx/utils/logging_utils.py) オブジェクトを生成し、パイプラインの設定の `logger_args` と呼ばれるパラメータに与えることで、設定の変更が可能です。
 
 ```python
 @PipelineDecorator(
@@ -569,7 +567,7 @@ $AIRFLOW_HOME/logs/taxi
 $AIRFLOW_HOME/logs/taxi.COMPONENT_NAME
 ```
 
-### パイプラインは表示されているが、実行しようとすると Airflow が見つけられない
+### パイプラインは表示されているが、Airflow で実行しようとするとみつからない
 
 ウェブサーバーとスケジューラーを再起動してみてください。
 
