@@ -41,7 +41,7 @@ toc:
   - title: "Numpy"
     path: /beta/tutorials/load_data/numpy
   - title: "Pandas"
-    path: /beta/tutorials/load_data/pandas
+    path: /beta/tutorials/load_data/from_pandas
   - title: "Images"
     path: /beta/tutorials/load_data/images
   - title: "Text"
