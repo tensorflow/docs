@@ -149,8 +149,16 @@ class IgnoreLineInBlock(object):
 
     return self._in_block
 
-
-AUTO_REFERENCE_RE = re.compile(r'`([\w\(\[\)\]\{\}.,=\s]+?)`')
+# ?P<...> helps to find the match by entering the group name instead of the
+# index. For example, instead of doing match.group(1) we can do
+# match.group('brackets')
+AUTO_REFERENCE_RE = re.compile(
+    r"""
+    (?P<brackets>\[.*?\])                    # find characters inside '[]'
+    |
+    `(?P<backticks>[\w\(\[\)\]\{\}.,=\s]+?)` # or find characters inside '``'
+    """,
+    flags=re.VERBOSE)
 
 
 class ReferenceResolver(object):
@@ -198,8 +206,15 @@ class ReferenceResolver(object):
 
   @classmethod
   def from_json_file(cls, filepath):
+    """Initialize the reference resolver via _api_cache.json."""
     with open(filepath) as f:
       json_dict = json.load(f)
+
+    # tensorflow_model_optimization still has "current_doc_full_name" as a key
+    # in its _api_cache.json. Hence, popping that key because its not being used
+    # anywhere.
+    if 'current_doc_full_name' in json_dict:
+      json_dict.pop('current_doc_full_name')
 
     return cls(**json_dict)
 
@@ -281,6 +296,7 @@ class ReferenceResolver(object):
 
     with open(filepath, 'w') as f:
       json.dump(json_dict, f, indent=2, sort_keys=True)
+      f.write('\n')
 
   def replace_references(self, string, relative_path_to_root, full_name=None):
     """Replace `tf.symbol` references with links to symbol's documentation page.
@@ -408,7 +424,13 @@ class ReferenceResolver(object):
 
   def _one_ref(self, match, relative_path_to_root, full_name=None):
     """Return a link for a single "`tf.symbol`" reference."""
-    string = match.group(1)
+
+    if match.group(1):
+      # Found a '[]' group, return it unmodified.
+      return match.group('brackets')
+
+    # Found a '``' group.
+    string = match.group('backticks')
 
     link_text = string
 
@@ -416,12 +438,14 @@ class ReferenceResolver(object):
 
     if string.startswith('compat.v1') or string.startswith('compat.v2'):
       string = 'tf.' + string
+    elif string.startswith('v1') or string.startswith('v2'):
+      string = 'tf.compat.' + string
+
     elif full_name is None or ('tf.compat.v' not in full_name and
                                'tf.contrib' not in full_name):
       string = self._partial_symbols_dict.get(string, string)
 
     try:
-
       if string.startswith('tensorflow::'):
         # C++ symbol
         return self._cc_link(string, link_text, relative_path_to_root)
@@ -934,7 +958,7 @@ class _FunctionPageInfo(object):
     self._decorators.append(dec)
 
   def get_metadata_html(self):
-    return _Metadata(self.full_name).build_html()
+    return Metadata(self.full_name).build_html()
 
 
 class _ClassPageInfo(object):
@@ -1136,7 +1160,7 @@ class _ClassPageInfo(object):
     return self._classes
 
   def get_metadata_html(self):
-    meta_data = _Metadata(self.full_name)
+    meta_data = Metadata(self.full_name)
     for item in itertools.chain(self.classes, self.properties, self.methods,
                                 self.other_members):
       meta_data.append(item)
@@ -1360,7 +1384,7 @@ class _ModulePageInfo(object):
         _OtherMemberInfo(short_name, full_name, obj, doc))
 
   def get_metadata_html(self):
-    meta_data = _Metadata(self.full_name)
+    meta_data = Metadata(self.full_name)
 
     # Objects with their own pages are not added to the metadata list for the
     # module, the module only has a link to the object page. No docs.
@@ -1480,7 +1504,9 @@ def docs_for_object(full_name, py_object, parser_config):
 
   # Which other aliases exist for the object referenced by full_name?
   master_name = parser_config.reference_resolver.py_master_name(full_name)
-  duplicate_names = parser_config.duplicates.get(master_name, [full_name])
+  duplicate_names = parser_config.duplicates.get(master_name, [])
+  if master_name in duplicate_names:
+    duplicate_names.remove(master_name)
 
   # TODO(wicke): Once other pieces are ready, enable this also for partials.
   if (tf_inspect.ismethod(py_object) or tf_inspect.isfunction(py_object) or
@@ -1659,7 +1685,7 @@ def generate_global_index(library_name, index, reference_resolver):
   return '\n'.join(lines)
 
 
-class _Metadata(object):
+class Metadata(object):
   """A class for building a page's Metadata block.
 
   Attributes:
@@ -1667,16 +1693,24 @@ class _Metadata(object):
     version: The source version.
   """
 
-  def __init__(self, name, version='Stable'):
+  def __init__(self, name, version=None, content=None):
     """Creates a Metadata builder.
 
     Args:
       name: The name of the page being described by the Metadata block.
       version: The source version.
+      content: Content to create the metadata from.
     """
+
     self.name = name
+
     self.version = version
-    self._content = []
+    if self.version is None:
+      self.version = 'Stable'
+
+    self._content = content
+    if self._content is None:
+      self._content = []
 
   def append(self, item):
     """Adds an item from the page to the Metadata block.
