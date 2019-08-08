@@ -11,7 +11,7 @@
 디렉토리에 있는 [텐서플로 2.0 베타](https://www.tensorflow.org/beta) 문서를 번역하는데 촛점을 맞춰 주세요.
 2.0 릴리스를 준비하기 위해 TF 1.x 커뮤니티 문서는 더 이상 업데이트되지 않습니다. 이
 [공지](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ)를
-참고하세요.
+참고하세요. 또한 install 폴더의 내용과 yaml 파일, index.md 파일은 번역하지 않습니다. 이에 대한 자세한 지침은 이 [공지](https://groups.google.com/a/tensorflow.org/forum/#!msg/docs-zh-cn/mhLp-egzNyE/EhGSeIBqAQAJ)를 참고하세요.
 
 노트: [Swift for TensorFlow](https://www.tensorflow.org/swift)(S4TF)를 위한 번역
 홈 디렉토리는
@@ -37,6 +37,8 @@ Note: Please focus translation efforts on
 directory. TF 1.x community docs will no longer be updated as we prepare for the
 2.0 release. See
 [the announcement](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).
+Also, please do not translate the `install/` section, any `*.yaml` files, or `index.md` files.
+See [the announcement](https://groups.google.com/a/tensorflow.org/forum/#!msg/docs-zh-cn/mhLp-egzNyE/EhGSeIBqAQAJ).
 
 Note: The
 [site/ko/swift](https://github.com/tensorflow/docs/tree/master/site/ko/swift)
