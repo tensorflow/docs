@@ -181,17 +181,24 @@ Configuration finished
 
 ### Configuration options
 
-For [GPU support](./gpu.md), specify the versions of CUDA and cuDNN. If your
-system has multiple versions of CUDA or cuDNN installed, explicitly set the
-version instead of relying on the default. `./configure` creates symbolic links
-to your system's CUDA libraries—so if you update your CUDA library paths, this
-configuration step must be run again before building.
+#### GPU support
+
+For [GPU support](./gpu.md), set `cuda=Y` during configuration and specify the
+versions of CUDA and cuDNN. If your system has multiple versions of CUDA or
+cuDNN installed, explicitly set the version instead of relying on the default.
+`./configure` creates symbolic links to your system's CUDA libraries—so if you
+update your CUDA library paths, this configuration step must be run again before
+building.
+
+#### Optimizations
 
 For compilation optimization flags, the default (`-march=native`) optimizes the
 generated code for your machine's CPU type. However, if building TensorFlow for a
 different CPU type, consider a more specific optimization flag. See the
 [GCC manual](https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html){:.external}
 for examples.
+
+#### Preconfigured configurations
 
 There are some preconfigured build configs available that can be added to the
 `bazel build` command, for example:
@@ -211,20 +218,12 @@ run on older CPUs.
 [Install Bazel](https://docs.bazel.build/versions/master/install.html) and use
 `bazel build --config=v2` to create the TensorFlow 2 package.
 
-#### CPU-only
+Note: For GPU support, enable CUDA during the `./configure` stage.
 
-Use `bazel` to make the TensorFlow package builder with CPU-only support:
+Use `bazel` to make the TensorFlow package:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 bazel build --config=v2 //tensorflow/tools/pip_package:build_pip_package
-</pre>
-
-#### GPU support
-
-To make the TensorFlow package builder with GPU support:
-
-<pre class="devsite-terminal devsite-click-to-copy">
-bazel build --config=v2 --config=cuda //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
 ### TensorFlow 1.x
