@@ -90,14 +90,6 @@ TensorFlow source tree. This script prompts you for the location of TensorFlow
 dependencies and asks for additional build configuration options (compiler
 flags, for example).
 
-### Configure TensorFlow 2
-
-<pre class="devsite-terminal devsite-click-to-copy">
-./configure --config=v2
-</pre>
-
-### Configure TensorFlow 1.x
-
 <pre class="devsite-terminal devsite-click-to-copy">
 ./configure
 </pre>
@@ -214,7 +206,30 @@ run on older CPUs.
 
 ## Build the pip package
 
-### Bazel build
+### TensorFlow 2
+
+[Install Bazel](https://docs.bazel.build/versions/master/install.html) and use
+`bazel build --config=v2` to create the TensorFlow 2 package.
+
+#### CPU-only
+
+Use `bazel` to make the TensorFlow package builder with CPU-only support:
+
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build --config=v2 //tensorflow/tools/pip_package:build_pip_package
+</pre>
+
+#### GPU support
+
+To make the TensorFlow package builder with GPU support:
+
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build --config=v2 --config=cuda //tensorflow/tools/pip_package:build_pip_package
+</pre>
+
+### TensorFlow 1.x
+
+Older TensorFlow packages can still be built with `bazel build`:
 
 #### CPU-only
 
