@@ -1,12 +1,11 @@
-# The ExampleGen TFX Pipeline Component
+# ExampleGen TFX パイプラインコンポーネント
 
-The ExampleGen TFX Pipeline component ingests data into TFX pipelines. It
-consumes external files/services to generate Examples which will be read by
-other TFX components. It also provides consistent and configurable partition,
-and shuffles the dataset for ML best practice.
+ExampleGen はデータを TFX のパイプラインに投入するコンポーネントです。
+これは外部のファイルやサービスからデータを読み取り、他の TFX のコンポーネントが読み取る Examples を生成します。
+また、機械学習のベストプラクティスに従い、データセットの分割や並び替えについて、一貫性のある設定可能な方法で提供します。
 
-*   Consumes: Data from external data sources such as CSV, `TFRecord` and BigQuery
-*   Emits: `tf.Example` records
+- 入力: CSV や `TFRecord`, BigQuery といった外部のデータソースからのデータ
+- 出力: `tf.Example` レコード
 
 ## ExampleGen and Other Components
 
