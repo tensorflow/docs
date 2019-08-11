@@ -317,7 +317,7 @@ Transform コンポーネントは SavedModel を生成します。
 このため、学習時と推論時でまったくおなじコードを用いた同一の変換がなされます。
 Transform コンポーネントで生成された SavedModel を含む、モデルを記述するコードを利用することで、学習用と評価用、両方のデータを利用し、モデルの訓練ができるようになります。
 
-モデルを記述するコードの最後のセクションで、モデルを SavedModel と EvalSavedModel の両方の形式で保存すべきです。 EvalSavelModel 形式で保存するためには Trainer コンポーネントで [TensorFlow Model Analysis (TFMA)](tfma.md) ライブラリをインポートして適用することが必要になるでしょう。
+モデルを記述するコードの最後のセクションで、モデルを SavedModel と EvalSavedModel の両方の形式で保存すべきです。 EvalSavedModel 形式で保存するためには Trainer コンポーネントで [TensorFlow Model Analysis (TFMA)](tfma.md) ライブラリをインポートして適用することが必要になるでしょう。
 
 ```python
 import tensorflow_model_analysis as tfma
