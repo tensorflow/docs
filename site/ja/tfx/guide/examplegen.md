@@ -15,14 +15,11 @@ ExampleGen はデータを TFX のパイプラインに投入するコンポー�
 - 入力: CSV や `TFRecord`, BigQuery といった外部のデータソースからのデータ
 - 出力: `tf.Example` レコード
 
-## ExampleGen and Other Components
+## ExampleGen とその他のコンポーネント
 
-ExampleGen provides data to components that make use of the
-[TensorFlow Data Validation](tfdv.md) library, such as
-[SchemaGen](schemagen.md), [StatisticsGen](statsgen.md), and
-[Example Validator](exampleval.md). It also provides data to
-[Transform](transform.md), which makes use of the [TensorFlow Transform](tft.md)
-library, and ultimately to deployment targets during inference.
+ExampleGen は [TensorFlow Data Validation](tfdv.md) を利用するコンポーネントにデータを提供します。
+これには [SchemaGen](schemagen.md), [StatisticsGen](statsgen.md), [Example Validator](exampleval.md) が含まれます。
+また、[TensorFlow Transform](tft.md) を利用する [Transform](transform.md) にもデータを提供し、最終的には推論時にデプロイメントターゲットへとデータを供給します。
 
 ## How to use an ExampleGen Component
 
