@@ -556,7 +556,7 @@ TFX はログを PipelineDecotator の追加の引数である LoggerConfig で�
 
 Note: Docker や Kubeflow のリモート環境上で Executor を動かしている場合、Executor のログはリモートワーカー上に出力されます。
 
-Airflow を利用している場合、ログは Airflow の出力するログにも記録されます。
+Airflow を利用している場合、ログは Airflow が出力するログにも記録されます。
 デフォルトの Airflow のログの出力先は `$AIRFLOW_HOME/logs` で、次のファイルが含まれます:
 
 ```
