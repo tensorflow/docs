@@ -571,7 +571,7 @@ $AIRFLOW_HOME/logs/taxi.COMPONENT_NAME
 
 ウェブサーバーとスケジューラーを再起動してみてください。
 
-## Kubeflow そ用いた TFX パイプラインの作成
+## Kubeflow を用いた TFX パイプラインの作成
 
 ### セットアップ
 
