@@ -21,12 +21,10 @@ ExampleGen は [TensorFlow Data Validation](tfdv.md) を利用するコンポー
 これには [SchemaGen](schemagen.md), [StatisticsGen](statsgen.md), [Example Validator](exampleval.md) が含まれます。
 また、[TensorFlow Transform](tft.md) を利用する [Transform](transform.md) にもデータを提供し、最終的には推論時にデプロイメントターゲットへとデータを供給します。
 
-## How to use an ExampleGen Component
+## ExampleGen コンポーネントの使い方
 
-For supported data sources (currently, CSV files, TFRecord files with TF Example
-data format, and results of BigQuery queries) the ExampleGen pipeline component
-is typically very easy to deploy and requires little customization. Typical code
-looks like this:
+サポートされるデータソース (現在、CSV ファイル、TF Example フォーマットの TFRecord ファイル、BigQuery にクエリした結果、の3つがサポートされています) を用いる場合、ExampleGen コンポーネントは典型的な場合、非常に簡単にデプロイ可能で、ほとんど改修を必要とせずに利用できます。
+典型的なコードは次のようになります:
 
 ```python
 from tfx.utils.dsl_utils import csv_input
@@ -36,7 +34,7 @@ examples = csv_input(os.path.join(base_dir, 'data/simple'))
 example_gen = CsvExampleGen(input_base=examples)
 ```
 
-or like below for importing external tf Examples directly:
+次のように、外部の TF Example 形式のファイルを直接読み込むこともできます:
 
 ```python
 from tfx.utils.dsl_utils import tfrecord_input
@@ -46,12 +44,12 @@ examples = tfrecord_input(path_to_tfrecord_dir)
 example_gen = ImportExampleGen(input_base=examples)
 ```
 
-## Custom input/output split
+## カスタム input/output split
 
-Note: this feature is only available after TFX 0.14.
+Note: この機能は TFX 0.14 以降でのみ利用可能です。
 
-To customize the train/eval split ratio which ExampleGen will output, set the
-`output_config` for ExampleGen component. For example:
+ExampleGen が出力する 学習/評価 データの比率を変更するためには、`output_config` を ExampleGen コンポーネントに設定してください。
+例を次に示します:
 
 ```python
 from  tfx.proto import example_gen_pb2
@@ -67,10 +65,10 @@ examples = csv_input(input_dir)
 example_gen = CsvExampleGen(input_base=examples, output_config=output)
 ```
 
-Notice how the `hash_buckets` were set in this example.
+この例の中でどのように `hash_backets` が設定されているかに注意してください。
 
-For an input source which has already been split, set the `input_config` for
-ExampleGen component:
+すでに入力データが分割されている場合、`input_config` を ExampleGen コンポーネントに設定してください。
+例を次に示します:
 
 ```python
 from  tfx.proto import example_gen_pb2
@@ -85,17 +83,12 @@ examples = csv_input(input_dir)
 example_gen = CsvExampleGen(input_base=examples, input_config=input)
 ```
 
-For file based example gen (e.g. CsvExampleGen and ImportExampleGen), `pattern`
-is a glob relative file pattern that maps to input files with root directory
-given by input base path. For query-based example gen (e.g. BigQueryExampleGen,
-PrestoExampleGen), `pattern` is a SQL query.
+ファイルベースの ExampleGen コンポーネント (例えば、 CsvExampleGen や ImportExampleGen) では、`pattern` は入力ファイルをまとめたディレクトリからの相対パスを glob 形式で記述したものになります。
+クエリベースの ExampleGen コンポーネント (例えば、BigQUeryExampleGen や PrestoExampleGen) では、`pattern` はSQLクエリになります。
 
-By default, the entire input base dir is treated as a single input split, and
-the train and eval output split is generated with a 2:1 ratio.
+デフォルトでは入力データをまとめたディレクトリには単一のファイルがあるものとして扱われます。また、学習/評価用のデータの分割は2:1の割合になるように行われます。
 
-Please refer to
-[proto/example_gen.proto](https://github.com/tensorflow/tfx/blob/master/tfx/proto/example_gen.proto)
-for details.
+詳細については [proto/example_gen.proto](https://github.com/tensorflow/tfx/blob/master/tfx/proto/example_gen.proto) を参照してください。
 
 ## Custom ExampleGen
 
