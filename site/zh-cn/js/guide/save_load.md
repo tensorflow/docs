@@ -68,7 +68,7 @@ await model.save('downloads://my-model');
  1. 一个名为 `[my-model].json` 的 JSON 文件，它包含了模型的拓扑结构和下面将要介绍的权重文件的引用。
  2. 一个二进制文件，其中包含名为 `[my-model].weights.bin` 的权重值。
 
-你可以更换`[my-model]`的名称以获得一个不同的名称的文件。
+您可以更换 `[my-model]` 的名称以获得一个不同的名称的文件。
 
 由于`.json`使用相对路径指向 `.bin`。所以两个文件需要被安放在同一个文件夹中。
 
