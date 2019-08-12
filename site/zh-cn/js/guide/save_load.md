@@ -85,7 +85,7 @@ await model.save('http://model-server.domain/upload')
 ```
 
 这将创建一个Web请求，以将模型保存到远程服务器。 您应该控制该远程服务器，以便确保它能够处理该请求。
-则模型的拓扑和权重将通过[POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) 请求发送到指定的 HTTP 服务器。
+模型将通过[POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) 请求发送到指定的 HTTP 服务器。
 POST 请求的 body 遵守称为`multipart/form-data`的格式。它由以下两个文件组成
 
  1. 一个名为 `model.json` 的 JSON 文件，其中包含拓扑结构和对下面描述的权重文件的引用。
