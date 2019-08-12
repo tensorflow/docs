@@ -28,7 +28,7 @@ open("converted_model.tflite", "wb").write(tflite_quant_model)
 ### 转换为一个 C 数组
 许多微控制器平台没有本地文件系统的支持。从程序中使用一个模型最简单的方式是将其以一个 C 数组的形式包含并编译进你的程序。
 
-以下的unix命令会生成一个以 `char` 数组形式包含 TensorFlow Lite 模型的 C 源文件：
+以下的 unix 命令会生成一个以 `char` 数组形式包含 TensorFlow Lite 模型的 C 源文件：
 
 ```bash
 xxd -i converted_model.tflite > model_data.cc
