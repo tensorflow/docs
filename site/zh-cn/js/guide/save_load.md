@@ -89,7 +89,7 @@ await model.save('http://model-server.domain/upload')
 POST 请求的 body 遵守称为`multipart/form-data`的格式。它由以下两个文件组成
 
  1. 一个名为 `model.json` 的 JSON 文件，其中包含拓扑结构和对下面描述的权重文件的引用。
-2.  一个二进制文件，其中包含名为`model.weights.bin`. 的权重值。
+ 2. 一个二进制文件，其中包含名为 `[my-model].weights.bin` 的权重值。
 
 这个 [api 文档](https://js.tensorflow.org/api/latest/#tf.io.browserHTTPRequest)包含一块 Python 代码片段，演示了如何使用加入了 Keras 和 TensorFlow 的 [flask](http://flask.pocoo.org/) Web 框架来处理来自 save 的请求，并重建 request 的 payload 作为服务器内存中的 Keras Model 对象。
 
