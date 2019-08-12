@@ -93,7 +93,7 @@ POST 请求的 body 遵守称为`multipart/form-data`的格式。它由以下两
 
 这个 [api 文档](https://js.tensorflow.org/api/latest/#tf.io.browserHTTPRequest)包含一块 Python 代码片段，演示了如何使用加入了 Keras 和 TensorFlow 的 [flask](http://flask.pocoo.org/) Web 框架来处理来自 save 的请求，并重建 request 的 payload 作为服务器内存中的 Keras Model 对象。
 
-通常，您必须向HTTP服务器传递更多参数或请求标头（例如，用于身份验证，或者如果要指定应保存模型的文件夹）。您可以通过替换URL字符串参数tf.io.browserHTTPRequest来获得对来自 save 函数的请求的这些方面的细粒度控制。此API在控制HTTP请求方面提供了更大的灵活性。
+通常，您必须向 HTTP 服务器传递更多参数或请求头（例如，用于身份验证，或者如果要指定应保存模型的文件夹）。您可以通过替换 `tf.io.browserHTTPRequest` 函数中的 URL字符串参数来获得对来自 `save` 函数的请求在这些方面的细粒度控制。这个API在控制 HTTP 请求方面提供了更大的灵活性。
 
 例如：
 
