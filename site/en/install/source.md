@@ -55,8 +55,7 @@ the build tool used to compile TensorFlow.
 
 Add the location of the Bazel executable to your `PATH` environment variable.
 
-Note: Make sure your Bazel version matches the minimum/maximum version as specified by `_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` in <a href="https://github.com/tensorflow/tensorflow/blob/master/configure.py" class="external"><code>
-  `tensorflow/configure.py`</code></a>.
+Note: Make sure your Bazel version matches the minimum/maximum version as specified by `_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` in <a href="https://github.com/tensorflow/tensorflow/blob/master/configure.py" class="external"><code>tensorflow/configure.py</code></a>.
 
 ### Install GPU support (optional, Linux only)
 
