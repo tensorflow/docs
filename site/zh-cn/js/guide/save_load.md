@@ -54,7 +54,7 @@ await model.save('localstorage://my-model');
 await model.save('indexeddb://my-model');
 ```
 
-这将模型保存到浏览器的[IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 。
+这样会将模型保存到浏览器的[IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)存储中。
 与本地存储一样，它在刷新后仍然存在，同时它往往也对存储的对象的大小有较大的限制。
 
 ### 文件下载 (仅限浏览器)
