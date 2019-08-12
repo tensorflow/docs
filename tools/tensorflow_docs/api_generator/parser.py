@@ -1684,12 +1684,15 @@ def generate_global_index(library_name, index, reference_resolver):
   # required.
   symbol_links = sorted(symbol_links, key=lambda x: x[0])
 
-  compat_symbol_links = []
+  compat_v1_symbol_links = []
+  compat_v2_symbol_links = []
   primary_symbol_links = []
 
   for symbol, link in symbol_links:
-    if symbol.startswith('tf.compat'):
-      compat_symbol_links.append(link)
+    if symbol.startswith('tf.compat.v1'):
+      compat_v1_symbol_links.append(link)
+    elif symbol.startswith('tf.compat.v2'):
+      compat_v2_symbol_links.append(link)
     else:
       primary_symbol_links.append(link)
 
@@ -1697,16 +1700,15 @@ def generate_global_index(library_name, index, reference_resolver):
   for link in primary_symbol_links:
     lines.append('*  %s' % link)
 
-  if compat_symbol_links:
+  if compat_v2_symbol_links:
     lines.append('## Compat v2 symbols')
-    for link in compat_symbol_links:
-      if link.startswith('tf.compat.v2'):
-        lines.append('*  %s' % link)
+    for link in compat_v2_symbol_links:
+      lines.append('*  %s' % link)
 
+  if compat_v1_symbol_links:
     lines.append('## Compat v1 symbols')
-    for link in compat_symbol_links:
-      if link.startswith('tf.compat.v1'):
-        lines.append('*  %s' % link)
+    for link in compat_v1_symbol_links:
+      lines.append('*  %s' % link)
 
   # TODO(markdaoust): use a _ModulePageInfo -> prety_docs.build_md_page()
   return '\n'.join(lines)
