@@ -91,7 +91,7 @@ POST 请求的 body 遵守称为`multipart/form-data`的格式。它由以下两
  1. 一个名为 `model.json` 的 JSON 文件，其中包含拓扑结构和对下面描述的权重文件的引用。
  2. 一个二进制文件，其中包含名为 `[my-model].weights.bin` 的权重值。
 
-这个 [api 文档](https://js.tensorflow.org/api/latest/#tf.io.browserHTTPRequest)包含一块 Python 代码片段，演示了如何使用加入了 Keras 和 TensorFlow 的 [flask](http://flask.pocoo.org/) Web 框架来处理来自 save 的请求，并重建 request 的 payload 作为服务器内存中的 Keras Model 对象。
+请注意，这两个文件的名称需要与上述介绍中的保持完全相同（因为名称内置于函数中，无法更改）。 此[ api 文档](https://js.tensorflow.org/api/latest/#tf.io.browserHTTPRequest)包含一个 Python 代码片段，演示了如何使用 [flask](http://flask.pocoo.org/) web 框架来处理源自 `save` 的请求。
 
 通常，您必须向 HTTP 服务器传递更多参数或请求头（例如，用于身份验证，或者如果要指定应保存模型的文件夹）。您可以通过替换 `tf.io.browserHTTPRequest` 函数中的 URL字符串参数来获得对来自 `save` 函数的请求在这些方面的细粒度控制。这个API在控制 HTTP 请求方面提供了更大的灵活性。
 
