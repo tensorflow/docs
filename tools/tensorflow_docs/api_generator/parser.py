@@ -1701,12 +1701,12 @@ def generate_global_index(library_name, index, reference_resolver):
     lines.append('*  %s' % link)
 
   if compat_v2_symbol_links:
-    lines.append('## Compat v2 symbols')
+    lines.append('\n## Compat v2 symbols\n')
     for link in compat_v2_symbol_links:
       lines.append('*  %s' % link)
 
   if compat_v1_symbol_links:
-    lines.append('## Compat v1 symbols')
+    lines.append('\n## Compat v1 symbols\n')
     for link in compat_v1_symbol_links:
       lines.append('*  %s' % link)
 
