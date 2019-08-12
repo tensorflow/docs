@@ -65,7 +65,7 @@ await model.save('indexeddb://my-model');
 await model.save('downloads://my-model');
 ```
 这会让浏览器下载模型文件至用户的机器上，并生成两个文件：
- 1. 一个名为 `[my-model].json` 的 JSON 文件，它在 modeloTopology 字段中包含模型的拓扑，在 weightsManifest 字段中包含权重清单。
+ 1. 一个名为 `[my-model].json` 的 JSON 文件，它包含了模型的拓扑结构和下面将要介绍的权重文件的引用。
  2. 一个二进制文件，其中包含名为 `[my-model].weights.bin` 的权重值。
 
 你可以更换`[my-model]`的名称以获得一个不同的名称的文件。
