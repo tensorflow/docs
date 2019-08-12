@@ -44,7 +44,7 @@ const saveResult = await model.save('localstorage://my-model-1');
 ```js
 await model.save('localstorage://my-model');
 ```
-这将会将一个命名为`my-model`模型保存到浏览器的[本地存储](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)。这将持续刷新本地存储, 但是，如果空间成为问题，本地存储可以由用户或浏览器本身清除。每个浏览器还为给定域在本地存储中存储的数据量设置了自己的限制。
+这样可以在浏览器的[本地存储](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)中以名称 `my-model` 来保存模型。这样存储能够在浏览器刷新后保持不变，而当存储空间成为问题时，用户或浏览器本身可以清除本地存储。 每个浏览器还可以对给定域在本地的存储空间设定限额。
 
 ### IndexedDB (仅限浏览器)
 
