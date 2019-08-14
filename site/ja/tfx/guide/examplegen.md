@@ -90,24 +90,20 @@ example_gen = CsvExampleGen(input_base=examples, input_config=input)
 
 詳細については [proto/example_gen.proto](https://github.com/tensorflow/tfx/blob/master/tfx/proto/example_gen.proto) を参照してください。
 
-## Custom ExampleGen
+## カスタム ExampleGen
 
-Note: this feature is only available after TFX 0.14.
+Note: この機能は TFX 0.14 以降でのみ利用可能です。
 
-If the currently available ExampleGen components don't fit your needs, create
-a custom ExampleGen, which will include a new executor extended from BaseExampleGenExecutor.
+もし、現在利用可能な ExampleGen コンポーネントが利用者のニーズに合わない場合、BaseExampleGenExecutor を用いて専用の ExampleGen コンポーネントを自作できます。
 
-### File-Based ExampleGen
+### ファイルベースの ExampleGen の場合
 
-First, extend BaseExampleGenExecutor with a custom Beam PTransform, which
-provides the conversion from your train/eval input split to TF examples. For
-example, the
-[CsvExampleGen executor](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/csv_example_gen/executor.py)
-provides the conversion from an input CSV split to TF examples.
+BaseExampleGenExecutor を拡張するためには、まず、専用の Beam Ptransform を作成し、学習/評価用のデータを TF Example 形式に変換する処理を記述します。
+例えば、[CsvExampleGen executor](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/csv_example_gen/executor.py)では、分割されたCSVを入力とし、TF Example 形式に変換する処理を記述しています。
 
-Then, create a component with above executor, as done in [CsvExampleGen component](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/csv_example_gen/component.py).
-Alternatively, pass a custom executor into the standard
-ExampleGen component as shown below.
+次に、BaseExampleGenExecutor を利用したコンポーネントを作成します。[CsvExampleGen コンポーネント](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/csv_example_gen/component.py) で同様のことを行っています。
+他にも、専用の Executor を標準の ExampleGen コンポーネントに注入することでも同様のことを実現できます。
+例を次に示します:
 
 ```python
 from tfx.components.example_gen.component import FileBasedExampleGen
@@ -119,28 +115,20 @@ example_gen = FileBasedExampleGen(input_base=examples,
                                   executor_class=executor.Executor)
 ```
 
-Now, we also support reading Avro and Parquet files using this
-[method](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/custom_executors/avro_component_test.py).
+現在、[この手法を用いたAvro ファイルや Parquet ファイルの読み込み](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/custom_executors/avro_component_test.py) もサポートしています。
 
-### Query-Based ExampleGen
+### クエリベースの ExampleGen の場合
 
-First, extend BaseExampleGenExecutor with a custom Beam PTransform, which reads
-from the external data source. Then, create a simple component by
-extending QueryBasedExampleGen.
+BaseExampleGenExecutor を拡張するためには、まず、専用の Beam Ptransform を作成し、外部のデータソースからデータを読み込む処理を記述します。
+次に、QueryBasedExampleGen を拡張したシンプルなコンポーネントを作成します。
 
-This may or may not require additional connection configurations. For example,
-the
-[BigQuery executor](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/big_query_example_gen/executor.py)
-reads using a default beam.io connector, which abstracts the connection
-configuration details. The
-[Presto executor](https://github.com/tensorflow/tfx/blob/master/tfx/examples/custom_components/presto_example_gen/presto_component/executor.py),
-requires a custom Beam PTransform and a
-[custom connection configuration protobuf](https://github.com/tensorflow/tfx/blob/master/tfx/examples/custom_components/presto_example_gen/proto/presto_config.proto)
-as input.
+これは接続に関する追加の設定を必要とする場合もありし、必要のない場合もあります。
+例えば、[BigQuery executor](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/big_query_example_gen/executor.py) は接続設定の詳細を抽象化した、デフォルトの beam.io コネクタを読み込みます。
 
-If a connection configuration is required for a custom ExampleGen component, create
-a new protobuf and pass it in through custom_config, which is now an optional
-execution parameter. Below is an example of how to use a configured component.
+[Presto executor](https://github.com/tensorflow/tfx/blob/master/tfx/examples/custom_components/presto_example_gen/presto_component/executor.py)は専用の Beam PTransform と [専用の接続設定用 protobuf](https://github.com/tensorflow/tfx/blob/master/tfx/examples/custom_components/presto_example_gen/proto/presto_config.proto)が入力として必要になります。
+
+専用の ExampleGen コンポーネントで接続の設定が必要な場合、新規に protobuf を作成し、オプションの execution パラメーターである custom_config を通じてコンポーネントに渡してください。
+次のコードは設定を行っているコンポーネントを利用する方法の例です。
 
 ```python
 from tfx.examples.custom_components.presto_example_gen.proto import presto_config_pb2
