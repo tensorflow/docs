@@ -18,7 +18,7 @@ XLAに対応することはとても簡単で、かつ新しいハードウェ�
 
 1. LLVMのバックエンドが存在するかしないかにかかわらず、公式にXLAでサポートされていない既存のCPUアーキテクチャ
 2. LLVMのバックエンドが存在する、CPUではないハードウェア
-3. LLVMのバックエンドが存在する、CPUではないハードウェア
+3. LLVMのバックエンドが存在しない、CPUではないハードウェア
 
 Note: LLVMのバックエンドとは、公式にリリースされたLLVMのバックエンド、または企業内で開発されたカスタマイズ版LLVMのバックエンドのことを指します。
 
@@ -26,7 +26,7 @@ Note: LLVMのバックエンドとは、公式にリリースされたLLVMのバ
 ## シナリオ1: 公式にXLAでサポートされていない既存のCPUアーキテクチャ
 
 このシナリオの場合、既存の [XLA CPUバックエンド](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/compiler/xla/service/cpu) を見ることから始めてください。
-XLAのCPUバックエンド間の主な違いは、LLVMによって生成されるコードであることから、XLAでは簡単にLLVMを使って異なるCPUをTensorFlowに対応できます。
+XLAのCPUバックエンド間の主な違いは、LLVMによって生成されるコードであることから、XLAではLLVMを使って異なるCPUをTensorFlowに簡単に対応できます。
 Googleは、x64とARM64のアーキテクチャに対してXLAを試験しています。
 
 もしハードウェア企業がハードウェア向けのLLVMのバックエンドをもつ場合、ビルドされたLLVMのバックエンドをXLAに接続することは簡単です。
@@ -38,14 +38,15 @@ Ahead-Of-Timeコンパイルでは、[`xla::AotCompilationOptions`](https://gith
 
 ## シナリオ2: LLVMのバックエンドが存在する、CPUではないハードウェア
 
-LLVM IRを出力する既存の [`xla::CPUCompiler`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc) や [`xla::GPUCompiler`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/compiler/xla/service/gpu/nvptx_compiler.cc) クラスをベースとして、新しい [`xla::Compiler`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/compiler/xla/service/compiler.h) を作ることが可能です。
+LLVM IRを出力する既存の [`xla::CPUCompiler`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc) や [`xla::GPUCompiler`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/compiler/xla/service/gpu/nvptx_compiler.cc) クラスをベースとして、新しい [`xla::Compiler`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/compiler/xla/service/compiler.h) の実装を作ることが可能です。
 ハードウェアの性質によりLLVM IRの生成方法は異なりますが、多くのコードは既存のバックエンドと共有できるでしょう。
 
 よい参考例は、XLAの [GPUバックエンド](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/compiler/xla/service/gpu) です。
 GPUのバックエンドはCPUとは異なるISAをターゲットとするため、GPUドメイン固有なコードの生成方法になります。
+他の種類のハードウェア、例えば（アップストリームのLLVMのバックエンドを持つ）HexagonのようなDSPは、LLVM IRの生成論理部を再利用することができますが、他の部分は固有のものになるでしょう
 
 
-## シナリオ3: LLVMのバックエンドが存在する、CPUではないハードウェア
+## シナリオ3: LLVMのバックエンドが存在しない、CPUではないハードウェア
 
 LLVMを利用できない場合、対象のハードウェア向けに新しいバックエンドを実装することが最良の選択肢となります。
 この選択肢は、多大な労力を必要とします。
