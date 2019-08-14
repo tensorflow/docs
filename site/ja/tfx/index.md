@@ -295,7 +295,7 @@ TFDV はデータを確認してデータの型、カテゴリ、値域を推定
 パイプラインのうち、TFDV を利用するコンポーネント (典型的には StatisticsGen, SchemaGen, ExampleValidator) では、データを処理した結果を Jupyter notebook で可視化できます。
 データがモデルやアプリケーションに最適化されるまで何度も実行して結果を比較し、調整を行うことも可能です。
 
-これらのコンポーネントの出力結果を [**ML Metadata (MLMD)**](mlmd.md) にクエリを発行して保存したあと notebook で可視化するために、 TFDV の可視化をサポートする API を利用できます。
+これらのコンポーネントの出力結果を [**ML Metadata (MLMD)**](mlmd.md) にクエリを発行して取得したあと notebook で可視化するために、 TFDV の可視化をサポートする API を利用できます。
 これには [tfdv.load_statistics()](`tfdv.load_statistics`) や [tfdv.visualize_statistics()](`tfdv.visualize_statistics`) が含まれます。
 これらの可視化を利用することで、データセットの特徴についてよりよい理解を得ることや、もし必要な場合は要求にそって修正することもできます。
 
@@ -348,7 +348,7 @@ Evaluator コンポーネントは保存した EvalSavedModel を入力として
 モデルの学習を終え、学習結果を [Evaluator](evaluator.md) コンポーネント (これは [TFMA](tfma.md) を活用しています) に入力して処理が完了したあと、結果を Jupyter スタイルのノートブックで可視化できます。
 2回目以降であれば、これまでの結果を比較して、結果がモデルとアプリケーションにとって最適化されるまで何度も調整できます。
 
-ノートブック上で可視化を行うためには、まず[**ML Metadata (MLMD)**](mlmd.md) にクエリを発行し、コンポーネント群の実行結果を保存します。
+ノートブック上で可視化を行うためには、まず[**ML Metadata (MLMD)**](mlmd.md) にクエリを発行し、コンポーネント群の実行結果を取得します。
 次に、 TFMA の可視化用 API を利用すると結果の可視化ができます。
 可視化用 API には [tfma.load_eval_results()](https://www.tensorflow.org/tfx/model_analysis/api_docs/python/tfma/load_eval_results)や [tfma.view.render_slicing_metrics()](`tfma/view/render_slicing_metrics`) が含まれます。
 可視化を行うことでモデルの特徴についてよりよい理解を得ることができ、必要な場合には修正もできるようになるでしょう。
