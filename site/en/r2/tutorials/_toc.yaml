@@ -41,7 +41,7 @@ toc:
   - title: "Numpy"
     path: /beta/tutorials/load_data/numpy
   - title: "Pandas"
-    path: /beta/tutorials/load_data/pandas
+    path: /beta/tutorials/load_data/from_pandas
   - title: "Images"
     path: /beta/tutorials/load_data/images
   - title: "Text"
@@ -86,6 +86,8 @@ toc:
     path: /beta/tutorials/estimators/boosted_trees
   - title: "Boosted trees model understanding"
     path: /beta/tutorials/estimators/boosted_trees_model_understanding
+  - title: "Keras model to estimator"
+    path: /beta/tutorials/estimators/keras_model_to_estimator
 
 - heading: "Advanced tutorials"
   style: divider
@@ -111,6 +113,8 @@ toc:
 - title: "Text and sequences"
   style: accordion
   section:
+  - title: "Time series forecasting"
+    path: /beta/tutorials/text/time_series
   - title: "Generate text with an RNN"
     path: /beta/tutorials/text/text_generation
   - title: "Translation with attention"

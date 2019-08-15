@@ -84,7 +84,7 @@ These include:
   - any symbol in the `tf.contrib` module or its submodules;
   - any symbol (module, function, argument, property, class, or constant) whose
     name contains `experimental` or `Experimental`; or
-  - any symbol whose fully qualified name includes a module or class which is
+  - any symbol whose fully qualified name includes a module or class which is
     itself experimental. This includes fields and submessages of any protocol
     buffer called `experimental`.
 
