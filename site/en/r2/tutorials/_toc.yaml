@@ -58,6 +58,8 @@ toc:
   section:
   - title: "Convolutional neural networks"
     path: /beta/tutorials/images/intro_to_cnns
+  - title: "Image classification"
+    path: /beta/tutorials/images/classification
   - title: "Transfer learning with TFHub"
     path: /beta/tutorials/images/hub_with_keras
   - title: "Transfer learning with pretrained CNNs"
