@@ -1678,8 +1678,37 @@ def generate_global_index(library_name, index, reference_resolver):
           full_name, reference_resolver.python_link(full_name, full_name, '.')))
 
   lines = ['# All symbols in %s' % library_name, '']
-  for _, link in sorted(symbol_links, key=lambda x: x[0]):
+
+  # Sort all the symbols once, so that the ordering is preserved when its broken
+  # up into master symbols and compat symbols and sorting the sublists is not
+  # required.
+  symbol_links = sorted(symbol_links, key=lambda x: x[0])
+
+  compat_v1_symbol_links = []
+  compat_v2_symbol_links = []
+  primary_symbol_links = []
+
+  for symbol, link in symbol_links:
+    if symbol.startswith('tf.compat.v1'):
+      compat_v1_symbol_links.append(link)
+    elif symbol.startswith('tf.compat.v2'):
+      compat_v2_symbol_links.append(link)
+    else:
+      primary_symbol_links.append(link)
+
+  lines.append('## Primary symbols')
+  for link in primary_symbol_links:
     lines.append('*  %s' % link)
+
+  if compat_v2_symbol_links:
+    lines.append('\n## Compat v2 symbols\n')
+    for link in compat_v2_symbol_links:
+      lines.append('*  %s' % link)
+
+  if compat_v1_symbol_links:
+    lines.append('\n## Compat v1 symbols\n')
+    for link in compat_v1_symbol_links:
+      lines.append('*  %s' % link)
 
   # TODO(markdaoust): use a _ModulePageInfo -> prety_docs.build_md_page()
   return '\n'.join(lines)

@@ -58,6 +58,8 @@ toc:
   section:
   - title: "Convolutional neural networks"
     path: /beta/tutorials/images/intro_to_cnns
+  - title: "Image classification"
+    path: /beta/tutorials/images/classification
   - title: "Transfer learning with TFHub"
     path: /beta/tutorials/images/hub_with_keras
   - title: "Transfer learning with pretrained CNNs"
@@ -86,6 +88,8 @@ toc:
     path: /beta/tutorials/estimators/boosted_trees
   - title: "Boosted trees model understanding"
     path: /beta/tutorials/estimators/boosted_trees_model_understanding
+  - title: "Keras model to estimator"
+    path: /beta/tutorials/estimators/keras_model_to_estimator
 
 - heading: "Advanced tutorials"
   style: divider

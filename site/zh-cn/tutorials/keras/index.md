@@ -3,7 +3,7 @@
 这个笔记本系列的灵感来自于这本书:
 *[Python深度学习](https://books.google.com/books?id=Yo3CAQAACAAJ)*.
 这些教程使用TensorFlow的高级Python API “tf.keras”来构建并训练深度学习模型。
-如需了解更多关于TensorFlow中Keras的信息，请参阅[TensorFlow Keras指南](../guide/keras.ipynb).
+如需了解更多关于TensorFlow中Keras的信息，请参阅[TensorFlow Keras指南](../../guide/keras.ipynb).
 
 来自发布者的注释: *Python深度学习* 介绍了在深度学习领域中使用Python语言和强大的Keras库。本书由Keras创建者和Google
 AI研究员François Chollet撰写，它通过直观的解释和实际例子来构建您对深度学习的理解。

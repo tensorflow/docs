@@ -55,6 +55,10 @@ the build tool used to compile TensorFlow.
 
 Add the location of the Bazel executable to your `PATH` environment variable.
 
+Note: To build TensorFlow, the Bazel version must conform to the minimum and maximum
+versions specified by `_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` in
+[`tensorflow/configure.py`](https://github.com/tensorflow/tensorflow/blob/master/configure.py).
+
 ### Install GPU support (optional, Linux only)
 
 There is *no* GPU support for macOS.
@@ -89,14 +93,6 @@ Configure your system build by running the `./configure` at the root of your
 TensorFlow source tree. This script prompts you for the location of TensorFlow
 dependencies and asks for additional build configuration options (compiler
 flags, for example).
-
-### Configure TensorFlow 2
-
-<pre class="devsite-terminal devsite-click-to-copy">
-./configure --config=v2
-</pre>
-
-### Configure TensorFlow 1.x
 
 <pre class="devsite-terminal devsite-click-to-copy">
 ./configure
@@ -189,17 +185,24 @@ Configuration finished
 
 ### Configuration options
 
-For [GPU support](./gpu.md), specify the versions of CUDA and cuDNN. If your
-system has multiple versions of CUDA or cuDNN installed, explicitly set the
-version instead of relying on the default. `./configure` creates symbolic links
-to your system's CUDA libraries—so if you update your CUDA library paths, this
-configuration step must be run again before building.
+#### GPU support
+
+For [GPU support](./gpu.md), set `cuda=Y` during configuration and specify the
+versions of CUDA and cuDNN. If your system has multiple versions of CUDA or
+cuDNN installed, explicitly set the version instead of relying on the default.
+`./configure` creates symbolic links to your system's CUDA libraries—so if you
+update your CUDA library paths, this configuration step must be run again before
+building.
+
+#### Optimizations
 
 For compilation optimization flags, the default (`-march=native`) optimizes the
 generated code for your machine's CPU type. However, if building TensorFlow for a
 different CPU type, consider a more specific optimization flag. See the
 [GCC manual](https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html){:.external}
 for examples.
+
+#### Preconfigured configurations
 
 There are some preconfigured build configs available that can be added to the
 `bazel build` command, for example:
@@ -214,7 +217,22 @@ run on older CPUs.
 
 ## Build the pip package
 
-### Bazel build
+### TensorFlow 2
+
+[Install Bazel](https://docs.bazel.build/versions/master/install.html) and use
+`bazel build --config=v2` to create the TensorFlow 2 package.
+
+Note: For GPU support, enable CUDA during the `./configure` stage.
+
+Use `bazel` to make the TensorFlow package:
+
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build --config=v2 //tensorflow/tools/pip_package:build_pip_package
+</pre>
+
+### TensorFlow 1.x
+
+Older TensorFlow packages can still be built with `bazel build`:
 
 #### CPU-only
 
