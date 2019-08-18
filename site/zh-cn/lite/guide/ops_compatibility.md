@@ -20,40 +20,40 @@ TensorFlow Lite 支持许多常见推理模型中 TensorFlow 的运算操作（o
 
 下列 TensorFlow 操作运算通常映射至对应的 TensorFlow Lite 运算：
 
-*   [tf.batch_to_space_nd](https://www.tensorflow.org/api_docs/python/tf/batch_to_space_nd) -
+*   [tf.batch_to_space_nd](https://www.tensorflow.google.cn/api_docs/python/tf/batch_to_space_nd) -
     *当输入张量是 4D(1 batch + 2 spatial + 1 other) 并且未使用裁剪时*
-*   [tf.exp](https://www.tensorflow.org/api_docs/python/tf/exp)
-*   [tf.fake_quant*](https://www.tensorflow.org/api_docs/python/tf/fake_quant_with_min_max_args)
-*   [tf.matmul](https://www.tensorflow.org/api_docs/python/tf/matmul) - *当第二个参数是常量并且未使用转置时*
-*   [tf.nn.avg_pool](https://www.tensorflow.org/api_docs/python/tf/nn/avg_pool)
-*   [tf.nn.conv2d](https://www.tensorflow.org/api_docs/python/tf/nn/conv2d) -
+*   [tf.exp](https://www.tensorflow.google.cn/api_docs/python/tf/exp)
+*   [tf.fake_quant*](https://www.tensorflow.google.cn/api_docs/python/tf/fake_quant_with_min_max_args)
+*   [tf.matmul](https://www.tensorflow.google.cn/api_docs/python/tf/matmul) - *当第二个参数是常量并且未使用转置时*
+*   [tf.nn.avg_pool](https://www.tensorflow.google.cn/api_docs/python/tf/nn/avg_pool)
+*   [tf.nn.conv2d](https://www.tensorflow.google.cn/api_docs/python/tf/nn/conv2d) -
     *当 filter 是常量时*
-*   [tf.nn.depthwise_conv2d](https://www.tensorflow.org/api_docs/python/tf/nn/depthwise_conv2d) -
+*   [tf.nn.depthwise_conv2d](https://www.tensorflow.google.cn/api_docs/python/tf/nn/depthwise_conv2d) -
     *当 filter 是常量并且 rate 是[1,1]时*
-*   [tf.nn.l2_normalize](https://www.tensorflow.org/api_docs/python/tf/nn/l2_normalize) -
+*   [tf.nn.l2_normalize](https://www.tensorflow.google.cn/api_docs/python/tf/nn/l2_normalize) -
     *当对最后一个维度进行正则化时*
-*   [tf.nn.local_response_normalization](https://www.tensorflow.org/api_docs/python/tf/nn/local_response_normalization)
-*   [tf.nn.log_softmax](https://www.tensorflow.org/api_docs/python/tf/nn/log_softmax) -
+*   [tf.nn.local_response_normalization](https://www.tensorflow.google.cn/api_docs/python/tf/nn/local_response_normalization)
+*   [tf.nn.log_softmax](https://www.tensorflow.google.cn/api_docs/python/tf/nn/log_softmax) -
     *当 axis 未被提供时*
-*   [tf.nn.max_pool](https://www.tensorflow.org/api_docs/python/tf/nn/max_pool)
-*   [tf.nn.softmax](https://www.tensorflow.org/api_docs/python/tf/nn/softmax) -
+*   [tf.nn.max_pool](https://www.tensorflow.google.cn/api_docs/python/tf/nn/max_pool)
+*   [tf.nn.softmax](https://www.tensorflow.google.cn/api_docs/python/tf/nn/softmax) -
     *当张量是二维并且 axis 是最后一个维度时*
-*   [tf.nn.top_k](https://www.tensorflow.org/api_docs/python/tf/nn/top_k)
-*   [tf.one_hot](https://www.tensorflow.org/api_docs/python/tf/one_hot)
-*   [tf.pad](https://www.tensorflow.org/api_docs/python/tf/pad) - *当未使用mode以及constant_values时*
-*   [tf.reduce_mean](https://www.tensorflow.org/api_docs/python/tf/reduce_mean) -
+*   [tf.nn.top_k](https://www.tensorflow.google.cn/api_docs/python/tf/nn/top_k)
+*   [tf.one_hot](https://www.tensorflow.google.cn/api_docs/python/tf/one_hot)
+*   [tf.pad](https://www.tensorflow.google.cn/api_docs/python/tf/pad) - *当未使用mode以及constant_values时*
+*   [tf.reduce_mean](https://www.tensorflow.google.cn/api_docs/python/tf/reduce_mean) -
     *当未使用 reduction_indices 属性时*
-*   [tf.reshape](https://www.tensorflow.org/api_docs/python/tf/reshape)
-*   [tf.sigmoid](https://www.tensorflow.org/api_docs/python/tf/sigmoid)
-*   [tf.space_to_batch_nd](https://www.tensorflow.org/api_docs/python/tf/space_to_batch_nd) -
+*   [tf.reshape](https://www.tensorflow.google.cn/api_docs/python/tf/reshape)
+*   [tf.sigmoid](https://www.tensorflow.google.cn/api_docs/python/tf/sigmoid)
+*   [tf.space_to_batch_nd](https://www.tensorflow.google.cn/api_docs/python/tf/space_to_batch_nd) -
     *当输入张量是 4D(1 batch + 2 spatial + 1 other) 时*
-*   [tf.space_to_depth](https://www.tensorflow.org/api_docs/python/tf/space_to_depth)
-*   [tf.split](https://www.tensorflow.org/api_docs/python/tf/split) - *当未提供 num 并且 num_or_size_split 包含作为 0 维张量分离的数量时*
-*   [tf.squeeze](https://www.tensorflow.org/api_docs/python/tf/squeeze) - *当未提供 axis 时*
-*   [tf.squared_difference](https://www.tensorflow.org/versions/master/api_docs/python/tf/squared_difference)
-*   [tf.strided_slice](https://www.tensorflow.org/api_docs/python/tf/strided_slice) -
+*   [tf.space_to_depth](https://www.tensorflow.google.cn/api_docs/python/tf/space_to_depth)
+*   [tf.split](https://www.tensorflow.google.cn/api_docs/python/tf/split) - *当未提供 num 并且 num_or_size_split 包含作为 0 维张量分离的数量时*
+*   [tf.squeeze](https://www.tensorflow.google.cn/api_docs/python/tf/squeeze) - *当未提供 axis 时*
+*   [tf.squared_difference](https://www.tensorflow.google.cn/versions/master/api_docs/python/tf/squared_difference)
+*   [tf.strided_slice](https://www.tensorflow.google.cn/api_docs/python/tf/strided_slice) -
     *当未使用 ellipsis_mask 以及 new_axis_mask 时*
-*   [tf.transpose](https://www.tensorflow.org/versions/master/api_docs/python/tf/transpose) -
+*   [tf.transpose](https://www.tensorflow.google.cn/versions/master/api_docs/python/tf/transpose) -
     *当未使用共轭时*
 	
 ## 直接转换，常量合并与融合
@@ -62,42 +62,42 @@ TensorFlow Lite 支持许多常见推理模型中 TensorFlow 的运算操作（o
 
 下列是通常从graph中去除的TensorFlow运算操作列表：
 
-*   [tf.add](https://www.tensorflow.org/api_docs/python/tf/add)
-*   [tf.check_numerics](https://www.tensorflow.org/api_docs/python/tf/check_numerics)
-*   [tf.constant](https://www.tensorflow.org/api_docs/python/tf/constant)
-*   [tf.div](https://www.tensorflow.org/api_docs/python/tf/div)
-*   [tf.divide](https://www.tensorflow.org/api_docs/python/tf/divide)
-*   [tf.fake_quant_with_min_max_args](https://www.tensorflow.org/api_docs/python/tf/fake_quant_with_min_max_args)
-*   [tf.fake_quant_with_min_max_vars](https://www.tensorflow.org/api_docs/python/tf/fake_quant_with_min_max_vars)
-*   [tf.identity](https://www.tensorflow.org/api_docs/python/tf/identity)
-*   [tf.maximum](https://www.tensorflow.org/api_docs/python/tf/maximum)
-*   [tf.minimum](https://www.tensorflow.org/api_docs/python/tf/minimum)
-*   [tf.multiply](https://www.tensorflow.org/api_docs/python/tf/multiply)
-*   [tf.no_op](https://www.tensorflow.org/api_docs/python/tf/no_op)
-*   [tf.placeholder](https://www.tensorflow.org/api_docs/python/tf/placeholder)
-*   [tf.placeholder_with_default](https://www.tensorflow.org/api_docs/python/tf/placeholder_with_default)
-*   [tf.realdiv](https://www.tensorflow.org/api_docs/python/tf/realdiv)
-*   [tf.reduce_max](https://www.tensorflow.org/api_docs/python/tf/reduce_max)
-*   [tf.reduce_min](https://www.tensorflow.org/api_docs/python/tf/reduce_min)
-*   [tf.reduce_sum](https://www.tensorflow.org/api_docs/python/tf/reduce_sum)
-*   [tf.rsqrt](https://www.tensorflow.org/api_docs/python/tf/rsqrt)
-*   [tf.shape](https://www.tensorflow.org/api_docs/python/tf/shape)
-*   [tf.sqrt](https://www.tensorflow.org/api_docs/python/tf/sqrt)
-*   [tf.square](https://www.tensorflow.org/api_docs/python/tf/square)
-*   [tf.subtract](https://www.tensorflow.org/api_docs/python/tf/subtract)
-*   [tf.tile](https://www.tensorflow.org/api_docs/python/tf/tile)
-*   [tf.nn.batch_norm_with_global_normalization](https://www.tensorflow.org/api_docs/python/tf/nn/batch_norm_with_global_normalization)
-*   [tf.nn.bias_add](https://www.tensorflow.org/api_docs/python/tf/nn/bias_add)
-*   [tf.nn.fused_batch_norm](https://www.tensorflow.org/api_docs/python/tf/nn/fused_batch_norm)
-*   [tf.nn.relu](https://www.tensorflow.org/api_docs/python/tf/nn/relu)
-*   [tf.nn.relu6](https://www.tensorflow.org/api_docs/python/tf/nn/relu6)
+*   [tf.add](https://www.tensorflow.google.cn/api_docs/python/tf/add)
+*   [tf.check_numerics](https://www.tensorflow.google.cn/api_docs/python/tf/check_numerics)
+*   [tf.constant](https://www.tensorflow.google.cn/api_docs/python/tf/constant)
+*   [tf.div](https://www.tensorflow.google.cn/api_docs/python/tf/div)
+*   [tf.divide](https://www.tensorflow.google.cn/api_docs/python/tf/divide)
+*   [tf.fake_quant_with_min_max_args](https://www.tensorflow.google.cn/api_docs/python/tf/fake_quant_with_min_max_args)
+*   [tf.fake_quant_with_min_max_vars](https://www.tensorflow.google.cn/api_docs/python/tf/fake_quant_with_min_max_vars)
+*   [tf.identity](https://www.tensorflow.google.cn/api_docs/python/tf/identity)
+*   [tf.maximum](https://www.tensorflow.google.cn/api_docs/python/tf/maximum)
+*   [tf.minimum](https://www.tensorflow.google.cn/api_docs/python/tf/minimum)
+*   [tf.multiply](https://www.tensorflow.google.cn/api_docs/python/tf/multiply)
+*   [tf.no_op](https://www.tensorflow.google.cn/api_docs/python/tf/no_op)
+*   [tf.placeholder](https://www.tensorflow.google.cn/api_docs/python/tf/placeholder)
+*   [tf.placeholder_with_default](https://www.tensorflow.google.cn/api_docs/python/tf/placeholder_with_default)
+*   [tf.realdiv](https://www.tensorflow.google.cn/api_docs/python/tf/realdiv)
+*   [tf.reduce_max](https://www.tensorflow.google.cn/api_docs/python/tf/reduce_max)
+*   [tf.reduce_min](https://www.tensorflow.google.cn/api_docs/python/tf/reduce_min)
+*   [tf.reduce_sum](https://www.tensorflow.google.cn/api_docs/python/tf/reduce_sum)
+*   [tf.rsqrt](https://www.tensorflow.google.cn/api_docs/python/tf/rsqrt)
+*   [tf.shape](https://www.tensorflow.google.cn/api_docs/python/tf/shape)
+*   [tf.sqrt](https://www.tensorflow.google.cn/api_docs/python/tf/sqrt)
+*   [tf.square](https://www.tensorflow.google.cn/api_docs/python/tf/square)
+*   [tf.subtract](https://www.tensorflow.google.cn/api_docs/python/tf/subtract)
+*   [tf.tile](https://www.tensorflow.google.cn/api_docs/python/tf/tile)
+*   [tf.nn.batch_norm_with_global_normalization](https://www.tensorflow.google.cn/api_docs/python/tf/nn/batch_norm_with_global_normalization)
+*   [tf.nn.bias_add](https://www.tensorflow.google.cn/api_docs/python/tf/nn/bias_add)
+*   [tf.nn.fused_batch_norm](https://www.tensorflow.google.cn/api_docs/python/tf/nn/fused_batch_norm)
+*   [tf.nn.relu](https://www.tensorflow.google.cn/api_docs/python/tf/nn/relu)
+*   [tf.nn.relu6](https://www.tensorflow.google.cn/api_docs/python/tf/nn/relu6)
 
 请注意，这之中很多运算操作，在 TensorFlow Lite 中没有等价操作，如果它们不能被去除或融合，相应的模型将无法被转换。
 
 ## 不支持的运算操作
 
 之前未被列出的 TensorFlow 运算操作大概率是不支持的。需要注意的是，下列的常见操作符目前是不被支持的：
-*   [tf.depth_to_space](https://www.tensorflow.org/api_docs/python/tf/depth_to_space)
+*   [tf.depth_to_space](https://www.tensorflow.google.cn/api_docs/python/tf/depth_to_space)
 
 ## TensorFlow Lite 运算操作
 
@@ -106,7 +106,7 @@ TensorFlow Lite 支持许多常见推理模型中 TensorFlow 的运算操作（o
 
 ```
 Inputs {
-  0: 一个张量（a tensor）
+  0: 一个 tensor（张量）
 }
 Outputs {
   0: 输入张量逐元素取绝对值（elementwise abs of the input）
