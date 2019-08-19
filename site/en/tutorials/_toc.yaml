@@ -40,7 +40,7 @@ toc:
   - title: Linear model with Estimators
     path: /tutorials/estimators/linear
   - title: Wide and deep learning
-    path: https://github.com/tensorflow/models/tree/master/official/wide_deep
+    path: https://github.com/tensorflow/models/tree/master/official/r1/wide_deep
     status: external
   - title: Boosted trees
     path: /tutorials/estimators/boosted_trees
