@@ -8,7 +8,7 @@
 
 ![模型大小和准确度的关系图](../images/performance/model_size_vs_accuracy.png "模型大小和准确度")
 
-![模型大小和延迟时间的关系图](../images/performance/model_size_vs_latency.png "模型大小和延迟时间")
+![准确度和延迟时间的关系图](../images/performance/accuracy_vs_latency.png "准确度和延迟时间")
 
 一个针对移动设备优化的示例模型就是 [MobileNets](https://arxiv.org/abs/1704.04861)，该模型是为了移动端视觉应用而优化的。我们的 [模型列表](../models/hosted.md) 列出了另外几种专为移动和嵌入式设备优化的模型。
 
