@@ -12,7 +12,7 @@ those tools. It explains:
 
 Read this overview to decide whether the Estimator's linear model tools  might
 be useful to you. Then work through the
-[Estimator wide and deep learning tutorial](https://github.com/tensorflow/models/tree/master/official/wide_deep)
+[Estimator wide and deep learning tutorial](https://github.com/tensorflow/models/tree/master/official/r1/wide_deep)
 to give it a try. This overview uses code samples from the tutorial, but the
 tutorial walks through the code in greater detail.
 
@@ -177,7 +177,7 @@ the name of a `FeatureColumn`. Each key's value is a tensor containing the
 values of that feature for all data instances. See
 [Premade Estimators](../../guide/premade_estimators.md#input_fn) for a
 more comprehensive look at input functions, and `input_fn` in the
-[wide and deep learning tutorial](https://github.com/tensorflow/models/tree/master/official/wide_deep)
+[wide and deep learning tutorial](https://github.com/tensorflow/models/tree/master/official/r1/wide_deep)
 for an example implementation of an input function.
 
 The input function is passed to the `train()` and `evaluate()` calls that
@@ -236,4 +236,4 @@ e = tf.estimator.DNNLinearCombinedClassifier(
     dnn_hidden_units=[100, 50])
 ```
 For more information, see the
-[wide and deep learning tutorial](https://github.com/tensorflow/models/tree/master/official/wide_deep).
+[wide and deep learning tutorial](https://github.com/tensorflow/models/tree/master/official/r1/wide_deep).

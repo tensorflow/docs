@@ -46,7 +46,7 @@ image-label pairs suitable for training. The input pipeline is represented as a
 `tf.data.Dataset` which can passed to high-level TensorFlow API such as
 `tf.keras`.
 
-```
+```python
 def parse_fn(example):
   "Parse TFExample records and perform simple data augmentation."
   example_fmt = {
@@ -112,7 +112,7 @@ tf.data runtime to tune the value dynamically at runtime.
 
 To apply this change to our running example, insert:
 
-```
+```python
 dataset = dataset.prefetch(buffer_size=tf.data.experimental.AUTOTUNE)
 ```
 
@@ -149,13 +149,13 @@ level of parallelism to use to the tf.data runtime.
 
 To apply this change to our running example, replace:
 
-```
+```python
 dataset = dataset.map(map_func=parse_fn)
 ```
 
 with:
 
-```
+```python
 dataset = dataset.map(map_func=parse_fn, num_parallel_calls=tf.data.experimental.AUTOTUNE)
 ```
 
@@ -198,13 +198,13 @@ The following diagram illustrates the effect of supplying `cycle_length=2` and
 
 To apply this change to our running example, replace:
 
-```
+```python
 dataset = tf.data.TFRecordDataset("/path/to/dataset/train-*.tfrecord")
 ```
 
 with:
 
-```
+```python
 files = tf.data.Dataset.list_files("/path/to/dataset/train-*.tfrecord")
 dataset = files.interleave(
     tf.data.TFRecordDataset, cycle_length=FLAGS.num_parallel_reads,

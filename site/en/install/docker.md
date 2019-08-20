@@ -19,6 +19,8 @@ be installed).
 1. [Install Docker](https://docs.docker.com/install/){:.external} on
    your local *host* machine.
 2. For GPU support on Linux, [install nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}.
+   *The latest version of Docker [includes native support](https://github.com/NVIDIA/nvidia-docker/blob/master/README.md#quickstart)
+   for GPUs and `nvidia-docker` is not necessary.*
 
 Note: To run the `docker` command without `sudo`, create the `docker` group and
 add your user. For details, see the
@@ -121,6 +123,9 @@ launch a Docker container with NVIDIA® GPU support. `nvidia-docker` is only
 available for Linux, see their
 [platform support FAQ](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#platform-support){:.external}
 for details.
+
+Note: The latest version of Docker [includes native support](https://github.com/NVIDIA/nvidia-docker/blob/master/README.md#quickstart)
+for GPUs and `nvidia-docker` is not necessary.
 
 Check if a GPU is available:
 

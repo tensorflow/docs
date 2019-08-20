@@ -40,7 +40,7 @@ toc:
   - title: Linear model with Estimators
     path: /tutorials/estimators/linear
   - title: Wide and deep learning
-    path: https://github.com/tensorflow/models/tree/master/official/wide_deep
+    path: https://github.com/tensorflow/models/tree/master/official/r1/wide_deep
     status: external
   - title: Boosted trees
     path: /tutorials/estimators/boosted_trees
@@ -67,8 +67,8 @@ toc:
     path: /tutorials/distribute/keras
   - title: Training loops
     path: /tutorials/distribute/training_loops
-  - title: Custom training
-    path: /tutorials/distribute/tpu/custom_training
+  - title: TPU custom training
+    path: /tutorials/distribute/tpu_custom_training
 
 - title: Images
   style: accordion

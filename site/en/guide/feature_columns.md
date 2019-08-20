@@ -562,7 +562,7 @@ For more examples on feature columns, view the following:
 
 * The [Low Level Introduction](../guide/low_level_intro.md#feature_columns) demonstrates how
   experiment directly with `feature_columns` using TensorFlow's low level APIs.
-* The [Estimator wide and deep learning tutorial](https://github.com/tensorflow/models/tree/master/official/wide_deep)
+* The [Estimator wide and deep learning tutorial](https://github.com/tensorflow/models/tree/master/official/r1/wide_deep)
   solves a binary classification problem using `feature_columns` on a variety of
   input data types.
 
