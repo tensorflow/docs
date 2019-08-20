@@ -1,1 +1,0 @@
-#TF Lite for mobile and Edge Devices
