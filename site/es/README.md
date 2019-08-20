@@ -1,10 +1,6 @@
 # Documentacion de TensorFlow
 
-<div align="center">
-  <img src="https://www.tensorflow.org/images/tf_logo_horizontal.png"><br><br>
-</div>
-
-# Traducciones de la Comunidad
+## Traducciones de la Comunidad
 
 Nuestra comunidad de Tensorflow ha traducido estos documentos. Como las traducciones de la comunidad
 son basados en el "mejor esfuerzo", no hay ninguna garantia que esta sea un reflejo preciso y actual 
@@ -32,7 +28,7 @@ Los archivos originales estan en el directorio
 [docs/site](https://github.com/tensorflow/swift/tree/master/docs/site) del repositorio 
 tensorflow/swif. Los "notebooks" S4TF deben tener los resultados guardados.
 
-# Community translations
+## Community translations
 
 Our TensorFlow community has translated these documents. Because community
 translations are *best-effort*, there is no guarantee that this is an accurate
@@ -60,7 +56,7 @@ Original files are in the
 [docs/site](https://github.com/tensorflow/swift/tree/master/docs/site) directory
 of the tensorflow/swift repository. S4TF notebooks must have the outputs saved.
 
-# Para nuevos contribuidores
+## Para nuevos contribuidores
 
 Muchas gracias por unirse a el esfuerzo de traduccion!
 Por favor lean los documentos existentes en
@@ -70,7 +66,7 @@ Por favor no utilicen coloquismos como Guey, Parcero, Ueon, Che o palabras Soece
 Sigan el estilo de los documentos lo mas posible.
 
 Una vez la traduccion este completa por favor notifiquen a los contribuidores
-[Contribuidores en Espanol de Documentacion en TensorFlow ](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-es)
+[Contribuidores en Espanol de Documentacion en TensorFlow ](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)
 para coordinar la traduccion.
 
 Copien un archivo en el folder `es` desde el folder `en`, asegurensen que el directorio de folders sea el adecuado.
@@ -85,21 +81,21 @@ Pueden pedir revision si no hay ningun error.
 
 Si tienen alguna pregunta sobre traducciones, por favor envien un mensaje a
 If you have any question about translation, feel free to contact
-[Contribuidores en Espanol de Documentacion en TensorFlow ](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-es)
+[Contribuidores en Espanol de Documentacion en TensorFlow ](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)
 
 Gracias!
 
-# For new contributors
+## For new contributors
 
 Thanks for joining the translation effort.
 Please read the existing
-[ES documents](https://github.com/tensorflow/docs/tree/master/site/esfuerzos)
+[ES documents](https://github.com/tensorflow/docs/tree/master/site/es)
 before starting your translation.
 Do not use country Coloquialisms.
 Follow the style of existing documents, as possible as you can.
 
 After your translation is complete, notify the
-[Spanish TensorFlow Documentation Contributors](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-es)
+[Spanish TensorFlow Documentation Contributors](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)
 mailing list to coordinate a review.
 
 Copy a file in `en` folder to same location under `ko` folder if anybody doesn't work on the file,
@@ -115,12 +111,12 @@ You should test the notebook in your repository with Colab after you finish the 
 You can request for review if there is no error.
 
 If you have any question about translation, feel free to contact
-[Spanish TensorFlow Documentation Contributors](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-es)
+[Spanish TensorFlow Documentation Contributors](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)
 mailing list.
 
 Thanks!
 
-# Guia de Traduccion en Espanol/Spanish translation guide
+## Guia de Traduccion en Espanol/Spanish translation guide
 
 Algunas palabras Tecnicas en ingles no tienen una traduccion natural al Espanol por favor *NO*
 traduzcan las siguientes palabras.
