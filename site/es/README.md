@@ -137,12 +137,13 @@ traduzcan las siguientes palabras.
 *   padding
 *   unit
 *   node
-*   nueron
+*   neuron
 *   target
 *   checkpoint
 *   compile
 *   dropout
 *   penalty
+*   eager execution 
 
 If you have any suggestion about translation guide, feel free to contact
 [Spanish TensorFlow Documentation Translation Glossary](http://TBD)
