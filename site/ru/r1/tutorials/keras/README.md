@@ -26,8 +26,8 @@ Tensorflow сообщества на общественных началах. П
 Чтобы узнать больше об основах машинного обучения, начни 
 [Ускоренный курс по машинному обучению](https://developers.google.com/machine-learning/crash-course/).
 
-1. [Простая классификация](./basic_classification)
-2. [Классификация текста](./basic_text_classification)
-3. [Регрессия](./basic_regression)
-4. [Переобучение и недообучение](./overfit_and_underfit)
-5. [Сохранение и загрузка моделей](./save_and_restore_models)
+1. [Простая классификация](./basic_classification.ipynb)
+2. [Классификация текста](./basic_text_classification.ipynb)
+3. [Регрессия](./basic_regression.ipynb)
+4. [Переобучение и недообучение](./overfit_and_underfit.ipynb)
+5. [Сохранение и загрузка моделей](./save_and_restore_models.ipynb)
