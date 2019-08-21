@@ -15,8 +15,8 @@ kitabından esinlenerek hazırlanmıştır. Bu yardımcı eğitim dökümanları
 TensorFlow derin öğrenme modellerinin oluşturulması ve eğitiminde kullanılan
 yüksek-seviye Python API si `tf.keras`'ı kullanmaktadır. Keras ile ilgili daha
 fazla bildi edinmek için,
-[TensorFlow Keras Guide](https://www.tensorflow.org/guide/keras) 'a göz
-atabilirsiniz.
+[TensorFlow Keras Guide](https://github.com/tensorflow/docs/blob/master/site/en/r1/guide/keras.ipynb)
+'a göz atabilirsiniz.
 
 Yayıncı notu: *Deep Learning with Python* kitabı, Python dili ve Keras
 kütüphanesini kullanarak derin öğrenme konusunu tanıtmaktadır. Keras'ın
