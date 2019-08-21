@@ -1,139 +1,159 @@
 toc:
-- title: Get started with TensorFlow
-  path: /tutorials/
+- title: "Get started with TensorFlow 2.0"
+  path: /beta/
+- title: "Effective TensorFlow 2"
+  path: /beta/guide/effective_tf2
+- title: "Migrate from TF 1 to TF 2"
+  path: /beta/guide/migration_guide
+- title: "Convert with the upgrade script"
+  path: /beta/guide/upgrade
+- title: "Get started for beginners"
+  path: /beta/tutorials/quickstart/beginner
+- title: "Get started for experts"
+  path: /beta/tutorials/quickstart/advanced
 
-- title: Learn and use ML
+- heading: "Beginner tutorials"
+  style: divider
+
+- title: "ML basics"
   style: accordion
   section:
-  - title: Overview
-    path: /tutorials/keras/
-  - title: Basic classification
-    path: /tutorials/keras/basic_classification
-  - title: Text classification
-    path: /tutorials/keras/basic_text_classification
-  - title: Regression
-    path: /tutorials/keras/basic_regression
-  - title: Overfitting and underfitting
-    path: /tutorials/keras/overfit_and_underfit
-  - title: Save and restore models
-    path: /tutorials/keras/save_and_restore_models
+  - title: "Overview"
+    path: /beta/tutorials/keras/
+  - title: "Classify images"
+    path: /beta/tutorials/keras/basic_classification
+  - title: "Classify text"
+    path: /beta/tutorials/keras/basic_text_classification_with_tfhub
+  - title: "Classify structured data"
+    path: /beta/tutorials/keras/feature_columns
+  - title: "Regression"
+    path: /beta/tutorials/keras/basic_regression
+  - title: "Overfitting and underfitting"
+    path: /beta/tutorials/keras/overfit_and_underfit
+  - title: "Save and restore models"
+    path: /beta/tutorials/keras/save_and_restore_models
 
-- title: Research and experimentation
+- title: "Load and preprocess data"
   style: accordion
   section:
-  - title: Overview
-    path: /tutorials/eager/
-  - title: Eager execution
-    path: /tutorials/eager/eager_basics
-  - title: Automatic differentiation
-    path: /tutorials/eager/automatic_differentiation
+  - title: "CSV"
+    path: /beta/tutorials/load_data/csv
+  - title: "Numpy"
+    path: /beta/tutorials/load_data/numpy
+  - title: "Pandas"
+    path: /beta/tutorials/load_data/from_pandas
+  - title: "Images"
+    path: /beta/tutorials/load_data/images
+  - title: "Text"
+    path: /beta/tutorials/load_data/text
+  - title: "TFRecords"
+    path: /beta/tutorials/load_data/tf_records
+  - title: "Unicode"
+    path: /beta/tutorials/text/unicode
+  - title: "TF.Text"
+    path: /beta/tutorials/tensorflow_text/intro
+
+- title: "Images"
+  style: accordion
+  section:
+  - title: "Convolutional neural networks"
+    path: /beta/tutorials/images/intro_to_cnns
+  - title: "Image classification"
+    path: /beta/tutorials/images/classification
+  - title: "Transfer learning with TFHub"
+    path: /beta/tutorials/images/hub_with_keras
+  - title: "Transfer learning with pretrained CNNs"
+    path: /beta/tutorials/images/transfer_learning
+  - title: "Image segmentation"
+    path: /beta/tutorials/images/segmentation
+
+- title: "Text and sequences"
+  style: accordion
+  section:
+  - title: "Intro to word embeddings"
+    path: /beta/tutorials/text/word_embeddings
+  - title: "Classify preprocessed text"
+    path: /beta/tutorials/keras/basic_text_classification
+  - title: "Classify text with a RNN"
+    path: /beta/tutorials/text/text_classification_rnn
+
+- title: "Estimators"
+  style: accordion
+  section:
+  - title: "Premade estimators"
+    path: /beta/tutorials/estimators/premade_estimators
+  - title: "Linear models"
+    path: /beta/tutorials/estimators/linear
+  - title: "Boosted trees"
+    path: /beta/tutorials/estimators/boosted_trees
+  - title: "Boosted trees model understanding"
+    path: /beta/tutorials/estimators/boosted_trees_model_understanding
+  - title: "Keras model to estimator"
+    path: /beta/tutorials/estimators/keras_model_to_estimator
+
+- heading: "Advanced tutorials"
+  style: divider
+
+- title: "Customization"
+  style: accordion
+  section:
+  - title: "Overview"
+    path: /beta/tutorials/eager/
+  - title: "Tensors and operations"
+    path: /beta/tutorials/eager/basics
+  - title: "Custom layers"
+    path: /beta/tutorials/eager/custom_layers
+  - title: "Automatic differentiation"
+    path: /beta/tutorials/eager/automatic_differentiation
   - title: "Custom training: basics"
-    path: /tutorials/eager/custom_training
-  - title: Custom layers
-    path: /tutorials/eager/custom_layers
+    path: /beta/tutorials/eager/custom_training
   - title: "Custom training: walkthrough"
-    path: /tutorials/eager/custom_training_walkthrough
+    path: /beta/tutorials/eager/custom_training_walkthrough
+  - title: "TF function and AutoGraph"
+    path: /beta/tutorials/eager/tf_function
 
-- title: ML at production scale
+- title: "Text and sequences"
   style: accordion
   section:
-  - title: Linear model with Estimators
-    path: /tutorials/estimators/linear
-  - title: Wide and deep learning
-    path: https://github.com/tensorflow/models/tree/master/official/r1/wide_deep
-    status: external
-  - title: Boosted trees
-    path: /tutorials/estimators/boosted_trees
-  - title: Boosted trees model understanding
-    path: /tutorials/estimators/boosted_trees_model_understanding
-  - title: Build a CNN using Estimators
-    path: /tutorials/estimators/cnn
+  - title: "Time series forecasting"
+    path: /beta/tutorials/text/time_series
+  - title: "Generate text with an RNN"
+    path: /beta/tutorials/text/text_generation
+  - title: "Translation with attention"
+    path: /beta/tutorials/text/nmt_with_attention
+  - title: "Image captioning"
+    path: /beta/tutorials/text/image_captioning
+  - title: "Transformer model for language understanding"
+    path: /beta/tutorials/text/transformer
 
-- title: Generative models
+- title: "Image generation"
   style: accordion
   section:
+  - title: "Style transfer"
+    path: /beta/tutorials/generative/style_transfer
+  - title: "DeepDream"
+    path: /beta/tutorials/generative/deepdream
+  - title: "DCGAN"
+    path: /beta/tutorials/generative/dcgan
+  - title: "Pix2Pix"
+    path: /beta/tutorials/generative/pix2pix
+  - title: "CycleGAN"
+    path: /beta/tutorials/generative/cyclegan
+  - title: "Variational autoencoder"
+    path: /beta/tutorials/generative/cvae
+  - title: "Adversarial FGSM"
+    path: /beta/tutorials/generative/adversarial_fgsm
 
-  - title: DCGAN
-    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/generative_examples/dcgan.ipynb
-    status: external
-  - title: VAE
-    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/generative_examples/cvae.ipynb
-    status: external
-
-- title: Distributed training
+- title: "Distributed training"
   style: accordion
   section:
-  - title: Keras
-    path: /tutorials/distribute/keras
-  - title: Training loops
-    path: /tutorials/distribute/training_loops
-  - title: TPU custom training
-    path: /tutorials/distribute/tpu_custom_training
-
-- title: Images
-  style: accordion
-  section:
-  - title: Transfer learning with TFHub
-    path: /tutorials/images/hub_with_keras
-  - title: Transfer learning with pretrained CNNs
-    path: /tutorials/images/transfer_learning
-  - title: Pix2Pix
-    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/pix2pix/pix2pix_eager.ipynb
-    status: external
-  - title: Neural style transfer
-    path: https://github.com/tensorflow/models/blob/master/research/nst_blogpost/4_Neural_Style_Transfer_with_Eager_Execution.ipynb
-    status: external
-  - title: Image segmentation
-    path: https://github.com/tensorflow/models/blob/master/samples/outreach/blogs/segmentation_blogpost/image_segmentation.ipynb
-    status: external
-  - title: Advanced CNN
-    path: /tutorials/images/deep_cnn
-
-- title: Sequences
-  style: accordion
-  section:
-  - title: Text generation with an RNN
-    path: /tutorials/sequences/text_generation
-  - title: Translation with attention
-    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb
-    status: external
-  - title: Image captioning
-    path: https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/contrib/eager/python/examples/generative_examples/image_captioning_with_attention.ipynb
-    status: external
-  - title: Recurrent neural network
-    path: /tutorials/sequences/recurrent
-  - title: Drawing classification
-    path: /tutorials/sequences/recurrent_quickdraw
-  - title: Simple audio recognition
-    path: /tutorials/sequences/audio_recognition
-  - title: Neural machine translation
-    path: https://github.com/tensorflow/nmt
-    status: external
-
-- title: Load data
-  style: accordion
-  section:
-  - title: Load images
-    path: /tutorials/load_data/images
-  - title: TFRecords and tf.Example
-    path: /tutorials/load_data/tf_records
-
-- title: Data representation
-  style: accordion
-  section:
-  - title: Vector representations of words
-    path: /tutorials/representation/word2vec
-  - title: Kernel methods
-    path: /tutorials/representation/kernel_methods
-  - title: Large-scale linear models
-    path: /tutorials/representation/linear
-  - title: Unicode
-    path: /tutorials/representation/unicode
-
-- title: Non-ML
-  style: accordion
-  section:
-  - title: Mandelbrot set
-    path: /tutorials/non-ml/mandelbrot
-  - title: Partial differential equations
-    path: /tutorials/non-ml/pdes
+  - title: "Distributed training"
+    path: /beta/tutorials/distribute/keras
+  - title: "Distributed training with custom training loops"
+    path: /beta/tutorials/distribute/training_loops
+  - title: "Multi worker training with Estimator"
+    path: /beta/tutorials/distribute/multi_worker_with_estimator
+  - title: "Multi worker training with Keras"
+    path: /beta/tutorials/distribute/multi_worker_with_keras
+  - title: "Save and restore models"
+    path: /beta/tutorials/distribute/save_and_load

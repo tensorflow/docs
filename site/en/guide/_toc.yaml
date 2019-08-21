@@ -1,85 +1,54 @@
 toc:
-- title: "TensorFlow Guide"
-  path: /guide/
+- heading: "Guide"
+  style: divider
 
-- heading: High Level APIs
-- title: "Keras"
-  path: /guide/keras
-- title: "Eager Execution"
-  path: /guide/eager
-- title: "Importing Data"
-  path: /guide/datasets
-- title: "Introduction to Estimators"
-  path: /guide/estimators
+- title: "Eager essentials"
+  path: /beta/guide/eager
+- title: "Variables"
+  path: /beta/guide/variables
+- title: "AutoGraph"
+  path: /beta/guide/autograph
 
-- heading: Estimators
-- title: "Premade Estimators"
-  path: /guide/premade_estimators
+- heading: "Keras"
+- title: "Keras overview"
+  path: /beta/guide/keras/overview
+- title: "Keras functional API"
+  path: /beta/guide/keras/functional
+- title: "Train and evaluate"
+  path: /beta/guide/keras/training_and_evaluation
+- title: "Write layers and models from scratch"
+  path: /beta/guide/keras/custom_layers_and_models
+- title: "Save and serialize models"
+  path: /beta/guide/keras/saving_and_serializing
+- title: "Recurrent neural network API"
+  path: /beta/guide/keras/rnn
+- title: "Masking and padding"
+  path: /beta/guide/keras/masking_and_padding
+- title: "Write custom callbacks"
+  path: /beta/guide/keras/custom_callback
+
+- heading: "Accelerators"
+- title: "Distribution strategy"
+  path: /beta/guide/distribute_strategy
+- title: "Using GPU"
+  path: /beta/guide/using_gpu
+
+- heading: "Data input pipelines"
+- title: "tf.data Overview"
+  path: /beta/guide/data
+- title: "Performance"
+  path: /beta/guide/data_performance
+
+- heading: "Serialization"
 - title: "Checkpoints"
-  path: /guide/checkpoints
-- title: "Feature Columns"
-  path: /guide/feature_columns
-- title: "Datasets for Estimators"
-  path: /guide/datasets_for_estimators
-- title: "Creating Custom Estimators"
-  path: /guide/custom_estimators
-
-- heading: Accelerators
-- title: "Distribute Strategy"
-  path: /guide/distribute_strategy
-- title: "Using GPUs"
-  path: /guide/using_gpu
-- title: "Using TPUs"
-  path: /guide/using_tpu
+  path: /beta/guide/checkpoints
+- title: "Saved models"
+  path: /beta/guide/saved_model
 
 - heading: Low Level APIs
-- title: "Introduction"
-  path: /guide/low_level_intro
-- title: "Tensors"
-  path: /guide/tensors
-- title: "Variables"
-  path: /guide/variables
-- title: "Graphs and Sessions"
-  path: /guide/graphs
-- title: "Save and Restore"
-  path: /guide/saved_model
-- title: "Control flow"
-  path: /guide/autograph
-- title: "Ragged Tensors"
-  path: /guide/ragged_tensors
+- title: "Ragged tensors"
+  path : /beta/guide/ragged_tensors
 
-- heading: ML Concepts
-- title: "Embeddings"
-  path: /guide/embedding
-
-- heading: Debugging
-- title: "TensorFlow Debugger"
-  path: /guide/debugger
-
-- heading: Performance
-- title: Overview
-  path: /guide/performance/overview
-- title: Data input pipeline
-  path: /guide/performance/datasets
-- title: Benchmarks
-  path: /guide/performance/benchmarks
-
-- heading: Extend
-- title: TensorFlow architecture
-  path: /guide/extend/architecture
-- title: Create an op
-  path: /guide/extend/op
-- title: Custom filesystem plugin
-  path: /guide/extend/filesystem
-- title: Custom file and record formats
-  path: /guide/extend/formats
-- title: Model files
-  path: /guide/extend/model_files
-- title: Language bindings
-  path: /guide/extend/bindings
-- title: C++ guide
-  path: /guide/extend/cc
-
-- heading: Misc
-- title: "TensorFlow Version Compatibility"
-  path: /guide/version_compat
+- heading: "Misc"
+- title: "Version compatibility"
+  path: /beta/guide/version_compat
