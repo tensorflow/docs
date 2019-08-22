@@ -6,7 +6,7 @@ TensorFlow 2.0 モデルを TensorFlow Lite に変換するには、モデルを
 
 ## 背景
 
-TensorFlow 2.0 では、Eager Execution がデフォルトでオンになっています。 TensorFlow において Eager Execution とは、グラフを作成せずにオペレーションを即時評価する命令型プログラミング環境のことです。各オペレーションは、後で実行するために計算グラフを構築するのではなく、具体的な値を返します。 Eager Execution に関する詳細なガイドは[こちら](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/eager.ipynb)にあります。
+TensorFlow 2.0 では、Eager Execution がデフォルトでオンになっています。 TensorFlow において Eager Execution とは、グラフを作成せずにオペレーションを即時評価する命令型プログラミング環境のことです。各オペレーションは、後で実行するために計算グラフを構築するのではなく、具体的な値を返します。 Eager Execution に関する詳細なガイドは[こちら](https://github.com/tensorflow/docs/blob/master/site/en/guide/eager.ipynb)にあります。
 
 Eager Execution で命令的に実行すると開発とデバッグがより対話的になりますが、デバイスへのデプロイはできなくなります。 `tf.function` API はモデルをグラフとして保存することを可能にします。 これは TensorFlow2.0 で TensorFlow Lite を実行するために必要です。 `tf.function` デコレータでラップされたオペレーションはすべてグラフとしてエクスポートできるので、 TensorFlow Lite FlatBuffer フォーマットに変換できます。
 
@@ -145,7 +145,7 @@ TensorFlow Lite に変換する前に TensorFlow モデルを保存したい場�
 tf.saved_model.save(root, export_dir, concrete_func)
 ```
 
-SavedModel の使用方法の詳細については、[SavedModel ガイド](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/saved_model.ipynb) を参照してください。
+SavedModel の使用方法の詳細については、[SavedModel ガイド](https://github.com/tensorflow/docs/blob/master/site/en/guide/saved_model.ipynb) を参照してください。
 
 
 ### SavedModel から具象関数を得るにはどうすればいいですか？
