@@ -14,8 +14,8 @@ landing_page:
           TensorFlow 2.0 фокусируется на простоте и удобстве использования, с такими обновлениями, 
           как eager execution, интуитивно понятные высокоуровневые API и гибкое построение 
           моделей на любой платформе. Начните с тюториала
-          <a href="/beta/tutorials/quickstart/beginner">notebook новичка</a> и руководства
-           <a href="/beta/guide/effective_tf2">Эффективный&nbsp;TensorFlow&nbsp;2.0</a>.
+          <a href="/tutorials/quickstart/beginner">notebook новичка</a> и руководства
+           <a href="/guide/effective_tf2">Эффективный&nbsp;TensorFlow&nbsp;2.0</a>.
           Установите TensorFlow 2.0 Beta preview package:
         </p>
         <pre class="prettyprint lang-bsh">
@@ -34,14 +34,14 @@ landing_page:
         <p>Лучше всего начинать с простым в употреблении Sequential API. Создавайте модели
         соединяя друг с другом строительные блоки.<br>
         Запустите этот 
-        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/ru/beta/tutorials/quickstart/beginner.ipynb">пример “Hello World”</a>,
+        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/ru/tutorials/quickstart/beginner.ipynb">пример “Hello World”</a>,
         затем прочитайте руководства и учебники чтобы узнать больше.</p>
         <h3>Для экпертов</h3>
         Subclassing API представляет интерфейс динамических вычислительных графов (define-by-run) для продвинутых исследований.
         Создайте класс для своей модели, затем напишите forward pass
         императивно. С легкостью программируйте собственные слои, функции активации и циклы обучения.<br>
         Запустите этот
-        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/ru/beta/tutorials/quickstart/advanced.ipynb">пример “Hello, World”</a>,
+        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/ru/tutorials/quickstart/advanced.ipynb">пример “Hello, World”</a>,
         затем прочитайте руководства и учебники чтобы узнать больше.
       youtube_id: lEljKc9ZtU8?rel=0&show_info=0
 
