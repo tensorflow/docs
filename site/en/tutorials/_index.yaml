@@ -1,5 +1,5 @@
 book_path: /overview/_book.yaml
-project_path: /beta/_project.yaml
+project_path: /overview/_project.yaml
 description: <!--no description-->
 landing_page:
   nav: left
@@ -14,8 +14,8 @@ landing_page:
           TensorFlow 2.0 focuses on simplicity and ease of use, with updates
           like eager execution, intuitive higher-level APIs, and flexible model
           building on any platform. Start with the
-          <a href="/beta/tutorials/quickstart/beginner">beginner notebook</a> tutorial and
-          the <a href="/beta/guide/effective_tf2">Effective&nbsp;TensorFlow&nbsp;2.0</a> guide.
+          <a href="/tutorials/quickstart/beginner">beginner notebook</a> tutorial and
+          the <a href="/guide/effective_tf2">Effective&nbsp;TensorFlow&nbsp;2.0</a> guide.
           Install the TensorFlow 2.0 Beta preview package:
         </p>
         <pre class="prettyprint lang-bsh">
