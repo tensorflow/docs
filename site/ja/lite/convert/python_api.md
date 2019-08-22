@@ -10,9 +10,9 @@ TensorFlow 2.0 において、TensorFlow モデルを TensorFlow Lite に変換�
  `TFLiteConverter` には、元のモデルフォーマットに基づいてモデルを変換する以下のクラスメソッドがあります：
 
 *   `TFLiteConverter.from_saved_model()`: 
-    [SavedModel ディレクトリ](https://www.tensorflow.org/beta/guide/saved_model) を変換します。
+    [SavedModel ディレクトリ](https://www.tensorflow.org/guide/saved_model) を変換します。
 *   `TFLiteConverter.from_keras_model()`: 
-    [`tf.keras` モデル](https://www.tensorflow.org/beta/guide/keras/overview) を変換します。
+    [`tf.keras` モデル](https://www.tensorflow.org/guide/keras/overview) を変換します。
 *   `TFLiteConverter.from_concrete_functions()`: 
     [具象関数](concrete_function.md) を変換します。
 
@@ -26,7 +26,7 @@ Node: TensorFlow Lite 2.0 alpha には、 [`from_concrete_function`](https://www
 
 ### SavedModel を変換する <a name="saved_model"></a>
 
-以下の例は [SavedModel](https://www.tensorflow.org/beta/guide/saved_model) を TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています。
+以下の例は [SavedModel](https://www.tensorflow.org/guide/saved_model) を TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています。
 
 ```python
 import tensorflow as tf
@@ -50,7 +50,7 @@ tflite_model = converter.convert()
 
 ### Keras モデルを変換する <a name="keras"></a>
 
-以下の例は [`tf.keras` モデル](https://www.tensorflow.org/beta/guide/keras/overview) を TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています.
+以下の例は [`tf.keras` モデル](https://www.tensorflow.org/guide/keras/overview) を TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています.
 
 
 ```python
