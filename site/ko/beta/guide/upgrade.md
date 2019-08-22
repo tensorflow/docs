@@ -25,7 +25,7 @@ Note: 이 문서는 텐서플로 커뮤니티에서 번역했습니다. 커뮤�
 `tf.compat.v1.foo`로 대체합니다. 호환성 모듈이 괜찮긴 하지만 직접 수정사항을 확인하고 가능한 빠르게 `tf.compat.v1.*`
 네임스페이스(namespace) 대신 `tf.*` 네임스페이스에 있는 새로운 API로 마이그레이션 하기를 추천합니다.
 
-텐서플로 2.x 모듈에서 사라지는 것들 (예를들면, `tf.flags`와 `tf.contrib`)때문에, 어떤 변동사항은
+텐서플로 2.x 모듈에서 사라지는 것들(예를 들면, `tf.flags`와 `tf.contrib`) 때문에, 어떤 변동사항은
 `compat.v1`으로 바꾸는 것만으로는 동작하지 않을 수 있습니다. 이 코드를 업그레이드하려면 다른 라이브러리가 필요하거나(예를 들면,
 `absl.flags`) [tensorflow/addons](http://www.github.com/tensorflow/addons)에 있는
 패키지로 바꾸어야 할 수도 있습니다.
