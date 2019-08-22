@@ -95,5 +95,5 @@ Renamed keyword argument from 'dimension' to 'axis'
 [GitHub](https://github.com/tensorflow/tensorflow/issues). 그리고 텐서플로 2.0을 테스트하고
 있다면, 의견을 듣고 싶습니다!
 [TF 2.0 Testing community](https://groups.google.com/a/tensorflow.org/forum/#!forum/testing)에
-가입해 주세요. 질문과 토론은 [testing@tensorflow.org](mailto:testing@tensorflow.org)로 메일주시기
+가입해 주세요. 질문과 토론은 [testing@tensorflow.org](mailto:testing@tensorflow.org)로 메일 주시기
 바랍니다.
