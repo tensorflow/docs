@@ -16,10 +16,10 @@ landing_page:
           building on any platform. Start with the
           <a href="/tutorials/quickstart/beginner">beginner notebook</a> tutorial and
           the <a href="/guide/effective_tf2">Effective&nbsp;TensorFlow&nbsp;2.0</a> guide.
-          Install the TensorFlow 2.0 Beta preview package:
+          Install the TensorFlow 2.0 RC preview package:
         </p>
         <pre class="prettyprint lang-bsh">
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-beta1</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-rc0</code>
         </pre>
         <p>
           See the <a href="/install/gpu">GPU guide</a> for CUDA®-enabled cards. The
