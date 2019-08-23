@@ -4,7 +4,7 @@
 
 Nuestra comunidad de Tensorflow ha traducido estos documentos. Como las traducciones de la comunidad
 son basados en el "mejor esfuerzo", no hay ninguna garantia que esta sea un reflejo preciso y actual 
-de la [Documentacion Oficial en Ingles](https://www.tensorflow.org/?hl=en) y [Tensorflow Docs-Es Traduction](http:TBD)
+de la [Documentacion Oficial en Ingles](https://www.tensorflow.org/?hl=en).
 Si tienen sugerencias sobre como mejorar esta traduccion, por favor envian un "Pull request"
 al siguiente repositorio [tensorflow/docs](https://github.com/tensorflow/docs).
 Para ofrecerse como voluntario o hacer revision de las traducciones de la Comunidad
@@ -33,7 +33,7 @@ tensorflow/swif. Los "notebooks" S4TF deben tener los resultados guardados.
 Our TensorFlow community has translated these documents. Because community
 translations are *best-effort*, there is no guarantee that this is an accurate
 and up-to-date reflection of the
-[official English documentation](https://www.tensorflow.org/?hl=en) and [Tensorflow Docs-Es Translation](http:TBD). 
+[official English documentation](https://www.tensorflow.org/?hl=en).
 If you have suggestions to improve this translation, please send a pull request 
 to the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository. 
 To volunteer to write or review community translations, contact the
@@ -144,7 +144,3 @@ traduzcan las siguientes palabras.
 *   dropout
 *   penalty
 *   eager execution 
-
-If you have any suggestion about translation guide, feel free to contact
-[Spanish TensorFlow Documentation Translation Glossary](http://TBD)
-spreadsheet.
