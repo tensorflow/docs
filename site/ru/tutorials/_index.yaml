@@ -8,7 +8,7 @@ landing_page:
       devsite-landing-row-100
       devsite-landing-row-large-headings
     items:
-    - heading: TensorFlow 2.0 Beta
+    - heading: TensorFlow 2.0 tutorials
       description: >
         <p>
           TensorFlow 2.0 фокусируется на простоте и удобстве использования, с такими обновлениями, 
