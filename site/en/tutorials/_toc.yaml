@@ -1,135 +1,141 @@
 toc:
-- title: "Get started with TensorFlow 2.0"
-  path: /
-- title: "Effective TensorFlow 2"
-  path: /guide/effective_tf2
-- title: "Migrate from TF 1 to TF 2"
-  path: /guide/migration_guide
-- title: "Convert with the upgrade script"
-  path: /guide/upgrade
-- title: "Get started for beginners"
+- title: "TensorFlow 2.0 tutorials"
+  path: /tutorials
+- title: "Quickstart for beginners"
   path: /tutorials/quickstart/beginner
-- title: "Get started for experts"
+- title: "Quickstart for experts"
   path: /tutorials/quickstart/advanced
 
-- heading: "Beginner tutorials"
+- heading: "Beginner"
   style: divider
 
-- title: "ML basics"
+- title: "ML basics with Keras"
   style: accordion
   section:
-  - title: "Overview"
-    path: /tutorials/keras/
-  - title: "Classify images"
-    path: /tutorials/keras/basic_classification
-  - title: "Classify text"
-    path: /tutorials/keras/basic_text_classification_with_tfhub
-  - title: "Classify structured data"
-    path: /tutorials/keras/feature_columns
+  - title: "Basic image classification"
+    path: /tutorials/keras/classification
+  - title: "Text classification with TF.Hub"
+    path: /tutorials/keras/text_classification_with_hub
+  - title: "Text classification with preprocessed text"
+    path: /tutorials/keras/text_classification
   - title: "Regression"
-    path: /tutorials/keras/basic_regression
-  - title: "Overfitting and underfitting"
+    path: /tutorials/keras/regression
+  - title: "Overfit and underfit"
     path: /tutorials/keras/overfit_and_underfit
-  - title: "Save and restore models"
-    path: /tutorials/keras/save_and_restore_models
+  - title: "Save and load"
+    path: /tutorials/keras/save_and_load
 
 - title: "Load and preprocess data"
   style: accordion
   section:
   - title: "CSV"
     path: /tutorials/load_data/csv
-  - title: "Numpy"
+  - title: "NumPy"
     path: /tutorials/load_data/numpy
-  - title: "Pandas"
-    path: /tutorials/load_data/from_pandas
+  - title: "pandas.DataFrame"
+    path: /tutorials/load_data/pandas_dataframe
   - title: "Images"
     path: /tutorials/load_data/images
   - title: "Text"
     path: /tutorials/load_data/text
-  - title: "TFRecords"
-    path: /tutorials/load_data/tf_records
   - title: "Unicode"
-    path: /tutorials/text/unicode
+    path: /tutorials/load_data/unicode
   - title: "TF.Text"
     path: /tutorials/tensorflow_text/intro
+  - title: "TFRecord and tf.Example"
+    path: /tutorials/load_data/tfrecord
 
-- title: "Images"
+- title: "Estimator"
   style: accordion
   section:
-  - title: "Convolutional neural networks"
-    path: /tutorials/images/intro_to_cnns
-  - title: "Image classification"
-    path: /tutorials/images/classification
-  - title: "Transfer learning with TFHub"
-    path: /tutorials/images/hub_with_keras
-  - title: "Transfer learning with pretrained CNNs"
-    path: /tutorials/images/transfer_learning
-  - title: "Image segmentation"
-    path: /tutorials/images/segmentation
-
-- title: "Text and sequences"
-  style: accordion
-  section:
-  - title: "Intro to word embeddings"
-    path: /tutorials/text/word_embeddings
-  - title: "Classify preprocessed text"
-    path: /tutorials/keras/basic_text_classification
-  - title: "Classify text with a RNN"
-    path: /tutorials/text/text_classification_rnn
-
-- title: "Estimators"
-  style: accordion
-  section:
-  - title: "Premade estimators"
-    path: /tutorials/estimators/premade_estimators
-  - title: "Linear models"
-    path: /tutorials/estimators/linear
+  - title: "Premade estimator"
+    path: /tutorials/estimator/premade
+  - title: "Linear model"
+    path: /tutorials/estimator/linear
   - title: "Boosted trees"
-    path: /tutorials/estimators/boosted_trees
+    path: /tutorials/estimator/boosted_trees
   - title: "Boosted trees model understanding"
-    path: /tutorials/estimators/boosted_trees_model_understanding
-  - title: "Keras model to estimator"
-    path: /tutorials/estimators/keras_model_to_estimator
+    path: /tutorials/estimator/boosted_trees_model_understanding
+  - title: "Keras model to Estimator"
+    path: /tutorials/estimator/keras_model_to_estimator
 
-- heading: "Advanced tutorials"
+- heading: "Advanced"
   style: divider
 
 - title: "Customization"
   style: accordion
   section:
-  - title: "Overview"
-    path: /tutorials/eager/
   - title: "Tensors and operations"
-    path: /tutorials/eager/basics
+    path: /tutorials/customization/basics
   - title: "Custom layers"
-    path: /tutorials/eager/custom_layers
+    path: /tutorials/customization/custom_layers
   - title: "Automatic differentiation"
-    path: /tutorials/eager/automatic_differentiation
-  - title: "Custom training: basics"
-    path: /tutorials/eager/custom_training
+    path: /tutorials/customization/autodiff
+  - title: "Custom training"
+    path: /tutorials/customization/custom_training
   - title: "Custom training: walkthrough"
-    path: /tutorials/eager/custom_training_walkthrough
-  - title: "TF function and AutoGraph"
-    path: /tutorials/eager/tf_function
+    path: /tutorials/customization/custom_training_walkthrough
+  - title: "Performance with tf.function"
+    path: /tutorials/customization/performance
 
-- title: "Text and sequences"
+- title: "Distributed training"
   style: accordion
   section:
-  - title: "Time series forecasting"
-    path: /tutorials/text/time_series
-  - title: "Generate text with an RNN"
-    path: /tutorials/text/text_generation
-  - title: "Translation with attention"
-    path: /tutorials/text/nmt_with_attention
+  - title: "Distributed training with Keras"
+    path: /tutorials/distribute/keras
+  - title: "Custom training"
+    path: /tutorials/distribute/custom_training
+  - title: "Multi-worker training with Keras"
+    path: /tutorials/distribute/multi_worker_with_keras
+  - title: "Multi-worker training with Estimator"
+    path: /tutorials/distribute/multi_worker_with_estimator
+  - title: "Save and load"
+    path: /tutorials/distribute/save_and_load
+
+- title: "Images"
+  style: accordion
+  section:
+  - title: "Convolutional Neural Network"
+    path: /tutorials/images/cnn
+  - title: "Image classification"
+    path: /tutorials/images/classification
+  - title: "Transfer learning with TF.Hub"
+    path: /tutorials/images/transfer_learning_with_hub
+  - title: "Transfer learning with pretrained CNN"
+    path: /tutorials/images/transfer_learning
+  - title: "Image segmentation"
+    path: /tutorials/images/segmentation
+
+- title: "Text"
+  style: accordion
+  section:
   - title: "Image captioning"
     path: /tutorials/text/image_captioning
+  - title: "Neural machine translation with attention"
+    path: /tutorials/text/nmt_with_attention
+  - title: "Text classification with an RNN"
+    path: /tutorials/text/text_classification_rnn
+  - title: "Text generation with an RNN"
+    path: /tutorials/text/text_generation
   - title: "Transformer model for language understanding"
     path: /tutorials/text/transformer
+  - title: "Word embeddings"
+    path: /tutorials/text/word_embeddings
 
-- title: "Image generation"
+- title: "Structured data"
   style: accordion
   section:
-  - title: "Style transfer"
+  - title: "Classify structured data with feature columns"
+    path: /tutorials/structured_data/feature_columns
+  - title: "Classification on imbalanced data"
+    path: /tutorials/structured_data/imbalanced_data
+  - title: "Time series forecasting"
+    path: /tutorials/structured_data/time_series
+
+- title: "Generative"
+  style: accordion
+  section:
+  - title: "Neural style transfer"
     path: /tutorials/generative/style_transfer
   - title: "DeepDream"
     path: /tutorials/generative/deepdream
@@ -139,21 +145,7 @@ toc:
     path: /tutorials/generative/pix2pix
   - title: "CycleGAN"
     path: /tutorials/generative/cyclegan
-  - title: "Variational autoencoder"
-    path: /tutorials/generative/cvae
   - title: "Adversarial FGSM"
     path: /tutorials/generative/adversarial_fgsm
-
-- title: "Distributed training"
-  style: accordion
-  section:
-  - title: "Distributed training"
-    path: /tutorials/distribute/keras
-  - title: "Distributed training with custom training loops"
-    path: /tutorials/distribute/training_loops
-  - title: "Multi worker training with Estimator"
-    path: /tutorials/distribute/multi_worker_with_estimator
-  - title: "Multi worker training with Keras"
-    path: /tutorials/distribute/multi_worker_with_keras
-  - title: "Save and restore models"
-    path: /tutorials/distribute/save_and_load
+  - title: "Variational Autoencoder"
+    path: /tutorials/generative/cvae
