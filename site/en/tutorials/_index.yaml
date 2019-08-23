@@ -34,14 +34,14 @@ landing_page:
         <p>The best place to start is with the user-friendly Sequential API. Create
         models by plugging together building blocks.<br>
         Run this
-        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/r2/tutorials/quickstart/beginner.ipynb">“Hello World” example</a>,
+        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/quickstart/beginner.ipynb">“Hello World” example</a>,
         then read the guides and tutorials to learn more.</p>
         <h3>For experts</h3>
         The Subclassing API provides a define-by-run interface for advanced
         research. Create a class for your model, then write the forward pass
         imperatively. Easily write custom layers, activations, and training loops.<br>
         Run this
-        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/r2/tutorials/quickstart/advanced.ipynb">“Hello, World” example</a>,
+        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/quickstart/advanced.ipynb">“Hello, World” example</a>,
         then read the guides and and tutorials to learn more.
       youtube_id: lEljKc9ZtU8?rel=0&show_info=0
 
