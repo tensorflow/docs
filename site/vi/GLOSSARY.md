@@ -22,11 +22,12 @@ Bảng chú giải này nhằm chuẩn hoá các từ chuyên môn được dị
 | hyperparameter | / |  |
 | layer | / |  |
 | label | nhãn |  |
+| loss function | hàm thiệt hại |  |
 | mini-batch | / |  |
 | neuron | / |  |
 | node | / |  |
 | one-hot encoding | / |  |
-| optimizer | / |  |
+| optimizer | trình tối ưu hoá |  |
 | padding | / |  |
 | penalty | / |  |
 | sequence | / |  |
@@ -34,3 +35,4 @@ Bảng chú giải này nhằm chuẩn hoá các từ chuyên môn được dị
 | training set | tập huấn luyện |  |
 | target | / |  |
 | unit | / |  |
+| utility function | hàm tiện ích |  |

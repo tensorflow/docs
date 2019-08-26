@@ -33,7 +33,7 @@ landing_page:
         <h3>Cơ bản</h3>
         <p>
           Cách tốt nhất để bắt đầu là dùng Sequential API có sẵn từ framework,
-          và tạo mô hình bằng cách kết hợp các đoạn code theo cách tuần tự.
+          và tạo mô hình bằng cách kết hợp các đoạn mã theo cách tuần tự.
         <p>
         </p>
           Chạy
@@ -61,14 +61,14 @@ landing_page:
         triển khai vững chắc lên production trên mọi nền tảng, và thử nghiệm cho nghiên cứu.
       path: https://medium.com/tensorflow/whats-coming-in-tensorflow-2-0-d3663832e9b8
       buttons:
-      - label: "Đọc chi tiết tại TensorFlow blog"
+      - label: "Đọc chi tiết trên blog TensorFlow"
         path: https://medium.com/tensorflow/whats-coming-in-tensorflow-2-0-d3663832e9b8
     - heading: "Chuẩn hoá Keras: Hướng dẫn API cấp cao trong TensorFlow 2.0"
       description: >
         Với Keras, bộ API cấp cao cho TensorFlow, các lập trình viên mới làm quen với máy học có thể dễ dàng tiếp cận với TensorFlow.
       path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
       buttons:
-      - label: "Đọc chi tiết tại TensorFlow blog"
+      - label: "Đọc chi tiết trên blog TensorFlow"
         path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
     - heading: "Đóng góp cho TensorFlow: SIGs, RFCs, Testing, Docs"
       description: >
@@ -76,5 +76,5 @@ landing_page:
         sẽ tiếp tục làm được điều đó từ những đóng góp của các bạn với các nhóm hoạt động và quy trình mới.
       path: https://medium.com/tensorflow/contributing-to-tensorflow-sigs-rfcs-testing-and-docs-1c0f8240166c
       buttons:
-      - label: "Đọc chi tiết tại TensorFlow blog"
+      - label: "Đọc chi tiết trên blog TensorFlow"
         path: https://medium.com/tensorflow/contributing-to-tensorflow-sigs-rfcs-testing-and-docs-1c0f8240166c

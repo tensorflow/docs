@@ -1,3 +1,7 @@
 toc:
 - title: "Giáo trình TensorFlow 2.0"
   path: /tutorials
+- title: "Lướt nhanh cơ bản"
+  path: /tutorials/quickstart/beginner
+- title: "Lướt nhanh nâng cao"
+  path: /tutorials/quickstart/advanced
