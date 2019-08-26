@@ -4,6 +4,8 @@ Bảng chú giải này nhằm chuẩn hoá các từ chuyên môn được dị
 
 | Tiếng Anh | Tiếng Việt | Giải thích |
 | - | - | - |
+| activation function | hàm kích hoạt |  |
+| backpropagation | truyền ngược |  |
 | batch | / |  |
 | callback | / |  |
 | checkpoint | / |  |
@@ -12,11 +14,13 @@ Bảng chú giải này nhằm chuẩn hoá các từ chuyên môn được dị
 | dictionary (in python) | / |  |
 | dimension | chiều |  |
 | dropout | / |  |
+| define-by-run | / |  |
 | eager execution | / |  |
 | embedding | / |  |
 | epoch | / |  |
 | helper | / |  |
 | hyperparameter | / |  |
+| layer | / |  |
 | label | nhãn |  |
 | mini-batch | / |  |
 | neuron | / |  |
@@ -26,5 +30,7 @@ Bảng chú giải này nhằm chuẩn hoá các từ chuyên môn được dị
 | padding | / |  |
 | penalty | / |  |
 | sequence | / |  |
+| training loop | vòng lặp huấn luyện |  |
+| training set | tập huấn luyện |  |
 | target | / |  |
 | unit | / |  |
