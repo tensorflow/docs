@@ -1507,9 +1507,10 @@ def docs_for_object(full_name, py_object, parser_config):
   duplicate_names = parser_config.duplicates.get(master_name, [])
   if master_name in duplicate_names:
     duplicate_names.remove(master_name)
-  for dup in duplicate_names:
-    if 'compat.v2.compat.v1' in dup:
-      duplicate_names.remove(dup)
+
+  duplicate_names = [
+      dup for dup in duplicate_names if 'compat.v2.compat.v1' not in dup
+  ]
 
   # TODO(wicke): Once other pieces are ready, enable this also for partials.
   if (tf_inspect.ismethod(py_object) or tf_inspect.isfunction(py_object) or
