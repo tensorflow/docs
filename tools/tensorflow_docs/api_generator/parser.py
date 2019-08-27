@@ -1508,10 +1508,6 @@ def docs_for_object(full_name, py_object, parser_config):
   if master_name in duplicate_names:
     duplicate_names.remove(master_name)
 
-  duplicate_names = [
-      dup for dup in duplicate_names if 'compat.v2.compat.v1' not in dup
-  ]
-
   # TODO(wicke): Once other pieces are ready, enable this also for partials.
   if (tf_inspect.ismethod(py_object) or tf_inspect.isfunction(py_object) or
       # Some methods in classes from extensions come in as routines.
