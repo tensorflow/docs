@@ -98,14 +98,13 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-0 \
-    libcudnn7=7.6.0.64-1+cuda10.0  \
-    libcudnn7-dev=7.6.0.64-1+cuda10.0
+    libcudnn7=7.6.2.24-1+cuda10.0  \
+    libcudnn7-dev=7.6.2.24-1+cuda10.0
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
-<code class="devsite-terminal">sudo apt-get update \
-    && sudo apt-get install -y --no-install-recommends libnvinfer5=5.1.5-1+cuda10.0 \
-    && sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.1.5-1+cuda10.0
+<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer5=5.1.5-1+cuda10.0 \
+    libnvinfer-dev=5.1.5-1+cuda10.0
 </code>
 </pre>
 
@@ -125,23 +124,19 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install NVIDIA driver
-# Issue with driver install requires creating /usr/lib/nvidia
-<code class="devsite-terminal">sudo mkdir /usr/lib/nvidia</code>
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-410</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-418</code>
 # Reboot. Check that GPUs are visible using the command: nvidia-smi
 
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-0 \
-    libcudnn7=7.4.1.5-1+cuda10.0  \
-    libcudnn7-dev=7.4.1.5-1+cuda10.0
+    libcudnn7=7.6.2.24-1+cuda10.0  \
+    libcudnn7-dev=7.6.2.24-1+cuda10.0
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
-<code class="devsite-terminal">sudo apt-get update && \
-        sudo apt-get install nvinfer-runtime-trt-repo-ubuntu1604-5.0.2-ga-cuda10.0 \
-        && sudo apt-get update \
-        && sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.0.2-1+cuda10.0
+<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer5=5.1.5-1+cuda10.0 \
+    libnvinfer-dev=5.1.5-1+cuda10.0
 </code>
 </pre>
 
