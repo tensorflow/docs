@@ -65,7 +65,7 @@ landing_page:
         path: https://medium.com/tensorflow/whats-coming-in-tensorflow-2-0-d3663832e9b8
     - heading: "Chuẩn hoá Keras: Hướng dẫn API cấp cao trong TensorFlow 2.0"
       description: >
-        Với Keras, bộ API cấp cao cho TensorFlow, các lập trình viên mới làm quen với máy học có thể dễ dàng tiếp cận với TensorFlow.
+        Với Keras, bộ API cấp cao cho TensorFlow, các lập trình viên mới làm quen với Machine Learning có thể dễ dàng tiếp cận với TensorFlow.
       path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
       buttons:
       - label: "Đọc chi tiết trên blog TensorFlow"

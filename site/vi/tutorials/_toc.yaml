@@ -5,3 +5,22 @@ toc:
   path: /tutorials/quickstart/beginner
 - title: "Lướt nhanh nâng cao"
   path: /tutorials/quickstart/advanced
+
+- heading: "Beginner"
+  style: divider
+
+- title: "ML cơ bản với Keras"
+  style: accordion
+  section:
+  - title: "Bài toán phân lớp ảnh cơ bản"
+    path: /tutorials/keras/classification
+  # - title: "Phân loại văn bản với TF.Hub"
+  #   path: /tutorials/keras/text_classification_with_hub
+  # - title: "Text classification with preprocessed text"
+  #   path: /tutorials/keras/text_classification
+  # - title: "Regression"
+  #   path: /tutorials/keras/regression
+  # - title: "Overfit và underfit"
+  #   path: /tutorials/keras/overfit_and_underfit
+  # - title: "Save and load"
+  #   path: /tutorials/keras/save_and_load
