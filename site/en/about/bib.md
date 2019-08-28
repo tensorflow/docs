@@ -7,7 +7,7 @@ This document identifies white papers about TensorFlow.
 [Access this white paper.](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45166.pdf)
 
 **Abstract:** TensorFlow is an interface for expressing machine learning
-algorithms, and an implementation for executing such algorithms.
+algorithms and an implementation for executing such algorithms.
 A computation expressed using TensorFlow can be
 executed with little or no change on a wide variety of heterogeneous
 systems, ranging from mobile devices such as phones

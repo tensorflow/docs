@@ -294,3 +294,78 @@ directory:
 ```
 tensorboard --logdir /tmp/summaries
 ```
+
+### Use tf.config.experimental_run_functions_eagerly() when debugging
+
+In TensorFlow 2.0, Eager execution lets you run the code step-by-step to inspect
+shapes, data types and values. Certain APIs, like `tf.function`, `tf.keras`,
+etc. are designed to use Graph execution, for performance and portability.
+When debugging, use `tf.config.experimental_run_functions_eagerly(True)` to
+use Eager execution inside this code.
+
+For example:
+
+```python
+@tf.function
+def f(x):
+  if x > 0:
+    import pdb
+    pdb.set_trace()
+    x = x + 1
+  return x
+
+tf.config.experimental_run_functions_eagerly(True)
+f(tf.constant(1))
+```
+```
+>>> f()
+-> x = x + 1
+(Pdb) l
+  6  	@tf.function
+  7  	def f(x):
+  8  	  if x > 0:
+  9  	    import pdb
+ 10  	    pdb.set_trace()
+ 11  ->	    x = x + 1
+ 12  	  return x
+ 13
+ 14  	tf.config.experimental_run_functions_eagerly(True)
+ 15  	f(tf.constant(1))
+[EOF]
+```
+
+This also works inside Keras models and other APIs that support Eager execution:
+
+```
+class CustomModel(tf.keras.models.Model):
+
+  @tf.function
+  def call(self, input_data):
+    if tf.reduce_mean(input_data) > 0:
+      return input_data
+    else:
+      import pdb
+      pdb.set_trace()
+      return input_data // 2
+
+
+tf.config.experimental_run_functions_eagerly(True)
+model = CustomModel()
+model(tf.constant([-2, -4]))
+```
+```
+>>> call()
+-> return input_data // 2
+(Pdb) l
+ 10  	    if tf.reduce_mean(input_data) > 0:
+ 11  	      return input_data
+ 12  	    else:
+ 13  	      import pdb
+ 14  	      pdb.set_trace()
+ 15  ->	      return input_data // 2
+ 16
+ 17
+ 18  	tf.config.experimental_run_functions_eagerly(True)
+ 19  	model = CustomModel()
+ 20  	model(tf.constant([-2, -4]))
+```

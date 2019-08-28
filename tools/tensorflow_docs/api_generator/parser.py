@@ -198,8 +198,15 @@ class ReferenceResolver(object):
 
   @classmethod
   def from_json_file(cls, filepath):
+    """Initialize the reference resolver via _api_cache.json."""
     with open(filepath) as f:
       json_dict = json.load(f)
+
+    # tensorflow_model_optimization still has "current_doc_full_name" as a key
+    # in its _api_cache.json. Hence, popping that key because its not being used
+    # anywhere.
+    if 'current_doc_full_name' in json_dict:
+      json_dict.pop('current_doc_full_name')
 
     return cls(**json_dict)
 
@@ -281,6 +288,7 @@ class ReferenceResolver(object):
 
     with open(filepath, 'w') as f:
       json.dump(json_dict, f, indent=2, sort_keys=True)
+      f.write('\n')
 
   def replace_references(self, string, relative_path_to_root, full_name=None):
     """Replace `tf.symbol` references with links to symbol's documentation page.
@@ -934,7 +942,7 @@ class _FunctionPageInfo(object):
     self._decorators.append(dec)
 
   def get_metadata_html(self):
-    return _Metadata(self.full_name).build_html()
+    return Metadata(self.full_name).build_html()
 
 
 class _ClassPageInfo(object):
@@ -1136,7 +1144,7 @@ class _ClassPageInfo(object):
     return self._classes
 
   def get_metadata_html(self):
-    meta_data = _Metadata(self.full_name)
+    meta_data = Metadata(self.full_name)
     for item in itertools.chain(self.classes, self.properties, self.methods,
                                 self.other_members):
       meta_data.append(item)
@@ -1360,7 +1368,7 @@ class _ModulePageInfo(object):
         _OtherMemberInfo(short_name, full_name, obj, doc))
 
   def get_metadata_html(self):
-    meta_data = _Metadata(self.full_name)
+    meta_data = Metadata(self.full_name)
 
     # Objects with their own pages are not added to the metadata list for the
     # module, the module only has a link to the object page. No docs.
@@ -1480,7 +1488,9 @@ def docs_for_object(full_name, py_object, parser_config):
 
   # Which other aliases exist for the object referenced by full_name?
   master_name = parser_config.reference_resolver.py_master_name(full_name)
-  duplicate_names = parser_config.duplicates.get(master_name, [full_name])
+  duplicate_names = parser_config.duplicates.get(master_name, [])
+  if master_name in duplicate_names:
+    duplicate_names.remove(master_name)
 
   # TODO(wicke): Once other pieces are ready, enable this also for partials.
   if (tf_inspect.ismethod(py_object) or tf_inspect.isfunction(py_object) or
@@ -1659,7 +1669,7 @@ def generate_global_index(library_name, index, reference_resolver):
   return '\n'.join(lines)
 
 
-class _Metadata(object):
+class Metadata(object):
   """A class for building a page's Metadata block.
 
   Attributes:
@@ -1667,16 +1677,24 @@ class _Metadata(object):
     version: The source version.
   """
 
-  def __init__(self, name, version='Stable'):
+  def __init__(self, name, version=None, content=None):
     """Creates a Metadata builder.
 
     Args:
       name: The name of the page being described by the Metadata block.
       version: The source version.
+      content: Content to create the metadata from.
     """
+
     self.name = name
+
     self.version = version
-    self._content = []
+    if self.version is None:
+      self.version = 'Stable'
+
+    self._content = content
+    if self._content is None:
+      self._content = []
 
   def append(self, item):
     """Adds an item from the page to the Metadata block.
