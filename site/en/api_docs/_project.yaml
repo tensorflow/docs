@@ -1,5 +1,5 @@
 name: TensorFlow Core {VERSION}
-home_url:  {VERSION_ROOT}/
+home_url:  {VERSION_ROOT}
 parent_project_metadata_path: /_project.yaml
 description: >
   An open source machine learning library for research and production.
