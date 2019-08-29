@@ -7,7 +7,7 @@ description: >
   "This is PROJECT_NAME."
 use_site_branding: true
 hide_from_products_list: true
-content_license: cc3-apache2
+content_license: cc-apache
 # Use project ID, if available
 buganizer_id: 162698
 include: /_project_included.yaml

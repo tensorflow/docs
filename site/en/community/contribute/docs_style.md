@@ -6,14 +6,17 @@
 *   Use every-day words and keep sentences short.
 *   Use consistent sentence construction, wording, and capitalization.
 *   Use headings and lists to make your docs easier to scan.
-*   Demonstrate empathy.
+*   The
+    [Google Developer Docs Style Guide](https://developers.google.com/style/highlights)
+    is helpful.
 
+## Markdown
 
-## Markdown syntax
+With a few exceptions, TensorFlow uses a Markdown syntax similiar to
+[GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+(GFM). This section explains differences between GFM Markdown syntax and the
+Markdown used for TensorFlow documentation.
 
-With a few exceptions, TensorFlow uses the standard Markdown rules. This section
-explains the primary differences between standard Markdown rules and the
-Markdown rules that TensorFlow documentation uses.
 
 ### Write about code
 
@@ -32,7 +35,7 @@ text:
     <code>&#96;shuffle()&#96;</code>
 *   Class names: <code>&#96;tf.Tensor&#96;</code>, <code>&#96;Strategy&#96;</code>
 *   File name: <code>&#96;image_ops.py&#96;</code>,
-    <code>&#96;/path-to-your-data/xml/example-name&#96;</code>
+    <code>&#96;/path_to_dir/file_name&#96;</code>
 *   Math expressions or conditions: <code>&#96;-1-input.dims() &lt;= dim &lt;=
     input.dims()&#96;</code>
 
@@ -50,23 +53,24 @@ language after the first backtick group, for example:
 
 #### Links between files in this repository
 
-For links between files in this repository, use relative links:
-`[Eager basics](../tutorials/eager/eager_basics)` produces
-[Eager basics](https://www.tensorflow.org/tutorials/eager/eager_basics). These
-links will work on both GitHub and [tensorflow.org](https://www.tensorflow.org).
+Use relative links between files in a repository. This works on
+[tensorflow.org](https://www.tensorflow.org) and
+[GitHub](https://github.com/tensorflow/docs/tree/master/site/en):<br/>
+<code>\[Custom layers\]\(../tutorials/eager/custom_layers.ipynb\)</code> produces
+[Custom layers](https://www.tensorflow.org/tutorials/eager/custom_layers) on the
+site.
 
 #### Links to API documentation
 
-API links are converted when the site is published.
+API links are converted when the site is published. To link to a symbol's API
+reference page, enclose the full symbol path in backticks:
 
-To link to the Python API, enclose the full symbol path in backticks:
-
-*   <code>&#96;tf.data.Dataset&#96;</code> to produce
-    [tf.data.Dataset](https://www.tensorflow.org/api_docs/python/tf/data/Dataset)
+*   <code>&#96;tf.data.Dataset&#96;</code> produces
+    [`tf.data.Dataset`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset)
 
 For the C++ API, use the namespace path:
 
-*   `tensorflow::Tensor` to produce
+*   `tensorflow::Tensor` produces
     [tensorflow::Tensor](https://www.tensorflow.org/api_docs/cc/class/tensorflow/tensor)
 
 #### External links
@@ -84,6 +88,11 @@ forward the link to the branch of the code corresponding to the version of the
 documentation you're viewing.
 
 Do not include URI query parameters in the link.
+
+File paths use underscores for spaces, for example, `custom_layers.ipynb`.
+
+Include the file extension in links to use on the site *and* GitHub, for example,<br/>
+<code>\[Custom layers\]\(../tutorials/eager/custom_layers.ipynb\)</code>.
 
 ### Math in Markdown
 
