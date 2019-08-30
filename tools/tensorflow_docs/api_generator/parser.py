@@ -1625,6 +1625,8 @@ def _get_defined_in(py_object, parser_config):
   # Never include links outside this code base.
   if re.search(r'\b_api\b', rel_path):
     return None
+  if re.search(r'\bapi/(_v2|_v1)\b', rel_path):
+    return None
   if '<embedded stdlib>' in rel_path:
     return None
 
