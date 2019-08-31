@@ -16,6 +16,8 @@ landing_page:
           See the <a href="./gpu">GPU guide</a> for CUDA®-enabled cards.
         </p>
         <pre class="prettyprint lang-bsh">
+        #rc0 requires the latest version of pip<br/>
+        <code class="devsite-terminal">pip install --upgrade pip</code><br/>
         <code class="devsite-terminal">pip install tensorflow==2.0.0-rc0</code>
         </pre>
 
@@ -59,6 +61,8 @@ landing_page:
 
       code_block: |
         <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
+        # upgrade pip
+        <code class="devsite-terminal">pip install --upgrade pip</code><br/>
         # Current stable release for CPU-only
         <code class="devsite-terminal">pip install tensorflow</code><br/>
         # Preview nightly build for CPU-only (unstable)

@@ -10,7 +10,7 @@ upper_tabs:
     - name: Overview
       contents:
       - title: Overview
-        path: {VERSION_ROOT}/api_docs/
+        path: {VERSION_ROOT}/
 
       - heading: Implementations
       - title: "TensorFlow.js"
@@ -53,9 +53,9 @@ upper_tabs:
       skip_translation: true
       contents:
       - title: Python {VERSION}
-      - include: {VERSION_ROOT}/api_docs/python/_toc.yaml
+      - include: {VERSION_ROOT}/python/_toc.yaml
       - title: All Symbols
-        path: {VERSION_ROOT}/api_docs/python/
+        path: {VERSION_ROOT}/python/
 
     - name: JavaScript
       contents:
@@ -66,15 +66,15 @@ upper_tabs:
       skip_translation: true
       contents:
       - title: C++
-        path: {VERSION_ROOT}/api_docs/cc/
-      - include: {VERSION_ROOT}/api_docs/cc/_doxygen.yaml
+        path: {VERSION_ROOT}/cc/
+      - include: {VERSION_ROOT}/cc/_doxygen.yaml
 
     - name: Java
       skip_translation: true
       contents:
       - title: Java
-        path: {VERSION_ROOT}/api_docs/java/reference/org/tensorflow/package-summary.html
-      - include: {VERSION_ROOT}/api_docs/java/reference/_toc.yaml
+        path: {VERSION_ROOT}/java/reference/org/tensorflow/package-summary.html
+      - include: {VERSION_ROOT}/java/reference/_toc.yaml
 
 - include: /resources/_upper_tabs_resources.yaml
 - include: /_upper_tabs_right.yaml
