@@ -12,7 +12,8 @@ Note: これらのドキュメントは私たちTensorFlowコミュニティが�
 本ガイドは1つ1つ丁寧に説明したものではなく、LLVM、Bazel、TensorFlowの知識を前提としています。
 
 XLAは、新しいアーキテクチャやアクセラレータが、TensorFlowのグラフを処理するバックエンドを実装するための抽象的なインターフェースを提供します。
-XLAに対応することはとても簡単で、かつ新しいハードウェア向けに既存のTensorFlowのオペレーションを実装することと比較して拡張性もあります。
+XLAへの対応は、新しいハードウェア向けに既存のすべてのTensorFlowのオペレーションを実装するのと比べて、はるかに簡潔でスケーラブルです。
+
 
 実装のほとんどは、以下のシナリオのうちの1つに分類されます。
 
@@ -43,7 +44,7 @@ LLVM IRを出力する既存の [`xla::CPUCompiler`](https://github.com/tensorfl
 
 よい参考例は、XLAの [GPUバックエンド](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/compiler/xla/service/gpu) です。
 GPUのバックエンドはCPUとは異なるISAをターゲットとするため、GPUドメイン固有なコードの生成方法になります。
-他の種類のハードウェア、例えば（アップストリームのLLVMのバックエンドを持つ）HexagonのようなDSPは、LLVM IRの生成論理部を再利用することができますが、他の部分は固有のものになるでしょう
+ほかの種類のハードウェア、たとえば（アップストリームのLLVMのバックエンドをもつ）HexagonのようなDSPは、LLVM IRの生成のしくみを再利用することができますが、ほかの部分は固有のものになるでしょう
 
 
 ## シナリオ3: LLVMのバックエンドが存在しない、CPUではないハードウェア
@@ -56,4 +57,3 @@ LLVMを利用できない場合、対象のハードウェア向けに新しい�
 * [xla::Compiler](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/compiler/xla/service/compiler.h): 本クラスは、HLO Computationから `xla::Executable` へのコンパイル処理を隠蔽します。
 * [xla::Executable](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/compiler/xla/service/executable.h): 本クラスは、コンパイル済みのComputationをプラットフォーム上で実行するために使用されます。
 * [xla::TransferManager](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/compiler/xla/service/transfer_manager.h): 本クラスは、与えられたデバイスメモリのハンドルからXLAのリテラルデータを構築するための、プラットフォーム特有のしくみを提供することを可能にします。言い換えれば、ホストからデバイスまたはその反対のデータ転送処理を隠蔽します。
-
