@@ -38,6 +38,8 @@ REQUIRED_PKGS = [
     'astor',
     'absl-py',
     'six',
+    'pathlib2',
+    'pyyaml',
 ]
 
 TESTS_REQUIRE = [
