@@ -24,7 +24,7 @@ import shutil
 import subprocess
 import tempfile
 
-import pathlib
+import pathlib2 as pathlib
 import six
 
 from tensorflow_docs.api_generator import doc_generator_visitor
