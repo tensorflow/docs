@@ -12,11 +12,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""tensorflow_docs is a package for generating python api-reference docs."""
+"""Tests for tensorflow_docs.vis.webp."""
 
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from tensorflow_docs import api_generator
-from tensorflow_docs import vis
+import os
+
+from absl.testing import absltest
+
+import numpy as np
+import PIL.Image
+
+from tensorflow_docs.vis import webp_animation
+
+
+class WebpTest(absltest.TestCase):
+
+  def test_smoke(self):
+    workdir = self.create_tempdir().full_path
+
+    img = PIL.Image.fromarray(np.zeros([10, 12, 3], dtype=np.uint8))
+    anim = webp_animation.Webp()
+
+    anim.append(img)
+    anim.extend([img])
+    anim.save(os.path.join(workdir, 'test.webp'))
+
+
+if __name__ == '__main__':
+  absltest.main()
