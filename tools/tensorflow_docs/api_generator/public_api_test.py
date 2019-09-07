@@ -21,6 +21,8 @@ from __future__ import print_function
 import inspect
 import types
 
+import typing
+
 from absl.testing import absltest
 from tensorflow_docs.api_generator import public_api
 
@@ -150,6 +152,12 @@ class PublicApiTest(absltest.TestCase):
     filtered_names = [name for name, _ in filtered_children]
 
     self.assertCountEqual([], filtered_names)
+
+  def test_ignore_typing(self):
+    children_before = [('a', 1), ('b', 3), ('c', typing.List)]
+    children_after = public_api.ignore_typing('ignored', 'ignored',
+                                              children_before)
+    self.assertEqual(children_after, children_before[:-1])
 
 
 if __name__ == '__main__':

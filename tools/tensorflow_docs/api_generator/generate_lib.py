@@ -43,7 +43,7 @@ def write_docs(output_dir,
                yaml_toc,
                root_title='TensorFlow',
                search_hints=True,
-               site_path=''):
+               site_path='api_docs/python'):
   """Write previously extracted docs to disk.
 
   Write a docs page for each symbol included in the indices of parser_config to
@@ -95,8 +95,7 @@ def write_docs(output_dir,
             parser.is_free_function(py_object, full_name, parser_config.index)):
       continue
 
-    sitepath = os.path.join('api_docs/python',
-                            parser.documentation_path(full_name)[:-3])
+    sitepath = os.path.join(parser.documentation_path(full_name)[:-3])
 
     # For TOC, we need to store a mapping from full_name to the file
     # we're generating
@@ -149,10 +148,8 @@ def write_docs(output_dir,
     duplicates = [item for item in duplicates if item != full_name]
 
     for dup in duplicates:
-      from_path = os.path.join(site_path, 'api_docs/python',
-                               dup.replace('.', '/'))
-      to_path = os.path.join(site_path, 'api_docs/python',
-                             full_name.replace('.', '/'))
+      from_path = os.path.join(site_path, dup.replace('.', '/'))
+      to_path = os.path.join(site_path, full_name.replace('.', '/'))
       redirects.append({
           'from': os.path.join('/', from_path),
           'to': os.path.join('/', to_path)
@@ -273,7 +270,7 @@ def extract(py_modules,
   # The objects found during traversal, and their children are passed to each
   # of these visitors in sequence. Each visitor returns the list of children
   # to be passed to the next visitor.
-  visitors = [api_filter] + callbacks + [accumulator]
+  visitors = [api_filter, public_api.ignore_typing] + callbacks + [accumulator]
 
   traverse.traverse(py_module, visitors, short_name)
 
@@ -363,7 +360,7 @@ class DocGenerator(object):
                base_dir=None,
                code_url_prefix=(),
                search_hints=True,
-               site_path='',
+               site_path='api_docs/python',
                private_map=None,
                do_not_descend_map=None,
                visitor_cls=doc_generator_visitor.DocGeneratorVisitor,
@@ -500,8 +497,5 @@ class DocGenerator(object):
       if e.strerror != 'File exists':
         raise
 
-    cmd = ['rsync', '--recursive', '--quiet', '--delete']
-    cmd.extend(str(path) for path in work_py_dir.glob('*'))
-    cmd.append(output_dir)
-
-    subprocess.check_call(cmd)
+    subprocess.check_call(['rsync', '--recursive', '--quiet', '--delete',
+                           '{}/'.format(work_py_dir), output_dir])

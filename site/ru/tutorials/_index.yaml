@@ -1,0 +1,74 @@
+book_path: /overview/_book.yaml
+project_path: /overview/_project.yaml
+description: <!--no description-->
+landing_page:
+  nav: left
+  rows:
+  - classname:
+      devsite-landing-row-100
+      devsite-landing-row-large-headings
+    items:
+    - heading: TensorFlow 2.0 tutorials
+      description: >
+        <p>
+          TensorFlow 2.0 фокусируется на простоте и удобстве использования, с такими обновлениями, 
+          как eager execution, интуитивно понятные высокоуровневые API и гибкое построение 
+          моделей на любой платформе. Начните с тюториала
+          <a href="/tutorials/quickstart/beginner">notebook новичка</a> и руководства
+           <a href="/guide/effective_tf2">Эффективный&nbsp;TensorFlow&nbsp;2.0</a>.
+          Установите TensorFlow 2.0 Beta preview package:
+        </p>
+        <pre class="prettyprint lang-bsh">
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-rc0</code>
+        </pre>
+        <p>
+          Смотрите <a href="/install/gpu">руководство GPU</a> для карт с поддержкой CUDA®.
+          <a href="https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md" class="external">FAQ сообщества тестирования TensorFlow 2.0</a>
+          содержит дополнительные детали о совместимости и миграции.
+        </p>
+
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h3>Для новичков</h3>
+        <p>Лучше всего начинать с простым в употреблении Sequential API. Создавайте модели
+        соединяя друг с другом строительные блоки.<br>
+        Запустите этот 
+        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/ru/tutorials/quickstart/beginner.ipynb">пример “Hello World”</a>,
+        затем прочитайте руководства и учебники чтобы узнать больше.</p>
+        <h3>Для экпертов</h3>
+        Subclassing API представляет интерфейс динамических вычислительных графов (define-by-run) для продвинутых исследований.
+        Создайте класс для своей модели, затем напишите forward pass
+        императивно. С легкостью программируйте собственные слои, функции активации и циклы обучения.<br>
+        Запустите этот
+        <a target="_blank" class="external" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/ru/tutorials/quickstart/advanced.ipynb">пример “Hello, World”</a>,
+        затем прочитайте руководства и учебники чтобы узнать больше.
+      youtube_id: lEljKc9ZtU8?rel=0&show_info=0
+
+  - classname: devsite-landing-row-cards
+    items:
+    - heading: "Что нового в TensorFlow 2.0"
+      description: >
+        TensorFlow 2.0 сфокусируется на простоте и легкости в использовании: простое
+        построение моделей, надежный запуск модели в работу на любой платформе model, 
+        и значительное экпериментирование для исследований.
+      path: https://medium.com/tensorflow/whats-coming-in-tensorflow-2-0-d3663832e9b8
+      buttons:
+      - label: "Читать в блоге TensorFlow"
+        path: https://medium.com/tensorflow/whats-coming-in-tensorflow-2-0-d3663832e9b8
+    - heading: "Стандартизация Keras: Руководство по API высокого уровня в TensorFlow 2.0"
+      description: >
+        С Keras - высокоуровневым API для TensorFlow, разработчикам - новичкам в машинном обучении 
+        проще начать работу с TensorFlow.
+      path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
+      buttons:
+      - label: "Читать в блоге TensorFlow"
+        path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
+    - heading: "Сделай вклад в TensorFlow: SIGs, RFCs, Testing, Docs"
+      description: >
+        TensorFlow всегда формировался сообществом, и мы гордимся большим вкладом в течение нескольких лет нашими новыми сообществами и процессами.
+
+      path: https://medium.com/tensorflow/contributing-to-tensorflow-sigs-rfcs-testing-and-docs-1c0f8240166c
+      buttons:
+      - label: "Читать в блоге TensorFlow"
+        path: https://medium.com/tensorflow/contributing-to-tensorflow-sigs-rfcs-testing-and-docs-1c0f8240166c
