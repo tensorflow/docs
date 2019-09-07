@@ -44,6 +44,9 @@ toc:
     path: /tutorials/tensorflow_text/intro
   - title: "TFRecord and tf.Example"
     path: /tutorials/load_data/tfrecord
+  - title: "Other formats with TensorFlow-IO"
+    path: https://github.com/tensorflow/io
+    status: external
 
 - title: "Estimator"
   style: accordion

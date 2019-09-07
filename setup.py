@@ -38,24 +38,21 @@ REQUIRED_PKGS = [
     'astor',
     'absl-py',
     'six',
+    'pathlib2',
+    'pyyaml',
 ]
 
-TESTS_REQUIRE = [
-    'jupyter',
+VIS_REQUIRE = [
+    'numpy',
+    'PILLOW',
+    'webp',
 ]
-
-if sys.version_info.major == 3:
-  # Packages only for Python 3
-  pass
-else:
-  # Packages only for Python 2
-  TESTS_REQUIRE.append('mock')
-  REQUIRED_PKGS.append('futures')  # concurrent.futures
 
 if sys.version_info < (3, 4):
   # enum introduced in Python 3.4
   REQUIRED_PKGS.append('enum34')
 
+# https://setuptools.readthedocs.io/en/latest/setuptools.html#new-and-changed-setup-keywords
 setup(
     name=project_name,
     version=version,
@@ -71,7 +68,7 @@ setup(
     scripts=[],
     install_requires=REQUIRED_PKGS,
     extras_require={
-        'tests': TESTS_REQUIRE,
+        'vis': VIS_REQUIRE,
     },
     classifiers=[
         'Development Status :: 4 - Beta',

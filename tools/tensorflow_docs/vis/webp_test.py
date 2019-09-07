@@ -1,4 +1,4 @@
-# Copyright 2018 The TensorFlow Authors. All Rights Reserved.
+# Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,17 +12,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tools for building tensorflow api reference docs."""
+"""Tests for tensorflow_docs.vis.webp."""
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from tensorflow_docs.api_generator import doc_controls
-from tensorflow_docs.api_generator import doc_generator_visitor
-from tensorflow_docs.api_generator import generate_lib
-from tensorflow_docs.api_generator import parser
-from tensorflow_docs.api_generator import pretty_docs
-from tensorflow_docs.api_generator import public_api
-from tensorflow_docs.api_generator import tf_inspect
-from tensorflow_docs.api_generator import traverse
-from tensorflow_docs.api_generator import utils
+import os
+
+from absl.testing import absltest
+
+import numpy as np
+import PIL.Image
+
+from tensorflow_docs.vis import webp_animation
+
+
+class WebpTest(absltest.TestCase):
+
+  def test_smoke(self):
+    workdir = self.create_tempdir().full_path
+
+    img = PIL.Image.fromarray(np.zeros([10, 12, 3], dtype=np.uint8))
+    anim = webp_animation.Webp()
+
+    anim.append(img)
+    anim.extend([img])
+    anim.save(os.path.join(workdir, 'test.webp'))
+
+
+if __name__ == '__main__':
+  absltest.main()

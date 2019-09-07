@@ -12,11 +12,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""tensorflow_docs is a package for generating python api-reference docs."""
+"""Utility functions."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
+import importlib
+import pkgutil
 
-from tensorflow_docs import api_generator
-from tensorflow_docs import vis
+
+def recursive_import(root):
+  """Recursively imports all the modules under a root package.
+
+  Args:
+    root: A python package.
+
+  Returns:
+    A list of all imported modules.
+  """
+
+  modules = []
+  for _, name, _ in pkgutil.walk_packages(
+      root.__path__, prefix=root.__name__ + '.'):
+    try:
+      modules.append(importlib.import_module(name))
+    except (ImportError, AttributeError):
+      pass
+
+  return modules
