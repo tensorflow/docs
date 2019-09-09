@@ -62,3 +62,4 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 ## Oceania
 
 * [Melbourne TensorFlow Meetup](https://www.meetup.com/Melbourne-TensorFlow-Meetup)
+* [Sydney TensorFlow Meetup](https://www.meetup.com/Sydney-TensorFlow-Meetup)
