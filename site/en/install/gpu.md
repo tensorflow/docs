@@ -71,7 +71,7 @@ NVIDIA libraries, see the [Linux build from source](./source.md) guide.
 
 ### Install CUDA with apt
 
-This section shows how to install CUDA 10 (TensorFlow >= 13.0) and CUDA 9
+This section shows how to install CUDA 10 (TensorFlow >= 1.13.0) and CUDA 9
 for Ubuntu 16.04 and 18.04. These instructions may work for other Debian-based
 distros.
 
