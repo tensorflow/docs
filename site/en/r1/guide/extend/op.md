@@ -1,6 +1,6 @@
 # Adding a New Op
 
-Note: To garantee that your C++ custom ops are ABI compatible with TensorFlow's
+Note: To guarantee that your C++ custom ops are ABI compatible with TensorFlow's
 official pip packages, please follow the guide at
 [Custom op repository](https://github.com/tensorflow/custom-op). It has an
 end-to-end code example, as well as Docker images for building and distributing
