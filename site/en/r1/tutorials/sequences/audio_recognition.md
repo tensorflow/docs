@@ -219,8 +219,7 @@ confident in its prediction.
 ## Running the Model in an Android App
 
 The easiest way to see how this model works in a real application is to download
-[the prebuilt Android demo
-applications](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android#prebuilt-components)
+[the prebuilt Android demo applications](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/android#prebuilt-components)
 and install them on your phone. You'll see 'TF Speech' appear in your app list,
 and opening it will show you the same list of action words we've just trained
 our model on, starting with "Yes" and "No". Once you've given the app permission
@@ -228,19 +227,16 @@ to use the microphone, you should be able to try saying those words and see them
 highlighted in the UI when the model recognizes one of them.
 
 You can also build this application yourself, since it's open source and
-[available as part of the TensorFlow repository on
-github](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android#building-in-android-studio-using-the-tensorflow-aar-from-jcenter).
-By default it downloads [a pretrained model from
-tensorflow.org](http://download.tensorflow.org/models/speech_commands_v0.02.zip),
-but you can easily [replace it with a model you've trained
-yourself](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android#install-model-files-optional).
-If you do this, you'll need to make sure that the constants in [the main
-SpeechActivity Java source
-file](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android/src/org/tensorflow/demo/SpeechActivity.java)
+[available as part of the TensorFlow repository on github](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/android#building-in-android-studio-using-the-tensorflow-aar-from-jcenter).
+By default it downloads
+[a pretrained model from tensorflow.org](http://download.tensorflow.org/models/speech_commands_v0.02.zip),
+but you can easily
+[replace it with a model you've trained yourself](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/android#install-model-files-optional).
+If you do this, you'll need to make sure that the constants in
+[the main SpeechActivity Java source file](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/android/src/org/tensorflow/demo/SpeechActivity.java)
 like `SAMPLE_RATE` and `SAMPLE_DURATION` match any changes you've made to the
-defaults while training. You'll also see that there's a [Java version of the
-RecognizeCommands
-module](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android/src/org/tensorflow/demo/RecognizeCommands.java)
+defaults while training. You'll also see that there's a
+[Java version of the RecognizeCommands module](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/android/src/org/tensorflow/demo/RecognizeCommands.java)
 that's very similar to the C++ version in this tutorial. If you've tweaked
 parameters for that, you can also update them in SpeechActivity to get the same
 results as in your server testing.
@@ -309,7 +305,7 @@ spectrograms.
 The image that's produced by these processing steps is then fed into a
 multi-layer convolutional neural network, with a fully-connected layer followed
 by a softmax at the end. You can see the definition of this portion in
-[tensorflow/examples/speech_commands/models.py](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/speech_commands/models.py).
+[tensorflow/examples/speech_commands/models.py](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/speech_commands/models.py).
 
 ## Streaming Accuracy
 
@@ -326,9 +322,9 @@ windows, so averaging the results improves the overall confidence of the
 prediction.
 
 For an example of how you can use your model on streaming data, you can look at
-[test_streaming_accuracy.cc](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/speech_commands/).
+[test_streaming_accuracy.cc](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/speech_commands/).
 This uses the
-[RecognizeCommands](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/speech_commands/recognize_commands.h)
+[RecognizeCommands](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/speech_commands/recognize_commands.h)
 class to run through a long-form input audio, try to spot words, and compare
 those predictions against a ground truth list of labels and times. This makes it
 a good example of applying a model to a stream of audio signals over time.
@@ -386,7 +382,7 @@ you understand the tradeoffs.
 
 The streaming accuracy tool uses a simple decoder contained in a small C++ class
 called
-[RecognizeCommands](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/speech_commands/recognize_commands.h).
+[RecognizeCommands](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/speech_commands/recognize_commands.h).
 This class is fed the output of running the TensorFlow model over time, it
 averages the signals, and returns information about a label when it has enough
 evidence to think that a recognized word has been found. The implementation is
@@ -441,8 +437,8 @@ are put into the same partition. Clips are assigned to training, test, or
 validation sets based on a hash of their filename, to ensure that the
 assignments remain steady even as new clips are added and avoid any training
 samples migrating into the other sets. To make sure that all a given speaker's
-words are in the same bucket, [the hashing
-function](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/speech_commands/input_data.py)
+words are in the same bucket,
+[the hashing function](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/speech_commands/input_data.py)
 ignores anything in a filename after '_nohash_' when calculating the
 assignments. This means that if you have file names like `pete_nohash_0.wav` and
 `pete_nohash_1.wav`, they're guaranteed to be in the same set.
@@ -589,11 +585,11 @@ internal neural network activations, you need to make sure to use a consistent
 stride (e.g. 'clip_stride_ms' flag) both when you freeze the graph, and when
 executing the model in streaming mode (e.g. test_streaming_accuracy.cc).
 
-**Other parameters to customize**
-If you want to experiment with customizing models, a good place to start is by
-tweaking the spectrogram creation parameters. This has the effect of altering
-the size of the input image to the model, and the creation code in
-[models.py](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/speech_commands/models.py)
+**Other parameters to customize** If you want to experiment with customizing
+models, a good place to start is by tweaking the spectrogram creation
+parameters. This has the effect of altering the size of the input image to the
+model, and the creation code in
+[models.py](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/speech_commands/models.py)
 will adjust the number of computations and weights automatically to fit with
 different dimensions. If you make the input smaller, the model will need fewer
 computations to process it, so it can be a great way to trade off some accuracy
@@ -612,7 +608,7 @@ of the clip though.
 
 If you have an entirely different model in mind for your problem, you may find
 that you can plug it into
-[models.py](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/speech_commands/models.py)
+[models.py](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/speech_commands/models.py)
 and have the rest of the script handle all of the preprocessing and training
 mechanics. You would add a new clause to `create_model`, looking for the name of
 your architecture and then calling a model creation function. This function is
