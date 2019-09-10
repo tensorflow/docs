@@ -40,6 +40,9 @@ REQUIRED_PKGS = [
     'six',
     'pathlib2',
     'pyyaml',
+]
+
+VIS_REQURE = [
     'numpy',
     'PILLOW',
     'webp',
@@ -64,6 +67,7 @@ setup(
     package_dir={'': 'tools'},
     scripts=[],
     install_requires=REQUIRED_PKGS,
+    extras_require={'vis': VIS_REQURE},
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
