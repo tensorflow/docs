@@ -24,3 +24,131 @@ toc:
   #   path: /tutorials/keras/overfit_and_underfit
   # - title: "Save and load"
   #   path: /tutorials/keras/save_and_load
+
+# - title: "Load and preprocess data"
+#   style: accordion
+#   section:
+#   - title: "CSV"
+#     path: /tutorials/load_data/csv
+#   - title: "NumPy"
+#     path: /tutorials/load_data/numpy
+#   - title: "pandas.DataFrame"
+#     path: /tutorials/load_data/pandas_dataframe
+#   - title: "Images"
+#     path: /tutorials/load_data/images
+#   - title: "Text"
+#     path: /tutorials/load_data/text
+#   - title: "Unicode"
+#     path: /tutorials/load_data/unicode
+#   - title: "TF.Text"
+#     path: /tutorials/tensorflow_text/intro
+#   - title: "TFRecord and tf.Example"
+#     path: /tutorials/load_data/tfrecord
+#   - title: "Other formats with TensorFlow-IO"
+#     path: https://github.com/tensorflow/io
+#     status: external
+
+# - title: "Estimator"
+#   style: accordion
+#   section:
+#   - title: "Premade estimator"
+#     path: /tutorials/estimator/premade
+#   - title: "Linear model"
+#     path: /tutorials/estimator/linear
+#   - title: "Boosted trees"
+#     path: /tutorials/estimator/boosted_trees
+#   - title: "Boosted trees model understanding"
+#     path: /tutorials/estimator/boosted_trees_model_understanding
+#   - title: "Keras model to Estimator"
+#     path: /tutorials/estimator/keras_model_to_estimator
+
+# - heading: "Advanced"
+#   style: divider
+
+# - title: "Customization"
+#   style: accordion
+#   section:
+#   - title: "Tensors and operations"
+#     path: /tutorials/customization/basics
+#   - title: "Custom layers"
+#     path: /tutorials/customization/custom_layers
+#   - title: "Automatic differentiation"
+#     path: /tutorials/customization/autodiff
+#   - title: "Custom training"
+#     path: /tutorials/customization/custom_training
+#   - title: "Custom training: walkthrough"
+#     path: /tutorials/customization/custom_training_walkthrough
+#   - title: "Performance with tf.function"
+#     path: /tutorials/customization/performance
+
+# - title: "Distributed training"
+#   style: accordion
+#   section:
+#   - title: "Distributed training with Keras"
+#     path: /tutorials/distribute/keras
+#   - title: "Custom training"
+#     path: /tutorials/distribute/custom_training
+#   - title: "Multi-worker training with Keras"
+#     path: /tutorials/distribute/multi_worker_with_keras
+#   - title: "Multi-worker training with Estimator"
+#     path: /tutorials/distribute/multi_worker_with_estimator
+#   - title: "Save and load"
+#     path: /tutorials/distribute/save_and_load
+
+# - title: "Images"
+#   style: accordion
+#   section:
+#   - title: "Convolutional Neural Network"
+#     path: /tutorials/images/cnn
+#   - title: "Image classification"
+#     path: /tutorials/images/classification
+#   - title: "Transfer learning with TF.Hub"
+#     path: /tutorials/images/transfer_learning_with_hub
+#   - title: "Transfer learning with pretrained CNN"
+#     path: /tutorials/images/transfer_learning
+#   - title: "Image segmentation"
+#     path: /tutorials/images/segmentation
+
+# - title: "Text"
+#   style: accordion
+#   section:
+#   - title: "Image captioning"
+#     path: /tutorials/text/image_captioning
+#   - title: "Neural machine translation with attention"
+#     path: /tutorials/text/nmt_with_attention
+#   - title: "Text classification with an RNN"
+#     path: /tutorials/text/text_classification_rnn
+#   - title: "Text generation with an RNN"
+#     path: /tutorials/text/text_generation
+#   - title: "Transformer model for language understanding"
+#     path: /tutorials/text/transformer
+#   - title: "Word embeddings"
+#     path: /tutorials/text/word_embeddings
+
+# - title: "Structured data"
+#   style: accordion
+#   section:
+#   - title: "Classify structured data with feature columns"
+#     path: /tutorials/structured_data/feature_columns
+#   - title: "Classification on imbalanced data"
+#     path: /tutorials/structured_data/imbalanced_data
+#   - title: "Time series forecasting"
+#     path: /tutorials/structured_data/time_series
+
+# - title: "Generative"
+#   style: accordion
+#   section:
+#   - title: "Neural style transfer"
+#     path: /tutorials/generative/style_transfer
+#   - title: "DeepDream"
+#     path: /tutorials/generative/deepdream
+#   - title: "DCGAN"
+#     path: /tutorials/generative/dcgan
+#   - title: "Pix2Pix"
+#     path: /tutorials/generative/pix2pix
+#   - title: "CycleGAN"
+#     path: /tutorials/generative/cyclegan
+#   - title: "Adversarial FGSM"
+#     path: /tutorials/generative/adversarial_fgsm
+#   - title: "Variational Autoencoder"
+#     path: /tutorials/generative/cvae
