@@ -111,9 +111,34 @@ def _get_raw_docstring(py_object):
   if (tf_inspect.isclass(py_object) or tf_inspect.ismethod(py_object) or
       tf_inspect.isfunction(py_object) or tf_inspect.ismodule(py_object) or
       isinstance(py_object, property)):
-    return tf_inspect.getdoc(py_object) or ''
+    result = tf_inspect.getdoc(py_object) or ''
   else:
-    return ''
+    result = ''
+
+  return _AddDoctestFences()(result)
+
+
+class _AddDoctestFences(object):
+  """Adds ``` fences around doctest caret blocks >>> that don't have them."""
+  CARET_BLOCK_RE = re.compile(
+      r"""
+    (?<=\n)\s*?\n                            # After a blank line.
+    (?P<indent>\s*)(?P<content>\>\>\>.*?)   # Whitespace and a triple caret.
+    \n\s*?(?=\n|$)                           # Followed by a blank line""",
+      re.VERBOSE | re.DOTALL)
+
+  def _sub(self, match):
+    groups = match.groupdict()
+    fence = '\n{}```\n'.format(groups['indent'])
+    return ''.join([
+        fence,
+        groups['indent'],
+        groups['content'],
+        fence,
+    ])
+
+  def __call__(self, content):
+    return self.CARET_BLOCK_RE.sub(self._sub, content)
 
 
 class IgnoreLineInBlock(object):

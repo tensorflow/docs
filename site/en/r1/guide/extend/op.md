@@ -1,11 +1,10 @@
 # Adding a New Op
 
-Note: By default [www.tensorflow.org](https://www.tensorflow.org) shows docs for the
-most recent stable version. The instructions in this doc require building from
-source. You will probably want to build from the `master` version of tensorflow.
-You should, as a result, be sure you are following the
-[`master` version of this doc](https://www.tensorflow.org/versions/master/extend/adding_an_op),
-in case there have been any changes.
+Note: To guarantee that your C++ custom ops are ABI compatible with TensorFlow's
+official pip packages, please follow the guide at
+[Custom op repository](https://github.com/tensorflow/custom-op). It has an
+end-to-end code example, as well as Docker images for building and distributing
+your custom ops.
 
 If you'd like to create an op that isn't covered by the existing TensorFlow
 library, we recommend that you first try writing the op in Python as

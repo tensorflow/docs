@@ -20,7 +20,7 @@ my_variable = tf.Variable(tf.zeros([1., 2., 3.]))
 This creates a variable which is a three-dimensional tensor with shape `[1, 2,
 3]` filled with zeros. This variable will, by default, have the `dtype`
 `tf.float32`. The dtype is, if not specified, inferred from the initial
-value. 
+value.
 
 If there's a `tf.device` scope active, the variable will be placed on that
 device; otherwise the variable will be placed on the "fastest" device compatible
@@ -79,32 +79,36 @@ A Variable in TensorFlow is a Python object. As you build your layers, models,
 optimizers, and other related tools, you will likely want to get a list of all
 variables in a (say) model.
 
-While you can keep track of variables ad-hoc in your own Python code we
-recommend you use `tf.Module` as a base class for your classes which own
-variables. Instances of `tf.Module` have a `variables` and a
-`trainable_variables` methods which return all (trainable) variables reachable
-from that model, potentially navigating through other modules.
+A common use case is [implementing `Layer` subclasses](
+https://www.tensorflow.org/beta/guide/keras/custom_layers_and_models#the_layer_class).
+The `Layer` class recursively tracks variables set as instance attributes:
 
 ```python
-class MyModuleOne(tf.Module):
-  def __init__(self):
-    self.v0 = tf.Variable(1.0)
-    self.vs = [tf.Variable(x) for x in range(10)]
-    
-class MyOtherModule(tf.Module):
-  def __init__(self):
-    self.m = MyModuleOne()
-    self.v = tf.Variable(10.0)
-    
-m = MyOtherModule()
-len(m.variables)  # 12; 11 from m.m and another from m.v
+class MyLayer(tf.keras.layers.Layer):
 
+  def __init__(self):
+    super(MyLayer, self).__init__()
+    self.my_var = tf.Variable(1.0)
+    self.my_var_list = [tf.Variable(x) for x in range(10)]
+
+class MyOtherLayer(tf.keras.layers.Layer):
+
+  def __init__(self):
+    super(MyOtherLayer, self).__init__()
+    self.sublayer = MyLayer()
+    self.my_other_var = tf.Variable(10.0)
+
+m = MyOtherLayer()
+print(len(m.variables))  # 12 (11 from MyLayer, plus my_other_var)
 ```
 
-Note that you're implementing a layer, `tf.keras.Layer` might be a better base
-class, as implementing its interface will let your layer integrate fully into
-Keras, allowing you to use `model.fit` and other well-integrated APIs. The
-variable tracking of `tf.keras.Layer` is identical to that of `tf.Module`.
+If you aren't developing a new `Layer`, TensorFlow also features a more
+generic `tf.Module` base class which _only_ implements variable tracking.
+Instances of `tf.Module` have a `variables` and a `trainable_variables`
+property which return all (trainable) variables reachable from that model,
+potentially navigating through other modules (much like the tracking done by
+the `Layer` class).
+
 
 
 
