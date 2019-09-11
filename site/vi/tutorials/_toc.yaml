@@ -16,8 +16,8 @@ toc:
     path: /tutorials/keras/classification
   # - title: "Bài toán phân lớp văn bản với TF.Hub"
   #   path: /tutorials/keras/text_classification_with_hub
-  - title: "Bài toán phân lớp văn bản với văn bản đã được tiền xử lý"
-    path: /tutorials/keras/text_classification
+  # - title: "Bài toán phân lớp văn bản với văn bản đã được tiền xử lý"
+  #   path: /tutorials/keras/text_classification
   # - title: "Regression"
   #   path: /tutorials/keras/regression
   # - title: "Overfit và underfit"
