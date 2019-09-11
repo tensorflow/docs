@@ -12,11 +12,11 @@ toc:
 - title: "ML cơ bản với Keras"
   style: accordion
   section:
-  - title: "Bài toán phân lớp ảnh cơ bản"
+  - title: "Bài toán phân loại ảnh cơ bản"
     path: /tutorials/keras/classification
-  # - title: "Bài toán phân lớp văn bản với TF.Hub"
+  # - title: "Bài toán phân loại văn bản với TF.Hub"
   #   path: /tutorials/keras/text_classification_with_hub
-  # - title: "Bài toán phân lớp văn bản với văn bản đã được tiền xử lý"
+  # - title: "Bài toán phân loại văn bản với văn bản đã được tiền xử lý"
   #   path: /tutorials/keras/text_classification
   # - title: "Regression"
   #   path: /tutorials/keras/regression
