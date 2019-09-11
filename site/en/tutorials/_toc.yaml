@@ -108,6 +108,9 @@ toc:
     path: /tutorials/images/transfer_learning
   - title: "Image segmentation"
     path: /tutorials/images/segmentation
+  - title: "Object detection with TFHub"
+    path: https://github.com/tensorflow/hub/blob/master/examples/colab/object_detection.ipynb
+    status: external
 
 - title: "Text"
   style: accordion
