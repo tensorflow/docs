@@ -83,7 +83,7 @@ To generate the TensorFlow 2.0 reference docs, use the
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">git clone https://github.com/tensorflow/tensorflow tensorflow</code>
 <code class="devsite-terminal">cd tensorflow/tensorflow/tools/docs</code>
-<code class="devsite-terminal">pip install tensorflow==2.0.0-rc0</code>
+<code class="devsite-terminal">pip install tensorflow==2.0.0-rc1</code>
 <code class="devsite-terminal">python generate2.py --output_dir=/tmp/out</code>
 </pre>
 

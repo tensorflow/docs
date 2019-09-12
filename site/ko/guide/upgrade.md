@@ -36,7 +36,7 @@ Note: 이 문서는 텐서플로 커뮤니티에서 번역했습니다. 커뮤�
 
 ### pip 패키지로부터 스크립트 실행
 
-첫째로, `pip install`로 `tensorflow==2.0.0-rc0` 또는 `tensorflow-gpu=2.0.0-rc0`
+첫째로, `pip install`로 `tensorflow==2.0.0-rc1` 또는 `tensorflow-gpu=2.0.0-rc1`
 패키지를 설치합니다.
 
 Note: `tf_upgrade_v2`는 텐서플로 1.13 그리고 이후 버전에서 자동으로 설치되었습니다. (nightly TF 2.0 빌드를

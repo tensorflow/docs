@@ -65,7 +65,7 @@ tensorflow.org上的许多API 引用的页面都包含了指向源文件定义�
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">git clone https://github.com/tensorflow/tensorflow tensorflow</code>
 <code class="devsite-terminal">cd tensorflow/tensorflow/tools/docs</code>
-<code class="devsite-terminal">pip install tensorflow==2.0.0-rc0</code>
+<code class="devsite-terminal">pip install tensorflow==2.0.0-rc1</code>
 <code class="devsite-terminal">python generate2.py --output_dir=/tmp/out</code>
 </pre>
 

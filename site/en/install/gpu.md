@@ -27,7 +27,7 @@ GPU support, choose a stable or development package:
 with GPU support. To install:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-rc0</code>
+<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-rc1</code>
 </pre>
 
 ## Hardware requirements

@@ -19,7 +19,7 @@ landing_page:
           Install the TensorFlow 2.0 RC preview package:
         </p>
         <pre class="prettyprint lang-bsh">
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-rc0</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-rc1</code>
         </pre>
         <p>
           See the <a href="/install/gpu">GPU guide</a> for CUDA®-enabled cards. The

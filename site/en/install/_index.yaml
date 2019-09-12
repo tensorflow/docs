@@ -16,9 +16,9 @@ landing_page:
           See the <a href="./gpu">GPU guide</a> for CUDA®-enabled cards.
         </p>
         <pre class="prettyprint lang-bsh">
-        #rc0 requires the latest version of pip<br/>
+        #rc requires the latest version of pip<br/>
         <code class="devsite-terminal">pip install --upgrade pip</code><br/>
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-rc0</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-rc1</code>
         </pre>
 
   - classname:
@@ -68,7 +68,7 @@ landing_page:
         # Preview nightly build for CPU-only (unstable)
         <code class="devsite-terminal">pip install tf-nightly</code><br/>
         # Install TensorFlow 2.0 RC
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-rc0</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-rc1</code>
 
   - classname:
       devsite-landing-row-100

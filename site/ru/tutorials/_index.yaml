@@ -19,7 +19,7 @@ landing_page:
           Установите TensorFlow 2.0 Beta preview package:
         </p>
         <pre class="prettyprint lang-bsh">
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-rc0</code>
+        <code class="devsite-terminal">pip install tensorflow==2.0.0-rc1</code>
         </pre>
         <p>
           Смотрите <a href="/install/gpu">руководство GPU</a> для карт с поддержкой CUDA®.
