@@ -5,4 +5,4 @@
 **/.vscode
 **/proofreading
 **/venv
-.python-version
+**/.python-version
