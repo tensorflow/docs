@@ -143,4 +143,5 @@ traduzcan las siguientes palabras.
 *   compile
 *   dropout
 *   penalty
-*   eager execution 
+*   eager execution
+*   eagerly  
