@@ -10,8 +10,8 @@ al siguiente repositorio [tensorflow/docs](https://github.com/tensorflow/docs).
 Para ofrecerse como voluntario o hacer revision de las traducciones de la Comunidad
 por favor contacten al siguiente grupo [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
-Nota: Por favor enfoquen sus esfuerzos de traduccion en
-[TensorFlow 2.0 Beta](https://www.tensorflow.org/beta) que se encuentra en el siguiente Directorio.
+Note: Por favor enfoquen sus esfuerzos de traduccion en
+[TensorFlow 2.0 Beta](https://www.tensorflow.org/beta) que se encuentra en el siguiente directorio.
 [site/en/r2](https://github.com/tensorflow/docs/tree/master/site/en/r2)
 Documentos de la comunidad en la version TF 1.x ya no sera mantneida por ninguna comunidad mientras se prepara para el
 lanzamiento de la version 2.0.
@@ -63,6 +63,7 @@ Por favor lean los documentos existentes en
 [Es documentos](https://github.com/tensorflow/docs/tree/master/site/es)
 Antes de comenzar su traduccion.
 Por favor no utilicen coloquismos como Guey, Parcero, Ueon, Che o palabras Soeces.
+No agregar acentos, dieresis o tildes ya que pueden afectar la ejecucion de los codigos.
 Sigan el estilo de los documentos lo mas posible.
 
 Una vez la traduccion este completa por favor notifiquen a los contribuidores
@@ -80,7 +81,6 @@ Prueben el "Notebook" en su repositorio con Colab luego de que terminen la tradu
 Pueden pedir revision si no hay ningun error.
 
 Si tienen alguna pregunta sobre traducciones, por favor envien un mensaje a
-If you have any question about translation, feel free to contact
 [Contribuidores en Espanol de Documentacion en TensorFlow ](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)
 
 Gracias!
@@ -144,3 +144,4 @@ traduzcan las siguientes palabras.
 *   dropout
 *   penalty
 *   eager execution 
+*   eagerly
