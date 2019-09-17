@@ -18,10 +18,9 @@ TensorFlow for Java is supported on the following systems:
 * Windows 7 or higher; 64-bit, x86
 
 To install TensorFlow on Android, see
-[Android TensorFlow support](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/android){:.external}
+[Android TensorFlow support](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/android/inference_interface){:.external}
 and the
 [TensorFlow Android Camera Demo](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android){:.external}.
-
 
 ## TensorFlow with Apache Maven
 
