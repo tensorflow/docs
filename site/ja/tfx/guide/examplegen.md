@@ -122,7 +122,7 @@ example_gen = FileBasedExampleGen(input_base=examples,
 BaseExampleGenExecutor を拡張するためには、まず、専用の Beam PTransform を作成し、外部のデータソースからデータを読み込む処理を記述します。
 次に、QueryBasedExampleGen を拡張したシンプルなコンポーネントを作成します。
 
-これは接続に関する追加の設定を必要とする場合もありし、必要のない場合もあります。
+コンポーネントは接続に関する追加の設定が必要な場合も、必要のない場合もあります。
 たとえば、[BigQuery executor](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/big_query_example_gen/executor.py) は接続設定の詳細を抽象化した、デフォルトの beam.io コネクタを読み込みます。
 
 [Presto executor](https://github.com/tensorflow/tfx/blob/master/tfx/examples/custom_components/presto_example_gen/presto_component/executor.py)は専用の Beam PTransform と [専用の接続設定用 protobuf](https://github.com/tensorflow/tfx/blob/master/tfx/examples/custom_components/presto_example_gen/proto/presto_config.proto)が入力として必要になります。
