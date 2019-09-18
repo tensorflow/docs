@@ -65,7 +65,7 @@ examples = csv_input(input_dir)
 example_gen = CsvExampleGen(input_base=examples, output_config=output)
 ```
 
-この例の中でどのように `hash_backets` が設定されているかに注意してください。
+この例の中でどのように `hash_buckets` が設定されているかに注意してください。
 
 すでに入力データが分割されている場合、`input_config` を ExampleGen コンポーネントに設定してください。
 例を次に示します:
