@@ -102,7 +102,7 @@ BaseExampleGenExecutor を拡張するためには、まず、専用の Beam PTr
 たとえば、[CsvExampleGen executor](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/csv_example_gen/executor.py)では、分割されたCSVを入力とし、TF Example 形式に変換する処理を記述しています。
 
 次に、BaseExampleGenExecutor を利用したコンポーネントを作成します。[CsvExampleGen コンポーネント](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/csv_example_gen/component.py) で同様のことを行っています。
-他にも、専用の Executor を標準の ExampleGen コンポーネントに注入することでも同様のことを実現できます。
+他にも、専用の Executor を標準の ExampleGen コンポーネントに渡すことでも同様のことを実現できます。
 例を次に示します:
 
 ```python
