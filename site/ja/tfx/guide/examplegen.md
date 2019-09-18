@@ -17,7 +17,7 @@ TFX パイプラインコンポーネントの1つである ExampleGen コンポ
 
 ## ExampleGen とその他のコンポーネント
 
-ExampleGen は [TensorFlow Data Validation](tfdv.md) を利用するコンポーネントにデータを提供します。
+ExampleGen は [TensorFlow Data Validation](tfdv.md) ライブラリを利用するコンポーネントにデータを提供します。
 これには [SchemaGen](schemagen.md), [StatisticsGen](statsgen.md), [Example Validator](exampleval.md) が含まれます。
 また、[TensorFlow Transform](tft.md) を利用する [Transform](transform.md) にもデータを提供し、最終的には推論時にデプロイメントターゲットへとデータを供給します。
 
