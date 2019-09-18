@@ -98,7 +98,7 @@ Note: この機能は TFX 0.14 以降でのみ利用可能です。
 
 ### ファイルベースの ExampleGen の場合
 
-BaseExampleGenExecutor を拡張するためには、まず、専用の Beam Ptransform を作成し、学習/評価用のデータを TF Example 形式に変換する処理を記述します。
+BaseExampleGenExecutor を拡張するためには、まず、専用の Beam PTransform を作成し、学習/評価用のデータを TF Example 形式に変換する処理を記述します。
 たとえば、[CsvExampleGen executor](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/csv_example_gen/executor.py)では、分割されたCSVを入力とし、TF Example 形式に変換する処理を記述しています。
 
 次に、BaseExampleGenExecutor を利用したコンポーネントを作成します。[CsvExampleGen コンポーネント](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/csv_example_gen/component.py) で同様のことを行っています。
@@ -119,7 +119,7 @@ example_gen = FileBasedExampleGen(input_base=examples,
 
 ### クエリベースの ExampleGen の場合
 
-BaseExampleGenExecutor を拡張するためには、まず、専用の Beam Ptransform を作成し、外部のデータソースからデータを読み込む処理を記述します。
+BaseExampleGenExecutor を拡張するためには、まず、専用の Beam PTransform を作成し、外部のデータソースからデータを読み込む処理を記述します。
 次に、QueryBasedExampleGen を拡張したシンプルなコンポーネントを作成します。
 
 これは接続に関する追加の設定を必要とする場合もありし、必要のない場合もあります。
