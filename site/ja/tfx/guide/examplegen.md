@@ -7,7 +7,7 @@ Note: これらのドキュメントは私たちTensorFlowコミュニティが�
 コミュニティによる翻訳やレビューに参加していただける方は、
 [docs-ja@tensorflow.org メーリングリスト](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ja)にご連絡ください。
 
-ExampleGen はデータを TFX のパイプラインに投入するコンポーネントです。
+TFX パイプラインコンポーネントの1つである ExampleGen コンポーネントはデータを TFX のパイプラインに投入します。
 これは外部のファイルやサービスからデータを読み取り、ほかの TFX のコンポーネントが読み取る Examples を生成します。
 また、機械学習のベストプラクティスに従い、データセットの分割や並び替えについて、一貫性のある設定可能な方法で提供します。
 
