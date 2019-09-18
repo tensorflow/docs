@@ -7,9 +7,9 @@
 [docs-ko@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)로
 메일을 보내주시기 바랍니다.
 
-노트: [site/en/r2](https://github.com/tensorflow/docs/tree/master/site/en/r2)
+노트: [site/en](https://github.com/tensorflow/docs/tree/master/site/en)
 디렉토리에 있는 [텐서플로 2.0 베타](https://www.tensorflow.org/beta) 문서를 번역하는데 초점을 맞춰 주세요.
-2.0 릴리스를 준비하기 위해 TF 1.x 커뮤니티 문서는 더 이상 업데이트되지 않습니다. 이
+2.0 릴리스를 준비하기 위해 [site/ko/r1](https://github.com/tensorflow/docs/tree/master/site/ko/r1) 디렉토리에 있는 TF 1.x 커뮤니티 문서는 더 이상 업데이트되지 않습니다. 이
 [공지](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ)를
 참고하세요. 또한 install 폴더의 내용과 yaml 파일, index.md 파일은 번역하지 않습니다. 이에 대한 자세한 지침은 이 [공지](https://groups.google.com/a/tensorflow.org/forum/#!msg/docs-zh-cn/mhLp-egzNyE/EhGSeIBqAQAJ)를 참고하세요.
 
@@ -25,16 +25,16 @@
 Our TensorFlow community has translated these documents. Because community
 translations are *best-effort*, there is no guarantee that this is an accurate
 and up-to-date reflection of the
-[official English documentation](https://www.tensorflow.org/?hl=en) and [Tensorflow Docs-Ko Translation](http://bit.ly/tf-docs-translation-status). 
-If you have suggestions to improve this translation, please send a pull request 
-to the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository. 
+[official English documentation](https://www.tensorflow.org/?hl=en) and [Tensorflow Docs-Ko Translation](http://bit.ly/tf-docs-translation-status).
+If you have suggestions to improve this translation, please send a pull request
+to the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository.
 To volunteer to write or review community translations, contact the
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
 Note: Please focus translation efforts on
 [TensorFlow 2.0 Beta](https://www.tensorflow.org/beta) in the
-[site/en/r2](https://github.com/tensorflow/docs/tree/master/site/en/r2)
-directory. TF 1.x community docs will no longer be updated as we prepare for the
+[site/en](https://github.com/tensorflow/docs/tree/master/site/en)
+directory. TF 1.x community docs in [site/en/r1](https://github.com/tensorflow/docs/tree/master/site/en/r1) will no longer be updated as we prepare for the
 2.0 release. See
 [the announcement](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).
 Also, please do not translate the `install/` section, any `*.yaml` files, or `index.md` files.
@@ -54,18 +54,18 @@ of the tensorflow/swift repository. S4TF notebooks must have the outputs saved.
 번역에 참여하기 전에 번역된 [문서](https://github.com/tensorflow/docs/tree/master/site/ko)를
 먼저 읽어 보길 권합니다.
 번역 문서는 'ㅂ니다'체를 따르며 존칭이나 반말은 쓰지 않습니다.
-가능한한 기존 문서의 스타일을 따라야 합니다. 
+가능한한 기존 문서의 스타일을 따라야 합니다.
 
 작업을 시작하려면 [텐서플로 한글 문서 기여자](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)
 메일링 리스트와 [Tensorflow Docs-Ko Translation](http://bit.ly/tf-docs-translation-status) 구글 스프레드 시트에 작업 중임을 알려 주세요.
 다른 사람이 작업 중인 파일이 아니라면 en 폴더 안의 파일을 ko 폴더 아래 같은 위치에 복사하여 시작합니다.
-site/ko/ 는 텐서플로 1.x 버전을 위한 파일입니다.
-site/ko/beta/ 는 텐서플로 2.x 버전을 위한 파일입니다.
+site/ko/r1 는 텐서플로 1.x 버전을 위한 파일입니다.
+site/ko 는 텐서플로 2.x 버전을 위한 파일입니다.
 
 막다운(markdown)과 주석을 모두 번역합니다. 코드 셀(cell)은 실행하지 않습니다.
 주피터 노트북은 조금만 수정하더라도 파일 소스 전체가 변경될 수 있습니다.
 이런 파일은 깃허브에서 리뷰하기 어렵습니다.
-기존 노트북에서 간단한 내용을 수정할 때는 가능하면 텍스트 편집기를 사용하여 직접 노트북 소스를 수정해야 합니다. 
+기존 노트북에서 간단한 내용을 수정할 때는 가능하면 텍스트 편집기를 사용하여 직접 노트북 소스를 수정해야 합니다.
 노트북 파일의 번역이 완료되면 포크된 자신의 저장소에서 코랩(Colab)에서 실행이 잘되는지 확인해야 합니다.
 코랩에서 실행에 문제가 없다면 리뷰를 요청합니다.
 
@@ -90,8 +90,8 @@ mailing list to coordinate a review.
 
 Copy a file in `en` folder to same location under `ko` folder if anybody doesn't work on the file,
 and get it start.
-`site/ko/` are for TensorFlow 1.x.
-`site/ko/beta` are for TensorFlow 2.x.
+`site/ko/r1` are for TensorFlow 1.x.
+`site/ko` are for TensorFlow 2.x.
 
 You should translate markdown and comments. You should not run code cells.
 Whole file structure can be changed even if you modify only a chunk in the notebook.
