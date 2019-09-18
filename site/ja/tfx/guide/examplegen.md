@@ -23,7 +23,7 @@ ExampleGen は [TensorFlow Data Validation](tfdv.md) ライブラリを利用す
 
 ## ExampleGen コンポーネントの使い方
 
-サポートされるデータソース (現在、CSV ファイル、TF Example フォーマットの TFRecord ファイル、BigQuery にクエリした結果、の3つがサポートされています) を用いる場合、ExampleGen コンポーネントは典型的には非常に簡単にデプロイ可能で、ほとんど改修を必要とせずに利用できます。
+サポートされるデータソース (現在、CSV ファイル、TF Example フォーマットの TFRecord ファイル、BigQuery のクエリ結果、の3つがサポートされています) を用いる場合、ExampleGen コンポーネントは典型的には非常に簡単にデプロイ可能で、ほとんど改修を必要とせずに利用できます。
 典型的なコードは次のようになります:
 
 ```python
