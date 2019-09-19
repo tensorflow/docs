@@ -18,6 +18,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import collections
 import fnmatch
 import os
 import shutil
@@ -36,6 +37,296 @@ from tensorflow_docs.api_generator import tf_inspect
 from tensorflow_docs.api_generator import traverse
 
 import yaml
+
+# Used to add a collections.OrderedDict representer to yaml so that the
+# dump doesn't contain !!OrderedDict yaml tags.
+# Reference: https://stackoverflow.com/a/21048064
+# Using a normal dict doesn't preserve the order of the input dictionary.
+_mapping_tag = yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG
+
+
+def dict_representer(dumper, data):
+  return dumper.represent_dict(six.iteritems(data))
+
+
+def dict_constructor(loader, node):
+  return collections.OrderedDict(loader.construct_pairs(node))
+
+
+yaml.add_representer(collections.OrderedDict, dict_representer)
+yaml.add_constructor(_mapping_tag, dict_constructor)
+
+
+class Module(object):
+  """Represents a single module and its children and submodules.
+
+  Attributes:
+    module_name: Name of the module.
+    title: Title of the module in _toc.yaml
+    path: Path to the module's page on tensorflow.org relative to
+      tensorflow.org.
+    children: List of attributes on the module.
+    submodules: List of submodules in the module.
+  """
+
+  def __init__(self, module, symbol_to_file, site_path):
+    self._module = module
+    self._symbol_to_file = symbol_to_file
+    self._site_path = site_path
+
+    self._path = os.path.join('/', self._site_path,
+                              self._symbol_to_file[self._module])
+
+    self._children = []
+    self._submodules = []
+
+  @property
+  def module_name(self):
+    return self._module
+
+  @property
+  def title(self):
+    if self._module.count('.') > 1:
+      title = self._module.split('.')[-1]
+    else:
+      title = self._module
+    return title
+
+  @property
+  def path(self):
+    return self._path
+
+  @property
+  def children(self):
+    return self._children
+
+  @property
+  def submodules(self):
+    return self._submodules
+
+  def add_children(self, children):
+    children = sorted(children, key=lambda x: (x.upper(), x))
+
+    for child in children:
+      self._children.append(
+          ModuleChild(
+              name=child,
+              parent=self._module,
+              symbol_to_file=self._symbol_to_file,
+              site_path=self._site_path))
+
+  def add_submodule(self, sub_mod):
+    self._submodules.append(sub_mod)
+
+
+class ModuleChild(object):
+  """Represents a child of a module.
+
+  Attributes:
+    title: Title of the module in _toc.yaml
+    path: Path to the module's page on tensorflow.org relative to
+      tensorflow.org.
+  """
+
+  def __init__(self, name, parent, symbol_to_file, site_path):
+    self._name = name
+    self._parent = parent
+    self._site_path = site_path
+    self._symbol_to_file = symbol_to_file
+
+  @property
+  def title(self):
+    return self._name[len(self._parent) + 1:]
+
+  @property
+  def path(self):
+    return os.path.join('/', self._site_path, self._symbol_to_file[self._name])
+
+
+class GenerateToc(object):
+  """Generates a data structure that defines the structure of _toc.yaml."""
+
+  def __init__(self, modules, symbol_to_file, site_path):
+    self._modules = modules
+    self._symbol_to_file = symbol_to_file
+    self._site_path = site_path
+
+  def _create_graph(self):
+    """Creates a graph to allow a dfs traversal on it to generate the toc.
+
+    Each graph key contains a module and its value is an object of `Module`
+    class. That module object contains a list of submodules.
+
+    Example low-level structure of the graph is as follows:
+
+    {
+      'module1': [submodule1, submodule2],
+      'submodule1': [sub1-submodule1],
+      'sub1-submodule1': [],
+      'submodule2': [],
+      'module2': [],
+      'module3': [submodule4],
+      'submodule4': [sub1-submodule4],
+      'sub1-submodule4': [sub1-sub1-submodule4],
+      'sub1-sub1-submodule4': []
+    }
+
+    Returns:
+      A tuple of (graph, base_modules). Base modules is returned because while
+      creating a nested list of dictionaries, the top level should only contain
+      the base modules.
+    """
+
+    # Sort the modules in case-insensitive alphabetical order.
+    sorted_modules = sorted(self._modules.keys(), key=lambda a: a.lower())
+    toc_base_modules = []
+
+    toc_graph = {}
+    for module in sorted_modules:
+      children = self._modules.get(module, [])
+
+      # Create a module object.
+      mod = Module(
+          module=module,
+          symbol_to_file=self._symbol_to_file,
+          site_path=self._site_path)
+      # Add the module's children to its object.
+      mod.add_children(children)
+
+      # Add the module to the graph.
+      toc_graph[module] = mod
+
+      # If the module's name contains more than one dot, it is not a base level
+      # module. Hence, add it to its parents submodules list.
+      if module.count('.') > 1:
+        # For example, if module is `tf.keras.applications.densenet` then its
+        # parent is `tf.keras.applications`.
+        parent_module = '.'.join(module.split('.')[:-1])
+        parent_mod_obj = toc_graph.get(parent_module, None)
+        if parent_mod_obj is not None:
+          parent_mod_obj.add_submodule(mod)
+      else:
+        toc_base_modules.append(module)
+
+    return toc_graph, toc_base_modules
+
+  def _generate_children(self, mod):
+    """Creates a list of dictionaries containing child's title and path.
+
+    For example: The dictionary created will look this this in _toc.yaml.
+
+    ```
+    children_list = [{'title': 'Overview', 'path': '/tf/app'},
+                     {'title': 'run', 'path': '/tf/app/run'}]
+    ```
+
+    The above list will get converted to the following yaml syntax.
+
+    ```
+    - title: Overview
+      path: /tf/app
+    - title: run
+      path: /tf/app/run
+    ```
+
+    Args:
+      mod: A module object.
+
+    Returns:
+      A list of dictionaries containing child's title and path.
+    """
+
+    children_list = []
+
+    children_list.append(
+        collections.OrderedDict([('title', 'Overview'), ('path', mod.path)]))
+    for child in mod.children:
+      children_list.append(
+          collections.OrderedDict([('title', child.title),
+                                   ('path', child.path)]))
+
+    return children_list
+
+  def _dfs(self, mod, visited):
+    """Does a dfs traversal on the graph generated.
+
+    This creates a nested dictionary structure which is then dumped as .yaml
+    file. Each submodule's dictionary of title and path is nested under its
+    parent module.
+
+    For example, `tf.keras.app.net` will be nested under `tf.keras.app` which
+    will be nested under `tf.keras`. Here's how the nested dictionaries will
+    look when its dumped as .yaml.
+
+    ```
+    - title: tf.keras
+      section:
+      - title: Overview
+        path: /tf/keras
+      - title: app
+        section:
+        - title: Overview
+          path: /tf/keras/app
+        - title: net
+          section:
+          - title: Overview
+            path: /tf/keras/app/net
+    ```
+
+    The above nested structure is what the dfs traversal will create in form
+    of lists of dictionaries.
+
+    Args:
+      mod: A module object.
+      visited: A dictionary of modules visited by the dfs traversal.
+
+    Returns:
+      A dictionary containing the nested data structure.
+    """
+
+    visited[mod.module_name] = True
+
+    children_list = self._generate_children(mod)
+
+    # generate for submodules within the submodule.
+    if mod.submodules:
+      for submod in mod.submodules:
+        if not visited[submod.module_name]:
+          sub_mod_dict = self._dfs(submod, visited)
+          children_list.append(sub_mod_dict)
+
+    return collections.OrderedDict([('title', mod.title),
+                                    ('section', children_list)])
+
+  def generate(self):
+    """Generates the final toc.
+
+    Returns:
+      A list of dictionaries which will be dumped into .yaml file.
+    """
+
+    toc = []
+    toc_graph, toc_base_modules = self._create_graph()
+    visited = {node: False for node in toc_graph.keys()}
+
+    # Sort in alphabetical case-insensitive order.
+    toc_base_modules = sorted(toc_base_modules, key=lambda a: a.lower())
+    for module in toc_base_modules:
+      module_obj = toc_graph[module]
+
+      # Generate children of the base module.
+      section = self._generate_children(module_obj)
+
+      # DFS traversal on the submodules.
+      for sub_mod in module_obj.submodules:
+        sub_mod_list = self._dfs(sub_mod, visited)
+        section.append(sub_mod_list)
+
+      toc.append(
+          collections.OrderedDict([('title', module_obj.title),
+                                   ('section', section)]))
+
+    return {'toc': toc}
 
 
 def write_docs(output_dir,
@@ -138,8 +429,8 @@ def write_docs(output_dir,
       with open(path, 'wb') as f:
         f.write(text)
     except OSError:
-      raise OSError(
-          'Cannot write documentation for %s to %s' % (full_name, directory))
+      raise OSError('Cannot write documentation for %s to %s' %
+                    (full_name, directory))
 
     duplicates = parser_config.duplicates.get(full_name, [])
     if not duplicates:
@@ -156,56 +447,21 @@ def write_docs(output_dir,
       })
 
   if redirects:
-    redirects = {
+    redirects_dict = {
         'redirects': sorted(redirects, key=lambda redirect: redirect['from'])
     }
 
     api_redirects_path = os.path.join(output_dir, '_redirects.yaml')
     with open(api_redirects_path, 'w') as redirect_file:
-      yaml.dump(redirects, redirect_file, default_flow_style=False)
+      yaml.dump(redirects_dict, redirect_file, default_flow_style=False)
 
   if yaml_toc:
-    # Generate table of contents
+    toc_gen = GenerateToc(module_children, symbol_to_file, site_path)
+    toc_dict = toc_gen.generate()
 
-    # Put modules in alphabetical order, case-insensitive
-    modules = sorted(module_children.keys(), key=lambda a: a.upper())
-
-    leftnav_path = os.path.join(output_dir, '_toc.yaml')
-    with open(leftnav_path, 'w') as f:
-
-      # Generate header
-      f.write('# Automatically generated file; please do not edit\ntoc:\n')
-      for module in modules:
-        indent_num = module.count('.')
-        # Don't list `tf.submodule` inside `tf`
-        indent_num = max(indent_num, 1)
-        indent = '  '*indent_num
-
-        if indent_num > 1:
-          # tf.contrib.baysflow.entropy will be under
-          #   tf.contrib->baysflow->entropy
-          title = module.split('.')[-1]
-        else:
-          title = module
-
-        header = [
-            '- title: ' + title, '  section:', '  - title: Overview',
-            '    path: ' + os.path.join('/', site_path, symbol_to_file[module])
-        ]
-        header = ''.join([indent+line+'\n' for line in header])
-        f.write(header)
-
-        symbols_in_module = module_children.get(module, [])
-        # Sort case-insensitive, if equal sort case sensitive (upper first)
-        symbols_in_module.sort(key=lambda a: (a.upper(), a))
-
-        for full_name in symbols_in_module:
-          item = [
-              '  - title: ' + full_name[len(module) + 1:], '    path: ' +
-              os.path.join('/', site_path, symbol_to_file[full_name])
-          ]
-          item = ''.join([indent+line+'\n' for line in item])
-          f.write(item)
+    leftnav_toc = os.path.join(output_dir, '_toc.yaml')
+    with open(leftnav_toc, 'w') as toc_file:
+      yaml.dump(toc_dict, toc_file, default_flow_style=False)
 
   # Write a global index containing all full names with links.
   with open(os.path.join(output_dir, 'index.md'), 'w') as f:
@@ -240,15 +496,15 @@ def extract(py_modules,
       directory is documented.
     private_map: A {'path':["name"]} dictionary listing particular object
       locations that should be ignored in the doc generator.
-    do_not_descend_map: A {'path':["name"]} dictionary listing particular
-      object locations where the children should not be listed.
+    do_not_descend_map: A {'path':["name"]} dictionary listing particular object
+      locations where the children should not be listed.
     visitor_cls: A class, typically a subclass of
-      `doc_generator_visitor.DocGeneratorVisitor` that acumulates the indexes
-      of obejcts to document.
+      `doc_generator_visitor.DocGeneratorVisitor` that acumulates the indexes of
+      obejcts to document.
     callbacks: Additional callbacks passed to `traverse`. Executed between the
       `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
       primary use case for these is to filter the listy of children (see:
-      `public_api.local_definitions_filter`)
+        `public_api.local_definitions_filter`)
 
   Returns:
     The accumulator (`DocGeneratorVisitor`)
@@ -313,8 +569,8 @@ def replace_refs(src_dir,
     src_dir: The directory to convert files from.
     output_dir: The root directory to write the resulting files to.
     reference_resolver: A `parser.ReferenceResolver` to make the replacements.
-    file_pattern: Only replace references in files matching file_patters,
-      using `fnmatch`. Non-matching files are copied unchanged.
+    file_pattern: Only replace references in files matching file_patters, using
+      `fnmatch`. Non-matching files are copied unchanged.
     api_docs_relpath: Relative-path string to the api_docs, from the src_dir.
   """
   # Iterate through all the source files and process them.
@@ -374,10 +630,10 @@ class DocGenerator(object):
       base_dir: String or tuple of strings. Directories that "Defined in" links
         are generated relative to. Modules outside one of these directories are
         not documented. No `base_dir` should be inside another.
-      code_url_prefix: String or tuple of strings. The prefix to add to
-        "Defined in" paths. These are zipped with `base-dir`, to set the
-        `defined_in` path for each file. The defined in link for
-        `{base_dir}/path/to/file` is set to `{code_url_prefix}/path/to/file`.
+      code_url_prefix: String or tuple of strings. The prefix to add to "Defined
+        in" paths. These are zipped with `base-dir`, to set the `defined_in`
+        path for each file. The defined in link for `{base_dir}/path/to/file` is
+        set to `{code_url_prefix}/path/to/file`.
       search_hints: Bool. Include metadata search hints at the top of each file.
       site_path: Path prefix in the "_toc.yaml"
       private_map: A {"module.path.to.object": ["names"]} dictionary. Specific
@@ -391,7 +647,7 @@ class DocGenerator(object):
       callbacks: Additional callbacks passed to `traverse`. Executed between the
         `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
         primary use case for these is to filter the listy of children (see:
-        `public_api.local_definitions_filter`)
+          `public_api.local_definitions_filter`)
     """
     self._root_title = root_title
     self._py_modules = py_modules
@@ -497,5 +753,7 @@ class DocGenerator(object):
       if e.strerror != 'File exists':
         raise
 
-    subprocess.check_call(['rsync', '--recursive', '--quiet', '--delete',
-                           '{}/'.format(work_py_dir), output_dir])
+    subprocess.check_call([
+        'rsync', '--recursive', '--quiet', '--delete',
+        '{}/'.format(work_py_dir), output_dir
+    ])

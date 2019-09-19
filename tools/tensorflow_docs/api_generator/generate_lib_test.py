@@ -130,6 +130,24 @@ class GenerateTest(absltest.TestCase):
         '/api_docs/python/tf/TestModule/test_function'
     ])
 
+    toc_file = os.path.join(output_dir, '_toc.yaml')
+    self.assertTrue(os.path.exists(toc_file))
+    with open(toc_file) as f:
+      toc = f.read()
+    toc_list = toc.split()
+
+    # Number of sections in the toc should be 2.
+    self.assertEqual(toc_list.count('section:'), 2)
+
+    # TOC should always begin with `toc:`
+    self.assertEqual(toc_list[0], 'toc:')
+
+    # The last path in the TOC must be the ground truth below.
+    # This will check if the symbols are being sorted in case-insensitive
+    # alphabetical order too, spanning across submodules and children.
+    self.assertEqual(toc_list[-1],
+                     '/api_docs/python/tf/TestModule/test_function')
+
     # Make sure that the right files are written to disk.
     self.assertTrue(os.path.exists(os.path.join(output_dir, 'index.md')))
     self.assertTrue(os.path.exists(os.path.join(output_dir, 'tf.md')))
