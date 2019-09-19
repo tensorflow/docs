@@ -93,7 +93,7 @@ outputs = f(input)
 могут воспользоваться преимуществами выразительности Python. Но переносимый
 TensorFlow выполняется в контекстах, таких как mobile, C ++ и JavaScript без
 интерпретатора Python. Чтобы пользователям не нужно было переписывать свой код
-при добавлении `@ tf.function`, [AutoGraph](autograph.ipynb) преобразует
+при добавлении `@ tf.function`, [AutoGraph](function.ipynb) преобразует
 подмножество Python конструируя его в эквивалентах TensorFlow:
 
 *   `for`/`while` -> `tf.while_loop` (`break` and `continue` are supported)
@@ -255,7 +255,7 @@ class DynamicRNN(tf.keras.Model):
 ```
 
 Для более подробного обзора свойств AutoGraph, смотри
-[руководство](./autograph.ipynb).
+[руководство](./function.ipynb).
 
 ### tf.metrics аггрегирует данные and tf.summary ведет их лог
 

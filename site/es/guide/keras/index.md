@@ -13,9 +13,9 @@ Para una introduccion amigable a principiantes sobre aprendizaje maquina con `tf
 Para profundizar mas en la API, consulta el siguiente conjunto de guías que cubren lo siguiente que necesitas saber como super usuario de TensorFlow Keras:
 
 -   [Guía de la API funcional de Keras](./functional.ipynb)
--   [Guia de capacitación y evaluacion](./training_and_evaluation.ipynb)
+-   [Guia de capacitación y evaluacion](./train_and_evaluate.ipynb)
 -   [Guia para escribir capas y modelos desde cero con subclases](./custom_layers_and_models.ipynb)
 -   [Guia de la API de red neuronal recurrente](./rnn.ipynb)
 -   [Guía para enmascarar y acolchar (padding)](./masking_and_padding.ipynb)
--   [Guia para guardar y serializar modelos](./saving_and_serializing.ipynb)
+-   [Guia para guardar y serializar modelos](./save_and_serialize.ipynb)
 -   [Guia para escribir llamadas de retorno pequick overviewrsonalizadas](./custom_callback.ipynb)

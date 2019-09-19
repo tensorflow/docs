@@ -83,7 +83,7 @@ optimizadores, y otras herramientas relacionadas, probablemente sea necesario
 obtener una lista de todas las variables en un (digamos) modelo.
 
 Un caso de uso comun es [implementando `Layer` subclases](
-https://www.tensorflow.org/beta/guide/keras/custom_layers_and_models#the_layer_class).
+https://www.tensorflow.org/guide/keras/custom_layers_and_models#the_layer_class).
 La clase `Layer` rastrea recursivamente las variables establecidas como atributos de instancia:
 
 ```python
