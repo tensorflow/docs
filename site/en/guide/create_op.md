@@ -1138,7 +1138,7 @@ In general, changes to existing, checked-in specifications must be
 backwards-compatible: changing the specification of an op must not break prior
 serialized `GraphDef` protocol buffers constructed from older specifications.
 The details of `GraphDef` compatibility are
-[described here](../guide/version_compat.md#compatibility_of_graphs_and_checkpoints).
+[described here](./versions.md#compatibility_of_graphs_and_checkpoints).
 
 There are several ways to preserve backwards-compatibility.
 
@@ -1188,7 +1188,7 @@ callers.  The Python API may be kept compatible by careful changes in a
 hand-written Python wrapper, by keeping the old signature except possibly adding
 new optional arguments to the end.  Generally incompatible changes may only be
 made when TensorFlow's changes major versions, and must conform to the
-[`GraphDef` version semantics](../guide/version_compat.md#compatibility_of_graphs_and_checkpoints).
+[`GraphDef` version semantics](./versions.md#compatibility_of_graphs_and_checkpoints).
 
 ### GPU support
 

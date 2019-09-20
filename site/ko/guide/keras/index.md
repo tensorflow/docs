@@ -20,7 +20,7 @@ Note: 이 문서들은 텐서플로 커뮤니티에서 번역했습니다. 커�
 API에 대해 더 자세히 알아보고 싶다면, 텐서플로 케라스의 고급 사용자가 알아야 할 사항을 다루는 다음 가이드 세트를 참조하세요:
 
 -   [케라스의 함수형 API 가이드](./functional.ipynb)
--   [훈련 및 평가 가이드](./training_and_evaluation.ipynb)
+-   [훈련 및 평가 가이드](./train_and_evaluate.ipynb)
 -   [서브 클래싱(subclassing)을 사용한 기초적인 층(layer)과 모델 작성 가이드](./custom_layers_and_models.ipynb)
--   [모델 저장 및 직렬화 가이드](./saving_and_serializing.ipynb)
+-   [모델 저장 및 직렬화 가이드](./save_and_serialize.ipynb)
 -   [사용자 정의 콜백 작성 가이드](./custom_callback.ipynb)

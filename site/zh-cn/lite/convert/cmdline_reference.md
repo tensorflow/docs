@@ -37,7 +37,7 @@
 
 以下命令行参数定义输入张量的属性。命令行参数 `--input_arrays` 中的每一项应该根据索引对应以下命令行参数中的每一项。
 
-* `--input_shapes`。类型：以冒号分隔的列表，列表由以逗号分隔的整数组成的子列表组成。每个子列表指定一个输入数组的形状，形状的格式参见 [TensorFlow 惯例](https://www.tensorflow.org/guide/tensors#shape)。
+* `--input_shapes`。类型：以冒号分隔的列表，列表由以逗号分隔的整数组成的子列表组成。每个子列表指定一个输入数组的形状，形状的格式参见 [TensorFlow 惯例](https://www.tensorflow.org/guide/tensor#shape)。
 
 * 例： `--input_shapes=1,60,80,3` 对于一个典型的视觉模型，表示批量大小为 1 ， 输入图像的高为 60 ， 输入图像的宽为 80 ， 输入图像的深为 3 （代表红绿蓝通道）。
 
