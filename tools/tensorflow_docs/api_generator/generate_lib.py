@@ -289,11 +289,10 @@ class GenerateToc(object):
     children_list = self._generate_children(mod)
 
     # generate for submodules within the submodule.
-    if mod.submodules:
-      for submod in mod.submodules:
-        if not visited[submod.module_name]:
-          sub_mod_dict = self._dfs(submod, visited)
-          children_list.append(sub_mod_dict)
+    for submod in mod.submodules:
+      if not visited[submod.module_name]:
+        sub_mod_dict = self._dfs(submod, visited)
+        children_list.append(sub_mod_dict)
 
     return collections.OrderedDict([('title', mod.title),
                                     ('section', children_list)])
@@ -313,7 +312,6 @@ class GenerateToc(object):
     toc_base_modules = sorted(toc_base_modules, key=lambda a: a.lower())
     for module in toc_base_modules:
       module_obj = toc_graph[module]
-
       # Generate children of the base module.
       section = self._generate_children(module_obj)
 
