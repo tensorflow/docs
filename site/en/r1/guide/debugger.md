@@ -26,20 +26,19 @@ installed using `pip install <your_version>.whl`, however curses on Windows may
 not work as reliably as curses on Linux or Mac.
 
 This tutorial demonstrates how to use the **tfdbg** CLI to debug the appearance
-of [`nan`s](https://en.wikipedia.org/wiki/NaN)
-and [`inf`s](https://en.wikipedia.org/wiki/Infinity), a frequently-encountered
-type of bug in TensorFlow model development.
-The following example is for users who use the low-level
+of [`nan`s](https://en.wikipedia.org/wiki/NaN) and
+[`inf`s](https://en.wikipedia.org/wiki/Infinity), a frequently-encountered type
+of bug in TensorFlow model development. The following example is for users who
+use the low-level
 [`Session`](https://www.tensorflow.org/api_docs/python/tf/Session) API of
-TensorFlow. Later sections of this document describe how to use **tfdbg**
-with higher-level APIs of TensorFlow, including `tf.estimator`,
-`tf.keras` / `keras` and `tf.contrib.slim`.
-To *observe* such an issue, run the following command without the debugger (the
-source code can be found
-[here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/debug/examples/debug_mnist.py)):
+TensorFlow. Later sections of this document describe how to use **tfdbg** with
+higher-level APIs of TensorFlow, including `tf.estimator`, `tf.keras` / `keras`
+and `tf.contrib.slim`. To *observe* such an issue, run the following command
+without the debugger (the source code can be found
+[here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/debug/examples/v1/debug_mnist.py)):
 
 <pre>
-python -m tensorflow.python.debug.examples.debug_mnist
+python -m tensorflow.python.debug.examples.v1.debug_mnist
 </pre>
 
 This code trains a simple neural network for MNIST digit image recognition.
@@ -65,7 +64,7 @@ numeric problem first surfaced.
 To add support for tfdbg in our example, all that is needed is to add the
 following lines of code and wrap the Session object with a debugger wrapper.
 This code is already added in
-[debug_mnist.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/debug/examples/debug_mnist.py),
+[debug_mnist.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/debug/examples/v1/debug_mnist.py),
 so you can activate tfdbg CLI with the `--debug` flag at the command line.
 
 ```python
@@ -104,7 +103,7 @@ for additional information.
 Let's try training the model again, but with the `--debug` flag added this time:
 
 <pre>
-python -m tensorflow.python.debug.examples.debug_mnist --debug
+python -m tensorflow.python.debug.examples.v1.debug_mnist --debug
 </pre>
 
 The debug wrapper session will prompt you when it is about to execute the first
@@ -143,7 +142,7 @@ executed `run`.
 ### tfdbg CLI Frequently-Used Commands
 
 Try the following commands at the `tfdbg>` prompt (referencing the code at
-`tensorflow/python/debug/examples/debug_mnist.py`):
+`tensorflow/python/debug/examples/v1/debug_mnist.py`):
 
 | Command            | Syntax or Option | Explanation  | Example                   |
 |:-------------------|:---------------- |:------------ |:------------------------- |
@@ -371,7 +370,7 @@ traceback of the node's construction.
 
 From the traceback, you can see that the op is constructed at the following
 line:
-[`debug_mnist.py`](https://www.tensorflow.org/code/tensorflow/python/debug/examples/debug_mnist.py):
+[`debug_mnist.py`](https://www.tensorflow.org/code/tensorflow/python/debug/examples/v1/debug_mnist.py):
 
 ```python
 diff = y_ * tf.log(y)
@@ -404,7 +403,7 @@ diff = tf.losses.softmax_cross_entropy(labels=y_, logits=logits)
 Rerun with the `--debug` flag as follows:
 
 <pre>
-python -m tensorflow.python.debug.examples.debug_mnist --debug
+python -m tensorflow.python.debug.examples.v1.debug_mnist --debug
 </pre>
 
 At the `tfdbg>` prompt, enter the following command:
@@ -458,12 +457,12 @@ accuracy_score = classifier.evaluate(eval_input_fn,
 predict_results = classifier.predict(predict_input_fn, hooks=hooks)
 ```
 
-[debug_tflearn_iris.py](https://www.tensorflow.org/code/tensorflow/python/debug/examples/debug_tflearn_iris.py),
-contains a full example of how to use the tfdbg with `Estimator`s.
-To run this example, do:
+[debug_tflearn_iris.py](https://www.tensorflow.org/code/tensorflow/python/debug/examples/v1/debug_tflearn_iris.py),
+contains a full example of how to use the tfdbg with `Estimator`s. To run this
+example, do:
 
 <pre>
-python -m tensorflow.python.debug.examples.debug_tflearn_iris --debug
+python -m tensorflow.python.debug.examples.v1.debug_tflearn_iris --debug
 </pre>
 
 The `LocalCLIDebugHook` also allows you to configure a `watch_fn` that can be
@@ -676,11 +675,11 @@ sess = tf_debug.LocalCLIDebugWrapperSession(sess)
 
 <pre>
 # Debugging shape mismatch during matrix multiplication.
-python -m tensorflow.python.debug.examples.debug_errors \
+python -m tensorflow.python.debug.examples.v1.debug_errors \
     --error shape_mismatch --debug
 
 # Debugging uninitialized variable.
-python -m tensorflow.python.debug.examples.debug_errors \
+python -m tensorflow.python.debug.examples.v1.debug_errors \
     --error uninitialized_variable --debug
 </pre>
 

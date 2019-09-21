@@ -6,7 +6,7 @@ particularly useful for loading models created with Python and running them
 within a Java application.
 
 Caution: The TensorFlow Java API is *not* covered by the TensorFlow
-[API stability guarantees](../guide/version_compat.md).
+[API stability guarantees](../guide/versions.md).
 
 
 ## Supported Platforms
@@ -18,10 +18,9 @@ TensorFlow for Java is supported on the following systems:
 * Windows 7 or higher; 64-bit, x86
 
 To install TensorFlow on Android, see
-[Android TensorFlow support](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/android){:.external}
+[Android TensorFlow support](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/android/inference_interface){:.external}
 and the
 [TensorFlow Android Camera Demo](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android){:.external}.
-
 
 ## TensorFlow with Apache Maven
 

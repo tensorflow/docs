@@ -46,7 +46,7 @@ outputs = session.run(f(placeholder), feed_dict={placeholder: input})
 outputs = f(input)
 ```
 
-파이썬과 텐서플로 코드를 자유롭게 섞어 쓸 수 있기 때문에 파이썬의 장점을 최대한 활용할 수 있습니다. 텐서플로는 파이썬 인터프리터가 없는 모바일, C++, 자바스크립트 같은 환경에서도 실행됩니다. 사용자가 환경에 따라 코드를 재작성하지 않도록 `@tf.function`를 추가하면 [오토그래프](autograph.ipynb)(AutoGraph)가 파이썬 코드를 동일한 텐서플로 코드로 변경합니다.
+파이썬과 텐서플로 코드를 자유롭게 섞어 쓸 수 있기 때문에 파이썬의 장점을 최대한 활용할 수 있습니다. 텐서플로는 파이썬 인터프리터가 없는 모바일, C++, 자바스크립트 같은 환경에서도 실행됩니다. 사용자가 환경에 따라 코드를 재작성하지 않도록 `@tf.function`를 추가하면 [오토그래프](function.ipynb)(AutoGraph)가 파이썬 코드를 동일한 텐서플로 코드로 변경합니다.
 
 *   `for`/`while` -> `tf.while_loop` (`break`과 `continue` 문을 지원합니다.)
 *   `if` -> `tf.cond`
@@ -171,7 +171,7 @@ class DynamicRNN(tf.keras.Model):
     return tf.transpose(outputs.stack(), [1, 0, 2]), state
 ```
 
-오토그래프의 특징에 관한 더 자세한 내용은 이 [가이드](./autograph.ipynb)를 참고하세요.
+오토그래프의 특징에 관한 더 자세한 내용은 이 [가이드](./function.ipynb)를 참고하세요.
 
 ### tf.metrics로 데이터를 수집하고 tf.summary로 기록하세요.
 
