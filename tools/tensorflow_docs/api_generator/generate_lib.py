@@ -61,12 +61,14 @@ class Module(object):
   """Represents a single module and its children and submodules.
 
   Attributes:
-    module_name: Name of the module.
+    full_name: Name of the module.
+    short_name: The last path component.
     title: Title of the module in _toc.yaml
     path: Path to the module's page on tensorflow.org relative to
       tensorflow.org.
     children: List of attributes on the module.
     submodules: List of submodules in the module.
+    experimental: Whether the module is experimental or not.
   """
 
   def __init__(self, module, symbol_to_file, site_path):
@@ -81,15 +83,19 @@ class Module(object):
     self._submodules = []
 
   @property
-  def module_name(self):
+  def full_name(self):
     return self._module
 
   @property
+  def short_name(self):
+    return self.full_name.split('.')[-1]
+
+  @property
   def title(self):
-    if self._module.count('.') > 1:
-      title = self._module.split('.')[-1]
+    if self.full_name.count('.') > 1:
+      title = self.full_name.split('.')[-1]
     else:
-      title = self._module
+      title = self.full_name
     return title
 
   @property
@@ -103,6 +109,12 @@ class Module(object):
   @property
   def submodules(self):
     return self._submodules
+
+  @property
+  def experimental(self):
+    if 'experimental' in self.short_name:
+      return True
+    return False
 
   def add_children(self, children):
     children = sorted(children, key=lambda x: (x.upper(), x))
@@ -123,9 +135,12 @@ class ModuleChild(object):
   """Represents a child of a module.
 
   Attributes:
+    full_name: Name of the child.
+    short_name: The last path component.
     title: Title of the module in _toc.yaml
     path: Path to the module's page on tensorflow.org relative to
       tensorflow.org.
+    experimental: Whether the module child is experimental or not.
   """
 
   def __init__(self, name, parent, symbol_to_file, site_path):
@@ -135,12 +150,27 @@ class ModuleChild(object):
     self._symbol_to_file = symbol_to_file
 
   @property
+  def full_name(self):
+    return self._name
+
+  @property
+  def short_name(self):
+    return self.full_name.split('.')[-1]
+
+  @property
   def title(self):
-    return self._name[len(self._parent) + 1:]
+    return self.full_name[len(self._parent) + 1:]
 
   @property
   def path(self):
-    return os.path.join('/', self._site_path, self._symbol_to_file[self._name])
+    return os.path.join('/', self._site_path,
+                        self._symbol_to_file[self.full_name])
+
+  @property
+  def experimental(self):
+    if 'experimental' in self.short_name:
+      return True
+    return False
 
 
 class GenerateToc(object):
@@ -237,13 +267,19 @@ class GenerateToc(object):
     """
 
     children_list = []
-
     children_list.append(
         collections.OrderedDict([('title', 'Overview'), ('path', mod.path)]))
+
     for child in mod.children:
-      children_list.append(
-          collections.OrderedDict([('title', child.title),
-                                   ('path', child.path)]))
+      # If the parent module is not experimental, then add the experimental
+      # status to the child. If the parent is experimental, then setting its
+      # status to experimental in _toc.yaml propagates to all its children and
+      # submodules.
+      child_yaml_content = [('title', child.title), ('path', child.path)]
+      if child.experimental:
+        child_yaml_content.insert(1, ('status', 'experimental'))
+
+      children_list.append(collections.OrderedDict(child_yaml_content))
 
     return children_list
 
@@ -284,18 +320,25 @@ class GenerateToc(object):
       A dictionary containing the nested data structure.
     """
 
-    visited[mod.module_name] = True
+    visited[mod.full_name] = True
 
+    # parent_exp is set to the current module because the current module is
+    # the parent for its children.
     children_list = self._generate_children(mod)
 
     # generate for submodules within the submodule.
     for submod in mod.submodules:
-      if not visited[submod.module_name]:
+      if not visited[submod.full_name]:
         sub_mod_dict = self._dfs(submod, visited)
         children_list.append(sub_mod_dict)
 
-    return collections.OrderedDict([('title', mod.title),
-                                    ('section', children_list)])
+    # If the parent module is not experimental, then add the experimental
+    # status to the submodule.
+    submod_yaml_content = [('title', mod.title), ('section', children_list)]
+    if mod.experimental:
+      submod_yaml_content.insert(1, ('status', 'experimental'))
+
+    return collections.OrderedDict(submod_yaml_content)
 
   def generate(self):
     """Generates the final toc.
@@ -320,9 +363,11 @@ class GenerateToc(object):
         sub_mod_list = self._dfs(sub_mod, visited)
         section.append(sub_mod_list)
 
-      toc.append(
-          collections.OrderedDict([('title', module_obj.title),
-                                   ('section', section)]))
+      module_yaml_content = [('title', module_obj.title), ('section', section)]
+      if module_obj.experimental:
+        module_yaml_content.insert(1, ('status', 'experimental'))
+
+      toc.append(collections.OrderedDict(module_yaml_content))
 
     return {'toc': toc}
 
