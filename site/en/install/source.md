@@ -309,7 +309,7 @@ code and dependencies required to build TensorFlow. See the TensorFlow
 
 ### CPU-only
 
-The following example uses the `:nightly-devel` image to build a CPU-only
+The following example uses the `:devel` image to build a CPU-only
 Python&nbsp;2 package from the latest TensorFlow source code. See the
 [Docker guide](./docker.md) for available TensorFlow `-devel` tags.
 
@@ -317,9 +317,9 @@ Download the latest development image and start a Docker container that we'll
 use to build the *pip* package:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:nightly-devel</var></code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:devel</var></code>
 <code class="devsite-terminal">docker run -it -w /tensorflow -v $PWD:/mnt -e HOST_PERMS="$(id -u):$(id -g)" \
-    tensorflow/tensorflow<var>:nightly-devel</var> bash</code>
+    tensorflow/tensorflow<var>:devel</var> bash</code>
 
 <code class="devsite-terminal tfo-terminal-root">git pull  # within the container, download the latest source code</code>
 </pre>
@@ -334,7 +334,7 @@ host source tree at the container's `/tensorflow` directory:
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run -it -w /tensorflow -v <var>/path/to/tensorflow</var>:/tensorflow -v $PWD:/mnt \
-    -e HOST_PERMS="$(id -u):$(id -g)" tensorflow/tensorflow:<var>nightly-devel</var> bash
+    -e HOST_PERMS="$(id -u):$(id -g)" tensorflow/tensorflow:<var>devel</var> bash
 </pre>
 
 With the source tree set up, build the TensorFlow package within the container's
@@ -379,14 +379,14 @@ machine only requires the
 [GPU support guide](./gpu.md) and the TensorFlow [Docker guide](./docker.md)
 to set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} (Linux only).
 
-The following example downloads the TensorFlow `:nightly-devel-gpu-py3` image
+The following example downloads the TensorFlow `:devel-gpu-py3` image
 and uses `nvidia-docker` to run the GPU-enabled container. This development image
 is configured to build a Python 3 *pip* package with GPU support:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:nightly-devel-gpu-py3</var></code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:devel-gpu-py3</var></code>
 <code class="devsite-terminal">docker run --runtime=nvidia -it -w /tensorflow -v $PWD:/mnt -e HOST_PERMS="$(id -u):$(id -g)" \
-    tensorflow/tensorflow<var>:nightly-devel-gpu-py3</var> bash</code>
+    tensorflow/tensorflow<var>:devel-gpu-py3</var> bash</code>
 </pre>
 
 Then, within the container's virtual environment, build the TensorFlow package
