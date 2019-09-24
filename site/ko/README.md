@@ -62,7 +62,7 @@ of the tensorflow/swift repository. S4TF notebooks must have the outputs saved.
 site/ko/r1 는 텐서플로 1.x 버전을 위한 파일입니다.
 site/ko 는 텐서플로 2.x 버전을 위한 파일입니다.
 
-막다운(markdown)과 주석을 모두 번역합니다. 코드 셀(cell)은 실행하지 않습니다.
+마크다운(markdown)과 주석을 모두 번역합니다. 코드 셀(cell)은 실행하지 않습니다.
 주피터 노트북은 조금만 수정하더라도 파일 소스 전체가 변경될 수 있습니다.
 이런 파일은 깃허브에서 리뷰하기 어렵습니다.
 기존 노트북에서 간단한 내용을 수정할 때는 가능하면 텍스트 편집기를 사용하여 직접 노트북 소스를 수정해야 합니다.
