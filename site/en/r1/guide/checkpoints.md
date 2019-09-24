@@ -63,9 +63,6 @@ classifier.train(
 As suggested by the following diagrams, the first call to `train`
 adds checkpoints and other files to the `model_dir` directory:
 
-<div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/first_train_calls.png">
-</div>
 <div style="text-align: center">
 The first call to train().
 </div>
