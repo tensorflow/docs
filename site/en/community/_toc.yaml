@@ -26,6 +26,8 @@ toc:
   - heading: "Documentation"
   - title: "Contribute to documentation"
     path: /community/contribute/docs
+  - title: "Contribute to API documentation"
+    path: /community/contribute/docs_ref
   - title: "Documentation style"
     path: /community/contribute/docs_style
 
