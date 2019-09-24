@@ -11,7 +11,7 @@ toc:
   path: /guide/upgrade
 - title: "Performance with tf.function"
   path: /guide/function
-  
+
 - heading: "Keras"
 - title: "Keras overview"
   path: /guide/keras/overview
@@ -40,9 +40,9 @@ toc:
 - title: "Variable"
   path: /guide/variable
 - title: "Tensor"
-  path : /guide/tensor
+  path: /guide/tensor
 - title: "Ragged tensor"
-  path : /guide/ragged_tensor
+  path: /guide/ragged_tensor
 - title: "Create an op"
   path: /guide/create_op
 
