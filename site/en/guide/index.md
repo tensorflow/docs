@@ -45,7 +45,7 @@ platform.
 
 ## Accelerators
 
-* [Distribution strategy](distribute_strategy.ipynb)
+* [Distribution strategy](distributed_training.ipynb)
 * [GPU](gpu.ipynb)
 
 ## Appendix

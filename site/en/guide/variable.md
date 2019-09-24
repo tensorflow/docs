@@ -1,4 +1,4 @@
-# Variables
+# TensorFlow variables
 
 A TensorFlow **variable** is the best way to represent shared, persistent state
 manipulated by your program.
@@ -9,7 +9,7 @@ ops allow you to read and modify the values of this tensor. Higher level
 libraries like `tf.keras` use `tf.Variable` to store model parameters. This
 guide covers how to create, update, and manage `tf.Variable`s in TensorFlow.
 
-## Creating a Variable
+## Create a variable
 
 To create a variable, simply provide the initial value
 
@@ -36,7 +36,7 @@ with tf.device("/device:GPU:1"):
 Ideally though you should use the `tf.distribute` API, as that allows you to
 write your code once and have it work under many different distributed setups.
 
-## Using variables
+## Use a variable
 
 To use the value of a `tf.Variable` in a TensorFlow graph, simply treat it like
 a normal `tf.Tensor`:
@@ -73,7 +73,7 @@ v.read_value()  # 1.0
 When the last reference to a `tf.Variable` goes out of scope its memory is
 freed.
 
-### Keeping track of variables
+### Keep track of variables
 
 A Variable in TensorFlow is a Python object. As you build your layers, models,
 optimizers, and other related tools, you will likely want to get a list of all
@@ -108,8 +108,3 @@ Instances of `tf.Module` have a `variables` and a `trainable_variables`
 property which return all (trainable) variables reachable from that model,
 potentially navigating through other modules (much like the tracking done by
 the `Layer` class).
-
-
-
-
-

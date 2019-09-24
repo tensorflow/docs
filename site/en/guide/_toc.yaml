@@ -23,7 +23,7 @@ toc:
   path: /guide/keras/custom_layers_and_models
 - title: "Save and serialize models"
   path: /guide/keras/save_and_serialize
-- title: "Recurrent neural network API"
+- title: "Keras Recurrent Neural Networks"
   path: /guide/keras/rnn
 - title: "Masking and padding"
   path: /guide/keras/masking_and_padding
@@ -59,8 +59,8 @@ toc:
   path: /guide/saved_model
 
 - heading: "Accelerators"
-- title: "Distribution strategy"
-  path: /guide/distribute_strategy
+- title: "Distributed training"
+  path: /guide/distributed_training
 - title: "GPU"
   path: /guide/gpu
 

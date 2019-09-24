@@ -1,4 +1,4 @@
-# Tensors
+# TensorFlow tensors
 
 TensorFlow, as the name indicates, is a framework to define and run computations
 involving tensors. A *tensor* is a generalization of vectors and matrices to
@@ -252,7 +252,7 @@ data. TensorFlow converts Python integers to `tf.int32` and python floating
 point numbers to `tf.float32`. Otherwise TensorFlow uses the same rules numpy
 uses when converting to arrays.
 
-## Evaluating Tensors
+## Evaluate tensors
 
 Once the computation graph has been built, you can run the computation that
 produces a particular `tf.Tensor` and fetch the value assigned to it. This is
@@ -295,7 +295,7 @@ from a queue, evaluating the `tf.Tensor` will only work once something has been
 enqueued; otherwise, evaluating it will hang. When working with queues, remember
 to call `tf.train.start_queue_runners` before evaluating any `tf.Tensor`s.
 
-## Printing Tensors
+## Print a tensor
 
 For debugging purposes you might want to print the value of a `tf.Tensor`. While
  [tfdbg](../guide/debugger.md) provides advanced debugging support, TensorFlow also has an

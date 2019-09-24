@@ -1,4 +1,4 @@
-# Create a new op
+# Create an op
 
 Note: To guarantee that your C++ custom ops are ABI compatible with TensorFlow's
 official pip packages, please follow the guide at
