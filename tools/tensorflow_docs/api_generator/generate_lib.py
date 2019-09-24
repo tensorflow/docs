@@ -20,6 +20,7 @@ from __future__ import print_function
 
 import collections
 import fnmatch
+import operator
 import os
 import shutil
 import subprocess
@@ -57,30 +58,23 @@ yaml.add_representer(collections.OrderedDict, dict_representer)
 yaml.add_constructor(_mapping_tag, dict_constructor)
 
 
-class Module(object):
-  """Represents a single module and its children and submodules.
+class TocNode(object):
+  """Represents a node in the TOC.
 
   Attributes:
     full_name: Name of the module.
     short_name: The last path component.
-    title: Title of the module in _toc.yaml
+    py_object: Python object of the module.
     path: Path to the module's page on tensorflow.org relative to
       tensorflow.org.
-    children: List of attributes on the module.
-    submodules: List of submodules in the module.
     experimental: Whether the module is experimental or not.
+    deprecated: Whether the module is deprecated or not.
   """
 
-  def __init__(self, module, symbol_to_file, site_path):
+  def __init__(self, module, py_object, path):
     self._module = module
-    self._symbol_to_file = symbol_to_file
-    self._site_path = site_path
-
-    self._path = os.path.join('/', self._site_path,
-                              self._symbol_to_file[self._module])
-
-    self._children = []
-    self._submodules = []
+    self._py_object = py_object
+    self._path = path
 
   @property
   def full_name(self):
@@ -91,6 +85,82 @@ class Module(object):
     return self.full_name.split('.')[-1]
 
   @property
+  def py_object(self):
+    return self._py_object
+
+  @property
+  def path(self):
+    return self._path
+
+  @property
+  def experimental(self):
+    return 'experimental' in self.short_name
+
+  _DEPRECATED_STRING = 'THIS FUNCTION IS DEPRECATED'
+
+  @property
+  def deprecated(self):
+    """Checks if the module is deprecated or not.
+
+    Special case is `tf.contrib`. It doesn't have the _tf_decorator attribute
+    but that module should be marked as deprecated.
+
+    Each deprecated function has a `_tf_decorator.decorator_name` attribute.
+    Check the docstring of that function to confirm if the function was
+    indeed deprecated. If a different deprecation setting was used on the
+    function, then "THIS FUNCTION IS DEPRECATED" substring won't be inserted
+    into the docstring of that function by the decorator.
+
+    Returns:
+      True if depreacted else False.
+    """
+
+    if 'tf.contrib' in self.full_name:
+      return True
+
+    try:
+      # Instead of only checking the docstring, checking for the decorator
+      # provides an additional level of certainty about the correctness of the
+      # the application of `status: deprecated`.
+      decorator = operator.attrgetter('_tf_decorator.decorator_name')(
+          self.py_object)
+      if decorator == 'deprecated':
+        return self._check_docstring()
+    except AttributeError:
+      pass
+
+    return False
+
+  def _check_docstring(self):
+    # Only add the deprecated status if the function is deprecated. There are
+    # other settings that should be ignored like deprecate_args, etc.
+    docstring = self.py_object.__doc__
+    return docstring is not None and self._DEPRECATED_STRING in docstring
+
+
+class Module(TocNode):
+  """Represents a single module and its children and submodules.
+
+  Attributes:
+    full_name: Name of the module.
+    short_name: The last path component.
+    py_object: Python object of the module.
+    title: Title of the module in _toc.yaml
+    path: Path to the module's page on tensorflow.org relative to
+      tensorflow.org.
+    children: List of attributes on the module.
+    submodules: List of submodules in the module.
+    experimental: Whether the module is experimental or not.
+    deprecated: Whether the module is deprecated or not.
+  """
+
+  def __init__(self, module, py_object, path):
+    super(Module, self).__init__(module, py_object, path)
+
+    self._children = []
+    self._submodules = []
+
+  @property
   def title(self):
     if self.full_name.count('.') > 1:
       title = self.full_name.split('.')[-1]
@@ -99,87 +169,52 @@ class Module(object):
     return title
 
   @property
-  def path(self):
-    return self._path
-
-  @property
   def children(self):
-    return self._children
+    return sorted(
+        self._children, key=lambda x: (x.full_name.upper(), x.full_name))
 
   @property
   def submodules(self):
     return self._submodules
 
-  @property
-  def experimental(self):
-    if 'experimental' in self.short_name:
-      return True
-    return False
-
   def add_children(self, children):
-    children = sorted(children, key=lambda x: (x.upper(), x))
+    if not isinstance(children, list):
+      children = [children]
 
-    for child in children:
-      self._children.append(
-          ModuleChild(
-              name=child,
-              parent=self._module,
-              symbol_to_file=self._symbol_to_file,
-              site_path=self._site_path))
+    self._children.extend(children)
 
   def add_submodule(self, sub_mod):
     self._submodules.append(sub_mod)
 
 
-class ModuleChild(object):
+class ModuleChild(TocNode):
   """Represents a child of a module.
 
   Attributes:
     full_name: Name of the child.
     short_name: The last path component.
+    py_object: Python object of the child.
     title: Title of the module in _toc.yaml
     path: Path to the module's page on tensorflow.org relative to
       tensorflow.org.
     experimental: Whether the module child is experimental or not.
+    deprecated: Whether the module is deprecated or not.
   """
 
-  def __init__(self, name, parent, symbol_to_file, site_path):
-    self._name = name
+  def __init__(self, name, py_object, parent, path):
     self._parent = parent
-    self._site_path = site_path
-    self._symbol_to_file = symbol_to_file
-
-  @property
-  def full_name(self):
-    return self._name
-
-  @property
-  def short_name(self):
-    return self.full_name.split('.')[-1]
+    super(ModuleChild, self).__init__(name, py_object, path)
 
   @property
   def title(self):
     return self.full_name[len(self._parent) + 1:]
 
-  @property
-  def path(self):
-    return os.path.join('/', self._site_path,
-                        self._symbol_to_file[self.full_name])
-
-  @property
-  def experimental(self):
-    if 'experimental' in self.short_name:
-      return True
-    return False
-
 
 class GenerateToc(object):
   """Generates a data structure that defines the structure of _toc.yaml."""
 
-  def __init__(self, modules, symbol_to_file, site_path):
+  def __init__(self, modules):
     self._modules = modules
-    self._symbol_to_file = symbol_to_file
-    self._site_path = site_path
 
   def _create_graph(self):
     """Creates a graph to allow a dfs traversal on it to generate the toc.
@@ -213,15 +248,7 @@ class GenerateToc(object):
 
     toc_graph = {}
     for module in sorted_modules:
-      children = self._modules.get(module, [])
-
-      # Create a module object.
-      mod = Module(
-          module=module,
-          symbol_to_file=self._symbol_to_file,
-          site_path=self._site_path)
-      # Add the module's children to its object.
-      mod.add_children(children)
+      mod = self._modules[module]
 
       # Add the module to the graph.
       toc_graph[module] = mod
@@ -240,7 +267,7 @@ class GenerateToc(object):
 
     return toc_graph, toc_base_modules
 
-  def _generate_children(self, mod):
+  def _generate_children(self, mod, is_parent_deprecated):
     """Creates a list of dictionaries containing child's title and path.
 
     For example: The dictionary created will look this this in _toc.yaml.
@@ -261,6 +288,7 @@ class GenerateToc(object):
 
     Args:
       mod: A module object.
+      is_parent_deprecated: Bool, Whether the parent is deprecated or not.
 
     Returns:
       A list of dictionaries containing child's title and path.
@@ -271,19 +299,20 @@ class GenerateToc(object):
         collections.OrderedDict([('title', 'Overview'), ('path', mod.path)]))
 
     for child in mod.children:
-      # If the parent module is not experimental, then add the experimental
-      # status to the child. If the parent is experimental, then setting its
-      # status to experimental in _toc.yaml propagates to all its children and
-      # submodules.
       child_yaml_content = [('title', child.title), ('path', child.path)]
-      if child.experimental:
+
+      # Set `status: deprecated` only if the parent's status is not
+      # deprecated.
+      if child.deprecated and not is_parent_deprecated:
+        child_yaml_content.insert(1, ('status', 'deprecated'))
+      elif child.experimental:
         child_yaml_content.insert(1, ('status', 'experimental'))
 
       children_list.append(collections.OrderedDict(child_yaml_content))
 
     return children_list
 
-  def _dfs(self, mod, visited):
+  def _dfs(self, mod, visited, is_parent_deprecated):
     """Does a dfs traversal on the graph generated.
 
     This creates a nested dictionary structure which is then dumped as .yaml
@@ -315,6 +344,7 @@ class GenerateToc(object):
     Args:
       mod: A module object.
       visited: A dictionary of modules visited by the dfs traversal.
+      is_parent_deprecated: Bool, Whether any parent is deprecated or not.
 
     Returns:
       A dictionary containing the nested data structure.
@@ -324,18 +354,27 @@ class GenerateToc(object):
 
     # parent_exp is set to the current module because the current module is
     # the parent for its children.
-    children_list = self._generate_children(mod)
+    children_list = self._generate_children(
+        mod, is_parent_deprecated or mod.deprecated)
 
     # generate for submodules within the submodule.
     for submod in mod.submodules:
       if not visited[submod.full_name]:
-        sub_mod_dict = self._dfs(submod, visited)
+        sub_mod_dict = self._dfs(submod, visited, is_parent_deprecated or
+                                 mod.deprecated)
         children_list.append(sub_mod_dict)
 
     # If the parent module is not experimental, then add the experimental
     # status to the submodule.
     submod_yaml_content = [('title', mod.title), ('section', children_list)]
-    if mod.experimental:
+
+    # If the parent module is not deprecated, then add the deprecated
+    # status to the submodule. If the parent is deprecated, then setting its
+    # status to deprecated in _toc.yaml propagates to all its children and
+    # submodules.
+    if mod.deprecated and not is_parent_deprecated:
+      submod_yaml_content.insert(1, ('status', 'deprecated'))
+    elif mod.experimental:
       submod_yaml_content.insert(1, ('status', 'experimental'))
 
     return collections.OrderedDict(submod_yaml_content)
@@ -356,15 +395,19 @@ class GenerateToc(object):
     for module in toc_base_modules:
       module_obj = toc_graph[module]
       # Generate children of the base module.
-      section = self._generate_children(module_obj)
+      section = self._generate_children(
+          module_obj, is_parent_deprecated=module_obj.deprecated)
 
       # DFS traversal on the submodules.
       for sub_mod in module_obj.submodules:
-        sub_mod_list = self._dfs(sub_mod, visited)
+        sub_mod_list = self._dfs(
+            sub_mod, visited, is_parent_deprecated=module_obj.deprecated)
         section.append(sub_mod_list)
 
       module_yaml_content = [('title', module_obj.title), ('section', section)]
-      if module_obj.experimental:
+      if module_obj.deprecated:
+        module_yaml_content.insert(1, ('status', 'deprecated'))
+      elif module_obj.experimental:
         module_yaml_content.insert(1, ('status', 'experimental'))
 
       toc.append(collections.OrderedDict(module_yaml_content))
@@ -413,14 +456,14 @@ def write_docs(output_dir,
   # They will contain, after the for-loop below::
   #  - module name(string):classes and functions the module contains(list)
   module_children = {}
-  #  - symbol name(string):pathname (string)
-  symbol_to_file = {}
 
   # Collect redirects for an api _redirects.yaml file.
   redirects = []
 
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
-  for full_name, py_object in six.iteritems(parser_config.index):
+  for full_name in sorted(parser_config.index.keys(), key=lambda k: k.lower()):
+    py_object = parser_config.index[full_name]
+
     if full_name in parser_config.duplicate_of:
       continue
 
@@ -429,17 +472,17 @@ def write_docs(output_dir,
             parser.is_free_function(py_object, full_name, parser_config.index)):
       continue
 
-    sitepath = os.path.join(parser.documentation_path(full_name)[:-3])
-
-    # For TOC, we need to store a mapping from full_name to the file
-    # we're generating
-    symbol_to_file[full_name] = sitepath
+    # Remove the extension from the path.
+    docpath, _ = os.path.splitext(parser.documentation_path(full_name))
 
     # For a module, remember the module for the table-of-contents
     if tf_inspect.ismodule(py_object):
       if full_name in parser_config.tree:
-        module_children.setdefault(full_name, [])
-
+        mod_obj = Module(
+            module=full_name,
+            py_object=py_object,
+            path=os.path.join('/', site_path, docpath))
+        module_children[full_name] = mod_obj
     # For something else that's documented,
     # figure out what module it lives in
     else:
@@ -448,7 +491,12 @@ def write_docs(output_dir,
         subname = subname[:subname.rindex('.')]
         if tf_inspect.ismodule(parser_config.index[subname]):
           module_name = parser_config.duplicate_of.get(subname, subname)
-          module_children.setdefault(module_name, []).append(full_name)
+          child_mod = ModuleChild(
+              name=full_name,
+              py_object=py_object,
+              parent=module_name,
+              path=os.path.join('/', site_path, docpath))
+          module_children[module_name].add_children(child_mod)
           break
 
     # Generate docs for `py_object`, resolving references.
@@ -499,7 +547,7 @@ def write_docs(output_dir,
       yaml.dump(redirects_dict, redirect_file, default_flow_style=False)
 
   if yaml_toc:
-    toc_gen = GenerateToc(module_children, symbol_to_file, site_path)
+    toc_gen = GenerateToc(module_children)
     toc_dict = toc_gen.generate()
 
     leftnav_toc = os.path.join(output_dir, '_toc.yaml')
