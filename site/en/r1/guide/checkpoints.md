@@ -165,9 +165,6 @@ In other words, as the following illustration suggests, once checkpoints
 exist, TensorFlow rebuilds the model each time you call `train()`,
 `evaluate()`, or `predict()`.
 
-<div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/subsequent_calls.png">
-</div>
 <div style="text-align: center">
 Subsequent calls to train(), evaluate(), or predict()
 </div>
