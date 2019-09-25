@@ -106,9 +106,9 @@ There are two ways to test the code in the docstring locally:
 *   If you are only changing the docstring of a class/function/method, then you
     can test it by passing that file's path to `tf_doctest.py`. For example:
 
-    ```
-    python tf_doctest.py --file=<file_path>
-    ```
+    <pre class="prettyprint lang-bsh">
+    <code class="devsite-terminal">python tf_doctest.py --file=&lt;file_path&gt;</code>
+    </pre>
 
     This will run it using your installed version of TensorFlow. To be sure
     you're running the same code that you're testing:
@@ -123,14 +123,14 @@ There are two ways to test the code in the docstring locally:
     [build tensorflow from source](../../install/source.md). Once you are setup
     to build from source, you can run the tests:
 
-    ```
-    bazel run //tensorflow/tools/docs:tf_doctest
-    ```
+    <pre class="prettyprint lang-bsh">
+    <code class="devsite-terminal">bazel run //tensorflow/tools/docs:tf_doctest</code>
+    </pre>
 
     or
 
-    ```
-    bazel run //tensorflow/tools/docs:tf_doctest -- --module=ops.array_ops
-    ```
+    <pre class="prettyprint lang-bsh">
+    <code class="devsite-terminal">bazel run //tensorflow/tools/docs:tf_doctest -- --module=ops.array_ops</code>
+    </pre>
 
     The `--module` is relative to `tensorflow.python`.
