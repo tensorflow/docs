@@ -22,6 +22,8 @@ def concat():
   <code here>
 ```
 
+Note: TensorFlow doctests use TensorFlow 2 and Python 3.
+
 Currently, lots of code uses backticks (```) to identify code. To make the code
 testable with DocTest:
 
@@ -78,10 +80,10 @@ testable with DocTest:
 
     ```
     >>> if x > 0:
-    ... print("X is positive")
+    ...   print("X is positive")
     >>> model.compile(
-    ... loss="mse",
-    ... optimizer="adam")
+    ...   loss="mse",
+    ...   optimizer="adam")
     ```
 
 *   **Exceptions**: Exception details are ignored except the Exception that’s
@@ -96,3 +98,39 @@ testable with DocTest:
     ...
     ValueError: Unexpectedly found an instance of type `<class 'numpy.ndarray'>`.
     ```
+
+### Test on your local machine
+
+There are two ways to test the code in the docstring locally:
+
+*   If you are only changing the docstring of a class/function/method, then you
+    can test it by passing that file's path to `tf_doctest.py`. For example:
+
+    ```
+    python tf_doctest.py --file=<file_path>
+    ```
+
+    This will run it using your installed version of TensorFlow. To be sure
+    you're running the same code that you're testing:
+
+    *   Use an up to date [tf-nightly](https://pypi.org/project/tf-nightly/)
+        `pip install -U tf-nightly`
+    *   Rebase your pull request onto a recent pull from
+        [TensorFlow's](https://github.com/tensorflow/tensorflow) master branch.
+
+*   If you are changing the code and the docstring of a class/function/method,
+    then you will need to
+    [build tensorflow from source](../../install/source.md). Once you are setup
+    to build from source, you can run the tests:
+
+    ```
+    bazel run //tensorflow/tools/docs:tf_doctest
+    ```
+
+    or
+
+    ```
+    bazel run //tensorflow/tools/docs:tf_doctest -- --module=ops.array_ops
+    ```
+
+    The `--module` is relative to `tensorflow.python`.
