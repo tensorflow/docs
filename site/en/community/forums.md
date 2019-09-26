@@ -62,7 +62,7 @@ archives are public, different SIGs have their own membership policies.
   Supporting SIG JVM, building Java and JVM support for TensorFlow.
 * [keras](https://groups.google.com/forum/#!forum/keras-users) - Keras users
   mailing list, for design reviews and discussions relating to SIG Keras.
-* [micro](https://groups.google.com/a/tensorflow.org/d/forum/networking) -
+* [micro](https://groups.google.com/a/tensorflow.org/d/forum/micro) -
   Supporting SIG Micro, focusing on low power TF Lite deployment.
 * [mlir](https://groups.google.com/a/tensorflow.org/d/forum/mlir) - Supporting
   SIG MLIR, collaboration around MLIR, Multi-Level Intermediate Representation.
