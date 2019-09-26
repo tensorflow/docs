@@ -11,6 +11,9 @@ toc:
   path: /guide/upgrade
 - title: "Performance with tf.function"
   path: /guide/function
+- title: "Community testing FAQ"
+  path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
+  status: external
 
 - heading: "Keras"
 - title: "Keras overview"
@@ -52,7 +55,7 @@ toc:
 - title: "Performance"
   path: /guide/data_performance
 
-- heading: "Save and serialize"
+- heading: "Save a model"
 - title: "Checkpoint"
   path: /guide/checkpoint
 - title: "Saved model"
