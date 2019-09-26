@@ -1652,7 +1652,8 @@ def _get_defined_in(py_object, parser_config):
     return None
   if re.search(r'\bapi/(_v2|_v1)\b', rel_path):
     return None
-  if '<embedded stdlib>' in rel_path:
+  if re.search(r'<[\w\s]+>', rel_path):
+    # Built-ins emit paths like <embedded stdlib>, <string>, etc.
     return None
 
   if re.match(r'.*/gen_[^/]*\.py$', rel_path):
