@@ -77,9 +77,9 @@ landing_page:
     items:
     - description: >
         <h2 class="tfo-landing-page-heading no-link">Libraries and extensions</h2>
-        Explore libraries to build advanced models or methods using TensorFlow,
-        and access domain-specific application packages that extend TensorFlow.
-        Additional projects are listed in <a href="/resources">Resources</a>.
+        Explore <a href="/resources">additional resources</a> to build advanced
+        models or methods using TensorFlow, and access domain-specific
+        application packages that extend TensorFlow.
 
   - classname: devsite-landing-row-100
     items:
