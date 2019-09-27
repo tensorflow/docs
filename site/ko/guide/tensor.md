@@ -1,43 +1,38 @@
-# TensorFlow tensors
+# 텐서플로 텐서
 
-TensorFlow, as the name indicates, is a framework to define and run computations
-involving tensors. A *tensor* is a generalization of vectors and matrices to
-potentially higher dimensions. Internally, TensorFlow represents tensors as
-n-dimensional arrays of base datatypes.
+이름에서 알 수 있듯이, 텐서플로는 텐서를 포함한 계산을 정의하고 실행하는 프레임워크입니다.
+*텐서*는 벡터와 행렬을 일반화한 것이고 고차원으로 확장가능합니다.
+내부적으로 텐서플로는 텐서를 n-차원의 기본 데이터형식의 배열로 표현합니다.
 
-When writing a TensorFlow program, the main object you manipulate and pass
-around is the `tf.Tensor`. A `tf.Tensor` object represents a partially defined
-computation that will eventually produce a value. TensorFlow programs work by
-first building a graph of `tf.Tensor` objects, detailing how each tensor is
-computed based on the other available tensors and then by running parts of this
-graph to achieve the desired results.
+텐서플로 프로그램을 작성할 때, 조작하고 전달하는 중요 객체는 `tf.Tensor`입니다.
+`tf.Tensor` 객체는 부분적으로 결과적으로는 값으로 변환될 수 있는 계산으로 표현됩니다.
+텐서플로 프로그램은  `tf.Tensor` 객체 그래프를 먼저 만드는 것으로 시작하고,
+각가의 텐서가 다른 텐서를 기반으로 어떤식으로 계산될 수 있는지 구체화하고,
+그 다음 그래프를 실행하서 원하는 결과를 얻게 됩니다.
 
-A `tf.Tensor` has the following properties:
+`tf.Tensor`는 다음과 같은 속성을 가지고 있습니다:
 
- * a data type (`float32`, `int32`, or `string`, for example)
- * a shape
+ * 데이터 타입 (예를 들어, `float32` 또는 `int32`, `string`)
+ * 모양(shape)
 
+텐서안의 각각 요소(element)는 동일한 데이터 타입이고 항상 그 데이터 타입을 알 수 있습니다.
+모양(즉, 차원 크기와 각 차원마다 길이(size))는 일부만 알 수 있습니다.
+대부분 연산은 입력값 모양을 알 수 있다면 모든 정보를 알 수 있는 텐서를 만들지만,
+일부 경우에서는 그래프를 실행한 이후에 텐서 모양을 알 수 있기도 합니다.
 
-Each element in the Tensor has the same data type, and the data type is always
-known. The shape (that is, the number of dimensions it has and the size of each
-dimension) might be only partially known. Most operations produce tensors of
-fully-known shapes if the shapes of their inputs are also fully known, but in
-some cases it's only possible to find the shape of a tensor at graph execution
-time.
-
-Some types of tensors are special, and these will be covered in other
-units of the TensorFlow guide. The main ones are:
+일부 특별한 텐서는 텐서플로 가이드문서의 다른 부분에서 다뤄질 것입니다.
+핵심인 텐서는 다음과 같습니다:
 
   * `tf.Variable`
   * `tf.constant`
   * `tf.placeholder`
   * `tf.SparseTensor`
 
-With the exception of `tf.Variable`, the value of a tensor is immutable, which
-means that in the context of a single execution tensors only have a single
-value. However, evaluating the same tensor twice can return different values;
-for example that tensor can be the result of reading data from disk, or
-generating a random number.
+예외인 `tf.Variable`을 제외한다면, 텐서 값은 변경불가능(immutable) 합니다.
+즉, 텐서를 한번만 실행시킨 경우에는 오직 하나의 값만을 가집니다.
+그러나, 동일한 텐서를 다시 실행시킨다면 다른 값을 가질 수 있습니다:
+예를 들어 텐서가 디스크로부터 데이터를 읽어들인 결과 이거나,
+무작위 숫자를 생성하는 경우입니다.
 
 ## Rank
 
