@@ -72,7 +72,7 @@ landing_page:
     items:
     - description: >
         The Advanced section has many instructive notebooks examples, including
-        <a href="tutorials/text/nmt_with_attention">Neural machine translation</a>,
+        <a href="/tutorials/text/nmt_with_attention">Neural machine translation</a>,
         <a href="/tutorials/text/transformer">Transformers</a>,
         and <a href="/tutorials/generative/cyclegan">CycleGAN</a>.
 
