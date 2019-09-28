@@ -56,10 +56,10 @@ landing_page:
       path: /guide/data
     - classname: tfo-landing-page-card
       description: >
-        <a href="/guide/estimators"><h3 class="no-link">Estimators</h3></a>
+        <a href="/guide/estimator"><h3 class="no-link">Estimators</h3></a>
         A high-level API that represents a complete model, designed for scaling
         and asynchronous training.
-      path: /guide/estimators
+      path: /guide/estimator
 
   - items:
     - classname: tfo-landing-page-card
