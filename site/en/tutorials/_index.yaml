@@ -96,11 +96,11 @@ landing_page:
 
   - classname: devsite-landing-row-cards
     items:
-    - heading: "What’s coming in TensorFlow 2.0"
-      path: https://medium.com/tensorflow/whats-coming-in-tensorflow-2-0-d3663832e9b8
+    - heading: "TensorFlow 2.0 is now available"
+      path: http://blog.tensorflow.org/tensorflow-2-0-is-now-available-57d706c2a9ab
       buttons:
       - label: "Read on the TensorFlow blog"
-        path: https://medium.com/tensorflow/whats-coming-in-tensorflow-2-0-d3663832e9b8
+        path: http://blog.tensorflow.org/tensorflow-2-0-is-now-available-57d706c2a9ab
     - heading: "Standardizing on Keras: Guidance on High-level APIs in TensorFlow 2.0"
       path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
       buttons:
@@ -186,6 +186,17 @@ landing_page:
           <li><a href="https://github.com/tensorflow/graphics/blob/master/tensorflow_graphics/notebooks/mesh_segmentation_demo.ipynb" class="external">Mesh segmentation</a></li>
           </ul>
         path: /graphics
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="https://github.com/tensorflow/addons"><h3 class="tfo-landing-page-heading no-link">SIG Addons</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="https://github.com/tensorflow/addons/blob/master/docs/tutorials/image_ops.ipynb" class="external">Image operations in TensorFlow Addons</a></li>
+          <li><a href="https://github.com/tensorflow/addons/blob/master/docs/tutorials/layers_normalizations.ipynb" class="external">Normalization layers in TensorFlow Addons.</a></li>
+          </ul>
+        path: https://github.com/tensorflow/addons
         icon:
           icon_name: chevron_right
           foreground: theme

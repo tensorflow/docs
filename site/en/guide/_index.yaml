@@ -182,3 +182,19 @@ landing_page:
           icon_name: chevron_right
           foreground: theme
           background: grey
+      - description: >
+          <a href="https://github.com/tensorflow/addons"><h3 class="tfo-landing-page-heading no-link">SIG Addons</h3></a>
+          Extra functionality for TensorFlow, maintained by SIG&nbsp;Addons.
+        path: https://github.com/tensorflow/addons
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="https://github.com/tensorflow/io"><h3 class="tfo-landing-page-heading no-link">SIG IO</h3></a>
+          Dataset, streaming, and file system extensions, maintained by SIG&nbsp;IO.
+        path: https://github.com/tensorflow/io
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
