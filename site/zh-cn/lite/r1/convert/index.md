@@ -1,7 +1,7 @@
 # TensorFlow Lite converter
 TensorFlow Lite converter是用于将TensorFlow模型转化为优化过的[FlatBuffer](https://google.github.io/flatbuffers/)格式，以便让TensorFlow Lite解释器调用。
 
-注意：此页面包含TensorFlow 1.x的converter API文档，[TensorFlow 2.0的API请点击此链接](https://www.tensorflow.org/lite/r2/convert/)
+注意：此页面包含TensorFlow 1.x的converter API文档，[TensorFlow 2.0的API请点击此链接](https://www.tensorflow.org/lite/convert/)
 
 ## FlatBuffers
 FlatBuffers是一个高效的开源跨平台序列化库。它类似于[protocol buffers](https://developers.google.com/protocol-buffers)，区别在于FlatBuffers在访问数据之前不需要对其次要表达进行解析/解压，从而避免对每个对象进行内存分配。FlatBuffers的代码占用空间比protocol buffers小一个数量级。

@@ -10,13 +10,13 @@
 在 TensorFlow 2.0 中，用来将原始的 TensorFlow 模型格式转换为 TensorFlow Lite 的 Python API 是 `tf.lite.TFLiteConverter`。在 `TFLiteConverter` 中有以下的类方法（classmethod）：
 
 *   `TFLiteConverter.from_saved_model()`：用来转换
-    [SavedModel 格式模型](https://www.tensorflow.org/alpha/guide/saved_model)。
+    [SavedModel 格式模型](https://www.tensorflow.org/guide/saved_model)。
 *   `TFLiteConverter.from_keras_model()`：用来转换
-    [`tf.keras` 模型](https://www.tensorflow.org/alpha/guide/keras/overview)。
+    [`tf.keras` 模型](https://www.tensorflow.org/guide/keras/overview)。
 *   `TFLiteConverter.from_concrete_functions()`：用来转换
     [concrete functions](concrete_function.md)。
 
-注意: 在 TensorFlow Lite 2.0 alpha 中有一个不同版本的
+注意: 在 TensorFlow Lite 2.0 中有一个不同版本的
 `TFLiteConverter` API， 该 API 只包含了
 [`from_concrete_function`](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/lite/TFLiteConverter#from_concrete_function)。
 本文中用到的的新版本 API 可以通过 pip 安装
@@ -30,7 +30,7 @@
 ### 转换 SavedModel 格式模型 <a name="saved_model"></a>
 
 以下示例展示了如何将一个
-[SavedModel](https://www.tensorflow.org/alpha/guide/saved_model) 转换为
+[SavedModel](https://www.tensorflow.org/guide/saved_model) 转换为
 TensorFlow Lite 中的 [`FlatBuffer`](https://google.github.io/flatbuffers/)格式。
 
 ```python
@@ -67,7 +67,7 @@ converter = TFLiteConverter.from_concrete_functions([concrete_func])
 ### 转换 Keras 模型 <a name="keras"></a>
 
 以下示例展示了如何将一个
-[tf.keras 模型](https://www.tensorflow.org/alpha/guide/keras/overview) 转换为
+[tf.keras 模型](https://www.tensorflow.org/guide/keras/overview) 转换为
 TensorFlow Lite 中的 [`FlatBuffer`](https://google.github.io/flatbuffers/) 格式。
 
 ```python

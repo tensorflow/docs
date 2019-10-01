@@ -1,3 +1,3 @@
 # TensorFlow 2.x docs
 
-See https://www.tensorflow.org/beta
+See https://www.tensorflow.org/overview

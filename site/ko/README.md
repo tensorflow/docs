@@ -8,7 +8,7 @@
 메일을 보내주시기 바랍니다.
 
 노트: [site/en](https://github.com/tensorflow/docs/tree/master/site/en)
-디렉토리에 있는 [텐서플로 2.0 베타](https://www.tensorflow.org/beta) 문서를 번역하는데 초점을 맞춰 주세요.
+디렉토리에 있는 [텐서플로 2](https://www.tensorflow.org) 문서를 번역하는데 초점을 맞춰 주세요.
 2.0 릴리스를 준비하기 위해 [site/ko/r1](https://github.com/tensorflow/docs/tree/master/site/ko/r1) 디렉토리에 있는 TF 1.x 커뮤니티 문서는 더 이상 업데이트되지 않습니다. 이
 [공지](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ)를
 참고하세요. 또한 install 폴더의 내용과 yaml 파일, index.md 파일은 번역하지 않습니다. 이에 대한 자세한 지침은 이 [공지](https://groups.google.com/a/tensorflow.org/forum/#!msg/docs-zh-cn/mhLp-egzNyE/EhGSeIBqAQAJ)를 참고하세요.
@@ -32,7 +32,7 @@ To volunteer to write or review community translations, contact the
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
 Note: Please focus translation efforts on
-[TensorFlow 2.0 Beta](https://www.tensorflow.org/beta) in the
+[TensorFlow 2](https://www.tensorflow.org) in the
 [site/en](https://github.com/tensorflow/docs/tree/master/site/en)
 directory. TF 1.x community docs in [site/en/r1](https://github.com/tensorflow/docs/tree/master/site/en/r1) will no longer be updated as we prepare for the
 2.0 release. See
