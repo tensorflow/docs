@@ -500,7 +500,11 @@ def write_docs(output_dir,
           break
 
     # Generate docs for `py_object`, resolving references.
-    page_info = parser.docs_for_object(full_name, py_object, parser_config)
+    try:
+      page_info = parser.docs_for_object(full_name, py_object, parser_config)
+    except:
+      raise ValueError(
+          'Failed to generate docs for symbol: `{}`'.format(full_name))
 
     path = os.path.join(output_dir, parser.documentation_path(full_name))
     directory = os.path.dirname(path)
