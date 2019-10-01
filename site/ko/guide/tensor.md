@@ -34,26 +34,25 @@
 예를 들어 텐서가 디스크로부터 데이터를 읽어들인 결과 이거나,
 무작위 숫자를 생성하는 경우입니다.
 
-## Rank
+## 랭크(Rank)
 
-The **rank** of a `tf.Tensor` object is its number of dimensions. Synonyms for
-rank include **order** or **degree** or **n-dimension**.
-Note that rank in TensorFlow is not the same as matrix rank in mathematics.
-As the following table shows, each rank in TensorFlow corresponds to a
-different mathematical entity:
+`tf.Tensor` 객체의 **랭크**는 그 차원의 수입니다.
+랭크의 동의어는 **order** 또는 **degree**, **n-차원**입니다.
+텐서플로의 랭크는 수학에서 사용하는 행렬의 랭크와는 다릅니다.
+다음 표에서 알 수 있는 것처럼, 텐서플로의 각 랭크는 각각 다른 수학적 용어(entity)에 해당됩니다.
 
-Rank | Math entity
+랭크 | 수학적 용어(entity)
 --- | ---
-0 | Scalar (magnitude only)
-1 | Vector (magnitude and direction)
-2 | Matrix (table of numbers)
-3 | 3-Tensor (cube of numbers)
-n | n-Tensor (you get the idea)
+0 | 스칼라(Scalar) (크기(magnitude)만)
+1 | 벡터(Vector) (크기와 방향(direction))
+2 | 행렬(Matrix) (숫자 표)
+3 | 3-텐서 (숫자 큐브(cube))
+n | n-텐서 (you get the idea)
 
 
-### Rank 0
+### 랭크 0
 
-The following snippet demonstrates creating a few rank 0 variables:
+다음 일부 랭크 0 변수 생성 예입니다:
 
 ```python
 mammal = tf.Variable("Elephant", tf.string)
@@ -62,13 +61,13 @@ floating = tf.Variable(3.14159265359, tf.float64)
 its_complicated = tf.Variable(12.3 - 4.85j, tf.complex64)
 ```
 
-Note: A string is treated as a single object in TensorFlow, not as a sequence of
-characters. It is possible to have scalar strings, vectors of strings, etc.
+Note: 문자열은 텐서에서 문자 시퀀스(sequence)가 아니라 단일 객체로 다뤄집니다.
+객체는 단일 문자열과 문자열 벡터 등 모두 가능합니다.
 
-### Rank 1
+### 랭크 1
 
-To create a rank 1 `tf.Tensor` object, you can pass a list of items as the
-initial value. For example:
+랭크 1 `tf.Tensor` 객체를 생성하기 위해서 초기값으로 아이템 리스트를 사용할 수 있습니다.
+예를 들어:
 
 ```python
 mystr = tf.Variable(["Hello"], tf.string)
@@ -78,10 +77,9 @@ its_very_complicated = tf.Variable([12.3 - 4.85j, 7.5 - 6.23j], tf.complex64)
 ```
 
 
-### Higher ranks
+### 고차원 랭크
 
-A rank 2 `tf.Tensor` object consists of at least one row and at least
-one column:
+랭크 2 `tf.Tensor` 객체는 최소 한 개 이상의 열(column)과 행(row)으로 구성됩니다:
 
 ```python
 mymat = tf.Variable([[7],[11]], tf.int16)
@@ -92,45 +90,41 @@ rank_of_squares = tf.rank(squarish_squares)
 mymatC = tf.Variable([[7],[11]], tf.int32)
 ```
 
-Higher-rank Tensors, similarly, consist of an n-dimensional array. For example,
-during image processing, many tensors of rank 4 are used, with dimensions
-corresponding to example-in-batch, image height, image width, and color channel.
+유사하게 고차원 랭크 텐서는 n-차원 배열로 구성됩니다.
+예를 들어, 이미지 처리에서 각각 배치 수와 이미지 높이, 이미지 너비, 색상 채널에 해당하는 4차원 랭크 텐서가 사용됩니다.
 
 ``` python
-my_image = tf.zeros([10, 299, 299, 3])  # batch x height x width x color
+my_image = tf.zeros([10, 299, 299, 3])  # 배치 x 높이 x 너비 x 색상
 ```
 
-### Getting a `tf.Tensor` object's rank
+### `tf.Tensor` 객체 랭크 구하기
 
-To determine the rank of a `tf.Tensor` object, call the `tf.rank` method.
-For example, the following method programmatically determines the rank
-of the `tf.Tensor` defined in the previous section:
+`tf.Tensor` 객체의 랭크를 알기 위해서는 `tf.rank` 메서드를 호출합니다.
+예를 들어, 다음 메서드는 프로그램적으로 이전 섹션에서 정의된 `tf.Tensor`의 랭크를 알려줍니다.
 
 ```python
 r = tf.rank(my_image)
-# After the graph runs, r will hold the value 4.
+# 그래프가 실행된 후 r은 4라는 값을 가지게 됩니다.
 ```
 
-### Referring to `tf.Tensor` slices
+### `tf.Tensor` 일부분 참조하기
 
-Since a `tf.Tensor` is an n-dimensional array of cells, to access a single cell
-in a `tf.Tensor` you need to specify n indices.
+`tf.Tensor`는 n-차원 배열로 구성된 셀이기 대문에,
+`tf.Tensor`의 셀 하나에 접근하기 위해서는 n개의 인덱스가 필요합니다.
 
-For a rank 0 tensor (a scalar), no indices are necessary, since it is already a
-single number.
+랭크 0 텐서(스칼라)인 경우 그것이 이미 하나의 숫자이기 때문에 인덱스가 필요없습니다.
 
-For a rank 1 tensor (a vector), passing a single index allows you to access a
-number:
+랭크 1 텐서(벡터)인 경우 숫자 하나에 접근하기 위해서는 인덱스 한 개를 전달해야 합니다:
 
 ```python
 my_scalar = my_vector[2]
 ```
 
-Note that the index passed inside the `[]` can itself be a scalar `tf.Tensor`, if
-you want to dynamically choose an element from the vector.
+벡터로부터 값 한 개를 동적으로 선택하기 위해서
+`[]`안에 스칼라형 `tf.Tensor`를 인덱스로 사용할 수 있습니다.
 
-For tensors of rank 2 or higher, the situation is more interesting. For a
-`tf.Tensor` of rank 2, passing two numbers returns a scalar, as expected:
+랭크 2이상의 고차원 텐서인 경우에는 좀 더 흥미롭습니다.
+예상한 것처럼 랭크 2인 `tf.Tensor`를 위해 인덱스로 2개를 전달해야 스칼라 한 개를 반환합니다:
 
 
 ```python
@@ -138,7 +132,7 @@ my_scalar = my_matrix[1, 2]
 ```
 
 
-Passing a single number, however, returns a subvector of a matrix, as follows:
+그러나, 한 개만 전달한다면 다음과 같이 행렬의 부분 벡터를 반환합니다:
 
 
 ```python
@@ -146,9 +140,8 @@ my_row_vector = my_matrix[2]
 my_column_vector = my_matrix[:, 3]
 ```
 
-The `:` notation is python slicing syntax for "leave this dimension alone". This
-is useful in higher-rank Tensors, as it allows you to access its subvectors,
-submatrices, and even other subtensors.
+`:` 표기는 "해당 차원를 남겨라"라는 파이썬 슬라이싱(slicing) 문법입니다.
+이러한 표기법은 고차원 텐서에서 부분 벡터와 부분 행렬, 다른 부분 텐서들까지도 접근할 수 있도록 만들어 주기 때문에 유용합니다.
 
 
 ## Shape
