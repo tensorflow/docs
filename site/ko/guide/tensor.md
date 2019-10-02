@@ -231,15 +231,12 @@ float_tensor = tf.cast(tf.constant([1, 2, 3]), dtype=tf.float32)
 텐서플로는 파이썬 정수를 `tf.int32`로 변환하고 파이썬 실수는 `tf.float32`으로 변환합니다.
 그외에 동일한 규칙을 numpy를 배열로 변경할 때 사용합니다.
 
-## Evaluate tensors
+## 텐서 계산하기(evaluate)
 
-Once the computation graph has been built, you can run the computation that
-produces a particular `tf.Tensor` and fetch the value assigned to it. This is
-often useful for debugging as well as being required for much of TensorFlow to
-work.
+일단 계산 그래프를 만들었다면, 특정 `tf.Tensor`를 생성하고 그것에 지정된 값을 가져오는 계산을 실행할 수 있습니다.
+이것은 대부분의 텐서플로가 작업하는데 필요할 뿐 아니라 디버깅에 종종 유용합니다.
 
-The simplest way to evaluate a Tensor is using the `Tensor.eval` method. For
-example:
+텐서를 계산하는 가장 간단한 방법은 `Tensor.eval` 메서드를 사용하는 것입니다. 예를 들어:
 
 ```python
 constant = tf.constant([1, 2, 3])
@@ -247,32 +244,30 @@ tensor = constant * constant
 print(tensor.eval())
 ```
 
-The `eval` method only works when a default `tf.Session` is active (see
-[Graphs and Sessions](./graphs.md) for more information).
+`eval` 메서드는 기본 `tf.Session`이 활성화된 경우에만 작동합니다
+(자세한 내용은 [그래프와 세션](./graphs.md)에서 확인하세요).
 
-`Tensor.eval` returns a numpy array with the same contents as the tensor.
+`Tensor.eval`은 텐서와 같은 내용을 가지는 numpy 배열을 반환합니다.
 
-Sometimes it is not possible to evaluate a `tf.Tensor` with no context because
-its value might depend on dynamic information that is not available. For
-example, tensors that depend on `placeholder`s can't be evaluated without
-providing a value for the `placeholder`.
+때때로 그 값이 이용할 수 없는 동적인 정보에 의존하기 때문에
+문맥(context)이 없는 `tf.Tensor`는 계산할 수 없는 경우가 있습니다.
+예를 들어, `placeholder`인 텐서는 그 `placeholder`에 해당하는 값이 제공되지 않으면 계산할 수 없습니다.
 
 ``` python
 p = tf.placeholder(tf.float32)
 t = p + 1.0
-t.eval()  # This will fail, since the placeholder did not get a value.
-t.eval(feed_dict={p:2.0})  # This will succeed because we're feeding a value
-                           # to the placeholder.
+t.eval()  # 플레이스홀더(placeholder)가 값을 가지고 있지 않기 때문에, 이것은 실패할 것입니다.
+t.eval(feed_dict={p:2.0})  # 플레이스홀더에 해당하는 값을 제공받기 때문에
+                           # 이것은 성공할 것입니다.
 ```
 
-Note that it is possible to feed any `tf.Tensor`, not just placeholders.
+플레이스홀더뿐만 아니라 어떤 `tf.Tensor`도 값을 제공받는 것이 가능하다는 것에 유의하세요.
 
-Other model constructs might make evaluating a `tf.Tensor`
-complicated. TensorFlow can't directly evaluate `tf.Tensor`s defined inside
-functions or inside control flow constructs. If a `tf.Tensor` depends on a value
-from a queue, evaluating the `tf.Tensor` will only work once something has been
-enqueued; otherwise, evaluating it will hang. When working with queues, remember
-to call `tf.train.start_queue_runners` before evaluating any `tf.Tensor`s.
+다른 모델 구조는 `tf.Tensor`를 계산하는 것을 복잡하게 만들 수 있습니다.
+텐서플로는 함수안이나 제어 흐름안에 정의된 `tf.Tensor`를 직접 계산할 수 없습니다.
+만약에 `tf.Tensor`가 큐(queue)에 있는 값을 사용한다면,
+무언가가 큐에 들어간 후에 만 `tf.Tensor` 계산을 할 수 있습니다; 그렇지 않으면 계산은 중단될 것입니다.
+큐와 같이 작업할 때, `tf.Tensor`를 계산하기 전 `tf.train.start_queue_runners`를 호출하세요.
 
 ## Print a tensor
 
