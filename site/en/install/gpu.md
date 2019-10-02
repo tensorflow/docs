@@ -1,5 +1,7 @@
 # GPU support
 
+Note: GPU support is available for Ubuntu and Windows with CUDA®-enabled cards.
+
 TensorFlow GPU support requires an assortment of drivers and libraries. To
 simplify installation and avoid library conflicts, we recommend using a
 [TensorFlow Docker image with GPU support](./docker.md) (Linux only). This setup
@@ -21,13 +23,19 @@ GPU support, choose a stable or development package:
 <code class="devsite-terminal">pip install tf-nightly-gpu  # preview</code>
 </pre>
 
-### TensorFlow 2.0 RC
+### Older versions of TensorFlow
 
-[TensorFlow 2.0 RC](https://www.tensorflow.org/beta) is available for testing
-with GPU support. To install:
+For the 1.15 release, CPU and GPU support are included in a single package:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-rc1</code>
+<code class="devsite-terminal">pip install --pre "tensorflow==1.15.*"</code>
+</pre>
+
+For releases 1.14 and older, CPU and GPU packages are separate:
+
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">pip install tensorflow==1.14      # CPU</code>
+<code class="devsite-terminal">pip install tensorflow-gpu==1.14  # GPU</code>
 </pre>
 
 ## Hardware requirements

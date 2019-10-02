@@ -11,7 +11,10 @@ toc:
   path: /guide/upgrade
 - title: "Performance with tf.function"
   path: /guide/function
-  
+- title: "Community testing FAQ"
+  path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
+  status: external
+
 - heading: "Keras"
 - title: "Keras overview"
   path: /guide/keras/overview
@@ -23,7 +26,7 @@ toc:
   path: /guide/keras/custom_layers_and_models
 - title: "Save and serialize models"
   path: /guide/keras/save_and_serialize
-- title: "Recurrent neural network API"
+- title: "Keras Recurrent Neural Networks"
   path: /guide/keras/rnn
 - title: "Masking and padding"
   path: /guide/keras/masking_and_padding
@@ -40,9 +43,9 @@ toc:
 - title: "Variable"
   path: /guide/variable
 - title: "Tensor"
-  path : /guide/tensor
+  path: /guide/tensor
 - title: "Ragged tensor"
-  path : /guide/ragged_tensor
+  path: /guide/ragged_tensor
 - title: "Create an op"
   path: /guide/create_op
 
@@ -52,15 +55,15 @@ toc:
 - title: "Performance"
   path: /guide/data_performance
 
-- heading: "Save and serialize"
+- heading: "Save a model"
 - title: "Checkpoint"
   path: /guide/checkpoint
 - title: "Saved model"
   path: /guide/saved_model
 
 - heading: "Accelerators"
-- title: "Distribution strategy"
-  path: /guide/distribute_strategy
+- title: "Distributed training"
+  path: /guide/distributed_training
 - title: "GPU"
   path: /guide/gpu
 

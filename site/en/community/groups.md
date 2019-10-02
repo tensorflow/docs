@@ -10,6 +10,8 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 * [TensorFlow Cotonou](https://www.meetup.com/TensorFlow-Cotonou/)
 * [TensorFlow Harare](https://www.meetup.com/TensorFlow-Harare/)
 * [TensorFlow Ibadan](https://www.meetup.com/TensorFlow-Ibadan/)
+* [TensorFlow Nairobi](https://www.meetup.com/TensorFlow-Nairobi/)
+* [TensorFlow Lagos](https://www.meetup.com/tf-lagos/)
 * [TensorFlow Tunis Meetup](https://www.meetup.com/TensorFlow-Tunis-Meetup/)
 
 ## Americas

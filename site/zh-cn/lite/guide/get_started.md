@@ -64,7 +64,7 @@ tflite_model = converter.convert()
 open("converted_model.tflite", "wb").write(tflite_model)
 ```
 
-您可以用类似的方法[转换 TensorFlow 2.0 模型](../r2/convert)
+您可以用类似的方法[转换 TensorFlow 2.0 模型](../convert)
 
 虽然也能从[命令行](../convert/cmdline_examples)使用转换器，但是推荐用 Python API 进行转换。
 
@@ -72,18 +72,18 @@ open("converted_model.tflite", "wb").write(tflite_model)
 
 转换器可以从各种输入类型转换模型。
 
-当转换[ TensorFlow 1.x 模型](../convert/python_api)时，这些输入类型有：
+当转换[ TensorFlow 1.x 模型](../convert/python_api.md)时，这些输入类型有：
 
-*	[SavedModel 文件夹](https://www.tensorflow.org/alpha/guide/saved_model)
+*	[SavedModel 文件夹](https://www.tensorflow.org/guide/saved_model)
 *	Frozen GraphDef (通过[ freeze_graph.py ](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/freeze_graph.py)生成的模型)
 *	[Keras](https://keras.io) HDF5 模型
 *	从 `tf.Session` 得到的模型
 
-当转换[ TensorFlow 2.x 模型](../r2/convert/python_api)时，这些输入类型有：
+当转换[ TensorFlow 2.x 模型](../convert/python_api.md)时，这些输入类型有：
 
-*	[SavedModel 文件夹](https://www.tensorflow.org/alpha/guide/saved_model)
-*	[`tf.keras` 模型](https://www.tensorflow.org/alpha/guide/keras/overview)
-*	[具体函数（Concrete functions）](../r2/convert/concrete_function.md)
+*	[SavedModel 文件夹](https://www.tensorflow.org/guide/saved_model)
+*	[`tf.keras` 模型](https://www.tensorflow.org/guide/keras/overview)
+*	[具体函数（Concrete functions）](../convert/concrete_function.md)
 
 转换器可以配置为应用各种优化措施（optimizations），这些优化措施可以提高性能，减少文件大小。这将在第四节[优化您的模型](#4_optimize_your_model_optional)中介绍。
 

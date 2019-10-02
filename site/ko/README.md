@@ -8,7 +8,7 @@
 메일을 보내주시기 바랍니다.
 
 노트: [site/en](https://github.com/tensorflow/docs/tree/master/site/en)
-디렉토리에 있는 [텐서플로 2.0 베타](https://www.tensorflow.org/beta) 문서를 번역하는데 초점을 맞춰 주세요.
+디렉토리에 있는 [텐서플로 2](https://www.tensorflow.org) 문서를 번역하는데 초점을 맞춰 주세요.
 2.0 릴리스를 준비하기 위해 [site/ko/r1](https://github.com/tensorflow/docs/tree/master/site/ko/r1) 디렉토리에 있는 TF 1.x 커뮤니티 문서는 더 이상 업데이트되지 않습니다. 이
 [공지](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ)를
 참고하세요. 또한 install 폴더의 내용과 yaml 파일, index.md 파일은 번역하지 않습니다. 이에 대한 자세한 지침은 이 [공지](https://groups.google.com/a/tensorflow.org/forum/#!msg/docs-zh-cn/mhLp-egzNyE/EhGSeIBqAQAJ)를 참고하세요.
@@ -32,7 +32,7 @@ To volunteer to write or review community translations, contact the
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
 Note: Please focus translation efforts on
-[TensorFlow 2.0 Beta](https://www.tensorflow.org/beta) in the
+[TensorFlow 2](https://www.tensorflow.org) in the
 [site/en](https://github.com/tensorflow/docs/tree/master/site/en)
 directory. TF 1.x community docs in [site/en/r1](https://github.com/tensorflow/docs/tree/master/site/en/r1) will no longer be updated as we prepare for the
 2.0 release. See
@@ -62,7 +62,7 @@ of the tensorflow/swift repository. S4TF notebooks must have the outputs saved.
 site/ko/r1 는 텐서플로 1.x 버전을 위한 파일입니다.
 site/ko 는 텐서플로 2.x 버전을 위한 파일입니다.
 
-막다운(markdown)과 주석을 모두 번역합니다. 코드 셀(cell)은 실행하지 않습니다.
+마크다운(markdown)과 주석을 모두 번역합니다. 코드 셀(cell)은 실행하지 않습니다.
 주피터 노트북은 조금만 수정하더라도 파일 소스 전체가 변경될 수 있습니다.
 이런 파일은 깃허브에서 리뷰하기 어렵습니다.
 기존 노트북에서 간단한 내용을 수정할 때는 가능하면 텍스트 편집기를 사용하여 직접 노트북 소스를 수정해야 합니다.

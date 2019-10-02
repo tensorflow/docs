@@ -1,4 +1,4 @@
-# Effective TensorFlow 2.0
+# Effective TensorFlow 2
 
 There are multiple changes in TensorFlow 2.0 to make TensorFlow users more
 productive. TensorFlow 2.0 removes

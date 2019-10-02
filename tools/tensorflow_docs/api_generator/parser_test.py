@@ -112,7 +112,10 @@ class ConcreteMutableMapping(collections.MutableMapping):
     return len(self._map)
 
 
-class ParserTest(absltest.TestCase):
+ConcreteNamedTuple = collections.namedtuple('ConcreteNamedTuple', ['a', 'b'])
+
+
+class ParserTest(parameterized.TestCase):
 
   def test_documentation_path(self):
     self.assertEqual('test.md', parser.documentation_path('test'))
@@ -805,22 +808,29 @@ class ParserTest(absltest.TestCase):
     self.assertNotIn('object at 0x', pop_default_arg)
     self.assertIn('<object>', pop_default_arg)
 
-  def test_builtins_defined_in(self):
+  @parameterized.named_parameters(
+      ('mutable_mapping', 'ConcreteMutableMapping', '__contains__',
+       ConcreteMutableMapping.__contains__),
+      ('namedtuple', 'ConcreteNamedTuple', '__new__',
+       ConcreteNamedTuple.__new__),
+  )
+  def test_builtins_defined_in(self, cls, method, py_object):
     """Validates that the parser omits the defined_in location for built-ins.
 
     Without special handling, the defined-in URL ends up like:
       http://prefix/<embedded stdlib>/_collections_abc.py
+
+    Args:
+      cls: The class name to generate docs for.
+      method: The class method name to generate docs for.
+      py_object: The python object for the specified cls.method.
     """
 
     visitor = DummyVisitor(index={}, duplicate_of={})
     reference_resolver = parser.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
-    tree = {
-        'ConcreteMutableMapping': [
-            '__contains__'
-        ]
-    }
+    tree = {cls: [method]}
     parser_config = parser.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
@@ -832,8 +842,8 @@ class ParserTest(absltest.TestCase):
         code_url_prefix='/')
 
     function_info = parser.docs_for_object(
-        full_name='ConcreteMutableMapping.__contains__',
-        py_object=ConcreteMutableMapping.__contains__,
+        full_name='%s.%s' % (cls, method),
+        py_object=py_object,
         parser_config=parser_config)
 
     self.assertIsNone(function_info.defined_in)

@@ -7,26 +7,26 @@
   </head>
   <body>
 
-<h3>TensorFlow 2.0 RC is available</h3>
-<ul>
-  <li><code>tensorflow==2.0.0-rc1</code> —Preview <a href="/beta">TF 2.0 RC</a> build for CPU-only <em>(unstable)</em></li>
-  <li><code>tensorflow-gpu==2.0.0-rc1</code> —Preview <a href="/beta">TF 2.0 RC</a> build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
-</ul>
-
-<h3>Available packages for 1.15.0</h3>
-<ul>
-  <li><code>tensorflow</code> —Latest stable release. Ubuntu and Windows include <a href="./gpu">GPU support</a></li>
-  <li><code>tensorflow-gpu</code> —Same as <li><code>tensorflow</code> on Ubuntu and Windows, but a different name for backward compatibility</em></li>
-  <li><code>tensorflow-cpu</code> —CPU-only packages</li>
-</ul>
-
-<h3>Available packages for older TensorFlow versions</h3>
+<h3>TensorFlow 2 packages are available</h3>
 <ul>
   <li><code>tensorflow</code> —Latest stable release for CPU-only</li>
   <li><code>tensorflow-gpu</code> —Latest stable release with <a href="./gpu">GPU support</a> <em>(Ubuntu and Windows)</em></li>
-  <li><code>tf-nightly</code> —Preview nightly build for CPU-only <em>(unstable)</em></li>
-  <li><code>tf-nightly-gpu</code> —Preview nightly build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
 </ul>
+
+
+<h3>Older versions of TensorFlow</h3>
+<p>For the 1.15 release, CPU and GPU support are included in a single package:</p>
+<ul>
+  <li><code>tensorflow==1.15</code> —1.x stable release. Ubuntu and Windows include <a href="./gpu">GPU support</a></li>
+</ul>
+
+<p>For releases 1.14 and older, CPU and GPU packages are separate:</p>
+
+<ul>
+  <li><code>tensorflow==1.14</code> —Release for CPU-only</li>
+  <li><code>tensorflow-gpu==1.14</code> —Release with <a href="./gpu">GPU support</a> <em>(Ubuntu and Windows)</em></li>
+</ul>
+
 
 <h3>System requirements</h3>
 <ul>
@@ -188,6 +188,13 @@
 
 {% dynamic endif %}
 
+<aside class="caution"><b>Caution:</b> Upgrading the <em>system pip</em> can cause
+  <a href="https://github.com/pypa/pip/issues/5599" class="external">problems</a>.<br/>
+  If <em>not</em> in a virtual environment, use <code>python3 -m pip</code> for
+  the commands below. This ensures that you upgrade and use the
+  <em>Python pip</em> instead of the <em>system pip</em>.
+</aside>
+
 
 <h2>2. Create a virtual environment (recommended)</h2>
 
@@ -302,8 +309,6 @@
   <li><code>tensorflow-gpu</code> —Latest stable release with <a href="./gpu">GPU support</a> <em>(Ubuntu and Windows)</em></li>
   <li><code>tf-nightly</code> —Preview nightly build for CPU-only <em>(unstable)</em></li>
   <li><code>tf-nightly-gpu</code> —Preview nightly build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
-  <li><code>tensorflow==2.0.0-rc1</code> —Preview TF 2.0 RC build for CPU-only <em>(unstable)</em></li>
-  <li><code>tensorflow-gpu==2.0.0-rc1</code> —Preview TF 2.0 RC build with <a href="./gpu">GPU support</a> <em>(unstable, Ubuntu and Windows)</em></li>
 </ul>
 
 <aside class="note">

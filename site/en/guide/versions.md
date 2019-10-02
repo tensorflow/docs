@@ -1,10 +1,10 @@
-# TensorFlow Version Compatibility
+# TensorFlow version compatibility
 
 This document is for users who need backwards compatibility across different
 versions of TensorFlow (either for code or data), and for developers who want
 to modify TensorFlow while preserving compatibility.
 
-## Semantic Versioning 2.0
+## Semantic versioning 2.0
 
 TensorFlow follows Semantic Versioning 2.0 ([semver](http://semver.org)) for its
 public API. Each release version of TensorFlow has the form `MAJOR.MINOR.PATCH`.
