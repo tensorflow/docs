@@ -209,30 +209,27 @@ matrixAlt = tf.reshape(matrixB, [4, 3, -1])  # 기존 내용을 4x3x5 텐서로
 yet_another = tf.reshape(matrixAlt, [13, 2, -1])  # 에러!
 ```
 
-## Data types
+## 데이터 타입(type)
 
-In addition to dimensionality, Tensors have a data type. Refer to the
-`tf.DType` page for a complete list of the data types.
+차원뿐만 아니라, 텐서는 테이터 타입도 가지고 있습니다.
+전체 데이터 타입을 확인하려면 `tf.DType`를 참고하세요.
 
-It is not possible to have a `tf.Tensor` with more than one data type. It is
-possible, however, to serialize arbitrary data structures as `string`s and store
-those in `tf.Tensor`s.
+`tf.Tensor`가 한 개이상의 데이터 타입을 가지는 것은 불가능합니다.
+임의의 데이터 구조를 직렬화한 `string`를 저장한 `tf.Tensor`는 예외입니다.
 
-It is possible to cast `tf.Tensor`s from one datatype to another using
-`tf.cast`:
+`tf.cast`를 이용해서 `tf.Tensor`의 데이터 타입을 다른 것으로 변경하는 것은 가능합니다:
 
 ``` python
-# Cast a constant integer tensor into floating point.
+# 정수형 텐서를 실수형으로 변환.
 float_tensor = tf.cast(tf.constant([1, 2, 3]), dtype=tf.float32)
 ```
 
-To inspect a `tf.Tensor`'s data type use the `Tensor.dtype` property.
+`tf.Tensor`의 데이터 타입을 확인하기 위해서는 `Tensor.dtype` 속성을 활용하세요.
 
-When creating a `tf.Tensor` from a python object you may optionally specify the
-datatype. If you don't, TensorFlow chooses a datatype that can represent your
-data. TensorFlow converts Python integers to `tf.int32` and python floating
-point numbers to `tf.float32`. Otherwise TensorFlow uses the same rules numpy
-uses when converting to arrays.
+파이썬 객체를 이용해서 `tf.Tensor`를 생성할 때 데이터 타입을 선택적으로 명시할 수 있습니다.
+그렇지 않으면 텐서플로가 데이터 표현에 적합한 데이터 타입을 선택합니다.
+텐서플로는 파이썬 정수를 `tf.int32`로 변환하고 파이썬 실수는 `tf.float32`으로 변환합니다.
+그외에 동일한 규칙을 numpy를 배열로 변경할 때 사용합니다.
 
 ## Evaluate tensors
 
