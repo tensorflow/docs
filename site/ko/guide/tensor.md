@@ -144,75 +144,69 @@ my_column_vector = my_matrix[:, 3]
 이러한 표기법은 고차원 텐서에서 부분 벡터와 부분 행렬, 다른 부분 텐서들까지도 접근할 수 있도록 만들어 주기 때문에 유용합니다.
 
 
-## Shape
+## 쉐이프(Shape)
 
-The **shape** of a tensor is the number of elements in each dimension.
-TensorFlow automatically infers shapes during graph construction. These inferred
-shapes might have known or unknown rank. If the rank is known, the sizes of each
-dimension might be known or unknown.
+텐서의 **쉐이프**는 각 차원에 있는 원소 개수입니다.
+텐서플로는 그래프 계산 과정에서 자동으로 쉐이프를 추론합니다.
+이렇게 추론된 쉐이프는 랭크를 알고 있는 경우도 있고 그렇지 않는 경우도 있습니다.
+만약에 랭크를 알고 있는 경우라도 각 차원의 개수를 알고 경우도 있고 그렇지 않는 경우도 있습니다.
 
-The TensorFlow documentation uses three notational conventions to describe
-tensor dimensionality: rank, shape, and dimension number. The following table
-shows how these relate to one another:
+텐서플로 문서에서 텐서 차원을 표현하기 위해서 3가지 용어를 사용합니다: 랭크, 쉐이프, 차원수.
+다음 표는 각 용어가 다른 용어와 연관되어 있는지를 보여줍니다.
 
-Rank | Shape | Dimension number | Example
+랭크 | 쉐이프 | 차원수 | 예제
 --- | --- | --- | ---
-0 | [] | 0-D | A 0-D tensor.  A scalar.
-1 | [D0] | 1-D | A 1-D tensor with shape [5].
-2 | [D0, D1] | 2-D | A 2-D tensor with shape [3, 4].
-3 | [D0, D1, D2] | 3-D | A 3-D tensor with shape [1, 4, 3].
-n | [D0, D1, ... Dn-1] | n-D | A tensor with shape [D0, D1, ... Dn-1].
+0 | [] | 0-D | 스칼라인 0-D 텐서.
+1 | [D0] | 1-D | 쉐이프 [5]인 1-D 텐서.
+2 | [D0, D1] | 2-D | 쉐이프 [3, 4]인 2-D 텐서.
+3 | [D0, D1, D2] | 3-D | 쉐이프 [1, 4, 3]인 3-D 텐서.
+n | [D0, D1, ... Dn-1] | n-D | 쉐이프 [D0, D1, ... Dn-1]인 텐서.
 
-Shapes can be represented via Python lists / tuples of ints, or with the
-`tf.TensorShape`.
+쉐이프는 파이썬 리스트 / 정수형 튜플 또는 `tf.TensorShape`으로 표현될 수 있습니다.
 
-### Getting a `tf.Tensor` object's shape
+### `tf.Tensor` 객체 쉐이프 얻기
 
-There are two ways of accessing the shape of a `tf.Tensor`. While building the
-graph, it is often useful to ask what is already known about a tensor's
-shape. This can be done by reading the `shape` property of a `tf.Tensor` object.
-This method returns a `TensorShape` object, which is a convenient way of
-representing partially-specified shapes (since, when building the graph, not all
-shapes will be fully known).
+`tf.Tensor`의 쉐이프를 알기 위한 2가지 방법이 있습니다.
+그래프를 생성하는 동안 텐서의 쉐이프를 알 수 있는 것은 종종 유용합니다.
+쉐이프는 `tf.Tensor`객체의 `shape` 속성으로 알 수 있습니다.
+이 메서드는 `TensorShape`를 반환하고, 이러한 방식은 완벽하게 알려지지 않는 쉐이프를 표현하는데 편리한 방법입니다
+(그래프를 생성할 때 모든 쉐이프를 알 수 없기 때문에).
 
-It is also possible to get a `tf.Tensor` that will represent the fully-defined
-shape of another `tf.Tensor` at runtime. This is done by calling the `tf.shape`
-operation. This way, you can build a graph that manipulates the shapes of
-tensors by building other tensors that depend on the dynamic shape of the input
-`tf.Tensor`.
+`tf.Tensor`를 얻는 것은 실행 시점에 쉐이프를 알고 있는 다른 `tf.Tensor`로 표현할 수 있습니다.
+이것은 `tf.shape` 연산을 통해서 확인할 수 있습니다.
+이를 통해, 입력 `tf.Tensor`의 동적인 쉐이프에 연동된 다른 텐서를 생성함으로써
+텐서 쉐이프를 변경하는 그래프를 생성할 수 있습니다.
 
-For example, here is how to make a vector of zeros with the same size as the
-number of columns in a given matrix:
+예를 들어 다음은 주어진 행렬의 열 개수와 동일한 크기의 0으로 구성된 벡터를 만드는 예입니다.
 
 ``` python
 zeros = tf.zeros(my_matrix.shape[1])
 ```
 
-### Changing the shape of a `tf.Tensor`
+### `tf.Tensor` 쉐이프 변경
 
-The **number of elements** of a tensor is the product of the sizes of all its
-shapes. The number of elements of a scalar is always `1`. Since there are often
-many different shapes that have the same number of elements, it's often
-convenient to be able to change the shape of a `tf.Tensor`, keeping its elements
-fixed. This can be done with `tf.reshape`.
+텐서의 **원소 개수**는 모든 쉐이프 크기를 곱한 것입니다.
+스칼라의 원소 개수는 항상 `1`입니다.
+원소 개수가 같은 경우라도 쉐이프는 다양할 수 있기 때문에, 그 원소 개수를 유지하면서 `tf.Tensor`의 쉐이프를 변경할 수 있는 것은 유용합니다.
+이것은 `tf.reshape`으로 처리할 수 있습니다.
 
-The following examples demonstrate how to reshape tensors:
+다음은 텐서 쉐이프를 변경하는 예입니다:
 
 ```python
 rank_three_tensor = tf.ones([3, 4, 5])
-matrix = tf.reshape(rank_three_tensor, [6, 10])  # Reshape existing content into
-                                                 # a 6x10 matrix
-matrixB = tf.reshape(matrix, [3, -1])  #  Reshape existing content into a 3x20
-                                       # matrix. -1 tells reshape to calculate
-                                       # the size of this dimension.
-matrixAlt = tf.reshape(matrixB, [4, 3, -1])  # Reshape existing content into a
-                                             #4x3x5 tensor
+matrix = tf.reshape(rank_three_tensor, [6, 10])  # 기존 내용을 6x10 행렬로
+                                                 # 쉐이프 변경
+matrixB = tf.reshape(matrix, [3, -1])  # 기존 내용을 3x20 행렬로 쉐이프 변경
+                                       # -1은 차원 크기를 계산한 후에
+                                       # 쉐이프를 변경하라는 의미
+matrixAlt = tf.reshape(matrixB, [4, 3, -1])  # 기존 내용을 4x3x5 텐서로
+                                             # 쉐이프 변경
 
-# Note that the number of elements of the reshaped Tensors has to match the
-# original number of elements. Therefore, the following example generates an
-# error because no possible value for the last dimension will match the number
-# of elements.
-yet_another = tf.reshape(matrixAlt, [13, 2, -1])  # ERROR!
+# 쉐이프가 변경된 텐서의 원소 개수는
+# 원래 텐서의 원소 개수와 같습니다.
+# 그러므로 다음은 원소 개수를 유지하면서
+# 마지막 차원에 사용 가능한 수가 없기 때문에 에러를 발생합니다.
+yet_another = tf.reshape(matrixAlt, [13, 2, -1])  # 에러!
 ```
 
 ## Data types
