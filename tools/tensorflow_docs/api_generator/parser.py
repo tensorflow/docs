@@ -235,12 +235,6 @@ class ReferenceResolver(object):
     with open(filepath) as f:
       json_dict = json.load(f)
 
-    # tensorflow_model_optimization still has "current_doc_full_name" as a key
-    # in its _api_cache.json. Hence, popping that key because its not being used
-    # anywhere.
-    if 'current_doc_full_name' in json_dict:
-      json_dict.pop('current_doc_full_name')
-
     return cls(**json_dict)
 
   def _partial_symbols(self, symbol):
