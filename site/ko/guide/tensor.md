@@ -269,36 +269,33 @@ t.eval(feed_dict={p:2.0})  # 플레이스홀더에 해당하는 값을 제공받
 무언가가 큐에 들어간 후에 만 `tf.Tensor` 계산을 할 수 있습니다; 그렇지 않으면 계산은 중단될 것입니다.
 큐와 같이 작업할 때, `tf.Tensor`를 계산하기 전 `tf.train.start_queue_runners`를 호출하세요.
 
-## Print a tensor
+## 텐서 출력하기
 
-For debugging purposes you might want to print the value of a `tf.Tensor`. While
- [tfdbg](../guide/debugger.md) provides advanced debugging support, TensorFlow also has an
- operation to directly print the value of a `tf.Tensor`.
+디버깅을 위해서 `tf.Tensor` 값을 출력하고 싶을 것입니다.
+[tfdbg](../guide/debugger.md)에서 고급 디버깅에 관해 제공하지만,
+텐서플로는 `tf.Tensor`값을 직접 출력할 수 있는 연산자를 가지고 있습니다.
 
-Note that you rarely want to use the following pattern when printing a
-`tf.Tensor`:
-
-``` python
-t = <<some tensorflow operation>>
-print(t)  # This will print the symbolic tensor when the graph is being built.
-          # This tensor does not have a value in this context.
-```
-
-This code prints the `tf.Tensor` object (which represents deferred computation)
-and not its value. Instead, TensorFlow provides the `tf.Print` operation, which
-returns its first tensor argument unchanged while printing the set of
-`tf.Tensor`s it is passed as the second argument.
-
-To correctly use `tf.Print` its return value must be used. See the example below
+`tf.Tensor`를 출력할 때 다음과 같은 패턴을 쓰고자 하는 경우는 거의 없습니다:
 
 ``` python
 t = <<some tensorflow operation>>
-tf.Print(t, [t])  # This does nothing
-t = tf.Print(t, [t])  # Here we are using the value returned by tf.Print
-result = t + 1  # Now when result is evaluated the value of `t` will be printed.
+print(t)  # 이것은 그래프가 생성되어질 때 기호화된 텐서(symbolic tensor)를 출력할 것입니다.
+          # 이 텐서는 이 컨텍스트(context)안에서 값을 가지고 있지 않습니다.
 ```
 
-When you evaluate `result` you will evaluate everything `result` depends
-upon. Since `result` depends upon `t`, and evaluating `t` has the side effect of
-printing its input (the old value of `t`), `t` gets printed.
+이 코드는 `tf.Tensor`의 값이 아닌 객체(지연 계산으로 표현)를 출력합니다.
+실제로 텐서플로는 두번째 인수로 전달된 `tf.Tensor` 집합을 출력하는 동안
+변경되지 않는 첫번째 텐서 인수를 반환하는 `tf.Print` 연산을 제공합니다.
+
+`tf.Print`을 제대로 사용하기 위해서는 반환된 값을 사용해야 합니다. 아래 예를 보면
+
+``` python
+t = <<some tensorflow operation>>
+tf.Print(t, [t])  # 어떤 일도 하지 않습니다
+t = tf.Print(t, [t])  # 여기서 tf.Print에 의해 반환된 값을 사용할 수 있습니다.
+result = t + 1  # 이제 결과를 계산할 때 `t` 값이 출력될 것입니다.
+```
+
+`result`를 계산할 때 `result`이 관련된 모든 것이 계산될 것입니다.
+`result`는 `t`와 의존성이 있고, `t`를 계산하는 것이 그 입력(`t`의 이전 값)을 출력하는 부가 효과가 있기 때문에 `t`는 출력됩니다.
 
