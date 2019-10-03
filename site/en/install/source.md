@@ -209,7 +209,7 @@ There are some preconfigured build configs available that can be added to the
 
 * `--config=mkl` —Support for the [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
 * `--config=monolithic` —Configuration for a mostly static, monolithic build.
-* `--config=v2` —Build TensorFlow 2.x instead of 1.x.
+* `--config=v1` —Build TensorFlow 1.x instead of 2.x.
 
 Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
 run on older CPUs.
@@ -217,22 +217,26 @@ run on older CPUs.
 
 ## Build the pip package
 
-### TensorFlow 2
+### TensorFlow 2.x
 
+tensorflow:master repo has been updated to build 2.x by default.
 [Install Bazel](https://docs.bazel.build/versions/master/install.html) and use
-`bazel build --config=v2` to create the TensorFlow 2 package.
+`bazel build ` to create the TensorFlow package.
+
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build //tensorflow/tools/pip_package:build_pip_package
+</pre>
 
 Note: For GPU support, enable CUDA during the `./configure` stage.
 
-Use `bazel` to make the TensorFlow package:
-
-<pre class="devsite-terminal devsite-click-to-copy">
-bazel build --config=v2 //tensorflow/tools/pip_package:build_pip_package
-</pre>
-
 ### TensorFlow 1.x
 
-Older TensorFlow packages can still be built with `bazel build`:
+To build the 1.x version of TensorFlow from master, use
+`bazel build --config=v1` to create a TensorFlow 1.x package.
+
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build --config=v1 //tensorflow/tools/pip_package:build_pip_package
+</pre>
 
 #### CPU-only
 
@@ -421,6 +425,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.0.0</td><td>2.7, 3.3-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.26.1</td></tr>
 <tr><td>tensorflow-1.14.0</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.24.1</td></tr>
 <tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.19.2</td></tr>
 <tr><td>tensorflow-1.12.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
@@ -440,6 +445,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow-2.0.0</td><td>2.7, 3.3-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.26.1</td><td>7.4</td><td>10.0</td></tr>
 <tr><td>tensorflow_gpu-1.14.0</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.24.1</td><td>7.4</td><td>10.0</td></tr>
 <tr><td>tensorflow_gpu-1.13.1</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.19.2</td><td>7.4</td><td>10.0</td></tr>
 <tr><td>tensorflow_gpu-1.12.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
@@ -463,6 +469,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.0.0</td><td>2.7, 3.3-3.7</td><td>Clang from xcode 10.1</td><td>Bazel 0.26.1</td></tr>
 <tr><td>tensorflow-1.14.0</td><td>2.7, 3.3-3.7</td><td>Clang from xcode</td><td>Bazel 0.24.1</td></tr>
 <tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.7</td><td>Clang from xcode</td><td>Bazel 0.19.2</td></tr>
 <tr><td>tensorflow-1.12.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
