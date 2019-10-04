@@ -58,7 +58,8 @@ def parse_fn(example):
   return image, parsed["label"]
 
 def make_dataset():
-  dataset = tf.data.TFRecordDataset("/path/to/dataset/train-*.tfrecord")
+  files = tf.data.Dataset.list_files("/path/to/dataset/train-*.tfrecord")
+  dataset = tf.data.TFRecordDataset(files)
   dataset = dataset.shuffle(buffer_size=FLAGS.shuffle_buffer_size)
   dataset = dataset.map(map_func=parse_fn)
   dataset = dataset.batch(batch_size=FLAGS.batch_size)
@@ -198,13 +199,12 @@ The following diagram illustrates the effect of supplying `cycle_length=2` and
 To apply this change to our running example, replace:
 
 ```python
-dataset = tf.data.TFRecordDataset("/path/to/dataset/train-*.tfrecord")
+dataset = tf.data.TFRecordDataset(files)
 ```
 
 with:
 
 ```python
-files = tf.data.Dataset.list_files("/path/to/dataset/train-*.tfrecord")
 dataset = files.interleave(
     tf.data.TFRecordDataset, cycle_length=FLAGS.num_parallel_reads,
     num_parallel_calls=tf.data.experimental.AUTOTUNE)
