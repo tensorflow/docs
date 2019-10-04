@@ -20,7 +20,7 @@ GPU support, choose a stable or development package:
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">pip install tensorflow-gpu  # stable</code>
 
-<code class="devsite-terminal">pip install tf-nightly-gpu  # preview</code>
+<code class="devsite-terminal">pip install tf-nightly      # preview</code>
 </pre>
 
 ### Older versions of TensorFlow
