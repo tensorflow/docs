@@ -156,7 +156,25 @@ run on older CPUs.
 
 ## Build the pip package
 
-### Bazel build
+### TensorFlow 2.x
+
+tensorflow:master repo has been updated to build 2.x by default.
+[Install Bazel](https://docs.bazel.build/versions/master/install.html) and use
+`bazel build ` to create the TensorFlow package.
+
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
+bazel build //tensorflow/tools/pip_package:build_pip_package
+</pre>
+
+
+### TensorFlow 1.x
+
+To build the 1.x version of TensorFlow from master, use
+`bazel build --config=v1` to create a TensorFlow 1.x package.
+
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
+bazel build --config=v1 //tensorflow/tools/pip_package:build_pip_package
+</pre>
 
 #### CPU-only
 
@@ -263,6 +281,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.0.0</td><td>3.5-3.7</td><td>MSVC 2017</td><td>Bazel 0.26.1</td></tr>
 <tr><td>tensorflow-1.14.0</td><td>3.5-3.7</td><td>MSVC 2017</td><td>Bazel 0.24.1-0.25.2</td></tr>
 <tr><td>tensorflow-1.13.0</td><td>3.5-3.7</td><td>MSVC 2015 update 3</td><td>Bazel 0.19.0-0.21.0</td></tr>
 <tr><td>tensorflow-1.12.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Bazel 0.15.0</td></tr>
@@ -284,6 +303,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow_gpu-2.0.0</td><td>3.5-3.7</td><td>MSVC 2017</td><td>Bazel 0.26.1</td><td>7.4</td><td>10</td></tr>
 <tr><td>tensorflow_gpu-1.14.0</td><td>3.5-3.7</td><td>MSVC 2017</td><td>Bazel 0.24.1-0.25.2</td><td>7.4</td><td>10</td></tr>
 <tr><td>tensorflow_gpu-1.13.0</td><td>3.5-3.7</td><td>MSVC 2015 update 3</td><td>Bazel 0.19.0-0.21.0</td><td>7.4</td><td>10</td></tr>
 <tr><td>tensorflow_gpu-1.12.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>

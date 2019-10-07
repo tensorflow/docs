@@ -48,7 +48,7 @@ landing_page:
         <code class="devsite-terminal">pip install --upgrade pip</code><br/>
         # Current stable release for CPU-only
         <code class="devsite-terminal">pip install tensorflow</code><br/>
-        # Or, preview build for CPU-only (unstable)
+        # Or preview build for CPU/GPU (unstable)
         <code class="devsite-terminal">pip install tf-nightly</code><br/>
 
   - classname:
