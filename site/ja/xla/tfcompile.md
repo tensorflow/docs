@@ -2,25 +2,25 @@
 
 ## tfcompileとは？
 
-`tfcompile` は、TensorFlowのグラフを実行コードへ事前にコンパイルするための標準ツールです。
-全体のバイナリサイズを減らすことに加えて、ランタイムによるいくつかのオーバヘッドを無くすことができます。
-`tfcompile` の典型的な使い方は、推論向けの計算グラフをモバイルデバイス向けの実行コードへコンパイルすることです。
+`tfcompile` は、TensorFlowのグラフを実行コードへ事前に(AOT)コンパイルするための標準ツールです。
+全体のバイナリサイズを減らすことに加えて、いくつかの実行時オーバヘッドを無くすことができます。
+`tfcompile` の典型的な使い方は、推論用の計算グラフをモバイルデバイス向けの実行コードへコンパイルすることです。
 
 TensorFlowのグラフは、通常TensorFlowのランタイムによって実行されます。
-これは、グラフの各ノードを実行することになるため、ランタイムからのオーバヘッドを招きます。
-TensorFlowのグラフやランタイムを利用するためのコードが必要になるため、全体のバイナリサイズが大きくなります。
-`tfcompile` よって生成される実行コードは、TensorFlowのランタイムを使わないことから、実際に計算で使用するカーネルのみに依存します。
+これは、グラフの各ノードを実行することになるため、実行時オーバヘッドを招きます。
+TensorFlowのグラフやランタイムのコードが必要になるため、全体のバイナリサイズも大きくなります。
+`tfcompile` よって生成される実行コードは、TensorFlowのランタイムを使わず、実際に計算で使用するカーネルのみに依存します。
 
-コンパイラは、XLAフレームワーク上でビルドされます。
+コンパイラは、XLAフレームワークの上に作られています。
 TensorFlowとXLAフレームワークをつなぐコードは、[tensorflow/compiler](https://www.tensorflow.org/code/tensorflow/compiler/) に存在します。
 
 
 ## tfcompileは何をするか？
 
-`tfcompile` は、TensorFlowの概念であるfeedとfetchによって識別されるサブグラフを受け取り、サブグラフを満たすファンクションを生成します。
+`tfcompile` は、TensorFlowの概念であるfeedとfetchによって形作られるサブグラフを受け取り、サブグラフを満たすファンクションを生成します。
 `feeds` はファンクションの入力引数、`fetches` はファンクションの出力引数です。
-切り取られた結果のサブグラフは、PlaceholderとVariableノードを含めることができないため、すべての入力はfeedによって指定される必要があります。
-すべてのPlacerholderとVariableは、共通にfeedとして指定され、最終的なサブグラフはこれらのノードを一切含まないことを保証します。
+刈り込んだ結果のサブグラフは、PlaceholderとVariableノードを含めることができないため、すべての入力はfeedによって指定される必要があります。
+すべてのPlacerholderとVariableは、feedとして指定されるのは共通であり、最終的なサブグラフはこれらのノードを一切含みません。
 生成されたファンクションは、ファンクションのシグネチャをエクスポートするヘッダファイルと、実装を含むオブジェクトファイルからなる `cc_library` としてパッケージ化されます。
 ユーザーは、生成されたファンクションを適切に呼び出すコードを書きます。
 
@@ -28,17 +28,17 @@ TensorFlowとXLAフレームワークをつなぐコードは、[tensorflow/comp
 ## tfcompileの利用
 
 このセクションでは、`tfcompile` を使ってTensorFlowのサブグラフから実行可能バイナリを生成するための、高レベルのステップを詳しく述べます。
-ステップは、
+ステップは、以下からなります。
 
-* ステップ1: コンパイルするサブグラフを設計する
+* ステップ1: コンパイルするサブグラフを構成する
 * ステップ2: サブグラフをコンパイルするための `tf_library` ビルドマクロを利用する
 * ステップ3: サブグラフを呼び出すコードを書く
 * ステップ4: 最終的なバイナリを作成する
 
 
-### ステップ1: コンパイルするサブグラフを設計する
+### ステップ1: コンパイルするサブグラフを構成する
 
-生成されたファンクションの入力および出力引数に相当する、feedとfetchを確認します。
+生成されたファンクションの入力および出力引数に相当する、feedとfetchを決めます。
 そして、[`tensorflow.tf2xla.Config`](https://www.tensorflow.org/code/tensorflow/compiler/tf2xla/tf2xla.proto) の `feeds` および `fetches` を設定します。
 
 ```textproto
@@ -73,7 +73,7 @@ fetch {
 
 このステップでは、`tf_library` ビルドマクロを利用して、グラフを `cc_library` に変換します。
 `cc_library` は、グラフから生成されたコードを含んだオブジェクトファイルと、生成されたコードにアクセスするためのヘッダファイルから構成されます。
-TensorFlowのグラフを実行コードにコンパイルするための `tfcompile` は、`tf_library` を利用しています。
+`tf_library` は、TensorFlowのグラフを実行コードにコンパイルするための `tfcompile` を利用しています。
 
 ```build
 load("//tensorflow/compiler/aot:tfcompile.bzl", "tf_library")
@@ -83,15 +83,15 @@ tf_library(
     # nameは、以下のビルドルールを生成するために使用します。
     # <name>           : cc_libraryは、生成されたヘッダとオブジェクトファイルをパッケージ化します。
     # <name>_test      : cc_testは、簡単なテストとベンチマークを含みます。
-    # <name>_benchmark : cc_binaryには、最小限の依存関係を持つスタンドアロンなベンチマークを含み、
+    # <name>_benchmark : cc_binaryは、最小限の依存関係を持つスタンドアロンなベンチマークを含み、
     #                    モバイルデバイスで実行できます。
     name = "test_graph_tfmatmul",
-    # cpp_classには、namespaceを含む生成後のC++のクラス名を指定します。
+    # cpp_classには、名前空間を含む生成後のC++のクラス名を指定します。
     # クラスは、与えられた名前空間、もし名前空間が与えられていない場合はグローバルな名前空間に生成されます。
     cpp_class = "foo::bar::MatMulComp",
     # graphには、入力となるGraphDefを指定しますが、デフォルトではバイナリフォーマットを期待しています。
     # テキストフォーマットを使用する場合、接尾辞 '.pbtex' を使ってください。
-    # サブグラフは、この入力されたグラフから生成され、入力としてのfeedと出力としてのfetchを含みます。
+    # 入力のfeedと出力のfetchを含んだこの入力グラフから、サブグラフが生成されます。
     # PlaceholderやVariableのOperationは、このサブグラフには存在しません。
     graph = "test_graph_tfmatmul.pb",
     # configには、入力となるConfigを指定しますが、デフォルトではバイナリフォーマットを期待しています。
@@ -101,7 +101,7 @@ tf_library(
 )
 ```
 
-> この例で使用するGraphDefを生成するためには、--out_dirフラグを使って出力場所を指定した状態で [make_test_graphs.py](https://www.tensorflow.org/code/tensorflow/compiler/aot/tests/make_test_graphs.py) を実行してください。
+> この例で使用するGraphDef (test_graph_tfmatmul.pb)を生成するためには、--out_dirフラグを使って出力場所を指定した状態で [make_test_graphs.py](https://www.tensorflow.org/code/tensorflow/compiler/aot/tests/make_test_graphs.py) を実行してください。
 
 典型的なグラフとして、学習時に学習される重みを表現する [`Variables`](https://www.tensorflow.org/guide/variables) を含んだものがありますが、`tfcompile` は `Variables` を含んだサブグラフをコンパイルできません。
 ツール [freeze_graph.py](https://www.tensorflow.org/code/tensorflow/python/tools/freeze_graph.py) は、チェックポイントファイルに保存された値を使って、Variablesを定数に変換します。
@@ -112,7 +112,7 @@ tf_library(
 
 `tf_library` ビルドマクロに関する詳細は、[tfcompile.bzl](https://www.tensorflow.org/code/tensorflow/compiler/aot/tfcompile.bzl) を参照してください。
 
-`tfcompile` ツールの下層の詳細については、[tfcompile_main.cc](https://www.tensorflow.org/code/tensorflow/compiler/aot/tfcompile_main.cc) を参照してください。
+基本となる `tfcompile` ツールの詳細については、[tfcompile_main.cc](https://www.tensorflow.org/code/tensorflow/compiler/aot/tfcompile_main.cc) を参照してください。
 
 
 ### ステップ3: サブグラフを呼び出すコードを書く
@@ -128,7 +128,7 @@ namespace foo {
 namespace bar {
 
 // MatMulCompは、事前にTensorFlowのグラフとして指定された計算を表現し、
-// 実行コードへコンパイルされます。
+// 実行コードへコンパイルされました。
 class MatMulComp {
  public:
   // AllocModeは、バッファの割り当てモードを制御します。
@@ -176,9 +176,9 @@ class MatMulComp {
 
 生成されたクラスでは、3つのバッファが管理されます。
 `args` は入力、`results` は出力、`temps` は計算を実行するために内部で利用する一時的なバッファを表しています。
-デフォルトでは、生成されたクラスのインスタンスは、これらのすべてのバッファを割り当てて管理します。
+デフォルトでは、生成されたクラスのそれぞれのインスタンスは、これらのすべてのバッファを確保して管理します。
 コンストラクタの引数 `AllocMode` はこの振る舞いを変えるために使うことができます。
-すべてのバッファは、64バイトの境界にアライメントされている必要があります。
+すべてのバッファは、64バイトの境界にアライメントされています。
 
 生成されたC++クラスは、XLAによって生成された低レベルのコードを単にラッパするクラスです。
 
