@@ -5,6 +5,8 @@ TensorFlow provides a C API that can be used to build
 <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h" class="external"><code>c_api.h</code></a>
 and designed for simplicity and uniformity rather than convenience.
 
+Note: There is no `libtensorflow` support for TensorFlow 2 yet. It is expected
+in a future release.
 
 ## Supported Platforms
 

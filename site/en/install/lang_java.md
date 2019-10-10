@@ -5,6 +5,9 @@ TensorFlow provides a
 particularly useful for loading models created with Python and running them
 within a Java application.
 
+Note: There is no `libtensorflow` support for TensorFlow 2 yet. It is expected
+in a future release.
+
 Caution: The TensorFlow Java API is *not* covered by the TensorFlow
 [API stability guarantees](../guide/versions.md).
 
