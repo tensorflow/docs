@@ -37,7 +37,7 @@ using the following format:
 | ---         | ---                                                                                               |
 | `latest`    | The latest release of TensorFlow CPU binary image. Default.                                       |
 | `nightly`   | Nightly builds of the TensorFlow image. (unstable)                                                |
-| *`version`* | Specify the *version* of the TensorFlow binary image, for example: *1.14.0*                       |
+| *`version`* | Specify the *version* of the TensorFlow binary image, for example: *2.0.0*                       |
 | `devel`     | Nightly builds of a TensorFlow `master` development environment. Includes TensorFlow source code. |
 
 Each base *tag* has variants that add or change functionality:
