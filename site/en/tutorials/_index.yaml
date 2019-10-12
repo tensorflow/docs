@@ -55,7 +55,7 @@ landing_page:
     - classname: tfo-landing-page-card
       description: >
         <a href="/tutorials/quickstart/advanced"><h3 class="no-link">Advanced quickstart</h3></a>
-        This "Helo, World!" notebook uses the Keras subclassing API and a custom training loop.
+        This "Hello, World!" notebook uses the Keras subclassing API and a custom training loop.
       path: /tutorials/quickstart/advanced
     - classname: tfo-landing-page-card
       description: >
