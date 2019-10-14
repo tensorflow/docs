@@ -1,63 +1,49 @@
-# Create an op
+# op 생성하기
 
-Note: To guarantee that your C++ custom ops are ABI compatible with TensorFlow's
-official pip packages, please follow the guide at
-[Custom op repository](https://github.com/tensorflow/custom-op). It has an
-end-to-end code example, as well as Docker images for building and distributing
-your custom ops.
+Note: 사용자 정의 op가 텐서플로 공식 pip 패키지를 위한 ABI 호환성을 보장하기 위해서,
+[사용자 정의 op 저장소](https://github.com/tensorflow/custom-op)의 설명을 따르세요.
+저장소에는 사용자 정의 op를 생성하고 배포하기 위해 필요한 도커 이미지뿐만 아니라, 전체(end-to-end) 코드 예제가 있습니다.
 
-If you'd like to create an op that isn't covered by the existing TensorFlow
-library, we recommend that you first try writing the op in Python as
-a composition of existing Python ops or functions. If that isn't possible, you
-can create a custom C++ op. There are several reasons why you might want to
-create a custom C++ op:
+기존 텐서플로 라이브러리에서 제공하지 않는 op를 만들고 싶다면,
+먼저, 파이썬 op나 함수를 조합해서 파이썬으로 op를 작성하는 것을 추천합니다.
+만약에 그것이 불가능하다면, C++로 사용자 정의 op를 작성하세요.
+다음은 C++로 op를 작성해야만 하는 몇 가지 이유입니다:
 
-*   It's not easy or possible to express your operation as a composition of
-    existing ops.
-*   It's not efficient to express your operation as a composition of existing
-    primitives.
-*   You want to hand-fuse a composition of primitives that a future compiler
-    would find difficult fusing.
+* 작업이 기존 op를 조합해서 표현하기 쉽지않거나 불가능한 경우
+* 작업이 기존 기본 연산을 조합해서 사용하는 것이 효율적이지 않은 경우
+* 미래의 컴파일러가 어려운 융합(fusing)을 찾기 위해서 기본 연산의 수동 조합하려는 경우
 
-For example, imagine you want to implement something like "median pooling",
-similar to the "MaxPool" operator, but computing medians over sliding windows
-instead of maximum values.  Doing this using a composition of operations may be
-possible (e.g., using ExtractImagePatches and TopK), but may not be as
-performance- or memory-efficient as a native operation where you can do
-something more clever in a single, fused operation. As always, it is typically
-first worth trying to express what you want using operator composition, only
-choosing to add a new operation if that proves to be difficult or inefficient.
+예를 들어, "MaxPool" 연산과 비슷한 "median pooling"과 같은 것을 구현한다고 했을 때,
+최대값을 찾는 대신에 이동하는 윈도우안에 포함된 값의 중간값을 찾는 연산을 해야 합니다.
+이러한 작업을 다른 연산의 조합(예를 들어, ExtractImagePatches 와 TopK를 사용)으로 해결 할 수 있지만,
+그것은 하나의 융합된 연산으로 좀 더 잘 작성된 네이티브 연산처럼 성능이나 메모리 사용에 있어 효율적이지 않을 수 있습니다.
+항상 그렇듯, 연산자 조합을 활용해서 원하는 것을 표현하려고 시도하는 것이 좋고,
+그것이 어렵고 비효율적인 경우에만 새로운 연산을 추가하는 것이 좋습니다.
 
-To incorporate your custom op you'll need to:
+사용자 정의 op를 사용하려면 다음이 필요합니다:
 
-1.  Register the new op in a C++ file. Op registration defines an interface
-    (specification) for the op's functionality, which is independent of the
-    op's implementation. For example, op registration defines the op's name and
-    the op's inputs and outputs. It also defines the shape function
-    that is used for tensor shape inference.
-2.  Implement the op in C++. The implementation of an op is known
-    as a kernel, and it is the concrete implementation of the specification you
-    registered in Step 1. There can be multiple kernels for different input /
-    output types or architectures (for example, CPUs, GPUs).
-3.  Create a Python wrapper (optional). This wrapper is the public API that's
-    used to create the op in Python. A default wrapper is generated from the
-    op registration, which can be used directly or added to.
-4.  Write a function to compute gradients for the op (optional).
-5.  Test the op. We usually do this in Python for convenience, but you can also
-    test the op in C++. If you define gradients, you can verify them with the
-    Python `tf.test.compute_gradient_error`.
-    See
-    [`relu_op_test.py`](https://www.tensorflow.org/code/tensorflow/python/kernel_tests/relu_op_test.py) as
-    an example that tests the forward functions of Relu-like operators and
-    their gradients.
+1.  C++파일에 새로운 op를 등록하세요.
+    Op 등록은 구현과 독립적인 op 기능에 대한 인터페이스(상세 사양)을 정의하는 것입니다.
+    예를 들어, op 등록은 op 이름과 입력 및 출력을 정의하는 것입니다.
+    또한, 텐서 형태 추론에 사용될 수 있는 형태 함수를 정의합니다.
+2.  C++로 op를 구현하세요.
+    Op 구현은 커널로 알려져 있고 1단계에서 등록한 상세 사양의 충실한 구현입니다.
+    다른 입/출력 형태 또는 아키텍쳐(예를 들어 CPU, GPU)에 따라 다양한 커널이 있을 수 있습니다.
+3.  파이썬 래퍼(wrapper)를 만드세요(선택).
+    이 래퍼는 파이썬에서 작성된 op를 사용하기 위한 공개용 API 입니다.
+    기본 래퍼는 op 등록과정에서 자동으로 생성되고 그것을 바로 사용하거나 내용을 추가할 수 있습니다.
+4.  op를 위한 그래디언트를 계산할 함수를 작성하세요(선택).
+5.  op를 테스트하세요.
+    편의상 파이썬에서 테스트를 하지만 C++에서 테스트를 할 수 있습니다.
+    그래디언트를 정의했다면, 파이썬 `tf.test.compute_gradient_error`를 활용해 검증할 수 있습니다.
+    렐루(Relu)와 유사한 연산자의 정방향 함수와 그들의 그래디언트를 테스트하는 예인
+    [`relu_op_test.py`](https://www.tensorflow.org/code/tensorflow/python/kernel_tests/relu_op_test.py)를 참고하세요.
 
-### Prerequisites
+### 선행조건
 
-*   Some familiarity with C++.
-*   Must have installed the
-    [TensorFlow binary](../../install), or must have
-    [downloaded TensorFlow source](../../install/source.md),
-    and be able to build it.
+* C++에 익숙
+* [텐서플로 실행파일](../../install)이 설치되어 있거나
+  [텐서플로 소스를 다운로드](../../install/source.md)해서 그 소스를 설치할 수 있어야 함
 
 ## Define the op interface
 
@@ -866,24 +852,24 @@ template <typename T>
 class ZeroOutOp : public OpKernel {
  public:
   explicit ZeroOutOp(OpKernelConstruction* context) : OpKernel(context) {}
-  
+
   void Compute(OpKernelContext* context) override {
     // Grab the input tensor
     const Tensor& input_tensor = context->input(0);
     auto input = input_tensor.flat<T>();
-    
+
     // Create an output tensor
     Tensor* output = NULL;
     OP_REQUIRES_OK(context,
                    context->allocate_output(0, input_tensor.shape(), &output));
     auto output_flat = output->template flat<T>();
-    
+
     // Set all the elements of the output tensor to 0
     const int N = input.size();
     for (int i = 0; i < N; i++) {
       output_flat(i) = 0;
     }
-    
+
     // Preserve the first input value
     if (N > 0) output_flat(0) = input(0);
   }
