@@ -296,8 +296,9 @@ these two configurations in the same source tree.
 The filename of the generated `.whl` file depends on the TensorFlow version and
 your platform. Use `pip install` to install the package, for example:
 
-<pre class="devsite-terminal prettyprint lang-bsh">
-pip install /tmp/tensorflow_pkg/tensorflow-<var>version</var>-<var>tags</var>.whl
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">pip uninstall tensorflow  # remove current version</code>
+<code class="devsite-terminal">pip install /tmp/tensorflow_pkg/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
 
 Success: TensorFlow is now installed.

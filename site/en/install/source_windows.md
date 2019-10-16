@@ -230,8 +230,9 @@ these two configurations in the same source tree.
 The filename of the generated `.whl` file depends on the TensorFlow version and
 your platform. Use `pip3 install` to install the package, for example:
 
-<pre class="devsite-terminal tfo-terminal-windows prettyprint lang-bsh">
-pip3 install C:/tmp/tensorflow_pkg/tensorflow-<var>version</var>-cp36-cp36m-win_amd64.whl
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal tfo-terminal-windows">pip3 uninstall tensorflow  # remove current version</code>
+<code class="devsite-terminal tfo-terminal-windows">pip3 install C:/tmp/tensorflow_pkg/tensorflow-<var>version</var>-cp36-cp36m-win_amd64.whl</code>
 </pre>
 
 Success: TensorFlow is now installed.

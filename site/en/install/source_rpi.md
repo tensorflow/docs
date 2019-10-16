@@ -85,8 +85,9 @@ When the build finishes (~30 minutes), a `.whl` package file is created in the
 output-artifacts directory of the host's source tree. Copy the wheel file to the
 Raspberry Pi and install with `pip`:
 
-<pre class="devsite-terminal devsite-click-to-copy">
-pip install tensorflow-<var>version</var>-cp34-none-linux_armv7l.whl
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">pip uninstall tensorflow  # remove current version</code>
+<code class="devsite-terminal">pip install tensorflow-<var>version</var>-cp34-none-linux_armv7l.whl</code>
 </pre>
 
 Success: TensorFlow is now installed on Raspian.
