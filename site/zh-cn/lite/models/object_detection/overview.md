@@ -26,16 +26,9 @@
 
 <img src="images/android_apple_banana.png" alt="Screenshot of Android example" width="30%">
 
-An object detection model is trained to detect the presence and location of
-multiple classes of objects. For example, a model might be trained with images
-that contain various pieces of fruit, along with a _label_ that specifies the
-class of fruit they represent (e.g. an apple, a banana, or a strawberry), and
-data specifying where each object appears in the image.
+物体检测模块被训练用于检测多种物体的存在以及他们的位置。例如，模型可使用包含多个水果的图片和水果所分别代表（如，苹果，香蕉，草莓）的 _label_  进行训练，返回的数据指明了图像中对象所出现的位置。
 
-When we subsequently provide an image to the model, it will output a list of the
-objects it detects, the location of a bounding box that contains each object,
-and a score that indicates the confidence that detection was correct.
-
+随后，当我们为模型提供图片，模型将会返回一个列表，其中包含检测到的对象，包含对象矩形框的坐标和代表检测可信度的分数。
 ### 模块输出
 
 想象一下一个模块被训练用于检测苹果，香蕉和草莓。当我们输入一幅图片后，模块将会返回给我们一组本示例的检测结果。
@@ -79,17 +72,9 @@ and a score that indicates the confidence that detection was correct.
 
 ### 信任分数
 
-To interpret these results, we can look at the score and the location for each
-detected object. The score is a number between 0 and 1 that indicates confidence
-that the object was genuinely detected. The closer the number is to 1, the more
-confident the model is.
+我们使用信任分数和所检测到对象的坐标来表示检测结果。分数反应了被检测到物体的可信度，范围在 0 和 1 之间。最大值为1，数值越大可信度越高。
 
-Depending on your application, you can decide a cut-off threshold below which
-you will discard detection results. For our example, we might decide a sensible
-cut-off is a score of 0.5 (meaning a 50% probability that the detection is
-valid). In that case, we would ignore the last two objects in the array, because
-those confidence scores are below 0.5:
-
+您可以检测到裁切的极限值并据此放弃检测结果，这取决于您的应用。 在我们的示例中，我们检测到裁切的极限值为 0.5 （这意味50%的检测是可信的）。在此示例中，我们将会忽略数组中最后两个对象，因为他们的信任分数低于了 0.5 。
 <table style="width: 60%;">
   <thead>
     <tr>
@@ -115,28 +100,20 @@ those confidence scores are below 0.5:
       <td>[7, 82, 89, 163] </td>
     </tr>
     <tr>
-      <td style="background-color: #e9cecc; text-decoration-line: line-through;">Banana</td>
+      <td style="background-color: #e9cecc; text-decoration-line: line-through;">香蕉</td>
       <td style="background-color: #e9cecc; text-decoration-line: line-through;">0.23</td>
       <td style="background-color: #e9cecc; text-decoration-line: line-through;">[42, 66, 57, 83]</td>
     </tr>
     <tr>
-      <td style="background-color: #e9cecc; text-decoration-line: line-through;">Apple</td>
+      <td style="background-color: #e9cecc; text-decoration-line: line-through;">苹果</td>
       <td style="background-color: #e9cecc; text-decoration-line: line-through;">0.11</td>
       <td style="background-color: #e9cecc; text-decoration-line: line-through;">[6, 42, 31, 58]</td>
     </tr>
   </tbody>
 </table>
 
-The cut-off you use should be based on whether you are more comfortable with
-false positives (objects that are wrongly identified, or areas of the image that
-are erroneously identified as objects when they are not), or false negatives
-(genuine objects that are missed because their confidence was low).
-
-For example, in the following image, a pear (which is not an object that the
-model was trained to detect) was misidentified as a "person". This is an example
-of a false positive that could be ignored by selecting an appropriate cut-off.
-In this case, a cut-off of 0.6 (or 60%) would comfortably exclude the false
-positive.
+使用裁切功能必须基于误判位置（物体识别错误或物体位置识别有误）或错误（由于可信度过低导致的物体未被捕捉）。
+如下图所示，梨子（未被模块训练检测的物体）被误判为“人”。实例中的误判可以通过适当的图片裁切来忽略。在此示例中，裁剪 0.6 （或 60% ）可以适当的排除误判。
 
 <img src="images/false_positive.png" alt="Screenshot of Android example showing a false positive" width="30%">
 
@@ -157,94 +134,74 @@ positive.
 </table>
 
 top 的值代表了矩形框的顶部距离图片上部的距离，单位为像素。 left 的值代表了矩形框的左边距离图片左边的距离。bottom 和 right 值的表示方法同理。
-注意：
-Note: Object detection models accept input images of a specific size. This is likely to be different from the size of the raw image captured by your device’s camera, and you will have to write code to crop and scale your raw image to fit the model’s input size (there are examples of this in our <a href="#get_started">example applications</a>).<br /><br />The pixel values output by the model refer to the position in the cropped and scaled image, so you must scale them to fit the raw image in order to interpret them correctly.
+注意：对象检测模块接受特定尺寸的模型作为输入。这很有可能与您的图像设备生成的原始图片尺寸不同，所以您需要编写代码将原始图片缩放至模型可接受的尺寸(我们提供了 <a href="#get_started">示范程序</a>)。 <br /><br />模块输出的像素值表示在缩放后的图片中的位置，所以您需要调整调整原始图片等尺寸来保证正确。
 
-## 初始模块
+## 初始模型
 
-We recommend starting with this pre-trained quantized COCO SSD MobileNet v1
-model.
+我们推荐使用预训练的量化 COCO SSD MobileNet v1 模型来入门。
 
-<a class="button button-primary" href="http://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip">Download
-starter model and labels</a>
+<a class="button button-primary" href="http://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip">下载初始模型和标签</a>
 
-### Uses and limitations
+### 用法和限制
 
-The object detection model we provide can identify and locate up to 10 objects
-in an image. It is trained to recognize 80 classes of object. For a full list of
-classes, see the labels file in the
+物体检测模块最多能够在一张图中识别和定位10个物体。目前支持80种物体的识别，详细列表如下：
 <a href="http://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip">model
 zip</a>.
 
-If you want to train a model to recognize new classes, see
-<a href="#customize_model">Customize model</a>.
+如果您需为识别新类型而训练模型，请参考
+<a href="#customize_model">自定义模块</a>.
 
-For the following use cases, you should use a different type of model:
+接下来的使用案例中，您可能用到不同种类的模块：
 
 <ul>
-  <li>Predicting which single label the image most likely represents (see <a href="../image_classification/overview.md">image classification</a>)</li>
-  <li>Predicting the composition of an image, for example subject versus background (see <a href="../segmentation/overview.md">segmentation</a>)</li>
+  <li>预测所表达内容  (参考 <a href="../image_classification/overview.md">图片分类</a>)</li>
+  <li>预测图片的构成，如主题与背景 (参考 <a href="../segmentation/overview.md">分割</a>)</li>
 </ul>
 
-### Input
+### 输入
 
-The model takes an image as input. The expected image is 300x300 pixels, with
-three channels (red, blue, and green) per pixel. This should be fed to the model
-as a flattened buffer of 270,000 byte values (300x300x3). Since the model is
-<a href="../../performance/post_training_quantization.md">quantized</a>, each
-value should be a single byte representing a value between 0 and 255.
+模块使用单个图片作为输入。理想的图片尺寸是 300x300 像素，每个像素有3个通道（红，蓝，和绿）。这将反馈给模块一个 27000 字节（ 300 x 300 x 3 ）的扁平化缓存。由于该模块经过标准化处理，每一个字节代表了 0 到 255 之间的一个值。
+### 输出
 
-### Output
-
-The model outputs four arrays, mapped to the indices 0-4. Arrays 0, 1, and 2
-describe 10 detected objects, with one element in each array corresponding to
-each object. There will always be 10 objects detected.
-
+该模型输出四个数组，分别对应索引的 0-4。前三个数组描述10个被检测到的物体，每个数组的最后一个元素匹配每个对象。检测到的物体数量总是10。
 <table>
   <thead>
     <tr>
-      <th>Index</th>
-      <th>Name</th>
-      <th>Description</th>
+      <th>索引</th>
+      <th>名称</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>0</td>
-      <td>Locations</td>
-      <td>Multidimensional array of [10][4] floating point values between 0 and 1, the inner arrays representing bounding boxes in the form [top, left, bottom, right]</td>
+      <td>坐标</td>
+      <td> [10][4] 多维数组，每一个元素由 0 到1 之间的浮点数，内部数组表示了矩形边框的  [top, left, bottom, right]</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>Classes</td>
-      <td>Array of 10 integers (output as floating point values) each indicating the index of a class label from the labels file</td>
+      <td>类型</td>
+      <td>10个整型元素组成的数组（输出为浮点型值），每一个元素代表标签文件中的索引。</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>Scores</td>
-      <td>Array of 10 floating point values between 0 and 1 representing probability that a class was detected</td>
+      <td>分数</td>
+      <td>10个整型元素组成的数组，元素值为 0 至 1 之间的浮点数，代表检测到的类型</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>Number and detections</td>
-      <td>Array of length 1 containing a floating point value expressing the total number of detection results</td>
+      <td>检测到的物体和数量</td>
+      <td>长度为1的数组，元素为检测到的总数</td>
     </tr>
   </tbody>
 </table>
 
-## Customize model
+## 自定义模块
 
-The pre-trained models we provide are trained to detect 80 classes of object.
-For a full list of classes, see the labels file in the
+我们提供预训练模块可被用于检测80多种物体。详细的列表如下：
 <a href="http://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip">model
 zip</a>.
 
-You can use a technique known as transfer learning to re-train a model to
-recognize classes not in the original set. For example, you could re-train the
-model to detect multiple types of vegetable, despite there only being one
-vegetable in the original training data. To do this, you will need a set of
-training images for each of the new labels you wish to train.
-
-Learn how to perform transfer learning in
-<a href="https://medium.com/tensorflow/training-and-serving-a-realtime-mobile-object-detector-in-30-minutes-with-cloud-tpus-b78971cf1193">Training
-and serving a real-time mobile object detector in 30 minutes</a>.
+您可以使用转移学习等技术来重新训练模型从而能够辨识初始设置之外的物品种类。例如，您可以重新训练模型来辨识各种蔬菜，哪怕原始训练数据中只有一种蔬菜。为达成此目标，您需要为每一个需要训练的标签准备一系列训练图片。
+了解如何实时转移学习
+<a href="https://medium.com/tensorflow/training-and-serving-a-realtime-mobile-object-detector-in-30-minutes-with-cloud-tpus-b78971cf1193">30分钟内训练和运行实时移动物体检测器</a>.
