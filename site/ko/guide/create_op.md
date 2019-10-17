@@ -45,17 +45,16 @@ Note: 사용자 정의 op가 텐서플로 공식 pip 패키지를 위한 ABI 호
 * [텐서플로 실행파일](../../install)이 설치되어 있거나
   [텐서플로 소스를 다운로드](../../install/source.md)해서 그 소스를 설치할 수 있어야 함
 
-## Define the op interface
+## op 인터페이스 정의하기
 
-You define the interface of an op by registering it with the TensorFlow system.
-In the registration, you specify the name of your op, its inputs (types and
-names) and outputs (types and names), as well as docstrings and
-any [attrs](#attrs) the op might require.
+op 인터페이스를 정의하기 위해서는 그 인터페이스를 텐서플로 시스템에 등록해야 합니다.
+등록을 위해서는 op의 이름과 입력(변수형 및 이름), 출력(변수형 및 이름)과 함께
+docstrings 및 op가 요구하는 [속성](#attrs)을 명시해야합니다.
 
-To see how this works, suppose you'd like to create an op that takes a tensor of
-`int32`s and outputs a copy of the tensor, with all but the first element set to
-zero. To do this, create a file named `zero_out.cc`. Then add a call to the
-`REGISTER_OP` macro that defines the interface for your op:
+이 동작과정을 알기 위해, 입력으로 `int32`인 텐서를 받아서
+첫번째 요소를 제외한 모든 값을 0으로 설정한 복제본을 춢력하는 함수를 만든다고 가정해 봅시다.
+이를 위해, `zero_out.cc` 파일을 생성합니다.
+그리고 나서 op 인터페이스를 정의한 `REGISTER_OP` 매크로를 호출하는 소스를 추가합니다:
 
 ```c++
 #include "tensorflow/core/framework/op.h"
@@ -72,15 +71,13 @@ REGISTER_OP("ZeroOut")
     });
 ```
 
-This `ZeroOut` op takes one tensor `to_zero` of 32-bit integers as input, and
-outputs a tensor `zeroed` of 32-bit integers. The op also uses a shape function
-to ensure that the output tensor is the same shape as the input tensor. For
-example, if the input is a tensor of shape [10, 20], then this shape function
-specifies that the output shape is also [10, 20].
+`ZeroOut`라는 op는 32비트 정수형 텐서 `to_zero`를 입력받아서, 32비트 정수형 텐서 `zeroed` 를 출력합니다.
+또한 출력 텐서가 입력 텐서와 동일한 형태임을 보장하기 위해서 형태 함수를 사용합니다.
+예를 들어, 입력이 [10, 20] 형태의 텐서이라면, 형태 함수에서 출력 역시 [10, 20] 형태의 텐서이라고 명시합니다.
 
 
->   A note on naming: The op name must be in CamelCase and it must be unique
->   among all other ops that are registered in the binary.
+> 함수명 관련 주의: op 이름은 낙타대문자(CamelCase) 표현식이어야 하고,
+> 실행 파일에 등록된 다른 op와 중복되지 않아야 합니다.
 
 ## Implement the kernel for the op
 
