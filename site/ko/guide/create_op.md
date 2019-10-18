@@ -79,16 +79,14 @@ REGISTER_OP("ZeroOut")
 > 함수명 관련 주의: op 이름은 낙타대문자(CamelCase) 표현식이어야 하고,
 > 실행 파일에 등록된 다른 op와 중복되지 않아야 합니다.
 
-## Implement the kernel for the op
+## op를 위한 커널 구현하기
 
-After you define the interface, provide one or more implementations of the op.
-To create one of these kernels, create a class that extends `OpKernel` and
-overrides the `Compute` method. The `Compute` method provides one `context`
-argument of type `OpKernelContext*`, from which you can access useful things
-like the input and output tensors.
+인터페이스를 정의한 후, 1개 이상의 op 구현를 제공해야 합니다.
+이런 커널 중 하나를 생성하기 위해서 `Compute` 메서드를 오버라이드한 `OpKernel` 확장 클래스를 생성해야 합니다.
+`Compute` 메서드는 `OpKernelContext*` 형태의 `context` 변수를 제공하고,
+이 변수를 통해서 입력과 출력 텐서와 같은 유용한 정보에 접근할 수 있습니다.
 
-Add your kernel to the file you created above. The kernel might look something
-like this:
+위에서 생성한 파일에 작성한 커널을 추가하면 그 커널은 다음과 같은 형태일 것입니다:
 
 ```c++
 #include "tensorflow/core/framework/op_kernel.h"
@@ -100,72 +98,64 @@ class ZeroOutOp : public OpKernel {
   explicit ZeroOutOp(OpKernelConstruction* context) : OpKernel(context) {}
 
   void Compute(OpKernelContext* context) override {
-    // Grab the input tensor
+    // 입력 텐서 얻어오기
     const Tensor& input_tensor = context->input(0);
     auto input = input_tensor.flat<int32>();
 
-    // Create an output tensor
+    // 출력 텐서 생성하기
     Tensor* output_tensor = NULL;
     OP_REQUIRES_OK(context, context->allocate_output(0, input_tensor.shape(),
                                                      &output_tensor));
     auto output_flat = output_tensor->flat<int32>();
 
-    // Set all but the first element of the output tensor to 0.
+    // 출력 텐서에 첫값만 제외한 나머지 값을 0으로 설정
     const int N = input.size();
     for (int i = 1; i < N; i++) {
       output_flat(i) = 0;
     }
 
-    // Preserve the first input value if possible.
+    // 가능하다면, 입력 텐서 첫값을 출력 텐서에 쓰기
     if (N > 0) output_flat(0) = input(0);
   }
 };
 ```
 
-After implementing your kernel, you register it with the TensorFlow system. In
-the registration, you specify different constraints under which this kernel
-will run. For example, you might have one kernel made for CPUs, and a separate
-one for GPUs.
+커널을 구현한 후, 텐서플로 시스템에 등록해야 합니다.
+등록과정에서 커널을 실행할 수 있는 제한조건을 명시해야 합니다.
+예를 들어, 커널 하나를 CPU에서 동작하도록 만들고 GPU를 위한 커널은 별개로 만들 수 있습니다.
 
-To do this for the `ZeroOut` op, add the following to `zero_out.cc`:
+`ZeroOut` op에서 이를 위해 `zero_out.cc`에 다음을 추가하세요:
 
 ```c++
 REGISTER_KERNEL_BUILDER(Name("ZeroOut").Device(DEVICE_CPU), ZeroOutOp);
 ```
 
->   Important: Instances of your OpKernel may be accessed concurrently.
->   Your `Compute` method must be thread-safe. Guard any access to class
->   members with a mutex. Or better yet, don't share state via class members!
->   Consider using a [`ResourceMgr`](https://www.tensorflow.org/code/tensorflow/core/framework/resource_mgr.h)
->   to keep track of op state.
+>   중요: OpKernal 인스턴스는 동시에(concurrently) 접근될 수 있습니다.
+>   `Compute`는 스레드에 안전(thread-safe) 해야합니다.
+>   뮤텍스(mutex)로 클래스 변수에 대한 어떤 접근도 보호해야합니다.
+>   아니면 클래스 변수를 통해 상태를 공유하지 마세요!
+>   op 상태를 계속 확인하기 위해서 [`ResourceMgr`](https://www.tensorflow.org/code/tensorflow/core/framework/resource_mgr.h) 사용을 검토해보세요.
 
-### Multi-threaded CPU kernels
+### 멀티 쓰레드 CPU 커널
 
-To write a multi-threaded CPU kernel, the Shard function in
-[`work_sharder.h`](https://www.tensorflow.org/code/tensorflow/core/util/work_sharder.h)
-can be used. This function shards a computation function across the
-threads configured to be used for intra-op threading (see
-intra_op_parallelism_threads in
-[`config.proto`](https://www.tensorflow.org/code/tensorflow/core/protobuf/config.proto)).
+멀티 쓰레드 CPU 커널을 작성하기 위해, [`work_sharder.h`](https://www.tensorflow.org/code/tensorflow/core/util/work_sharder.h)에 있는 Shard 함수를 사용할 수 있습니다.
+이 함수는 내부-op 스레딩을 사용할 수 있도록 설정된 스레드에 계산 함수를 분배합니다
+([`config.proto`](https://www.tensorflow.org/code/tensorflow/core/protobuf/config.proto)의 intra_op_parallelism_threads를 참고하세요).
 
-### GPU kernels
+### GPU 커널
 
-A GPU kernel is implemented in two parts: the OpKernel and the CUDA kernel and
-its launch code.
+GPU 커널 구현은 두 부분으로 구성되어 있습니다: OpKernel과 CUDA 커널 및 관련 실행 코드
 
-Sometimes the OpKernel implementation is common between a CPU and GPU kernel,
-such as around inspecting inputs and allocating outputs.  In that case, a
-suggested implementation is to:
+OpKernel 구현에서 입력값 검사나 출력을 할당하는 부분은
+CPU 커널과 GPU 커널에서 공통적으로 활용되기도 합니다.
+이런 경우 제안하는 구현 방식은:
 
-1. Define the OpKernel templated on the Device and the primitive type of the
-   tensor.
-2. To do the actual computation of the output, the Compute function calls a
-    templated functor struct.
-3. The specialization of that functor for the CPUDevice is defined in the same
-   file, but the specialization for the GPUDevice is defined in a .cu.cc file,
-   since it will be compiled with the CUDA compiler.
+1. 기기와 텐서 변수형을 이용한 템플릿 클래스로 OpKernel을 정의합니다.
+2. 실제 결과를 계산하기 위해 Compute 함수는 템플릿 인자로 호출합니다.
+3. CPUDevice를 인자로 사용하는 구현은 같은 파일에 정의하지만,
+   GPUDevice를 인자로 사용하는 구현은 CUDA 컴파일러에 의해 컴파일되도록 .cu.cc 파일에 정의합니다.
 
-Here is an example implementation.
+다음은 구현의 예입니다.
 
 ```c++
 // kernel_example.h
@@ -178,7 +168,7 @@ struct ExampleFunctor {
 };
 
 #if GOOGLE_CUDA
-// Partially specialize functor for GpuDevice.
+// 일부에 특화된 GpuDevice를 인자로 사용
 template <typename Eigen::GpuDevice, typename T>
 struct ExampleFunctor {
   void operator()(const Eigen::GpuDevice& d, int size, const T* in, T* out);
@@ -198,7 +188,7 @@ using namespace tensorflow;
 using CPUDevice = Eigen::ThreadPoolDevice;
 using GPUDevice = Eigen::GpuDevice;
 
-// CPU specialization of actual computation.
+// CPU에 특화된 실제 계산
 template <typename T>
 struct ExampleFunctor<CPUDevice, T> {
   void operator()(const CPUDevice& d, int size, const T* in, T* out) {
@@ -208,25 +198,25 @@ struct ExampleFunctor<CPUDevice, T> {
   }
 };
 
-// OpKernel definition.
-// template parameter <T> is the datatype of the tensors.
+// OpKernel 정의
+// 템플릿 매개변수 <T>은 텐서 형태
 template <typename Device, typename T>
 class ExampleOp : public OpKernel {
  public:
   explicit ExampleOp(OpKernelConstruction* context) : OpKernel(context) {}
 
   void Compute(OpKernelContext* context) override {
-    // Grab the input tensor
+    // 입력 텐서 얻어오기
     const Tensor& input_tensor = context->input(0);
 
-    // Create an output tensor
+    // 출력 텐서 생성하기
     Tensor* output_tensor = NULL;
     OP_REQUIRES_OK(context, context->allocate_output(0, input_tensor.shape(),
                                                      &output_tensor));
 
-    // Do the computation.
+    // 계산하기
     OP_REQUIRES(context, input_tensor.NumElements() <= tensorflow::kint32max,
-                errors::InvalidArgument("Too many elements in tensor"));
+                errors::InvalidArgument("텐서에 데이터 개수가 너무 많음"));
     ExampleFunctor<Device, T>()(
         context->eigen_device<Device>(),
         static_cast<int>(input_tensor.NumElements()),
@@ -235,21 +225,21 @@ class ExampleOp : public OpKernel {
   }
 };
 
-// Register the CPU kernels.
+// CPU 커널 등록하기
 #define REGISTER_CPU(T)                                          \
   REGISTER_KERNEL_BUILDER(                                       \
-      Name("Example").Device(DEVICE_CPU).TypeConstraint<T>("T"), \
+      Name("예제").Device(DEVICE_CPU).TypeConstraint<T>("T"),    \
       ExampleOp<CPUDevice, T>);
 REGISTER_CPU(float);
 REGISTER_CPU(int32);
 
-// Register the GPU kernels.
+// GPU 커널 등록하기
 #ifdef GOOGLE_CUDA
 #define REGISTER_GPU(T)                                          \
-  /* Declare explicit instantiations in kernel_example.cu.cc. */ \
+  /* kernel_example.cu.cc 에서 명시적 인스턴스화를 선언 */       \
   extern template ExampleFunctor<GPUDevice, T>;                  \
   REGISTER_KERNEL_BUILDER(                                       \
-      Name("Example").Device(DEVICE_GPU).TypeConstraint<T>("T"), \
+      Name("예제").Device(DEVICE_GPU).TypeConstraint<T>("T"),    \
       ExampleOp<GPUDevice, T>);
 REGISTER_GPU(float);
 REGISTER_GPU(int32);
@@ -267,7 +257,7 @@ using namespace tensorflow;
 
 using GPUDevice = Eigen::GpuDevice;
 
-// Define the CUDA kernel.
+// CUDA 커널 정의
 template <typename T>
 __global__ void ExampleCudaKernel(const int size, const T* in, T* out) {
   for (int i = blockIdx.x * blockDim.x + threadIdx.x; i < size;
@@ -276,21 +266,21 @@ __global__ void ExampleCudaKernel(const int size, const T* in, T* out) {
   }
 }
 
-// Define the GPU implementation that launches the CUDA kernel.
+// CUDA 커널을 실행시킬 GPU 구현 정의
 template <typename T>
 void ExampleFunctor<GPUDevice, T>::operator()(
     const GPUDevice& d, int size, const T* in, T* out) {
-  // Launch the cuda kernel.
+  // CUDA 커널 실행
   //
-  // See core/util/gpu_kernel_helper.h for example of computing
-  // block count and thread_per_block count.
+  // 블럭 개수와 블럭당 스레드 개수 계산 예제는
+  // core/util/gpu_kernel_helper.h 에서 확인하세요.
   int block_count = 1024;
   int thread_per_block = 20;
   ExampleCudaKernel<T>
       <<<block_count, thread_per_block, 0, d.stream()>>>(size, in, out);
 }
 
-// Explicitly instantiate functors for the types of OpKernels registered.
+// OpKernal에 등록된 변수형에 따른 명시적 인스턴스화
 template struct ExampleFunctor<GPUDevice, float>;
 template struct ExampleFunctor<GPUDevice, int32>;
 
