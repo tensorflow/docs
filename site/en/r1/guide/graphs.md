@@ -487,7 +487,7 @@ subgraph inside.
 ![](../images/mnist_deep.png)
 
 For more information about visualizing your TensorFlow application with
-TensorBoard, see the [TensorBoard guide](./summaries_and_tensorboard.md).
+TensorBoard, see the [TensorBoard site](summaries_and_tensorboard.md).
 
 ## Programming with multiple graphs
 
