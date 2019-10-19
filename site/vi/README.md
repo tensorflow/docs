@@ -62,3 +62,4 @@ Bảng chú giải này nhằm chuẩn hoá các từ chuyên môn được dị
 | target | / |  |
 | unit | / |  |
 | utility function | hàm tiện ích |  |
+| validate | thẩm định | |
