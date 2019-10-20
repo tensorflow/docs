@@ -235,12 +235,6 @@ class ReferenceResolver(object):
     with open(filepath) as f:
       json_dict = json.load(f)
 
-    # tensorflow_model_optimization still has "current_doc_full_name" as a key
-    # in its _api_cache.json. Hence, popping that key because its not being used
-    # anywhere.
-    if 'current_doc_full_name' in json_dict:
-      json_dict.pop('current_doc_full_name')
-
     return cls(**json_dict)
 
   def _partial_symbols(self, symbol):
@@ -812,6 +806,9 @@ def _generate_signature(func, reverse_index):
     except IndexError:
       # Some python3 signatures fail in tf_inspect.getsource with IndexError
       ast_defaults = [None] * len(argspec.defaults)
+    except AttributeError:
+      # Some objects in tfp throw attribute errors here.
+      ast_defaults = [None] * len(argspec.defaults)
 
     for arg, default, ast_default in zip(
         argspec.args[first_arg_with_default:], argspec.defaults, ast_defaults):
@@ -1135,7 +1132,9 @@ class _ClassPageInfo(object):
     props = []
     if self.namedtuplefields:
       for field in self.namedtuplefields:
-        props.append(props_dict.pop(field))
+        field_prop = props_dict.pop(field, None)
+        if field_prop is not None:
+          props.append(field_prop)
 
     props.extend(sorted(props_dict.values()))
 
@@ -1652,7 +1651,8 @@ def _get_defined_in(py_object, parser_config):
     return None
   if re.search(r'\bapi/(_v2|_v1)\b', rel_path):
     return None
-  if '<embedded stdlib>' in rel_path:
+  if re.search(r'<[\w\s]+>', rel_path):
+    # Built-ins emit paths like <embedded stdlib>, <string>, etc.
     return None
 
   if re.match(r'.*/gen_[^/]*\.py$', rel_path):

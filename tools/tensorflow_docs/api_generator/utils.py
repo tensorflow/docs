@@ -15,14 +15,16 @@
 """Utility functions."""
 
 import importlib
+import logging
 import pkgutil
 
 
-def recursive_import(root):
+def recursive_import(root, strict=False):
   """Recursively imports all the modules under a root package.
 
   Args:
     root: A python package.
+    strict: Bool, if `True` raise exceptions, else just log them.
 
   Returns:
     A list of all imported modules.
@@ -33,7 +35,10 @@ def recursive_import(root):
       root.__path__, prefix=root.__name__ + '.'):
     try:
       modules.append(importlib.import_module(name))
-    except (ImportError, AttributeError):
-      pass
+    except (ImportError, AttributeError, NotImplementedError):
+      if strict:
+        raise
+      else:
+        logging.exception('Failed to load module: %r', name)
 
   return modules

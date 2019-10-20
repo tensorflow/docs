@@ -1,4 +1,4 @@
-# tf.data Performance
+# Better performance with tf.data
 
 ## Overview
 
@@ -10,7 +10,6 @@ document explains the `tf.data` API's features and best practices for building
 highly performant TensorFlow input pipelines across a variety of models and
 accelerators.
 
-
 This guide does the following:
 
 *   Illustrates that TensorFlow input pipelines are essentially an
@@ -20,7 +19,7 @@ This guide does the following:
 *   Discusses the performance implications of the order in which you apply
     transformations.
 
-## Input Pipeline Structure
+## Structure of an input pipeline
 
 A typical TensorFlow training input pipeline can be framed as an ETL process:
 
@@ -69,7 +68,7 @@ def make_dataset():
 The next section builds on this input pipeline, illustrating best practices for
 designing performant TensorFlow input pipelines.
 
-## Optimizing Performance
+## Optimize performance
 
 As new computing devices (such as GPUs and TPUs) make it possible to train
 neural networks at an increasingly fast rate, the CPU processing is prone to
@@ -121,7 +120,7 @@ as the last transformation of your input pipeline.
 Note that the prefetch transformation provides benefits any time there is an
 opportunity to overlap the work of a "producer" with the work of a "consumer."
 
-### Parallelize Data Transformation
+### Parallelize data transformation
 
 When preparing a batch, input elements may need to be pre-processed. To this
 end, the `tf.data` API offers the `tf.data.Dataset.map` transformation, which
@@ -159,7 +158,7 @@ with:
 dataset = dataset.map(map_func=parse_fn, num_parallel_calls=tf.data.experimental.AUTOTUNE)
 ```
 
-### Parallelize Data Extraction
+### Parallelize data extraction
 
 In a real-world setting, the input data may be stored remotely (for example, GCS
 or HDFS), either because the input data would not fit locally or because the
@@ -211,13 +210,13 @@ dataset = files.interleave(
     num_parallel_calls=tf.data.experimental.AUTOTUNE)
 ```
 
-## Performance Considerations
+## Performance considerations
 
 The `tf.data` API is designed around composable transformations to provide its
 users with flexibility. Although many of these transformations are commutative,
 the ordering of certain transformations has performance implications.
 
-### Map and Batch
+### Map and batch
 
 Invoking the user-defined function passed into the `map` transformation has
 overhead related to scheduling and executing the user-defined function.
@@ -227,7 +226,7 @@ the total cost. In such cases, we recommend vectorizing the user-defined
 function (that is, have it operate over a batch of inputs at once) and apply the
 `batch` transformation _before_ the `map` transformation.
 
-### Map and Cache
+### Map and cache
 
 The `tf.data.Dataset.cache` transformation can cache a dataset, either in memory
 or on local storage. If the user-defined function passed into the `map`
@@ -237,7 +236,7 @@ local storage. If the user-defined function increases the space required to
 store the dataset beyond the cache capacity, consider pre-processing your data
 before your training job to reduce resource usage.
 
-### Map and Interleave / Prefetch / Shuffle
+### Map and interleave / prefetch / shuffle
 
 A number of transformations, including `interleave`, `prefetch`, and `shuffle`,
 maintain an internal buffer of elements. If the user-defined function passed
@@ -248,7 +247,7 @@ results in lower memory footprint, unless different ordering is desirable for
 performance (for example, to enable fusing of the map and batch
 transformations).
 
-### Repeat and Shuffle
+### Repeat and shuffle
 
 The `tf.data.Dataset.repeat` transformation repeats the input data a finite (or
 infinite) number of times; each repetition of the data is typically referred to
@@ -264,7 +263,7 @@ internal state of the `shuffle` transformation. In other words, the former
 (`repeat` before `shuffle`) provides better performance, while the latter
 (`shuffle` before `repeat`) provides stronger ordering guarantees.
 
-## Summary of Best Practices
+## Best practice summary
 
 Here is a summary of the best practices for designing performant TensorFlow
 input pipelines:

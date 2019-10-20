@@ -10,7 +10,7 @@ Note: 이 문서는 텐서플로 커뮤니티에서 번역했습니다. 커뮤�
 메일을 보내주시기 바랍니다.
 
 텐서플로 2.0은 매개변수 재배치, 심볼(symbol) 이름 변경, 파라미터 기본값 변경과 같은 많은 API 변화가 있습니다. 이러한
-수정사항들을 일일히 다 반영하는 건 지루하며 실수하기 쉽습니다. 변화들을 간략하게 그리고 TF 2.0에 매끄럽게 옮겨가기 위해 또한
+수정사항들을 일일이 다 반영하는 건 지루하며 실수하기 쉽습니다. 변화들을 간략하게 그리고 TF 2.0에 매끄럽게 옮겨가기 위해 또한
 기존 코드를 새로운 API로 수정하는 것을 쉽게 하기위해 텐서플로 팀은 `tf_upgrade_v2` 유틸리티를 개발하였습니다.
 
 `tf_upgrade_v2` 유틸리티는 TF 2.0을 `pip install` 하면 자동적으로 설치됩니다. 유틸리티는 기존의 텐서플로 1.x
@@ -20,12 +20,12 @@ Note: 이 문서는 텐서플로 커뮤니티에서 번역했습니다. 커뮤�
 
 ## 호환성 모듈
 
-어떤 API 심볼들은 단순히 이름을 변경하는 것만으로는 업그레이드가 안될 수도 있습니다. 코드를 텐서플로 2.0에서 동작시키기 위해 ,
+어떤 API 심볼들은 단순히 이름을 변경하는 것만으로는 업그레이드가 안 될 수도 있습니다. 코드를 텐서플로 2.0에서 동작시키기 위해,
 `compat.v1` 모듈을 포함하도록 스크립트를 업그레이드 하세요. 이 모듈은 `tf.foo`와 같은 TF 1.x 심볼을 동등한
-`tf.compat.v1.foo`로 대체합니다. 호환성 모듈이 괜찮긴하지만 직접 수정사항을 확인하고 가능한 빠르게 `tf.compat.v1.*`
+`tf.compat.v1.foo`로 대체합니다. 호환성 모듈이 괜찮긴 하지만 직접 수정사항을 확인하고 가능한 빠르게 `tf.compat.v1.*`
 네임스페이스(namespace) 대신 `tf.*` 네임스페이스에 있는 새로운 API로 마이그레이션 하기를 추천합니다.
 
-텐서플로 2.x 모듈에서 사라지는 것들 (예를들면, `tf.flags`와 `tf.contrib`)때문에, 어떤 변동사항은
+텐서플로 2.x 모듈에서 사라지는 것들(예를 들면, `tf.flags`와 `tf.contrib`) 때문에, 어떤 변동사항은
 `compat.v1`으로 바꾸는 것만으로는 동작하지 않을 수 있습니다. 이 코드를 업그레이드하려면 다른 라이브러리가 필요하거나(예를 들면,
 `absl.flags`) [tensorflow/addons](http://www.github.com/tensorflow/addons)에 있는
 패키지로 바꾸어야 할 수도 있습니다.
@@ -36,8 +36,7 @@ Note: 이 문서는 텐서플로 커뮤니티에서 번역했습니다. 커뮤�
 
 ### pip 패키지로부터 스크립트 실행
 
-첫째로, `pip install`로 `tensorflow==2.0.0-rc0` 또는 `tensorflow-gpu=2.0.0-rc0`
-패키지를 설치합니다.
+첫째로, `pip install`로 `tensorflow` 또는 `tensorflow-gpu` 패키지를 설치합니다.
 
 Note: `tf_upgrade_v2`는 텐서플로 1.13 그리고 이후 버전에서 자동으로 설치되었습니다. (nightly TF 2.0 빌드를
 포함)
@@ -95,5 +94,5 @@ Renamed keyword argument from 'dimension' to 'axis'
 [GitHub](https://github.com/tensorflow/tensorflow/issues). 그리고 텐서플로 2.0을 테스트하고
 있다면, 의견을 듣고 싶습니다!
 [TF 2.0 Testing community](https://groups.google.com/a/tensorflow.org/forum/#!forum/testing)에
-가입해 주세요. 질문과 토론은 [testing@tensorflow.org](mailto:testing@tensorflow.org)로 메일주시기
+가입해 주세요. 질문과 토론은 [testing@tensorflow.org](mailto:testing@tensorflow.org)로 메일 주시기
 바랍니다.

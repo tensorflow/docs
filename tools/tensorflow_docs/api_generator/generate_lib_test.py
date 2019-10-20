@@ -21,6 +21,7 @@ from __future__ import print_function
 import os
 import sys
 import tempfile
+import textwrap
 
 from absl import flags
 from absl.testing import absltest
@@ -31,9 +32,21 @@ from tensorflow_docs.api_generator import parser
 FLAGS = flags.FLAGS
 
 
+def _tf_decorator():
+  return True
+
+
 def test_function():
-  """Docstring for test_function."""
+  """Docstring for test_function.
+
+  THIS FUNCTION IS DEPRECATED and will be removed after some time.
+  """
   pass
+
+# Set the _tf_decorator.decorator_name attributes on test_function
+# so as to mark it as deprecated and activate that part of the logic.
+setattr(_tf_decorator, 'decorator_name', 'deprecated')
+setattr(test_function, '_tf_decorator', _tf_decorator)
 
 
 class TestClass(object):
@@ -129,6 +142,34 @@ class GenerateTest(absltest.TestCase):
         'redirects:', '-', 'from:', '/api_docs/python/tf/test_function', 'to:',
         '/api_docs/python/tf/TestModule/test_function'
     ])
+
+    toc_file = os.path.join(output_dir, '_toc.yaml')
+    self.assertTrue(os.path.exists(toc_file))
+    with open(toc_file) as f:
+      toc = f.read()
+    toc_list = toc.split()
+
+    # Number of sections in the toc should be 2.
+    self.assertEqual(toc_list.count('section:'), 2)
+
+    # TOC should always begin with `toc:`
+    self.assertEqual(toc_list[0], 'toc:')
+
+    # The last path in the TOC must be the ground truth below.
+    # This will check if the symbols are being sorted in case-insensitive
+    # alphabetical order too, spanning across submodules and children.
+    self.assertEqual(toc_list[-1],
+                     '/api_docs/python/tf/TestModule/test_function')
+
+    # The last module (`test_function`) should have its status marked as
+    # deprecated.
+    toc_line_split = toc.splitlines()
+    output = textwrap.dedent('\n'.join(toc_line_split[-3:]))
+    expected_output = textwrap.dedent("""\
+    - title: test_function
+      status: deprecated
+      path: /api_docs/python/tf/TestModule/test_function""")
+    self.assertEqual(output, expected_output)
 
     # Make sure that the right files are written to disk.
     self.assertTrue(os.path.exists(os.path.join(output_dir, 'index.md')))

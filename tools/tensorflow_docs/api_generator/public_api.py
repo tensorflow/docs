@@ -154,10 +154,11 @@ class PublicAPIFilter(object):
       '__contains__', '__div__', '__enter__', '__eq__', '__exit__',
       '__floordiv__', '__ge__', '__getitem__', '__gt__', '__init__',
       '__invert__', '__iter__', '__le__', '__len__', '__lt__', '__matmul__',
-      '__mod__', '__mul__', '__ne__', '__neg__', '__pos__', '__nonzero__',
-      '__or__', '__pow__', '__radd__', '__rand__', '__rdiv__', '__rfloordiv__',
-      '__rmatmul__', '__rmod__', '__rmul__', '__ror__', '__rpow__', '__rsub__',
-      '__rtruediv__', '__rxor__', '__sub__', '__truediv__', '__xor__'
+      '__mod__', '__mul__', '__new__', '__ne__', '__neg__', '__pos__',
+      '__nonzero__', '__or__', '__pow__', '__radd__', '__rand__', '__rdiv__',
+      '__rfloordiv__', '__rmatmul__', '__rmod__', '__rmul__', '__ror__',
+      '__rpow__', '__rsub__', '__rtruediv__', '__rxor__', '__sub__',
+      '__truediv__', '__xor__', '__version__'
   ])
 
   def _is_private(self, path, name, obj):

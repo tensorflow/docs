@@ -10,11 +10,11 @@ al siguiente repositorio [tensorflow/docs](https://github.com/tensorflow/docs).
 Para ofrecerse como voluntario o hacer revision de las traducciones de la Comunidad
 por favor contacten al siguiente grupo [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
-Nota: Por favor enfoquen sus esfuerzos de traduccion en
-[TensorFlow 2.0 Beta](https://www.tensorflow.org/beta) que se encuentra en el siguiente Directorio.
-[site/en/r2](https://github.com/tensorflow/docs/tree/master/site/en/r2)
-Documentos de la comunidad en la version TF 1.x ya no sera mantneida por ninguna comunidad mientras se prepara para el
-lanzamiento de la version 2.0.
+Note: Por favor enfoquen sus esfuerzos de traduccion en
+[TensorFlow 2](https://www.tensorflow.org) que se encuentra en el siguiente
+directorio. [site/en/](https://github.com/tensorflow/docs/tree/master/site/en/)
+Documentos de la comunidad en la version TF 1.x ya no sera mantneida por ninguna
+comunidad mientras se prepara para el lanzamiento de la version 2.0.
 
 Por favor revisar [El Anuncio](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).
 Igualmente, p por favor no traduzcan la seccion de `install/`, cualquier archivo `*.yaml`, o archivo `index.md`.
@@ -40,7 +40,7 @@ To volunteer to write or review community translations, contact the
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
 Note: Please focus translation efforts on
-[TensorFlow 2.0 Beta](https://www.tensorflow.org/beta) in the
+[TensorFlow 2](https://www.tensorflow.org) in the
 [site/en/r2](https://github.com/tensorflow/docs/tree/master/site/en/r2)
 directory. TF 1.x community docs will no longer be updated as we prepare for the
 2.0 release. See
@@ -63,6 +63,7 @@ Por favor lean los documentos existentes en
 [Es documentos](https://github.com/tensorflow/docs/tree/master/site/es)
 Antes de comenzar su traduccion.
 Por favor no utilicen coloquismos como Guey, Parcero, Ueon, Che o palabras Soeces.
+No agregar acentos, dieresis o tildes ya que pueden afectar la ejecucion de los codigos.
 Sigan el estilo de los documentos lo mas posible.
 
 Una vez la traduccion este completa por favor notifiquen a los contribuidores
@@ -70,8 +71,8 @@ Una vez la traduccion este completa por favor notifiquen a los contribuidores
 para coordinar la traduccion.
 
 Copien un archivo en el folder `es` desde el folder `en`, asegurensen que el directorio de folders sea el adecuado.
-`site/es/` es para TensorFlow 1.x.
-`site/es/beta` es para TensorFlow 2.x.
+`site/es/r1` es para TensorFlow 1.x.
+`site/es/` es para TensorFlow 2.x.
 
 Deben traducir los comentarios y los "Markdowns" no deben correr las celdas.
 La estructura de Archivos y folders no debe ser cambiado esto dificulta la revision en GitHub.
@@ -80,7 +81,6 @@ Prueben el "Notebook" en su repositorio con Colab luego de que terminen la tradu
 Pueden pedir revision si no hay ningun error.
 
 Si tienen alguna pregunta sobre traducciones, por favor envien un mensaje a
-If you have any question about translation, feel free to contact
 [Contribuidores en Espanol de Documentacion en TensorFlow ](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)
 
 Gracias!
@@ -100,8 +100,8 @@ mailing list to coordinate a review.
 
 Copy a file in `en` folder to same location under `ko` folder if anybody doesn't work on the file,
 and get it start.
-`site/es/` are for TensorFlow 1.x.
-`site/es/beta` are for TensorFlow 2.x.
+`site/es/r1` are for TensorFlow 1.x.
+`site/es/` are for TensorFlow 2.x.
 
 You should translate markdown and comments. You should not run code cells.
 Whole file structure can be changed even if you modify only a chunk in the notebook.
@@ -144,3 +144,4 @@ traduzcan las siguientes palabras.
 *   dropout
 *   penalty
 *   eager execution 
+*   eagerly

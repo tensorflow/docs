@@ -148,9 +148,9 @@ for tf_result, tflite_result in zip(tf_results, tflite_results):
 
 ### `TFLiteConverter` のサポートしているフォーマット
 
-2.0の `TFLiteConverter` は 1.X と 2.0 で生成された SavedModel と Keras モデルファイルをサポートしますが、1.X で生成された frozen `GraphDefs` はサポートしません。
-frozen `GraphDefs` を TensorFlow Lite に変換したい場合は `tf.compat.v1.TFLiteConverter` を使う必要があります。
-
+2.0の `TFLiteConverter` は 1.X と 2.0 で生成された SavedModel と Keras
+モデルファイルをサポートしますが、1.X で生成された frozen `GraphDefs` はサポートしません。 frozen `GraphDefs` を
+TensorFlow Lite に変換したい場合は `tf.compat.v1.lite.TFLiteConverter` を使う必要があります。
 
 ### Quantization-aware training
 
@@ -166,8 +166,11 @@ frozen `GraphDefs` を TensorFlow Lite に変換したい場合は `tf.compat.v1
 *   `post_training_quantize` - 1.X API で非推奨
 *   `get_input_arrays()`
 
-quantization-aware training をサポートしていた計算グラフの書き換え関数は、TensorFlow 2.0によるモデルをサポートしません。
-また、TensorFlow Lite の quantization API は、Keras API を通じて quantization-aware training をサポートする方向で作り直しと合理化を勧めている最中です。 新しい quantization API がローンチされるまでは、これらの属性は 2.0 API から削除されます。 書き換え関数によってモデルを変換したい場合は `tf.compat.v1.TFLiteConverter` を使ってください。
+quantization-aware training をサポートしていた計算グラフの書き換え関数は、TensorFlow
+2.0によるモデルをサポートしません。 また、TensorFlow Lite の quantization API は、Keras API を通じて
+quantization-aware training をサポートする方向で作り直しと合理化を勧めている最中です。 新しい quantization API
+がローンチされるまでは、これらの属性は 2.0 API から削除されます。 書き換え関数によってモデルを変換したい場合は
+`tf.compat.v1.lite.TFLiteConverter` を使ってください。
 
 ### `TFLiteConverter` の属性に対する変更点
 

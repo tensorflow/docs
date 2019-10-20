@@ -1,13 +1,19 @@
 toc:
-- heading: "Guide"
-  style: divider
+- title: "TensorFlow guide"
+  path: /guide/
 
-- title: "Eager essentials"
-  path: /guide/eager
-- title: "Variables"
-  path: /guide/variables
-- title: "AutoGraph"
-  path: /guide/autograph
+- heading: "TensorFlow 2"
+- title: "Effective TensorFlow"
+  path: /guide/effective_tf2
+- title: "Migrate from TF1 to TF2"
+  path: /guide/migrate
+- title: "Convert with the upgrade script"
+  path: /guide/upgrade
+- title: "Performance with tf.function"
+  path: /guide/function
+- title: "Community testing FAQ"
+  path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
+  status: external
 
 - heading: "Keras"
 - title: "Keras overview"
@@ -15,40 +21,52 @@ toc:
 - title: "Keras functional API"
   path: /guide/keras/functional
 - title: "Train and evaluate"
-  path: /guide/keras/training_and_evaluation
-- title: "Write layers and models from scratch"
+  path: /guide/keras/train_and_evaluate
+- title: "Write custom layers and models"
   path: /guide/keras/custom_layers_and_models
 - title: "Save and serialize models"
-  path: /guide/keras/saving_and_serializing
-- title: "Recurrent neural network API"
+  path: /guide/keras/save_and_serialize
+- title: "Keras Recurrent Neural Networks"
   path: /guide/keras/rnn
 - title: "Masking and padding"
   path: /guide/keras/masking_and_padding
 - title: "Write custom callbacks"
   path: /guide/keras/custom_callback
 
-- heading: "Accelerators"
-- title: "Distribution strategy"
-  path: /guide/distribute_strategy
-- title: "Using GPU"
-  path: /guide/using_gpu
+- heading: "Estimators"
+- title: "Estimator overview"
+  path: /guide/estimator
+
+- heading: "Customization"
+- title: "Eager execution"
+  path: /guide/eager
+- title: "Variable"
+  path: /guide/variable
+- title: "Tensor"
+  path: /guide/tensor
+- title: "Ragged tensor"
+  path: /guide/ragged_tensor
+- title: "Create an op"
+  path: /guide/create_op
 
 - heading: "Data input pipelines"
-- title: "tf.data Overview"
+- title: "tf.data"
   path: /guide/data
 - title: "Performance"
   path: /guide/data_performance
 
-- heading: "Serialization"
-- title: "Checkpoints"
-  path: /guide/checkpoints
-- title: "Saved models"
+- heading: "Save a model"
+- title: "Checkpoint"
+  path: /guide/checkpoint
+- title: "Saved model"
   path: /guide/saved_model
 
-- heading: Low Level APIs
-- title: "Ragged tensors"
-  path : /guide/ragged_tensors
+- heading: "Accelerators"
+- title: "Distributed training"
+  path: /guide/distributed_training
+- title: "GPU"
+  path: /guide/gpu
 
-- heading: "Misc"
+- heading: "Appendix"
 - title: "Version compatibility"
-  path: /guide/version_compat
+  path: /guide/versions

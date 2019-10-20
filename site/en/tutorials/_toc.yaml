@@ -1,5 +1,5 @@
 toc:
-- title: "TensorFlow 2.0 tutorials"
+- title: "TensorFlow tutorials"
   path: /tutorials
 - title: "Quickstart for beginners"
   path: /tutorials/quickstart/beginner
@@ -44,8 +44,8 @@ toc:
     path: /tutorials/tensorflow_text/intro
   - title: "TFRecord and tf.Example"
     path: /tutorials/load_data/tfrecord
-  - title: "Other formats with TensorFlow-IO"
-    path: https://github.com/tensorflow/io
+  - title: "Additional formats with tf.io"
+    path: https://github.com/tensorflow/io#tensorflow-io
     status: external
 
 - title: "Estimator"
@@ -86,7 +86,7 @@ toc:
   section:
   - title: "Distributed training with Keras"
     path: /tutorials/distribute/keras
-  - title: "Custom training"
+  - title: "Custom training loops"
     path: /tutorials/distribute/custom_training
   - title: "Multi-worker training with Keras"
     path: /tutorials/distribute/multi_worker_with_keras
@@ -108,22 +108,25 @@ toc:
     path: /tutorials/images/transfer_learning
   - title: "Image segmentation"
     path: /tutorials/images/segmentation
+  - title: "Object detection with TFHub"
+    path: https://github.com/tensorflow/hub/blob/master/examples/colab/object_detection.ipynb
+    status: external
 
 - title: "Text"
   style: accordion
   section:
-  - title: "Image captioning"
-    path: /tutorials/text/image_captioning
-  - title: "Neural machine translation with attention"
-    path: /tutorials/text/nmt_with_attention
+  - title: "Word embeddings"
+    path: /tutorials/text/word_embeddings
   - title: "Text classification with an RNN"
     path: /tutorials/text/text_classification_rnn
   - title: "Text generation with an RNN"
     path: /tutorials/text/text_generation
+  - title: "Neural machine translation with attention"
+    path: /tutorials/text/nmt_with_attention
+  - title: "Image captioning"
+    path: /tutorials/text/image_captioning
   - title: "Transformer model for language understanding"
     path: /tutorials/text/transformer
-  - title: "Word embeddings"
-    path: /tutorials/text/word_embeddings
 
 - title: "Structured data"
   style: accordion
