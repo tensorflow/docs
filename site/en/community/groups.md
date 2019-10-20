@@ -53,6 +53,7 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 ## Europe
 
 * [TensorFlow Barcelona](https://www.meetup.com/Barcelona-Machine-Learning-Meetup/)
+* [TensorFlow Berlin](https://www.meetup.com/Tensorflow-in-Berlin/)
 * [TensorFlow Madrid](https://www.meetup.com/TensorFlow-Madrid/)
 * [Tensorflow Belgium](https://www.meetup.com/TensorFlow-Belgium)
 * [TensorFlow x Rome Meetup](https://www.meetup.com/it-IT/TensorFlow-x-Rome-Meetup)
