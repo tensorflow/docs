@@ -24,41 +24,9 @@ to the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository.
 To volunteer to write or review community translations, contact the
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
-# Bảng chú giải
+# Tracking spreadsheet
 
-Bảng chú giải này nhằm chuẩn hoá các từ chuyên môn được dịch (hoặc không được dịch mà giữ nguyên bản tiếng Anh), đồng thời giải thích ý nghĩa của các từ đó.
-
-| Tiếng Anh | Tiếng Việt | Giải thích |
-| - | - | - |
-| activation function | hàm kích hoạt |  |
-| backpropagation | truyền ngược |  |
-| batch | / |  |
-| callback | / |  |
-| checkpoint | / |  |
-| class | / |  |
-| compile | / |  |
-| dictionary (in python) | / |  |
-| dimension | chiều |  |
-| dropout | / |  |
-| define-by-run | / |  |
-| eager execution | / |  |
-| embedding | / |  |
-| epoch | / |  |
-| helper | / |  |
-| hyperparameter | / |  |
-| layer | / |  |
-| label | nhãn |  |
-| loss function | hàm thiệt hại |  |
-| mini-batch | / |  |
-| neuron | / |  |
-| node | / |  |
-| one-hot encoding | / |  |
-| optimizer | trình tối ưu hoá |  |
-| padding | / |  |
-| penalty | / |  |
-| sequence | / |  |
-| training loop | vòng lặp huấn luyện |  |
-| training set | tập huấn luyện |  |
-| target | / |  |
-| unit | / |  |
-| utility function | hàm tiện ích |  |
+[This spreadsheet](https://docs.google.com/spreadsheets/d/1Qr104JJEJluj2Hg0kFuY74MhAXMYjDWVyVztZstwdzU/edit?usp=sharing)
+is used for tracking the progress of VI translation,
+and a the glossary to standardize the usage of the translated
+(or keeping the original) of jargons in ML and Tensorflow.
