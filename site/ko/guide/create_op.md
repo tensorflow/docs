@@ -287,17 +287,15 @@ template struct ExampleFunctor<GPUDevice, int32>;
 #endif  // GOOGLE_CUDA
 ```
 
-## Build the op library
+## op 라이브러리 빌드하기
 
-### Compile the op using your system compiler (TensorFlow binary installation)
+### 설치된 컴파일러로 op 컴파일하기 (텐서플로 실행파일을 설치한 경우)
 
-You should be able to compile `zero_out.cc` with a `C++` compiler such as `g++`
-or `clang` available on your system. The binary PIP package installs the header
-files and the library that you need to compile your op in locations that are
-system specific. However, the TensorFlow python library provides the
-`get_include` function to get the header directory, and the `get_lib` directory
-has a shared object to link against.
-Here are the outputs of these functions on an Ubuntu machine.
+시스템에 설치된 `g++`이나 `clang`과 같은 `C++` 컴파일러로 `zero_out.cc`을 컴파일 할 수 있습니다.
+PIP 패키지 실행 파일은 작성된 op를 컴파일하기 위해 필요한 헤더 파일과 라이브러리를 시스템마다 별도의 위치에 설치합니다.
+그러나 텐서플로 파이썬 라이브러리는 헤더 파일 저장 경로를 위해 `get_include` 함수를 제공하고,
+`get_lib`으로 연결가능한 공유 객체가 포함된 경로를 얻을 수 있습니다.
+다음은 우분투가 설치된 기기에서 이 함수들을 실행한 결과입니다.
 
 ```bash
 $ python
@@ -308,8 +306,7 @@ $ python
 '/usr/local/lib/python2.7/site-packages/tensorflow'
 ```
 
-Assuming you have `g++` installed, here is the sequence of commands you can use
-to compile your op into a dynamic library.
+`g++`가 설치되어 있다면, 다음은 작성한 op를 동적 라이브러리와 함께 컴파일하는 일련의 명령어입니다.
 
 ```bash
 TF_CFLAGS=( $(python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_compile_flags()))') )
@@ -317,21 +314,18 @@ TF_LFLAGS=( $(python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.ge
 g++ -std=c++11 -shared zero_out.cc -o zero_out.so -fPIC ${TF_CFLAGS[@]} ${TF_LFLAGS[@]} -O2
 ```
 
-On Mac OS X, the additional flag "-undefined dynamic_lookup" is required when
-building the `.so` file.
+Max OS X에서는 `.so`을 생성할 때 "-undefined dynamic_lookup"이라는 추가적인 플래그가 필요합니다.
 
->   Note on `gcc` version `>=5`: gcc uses the new C++
->   [ABI](https://gcc.gnu.org/gcc-5/changes.html#libstdcxx) since version `5`. The binary pip
->   packages available on the TensorFlow website are built with `gcc4` that uses
->   the older ABI. If you compile your op library with `gcc>=5`, add
->   `-D_GLIBCXX_USE_CXX11_ABI=0` to the command line to make the library
->   compatible with the older abi.
+>   `gcc` 버젼이 `>=5`인 경우 주의사항:
+>    gcc는 버젼 `5`부터 새로운 C++ [ABI](https://gcc.gnu.org/gcc-5/changes.html#libstdcxx)를 사용합니다.
+>    텐서플로 웹사이트에 있는 PIP 패키지 실행 파일은 이전 ABI를 사용하는 `gcc4`로 만들어졌습니다.
+>    op 라이브러리를 `gcc>=5`로 컴파일할 때,
+>    이전 ABI와 호환되기 위해서는 `-D_GLIBCXX_USE_CXX11_ABI=0`를 명령 줄에 포함해야 합니다.
 
-### Compile the op using bazel (TensorFlow source installation)
+### 바젤(bazel)로 op 컴파일하기 (텐서플로 소스로부터 설치한 경우)
 
-If you have TensorFlow sources installed, you can make use of TensorFlow's build
-system to compile your op. Place a BUILD file with following Bazel build rule in
-the [`tensorflow/core/user_ops`][user_ops] directory.
+텐서플로를 소스로부터 설치했다면, op 컴파일을 위해 텐서플로 빌드 시스템을 사용할 수 있습니다.
+이를 위해 [`tensorflow/core/user_ops`][user_ops] 디렉토리에 있는 바젤 빌드 규칙에 따라 작성된 BUILD 파일을 생성하세요.
 
 ```python
 load("//tensorflow:tensorflow.bzl", "tf_custom_op_library")
@@ -342,19 +336,17 @@ tf_custom_op_library(
 )
 ```
 
-Run the following command to build `zero_out.so`.
+`zero_out.so`를 만들기 위해서 다음 명령어를 실행하세요.
 
 ```bash
 $ bazel build --config opt //tensorflow/core/user_ops:zero_out.so
 ```
->   As explained above, if you are compiling with gcc>=5 add `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`
->   to the bazel command line.
+>   위에서 설명했듯이, gcc>=5로 컴파일하려면 바젤 명령줄에 `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`을 추가하세요.
 
->   Note: Although you can create a shared library (a `.so` file) with the
->   standard `cc_library` rule, we strongly recommend that you use the
->   `tf_custom_op_library` macro. It adds some required dependencies, and
->   performs checks to ensure that the shared library is compatible with
->   TensorFlow's plugin loading mechanism.
+>   Note: 공유 라이브러리(`.so` 파일)를 만들기 위해 표준인 `cc_library` 방식을 사용할 수 있지만,
+>   `tf_custom_op_library` 매크로 사용을 강력히 추천합니다.
+>   `tf_custom_op_library`는 추가적으로 요구되는 의존성을 포함하고 있고,
+>   생성된 공유 라이브러리가 텐서플로의 플러그인 적재 매커니즘과 호환성을 갖는지 검증합니다.
 
 ## Use the op in Python
 
