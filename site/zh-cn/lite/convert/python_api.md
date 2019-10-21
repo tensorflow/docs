@@ -168,8 +168,9 @@ for tf_result, tflite_result in zip(tf_results, tflite_results):
 
 ### `TFLite转换器` 支持的格式类型
 
-`TFLite转换器` 在 2.0 版本中支持由 1.X 版本和 2.0 版本生成的 SavedModels 和 Keras 模型。但是，转换过程不再支持由 1.X 版本冻结的 `GraphDefs`。 开发者可通过调用 `tf.compat.v1.TFLiteConverter` 来把冻结的 `GraphDefs` 转换到
-TensorFlow Lite 版本。
+`TFLite转换器` 在 2.0 版本中支持由 1.X 版本和 2.0 版本生成的 SavedModels 和 Keras 模型。但是，转换过程不再支持由
+1.X 版本冻结的 `GraphDefs`。 开发者可通过调用 `tf.compat.v1.lite.TFLiteConverter` 来把冻结的
+`GraphDefs` 转换到 TensorFlow Lite 版本。
 
 ### 量化感知训练（Quantization-aware training）
 
@@ -186,7 +187,9 @@ TensorFlow Lite 版本。
 *   `post_training_quantize` - 在 1.X API 中被弃用
 *   `get_input_arrays()`
 
-支持量化感知训练的重写器（rewriter）函数不支持由 TensorFlow 2.0 生成的模型。此外，TensorFlow Lite 的量化 API 已按支持 Keras 中量化感知训练 API 的思路重新设计和精简。 在新的量化 API 部署前，这些属性将不会出现在 2.0 的 API 中。开发者可以使用 `tf.compat.v1.TFLiteConverter` 来转换由重写器函数生成的模型。
+支持量化感知训练的重写器（rewriter）函数不支持由 TensorFlow 2.0 生成的模型。此外，TensorFlow Lite 的量化 API
+已按支持 Keras 中量化感知训练 API 的思路重新设计和精简。 在新的量化 API 部署前，这些属性将不会出现在 2.0 的 API 中。开发者可以使用
+`tf.compat.v1.lite.TFLiteConverter` 来转换由重写器函数生成的模型。
 
 ### 关于 `TFLiteConverter` 中属性的改变
 
