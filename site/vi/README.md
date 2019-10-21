@@ -26,7 +26,7 @@ To volunteer to write or review community translations, contact the
 
 # Tracking spreadsheet
 
-This spreadsheet, https://docs.google.com/spreadsheets/d/1Qr104JJEJluj2Hg0kFuY74MhAXMYjDWVyVztZstwdzU/edit?usp=sharing,
+[This spreadsheet](https://docs.google.com/spreadsheets/d/1Qr104JJEJluj2Hg0kFuY74MhAXMYjDWVyVztZstwdzU/edit?usp=sharing)
 is used for tracking the progress of VI translation,
 and a the glossary to standardize the usage of the translated
 (or keeping the original) of jargons in ML and Tensorflow.
