@@ -7,9 +7,7 @@ toc:
 - column:
   - heading: API r1
     links:
-    - label: r1.15 (rc)
+    - label: r1.15
       path: /api/r1.15
-    - label: r1.14
-      path: /api/r1.14
     - label: More…
       path: /versions/
