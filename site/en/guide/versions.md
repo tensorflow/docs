@@ -15,7 +15,7 @@ and `PATCH` version 3. Changes to each number have the following meaning:
   worked with a previous major release will not necessarily work with the new
   release. However, in some cases existing TensorFlow graphs and checkpoints
   may be migratable to the newer release; see
-  [Compatibility of graphs and checkpoints](#compatibility_of_graphs_and_checkpoints)
+  [Compatibility of SavedModels, graphs and checkpoints](#compatibility_of_graphs_and_checkpoints)
   for details on data compatibility.
 
 * **MINOR**: Backwards compatible features, speed improvements, etc. Code and
