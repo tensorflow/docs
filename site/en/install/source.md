@@ -37,12 +37,14 @@ Install the TensorFlow *pip* package dependencies (if using a virtual environmen
 omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install -U --user pip six numpy wheel setuptools mock</code>
+<code class="devsite-terminal">pip install -U --user pip six numpy wheel setuptools mock 'future>=0.17.1'</code>
 <code class="devsite-terminal">pip install -U --user keras_applications==1.0.6 --no-deps</code>
 <code class="devsite-terminal">pip install -U --user keras_preprocessing==1.0.5 --no-deps</code>
 </pre>
 
-The dependencies are listed in the
+
+Note: A `pip` version >19.0 is required to install the TensorFlow 2.0 `.whl`
+package. Additional required dependencies are listed in the
 <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
 file under `REQUIRED_PACKAGES`.
 
@@ -52,6 +54,10 @@ file under `REQUIRED_PACKAGES`.
 the build tool used to compile TensorFlow.
 
 Add the location of the Bazel executable to your `PATH` environment variable.
+
+Note: To build TensorFlow, the Bazel version must conform to the minimum and maximum
+versions specified by `_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` in
+[`tensorflow/configure.py`](https://github.com/tensorflow/tensorflow/blob/master/configure.py).
 
 ### Install GPU support (optional, Linux only)
 
@@ -83,16 +89,19 @@ git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
 
 ## Configure the build
 
-Configure your system build by running the following at the root of your
-TensorFlow source tree:
+Configure your system build by running the `./configure` at the root of your
+TensorFlow source tree. This script prompts you for the location of TensorFlow
+dependencies and asks for additional build configuration options (compiler
+flags, for example).
 
 <pre class="devsite-terminal devsite-click-to-copy">
 ./configure
 </pre>
 
-This script prompts you for the location of TensorFlow dependencies and asks for
-additional build configuration options (compiler flags, for example). The
-following shows a sample run of `./configure` (your session may differ):
+### Sample session
+
+The `./configure` script The following shows a sample run of `./configure` (your
+session may differ):
 
 <section class="expandable">
 <h4 class="showalways">View sample configuration session</h4>
@@ -176,11 +185,16 @@ Configuration finished
 
 ### Configuration options
 
-For [GPU support](./gpu.md), specify the versions of CUDA and cuDNN. If your
-system has multiple versions of CUDA or cuDNN installed, explicitly set the
-version instead of relying on the default. `./configure` creates symbolic links
-to your system's CUDA libraries—so if you update your CUDA library paths, this
-configuration step must be run again before building.
+#### GPU support
+
+For [GPU support](./gpu.md), set `cuda=Y` during configuration and specify the
+versions of CUDA and cuDNN. If your system has multiple versions of CUDA or
+cuDNN installed, explicitly set the version instead of relying on the default.
+`./configure` creates symbolic links to your system's CUDA libraries—so if you
+update your CUDA library paths, this configuration step must be run again before
+building.
+
+#### Optimizations
 
 For compilation optimization flags, the default (`-march=native`) optimizes the
 generated code for your machine's CPU type. However, if building TensorFlow for a
@@ -188,11 +202,14 @@ different CPU type, consider a more specific optimization flag. See the
 [GCC manual](https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html){:.external}
 for examples.
 
+#### Preconfigured configurations
+
 There are some preconfigured build configs available that can be added to the
 `bazel build` command, for example:
 
 * `--config=mkl` —Support for the [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
 * `--config=monolithic` —Configuration for a mostly static, monolithic build.
+* `--config=v1` —Build TensorFlow 1.x instead of 2.x.
 
 Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
 run on older CPUs.
@@ -200,7 +217,26 @@ run on older CPUs.
 
 ## Build the pip package
 
-### Bazel build
+### TensorFlow 2.x
+
+tensorflow:master repo has been updated to build 2.x by default.
+[Install Bazel](https://docs.bazel.build/versions/master/install.html) and use
+`bazel build ` to create the TensorFlow package.
+
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build //tensorflow/tools/pip_package:build_pip_package
+</pre>
+
+Note: For GPU support, enable CUDA during the `./configure` stage.
+
+### TensorFlow 1.x
+
+To build the 1.x version of TensorFlow from master, use
+`bazel build --config=v1` to create a TensorFlow 1.x package.
+
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build --config=v1 //tensorflow/tools/pip_package:build_pip_package
+</pre>
 
 #### CPU-only
 
@@ -219,6 +255,10 @@ bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_
 </pre>
 
 #### Bazel build options
+
+See the Bazel [command-line reference](https://docs.bazel.build/versions/master/command-line-reference.html)
+for
+[build options](https://docs.bazel.build/versions/master/command-line-reference.html#build-options).
 
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
@@ -273,7 +313,7 @@ code and dependencies required to build TensorFlow. See the TensorFlow
 
 ### CPU-only
 
-The following example uses the `:nightly-devel` image to build a CPU-only
+The following example uses the `:devel` image to build a CPU-only
 Python&nbsp;2 package from the latest TensorFlow source code. See the
 [Docker guide](./docker.md) for available TensorFlow `-devel` tags.
 
@@ -281,9 +321,9 @@ Download the latest development image and start a Docker container that we'll
 use to build the *pip* package:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:nightly-devel</var></code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:devel</var></code>
 <code class="devsite-terminal">docker run -it -w /tensorflow -v $PWD:/mnt -e HOST_PERMS="$(id -u):$(id -g)" \
-    tensorflow/tensorflow<var>:nightly-devel</var> bash</code>
+    tensorflow/tensorflow<var>:devel</var> bash</code>
 
 <code class="devsite-terminal tfo-terminal-root">git pull  # within the container, download the latest source code</code>
 </pre>
@@ -298,7 +338,7 @@ host source tree at the container's `/tensorflow` directory:
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run -it -w /tensorflow -v <var>/path/to/tensorflow</var>:/tensorflow -v $PWD:/mnt \
-    -e HOST_PERMS="$(id -u):$(id -g)" tensorflow/tensorflow:<var>nightly-devel</var> bash
+    -e HOST_PERMS="$(id -u):$(id -g)" tensorflow/tensorflow:<var>devel</var> bash
 </pre>
 
 With the source tree set up, build the TensorFlow package within the container's
@@ -343,14 +383,14 @@ machine only requires the
 [GPU support guide](./gpu.md) and the TensorFlow [Docker guide](./docker.md)
 to set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} (Linux only).
 
-The following example downloads the TensorFlow `:nightly-devel-gpu-py3` image
+The following example downloads the TensorFlow `:devel-gpu-py3` image
 and uses `nvidia-docker` to run the GPU-enabled container. This development image
 is configured to build a Python 3 *pip* package with GPU support:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:nightly-devel-gpu-py3</var></code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:devel-gpu-py3</var></code>
 <code class="devsite-terminal">docker run --runtime=nvidia -it -w /tensorflow -v $PWD:/mnt -e HOST_PERMS="$(id -u):$(id -g)" \
-    tensorflow/tensorflow<var>:nightly-devel-gpu-py3</var> bash</code>
+    tensorflow/tensorflow<var>:devel-gpu-py3</var> bash</code>
 </pre>
 
 Then, within the container's virtual environment, build the TensorFlow package
@@ -385,7 +425,9 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
-<tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.19.2</td></tr>
+<tr><td>tensorflow-2.0.0</td><td>2.7, 3.3-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.26.1</td></tr>
+<tr><td>tensorflow-1.14.0</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.24.1</td></tr>
+<tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.19.2</td></tr>
 <tr><td>tensorflow-1.12.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.11.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.10.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
@@ -403,7 +445,9 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
-<tr><td>tensorflow_gpu-1.13.1</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.19.2</td><td>7.4</td><td>10.0</td></tr>
+<tr><td>tensorflow-2.0.0</td><td>2.7, 3.3-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.26.1</td><td>7.4</td><td>10.0</td></tr>
+<tr><td>tensorflow_gpu-1.14.0</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.24.1</td><td>7.4</td><td>10.0</td></tr>
+<tr><td>tensorflow_gpu-1.13.1</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.19.2</td><td>7.4</td><td>10.0</td></tr>
 <tr><td>tensorflow_gpu-1.12.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.11.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.10.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
@@ -425,15 +469,17 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
-<tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.19.2</td></tr>
+<tr><td>tensorflow-2.0.0</td><td>2.7, 3.3-3.7</td><td>Clang from xcode 10.1</td><td>Bazel 0.26.1</td></tr>
+<tr><td>tensorflow-1.14.0</td><td>2.7, 3.3-3.7</td><td>Clang from xcode</td><td>Bazel 0.24.1</td></tr>
+<tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.7</td><td>Clang from xcode</td><td>Bazel 0.19.2</td></tr>
 <tr><td>tensorflow-1.12.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.11.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.10.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>
 <tr><td>tensorflow-1.9.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.11.0</td></tr>
 <tr><td>tensorflow-1.8.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.10.1</td></tr>
 <tr><td>tensorflow-1.7.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.10.1</td></tr>
-<tr><td>tensorflow-1.6.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.8.1</td>
-<tr><td>tensorflow-1.5.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.8.1</td>
+<tr><td>tensorflow-1.6.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.8.1</td></tr>
+<tr><td>tensorflow-1.5.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.8.1</td></tr>
 <tr><td>tensorflow-1.4.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.5.4</td></tr>
 <tr><td>tensorflow-1.3.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.4.5</td></tr>
 <tr><td>tensorflow-1.2.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.4.5</td></tr>

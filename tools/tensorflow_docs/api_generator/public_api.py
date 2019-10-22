@@ -20,7 +20,36 @@ from __future__ import print_function
 
 import inspect
 
+
 from tensorflow_docs.api_generator import doc_controls
+
+try:
+  import typing  # pylint: disable=g-import-not-at-top
+  _TYPING = {id(value) for value in typing.__dict__.values()}
+  del typing
+except ImportError:
+  _TYPING = {}
+
+
+def ignore_typing(path, parent, children):
+  """Removes all children that are members of the typing module.
+
+  Arguments:
+    path: A tuple or name parts forming the attribute-lookup path to this
+      object. For `tf.keras.layers.Dense` path is:
+        ("tf","keras","layers","Dense")
+    parent: The parent object.
+    children: A list of (name, value) pairs. The attributes of the patent.
+
+  Returns:
+    A filtered list of children `(name, value)` pairs.
+  """
+  del path
+  del parent
+  children = [
+      (name, value) for (name, value) in children if id(value) not in _TYPING
+  ]
+  return children
 
 
 def local_definitions_filter(path, parent, children):
@@ -120,6 +149,18 @@ class PublicAPIFilter(object):
     self._do_not_descend_map = do_not_descend_map or {}
     self._private_map = private_map or {}
 
+  ALLOWED_PRIVATES = frozenset([
+      '__abs__', '__add__', '__and__', '__bool__', '__call__', '__concat__',
+      '__contains__', '__div__', '__enter__', '__eq__', '__exit__',
+      '__floordiv__', '__ge__', '__getitem__', '__gt__', '__init__',
+      '__invert__', '__iter__', '__le__', '__len__', '__lt__', '__matmul__',
+      '__mod__', '__mul__', '__new__', '__ne__', '__neg__', '__pos__',
+      '__nonzero__', '__or__', '__pow__', '__radd__', '__rand__', '__rdiv__',
+      '__rfloordiv__', '__rmatmul__', '__rmod__', '__rmul__', '__ror__',
+      '__rpow__', '__rsub__', '__rtruediv__', '__rxor__', '__sub__',
+      '__truediv__', '__xor__', '__version__'
+  ])
+
   def _is_private(self, path, name, obj):
     """Return whether a name is private."""
     # Skip objects blocked by doc_controls.
@@ -138,11 +179,7 @@ class PublicAPIFilter(object):
       return True
 
     # Skip "_" hidden attributes
-    is_dunder = name.startswith('__') and name.endswith('__')
-    if name.startswith('_') and not is_dunder:
-      return True
-
-    if name in ['__base__', '__class__']:
+    if name.startswith('_') and name not in self.ALLOWED_PRIVATES:
       return True
 
     return False

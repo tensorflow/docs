@@ -20,6 +20,13 @@ to the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository.
 To volunteer to write or review community translations, contact the
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
+Note: Please focus translation efforts on
+[TensorFlow 2](https://www.tensorflow.org) in the
+[site/en/](https://github.com/tensorflow/docs/tree/master/site/en/)
+directory. TF 1.x community docs will no longer be updated as we prepare for the
+2.0 release. See
+[the announcement](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).
+
 # Turkish translation guide
 
 Some technical words in English do not have a natural translation. Do *not*

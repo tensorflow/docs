@@ -17,5 +17,12 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import tensorflow_docs.api_generator.doc_controls
-import tensorflow_docs.api_generator.generate_lib
+from tensorflow_docs.api_generator import doc_controls
+from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import generate_lib
+from tensorflow_docs.api_generator import parser
+from tensorflow_docs.api_generator import pretty_docs
+from tensorflow_docs.api_generator import public_api
+from tensorflow_docs.api_generator import tf_inspect
+from tensorflow_docs.api_generator import traverse
+from tensorflow_docs.api_generator import utils

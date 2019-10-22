@@ -83,7 +83,7 @@ To generate the TensorFlow 2.0 reference docs, use the
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">git clone https://github.com/tensorflow/tensorflow tensorflow</code>
 <code class="devsite-terminal">cd tensorflow/tensorflow/tools/docs</code>
-<code class="devsite-terminal">pip install tensorflow==2.0.0-alpha0</code>
+<code class="devsite-terminal">pip install tensorflow</code>
 <code class="devsite-terminal">python generate2.py --output_dir=/tmp/out</code>
 </pre>
 
@@ -257,9 +257,9 @@ is a hosted notebook environment that makes it easy to edit—and run—notebook
 documentation. Notebooks in GitHub are loaded in Google Colab by passing the
 path to the Colab URL, for example,
 the notebook located in GitHub here:
-<a href="https&#58;//github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/basic_classification.ipynb">https&#58;//github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/basic_classification.ipynb</a><br/>
+<a href="https&#58;//github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb">https&#58;//github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb</a><br/>
 can be loaded into Google Colab at this URL:
-<a href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/keras/basic_classification.ipynb">https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/keras/basic_classification.ipynb</a>
+<a href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb">https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb</a>
 
 There is an
 <a href="https://chrome.google.com/webstore/detail/open-in-colab/iogfkhleblhcpcekbiedikdehleodpjo" class="external">Open in Colab</a>
@@ -358,3 +358,11 @@ English version. After stripping the comments, it compares the code blocks and
 updates the language notebook if they are different. This tool is particularly
 useful with an interactive git workflow to selectively add hunks of the file to
 the commit using: `git add --patch site/lang/notebook.ipynb`
+
+## Docs sprint
+
+Attend one of the
+[TensorFlow 2.0 Global Docs Sprint](https://www.google.com/maps/d/viewer?mid=1FmxIWZBXi4cvSy6gJUW9WRPfvVRbievf)
+events near you, or join remotely. Follow along with this
+[blog post](https://medium.com/tensorflow/https-medium-com-margaretmz-tf-docs-sprint-cheatsheet-7cb1dfd3e8b5?linkId=68384164).
+These events are a great way to get started contributing to the TensorFlow documentation.

@@ -1,5 +1,7 @@
 # GPU support
 
+Note: GPU support is available for Ubuntu and Windows with CUDA®-enabled cards.
+
 TensorFlow GPU support requires an assortment of drivers and libraries. To
 simplify installation and avoid library conflicts, we recommend using a
 [TensorFlow Docker image with GPU support](./docker.md) (Linux only). This setup
@@ -18,16 +20,22 @@ GPU support, choose a stable or development package:
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">pip install tensorflow-gpu  # stable</code>
 
-<code class="devsite-terminal">pip install tf-nightly-gpu  # preview</code>
+<code class="devsite-terminal">pip install tf-nightly      # preview</code>
 </pre>
 
-### TensorFlow 2.0 Alpha
+### Older versions of TensorFlow
 
-[TensorFlow 2.0 Alpha](../alpha) is available for testing with GPU support. To
-install:
+For the 1.15 release, CPU and GPU support are included in a single package:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install tensorflow-gpu==2.0.0-alpha0</code>
+<code class="devsite-terminal">pip install --pre "tensorflow==1.15.*"</code>
+</pre>
+
+For releases 1.14 and older, CPU and GPU packages are separate:
+
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">pip install tensorflow==1.14      # CPU</code>
+<code class="devsite-terminal">pip install tensorflow-gpu==1.14  # GPU</code>
 </pre>
 
 ## Hardware requirements
@@ -71,7 +79,7 @@ NVIDIA libraries, see the [Linux build from source](./source.md) guide.
 
 ### Install CUDA with apt
 
-This section shows how to install CUDA 10 (TensorFlow >= 13.0) and CUDA 9
+This section shows how to install CUDA 10 (TensorFlow >= 1.13.0) and CUDA 9
 for Ubuntu 16.04 and 18.04. These instructions may work for other Debian-based
 distros.
 
@@ -92,21 +100,19 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install NVIDIA driver
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-410</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-418</code>
 # Reboot. Check that GPUs are visible using the command: nvidia-smi
 
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-0 \
-    libcudnn7=7.4.1.5-1+cuda10.0  \
-    libcudnn7-dev=7.4.1.5-1+cuda10.0
+    libcudnn7=7.6.2.24-1+cuda10.0  \
+    libcudnn7-dev=7.6.2.24-1+cuda10.0
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
-<code class="devsite-terminal">sudo apt-get update && \
-        sudo apt-get install nvinfer-runtime-trt-repo-ubuntu1804-5.0.2-ga-cuda10.0 \
-        && sudo apt-get update \
-        && sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.0.2-1+cuda10.0
+<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer5=5.1.5-1+cuda10.0 \
+    libnvinfer-dev=5.1.5-1+cuda10.0
 </code>
 </pre>
 
@@ -128,21 +134,19 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 # Install NVIDIA driver
 # Issue with driver install requires creating /usr/lib/nvidia
 <code class="devsite-terminal">sudo mkdir /usr/lib/nvidia</code>
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-410</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-418</code>
 # Reboot. Check that GPUs are visible using the command: nvidia-smi
 
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-0 \
-    libcudnn7=7.4.1.5-1+cuda10.0  \
-    libcudnn7-dev=7.4.1.5-1+cuda10.0
+    libcudnn7=7.6.2.24-1+cuda10.0  \
+    libcudnn7-dev=7.6.2.24-1+cuda10.0
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
-<code class="devsite-terminal">sudo apt-get update && \
-        sudo apt-get install nvinfer-runtime-trt-repo-ubuntu1604-5.0.2-ga-cuda10.0 \
-        && sudo apt-get update \
-        && sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.0.2-1+cuda10.0
+<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer5=5.1.5-1+cuda10.0 \
+    libnvinfer-dev=5.1.5-1+cuda10.0
 </code>
 </pre>
 
