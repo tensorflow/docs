@@ -379,11 +379,10 @@ zero_out_module = tf.load_op_library('./zero_out.so')
 zero_out = zero_out_module.zero_out
 ```
 
-## Verify that the op works
+## op 작동 검증하기
 
-A good way to verify that you've successfully implemented your op is to write a
-test for it. Create the file
-`zero_out_op_test.py` with the contents:
+작성한 op가 올바르게 구현됐는지 검증하기 위한 좋은 방법은 테스트를 작성하는 것입니다.
+테스트를 위한 내용과 함께 `zero_out_op_test.py`를 생성하세요:
 
 ```python
 import tensorflow as tf
@@ -399,7 +398,7 @@ if __name__ == "__main__":
   tf.test.main()
 ```
 
-Then run your test (assuming you have tensorflow installed):
+그리고 나서 테스트를 실행하세요(텐서플로는 설치되어 있다고 가정):
 
 ```sh
 $ python zero_out_op_test.py
