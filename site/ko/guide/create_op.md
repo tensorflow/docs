@@ -348,14 +348,12 @@ $ bazel build --config opt //tensorflow/core/user_ops:zero_out.so
 >   `tf_custom_op_library`는 추가적으로 요구되는 의존성을 포함하고 있고,
 >   생성된 공유 라이브러리가 텐서플로의 플러그인 적재 매커니즘과 호환성을 갖는지 검증합니다.
 
-## Use the op in Python
+## 파이썬에서 op 사용하기
 
-TensorFlow Python API provides the
-`tf.load_op_library` function to
-load the dynamic library and register the op with the TensorFlow
-framework. `load_op_library` returns a Python module that contains the Python
-wrappers for the op and the kernel. Thus, once you have built the op, you can
-do the following to run it from Python:
+텐서플로 파이썬 API는 동적 라이브러리를 적재하고 텐서플로 프레임워크에 op를 등록하기 위한
+`tf.load_op_library` 함수를 제공합니다.
+`load_op_library`는 커널과 op를 위한 파이썬 랩퍼를 포함한 파이썬 모듈을 돌려줍니다.
+그래서, op를 만들었고 파이썬에서 그것을 실행하려면 다음과 같이 할 수 있습니다:
 
 ```python
 import tensorflow as tf
@@ -363,17 +361,16 @@ zero_out_module = tf.load_op_library('./zero_out.so')
 with tf.Session(''):
   zero_out_module.zero_out([[1, 2], [3, 4]]).eval()
 
-# Prints
+# 출력
 array([[1, 0], [0, 0]], dtype=int32)
 ```
 
-Keep in mind, the generated function will be given a snake\_case name (to comply
-with [PEP8](https://www.python.org/dev/peps/pep-0008/)). So, if your op is
-named `ZeroOut` in the C++ files, the python function will be called `zero_out`.
+생성된 함수는 스네이크 케이스(snake\_case)형태 이름으로 주어집니다.
+([PEP8](https://www.python.org/dev/peps/pep-0008/)를 준수하기 위해서).
+그래서 작성한 op 이름이 C++ 파일에서 `ZeroOut`이라면 파이썬 함수는 `zero_out`라는 이름으로 호출됩니다.
 
-To make the op available as a regular function `import`-able from a Python
-module, it maybe useful to have the `load_op_library` call in a Python source
-file as follows:
+op를 파이썬 모듈에서 임포트(import)할 수 있는 일반적인 함수처럼 만들기 위해,
+파이썬 소스 파일에서 다음과 같이 `load_op_library`를 호출하는 것이 유용할 수 있습니다:
 
 ```python
 import tensorflow as tf
