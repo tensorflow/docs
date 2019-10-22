@@ -17,6 +17,17 @@
 import importlib
 import logging
 import pkgutil
+import sys
+
+_ALLOWED_EXCEPTIONS = (ImportError, AttributeError, NotImplementedError)
+
+
+def _onerror(name):
+  logging.exception('Failed to load package: %r', name)
+  errortype, error, _ = sys.exc_info()
+
+  if not issubclass(errortype, _ALLOWED_EXCEPTIONS):
+    raise error
 
 
 def recursive_import(root, strict=False):
@@ -31,11 +42,19 @@ def recursive_import(root, strict=False):
   """
 
   modules = []
+
+  kwargs = {}
+  # If strict=False, ignore errors during `pkgutil.walk_packages`.
+  if not strict:
+    kwargs = {'onerror': _onerror}
+
   for _, name, _ in pkgutil.walk_packages(
-      root.__path__, prefix=root.__name__ + '.'):
+      root.__path__, prefix=root.__name__ + '.', **kwargs):
     try:
       modules.append(importlib.import_module(name))
-    except (ImportError, AttributeError, NotImplementedError):
+    # And ignore the same set of errors if import_module fails, these are not
+    # triggered by walk_packages.
+    except _ALLOWED_EXCEPTIONS:
       if strict:
         raise
       else:
