@@ -41,7 +41,7 @@ designing larger and more sophisticated models in TensorFlow:
 and `tf.nn.local_response_normalization`
 (section 3.3 in
 [AlexNet paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)).
-* [Visualization](../../guide/summaries_and_tensorboard.md)
+* [Visualization](https://tensorflow.org/tensorboard)
 of network activities during training, including input images,
 losses and distributions of activations and gradients.
 * Routines for calculating the
@@ -135,7 +135,7 @@ artificially increase the data set size:
 Please see the [Images](../../api_guides/python/image.md) page for the list of
 available distortions. We also attach an
 `tf.summary.image` to the images
-so that we may visualize them in [TensorBoard](../../guide/summaries_and_tensorboard.md).
+so that we may visualize them in [TensorBoard](https://tensorflow.org/tensorboard).
 This is a good practice to verify that inputs are built correctly.
 
 <div style="width:50%; margin:auto; margin-bottom:10px; margin-top:20px;">
@@ -276,7 +276,7 @@ how the model is training. We want more insight into the model during training:
 * Are the gradients, activations and weights reasonable?
 * What is the learning rate currently at?
 
-[TensorBoard](../../guide/summaries_and_tensorboard.md) provides this
+[TensorBoard](https://tensorflow.org/tensorboard) provides this
 functionality, displaying data exported periodically from `cifar10_train.py` via
 a `tf.summary.FileWriter`. You can view the results in TensorBoard by running:
 
