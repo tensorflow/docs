@@ -60,7 +60,7 @@ def local_definitions_filter(path, parent, children):
   This follows the API for visitors defined by `traverse.traverse`.
 
   This is a much tighter constraint than the default "base_dir" filter which
-  ensures that that only objects defined within the package root are documented.
+  ensures that only objects defined within the package root are documented.
   This applies a similar constraint, to each submodule.
 
   in the api-tree below, `Dense` is defined in `tf.keras.layers`, but imported
