@@ -524,7 +524,7 @@ using the `Attr` method, which expects a spec of the form:
 
 where `<name>` begins with a letter and can be composed of alphanumeric
 characters and underscores, and `<attr-type-expr>` is a type expression of the
-form [described below](#attr_types).
+form [described below](#attr-types).
 
 For example, if you'd like the `ZeroOut` op to preserve a user-specified index,
 instead of only the 0th element, you can register the op like so:
@@ -535,7 +535,7 @@ REGISTER_OP("ZeroOut")
     .Output("zeroed: int32");
 ```
 
-(Note that the set of [attribute types](#attr_types) is different from the
+(Note that the set of [attribute types](#attr-types) is different from the
 `tf.DType` used for inputs and outputs.)
 
 Your kernel can then access this attr in its constructor via the `context`
@@ -840,7 +840,7 @@ REGISTER_KERNEL_BUILDER(
 ```
 
 > To preserve [backwards compatibility](#backwards-compatibility), you should
-> specify a [default value](#default-values-constraints) when adding an attr to
+> specify a [default value](#default-values-and-constraints) when adding an attr to
 > an existing op:
 >
 > ```c++
@@ -1009,7 +1009,7 @@ REGISTER_OP("SameListInputExample")
 
 By default, tensor lists have a minimum length of 1. You can change that default
 using
-[a `">="` constraint on the corresponding attr](#default-values-constraints).
+[a `">="` constraint on the corresponding attr](#default-values-and-constraints).
 In this next example, the input is a list of at least 2 `int32` tensors:
 
 ```c++
@@ -1369,7 +1369,7 @@ REGISTER_OP("ZeroOut")
 ```
 
 A shape function can also constrain the shape of an input. For the version of
-[`ZeroOut` with a vector shape constraint](#validation), the shape function
+[`ZeroOut` with a vector shape constraint](#conditional-checks-and-validation), the shape function
 would be as follows:
 
 ```c++
