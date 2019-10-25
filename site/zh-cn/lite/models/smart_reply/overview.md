@@ -13,9 +13,11 @@
 在 Android 上，演示 TensorFlow Lite 智能回复模型的示例
 
 <a class="button button-primary" href="https://github.com/tensorflow/examples/tree/master/lite/examples/smart_reply/android">查看
-Android 示例应用</a> 阅读该
+Android 示例应用</a>
+
+阅读该
 [GitHub 页面](https://github.com/tensorflow/examples/tree/master/lite/examples/smart_reply/android/)
-以了解该应用的工作原理。
+以了解该应用的工作原理。其中，你还会学到如何定制化 C++ ops。
 
 ## 怎么运行
 
