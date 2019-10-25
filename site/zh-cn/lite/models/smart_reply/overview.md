@@ -12,9 +12,9 @@
 
 在 Android 上，演示 TensorFlow Lite 智能回复模型的示例
 
-<a class="button button-primary" href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/models/smartreply">查看 Android 示例应用</a>
-阅读该
-[GitHub 页面](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/models/smartreply/g3doc)
+<a class="button button-primary" href="https://github.com/tensorflow/examples/tree/master/lite/examples/smart_reply/android">查看
+Android 示例应用</a> 阅读该
+[GitHub 页面](https://github.com/tensorflow/examples/tree/master/lite/examples/smart_reply/android/)
 以了解该应用的工作原理。
 
 ## 怎么运行
@@ -36,7 +36,7 @@
 
 <ul>
   <li><a href="https://arxiv.org/pdf/1708.00630.pdf">论文</a></li>
-  <li><a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/models/smartreply/">源码</a></li>
+  <li><a href="https://github.com/tensorflow/examples/tree/master/lite/examples/smart_reply/android">源码</a></li>
 </ul>
 
 ## 落地场景
