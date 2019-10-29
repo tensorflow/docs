@@ -270,34 +270,3 @@ t.eval(feed_dict={p:2.0})  # 플레이스홀더에 해당하는 값을 제공받
 만약에 `tf.Tensor`가 큐(queue)에 있는 값을 사용한다면,
 무언가가 큐에 들어간 후에 만 `tf.Tensor` 계산을 할 수 있습니다; 그렇지 않으면 계산은 멈출(hang) 것입니다.
 큐와 같이 작업할 때, `tf.Tensor`를 계산하기 전 `tf.train.start_queue_runners`를 호출하세요.
-
-## 텐서 출력하기
-
-디버깅을 위해서 `tf.Tensor` 값을 출력하고 싶을 것입니다.
-고급 디버깅에 대해 [tfdbg](../guide/debugger.md)에서 가이드를 제공하지만,
-텐서플로는 `tf.Tensor`값을 직접 출력할 수 있는 연산자를 가지고 있습니다.
-
-`tf.Tensor`를 출력할 때 다음과 같은 패턴을 쓰고자 하는 경우는 거의 없습니다:
-
-``` python
-t = <<some tensorflow operation>>
-print(t)  # 이것은 그래프가 생성되어질 때 기호화된 텐서(symbolic tensor)를 출력할 것입니다.
-          # 이 텐서는 이 컨텍스트(context)안에서 값을 가지고 있지 않습니다.
-```
-
-이 코드는 `tf.Tensor`의 값이 아닌 객체(지연 계산으로 표현)를 출력합니다.
-실제로 텐서플로는 두번째 인수로 전달된 `tf.Tensor` 집합을 출력하는 동안
-변경되지 않는 첫번째 텐서 인수를 반환하는 `tf.Print` 연산을 제공합니다.
-
-`tf.Print`을 제대로 사용하기 위해서는 반환된 값을 사용해야 합니다. 아래 예를 보면
-
-``` python
-t = <<some tensorflow operation>>
-tf.Print(t, [t])  # 어떤 일도 하지 않습니다
-t = tf.Print(t, [t])  # 여기서 tf.Print에 의해 반환된 값을 사용할 수 있습니다.
-result = t + 1  # 이제 결과를 계산할 때 `t` 값이 출력될 것입니다.
-```
-
-`result`를 계산할 때 이와 관련된 모든 것이 계산될 것입니다.
-`result`는 `t`와 의존성이 있고, `t`를 계산하는 것이 그 입력(`t`의 이전 값)을 출력하는 부가 효과가 있기 때문에 `t`는 출력됩니다.
-
