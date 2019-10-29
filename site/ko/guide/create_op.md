@@ -404,91 +404,83 @@ if __name__ == "__main__":
 $ python zero_out_op_test.py
 ```
 
-## Build advanced features into your op
+## op에서 고급 기능을 작성하기
 
-Now that you know how to build a basic (and somewhat restricted) op and
-implementation, we'll look at some of the more complicated things you will
-typically need to build into your op. This includes:
+이제 기본적인(일부 제약은 있지만) op와 구현을 작성하는 방법을 알게됐습니다.
+지금부터 op를 작성하는데 필요한 좀 더 복잡한 기능의 일부를 살펴보려고 합니다.
+다음을 포함합니다:
 
-*   [Conditional checks and validation](#conditional-checks-and-validation)
-*   [Op registration](#op-registration)
-    *   [Attrs](#attrs)
-    *   [Attr types](#attr-types)
-    *   [Polymorphism](#polymorphism)
-    *   [Inputs and outputs](#inputs-and-outputs)
-    *   [Backwards compatibility](#backwards-compatibility)
-*   [GPU support](#gpu-support)
-    *   [Compiling the kernel for the GPU device](#compiling-the-kernel-for-the-gpu-device)
-*   [Implement the gradient in Python](#implement-the-gradient-in-python)
-*   [Shape functions in C++](#shape-functions-in-c)
+*   [조건부 검사와 검증](#conditional-checks-and-validation)
+*   [Op 등록](#op-registration)
+    *   [속성](#attrs)
+    *   [속성 형태](#attr-types)
+    *   [다형성](#polymorphism)
+    *   [입력과 출력](#inputs-and-outputs)
+    *   [이전 버전과의 호환성](#backwards-compatibility)
+*   [GPU 지원](#gpu-support)
+    *   [GPU기기를 위한 커널 컴파일하기](#compiling-the-kernel-for-the-gpu-device)
+*   [파이썬에서 그래디언크 구현하기](#implement-the-gradient-in-python)
+*   [C++에서 형태 함수](#shape-functions-in-c)
 
-### Conditional checks and validation
+### 조건부 검사와 검증
 
-The example above assumed that the op applied to a tensor of any shape.  What
-if it only applied to vectors?  That means adding a check to the above OpKernel
-implementation.
+다음 예제는 op가 어떤 형태 텐서에도 적용 가능하다고 가정했습니다.
+만약 오직 벡터에만 적용 가능하다면 어떻게 해야할까요?
+그것은 다음처럼 OpKernel 구현에 벡터 여부를 확인하는 부분을 추가해야함을 의미합니다.
 
 ```c++
   void Compute(OpKernelContext* context) override {
-    // Grab the input tensor
+    // 입력 텐서 가져오기
     const Tensor& input_tensor = context->input(0);
 
     OP_REQUIRES(context, TensorShapeUtils::IsVector(input_tensor.shape()),
-                errors::InvalidArgument("ZeroOut expects a 1-D vector."));
+                errors::InvalidArgument("ZeroOut는 1-D 벡터이어야 함"));
     // ...
   }
 ```
 
-This asserts that the input is a vector, and returns having set the
-`InvalidArgument` status if it isn't.  The
-[`OP_REQUIRES` macro][validation-macros] takes three arguments:
+추가된 부분은 입력값이 벡터임을 확인하고 벡터가 아니라면 `InvalidArgument`인 상태를 반환합니다.
+추가된 [`OP_REQUIRES` 매크로][validation-macros]는 입력값으로 3개를 받습니다:
 
-*   The `context`, which can either be an `OpKernelContext` or
-    `OpKernelConstruction` pointer (see
-    [`tensorflow/core/framework/op_kernel.h`](https://www.tensorflow.org/code/tensorflow/core/framework/op_kernel.h)),
-    for its `SetStatus()` method.
-*   The condition.  For example, there are functions for validating the shape
-    of a tensor in
-    [`tensorflow/core/framework/tensor_shape.h`](https://www.tensorflow.org/code/tensorflow/core/framework/tensor_shape.h)
-*   The error itself, which is represented by a `Status` object, see
-    [`tensorflow/core/lib/core/status.h`](https://www.tensorflow.org/code/tensorflow/core/lib/core/status.h). A
-    `Status` has both a type (frequently `InvalidArgument`, but see the list of
-    types) and a message.  Functions for constructing an error may be found in
-    [`tensorflow/core/lib/core/errors.h`][validation-macros].
+*   `컨텍스트`, `SetStatus()` 메소드를 위해서 `OpKernelContext` 혹은 `OpKernelConstruction`의 포인터 (
+    [`tensorflow/core/framework/op_kernel.h`](https://www.tensorflow.org/code/tensorflow/core/framework/op_kernel.h) 참조)
+*   상태. 예를 들어, 텐서 형태를 확인하는 함수들은
+    [`tensorflow/core/framework/tensor_shape.h`](https://www.tensorflow.org/code/tensorflow/core/framework/tensor_shape.h)에서 확인할 수 있습니다.
+*   에러, `Status` 객체로 표현됩니다,
+    [`tensorflow/core/lib/core/status.h`](https://www.tensorflow.org/code/tensorflow/core/lib/core/status.h) 참조하세요.
+    `Status`는 타입(주로 `InvalidArgument` 이지만 타입 종류는 확인하세요)과 메시지를 둘 다 가지고 있습니다.
+    에러를 생성하기 위한 함수는
+    [`tensorflow/core/lib/core/errors.h`][validation-macros]에서 확인가능합니다.
 
-Alternatively, if you want to test whether a `Status` object returned from some
-function is an error, and if so return it, use
-[`OP_REQUIRES_OK`][validation-macros].  Both of these macros return from the
-function on error.
+다른 방법으로 함수에서 반환된 `Status` 객체가 에러인지 확인하고 그것을 반환하기 원한다면
+[`OP_REQUIRES_OK`][validation-macros]를 사용하세요.
+이 매크로 둘 다 오류시 함수에서 에러를 반환합니다.
 
-### Op registration
+### Op 등록
 
-#### Attrs
+#### 속성
 
-Ops can have attrs, whose values are set when the op is added to a graph. These
-are used to configure the op, and their values can be accessed both within the
-kernel implementation and in the types of inputs and outputs in the op
-registration. Prefer using an input instead of an attr when possible, since
-inputs are more flexible. This is because attrs are constants and must be
-defined at graph construction time. In contrast, inputs are Tensors whose
-values can be dynamic; that is, inputs can change every step, be set using a
-feed, etc. Attrs are used for things that can't be done with inputs: any
-configuration that affects the signature (number or type of inputs or outputs)
-or that can't change from step-to-step.
+Op는 그래프에 추가될 때 설정되는 값인 속성을 가질 수 있습니다.
+속성은 op를 설정하는 데 사용되고, 그 값은 커널 구현에서 활용되거나
+op 등록에서 입력과 출력의 자료형으로 사용될 수 있습니다.
+입력값은 다양하기 때문에 가능하다면 속성 대신에 입력값을 사용하는 것을 선호합니다.
+속성은 고정값이고 그래프가 생성되는 시점에 정의되어야 하기 때문입니다.
+반대로 입력인 텐서는 동적으로 변할 수 있습니다.
+즉, 입력이 매번 변경될 수 있고 사용자에 의해서 설정할 수 있습니다.
+속성은 입력을 활용할 수 없는 경우에 사용됩니다:
+서명(입력과 출력의 개수와 자료형)에 영향을 미치거나 매번 변경될 수 없는 어떤 구성.
 
-You define an attr when you register the op, by specifying its name and type
-using the `Attr` method, which expects a spec of the form:
+op를 등록할 때, `Attr` 메서드를 사용해 다음과 같은 형태로 속성 이름과 자료형을 명시해서 속성을 정의합니다:
 
 ```
-<name>: <attr-type-expr>
+<이름>: <속성-자료형-표현식>
 ```
 
-where `<name>` begins with a letter and can be composed of alphanumeric
-characters and underscores, and `<attr-type-expr>` is a type expression of the
-form [described below](#attr_types).
+`<이름>`은 문자로 시작하고 영문자와 밑줄로 구성되고,
+`<속성-타입-표현식>`는 [아래 설명한](#attr_types) 형태의 표현식입니다.
 
-For example, if you'd like the `ZeroOut` op to preserve a user-specified index,
-instead of only the 0th element, you can register the op like so:
+예를 들어, `ZeroOut`라는 op가 0번째 원소가 아닌 사용자 지정 색인에 있는 원소를 보존하고 싶다면,
+op를 다음과 같이 등록할 수 있습니다:
 ```c++
 REGISTER_OP("ZeroOut")
     .Attr("preserve_index: int")
@@ -496,21 +488,19 @@ REGISTER_OP("ZeroOut")
     .Output("zeroed: int32");
 ```
 
-(Note that the set of [attribute types](#attr_types) is different from the
-`tf.DType` used for inputs and outputs.)
+([속성 자료형](#attr_types)은 입력과 출력에서 사용하는 `tf.DType`과는 다르다는 것에 주의하세요.)
 
-Your kernel can then access this attr in its constructor via the `context`
-parameter:
+작성한 커널에서는 생성자의 입력 매개변수인 `context`를 통해서 속성에 접근할 수 있습니다:
 ```c++
 class ZeroOutOp : public OpKernel {
  public:
   explicit ZeroOutOp(OpKernelConstruction* context) : OpKernel(context) {
-    // Get the index of the value to preserve
+    // 보존할 원소의 색인 가져오기
     OP_REQUIRES_OK(context,
                    context->GetAttr("preserve_index", &preserve_index_));
-    // Check that preserve_index is positive
+    // preserve_index가 양수 인지 확인하기
     OP_REQUIRES(context, preserve_index_ >= 0,
-                errors::InvalidArgument("Need preserve_index >= 0, got ",
+                errors::InvalidArgument("preserve_index >= 0 이어야 함, got ",
                                         preserve_index_));
   }
   void Compute(OpKernelContext* context) override {
@@ -521,143 +511,133 @@ class ZeroOutOp : public OpKernel {
 };
 ```
 
-which can then be used in the `Compute` method:
+속성은 `Compute` 메서드에서 다음과 같이 사용됩니다:
 ```c++
   void Compute(OpKernelContext* context) override {
     // ...
 
-    // We're using saved attr to validate potentially dynamic input
-    // So we check that preserve_index is in range
+    // 동적으로 변경될 수 있는 입력값을 검증하기 위해서 저장된 속성을 사용합니다
+    // 그리고 preserve_index가 입력값 범위안에 있는지 확인합니다
     OP_REQUIRES(context, preserve_index_ < input.dimension(0),
-                errors::InvalidArgument("preserve_index out of range"));
+                errors::InvalidArgument("preserve_index 범위 초과"));
 
-    // Set all the elements of the output tensor to 0
+    // 출력 텐서의 모든 원소값을 0으로 설정합
     const int N = input.size();
     for (int i = 0; i < N; i++) {
       output_flat(i) = 0;
     }
 
-    // Preserve the requested input value
+    // 요청된 입력값을 보존
     output_flat(preserve_index_) = input(preserve_index_);
   }
 ```
 
-#### Attr types
+#### 속성 자료형
 
-The following types are supported in an attr:
+다음은 속성에서 지원하는 자료형입니다:
 
-* `string`: Any sequence of bytes (not required to be UTF8).
-* `int`: A signed integer.
-* `float`: A floating point number.
-* `bool`: True or false.
-* `type`: One of the (non-ref) values of [`DataType`][DataTypeString].
-* `shape`: A [`TensorShapeProto`][TensorShapeProto].
-* `tensor`: A [`TensorProto`][TensorProto].
-* `list(<type>)`: A list of `<type>`, where `<type>` is one of the above types.
-  Note that `list(list(<type>))` is invalid.
+* `string`: 바이트(byte)의 연속(UTF8이 필수는 아님).
+* `int`: 부호있는 정수.
+* `float`: 부동 소수점 숫자.
+* `bool`: 참 혹은 거짓.
+* `type`: [`DataType`][DataTypeString]의 값(참조가 아닌)중에 하나.
+* `shape`: [`TensorShapeProto`][TensorShapeProto].
+* `tensor`: [`TensorProto`][TensorProto].
+* `list(<type>)`: `<type>` 리스트, `<type>`은 위의 어떤 자료형중 하나.
+  `list(list(<type>))`는 유효하지 않습니다 주의하세요.
 
-See also: [`op_def_builder.cc:FinalizeAttr`][FinalizeAttr] for a definitive list.
+추가: 최종적인 리스트는 [`op_def_builder.cc:FinalizeAttr`][FinalizeAttr]을 참고하세요.
 
-##### Default values and constraints
+##### 기본값과 제약사항
 
-Attrs may have default values, and some types of attrs can have constraints. To
-define an attr with constraints, you can use the following `<attr-type-expr>`s:
+속성은 기본값을 가질 수 있고, 일부 속성은 제약사항을 가지고 있습니다.
+제약사항이 있는 속성을 정의하기 위해서, 아래의 `<속성-자료형-표현식>`를 사용할 수 있습니다:
 
-* `{'<string1>', '<string2>'}`: The value must be a string that has either the
-  value `<string1>` or `<string2>`.  The name of the type, `string`, is implied
-  when you use this syntax.  This emulates an enum:
+* `{'<string1>', '<string2>'}`: 값은 `<string1>` 혹은 `<string2>` 둘 중 하나를 가지는 `string`이여야 합니다.
+  이 문법을 사용했을 때 자료형 이름 `string`은 자료형은 암시합니다.
+  이러한 문법은 열거형을 모방합니다:
 
   ```c++
   REGISTER_OP("EnumExample")
       .Attr("e: {'apple', 'orange'}");
   ```
 
-* `{<type1>, <type2>}`: The value is of type `type`, and must be one of
-  `<type1>` or `<type2>`, where `<type1>` and `<type2>` are supported
-  `tf.DType`.  You don't specify
-  that the type of the attr is `type`. This is implied when you have a list of
-  types in `{...}`.  For example, in this case the attr `t` is a type that must
-  be an `int32`, a `float`, or a `bool`:
+* `{<type1>, <type2>}`: 값은 `type` 자료형이고 `tf.DType`에서 지원하는 `<type1>` 또는 `<type2>` 중에 하나여야 합니다.
+  속성 자료형에 `type`을 명시하지 않습니다. 그것은 `{...}`안의 자료형 리스트를 통해 암시됩니다.
+  예를 들어, 아래와 같은 경우에 속성 `t`의 자료형은 `int32`과 `float`, `bool` 중에 하나입니다:
 
   ```c++
   REGISTER_OP("RestrictedTypeExample")
       .Attr("t: {int32, float, bool}");
   ```
 
-* There are shortcuts for common type constraints:
-    * `numbertype`: Type `type` restricted to the numeric (non-string and
-      non-bool) types.
-    * `realnumbertype`: Like `numbertype` without complex types.
-    * `quantizedtype`: Like `numbertype` but just the quantized number types.
+* 공통의 자료형 제약사항을 위한 몇 가지 단축형이 있습니다:
+    * `numbertype`: 숫자(문자나 부울(boolean)형이 아닌)로 제한된 자료형 `type`
+    * `realnumbertype`: 복잡한 자료형이 없는 `numbertype`
+    * `quantizedtype`: 정량화된(quantized) 숫자 자료형인 `numbertype`
 
-    The specific lists of types allowed by these are defined by the functions
-    (like `NumberTypes()`) in
-    [`tensorflow/core/framework/types.h`](https://www.tensorflow.org/code/tensorflow/core/framework/types.h).
-    In this example the attr `t` must be one of the numeric types:
+    이러한 것들로 허용된 구체적인 자료형 리스트는
+    [`tensorflow/core/framework/types.h`](https://www.tensorflow.org/code/tensorflow/core/framework/types.h)
+    에 있는 `NumberTypes()`와 같은 함수에 의해 정의됩니다.
+    이 예제에서 속성 `t`는 반드시 숫자 자료형중에 하나여야 합니다.
 
     ```c++
     REGISTER_OP("NumberType")
         .Attr("t: numbertype");
     ```
 
-    For this op:
+    이 op를 사용하면:
 
     ```python
-    tf.number_type(t=tf.int32)  # Valid
-    tf.number_type(t=tf.bool)   # Invalid
+    tf.number_type(t=tf.int32)  # 유효
+    tf.number_type(t=tf.bool)   # 유효하지 않음
     ```
 
-    Lists can be combined with other lists and single types.  The following
-    op allows attr `t` to be any of the numeric types, or the bool type:
+    리스트는 다른 리스트와 단일 자료형을 결합할 수 있습니다.
+    다음 op는 속성 `t`가 숫자 자료형이나 부울 자료형 중 하나만을 허용합니다:
 
     ```c++
     REGISTER_OP("NumberOrBooleanType")
         .Attr("t: {numbertype, bool}");
     ```
 
-    For this op:
+    이 op를 사용하면:
 
     ```python
-    tf.number_or_boolean_type(t=tf.int32)  # Valid
-    tf.number_or_boolean_type(t=tf.bool)   # Valid
-    tf.number_or_boolean_type(t=tf.string) # Invalid
+    tf.number_or_boolean_type(t=tf.int32)  # 유효
+    tf.number_or_boolean_type(t=tf.bool)   # 유효
+    tf.number_or_boolean_type(t=tf.string) # 유효하지 않음
     ```
 
-* `int >= <n>`: The value must be an int whose value is greater than or equal to
-  `<n>`, where `<n>` is a natural number.
+* `int >= <n>`: 값은 자연수 `<n>`보다 크거나 같은 정수 자료형이어야 합니다.
 
-  For example, the following op registration specifies that the attr `a` must
-  have a value that is at least `2`:
+  예를 들어, 다음 op 등록은 속성 `a`가 최소한 `2`보다 큰 값임을 명시합니다:
 
   ```c++
   REGISTER_OP("MinIntExample")
       .Attr("a: int >= 2");
   ```
 
-* `list(<type>) >= <n>`: A list of type `<type>` whose length is greater than
-  or equal to `<n>`.
+* `list(<type>) >= <n>`: `<n>`보다 크거나 같은 길이를 가진 `<type>`의 리스트입니다.
 
-  For example, the following op registration specifies that the attr `a` is a
-  list of types (either `int32` or `float`), and that there must be at least 3
-  of them:
+  예를 들어, 다음 op 등록은 속성 `a`가 `int32` 혹은 `float`의 리스트이고 그값이 최소한 3보다 큰 값임을 명시합니다:
 
   ```c++
   REGISTER_OP("TypeListExample")
       .Attr("a: list({int32, float}) >= 3");
   ```
 
-To set a default value for an attr (making it optional in the generated code),
-add `= <default>` to the end, as in:
+속성에 기본값을 할당하려면(이를 통해 생성된 코드에서 속성을 옵셔널(optional)으로 만들어줌),
+다음과 같이 `= <default>`를 끝부분에 추가하세요:
 
 ```c++
 REGISTER_OP("AttrDefaultExample")
     .Attr("i: int = 0");
 ```
 
-The supported syntax of the default value is what would be used in the proto
-representation of the resulting GraphDef definition.
+기본값을 위한 문법은 GraphDef 정의를 결과로 만들어내는 프로토(proto) 표현에 사용될 것입니다.
 
-Here are examples for how to specify a default for all types:
+전체 자료형의 기본값을 명시하는 예:
 
 ```c++
 REGISTER_OP("AttrDefaultExampleForAllTypes")
@@ -672,8 +652,7 @@ REGISTER_OP("AttrDefaultExampleForAllTypes")
    .Attr("l_int: list(int) = [2, 3, 5, 7]");
 ```
 
-Note in particular that the values of type `type`
-use `tf.DType`.
+특히 `tf.DType`을 사용하는 `type`의 값에 주의하세요.
 
 #### Polymorphism
 
