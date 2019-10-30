@@ -38,10 +38,9 @@ omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">pip install -U --user pip six numpy wheel setuptools mock 'future>=0.17.1'</code>
-<code class="devsite-terminal">pip install -U --user keras_applications==1.0.6 --no-deps</code>
-<code class="devsite-terminal">pip install -U --user keras_preprocessing==1.0.5 --no-deps</code>
+<code class="devsite-terminal">pip install -U --user keras_applications --no-deps</code>
+<code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
 </pre>
-
 
 Note: A `pip` version >19.0 is required to install the TensorFlow 2.0 `.whl`
 package. Additional required dependencies are listed in the
