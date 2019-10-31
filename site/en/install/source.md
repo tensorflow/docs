@@ -52,7 +52,7 @@ file under `REQUIRED_PACKAGES`.
 [Install Bazel](https://docs.bazel.build/versions/master/install.html){:.external},
 the build tool used to compile TensorFlow.
 
-To avoid errors, [check out](#tested_build_configurations) which version of bazel has been tested with the tensorflow version and your gpu cnofiguration. 
+To avoid errors, [check out](#tested_build_configurations) which version of bazel has been tested with the tensorflow version and your gpu cnofiguration.
 
 Add the location of the Bazel executable to your `PATH` environment variable.
 
@@ -228,7 +228,7 @@ tensorflow:master repo has been updated to build 2.x by default.
 bazel build //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-Note: For GPU support, enable CUDA during the `./configure` stage.
+Note: For GPU support, enable CUDA with `cuda=Y` during the `./configure` stage.
 
 ### TensorFlow 1.x
 
