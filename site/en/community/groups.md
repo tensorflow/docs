@@ -49,6 +49,7 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 * [Tensorflow Community Sri Lanka](https://www.facebook.com/groups/150363118841298/)
 * [TensorFlow Việt Nam](https://www.facebook.com/gdgtensorflowvietnam)
 * [TF Nepal](https://www.facebook.com/groups/tfnepal/)
+* [TensorFlow User Group Iran](https://t.me/tensorflowiran)
 
 ## Europe
 
