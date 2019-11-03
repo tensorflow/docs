@@ -134,7 +134,7 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 # Install NVIDIA driver
 # Issue with driver install requires creating /usr/lib/nvidia
 <code class="devsite-terminal">sudo mkdir /usr/lib/nvidia</code>
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-418</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-418</code>
 # Reboot. Check that GPUs are visible using the command: nvidia-smi
 
 # Install development and runtime libraries (~4GB)
