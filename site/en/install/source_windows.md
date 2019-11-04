@@ -36,7 +36,7 @@ the build tool used to compile TensorFlow. Set up Bazel to
 
 Add the location of the Bazel executable to your `%PATH%` environment variable.
 
-Ensure you install Bazel 0.23.0 or lower.
+Ensure that your version of Bazel uses a [tested build configuration](#tested_build_configurations) of TensorFlow.
 
 ### Install MSYS2
 
@@ -112,7 +112,7 @@ python ./configure.py
 Starting local Bazel server and connecting to it...
 ................
 You have bazel 0.15.0 installed.
-Please specify the location of python. [Default is C:\python36\python.exe]: 
+Please specify the location of python. [Default is C:\python36\python.exe]:
 
 Found possible Python library paths:
   C:\python36\lib\site-packages
@@ -133,7 +133,7 @@ Please specify a list of comma-separated Cuda compute capabilities you want to b
 You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus.
 Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 3.5,7.0]: <b>3.7</b>
 
-Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is /arch:AVX]: 
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is /arch:AVX]:
 
 Would you like to override eigen strong inline for some C++ compilation to reduce the compilation time? [Y/n]:
 Eigen strong inline overridden.
@@ -195,7 +195,7 @@ bazel build --config=opt --config=cuda --define=no_tensorflow_py_deps=true //ten
 #### Bazel build options
 
 Use this option when building to avoid issue with package creation:
-https://github.com/tensorflow/tensorflow/issues/22390
+[tensorflow:issue#22390](https://github.com/tensorflow/tensorflow/issues/22390)
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 --define=no_tensorflow_py_deps=true
@@ -275,6 +275,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 </pre>
 
 
+<a name="tested_build_configurations"></a>
 ## Tested build configurations
 
 ### CPU
