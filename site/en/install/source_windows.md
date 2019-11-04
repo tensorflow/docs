@@ -275,7 +275,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 </pre>
 
 
-<a name=tested_build_configurations></a>
+<a name="tested_build_configurations"></a>
 ## Tested build configurations
 
 ### CPU
