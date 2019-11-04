@@ -1,4 +1,4 @@
-# Better performance with tf.data
+# Optimizing input pipelines with tf.data
 
 ## Overview
 
