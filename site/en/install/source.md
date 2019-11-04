@@ -52,7 +52,7 @@ file under `REQUIRED_PACKAGES`.
 [Install Bazel](https://docs.bazel.build/versions/master/install.html){:.external},
 the build tool used to compile TensorFlow.
 
-To avoid errors, [check out](#tested_build_configurations) which version of bazel has been tested with the tensorflow version and your gpu cnofiguration.
+Refer to this [table](#tested_build_configurations) to know which versions of Bazel have been tested with your TensorFlow version and system configuration.
 
 Add the location of the Bazel executable to your `PATH` environment variable.
 
@@ -420,7 +420,8 @@ Install and verify the package within the container and check for a GPU:
 Success: TensorFlow is now installed.
 
 
-##<a name="tested_build_configurations"></a> Tested build configurations
+<a name="tested_build_configurations"></a>
+## Tested build configurations
 
 ### Linux
 

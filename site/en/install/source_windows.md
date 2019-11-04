@@ -36,7 +36,7 @@ the build tool used to compile TensorFlow. Set up Bazel to
 
 Add the location of the Bazel executable to your `%PATH%` environment variable.
 
-Ensure that your version of Bazel is tested with the tensorflow version [here.](#tested_build_configurations)
+Ensure that your version of Bazel is tested with the TensorFlow version [here.](#tested_build_configurations)
 
 ### Install MSYS2
 
@@ -275,7 +275,8 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 </pre>
 
 
-##<a name=tested_build_configurations></a> Tested build configurations
+<a name=tested_build_configurations></a>
+## Tested build configurations
 
 ### CPU
 
