@@ -61,6 +61,7 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 * [London TensorFlow Meetup](https://www.meetup.com/London-TensorFlow-Meetup/)
 * [TensorFlow Edinburgh](https://www.meetup.com/tensorflow-edinburgh/)
 * [Kraków TensorFlow User Group](https://www.facebook.com/groups/370356090255755/)
+* [TensorFlow Turkey](https://kommunity.com/tensorflow-turkey/)
 
 ## Oceania
 
