@@ -49,16 +49,16 @@ file under `REQUIRED_PACKAGES`.
 
 ### Install Bazel
 
-[Install Bazel](https://docs.bazel.build/versions/master/install.html){:.external},
-the build tool used to compile TensorFlow.
+To build TensorFlow, you will need to install Bazel.
+[Bazelisk](https://github.com/bazelbuild/bazelisk) is an easy way to install
+Bazel and automatically downloads the correct Bazel version for TensorFlow. For
+ease of use, add Bazelisk as the `bazel` executable in your `PATH`.
 
-Refer to this [table](#tested_build_configurations) to know which versions of Bazel have been tested with your TensorFlow version and system configuration.
-
-Add the location of the Bazel executable to your `PATH` environment variable.
-
-Note: To build TensorFlow, the Bazel version must conform to the minimum and maximum
-versions specified by `_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` in
-[`tensorflow/configure.py`](https://github.com/tensorflow/tensorflow/blob/master/configure.py).
+If Bazelisk is not available, you can manually
+[install Bazel](https://docs.bazel.build/versions/master/install.html). Make
+sure to install a supported Bazel version: any version between
+`_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` as specified in
+`tensorflow/configure.py`.
 
 ### Install GPU support (optional, Linux only)
 
