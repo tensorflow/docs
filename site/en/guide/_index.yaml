@@ -131,7 +131,7 @@ landing_page:
           background: grey
       - description: >
           <a href="/graphics"><h3 class="tfo-landing-page-heading no-link">TensorFlow Graphics</h3></a>
-          Computer graphics meets machine learning.
+          A library of computer graphics functionalities ranging from cameras, lights, and materials to renderers.
         path: /graphics
         icon:
           icon_name: chevron_right
