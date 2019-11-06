@@ -16,6 +16,7 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 
 ## Americas
 
+* [Austin, TX TensorFlow User Group](https://www.meetup.com/Austin-TensorFlow-Meetup-Group/)
 * [Houston TensorFlow & Applied AI/ML user group](https://www.meetup.com/Houston-AI/)
 * [TensorFlow Buenos Aires](https://www.meetup.com/TensorFlow-Buenos-Aires/)
 * [TensorFlow-Northwest (Portland)](https://www.meetup.com/TensorFlow-Northwest/)
