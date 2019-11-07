@@ -27,3 +27,10 @@ Note: Please focus translation efforts on
 directory. TF 1.x community docs will no longer be updated as we prepare for the
 2.0 release. See
 [the announcement](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).
+
+# Guida alla traduzione italiana
+
+Alcune parole fanno parte di un vocabolario tecnico inglese e pertanto non hanno una traduzione naturale. Per favore *non* traducete le seguenti parole:
+
+*   layer
+*   loss
