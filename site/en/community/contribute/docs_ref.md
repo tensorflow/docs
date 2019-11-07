@@ -17,6 +17,8 @@ def concat():
   >>> t2 = [[[7, 4], [8, 4]], [[2,10], [15, 11]]]
   >>> concat([t1, t2], -1)
   <tf.Tensor: id=..., shape=(2, 2, 4), dtype=int32, numpy= array([[[1, 2, 7, 4], [2, 3, 8, 4]], [[4, 4, 2, 10], [5, 3, 15, 11]]], dtype=int32)>
+
+  More text here.
   """
 
   <code here>
@@ -29,9 +31,9 @@ testable with DocTest:
 
 *   Remove the backticks (```) and use the carets (>>>) in front of each line.
     Use (...) in front of continued lines.
-
 *   (```) can still be used for non-python code or code that cannot be tested
     for some reason.
+*   Add a newline as a separation between each doctest and markdown text.
 
 ### Docstring considerations
 
@@ -43,10 +45,8 @@ testable with DocTest:
     doctest documentation. If the output exceeds the 80 line limit, you can put
     the extra output on the new line and doctest will recognize it. See
     multi-line blocks below for the input.
-
 *   **Globals**: The `tf`, `np` and `os` modules are always available in
     TensorFlow's doctest.
-
 *   **Using symbols**: In doctest you can directly access symbols defined in the
     same file. To use a symbol that’s not defined in the current file, please
     use TensorFlow’s public API `tf.xxx` instead of `xxx`. As you can see in the
@@ -65,7 +65,6 @@ testable with DocTest:
       <tf.Tensor id=52, shape=(1, 14, 14, 3), dtype=int32, numpy=...>
       “””
     ```
-
 *   **Non-deterministic output**: Use ellipsis(`...`) for the uncertain parts
     and doctest will ignore that substring.
 
@@ -74,7 +73,6 @@ testable with DocTest:
     >>> print(x)
     <tf.Tensor: id=26, shape=(1,), dtype=float32, numpy=..., dtype=float32)>
     ```
-
 *   **Multi-line blocks**: Doctest is strict about the difference between a
     single and a multi-line statement. Note the usage of (...) below:
 
@@ -85,7 +83,6 @@ testable with DocTest:
     ...   loss="mse",
     ...   optimizer="adam")
     ```
-
 *   **Exceptions**: Exception details are ignored except the Exception that’s
     raised. See
     [this](https://docs.python.org/3/library/doctest.html#doctest.IGNORE_EXCEPTION_DETAIL)
@@ -117,7 +114,6 @@ There are two ways to test the code in the docstring locally:
         `pip install -U tf-nightly`
     *   Rebase your pull request onto a recent pull from
         [TensorFlow's](https://github.com/tensorflow/tensorflow) master branch.
-
 *   If you are changing the code and the docstring of a class/function/method,
     then you will need to
     [build tensorflow from source](../../install/source.md). Once you are setup
