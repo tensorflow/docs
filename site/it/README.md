@@ -33,4 +33,3 @@ directory. TF 1.x community docs will no longer be updated as we prepare for the
 Alcune parole fanno parte di un vocabolario tecnico inglese e pertanto non hanno una traduzione naturale. Per favore *non* traducete le seguenti parole:
 
 *   layer
-*   loss
