@@ -737,7 +737,7 @@ Your op registration now specifies that the input's type must be `float`, or
 
 > <a id="naming"></a>A note on naming: Inputs, outputs, and attrs generally should be
 > given snake\_case names.  The one exception is attrs that are used as the type
-> of an input or in the type of an input. Those attrs can be inferred when the
+> of an input or in the type of an output. Those attrs can be inferred when the
 > op is added to the graph and so don't appear in the op's function.  For
 > example, this last definition of ZeroOut will generate a Python function that
 > looks like:

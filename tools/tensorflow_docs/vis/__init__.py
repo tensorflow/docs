@@ -14,7 +14,7 @@
 # ==============================================================================
 """Visualization tools for tensorflow_docs.
 
-Use this module for plotting and viaualization code that is too long to inline
+Use this module for plotting and visualization code that is too long to inline
 into a notebook.
 """
 from tensorflow_docs.vis.webp_animation import Webp

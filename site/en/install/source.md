@@ -38,10 +38,9 @@ omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">pip install -U --user pip six numpy wheel setuptools mock 'future>=0.17.1'</code>
-<code class="devsite-terminal">pip install -U --user keras_applications==1.0.6 --no-deps</code>
-<code class="devsite-terminal">pip install -U --user keras_preprocessing==1.0.5 --no-deps</code>
+<code class="devsite-terminal">pip install -U --user keras_applications --no-deps</code>
+<code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
 </pre>
-
 
 Note: A `pip` version >19.0 is required to install the TensorFlow 2.0 `.whl`
 package. Additional required dependencies are listed in the
@@ -50,14 +49,16 @@ file under `REQUIRED_PACKAGES`.
 
 ### Install Bazel
 
-[Install Bazel](https://docs.bazel.build/versions/master/install.html){:.external},
-the build tool used to compile TensorFlow.
+To build TensorFlow, you will need to install Bazel.
+[Bazelisk](https://github.com/bazelbuild/bazelisk) is an easy way to install
+Bazel and automatically downloads the correct Bazel version for TensorFlow. For
+ease of use, add Bazelisk as the `bazel` executable in your `PATH`.
 
-Add the location of the Bazel executable to your `PATH` environment variable.
-
-Note: To build TensorFlow, the Bazel version must conform to the minimum and maximum
-versions specified by `_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` in
-[`tensorflow/configure.py`](https://github.com/tensorflow/tensorflow/blob/master/configure.py).
+If Bazelisk is not available, you can manually
+[install Bazel](https://docs.bazel.build/versions/master/install.html). Make
+sure to install a supported Bazel version: any version between
+`_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` as specified in
+`tensorflow/configure.py`.
 
 ### Install GPU support (optional, Linux only)
 
@@ -227,7 +228,7 @@ tensorflow:master repo has been updated to build 2.x by default.
 bazel build //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-Note: For GPU support, enable CUDA during the `./configure` stage.
+Note: For GPU support, enable CUDA with `cuda=Y` during the `./configure` stage.
 
 ### TensorFlow 1.x
 
@@ -419,9 +420,12 @@ Install and verify the package within the container and check for a GPU:
 Success: TensorFlow is now installed.
 
 
+<a name="tested_build_configurations"></a>
 ## Tested build configurations
 
 ### Linux
+
+#### CPU
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
@@ -442,6 +446,8 @@ Success: TensorFlow is now installed.
 <tr><td>tensorflow-1.1.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.4.2</td></tr>
 <tr><td>tensorflow-1.0.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.4.2</td></tr>
 </table>
+
+#### GPU
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>

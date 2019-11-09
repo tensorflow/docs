@@ -50,7 +50,7 @@ class Webp(object):
     frame_rate: The default frame rate for appended images.
     shape: The shape of the animation frames. Will default to the size of the
       first image if not set.
-    result: The binary image datya string. Once the animation has been used, it
+    result: The binary image data string. Once the animation has been used, it
       can no longer updated. And the result field contains the webp encoded
       data.
   """

@@ -16,6 +16,7 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 
 ## Americas
 
+* [Austin, TX TensorFlow User Group](https://www.meetup.com/Austin-TensorFlow-Meetup-Group/)
 * [Houston TensorFlow & Applied AI/ML user group](https://www.meetup.com/Houston-AI/)
 * [TensorFlow Buenos Aires](https://www.meetup.com/TensorFlow-Buenos-Aires/)
 * [TensorFlow-Northwest (Portland)](https://www.meetup.com/TensorFlow-Northwest/)
@@ -53,6 +54,7 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 ## Europe
 
 * [TensorFlow Barcelona](https://www.meetup.com/Barcelona-Machine-Learning-Meetup/)
+* [TensorFlow Berlin](https://www.meetup.com/Tensorflow-in-Berlin/)
 * [TensorFlow Madrid](https://www.meetup.com/TensorFlow-Madrid/)
 * [Tensorflow Belgium](https://www.meetup.com/TensorFlow-Belgium)
 * [TensorFlow x Rome Meetup](https://www.meetup.com/it-IT/TensorFlow-x-Rome-Meetup)
@@ -60,6 +62,7 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 * [London TensorFlow Meetup](https://www.meetup.com/London-TensorFlow-Meetup/)
 * [TensorFlow Edinburgh](https://www.meetup.com/tensorflow-edinburgh/)
 * [Kraków TensorFlow User Group](https://www.facebook.com/groups/370356090255755/)
+* [TensorFlow Turkey](https://kommunity.com/tensorflow-turkey/)
 
 ## Oceania
 

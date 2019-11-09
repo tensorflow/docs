@@ -52,7 +52,7 @@ toc:
 - heading: "Data input pipelines"
 - title: "tf.data"
   path: /guide/data
-- title: "Performance"
+- title: "Optimizing input pipelines"
   path: /guide/data_performance
 
 - heading: "Save a model"

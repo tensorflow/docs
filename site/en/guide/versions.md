@@ -28,7 +28,7 @@ and `PATCH` version 3. Changes to each number have the following meaning:
 For example, release 1.0.0 introduced backwards *incompatible* changes from
 release 0.12.1.  However, release 1.1.1 was backwards *compatible* with release
 1.0.0.
-
+<a name="what_is_covered"></a>
 ## What is covered
 
 Only the public APIs of TensorFlow are backwards compatible across minor and
@@ -139,7 +139,7 @@ These include:
     change the text of error messages. In addition, the type of an error may
     change unless the exception type for a specific error condition is specified
     in the documentation.
-
+<a name="compatibility_of_graphs_and_checkpoints"></a>
 ## Compatibility of SavedModels, graphs and checkpoints
 
 SavedModel is the preferred serialization format to use in TensorFlow programs.
