@@ -6,18 +6,18 @@ and the easiest to use, but other language APIs may be easier to integrate
 into projects and may offer some performance advantages in graph execution.
 
 A word of caution: the APIs in languages other than Python are not yet
-covered by the [API stability promises](/guide/versions).
+covered by the [API stability promises](https://www.tensorflow.org/guide/versions).
 
-* [Python](python)
+* [Python](https://www.tensorflow.org/api_docs/python/)
 * [JavaScript](https://js.tensorflow.org/api/latest/)
-* [C++](cc)
-* [Java](java/reference/org/tensorflow/package-summary)
+* [C++](https://www.tensorflow.org/api_docs/cc/)
+* [Java](https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary)
 * [Go](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go)
-* [Swift (Early Release)](../swift)
+* [Swift (Early Release)](https://www.tensorflow.org/swift)
 
 
 We encourage the community to develop and maintain support for other languages
-with the [approach recommended by the TensorFlow maintainers](../extend/language_bindings).
+with the [approach recommended by the TensorFlow maintainers](https://www.tensorflow.org/tutorials/customization/basics).
 For example, see the bindings for:
 
 * C#: [TensorFlowSharp](https://github.com/migueldeicaza/TensorFlowSharp) and [TensorFlow.NET](https://github.com/SciSharp/TensorFlow.NET),
@@ -29,4 +29,4 @@ For example, see the bindings for:
 
 We also provide the C++ API reference for TensorFlow Serving:
 
-* [TensorFlow Serving](/tfx/serving/api_docs/cc/)
+* [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving)
