@@ -17,7 +17,7 @@ covered by the [API stability promises](https://www.tensorflow.org/guide/version
 
 
 We encourage the community to develop and maintain support for other languages
-with the [approach recommended by the TensorFlow maintainers](https://www.tensorflow.org/tutorials/customization/basics).
+with the [approach recommended by the TensorFlow maintainers](https://github.com/tensorflow/docs/blob/master/site/en/r1/guide/extend/bindings.md).
 For example, see the bindings for:
 
 * C#: [TensorFlowSharp](https://github.com/migueldeicaza/TensorFlowSharp) and [TensorFlow.NET](https://github.com/SciSharp/TensorFlow.NET),
