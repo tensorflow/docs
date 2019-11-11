@@ -65,6 +65,7 @@ testable with DocTest:
       <tf.Tensor id=52, shape=(1, 14, 14, 3), dtype=int32, numpy=...>
       “””
     ```
+
 *   **Non-deterministic output**: Use ellipsis(`...`) for the uncertain parts
     and doctest will ignore that substring.
 
@@ -73,6 +74,7 @@ testable with DocTest:
     >>> print(x)
     <tf.Tensor: id=26, shape=(1,), dtype=float32, numpy=..., dtype=float32)>
     ```
+
 *   **Multi-line blocks**: Doctest is strict about the difference between a
     single and a multi-line statement. Note the usage of (...) below:
 
@@ -83,6 +85,7 @@ testable with DocTest:
     ...   loss="mse",
     ...   optimizer="adam")
     ```
+
 *   **Exceptions**: Exception details are ignored except the Exception that’s
     raised. See
     [this](https://docs.python.org/3/library/doctest.html#doctest.IGNORE_EXCEPTION_DETAIL)
