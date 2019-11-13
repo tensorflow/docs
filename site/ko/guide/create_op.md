@@ -654,17 +654,15 @@ REGISTER_OP("AttrDefaultExampleForAllTypes")
 
 특히 `tf.DType`을 사용하는 `type`의 값에 주의하세요.
 
-#### Polymorphism
+#### 다형성(Polymorphism)
 
-##### Type polymorphism
+##### 자료형 다형성
 
-For ops that can take different types as input or produce different output
-types, you can specify [an attr](#attrs) in
-[an input or output type](#inputs-and-outputs) in the op registration.  Typically
-you would then register an `OpKernel` for each supported type.
+다양한 자료형을 입력으로 받거나 출력으로 생성하는 op를 위해,
+op 등록할 때 입력 [입력과 출력 자료형](#inputs-and-outputs)에 있는 [속성](#attrs)을 명시할 수 있습니다.
+일반적으로 그런 다음 지원하는 자료형에 맞는 `OpKernel`을 등록할 수 있습니다.
 
-For instance, if you'd like the `ZeroOut` op to work on `float`s
-in addition to `int32`s, your op registration might look like:
+예를 들어 `ZeroOut` op가 `float`과 `int32`을 지원하게 하려면, op 등록은 다음과 같을 것 입니다:
 ```c++
 REGISTER_OP("ZeroOut")
     .Attr("T: {float, int32}")
@@ -672,35 +670,32 @@ REGISTER_OP("ZeroOut")
     .Output("zeroed: T");
 ```
 
-Your op registration now specifies that the input's type must be `float`, or
-`int32`, and that its output will be the same type, since both have type `T`.
+op 등록에서 입력 자료형은 `float` 혹은 `int32`이어야 한다고 명시했고,
+둘 다 `T`인 자료형이기 때문에 출력 자료형은 입력 자료형과 같을 것입니다.
 
-> <a id="naming"></a>A note on naming: Inputs, outputs, and attrs generally should be
-> given snake\_case names.  The one exception is attrs that are used as the type
-> of an input or in the type of an input. Those attrs can be inferred when the
-> op is added to the graph and so don't appear in the op's function.  For
-> example, this last definition of ZeroOut will generate a Python function that
-> looks like:
+> <a id="naming"></a>명명(naming)에 관한 메모:
+> 입력과 출력 그리고 속성 이름은 일반적으로 스네이크_케이스(snake_case)여야 합니다.
+> 한가지 예외인 경우는 속성이 입력과 출력의 자료형으로 사용되는 경우입니다.
+> 해당 속성의 자료형은 op가 그래프로 추가될 때 추론될 수 있으므로 op 함수에서 나타나지 않습니다.
+> 예를 들어 최종적으로 정의된 ZeroOut는 다음과 같은 파이썬 함수를 생성할 것입니다:
 >
 > ```python
 > def zero_out(to_zero, name=None):
 >   """...
 >   Args:
->     to_zero: A `Tensor`. Must be one of the following types:
+>     to_zero: `Tensor` 다음 자료형 중에 하나여야 함:
 >         `float32`, `int32`.
->     name: A name for the operation (optional).
+>     name: 작업 이름 (선택).
 >
 >   Returns:
->     A `Tensor`. Has the same type as `to_zero`.
+>     `to_zero`와 같은 자료형인 `Tensor`
 >   """
 > ```
 >
-> If `to_zero` is passed an `int32` tensor, then `T` is automatically set to
-> `int32` (well, actually `DT_INT32`). Those inferred attrs are given
-> Capitalized or CamelCase names.
+> 만약 `to_zero`로 `int32`인 텐서가 전달된다면 `T`는 자동적으로 `int32`(실제는 `DT_INT32`)로 설정됩니다.
+> 이 추론된 속성은 대문화화된 혹은 카멜케이스(CamelCase) 형식의 이름이 사용됩니다.
 >
-> Compare this with an op that has a type attr that determines the output
-> type:
+> 이것을 속성 자료형으로 출력 자료형을 결정하는 op와 비교해 보세요:
 >
 > ```c++
 > REGISTER_OP("StringToNumber")
@@ -708,25 +703,24 @@ Your op registration now specifies that the input's type must be `float`, or
 >     .Output("output: out_type")
 >     .Attr("out_type: {float, int32} = DT_FLOAT");
 >     .Doc(R"doc(
-> Converts each string in the input Tensor to the specified numeric type.
+> 입력 텐서에 있는 문자열을 숫자 자료형으로 변환
 > )doc");
 > ```
 >
-> In this case, the user has to specify the output type, as in the generated
-> Python:
+> 이 경우, 생성된 파이썬 코드에 사용자가 직접 출력 자료형을 명시해야 합니다:
 >
 > ```python
 > def string_to_number(string_tensor, out_type=None, name=None):
->   """Converts each string in the input Tensor to the specified numeric type.
+>   """입력 텐서에 있는 문자열을 숫자 자료형으로 변환
 >
 >   Args:
->     string_tensor: A `Tensor` of type `string`.
->     out_type: An optional `tf.DType` from: `tf.float32, tf.int32`.
->       Defaults to `tf.float32`.
->     name: A name for the operation (optional).
+>     string_tensor: `string` 자료형인 `Tensor`.
+>     out_type: `tf.float32, tf.int32` 중에 하나인 `tf.DType` (선택).
+>       기본값은 `tf.float32`.
+>     name: 작업 이름 (선택).
 >
 >   Returns:
->     A `Tensor` of type `out_type`.
+>     `out_type`로 정의된 자료형인 `Tensor`
 >   """
 > ```
 
@@ -734,7 +728,7 @@ Your op registration now specifies that the input's type must be `float`, or
 #include "tensorflow/core/framework/op_kernel.h"
 
 class ZeroOutInt32Op : public OpKernel {
-  // as before
+  // 이전과 같음
 };
 
 class ZeroOutFloatOp : public OpKernel {
@@ -743,30 +737,30 @@ class ZeroOutFloatOp : public OpKernel {
       : OpKernel(context) {}
 
   void Compute(OpKernelContext* context) override {
-    // Grab the input tensor
+    // 입력 텐서 받아오기
     const Tensor& input_tensor = context->input(0);
     auto input = input_tensor.flat<float>();
 
-    // Create an output tensor
+    // 출력 텐서 생성하기
     Tensor* output = NULL;
     OP_REQUIRES_OK(context,
                    context->allocate_output(0, input_tensor.shape(), &output));
     auto output_flat = output->template flat<float>();
 
-    // Set all the elements of the output tensor to 0
+    // 출력 텐서의 모든 값을 0으로 설정하기
     const int N = input.size();
     for (int i = 0; i < N; i++) {
       output_flat(i) = 0;
     }
 
-    // Preserve the first input value
+    // 첫 입력값을 보존하기
     if (N > 0) output_flat(0) = input(0);
   }
 };
 
-// Note that TypeConstraint<int32>("T") means that attr "T" (defined
-// in the op registration above) must be "int32" to use this template
-// instantiation.
+// 아래 템플릿을 활용한 인스턴스를 생성할 때,
+// TypeConstraint<int32>("T")는 속성 "T" (위의 op 등록에서 정의된)가
+// "int32"이여야 함을 나타냅니다
 REGISTER_KERNEL_BUILDER(
     Name("ZeroOut")
     .Device(DEVICE_CPU)
@@ -779,9 +773,8 @@ REGISTER_KERNEL_BUILDER(
     ZeroOutFloatOp);
 ```
 
-> To preserve [backwards compatibility](#backwards-compatibility), you should
-> specify a [default value](#default-values-constraints) when adding an attr to
-> an existing op:
+> [하위 호환성](#backwards-compatibility)을 위해서
+> 이미 존재하는 op에 속성을 추가할 때 [기본값](#default-values-constraints) 명시하세요:
 >
 > ```c++
 > REGISTER_OP("ZeroOut")
@@ -790,7 +783,7 @@ REGISTER_KERNEL_BUILDER(
 >   .Output("zeroed: T")
 > ```
 
-Let's say you wanted to add more types, say `double`:
+추가 자료형인 `double`을 지원하기 원한다면:
 ```c++
 REGISTER_OP("ZeroOut")
     .Attr("T: {float, double, int32}")
@@ -798,9 +791,8 @@ REGISTER_OP("ZeroOut")
     .Output("zeroed: T");
 ```
 
-Instead of writing another `OpKernel` with redundant code as above, often you
-will be able to use a C++ template instead.  You will still have one kernel
-registration (`REGISTER_KERNEL_BUILDER` call) per overload.
+중복된 구현을 포함한 추가 `OpKernel`을 작성하는 대신에 C++ 템플릿을 주로 사용할 것입니다.
+그런 경우라도 오버로드된 자료형마다 커널 등록(`REGISTER_KERNEL_BUILDER` 호출)을 해야합니다.
 ```c++
 template <typename T>
 class ZeroOutOp : public OpKernel {
@@ -808,30 +800,30 @@ class ZeroOutOp : public OpKernel {
   explicit ZeroOutOp(OpKernelConstruction* context) : OpKernel(context) {}
 
   void Compute(OpKernelContext* context) override {
-    // Grab the input tensor
+    // 입력 텐서 받아오기
     const Tensor& input_tensor = context->input(0);
     auto input = input_tensor.flat<T>();
 
-    // Create an output tensor
+    // 출력 텐서 생성하기
     Tensor* output = NULL;
     OP_REQUIRES_OK(context,
                    context->allocate_output(0, input_tensor.shape(), &output));
     auto output_flat = output->template flat<T>();
 
-    // Set all the elements of the output tensor to 0
+    // 출력 텐서의 모든 값을 0으로 설정하기
     const int N = input.size();
     for (int i = 0; i < N; i++) {
       output_flat(i) = 0;
     }
 
-    // Preserve the first input value
+    // 첫 입력값을 보존하기
     if (N > 0) output_flat(0) = input(0);
   }
 };
 
-// Note that TypeConstraint<int32>("T") means that attr "T" (defined
-// in the op registration above) must be "int32" to use this template
-// instantiation.
+// 아래 템플릿을 활용한 인스턴스를 생성할 때,
+// TypeConstraint<int32>("T")는 속성 "T" (위의 op 등록에서 정의된)가
+// "int32"이여야 함을 나타냅니다
 REGISTER_KERNEL_BUILDER(
     Name("ZeroOut")
     .Device(DEVICE_CPU)
@@ -849,8 +841,7 @@ REGISTER_KERNEL_BUILDER(
     ZeroOutOp<double>);
 ```
 
-If you have more than a couple overloads, you can put the registration in a
-macro.
+여러 개의 오버로드가 있다면 매크로로 등록할 수도 있습니다.
 
 ```c++
 #include "tensorflow/core/framework/op_kernel.h"
@@ -867,9 +858,8 @@ REGISTER_KERNEL(double);
 #undef REGISTER_KERNEL
 ```
 
-Depending on the list of types you are registering the kernel for, you may be
-able to use a macro provided by
-[`tensorflow/core/framework/register_types.h`][register_types]:
+커널에 등록하려는 자료형 리스트에 따라,
+[`tensorflow/core/framework/register_types.h`][register_types]에서 제공하는 매크로를 사용할 수 있습니다:
 
 ```c++
 #include "tensorflow/core/framework/op_kernel.h"
@@ -893,15 +883,14 @@ TF_CALL_REAL_NUMBER_TYPES(REGISTER_KERNEL);
 #undef REGISTER_KERNEL
 ```
 
-##### List inputs and outputs
+##### 입/출력으로 리스트 사용
 
-In addition to being able to accept or produce different types, ops can consume
-or produce a variable number of tensors.
+다양한 자료형을 수용하거나 생성할 수 있도록 하는 것 뿐만 아니라,
+op는 다양한 개수의 텐서를 사용하거나 생성할 수 있습니다.
 
-In the next example, the attr `T` holds a *list* of types, and is used as the
-type of both the input `in` and the output `out`.  The input and output are
-lists of tensors of that type (and the number and types of tensors in the output
-are the same as the input, since both have type `T`).
+다음 예에서, 속성 `T`는 리스트이고 입력 `in`과 출력 `out`의 자료형으로 사용됩니다.
+입력과 출력은 텐서의 리스트입니다
+(그리고 입력과 출력 모두 자료형이 `T`이기 때문에 출력의 텐서 개수와 자료형은 입력과 동일합니다).
 
 ```c++
 REGISTER_OP("PolymorphicListExample")
@@ -910,10 +899,10 @@ REGISTER_OP("PolymorphicListExample")
     .Output("out: T");
 ```
 
-You can also place restrictions on what types can be specified in the list. In
-this next case, the input is a list of `float` and `double` tensors. The op
-accepts, for example, input types `(float, double, float)` and in that case the
-output type would also be `(float, double, float)`.
+리스트에서 사용될 수 있는 자료형을 제한할 수 있습니다.
+다음 예에서 입력은 `float`과 `double` 텐서의 리스트입니다.
+예를 들어, op가 입력에 들어있는 자료형이 `(float, double, float)`이라면
+출력 자료형도 `(float, double, float)`이어야 합니다.
 
 ```c++
 REGISTER_OP("ListTypeRestrictionExample")
@@ -922,8 +911,8 @@ REGISTER_OP("ListTypeRestrictionExample")
     .Output("out: T");
 ```
 
-If you want all the tensors in a list to be of the same type, you might do
-something like:
+만약에 리스트안의 모든 텐서 값이 같은 자료형이기 원한다면,
+다음과 같이 작성할 수 있습니다:
 
 ```c++
 REGISTER_OP("IntListInputExample")
@@ -932,12 +921,12 @@ REGISTER_OP("IntListInputExample")
     .Output("out: int32");
 ```
 
-This accepts a list of `int32` tensors, and uses an `int` attr `N` to
-specify the length of the list.
+이 예제에서는 `int32`형인 텐서 리스트를 입력받고,
+그 리스트의 길이를 명시하기 위해서 `int`형의 속성 `N`을 사용합니다.
 
-This can be made [type polymorphic](#type-polymorphism) as well.  In the next
-example, the input is a list of tensors (with length `"N"`) of the same (but
-unspecified) type (`"T"`), and the output is a single tensor of matching type:
+이것은 [자료형 다형성](#type-polymorphism)으로도 만들 수 있습니다.
+다음 예에서, 입력은 동일한(그러나 명시되지 않은) 자료형(`"T"`)을 가진 텐서 리스트(길이 `"N"`)이고,
+출력은 동일한 자료형인 단일 텐서입니다:
 
 ```c++
 REGISTER_OP("SameListInputExample")
@@ -947,10 +936,9 @@ REGISTER_OP("SameListInputExample")
     .Output("out: T");
 ```
 
-By default, tensor lists have a minimum length of 1. You can change that default
-using
-[a `">="` constraint on the corresponding attr](#default-values-constraints).
-In this next example, the input is a list of at least 2 `int32` tensors:
+기본값으로 텐서 리스트는 최소 길이가 1입니다.
+[해당 속성에 `">="`제한](#default-values-constraints)을 사용해 기본값을 변경할 수 있습니다.
+다음 예에서 입력은 길이가 최소 2이상인 `int32` 텐서입니다:
 
 ```c++
 REGISTER_OP("MinLengthIntListExample")
@@ -959,7 +947,7 @@ REGISTER_OP("MinLengthIntListExample")
     .Output("out: int32");
 ```
 
-The same syntax works with `"list(type)"` attrs:
+이러한 문법은 `"list(type)"` 속성에도 적용가능합니다:
 
 ```c++
 REGISTER_OP("MinimumLengthPolymorphicListExample")
@@ -968,9 +956,9 @@ REGISTER_OP("MinimumLengthPolymorphicListExample")
     .Output("out: T");
 ```
 
-#### Inputs and outputs
+#### 입력과 출력
 
-To summarize the above, an op registration can have multiple inputs and outputs:
+위의 내용을 요약하자면, 다양한 입력과 출력으로 op를 등록할 수 있습니다.
 
 ```c++
 REGISTER_OP("MultipleInsAndOuts")
@@ -980,21 +968,19 @@ REGISTER_OP("MultipleInsAndOuts")
     .Output("b: int32");
 ```
 
-Each input or output spec is of the form:
+각각의 입력 혹은 출력의 표현식은 다음과 같습니다:
 
 ```
 <name>: <io-type-expr>
 ```
 
-where `<name>` begins with a letter and can be composed of alphanumeric
-characters and underscores. `<io-type-expr>` is one of the following type
-expressions:
+위의 `<name>`은 소문자로 시작하고 알파벳 문자와 밑줄로 구성할 수 있습니다.
+`<io-type-expr>`는 다음과 같은 자료형 표현식중 하나입니다:
 
-* `<type>`, where `<type>` is a supported input type (e.g. `float`, `int32`,
-  `string`). This specifies a single tensor of the given type.
+* `<type>`, `<type>`는 지원가능한 입력 자료형 (예 `float`, `int32`, `string`).
+  이 경우에는 주어진 자료형의 단일 텐서임을 의미합니다.
 
-  See
-  `tf.DType`.
+  `tf.DType`을 확인하세요.
 
   ```c++
   REGISTER_OP("BuiltInTypesExample")
@@ -1002,9 +988,8 @@ expressions:
       .Input("complex_numbers: complex64");
   ```
 
-* `<attr-type>`, where `<attr-type>` is the name of an [Attr](#attrs) with type
-  `type` or `list(type)` (with a possible type restriction). This syntax allows
-  for [polymorphic ops](#polymorphism).
+* `<attr-type>`, `<attr-type>`은 `type` 혹은 `list(type)` 자료형인 [속성](#attrs)의 이름입니다
+   (자료형 제한이 가능함). 이 문법에서는 [op 다형성](#polymorphism)을 허용합니다.
 
   ```c++
   REGISTER_OP("PolymorphicSingleInput")
@@ -1016,8 +1001,7 @@ expressions:
       .Input("in: T");
   ```
 
-  Referencing an attr of type `list(type)` allows you to accept a sequence of
-  tensors.
+  속성이 `list(type)`인 경우에는 텐서 시퀀스임을 의미합니다.
 
   ```c++
   REGISTER_OP("ArbitraryTensorSequenceExample")
@@ -1031,14 +1015,12 @@ expressions:
       .Output("out: T");
   ```
 
-  Note that the number and types of tensors in the output `out` is the same as
-  in the input `in`, since both are of type `T`.
+  입력과 출력 모두 자료형이 `T`이기 때문에 출력의 텐서 개수와 자료형은 입력과 동일함을 유의하세요.
 
-* For a sequence of tensors with the same type: `<number> * <type>`, where
-  `<number>` is the name of an [Attr](#attrs) with type `int`.  The `<type>` can
-  either be a `tf.DType`,
-  or the name of an attr with type `type`.  As an example of the first, this
-  op accepts a list of `int32` tensors:
+* 동일한 자료형을 가지는 텐서 시퀀스:
+  `<number> * <type>`으로 표현하고 `<number>`는 `int`형인 [속성](#attrs)의 이름입니다.
+  `<type>`는 `tf.DType` 혹은 `type`을 표현한 속성 이름일 수 있습니다.
+  첫번째 예에서 처럼, 이 op는 `int32` 텐서 리스트를 입력받습니다:
 
   ```c++
   REGISTER_OP("Int32SequenceExample")
@@ -1046,8 +1028,7 @@ expressions:
       .Input("in: NumTensors * int32")
   ```
 
-  Whereas this op accepts a list of tensors of any type, as long as they are all
-  the same:
+  반면에 다음 op는 동일 자료형만 담을 수 있는 텐서 리스트를 입력받습니다:
 
   ```c++
   REGISTER_OP("SameTypeSequenceExample")
@@ -1056,79 +1037,72 @@ expressions:
       .Input("in: NumTensors * T")
   ```
 
-* For a reference to a tensor: `Ref(<type>)`, where `<type>` is one of the
-  previous types.
+* 텐서 참조: `Ref(<type>)`으로 표현하고 `<type>`는 기존 자료형중에 하나입니다.
 
-> A note on naming: Any attr used in the type of an input will be inferred.  By
-> convention those inferred attrs use capital names (like `T` or `N`).
-> Otherwise inputs, outputs, and attrs have names like function parameters
-> (e.g. `num_outputs`).  For more details, see the
-> [earlier note on naming](#naming).
+> 명명시 참고: 입력의 자료형으로 사용된 모든 속성은 유추되어질 것입니다.
+> 관습적으로 유추될 속성은 대문자(`T` 혹은 `N`과 같은)를 사용합니다.
+> 반면에 입력과 출력, 속성은 함수 매개변수와 같은 이름으로 표현합니다(예 `num_outputs`).
+> 자세한 내용은 [명명에 대한 이전 노트](#naming)를 참고하세요.
 
-For more details, see
-[`tensorflow/core/framework/op_def_builder.h`][op_def_builder].
+자세한 내용을 알고 싶다면,
+[`tensorflow/core/framework/op_def_builder.h`][op_def_builder]을 참고하세요.
 
-#### Backwards compatibility
+#### 하위 호환성
 
-Let's assume you have written a nice, custom op and shared it with others, so
-you have happy customers using your operation.  However, you'd like to make
-changes to the op in some way.
+사용자 정의 op를 잘 만들었고 다른 사용자에게 공유해 그 op를 사용하는 고객이 있다고 가정하겠습니다.
+그러나, 어떤 식으로든 op를 변경하고 싶습니다.
 
-In general, changes to existing, checked-in specifications must be
-backwards-compatible: changing the specification of an op must not break prior
-serialized `GraphDef` protocol buffers constructed from older specifications.
-The details of `GraphDef` compatibility are
-[described here](./versions.md#compatibility_of_graphs_and_checkpoints).
+일반적으로, 기존에 검토된 사양을 변경하려면 이전 버전과 호환돠어야 합니다:
+op의 명세를 변경하는 것이 이전 명세로 이미 생성된 직렬화 `GraphDef` 프로토콜 버퍼를 깨면 안됩니다.
+`GraphDef` 호환성에 대한 상세 내용은 [여기서 확인하세요](./versions.md#compatibility_of_graphs_and_checkpoints).
 
-There are several ways to preserve backwards-compatibility.
+하위 호환성을 지키기 위한 몇 가지 방법이 있습니다.
 
-1. Any new attrs added to an operation must have default values defined, and
-   with that default value the op must have the original behavior. To change an
-   operation from not polymorphic to polymorphic, you *must* give a default
-   value to the new type attr to preserve the original signature by default. For
-   example, if your operation was:
+1. op에 추가되는 어떤 새로운 속성도 정의된 기본값을 가지고 있어야하고,
+   op는 기본값을 사용해 변경 전에 정의된 작동을 해야합니다.
+   op가 다형성을 가지도록 변경하는 경우에도 이전에 정의된 특징을 보존하기 위해 새로운 자료형 속성에 기본값을 주어야 합니다.
+   예를 들어 기존 op가 다음과 간다면:
 
        REGISTER_OP("MyGeneralUnaryOp")
            .Input("in: float")
            .Output("out: float");
 
-   you can make it polymorphic in a backwards-compatible way using:
+   하위 호환성을 지키면서 다형성을 지원하도록 바꾸려면 다음과 같이 할 수 있습니다:
 
        REGISTER_OP("MyGeneralUnaryOp")
            .Input("in: T")
            .Output("out: T")
            .Attr("T: numerictype = DT_FLOAT");
 
-2. You can safely make a constraint on an attr less restrictive.  For example,
-   you can change from `{int32, int64}` to `{int32, int64, float}` or `type`.
-   Or you may change from `{"apple", "orange"}` to `{"apple", "banana",
-   "orange"}` or `string`.
+2. 속성에 대한 제약을 줄여서 안전하게 만들 수 있습니다.
+   예를 들어, `{int32, int64}`을 `{int32, int64, float}` 혹은 `type`으로 변경가능합니다.
+   또는, `{"apple", "orange"}`을 `{"apple", "banana", "orange"}` 혹은 `string`으로 변경할 수 있습니다.
 
-3. You can change single inputs / outputs into list inputs / outputs, as long as
-   the default for the list type matches the old signature.
+3. 리스트의 기본값을 변경 이전과 동일하게 맞춘다면,
+   단일 입력 / 출력을 입력 / 출력 리스트로 변경할 수 있습니다.
 
-4. You can add a new list input / output, if it defaults to empty.
+4. 기본값이 없다면, 새로운 입력 / 출력 리스트룰 추가할 수 있습니다.
 
-5. Namespace any new ops you create, by prefixing the op names with something
-   unique to your project. This avoids having your op colliding with any ops
-   that might be included in future versions of TensorFlow.
+5. 새롭게 작성한 op 이름에 프로젝트마다 고유한 접두어를 붇여서 네임스페이스를 만드세요.
+   이를 통해 향후 텐서플로에 포함될 수 있는 op와 이름이 겹치는 것을 막을 수 있습니다.
 
-6. Plan ahead! Try to anticipate future uses for the op. Some signature changes
-   can't be done in a compatible way (for example, making a list of the same
-   type into a list of varying types).
+6. 계획을 먼저하세요. op에 대한 향후 사용을 예측해 보세요.
+   어떤 특징은 호환성을 지키면서 변경하기 어려울 수 있습니다.
+   (예를 들어, 같은 자료형인 리스트를 다양한 자료형을 가지는 리스트로 만들기)
 
-The full list of safe and unsafe changes can be found in
-[`tensorflow/core/framework/op_compatibility_test.cc`](https://www.tensorflow.org/code/tensorflow/core/framework/op_compatibility_test.cc).
-If you cannot make your change to an operation backwards compatible, then create
-a new operation with a new name with the new semantics.
+안전하거나 안전하지 않는 변경에 대한 전체 내용은
+[`tensorflow/core/framework/op_compatibility_test.cc`](https://www.tensorflow.org/code/tensorflow/core/framework/op_compatibility_test.cc)에서
+찾을 수 있습니다.
+만약에 하위 호환성을 확보하기 어렵다면, 그때는 새로운 이름과 의미를 갖는 새로운 op를 만드세요.
 
-Also note that while these changes can maintain `GraphDef` compatibility, the
-generated Python code may change in a way that isn't compatible with old
-callers.  The Python API may be kept compatible by careful changes in a
-hand-written Python wrapper, by keeping the old signature except possibly adding
-new optional arguments to the end.  Generally incompatible changes may only be
-made when TensorFlow's changes major versions, and must conform to the
-[`GraphDef` version semantics](./versions.md#compatibility_of_graphs_and_checkpoints).
+또한 이러한 변경을 `GraphDef` 호환성을 지키면서 유지할 수 있는 동안,
+생성되는 파이썬 코드는 이전 버전과 호환되지 않는 방식으로 변경될 수 있음을 주의하세요.
+파이썬 API
+
+새로운 선택형 파라미터를 추가하는 것을 제외하고 이전 버전의 특징을 유지함으로써,
+파이썬 API는 사용자가 파이썬 랩퍼를 신중하게 변경하여 호환성을 유지할 수 있습니다.
+일반적으로 호환되지 않는 변경은 텐서플로 메이저 버젼이 변경되고,
+[`GraphDef` 버전 의미](./versions.md#compatibility_of_graphs_and_checkpoints)를 준수해야 하는 경우에만 발생합니다.
 
 ### GPU support
 
