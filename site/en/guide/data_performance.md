@@ -49,11 +49,11 @@ image-label pairs suitable for training. The input pipeline is represented as a
 def parse_fn(example):
   "Parse TFExample records and perform simple data augmentation."
   example_fmt = {
-    "image": tf.FixedLengthFeature((), tf.string, ""),
-    "label": tf.FixedLengthFeature((), tf.int64, -1)
+    "image": tf.io.FixedLenFeature([], tf.string, ""),
+    "label": tf.io.FixedLenFeature([], tf.int64, -1)
   }
-  parsed = tf.parse_single_example(example, example_fmt)
-  image = tf.io.image.decode_image(parsed["image"])
+  parsed = tf.io.parse_single_example(example, example_fmt)
+  image = tf.io.decode_image(parsed["image"])
   image = _augment_helper(image)  # augments image using slice, reshape, resize_bilinear
   return image, parsed["label"]
 
