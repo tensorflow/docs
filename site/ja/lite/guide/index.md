@@ -7,8 +7,8 @@ TensorFlow Liteは開発者がTensorFlowモデルをモバイル、組み込み�
 TensorFlow Liteは2つの大きな要素から成っています：
 
 -   特別に最適化されたモデルを、携帯電話、
-    組み込みLinuxデバイス、そしてマイクロコントローラーで走らせる[TensorFlow Liteインタープリター](inference.md)。
--   TensorFlowモデルをインタープリターで使うために、効率的な形式に変換して最適化を加え、バイナリサイズと性能を向上させる[TensorFlow Liteコンバーター](../convert/index.md)。
+    組み込みLinuxデバイス、そしてマイクロコントローラで走らせる[TensorFlow Liteインタープリタ](inference.md)。
+-   TensorFlowモデルをインタープリタで使うために、効率的な形式に変換して最適化を加え、バイナリサイズと性能を向上させる[TensorFlow Liteコンバータ](../convert/index.md)。
 
 ### エッジでの機械学習
 
@@ -20,22 +20,22 @@ TensorFlow Liteは機械学習をデバイス上で、サーバーとデータ�
 *   *接続性:* インターネット接続は必要でない
 *   *電源消費:* ネットワーク接続は電源を食う
 
-TensorFlow Liteは小さなマイクロコントローラーから強力な携帯電話まで非常に多くのデバイスで動作します。
+TensorFlow Liteは小さなマイクロコントローラから強力な携帯電話まで非常に多くのデバイスで動作します。
 
-要点: TensorFlow Liteバイナリは全てのサポートされたオペレーターがリンクされた場合には300KBより小さく、
-通常の画像分類モデルであるInceptionV3とMobileNetをサポートするために必要なオペレーターのみを使うときには200KBより小さいです。
+要点: TensorFlow Liteバイナリは全てのサポートされたオペレータがリンクされた場合には300KBより小さく、
+通常の画像分類モデルであるInceptionV3とMobileNetをサポートするために必要なオペレータのみを使うときには200KBより小さいです。
 
 ## 始めよう
 
 TensorFlow Liteをモバイルデバイス上で扱い始めるには、
 [始めよう](get_started.md)を見てください。
-もしもTensorFlow Liteモデルをマイクロコントローラーにデプロイしたかったら、
+もしもTensorFlow Liteモデルをマイクロコントローラにデプロイしたかったら、
 [マイクロコントローラ](../microcontrollers)をみてください。
 
 ## 主な機能
 
 *   オンデバイスのアプリケーション用に最適化されたコアオペレータをサポートし、また小さなバイナリサイズの、
-    *オンデバイスのML用に調整された[インタープリター](inference.md)*。
+    *オンデバイスのML用に調整された[インタープリタ](inference.md)*。
 *   [Android](android.md)と[iOS](ios.md)
     デバイス、組み込みLinux、そしてマイクロコントローラを含み、推論の高速化のためにプラットフォームのAPIを使った
     *多様なデバイスのサポート*。
@@ -80,15 +80,15 @@ TensorFlow Liteを使うワークフローは次のステップからなりま�
 
 TensorFlow Liteは高性能のオンデバイス推論を任意のTensorFlowモデルに提供しようと計画しています。
 しかしながら、TensorFlow Liteインタープリタが現在サポートするのは
-オンデバイスでの使用の最適化された、TensorFlowオペレーターのサブセットです。
+オンデバイスでの使用の最適化された、TensorFlowオペレータのサブセットです。
 これはいくつかのモデルはTensorFlow Liteで動かすには追加のステップが必要であることを意味します。
 
-どのオペレーターが利用可能かを学ぶには、[オペレータ互換性](ops_compatibility.md)
+どのオペレータが利用可能かを学ぶには、[オペレータ互換性](ops_compatibility.md)
 を見てください。
 
 あなたのモデルがTensorFlow Liteインタープリタで未サポートのオペレータを使用している場合は、
 [TensorFlowセレクト](ops_select.md)を使用して
-あなたのTensorFlow LiteビルドにTensorFlowオペレーターを含めることができます。
+あなたのTensorFlow LiteビルドにTensorFlowオペレータを含めることができます。
 しかしながら、これによりバイナリサイズは増えます。
 
 TensorFlow Liteは現在オンデバイスの学習をサポートしていませんが、
