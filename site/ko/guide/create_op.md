@@ -1104,28 +1104,26 @@ op의 명세를 변경하는 것이 이전 명세로 이미 생성된 직렬화 
 일반적으로 호환되지 않는 변경은 텐서플로 메이저 버젼이 변경되고,
 [`GraphDef` 버전 의미](./versions.md#compatibility_of_graphs_and_checkpoints)를 준수해야 하는 경우에만 발생합니다.
 
-### GPU support
+### GPU 지원
 
-You can implement different OpKernels and register one for CPU and another for
-GPU, just like you can [register kernels for different types](#polymorphism).
-There are several examples of kernels with GPU support in
-[`tensorflow/core/kernels/`](https://www.tensorflow.org/code/tensorflow/core/kernels/).
-Notice some kernels have a CPU version in a `.cc` file, a GPU version in a file
-ending in `_gpu.cu.cc`, and some code shared in common in a `.h` file.
+OpKernel을 구현할 때 CPU를 지원하는 것과 GPU를 지원하는 것으로 다르게 구현을 할 수 있고,
+이를 [다른 자료형을 위한 커널 등록](#polymorphism)과 같이 처리할 수 있습니다.
+[`tensorflow/core/kernels/`](https://www.tensorflow.org/code/tensorflow/core/kernels/)는
+GPU를 지원하는 커널의 예입니다.
+어떤 커널은 `.cc`로 끝나는 파일이 CPU버젼이고 `_gpu.cu.cc`로 끝나는 파일이 GPU버젼이고
+공통으로 사용하는 코드는 `.h`에서 공유합니다.
 
-For example, the `tf.pad` has
-everything but the GPU kernel in [`tensorflow/core/kernels/pad_op.cc`][pad_op].
-The GPU kernel is in
-[`tensorflow/core/kernels/pad_op_gpu.cu.cc`](https://www.tensorflow.org/code/tensorflow/core/kernels/pad_op_gpu.cu.cc),
-and the shared code is a templated class defined in
-[`tensorflow/core/kernels/pad_op.h`](https://www.tensorflow.org/code/tensorflow/core/kernels/pad_op.h).
-We organize the code this way for two reasons: it allows you to share common
-code among the CPU and GPU implementations, and it puts the GPU implementation
-into a separate file so that it can be compiled only by the GPU compiler.
+예를 들어, `tf.pad`는 GPU 커널을 위한 부분을 제외하고 [`tensorflow/core/kernels/pad_op.cc`][pad_op]에 모든 구현되어 있습니다.
+[`tensorflow/core/kernels/pad_op_gpu.cu.cc`](https://www.tensorflow.org/code/tensorflow/core/kernels/pad_op_gpu.cu.cc)에
+GPU커널에 관련된 부분이 있고, 공유하는 코드는 템플릿 클래스 형태로
+[`tensorflow/core/kernels/pad_op.h`](https://www.tensorflow.org/code/tensorflow/core/kernels/pad_op.h)에 정의되어 있습니다.
+코드를 이처럼 관리하는 이유는 2가지입니다:
+CPU를 위한 구현과 GPU를 위한 구현에 필요한 공통 코드를 공유할 수 있고
+GPU 컴파일러가 컴파일하는 GPU구현 부분만 다른 파일로 분리할 수 있습니다.
 
-One thing to note, even when the GPU kernel version of `pad` is used, it still
-needs its `"paddings"` input in CPU memory.  To mark that inputs or outputs are
-kept on the CPU, add a `HostMemory()` call to the kernel registration, e.g.:
+추가적으로 알아야할 것은, `pad`의 GPU 커널 버젼이 사용되는 경우에도,
+CPU 메모리에 있는 입력인 `"paddings"`이 여전히 필요합니다.
+입력과 출력이 CPU에 있다는 것을 표시하기 위해, 커널 등록에서 `HostMemory()` 호출을 추가하세요, 예를 들어:
 
 ```c++
 #define REGISTER_GPU_KERNEL(T)                         \
@@ -1136,20 +1134,15 @@ kept on the CPU, add a `HostMemory()` call to the kernel registration, e.g.:
                           PadOp<GPUDevice, T>)
 ```
 
-#### Compiling the kernel for the GPU device
+#### GPU 장치를 위한 커널 컴파일하기
 
-Look at
-[cuda_op_kernel.cu.cc](https://www.tensorflow.org/code/tensorflow/examples/adding_an_op/cuda_op_kernel.cu.cc)
-for an example that uses a CUDA kernel to implement an op. The
-`tf_custom_op_library` accepts a `gpu_srcs` argument in which the list of source
-files containing the CUDA kernels (`*.cu.cc` files) can be specified. For use
-with a binary installation of TensorFlow, the CUDA kernels have to be compiled
-with NVIDIA's `nvcc` compiler. Here is the sequence of commands you can use to
-compile the
-[cuda_op_kernel.cu.cc](https://www.tensorflow.org/code/tensorflow/examples/adding_an_op/cuda_op_kernel.cu.cc)
-and
-[cuda_op_kernel.cc](https://www.tensorflow.org/code/tensorflow/examples/adding_an_op/cuda_op_kernel.cc)
-into a single dynamically loadable library:
+op를 구현을 위해 CUDA 커널을 사용하는 예제는
+[cuda_op_kernel.cu.cc](https://www.tensorflow.org/code/tensorflow/examples/adding_an_op/cuda_op_kernel.cu.cc)에서 볼 수 있습니다.
+`tf_custom_op_library`에는 쿠다 커널(`*.cu.cc` 파일)을 포함하고 있는 소스 파일 리스트를 명시할 수 있는 `gpu_srcs` 매개변수가 있습니다.
+텐서 플로를 설치 파일로 설치한 경우 쿠타 커널은 엔비디아의 `nvcc` 컴파일러로 컴파일 되어야 합니다.
+다음은 [cuda_op_kernel.cu.cc](https://www.tensorflow.org/code/tensorflow/examples/adding_an_op/cuda_op_kernel.cu.cc)과
+[cuda_op_kernel.cc](https://www.tensorflow.org/code/tensorflow/examples/adding_an_op/cuda_op_kernel.cc)를
+한개의 동적 적재 라이브러리로 컴파일하기 위해서 사용된 일련의 명령어입니다:
 
 ```bash
 nvcc -std=c++11 -c -o cuda_op_kernel.cu.o cuda_op_kernel.cu.cc \
@@ -1159,37 +1152,32 @@ g++ -std=c++11 -shared -o cuda_op_kernel.so cuda_op_kernel.cc \
   cuda_op_kernel.cu.o ${TF_CFLAGS[@]} -fPIC -lcudart ${TF_LFLAGS[@]}
 ```
 
-`cuda_op_kernel.so` produced above can be loaded as usual in Python, using the
-`tf.load_op_library` function.
+위에서 생성된 `cuda_op_kernel.so`는 파이썬에서 보통 `tf.load_op_library` 함수로 적재할 수 있습니다.
 
-Note that if your CUDA libraries are not installed in `/usr/local/lib64`,
-you'll need to specify the path explicitly in the second (g++) command above.
-For example, add `-L /usr/local/cuda-8.0/lib64/` if your CUDA is installed in
-`/usr/local/cuda-8.0`.
+만약에 쿠다 라이브러리가 `/usr/local/lib64`에 설치되어 있지 않다면,
+위의 2번째 명령어(g++)에 라이브러리 경로를 명시적으로 추가할 수 있습니다.
+예를 들어, 쿠다가 `/usr/local/cuda-8.0`에 설치되어 있다면  `-L /usr/local/cuda-8.0/lib64/`를 추가하세요.
 
->   Note in some linux settings, additional options to `nvcc` compiling step are needed. Add `-D_MWAITXINTRIN_H_INCLUDED` to the `nvcc` command line to avoid errors from `mwaitxintrin.h`.
+>   일부 리눅스에서는, `nvcc` 컴파일 단계에서 추가적인 설정이 필요합니다.
+>   `nvcc` 명령어에서 `mwaitxintrin.h`때문에 생길 수 있는 에러를 피하기 위해 `-D_MWAITXINTRIN_H_INCLUDED`를 추가하세요.
 
-### Implement the gradient in Python
+### 파이썬에서 그래디언트 구현하기
 
-Given a graph of ops, TensorFlow uses automatic differentiation
-(backpropagation) to add new ops representing gradients with respect to the
-existing ops.
-To make automatic differentiation work for new ops, you must register a gradient
-function which computes gradients with respect to the ops' inputs given
-gradients with respect to the ops' outputs.
+op의 그래프가 주어지면, 텐서플로는 기존 op에 대한 그래디언트를 표현하는 새로운 op를 추가하기 위해서 자동미분(역전파) 사용합니다.
+새로운 op를 위한 자동 미분 작업을 만들기 위해,
+op의 출력에 대한 그래디언트로 주어진 op의 입력에 대한 그래디언트를 계산하기 위한 그래디언트 함수를 등록해야 합니다.
 
-Mathematically, if an op computes \\(y = f(x)\\) the registered gradient op
-converts gradients \\(\partial L/ \partial y\\) of loss \\(L\\) with respect to
-\\(y\\) into gradients \\(\partial L/ \partial x\\) with respect to \\(x\\) via
-the chain rule:
+수학적으로, 만약에 op가 등록된 그래디언트 \\(y = f(x)\\)를 계산하면
+op는 \\(y\\)에 대한 손실 \\(L\\)의 그래디언트 \\(\partial L/ \partial y\\)를
+체인룰을 통해 \\(x\\)에 대한 그래디언트 \\(\partial L/ \partial x\\)로 변환합니다:
 
 $$\frac{\partial L}{\partial x}
     = \frac{\partial L}{\partial y} \frac{\partial y}{\partial x}
     = \frac{\partial L}{\partial y} \frac{\partial f}{\partial x}.$$
 
-In the case of `ZeroOut`, only one entry in the input affects the output, so the
-gradient with respect to the input is a sparse "one hot" tensor.  This is
-expressed as follows:
+`ZeroOut`의 경우, 입력에 있는 오직 하나의 값만이 출력에 영향을 미치고,
+그래서 입력에 대한 그래디언트는 엉성한 "원 핫" 텐서입니다.
+이는 다음과 같이 표현됩니다:
 
 ```python
 from tensorflow.python.framework import ops
@@ -1198,68 +1186,59 @@ from tensorflow.python.ops import sparse_ops
 
 @ops.RegisterGradient("ZeroOut")
 def _zero_out_grad(op, grad):
-  """The gradients for `zero_out`.
+  """`zero_out`의 그래디언트
 
-  Args:
-    op: The `zero_out` `Operation` that we are differentiating, which we can use
-      to find the inputs and outputs of the original op.
-    grad: Gradient with respect to the output of the `zero_out` op.
+  매개변수:
+    op: 미분하려고 하는 `zero_out` `Operation`,
+      원래 op의 입력과 출력을 찾기 위해서 사용할 수 있음
+    grad: `zero_out` op의 출력에 대한 그래디언트
 
-  Returns:
-    Gradients with respect to the input of `zero_out`.
+  반환:
+    `zero_out`의 입력에 대한 그래디언트
   """
   to_zero = op.inputs[0]
   shape = array_ops.shape(to_zero)
   index = array_ops.zeros_like(shape)
   first_grad = array_ops.reshape(grad, [-1])[0]
   to_zero_grad = sparse_ops.sparse_to_dense([index], shape, first_grad, 0)
-  return [to_zero_grad]  # List of one Tensor, since we have one input
+  return [to_zero_grad]  # 입력이 하나이기 때문에, 한개 텐서로 이뤄진 리스트
 ```
 
-Details about registering gradient functions with
-`tf.RegisterGradient`:
+그래디언트 함수를 등록하기 위한 함수 `tf.RegisterGradient`에 대한 상세내용:
 
-* For an op with one output, the gradient function will take an
-  `tf.Operation` `op` and a
-  `tf.Tensor` `grad` and build new ops
-  out of the tensors
-  [`op.inputs[i]`](../../api_docs/python/framework.md#Operation.inputs),
-  [`op.outputs[i]`](../../api_docs/python/framework.md#Operation.outputs), and `grad`.  Information
-  about any attrs can be found via
-  `tf.Operation.get_attr`.
+* 하나의 출력을 가지는 op의 경우, 그래디언트 함수는
+  `tf.Operation` `op`과 `tf.Tensor` `grad`을 받아들일 것이고,
+  새로운 op를 텐서 [`op.inputs[i]`](../../api_docs/python/framework.md#Operation.inputs)과
+  [`op.outputs[i]`](../../api_docs/python/framework.md#Operation.outputs), `grad`를
+  사용하지 않고 생성합니다.
+  속성에 대한 정보는 `tf.Operation.get_attr`에서 찾을 수 있습니다.
 
-* If the op has multiple outputs, the gradient function will take `op` and
-  `grads`, where `grads` is a list of gradients with respect to each output.
-  The result of the gradient function must be a list of `Tensor` objects
-  representing the gradients with respect to each input.
+* 만약 op의 출력이 여러 개라면, 그래디언트 함수는 `op`과 각각 출력에 대한 그래디언트 리스트를 가지는 `grads`을 받아들입니다.
+  그래디언트 함수 출력은 각 입력의 그래디언트를 표현하는 텐서 객체 리스트이어야 합니다.
 
-* If there is no well-defined gradient for some input, such as for integer
-  inputs used as indices, the corresponding returned gradient should be
-  `None`.  For example, for an op taking a floating point tensor `x` and an
-  integer index `i`, the gradient function would `return [x_grad, None]`.
+* 만약 어떤 입력에 대해 잘 정의된 그래디언트가 없다면, 인덱스로 사용되는 정수 입력 같은,
+  반환되어야 하는 그래디언트는 `None`이어야 합니다.
+  예를 들어, 실수형 텐서 `x`와 정수 인덱스 `i`를 입력으로 받아들이는 op인 경우
+  그래디언트 함수는 `return [x_grad, None]`일 것입니다.
 
-* If there is no meaningful gradient for the op at all, you often will not have
-  to register any gradient, and as long as the op's gradient is never needed,
-  you will be fine. In some cases, an op has no well-defined gradient but can
-  be involved in the computation of the gradient. Here you can use
-  `ops.NotDifferentiable` to automatically propagate zeros backwards.
+* op를 위해 의미가 있는 그래디언트가 없다면, 보통 어떤 그래디언트도 등록하지 않을 것이고,
+  op의 그래디언트가 전혀 필요없는 한 그 것은 괜찮을 것입니다.
+  어떤 경우에, op는 잘 정의된 그래디언트를 가지고 있지 않지만 그래디언트의 계산에 관여될 수 있습니다.
+  그런 경우 자동적으로 0을 역전파하기 위해서 `ops.NotDifferentiable`를 사용할 수 있습니다.
 
-Note that at the time the gradient function is called, only the data flow graph
-of ops is available, not the tensor data itself.  Thus, all computation must be
-performed using other tensorflow ops, to be run at graph execution time.
+그 때 그래디언트 함수가 호출 될 때 텐서 그 자체가 아니라 op의 데이터 흐름 그래프만 사용할 수 있음을 유의하세요.
+그래서, 모든 계산은 그래프 실행시간에 실행되기 위해서 다른 텐스플로 op를 사용해서 수행해야 합니다.
 
-### Shape functions in C++
+### C++에서 형태 함수
 
-The TensorFlow API has a feature called "shape inference" that provides
-information about the shapes of tensors without having to execute the
-graph. Shape inference is supported by "shape functions" that are registered for
-each op type in the C++ `REGISTER_OP` declaration, and perform two roles:
-asserting that the shapes of the inputs are compatible during graph
-construction, and specifying the shapes for the outputs.
+텐서플로 API는 그래프를 실행하지 않아도 텐서 형태에 대한 정보를 제공하는 "형태 추론"이라 불리는 기능을 가지고 있습니다.
+형태 추론은 C++ `REGISTER_OP` 선언문에서 각 op 자료형을 등록을 위한 "형태 함수"을 통해서 가능하고,
+2가지 규칙을 수행합니다:
+그래프 생성하는 동안 입력 형태가 호환되는지 확인하고
+출력의 형태를 지정합니다.
 
-Shape functions are defined as operations on the
-`shape_inference::InferenceContext` class. For example, in the shape function
-for ZeroOut:
+형태 함수는 `shape_inference::InferenceContext` 클래스에 있는 op로 정의되어 있습니다.
+예를 들어 ZeroOut을 위한 형태 함수안에는:
 
 ```c++
     .SetShapeFn([](::tensorflow::shape_inference::InferenceContext* c) {
@@ -1268,12 +1247,15 @@ for ZeroOut:
     });
 ```
 
-`c->set_output(0, c->input(0));` declares that the first output's shape should
-be set to the first input's shape. If the output is selected by its index as in the above example, the second parameter of `set_output` should be a `ShapeHandle` object. You can create an empty `ShapeHandle` object by its default constructor. The `ShapeHandle` object for an input with index `idx` can be obtained by `c->input(idx)`.
+`c->set_output(0, c->input(0));`가 첫번째 출력 형태는 첫번째 입력의 형태로 설정되어야 함을 선언합니다.
+만약에 출력이 위의 예처럼 인덱스에 의해 선택된다면, `set_output`의 두번째 매개변수는 `ShapeHandle` 객체여야 합니다.
+기본 생성자로 빈 `ShapeHandle` 객체를 생성할 수 있습니다.
+인덱스 `idx`를 갖는 입력을 위한 `ShapeHandle`객체는 `c->input(idx)`에 의해서 얻을 수 있습니다.
 
-There are a number of common shape functions
-that apply to many ops, such as `shape_inference::UnchangedShape` which can be
-found in [common_shape_fns.h](https://www.tensorflow.org/code/tensorflow/core/framework/common_shape_fns.h) and used as follows:
+많은 op에서 사용가능한 몇 가지 공통 형태 함수가 있습니다.
+그 중 하나인 `shape_inference::UnchangedShape`는
+[common_shape_fns.h](https://www.tensorflow.org/code/tensorflow/core/framework/common_shape_fns.h)에서 찾을 수 있고
+다음과 같이 사용됩니다:
 
 ```c++
 REGISTER_OP("ZeroOut")
@@ -1282,9 +1264,8 @@ REGISTER_OP("ZeroOut")
     .SetShapeFn(::tensorflow::shape_inference::UnchangedShape);
 ```
 
-A shape function can also constrain the shape of an input. For the version of
-[`ZeroOut` with a vector shape constraint](#validation), the shape function
-would be as follows:
+형태 함수는 입력을 형태를 제한할 수 있습니다.
+[`ZeroOut`의 입력을 벡터 형태로 제한한](#validation) 버젼의 경우, 형태 함수는 다음과 같을 것입니다:
 
 ```c++
     .SetShapeFn([](::tensorflow::shape_inference::InferenceContext* c) {
@@ -1295,15 +1276,13 @@ would be as follows:
     });
 ```
 
-The `WithRank` call validates that the input shape `c->input(0)` has
-a shape with exactly one dimension (or if the input shape is unknown,
-the output shape will be a vector with one unknown dimension).
+`WithRank` 호출은 입력 형태 `c->input(0)`가 정확히 1차원인 형태를 가지는지 검증합니다
+(또는 만약 입력 형태가 알려지지 않았다면, 출력 형태는 알려지지 않은 차원의 벡터가 될 것입니다).
 
-If your op is [polymorphic with multiple inputs](#polymorphism), you can use
-members of `InferenceContext` to determine the number of shapes to check, and
-`Merge` to validate that the shapes are all compatible (alternatively, access
-attributes that indicate the lengths, with `InferenceContext::GetAttr`, which
-provides access to the attributes of the op).
+만약 작성한 op가 [다양한 입력을 지원하는 다형성](#polymorphism)을 가진다면,
+검사할 형태의 개수를 정하기 위해서 `InferenceContext`의 멤버와
+모든 형태가 호환되는지를 검증하기 위해서 `Merge`를 사용할 수 있습니다
+(추가로 op 속성에 접근할 수 있도록 해주는 `InferenceContext::GetAttr`로 길이를 가르키는 속성을 접근할 수 있습니다).
 
 ```c++
     .SetShapeFn([](::tensorflow::shape_inference::InferenceContext* c) {
@@ -1318,21 +1297,17 @@ provides access to the attributes of the op).
     });
 ```
 
-Since shape inference is an optional feature, and the shapes of tensors may vary
-dynamically, shape functions must be robust to incomplete shape information for
-any of the inputs. The `Merge` method in [`InferenceContext`](https://www.tensorflow.org/code/tensorflow/core/framework/shape_inference.h)
-allows the caller to assert that two shapes are the same, even if either
-or both of them do not have complete information. Shape functions are defined
-for all of the core TensorFlow ops and provide many different usage examples.
+형태 추론은 선택적인 특징이고 텐서의 형태는 매우 다양하기 때문에,
+형태 함수는 어떤 입력에 대한 불완전한 형태 정보에도 단단해야(robust) 합니다.
+[`InferenceContext`](https://www.tensorflow.org/code/tensorflow/core/framework/shape_inference.h)의
+`Merge` 메서드는 둘 중 어느 하나라도 불완전한 정보를 가지더라도 호출자가 두 형태가 같은지 점검할 수 있도록 합니다.
+형태 함수는 모든 핵심 텐서플로 op에 정의되어 있고 다양한 사용 예를 제공합니다.
 
-The `InferenceContext` class has a number of functions that can be used to
-define shape function manipulations.  For example, you can validate that a
-particular dimension has a very specific value using `InferenceContext::Dim` and
-`InferenceContext::WithValue`; you can specify that an output dimension is the
-sum / product of two input dimensions using `InferenceContext::Add` and
-`InferenceContext::Multiply`. See the `InferenceContext` class for
-all of the various shape manipulations you can specify. The following example sets
-shape of the first output to (n, 3), where first input has shape (n, ...)
+`InferenceContext` 클래스는 형태 함수 조작을 하는데 사용될 수 있는 다양한 멤버 함수를 가지고 있습니다.
+예를 들어, `InferenceContext::Dim`과 `InferenceContext::WithValue`를 이용해서 특정 차원이 매우 특정한 값을 갖는지 검증 할 수 있습니다;
+`InferenceContext::Add`과 `InferenceContext::Multiply`를 이용해서 출력 차원이 두 입력 차원의 합/곱인지 검증할 수 있습니다.
+다양한 모든 형태 조작을 위한 `InferenceContext` 클래스를 확인하세요.
+다음 예는 첫 입력의 형태가 (n, ...)인 경우 첫 출력의 형태를 (n, 3)으로 설정합니다.
 
 ```c++
 .SetShapeFn([](::tensorflow::shape_inference::InferenceContext* c) {
@@ -1341,15 +1316,13 @@ shape of the first output to (n, 3), where first input has shape (n, ...)
 });
 ```
 
-If you have a complicated shape function, you should consider adding a test for
-validating that various input shape combinations produce the expected output
-shape combinations.  You can see examples of how to write these tests in some
-our
-[core ops tests](https://www.tensorflow.org/code/tensorflow/core/ops/array_ops_test.cc).
-(The syntax of `INFER_OK` and `INFER_ERROR` are a little cryptic, but try to be
-compact in representing input and output shape specifications in tests.  For
-now, see the surrounding comments in those tests to get a sense of the shape
-string specification).
+만약 복잡한 형태 함수가 있다면,
+다양한 입력 형태 조합이 기대한 출력 형태 조합을 만들어 내는지 검증하기 위한 테스트를 추가하는 것을 고려해야 합니다.
+그러한 테스트를 어떻게 작성하는지에 대한 예는
+[core ops tests](https://www.tensorflow.org/code/tensorflow/core/ops/array_ops_test.cc)에서 볼 수 있습니다
+(`INFER_OK`과 `INFER_ERROR`의 문법은 약간 애매하지만,
+테스트에서 입력과 출력 형태 정의에 대한 표현을 간결하게 하려고 노력해야 합니다.
+우선은, 형태의 문자열 사양을 이해하기 위해서 테스트문 주변 주석을 참조하세요).
 
 ## Build a pip package for your custom op
 
