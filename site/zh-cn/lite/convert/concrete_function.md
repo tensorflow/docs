@@ -6,7 +6,7 @@
 
 ## 背景
 
-在 TensorFlow 2.0 中，在一般情况下是优先执行的。TrensorFlow 的优先执行是一个命令式的编程环境，可以立即执行评估操作，并且无需建立图形。评估操作会返回具体值，而不是在后续运行所构建的计算图形。一份关于优先执行的详细指南[此处获取](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/eager.ipynb)。
+在 TensorFlow 2.0 中，在一般情况下是优先执行的。TensorFlow 的优先执行是一个命令式的编程环境，可以立即执行评估操作，并且无需建立图形。评估操作会返回具体值，而不是在后续运行所构建的计算图形。一份关于优先执行的详细指南[此处获取](https://github.com/tensorflow/docs/blob/master/site/en/r2/guide/eager.ipynb)。
 
 虽然通过执行优先执行将会使得开发环境和调试更加具有互动性，但是它却不允许部署在设备上。`tf.function` API接口可以将模型作为图片保存，这需要在 TensorFlow Lite 2.0 版本中运行。包含在  `tf.function` 装饰器中的所有操作都可以导出为图形，然后可以将其转换成 TensorFlow Lite FlatBuffer 的格式。
 
@@ -137,7 +137,7 @@ concrete_func = root.func.get_concrete_function(
 
 ### 怎么才能将一个具体函数保存为 SavedModel ？
 
-想要在 TrensFlow 模型转换成 TrensFlow Lite 之前保存的用户应该将模型保存为 SavedModel。获取具体函数之后，调用 `tf.saved_model.save` 来保存模型。可以使用下面的指令来保存上面的例子。
+想要在 TensorFlow 模型转换成 TensorFlow Lite 之前保存的用户应该将模型保存为 SavedModel。获取具体函数之后，调用 `tf.saved_model.save` 来保存模型。可以使用下面的指令来保存上面的例子。
 
 ```python
 tf.saved_model.save(root, export_dir, concrete_func)
