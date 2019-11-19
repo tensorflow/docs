@@ -1324,12 +1324,12 @@ REGISTER_OP("ZeroOut")
 테스트에서 입력과 출력 형태 정의에 대한 표현을 간결하게 하려고 노력해야 합니다.
 우선은, 형태의 문자열 사양을 이해하기 위해서 테스트문 주변 주석을 참조하세요).
 
-## Build a pip package for your custom op
+## 사용자 정의 op를 위한 pip 패키지 생성하기
 
-To build a `pip` package for your op, see the
-[tensorflow/custom-op](https://github.com/tensorflow/custom-op) example. This
-guide shows how to build custom ops from the TensorFlow pip package instead
-of building TensorFlow from source.
+작성한 op로 `pip` 패키지를 생성히기 위해서,
+[tensorflow/custom-op](https://github.com/tensorflow/custom-op) 예를 참고하세요.
+이 가이드는 소스로 부터 텐서플로를 생성하는 대신에
+텐서플로 pip 패키지로 부터 사용자 정의 op를 만드는 법을 보여줍니다.
 
 [core-array_ops]:https://www.tensorflow.org/code/tensorflow/core/ops/array_ops.cc
 [python-user_ops]:https://www.tensorflow.org/code/tensorflow/python/user_ops/user_ops.py
