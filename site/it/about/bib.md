@@ -1,13 +1,13 @@
 # White Papers su TensorFlow
 
-Questo documento identifica i white papers su TensorFlow.
+Questo documento identifica i white paper su TensorFlow.
 
 ## Machine Learning su Larga Scala su Sistemi Distribuiti Eterogenei
 
 [Access this white paper.](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45166.pdf)
 
-**Abstract:** TensorFlow è un'interfaccia per descrivere algoritmi 
-ed implementazioni di machine learning ed un'implementazione per
+**Abstract:** TensorFlow è un'interfaccia per esprimere algoritmi 
+e programmi di machine learning ed un'implementazione per
 eseguire questi algoritmi.
 Una computazione descritta con TensorFlow può essere eseguita
 senza o con minimi cambiamenti su una grande varietà di sistemi
