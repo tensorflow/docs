@@ -1,6 +1,6 @@
 # White Papers su TensorFlow
 
-Questo documento identifica i white papers su TensorFlow.
+Questo documento individua i white papers su TensorFlow.
 
 ## Machine Learning su Larga Scala su Sistemi Distribuiti Eterogenei
 
