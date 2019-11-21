@@ -1,7 +1,7 @@
 # Documentazione API
 
 TensorFlow dispone di API in diversi linguaggi sia per costruire, sia per 
-eseguire un grafo TensorFlow. Al momento, le API Python API sono le più complete
+eseguire un grafo TensorFlow. Al momento, le API Python sono le più complete
 e facili da usare, ma possono essere facilmente integrate nei progetti API in altri linguaggi,
 che possono offrire vantaggi in terini di prestazioni nell'esecuzione dei grafi.
 
@@ -25,7 +25,7 @@ Per esempio, vedere i seguenti collegamenti per:
 * [Haskell](https://github.com/tensorflow/haskell),
 * [Julia](https://github.com/malmaud/TensorFlow.jl),
 * [Ruby](https://github.com/somaticio/tensorflow.rb),
-* [Rust](https://github.com/tensorflow/rust), and
+* [Rust](https://github.com/tensorflow/rust), e
 * [Scala](https://github.com/eaplatanios/tensorflow_scala).
 
 Inoltre, sono disponibili i riferimenti per le API C++ di TensorFlow Serving:
