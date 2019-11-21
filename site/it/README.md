@@ -26,3 +26,4 @@ Alcune parole fanno parte di un vocabolario tecnico inglese e pertanto non hanno
 *   machine learning
 *   multicore
 *   tablet
+*   white paper(s)
