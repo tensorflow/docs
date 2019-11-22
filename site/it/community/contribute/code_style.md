@@ -115,7 +115,7 @@ crea una parte del grafo e restituisce tensori in output.
 *   Ogni operazione Python deve avere un `name_scope`. Come si può vedere sotto, passare il nome
     dell'operazione come una stringa.
 *   Le operazioni devono contenere un commento Python estensibile con le dichiarazioni di 
-    Args and Returns, che spieghino il tipo e la semantica di ciascun valore. Eventuali
+    Args e Returns, che spieghino il tipo e la semantica di ciascun valore. Eventuali
     shapes, dtypes, or ranks devono essere specificati nella descrizione. Vedere
     la documentazione per i dettagli.
 *   Per migliorare l'usabilità, includere un esempio di utilizzo con intput / output
