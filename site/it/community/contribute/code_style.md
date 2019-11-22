@@ -6,7 +6,7 @@ Seguire la [Guida di stile Python PEP 8](https://www.python.org/dev/peps/pep-000
 ad eccezione, per TensorFlow, di usare 2 spazi
 invece di 4. Cortesemente, conformarsi alla
 [Google Python Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md),
-ed usare [pylint](https://www.pylint.org/) per verificare le vostre modifiche Python.
+ed usare [pylint](https://www.pylint.org/) per verificare le modifiche Python.
 
 
 ### pylint
