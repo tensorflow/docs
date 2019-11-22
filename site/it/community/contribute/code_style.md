@@ -11,7 +11,7 @@ ed usare [pylint](https://www.pylint.org/) per verificare le modifiche Python.
 
 ### pylint
 
-Per installare `pylint` e recuperare le definizioni di stile personalizzate di TensorFlow:
+Per installare `pylint` e recuperare le definizioni di stile personalizzate di TensorFlow usare:
 
 ```bash
 
@@ -20,7 +20,7 @@ $ wget -O /tmp/pylintrc https://raw.githubusercontent.com/tensorflow/tensorflow/
 
 ```
 
-Per verificare un file con `pylint`:
+Per verificare un file con `pylint`usare:
 
 ```bash
 $ pylint --rcfile=/tmp/pylintrc myfile.py
