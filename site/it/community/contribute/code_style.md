@@ -91,8 +91,8 @@ $ diff <my_cc_file> /tmp/my_cc_file.cc
 *   Le operazioni che trattano batch possono assumere che la **prima dimensione** di
     un Tensore sia la dimensione del batch.
 *   Nella maggioranza del modelli, l' **ultima dimensione** è il numero dei  _canali_.
-*   Dimensioni ad eccezione della prima e dell'ultima, di solito, rappresentano le dimensioni dello _spazio_
-    : la lunghezza della sequenza, o la dimensione dell'immagine.
+*   Dimensioni ad eccezione della prima e dell'ultima, di solito, rappresentano le dimensioni dello _spazio_:
+    la lunghezza della sequenza, o la dimensione dell'immagine.
 *   Quando è possibile, usare un operatore sovraccaricato del Tensore, invece di una funzione 
     TensorFlow. Per esempio, noi preferiamo `**`, `+`, `/`, `*`, `-`, `and/or` a
     `tf.pow`, `tf.add`, `tf.divide`, `tf.multiply`, `tf.subtract`, e `tf.logical_*` —
@@ -108,14 +108,14 @@ crea una parte del grafo e restituisce tensori in output.
     L'ultimo argomento è `name` con il valore di default `None`.
 *   Gli argomenti Tensori devono essere o un singolo tensore o un 'iterabile' di tensori. 
     Perchè "Tensore o lista di Tensori" è troppo generico. Vedere `assert_proper_iterable`.
-*   Le operazioni che prendono tensori come argomenti devono chiamare `convert_to_tensor` per
-    convertire input non-tensori in tensori se stanno usando operazioni C++.
+*   Le operazioni che prendono tensori come argomenti, se stanno usando operazioni C++
+    devono chiamare `convert_to_tensor` per convertire input non-tensori in tensori.
     Notare che nella documentazione gli argoemnti sono ancora descritti come un oggetto `Tensor` di uno
     specifico dtype.
 *   Ogni operazione Python deve avere un `name_scope`. Come si può vedere sotto, passare il nome
     della op come una stringa.
 *   Le operazioni devono contenere un commento Python estensibile con le dichiarazioni di 
-    Args and Returns che spiaghino il tipo e la semantica di ciascun valore. Eventuali
+    Args and Returns che spieghino il tipo e la semantica di ciascun valore. Eventuali
     shapes, dtypes, or ranks devono essere specificati nella descrizione. Vedere
     la documentazione per i dettagli.
 *   Per migliorare l'usabilità, includere un esempio di utilizzo con intput / output
