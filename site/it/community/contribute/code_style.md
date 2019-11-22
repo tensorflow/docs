@@ -113,19 +113,19 @@ crea una parte del grafo e restituisce tensori in output.
     Notare che nella documentazione gli argoemnti sono ancora descritti come un oggetto `Tensor` di uno
     specifico dtype.
 *   Ogni operazione Python deve avere un `name_scope`. Come si può vedere sotto, passare il nome
-    della op come una stringa.
+    dell'operazione come una stringa.
 *   Le operazioni devono contenere un commento Python estensibile con le dichiarazioni di 
-    Args and Returns che spieghino il tipo e la semantica di ciascun valore. Eventuali
+    Args and Returns, che spieghino il tipo e la semantica di ciascun valore. Eventuali
     shapes, dtypes, or ranks devono essere specificati nella descrizione. Vedere
     la documentazione per i dettagli.
 *   Per migliorare l'usabilità, includere un esempio di utilizzo con intput / output
-    dell'operazione nella sezione Example.
+    dell'operazione in una sezione Example.
 *   Evitare di fare esplicito uso di  `tf.Tensor.eval` o `tf.Session.run`. Per
     esempio, per scrivere la logica che dipende dal valore del Tensore, usare il 
     controllo di flusso di TensorFlow. In alternativa, restringere l'operazione in modo che funzioni 
     solo quando è abilitata la Eager Execution (`tf.executing_eagerly()`).
 
-Esemio:
+Esempio:
 
 
 ```python

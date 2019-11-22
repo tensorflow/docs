@@ -25,10 +25,14 @@ Alcune parole fanno parte di un vocabolario tecnico inglese e pertanto non hanno
 *   cluster
 *   dataflow
 *   default
+*   dtypes
+*   eager execution
 *   input
 *   layer
 *   machine learning
 *   multicore
 *   output
+*   ranks
+*   shapes
 *   tablet
 *   white paper(s)
