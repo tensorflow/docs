@@ -123,7 +123,7 @@ crea una parte del grafo e restituisce tensori in output.
 *   Evitare di fare esplicito uso di  `tf.Tensor.eval` o `tf.Session.run`. Per
     esempio, per scrivere la logica che dipende dal valore del Tensore, usare il 
     controllo di flusso di TensorFlow. In alternativa, restringere l'operazione in modo che funzioni 
-    solo quando è abilitata la Eager Execution(`tf.executing_eagerly()`).
+    solo quando è abilitata la Eager Execution (`tf.executing_eagerly()`).
 
 Esemio:
 
