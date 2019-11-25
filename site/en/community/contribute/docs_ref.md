@@ -60,8 +60,8 @@ code testable with DocTest:
     the above example. Also, check out
     [this part](https://docs.python.org/3/library/doctest.html#warnings) in the
     DocTest documentation. If the output exceeds the 80 line limit, you can put
-    the extra output on the new line and DocTest will recognize it. See
-    multi-line blocks below for the input.
+    the extra output on the new line and DocTest will recognize it. For example,
+    see multi-line blocks below.
 *   *Globals*: The `tf`, `np` and `os` modules are always available in
     TensorFlow's DocTest.
 *   *Use symbols*: In DocTest you can directly access symbols defined in the
@@ -79,7 +79,7 @@ code testable with DocTest:
       >>> x = tf.random.normal((1, 28, 28, 3))
       >>> new_layer = NewLayer(x)
       >>> new_layer
-      <tf.Tensor id=52, shape=(1, 14, 14, 3), dtype=int32, numpy=...>
+      <tf.Tensor: shape=(1, 14, 14, 3), dtype=int32, numpy=...>
       “””
     ```
 
@@ -89,7 +89,7 @@ code testable with DocTest:
     ```
     >>> x = tf.random.normal((1,))
     >>> print(x)
-    <tf.Tensor: id=26, shape=(1,), dtype=float32, numpy=..., dtype=float32)>
+    <tf.Tensor: shape=(1,), dtype=float32, numpy=..., dtype=float32)>
     ```
 
 *   *Multi-line blocks*: DocTest is strict about the difference between a single
