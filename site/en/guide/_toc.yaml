@@ -58,7 +58,7 @@ toc:
 - heading: "Save a model"
 - title: "Checkpoint"
   path: /guide/checkpoint
-- title: "Saved model"
+- title: "SavedModel"
   path: /guide/saved_model
 
 - heading: "Accelerators"
