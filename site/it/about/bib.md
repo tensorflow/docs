@@ -1,38 +1,39 @@
-# TensorFlow White Papers
+# White Paper su TensorFlow
 
-This document identifies white papers about TensorFlow.
+Questo documento identifica i white paper su TensorFlow.
 
-## Large-Scale Machine Learning on Heterogeneous Distributed Systems
+## Machine Learning su Larga Scala su Sistemi Distribuiti Eterogenei
 
-[Access this white paper.](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45166.pdf)
+[Accedi a questo white paper.](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45166.pdf)
 
-**Abstract:** TensorFlow is an interface for expressing machine learning
-algorithms and an implementation for executing such algorithms.
-A computation expressed using TensorFlow can be
-executed with little or no change on a wide variety of heterogeneous
-systems, ranging from mobile devices such as phones
-and tablets up to large-scale distributed systems of hundreds
-of machines and thousands of computational devices such as
-GPU cards. The system is flexible and can be used to express
-a wide variety of algorithms, including training and inference
-algorithms for deep neural network models, and it has been
-used for conducting research and for deploying machine learning
-systems into production across more than a dozen areas of
-computer science and other fields, including speech recognition,
-computer vision, robotics, information retrieval, natural
-language processing, geographic information extraction, and
-computational drug discovery. This paper describes the TensorFlow
-interface and an implementation of that interface that
-we have built at Google. The TensorFlow API and a reference
-implementation were released as an open-source package under
-the Apache 2.0 license in November, 2015 and are available at
-www.tensorflow.org.
+**Sommario:** TensorFlow è un'interfaccia per esprimere algoritmi 
+e programmi di machine learning ed un'implementazione per
+eseguire questi algoritmi.
+Una computazione descritta con TensorFlow può essere eseguita
+senza o con minimi cambiamenti su una grande varietà di sistemi
+eterogenei, dai dispositivi mobili come telefoni e tablet
+fino a grandi sistemi distribuiti di centinaia di macchine
+e migliaia di dispositivi di calcolo come le schede GPU.
+Il sistema è flessibile e può essere usato per esprimere una 
+grande varietà di algoritmi, inclusi algoritmi di addestramento
+e inferenza per modelli di reti neurali, ed è stato usato per 
+condurre ricerche e per realizzare systemi di machine learning
+in produzione in più di una dozzina di aree dell'informatica
+ed in altri campi, inclusi: riconoscimento del parlato,
+visione artificiale, robotica, ricerca di informazioni, elaborazione
+del linguaggio naturale, estrazione di informazioni geografiche, e
+ricerca farmaceutica computazionale. Questo documento descrive
+l'interfaccia di TensorFlow e l'implementazione dell'interfaccia
+che abbiamo realizzato in Google. Le API di TensorFlow e l'
+implementazione di riferimento sono state rilasciate come pacchetto 
+open-source con licenza Apache 2.0 nel Novembre 2015, e sono 
+disponibili su www.tensorflow.org.
 
 
-### In BibTeX format
+### In formato BibTeX
 
-If you use TensorFlow in your research and would like to cite the TensorFlow
-system, we suggest you cite this whitepaper.
+Se usate TensorFlow nella vostra ricerca e volete citare il sistema TensorFlow, 
+vi suggeriamo di citare questo White Paper.
 
 <pre>
 @misc{tensorflow2015-whitepaper,
@@ -84,7 +85,7 @@ author={
 }
 </pre>
 
-Or in textual form:
+O in forma testuale:
 
 <pre>
 Martín Abadi, Ashish Agarwal, Paul Barham, Eugene Brevdo,
@@ -103,29 +104,28 @@ TensorFlow: Large-scale machine learning on heterogeneous systems,
 
 
 
-## TensorFlow: A System for Large-Scale Machine Learning
+## TensorFlow: Un sistema per Machine Learning su Larga Scala
 
-[Access this white paper.](https://www.usenix.org/system/files/conference/osdi16/osdi16-abadi.pdf)
+[Accedi a questo white paper.](https://www.usenix.org/system/files/conference/osdi16/osdi16-abadi.pdf)
 
-**Abstract:** TensorFlow is a machine learning system that operates at
-large scale and in heterogeneous environments. TensorFlow
-uses dataflow graphs to represent computation,
-shared state, and the operations that mutate that state. It
-maps the nodes of a dataflow graph across many machines
-in a cluster, and within a machine across multiple computational
-devices, including multicore CPUs, generalpurpose
-GPUs, and custom-designed ASICs known as
-Tensor Processing Units (TPUs). This architecture gives
-flexibility to the application developer: whereas in previous
-“parameter server” designs the management of shared
-state is built into the system, TensorFlow enables developers
-to experiment with novel optimizations and training algorithms.
-TensorFlow supports a variety of applications,
-with a focus on training and inference on deep neural networks.
-Several Google services use TensorFlow in production,
-we have released it as an open-source project, and
-it has become widely used for machine learning research.
-In this paper, we describe the TensorFlow dataflow model
-and demonstrate the compelling performance that TensorFlow
-achieves for several real-world applications.
+**Sommario:** TensorFlow è un sistema di machine learning che
+opera su larga scala ed in ambienti eterogenei. TensorFlow
+usa grafi dataflow per rappresentare la computazione,
+stati condivisi, e le operazioni che cambiano questi stati.
+Esso mappa i nodi di un grafo dataflow tra molte macchine in cluster, 
+e tra macchine appartenenti a diversi dispositivi di computazione
+inclusi CPU multicore, GPUs generiche, e ASICs progettati in proprio
+detti Tensor Processing Units (TPUs). Quest'architettura fornisce
+flessibilità allo sviluppatore di applicazioni: mentre nei precedenti 
+progetti basati su “server parametrici” la gestione degli stati condivisi
+è realizzata all'interno del sistema, TensorFlow permette agli 
+sviluppatori di sperimentare con nuove ottimizzazioni e algoritmi di addestramento.
+TensorFlow supporta varie applicazioni, con un particolare focus
+sull'addestramento e l'inferenza su reti neurali.
+Diversi servizi Google usano TensorFlow in produzione,
+lo abbiamo realizzato come un progetto open-source, ed è 
+largamente usato per la ricerca nel machine learning.
+In questo documento, descriviamo il modello di dataflow di
+TensorFlow e dimostriamo le prestazioni raggiunte da TensorFlow, 
+nel mondo reale, in diverse applicazioni.
 
