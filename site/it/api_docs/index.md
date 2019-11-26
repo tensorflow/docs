@@ -1,12 +1,12 @@
-# API Documentation
+# Documentazione API
 
-TensorFlow has APIs available in several languages both for constructing and
-executing a TensorFlow graph.  The Python API is at present the most complete
-and the easiest to use, but other language APIs may be easier to integrate
-into projects and may offer some performance advantages in graph execution.
+TensorFlow dispone di API in diversi linguaggi sia per costruire, sia per 
+eseguire un grafo TensorFlow. Al momento, le API Python API sono le più complete
+e facili da usare, ma possono essere facilmente integrate nei progetti API in altri linguaggi,
+che possono offrire vantaggi in terini di prestazioni nell'esecuzione dei grafi.
 
-A word of caution: the APIs in languages other than Python are not yet
-covered by the [API stability promises](https://www.tensorflow.org/guide/versions).
+Una nota di attenzione: le API in linguaggi diversi da Python non sono ancora coperte 
+dal vincolo di stabilità delle [API](https://www.tensorflow.org/guide/versions).
 
 * [Python](https://www.tensorflow.org/api_docs/python/)
 * [JavaScript](https://js.tensorflow.org/api/latest/)
@@ -16,17 +16,18 @@ covered by the [API stability promises](https://www.tensorflow.org/guide/version
 * [Swift (Early Release)](https://www.tensorflow.org/swift)
 
 
-We encourage the community to develop and maintain support for other languages
-with the [approach recommended by the TensorFlow maintainers](https://github.com/tensorflow/docs/blob/master/site/en/r1/guide/extend/bindings.md).
-For example, see the bindings for:
+Noi incoraggiamo la comunità a sviluppare e mantenere il supporto per altri linguaggi
+con l' [approccio raccomandato ai manutentori di
+TensorFlow](https://github.com/tensorflow/docs/blob/master/site/en/r1/guide/extend/bindings.md).
+Per esempio, vedere i seguenti collegamenti per:
 
-* C#: [TensorFlowSharp](https://github.com/migueldeicaza/TensorFlowSharp) and [TensorFlow.NET](https://github.com/SciSharp/TensorFlow.NET),
+* C#: [TensorFlowSharp](https://github.com/migueldeicaza/TensorFlowSharp) e [TensorFlow.NET](https://github.com/SciSharp/TensorFlow.NET),
 * [Haskell](https://github.com/tensorflow/haskell),
 * [Julia](https://github.com/malmaud/TensorFlow.jl),
 * [Ruby](https://github.com/somaticio/tensorflow.rb),
 * [Rust](https://github.com/tensorflow/rust), and
 * [Scala](https://github.com/eaplatanios/tensorflow_scala).
 
-We also provide the C++ API reference for TensorFlow Serving:
+Inoltre, sono disponibili i riferimenti per le API C++ di TensorFlow Serving:
 
 * [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving)
