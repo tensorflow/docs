@@ -23,6 +23,7 @@ For example, see the bindings for:
 * C#: [TensorFlowSharp](https://github.com/migueldeicaza/TensorFlowSharp) and [TensorFlow.NET](https://github.com/SciSharp/TensorFlow.NET),
 * [Haskell](https://github.com/tensorflow/haskell),
 * [Julia](https://github.com/malmaud/TensorFlow.jl),
+* [MATLAB](https://github.com/asteinh/tensorflow.m),
 * [Ruby](https://github.com/somaticio/tensorflow.rb),
 * [Rust](https://github.com/tensorflow/rust), and
 * [Scala](https://github.com/eaplatanios/tensorflow_scala).
