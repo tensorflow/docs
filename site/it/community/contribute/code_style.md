@@ -3,10 +3,10 @@
 ## Stile Python
 
 Segue la guida [PEP 8 Python style
-](https://www.python.org/dev/peps/pep-0008/), ad eccezione del fatto che TensorFlow usa 2
-spazi invece di 4. Cortesemente, conformarsi alla
+](https://www.python.org/dev/peps/pep-0008/), ad eccezione, per TensorFlow, di usare 2
+spazi invece di 4. Cortesemente, allineatevi alla
 [Guida Google di Stile per Python](https://github.com/google/styleguide/blob/gh-pages/pyguide.md),
-ed usare [pylint](https://www.pylint.org/) per controllare le vostre modifiche Python.
+ed usate [pylint](https://www.pylint.org/) per controllare le vostre modifiche Python.
 
 
 ### pylint
@@ -32,17 +32,16 @@ TensorFlow supporta Python 2.7 e Python >= 3.4. Vedere la
 [guida di installazione](https://www.tensorflow.org/install) per i dettagli.
 
 Vedere lo 
-[stato di build continuo](https://github.com/tensorflow/tensorflow/blob/master/README.md#continuous-build-status)
+[stato del build continuo](https://github.com/tensorflow/tensorflow/blob/master/README.md#continuous-build-status)
 di TensorFlow per i build ufficiali e quelli supportati dalla comunità.
 
-#### Legacy Python compatibility
+#### Compatibilità con Legacy Python
 
-TensorFlow will support Legacy Python (Python 2.7) until
-[January 1, 2020](https://groups.google.com/a/tensorflow.org/forum/#!searchin/announce/python$202.7%7Csort:date/announce/gVwS5RC8mds/dCt1ka2XAAAJ).
-Until that time, all code will need to be compatible with the Python versions
-listed above.
+TensorFlow supporterà Legacy Python (Python 2.7) fino al 
+[1 Gennaio, 2020](https://groups.google.com/a/tensorflow.org/forum/#!searchin/announce/python$202.7%7Csort:date/announce/gVwS5RC8mds/dCt1ka2XAAAJ).
+Fino ad allora, tutto il codice bisognerà che sia compatibile con le versioni di Python elencate sopra.
 
-These lines should be present in every Python file:
+Queste linee dovranno essere presenti in ogni file Python:
 
 
 ```python
@@ -51,35 +50,35 @@ from __future__ import division
 from __future__ import print_function
 ```
 
-Use `six` to write compatible code (for example, `six.moves.range`).
+Usate `six` per scrivere codice compatibile (per esempio, `six.moves.range`).
 
 
-## C++ coding style
+## Style di codifica C++
 
-Changes to TensorFlow C++ code should conform to the [Google C++ Style
-Guide](https://google.github.io/styleguide/cppguide.html). Use `clang-tidy` to
-check your C/C++ changes.
+Le modifiche al codice C++ di TensorFlow dovrebbero essere conformi alla 
+[Guida Google di Stile C++](https://google.github.io/styleguide/cppguide.html). 
+Usare `clang-tidy` per controllare le vostre modifiche al codice C/C++.
 
-To install `clang-tidy` on Ubuntu 16+, do:
+Per installare  `clang-tidy` su Ubuntu 16+:
 
 
 ```bash
 $ apt-get install -y clang-tidy
 ```
 
-You can check a C/C++ file by using the following:
+Potete controllare un file C/C++ con il seguente:
 
 ```bash
 $ clang-format <my_cc_file> --style=google > /tmp/my_cc_file.cc
 $ diff <my_cc_file> /tmp/my_cc_file.cc
 ```
 
-## Other languages
+## Altri linguaggi
 
-*   [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
-*   [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
-*   [Google Shell Style Guide](https://google.github.io/styleguide/shell.xml)
-*   [Google Objective-C Style Guide](https://google.github.io/styleguide/objcguide.html)
+*   [Guida di Stile Google per Java](https://google.github.io/styleguide/javaguide.html)
+*   [Guida di Stile Google per JavaScript](https://google.github.io/styleguide/jsguide.html)
+*   [Guida di Stile Google per Shell](https://google.github.io/styleguide/shell.xml)
+*   [Guida di Stile Google per Objective-C](https://google.github.io/styleguide/objcguide.html)
 
 
 
