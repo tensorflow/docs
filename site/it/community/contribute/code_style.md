@@ -1,17 +1,17 @@
-# TensorFlow code style guide
+# Guida allo stile del codice TensorFlow
 
-## Python style
+## Stile Python
 
-Follow the [PEP 8 Python style
-guide](https://www.python.org/dev/peps/pep-0008/), except TensorFlow uses 2
-spaces instead of 4. Please conform to the
-[Google Python Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md),
-and use [pylint](https://www.pylint.org/) to check your Python changes.
+Segue la guida [PEP 8 Python style
+](https://www.python.org/dev/peps/pep-0008/), ad eccezione del fatto che TensorFlow usa 2
+spazi invece di 4. Cortesemente, conformarsi alla
+[Guida Google di Stile per Python](https://github.com/google/styleguide/blob/gh-pages/pyguide.md),
+ed usare [pylint](https://www.pylint.org/) per controllare le vostre modifiche Python.
 
 
 ### pylint
 
-To install `pylint` and retrieve TensorFlow's custom style definition:
+Per installare `pylint` e recuperare le definizioni personalizzate di stile di TensorFlow:
 
 ```bash
 
@@ -20,20 +20,20 @@ $ wget -O /tmp/pylintrc https://raw.githubusercontent.com/tensorflow/tensorflow/
 
 ```
 
-To check a file with `pylint`:
+Per controllare un file con `pylint`:
 
 ```bash
 $ pylint --rcfile=/tmp/pylintrc myfile.py
 ```
 
-### Supported Python versions
+### Versioni di Python supportate
 
-TensorFlow supports Python 2.7 and Python >= 3.4. See the
-[installation guide](https://www.tensorflow.org/install) for details.
+TensorFlow supporta Python 2.7 e Python >= 3.4. Vedere la
+[guida di installazione](https://www.tensorflow.org/install) per i dettagli.
 
-See the TensorFlow
-[continuous build status](https://github.com/tensorflow/tensorflow/blob/master/README.md#continuous-build-status)
-for official and community supported builds.
+Vedere lo 
+[stato di build continuo](https://github.com/tensorflow/tensorflow/blob/master/README.md#continuous-build-status)
+di TensorFlow per i build ufficiali e quelli supportati dalla comunità.
 
 #### Legacy Python compatibility
 
