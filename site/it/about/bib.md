@@ -120,8 +120,8 @@ flessibilità allo sviluppatore di applicazioni: mentre nei precedenti
 progetti basati su “server parametrici” la gestione degli stati condivisi
 è realizzata all'interno del sistema, TensorFlow permette agli 
 sviluppatori di sperimentare con nuove ottimizzazioni e algoritmi di addestramento.
-TensorFlow supporta varie applicazioni, con un particolare focus
-sull'addestramento e l'inferenza su reti neurali.
+TensorFlow supporta varie applicazioni, focalizzandosi in particolare 
+sull'addestramento e sull'inferenza su reti neurali.
 Diversi servizi Google usano TensorFlow in produzione,
 lo abbiamo realizzato come un progetto open-source, ed è 
 largamente usato per la ricerca nel machine learning.
