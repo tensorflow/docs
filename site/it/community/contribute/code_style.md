@@ -83,29 +83,29 @@ $ diff <my_cc_file> /tmp/my_cc_file.cc
 
 
 
-## TensorFlow conventions and special uses
+## Convenzioni ed usi speciali in TensorFlow
 
-### Tensors
+### Tensori
 
-*   Operations that deal with batches may assume that the **first dimension** of
-    a Tensor is the batch dimension.
-*   In most models, the **last dimension** is the number of _channels_.
-*   Dimensions excluding the first and last usually make up the _space_
-    dimensions: sequence-length, or image-size.
-*   When possible, use a Tensor's overloaded operators rather than TensorFlow
-    functions. For example, we prefer `**`, `+`, `/`, `*`, `-`, `and/or` over
-    `tf.pow`, `tf.add`, `tf.divide`, `tf.multiply`, `tf.subtract`, and `tf.logical_*` —
-    unless a specific name for the operation is desired.
+*   Le operazioni che hanno a che trattano batch possono ipotizzare che la **prima dimensione** di
+    un Tensore sia la dimensione del batch.
+*   In molti modelli, l'**ultima dimensione** è il numero di _canali_.
+*   Le dsimensioni escluse la prima e l'ultima, di solito, rappresentano le dimensioni dell _spazio_
+    : la lunghezza della sequenza, o la dimensione dell'immagine.
+    *   Quando possibile, usate un operatore sovraccarivcato tra Tensori, invece di una funzione di TensorFlow. 
+    Per esempio, noi preferiamo `**`, `+`, `/`, `*`, `-`, `and/or` a
+    `tf.pow`, `tf.add`, `tf.divide`, `tf.multiply`, `tf.subtract`, e `tf.logical_*` —
+    a meno che sia richiesto uno specifico nome per l'operazione.
 
 
-### Python operations
+### Operazioni Python
 
-A _Python operation_ is a function that, given input tensors and parameters,
-creates a part of the graph and returns output tensors.
-
-*   The first argument should be tensors, followed by basic Python parameters.
-    The last argument is `name` with a default value of `None`.
-*   Tensor arguments should be either a single tensor or an iterable of tensors. That is, a "Tensor or list of Tensors" is too broad. See `assert_proper_iterable`.
+Un' _operazione Python_ è una funzione che, dati in input tensori e parametri,
+crea una parte del grafo, e ritorna come risultato dei tensori.
+*   Il primo argomento dovrà essere un tensore, seguito da parametri Python di base.
+    L'ultimo argomento è `name` con un valore di default di con un valore di default di `None`.
+*   Gli argomenti TensorFlow dovrebbero un tensore singolo o un elenco "iterabile" di 
+    tensioneTensor arguments should be either a single tensor or an iterable of tensors. That is, a "Tensor or list of Tensors" is too broad. See `assert_proper_iterable`.
 *   Operations that take tensors as arguments should call `convert_to_tensor` to
     convert non-tensor inputs into tensors if they are using C++ operations.
     Note that the arguments are still described as a `Tensor` object of a
