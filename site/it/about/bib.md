@@ -111,8 +111,8 @@ TensorFlow: Large-scale machine learning on heterogeneous systems,
 **Sommario:** TensorFlow è un sistema di machine learning che
 opera su larga scala ed in ambienti eterogenei. TensorFlow
 usa grafi dataflow per rappresentare la computazione,
-stati condivisi, e le operazioni che cambiano questi stati.
-Esso mappa i nodi di un grafo dataflow tra molte macchine in cluster, 
+stati condivisi, e le operazioni che cambiano questi stati, 
+mappando i nodi di un grafo dataflow tra molte macchine in cluster, 
 e tra macchine appartenenti a diversi dispositivi di computazione
 inclusi CPU multicore, GPUs generiche, e ASICs progettati in proprio
 detti Tensor Processing Units (TPUs). Quest'architettura fornisce
