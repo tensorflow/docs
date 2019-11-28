@@ -9,21 +9,7 @@ landing_page:
       devsite-landing-row-large-headings
       devsite-landing-row-100
     items:
-    - heading: "TensorFlow 2.0 Beta is available"
-      description: >
-        <p>
-          Install the preview release of <a href="/beta">TensorFlow 2.0 Beta</a>.
-          See the <a href="./gpu">GPU guide</a> for CUDA®-enabled cards.
-        </p>
-        <pre class="prettyprint lang-bsh">
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-beta1</code>
-        </pre>
-
-  - classname:
-      devsite-landing-row-large-headings
-      devsite-landing-row-100
-    items:
-    - heading: "Install TensorFlow"
+    - heading: "Install TensorFlow 2"
       description: >
         <p>TensorFlow is tested and supported on the following 64-bit systems:</p>
         <table class="columns">
@@ -47,6 +33,7 @@ landing_page:
     - heading: Download a package
       description: >
         <p>Install TensorFlow with Python's <em>pip</em> package manager.</p>
+        <aside class="note">TensorFlow 2 packages require a <code>pip</code> version >19.0.</aside>
         <p>Official packages available for Ubuntu, Windows, macOS, and the Raspberry Pi.</p>
         <p>See the <a href="./gpu">GPU guide</a> for CUDA®-enabled cards.</p>
 
@@ -57,12 +44,12 @@ landing_page:
 
       code_block: |
         <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
+        # Requires the latest pip
+        <code class="devsite-terminal">pip install --upgrade pip</code><br/>
         # Current stable release for CPU-only
         <code class="devsite-terminal">pip install tensorflow</code><br/>
-        # Preview nightly build for CPU-only (unstable)
+        # Or preview build for CPU/GPU (unstable)
         <code class="devsite-terminal">pip install tf-nightly</code><br/>
-        # Install TensorFlow 2.0 Beta
-        <code class="devsite-terminal">pip install tensorflow==2.0.0-beta1</code>
 
   - classname:
       devsite-landing-row-100

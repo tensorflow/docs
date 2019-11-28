@@ -1,173 +1,280 @@
-project_path: /overview/_project.yaml
 book_path: /overview/_book.yaml
+project_path: /overview/_project.yaml
 description: <!--no description-->
 landing_page:
-  body_class: tfo-tutorials
   custom_css_path: /site-assets/css/style.css
   nav: left
   rows:
-  - heading: Get Started with TensorFlow
-    description: >
-      <p>
-        TensorFlow is an open-source machine learning library for research and
-        production. TensorFlow offers APIs for beginners and experts to develop
-        for desktop, mobile, web, and cloud. See the sections below to get
-        started.
-      </p>
+  - classname:
+      devsite-landing-row-100
     items:
-    - heading: Learn and use ML
-      classname: colab-callout-row
-      description: >
+    - description: >
         <p>
-          The high-level Keras API provides building blocks to create and
-          train deep learning models. Start with these beginner-friendly
-          notebook examples, then read the
-          <a href="/guide/keras">TensorFlow Keras guide</a>.
+        The TensorFlow tutorials are written as Jupyter notebooks and run
+        directly in Google&nbsp;Colab—a hosted notebook environment that requires
+        no setup. Click the <em>Run in Google&nbsp;Colab</em> button.
         </p>
-        <ol style="padding-left: 20px;">
-          <li><a href="./keras/basic_classification">Basic classification</a></li>
-          <li><a href="./keras/basic_text_classification">Text classification</a></li>
-          <li><a href="./keras/basic_regression">Regression</a></li>
-          <li><a href="./keras/overfit_and_underfit">Overfitting and underfitting</a></li>
-          <li><a href="./keras/save_and_restore_models">Save and load</a></li>
-        </ol>
-      buttons:
-      - label: Read the Keras guide
-        path: /guide/keras
-        classname:
-          button
-          button-primary
-      code_block: |
-        <pre class="prettyprint">
-        import tensorflow as tf
-        mnist = tf.keras.datasets.mnist
 
-        (x_train, y_train),(x_test, y_test) = mnist.load_data()
-        x_train, x_test = x_train / 255.0, x_test / 255.0
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h2 class="tfo-landing-page-heading no-link">For beginners</h2>
+        The best place to start is with the user-friendly Keras sequential API.
+        Build models by plugging together building blocks. After these
+        tutorials, read the <a href="/guide/keras/overview">Keras guide</a>.
 
-        model = tf.keras.models.Sequential([
-          tf.keras.layers.Flatten(input_shape=(28, 28)),
-          tf.keras.layers.Dense(512, activation=tf.nn.relu),
-          tf.keras.layers.Dropout(0.2),
-          tf.keras.layers.Dense(10, activation=tf.nn.softmax)
-        ])
-        model.compile(optimizer='adam',
-                      loss='sparse_categorical_crossentropy',
-                      metrics=['accuracy'])
+  - classname: devsite-landing-row-100
+    items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/tutorials/quickstart/beginner"><h3 class="no-link">Beginner quickstart</h3></a>
+        This "Hello, World!" notebook shows the Keras Sequential API and <code>model.fit</code>.
+      path: /tutorials/quickstart/beginner
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/tutorials/keras/classification"><h3 class="no-link">Keras basics</h3></a>
+        This notebook collection demonstrates basic machine learning tasks using Keras.
+      path: /tutorials/keras/classification
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/tutorials/load_data/csv"><h3 class="no-link">Load data</h3></a>
+        These tutorials use <code>tf.data</code> to load various data formats and build input pipelines.
+      path: /tutorials/load_data/csv
 
-        model.fit(x_train, y_train, epochs=5)
-        model.evaluate(x_test, y_test)
-        </pre>
-        {% dynamic if request.tld != 'cn' %}
-        <div class="colab-callout-footer">
-          <a class="button" target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/_index.ipynb">Run code now</a>
-          <a target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/_index.ipynb"><span>Try in Google's interactive notebook</span></a>
-        </div>
-        {% dynamic endif %}
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h2 class="tfo-landing-page-heading no-link">For experts</h2>
+        The Keras functional and subclassing APIs provide a define-by-run
+        interface for customization and advanced research. Build your model,
+        then write the forward and backward pass. Create custom layers,
+        activations, and training loops.
+
+  - classname: devsite-landing-row-100
+    items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/tutorials/quickstart/advanced"><h3 class="no-link">Advanced quickstart</h3></a>
+        This "Hello, World!" notebook uses the Keras subclassing API and a custom training loop.
+      path: /tutorials/quickstart/advanced
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/tutorials/customization/basics"><h3 class="no-link">Customization</h3></a>
+        This notebook collection shows how to build custom layers and training loops in TensorFlow.
+      path: /tutorials/customization/basics
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/tutorials/distribute/keras"><h3 class="no-link">Distributed training</h3></a>
+        Distribute your model training across multiple GPUs, multiple machines or TPUs.
+      path: /tutorials/distribute/keras
+
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        The Advanced section has many instructive notebooks examples, including
+        <a href="/tutorials/text/nmt_with_attention">Neural machine translation</a>,
+        <a href="/tutorials/text/transformer">Transformers</a>,
+        and <a href="/tutorials/generative/cyclegan">CycleGAN</a>.
+
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h2 class="tfo-landing-page-heading no-link">Video and blog updates</h2>
+        Subscribe to the
+        <a href="https://blog.tensorflow.org" class="external">TensorFlow blog</a>,
+        <a href="https://www.youtube.com/tensorflow" class="external">YouTube channel</a>,
+        and <a href="https://twitter.com/tensorflow" class="external">Twitter</a>
+        for the latest updates.
 
   - items:
-    - heading: Research and experimentation
-      description: >
-        <p>
-          Eager execution provides an imperative, define-by-run interface for advanced operations. Write custom layers, forward passes, and training loops with auto‑differentiation. Start with
-          these notebooks, then read the <a href="/guide/eager">eager execution guide</a>.
-        </p>
+    - heading: "Intro to Machine Learning"
+      path: "https://www.youtube.com/watch?v=KNAWp2S3w94"
+      youtube_id: "KNAWp2S3w94?rel=0&show_info=0"
+    - heading: "TensorFlow 2.0 and Keras"
+      path: "https://www.youtube.com/watch?v=wGI_VtE9CJM"
+      youtube_id: "wGI_VtE9CJM?rel=0&show_info=0"
 
-        <ol style="padding-left: 20px;">
-          <li>
-            <a href="./eager/eager_basics">Eager execution basics</a>
-          </li>
-          <li>
-            <a href="./eager/automatic_differentiation">Automatic differentiation and gradient tape</a>
-          </li>
-          <li>
-            <a href="./eager/custom_training">Custom training: basics</a>
-          </li>
-          <li>
-            <a href="./eager/custom_layers">Custom layers</a>
-          </li>
-          <li>
-            <a href="./eager/custom_training_walkthrough">Custom training: walkthrough</a>
-          </li>
-        </ol>
-      buttons:
-      - label: Read the eager execution guide
-        path: /guide/eager
-        classname:
-          button
-          button-primary
-
-    - heading: ML at production scale
-      description: >
-        <p>
-          Estimators can train large models on multiple machines in a
-          production environment. TensorFlow provides a collection of
-          pre-made Estimators to implement common ML algorithms. See the
-          <a href="/guide/estimators">Estimators guide</a>.
-        </p>
-        <ol style="padding-left: 20px;">
-          <li><a href="/tutorials/estimators/linear">Build a linear model with Estimators</a></li>
-          <li><a href="https://github.com/tensorflow/models/tree/master/official/wide_deep" class="external">Wide and deep learning with Estimators</a></li>
-          <li><a href="https://github.com/tensorflow/models/tree/master/official/boosted_trees" class="external">Boosted trees</a></li>
-          <li><a href="/hub/tutorials/text_classification_with_tf_hub">How to build a simple text classifier with TF-Hub</a></li>
-          <li><a href="/tutorials/estimators/cnn">Build a Convolutional Neural Network using Estimators</a></li>
-        </ol>
-      buttons:
-      - label: Read the Estimators guide
-        path: /guide/estimators
-        classname:
-          button
-          button-primary
-
-  - heading: Google Colab&#58; An easy way to learn and use TensorFlow
-    description: >
-      <p>
-        <a href="https://colab.research.google.com/notebooks/welcome.ipynb" class="external">Colaboratory</a>
-        is a Google research project created to help disseminate machine learning
-        education and research. It's a Jupyter notebook environment that requires
-        no setup to use and runs entirely in the cloud.
-        <a href="https://medium.com/tensorflow/colab-an-easy-way-to-learn-and-use-tensorflow-d74d1686e309" class="external">Read the blog post</a>.
-      </p>
-
-  - background: grey
-    heading: Build your first ML app
-    description: >
-      <p>Create and deploy TensorFlow models on web and mobile.</p>
+  - classname: devsite-landing-row-cards
     items:
-    - classname: tfo-landing-row-item-inset-white
-      heading: Web developers
-      path: https://js.tensorflow.org
-      description: >
-        TensorFlow.js is a WebGL accelerated, JavaScript library to train and
-        deploy ML models in the browser and for Node.js.
+    - heading: "TensorFlow 2.0 is now available"
+      path: http://blog.tensorflow.org/tensorflow-2-0-is-now-available-57d706c2a9ab
+      buttons:
+      - label: "Read on the TensorFlow blog"
+        path: http://blog.tensorflow.org/tensorflow-2-0-is-now-available-57d706c2a9ab
+    - heading: "Standardizing on Keras: Guidance on High-level APIs in TensorFlow 2.0"
+      path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
+      buttons:
+      - label: "Read on the TensorFlow blog"
+        path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
+    - heading: "Contribute to TensorFlow: SIGs, RFCs, Testing, Docs"
+      path: https://medium.com/tensorflow/contributing-to-tensorflow-sigs-rfcs-testing-and-docs-1c0f8240166c
+      buttons:
+      - label: "Read on the TensorFlow blog"
+        path: https://medium.com/tensorflow/contributing-to-tensorflow-sigs-rfcs-testing-and-docs-1c0f8240166c
 
-    - classname: tfo-landing-row-item-inset-white
-      heading: Mobile developers
-      path: /lite/
-      description: >
-        TensorFlow Lite is a lightweight solution for mobile and embedded devices.
-
-  - heading: Videos and updates
-    description: >
-      <p>
-        Subscribe to the TensorFlow
-        <a href="https://www.youtube.com/tensorflow" class="external">YouTube channel</a>
-        and <a href="https://blog.tensorflow.org" class="external">blog</a> for
-        the latest videos and updates.
-      </p>
+  - classname: devsite-landing-row-100
     items:
-    - heading: Get started with TensorFlow's High-Level APIs
-      youtube_id: tjsHSIG8I08
-      buttons:
-      - label: Watch the video
-        path: https://www.youtube.com/watch?v=tjsHSIG8I08
-    - heading: Eager execution
-      youtube_id: T8AW0fKP0Hs
-      buttons:
-      - label: Watch the video
-        path: https://www.youtube.com/watch?v=T8AW0fKP0Hs
-    - heading: 'tf.data: Fast, flexible, and easy-to-use input pipelines'
-      youtube_id: uIcqeP7MFH0
-      buttons:
-      - label: Watch the video
-        path: https://www.youtube.com/watch?v=uIcqeP7MFH0
+    - description: >
+        <h2 class="tfo-landing-page-heading no-link">Libraries and extensions</h2>
+        Explore <a href="/resources/libraries-extensions">libraries</a> to build
+        advanced models or methods using TensorFlow, and access domain-specific
+        application packages that extend TensorFlow. This is a <em>sample</em>
+        of the tutorials available for these projects.
+
+  - classname: devsite-landing-row-100
+    items:
+    - list:
+      - description: >
+          <a href="/tensorboard"><h3 class="tfo-landing-page-heading no-link">TensorBoard</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="/tensorboard/r2/get_started">Get started with TensorBoard</a></li>
+          <li><a href="/tensorboard/r2/scalars_and_keras">Logging training metrics in Keras</a></li>
+          </ul>
+        path: /tensorboard
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/hub"><h3 class="tfo-landing-page-heading no-link">TensorFlow Hub</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="https://github.com/tensorflow/hub/blob/master/examples/colab/object_detection.ipynb" class="external">Object detection</a></li>
+          <li><a href="https://github.com/tensorflow/hub/blob/master/examples/colab/tf2_arbitrary_image_stylization.ipynb" class="external">Arbitrary style transfer</a></li>
+          </ul>
+        path: /hub
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/model_optimization"><h3 class="tfo-landing-page-heading no-link">Model Optimization</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="/model_optimization/guide/pruning/pruning_with_keras">Magnitude-based weight pruning with Keras</a></li>
+          <li><a href="/lite/performance/post_training_quantization">Post-training quantization</a></li>
+          </ul>
+        path: /model_optimization
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/federated"><h3 class="tfo-landing-page-heading no-link">TensorFlow Federated</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="/federated/tutorials/federated_learning_for_image_classification">Federated learning for image classification</a></li>
+          <li><a href="/federated/tutorials/federated_learning_for_text_generation">Federated learning for text generation</a></li>
+          </ul>
+        path: /federated
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/neural_structured_learning"><h3 class="tfo-landing-page-heading no-link">Neural Structured Learning</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="/neural_structured_learning/tutorials/graph_keras_mlp_cora">Natural graph regularization for document classification</a></li>
+          <li><a href="/neural_structured_learning/tutorials/graph_keras_lstm_imdb">Synthetic graph regularization for sentiment classification</a></li>
+          </ul>
+        path: /neural_structured_learning
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/graphics"><h3 class="tfo-landing-page-heading no-link">TensorFlow Graphics</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="https://github.com/tensorflow/graphics/blob/master/tensorflow_graphics/notebooks/6dof_alignment.ipynb" class="external">Object pose alignment</a></li>
+          <li><a href="https://github.com/tensorflow/graphics/blob/master/tensorflow_graphics/notebooks/mesh_segmentation_demo.ipynb" class="external">Mesh segmentation</a></li>
+          </ul>
+        path: /graphics
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="https://github.com/tensorflow/addons"><h3 class="tfo-landing-page-heading no-link">SIG Addons</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="https://github.com/tensorflow/addons/blob/master/docs/tutorials/image_ops.ipynb" class="external">Image operations in TensorFlow Addons</a></li>
+          <li><a href="https://github.com/tensorflow/addons/blob/master/docs/tutorials/layers_normalizations.ipynb" class="external">Normalization layers in TensorFlow Addons.</a></li>
+          </ul>
+        path: https://github.com/tensorflow/addons
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+    - list:
+      - description: >
+          <a href="/tfx"><h3 class="tfo-landing-page-heading no-link">TFX</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="/tfx/tutorials/tfx/airflow_workshop">TFX developer tutorial</a></li>
+          <li><a href="/tfx/tutorials/serving/rest_simple">Serve a model with TensorFlow Serving</a></li>
+          </ul>
+        path: /tfx
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/datasets"><h3 class="tfo-landing-page-heading no-link">Datasets</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="/datasets/overview">Using TensorFlow Datasets</a></li>
+          </ul>
+        path: /datasets
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/probability"><h3 class="tfo-landing-page-heading no-link">Probability</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/TensorFlow_Distributions_Tutorial.ipynb" class="external">TensorFlow distributions introduction</a></li>
+          <li><a href="https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/Probabilistic_Layers_Regression.ipynb" class="external">Probabilistic regression</a></li>
+          </ul>
+        path: /probability
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/xla"><h3 class="tfo-landing-page-heading no-link">XLA</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="/xla/tutorials/autoclustering_xla">Classifying CIFAR-10 with XLA</a></li>
+          <li><a href="/xla/tutorials/xla_compile">XLA compile API</a></li>
+          </ul>
+        path: /xla
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="https://github.com/tensorflow/agents"><h3 class="tfo-landing-page-heading no-link">TensorFlow Agents</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="https://github.com/tensorflow/agents/blob/master/tf_agents/colabs/1_dqn_tutorial.ipynb" class="external">Train a deep-Q network with TF Agents</a></li>
+          <li><a href="https://github.com/tensorflow/agents/blob/master/tf_agents/colabs/2_environments_tutorial.ipynb" class="external">Reinforcement learning environments</a></li>
+          </ul>
+        path: https://github.com/tensorflow/agents
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="https://github.com/tensorflow/ranking"><h3 class="tfo-landing-page-heading no-link">TensorFlow Ranking</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="https://github.com/tensorflow/ranking/blob/master/tensorflow_ranking/examples/tf_ranking_libsvm.ipynb" class="external">TF Ranking for Learning-to-Rank (LTR) techniques</a></li>
+          <li><a href="https://github.com/tensorflow/ranking/blob/master/tensorflow_ranking/examples/handling_sparse_features.ipynb" class="external">TF Ranking for sparse features</a></li>
+          </ul>
+        path: https://github.com/tensorflow/ranking
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="https://magenta.tensorflow.org"><h3 class="tfo-landing-page-heading no-link">Magenta</h3></a>
+          <ul class="tfo-landing-page-resources-ul">
+          <li><a href="https://magenta.tensorflow.org/piano-transformer">Generating Piano music with Transformer</a></li>
+          <li><a href="https://colab.research.google.com/notebooks/magenta/gansynth/gansynth_demo.ipynb" class="external">GANSynth</a></li>
+          </ul>
+        path: https://magenta.tensorflow.org
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey

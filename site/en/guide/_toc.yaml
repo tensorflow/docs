@@ -1,85 +1,72 @@
 toc:
-- title: "TensorFlow Guide"
+- title: "TensorFlow guide"
   path: /guide/
 
-- heading: High Level APIs
-- title: "Keras"
-  path: /guide/keras
-- title: "Eager Execution"
+- heading: "TensorFlow 2"
+- title: "Effective TensorFlow"
+  path: /guide/effective_tf2
+- title: "Migrate from TF1 to TF2"
+  path: /guide/migrate
+- title: "Convert with the upgrade script"
+  path: /guide/upgrade
+- title: "Performance with tf.function"
+  path: /guide/function
+- title: "Community testing FAQ"
+  path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
+  status: external
+
+- heading: "Keras"
+- title: "Keras overview"
+  path: /guide/keras/overview
+- title: "Keras functional API"
+  path: /guide/keras/functional
+- title: "Train and evaluate"
+  path: /guide/keras/train_and_evaluate
+- title: "Write custom layers and models"
+  path: /guide/keras/custom_layers_and_models
+- title: "Save and serialize models"
+  path: /guide/keras/save_and_serialize
+- title: "Keras Recurrent Neural Networks"
+  path: /guide/keras/rnn
+- title: "Masking and padding"
+  path: /guide/keras/masking_and_padding
+- title: "Write custom callbacks"
+  path: /guide/keras/custom_callback
+
+- heading: "Estimators"
+- title: "Estimator overview"
+  path: /guide/estimator
+
+- heading: "Customization"
+- title: "Eager execution"
   path: /guide/eager
-- title: "Importing Data"
-  path: /guide/datasets
-- title: "Introduction to Estimators"
-  path: /guide/estimators
+- title: "Variable"
+  path: /guide/variable
+- title: "Tensor"
+  path: /guide/tensor
+- title: "Ragged tensor"
+  path: /guide/ragged_tensor
+- title: "Create an op"
+  path: /guide/create_op
 
-- heading: Estimators
-- title: "Premade Estimators"
-  path: /guide/premade_estimators
-- title: "Checkpoints"
-  path: /guide/checkpoints
-- title: "Feature Columns"
-  path: /guide/feature_columns
-- title: "Datasets for Estimators"
-  path: /guide/datasets_for_estimators
-- title: "Creating Custom Estimators"
-  path: /guide/custom_estimators
+- heading: "Data input pipelines"
+- title: "tf.data"
+  path: /guide/data
+- title: "Optimizing input pipelines"
+  path: /guide/data_performance
 
-- heading: Accelerators
-- title: "Distribute Strategy"
-  path: /guide/distribute_strategy
-- title: "Using GPUs"
-  path: /guide/using_gpu
-- title: "Using TPUs"
-  path: /guide/using_tpu
-
-- heading: Low Level APIs
-- title: "Introduction"
-  path: /guide/low_level_intro
-- title: "Tensors"
-  path: /guide/tensors
-- title: "Variables"
-  path: /guide/variables
-- title: "Graphs and Sessions"
-  path: /guide/graphs
-- title: "Save and Restore"
+- heading: "Save a model"
+- title: "Checkpoint"
+  path: /guide/checkpoint
+- title: "SavedModel"
   path: /guide/saved_model
-- title: "Control flow"
-  path: /guide/autograph
-- title: "Ragged Tensors"
-  path: /guide/ragged_tensors
 
-- heading: ML Concepts
-- title: "Embeddings"
-  path: /guide/embedding
+- heading: "Accelerators"
+- title: "Distributed training"
+  path: /guide/distributed_training
+- title: "GPU"
+  path: /guide/gpu
 
-- heading: Debugging
-- title: "TensorFlow Debugger"
-  path: /guide/debugger
-
-- heading: Performance
-- title: Overview
-  path: /guide/performance/overview
-- title: Data input pipeline
-  path: /guide/performance/datasets
-- title: Benchmarks
-  path: /guide/performance/benchmarks
-
-- heading: Extend
-- title: TensorFlow architecture
-  path: /guide/extend/architecture
-- title: Create an op
-  path: /guide/extend/op
-- title: Custom filesystem plugin
-  path: /guide/extend/filesystem
-- title: Custom file and record formats
-  path: /guide/extend/formats
-- title: Model files
-  path: /guide/extend/model_files
-- title: Language bindings
-  path: /guide/extend/bindings
-- title: C++ guide
-  path: /guide/extend/cc
-
-- heading: Misc
-- title: "TensorFlow Version Compatibility"
-  path: /guide/version_compat
+- heading: "Appendix"
+- title: "Version compatibility"
+  path: /guide/versions

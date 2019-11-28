@@ -1,0 +1,200 @@
+book_path: /overview/_book.yaml
+project_path: /overview/_project.yaml
+description: <!--no description-->
+landing_page:
+  custom_css_path: /site-assets/css/style.css
+  nav: left
+  rows:
+  - classname:
+      devsite-landing-row-100
+      devsite-landing-row-large-headings
+    items:
+    - description: >
+        <p>
+        TensorFlow 2 focuses on simplicity and ease of use, with updates like
+        eager execution, intuitive higher-level APIs, and flexible model
+        building on any platform.
+        </p>
+        <p>
+        Many guides are written as Jupyter notebooks and run directly in
+        Google&nbsp;Colab—a hosted notebook environment that requires no setup.
+        Click the <em>Run in Google&nbsp;Colab</em> button.
+        </p>
+
+  - heading: Essential documentation
+    classname: tfo-landing-page-heading
+    items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/install"><h3 class="no-link">Install TensorFlow</h3></a>
+        Install the package or build from source. GPU support for
+        CUDA®-enabled cards.
+      path: /install
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/effective_tf2"><h3 class="no-link">TensorFlow 2</h3></a>
+        TensorFlow 2 best practices and tools to migrate your code.
+      path: /guide/effective_tf2
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/keras/overview"><h3 class="no-link">Keras</h3></a>
+        Keras is a high-level API that's easier for ML beginners, as well as
+        researchers.
+      path: /guide/keras/overview
+
+  - items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/eager"><h3 class="no-link">Customization</h3></a>
+        TensorFlow for research and experimentation. Write custom layers and models, forward pass, and training loops.
+      path: /guide/eager
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/data"><h3 class="no-link">Data input pipelines</h3></a>
+        The <code>tf.data</code> API enables you to build complex input pipelines
+        from simple, reusable pieces.
+      path: /guide/data
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/estimator"><h3 class="no-link">Estimators</h3></a>
+        A high-level API that represents a complete model, designed for scaling
+        and asynchronous training.
+      path: /guide/estimator
+
+  - items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/checkpoint"><h3 class="no-link">Save a model</h3></a>
+        Save a TensorFlow model using checkpoints or the SavedModel format.
+      path: /guide/checkpoint
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/distributed_training"><h3 class="no-link">Accelerators</h3></a>
+        Distribute training across multiple GPUs, multiple machines or TPUs.
+      path: /guide/distributed_training
+
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h2 class="tfo-landing-page-heading no-link">Libraries and extensions</h2>
+        Explore <a href="/resources">additional resources</a> to build advanced
+        models or methods using TensorFlow, and access domain-specific
+        application packages that extend TensorFlow.
+
+  - classname: devsite-landing-row-100
+    items:
+    - list:
+      - description: >
+          <a href="/tensorboard"><h3 class="tfo-landing-page-heading no-link">TensorBoard</h3></a>
+          A suite of visualization tools to understand, debug, and optimize
+          TensorFlow programs.
+        path: /tensorboard
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/hub"><h3 class="tfo-landing-page-heading no-link">TensorFlow Hub</h3></a>
+          A library for the publication, discovery, and consumption of reusable
+          parts of machine learning models.
+        path: /hub
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/model_optimization"><h3 class="tfo-landing-page-heading no-link">Model Optimization</h3></a>
+          The TensorFlow Model Optimization Toolkit is a suite of tools for
+          optimizing ML models for deployment and execution.
+        path: /model_optimization
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/federated"><h3 class="tfo-landing-page-heading no-link">TensorFlow Federated</h3></a>
+          A framework for machine learning and other computations on decentralized
+          data.
+        path: /federated
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/neural_structured_learning"><h3 class="tfo-landing-page-heading no-link">Neural Structured Learning</h3></a>
+          A learning paradigm to train neural networks by leveraging structured
+          signals in addition to feature inputs.
+        path: /neural_structured_learning
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/graphics"><h3 class="tfo-landing-page-heading no-link">TensorFlow Graphics</h3></a>
+          A library of computer graphics functionalities ranging from cameras, lights, and materials to renderers.
+        path: /graphics
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+    - list:
+      - description: >
+          <a href="/datasets"><h3 class="tfo-landing-page-heading no-link">Datasets</h3></a>
+          A collection of datasets ready to use with TensorFlow.
+        path: /datasets
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/tfx/guide/serving"><h3 class="tfo-landing-page-heading no-link">Serving</h3></a>
+          A TFX serving system for ML models, designed for high-performance in
+          production environments.
+        path: /tfx/guide/serving
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/probability"><h3 class="tfo-landing-page-heading no-link">Probability</h3></a>
+          TensorFlow Probability is a library for probabilistic reasoning and
+          statistical analysis.
+        path: /probability
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/mlir"><h3 class="tfo-landing-page-heading no-link">MLIR</h3></a>
+          MLIR unifies the infrastructure for high-performance ML models in
+          TensorFlow.
+        path: /mlir
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/xla"><h3 class="tfo-landing-page-heading no-link">XLA</h3></a>
+          A domain-specific compiler for linear algebra that accelerates
+          TensorFlow models with potentially no source code changes.
+        path: /xla
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="https://github.com/tensorflow/addons"><h3 class="tfo-landing-page-heading no-link">SIG Addons</h3></a>
+          Extra functionality for TensorFlow, maintained by SIG&nbsp;Addons.
+        path: https://github.com/tensorflow/addons
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="https://github.com/tensorflow/io"><h3 class="tfo-landing-page-heading no-link">SIG IO</h3></a>
+          Dataset, streaming, and file system extensions, maintained by SIG&nbsp;IO.
+        path: https://github.com/tensorflow/io
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey

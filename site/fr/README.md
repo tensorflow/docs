@@ -8,10 +8,11 @@ veuillez envoyer une demande d'extraction ou `pull request`) à [tensorflow/docs
 Pour vous porter volontaire pour écrire ou réviser les traductions de la communauté, 
 contactez la [liste docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
-Remarque : concentrez vos efforts de traduction de TensorFlow 2.0 Beta dans 
-le répertoire [site/en/r2](https://github.com/tensorflow/docs/tree/master/site/en/r2). 
-Les documents de la communauté TF 1.x ne seront plus mis à jour lors de la préparation de la version 2.0. Voir [l'annonce](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).
-
+Remarque : concentrez vos efforts de traduction de TensorFlow 2 dans le
+répertoire [site/en/](https://github.com/tensorflow/docs/tree/master/site/en/).
+Les documents de la communauté TF 1.x ne seront plus mis à jour lors de la
+préparation de la version 2.0. Voir
+[l'annonce](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).
 
 # Community translations
 
@@ -25,8 +26,8 @@ To volunteer to write or review community translations, contact the
 [docs@tensorflow.org list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
 Note: Please focus translation efforts on
-[TensorFlow 2.0 Beta](https://www.tensorflow.org/beta) in the
-[site/en/r2](https://github.com/tensorflow/docs/tree/master/site/en/r2)
+[TensorFlow 2](https://www.tensorflow.org) in the
+[site/en/](https://github.com/tensorflow/docs/tree/master/site/en/)
 directory. TF 1.x community docs will no longer be updated as we prepare for the
 2.0 release. See
 [the announcement](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).

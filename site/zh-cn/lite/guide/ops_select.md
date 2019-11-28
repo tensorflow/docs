@@ -17,7 +17,8 @@ TensorFlow Lite 解释器在处理转换后的包含 TensorFlow 运算符的模�
 为了能够转换包含 TensorFlow 运算符的 TensorFlow Lite 模型，可使用位于 [TensorFlow Lite 转换器](../convert/) 中的 `target_spec.supported_ops` 参数。`target_spec.supported_ops` 的可选值如下：
 
 *   `TFLITE_BUILTINS` - 使用 TensorFlow Lite 内置运算符转换模型。
-*   `SELECT_TF_OPS` - 使用 TensorFlow 运算符转换模型。已经支持的 TensorFlow 运算符的完整列表可以在白名单 `lite/toco/tflite/whitelisted_flex_ops.cc` 中查看。
+*   `SELECT_TF_OPS` - 使用 TensorFlow 运算符转换模型。已经支持的 TensorFlow 运算符的完整列表可以在白名单
+    `lite/delegates/flex/whitelisted_flex_ops.cc` 中查看。
 
 注意：`target_spec.supported_ops` 是之前 Python API 中的 `target_ops`。
 

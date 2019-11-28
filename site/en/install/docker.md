@@ -18,7 +18,8 @@ be installed).
 
 1. [Install Docker](https://docs.docker.com/install/){:.external} on
    your local *host* machine.
-2. For GPU support on Linux, [install nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}.
+2. For GPU support on Linux, [install NVIDIA Docker support](https://github.com/NVIDIA/nvidia-docker){:.external}.
+   * Take note of your Docker version with `docker -v`. Versions __earlier than__ 19.03 require nvidia-docker2 and the `--runtime=nvidia` flag. On versions __including and after__ 19.03, you will use the `nvidia-container-toolkit` package and the `--gpus all` flag. Both options are documented on the page linked above.
 
 Note: To run the `docker` command without `sudo`, create the `docker` group and
 add your user. For details, see the
@@ -36,7 +37,7 @@ using the following format:
 | ---         | ---                                                                                               |
 | `latest`    | The latest release of TensorFlow CPU binary image. Default.                                       |
 | `nightly`   | Nightly builds of the TensorFlow image. (unstable)                                                |
-| *`version`* | Specify the *version* of the TensorFlow binary image, for example: *1.14.0*                       |
+| *`version`* | Specify the *version* of the TensorFlow binary image, for example: *2.0.0*                       |
 | `devel`     | Nightly builds of a TensorFlow `master` development environment. Includes TensorFlow source code. |
 
 Each base *tag* has variants that add or change functionality:
@@ -116,9 +117,9 @@ Docker is the easiest way to run TensorFlow on a GPU since the *host* machine
 only requires the [NVIDIA® driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
 (the *NVIDIA® CUDA® Toolkit* is not required).
 
-Install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} to
-launch a Docker container with NVIDIA® GPU support. `nvidia-docker` is only
-available for Linux, see their
+Install the [Nvidia Container Toolkit](https://github.com/NVIDIA/nvidia-docker/blob/master/README.md#quickstart){:.external} 
+to add NVIDIA® GPU support to Docker. `nvidia-container-runtime` is only
+available for Linux. See the `nvidia-container-runtime` 
 [platform support FAQ](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#platform-support){:.external}
 for details.
 
@@ -131,17 +132,18 @@ lspci | grep -i nvidia
 Verify your `nvidia-docker` installation:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+docker run --gpus all --rm nvidia/cuda nvidia-smi
 </pre>
 
-Note: `nvidia-docker` v1 uses the `nvidia-docker` alias, where v2 uses `docker --runtime=nvidia`.
+Note: `nvidia-docker` v2 uses `--runtime=nvidia` instead of `--gpus all`. `nvidia-docker` v1 uses the `nvidia-docker` alias, 
+rather than the `--runtime=nvidia` or `--gpus all` command line flags.
 
 ### Examples using GPU-enabled images
 
 Download and run a GPU-enabled TensorFlow image (may take a few minutes):
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
-docker run --runtime=nvidia -it --rm tensorflow/tensorflow:latest-gpu \
+docker run --gpus all -it --rm tensorflow/tensorflow:latest-gpu \
    python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
 </pre>
 
@@ -151,7 +153,7 @@ GPU-based scripts, you can use `docker exec` to reuse a container.
 Use the latest TensorFlow GPU image to start a `bash` shell session in the container:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-docker run --runtime=nvidia -it tensorflow/tensorflow:latest-gpu bash
+docker run --gpus all -it tensorflow/tensorflow:latest-gpu bash
 </pre>
 
 Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.

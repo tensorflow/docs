@@ -89,4 +89,4 @@ Raspberry Pi and install with `pip`:
 pip install tensorflow-<var>version</var>-cp34-none-linux_armv7l.whl
 </pre>
 
-Success: TensorFlow is now installed on Raspian.
+Success: TensorFlow is now installed on Raspbian.

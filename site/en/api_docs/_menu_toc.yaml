@@ -1,23 +1,13 @@
 toc:
 - column:
+  - heading: API
+    links:
+    - label: r2.0 (stable)
+      path: /api/stable
+- column:
   - heading: API r1
     links:
-    - label: r1.14 (stable)
-      path: /api/stable
-    - label: r1.13
-      path: /versions/r1.13/api_docs/python/tf
-    - label: r1.12
-      path: /versions/r1.12/api_docs/python/tf
-    - label: r1.11
-      path: /versions/r1.11/api_docs/python/tf
-    - label: r1.10
-      path: /versions/r1.10/api_docs/python/tf
-    - label: r1.9
-      path: /versions/r1.9/api_docs/python/tf
+    - label: r1.15
+      path: /api/r1.15
     - label: More…
       path: /versions/
-- column:
-  - heading: API r2
-    links:
-    - label: r2.0 (beta)
-      path: /versions/r2.0/api_docs/python/tf
