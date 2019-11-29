@@ -1,23 +1,17 @@
 # Docker
 
-[Docker](https://docs.docker.com/install/){:.external} uses *containers* to
-create virtual environments that isolate a TensorFlow installation from the rest
-of the system. TensorFlow programs are run *within* this virtual environment that
-can share resources with its host machine (access directories, use the GPU,
-connect to the Internet, etc.). The
-[TensorFlow Docker images](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
-are tested for each release.
+[Docker](https://docs.docker.com/install/){:.external} 使用 *容器* 创建虚拟环境，改环境将 TensorFlow 的安装和系统其他部分隔离开来。TensorFlow 程序运行于虚拟环境 *之内* 并和宿主机分享资源（文件的访问、GPU的使用、Internet连接等）。
+[TensorFlow Docker 镜像](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
+已经为每个发行版做了相关测试。
 
-Docker is the easiest way to enable TensorFlow [GPU support](./gpu.md) on Linux since only the
+Docker 是在Linux上启用 TensorFlow [GPU 支持](./gpu.md) 最简单的方式，仅需。on Linux since only the
 [NVIDIA® GPU driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
-is required on the *host* machine (the *NVIDIA® CUDA® Toolkit* does not need to
-be installed).
+is required on the *host* machine (无需安装 *NVIDIA® CUDA® Toolkit* ).
 
 
-## TensorFlow Docker requirements
+## TensorFlow Docker 环境需求
 
-1. [Install Docker](https://docs.docker.com/install/){:.external} on
-   your local *host* machine.
+1. 在你的宿主机上[安装 Docker ](https://docs.docker.com/install/){:.external} 。
 2. For GPU support on Linux, [install nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}.
 
 Note: To run the `docker` command without `sudo`, create the `docker` group and
@@ -32,7 +26,7 @@ The official TensorFlow Docker images are located in the
 Docker Hub repository. Image releases [are tagged](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}
 using the following format:
 
-| Tag         | Description                                                                                       |
+| 标记         | 描述                                                                                       |
 | ---         | ---                                                                                               |
 | `latest`    | The latest release of TensorFlow CPU binary image. Default.                                       |
 | `nightly`   | Nightly builds of the TensorFlow image. (unstable)                                                |
