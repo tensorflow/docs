@@ -113,7 +113,7 @@ crea una parte del grafo, e ritorna come risultato dei tensori.
 *   Ogni operazione Python dovrebbe avere un `name_scope`. 
     Come si può vedere sotto, per passare il nome dell'operaizone come una stringa.
 *   Le operazioni dovrebbero contenere un commento estensibile Python con dichiarazioni
-    Args e Returns che spieghino sia il tipo sia il significato di ogni valore. Possibili
+    Args e Returns che spieghino sia il tipo sia il significato di ogni valore. Eventuali
     shape, dtype, o rank dovrebbero essere specificati nella descrizione. Vedere i
     dettagli della documentazione.
 *   Per una migliore usabilità, includere un esempio di utilizzo dell'operazione con input / output
