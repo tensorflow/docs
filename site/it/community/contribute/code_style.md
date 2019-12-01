@@ -102,28 +102,28 @@ $ diff <my_cc_file> /tmp/my_cc_file.cc
 
 Un' _operazione Python_ è una funzione che, dati in input tensori e parametri,
 crea una parte del grafo, e ritorna come risultato dei tensori.
-*   Il primo argomento dovrà essere un tensore, seguito da parametri Python di base.
-    L'ultimo argomento è `name` con un valore di default di con un valore di default di `None`.
-*   Gli argomenti TensorFlow dovrebbero un tensore singolo o un elenco "iterabile" di 
-    tensioneTensor arguments should be either a single tensor or an iterable of tensors. That is, a "Tensor or list of Tensors" is too broad. See `assert_proper_iterable`.
-*   Operations that take tensors as arguments should call `convert_to_tensor` to
-    convert non-tensor inputs into tensors if they are using C++ operations.
-    Note that the arguments are still described as a `Tensor` object of a
-    specific dtype in the documentation.
-*   Each Python operation should have a `name_scope`. As seen below, pass the name
-    of the op as a string.
-*   Operations should contain an extensive Python comment with Args and Returns
-    declarations that explain both the type and meaning of each value. Possible
-    shapes, dtypes, or ranks should be specified in the description. See
-    documentation details.
-*   For increased usability, include an example of usage with inputs / outputs
-    of the op in Example section.
-*   Avoid making explicit use of `tf.Tensor.eval` or `tf.Session.run`. For
-    example, to write logic that depends on the Tensor value, use the TensorFlow
-    control flow. Alternatively, restrict the operation to only run when eager
-    execution is enabled (`tf.executing_eagerly()`).
+*   Il primo argomento dovrà essere un tensore, seguito dai parametri Python di base.
+    L'ultimo argomento è `name` con valore di default `None`.
+*   Gli argomenti TensorFlow dovrebbero essere un tensore singolo o un elenco "iterabile" di 
+    tensori. Perché, "un Tensore o una lista di Tensori" è troppo generico. Vedere `assert_proper_iterable`.
+*   Le opreazioni che prendono tensori come argomenti ed usano operazioni C++, 
+    dovranno chiamare `convert_to_tensor` per convertire input non-tensori in tensori.
+    Notare che gli argomenti sono acora descritti nella documentazione come oggetti 
+    di uno specifico tipo dtype: `Tensor`.
+*   Ogni operazione Python dovrebbe avere un `name_scope`. 
+    Come si può vedere sotto, per passare il nome dell'operaizone come una stringa.
+*   Le operazioni dovrebbero contenere un commento estensibile Python con dichiarazioni
+    Args e Returns che spieghino sia il tipo sia il significato di ogni valore. Possibili
+    shape, dtype, o rank dovrebbero essere specificati nella descrizione. Vedere i
+    dettagli della documentazione.
+*   Per una migliore usabilità, includere un esempio di utilizzo dell'operazione con input / output
+    in una sezione Example.
+*   Evitate di fare uso esplicito di `tf.Tensor.eval` o `tf.Session.run`. Per esempio,
+    per scrivere della logica che dipnede dal valore del Tensore, usate il controllo di flusso di TensorFlow.
+    In alternativa, restringete l'operazione a funzionare solo quando è abilitata l'esecuzione eager
+    (`tf.executing_eagerly()`).
 
-Example:
+Esempio:
 
 
 ```python
@@ -156,7 +156,7 @@ def my_op(tensor_in, other_tensor_in, my_param, other_param=0.5,
     return result
 ```
 
-Usage:
+Utilizzo:
 
 ```python
 output = my_op(t1, t2, my_param=0.5, other_param=0.6,
