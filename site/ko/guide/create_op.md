@@ -17,8 +17,8 @@ Note: C++로 작성한 사용자 정의 연산이 텐서플로 공식 pip 패키
 최대값을 찾는 대신 이동하는 윈도우 안에 포함된 값의 중간값을 찾는 연산을 해야 합니다.
 이러한 연산은 다른 연산의 조합(예를 들어, ExtractImagePatches 와 TopK를 사용)으로 해결 할 수 있지만,
 그 방식은 단일하고 잘 융합된 연산으로 작성된 네이티브 연산보다는 성능과 메모리 사용에 있어 효율적이지 않을 수 있습니다.
-당연히 연산자 조합을 통해서 원하는 것을 표현하려고 시도하는 것이 좋고,
-그것이 어렵고 비효율적인 경우에만 새로운 연산을 추가하는 것이 좋습니다.
+당연히 연산자 조합을 통해서 원하는 것을 표현하려고 시도하는 것이 좋지만,
+그것이 어렵고 비효율적인 경우에는 새로운 연산을 추가하는 것이 좋습니다.
 
 사용자 정의 연산을 사용하려면 다음이 필요합니다:
 
@@ -30,7 +30,7 @@ Note: C++로 작성한 사용자 정의 연산이 텐서플로 공식 pip 패키
     연산 구현은 커널로 알려져 있고 1단계에서 등록한 상세 사양을 충실하게 구현하는 것입니다.
     입/출력 형태 또는 아키텍쳐(예를 들어 CPU, GPU)에 따라 다양한 커널이 있을 수 있습니다.
 3.  파이썬 래퍼(wrapper)를 만드세요 (선택).
-    이 래퍼는 파이썬으로 작성한 연산을 사용하기 위한 공개용 API입니다.
+    이 래퍼는 작성한 연산을 파이썬에서 사용하기 위한 공개용 API입니다.
     기본 래퍼는 연산 등록 과정에서 자동으로 생성되고 그것을 바로 사용하거나 내용을 추가할 수 있습니다.
 4.  연산을 위한 그래디언트를 계산할 함수를 작성하세요 (선택).
 5.  연산을 테스트하세요.
@@ -49,10 +49,10 @@ Note: C++로 작성한 사용자 정의 연산이 텐서플로 공식 pip 패키
 
 연산 인터페이스를 정의하기 위해서 그 인터페이스를 텐서플로 시스템에 등록해야 합니다.
 등록을 위해서는 연산의 이름과 입력(변수형 및 이름), 출력(변수형 및 이름)과 함께
-docstrings 및 연산이 요구하는 [속성](#attrs)을 명시해야 합니다.
+docstrings 및 연산이 요구하는 [속성](#속성)을 명시해야 합니다.
 
 이 동작 과정을 알기 위해, `int32`인 텐서를 입력 받아
-첫번째 원소를 제외한 모든 값을 0으로 설정한 복제본을 춢력하는 함수를 만든다고 가정해 봅시다.
+첫 번째 원소를 제외한 모든 값을 0으로 설정한 복제본을 출력하는 함수를 만든다고 가정해 봅시다.
 이를 위해, `zero_out.cc` 파일을 생성합니다.
 그리고 나서 연산 인터페이스를 정의한 `REGISTER_OP` 매크로를 호출하는 소스를 추가합니다:
 
@@ -132,7 +132,7 @@ REGISTER_KERNEL_BUILDER(Name("ZeroOut").Device(DEVICE_CPU), ZeroOutOp);
 
 >   중요: OpKernal 인스턴스는 동시에(concurrently) 접근될 수 있습니다.
 >   `Compute`는 스레드에 안전(thread-safe) 해야합니다.
->   뮤텍스(mutex)로 클래스 변수에 대한 어떤 접근도 보호해야 합니다.
+>   뮤텍스(mutex)로 클래스 변수에 대한 모든 접근을 보호해야 합니다.
 >   아니면 클래스 변수를 통해 상태를 공유하지 마세요!
 >   연산 상태를 계속 확인하기 위해서 [`ResourceMgr`](https://www.tensorflow.org/code/tensorflow/core/framework/resource_mgr.h) 사용을 검토해보세요.
 
@@ -353,7 +353,7 @@ $ bazel build --config opt //tensorflow/core/user_ops:zero_out.so
 텐서플로 파이썬 API는 동적 라이브러리를 적재하고 텐서플로 프레임워크에 연산을 등록하기 위한
 `tf.load_op_library` 함수를 제공합니다.
 `load_op_library`는 커널과 연산을 위한 파이썬 랩퍼를 포함한 파이썬 모듈을 돌려줍니다.
-그래서, 연산을 만들었고 파이썬에서 그것을 실행하려면 다음과 같이 할 수 있습니다:
+그래서, 연산을 만든 후에 파이썬에서 그것을 실행하려면 다음과 같이 할 수 있습니다:
 
 ```python
 import tensorflow as tf
@@ -365,11 +365,11 @@ with tf.Session(''):
 array([[1, 0], [0, 0]], dtype=int32)
 ```
 
-생성된 함수는 스네이크 케이스(snake\_case)형태 이름으로 주어집니다.
-([PEP8](https://www.python.org/dev/peps/pep-0008/)를 준수하기 위해서).
+생성된 함수는 스네이크_케이스(snake\_case)형태 이름으로 주어집니다
+([PEP8](https://www.python.org/dev/peps/pep-0008/)를 준수하기 위해).
 그래서 작성한 연산 이름이 C++ 파일에서 `ZeroOut`이라면 파이썬 함수는 `zero_out`라는 이름으로 호출됩니다.
 
-연산을 파이썬 모듈에서 임포트(import)할 수 있는 일반적인 함수처럼 만들기 위해,
+연산을 파이썬 모듈에서 불러올 수 있는 일반적인 함수처럼 만들기 위해,
 파이썬 소스 파일에서 다음과 같이 `load_op_library`를 호출하는 것이 유용할 수 있습니다:
 
 ```python
@@ -410,17 +410,17 @@ $ python zero_out_op_test.py
 지금부터 연산을 작성하는데 필요한 좀 더 복잡한 기능의 일부를 살펴보려고 합니다.
 포함된 내용은 다음과 같습니다:
 
-*   [조건부 검사와 검증](#conditional-checks-and-validation)
-*   [연산 등록](#op-registration)
-    *   [속성](#attrs)
-    *   [속성 형태](#attr-types)
-    *   [다형성](#polymorphism)
-    *   [입력과 출력](#inputs-and-outputs)
-    *   [이전 버전과의 호환성](#backwards-compatibility)
-*   [GPU 지원](#gpu-support)
-    *   [GPU기기를 위한 커널 컴파일하기](#compiling-the-kernel-for-the-gpu-device)
-*   [파이썬에서 그래디언크 구현하기](#implement-the-gradient-in-python)
-*   [C++에서 형태 함수](#shape-functions-in-c)
+*   [조건부 검사와 검증](#조건부-검사와-검증)
+*   [연산 등록](#연산-등록)
+    *   [속성](#속성)
+    *   [속성 자료형](#속성-자료형)
+    *   [다형성](#다형성)
+    *   [입력과 출력](#입력과-출력)
+    *   [하위 호환성](#하위-호환성)
+*   [GPU 지원](#GPU-지원)
+    *   [GPU를 위한 커널 컴파일하기](#GPU를-위한-커널-컴파일하기)
+*   [파이썬에서 그래디언트 구현하기](#파이썬에서-그래디언트-구하기)
+*   [C++에서 형태 함수](#C++에서-형태-함수)
 
 ### 조건부 검사와 검증
 
@@ -476,7 +476,7 @@ $ python zero_out_op_test.py
 ```
 
 `<name>`은 문자로 시작하고 영문자와 밑줄로 구성되고,
-`<attr-type-expr>`는 [아래 설명한](#attr_types) 형태의 표현식입니다.
+`<attr-type-expr>`는 [아래 설명한](#속성-자료형) 형태의 표현식입니다.
 
 예를 들어, `ZeroOut`라는 연산이 0번째 원소가 아닌 사용자 지정 색인에 있는 원소를 보존하고 싶다면,
 연산을 다음과 같이 등록할 수 있습니다:
@@ -487,7 +487,7 @@ REGISTER_OP("ZeroOut")
     .Output("zeroed: int32");
 ```
 
-([속성 자료형](#attr_types)은 입력과 출력에서 사용하는 `tf.DType`과는 다르다는 것에 주의하세요.)
+([속성 자료형](#속성-자료형)은 입력과 출력에서 사용하는 `tf.DType`과는 다르다는 것에 주의하세요.)
 
 작성한 커널에서는 생성자의 입력 매개변수인 `context`를 통해서 속성에 접근할 수 있습니다:
 ```c++
@@ -653,12 +653,12 @@ REGISTER_OP("AttrDefaultExampleForAllTypes")
 
 특히 `tf.DType`을 사용하는 `type`의 값에 주의하세요.
 
-#### 다형성(Polymorphism)
+#### 다형성
 
 ##### 자료형 다형성
 
 다양한 자료형을 입력으로 받거나 출력으로 생성하는 연산을 위해,
-연산을 등록할 때 [입력과 출력 자료형](#inputs-and-outputs)에 있는 [속성](#attrs)을 명시할 수 있습니다.
+연산을 등록할 때 [입력과 출력 자료형](#입력과-출력)에 있는 [속성](#속성)을 명시할 수 있습니다.
 일반적으로 그런 다음 지원하는 자료형에 맞는 `OpKernel`을 등록할 수 있습니다.
 
 예를 들어 `ZeroOut` 연산이 `float`과 `int32`을 지원하게 하려면, 연산 등록은 다음과 같을 것 입니다:
@@ -736,7 +736,7 @@ class ZeroOutFloatOp : public OpKernel {
       : OpKernel(context) {}
 
   void Compute(OpKernelContext* context) override {
-    // 입력 텐서 받아오기
+    // 입력 텐서 얻어오기
     const Tensor& input_tensor = context->input(0);
     auto input = input_tensor.flat<float>();
 
@@ -772,8 +772,8 @@ REGISTER_KERNEL_BUILDER(
     ZeroOutFloatOp);
 ```
 
-> [하위 호환성](#backwards-compatibility)을 위해서
-> 이미 존재하는 연산의 속성을 추가할 때 [기본값](#default-values-constraints) 명시하세요:
+> [하위 호환성](#하위-호환성)을 위해서
+> 이미 존재하는 연산의 속성을 추가할 때 [기본값](#기본값과-제약사항) 명시하세요:
 >
 > ```c++
 > REGISTER_OP("ZeroOut")
@@ -799,7 +799,7 @@ class ZeroOutOp : public OpKernel {
   explicit ZeroOutOp(OpKernelConstruction* context) : OpKernel(context) {}
 
   void Compute(OpKernelContext* context) override {
-    // 입력 텐서 받아오기
+    // 입력 텐서 얻어오기
     const Tensor& input_tensor = context->input(0);
     auto input = input_tensor.flat<T>();
 
@@ -885,7 +885,7 @@ TF_CALL_REAL_NUMBER_TYPES(REGISTER_KERNEL);
 ##### 입/출력으로 리스트 사용
 
 다양한 자료형을 수용하거나 생성할 수 있도록 하는 것 뿐만 아니라,
-op는 다양한 개수의 텐서를 사용하거나 생성할 수 있습니다.
+연산은 다양한 개수의 텐서를 사용하거나 생성할 수 있습니다.
 
 다음 예에서, 속성 `T`는 리스트이고 입력 `in`과 출력 `out`의 자료형으로 사용됩니다.
 입력과 출력은 텐서의 리스트입니다
@@ -923,7 +923,7 @@ REGISTER_OP("IntListInputExample")
 이 예제에서는 `int32`형인 텐서 리스트를 입력받고,
 그 리스트의 길이를 명시하기 위해서 `int`형의 속성 `N`을 사용합니다.
 
-이것은 [자료형 다형성](#type-polymorphism)으로도 만들 수 있습니다.
+이것은 [자료형 다형성](#자료형-다형성)으로도 만들 수 있습니다.
 다음 예에서, 입력은 동일한(그러나 명시되지 않은) 자료형(`"T"`)을 가진 텐서 리스트(길이 `"N"`)이고,
 출력은 동일한 자료형인 단일 텐서입니다:
 
@@ -936,7 +936,7 @@ REGISTER_OP("SameListInputExample")
 ```
 
 기본값으로 텐서 리스트는 최소 길이가 1입니다.
-[해당 속성에 `">="`제한](#default-values-constraints)을 사용해 기본값을 변경할 수 있습니다.
+[해당 속성에 `">="`제한](#기본값과-제약사항)을 사용해 기본값을 변경할 수 있습니다.
 다음 예에서 입력은 길이가 최소 2이상인 `int32` 텐서입니다:
 
 ```c++
@@ -987,8 +987,8 @@ REGISTER_OP("MultipleInsAndOuts")
       .Input("complex_numbers: complex64");
   ```
 
-* `<attr-type>`, `<attr-type>`은 `type` 혹은 `list(type)` 자료형인 [속성](#attrs)의 이름입니다
-   (자료형 제한이 가능함). 이 문법에서는 [연산 다형성](#polymorphism)을 허용합니다.
+* `<attr-type>`, `<attr-type>`은 `type` 혹은 `list(type)` 자료형인 [속성](#속성)의 이름입니다
+   (자료형 제한이 가능함). 이 문법에서는 [연산 다형성](#다형성)을 허용합니다.
 
   ```c++
   REGISTER_OP("PolymorphicSingleInput")
@@ -1017,7 +1017,7 @@ REGISTER_OP("MultipleInsAndOuts")
   입력과 출력 모두 자료형이 `T`이기 때문에 출력의 텐서 개수와 자료형은 입력과 동일함을 유의하세요.
 
 * 동일한 자료형을 가지는 텐서 시퀀스:
-  `<number> * <type>`으로 표현하고 `<number>`는 `int`형인 [속성](#attrs)의 이름입니다.
+  `<number> * <type>`으로 표현하고 `<number>`는 `int`형인 [속성](#속성)의 이름입니다.
   `<type>`는 `tf.DType` 혹은 `type`을 표현한 속성 이름일 수 있습니다.
   첫 번째 예처럼, 이 연산은 `int32` 텐서 리스트를 입력받습니다:
 
@@ -1104,7 +1104,7 @@ REGISTER_OP("MultipleInsAndOuts")
 ### GPU 지원
 
 OpKernel을 구현할 때 CPU를 지원하는 것과 GPU를 지원하는 것으로 다르게 구현을 할 수 있고,
-이를 [다른 자료형을 위한 커널 등록](#polymorphism)과 같이 처리할 수 있습니다.
+이를 [다른 자료형을 위한 커널 등록](#다형성)과 같이 처리할 수 있습니다.
 [`tensorflow/core/kernels/`](https://www.tensorflow.org/code/tensorflow/core/kernels/)는
 GPU를 지원하는 커널의 예입니다.
 어떤 커널은 `.cc`로 끝나는 파일이 CPU버젼이고 `_gpu.cu.cc`로 끝나는 파일이 GPU버젼이고
@@ -1131,7 +1131,7 @@ CPU 메모리에 있는 입력인 `"paddings"`이 여전히 필요합니다.
                           PadOp<GPUDevice, T>)
 ```
 
-#### GPU 장치를 위한 커널 컴파일하기
+#### GPU를 위한 커널 컴파일하기
 
 연산을 구현하기 위해 CUDA 커널을 사용하는 예제는
 [cuda_op_kernel.cu.cc](https://www.tensorflow.org/code/tensorflow/examples/adding_an_op/cuda_op_kernel.cu.cc)에서 볼 수 있습니다.
@@ -1262,7 +1262,7 @@ REGISTER_OP("ZeroOut")
 ```
 
 형태 함수는 입력을 형태를 제한할 수 있습니다.
-[`ZeroOut`의 입력을 벡터 형태로 제한한](#validation) 버젼의 경우, 형태 함수는 다음과 같을 것입니다:
+[`ZeroOut`의 입력을 벡터 형태로 제한한](#조건부-검사와-검증) 버젼의 경우, 형태 함수는 다음과 같을 것입니다:
 
 ```c++
     .SetShapeFn([](::tensorflow::shape_inference::InferenceContext* c) {
@@ -1276,7 +1276,7 @@ REGISTER_OP("ZeroOut")
 `WithRank` 호출은 입력 형태 `c->input(0)`가 정확히 1차원인 형태를 가지는지 검증합니다
 (또는 만약 입력 형태가 알려지지 않았다면, 출력 형태는 알려지지 않은 차원의 벡터가 될 것입니다).
 
-만약 작성한 연산이 [다양한 입력을 지원하는 다형성](#polymorphism)을 가진다면,
+만약 작성한 연산이 [다양한 입력을 지원하는 다형성](#다형성)을 가진다면,
 검사할 형태의 개수를 정하기 위해서 `InferenceContext`의 멤버와
 모든 형태가 호환되는지를 검증하기 위해서 `Merge`를 사용할 수 있습니다
 (추가로 연산 속성에 접근할 수 있도록 해주는 `InferenceContext::GetAttr`로 길이를 가르키는 속성을 접근할 수 있습니다).
