@@ -1,0 +1,9 @@
+toc:
+- column:
+  - links:
+    - label: "A propos"
+      path: /about/
+    - label: "Etudes de cas"
+      path: /about/case-studies/
+    - label: "Programme Partenaires de Confiance"
+      path: /trusted-partners/
