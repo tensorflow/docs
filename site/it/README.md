@@ -1,6 +1,6 @@
 ## Traduzioni della comunità
 
-La nostra comunità di Tensorflow ha tradotto questi documenti. Poichè questa traduzione della comunità è *best-effort*, non è garantito che rispecchi in maniera precisa e aggiornata la [documentazione ufficiale in inglese](https://www.tensorflow.org/?hl=en). 
+La nostra comunità di Tensorflow ha tradotto questi documenti. Poichè queste traduzioni sono *best-effort*, non è garantito che rispecchino in maniera precisa e aggiornata la [documentazione ufficiale in inglese](https://www.tensorflow.org/?hl=en). 
 Se avete suggerimenti per migliorare questa traduzione, mandate per favore una pull request al repository Github [tensorflow/docs](https://github.com/tensorflow/docs). 
 Per proporsi come volontari alla scrittura o alla review delle traduzioni della comunità contattate la 
 [mailing list docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
