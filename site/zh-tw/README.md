@@ -23,7 +23,7 @@ directory. TF 1.x community docs will no longer be updated as we prepare for the
 2.0 release. See
 [the announcement](https://groups.google.com/a/tensorflow.org/d/msg/docs/vO0gQnEXcSM/YK_ybv7tBQAJ).
 
-# Simplified Chinese translation guide
+# Traditional Chinese translation guide
 
 Some technical words in English do not have a natural translation. Do *not*
 translate the following words:
