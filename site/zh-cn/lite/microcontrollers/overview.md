@@ -18,11 +18,12 @@ TensorFlow Lite for Microcontrollers 是 TensorFlow Lite 的一个实验性移�
 
 ## 功能和组件
 
-* C++ API，其运行时(runtime)在 Cortex M3 上仅需 16KB
-* 使用标准的 TensorFlow Lite [FlatBuffer](https://google.github.io/flatbuffers/) 架构(schema)
-* 为 Arduino、Keil 和 Mbed 等较为流行的嵌入式开发平台预生成的项目文件
-* 针对多个嵌入式平台优化
-* 演示口语热词检测的[示例代码](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro/examples/micro_speech)
+*   C++ API，其运行时(runtime)在 Cortex M3 上仅需 16KB
+*   使用标准的 TensorFlow Lite [FlatBuffer](https://google.github.io/flatbuffers/)
+    架构(schema)
+*   为 Arduino、Keil 和 Mbed 等较为流行的嵌入式开发平台预生成的项目文件
+*   针对多个嵌入式平台优化
+*   演示口语热词检测的[示例代码](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro/examples/micro_speech)
 
 ## 开发工作流程
 
@@ -54,15 +55,17 @@ TensorFlow Lite for Microcontrollers 是 TensorFlow Lite 的一个实验性移�
 
 如果您是产品开发人员，您可以下载我们提供的以下平台的构建说明或预生成的项目文件：
 
-设备                                                                                           | Mbed                                                                           | Keil                                                                           | Make/GCC
----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | --------
-[STM32F746G Discovery Board](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html)     | [下载](https://drive.google.com/open?id=1OtgVkytQBrEYIpJPsE8F6GUKHPBS3Xeb)     | -                                                                              | [下载](https://drive.google.com/open?id=1u46mTtAMZ7Y1aD-He1u3R8AE4ZyEpnOl)
-["Blue Pill" STM32F103 兼容开发板](https://github.com/google/stm32_bare_lib)                   | -                                                                              | -                                                                              | [说明](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/README.md#building-for-the-blue-pill-stm32f103-using-make)
-[Ambiq Micro Apollo3Blue EVB（使用 Make）](https://ambiqmicro.com/apollo-ultra-low-power-mcus/)| -                                                                              | -                                                                              | [说明](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/README.md#building-for-ambiq-micro-apollo3blue-evb-using-make)
-[Generic Keil uVision Projects](http://www2.keil.com/mdk5/uvision/)                            | -                                                                              | [下载](https://drive.google.com/open?id=1Lw9rsdquNKObozClLPoE5CTJLuhfh5mV)     | -
-[Eta Compute ECM3531 EVB](https://etacompute.com/)                                             | -                                                                              | -                                                                              | [说明](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/README.md#Building-for-the-Eta-Compute-ECM3531-EVB-using-Make)
+设备                                                                                          | Mbed                                                                     | Keil                                                                     | Make/GCC
+------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | --------
+[STM32F746G Discovery Board](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html)  | [下载](https://drive.google.com/open?id=1OtgVkytQBrEYIpJPsE8F6GUKHPBS3Xeb) | -                                                                        | [下载](https://drive.google.com/open?id=1u46mTtAMZ7Y1aD-He1u3R8AE4ZyEpnOl)
+["Blue Pill" STM32F103 兼容开发板](https://github.com/google/stm32_bare_lib)                     | -                                                                        | -                                                                        | [说明](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/README.md#building-for-the-blue-pill-stm32f103-using-make)
+[Ambiq Micro Apollo3Blue EVB（使用 Make）](https://ambiqmicro.com/apollo-ultra-low-power-mcus/) | -                                                                        | -                                                                        | [说明](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/README.md#building-for-ambiq-micro-apollo3blue-evb-using-make)
+[Generic Keil uVision Projects](http://www2.keil.com/mdk5/uvision/)                         | -                                                                        | [下载](https://drive.google.com/open?id=1Lw9rsdquNKObozClLPoE5CTJLuhfh5mV) | -
+[Eta Compute ECM3531 EVB](https://etacompute.com/)                                          | -                                                                        | -                                                                        | [说明](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/README.md#Building-for-the-Eta-Compute-ECM3531-EVB-using-Make)
 
-如果您的设备尚未被支持，添加支持也许并不困难。您可以在 [README.md](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/README.md#how-to-port-tensorflow-lite-micro-to-a-new-platform) 中了解该过程。
+如果您的设备尚未被支持，添加支持也许并不困难。您可以在
+[README.md](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/README.md#how-to-port-tensorflow-lite-micro-to-a-new-platform)
+中了解该过程。
 
 ### 可移植参考代码
 
