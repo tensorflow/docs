@@ -83,6 +83,12 @@ code testable with DocTest:
       “””
     ```
 
+*   *Floating point values*: The TensorFlow doctest extracts float values from
+    the result strings, and compares using `np.allclose` with reasonable
+    tolerences (`atol=1e-6`, `rtol=1e-6`). This way authors do not need to
+    worry about overly precise docstrings causing failures due to numerical
+    issues. Simply paste in the expected value.
+
 *   *Non-deterministic output*: Use ellipsis(`...`) for the uncertain parts and
     DocTest will ignore that substring.
 
