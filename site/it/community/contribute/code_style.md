@@ -3,7 +3,7 @@
 ## Stile Python
 
 Segue la guida [PEP 8 Python style
-](https://www.python.org/dev/peps/pep-0008/), ad eccezione, per TensorFlow, di usare 2
+](https://www.python.org/dev/peps/pep-0008/) ad eccezione, per TensorFlow, di usare 2
 spazi invece di 4. Cortesemente, allineatevi alla
 [Guida Google di Stile per Python](https://github.com/google/styleguide/blob/gh-pages/pyguide.md),
 ed usate [pylint](https://www.pylint.org/) per controllare le vostre modifiche Python.
