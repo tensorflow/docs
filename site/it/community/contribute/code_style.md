@@ -39,7 +39,7 @@ di TensorFlow per i build ufficiali e quelli supportati dalla comunità.
 
 TensorFlow supporterà Legacy Python (Python 2.7) fino al 
 [1 Gennaio, 2020](https://groups.google.com/a/tensorflow.org/forum/#!searchin/announce/python$202.7%7Csort:date/announce/gVwS5RC8mds/dCt1ka2XAAAJ).
-Fino ad allora, tutto il codice bisognerà che sia compatibile con le versioni di Python elencate sopra.
+Fino ad allora, sarà necessario che tutto il cosdice sia compatibile con le versioni di Python elencate sopra.
 
 Queste linee dovranno essere presenti in ogni file Python:
 
@@ -87,7 +87,7 @@ $ diff <my_cc_file> /tmp/my_cc_file.cc
 
 ### Tensori
 
-*   Le operazioni che hanno a che trattano batch possono ipotizzare che la **prima dimensione** di
+*   Le operazioni che trattano batch possono ipotizzare che la **prima dimensione** di
     un Tensore sia la dimensione del batch.
 *   In molti modelli, l'**ultima dimensione** è il numero di _canali_.
 *   Le dsimensioni escluse la prima e l'ultima, di solito, rappresentano le dimensioni dell _spazio_
@@ -95,18 +95,18 @@ $ diff <my_cc_file> /tmp/my_cc_file.cc
     *   Quando possibile, usate un operatore sovraccarivcato tra Tensori, invece di una funzione di TensorFlow. 
     Per esempio, noi preferiamo `**`, `+`, `/`, `*`, `-`, `and/or` a
     `tf.pow`, `tf.add`, `tf.divide`, `tf.multiply`, `tf.subtract`, e `tf.logical_*` —
-    a meno che sia richiesto uno specifico nome per l'operazione.
+    a meno che sia richiesto un nome specifico per l'operazione.
 
 
 ### Operazioni Python
 
 Un' _operazione Python_ è una funzione che, dati in input tensori e parametri,
 crea una parte del grafo, e ritorna come risultato dei tensori.
-*   Il primo argomento dovrà essere un tensore, seguito dai parametri Python di base.
+*   Il primo argomento dovrebbe essere costituito di tensori, seguito dai parametri Python di base.
     L'ultimo argomento è `name` con valore di default `None`.
-*   Gli argomenti TensorFlow dovrebbero essere un tensore singolo o un elenco "iterabile" di 
+*   Gli argomenti Tensori dovrebbero essere un tensore singolo o un elenco "iterabile" di 
     tensori. Perché, "un Tensore o una lista di Tensori" è troppo generico. Vedere `assert_proper_iterable`.
-*   Le opreazioni che prendono tensori come argomenti ed usano operazioni C++, 
+*   Le operazioni che prendono tensori come argomenti ed usano operazioni C++, 
     dovranno chiamare `convert_to_tensor` per convertire input non-tensori in tensori.
     Notare che gli argomenti sono acora descritti nella documentazione come oggetti 
     di uno specifico tipo dtype: `Tensor`.
