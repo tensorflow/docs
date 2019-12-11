@@ -70,7 +70,7 @@ def _build_function_page(page_info):
 
   parts.append(page_info.doc.brief + '\n\n')
 
-  parts.append(_build_aliases(page_info.aliases))
+  parts.append(_build_main_aliases(page_info.aliases))
 
   if page_info.signature is not None:
     parts.append(_build_signature(page_info))
@@ -81,6 +81,9 @@ def _build_function_page(page_info):
 
   parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
+
+  parts.append('\n')
+  parts.append(_build_compat_aliases(page_info.aliases))
 
   return ''.join(parts)
 
@@ -109,7 +112,7 @@ def _build_class_page(page_info):
 
   parts.append('\n\n')
 
-  parts.append(_build_aliases(page_info.aliases))
+  parts.append(_build_main_aliases(page_info.aliases))
 
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
@@ -167,6 +170,9 @@ def _build_class_page(page_info):
     parts.append('## Class Members\n\n')
 
     parts.append(_other_members(page_info.other_members))
+
+  parts.append('\n')
+  parts.append(_build_compat_aliases(page_info.aliases))
 
   return ''.join(parts)
 
@@ -237,8 +243,7 @@ def _build_module_page(page_info):
   # First line of the docstring i.e. a brief introduction about the symbol.
   parts.append(page_info.doc.brief + '\n\n')
 
-  parts.append(_build_aliases(page_info.aliases))
-
+  parts.append(_build_main_aliases(page_info.aliases))
 
   # All lines in the docstring, expect the brief introduction.
   parts.extend(str(item) for item in page_info.doc.docstring_parts)
@@ -289,6 +294,9 @@ def _build_module_page(page_info):
 
     parts.append(_other_members(page_info.other_members))
 
+  parts.append('\n')
+  parts.append(_build_compat_aliases(page_info.aliases))
+
   return ''.join(parts)
 
 
@@ -336,6 +344,7 @@ def _build_compatibility(compatibility):
 
   return ''.join(parts)
 
+
 def _top_source_link(location):
   """Retrns a source link with Github image, like the notebook butons."""
   table_template = textwrap.dedent("""
@@ -355,7 +364,6 @@ def _top_source_link(location):
   if location is None or not location.url:
     return table_template.format('')
 
-
   if 'github.com' not in location.url:
     return table_template.format('') + _small_source_link(location)
 
@@ -374,12 +382,29 @@ def _small_source_link(location):
   return template.format(url=location.url)
 
 
-def _build_aliases(aliases):
+def _build_main_aliases(aliases):
+  """Returns the top "Aliases" line."""
+  aliases = [name for name in aliases if '__' not in name]
+  aliases = [name for name in aliases if 'compat.v' not in name]
+
+  parts = []
+  if len(aliases):
+    parts.append('**Aliases**: ')
+    parts.append(', '.join('`{}`'.format(name) for name in aliases))
+    parts.append('\n\n')
+
+  return ''.join(parts)
+
+
+def _build_compat_aliases(aliases):
+  """Returns the "Compat Aliases" block."""
+  aliases = [name for name in aliases if '__' not in name]
+  aliases = [name for name in aliases if 'compat.v' in name]
+
   parts = []
   if len(aliases) > 1:
-    parts.append('**Aliases**: ')
-    parts.extend(', '.join(
-        '`{}`'.format(name) for name in aliases if '__' not in name))
-    parts.append('\n\n')
+    parts.append('## Compat aliases\n\n')
+    parts.extend(['* `{}`\n'.format(name) for name in aliases])
+    parts.append('\n')
 
   return ''.join(parts)
