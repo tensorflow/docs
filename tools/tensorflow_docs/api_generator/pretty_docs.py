@@ -37,7 +37,7 @@ def build_md_page(page_info):
 
   Args:
     page_info: must be a `parser.FunctionPageInfo`, `parser.ClassPageInfo`, or
-        `parser.ModulePageInfo`
+      `parser.ModulePageInfo`
 
   Returns:
     Markdown for the page
@@ -61,25 +61,29 @@ def _build_function_page(page_info):
   """Given a FunctionPageInfo object Return the page as an md string."""
   parts = ['# %s\n\n' % page_info.full_name]
 
+  parts.append('<!-- Insert buttons -->\n')
+
+  parts.append(_top_source_link(page_info.defined_in))
+  parts.append('\n\n')
+
+  parts.append('<!-- Start diff -->\n')
+
   parts.append(page_info.doc.brief + '\n\n')
 
-  if len(page_info.aliases) > 1:
-    parts.append('### Aliases:\n\n')
-    parts.extend('* `%s`\n' % name for name in page_info.aliases)
-    parts.append('\n')
+  parts.append(_build_main_aliases(page_info.aliases))
 
   if page_info.signature is not None:
     parts.append(_build_signature(page_info))
-
-  if page_info.defined_in:
     parts.append('\n\n')
-    parts.append(_big_source_link(page_info.defined_in))
 
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
   parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
+
+  parts.append('\n\n')
+  parts.append(_build_compat_aliases(page_info.aliases))
 
   return ''.join(parts)
 
@@ -88,7 +92,14 @@ def _build_class_page(page_info):
   """Given a ClassPageInfo object Return the page as an md string."""
   parts = ['# {page_info.full_name}\n\n'.format(page_info=page_info)]
 
+  parts.append('<!-- Insert buttons -->\n')
+
+  parts.append(_top_source_link(page_info.defined_in))
+  parts.append('\n\n')
+
   parts.append('## Class `%s`\n\n' % page_info.full_name.split('.')[-1])
+
+  parts.append('<!-- Start diff -->\n')
 
   parts.append(page_info.doc.brief + '\n\n')
 
@@ -101,23 +112,7 @@ def _build_class_page(page_info):
 
   parts.append('\n\n')
 
-  # Sort the methods list, but make sure constructors come first.
-  constructor_names = ['__init__', '__new__']
-  constructors = sorted(
-      method for method in page_info.methods
-      if method.short_name in constructor_names)
-  other_methods = sorted(
-      method for method in page_info.methods
-      if method.short_name not in constructor_names)
-
-  if len(page_info.aliases) > 1:
-    parts.append('### Aliases:\n\n')
-    parts.extend('* Class `%s`\n' % name for name in page_info.aliases)
-    parts.append('\n')
-
-  if page_info.defined_in is not None:
-    parts.append('\n\n')
-    parts.append(_big_source_link(page_info.defined_in))
+  parts.append(_build_main_aliases(page_info.aliases))
 
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
@@ -126,6 +121,13 @@ def _build_class_page(page_info):
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
+
+  # Sort the methods list, but make sure constructors come first.
+  constructor_names = ['__init__', '__new__']
+  constructors = sorted(method for method in page_info.methods
+                        if method.short_name in constructor_names)
+  other_methods = sorted(method for method in page_info.methods
+                         if method.short_name not in constructor_names)
 
   if constructors:
     for method_info in constructors:
@@ -168,6 +170,9 @@ def _build_class_page(page_info):
     parts.append('## Class Members\n\n')
 
     parts.append(_other_members(page_info.other_members))
+
+  parts.append('\n\n')
+  parts.append(_build_compat_aliases(page_info.aliases))
 
   return ''.join(parts)
 
@@ -212,8 +217,8 @@ def _build_method_section(method_info, heading_level=3):
   heading = ('<h{heading_level} id="{short_name}">'
              '<code>{short_name}</code>'
              '</h{heading_level}>\n\n')
-  parts.append(heading.format(heading_level=heading_level,
-                              **method_info._asdict()))
+  parts.append(
+      heading.format(heading_level=heading_level, **method_info._asdict()))
 
   if method_info.defined_in:
     parts.append(_small_source_link(method_info.defined_in))
@@ -232,20 +237,13 @@ def _build_module_page(page_info):
   """Given a ClassPageInfo object Return the page as an md string."""
   parts = ['# Module: {full_name}\n\n'.format(full_name=page_info.full_name)]
 
+  parts.append(_top_source_link(page_info.defined_in))
+  parts.append('\n\n')
+
   # First line of the docstring i.e. a brief introduction about the symbol.
   parts.append(page_info.doc.brief + '\n\n')
 
-  if len(page_info.aliases) > 1:
-    parts.append('### Aliases:\n\n')
-    parts.extend('* Module `%s`\n' % name for name in page_info.aliases)
-    parts.append('\n')
-
-  if page_info.defined_in is not None:
-    parts.append('\n\n')
-    parts.append(_big_source_link(page_info.defined_in))
-
-  # This will be replaced by the "Used in: <notebooks>" whenever it is run.
-  parts.append('<!-- Placeholder for "Used in" -->\n')
+  parts.append(_build_main_aliases(page_info.aliases))
 
   # All lines in the docstring, expect the brief introduction.
   parts.extend(str(item) for item in page_info.doc.docstring_parts)
@@ -296,6 +294,9 @@ def _build_module_page(page_info):
 
     parts.append(_other_members(page_info.other_members))
 
+  parts.append('\n\n')
+  parts.append(_build_compat_aliases(page_info.aliases))
+
   return ''.join(parts)
 
 
@@ -303,11 +304,10 @@ def _build_signature(obj_info, use_full_name=True):
   """Returns a md code block showing the function signature."""
   # Special case tf.range, since it has an optional first argument
   if obj_info.full_name == 'tf.range':
-    return (
-        '``` python\n'
-        "tf.range(limit, delta=1, dtype=None, name='range')\n"
-        "tf.range(start, limit, delta=1, dtype=None, name='range')\n"
-        '```\n\n')
+    return ('``` python\n'
+            "tf.range(limit, delta=1, dtype=None, name='range')\n"
+            "tf.range(start, limit, delta=1, dtype=None, name='range')\n"
+            '```\n\n')
 
   parts = ['``` python']
   parts.extend(['@' + dec for dec in obj_info.decorators])
@@ -319,7 +319,7 @@ def _build_signature(obj_info, use_full_name=True):
     sig = obj_info.signature[0]
   else:
     sig = ',\n'.join('    %s' % sig_item for sig_item in obj_info.signature)
-    sig = '\n'+sig+'\n'
+    sig = '\n' + sig + '\n'
 
   if use_full_name:
     obj_name = obj_info.full_name
@@ -345,33 +345,66 @@ def _build_compatibility(compatibility):
   return ''.join(parts)
 
 
-GENERATED_FILE_TEMPLATE = 'Defined in generated file: `{path}`\n\n'
-
-
-def _big_source_link(location):
-  """Retrns a source link with Github image."""
-  template = textwrap.dedent("""
-    <table class="tfo-github-link" align="left">
-    <a target="_blank" href={url}>
-      <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
-      View source on GitHub
-    </a>
-    </table>
+def _top_source_link(location):
+  """Retrns a source link with Github image, like the notebook butons."""
+  table_template = textwrap.dedent("""
+    <table class="tfo-notebook-buttons tfo-api" align="left">
+    {}</table>
 
     """)
-  if not location.url:
-    return GENERATED_FILE_TEMPLATE.format(path=location.rel_path)
-  if 'github.com' not in location.url:
-    return _small_source_link(location)
 
-  return template.format(url=location.url)
+  link_template = textwrap.dedent("""
+    <td>
+      <a target="_blank" href="{url}">
+        <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+        View source on GitHub
+      </a>
+    </td>""")
+
+  if location is None or not location.url:
+    return table_template.format('')
+
+  if 'github.com' not in location.url:
+    return table_template.format('') + _small_source_link(location)
+
+  link = link_template.format(url=location.url)
+  table = table_template.format(link)
+  return table
 
 
 def _small_source_link(location):
   """Returns a small source link."""
-  template = '<a target="_blank" href={url}>View source</a>\n\n'
+  template = '<a target="_blank" href="{url}">View source</a>\n\n'
 
   if not location.url:
-    return GENERATED_FILE_TEMPLATE.format(path=location.rel_path)
+    return ''
 
   return template.format(url=location.url)
+
+
+def _build_main_aliases(aliases):
+  """Returns the top "Aliases" line."""
+  aliases = [name for name in aliases if '__' not in name]
+  aliases = [name for name in aliases if 'compat.v' not in name]
+
+  parts = []
+  if aliases:
+    parts.append('**Aliases**: ')
+    parts.append(', '.join('`{}`'.format(name) for name in aliases))
+    parts.append('\n\n')
+
+  return ''.join(parts)
+
+
+def _build_compat_aliases(aliases):
+  """Returns the "Compat Aliases" block."""
+  aliases = [name for name in aliases if '__' not in name]
+  aliases = [name for name in aliases if 'compat.v' in name]
+
+  parts = []
+  if aliases:
+    parts.append('## Compat aliases\n\n')
+    parts.extend(['* `{}`\n'.format(name) for name in aliases])
+    parts.append('\n')
+
+  return ''.join(parts)
