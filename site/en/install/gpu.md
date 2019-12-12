@@ -55,7 +55,7 @@ The following NVIDIA® software must be installed on your system:
   —TensorFlow supports CUDA 10.0 (TensorFlow >= 1.13.0)
 * [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA Toolkit.
 * [cuDNN SDK](https://developer.nvidia.com/cudnn){:.external} (>= 7.4.1)
-* *(Optional)* [TensorRT 5.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
+* *(Optional)* [TensorRT 6.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
   to improve latency and throughput for inference on some models.
 
 
@@ -111,8 +111,8 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
-<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer5=5.1.5-1+cuda10.0 \
-    libnvinfer-dev=5.1.5-1+cuda10.0
+<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.0 \
+    libnvinfer-dev=6.0.1-1+cuda10.0
 </code>
 </pre>
 
