@@ -82,7 +82,7 @@ def _build_function_page(page_info):
   parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
-  parts.append('\n')
+  parts.append('\n\n')
   parts.append(_build_compat_aliases(page_info.aliases))
 
   return ''.join(parts)
@@ -171,7 +171,7 @@ def _build_class_page(page_info):
 
     parts.append(_other_members(page_info.other_members))
 
-  parts.append('\n')
+  parts.append('\n\n')
   parts.append(_build_compat_aliases(page_info.aliases))
 
   return ''.join(parts)
@@ -294,7 +294,7 @@ def _build_module_page(page_info):
 
     parts.append(_other_members(page_info.other_members))
 
-  parts.append('\n')
+  parts.append('\n\n')
   parts.append(_build_compat_aliases(page_info.aliases))
 
   return ''.join(parts)
@@ -388,7 +388,7 @@ def _build_main_aliases(aliases):
   aliases = [name for name in aliases if 'compat.v' not in name]
 
   parts = []
-  if len(aliases):
+  if aliases:
     parts.append('**Aliases**: ')
     parts.append(', '.join('`{}`'.format(name) for name in aliases))
     parts.append('\n\n')
@@ -402,7 +402,7 @@ def _build_compat_aliases(aliases):
   aliases = [name for name in aliases if 'compat.v' in name]
 
   parts = []
-  if len(aliases) > 1:
+  if aliases:
     parts.append('## Compat aliases\n\n')
     parts.extend(['* `{}`\n'.format(name) for name in aliases])
     parts.append('\n')
