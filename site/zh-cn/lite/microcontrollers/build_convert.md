@@ -5,8 +5,7 @@
 本文档解释了转换一个 TensorFlow 模型以使其可在微控制器上运行的过程。本文档也概述了可支持的运算，并对于设计与训练一个模型以使其符合内存限制给出了一些指导。
 
 一个端到端的、可运行的建立与转换模型的示例，见于如下的 Jupyter notebook 中：
-<a class="button button-primary" href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro/examples/hello_world/create_sine_model.ipynb">create_sine_model.ipynb</a>
-
+<a class="button button-primary" href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro/examples/hello_world/create_sine_model.ipynb">create_sine_model.ipynb</a>
 
 ## 模型转换
 
@@ -46,7 +45,9 @@ unsigned int converted_model_tflite_len = 18200;
 
 一旦你已经生成了此文件，你可以将它包含入你的程序。在嵌入式平台上，将数组声明改变为 `const` 类型以获得更好的内存效率是重要的。
 
-一个如何在你的程序中包含及使用模型的例子，请见微型语音示例中的 [`tiny_conv_micro_features_model_data.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/examples/micro_speech/micro_features/tiny_conv_micro_features_model_data.h) 。
+一个如何在你的程序中包含及使用模型的例子，请见微型语音示例中的
+[`tiny_conv_micro_features_model_data.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/micro_features/tiny_conv_micro_features_model_data.h)
+。
 
 ## 模型结构与训练
 
@@ -67,4 +68,6 @@ unsigned int converted_model_tflite_len = 18200;
 ### 运算支持
 面向微控制器的 TensorFlow Lite 目前仅支持有限的部分 TensorFlow 运算，这影响了可以运行的模型结构。我们正致力于在参考实现和针对特定结构的优化方面扩展运算支持。
 
-已支持的运算可以在文件 [`all_ops_resolver.cc`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/kernels/all_ops_resolver.cc) 中看到。
+已支持的运算可以在文件
+[`all_ops_resolver.cc`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/kernels/all_ops_resolver.cc)
+中看到。

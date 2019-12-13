@@ -592,7 +592,7 @@ function for custom Estimators; everything else is the same.
 For more details, be sure to check out:
 
 * The
-  [official TensorFlow implementation of MNIST](https://github.com/tensorflow/models/tree/master/official/mnist),
+  [official TensorFlow implementation of MNIST](https://github.com/tensorflow/models/tree/master/official/r1/mnist),
   which uses a custom estimator.
 * The TensorFlow
   [official models repository](https://github.com/tensorflow/models/tree/master/official),

@@ -402,7 +402,7 @@ change to customize the results for your own requirements.
 ### Custom Training Data
 
 By default the script will download the [Speech Commands
-dataset](https://download.tensorflow.org/data/speech_commands_v0.01.tgz), but
+dataset](https://download.tensorflow.org/data/speech_commands_v0.01.tar.gz), but
 you can also supply your own training data. To train on your own data, you
 should make sure that you have at least several hundred recordings of each sound
 you would like to recognize, and arrange them into folders by class. For

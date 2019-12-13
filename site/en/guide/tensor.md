@@ -294,37 +294,3 @@ functions or inside control flow constructs. If a `tf.Tensor` depends on a value
 from a queue, evaluating the `tf.Tensor` will only work once something has been
 enqueued; otherwise, evaluating it will hang. When working with queues, remember
 to call `tf.train.start_queue_runners` before evaluating any `tf.Tensor`s.
-
-## Print a tensor
-
-For debugging purposes you might want to print the value of a `tf.Tensor`. While
- [tfdbg](../guide/debugger.md) provides advanced debugging support, TensorFlow also has an
- operation to directly print the value of a `tf.Tensor`.
-
-Note that you rarely want to use the following pattern when printing a
-`tf.Tensor`:
-
-``` python
-t = <<some tensorflow operation>>
-print(t)  # This will print the symbolic tensor when the graph is being built.
-          # This tensor does not have a value in this context.
-```
-
-This code prints the `tf.Tensor` object (which represents deferred computation)
-and not its value. Instead, TensorFlow provides the `tf.Print` operation, which
-returns its first tensor argument unchanged while printing the set of
-`tf.Tensor`s it is passed as the second argument.
-
-To correctly use `tf.Print` its return value must be used. See the example below
-
-``` python
-t = <<some tensorflow operation>>
-tf.Print(t, [t])  # This does nothing
-t = tf.Print(t, [t])  # Here we are using the value returned by tf.Print
-result = t + 1  # Now when result is evaluated the value of `t` will be printed.
-```
-
-When you evaluate `result` you will evaluate everything `result` depends
-upon. Since `result` depends upon `t`, and evaluating `t` has the side effect of
-printing its input (the old value of `t`), `t` gets printed.
-

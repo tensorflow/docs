@@ -52,13 +52,13 @@ toc:
 - heading: "Data input pipelines"
 - title: "tf.data"
   path: /guide/data
-- title: "Optimizing input pipelines"
+- title: "Optimize pipeline performance"
   path: /guide/data_performance
 
 - heading: "Save a model"
 - title: "Checkpoint"
   path: /guide/checkpoint
-- title: "Saved model"
+- title: "SavedModel"
   path: /guide/saved_model
 
 - heading: "Accelerators"

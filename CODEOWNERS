@@ -4,7 +4,10 @@
 # Default owners for everything in repo.
 *  @lamberta @MarkDaoust
 
-# Community
-/site/en/community/ @dynamicwebpaige @ewilderj
+# Docs
+/site/en/guide/ @lamberta @MarkDaoust @yashk2810
+/site/en/tutorials/ @lamberta @MarkDaoust @yashk2810
 
-/site/en/r2/ @lamberta @MarkDaoust @brilee
+# Community
+/site/en/community/ @ewilderj @lamberta
+/site/en/community/groups.md @soonson
