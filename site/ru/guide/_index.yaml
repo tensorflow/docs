@@ -18,7 +18,7 @@ landing_page:
         <p>
         Многие руководства написаны в виде ноутбуков Jupyter и запускаются непосредственно 
         в Google Colab - среде для ноутбуков, которая не требует установки. 
-        Используйте в руководствах лкнопку <em>«Запустите в Google Colab»</em>.
+        Используйте в руководствах кнопку <em>«Запустить в Google Colab»</em>.
         </p>
 
   - heading: Необходимая документация
@@ -51,7 +51,7 @@ landing_page:
     - classname: tfo-landing-page-card
       description: >
         <a href="/guide/data"><h3 class="no-link">Конвейеры ввода данных</h3></a>
-        API <code>tf.data</code> позволяют вам построить сложные конвейеры ввоза
+        API <code>tf.data</code> позволяют вам построить сложные конвейеры ввода
         данных из простых переиспользуемых частей.
       path: /guide/data
     - classname: tfo-landing-page-card
@@ -77,9 +77,9 @@ landing_page:
     items:
     - description: >
         <h2 class="tfo-landing-page-heading no-link">Библиотеки и расширения</h2>
-        Изучите <a href="/resources">дополнительные ресурсы</a> для создания продвинутых
-        моделей или методов с использованием TensorFlow, получите доступ к специализированным
-        пакетам приложений расширяющих TensorFlow.
+        Изучите <a href="/resources">дополнительные ресурсы</a> для создания сложных
+        моделей или методов с использованием TensorFlow, получения доступа к специализированным
+        пакетам приложений, расширяющих функционал TensorFlow.
 
   - classname: devsite-landing-row-100
     items:
@@ -105,7 +105,7 @@ landing_page:
       - description: >
           <a href="/model_optimization"><h3 class="tfo-landing-page-heading no-link">Model Optimization</h3></a>
           TensorFlow Model Optimization Toolkit представляет собой набор инструментов 
-          оптимизации моделей ML для промышленного использования.
+          оптимизации моделей ML для использования в продакшне.
         path: /model_optimization
         icon:
           icon_name: chevron_right
@@ -123,7 +123,7 @@ landing_page:
       - description: >
           <a href="/neural_structured_learning"><h3 class="tfo-landing-page-heading no-link">Нейронное структурированное обучение</h3></a>
           Учебная парадигма для обучения нейронных сетей путем использования структурированных 
-          сигналов в дополнение к входным парааметра.
+          сигналов в дополнение к входным параметрам.
         path: /neural_structured_learning
         icon:
           icon_name: chevron_right
@@ -149,7 +149,7 @@ landing_page:
       - description: >
           <a href="/tfx/guide/serving"><h3 class="tfo-landing-page-heading no-link">Serving</h3></a>
           Система обслуживания TFX для моделей ML, предназначенная для высокой производительности
-          в промышленных условиях.
+          в продакшне.
         path: /tfx/guide/serving
         icon:
           icon_name: chevron_right
@@ -175,8 +175,8 @@ landing_page:
           background: grey
       - description: >
           <a href="/xla"><h3 class="tfo-landing-page-heading no-link">XLA</h3></a>
-          Специфичный к различным средам компилятор для линейной алгебры ускоряющий
-          модели TensorFlow потенциально без изменений исходного кодаё.
+          Компилятор линейной алгебры для различных областей применения, ускоряющий
+          модели TensorFlow потенциально без изменений исходного кода.
         path: /xla
         icon:
           icon_name: chevron_right
@@ -192,7 +192,7 @@ landing_page:
           background: grey
       - description: >
           <a href="https://github.com/tensorflow/io"><h3 class="tfo-landing-page-heading no-link">SIG IO</h3></a>
-          Расширения баз даных, потоковых передач и файловых систем поддерживаемых SIG&nbsp;IO.
+          Расширения баз данных, потоковых передач и файловых систем поддерживаемых SIG&nbsp;IO.
         path: https://github.com/tensorflow/io
         icon:
           icon_name: chevron_right
