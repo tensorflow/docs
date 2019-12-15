@@ -6,14 +6,14 @@ Ce document identifie les livres blancs sur TensorFlow.
 
 [Accéder à ce livre blanc.](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45166.pdf)
 
-**Résumé:** TensorFlow est une interface pour décrire l'apprentissage machine. et une implémentation pour exécuter ces algorithmes.
+**Résumé:** TensorFlow est une interface pour décrire des algorithmes d'apprentissage machine. et une implémentation pour exécuter ces algorithmes.
 Un calcul exprimé en utilisant TensorFlow peut être
-exécuté avec peu ou pas de changement sur une grande variété de systèmes hétérogènes, allant des appareils mobiles tels que les téléphones et des tablettes jusqu'à des systèmes distribués à grande échelle de plusieurs centaines de machines et de milliers d'appareils de calcul tels que des cartes graphiques. Le système est flexible et peut être utilisé pour décrire une grande variété d'algorithmes, y compris la formation et l'inférence pour les modèles de réseau d'apprentissage profond, et cela a été utilisés pour mener des recherches et pour déployer l'apprentissage automatique en production dans plus d'une douzaine de secteurs de l'industrie de l'informatique et d'autres domaines, y compris la reconnaissance vocale, la vision par ordinateur, la robotique, la recherche d'information, le traitement automatique du langage naturel, l'extraction de l'information géographique, et la découverte computationnelle de médicaments. Cet livre décrit l'interface TensorFlow et une version de cette interface que nous avons construite chez Google. L'API TensorFlow et une version de référence ont été publiées sous forme de paquet open-source sous licence Apache 2.0 en novembre 2015 et sont disponibles sur www.tensorflow.org.
+exécuté avec peu ou pas de changement sur une grande variété de systèmes hétérogènes, allant des appareils mobiles tels que les téléphones et des tablettes jusqu'à des systèmes distribués à grande échelle de plusieurs centaines de machines et de milliers d'appareils de calcul tels que des cartes graphiques. Le système est flexible et peut être utilisé pour décrire une grande variété d'algorithmes, y compris l'entraînement et l'inférence de modèles de réseau d'apprentissage profond, et cela a été utilisés pour mener des recherches et pour déployer l'apprentissage automatique en production dans plus d'une douzaine de secteurs de l'industrie de l'informatique et d'autres domaines, y compris la reconnaissance vocale, la vision par ordinateur, la robotique, la recherche d'information, le traitement automatique du langage naturel, l'extraction d'information géographique, et la découverte computationnelle de médicaments. Ce livre blanc décrit l'interface TensorFlow et une version de cette interface que nous avons construite chez Google. L'API TensorFlow et une version de référence ont été publiées sous forme de paquet open-source sous licence Apache 2.0 en novembre 2015 et sont disponibles sur www.tensorflow.org.
 
 
 ### Au format BibTeX
 
-Si vous utilisez TensorFlow dans votre recherche et souhaitez citer le système TensorFlow, nous vous suggérons de citer ce livre blanc.
+Si vous utilisez TensorFlow dans vos recherches et souhaitez citer le système TensorFlow, nous vous suggérons de citer ce livre blanc.
 
 <pre>
 @misc{tensorflow2015-whitepaper,
@@ -88,9 +88,9 @@ TensorFlow: Large-scale machine learning on heterogeneous systems,
 
 [Accéder à ce livre blanc.](https://www.usenix.org/system/files/conference/osdi16/osdi16-abadi.pdf)
 
-**Résumé:** TensorFlow est un système d'apprentissage automatique qui fonctionne à grande échelle et dans des environnements hétérogènes. TensorFlow utilise des graphiques de flux de données pour représenter le calcul, l'état partagé et les opérations qui font muter cet état.
+**Résumé:** TensorFlow est un système d'apprentissage automatique qui fonctionne à grande échelle et dans des environnements hétérogènes. TensorFlow utilise des graphes de flux de données pour représenter le calcul, l'état partagé et les opérations qui font muter cet état.
 Il mappe les nœuds d'un graphe de flux de données sur de nombreuses machines d'un cluster, et au sein d'une machine sur plusieurs périphériques de calcul, y compris les processeurs multicœurs, les GPU polyvalents et les ASIC personnalisés appelés Tensor Processing Units (TPU).
 Cette architecture donne de la flexibilité au développeur d'applications : alors que dans les précédentes conceptions “serveur de paramètres”, la gestion des états partagés est intégrée au système, TensorFlow permet aux développeurs d'expérimenter de nouvelles optimisations et algorithmes d'apprentissage.
-TensorFlow supporte une variété d'applications, avec un accent sur la formation et l'inférence des réseaux d'apprentissage profond.
+TensorFlow supporte un grand nombre d'applications, avec un accent mis sur l'entraînement et l'inférence des réseaux d'apprentissage profond.
 Plusieurs services Google utilisent TensorFlow en production, nous l'avons publié en tant que projet open-source, et il est devenu largement utilisé pour la recherche en apprentissage automatique.
-Dans ce livre, nous décrivons le modèle de flux de données de TensorFlow et démontrons les performances convaincantes que TensorFlow peut atteindre pour plusieurs applications du monde réel.
+Dans ce livre blanc, nous décrivons le modèle de flux de données de TensorFlow et démontrons les performances intéressantes que TensorFlow permet d'atteindre dans plusieurs applications du monde réel.
