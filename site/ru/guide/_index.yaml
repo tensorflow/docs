@@ -121,9 +121,9 @@ landing_page:
           foreground: theme
           background: grey
       - description: >
-          <a href="/neural_structured_learning"><h3 class="tfo-landing-page-heading no-link">Neural Structured Learning</h3></a>
-          A learning paradigm to train neural networks by leveraging structured
-          signals in addition to feature inputs.
+          <a href="/neural_structured_learning"><h3 class="tfo-landing-page-heading no-link">Нейронное структурированное обучение</h3></a>
+          Учебная парадигма для обучения нейронных сетей путем использования структурированных 
+          сигналов в дополнение к входным парааметра.
         path: /neural_structured_learning
         icon:
           icon_name: chevron_right
@@ -131,7 +131,7 @@ landing_page:
           background: grey
       - description: >
           <a href="/graphics"><h3 class="tfo-landing-page-heading no-link">TensorFlow Graphics</h3></a>
-          A library of computer graphics functionalities ranging from cameras, lights, and materials to renderers.
+          Библиотека функций компьютерной графики, начиная от камер, источников света и материалов до рендеров.
         path: /graphics
         icon:
           icon_name: chevron_right
@@ -139,8 +139,8 @@ landing_page:
           background: grey
     - list:
       - description: >
-          <a href="/datasets"><h3 class="tfo-landing-page-heading no-link">Datasets</h3></a>
-          A collection of datasets ready to use with TensorFlow.
+          <a href="/datasets"><h3 class="tfo-landing-page-heading no-link">Датасеты</h3></a>
+          Коллекция датасетов готовых к использованию с TensorFlow.
         path: /datasets
         icon:
           icon_name: chevron_right
@@ -148,8 +148,8 @@ landing_page:
           background: grey
       - description: >
           <a href="/tfx/guide/serving"><h3 class="tfo-landing-page-heading no-link">Serving</h3></a>
-          A TFX serving system for ML models, designed for high-performance in
-          production environments.
+          Система обслуживания TFX для моделей ML, предназначенная для высокой производительности
+          в промышленных условиях.
         path: /tfx/guide/serving
         icon:
           icon_name: chevron_right
@@ -157,8 +157,8 @@ landing_page:
           background: grey
       - description: >
           <a href="/probability"><h3 class="tfo-landing-page-heading no-link">Probability</h3></a>
-          TensorFlow Probability is a library for probabilistic reasoning and
-          statistical analysis.
+          TensorFlow Probability это библиотека для вероятностных рассуждений и
+          статистического анализа.
         path: /probability
         icon:
           icon_name: chevron_right
@@ -166,7 +166,7 @@ landing_page:
           background: grey
       - description: >
           <a href="/mlir"><h3 class="tfo-landing-page-heading no-link">MLIR</h3></a>
-          MLIR unifies the infrastructure for high-performance ML models in
+          MLIR унифицирует инфраструктуру для высокопроизводительных моделей ML в
           TensorFlow.
         path: /mlir
         icon:
@@ -175,16 +175,16 @@ landing_page:
           background: grey
       - description: >
           <a href="/xla"><h3 class="tfo-landing-page-heading no-link">XLA</h3></a>
-          A domain-specific compiler for linear algebra that accelerates
-          TensorFlow models with potentially no source code changes.
+          Специфичный к различным средам компилятор для линейной алгебры ускоряющий
+          модели TensorFlow потенциально без изменений исходного кодаё.
         path: /xla
         icon:
           icon_name: chevron_right
           foreground: theme
           background: grey
       - description: >
-          <a href="https://github.com/tensorflow/addons"><h3 class="tfo-landing-page-heading no-link">SIG Addons</h3></a>
-          Extra functionality for TensorFlow, maintained by SIG&nbsp;Addons.
+          <a href="https://github.com/tensorflow/addons"><h3 class="tfo-landing-page-heading no-link">SIG&nbsp;Addons</h3></a>
+          Дополнительная функциональность для TensorFlow, поддерживаемая SIG&nbsp;Addons.
         path: https://github.com/tensorflow/addons
         icon:
           icon_name: chevron_right
@@ -192,7 +192,7 @@ landing_page:
           background: grey
       - description: >
           <a href="https://github.com/tensorflow/io"><h3 class="tfo-landing-page-heading no-link">SIG IO</h3></a>
-          Dataset, streaming, and file system extensions, maintained by SIG&nbsp;IO.
+          Расширения баз даных, потоковых передач и файловых систем поддерживаемых SIG&nbsp;IO.
         path: https://github.com/tensorflow/io
         icon:
           icon_name: chevron_right
