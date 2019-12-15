@@ -148,8 +148,8 @@ landing_page:
           background: grey
       - description: >
           <a href="/tfx/guide/serving"><h3 class="tfo-landing-page-heading no-link">Serving</h3></a>
-          Система обслуживания TFX для моделей ML, предназначенная для высокой производительности
-          в продакшне.
+          Система обслуживания TFX для моделей машинного обучения, предназначенная для достижения высокой 
+          производительности в продакшене.
         path: /tfx/guide/serving
         icon:
           icon_name: chevron_right
