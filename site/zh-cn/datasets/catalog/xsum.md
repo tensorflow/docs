@@ -42,7 +42,7 @@ FeaturesDict({
 
 *   [https://github.com/EdinburghNLP/XSum/tree/master/XSum-Dataset](https://github.com/EdinburghNLP/XSum/tree/master/XSum-Dataset)
 
-## Supervised keys (用于 `as_supervised=True`)
+## 控制键 (用于 `as_supervised=True`)
 `(u'document', u'summary')`
 
 ## 参考
