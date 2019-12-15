@@ -11,83 +11,83 @@ landing_page:
     items:
     - description: >
         <p>
-        TensorFlow 2 focuses on simplicity and ease of use, with updates like
-        eager execution, intuitive higher-level APIs, and flexible model
-        building on any platform.
+        TensorFlow 2 фокусируется на простоте и удобстве использования, с такими обновлениями, 
+        как eager execution, интуитивно понятные высокоуровневые API и гибкое построение 
+        моделей на любой платформе.        
         </p>
         <p>
-        Many guides are written as Jupyter notebooks and run directly in
-        Google&nbsp;Colab—a hosted notebook environment that requires no setup.
-        Click the <em>Run in Google&nbsp;Colab</em> button.
+        Многие руководства написаны в виде ноутбуков Jupyter и запускаются непосредственно 
+        в Google Colab - среде для ноутбуков, которая не требует установки. 
+        Используйте в руководствах лкнопку <em>«Запустите в Google Colab»</em>.
         </p>
 
-  - heading: Essential documentation
+  - heading: Необходимая документация
     classname: tfo-landing-page-heading
     items:
     - classname: tfo-landing-page-card
       description: >
-        <a href="/install"><h3 class="no-link">Install TensorFlow</h3></a>
-        Install the package or build from source. GPU support for
-        CUDA®-enabled cards.
+        <a href="/install"><h3 class="no-link">Установка TensorFlow</h3></a>
+        Установите пакет или соберите из исходников. 
+        Поддержка GPU для карт с поддержкой CUDA®.
       path: /install
     - classname: tfo-landing-page-card
       description: >
         <a href="/guide/effective_tf2"><h3 class="no-link">TensorFlow 2</h3></a>
-        TensorFlow 2 best practices and tools to migrate your code.
+        Лучшие практики и инструменты TensorFlow 2 для переноса вашего кода.
       path: /guide/effective_tf2
     - classname: tfo-landing-page-card
       description: >
         <a href="/guide/keras/overview"><h3 class="no-link">Keras</h3></a>
-        Keras is a high-level API that's easier for ML beginners, as well as
-        researchers.
+        Keras это более легкий для ML новичков высокоуровневый API
+        подходящий и для исследователей.
       path: /guide/keras/overview
 
   - items:
     - classname: tfo-landing-page-card
       description: >
-        <a href="/guide/eager"><h3 class="no-link">Customization</h3></a>
-        TensorFlow for research and experimentation. Write custom layers and models, forward pass, and training loops.
+        <a href="/guide/eager"><h3 class="no-link">Настройка</h3></a>
+        TensorFlow для исследований и экспериментов. Напишите пользовательские слои и модели, прямой проход и обучающие циклы.
       path: /guide/eager
     - classname: tfo-landing-page-card
       description: >
-        <a href="/guide/data"><h3 class="no-link">Data input pipelines</h3></a>
-        The <code>tf.data</code> API enables you to build complex input pipelines
-        from simple, reusable pieces.
+        <a href="/guide/data"><h3 class="no-link">Конвейеры ввода данных</h3></a>
+        API <code>tf.data</code> позволяют вам построить сложные конвейеры ввоза
+        данных из простых переиспользуемых частей.
       path: /guide/data
     - classname: tfo-landing-page-card
       description: >
-        <a href="/guide/estimator"><h3 class="no-link">Estimators</h3></a>
-        A high-level API that represents a complete model, designed for scaling
-        and asynchronous training.
+        <a href="/guide/estimator"><h3 class="no-link">Оценщики</h3></a>
+        Высокоуровневый API, представляющий законченную модель, спроектирован 
+        для масштабирования и асинхронного обучения.
       path: /guide/estimator
 
   - items:
     - classname: tfo-landing-page-card
       description: >
-        <a href="/guide/checkpoint"><h3 class="no-link">Save a model</h3></a>
-        Save a TensorFlow model using checkpoints or the SavedModel format.
+        <a href="/guide/checkpoint"><h3 class="no-link">Соханение модели</h3></a>
+        Сохраняйте модели TensorFlow используя контрольные точки или формат SavedModel.
       path: /guide/checkpoint
     - classname: tfo-landing-page-card
       description: >
-        <a href="/guide/distributed_training"><h3 class="no-link">Accelerators</h3></a>
-        Distribute training across multiple GPUs, multiple machines or TPUs.
+        <a href="/guide/distributed_training"><h3 class="no-link">Акселераторы</h3></a>
+        Распределите обучение между несколькими GPU, компьютерами или TPU.
       path: /guide/distributed_training
 
   - classname: devsite-landing-row-100
     items:
     - description: >
-        <h2 class="tfo-landing-page-heading no-link">Libraries and extensions</h2>
-        Explore <a href="/resources">additional resources</a> to build advanced
-        models or methods using TensorFlow, and access domain-specific
-        application packages that extend TensorFlow.
+        <h2 class="tfo-landing-page-heading no-link">Библиотеки и расширения</h2>
+        Изучите <a href="/resources">дополнительные ресурсы</a> для создания продвинутых
+        моделей или методов с использованием TensorFlow, получите доступ к специализированным
+        пакетам приложений расширяющих TensorFlow.
 
   - classname: devsite-landing-row-100
     items:
     - list:
       - description: >
           <a href="/tensorboard"><h3 class="tfo-landing-page-heading no-link">TensorBoard</h3></a>
-          A suite of visualization tools to understand, debug, and optimize
-          TensorFlow programs.
+          Набор инструментов визуализации для понимания, отладки и оптимизации
+          программ TensorFlow.
         path: /tensorboard
         icon:
           icon_name: chevron_right
@@ -95,8 +95,8 @@ landing_page:
           background: grey
       - description: >
           <a href="/hub"><h3 class="tfo-landing-page-heading no-link">TensorFlow Hub</h3></a>
-          A library for the publication, discovery, and consumption of reusable
-          parts of machine learning models.
+          Библиотека для публикации, изучения и использования переиспользуемых 
+          частей моделей машинного обучения.
         path: /hub
         icon:
           icon_name: chevron_right
@@ -104,8 +104,8 @@ landing_page:
           background: grey
       - description: >
           <a href="/model_optimization"><h3 class="tfo-landing-page-heading no-link">Model Optimization</h3></a>
-          The TensorFlow Model Optimization Toolkit is a suite of tools for
-          optimizing ML models for deployment and execution.
+          TensorFlow Model Optimization Toolkit представляет собой набор инструментов 
+          оптимизации моделей ML для промышленного использования.
         path: /model_optimization
         icon:
           icon_name: chevron_right
@@ -113,8 +113,8 @@ landing_page:
           background: grey
       - description: >
           <a href="/federated"><h3 class="tfo-landing-page-heading no-link">TensorFlow Federated</h3></a>
-          A framework for machine learning and other computations on decentralized
-          data.
+          Фреймворк для машинного обучения и других вычислений на децентрализованных
+          данных.
         path: /federated
         icon:
           icon_name: chevron_right
