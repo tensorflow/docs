@@ -4,7 +4,7 @@
 
 TensorFlow uses [DocTest](https://docs.python.org/3/library/doctest.html) to
 test code snippets in Python docstrings. The snippet must be executable Python
-code. To enable testing, preprend the line with `>>>` (three left-angle
+code. To enable testing, prepend the line with `>>>` (three left-angle
 brackets). For example, here's a excerpt from the `tf.concat` function in the
 [array_ops.py](https://www.tensorflow.org/code/tensorflow/python/ops/array_ops.py)
 source file:
@@ -85,7 +85,7 @@ code testable with DocTest:
 
 *   *Floating point values*: The TensorFlow doctest extracts float values from
     the result strings, and compares using `np.allclose` with reasonable
-    tolerences (`atol=1e-6`, `rtol=1e-6`). This way authors do not need to
+    tolerances (`atol=1e-6`, `rtol=1e-6`). This way authors do not need to
     worry about overly precise docstrings causing failures due to numerical
     issues. Simply paste in the expected value.
 
@@ -145,7 +145,7 @@ There are two ways to test the code in the docstring locally:
 
 *   If you are changing the code and the docstring of a class/function/method,
     then you will need to
-    [build tensorflow from source](../../install/source.md). Once you are setup
+    [build TensorFlow from source](../../install/source.md). Once you are setup
     to build from source, you can run the tests:
 
     <pre class="prettyprint lang-bsh">
