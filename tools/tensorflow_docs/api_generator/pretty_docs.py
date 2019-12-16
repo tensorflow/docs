@@ -61,12 +61,10 @@ def _build_function_page(page_info):
   """Given a FunctionPageInfo object Return the page as an md string."""
   parts = ['# %s\n\n' % page_info.full_name]
 
-  parts.append('<!-- Insert buttons -->\n')
+  parts.append('<!-- Insert buttons and diff -->\n')
 
   parts.append(_top_source_link(page_info.defined_in))
   parts.append('\n\n')
-
-  parts.append('<!-- Start diff -->\n')
 
   parts.append(page_info.doc.brief + '\n\n')
 
@@ -92,14 +90,12 @@ def _build_class_page(page_info):
   """Given a ClassPageInfo object Return the page as an md string."""
   parts = ['# {page_info.full_name}\n\n'.format(page_info=page_info)]
 
-  parts.append('<!-- Insert buttons -->\n')
+  parts.append('<!-- Insert buttons and diff -->\n')
 
   parts.append(_top_source_link(page_info.defined_in))
   parts.append('\n\n')
 
   parts.append('## Class `%s`\n\n' % page_info.full_name.split('.')[-1])
-
-  parts.append('<!-- Start diff -->\n')
 
   parts.append(page_info.doc.brief + '\n\n')
 
