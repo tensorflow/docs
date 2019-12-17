@@ -32,6 +32,9 @@ toc:
   path: /guide/keras/masking_and_padding
 - title: "Write custom callbacks"
   path: /guide/keras/custom_callback
+- title: "Mixed precision"
+  path: /guide/keras/mixed_precision
+  status: experimental
 
 - heading: "Estimators"
 - title: "Estimator overview"
