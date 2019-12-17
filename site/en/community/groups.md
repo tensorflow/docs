@@ -13,6 +13,7 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 * [TensorFlow Nairobi](https://www.meetup.com/TensorFlow-Nairobi/)
 * [TensorFlow Lagos](https://www.meetup.com/tf-lagos/)
 * [TensorFlow Tunis Meetup](https://www.meetup.com/TensorFlow-Tunis-Meetup/)
+* [TensorFlow Egypt](https://www.facebook.com/groups/546277615773342/)
 
 ## Americas
 
