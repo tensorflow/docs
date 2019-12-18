@@ -75,7 +75,7 @@ downloads a new TensorFlow image the first time it is run:
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run -it --rm tensorflow/tensorflow \
-   python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+   python -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
 </pre>
 
 Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
@@ -144,7 +144,7 @@ Download and run a GPU-enabled TensorFlow image (may take a few minutes):
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run --gpus all -it --rm tensorflow/tensorflow:latest-gpu \
-   python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+   python -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
 </pre>
 
 It can take a while to set up the GPU-enabled image. If repeatably running

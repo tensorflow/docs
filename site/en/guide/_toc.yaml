@@ -32,6 +32,9 @@ toc:
   path: /guide/keras/masking_and_padding
 - title: "Write custom callbacks"
   path: /guide/keras/custom_callback
+- title: "Mixed precision"
+  path: /guide/keras/mixed_precision
+  status: experimental
 
 - heading: "Estimators"
 - title: "Estimator overview"
@@ -52,7 +55,7 @@ toc:
 - heading: "Data input pipelines"
 - title: "tf.data"
   path: /guide/data
-- title: "Optimizing input pipelines"
+- title: "Optimize pipeline performance"
   path: /guide/data_performance
 
 - heading: "Save a model"
