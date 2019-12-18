@@ -14,7 +14,7 @@
 *   `TFLiteConverter.from_keras_model()`：用来转换
     [`tf.keras` 模型](https://www.tensorflow.org/guide/keras/overview)。
 *   `TFLiteConverter.from_concrete_functions()`：用来转换
-    [concrete functions](concrete_function.md)。
+    [concrete functions](https://tensorflow.org/guide/concrete_function)。
 
 注意: 在 TensorFlow Lite 2.0 中有一个不同版本的
 `TFLiteConverter` API， 该 API 只包含了
@@ -90,8 +90,8 @@ tflite_model = converter.convert()
 ### 转换 concrete function <a name="concrete_function"></a>
 
 以下示例展示了如何将 TensorFlow 中的
-[concrete function](concrete_function.md) 转换为TensorFlow Lite 中的
-[`FlatBuffer`](https://google.github.io/flatbuffers/) 格式。
+[concrete function](https://tensorflow.org/guide/concrete_function)
+转换为TensorFlow Lite 中的 [`FlatBuffer`](https://google.github.io/flatbuffers/) 格式。
 
 ```python
 import tensorflow as tf

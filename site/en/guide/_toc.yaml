@@ -63,6 +63,9 @@ toc:
   path: /guide/checkpoint
 - title: "SavedModel"
   path: /guide/saved_model
+- title: "Concrete functions"
+  path: /guide/concrete_function
+
 
 - heading: "Accelerators"
 - title: "Distributed training"
