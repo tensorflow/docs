@@ -3,7 +3,7 @@
 我們的 TensorFlow 社區翻譯了這些文檔。因為社區翻譯是盡力而為， 所以無法保證它們是最準確的，並且反映了最新的
 [官方英文文檔](https://www.tensorflow.org/?hl=en)。如果您有改進此翻譯的建議， 請提交 pull request 到
 [tensorflow/docs](https://github.com/tensorflow/docs) GitHub 倉庫。要志願地撰寫或者審核譯文，請加入
-[docs-zh-cn@tensorflow.org Google Group](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)。
+[docs@tensorflow.org Google Group](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs)。
 
 # Community translations
 
