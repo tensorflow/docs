@@ -139,8 +139,8 @@ TensorFlow [指南](https://www.tensorflow.org/guide) 和
 <code class="devsite-terminal">git remote -v</code>
 origin    git@github.com:<var>username</var>/docs.git (fetch)
 origin    git@github.com:<var>username</var>/docs.git (push)
-<var>upstream</var> git@github.com:tensorflow/docs.git (fetch)
-<var>upstream</var> git@github.com:tensorflow/docs.git (push)
+<var>upstream</var>  git@github.com:tensorflow/docs.git (fetch)
+<var>upstream</var>  git@github.com:tensorflow/docs.git (push)
 </pre>
 
 更新:
@@ -161,7 +161,7 @@ origin    git@github.com:<var>username</var>/docs.git (push)
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">git checkout -b <var>feature-name</var></code>
 
-<code class="devsite-terminal">git branch</code> # 列出本地分支
+<code class="devsite-terminal">git branch</code>  # 列出本地分支
   master
 * <var>feature-name</var>
 </pre>
@@ -175,8 +175,8 @@ origin    git@github.com:<var>username</var>/docs.git (push)
 
 <pre class="prettyprint lang-bsh">
 # 查看更改
-<code class="devsite-terminal">git status</code> # 查看哪些文件被修改
-<code class="devsite-terminal">git diff</code> # 查看文件中的更改內容
+<code class="devsite-terminal">git status</code>  # 查看哪些文件被修改
+<code class="devsite-terminal">git diff</code>    # 查看文件中的更改內容
 
 <code class="devsite-terminal">git add <var>path/to/file.md</var></code>
 <code class="devsite-terminal">git commit -m "Your meaningful commit message for the change."</code>
@@ -234,16 +234,13 @@ origin    git@github.com:<var>username</var>/docs.git (push)
 
 您可以直接從Google Colab編輯和更新復制的GitHub倉庫，而不是下載筆記本文件並使用本地Git工作流：
 
-1. 在您複製(fork)的 <var>username</var>/docs 倉庫中，使用GitHub Web界面
-   <a href="https://help.github.com/articles/creating-and-deleting-branches-within-your-repository" class="external">創建新分支</a>。
+1. 在您複製(fork)的 <var>username</var>/docs 倉庫中，使用GitHub Web界面<a href="https://help.github.com/articles/creating-and-deleting-branches-within-your-repository" class="external">創建新分支</a>。
 2. 導航到要編輯的筆記本文件。
 3. 在Google Colab中打開筆記本：使用URL替換或*Open in Colab* Chrome擴展程序。
 4. 在Colab中編輯筆記本。
 5. 通過點擊
    *File > Save a copy in GitHub...*從Colab中向GitHub提交更改。保存對話框中選擇到相應的倉庫與分支。並添加一條有意義的提交消息。
-6. 保存之後，瀏覽您的倉庫或者
-   <a href="https://github.com/tensorflow/docs" class="external">tensorflow/docs</a>
-   倉庫，GitHub會提示您創建一個pull請求。
+6. 保存之後，瀏覽您的倉庫或者<a href="https://github.com/tensorflow/docs" class="external">tensorflow/docs</a>倉庫，GitHub會提示您創建一個pull請求。
 7. 倉庫維護者會審核您的拉取請求(pull request)。
 
 成功後：您的更改會被TensorFlow文檔接受。
@@ -266,8 +263,7 @@ origin    git@github.com:<var>username</var>/docs.git (push)
 
 所有文檔更新都需要審核。為了更有效地與TensorFlow翻譯社區進行協作，以下是一些保持語言特定活動的方法：
 
-* 加入上面列出的語言組，以接收任何涉及該語言<code><a
-  href="https://github.com/tensorflow/docs/tree/master/site">site/<var>lang</var></a></code>目錄的*已創建的* 拉取請求。
+* 加入上面列出的語言組，以接收任何涉及該語言<code><a href="https://github.com/tensorflow/docs/tree/master/site">site/<var>lang</var></a></code>目錄的*已創建的* 拉取請求。
 * 將您的GitHub用戶名添加至`site/<lang>/REVIEWERS`文件在拉取請求中能被自動註釋標記。在被標記後，GitHub會向您發送該拉取請求中所有更改和討論的通知。
 
 ### 在翻譯中讓代碼保持最新
