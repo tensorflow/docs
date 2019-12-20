@@ -8,14 +8,14 @@
 ## Count misspellings in text cells:
 ##   $ spelltest notebook.ipynb [...]
 ##
-## Count misspellings in text cells including code tags:
+## Count also includes <code> and <pre> tags within text cells:
 ##   $ spelltest -c notebook.ipynb [...]
 ##
-## Count misspellings in text cells including code tags AND code cells:
+## Count also also includes code cells:
 ##   $ spelltest -c -C notebook.ipynb [...]
 ##
-## Dump notebook text (without code cells) and save to clipoard (OSX):
-##   $ spelltest -p notebook.ipynb | pbcopy
+## Print notebook as Markdown to stdout and save to clipoard (OSX):
+##   $ spelltest -p [-C] notebook.ipynb | pbcopy
 ##
 set -e
 
@@ -125,12 +125,30 @@ if [[ -z "$OPT_PRINT_STDOUT_ONLY" ]]; then
     echo "${LOG_NAME} Compiling dictionary: ${WORDDICT}" >&2
     aspell --lang=en --encoding=utf-8 create master "$WORDDICT" < "$WORDLIST"
   else
-    echo "${LOG_NAME} Using pre-compiled dictionary: ${WORDDICT}" >&2
+    echo "${LOG_NAME} Using pre-compiled dictionary [${WORDDICT}]" >&2
   fi
 fi
 
+aspell_cmd() {
+  local in_str="$1"
+  local out_str=''
+  local opts="--lang=en_US --encoding=utf-8 --mode=html"
+
+  if [[ -z "$OPT_CHECK_CODE_TAGS" ]]; then
+    opts+=" --add-html-skip=code --add-html-skip=pre"
+  fi
+
+  out_str=$(echo "$in_str" \
+             | aspell list $opts --add-extra-dicts="$WORDDICT" \
+             | sort \
+             | uniq -c)
+  echo "$out_str"
+}
+
 
 ## Main
+
+STATUS_CODE=0
 
 for fp in "$@"; do
   if [[ ! -f "$fp" ]]; then
@@ -138,7 +156,7 @@ for fp in "$@"; do
     exit 1
   fi
 
-  echo "File: $fp" >&2
+  echo "${LOG_NAME} File: $fp" >&2
 
   contents="$(read_file_contents $fp)"
   # Strip extras
@@ -151,16 +169,15 @@ for fp in "$@"; do
     continue
 
   else
-    aspell_opts="--lang=en_US --encoding=utf-8"
+    # Use aspell to output list of misspelled words
+    out_str=$(aspell_cmd "$contents")
 
-    if [[ -z "$OPT_CHECK_CODE_TAGS" ]]; then
-      aspell_opts+=" --add-html-skip=code --add-html-skip=pre"
+    if [[ -n "$out_str" ]]; then
+      echo "$out_str"
+      STATUS_CODE=1
+    else
+      echo "      No misspellings found" >&2
     fi
-
-    echo "$contents" \
-      | aspell list $aspell_opts --mode=html --add-extra-dicts="$WORDDICT" \
-      | sort \
-      | uniq -c
   fi
 done
 
@@ -171,3 +188,6 @@ if [[ -f "$WORDDICT" ]]; then
        -name "$(basename $0 '.sh')*" ! -wholename "$WORDDICT" \
        -delete
 fi
+
+# Return non-zero code if found a misspelling.
+exit $STATUS_CODE
