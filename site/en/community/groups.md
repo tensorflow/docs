@@ -26,6 +26,7 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 ## Asia
 
 * [TensorFlow China community](https://www.tensorflowers.cn)
+* [TensorFlow India ](https://www.facebook.com/groups/tensorflowindia/)
 * [TensorFlow User Group Beijing](https://mp.weixin.qq.com/s/IftQLGI9qHM5zvlxSD756Q)
 * [TensorFlow User Group Hangzhou](https://mp.weixin.qq.com/s/EIyGkk5ctE-gVsdYoqVEww)
 * [TensorFlow User Group Shanghai](https://mp.weixin.qq.com/s/9iQ0vzYjZdZXyi3LGN5fRQ)
