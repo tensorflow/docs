@@ -79,10 +79,12 @@ upper_tabs:
     - name: Python
       skip_translation: true
       contents:
-      - title: Python {VERSION}
-      - include: {VERSION_ROOT}/python/_toc.yaml
+      - title: Overview
+        path: {VERSION_ROOT}/python/tf
       - title: All Symbols
         path: {VERSION_ROOT}/python/
+      - title: Python {VERSION}
+      - include: {VERSION_ROOT}/python/_toc.yaml
 
     - name: JavaScript
       contents:
