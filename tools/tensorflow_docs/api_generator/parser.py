@@ -115,7 +115,7 @@ def _get_raw_docstring(py_object):
   else:
     result = ''
 
-  return _AddDoctestFences()(result)
+  return _AddDoctestFences()(result + '\n')
 
 
 class _AddDoctestFences(object):
