@@ -123,7 +123,6 @@ class _AddDoctestFences(object):
   CARET_BLOCK_RE = re.compile(
       r"""
     (?<=\n)\s*?\n                            # After a blank line.
-    (?P<comment>\s*\#.*\n)?                  # Maybe a comment at the start.
     (?P<indent>\s*)(?P<content>\>\>\>.*?)    # Whitespace and a triple caret.
     \n\s*?(?=\n|$)                           # Followed by a blank line""",
       re.VERBOSE | re.DOTALL)
@@ -132,12 +131,8 @@ class _AddDoctestFences(object):
     groups = match.groupdict()
     fence = '\n{}```\n'.format(groups['indent'])
 
-    start_comment = groups['comment']
-    if start_comment is None:
-      start_comment = ''
-
     content = groups['indent'] + groups['content']
-    return ''.join([fence, start_comment, content, fence])
+    return ''.join([fence, content, fence])
 
   def __call__(self, content):
     return self.CARET_BLOCK_RE.sub(self._sub, content)
