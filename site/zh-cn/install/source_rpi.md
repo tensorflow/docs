@@ -67,4 +67,4 @@ tensorflow/tools/ci_build/ci_build.sh PI \
 pip install tensorflow-<var>version</var>-cp34-none-linux_armv7l.whl
 </pre>
 
-现在 TensorFlow 现在已安装在 Raspbian 上。
+现在 TensorFlow 已安装在 Raspbian 上。
