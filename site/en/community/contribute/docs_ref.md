@@ -43,14 +43,15 @@ def concat(values, axis, name="concat"):
 
 Note: TensorFlow DocTest uses TensorFlow 2 and Python 3.
 
+### Make the code testable with DocTest
+
 Currently, many docstrings use backticks (```) to identify code. To make the
 code testable with DocTest:
 
 *   Remove the backticks (```) and use the left-brackets (>>>) in front of each
     line. Use (...) in front of continued lines.
-*   (```) can still be used for non-Python code or code that cannot be tested
-    for some reason.
-*   Add a newline as a separation between each DocTest and Markdown text.
+*   Add a newline to separate DocTest snippets from Markdown text to
+    render properly on tensorflow.org.
 
 ### Docstring considerations
 
