@@ -63,13 +63,14 @@ code testable with DocTest:
     DocTest documentation. If the output exceeds the 80 line limit, you can put
     the extra output on the new line and DocTest will recognize it. For example,
     see multi-line blocks below.
-*   *Globals*: The `tf`, `np` and `os` modules are always available in
-    TensorFlow's DocTest.
+*   *Globals*: The <code>&#96;tf&#96;</code>, `np` and `os` modules are always
+    available in TensorFlow's DocTest.
 *   *Use symbols*: In DocTest you can directly access symbols defined in the
     same file. To use a symbol that’s not defined in the current file, please
     use TensorFlow’s public API `tf.xxx` instead of `xxx`. As you can see in the
-    example below, `random.normal` is accessed via `tf.random.normal`. This is
-    because `random.normal` is not visible in `NewLayer`.
+    example below, <code>&#96;random.normal&#96;</code> is accessed via
+    <code>&#96;tf.random.normal&#96;</code>. This is because
+    <code>&#96;random.normal&#96;</code> is not visible in `NewLayer`.
 
     ```
     def NewLayer():
@@ -86,9 +87,9 @@ code testable with DocTest:
 
 *   *Floating point values*: The TensorFlow doctest extracts float values from
     the result strings, and compares using `np.allclose` with reasonable
-    tolerances (`atol=1e-6`, `rtol=1e-6`). This way authors do not need to
-    worry about overly precise docstrings causing failures due to numerical
-    issues. Simply paste in the expected value.
+    tolerances (`atol=1e-6`, `rtol=1e-6`). This way authors do not need to worry
+    about overly precise docstrings causing failures due to numerical issues.
+    Simply paste in the expected value.
 
 *   *Non-deterministic output*: Use ellipsis(`...`) for the uncertain parts and
     DocTest will ignore that substring.
