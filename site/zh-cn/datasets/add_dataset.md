@@ -329,7 +329,7 @@ tfds.DatasetInfo(features=tfds.features.FeatureDict({
 `tfds.features.FeatureConnector` 对象，将特征如何在磁盘中编码，从特征如何呈现给用户中抽象了出来。下图显示了数据集的抽象层，以及从原始数据集文件到 `tf.data.Dataset` 对象的转换。
 
 <p align="center">
-  <img src="dataset_layers.png" alt="DatasetBuilder abstraction layers" width="700"/>
+  <img src="https://github.com/tensorflow/datasets/raw/master/docs/dataset_layers.png" alt="DatasetBuilder abstraction layers" width="700"/>
 </p>
 
 要创建自己的特征连接器（feature connector），请继承 `tfds.features.FeatureConnector` 并实现抽象方法：
