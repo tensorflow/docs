@@ -87,7 +87,7 @@ console.log(a.dataSync());
 
 
 
-### Operações
+## Operações
 
 Enquanto tensores permitem você armazenar dados, operações (ops) permitem você manipular estes dados. TensorFlow.js também fornece uma larga variedade de operações adequadas para álgebra linear e aprendizado de máquina que podem ser realizadas sobre tensores.
 
