@@ -60,7 +60,7 @@ b.print();
 ```
 
 
-##### Obtendo valores de um tensor
+#### Obtendo valores de um tensor
 
 Você também pode obter os valores de um `tf.Tensor` usando os métodos `Tensor.array()` ou `Tensor.data()`:
 
