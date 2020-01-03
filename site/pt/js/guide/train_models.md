@@ -231,10 +231,6 @@ Note: Como nós mencionamos no guia [Modelos e Camadas](models_and_layers), o `L
 
 ## API principal
 
-The same model as above written using the Core API looks like this:
-
------------------------------------------------------
-
 Anteriormente, mencionamos que existem duas formas de treinar um modelo de machine learning no TensorFlow.js.
 
 A regra geral é tentar usar a API de camadas primeiro, pois ela é modelada sobre a bem adotada API do Keras. A API de Camadas também oferece diversas soluções prontas para uso, como a inicialização de peso, serialização de modelo, monitoramento do treinamento, portabilidade e verificação de segurança.
