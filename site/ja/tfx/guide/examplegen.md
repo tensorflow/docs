@@ -9,21 +9,21 @@ Note: これらのドキュメントは私たちTensorFlowコミュニティが�
 
 TFX パイプラインコンポーネントの1つである ExampleGen コンポーネントはデータを TFX のパイプラインに投入します。
 これは外部のファイルやサービスからデータを読み取り、ほかの TFX のコンポーネントが読み取る Examples を生成します。
-また、、一貫性のある方法でデータセットを分割します。分割は設定により変更可能です。
+また、一貫性のある方法でデータセットを分割します。分割は設定により変更可能です。
 同時に機械学習のベストプラクティスに従い、データセットの並び替えを行います。
 
-- 入力: CSV や `TFRecord`, BigQuery といった外部のデータソースからのデータ
+- 入力: CSV や `TFRecord`、BigQuery といった外部のデータソースからのデータ
 - 出力: `tf.Example` レコード
 
 ## ExampleGen とその他のコンポーネント
 
 ExampleGen は [TensorFlow Data Validation](tfdv.md) ライブラリを利用するコンポーネントにデータを提供します。
-これには [SchemaGen](schemagen.md), [StatisticsGen](statsgen.md), [Example Validator](exampleval.md) が含まれます。
+これには [SchemaGen](schemagen.md)、[StatisticsGen](statsgen.md)、[Example Validator](exampleval.md) が含まれます。
 また、[TensorFlow Transform](tft.md) を利用する [Transform](transform.md) にもデータを提供し、最終的には推論時にデプロイメントターゲットへとデータを供給します。
 
 ## ExampleGen コンポーネントの使い方
 
-サポートされるデータソース (現在、CSV ファイル、TF Example フォーマットの TFRecord ファイル、BigQuery のクエリ結果、の3つがサポートされています) を用いる場合、ExampleGen コンポーネントは典型的には非常に簡単にデプロイ可能で、ほとんど改修を必要とせずに利用できます。
+サポートされるデータソース (現在、CSV ファイル、TF Example フォーマットの TFRecord ファイル、BigQuery のクエリ結果、の3つがサポートされています) を用いる場合、ExampleGen コンポーネントは典型的には非常に簡単にデプロイ可能で、ほとんどカスタマイズを必要とせずに利用できます
 典型的なコードは次のようになります:
 
 ```python
