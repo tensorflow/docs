@@ -62,7 +62,7 @@ output = example_gen_pb2.Output(
                  example_gen_pb2.SplitConfig.Split(name='eval', hash_buckets=1)
              ]))
 examples = csv_input(input_dir)
-example_gen = CsvExampleGen(input_base=examples, output_config=output)
+example_gen = CsvExampleGen(input=examples, output_config=output)
 ```
 
 この例の中でどのように `hash_buckets` が設定されているかに注意してください。
@@ -80,7 +80,7 @@ input = example_gen_pb2.Input(splits=[
                 example_gen_pb2.Input.Split(name='eval', pattern='eval/*')
             ])
 examples = csv_input(input_dir)
-example_gen = CsvExampleGen(input_base=examples, input_config=input)
+example_gen = CsvExampleGen(input=examples, input_config=input)
 ```
 
 ファイルベースの ExampleGen コンポーネント (たとえば、 CsvExampleGen や ImportExampleGen) では、`pattern` は入力ファイルをまとめたディレクトリからの相対パスを glob 形式で記述したものになります。
@@ -106,13 +106,15 @@ BaseExampleGenExecutor を拡張するためには、まず、専用の Beam PTr
 例を次に示します:
 
 ```python
+from tfx.components.base import executor_spec
 from tfx.components.example_gen.component import FileBasedExampleGen
 from tfx.components.example_gen.csv_example_gen import executor
 from tfx.utils.dsl_utils import external_input
 
 examples = external_input(os.path.join(base_dir, 'data/simple'))
-example_gen = FileBasedExampleGen(input_base=examples,
-                                  executor_class=executor.Executor)
+example_gen = FileBasedExampleGen(
+    input=examples,
+    custom_executor_spec=executor_spec.ExecutorClassSpec(executor.Executor))
 ```
 
 現在、[この手法を用いたAvro ファイルや Parquet ファイルの読み込み](https://github.com/tensorflow/tfx/blob/master/tfx/components/example_gen/custom_executors/avro_component_test.py) もサポートしています。
