@@ -44,21 +44,19 @@ examples = tfrecord_input(path_to_tfrecord_dir)
 example_gen = ImportExampleGen(input=examples)
 ```
 
-## Span, Version and Split
+## スパン、バージョン、スプリットについて
 
-A Span is a grouping of training examples. If your data is persisted on a
-filesystem, each Span may be stored in a separate directory. The semantics of a
-Span are not hardcoded into TFX; a Span may correspond to a day of data, an hour
-of data, or any other grouping that is meaningful to your task.
+スパンは訓練用の Example をグループ化したものです。データがファイルシステムに永続的に保存されている
+場合、それぞれのスパンは別々のディレクトリに保存されているでしょう。スパンが指し示す内容は TFX に
+ハードコードされていません。スパンはある一日のデータを示すかもしれませんし、ある1時間のデータかも
+しれません。スパンは実行したいタスクにおいて有効な任意のグループのことを示します。
 
-Each Span can hold multiple Versions of data. To give an example, if you remove
-some examples from a Span to clean up poor quality data, this could result in a
-new Version of that Span. By default, TFX components operate on the latest
-Version within a Span.
+それぞれのスパンはデータの複数のバージョンを保持します。たとえば、あるスパンに品質の良くないデータが
+含まれていて、そこからいくつかの Example を取り除くことを考えると、これはスパンのバージョンをあげます。
+デフォルトでは TFX のコンポーネントはスパンの最新のバージョンに対して操作を行います。
 
-Each Version within a Span can further be subdivided into multiple Splits. The
-most common use-case for splitting a Span is to split it into training and eval
-data.
+スパンの各バージョンは、さらにスプリットに分割される場合があります。もっとも典型的な例では、スパンを
+訓練用と評価用のスプリットに分割します。
 
 ![Spans and Splits](images/spans_splits.png)
 
