@@ -31,7 +31,7 @@ from tfx.utils.dsl_utils import csv_input
 from tfx.components.example_gen.csv_example_gen.component import CsvExampleGen
 
 examples = csv_input(os.path.join(base_dir, 'data/simple'))
-example_gen = CsvExampleGen(input_base=examples)
+example_gen = CsvExampleGen(input=examples)
 ```
 
 次のように、外部の TF Example 形式のファイルを直接読み込むこともできます:
@@ -41,7 +41,7 @@ from tfx.utils.dsl_utils import tfrecord_input
 from tfx.components.example_gen.import_example_gen.component import ImportExampleGen
 
 examples = tfrecord_input(path_to_tfrecord_dir)
-example_gen = ImportExampleGen(input_base=examples)
+example_gen = ImportExampleGen(input=examples)
 ```
 
 ## カスタム input/output split
