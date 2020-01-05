@@ -108,19 +108,19 @@ example_gen = CsvExampleGen(input=examples, input_config=input)
 
 ### Span
 
-Note: this feature is only available after TFX 0.15.
+Note: この機能は TFX 0.15 以降でのみ利用可能です。
 
-Span can be retrieved by using '{SPAN}' spec in the
-[input glob pattern](https://github.com/tensorflow/tfx/blob/master/tfx/proto/example_gen.proto):
+Span は[入力する glob 形式の pattern](https://github.com/tensorflow/tfx/blob/master/tfx/proto/example_gen.proto) において '{SPAN}' を用いて指定することで利用できます:
 
-*   This spec matches digits and maps the data into the relevant SPAN numbers.
-    For example, 'data_{SPAN}-*.tfrecord' will collect files like
-    'data_12-a.tfrecord', 'date_12-b.tfrecord'.
-*   When SPAN spec is missing, it's assumed to be always Span '0'.
+*   SPAN で指定した箇所は数字とマッチし、データを SPAN の番号に対応付けます。
+    たとえば、'data_{SPAN}-*.tfrecord' は 'data_12-a.tfrecord', 'date_12-b.tfrecord'
+    といったファイルを指し示します。
+*   SPAN が指定されない場合、常に Span を '0' 番として扱います。
 *   If SPAN is specified, pipeline will process the latest span, and store the
     span number in metadata
+*   SPAN が指定された場合、パイプラインは最新の Span を処理し、メタデータに Span の番号を保存します。
 
-For example, let's assume there are input data:
+例として、次の入力データが与えられたとします:
 
 *   '/tmp/span-01/train/data'
 *   '/tmp/span-01/eval/data'
@@ -128,6 +128,7 @@ For example, let's assume there are input data:
 *   '/tmp/span-02/eval/data'
 
 and the input config is shown as below:
+また、input_config が次のように与えられたとします:
 
 ```python
 splits {
@@ -140,14 +141,14 @@ splits {
 }
 ```
 
-when triggering the pipeline, it will process:
+この場合、パイプラインの処理は次のように実行されます:
 
-*   '/tmp/span-02/train/data' as train split
-*   '/tmp/span-02/eval/data' as eval split
+*   '/tmp/span-02/train/data' を train split として扱います
+*   '/tmp/span-02/eval/data' を eval split として扱います
 
-with span number as '02'. If later on '/tmp/span-03/...' are ready, simply
-trigger the pipeline again and it will pick up span '03' for processing. Below
-shows the code example for using span spec:
+また、Span の番号は '02' として扱います。もし '/tmp/span-03/...' が利用可能になった場合には、
+単にパイプラインを再実行するだけで Span  '03' が処理の対象になります。次のサンプルコードは Span の
+指定の仕方を示しています:
 
 ```python
 from  tfx.proto import example_gen_pb2
@@ -162,13 +163,13 @@ examples = csv_input('/tmp')
 example_gen = CsvExampleGen(input=examples, input_config=input)
 ```
 
-Note: Retrieving a certain span is not supported yet. You can only fix the
-pattern for now (for example, 'span-2/eval/*' instead of 'span-{SPAN}/eval/*'),
-but by doing this, span number stored in metadata will be zero.
+Note: 特定の Span を指定する方法はサポートされていません。現在のところ、パターンを修正することが唯一の
+回避策です (たとえば、'span-2/eval/' を *'span-{SPAN}/eval/ の代わりに'* 用います)、ただし、
+このようにすると Span の番号は '0' として保存されます。
 
 ### Version
 
-Note: Version is not supported yet
+Note: Version はまだサポートされていません。
 
 ## カスタム ExampleGen
 
