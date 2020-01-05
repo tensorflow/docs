@@ -44,6 +44,24 @@ examples = tfrecord_input(path_to_tfrecord_dir)
 example_gen = ImportExampleGen(input=examples)
 ```
 
+## Span, Version and Split
+
+A Span is a grouping of training examples. If your data is persisted on a
+filesystem, each Span may be stored in a separate directory. The semantics of a
+Span are not hardcoded into TFX; a Span may correspond to a day of data, an hour
+of data, or any other grouping that is meaningful to your task.
+
+Each Span can hold multiple Versions of data. To give an example, if you remove
+some examples from a Span to clean up poor quality data, this could result in a
+new Version of that Span. By default, TFX components operate on the latest
+Version within a Span.
+
+Each Version within a Span can further be subdivided into multiple Splits. The
+most common use-case for splitting a Span is to split it into training and eval
+data.
+
+![Spans and Splits](images/spans_splits.png)
+
 ## カスタム input/output split
 
 Note: この機能は TFX 0.14 以降でのみ利用可能です。
@@ -89,6 +107,70 @@ example_gen = CsvExampleGen(input=examples, input_config=input)
 デフォルトでは入力データをまとめたディレクトリには単一のファイルがあるものとして扱われます。また、学習/評価用のデータの分割は2:1の割合になるように行われます。
 
 詳細については [proto/example_gen.proto](https://github.com/tensorflow/tfx/blob/master/tfx/proto/example_gen.proto) を参照してください。
+
+### Span
+
+Note: this feature is only available after TFX 0.15.
+
+Span can be retrieved by using '{SPAN}' spec in the
+[input glob pattern](https://github.com/tensorflow/tfx/blob/master/tfx/proto/example_gen.proto):
+
+*   This spec matches digits and maps the data into the relevant SPAN numbers.
+    For example, 'data_{SPAN}-*.tfrecord' will collect files like
+    'data_12-a.tfrecord', 'date_12-b.tfrecord'.
+*   When SPAN spec is missing, it's assumed to be always Span '0'.
+*   If SPAN is specified, pipeline will process the latest span, and store the
+    span number in metadata
+
+For example, let's assume there are input data:
+
+*   '/tmp/span-01/train/data'
+*   '/tmp/span-01/eval/data'
+*   '/tmp/span-02/train/data'
+*   '/tmp/span-02/eval/data'
+
+and the input config is shown as below:
+
+```python
+splits {
+  name: 'train'
+  pattern: 'span-{SPAN}/train/*'
+}
+splits {
+  name: 'eval'
+  pattern: 'span-{SPAN}/eval/*'
+}
+```
+
+when triggering the pipeline, it will process:
+
+*   '/tmp/span-02/train/data' as train split
+*   '/tmp/span-02/eval/data' as eval split
+
+with span number as '02'. If later on '/tmp/span-03/...' are ready, simply
+trigger the pipeline again and it will pick up span '03' for processing. Below
+shows the code example for using span spec:
+
+```python
+from  tfx.proto import example_gen_pb2
+
+input = example_gen_pb2.Input(splits=[
+                example_gen_pb2.Input.Split(name='train',
+                                            pattern='span-{SPAN}/train/*'),
+                example_gen_pb2.Input.Split(name='eval',
+                                            pattern='span-{SPAN}/eval/*')
+            ])
+examples = csv_input('/tmp')
+example_gen = CsvExampleGen(input=examples, input_config=input)
+```
+
+Note: Retrieving a certain span is not supported yet. You can only fix the
+pattern for now (for example, 'span-2/eval/*' instead of 'span-{SPAN}/eval/*'),
+but by doing this, span number stored in metadata will be zero.
+
+### Version
+
+Note: Version is not supported yet
 
 ## カスタム ExampleGen
 
