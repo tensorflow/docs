@@ -49,7 +49,7 @@ example_gen = ImportExampleGen(input=examples)
 Span は訓練用の Example をグループ化したものです。データがファイルシステムに永続的に保存されている
 場合、それぞれの Span は別々のディレクトリに保存されているでしょう。Span が指し示す内容は TFX に
 ハードコードされていません。Span はある一日のデータを示すかもしれませんし、ある1時間のデータかも
-しれません。 Span は実行したいタスクにおいて有効な任意のグループのことを示します。
+しれません。 Span は実行したいタスクにおいて意味のある任意のグループのことを示します。
 
 それぞれの Span はデータの複数の Version を保持します。たとえば、ある Span に品質の良くないデータが
 含まれていて、そこからいくつかの Example を取り除くことを考えると、これは Span のバージョンをあげます。
@@ -116,8 +116,6 @@ Span は[入力する glob 形式の pattern](https://github.com/tensorflow/tfx/
     たとえば、'data_{SPAN}-*.tfrecord' は 'data_12-a.tfrecord', 'date_12-b.tfrecord'
     といったファイルを指し示します。
 *   SPAN が指定されない場合、常に Span を '0' 番として扱います。
-*   If SPAN is specified, pipeline will process the latest span, and store the
-    span number in metadata
 *   SPAN が指定された場合、パイプラインは最新の Span を処理し、メタデータに Span の番号を保存します。
 
 例として、次の入力データが与えられたとします:
@@ -127,8 +125,7 @@ Span は[入力する glob 形式の pattern](https://github.com/tensorflow/tfx/
 *   '/tmp/span-02/train/data'
 *   '/tmp/span-02/eval/data'
 
-and the input config is shown as below:
-また、input_config が次のように与えられたとします:
+また、入力の設定が次のように与えられたとします:
 
 ```python
 splits {
