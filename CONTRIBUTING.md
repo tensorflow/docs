@@ -55,5 +55,5 @@ The API reference is generated from the source code located in the core
 [tensorflow/tensorflow](https://github.com/tensorflow/tensorflow) repository
 and other projects.
 
-Additionally, some non-technical content, images, and design elements are not
+Additionally, some non-technical contents, images, and design elements are not
 located in the `tensorflow/docs` repository.
