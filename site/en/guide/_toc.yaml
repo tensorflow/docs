@@ -72,6 +72,8 @@ toc:
   path: /guide/distributed_training
 - title: "GPU"
   path: /guide/gpu
+- title: "TPU"
+  path: /guide/tpu
 
 - heading: "Appendix"
 - title: "Version compatibility"
