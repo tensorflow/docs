@@ -1,6 +1,7 @@
 # User groups
 
-TensorFlow has communities around the world. [Add your community!](https://github.com/tensorflow/docs/blob/master/site/en/community/groups.md)
+TensorFlow has communities around the world.
+[Add your community!](https://docs.google.com/forms/d/e/1FAIpQLSc_RQIUYtVgLLihzATaO_WUXkEyBDE_OoRoOXYDPmBEvHuEBA/viewform)
 
 ## Africa
 
