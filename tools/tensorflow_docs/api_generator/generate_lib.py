@@ -542,6 +542,12 @@ def write_docs(output_dir,
       })
 
   if redirects:
+    if yaml_toc:
+      redirects.append({
+          'from': os.path.join('/', site_path, 'tf_overview'),
+          'to': os.path.join('/', site_path, 'tf')
+      })
+
     redirects_dict = {
         'redirects': sorted(redirects, key=lambda redirect: redirect['from'])
     }
@@ -553,6 +559,14 @@ def write_docs(output_dir,
   if yaml_toc:
     toc_gen = GenerateToc(module_children)
     toc_dict = toc_gen.generate()
+
+    # Replace the overview path *only* for 'TensorFlow' to
+    # `/api_docs/python/tf_overview`. This will be redirected to
+    # `/api_docs/python/tf`.
+    toc_values = toc_dict['toc'][0]
+    if toc_values['title'] == 'tf':
+      section = toc_values['section'][0]
+      section['path'] = os.path.join('/', site_path, 'tf_overview')
 
     leftnav_toc = os.path.join(output_dir, '_toc.yaml')
     with open(leftnav_toc, 'w') as toc_file:

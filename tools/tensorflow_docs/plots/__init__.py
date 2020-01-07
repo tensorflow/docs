@@ -55,8 +55,7 @@ class HistoryPlotter(object):
   The class maintains colors for each key from plot to plot.
   """
 
-  def __init__(self, figsize = (16,10), metric=None, smoothing_std=None):
-    self.figsize = figsize
+  def __init__(self, metric=None, smoothing_std=None):
     self.color_table = {}
     self.metric = metric
     self.smoothing_std = smoothing_std
@@ -78,7 +77,6 @@ class HistoryPlotter(object):
     if smoothing_std is None:
       smoothing_std = self.smoothing_std
 
-    plt.figure(figsize=self.figsize)
     for name, history in histories.items():
       # Remember name->color asociations.
       if name in self.color_table:

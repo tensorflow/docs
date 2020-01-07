@@ -2,7 +2,9 @@
 
 TensorFlow Lite コンバータは、 TensorFlow モデルを入力として TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) ファイルを生成します。
 
-コンバータは [SavedModel ディレクトリ](https://www.tensorflow.org/guide/saved_model)、 [`tf.keras` モデル](https://www.tensorflow.org/guide/keras/overview)、 [具象関数](concrete_function.md) をサポートしています。
+コンバータは [SavedModel ディレクトリ](https://www.tensorflow.org/guide/saved_model)、
+[`tf.keras` モデル](https://www.tensorflow.org/guide/keras/overview)、
+[具象関数](https://tensorflow.org/guide/concrete_function) をサポートしています。
 
 Note: このページは TensorFlow 2.0 のコンバータ API に関するドキュメントです。TensorFlow 1.X の API については [こちら](https://www.tensorflow.org/lite/convert/) をご覧ください。
 

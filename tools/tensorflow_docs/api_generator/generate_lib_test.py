@@ -140,7 +140,8 @@ class GenerateTest(absltest.TestCase):
       redirects = f.read()
     self.assertEqual(redirects.split(), [
         'redirects:', '-', 'from:', '/api_docs/python/tf/test_function', 'to:',
-        '/api_docs/python/tf/TestModule/test_function'
+        '/api_docs/python/tf/TestModule/test_function', '-', 'from:',
+        '/api_docs/python/tf_overview', 'to:', '/api_docs/python/tf'
     ])
 
     toc_file = os.path.join(output_dir, '_toc.yaml')

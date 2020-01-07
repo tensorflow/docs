@@ -9,12 +9,12 @@
 TensorFlow 2.0 において、TensorFlow モデルを TensorFlow Lite に変換する Python API は `tf.lite.TFLiteConverter` です。
  `TFLiteConverter` には、元のモデルフォーマットに基づいてモデルを変換する以下のクラスメソッドがあります：
 
-*   `TFLiteConverter.from_saved_model()`: 
+*   `TFLiteConverter.from_saved_model()`:
     [SavedModel ディレクトリ](https://www.tensorflow.org/guide/saved_model) を変換します。
-*   `TFLiteConverter.from_keras_model()`: 
+*   `TFLiteConverter.from_keras_model()`:
     [`tf.keras` モデル](https://www.tensorflow.org/guide/keras/overview) を変換します。
-*   `TFLiteConverter.from_concrete_functions()`: 
-    [具象関数](concrete_function.md) を変換します。
+*   `TFLiteConverter.from_concrete_functions()`:
+    [具象関数](https://tensorflow.org/guide/concrete_function) を変換します。
 
 Node: TensorFlow Lite 2.0 alpha には、 [`from_concrete_function`](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/lite/TFLiteConverter#from_concrete_function) だけを含むような、異なるバージョンの `TFLiteConverter` API があります。
 このドキュメントで記述されている API は、[`tf-nightly-2.0-preview`](#installing_the_tensorflow_20_nightly_) を PIP でインストールすることで使えるようになります。
@@ -72,8 +72,9 @@ tflite_model = converter.convert()
 
 ### 具象関数を変換する <a name="concrete_function"></a>
 
-以下の例は TensorFlow の[具象関数](concrete_function.md)を TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/) に変換する方法を示しています。
-
+以下の例は TensorFlow の[具象関数](https://tensorflow.org/guide/concrete_function)を
+TensorFlow Lite [`FlatBuffer`](https://google.github.io/flatbuffers/)
+に変換する方法を示しています。
 
 ```python
 import tensorflow as tf

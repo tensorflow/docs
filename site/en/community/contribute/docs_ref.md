@@ -4,7 +4,7 @@
 
 TensorFlow uses [DocTest](https://docs.python.org/3/library/doctest.html) to
 test code snippets in Python docstrings. The snippet must be executable Python
-code. To enable testing, preprend the line with `>>>` (three left-angle
+code. To enable testing, prepend the line with `>>>` (three left-angle
 brackets). For example, here's a excerpt from the `tf.concat` function in the
 [array_ops.py](https://www.tensorflow.org/code/tensorflow/python/ops/array_ops.py)
 source file:
@@ -43,14 +43,15 @@ def concat(values, axis, name="concat"):
 
 Note: TensorFlow DocTest uses TensorFlow 2 and Python 3.
 
+### Make the code testable with DocTest
+
 Currently, many docstrings use backticks (```) to identify code. To make the
 code testable with DocTest:
 
 *   Remove the backticks (```) and use the left-brackets (>>>) in front of each
     line. Use (...) in front of continued lines.
-*   (```) can still be used for non-Python code or code that cannot be tested
-    for some reason.
-*   Add a newline as a separation between each DocTest and Markdown text.
+*   Add a newline to separate DocTest snippets from Markdown text to
+    render properly on tensorflow.org.
 
 ### Docstring considerations
 
@@ -60,15 +61,16 @@ code testable with DocTest:
     the above example. Also, check out
     [this part](https://docs.python.org/3/library/doctest.html#warnings) in the
     DocTest documentation. If the output exceeds the 80 line limit, you can put
-    the extra output on the new line and DocTest will recognize it. See
-    multi-line blocks below for the input.
-*   *Globals*: The `tf`, `np` and `os` modules are always available in
-    TensorFlow's DocTest.
+    the extra output on the new line and DocTest will recognize it. For example,
+    see multi-line blocks below.
+*   *Globals*: The <code>&#96;tf&#96;</code>, `np` and `os` modules are always
+    available in TensorFlow's DocTest.
 *   *Use symbols*: In DocTest you can directly access symbols defined in the
     same file. To use a symbol that’s not defined in the current file, please
     use TensorFlow’s public API `tf.xxx` instead of `xxx`. As you can see in the
-    example below, `random.normal` is accessed via `tf.random.normal`. This is
-    because `random.normal` is not visible in `NewLayer`.
+    example below, <code>&#96;random.normal&#96;</code> is accessed via
+    <code>&#96;tf.random.normal&#96;</code>. This is because
+    <code>&#96;random.normal&#96;</code> is not visible in `NewLayer`.
 
     ```
     def NewLayer():
@@ -79,9 +81,15 @@ code testable with DocTest:
       >>> x = tf.random.normal((1, 28, 28, 3))
       >>> new_layer = NewLayer(x)
       >>> new_layer
-      <tf.Tensor id=52, shape=(1, 14, 14, 3), dtype=int32, numpy=...>
+      <tf.Tensor: shape=(1, 14, 14, 3), dtype=int32, numpy=...>
       “””
     ```
+
+*   *Floating point values*: The TensorFlow doctest extracts float values from
+    the result strings, and compares using `np.allclose` with reasonable
+    tolerances (`atol=1e-6`, `rtol=1e-6`). This way authors do not need to worry
+    about overly precise docstrings causing failures due to numerical issues.
+    Simply paste in the expected value.
 
 *   *Non-deterministic output*: Use ellipsis(`...`) for the uncertain parts and
     DocTest will ignore that substring.
@@ -89,7 +97,7 @@ code testable with DocTest:
     ```
     >>> x = tf.random.normal((1,))
     >>> print(x)
-    <tf.Tensor: id=26, shape=(1,), dtype=float32, numpy=..., dtype=float32)>
+    <tf.Tensor: shape=(1,), dtype=float32, numpy=..., dtype=float32)>
     ```
 
 *   *Multi-line blocks*: DocTest is strict about the difference between a single
@@ -139,7 +147,7 @@ There are two ways to test the code in the docstring locally:
 
 *   If you are changing the code and the docstring of a class/function/method,
     then you will need to
-    [build tensorflow from source](../../install/source.md). Once you are setup
+    [build TensorFlow from source](../../install/source.md). Once you are setup
     to build from source, you can run the tests:
 
     <pre class="prettyprint lang-bsh">

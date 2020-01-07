@@ -7,7 +7,7 @@
 下面的文档列出了 C++ 库的基本结构，提供了编译所需的命令，并给出了将程序写入新设备的概览。
 
 在
-[README.md](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/README.md#如何将用于微控制器的TensorFlow-Lite写入一个新的平台)
+[README.md](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/README.md#如何将用于微控制器的TensorFlow-Lite写入一个新的平台)
 中包含更多关于所有这些话题的更多深入信息。
 
 ## 文件结构
@@ -20,25 +20,25 @@
 
 使用微控制器版 TensorFlow Lite 解释器时最重要的文件在项目的根目录中，并附带测试：
 
--   [`all_ops_resolver.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/kernels/all_ops_resolver.h)
+-   [`all_ops_resolver.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/kernels/all_ops_resolver.h)
     提供解释器运行模型的运算符。
--   [`micro_error_reporter.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/micro_error_reporter.h)
+-   [`micro_error_reporter.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/micro_error_reporter.h)
     输出调试信息。
--   [`micro_interpreter.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/micro/micro_interpreter.h)
+-   [`micro_interpreter.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/micro_interpreter.h)
     包含控制和运行模型的代码。
 
 在 [开始使用微控制器](get_started.md) 可以找到典型的用途的展示。
 
 构建系统提供某些文件在特定平台的实现。它们在以平台名称命名的目录下，例如：
-[`sparkfun_edge`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro/sparkfun_edge)。
+[`sparkfun_edge`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro/sparkfun_edge)。
 
 还有许多其他目录，包括：
 
--   [`kernel`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro/kernels),
+-   [`kernel`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro/kernels),
     包含运算符的实现和相关代码。
--   [`tools`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro/tools),
+-   [`tools`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro/tools),
     包含构建工具和它们的输出。
--   [`examples`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro/examples),
+-   [`examples`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro/examples),
     包含示例代码。
 
 ### 生成项目文件
@@ -52,13 +52,14 @@
 要在 Make 中生成项目，请使用如下指令：
 
 ```bash
-make -f tensorflow/lite/experimental/micro/tools/make/Makefile generate_projects
+make -f tensorflow/lite/micro/tools/make/Makefile generate_projects
 ```
 
 这需要几分钟，因为它需要下载一些大型工具链依赖。结束后，你应看到像这样的路径中，创建了一些文件夹：
-`tensorflow/lite/experimental/micro/tools/make/gen/linux_x86_64/prj/` （确切的路径取决于您的主机操作系统）。这些文件夹包含生成的项目和源文件。例如：
-`tensorflow/lite/experimental/micro/tools/make/gen/linux_x86_64/prj/keil`
-包含了 Keil uVision 目标。
+`tensorflow/lite/micro/tools/make/gen/linux_x86_64/prj/`
+（确切的路径取决于您的主机操作系统）。这些文件夹包含生成的项目和源文件。例如：
+`tensorflow/lite/micro/tools/make/gen/linux_x86_64/prj/keil` 包含了 Keil uVision
+目标。
 
 ## 构建库
 
@@ -78,11 +79,10 @@ make -f tensorflow/lite/experimental/micro/tools/make/Makefile generate_projects
     cd tensorflow
     ```
 
-3.  调用 `Makefile` 来构建项目并运行测试。
-    注意这将会下载所有需要的依赖：
+3.  调用 `Makefile` 来构建项目并运行测试。 注意这将会下载所有需要的依赖：
 
     ```bash
-    make -f tensorflow/lite/experimental/micro/tools/make/Makefile test
+    make -f tensorflow/lite/micro/tools/make/Makefile test
     ```
 
 ## 写入新设备

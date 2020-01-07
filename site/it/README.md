@@ -1,6 +1,6 @@
 ## Traduzioni della comunità
 
-La nostra comunità di Tensorflow ha tradotto questi documenti. Poichè questa traduzioni della comunità sono *best-effort*, non c'è garanzia che questa sia un riflesso preciso e aggiornato della [documentazione ufficiale in inglese](https://www.tensorflow.org/?hl=en). 
+La nostra comunità di Tensorflow ha tradotto questi documenti. Poichè queste traduzioni sono *best-effort*, non è garantito che rispecchino in maniera precisa e aggiornata la [documentazione ufficiale in inglese](https://www.tensorflow.org/?hl=en). 
 Se avete suggerimenti per migliorare questa traduzione, mandate per favore una pull request al repository Github [tensorflow/docs](https://github.com/tensorflow/docs). 
 Per proporsi come volontari alla scrittura o alla review delle traduzioni della comunità contattate la 
 [mailing list docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
@@ -22,3 +22,21 @@ Alcune parole fanno parte di un vocabolario tecnico inglese e pertanto non hanno
 
 *   layer
 *   gradient tape
+*   batch(es)
+*   browser
+*   cluster(s)
+*   dataflow
+*   deep learning
+*   layer(s)
+*   machine learning
+*   multicore
+*   notebook(s)
+*   overfit(ting)
+*   pattern(s)
+*   pixel(s)
+*   skill(s)
+*   tablet(s)
+*   test(s)
+*   tutorials(s)
+*   underfit(ting)
+*   white paper(s)
